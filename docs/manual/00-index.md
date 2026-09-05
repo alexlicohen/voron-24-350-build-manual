@@ -12,6 +12,8 @@ Keep two pages open at the bench: [**Tonight**](00-tonight.md), a fresh 30/60/90
 
 ## The timeline
 
+![Build timeline — print batches against assembly chapters](assets/diagrams/11-build-timeline.svg)
+
 Rows are in execution order. Do a row only when its **needs** are satisfied; do the *While it prints* work in the same sitting so the Core One+ is never idle and no chapter waits on a part.
 
 Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people · **2P lift** = the gantry lift, genuinely two people. Batches are B00–B10; plates are `B00-P1` too (two-digit batch, plate number unpadded).

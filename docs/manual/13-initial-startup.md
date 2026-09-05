@@ -287,8 +287,9 @@ Pause: ~40 min since the last pause — the machine has been powered, Klipper re
 ### Step 13.13 — `STEPPER_BUZZ` the four Z motors
 
 ![Voron V2 stepper locations and configuration guide](assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png)
+![STEPPER_BUZZ motor-direction cheat sheet](assets/diagrams/10-stepper-buzz-directions.svg)
 
-**What you're looking at:** The chart is Voron's own map of which motor sits at which corner and which config name it answers to. `STEPPER_BUZZ` moves one named motor 1 mm and back, ten times: the only way to prove a cable goes where its tag says without moving anything else.
+**What you're looking at:** The chart is Voron's own map of which motor sits at which corner and which config name it answers to. `STEPPER_BUZZ` moves one named motor 1 mm and back, ten times: the only way to prove a cable goes where its tag says without moving anything else. The diagram is the picture of the table below: all four Z corners named with the command that must move each one, the port it is on, and that what rises is the gantry corner, not the bed.
 
 **Parts:** none.
 
@@ -319,8 +320,9 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 ### Step 13.14 — `STEPPER_BUZZ` the A and B motors
 
 ![Stepper buzz](assets/remote/13-initial-startup/voron-startup-stepper-buzz.gif)
+![STEPPER_BUZZ motor-direction cheat sheet](assets/diagrams/10-stepper-buzz-directions.svg)
 
-**What you're looking at:** The animation shows what a healthy buzz looks like. A and B are the two rear-corner motors that drive the whole gantry through the crossed CoreXY belts, so neither one moves a single axis by itself — which is why their direction is settled later, at the homing check.
+**What you're looking at:** The animation shows what a healthy buzz looks like. A and B are the two rear-corner motors that drive the whole gantry through the crossed CoreXY belts, so neither one moves a single axis by itself — which is why their direction is settled later, at the homing check. The diagram's A/B panel shows both motors on the rear extrusion with the config sections that drive them — `[stepper_x]` is motor B, `[stepper_y]` is motor A — and the homing directions that actually settle direction (G28 X to the right, G28 Y to the back).
 
 **Parts:** none.
 

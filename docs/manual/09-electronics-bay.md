@@ -425,8 +425,9 @@ Pause: ~30 min since the last pause — PSU voltage selector confirmed at 115 V,
 ### Step 09.19 — Strip every voltage-selection jumper off the Leviathan
 
 ![Leviathan V1.3 — the five voltage-selection jumpers (© LDO Motors)](assets/remote/09-electronics-bay/voltageselection_V1.3.jpg)
+![Leviathan voltage-selection jumper map](assets/diagrams/07-leviathan-jumper-map.svg)
 
-**What you're looking at:** The **[Leviathan](16-glossary.md#l)** is this kit's mainboard — the controller that drives all five steppers, both heaters, the fans and the endstops, and that carries the Raspberry Pi bolted on top of it. The five headers arrowed in this photo are its **voltage-selection jumpers**: each one picks whether that output delivers 5 V or 24 V. All of them come out now, because a jumper on the wrong voltage destroys the board and whatever is plugged into it — they go back one at a time in Ch 10, after each device's voltage is confirmed.
+**What you're looking at:** The **[Leviathan](16-glossary.md#l)** is this kit's mainboard — the controller that drives all five steppers, both heaters, the fans and the endstops, and that carries the Raspberry Pi bolted on top of it. The five headers arrowed in this photo are its **voltage-selection jumpers**: each one picks whether that output delivers 5 V or 24 V. All of them come out now, because a jumper on the wrong voltage destroys the board and whatever is plugged into it — they go back one at a time in Ch 10, after each device's voltage is confirmed. The diagram is the picture of what "all of them" means: all five headers by name, none fitted yet.
 
 **Parts:** LDO Leviathan mainboard ×1, a small pot or bag for the jumpers.
 

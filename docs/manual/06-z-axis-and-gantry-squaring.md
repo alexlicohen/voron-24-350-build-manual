@@ -375,8 +375,9 @@ Source: [Voron manual p.117](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 06.18 — Route the first belt down and around the Z drive
 
 ![Voron manual p.118](assets/manual-pages/manual-p118.png)
+![Z drive gear train and Z belt loop](assets/diagrams/04-z-drive-gear-train.svg)
 
-**What you're looking at:** The belt tail runs down the inside of the upright and wraps the toothed pulley in the Z drive at the bottom — the pulley that actually lifts this corner. Teeth face inward so they engage; a belt running smooth-side-on over a toothed pulley will skip teeth and lose that corner's height mid-print.
+**What you're looking at:** The belt tail runs down the inside of the upright and wraps the toothed pulley in the Z drive at the bottom — the pulley that actually lifts this corner. Teeth face inward so they engage; a belt running smooth-side-on over a toothed pulley will skip teeth and lose that corner's height mid-print. The diagram's corner elevation shows this same wrap in side view — the Z belt down the inside of the upright, around the drive's 20T pulley, up the outside, over the Z idler, back down to the Z joint.
 
 **Parts:** the belt tail at one corner.
 
@@ -739,8 +740,9 @@ Source: [Voron docs § V2 Gantry Squaring, step 8.2–8.3](https://docs.vorondes
 
 ![Adjust X components](assets/remote/06-z-axis-and-gantry-squaring/gantry-adjust-x.png)
 ![Adjust Y components](assets/remote/06-z-axis-and-gantry-squaring/gantry-adjust-y.png)
+![Racking, and how to measure it](assets/diagrams/09-gantry-racking.svg)
 
-**What you're looking at:** This is the actual squaring. You slide the six loosened assemblies along their extrusions until the gantry's four corners land exactly over the four lower Z joints. The acceptance test is mechanical rather than visual: with the joint raised, the M5×40 must drop in by hand without being coaxed, at all four corners.
+**What you're looking at:** This is the actual squaring. You slide the six loosened assemblies along their extrusions until the gantry's four corners land exactly over the four lower Z joints. The acceptance test is mechanical rather than visual: with the joint raised, the M5×40 must drop in by hand without being coaxed, at all four corners. The diagram's measurement half shows a racked gantry against a square one, with the same four points — front-left, rear-left, front-right, rear-right — marked for the front/rear-within-0.5mm and left/right-within-1mm tolerances below.
 
 **Parts:** none.
 
@@ -802,9 +804,9 @@ Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com
 
 ### Step 06b.14 — De-rack the gantry, then tighten the X/Y joints
 
-(no image — see text)
+![Racking, and how to measure it](assets/diagrams/09-gantry-racking.svg)
 
-**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram instead of a rectangle — QGL passes happily on a racked gantry and the parts come out skewed. Pushing the X extrusion hard against both drive units squares it against the only reference the machine has, and tightening the joints while it is held there locks it in.
+**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram instead of a rectangle — QGL passes happily on a racked gantry and the parts come out skewed. Pushing the X extrusion hard against both drive units squares it against the only reference the machine has, and tightening the joints while it is held there locks it in. The diagram's de-racking half shows which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B joints and front idlers — and the one joint not to over-loosen: an X/Y joint that also carries a Z belt clamp.
 
 **Parts:** none.
 

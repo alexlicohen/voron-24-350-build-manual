@@ -265,8 +265,9 @@ Pause: ~30 min since the last pause — inlet verified, plug panel on the frame,
 ### Step 10.10 — Read the SSR terminal numbers before you wire it
 
 ![LDO S4 mapping](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
+![Mains path and the protective-earth chain](assets/diagrams/05-mains-and-pe-chain.svg)
 
-**What you're looking at:** The [SSR](16-glossary.md#s) is the black brick on the DIN rail: a solid-state relay, a switch with no moving contacts, so the mainboard can turn a mains-powered bed heater on and off with a small DC signal. Its four screws are two separate circuits — `1`/`2` is the mains it switches, `3 +`/`4 −` is the low-voltage side that tells it when to switch.
+**What you're looking at:** The [SSR](16-glossary.md#s) is the black brick on the DIN rail: a solid-state relay, a switch with no moving contacts, so the mainboard can turn a mains-powered bed heater on and off with a small DC signal. Its four screws are two separate circuits — `1`/`2` is the mains it switches, `3 +`/`4 −` is the low-voltage side that tells it when to switch. The diagram's SSR panel shows all four terminals with what lands on each, including the red-to-3 / black-to-4 control pair from the Leviathan's HEATBED terminals, before you land a single wire.
 
 **Parts:** Omron SSR on its DIN bracket (fitted Ch 09).
 
@@ -606,8 +607,9 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 ### Step 10.28 — Set the FAN2 and FAN3 jumpers to 24 V
 
 ![LDO Leviathan V1.3 board map — port and jumper-block locations](assets/remote/10-wiring/wiring_V1.3.jpg)
+![Leviathan voltage-selection jumper map](assets/diagrams/07-leviathan-jumper-map.svg)
 
-**What you're looking at:** The jumper block from step 10.3, now being set. Fitting a jumper across a port's 24 V pins selects the voltage that port will send to whatever is plugged into it; FAN2 will drive the two 6020 electronics-bay fans and FAN3 the Nevermore filter fan, all of which are 24 V parts.
+**What you're looking at:** The jumper block from step 10.3, now being set. Fitting a jumper across a port's 24 V pins selects the voltage that port will send to whatever is plugged into it; FAN2 will drive the two 6020 electronics-bay fans and FAN3 the Nevermore filter fan, all of which are 24 V parts. The diagram is the picture of the end state: five headers by name, Fan2 and Fan3 fitted at 24 V, Fan0/Fan1/the Z-probe header left bare — 5 headers, 2 fitted, 3 bare.
 
 **Parts:** 2 of the jumpers removed in Ch 09.
 
@@ -835,8 +837,9 @@ Pause: ~35 min since the last pause — eight COB mounts built, both strips moun
 ### Step 10.40 — Tag every stepper cable before you plug anything in
 
 ![LDO S1 mapping](assets/remote/10-wiring/ldo-revd-s1-stepper-mapping.jpg)
+![Harness map — every cable to its port](assets/diagrams/06-harness-map.svg)
 
-**What you're looking at:** Six identical 4-pin motor cables arrive at the board and nothing about them says which corner each came from. LDO's mapping photo names every port on the Leviathan; the tags are what stop you from guessing at the end of a long session.
+**What you're looking at:** Six identical 4-pin motor cables arrive at the board and nothing about them says which corner each came from. LDO's mapping photo names every port on the Leviathan; the tags are what stop you from guessing at the end of a long session. The diagram's Leviathan half shows both HV-STEPPER ports and STEPPER-0..3 by corner alongside every other cable on the board, including which ports stay empty and why.
 
 **Parts:** cable tags (supplied) ×7.
 
@@ -1093,8 +1096,9 @@ Pause: ~30 min since the last pause — bay fans, filter fan and LED strip on th
 ### Step 10.54 — Identify your umbilical and its two connectors
 
 ![LDO comparison of the umbilical cable variants](assets/remote/10-wiring/nk36_cable_comparison.jpg)
+![Harness map — every cable to its port](assets/diagrams/06-harness-map.svg)
 
-**What you're looking at:** The [umbilical](16-glossary.md#u) is the one thick cable running between the bay and the toolhead, carrying 24 V and USB together. The Amass XT30(2+2) at the toolboard end is a four-contact power-plus-signal connector; the Micro-Fit 3.0 at the bay end is the latching rectangular one. The photo compares the three toolboard-end variants LDO ships; yours is ②, partially overmolded.
+**What you're looking at:** The [umbilical](16-glossary.md#u) is the one thick cable running between the bay and the toolhead, carrying 24 V and USB together. The Amass XT30(2+2) at the toolboard end is a four-contact power-plus-signal connector; the Micro-Fit 3.0 at the bay end is the latching rectangular one. The photo compares the three toolboard-end variants LDO ships; yours is ②, partially overmolded. The diagram's toolhead half shows this same umbilical — Micro-Fit at the bay, XT30(2+2) at the toolboard — against every Nitehawk-SB V2 port with its connector type and pin.
 
 **Parts:** toolhead umbilical cable ×1.
 
@@ -1111,8 +1115,9 @@ Source: [Nitehawk-SB V2 doc § Umbilical cable](https://docs.ldomotors.com/en/To
 ### Step 10.55 — Connector types on the V2 toolboard
 
 ![Nitehawk-SB V2 toolboard pinout](assets/remote/10-wiring/nitehawk-sb-v2-pcb-pinout.jpg)
+![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) is the toolboard — the small PCB riding on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer, so only one cable has to cross the moving gantry. Its pinout photo matters because V2 uses the finer [JST-PH2.0](16-glossary.md#j) 2.0 mm housings where the Rev D guide still names the coarser XH2.5.
+**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) is the toolboard — the small PCB riding on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer, so only one cable has to cross the moving gantry. Its pinout photo matters because V2 uses the finer [JST-PH2.0](16-glossary.md#j) 2.0 mm housings where the Rev D guide still names the coarser XH2.5. The diagram's pitch panel draws JST-PH2.0 and JST-XH2.5 to the same scale so the 2.0 mm vs 2.5 mm difference is visible, and marks the four ports that are PH2.0 against the one that is not.
 
 **Parts:** none — verification only.
 
@@ -1138,8 +1143,9 @@ Source: [Nitehawk-SB-V2 repo `nhsbv2_pcb_pinout.jpg`](https://github.com/MotorDy
 ### Step 10.56 — The fan-adapter header is keyed and reversed
 
 ![Nitehawk-SB V2 fan-adapter PCB pinout](assets/remote/10-wiring/nitehawk-sb-v2-fan-adapter-pinout.jpg)
+![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The fan-adapter PCB is the small board inside the Stealthburner front that carries the part-cooling and hotend fans; it mates to the toolboard through a pin header rather than a cable. The photo is the V2 header: 2×5 pins, keyed, and reversed in gender from V1.
+**What you're looking at:** The fan-adapter PCB is the small board inside the Stealthburner front that carries the part-cooling and hotend fans; it mates to the toolboard through a pin header rather than a cable. The photo is the V2 header: 2×5 pins, keyed, and reversed in gender from V1. The diagram's keyed-header panel shows the 2×5 header with its key and the toolboard-side row order, and why a V1 2×4 adapter cannot be reused.
 
 **Parts:** none — verification only.
 
@@ -1156,8 +1162,9 @@ Source: [Nitehawk-SB-V2 repo `sbv2_fan_adapter_pcb_pinout.jpg`](https://github.c
 ### Step 10.57 — The USB adapter cover is the partial cover
 
 ![Nitehawk-SB V2 USB-adapter grounding point](assets/remote/10-wiring/nitehawk-sb-v2-usb-adapter-gnd.jpg)
+![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The printed cover clips over the [USB adapter PCB](16-glossary.md#u) in the bay. The V2 version deliberately leaves one mounting hole open so a grounding wire can be bolted to it; the V1 cover encloses that hole, which is why the part number matters.
+**What you're looking at:** The printed cover clips over the [USB adapter PCB](16-glossary.md#u) in the bay. The V2 version deliberately leaves one mounting hole open so a grounding wire can be bolted to it; the V1 cover encloses that hole, which is why the part number matters. The diagram's partial-cover panel shows the V2 cover with its deliberately exposed mounting point, carrying into the full ESD ground chain from the extruder motor body to earth fitted at Step 10.58.
 
 **Parts:** `usb_adapter_mount_partial_cover.stl` (Nitehawk-SB-**V2** repo) ×1.
 

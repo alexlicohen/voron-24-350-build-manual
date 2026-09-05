@@ -989,8 +989,9 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 ### Step 08.52 — Account for the ports you are not using
 
 ![Nitehawk-SB V2 — BOOT0, RESET and the ACT LED (© LDO Motors)](assets/remote/08-toolhead/reset_boot_buttons.jpg)
+![Harness map — every cable to its port](assets/diagrams/06-harness-map.svg)
 
-**What you're looking at:** An audit of what stays empty. `XY ENDSTOP` is unused because this kit's XY switch PCB wires back to the mainboard, not to the toolhead. The **USB expansion** header and the `BOOT0` / `RESET` buttons must stay reachable: the buttons put the board into firmware-flashing mode in Ch 12, and that spare USB port is the whole reason this kit is called Rev D**+**.
+**What you're looking at:** An audit of what stays empty. `XY ENDSTOP` is unused because this kit's XY switch PCB wires back to the mainboard, not to the toolhead. The **USB expansion** header and the `BOOT0` / `RESET` buttons must stay reachable: the buttons put the board into firmware-flashing mode in Ch 12, and that spare USB port is the whole reason this kit is called Rev D**+**. The diagram's toolhead half shows every Nitehawk-SB V2 port with its connector type and pin, including the empty `XY ENDSTOP` and `I2C` headers this table lists.
 
 **Parts:** none.
 
@@ -1202,8 +1203,9 @@ Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ### Step 08.62 — Fit the Stealthburner body and mate the board-to-board header
 
 ![Stealthburner manual p.67](assets/sb-pages/sb-p067.png)
+![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The last mechanical act: the orange body closes onto the front of the toolhead and, as it does, the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so every older photo of this joint is wrong for this board — resistance means it is backwards, never that it needs more force.
+**What you're looking at:** The last mechanical act: the orange body closes onto the front of the toolhead and, as it does, the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so every older photo of this joint is wrong for this board — resistance means it is backwards, never that it needs more force. The diagram's keyed-header panel shows the same 2×5 header and row order, at the point where the board-to-board joint is actually mated.
 
 **Parts:** `[a]_stealthburner_main_body` with LEDs, both fans and the fan adapter, M3×25 SHCS ×2, M3×50 SHCS ×2.
 

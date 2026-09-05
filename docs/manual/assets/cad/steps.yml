@@ -1,0 +1,587 @@
+# CAD step-illustration manifest  (PILOT.md §7.2)
+#
+# One entry per manual step the Voron 2.4r2 CAD can illustrate.  Rendered by:
+#
+#   CACHE=<mesh cache> python3 scripts/cad_render/render_steps.py [STEP ...]
+#   CACHE=<mesh cache> python3 scripts/cad_render/render_steps.py --check-ids
+#
+# The cache is built once per CAD revision by step_extract.py and is NOT
+# committed (64 MB).  The PNGs it produces are; this file is the reviewable
+# artefact.
+#
+# SELECTION IS PINNED BY LEAF `ids:`, not by regex — PILOT.md §3: Fusion
+# instance suffixes ((3), (1), (Mirror)) are the only thing separating the four
+# Z verticals, so a regex that resolves correctly today can silently resolve to
+# a different instance after a CAD re-export.  `resolve:` records the regex the
+# ids came from; `--check-ids` re-runs every one against the current cache and
+# reports any drift.  Re-pin ids only when the cache is rebuilt.
+#
+# `boxes:` are schematic placeholders drawn by the renderer for hardware the
+# Voron CAD does not model (LDO Rev D+ parts, titanium backers).  They are
+# always labelled "(schematic)".
+#
+# Every entry carries `note_350` where a length in the picture is the 250
+# machine's and differs on this 350 kit, and `insert:` telling the chapter-side
+# pass whether the image is ready to place.
+
+source:
+  step: Voron_2.4r2_Assembly.step
+  from: https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
+  commit: de7e89d
+  zip_sha256: 36c6c58e096aa89aa05a0ef22f3b49cbceedc950424332772461ab0c779cc1c6
+  cache_parts: 1428
+  licence: GPL-3.0, VoronDesign
+  size: "250 (the published CAD); this build is a 350"
+
+defaults:
+  azim: -55.0            # house isometric: front-right, above
+  elev: 26.0
+  width: 1200
+  height: 900
+  ss: 2
+  context_scale: 4.0
+  note: "Voron 2.4r2 CAD (VoronDesign, GPL-3.0) @ de7e89d - 250 size; your kit is 350"
+
+steps:
+
+# ---------------------------------------------------------------- chapter 01
+- step: "01.15"
+  out: 01-15
+  chapter: 01-frame.md
+  modes: [a]
+  title: "Step 01.15 - the frame on the reference surface"
+  subtitle_a: "All four bottom corners touch at once, or the frame is twisted. Press the top corners in turn."
+  select:
+    - label: "four bottom corners - all four must stay in contact"
+      resolve: 'Frame:1/Bottom Extrusions:1/[^/]+/=>'
+      ids: [1012, 1027, 1045, 1056]
+    - label: "press each TOP corner in turn; rock between diagonals = twist"
+      resolve: 'Frame:1/Top Extrusions:1/[^/]+/=>'
+      ids: [987, 994, 997, 1002]
+    - label: "B verticals x4"
+      resolve: 'Frame:1/Verticals Extrusions:1/HFSB5-2020-430-LCP-RCP[^/]*/=>\['
+      ids: [1075, 1094, 1113, 1132]
+    - label: "bed extrusions (Step 01.16) - not a contact point"
+      resolve: 'Frame:1/Bed Supports:1/HFSB5[^/]*/=>'
+      ids: [1141, 1148]
+  caption: "The squared frame on its reference surface: the four bottom corners that must all touch, and the four top corners you press."
+  looking_at: "The finished frame standing on the stone - the four bottom corners are the only things that should touch it, and the four top corners are where you press to find a rock."
+  note_350: "CAD frame is the 250: 370 mm horizontals on 430 mm verticals. Yours is the 350 set. The contact geometry is the same."
+  insert: true
+
+# ---------------------------------------------------------------- chapter 02
+- step: "02.09"
+  out: 02-09
+  chapter: 02-z-drives.md
+  modes: [a, b]
+  elev_a: 72.0                    # deliberate override: plan view is the only
+                                  # camera that settles which face a rail is on
+  context_scale: 1.05
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 02.09 - which face each Z rail is actually mounted on"
+  subtitle_a: "Plan view. All four rails lie on faces whose normal is +/-Y, so each rail faces the one diagonally opposite it in Y - not the one across the machine in X."
+  subtitle_b: "Same four rails in the frame; rest of the machine ghosted at 20%."
+  select:
+    - label: "REAR rails: on the front face of the rear verticals, facing -Y"
+      resolve: 'Verticals Extrusions:1/HFSB5-2020-430-LCP-RCP (?:\(3\):1|\(3\)\(Mirror\):2)/MGN9 - 300mm[^/]*/=>'
+      ids: [1074, 1112]
+    - label: "FRONT rails: on the rear face of the front verticals, facing +Y"
+      resolve: 'Verticals Extrusions:1/HFSB5-2020-430-LCP-RCP (?:\(3\)\(Mirror\):1|\(3\):2)/MGN9 - 300mm[^/]*/=>'
+      ids: [1093, 1131]
+    - label: "the four B verticals"
+      resolve: 'Frame:1/Verticals Extrusions:1/HFSB5-2020-430-LCP-RCP[^/]*/=>\['
+      ids: [1075, 1094, 1113, 1132]
+  caption: "Plan view of the four Z rails. Rear rails occupy y 345.5-352 on verticals at y 352-372 (facing forward); front rails occupy y -18 to -11.5 on verticals at y -38 to -18 (facing rearward). All four normals are +/-Y."
+  looking_at: "The four Z rails seen from above. Each rail sits on a face whose normal points along Y, so the left pair faces each other front-to-back and the right pair does the same - the two front rails are parallel, not opposed."
+  note_350: "CAD rails are MGN9 300 mm on 430 mm verticals (250). Yours are MGN9H 400 mm on the 350 verticals. Which face the rail is on does not change with size."
+  insert: false
+  insert_note: >-
+    EVIDENCE FOR PILOT.md §8 - do NOT insert until Step 02.09's text is fixed.
+    The step currently says "front-left faces front-right, rear-left faces
+    rear-right"; the CAD says front-left faces rear-left. Insert once the
+    chapter owner has corrected the pairing claim.
+
+- step: "02.10"
+  out: 02-10
+  chapter: 02-z-drives.md
+  modes: [a, b]
+  frame_a: '300,335,175,345,385,290'
+  ghost_exclude: 'Panels|Skirt'
+  context_scale: 1.25
+  title: "Step 02.10 - LDO rail stop at the top of a Z rail"
+  subtitle_a: "One of four; top 150 mm of the rail. The stop clips over the free top end."
+  subtitle_b: "Same parts in the frame; rest of the machine ghosted at 20%."
+  select:
+    - label: "2020 vertical extrusion (rear right)"
+      resolve: 'HFSB5-2020-430-LCP-RCP \(3\):1/=>'
+      ids: [1075]
+    - label: "MGN9 Z rail - top end at rail z-max"
+      resolve: 'HFSB5-2020-430-LCP-RCP \(3\):1/MGN9 - 300mm:1/=>'
+      ids: [1074]
+    - label: "MGN9H Z carriage (must not run off the top)"
+      resolve: 'Z Joint with Hall Effect:1/MGN9H \(5\):1'
+      ids: [490]
+  boxes:
+    - label: "z_rail_stop_x4 (LDO, schematic - not in Voron CAD)"
+      geom: '314,343,264.5,330,354,280'
+  caption: "The free top end of one Z rail and the carriage that must not run off it; the LDO printed stop clips over that end (drawn schematically)."
+  looking_at: "The top of one Z rail where it stops short of the vertical extrusion's end - that free length is where the printed stop clips on, and the carriage below it is the thing the stop keeps captive."
+  note_350: "CAD rail is MGN9 300 mm on a 430 mm vertical (250), leaving ~107 mm of bare extrusion above the rail. Your 400 mm rail on the 350 vertical leaves a different length. The stop clips to the rail end, not to a dimension."
+  insert: true
+
+# ---------------------------------------------------------------- chapter 03
+- step: "03.18"
+  out: 03-18
+  chapter: 03-build-plate.md
+  modes: [a, b]
+  azim_a: -70.0
+  elev_a: 9.0                     # deliberate override: the step is a sight
+                                  # line along the plate, so the camera is one
+  context_scale: 1.7
+  ghost_exclude: 'Panels|Skirt|Gantry'
+  title: "Step 03.18 - the four gaps that have to match"
+  subtitle_a: "Sighting along the plate. Measure top-of-bed-extrusion to underside-of-plate at each of the four bolts."
+  subtitle_b: "Bed and its two extrusions in the frame; rest of the machine ghosted at 20%."
+  select:
+    - label: "build plate (MIC6) - underside is one face of the gap"
+      resolve: 'Bed Components:1/10in Bed:1/10in MIC6 Plate:1'
+      ids: [1161]
+    - label: "the four mounting bolts and their thumb nuts - one gap each"
+      resolve: '10in Bed:1/(M4 Knurled Nut|M3x16 SHCS)'
+      ids: [1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173]
+    - label: "bed extrusions - top face is the other face of the gap"
+      resolve: 'Frame:1/Bed Supports:1/HFSB5[^/]*/=>'
+      ids: [1141, 1148]
+  caption: "The plate floating on its four bolts above the two bed extrusions: four gaps, all equal to the thumb-nut height."
+  looking_at: "The build plate riding on four bolts above the two bed extrusions that span the frame - the gap under each bolt is what you measure, and all four should be the same."
+  note_350: "CAD bed is the 10 in (254 mm) MIC6 plate on 370 mm bed extrusions (250). Yours is the 350 plate on the 350 frame - still four bolts, four gaps."
+  insert: true
+
+# ---------------------------------------------------------------- chapter 05
+- step: "05.4"
+  out: 05-04
+  chapter: 05-gantry.md
+  modes: [a, b]
+  context_scale: 1.6
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 05.4 - every T-nut this chapter will ever load"
+  subtitle_a: "The four gantry extrusions with all their T-nuts. The drive and idler blocks cap these slots later - nothing can be added afterwards."
+  subtitle_b: "Where the four extrusions end up; rest of the machine ghosted at 20%."
+  select:
+    - label: "E (XY bridge), C x2 (Y axes), D (X axis)"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-(240|350)[^/]*:1/=>|X Axis:1/HFSB5-20-330:1/=>'
+      ids: [299, 388, 415, 441]
+    - label: "M5 and M3 drop-in T-nuts - six different faces, all loaded now"
+      resolve: '(Gantry Extrusions:1/[^/]+|X Axis:1/HFSB5-20-330:1)/2020 Drop-in T-nut'
+      ids: [279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291,
+            379, 380, 381, 382, 383, 384, 385, 386, 387, 389, 390, 391, 392,
+            393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405,
+            416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428,
+            429, 430, 431]
+  caption: "The four gantry extrusions with every T-nut the chapter uses, shown on the faces they go into."
+  looking_at: "The four gantry extrusions - E across the back, the two C side beams and the D cross beam - with every T-nut this chapter needs already in its slot, because the printed blocks cap those slots later on."
+  note_350: "CAD extrusions are the 250 lengths (E 240, C 350, D 330 mm); yours are the 350 set. Which faces carry nuts, and how many, is what transfers."
+  insert: true
+
+- step: "05.15"
+  out: 05-15
+  chapter: 05-gantry.md
+  modes: [a, b]
+  context_scale: 1.4
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 05.15 - keep both Y carriages captive"
+  subtitle_a: "Both Y rails and their carriages. A stopper or a doubled tape flag goes near each of the four rail ends."
+  subtitle_b: "Same rails in the finished gantry; rest of the machine ghosted at 20%."
+  select:
+    - label: "MGN9 Y rails - on the underside of each C extrusion"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/MGN9 - 300mm[^/]*:1/=>'
+      ids: [414, 440]
+    - label: "the two Y carriages - dropping one likely ruins it (p.88)"
+      resolve: 'XY Joint - (Left|Right):1/MGN9H \(\d+\):1/'
+      ids: [215, 216, 217, 218, 219, 220, 221, 222, 223,
+            269, 270, 271, 272, 273, 274, 275, 276, 277]
+  boxes:
+    - label: "rubber rail stopper or doubled tape flag, near each end (schematic)"
+      geom: '315,14,58,329,24,71;315,310,58,329,320,71;-74,14,58,-62,24,71;-74,310,58,-62,320,71'
+  caption: "Both Y rails with their carriages and a schematic stopper near each of the four rail ends."
+  looking_at: "The two Y rails on the undersides of the C extrusions, each carrying one carriage - the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings."
+  note_350: "CAD Y rails are MGN9 300 mm; yours are 400 mm (Step 05.10). The stoppers go near the ends wherever those ends are."
+  insert: true
+
+- step: "05.16"
+  out: 05-16
+  chapter: 05-gantry.md
+  modes: [a]
+  title: "Step 05.16 - which backer is which, and which face it goes on"
+  subtitle_a: "Two matched long pieces are the Y backers (top face of each C); the odd shorter one is the X backer (rear face of D). Backers are schematic - they are a mod and are not in the Voron CAD."
+  select:
+    - label: "C extrusions (Y axes) - Y backer on the TOP face"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/=>'
+      ids: [415, 441]
+    - label: "D extrusion (X axis) - X backer on the REAR face"
+      resolve: 'X Axis:1/HFSB5-20-330:1/=>'
+      ids: [299]
+    - label: "the rails: a backer always goes on the face opposite one"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/MGN9 - 300mm[^/]*:1/=>|HFSB5-20-330:1/MGN12 rail[^/]*/=>'
+      ids: [298, 414, 440]
+  boxes:
+    - label: "Y backer x2 - the matched long pair (schematic)"
+      geom: '313,8,88,331,326,91;-77,8,88,-59,326,91'
+    - label: "X backer x1 - the odd shorter one (schematic)"
+      geom: '-23,193,70,277,196,86'
+  caption: "The three extrusions that take a backer, each with its backer drawn on the face opposite its rail."
+  looking_at: "The three backers laid on the extrusions they belong to - the two matching long ones on top of the Y (C) beams, the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail."
+  note_350: "Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by matched pair versus odd one, not by the lengths drawn here."
+  insert: true
+
+- step: "05.18"
+  out: 05-18
+  chapter: 05-gantry.md
+  modes: [a]
+  elev_a: -24.0                   # deliberate override: the rail is on the
+                                  # underside, so view (a) is from below
+  title: "Step 05.18 - the backer goes on the face opposite the rail"
+  subtitle_a: "One Y beam seen from below. The backer is drawn schematically: it is not in the Voron CAD."
+  select:
+    - label: "C extrusion (Y beam)"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350:1/=>'
+      ids: [415]
+    - label: "MGN9 rail is on THIS face"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350:1/MGN9 - 300mm[^/]*:1/=>'
+      ids: [414]
+  boxes:
+    - label: "titanium Y backer goes on the OPPOSITE face (schematic)"
+      geom: '313,8,88,331,326,91'
+  caption: "One Y beam from below: the rail face and, opposite it, the face the titanium backer goes on."
+  looking_at: "One Y extrusion seen from underneath, so the rail face and the backer face are both in frame - the backer always goes on the face directly opposite the rail."
+  note_350: "CAD C extrusion is 350 mm with a 300 mm rail (250 machine); yours is the 350-kit C with a 400 mm rail."
+  insert: true
+
+- step: "05.18"
+  out: 05-18
+  chapter: 05-gantry.md
+  modes: [b]
+  ghost_exclude: 'Panels|Skirt|Exhaust'
+  context_scale: 1.25
+  title: "Step 05.18 - both Y backers, mirrored, on the top faces"
+  subtitle_b: "Gantry from the house isometric; rest of the machine ghosted at 20%."
+  select:
+    - label: "C extrusion (Y beam) x2"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/=>'
+      ids: [415, 441]
+    - label: "MGN9 rails (underneath)"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/MGN9 - 300mm[^/]*:1/=>'
+      ids: [414, 440]
+  boxes:
+    - label: "both Y backers, top faces, mirrored (schematic)"
+      geom: '313,8,88,331,326,91;-77,8,88,-59,326,91'
+  caption: "Both finished Y assemblies in the gantry, mirrored: rails underneath, backers on the two top faces."
+  looking_at: "Both Y beams in place, mirrored about the machine's centreline - rails underneath on both, backers on top on both."
+  note_350: "As above: CAD lengths are the 250 machine's."
+  insert: true
+
+- step: "05.35"
+  out: 05-35
+  chapter: 05-gantry.md
+  modes: [a, b]
+  frame_a: '298,240,72,342,340,125'
+  context_scale: 2.2
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 05.35 - cable-chain end link over a 3 mm backer"
+  subtitle_a: "The chain's fixed end bolts through the C extrusion's top face - the same face the Y backer covers. Dry fit only; the chain is Ch 10."
+  subtitle_b: "The whole Y chain run and both bridge variants in place; rest of the machine ghosted at 20%."
+  select:
+    - label: "chain end link bolts into the C extrusion's TOP face"
+      resolve: 'Y Cable Chain:3/M3x6 FHCS \(3\)'
+      ids: [374]
+    - label: "Y cable chain (fitted in Ch 10 - dry fit only here)"
+      resolve: 'Y Cable Chain:3/0[^/]*:1$'
+      ids: [357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369,
+            370, 371]
+    - label: "KEEP if its foot still sits flat: xy_joint_cable_bridge_2hole"
+      resolve: 'XY Cable Chain Bridge - 2 Hole:1'
+      ids: [229]
+    - label: "the stock 3-hole bridge (LDO ships the 2-hole pattern)"
+      resolve: 'XY Cable Chain Bridge - 3 Hole'
+      ids: [225, 226, 227, 228]
+      offset: '0,0,60'
+  boxes:
+    - label: "titanium Y backer, 3 mm, on the same top face (schematic)"
+      geom: '313,8,88,331,326,91'
+  caption: "The Y cable chain's fixed end, its two bridge variants, and the 3 mm Y backer that shares the extrusion face they bolt to."
+  looking_at: "The cable chain's fixed end where it bolts down through the top face of the Y beam - the same face the titanium backer covers - and the printed bridge at the other end of the run whose foot has to sit flat."
+  note_350: "CAD chain and extrusion are the 250 machine's; the chain run on a 350 is longer. What transfers is which face the end link lands on."
+  insert: true
+  insert_note: >-
+    The raised alternative the step names, XY_cable_chain_bridge-Igus-3mm_backer,
+    is a mod part and is NOT in the Voron CAD - only the stock 2-hole and 3-hole
+    bridges are. Caption must not imply the render shows the raised variant.
+
+- step: "05.45"
+  out: 05-45
+  chapter: 05-gantry.md
+  modes: [a, b]
+  context_scale: 2.6
+  title: "Step 05.45 - stage the X-carriage frame halves"
+  subtitle_a: "The two halves are handed and are not interchangeable with pre-CW2 carriages."
+  subtitle_b: "Where they end up in Ch 07/08; toolhead and X beam ghosted at 20%."
+  select:
+    - label: "x_frame_V2TR_MGN12_left"
+      resolve: 'X_Carriage_Printed:1/x_carriage_frame_left'
+      ids: [79]
+    - label: "x_frame_V2TR_MGN12_right"
+      resolve: 'X_Carriage_Printed:1/x_carriage_frame_right'
+      ids: [78]
+    - label: "probe_retainer_bracket"
+      resolve: 'probe_bracket:1/Part38'
+      ids: [82]
+    - label: "MGN12H carriage - check the bolt pattern here"
+      resolve: 'MGN12H \(1\):1/PRODUCT_NAME_1'
+      ids: [69]
+  caption: "The two handed X-carriage halves, the probe retainer and the MGN12H carriage whose bolt pattern they have to match."
+  looking_at: "The two halves of the X carriage - handed, so they only nest one way - together with the probe retainer and the MGN12 carriage block whose bolt pattern they must match."
+  note_350: null
+  insert: true
+  insert_note: >-
+    Step 05.45 already carries assets/parts/pair-x_frame_V2TR_MGN12.png from an
+    earlier pass. Add these as additional images, do not replace that one.
+
+- step: "05.46"
+  out: 05-46
+  chapter: 05-gantry.md
+  modes: [a]
+  title: "Step 05.46 - the two Rev D+ variant choices, pulled apart"
+  subtitle_a: "Both alternates are modelled in the same place in the CAD; separated here along Z."
+  select:
+    - label: "PRINT: [a]_endstop_pod_D2F_switch + XY PCB"
+      resolve: 'XY Joint - Right:1/D2F Microswitch Pod'
+      ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
+    - label: "SKIP: hall-effect pod (no hall endstops in this kit)"
+      resolve: 'XY Joint - Right:1/Hall Effect Endstop'
+      ids: [244, 245, 246, 247]
+      offset: '0,0,-70'
+    - label: "KEEP: xy_joint_cable_bridge_2hole"
+      resolve: 'XY Cable Chain Bridge - 2 Hole:1'
+      ids: [229]
+    - label: "BIN: 3-hole bridge"
+      resolve: 'XY Cable Chain Bridge - 3 Hole'
+      ids: [225, 226, 227, 228]
+      offset: '0,0,70'
+  caption: "Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod you print, the hall-effect pod you skip, the 2-hole bridge you keep, the 3-hole one you do not."
+  looking_at: "The two either/or choices on the right XY joint, pulled apart so you can see both at once - print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit."
+  note_350: null
+  insert: true
+
+- step: "05.46"
+  out: 05-46
+  chapter: 05-gantry.md
+  modes: [b]
+  ghost_exclude: 'Panels|Skirt'
+  context_scale: 2.4
+  title: "Step 05.46 - where the two parts you keep end up"
+  subtitle_b: "Right XY joint; rest of the gantry ghosted at 20%."
+  select:
+    - label: "[a]_endstop_pod_D2F_switch (bag for Ch 06)"
+      resolve: 'XY Joint - Right:1/D2F Microswitch Pod'
+      ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
+    - label: "xy_joint_cable_bridge_2hole"
+      resolve: 'XY Cable Chain Bridge - 2 Hole:1'
+      ids: [229]
+  caption: "The two parts you keep, shown where they will eventually sit on the right XY joint."
+  looking_at: "Where the endstop pod and the cable bridge you kept eventually live - both on the right-hand XY joint, fitted in later chapters."
+  note_350: null
+  insert: true
+
+# ---------------------------------------------------------------- chapter 06
+- step: "06.23"
+  out: 06-23
+  chapter: 06-z-axis-and-gantry-squaring.md
+  modes: [a, b]
+  frame_a: '-72,-32,318,-18,42,382'
+  context_scale: 1.05
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 06.23 - the four Z belts and the bolt that tensions each one"
+  subtitle_a: "One corner, top of the upright: the Z idler and its M3x16 tensioner bolt. Same at all four corners."
+  subtitle_b: "All four Z belt runs; rest of the machine ghosted at 20%."
+  select:
+    - label: "Z idler tensioner bolt (M3x16 SHCS) - top of each upright"
+      resolve: 'Z Idlers:1/[^/]+/M3x16 SHCS'
+      ids: [500, 510, 521, 531]
+    - label: "Z idler, top of each vertical"
+      resolve: 'Z Idlers:1/[^/]+/=>\['
+      ids: [501, 512, 523, 534]
+    - label: "the four Z belts - pluck each on its fixed run"
+      resolve: 'Z Belts:1/Z Belt'
+      ids: [749, 750, 751, 752]
+  caption: "The four Z belt runs and, at the top of each upright, the Z idler tensioner bolt that evens them."
+  looking_at: "The four Z belts that hang the gantry, and the tensioner bolt at the top of each upright - a few turns there raises or lowers that corner's belt tension."
+  note_350: "Belt runs and idler heights in the picture are the 250 machine's. There are four belts and four tensioner bolts either way."
+  insert: true
+
+- step: "06b.7"
+  out: 06b-07
+  chapter: 06-z-axis-and-gantry-squaring.md
+  modes: [b]
+  context_scale: 1.08
+  title: "Step 06b.7 - both side panels come off"
+  subtitle_b: "The two side panels highlighted, and what taking them off gives you access to."
+  select:
+    - label: "both SIDE panels - these come off (not front, rear or top)"
+      resolve: 'Panels:1/Transparent Panels:1/Side Panel[^/]*:1/'
+      ids: [1228, 1229, 1230, 1231, 1232, 1233, 1234, 1235, 1236, 1237, 1238,
+            1239, 1240, 1241, 1242, 1243, 1244, 1245, 1246, 1247, 1248, 1249,
+            1250, 1251, 1252, 1253, 1254, 1255, 1256, 1257, 1258, 1259, 1260,
+            1261, 1262, 1263, 1264, 1265, 1266, 1267, 1268, 1269, 1270, 1271,
+            1272, 1273, 1274, 1275, 1276, 1277, 1278, 1279, 1280, 1281, 1282,
+            1283, 1284, 1285, 1286, 1287, 1288, 1289, 1290, 1291, 1292, 1293,
+            1294, 1295]
+    - label: "the four Z joints you need to reach"
+      resolve: 'Z_Joints:1/[^/]+/Z Bearing Block (Bottom|Top)'
+      ids: [442, 443, 454, 455, 466, 467, 478, 479]
+    - label: "and both XY joints"
+      resolve: 'XY Joint - (Left|Right):1/=>\['
+      ids: [224, 278]
+  caption: "The two side panels, and the four Z joints and two XY joints that come within reach once they are off."
+  looking_at: "The two side panels of the enclosure, and behind them the four Z joints in the corners and the two XY joints on the gantry - the parts every step in Part B has to reach."
+  note_350: null
+  insert: true
+
+- step: "06b.13"
+  out: 06b-13
+  chapter: 06-z-axis-and-gantry-squaring.md
+  modes: [a, b]
+  frame_a: '294,-26,-8,346,32,72'
+  context_scale: 2.2
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 06b.13 - the four M5x40 back in, light"
+  subtitle_a: "One corner. The M5x40 joins the lower and upper halves of the Z joint; light, so the joint still articulates."
+  subtitle_b: "All four Z joints in the frame; rest of the machine ghosted at 20%."
+  select:
+    - label: "M5x40 SHCS x4 - light only, the joint must still articulate"
+      resolve: 'Z_Joints:1/[^/]+/M5x40 SHCS'
+      ids: [451, 457, 469, 484]
+    - label: "z_joint_lower - bolted to the Z rail carriage"
+      resolve: 'Z_Joints:1/[^/]+/Z Bearing Block Bottom'
+      ids: [443, 455, 467, 479]
+    - label: "z_joint_upper - under the gantry corner"
+      resolve: 'Z_Joints:1/[^/]+/Z Bearing Block Top'
+      ids: [442, 454, 466, 478]
+    - label: "MGN9H Z carriage"
+      resolve: 'Z_Joints:1/[^/]+/MGN9H[^/]*:\d+$'
+      ids: [453, 465, 477, 490]
+  caption: "One Z joint in section: the lower half on its rail carriage, the upper half under the gantry, and the single M5x40 that joins them."
+  looking_at: "A Z joint at one corner - the lower block rides the Z rail carriage, the upper block sits under the gantry corner, and one M5x40 joins the two; left light, the pair can still pivot."
+  note_350: null
+  insert: true
+
+- step: "06b.14"
+  out: 06b-14
+  chapter: 06-z-axis-and-gantry-squaring.md
+  modes: [a, b]
+  frame_a: '-88,126,22,14,208,108'
+  context_scale: 1.5
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 06b.14 - which bolts you tighten while holding the beam back"
+  subtitle_a: "Left XY joint. Two bolts down from the top, one up from below - the ones Step 05.38-05.39 left slightly loose."
+  subtitle_b: "Both joints and the two drive units they must bottom out against; rest of the machine ghosted at 20%."
+  select:
+    - label: "push the X (D) beam fully back, hard, by hand"
+      resolve: 'X Axis:1/HFSB5-20-330:1/=>'
+      ids: [299]
+    - label: "until both joints bottom out on the A and B drives at once"
+      resolve: 'A/B Drives:1/[AB] Drive:1/[AB] Drive Frame (Upper|Lower):1'
+      ids: [0, 1, 28, 29]
+    - label: "TOP: M5x10 BHCS x2 left / M5x16 x2 right (through the bridge foot)"
+      resolve: 'XY Joint - Left:1/M5x10 BHCS|XY Joint - Right:1/M5x16 BHCS'
+      ids: [198, 201, 255, 263]
+    - label: "BOTTOM: M5x30 BHCS + black washer, one per joint"
+      resolve: 'XY Joint - (Left|Right):1/M5x30 BHCS'
+      ids: [209, 259]
+    - label: "the two XY joints"
+      resolve: 'XY Joint - (Left|Right):1/=>\['
+      ids: [224, 278]
+  caption: "The six bolts that hold each XY joint to the X beam - two from the top per side, one from below per side - and the drive units the beam is pushed back against."
+  looking_at: "The XY joint clamped to the end of the X beam: two bolts come down from the top of the beam and one comes up from underneath, and those are the ones you tighten while the beam is held hard back against both drive units."
+  note_350: null
+  insert: true
+  insert_note: >-
+    The same image serves Step 06b.12 ("retighten everything except the X/Y
+    joints") - it identifies exactly the bolts that step tells you to leave.
+
+# ---------------------------------------------------------------- chapter 07
+- step: "07.30"
+  out: 07-30
+  chapter: 07-ab-belts.md
+  modes: [a, b]
+  frame_a: '-90,-38,38,-4,202,112'
+  frame_b: '-92,-46,18,346,214,124'
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 07.30 - the two centres the 150 mm is measured between"
+  subtitle_a: "Left side. Centre of the XY joint idler to centre of the front idler."
+  subtitle_b: "Both sides at once; rest of the machine ghosted at 20%."
+  select:
+    - label: "X/Y joint idler - measure from this centre"
+      resolve: 'XY Joint - (Left|Right):1/GT2 20T Idler[^/]*:1$'
+      ids: [212, 213, 252, 253]
+    - label: "front idler - to this centre. 150 mm, both sides"
+      resolve: 'Front Idler [AB]:1/Tensioner [AB]:1/Idler Assembly[^/]*/F695'
+      ids: [332, 333, 346, 347]
+    - label: "the free belt span you pluck"
+      resolve: 'Gantry:1/(A|B) Belt:1$'
+      ids: [377, 378]
+  caption: "The XY joint idler and the front idler on each side, and the belt span between them that the 150 mm figure refers to."
+  looking_at: "The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck."
+  note_350: "The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule."
+  insert: true
+
+- step: "07.39"
+  out: 07-39
+  chapter: 07-ab-belts.md
+  modes: [a, b]
+  frame_a: '224,312,52,342,378,124'
+  frame_b: '186,266,14,352,382,158'
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 07.39 - the A/B drive cable cover"
+  subtitle_a: "The accent cover clipped over the drive unit's cable exit."
+  subtitle_b: "Same corner with the belts in place; rest of the machine ghosted at 20%."
+  select:
+    - label: "[a]_cable_cover - clips over the drive-unit cable exit"
+      resolve: 'A Drive:1/Cable Cover:1$'
+      ids: [30]
+    - label: "A drive unit (rear right)"
+      resolve: 'A/B Drives:1/A Drive:1/A Drive Frame (Upper|Lower):1'
+      ids: [28, 29]
+    - label: "must not touch either belt at any point of travel"
+      resolve: 'Gantry:1/(A|B) Belt:1$'
+      ids: [377, 378]
+  caption: "The cable cover on the A drive unit, with the A and B belts it must clear."
+  looking_at: "The printed cable cover that clips over the cable exit on a drive unit, and the two belts running past it that it must never touch."
+  note_350: null
+  insert: true
+  insert_note: >-
+    The Voron CAD models the cover only on the A drive; the step fits one.
+
+# ---------------------------------------------------------------- chapter 09
+- step: "09.26"
+  out: 09-26
+  chapter: 09-electronics-bay.md
+  modes: [a, b]
+  ghost_exclude: 'Transparent Panels|Skirt'
+  context_scale: 2.2
+  title: "Step 09.26 - clip the USB adapter to the front rail"
+  subtitle_a: "Both bay rails run left-to-right; front = nearer the door."
+  subtitle_b: "Seen through the deck: bay and frame ghosted at 20%."
+  select:
+    - label: "FRONT DIN rail - adapter clips at its right-hand end"
+      resolve: 'Electronics:1/DIN3 Rail \(2\):1'
+      ids: [824]
+    - label: "rear DIN rail (PSU / SSR side)"
+      resolve: 'Electronics:1/DIN3 Rail:1'
+      ids: [825]
+  boxes:
+    - label: "LDO USB/ESD adapter (schematic - not in Voron CAD)"
+      geom: '255,92,-80,300,120,-49.6'
+  caption: "The two bay DIN rails, which one is the front, and where along it the USB/ESD adapter clips."
+  looking_at: "The two DIN rails that run across the electronics bay - the front one is the one nearer the door, and the adapter clips onto its right-hand end."
+  note_350: "Bay layout is the 250 machine's; the rails are shorter than yours, but front/rear and left/right are the same."
+  insert: true

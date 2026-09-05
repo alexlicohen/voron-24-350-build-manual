@@ -100,8 +100,9 @@ Source: [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 07.3 — Trace the A belt path
 
 ![Voron manual p.126](assets/manual-pages/manual-p126.png)
+![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** The **A** belt is the one driven by the rear-**right** motor. Trace it on the real machine with the page open rather than reading it. What identifies it afterwards on sight: on the right-hand side of the machine the A belt gives you **two** parallel runs — out to the front idler and back — and on the left only one.
+**What you're looking at:** The **A** belt is the one driven by the rear-**right** motor. Trace it on the real machine with the page open rather than reading it. What identifies it afterwards on sight: on the right-hand side of the machine the A belt gives you **two** parallel runs — out to the front idler and back — and on the left only one. The diagram's A-belt panel traces the same loop top-down with every 90° turn, the S-wrap at the drive and the 180° U-turn at the front idler marked, and the toothed face carried continuously along the belt.
 
 **Parts:** none.
 
@@ -114,8 +115,9 @@ Source: [Voron manual p.126](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 07.4 — Trace the B belt path
 
 ![Voron manual p.127](assets/manual-pages/manual-p127.png)
+![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** The **B** belt is the mirror image, driven by the rear-**left** motor and running in the other plane: two runs on the left, one on the right. The structural fact this page exists to teach is that each rear drive unit carries **two** things — the toothed motor pulley for its own belt, and a plain bearing stack for the *other* belt, at a different height.
+**What you're looking at:** The **B** belt is the mirror image, driven by the rear-**left** motor and running in the other plane: two runs on the left, one on the right. The structural fact this page exists to teach is that each rear drive unit carries **two** things — the toothed motor pulley for its own belt, and a plain bearing stack for the *other* belt, at a different height. The diagram's B-belt panel shows the mirrored two-runs-on-one-side asymmetry — two parallel runs on the left, one on the right, the opposite of the A panel.
 
 **Parts:** none.
 
@@ -410,8 +412,9 @@ Source: [Voron manual p.138](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 07.23 — Check both belts against the overviews before closing the carriage
 
 ![Voron manual p.127](assets/manual-pages/manual-p127.png)
+![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** Two complete loops, still open at the carriage — the last moment when a mis-route costs minutes rather than an hour of unthreading. Four things get tested individually here: teeth on the toothed pulleys, smooth back on every plain stack, no half-twist in either loop, and the two belts stacked rather than crossed.
+**What you're looking at:** Two complete loops, still open at the carriage — the last moment when a mis-route costs minutes rather than an hour of unthreading. Four things get tested individually here: teeth on the toothed pulleys, smooth back on every plain stack, no half-twist in either loop, and the two belts stacked rather than crossed. The diagram shows both loops side by side one final time as the pre-close check, with the toothed face marked continuously along each belt so the smooth back on every bearing stack is visible at a glance.
 
 **Parts:** none.
 

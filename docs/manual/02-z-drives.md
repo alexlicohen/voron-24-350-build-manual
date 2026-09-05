@@ -401,8 +401,9 @@ Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.19 — Build the bearing/pulley stack on each shaft
 
 ![Voron manual p.33](assets/manual-pages/manual-p033.png)
+![Z drive gear train and Z belt loop](assets/diagrams/04-z-drive-gear-train.svg)
 
-**What you're looking at:** Manual p.33 — the full stack on the shaft, in section. Three **625-2RS** bearings (plain 5 × 16 × 5 mm ball bearings, used only in the Z drives) carry the shaft; the **80T pulley** is the big one the short 188 mm belt drives, and the 80:16 tooth ratio between it and the motor pulley is the reduction that gives Z its resolution. The brass **precision spacers** between them set exactly how far apart everything sits ([glossary](16-glossary.md#p)).
+**What you're looking at:** Manual p.33 — the full stack on the shaft, in section. Three **625-2RS** bearings (plain 5 × 16 × 5 mm ball bearings, used only in the Z drives) carry the shaft; the **80T pulley** is the big one the short 188 mm belt drives, and the 80:16 tooth ratio between it and the motor pulley is the reduction that gives Z its resolution. The brass **precision spacers** between them set exactly how far apart everything sits ([glossary](16-glossary.md#p)). The diagram's shaft-stack panel lays out the same order this step gives, including the 33 mm of shaft that sits past the 20T pulley.
 
 **Parts:** per drive — 625-2RS bearings ×3; GT2 80T pulley ×1; M5 precision spacer 1 mm ×4; the shaft from Step 02.17.
 
@@ -431,8 +432,9 @@ Source: [Voron manual p.33](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.21 — Fit the 188 mm closed belt loop over the 80T pulley
 
 ![Voron manual p.34](assets/manual-pages/manual-p034.png)
+![Z drive gear train and Z belt loop](assets/diagrams/04-z-drive-gear-train.svg)
 
-**What you're looking at:** Manual p.34 — the closed 188 mm belt loop dropped over the 80T pulley. It is a continuous loop with no join, so it has to be threaded on before the drive is closed; there is no way to add it afterwards without taking the drive apart again.
+**What you're looking at:** Manual p.34 — the closed 188 mm belt loop dropped over the 80T pulley. It is a continuous loop with no join, so it has to be threaded on before the drive is closed; there is no way to add it afterwards without taking the drive apart again. The diagram's gear-train panel shows the same 188 mm loop becoming captive between the motor's 16T pulley and the shaft's 80T pulley once the drive body closes.
 
 **Parts:** Gates 2GT closed loop 6 mm × 188 mm ×1 per drive.
 

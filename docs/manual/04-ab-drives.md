@@ -103,8 +103,9 @@ Source: [Voron manual p.62](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.63](assets/manual-pages/manual-p063.png)
 ![`front_idler_left_lower` (11.6 mm) vs `front_idler_right_lower` (21.6 mm)](assets/parts/pair-front_idler_lower.png)
 ![`front_idler_left_upper` (21.6 mm) vs `front_idler_right_upper` (12.0 mm) — handed the other way](assets/parts/pair-front_idler_upper.png)
+![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
 
-**What you're looking at:** Manual p.63 shows the four positions on the machine; the pair renders show how to tell the printed parts apart. **A is the rear-right drive and B the rear-left**, which makes the A idler the front-right pair and the B idler the front-left. On the idlers the give-away is height rather than handedness — the taller lower frame (21.6 mm against 11.6 mm) is the A idler's, and the upper frames run the other way — and that 10 mm is exactly the gap between the A and B pulley heights, which is what puts the two belts in two different planes.
+**What you're looking at:** Manual p.63 shows the four positions on the machine; the pair renders show how to tell the printed parts apart. **A is the rear-right drive and B the rear-left**, which makes the A idler the front-right pair and the B idler the front-left. On the idlers the give-away is height rather than handedness — the taller lower frame (21.6 mm against 11.6 mm) is the A idler's, and the upper frames run the other way — and that 10 mm is exactly the gap between the A and B pulley heights, which is what puts the two belts in two different planes. The diagram's top-view panel fixes A as rear right and B as rear left, with the idler and controller port that belongs to each.
 
 **Parts:** masking tape, marker.
 
@@ -192,8 +193,9 @@ Source: [Voron manual p.65](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 04.7 — A idler: build the bearing stack
 
 ![Voron manual p.65](assets/manual-pages/manual-p065.png)
+![The six A/B bearing stacks](assets/diagrams/01-ab-bearing-stacks.svg)
 
-**What you're looking at:** Manual p.65 — the bearing stack. **F695** bearings are 5 × 13 × 4 mm ball bearings with a raised flange on one face ([glossary](16-glossary.md#f)); fitted plain-face to plain-face, their two flanges point outward and form a channel exactly one belt wide, which is what keeps the belt from walking off. A brass **precision spacer** above and below sets the stack's height in the frame.
+**What you're looking at:** Manual p.65 — the bearing stack. **F695** bearings are 5 × 13 × 4 mm ball bearings with a raised flange on one face ([glossary](16-glossary.md#f)); fitted plain-face to plain-face, their two flanges point outward and form a channel exactly one belt wide, which is what keeps the belt from walking off. A brass **precision spacer** above and below sets the stack's height in the frame. The diagram lays out all six F695 stacks in the build — both idlers and all four drive posts — as exploded columns so you can check this one against every other stack in the chapter.
 
 **Parts:** 2× M5 precision spacer; 2× F695 bearing.
 
@@ -445,8 +447,9 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 04.22 — A drive: four-bearing stack on the far post
 
 ![Voron manual p.74](assets/manual-pages/manual-p074.png)
+![The six A/B bearing stacks](assets/diagrams/01-ab-bearing-stacks.svg)
 
-**What you're looking at:** Manual p.74 — the post **farther** from the motor bore, taking two pairs. This is where both belt planes pass through the same drive, so it needs two channels stacked, separated by the two spacers that meet in the middle. Reading the stack edge-on is the only reliable check: no flange may ever face another flange.
+**What you're looking at:** Manual p.74 — the post **farther** from the motor bore, taking two pairs. This is where both belt planes pass through the same drive, so it needs two channels stacked, separated by the two spacers that meet in the middle. Reading the stack edge-on is the only reliable check: no flange may ever face another flange. The diagram's four-bearing columns (A and B drive, far post) show the same order — spacer, flange, plain, plain, flange, spacer, spacer, flange, plain, plain, flange, spacer — this is the most often mis-stacked assembly in the build.
 
 **Parts:** 4× M5 precision spacer; 4× F695 bearing.
 
@@ -480,8 +483,9 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 04.24 — A drive: set the pulley on the A motor at 16.5 mm
 
 ![Voron manual p.75](assets/manual-pages/manual-p075.png)
+![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
 
-**What you're looking at:** Manual p.75 — the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height is what puts the belt in the same plane as the A idler's bearing channel; the jig's step marked **A** repeats it without a caliper.
+**What you're looking at:** Manual p.75 — the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height is what puts the belt in the same plane as the A idler's bearing channel; the jig's step marked **A** repeats it without a caliper. The diagram's elevation panel shows the A motor hub-down, teeth up, at 16.5 mm measured motor face to the underside of the teeth, next to the B motor's mirrored elevation for comparison.
 
 **Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; printed `pulley_jig.stl`.
 
@@ -633,8 +637,9 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 04.33 — B drive: set the pulley on the B motor at 6.5 mm — flipped
 
 ![Voron manual p.79](assets/manual-pages/manual-p079.png)
+![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
 
-**What you're looking at:** Manual p.79 — the B motor's pulley, fitted **the other way up** from the A drive's. The two pulley heights (16.5 mm on A, 6.5 mm on B) are what separate the two belt planes; set them the same and the two belts try to occupy one plane and rub.
+**What you're looking at:** Manual p.79 — the B motor's pulley, fitted **the other way up** from the A drive's. The two pulley heights (16.5 mm on A, 6.5 mm on B) are what separate the two belt planes; set them the same and the two belts try to occupy one plane and rub. The diagram's elevation panel shows the B motor hub-up, teeth low, at 6.5 mm measured motor face to the underside of the teeth, next to the A motor's elevation for comparison.
 
 **Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; `pulley_jig.stl`.
 

@@ -163,8 +163,9 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 ### Step 00a.6 — Learn the protective-earth chain in this build
 
 ![LDO Rev D — the finished electronics bay, every earth branch in one frame](assets/remote/00a-mains-safety/VS9_Final.jpg)
+![Mains path and the protective-earth chain](assets/diagrams/05-mains-and-pe-chain.svg)
 
-**What you're looking at:** LDO's photo of a finished Rev D electronics bay. Every branch of the **protective earth** chain is in this one frame: the inlet at the back wall, the yellow/green WAGO block that fans it out, the PSU's earth screw, the ring terminal bolted to a frame extrusion, and the lead that runs up to the build plate ([glossary](16-glossary.md#p)). PE is the conductor that makes the machine safe to *touch* — it gives a stray live current a path of far lower resistance than you.
+**What you're looking at:** LDO's photo of a finished Rev D electronics bay. Every branch of the **protective earth** chain is in this one frame: the inlet at the back wall, the yellow/green WAGO block that fans it out, the PSU's earth screw, the ring terminal bolted to a frame extrusion, and the lead that runs up to the build plate ([glossary](16-glossary.md#p)). PE is the conductor that makes the machine safe to *touch* — it gives a stray live current a path of far lower resistance than you. The diagram lays out the whole mains path end to end alongside all five PE branches, which pole the fuse and rocker switch each sit in, and what the SSR's *EARTH THE MOUNTING RAIL* marking does and does not mean on this build.
 
 **Parts:** none.
 

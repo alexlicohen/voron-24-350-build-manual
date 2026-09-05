@@ -73,6 +73,9 @@ def main():
     ap.add_argument("--yml", default=YML)
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--check-ids", action="store_true",
+                    help="re-resolve every `resolve:` regex against the cache "
+                         "and report drift from the pinned `ids:`")
     a = ap.parse_args()
     if not a.cache:
         sys.exit("set CACHE=<mesh cache dir> (built by step_extract.py)")
@@ -88,6 +91,23 @@ def main():
 
     scene = R.Scene(a.cache)
     print(f"cache: {len(scene.index)} parts", flush=True)
+
+    if a.check_ids:
+        bad = 0
+        for e in entries:
+            for s in e.get("select", []):
+                if "ids" not in s or "resolve" not in s:
+                    continue
+                rx = re.compile(s["resolve"], re.I)
+                got = [r["id"] for r in scene.index if rx.search(r["path"])]
+                if got != list(s["ids"]):
+                    bad += 1
+                    print(f"DRIFT {e['step']:8s} {s['label'][:44]!r}\n"
+                          f"      pinned  {list(s['ids'])}\n"
+                          f"      resolve {got}")
+        print(f"\n{'FAIL' if bad else 'OK'}: {bad} selection(s) drifted")
+        return 1 if bad else 0
+
     t0, n = time.time(), 0
     for e in entries:
         stem = os.path.join(a.out, e["out"])
@@ -122,4 +142,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main() or 0)
