@@ -366,7 +366,7 @@ def _frange(a, b, st):
 # =============================================================== diagram 1 ===
 def d01_bearing_stacks() -> Doc:
     """Six A/B bearing stacks as exploded vertical stacks."""
-    d = Doc(1108, "Voron 2.4r2 — the six A/B bearing stacks")
+    d = Doc(1248, "Voron 2.4r2 — the six A/B bearing stacks")
     top = header(d, "The six A/B bearing stacks",
                  "Every F695 pair goes flange-out: the two plain faces touch, one brass M5 "
                  "precision spacer above the pair and one below.",
@@ -376,7 +376,7 @@ def d01_bearing_stacks() -> Doc:
     BEAR_H = 4 * PX     # F695 is 5 x 13 x 4 mm
     SPAC_H = 1 * PX     # brass M5 precision spacer, 1 mm
     GAP = 12
-    BORE_W, BEAR_W, FLNG_W = 16.0, 13 * PX, 15 * PX
+    BORE_W, BEAR_W, FLNG_W = 11.0, 13 * PX, 15 * PX
 
     def stack(x0, y0, cw, ch, title, sub, items, height_mm, bolt, note):
         d.panel(x0, y0, cw, ch)
@@ -393,7 +393,7 @@ def d01_bearing_stacks() -> Doc:
                 d.rect(ax - BEAR_W / 2, y, BEAR_W, BEAR_H, fill=STEEL, stroke=GREY, sw=2, rx=2)
                 fy = y + BEAR_H - 4 if not flange_up else y
                 d.rect(ax - FLNG_W / 2, fy, FLNG_W, 4, fill=GREY, stroke=GREY, sw=1.4, rx=1)
-                d.rect(ax - BORE_W / 2, y, BORE_W, BEAR_H, fill=PANEL, stroke=GREY, sw=1.4)
+                d.rect(ax - BORE_W / 2, y, BORE_W, BEAR_H, fill=PANEL, stroke=GREY, sw=1.2)
                 h = BEAR_H
             else:
                 d.rect(ax - FLNG_W / 2 - 4, y, FLNG_W + 8, SPAC_H,
@@ -403,7 +403,7 @@ def d01_bearing_stacks() -> Doc:
             d.text(x0 + 216, y + h / 2 + 4.5, lbl, size=13.5, weight=600,
                    fill="currentColor" if kind == "b" else BROWN)
             y += h + GAP
-        d.dim_v(x0 + 46, ly, y - GAP, height_mm, side=-1)
+        d.dim_v(x0 + 52, ly, y - GAP, height_mm, side=-1)
         d.text(x0 + 18, y0 + ch - 40, bolt, size=12.3, fill=MUTED)
         d.text(x0 + 18, y0 + ch - 21, note, size=12.3, fill=MUTED)
 
@@ -416,32 +416,32 @@ def d01_bearing_stacks() -> Doc:
     cw = 570
     cols = (36, 626)
     r0 = top + 20
-    tall, short = 342, 236
+    tall, short = 366, 250
     rows = (r0, r0 + tall + 16, r0 + 2 * (tall + 16))
 
     stack(cols[0], rows[0], cw, tall, "A DRIVE — near post",
           "the post nearer the motor bore (drawn left on p.74)", PAIR,
-          "10 mm assembled", "on the M5x30 BHCS through a_drive_frame_upper",
+          "10 mm", "on the M5x30 BHCS through a_drive_frame_upper",
           "4 items, one bearing pair, one belt plane.")
     stack(cols[1], rows[0], cw, tall, "A DRIVE — far post",
           "the post farther from the motor bore (drawn right on p.74)", DOUBLE,
-          "20 mm assembled", "on the M5x30 BHCS through a_drive_frame_upper",
+          "20 mm", "on the M5x30 BHCS through a_drive_frame_upper",
           "8 items. Two spacers touch in the middle — it carries both belt planes.")
     stack(cols[0], rows[1], cw, tall, "B DRIVE — far post",
           "mirrored: p.78 draws it on the left where p.74 drew it right", DOUBLE,
-          "20 mm assembled", "on the M5x30 BHCS through b_drive_frame_upper",
+          "20 mm", "on the M5x30 BHCS through b_drive_frame_upper",
           "8 items. Same 20 mm stack as the A drive.")
     stack(cols[1], rows[1], cw, tall, "B DRIVE — near post",
           "the post nearer the motor bore (drawn right on p.78)", PAIR,
-          "10 mm assembled", "on the M5x30 BHCS through b_drive_frame_upper",
+          "10 mm", "on the M5x30 BHCS through b_drive_frame_upper",
           "Six bearings and six spacers per drive — count before closing.")
     stack(cols[0], rows[2], cw, short, "A IDLER — front right",
           "front_idler_right_lower 21.6 mm + _upper 12.0 mm", PAIR,
-          "10 mm assembled", "on the M5x40 SHCS — aid bolt first, refitted from the top",
+          "10 mm", "on the M5x40 SHCS — aid bolt first, refitted from the top",
           "From the side: spacer, flange, plain, plain, flange, spacer.")
     stack(cols[1], rows[2], cw, short, "B IDLER — front left",
           "front_idler_left_lower 11.6 mm + _upper 21.6 mm", PAIR,
-          "10 mm assembled", "on the M5x40 SHCS — aid bolt first, refitted from the top",
+          "10 mm", "on the M5x40 SHCS — aid bolt first, refitted from the top",
           "A flange in the middle of a stack means one bearing is reversed.")
 
     footer(d, "16 x F695 flanged bearing (5 x 13 x 4 mm) and 16 x brass M5 precision spacer "
@@ -455,7 +455,7 @@ def d01_bearing_stacks() -> Doc:
 # =============================================================== diagram 2 ===
 def d02_pulley_heights() -> Doc:
     """A/B handedness top view + the two pulley elevations."""
-    d = Doc(790, "Voron 2.4r2 — A/B handedness and pulley heights")
+    d = Doc(800, "Voron 2.4r2 — A/B handedness and pulley heights")
     header(d, "A/B handedness and pulley height",
            "A = rear right, B = rear left, standing in front of an upright printer. "
            "The two pulley heights are what stack the two belt planes.",
@@ -494,12 +494,14 @@ def d02_pulley_heights() -> Doc:
     d.text((ax + bx) / 2, ay + 66, "motor cable exits inboard — \"pointing towards each other\"",
            size=12, anchor="middle", fill=MUTED)
 
-    d.text(fx + 10, fy + fh - 34, "Idlers are handed by belt plane, not mirrored:",
-           size=12, fill=MUTED)
-    d.text(fx + 10, fy + fh - 17, "right_lower 21.6 mm · left_lower 11.6 mm — the 10.0 mm",
-           size=12, fill=MUTED)
-    d.text(fx + 10, fy + fh, "difference is 16.5 − 6.5 mm of pulley height",
-           size=12, fill=MUTED)
+    d.text(fx + fw / 2, fy + fh / 2 + 6, "Idlers are handed by belt plane, not mirrored:",
+           size=12, anchor="middle", fill=MUTED)
+    d.text(fx + fw / 2, fy + fh / 2 + 24,
+           "right_lower 21.6 mm · left_lower 11.6 mm — the 10.0 mm",
+           size=12, anchor="middle", fill=MUTED)
+    d.text(fx + fw / 2, fy + fh / 2 + 42,
+           "difference is 16.5 − 6.5 mm of pulley height", size=12, anchor="middle",
+           fill=MUTED)
 
     # ---- elevations ----
     px, py, pw = 570, 104, 590
@@ -616,18 +618,16 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
     d.text(X(240), Y(556), "FRONT", size=12, anchor="middle", weight=700, fill=BLUE)
 
     # ---- printed assemblies ----
-    def block(x, y, w, h, label, sub2=None, col=BLACKPART, fill=BLACKPART_F, tsize=12):
+    def block(x, y, w, h, label, lab_dy=-8, col=BLACKPART, fill=BLACKPART_F, tsize=12):
         xa2 = X(x + w) if mirror else X(x)
         d.rect(xa2, Y(y), w, h, fill=fill, stroke=col, sw=2, rx=6, dash="5 4")
-        d.text(X(x + w / 2), Y(y + 15), label, size=tsize, anchor="middle", weight=700)
-        if sub2:
-            d.text(X(x + w / 2), Y(y + 31), sub2, size=11, anchor="middle", fill=MUTED)
+        d.text(X(x + w / 2), Y(y + lab_dy), label, size=tsize, anchor="middle", weight=700)
 
-    block(334, 50, 122, 126, own_drive, None)      # this belt's own drive unit
-    block(58, 50, 86, 82, other_drive, None)       # the other drive: a 90° turn only
-    block(388, 446, 74, 70, own_idler)
-    block(356, 262, 76, 76, "XY joint", None, BLACKPART, "none")
-    block(64, 262, 76, 76, "XY joint", None, BLACKPART, "none")
+    block(334, 50, 122, 126, own_drive, -8)        # this belt's own drive unit
+    block(58, 50, 86, 82, other_drive, -8)         # the other drive: a 90° turn only
+    block(388, 446, 74, 70, own_idler, 86)
+    block(356, 258, 76, 84, "XY joint", -8, BLACKPART, "none")
+    block(64, 258, 76, 84, "XY joint", -8, BLACKPART, "none")
 
     # X carriage with its clamp points
     xa2 = X(CAR[0] + 44) if mirror else X(CAR[0] - 44)
@@ -662,20 +662,23 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
     d.path(f"M {X(400)} {Y(408)} L {X(400)} {Y(366)}", stroke=belt_col, sw=3.2, marker=marker)
 
     # ---- callouts ----
-    d.text(X(240), Y(216), "S-wrap at this belt's OWN drive:", size=11.5,
+    d.text(X(250), Y(212), "S-wrap at this belt's OWN drive:", size=11.5,
            anchor="middle", fill=MUTED, weight=600)
-    d.text(X(240), Y(232), "stack → 20T motor pulley → stack", size=11.5,
+    d.text(X(250), Y(228), "stack → 20T motor pulley → stack", size=11.5,
            anchor="middle", fill=MUTED)
-    d.text(X(150), Y(44), "90° turn only, on the other drive's 4-bearing stack",
-           size=10.8, anchor="middle", fill=MUTED)
-    d.text(X(210), Y(536), "180° U-turn at the front idler — smooth back on the stack,",
-           size=10.8, anchor="middle", fill=MUTED)
-    d.text(X(210), Y(550), "teeth outward on both runs", size=10.8,
+    d.text(X(178), Y(152), "90° turn only, on the", size=10.8, anchor="middle", fill=MUTED)
+    d.text(X(178), Y(166), "other drive's 4-bearing", size=10.8, anchor="middle",
+           fill=MUTED)
+    d.text(X(178), Y(180), "stack", size=10.8, anchor="middle", fill=MUTED)
+    d.text(X(230), Y(504), "180° U-turn at the front idler —", size=10.8,
            anchor="middle", fill=MUTED)
+    d.text(X(230), Y(518), "smooth back on the stack, teeth", size=10.8,
+           anchor="middle", fill=MUTED)
+    d.text(X(230), Y(532), "outward on both runs", size=10.8, anchor="middle", fill=MUTED)
 
 
 def d03_belt_path() -> Doc:
-    d = Doc(900, "Voron 2.4r2 — CoreXY belt path")
+    d = Doc(968, "Voron 2.4r2 — CoreXY belt path")
     top = header(d, "CoreXY belt path — A belt and B belt",
                  "The two belts are stacked at different heights and never cross. Each belt "
                  "stays in one horizontal plane for its whole loop.",
@@ -722,48 +725,50 @@ def d03_belt_path() -> Doc:
 # =============================================================== diagram 4 ===
 def d04_z_drive() -> Doc:
     d = Doc(880, "Voron 2.4r2 — Z drive gear train and Z belt loop")
-    header(d, "Z drive gear train and Z belt loop — one corner, side view",
-           "Motor 16T → 188 mm closed loop → 80T on the shaft → 20T on the same shaft "
-           "→ the Z belt that lifts the gantry. gear_ratio: 80:16.",
-           "Ch 02, Steps 02.17 · 02.19 · 02.21 · 02.27 · 02.34 · 02.40 · Ch 06, Steps 06.18–06.19")
+    top = header(d, "Z drive gear train and Z belt loop",
+                 "One corner, side view. Motor 16T → 188 mm closed loop → 80T on the shaft "
+                 "→ 20T on the same shaft → the Z belt that lifts the gantry. "
+                 "gear_ratio: 80:16.",
+                 "Ch 02, Steps 02.17 · 02.19 · 02.21 · 02.27 · Ch 06, Step 06.18")
 
     # ---------- left panel: the whole corner ----------
-    d.panel(30, 104, 350, 700, "One corner, side view",
-            "the Z belt is a single strand, both ends clamped at the Z joint")
-    px, py = 30, 104
-    up_x = px + 96                      # frame upright
-    d.rect(up_x, py + 70, 26, 640, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=3)
-    d.text(up_x + 13, py + 60, "frame upright", size=11.5, anchor="middle", fill=BLUE,
+    px, py = 30, top + 16
+    ph = 700
+    d.panel(px, py, 344, ph, "One corner, side view",
+            "one strand, both ends clamped at the Z joint")
+    up_x = px + 74                      # frame upright
+    d.rect(up_x, py + 78, 24, ph - 176, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=3)
+    d.text(up_x - 6, py + 72, "frame upright", size=11, anchor="middle", fill=BLUE,
            weight=600)
 
     # Z idler at the top
-    idl = (up_x + 78, py + 118)
-    d.rect(idl[0] - 34, idl[1] - 40, 74, 82, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=6)
+    idl = (up_x + 72, py + 128)
+    d.rect(idl[0] - 32, idl[1] - 38, 70, 78, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=6)
     d.circle(idl[0], idl[1], 21, fill=GREY_F, stroke=GREY, sw=2.4)
     d.circle(idl[0], idl[1], 6, fill=PANEL, stroke=GREY, sw=1.6)
-    d.text(idl[0] + 48, idl[1] - 16, "z_tensioner_bracket", size=11.5, weight=600)
-    d.text(idl[0] + 48, idl[1] + 1, "20T 9 mm idler on an", size=11, fill=MUTED)
-    d.text(idl[0] + 48, idl[1] + 16, "M5x30 BHCS axle", size=11, fill=MUTED)
-    d.rect(idl[0] - 12, idl[1] + 44, 24, 26, fill=ORANGE_F, stroke=ORANGE, sw=2, rx=3)
-    d.text(idl[0] + 48, idl[1] + 60, "[a]_z_tensioner_9mm", size=11, fill=ORANGE, weight=600)
-    d.text(idl[0] + 48, idl[1] + 75, "M3x16 into a captive M3 nut", size=11, fill=MUTED)
+    d.text(idl[0] + 46, idl[1] - 14, "z_tensioner_bracket", size=11.5, weight=600)
+    d.text(idl[0] + 46, idl[1] + 3, "20T 9 mm idler on an", size=11, fill=MUTED)
+    d.text(idl[0] + 46, idl[1] + 18, "M5x30 BHCS axle", size=11, fill=MUTED)
+    d.rect(idl[0] - 12, idl[1] + 42, 24, 24, fill=ORANGE_F, stroke=ORANGE, sw=2, rx=3)
+    d.text(idl[0] + 46, idl[1] + 52, "[a]_z_tensioner_9mm", size=11, fill=ORANGE, weight=600)
+    d.text(idl[0] + 46, idl[1] + 67, "M3x16 into a captive nut", size=11, fill=MUTED)
 
     # Z drive at the bottom
-    drv = (up_x + 78, py + 588)
-    d.rect(drv[0] - 46, drv[1] - 52, 96, 108, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=6)
+    drv = (up_x + 72, py + ph - 152)
+    d.rect(drv[0] - 44, drv[1] - 50, 92, 104, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=6)
     d.circle(drv[0], drv[1], 21, fill=GREY_F, stroke=GREY, sw=2.4)
     d.circle(drv[0], drv[1], 6, fill=PANEL, stroke=GREY, sw=1.6)
-    d.text(drv[0] + 60, drv[1] - 26, "z_drive_main", size=11.5, weight=600)
-    d.text(drv[0] + 60, drv[1] - 10, "20T 9 mm pulley on", size=11, fill=MUTED)
-    d.text(drv[0] + 60, drv[1] + 5, "the 5 x 60 shaft", size=11, fill=MUTED)
+    d.text(drv[0] + 56, drv[1] - 22, "z_drive_main", size=11.5, weight=600)
+    d.text(drv[0] + 56, drv[1] - 6, "20T 9 mm pulley on", size=11, fill=MUTED)
+    d.text(drv[0] + 56, drv[1] + 9, "the 5 x 60 shaft", size=11, fill=MUTED)
 
     # Z joint on the gantry
-    zj_y = py + 372
-    d.rect(up_x - 6, zj_y - 26, 96, 52, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=5)
-    d.text(up_x + 100, zj_y - 4, "Z joint / Z bearing block", size=11.5, weight=600)
-    d.text(up_x + 100, zj_y + 12, "both belt ends clamped here", size=11, fill=MUTED)
-    d.line(up_x - 40, zj_y, up_x - 8, zj_y, stroke=BLUE, sw=6)
-    d.text(up_x - 44, zj_y + 4, "gantry", size=11, anchor="end", fill=BLUE, weight=600)
+    zj_y = py + 380
+    d.rect(up_x - 6, zj_y - 24, 92, 48, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=5)
+    d.text(up_x + 92, zj_y - 4, "Z joint / Z bearing block", size=11.5, weight=600)
+    d.text(up_x + 92, zj_y + 12, "both belt ends clamped here", size=11, fill=MUTED)
+    d.line(up_x - 36, zj_y, up_x - 8, zj_y, stroke=BLUE, sw=6)
+    d.text(up_x - 40, zj_y + 4, "gantry", size=11, anchor="end", fill=BLUE, weight=600)
 
     # the Z belt: down the inside, round the drive, up the outside, over the idler, back down
     inner_x = drv[0] - 21
@@ -774,93 +779,101 @@ def d04_z_drive() -> Doc:
           f"A 21 21 0 0 0 {inner_x} {idl[1]} "
           f"L {inner_x} {zj_y + 4}")
     d.path(bp, stroke=BELT_A, sw=3.4)
-    for y in range(int(zj_y) + 40, int(drv[1]) - 30, 26):
+    for y in range(int(zj_y) + 34, int(drv[1]) - 28, 26):
         d.line(inner_x, y, inner_x + 7, y, stroke=BELT_A, sw=1.8, cap="butt")
-    for y in range(int(idl[1]) + 40, int(zj_y) - 20, 26):
+    for y in range(int(idl[1]) + 34, int(zj_y) - 26, 26):
         d.line(inner_x, y, inner_x + 7, y, stroke=BELT_A, sw=1.8, cap="butt")
-    for y in range(int(idl[1]) + 46, int(drv[1]) - 40, 26):
+    for y in range(int(idl[1]) + 40, int(drv[1]) - 36, 26):
         d.line(outer_x, y, outer_x - 7, y, stroke=BELT_A, sw=1.8, cap="butt")
-    d.text(px + 20, py + 690, "Z belt — teeth face inward, onto the pulleys",
+    d.text(px + 18, py + ph - 66, "Z belt — teeth face inward, onto the pulleys",
            size=12, fill=BELT_A, weight=600)
-    d.text(px + 20, py + 708, "the two vertical runs are parallel; the smooth back of one",
-           size=11.5, fill=MUTED)
-    d.text(px + 20, py + 724, "faces the toothed face of the other", size=11.5, fill=MUTED)
+    d.text(px + 18, py + ph - 46, "the two vertical runs are parallel; the smooth back",
+           size=11.3, fill=MUTED)
+    d.text(px + 18, py + ph - 30, "of one faces the toothed face of the other",
+           size=11.3, fill=MUTED)
 
     # ---------- middle panel: the drive internals ----------
-    d.panel(400, 104, 430, 430, "Inside the Z drive",
+    mx, my, mw, mh = 394, top + 16, 452, 484
+    d.panel(mx, my, mw, mh, "Inside the Z drive",
             "16T motor pulley → 188 mm closed loop → 80T")
-    mx, my = 400, 104
-    mot = (mx + 96, my + 246)
-    d.rect(mot[0] - 52, mot[1] - 30, 104, 104, fill=GREY_F, stroke=GREY, sw=2.5, rx=4)
-    d.text(mot[0], mot[1] + 44, "Z motor", size=12.5, anchor="middle", fill=MUTED, weight=600)
-    d.circle(mot[0], mot[1] - 52, 26, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
-    d.circle(mot[0], mot[1] - 52, 9, fill=PANEL, stroke=GREY, sw=1.6)
-    d.text(mot[0], mot[1] - 48, "16T", size=13, anchor="middle", weight=700)
-    d.dim_v(mot[0] - 66, mot[1] - 30 - 34, mot[1] - 30, "10.7 mm", side=-1)
-    d.text(mx + 18, my + 372, "10.7 mm = motor face → underside of the pulley",
+    mot = (mx + 92, my + 288)
+    d.rect(mot[0] - 52, mot[1] - 30, 104, 100, fill=GREY_F, stroke=GREY, sw=2.5, rx=4)
+    d.text(mot[0], mot[1] + 42, "Z motor", size=12.5, anchor="middle", fill=MUTED, weight=600)
+    d.circle(mot[0], mot[1] - 54, 26, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
+    d.circle(mot[0], mot[1] - 54, 9, fill=PANEL, stroke=GREY, sw=1.6)
+    d.text(mot[0], mot[1] - 50, "16T", size=13, anchor="middle", weight=700)
+    d.line(mot[0] - 60, mot[1] - 30, mot[0] - 28, mot[1] - 30, stroke=FAINT, sw=1.2,
+           dash="3 3")
+    d.line(mot[0] - 60, mot[1] - 80, mot[0] - 28, mot[1] - 80, stroke=FAINT, sw=1.2,
+           dash="3 3")
+    d.dim_v(mot[0] - 60, mot[1] - 80, mot[1] - 30, "10.7 mm", side=-1)
+    d.text(mx + 18, my + 356, "10.7 mm = motor face → underside of the pulley",
            size=11.5, fill=MUTED)
-    d.text(mx + 18, my + 390, "the only 16T pulleys in the printer — check the tooth count",
+    d.text(mx + 18, my + 374, "the only 16T pulleys in the printer — check the count",
            size=11.5, fill=MUTED)
 
-    big = (mx + 292, my + 194)
+    big = (mx + 306, my + 208)
     d.circle(big[0], big[1], 74, fill=GREY_F, stroke=GREY, sw=2.6)
     d.circle(big[0], big[1], 12, fill=PANEL, stroke=GREY, sw=1.8)
     d.text(big[0], big[1] + 5, "80T", size=17, anchor="middle", weight=700)
-    d.text(big[0], big[1] + 100, "on the 5 x 60 shaft", size=11.5, anchor="middle", fill=MUTED)
+    d.text(big[0], big[1] + 100, "on the 5 x 60 shaft", size=11.5, anchor="middle",
+           fill=MUTED)
 
     # 188 mm closed loop between 16T and 80T
-    dx, dy = big[0] - mot[0], big[1] - (mot[1] - 52)
+    dx, dy = big[0] - mot[0], big[1] - (mot[1] - 54)
     L = math.hypot(dx, dy)
     r1, r2 = 26, 74
     ang = math.atan2(dy, dx)
     a = math.acos(max(-1.0, min(1.0, (r2 - r1) / L)))
-    p1 = (mot[0] + r1 * math.cos(ang + a), (mot[1] - 52) + r1 * math.sin(ang + a))
+    p1 = (mot[0] + r1 * math.cos(ang + a), (mot[1] - 54) + r1 * math.sin(ang + a))
     p2 = (big[0] + r2 * math.cos(ang + a), big[1] + r2 * math.sin(ang + a))
     p3 = (big[0] + r2 * math.cos(ang - a), big[1] + r2 * math.sin(ang - a))
-    p4 = (mot[0] + r1 * math.cos(ang - a), (mot[1] - 52) + r1 * math.sin(ang - a))
+    p4 = (mot[0] + r1 * math.cos(ang - a), (mot[1] - 54) + r1 * math.sin(ang - a))
     d.path(f"M {p1[0]:.1f} {p1[1]:.1f} L {p2[0]:.1f} {p2[1]:.1f} "
            f"A {r2} {r2} 0 1 0 {p3[0]:.1f} {p3[1]:.1f} "
            f"L {p4[0]:.1f} {p4[1]:.1f} "
            f"A {r1} {r1} 0 1 0 {p1[0]:.1f} {p1[1]:.1f} Z",
            stroke=BELT_B, sw=3.4)
-    d.text(mx + 200, my + 96, "Gates 2GT closed loop, 6 mm x 188 mm", size=12,
+    d.text(mx + mw / 2, my + 74, "Gates 2GT closed loop, 6 mm x 188 mm", size=12,
            anchor="middle", weight=600, fill=BELT_B)
-    d.text(mx + 200, my + 113, "teeth inward — captive once the drive is closed", size=11.5,
-           anchor="middle", fill=MUTED)
+    d.text(mx + mw / 2, my + 91, "teeth inward — captive once the drive is closed",
+           size=11.5, anchor="middle", fill=MUTED)
 
     # tensioner cam
-    d.rect(mx + 30, my + 316, 116, 34, fill=ORANGE_F, stroke=ORANGE, sw=2.4, rx=6)
-    d.text(mx + 88, my + 338, "[a]_belt_tensioner", size=11.5, anchor="middle", weight=700,
+    d.rect(mx + 26, my + 398, 120, 32, fill=ORANGE_F, stroke=ORANGE, sw=2.4, rx=6)
+    d.text(mx + 86, my + 419, "[a]_belt_tensioner", size=11.5, anchor="middle", weight=700,
            fill=ORANGE)
-    d.path(f"M {mx + 150} {my + 333} L {mx + 196} {my + 333}", stroke=ORANGE, sw=2.4,
+    d.path(f"M {mx + 150} {my + 414} L {mx + 190} {my + 414}", stroke=ORANGE, sw=2.4,
            marker="arwo")
-    d.text(mx + 202, my + 337, "closing the cam drives the", size=11.5, fill=MUTED)
-    d.text(mx + 202, my + 353, "drive body away from the motor", size=11.5, fill=MUTED)
+    d.text(mx + 196, my + 410, "closing the cam drives the drive", size=11.5, fill=MUTED)
+    d.text(mx + 196, my + 426, "body away from the motor", size=11.5, fill=MUTED)
 
     # ---------- right panel: the shaft stack ----------
-    d.panel(850, 104, 320, 430, "The shaft stack",
-            "working outward from the 20T pulley (Step 02.19)")
-    sx, sy = 872, 168
-    d.line(sx + 26, sy + 12, sx + 26, sy + 344, stroke=STEEL, sw=10)
-    items = [("625-2RS bearing", GREY_F, GREY, 30),
-             ("GT2 20T 9 mm pulley", ORANGE_F, ORANGE, 34),
-             ("M5 precision spacer", ORANGE_F, BROWN, 12),
-             ("M5 precision spacer", ORANGE_F, BROWN, 12),
-             ("625-2RS bearing", GREY_F, GREY, 30),
-             ("M5 precision spacer", ORANGE_F, BROWN, 12),
-             ("M5 precision spacer", ORANGE_F, BROWN, 12),
-             ("GT2 80T pulley", GREY_F, GREY, 40),
-             ("625-2RS bearing", GREY_F, GREY, 30)]
-    y = sy + 18
+    rx0, ry0, rw, rh = 866, top + 16, 304, 484
+    d.panel(rx0, ry0, rw, rh, "The shaft stack",
+            "outward from the 20T pulley (Step 02.19)")
+    sx, sy = rx0 + 26, ry0 + 74
+    items = [("625-2RS bearing", GREY_F, GREY, 26),
+             ("GT2 20T 9 mm pulley", ORANGE_F, ORANGE, 30),
+             ("M5 precision spacer", ORANGE_F, BROWN, 11),
+             ("M5 precision spacer", ORANGE_F, BROWN, 11),
+             ("625-2RS bearing", GREY_F, GREY, 26),
+             ("M5 precision spacer", ORANGE_F, BROWN, 11),
+             ("M5 precision spacer", ORANGE_F, BROWN, 11),
+             ("GT2 80T pulley", GREY_F, GREY, 36),
+             ("625-2RS bearing", GREY_F, GREY, 26)]
+    total_h = sum(h for *_, h in items) + (len(items) - 1) * 6
+    d.line(sx + 26, sy - 24, sx + 26, sy + total_h + 26, stroke=STEEL, sw=10)
+    y = sy
     for name, fill, stroke, h in items:
         wgt = 62 if "80T" in name or "20T" in name else 46
         d.rect(sx + 26 - wgt / 2, y, wgt, h, fill=fill, stroke=stroke, sw=2, rx=3)
-        d.text(sx + 66, y + h / 2 + 4.5, name, size=12,
+        d.text(sx + 68, y + h / 2 + 4.5, name, size=12,
                weight=600 if "spacer" not in name else 500,
                fill="currentColor" if "spacer" not in name else BROWN)
         y += h + 6
-    d.text(sx - 4, sy + 4, "shaft end", size=11, anchor="start", fill=MUTED)
-    d.dim_h(sy + 360, sx - 6, sx + 58, "33 mm of shaft past the 20T", above=False)
+    d.text(sx + 68, sy - 20, "shaft end", size=11, fill=MUTED)
+    d.dim_h(sy + total_h + 46, sx - 8, sx + 60, "33 mm of shaft past the 20T", above=False)
 
     footer(d, "Z gearing is stock: the LDO Klipper config carries [stepper_z] "
               "rotation_distance: 40 and gear_ratio: 80:16. Four identical drives, two "
@@ -871,11 +884,11 @@ def d04_z_drive() -> Doc:
 
 # =============================================================== diagram 5 ===
 def d05_mains_pe() -> Doc:
-    d = Doc(900, "Voron 2.4r2 — mains path and protective-earth chain")
+    d = Doc(956, "Voron 2.4r2 — mains path and protective-earth chain")
     header(d, "Mains path and the protective-earth chain",
            "inlet + switch + fuse → WAGO bus → PSU · SSR → bed heater. PE is never "
            "switched and never fused.",
-           "Ch 00a, Steps 00a.6 · 00a.10 · Ch 10, Steps 10.5 · 10.8–10.16 · 10.27 · 10.44")
+           "Ch 00a, Steps 00a.6 · 00a.10 · Ch 10, Steps 10.5 · 10.10 · 10.27")
 
     def box(x, y, w, h, title, lines, stroke=INK, fill=PANEL, tsize=15):
         d.rect(x, y, w, h, fill=fill, stroke=stroke, sw=2.4, rx=8)
@@ -942,7 +955,7 @@ def d05_mains_pe() -> Doc:
     flow(964, y0 + 96, 996, INK)
 
     # ---- SSR + bed ----
-    ys = 350
+    ys = 372
     box(516, ys, 268, 176, "SSR — Omron G3NB-210B-1", [
         ("1 LOAD 2   AC switching side", INK),
         ("3 + INPUT 4 −   DC control side", INK),
@@ -978,16 +991,17 @@ def d05_mains_pe() -> Doc:
     d.path(f"M {496} {ys + 71} L {514} {ys + 71}", stroke=RED, sw=2.6, marker="arwr")
 
     # ---- PE chain ----
-    yp = 604
-    d.rect(40, yp, 440, 232, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
+    yp = 626
+    d.rect(40, yp, 440, 250, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
     d.text(58, yp + 28, "The protective-earth chain — five branches", size=16, weight=700,
            fill=GREEN)
     rows = [("Supply", "wall socket earth → C14 E pin, through the C13 cord"),
             ("Bus", "C14 E → the yellow PE WAGO"),
             ("PSU", "PE WAGO → the Meanwell's earth terminal"),
-            ("Frame", "PE WAGO → frame extrusion, ring terminal between two"),
-            ("", "M5 locking washers, on scraped bare metal"),
-            ("Bed", "build plate → PE WAGO, on the M4x6 BHCS + serrated washer")]
+            ("Frame", "PE WAGO → frame extrusion; ring terminal between"),
+            ("", "two M5 locking washers, on scraped bare metal"),
+            ("Bed", "build plate → PE WAGO, on the plate's own"),
+            ("", "M4x6 BHCS and its serrated washer")]
     yy = yp + 56
     for a, b in rows:
         if a:
@@ -1003,9 +1017,11 @@ def d05_mains_pe() -> Doc:
     # PE arrows on the drawing
     for (x1, y1, x2, y2) in ((622, y0 + 190, 622, 560),):
         pass
-    d.path(f"M {700} {y0 + 190} L {700} {ys - 8}", stroke=GREEN, sw=2.4, dash="7 5")
-    d.text(708, y0 + 246, "PE bus continues to frame, PSU and bed", size=11.5, fill=GREEN,
-           weight=600)
+    d.path(f"M {706} {y0 + 190} L {706} {ys - 4}", stroke=GREEN, sw=2.4, dash="7 5",
+           marker="arwg")
+    d.text(716, y0 + 206, "PE bus continues to the", size=11.5, fill=GREEN, weight=600)
+    d.text(716, y0 + 222, "frame, the PSU and the", size=11.5, fill=GREEN, weight=600)
+    d.text(716, y0 + 238, "bed — five branches below", size=11.5, fill=GREEN, weight=600)
 
     d.rect(516, yp + 84, 644, 148, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=10)
     d.text(534, yp + 112, "Two things the marking on the SSR does not mean", size=15,
@@ -1035,7 +1051,7 @@ def d06_harness_map() -> Doc:
             ("Z1 motor cable", "4-pin JST-XH", "STEPPER-1", "rear left"),
             ("Z2 motor cable", "4-pin JST-XH", "STEPPER-2", "rear right"),
             ("Z3 motor cable", "4-pin JST-XH", "STEPPER-3", "front right"),
-            ("— nothing —", "", "STEPPER-4", "empty: the extruder is on the toolboard"),
+            ("— nothing —", "", "STEPPER-4", "empty — extruder is on the toolboard"),
         ]),
         ("SENSE — thermistors, endstops, probe", [
             ("Bed TH", "2-pin JST-XH", "TH1", "PA2 · not TH0"),
@@ -1043,14 +1059,14 @@ def d06_harness_map() -> Doc:
             ("XY endstop — XES / X Stop", "3-pin", "X-ENDSTOP", "gantry endstop PCB"),
             ("XY endstop — YES / Y Stop", "3-pin", "Y-ENDSTOP", "gantry endstop PCB"),
             ("Nozzle probe (Z endstop)", "3-pin", "Z-ENDSTOP", "LDO nozzle probe"),
-            ("— nothing —", "", "Z-PROBE", "empty all build: the probe is on nhk:PC15"),
+            ("— nothing —", "", "Z-PROBE", "empty all build — probe is nhk:PC15"),
         ]),
         ("FANS AND LIGHT", [
             ("PCB FAN — 2 x 6020 via a 3x2 XH splicer", "", "FAN2", "PF7 · jumper at 24 V"),
             ("FILTER FAN — Nevermore", "", "FAN3", "PF9 · jumper at 24 V"),
             ("LED STRIP — ceiling junction PCB", "2-pin JST-XH", "LED-Strip",
-             "PE6 · dimmable 350 mA, not Neopixel"),
-            ("— nothing —", "", "FAN0 · FAN1", "unused and unjumpered on a Nitehawk build"),
+             "PE6 · dimmable, not Neopixel"),
+            ("— nothing —", "", "FAN0 · FAN1", "unused, unjumpered on a Nitehawk"),
         ]),
         ("POWER — 24 V", [
             ("24V PSU to MB   (TO MB end)", "screw terminal", "Vin 24V / Board",
@@ -1058,13 +1074,13 @@ def d06_harness_map() -> Doc:
             ("HV to MB HV   (HV end)", "screw terminal", "Vin 24-48V / HV-Steppers",
              "feeds the two TMC5160s"),
             ("SSR to MB   (To SSR end)", "screw terminal", "HEATBED",
-             "red = +; SSR SIG end on INPUT 3 red / 4 black"),
+             "red = +; SIG end on INPUT 3 / 4"),
         ]),
         ("DATA", [
             ("USB-A ↔ USB-C, short", "", "Leviathan USB-C", "to the Raspberry Pi"),
             ("Ethernet patch", "RJ45", "Pi RJ45 → rear keystone", "CAT6 insert"),
             ("DSI ribbon", "FFC", "Pi DISPLAY → BTT Pi TFT43",
-             "metal contacts forward at the Pi, up at the screen"),
+             "contacts forward at the Pi, up at the screen"),
             ("USB", "", "Pi → USB adapter PCB", "carries the toolboard's USB data"),
         ]),
     ]
@@ -1072,10 +1088,10 @@ def d06_harness_map() -> Doc:
     NHK = [
         ("THE UMBILICAL", [
             ("Toolhead umbilical — bay end", "Micro-Fit 3.0", "USB adapter PCB",
-             "never mate or break it with power on"),
-            ("Toolhead umbilical — toolboard end", "Amass XT30(2+2)-F",
+             "never mate or break it powered"),
+            ("Toolhead umbilical — toolboard end", "XT30(2+2)-F",
              "toolboard power/data", "D+ / D− / GND / 24V"),
-            ("24V power   (24V IN end)", "screw terminal", "USB adapter PCB 24 V in",
+            ("24V power   (24V IN end)", "screw terminal", "USB adapter 24 V in",
              "TO TOOLHEAD end on the PSU +V / −V"),
         ]),
         ("NITEHAWK-SB V2 — on the toolhead", [
@@ -1086,12 +1102,12 @@ def d06_harness_map() -> Doc:
              "GND / SIG PC15 / 24V — 24 V only"),
             ("Chamber thermistor", "JST-PH2.0 2P", "CT", "PB2"),
             ("Clockwork 2 extruder motor", "JST-XH2.5 4P", "E MOTOR",
-             "reverse side of the board · B02 B01 A1 A2"),
+             "reverse side · B02 B01 A1 A2"),
             ("— nothing —", "JST-PH2.0 4P", "XY ENDSTOP",
-             "unused: the XY endstop PCB wires to the Leviathan"),
+             "unused — that PCB wires to the Leviathan"),
             ("— nothing —", "JST-PH2.0 4P", "I2C", "unused"),
             ("— nothing —", "JST-ZH1.5 5P", "USB expansion",
-             "unused now — this port is the \"+\" in Rev D+"),
+             "unused now — the \"+\" in Rev D+"),
         ]),
         ("STEALTHBURNER FAN ADAPTER — 2 x 5 keyed board-to-board", [
             ("4010 axial hotend fan", "JST-PH2.0 3P", "P2", "+ / A1 tacho / −"),
@@ -1101,20 +1117,17 @@ def d06_harness_map() -> Doc:
     ]
 
     def measure(groups):
-        h = 0
-        for _, rows in groups:
-            h += 40 + len(rows) * 30 + 14
-        return h
+        return sum(26 + len(rows) * 30 + 22 for _, rows in groups) + 22
 
-    total = 150 + measure(LEVI) + 66 + measure(NHK) + 90
+    total = 140 + measure(LEVI) + 38 + measure(NHK) + 66
     d = Doc(int(total), "Voron 2.4r2 — harness map")
-    header(d, "Harness map — every cable to its port",
+    top = header(d, "Harness map — every cable to its port",
            "Cable names are the tags printed on the LDO harness. Ports are the silkscreen "
            "names used in Ch 10.",
-           "Ch 08, Steps 08.46–08.52 · Ch 10, Steps 10.24–10.28, 10.40–10.58, 10.67")
+           "Ch 08, Steps 08.46 · 08.52 · Ch 10, Steps 10.40 · 10.54")
 
-    XL, XM, XR = 44, 470, 700
-    y = 128
+    XL, XM, XR = 40, 430, 636
+    y = top + 26
 
     def section(gtitle, groups, y):
         d.text(XL, y, gtitle, size=19, weight=700)
@@ -1131,12 +1144,12 @@ def d06_harness_map() -> Doc:
                        fill=MUTED if empty else "currentColor")
                 if conn:
                     d.text(XM + 4, yy - 1, conn, size=11.5, fill=MUTED)
-                d.path(f"M {XM + 118} {yy - 4.5} L {XR - 12} {yy - 4.5}",
+                d.path(f"M {XM + 108} {yy - 4.5} L {XR - 12} {yy - 4.5}",
                        stroke=FAINT if empty else GREY, sw=1.8,
                        marker=None if empty else "arwm", dash="4 4" if empty else None)
                 d.mono(XR, yy, port, size=13.5, weight=600,
                        fill=MUTED if empty else "currentColor")
-                d.text(XR + 250, yy, note, size=12, fill=MUTED)
+                d.text(XR + 246, yy, note, size=11.5, fill=MUTED)
                 yy += 30
             y += 26 + len(rows) * 30 + 22
         return y
@@ -1155,13 +1168,13 @@ def d06_harness_map() -> Doc:
 # =============================================================== diagram 7 ===
 def d07_jumpers() -> Doc:
     d = Doc(700, "Voron 2.4r2 — Leviathan voltage-selection jumpers")
-    header(d, "Leviathan voltage-selection jumper map",
-           "Five voltage-selection headers. Exactly two carry a jumper on this build, both "
-           "at 24 V. Count them before power-on.",
-           "Ch 09, Step 09.19 · Ch 10, Steps 10.3 · 10.28 · 10.47–10.49")
+    top = header(d, "Leviathan voltage-selection jumper map",
+                 "Five voltage-selection headers. Exactly two carry a jumper on this build, "
+                 "both at 24 V. Count them before power-on.",
+                 "Ch 09, Step 09.19 · Ch 10, Steps 10.3 · 10.28")
 
     # board outline (schematic)
-    bx, by, bw, bh = 60, 128, 660, 452
+    bx, by, bw, bh = 60, top + 16, 660, 452
     d.rect(bx, by, bw, bh, fill=PANEL, stroke=BLACKPART, sw=2.6, rx=10)
     for cx, cy in ((bx + 22, by + 22), (bx + bw - 22, by + 22),
                    (bx + 22, by + bh - 22), (bx + bw - 22, by + bh - 22)):
@@ -1174,19 +1187,19 @@ def d07_jumpers() -> Doc:
            size=12, fill=MUTED)
 
     def header_block(x, y, name, fitted, note):
-        w, h = 288, 62
+        w, h = 288, 74
         col = OK if fitted else GREY
         fill = OK_F if fitted else PANEL
         d.rect(x, y, w, h, fill=fill, stroke=col, sw=2.4, rx=8)
-        d.mono(x + 16, y + 26, name, size=15, weight=700)
-        d.text(x + 16, y + 47, note, size=11.8, fill=MUTED)
+        d.mono(x + 16, y + 26, name, size=14.5, weight=700)
+        d.text(x + 16, y + 62, note, size=11.5, fill=MUTED)
         # 3-pin selection header: 5V | common | 24V
-        px = x + w - 96
-        py = y + 20
+        px = x + w - 92
+        py = y + 12
         for i in range(3):
             d.rect(px + i * 22, py, 15, 22, fill=GREY_F, stroke=GREY, sw=1.6, rx=2)
-        d.text(px + 4, py + 38, "5V", size=10.5, fill=MUTED)
-        d.text(px + 44, py + 38, "24V", size=10.5, fill=MUTED)
+        d.text(px + 3, py + 36, "5V", size=10.5, fill=MUTED)
+        d.text(px + 42, py + 36, "24V", size=10.5, fill=MUTED)
         if fitted:
             d.rect(px + 20, py - 4, 41, 30, fill=OK, stroke=OK, sw=2, rx=4)
             d.text(px + 40, py + 15, "24V", size=11.5, anchor="middle", weight=700,
@@ -1195,46 +1208,47 @@ def d07_jumpers() -> Doc:
             d.text(px + 30, py + 15, "bare", size=11.5, anchor="middle", weight=600,
                    fill=MUTED)
 
-    y = by + 116
-    header_block(bx + 24, y, "FAN0", False, "unused — hotend fan lives on the toolboard")
-    header_block(bx + 348, y, "FAN1", False, "unused — part fan lives on the toolboard")
-    header_block(bx + 24, y + 78, "FAN2", True, "2 x 6020 electronics-bay fans (PCB FAN)")
-    header_block(bx + 348, y + 78, "FAN3", True, "Nevermore filter fan (FILTER FAN)")
-    header_block(bx + 24, y + 156, "PROBE (Z-probe voltage)", False,
-                 "unused — the probe is on the toolboard's PROBE port")
-    d.rect(bx + 348, y + 156, 288, 62, fill=BG, stroke=RULE, sw=1.6, rx=8, dash="6 5")
-    d.text(bx + 364, y + 182, "3 bare  ·  2 fitted  ·  5 total", size=14, weight=700)
-    d.text(bx + 364, y + 203, "any jumper left at 5 V under a 24 V load", size=11.8,
+    y = by + 112
+    header_block(bx + 24, y, "FAN0", False, "unused — hotend fan is on the toolboard")
+    header_block(bx + 348, y, "FAN1", False, "unused — part fan is on the toolboard")
+    header_block(bx + 24, y + 90, "FAN2", True, "2 x 6020 electronics-bay fans (PCB FAN)")
+    header_block(bx + 348, y + 90, "FAN3", True, "Nevermore filter fan (FILTER FAN)")
+    header_block(bx + 24, y + 180, "Z-PROBE voltage", False,
+                 "unused — the probe is on the toolboard")
+    d.rect(bx + 348, y + 180, 288, 74, fill=BG, stroke=RULE, sw=1.6, rx=8, dash="6 5")
+    d.text(bx + 364, y + 208, "3 bare  ·  2 fitted  ·  5 total", size=14, weight=700)
+    d.text(bx + 364, y + 229, "a jumper left at 5 V under a 24 V load", size=11.5,
            fill=MUTED)
-    d.text(bx + 364, y + 219, "shorts 5 V to 24 V and destroys the board", size=11.8,
+    d.text(bx + 364, y + 246, "shorts 5 V to 24 V and destroys the board", size=11.5,
            fill=RED)
 
     # side notes
     nx = 760
-    d.panel(nx, 128, 400, 210, "The rule, in order")
-    d.wrap(nx + 18, 190,
-           "Ch 09 Step 09.19: on the bench, before the board goes on the rail, pull ALL "
-           "voltage-selection jumpers — the four fan headers and the Z-probe header — into "
-           "a labelled bag taped to the bay wall.", size=12.6, width_chars=48, lh=18)
-    d.wrap(nx + 18, 268,
+    d.panel(nx, by, 400, 232, "The rule, in order")
+    yy = d.wrap(nx + 18, by + 62,
+                "Ch 09 Step 09.19: on the bench, before the board goes on the rail, pull "
+                "ALL voltage-selection jumpers — the four fan headers and the Z-probe "
+                "header — into a labelled bag taped to the bay wall.",
+                size=12.4, width_chars=46, lh=18)
+    d.wrap(nx + 18, yy + 14,
            "Ch 10 Step 10.28: fit exactly two back, on Fan2 and Fan3, both in the 24 V "
            "position, after each attached device's voltage is verified.",
-           size=12.6, width_chars=48, lh=18)
+           size=12.4, width_chars=46, lh=18)
 
-    d.panel(nx, 356, 400, 224, "Ports these jumpers feed")
+    d.panel(nx, by + 250, 400, 202, "Ports these jumpers feed")
     rows = [("FAN2", "PF7", "2 x 6020 bay fans, 24 V"),
             ("FAN3", "PF9", "Nevermore filter fan, 24 V"),
             ("LED-Strip", "PE6", "not a jumpered header"),
             ("FAN0 / FAN1", "—", "stay empty on a Nitehawk build"),
             ("Z-PROBE", "—", "stays empty for the whole build")]
-    yy = 400
+    yy = by + 306
     for a, b, c in rows:
-        d.mono(nx + 18, yy, a, size=12.5, weight=600)
-        d.mono(nx + 148, yy, b, size=12.5, fill=MUTED)
-        d.text(nx + 196, yy, c, size=12, fill=MUTED)
-        yy += 26
-    d.text(nx + 18, yy + 12, "Manual p.174–178 is Octopus jumper", size=12, fill=MUTED)
-    d.text(nx + 18, yy + 29, "configuration — ignore it entirely.", size=12, fill=MUTED)
+        d.mono(nx + 18, yy, a, size=12.3, weight=600)
+        d.mono(nx + 150, yy, b, size=12.3, fill=MUTED)
+        d.text(nx + 196, yy, c, size=11.8, fill=MUTED)
+        yy += 25
+    d.text(nx + 18, yy + 12, "Manual p.174–178 is Octopus jumper", size=11.8, fill=MUTED)
+    d.text(nx + 18, yy + 29, "configuration — ignore it entirely.", size=11.8, fill=MUTED)
 
     footer(d, "(verify) The chapters name the five headers and which two carry a jumper, "
               "but not where each header sits on the board or the pin order inside it — the "
@@ -1245,146 +1259,155 @@ def d07_jumpers() -> Doc:
 
 # =============================================================== diagram 8 ===
 def d08_revdplus() -> Doc:
-    d = Doc(840, "Voron 2.4r2 Rev D+ — connector differences")
-    header(d, "Rev D+ vs Rev D — the three connector differences",
-           "Five of the six Rev D+ deltas land on the toolhead. These are the three that "
-           "will not physically fit if you get them wrong.",
-           "Ch 08, Steps 08.46–08.52 · 08.62 · Ch 10, Steps 10.55–10.58")
+    d = Doc(800, "Voron 2.4r2 Rev D+ — connector differences")
+    top = header(d, "Rev D+ vs Rev D — the three connector differences",
+                 "Five of the six Rev D+ deltas land on the toolhead. These are the three "
+                 "that will not physically fit if you get them wrong.",
+                 "Ch 08, Steps 08.46 · 08.62 · Ch 10, Steps 10.55 · 10.57")
+
+    PY_ = top + 16
+    PH_ = 596
 
     # ---- (a) PH2.0 vs XH2.5 ----
-    d.panel(30, 108, 372, 452, "1 — JST-PH2.0, not JST-XH2.5",
-            "the Rev D wiring guide has not been updated for the V2 board")
+    d.panel(30, PY_, 372, PH_, "1 — JST-PH2.0, not JST-XH2.5",
+            "the Rev D guide was not updated for V2")
 
     def connector(x, y, pitch_mm, pins, name, sub, col):
-        scale = 8.2                              # px per mm, both drawn to the same scale
+        scale = 8.6                              # px per mm, both drawn to one scale
         p = pitch_mm * scale
         body_h = 26 if pitch_mm < 2.3 else 32
         wdt = p * pins
         d.rect(x, y, wdt, body_h, fill=PANEL, stroke=col, sw=2.4, rx=3)
         for i in range(pins):
             cx = x + p * (i + 0.5)
-            d.line(cx, y + body_h, cx, y + body_h + 13, stroke=GREY, sw=2.4)
-            d.circle(cx, y + 8, 2.6, fill=col, stroke="none", sw=0)
-        d.dim_h(y - 12, x + p * 0.5, x + p * 1.5, f"{pitch_mm} mm")
-        d.text(x, y + body_h + 34, name, size=14, weight=700)
-        d.text(x, y + body_h + 52, sub, size=12, fill=MUTED)
-        return wdt
+            d.line(cx, y + body_h, cx, y + body_h + 12, stroke=GREY, sw=2.4)
+            d.circle(cx, y + 9, 2.6, fill=col, stroke="none", sw=0)
+        d.dim_h(y - 14, x + p * 0.5, x + p * 1.5, f"{pitch_mm} mm pitch")
+        d.text(x, y + body_h + 34, name, size=14.5, weight=700)
+        d.text(x, y + body_h + 52, sub, size=11.5, fill=MUTED)
 
-    connector(66, 190, 2.0, 4, "JST-PH2.0", "PROBE 3P · TH0 2P · CT 2P · XY ENDSTOP 4P",
-              ORANGE)
-    connector(66, 300, 2.5, 4, "JST-XH2.5", "E MOTOR 4P only — this one did NOT change",
-              BLUE)
+    connector(70, PY_ + 94, 2.0, 4, "JST-PH2.0",
+              "PROBE 3P · TH0 2P · CT 2P · XY ENDSTOP 4P", ORANGE)
+    connector(70, PY_ + 218, 2.5, 4, "JST-XH2.5",
+              "E MOTOR 4P only — this one did NOT change", BLUE)
 
-    d.rect(52, 396, 330, 148, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
-    d.text(68, 422, "What the old guide says vs what the board is", size=13.5, weight=700)
-    rows = [("PROBE", "not specified", "PH2.0 3P, 24 V only"),
-            ("TH0", "\"JST-XH2.5 two pin\"", "PH2.0 2P, 2.2 kΩ pull-up"),
-            ("XY endstop", "not specified", "PH2.0 4P, unused here"),
+    ty = PY_ + 326
+    d.rect(50, ty, 332, 200, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
+    d.text(66, ty + 26, "What the old guide says vs the board", size=13.5, weight=700)
+    d.text(66, ty + 48, "port", size=11, weight=700, fill=MUTED)
+    d.text(150, ty + 48, "Rev D guide", size=11, weight=700, fill=MUTED)
+    d.text(258, ty + 48, "V2 board", size=11, weight=700, fill=MUTED)
+    rows = [("PROBE", "not specified", "PH2.0 3P, 24 V"),
+            ("TH0", "\"XH2.5 two pin\"", "PH2.0 2P"),
+            ("XY ENDSTOP", "not specified", "PH2.0 4P, unused"),
             ("HE0", "ferrule / screw", "unchanged")]
-    yy = 446
+    yy = ty + 72
     for a, b, c in rows:
-        d.mono(68, yy, a, size=11.5, weight=600)
-        d.text(160, yy, b, size=11.3, fill=MUTED)
-        d.text(258, yy, c, size=11.3, weight=600)
-        yy += 24
-    d.text(68, yy + 8, "A PH2.0 body can be forced into the wrong header —", size=11.3,
-           fill=RED)
-    d.text(68, yy + 24, "read the silkscreen before every insertion.", size=11.3, fill=RED)
+        d.mono(66, yy, a, size=11, weight=600)
+        d.text(150, yy, b, size=11, fill=MUTED)
+        d.text(258, yy, c, size=11, weight=600)
+        yy += 22
+    d.text(66, yy + 14, "A PH2.0 body can be forced into the wrong", size=11.2, fill=RED)
+    d.text(66, yy + 30, "header — read the silkscreen every time.", size=11.2, fill=RED)
 
     # ---- (b) keyed 2x5 header ----
-    d.panel(418, 108, 372, 452, "2 — the fan-adapter header is keyed",
-            "V1 was 2 x 4; V2 is 2 x 5, reversed gender, and keyed")
+    d.panel(418, PY_, 372, PH_, "2 — the fan-adapter header is keyed",
+            "V1 was 2 x 4; V2 is 2 x 5, reversed and keyed")
 
-    hx, hy = 470, 196
+    hx, hy = 480, PY_ + 106
     cell = 34
     d.rect(hx - 12, hy - 12, cell * 5 + 24, cell * 2 + 24, fill=PANEL, stroke=BLACKPART,
            sw=2.6, rx=6)
-    # key notch on one long side
-    d.rect(hx + cell * 2 - 6, hy - 20, 26, 12, fill=BG, stroke=BLACKPART, sw=2.2, rx=2)
-    d.text(hx + cell * 2 + 7, hy - 26, "key", size=11, anchor="middle", weight=700,
+    d.rect(hx + cell * 2 - 6, hy - 22, 26, 12, fill=BG, stroke=BLACKPART, sw=2.2, rx=2)
+    d.text(hx + cell * 2 + 7, hy - 30, "key", size=11, anchor="middle", weight=700,
            fill=BLACKPART)
-    pins = [["tacho", "fan drive", "RGB PD3", "GND", "NC"],
-            ["tacho", "fan drive", "5 V", "NC", "24 V"]]
     for r in range(2):
         for c in range(5):
             cx, cy = hx + c * cell + cell / 2, hy + r * cell + cell / 2
             d.rect(cx - 12, cy - 12, 24, 24, fill=GREY_F, stroke=GREY, sw=1.8, rx=3)
-            d.text(cx, cy + 4, "·", size=16, anchor="middle", fill=GREY)
-    yy = hy + cell * 2 + 42
-    d.text(470, yy, "Row order on the toolboard side", size=12.5, weight=700)
-    for r in range(2):
-        d.text(470, yy + 22 + r * 20, "  ·  ".join(pins[r]), size=11.8, fill=MUTED)
-    d.rect(440, yy + 74, 330, 118, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
-    d.text(456, yy + 100, "The key is the check", size=13.5, weight=700)
-    d.wrap(456, yy + 122,
+            d.circle(cx, cy, 3.4, fill=GREY, stroke="none", sw=0)
+    pins = ["tacho  ·  tacho",
+            "fan drive  ·  fan drive",
+            "RGB PD3  ·  5 V",
+            "GND  ·  NC",
+            "NC  ·  24 V"]
+    yy = hy + cell * 2 + 46
+    d.text(452, yy, "Pin pairs, toolboard side", size=12.5, weight=700)
+    for i, ln in enumerate(pins):
+        d.text(452, yy + 22 + i * 19, f"{i + 1}.  {ln}", size=11.8, fill=MUTED)
+
+    by2 = PY_ + 420
+    d.rect(438, by2, 332, 152, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
+    d.text(454, by2 + 26, "The key is the check", size=13.5, weight=700)
+    d.wrap(454, by2 + 50,
            "The Stealthburner front drops onto the toolhead and the header seats with no "
            "gap. If it does not drop in, you have it backwards — do not press harder. A V1 "
            "fan adapter physically cannot be reused on a V2 toolboard.",
-           size=11.8, width_chars=44, lh=16.5, fill=INK)
+           size=11.8, width_chars=44, lh=17, fill=INK)
 
     # ---- (c) partial cover / ground lug ----
-    d.panel(806, 108, 364, 452, "3 — the partial cover, and the ground lug",
-            "usb_adapter_mount_partial_cover.stl from the V2 repo")
+    d.panel(806, PY_, 364, PH_, "3 — the partial cover and the ground lug",
+            "usb_adapter_mount_partial_cover.stl, V2 repo")
 
-    cx0, cy0 = 848, 200
-    d.rect(cx0, cy0, 236, 128, fill=GREY_F, stroke=GREY, sw=2.4, rx=6)
-    d.text(cx0 + 118, cy0 + 26, "USB adapter PCB", size=13, anchor="middle", weight=700)
-    for i, (mx, my) in enumerate(((cx0 + 22, cy0 + 100), (cx0 + 214, cy0 + 100),
-                                  (cx0 + 22, cy0 + 56), (cx0 + 214, cy0 + 56))):
+    cx0, cy0 = 852, PY_ + 92
+    d.rect(cx0, cy0, 236, 122, fill=GREY_F, stroke=GREY, sw=2.4, rx=6)
+    d.text(cx0 + 118, cy0 + 22, "USB adapter PCB", size=12.5, anchor="middle", weight=700)
+    for (mx, my) in ((cx0 + 22, cy0 + 96), (cx0 + 214, cy0 + 96),
+                     (cx0 + 22, cy0 + 54), (cx0 + 214, cy0 + 54)):
         d.circle(mx, my, 7, fill=PANEL, stroke=GREY, sw=1.8)
-    # cover, leaving one mounting point exposed
-    d.rect(cx0 + 10, cy0 + 12, 190, 104, fill=BLACKPART_F, stroke=BLACKPART, sw=2.4, rx=5,
+    d.rect(cx0 + 8, cy0 + 30, 186, 84, fill=BLACKPART_F, stroke=BLACKPART, sw=2.4, rx=5,
            dash="6 5")
-    d.text(cx0 + 105, cy0 + 118, "V2 partial cover", size=11.5, anchor="middle", fill=MUTED)
-    d.circle(cx0 + 214, cy0 + 100, 11, fill="none", stroke=GREEN, sw=2.6)
-    d.path(f"M {cx0 + 236} {cy0 + 100} L {cx0 + 268} {cy0 + 100}", stroke=GREEN, sw=2.4,
+    d.text(cx0 + 100, cy0 + 74, "V2 partial cover", size=11.5, anchor="middle", fill=MUTED)
+    d.circle(cx0 + 214, cy0 + 96, 12, fill="none", stroke=GREEN, sw=2.6)
+    d.path(f"M {cx0 + 236} {cy0 + 96} L {cx0 + 274} {cy0 + 96}", stroke=GREEN, sw=2.4,
            marker="arwg")
-    d.text(cx0 + 150, cy0 + 168, "one mounting point left exposed = the ground lug",
-           size=12, anchor="middle", fill=GREEN, weight=600)
+    d.text(cx0 + 118, cy0 + 148, "one mounting point left exposed", size=12,
+           anchor="middle", fill=GREEN, weight=600)
+    d.text(cx0 + 118, cy0 + 165, "= the ground lug", size=12, anchor="middle", fill=GREEN,
+           weight=600)
 
-    gy = cy0 + 196
-    d.text(848, gy, "One continuous ESD discharge path", size=13.5, weight=700)
+    gy = cy0 + 202
+    d.text(852, gy, "One continuous ESD discharge path", size=13, weight=700)
     chain = ["extruder motor body", "toolboard ground", "umbilical",
              "USB adapter", "frame", "earth"]
-    yy = gy + 24
+    yy = gy + 26
     for i, node in enumerate(chain):
-        d.circle(858, yy - 4, 4, fill=GREEN, stroke="none", sw=0)
-        d.text(874, yy, node, size=12.3)
+        d.circle(862, yy - 4, 4.5, fill=GREEN, stroke="none", sw=0)
+        d.text(880, yy, node, size=12.3)
         if i < len(chain) - 1:
-            d.line(858, yy + 2, 858, yy + 18, stroke=GREEN, sw=2)
-        yy += 24
-    d.text(848, yy + 8, "Use the two supplied grounding cables: larger O-ring", size=11.5,
+            d.line(862, yy + 2, 862, yy + 20, stroke=GREEN, sw=2)
+        yy += 26
+    d.text(852, yy + 8, "Use the two supplied grounding cables:", size=11.5, fill=MUTED)
+    d.text(852, yy + 24, "larger O-ring connectors can short the PCBs.", size=11.5,
            fill=MUTED)
-    d.text(848, yy + 24, "connectors can short the PCBs.", size=11.5, fill=MUTED)
 
     footer(d, "If your kit has no grounding cables, or the board doc you have predates the "
               "2026-07-10 update, ask in #ldo_motors on the Voron Discord rather than "
               "improvising a shield or ground connection.")
     return d
 
-
 # =============================================================== diagram 9 ===
 def d09_racking() -> Doc:
-    d = Doc(820, "Voron 2.4r2 — gantry racking and de-racking")
-    header(d, "Racking, and how to measure it",
-           "A racked gantry has one side of the X extrusion further forward than the other. "
-           "You de-rack by pushing the X extrusion fully back against both drives and "
-           "tightening the X/Y joints there.",
-           "Ch 06b, Steps 06b.8–06b.14")
+    d = Doc(900, "Voron 2.4r2 — gantry racking and de-racking")
+    top = header(d, "Racking, and how to measure it",
+                 "A racked gantry has one side of the X extrusion further forward than the "
+                 "other. You de-rack by pushing the X extrusion fully back against both "
+                 "drives and tightening the X/Y joints there.",
+                 "Ch 06b, Steps 06b.9 · 06b.11 · 06b.14")
 
     def view(ox, oy, racked, title, sub, col):
         w, h = 430, 430
         d.panel(ox, oy, w, h + 76, title, sub)
-        fx, fy, fw, fh = ox + 46, oy + 66, w - 92, h - 96
+        fx, fy, fw, fh = ox + 46, oy + 72, w - 92, h - 96
         d.rect(fx, fy, fw, fh, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=4)
         d.text(fx + fw / 2, fy - 10, "REAR", size=11.5, anchor="middle", weight=700,
                fill=BLUE)
         d.text(fx + fw / 2, fy + fh + 20, "FRONT", size=11.5, anchor="middle", weight=700,
                fill=BLUE)
 
-        skew = 26 if racked else 0
-        yl_top, yl_bot = fy + 42, fy + fh - 42          # left Y extrusion
-        yr_top, yr_bot = fy + 42 - skew, fy + fh - 42 - skew
+        skew = 22 if racked else 0
+        yl_top, yl_bot = fy + 66, fy + fh - 30          # left Y extrusion
+        yr_top, yr_bot = fy + 54 - skew, fy + fh - 34 - skew
         lx, rx = fx + 62, fx + fw - 62
         d.line(lx, yl_top, lx, yl_bot, stroke=col, sw=9)
         d.line(rx, yr_top, rx, yr_bot, stroke=col, sw=9)
@@ -1393,10 +1416,10 @@ def d09_racking() -> Doc:
         for (jx, jy) in ((lx, (yl_top + yl_bot) / 2), (rx, (yr_top + yr_bot) / 2)):
             d.rect(jx - 17, jy - 17, 34, 34, fill=PANEL, stroke=col, sw=2.4, rx=5)
         # drive units at the rear ends
-        d.rect(lx - 24, yl_top - 26, 48, 30, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
-        d.rect(rx - 24, yr_top - 26, 48, 30, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
-        d.text(lx, yl_top - 34, "B drive", size=10.5, anchor="middle", fill=MUTED)
-        d.text(rx, yr_top - 34, "A drive", size=10.5, anchor="middle", fill=MUTED)
+        d.rect(lx - 24, yl_top - 24, 48, 28, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
+        d.rect(rx - 24, yr_top - 24, 48, 28, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
+        d.text(lx, yl_top - 6, "B drv", size=10, anchor="middle", fill=MUTED)
+        d.text(rx, yr_top - 6, "A drv", size=10, anchor="middle", fill=MUTED)
 
         # four measurement points
         pts = [("FL", lx, yl_bot, fx), ("RL", lx, yl_top, fx),
@@ -1411,21 +1434,22 @@ def d09_racking() -> Doc:
         if racked:
             d.text(fx + fw / 2, fy + fh + 42, "front–rear gaps differ on the same side",
                    size=12, anchor="middle", fill=RED, weight=600)
-            d.path(f"M {rx + 34} {yr_top + 6} L {rx + 34} {yr_top + 46}", stroke=RED,
+            d.path(f"M {rx + 30} {yr_top + 18} L {rx + 30} {yr_top + 58}", stroke=RED,
                    sw=2.4, marker="arwr")
-            d.text(rx + 40, yr_top + 30, "one side leads", size=11, fill=RED, weight=600)
+            d.text(rx + 36, yr_top + 44, "this side leads", size=11, fill=RED, weight=600)
         else:
             d.text(fx + fw / 2, fy + fh + 42,
                    "same side within 0.5 mm · left vs right within 1 mm",
                    size=12, anchor="middle", fill=OK, weight=600)
 
-    view(30, 108, True, "Racked (exaggerated)",
-         "the X extrusion is not perpendicular to the Y extrusions", RED)
-    view(496, 108, False, "Square", "both X/Y joints bottom out at the same instant", OK)
+    vy = top + 16
+    view(30, vy, True, "Racked (exaggerated)",
+         "the X extrusion is not square to the Y extrusions", RED)
+    view(496, vy, False, "Square", "both X/Y joints bottom out together", OK)
 
     # right-hand column: what to loosen, and the de-rack move
     nx = 962
-    d.panel(nx, 108, 208, 506, "What to loosen")
+    d.panel(nx, vy, 208, 506, "What to loosen")
     rows = [("06b.8", "the four M5x40 through the lower Z joints — drop the joints down "
                       "the rails; the gantry hangs on the belts"),
             ("06b.9", "X/Y joints, top and bottom, both sides — enough to slide by hand, "
@@ -1434,21 +1458,22 @@ def d09_racking() -> Doc:
             ("06b.12", "retighten everything except the X/Y joints"),
             ("06b.14", "push the X extrusion fully back against both drives, hold, then "
                        "tighten the X/Y joint bolts in a cross pattern")]
-    yy = 152
+    yy = vy + 52
     for step, txt in rows:
         d.mono(nx + 16, yy, "Step " + step, size=12, weight=700)
-        yy = d.wrap(nx + 16, yy + 18, txt, size=11.8, width_chars=27, lh=16) + 12
-    d.rect(nx + 12, 470, 184, 132, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
-    d.wrap(nx + 26, 496,
+        yy = d.wrap(nx + 16, yy + 18, txt, size=11.5, width_chars=28, lh=16) + 10
+    d.rect(nx + 12, vy + 534, 184, 124, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
+    d.wrap(nx + 26, vy + 560,
            "Where an X/Y joint carries a Z belt clamp, do not loosen it far enough for the "
            "Z belt to release. Only enough to allow adjustment.",
-           size=11.6, width_chars=25, lh=16, fill=INK)
+           size=11.5, width_chars=26, lh=16, fill=INK)
 
     # the four-point measurement table
-    d.rect(30, 640, 908, 132, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
-    d.text(48, 668, "The four-point gap measurement — bench check, not in the official text",
-           size=15, weight=700)
-    d.wrap(48, 692,
+    my2 = vy + 526
+    d.rect(30, my2, 908, 132, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
+    d.text(48, my2 + 28, "The four-point gap measurement — bench check, not in the "
+           "official text", size=15, weight=700)
+    d.wrap(48, my2 + 52,
            "With the caliper's depth rod, measure the horizontal gap between each Y extrusion "
            "and the frame upright beside it, at front-left, rear-left, front-right and "
            "rear-right. Front and rear on the SAME side must agree within 0.5 mm — a "
@@ -1466,39 +1491,39 @@ def d09_racking() -> Doc:
 
 # ============================================================== diagram 10 ===
 def d10_motor_directions() -> Doc:
-    d = Doc(840, "Voron 2.4r2 — STEPPER_BUZZ motor-direction cheat sheet")
-    header(d, "STEPPER_BUZZ — which motor, which corner, which way",
-           "One motor per command. It moves 1 mm positive, pauses, returns, ten times. "
-           "Watch the machine, not the console.",
-           "Ch 13, Steps 13.13–13.16 · 13.22–13.23")
+    d = Doc(860, "Voron 2.4r2 — STEPPER_BUZZ motor-direction cheat sheet")
+    top = header(d, "STEPPER_BUZZ — which motor, which corner, which way",
+                 "One motor per command. It moves 1 mm positive, pauses, returns, ten "
+                 "times. Watch the machine, not the console.",
+                 "Ch 13, Steps 13.13 · 13.14 · 13.16 · 13.23")
 
     # ---- top view ----
-    ox, oy = 40, 112
-    d.panel(ox, oy, 560, 610, "Top view — the corner that must rise FIRST",
-            "on a 2.4 the bed is bolted to the frame; what rises is the gantry corner")
-    fx, fy, fw, fh = ox + 74, oy + 74, 412, 470
+    ox, oy = 40, top + 16
+    d.panel(ox, oy, 560, 620, "Top view — the corner that must rise FIRST",
+            "the bed is bolted to the frame; what rises is the gantry corner")
+    fx, fy, fw, fh = ox + 40, oy + 92, 480, 484
     d.rect(fx, fy, fw, fh, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=4)
-    d.text(fx + fw / 2, fy - 12, "REAR", size=12.5, anchor="middle", weight=700, fill=BLUE)
-    d.text(fx + fw / 2, fy + fh + 26, "FRONT  (you stand here)", size=12.5, anchor="middle",
-           weight=700, fill=BLUE)
+    d.text(fx + fw / 2, fy - 14, "REAR", size=12.5, anchor="middle", weight=700, fill=BLUE)
+    d.text(fx + fw / 2, fy + fh + 24, "FRONT  (you stand here)", size=12.5,
+           anchor="middle", weight=700, fill=BLUE)
 
-    corners = [("Z0", "front left", "stepper_z", "STEPPER-0", fx + 6, fy + fh - 6, -1, -1),
-               ("Z1", "rear left", "stepper_z1", "STEPPER-1", fx + 6, fy + 6, -1, 1),
-               ("Z2", "rear right", "stepper_z2", "STEPPER-2", fx + fw - 6, fy + 6, 1, 1),
-               ("Z3", "front right", "stepper_z3", "STEPPER-3", fx + fw - 6, fy + fh - 6,
-                1, -1)]
-    for name, pos, cmd, port, cx, cy, sx, sy in corners:
-        bw, bh = 150, 92
-        bxx = cx - bw / 2 + sx * 42
-        byy = cy - bh / 2 + sy * -34
+    bw, bh = 168, 96
+    corners = [("Z0", "front left", "stepper_z", "STEPPER-0",
+                fx + 14, fy + fh - bh - 14),
+               ("Z1", "rear left", "stepper_z1", "STEPPER-1", fx + 14, fy + 14),
+               ("Z2", "rear right", "stepper_z2", "STEPPER-2",
+                fx + fw - bw - 14, fy + 14),
+               ("Z3", "front right", "stepper_z3", "STEPPER-3",
+                fx + fw - bw - 14, fy + fh - bh - 14)]
+    for name, pos, cmd, port, bxx, byy in corners:
         d.rect(bxx, byy, bw, bh, fill=PANEL, stroke=OK, sw=2.4, rx=8)
         d.text(bxx + 12, byy + 26, name, size=18, weight=700)
         d.text(bxx + 46, byy + 26, pos, size=12, fill=MUTED)
-        d.mono(bxx + 12, byy + 48, cmd, size=12.5, weight=600)
-        d.mono(bxx + 12, byy + 68, port, size=11.5, fill=MUTED)
-        d.path(f"M {bxx + bw - 22} {byy + 76} L {bxx + bw - 22} {byy + 50}",
+        d.mono(bxx + 12, byy + 50, cmd, size=12.5, weight=600)
+        d.mono(bxx + 12, byy + 70, port, size=11.5, fill=MUTED)
+        d.path(f"M {bxx + bw - 24} {byy + 80} L {bxx + bw - 24} {byy + 52}",
                stroke=OK, sw=2.6, marker="arwg")
-        d.text(bxx + bw - 34, byy + 84, "rises", size=10.5, anchor="end", fill=OK,
+        d.text(bxx + bw - 36, byy + 86, "rises", size=10.5, anchor="end", fill=OK,
                weight=700)
 
     # A and B on the rear extrusion
@@ -1521,8 +1546,8 @@ def d10_motor_directions() -> Doc:
 
     # ---- right column ----
     nx = 624
-    d.panel(nx, 112, 536, 246, "The four Z commands", "run them one at a time")
-    yy = 168
+    d.panel(nx, oy, 536, 250, "The four Z commands", "run them one at a time")
+    yy = oy + 74
     d.text(nx + 20, yy, "command", size=12, weight=700, fill=MUTED)
     d.text(nx + 262, yy, "motor / port", size=12, weight=700, fill=MUTED)
     d.text(nx + 400, yy, "corner that rises", size=12, weight=700, fill=MUTED)
@@ -1535,24 +1560,24 @@ def d10_motor_directions() -> Doc:
         d.text(nx + 400, yy, pos, size=12.5, weight=600)
         yy += 30
 
-    d.panel(nx, 374, 536, 168, "A and B are NOT direction-checked by buzzing",
-            "on CoreXY a single motor's rotation is not a meaningful check by eye")
-    d.wrap(nx + 20, 438,
+    d.panel(nx, oy + 266, 536, 178, "A and B are NOT direction-checked by buzzing",
+            "a single motor's rotation is not a meaningful check by eye")
+    d.wrap(nx + 20, oy + 344,
            "What matters at STEPPER_BUZZ is only that the right motor answers and moves "
            "cleanly. Direction is settled at homing: G28 X must travel the toolhead to the "
            "RIGHT, G28 Y to the BACK. Match the observed pair to the chart, then invert "
            "dir_pin on the stepper the chart marks.",
            size=12.6, width_chars=62, lh=18)
 
-    d.panel(nx, 558, 536, 164, "Fixing what you find")
-    fixes = [("nothing moved", "check enable_pin / step_pin and that the driver has power"),
+    d.panel(nx, oy + 460, 536, 160, "Fixing what you find")
+    fixes = [("nothing moved", "check enable_pin / step_pin and driver power"),
              ("buzzed, did not travel", "coil pairs transposed in the connector"),
-             ("wrong motor answered", "power down, then move the stepper connector"),
-             ("moved the wrong way", "add or remove ! on that stepper's dir_pin, RESTART")]
-    yy = 600
+             ("wrong motor answered", "power down, then move the connector"),
+             ("moved the wrong way", "add or remove ! on that dir_pin, RESTART")]
+    yy = oy + 512
     for a, b in fixes:
         d.text(nx + 20, yy, a, size=12.3, weight=600)
-        d.text(nx + 200, yy, b, size=12, fill=MUTED)
+        d.text(nx + 208, yy, b, size=12, fill=MUTED)
         yy += 26
 
     footer(d, "The extruder buzzes too — STEPPER_BUZZ STEPPER=extruder with no filament — "
@@ -1567,7 +1592,7 @@ TIMELINE = [
     (1, "P", "B00 — Calibration & jigs", "3.5 h print", []),
     (2, "B", "Ch 00 — Before you start", "2.5–4.0 h  KIT", [1]),
     (3, "P", "B01 — Z drive assemblies", "19.4 h print", [1]),
-    (4, "B", "Ch 01 — Frame", "2.5–4.0 h  KIT 2P", [2]),
+    (4, "B", "Ch 01 — Frame", "2.5–4.0 h  KIT 2P", []),
     (5, "P", "B02 — Accent parts, the orange day", "18.5 h print", [1]),
     (6, "B", "Ch 02 — Z drives, idlers, rails, deck", "4.25–6.25 h  KIT", [3, 5]),
     (7, "P", "B03 — A/B drive units + front idlers", "7.7 h print", [5]),
@@ -1577,30 +1602,30 @@ TIMELINE = [
     (11, "P", "B05 — Z joints + Z chain", "5.2 h print", [9]),
     (12, "B", "Ch 05 — Gantry", "5.0–7.0 h  KIT 2P", [9]),
     (13, "P", "B06 — Toolhead: SB, CW2, Klicky", "9.8 h print", [9]),
-    (14, "B", "Ch 06 Part A — Z axis, hang the gantry", "3.5–5.0 h  KIT 2P lift", [11]),
+    (14, "B", "Ch 06 Part A — Z axis, hang the gantry", "3.5–5.0 h  2P lift", [11]),
     (15, "P", "B07 — Electronics bay + lighting", "13.2 h print", []),
     (16, "B", "Ch 07 — A/B belts, provisional tension", "2.5–4.0 h  KIT", [11]),
     (17, "G", "Gen 2 belt-upgrade pause", "~1 day wall clock", []),
     (18, "B", "Ch 08 — Toolhead", "3.0–4.5 h  KIT", [13]),
-    (19, "P", "B08 — Skirts and front modules", "25.5 h print", [17]),
+    (19, "P", "B08 — Skirts and front modules", "25.5 h print", []),
     (20, "B", "Ch 09 — Electronics bay", "2.5–4.0 h  KIT", [15]),
     (21, "B", "Ch 12 Part 1 — image the Pi", "~1.0 h  KIT", []),
     (22, "B", "Ch 10 — Wiring", "5.0–7.0 h  KIT", [15]),
-    (23, "P", "B09 — Panels, filtration, spool", "19.1 h print", [19]),
-    (24, "B", "Ch 12 Part 2 — flash both MCUs", "the rest of 2.0–3.0 h", []),
-    (25, "P", "B10 — Clicky-Clack door", "5.1 h print", [23]),
-    (26, "B", "Ch 11 Part A — skirts, fans, bottom panel", "3.0–4.0 h  KIT", [19, 23]),
-    (27, "B", "Ch 13 — Initial startup", "2.5–4.0 h + a cube  KIT", []),
-    (28, "B", "Ch 06b — Gantry squaring", "~1.0 h + a 1½–2 h soak  KIT 2P", []),
+    (23, "P", "B09 — Panels, filtration, spool", "19.1 h print", []),
+    (24, "B", "Ch 12 Part 2 — flash both MCUs", "rest of 2.0–3.0 h", []),
+    (25, "P", "B10 — Clicky-Clack door", "5.1 h print", []),
+    (26, "B", "Ch 11 Part A — skirts, bay fans, panel", "3.0–4.0 h  KIT", [19, 23]),
+    (27, "B", "Ch 13 — Initial startup", "2.5–4.0 h + cube  KIT", []),
+    (28, "B", "Ch 06b — Gantry squaring", "~1.0 h + soak  KIT 2P", []),
     (29, "B", "Ch 11 Part B — panels, Clicky-Clack door", "1.0–2.0 h  KIT", [25]),
-    (30, "B", "Ch 14 — Calibration and tuning", "2.5–4.0 h over 6–8 h  KIT", []),
+    (30, "B", "Ch 14 — Calibration and tuning", "2.5–4.0 h  KIT", []),
 ]
 
 
 def d11_timeline() -> Doc:
     ROW_H = 40
-    top = 176
-    h = int(top + len(TIMELINE) * ROW_H + 132)
+    top = 200
+    h = int(top + len(TIMELINE) * ROW_H + 176)
     d = Doc(h, "Voron 2.4r2 — build timeline")
     header(d, "Build timeline — print batches against assembly chapters",
            "Rows are in execution order, top to bottom. Do a row only when its "
@@ -1640,10 +1665,9 @@ def d11_timeline() -> Doc:
                 continue
             sx0, sx1, sy = pos[n]
             tx0, tx1, ty = pos[row]
-            if sx1 <= tx0:                        # print lane -> build lane
-                a, b = sx1 + 4, tx0 - 6
-            else:                                 # build lane -> print lane
-                a, b = sx0 - 4, tx1 + 6
+            if sx1 > tx0:                         # same lane: order already implies it
+                continue
+            a, b = sx1 + 4, tx0 - 6
             mid = (a + b) / 2
             d.path(f"M {a:.0f} {sy:.0f} C {mid:.0f} {sy:.0f} {mid:.0f} {ty:.0f} "
                    f"{b:.0f} {ty:.0f}",

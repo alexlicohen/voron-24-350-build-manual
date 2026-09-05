@@ -120,8 +120,9 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 ### Step 10.2 — Set the PSU input-voltage selector
 
 ![Voron manual p.181](assets/manual-pages/manual-p181.png)
+![LDO photo of the PSU voltage selector](assets/remote/10-wiring/ldo-psu-voltage-selector.jpg)
 
-**What you're looking at:** The grey brick is the [Meanwell LRS-200-24](16-glossary.md#m), the 24 V supply that powers everything in the machine except the bed heater. The photo is a close-up of the small red slide switch in its side, which tells the unit whether it is being fed 115 V or 230 V mains.
+**What you're looking at:** The grey brick is the [Meanwell LRS-200-24](16-glossary.md#m), the 24 V supply that powers everything in the machine except the bed heater. The manual page shows where it sits in the bay; the second photo is a close-up of the small red slide switch in its side, which tells the unit whether it is being fed 115 V or 230 V mains.
 
 **Parts:** Meanwell LRS-200-24 ×1.
 
@@ -130,8 +131,6 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 **Check:** Read the number in the window out loud and compare it to your wall socket. The yellow warning label on the PSU lid says the same thing: *"AC INPUT VOLTAGE CAN BE SELECTED BY SWITCH, CHECK INPUT VOLTAGE AVOIDING DAMAGE BEFORE POWER ON."*
 
 ⚠ Rev D+ / LDO: EU kits may ship the **Meanwell RSP-200-24** instead. That unit has power-factor correction and a universal AC input — there is no selector and nothing to set. If your PSU has no red switch, you have the RSP; skip this step. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit)
-
-![LDO photo of the PSU voltage selector](assets/remote/10-wiring/ldo-psu-voltage-selector.jpg)
 
 Source: [Voron manual p.181](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=181) · [LDO wiring guide § Preparing the power supply unit](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit) · [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg)
 
@@ -319,7 +318,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 ![LDO Rev D bed-heater lead identification](assets/remote/10-wiring/bed_heater_wires_revd.jpg)
 
-**What you're looking at:** You are measuring the heater pad itself, before it can ever be energised. To its own two leads it should look like a resistor of a few tens of ohms; to the aluminium plate it is bonded to it should look like nothing at all. The photo identifies which lead is which on the Rev D plate.
+**What you're looking at:** You are measuring the heater pad itself, before it can ever be energised. To its own two leads it should look like a resistor of a few tens of ohms; to the aluminium plate it is bonded to it should look like nothing at all. The photo identifies which lead is which on the Rev D plate, and the pad's own label carries the voltage and wattage the step's resistance sum needs.
 
 **Parts:** multimeter, bed L and bed N leads (still unconnected below the WAGO breakout).
 
@@ -477,9 +476,9 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 ### Step 10.21 — The SSR is open when unpowered
 
-![LDO close-up of the SSR terminals](assets/remote/10-wiring/SSR_Close_Up.jpg)
+![LDO close-up of the SSR terminal numbering (Rev C bay — terminal blocks instead of your WAGOs)](assets/remote/10-wiring/SSR_Close_Up.jpg)
 
-**What you're looking at:** With nothing on terminals 3 and 4 the relay's semiconductor switch must be off, so its two mains terminals should have no path between them. The close-up shows the numbered terminals you are probing.
+**What you're looking at:** With nothing on terminals 3 and 4 the relay's semiconductor switch must be off, so its two mains terminals should have no path between them. The close-up shows the numbered terminals you are probing — it is a Rev C bay, so ignore the terminal blocks above the relay and read only the SSR body.
 
 **Parts:** multimeter.
 
@@ -646,7 +645,7 @@ Pause: ~25 min since the last pause — 24 V distribution complete: board supply
 
 ![LDO inductive-probe insulation](assets/remote/10-wiring/ldo-probe-insulation.jpg)
 
-**What you're looking at:** The [inductive probe](16-glossary.md#i) is the Omron barrel sensor on the X carriage that senses the metal bed for gantry levelling — it never sets Z=0. The fibreglass tape is a heat shield against the hotend beside it, on the front and sides only, because the sensing face on the bottom has to stay bare.
+**What you're looking at:** The [inductive probe](16-glossary.md#i) is the small rectangular Omron sensor on the X carriage that senses the metal bed for gantry levelling — it never sets Z=0. The fibreglass tape is a heat shield against the hotend beside it, on the front and sides only, because the sensing face on the bottom has to stay bare.
 
 **Parts:** Omron inductive probe (fitted to the X carriage in Ch 05/07), fibreglass tape 2×12 cm ×1.
 
@@ -746,9 +745,9 @@ Pause: ~25 min since the last pause — probe taped, XY endstop cable read (and 
 
 ### Step 10.35 — Assemble the eight COB light-strip mounts
 
-![LDO photo of a finished COB strip in its printed mounts](assets/remote/10-wiring/led_final.jpg)
+(no image — see [COB README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip))
 
-**What you're looking at:** [COB light strips](16-glossary.md#c) are the chamber lighting — a continuous line of LEDs under one phosphor rather than separate dots. Each printed mount is a two-piece clamshell that grips the strip and bolts to a frame extrusion; three 100 mm mounts plus one 50 mm cover a 350 mm strip. The photo shows a finished run.
+**What you're looking at:** [COB light strips](16-glossary.md#c) are the chamber lighting — a continuous line of LEDs under one phosphor rather than separate dots. Each printed mount is a two-piece clamshell that grips the strip and bolts to a frame extrusion; three 100 mm mounts plus one 50 mm cover a 350 mm strip.
 
 **Parts:** `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2, M3×5×4 heat-set inserts ×16, M3×6 FHCS ×16.
 
@@ -756,7 +755,7 @@ Pause: ~25 min since the last pause — probe taped, XY endstop cable read (and 
 
 **Check:** The halves close **flush** — a gap here means an insert sits proud and the strip will not seat. Lay each finished mount on glass and confirm it does not rock.
 
-Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs/COB%20Light%20Strip) · [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips) · [LDO wiring photo led_final.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_final.jpg)
+Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs/COB%20Light%20Strip) · [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips)
 
 ---
 
@@ -795,6 +794,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 ### Step 10.38 — Route the LED lead down to the deck and close the slots
 
 ![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
+![LDO photo of the finished LED run: cable in the extrusion slot under its cover](assets/remote/10-wiring/led_final.jpg)
 
 **What you're looking at:** Extrusion slot covers are the flexible plastic strips that press into an empty extrusion groove; here they hide and protect the LED cable along its whole route down to the deck. Ch 11's top panel and Z-belt covers close this path for good.
 
@@ -806,7 +806,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 **Alternative:** you may instead route through the **Z-motor A opening**; if you do, print the [alternate Z-belt cover `z_belt_cover_a_led.stl`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/STLs/z_belt_cover_a_led.stl) for Ch 11. Decide now, not in Ch 11. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips) · [LDOVoron2 `z_belt_cover_a_led.stl`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/8270e8c/STLs/z_belt_cover_a_led.stl) · [survey §5.2 W5](../voron-build-instructions-survey.md)
+Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips) · [LDO wiring photo led_final.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_final.jpg) · [LDOVoron2 `z_belt_cover_a_led.stl`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/8270e8c/STLs/z_belt_cover_a_led.stl) · [survey §5.2 W5](../voron-build-instructions-survey.md)
 
 ---
 
@@ -1094,7 +1094,7 @@ Pause: ~30 min since the last pause — bay fans, filter fan and LED strip on th
 
 ![LDO comparison of the umbilical cable variants](assets/remote/10-wiring/nk36_cable_comparison.jpg)
 
-**What you're looking at:** The [umbilical](16-glossary.md#u) is the one thick cable running between the bay and the toolhead, carrying 24 V and USB together. The Amass XT30(2+2) at the toolboard end is a four-contact power-plus-signal connector; the Micro-Fit 3.0 at the bay end is the latching rectangular one. The photo compares the cable variants LDO ships.
+**What you're looking at:** The [umbilical](16-glossary.md#u) is the one thick cable running between the bay and the toolhead, carrying 24 V and USB together. The Amass XT30(2+2) at the toolboard end is a four-contact power-plus-signal connector; the Micro-Fit 3.0 at the bay end is the latching rectangular one. The photo compares the three toolboard-end variants LDO ships; yours is ②, partially overmolded.
 
 **Parts:** toolhead umbilical cable ×1.
 

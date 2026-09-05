@@ -30,3 +30,49 @@ LDO docs.ldomotors.com images are link-only per survey §7.4 (siteConfig licence
 To revisit: if LDO adds a LICENSE to Nitehawk-SB-V2, six step illustrations
 (Steps 08.33, 08.43–08.53, 08.60, 08.63, 08.64) become mirrorable and Ch 08's
 image coverage goes from 42/65 to 65/65 steps.
+
+----------------------------------------------------------------------
+UPDATE 2026-09-05 (wave-3 chapter pass) — the "MIRRORED: none" note above is
+superseded. CONVENTIONS.md "Image licensing" (Alex's ruling, 2026-09-05 evening)
+allows the Nitehawk-SB V2 / Leviathan / LDOVoron2 repo images and LDO
+documentation images to be mirrored into docs/manual/assets/ for this
+non-commercial, attributed manual. Ch 09's SOURCES.txt already mirrors
+usb_adapter_gnd.jpg from the same repo under that ruling. The step Source lines
+still carry the original URLs.
+
+MIRRORED (all © LDO Motors, attributed, non-commercial, 2026-09-05):
+
+nhsbv2_pcb_pinout.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/nhsbv2_pcb_pinout.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+sbv2_fan_adapter_pcb_pinout.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/sbv2_fan_adapter_pcb_pinout.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+grounding_scheme.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/grounding_scheme.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+toolboard_ground_routing.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/toolboard_ground_routing.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+cable_chain_ties.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/cable_chain_ties.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+usb_adapter_gnd.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/usb_adapter_gnd.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+nitehawk-sb_title_img.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/nitehawk-sb_title_img.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+reset_boot_buttons.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497cfd627acde0f6ad81c8dd26f51efcbb48/Images/reset_boot_buttons.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+z_stop_parts.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/z_stop_parts.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+z_stop_install_1.jpg
+  -> https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/z_stop_install_1.jpg
+  -> © LDO Motors, attributed, non-commercial -> 2026-09-05
+
+STILL LINK-ONLY: docs.ldomotors.com wiki page images cited in Steps 08.43 and
+08.56 (LDO wiring guide sections) — the cached copies under assets/ldo/docs/
+are page screenshots, not step illustrations, so nothing was mirrored for them.

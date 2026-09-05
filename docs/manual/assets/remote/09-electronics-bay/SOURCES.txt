@@ -75,3 +75,19 @@ bed-wago-mount.jpg
   licence : wiki content marked all-rights-reserved — mirrored under Alex's 2026-09-05 ruling, attributed, non-commercial
   date    : 2026-09-05
   sha256  : 2b88c3ad0034ea7627af2e29c88ce278d8bb24266c9ce56796f9f6cd9e03dcda
+
+voltageselection_V1.3.jpg
+  cited-as: https://ldomotion.com/guides/voron-leviathan-v1-3
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/voltageselection_V1.3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/Leviathan)
+  licence : mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image licensing") — attributed, non-commercial
+  date    : 2026-09-05
+  used-at : Step 09.19 (the five voltage-selection jumpers)
+
+rpi4_installed_V1.3.jpg
+  cited-as: https://ldomotion.com/guides/voron-leviathan-v1-3
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/rpi4_installed_V1.3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/Leviathan)
+  licence : mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image licensing") — attributed, non-commercial
+  date    : 2026-09-05
+  used-at : Step 09.23 (Pi 4B on the Leviathan with its 3/4 HAT power lead)

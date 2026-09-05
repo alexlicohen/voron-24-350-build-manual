@@ -2,6 +2,8 @@
 
 Builds the four Z drive units, the four Z idlers, the four Z linear rails and the deck panel. When this chapter closes, the frame has a floor, feet, and every part of the Z motion system except the belts and the Z joints — the gantry has somewhere to hang from.
 
+**What you're building in this chapter:** the machinery that raises and lowers the gantry, one corner at a time. A **Z drive** is the gearbox in a bottom corner: a printed housing holding three bearings and a shaft, with a big 80-tooth pulley the motor drives through a short closed belt and a 20-tooth pulley the long Z belt runs over — 80:16 of reduction, which is what makes Z fine enough to print with. A **retainer** is the printed lid that clamps those bearings in, and an orange **baseplate** and cam **tensioner** bolt the drive to the frame and pull the short belt tight. Directly above each drive, at the top corner, a **Z idler** carries a free-spinning pulley that turns the long belt back down again; its orange slider is the adjuster you tension that belt with in Ch 07. Between them run the four **Z linear rails** on the vertical extrusions, the tracks the gantry's corners actually ride on. Last comes the **deck panel**, the acrylic floor that divides the electronics bay underneath from the print chamber above — it goes in now because once the gantry and the wiring are in, it cannot be lifted out again. Four corners, all identical in function, built from mirrored `_a` and `_b` printed parts.
+
 **Time:** 4.25–6.25 h hands-on, first build (survey §7.2, less the ~45 min of rail cleaning and greasing, which is done once for all seven rails in Ch 00 Steps 00.18–00.21).
 
 **Sessions:** 11 × ~30 min — the `Pause:` lines below break the chapter into 11 segments; every minute figure is a first-build estimate.
@@ -27,26 +29,26 @@ Builds the four Z drive units, the four Z idlers, the four Z linear rails and th
 
 **Printed parts** — all ASA. Black = main colour, Orange = accent (`[a]_` prefix).
 
-| STL (Voron-2 `STLs/`, branch `Voron2.4`) | Qty | Colour |
-|---|---:|---|
-| `Z_Drive/z_drive_main_a_x2.stl` | 2 | Black |
-| `Z_Drive/z_drive_main_b_x2.stl` | 2 | Black |
-| `Z_Drive/z_drive_retainer_a_x2.stl` | 2 | Black |
-| `Z_Drive/z_drive_retainer_b_x2.stl` | 2 | Black |
-| `Z_Drive/z_motor_mount_a_x2.stl` | 2 | Black |
-| `Z_Drive/z_motor_mount_b_x2.stl` | 2 | Black |
-| `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 2 | Orange |
-| `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 2 | Orange |
-| `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 2 | Orange |
-| `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 2 | Orange |
-| `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 2 | Black |
-| `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 2 | Black |
-| `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 4 | Orange |
-| `Panel_Mounting/deck_support_3mm_x8.stl` | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
-| `Panel_Mounting/deck_support_4mm_x8.stl` | 8 | Black — fallback if the panel measures 4 mm |
-| `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 2 | Black |
-| `Tools/pulley_jig.stl` (jig, not consumed) | 1 | Black |
-| LDO `STLs/z_rail_stop_x4.stl` (optional) | 4 | Black — batch **B05**, which prints *after* this chapter in the timeline |
+| Looks like | STL (Voron-2 `STLs/`, branch `Voron2.4`) | Qty | Colour |
+|---|---|---:|---|
+| ![](assets/parts/z_drive_main_a_x2.png){ width=96 } | `Z_Drive/z_drive_main_a_x2.stl` | 2 | Black |
+| ![](assets/parts/z_drive_main_b_x2.png){ width=96 } | `Z_Drive/z_drive_main_b_x2.stl` | 2 | Black |
+| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_a_x2.stl` | 2 | Black |
+| ![](assets/parts/z_drive_retainer_b_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_b_x2.stl` | 2 | Black |
+| ![](assets/parts/z_motor_mount_a_x2.png){ width=96 } | `Z_Drive/z_motor_mount_a_x2.stl` | 2 | Black |
+| ![](assets/parts/z_motor_mount_b_x2.png){ width=96 } | `Z_Drive/z_motor_mount_b_x2.stl` | 2 | Black |
+| ![](assets/parts/[a]_z_drive_baseplate_a_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 2 | Orange |
+| ![](assets/parts/[a]_z_drive_baseplate_b_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 2 | Orange |
+| ![](assets/parts/[a]_belt_tensioner_a_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 2 | Orange |
+| ![](assets/parts/[a]_belt_tensioner_b_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 2 | Orange |
+| ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 2 | Black |
+| ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 2 | Black |
+| ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 4 | Orange |
+| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
+| *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | 8 | Black — fallback if the panel measures 4 mm |
+| ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 2 | Black |
+| ![](assets/parts/pulley_jig.png){ width=96 } | `Tools/pulley_jig.stl` (jig, not consumed) | 1 | Black |
+| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 4 | Black — batch **B05**, which prints *after* this chapter in the timeline |
 
 The `_xN` suffix is the quantity you need, not the number of copies in the file — each STL contains one part. `_a` and `_b` are mirrored: two drives use the `a` set, two use the `b` set.
 
@@ -112,6 +114,10 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D](https://
 ### Step 02.01 — Lay out and label the chapter's printed parts
 
 ![Voron manual p.22](assets/manual-pages/manual-p022.png)
+![`z_drive_main_a` (left) vs `z_drive_main_b` (right) — same viewpoint](assets/parts/pair-z_drive_main_x2.png)
+![`z_drive_retainer_a` (left) vs `_b` (right) — same viewpoint](assets/parts/pair-z_drive_retainer_x2.png)
+
+**What you're looking at:** Manual p.22 opens the Z section; on your bench it is the printed parts from three batches, in four groups: the **Z drive** bodies and their **retainers** (the gearbox that turns a motor's spin into the belt that lifts the gantry, and the lid that clamps its bearings in), the **motor mounts** (L-brackets that hold a stepper against the frame), the orange **baseplates and belt tensioners**, and the **Z idler** brackets for the top corners. Every one exists as an `_a` and a `_b` — mirror images, two corners each. The pair renders show both hands from one camera: there is no unique feature, only handedness, so hold two candidates the same way up, see which side the bearing cradles open toward, and write the letter on the part.
 
 **Parts:** all Chapter 02 printed parts from batches B00, B01 and B02.
 
@@ -127,6 +133,8 @@ Source: [Voron manual p.22](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.23](assets/manual-pages/manual-p023.png)
 
+**What you're looking at:** Manual p.23 — the whole Z system in one overview: four drives at the bottom corners, four idlers directly above them at the top corners, four vertical rails, and the deck panel across the middle. **Z0–Z3** is the naming this manual, the kit's wiring and its Klipper config all share ([glossary](16-glossary.md#z)); a corner is identified by that number for the rest of the build.
+
 **Parts:** none.
 
 **Do:** Memorise the naming from the overview: **Z0 front-left, Z1 rear-left, Z2 rear-right, Z3 front-right**, viewed from the front of an upright printer. The Z idlers ("Z Eyedlers" in the manual's typo) sit directly above their drives at the top corners; the Z linear rails run up the four vertical extrusions; the deck panel goes on the bed extrusions.
@@ -141,9 +149,11 @@ Source: [Voron manual p.23](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png)
 
+**What you're looking at:** Manual p.31 shows the insert operation; the parts in front of you are the four retainers and four drive mains. A **heat-set insert** is a brass sleeve with a knurled outside, melted into a printed boss so the boss has a real steel-strength M3 thread instead of plastic ([glossary](16-glossary.md#h)). These particular thirty-six are the threads that hold each drive closed around its bearings.
+
 **Parts:** M3×5×4 brass heat-set inserts ×36; `z_drive_retainer_a/b` ×4; `z_drive_main_a/b` ×4.
 
-**Do:** Fit the brass M3 tip to the iron and set the tongue length flush with the height of an insert — long enough to transfer heat, short enough that the tongue never touches the plastic. Insert counts, measured off the STL geometry: **7 per `z_drive_retainer`** (6 in the bolt-circle face plus 1 in a side face) and **2 per `z_drive_main`** (one face). Identify a pocket by diameter: an insert pocket is **Ø4.7 mm × 5 mm deep**; a plain M3 screw clearance hole is Ø3.4 mm and goes straight through. Push each insert down with steady pressure until it is flush, then let the part cool before touching it.
+**Do:** Fit the brass M3 tip to the iron and set the tongue length flush with the height of an insert — long enough to transfer heat, short enough that the tongue never touches the plastic. Insert counts, measured off the STL geometry: **7 per `z_drive_retainer`** (6 in the bolt-circle face plus 1 in a side face) and **2 per `z_drive_main`** (one face). Identify a pocket by diameter: an insert pocket is **Ø4.7 mm × 5 mm deep**; a plain M3 screw clearance hole is Ø3.4 mm and goes straight through. Push each insert down with steady pressure until it is flush, then let the part cool before touching it, so the plastic sets around the knurl instead of releasing it.
 
 **Check:** 36 inserts in, every one flush or a hair below the surface, no melted bulge around the rim, no insert cocked in its pocket. Count the Ø4.7 pockets on your own parts before you start — if a part shows a different number, trust the part.
 
@@ -154,6 +164,8 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.04 — Dial in the iron before you touch a structural part
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png)
+
+**What you're looking at:** The practice coupon and the iron. You are calibrating temperature on scrap, not on a part, because an insert set too hot bulges the boss around it and an insert set too cold goes in crooked — and both faults are permanent in the part they happen to.
 
 **Parts:** the practice coupon from Step 02.03.
 
@@ -171,6 +183,8 @@ Pause: ~40 min since the last pause — printed parts sorted into `a` and `b` pi
 
 ![Voron manual p.24](assets/manual-pages/manual-p024.png)
 
+**What you're looking at:** Manual p.24 — a linear rail and its carriage. These four MGN9H rails are the vertical tracks the gantry's four corners ride up and down on; they were degreased and packed with grease in Ch 00 because that job needs access to the back of the rail, which stops existing the moment the rail is bolted to an extrusion ([glossary](16-glossary.md#f)).
+
 **Parts:** MGN9H 400 mm rails ×4 (the four labelled Z0–Z3 in Ch 00).
 
 **Do:** All seven rails were soaked in IPA, flip-and-packed with grease, wiped clean and labelled in **Ch 00 Steps 00.18–00.21** — flip-and-pack needs the back of the rail, so it cannot be done once a rail is bolted on. Unbag the four marked **Z0–Z3**, check the labels and the carriage tape, and run each carriage end to end: it should feel smooth and silent, not dry or notchy. If any rail was missed, do Ch 00 Steps 00.18–00.20 on it now and let it dry completely before it goes near the frame. Work over the bench, never over the floor — a dropped carriage spills its balls and is scrap.
@@ -184,6 +198,8 @@ Source: [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.06 — Fit the first Z rail, centred, with the MGN9 guides
 
 ![Voron manual p.25](assets/manual-pages/manual-p025.png)
+
+**What you're looking at:** Manual p.25 — a rail going onto a vertical extrusion, with the printed rail guides drawn in green (the manual's colour for a jig). The guides straddle rail and extrusion and hold the rail centred on the 20 mm face while you start the screws, so the rail cannot drift a fraction of a millimetre off centre over its 400 mm length.
 
 **Parts:** MGN9H 400 mm rail ×1; M3×8 SHCS ×~10; M3 roll-in T-nut ×~10; `MGN9_rail_guide_x2` jigs ×2.
 
@@ -199,6 +215,8 @@ Source: [Voron manual p.25](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.25](assets/manual-pages/manual-p025.png)
 
+**What you're looking at:** Manual p.25 again — the same rail, now being tightened. Working outward from the middle presses the rail flat against the extrusion progressively; starting at one end walks a bow along the rail and traps it, and a bow is what you feel later as a tight spot in the carriage.
+
 **Parts:** the rail from Step 02.06.
 
 **Do:** Tighten the screws starting at the middle of the rail and working outward, alternating up and down. This is what pulls the rail flush against the extrusion instead of trapping a bow in it. Snug, not gorilla-tight — an M3 into a T-nut will strip.
@@ -211,9 +229,11 @@ Source: [Voron manual p.25](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.26](assets/manual-pages/manual-p026.png)
 
+**What you're looking at:** Manual p.26 — the carriage and the risk. The carriage rides on recirculating ball bearings that are only retained by the rail itself, so it must be tethered before the frame is inverted in Step 02.11; a carriage that runs off the end spills its balls and is scrap.
+
 **Parts:** masking tape, or the rail's plastic shipping stoppers, or optional `z_rail_stop_x4`.
 
-**Do:** Tape the carriage to the rail, or refit the plastic shipping stopper. The printer goes upside down at Step 02.11 and an untethered carriage will slide straight off the bottom end and spill its bearing balls.
+**Do:** Tape the carriage to the rail, or refit the plastic shipping stopper, so gravity cannot walk it off the end while the frame is inverted. The printer goes upside down at Step 02.11 and an untethered carriage will slide straight off the bottom end and spill its bearing balls.
 
 **Check:** The carriage cannot move to the end of the rail under its own weight.
 
@@ -225,17 +245,24 @@ Pause: ~25 min since the last pause — the first Z rail is centred, tightened c
 
 ![Voron manual p.27](assets/manual-pages/manual-p027.png)
 
+**What you're looking at:** Manual p.27 — all four Z rails on their verticals. Read the graphic for the mounting face, not the pairing: in the official CAD every Z rail sits on a face whose normal points along ±Y, so the two left-hand rails face each other across the machine's depth and the two right-hand rails do the same. All four carriages therefore travel in the same two planes the gantry's Z joints need.
+
 **Parts:** MGN9H 400 mm rails ×3; M3×8 SHCS ×~30; M3 roll-in T-nut ×~30.
 
-**Do:** Repeat Steps 02.06–02.08 on the other three vertical extrusions. **The rails must face each other** — front-left faces front-right, rear-left faces rear-right, as in the graphic. Keep the same 3 mm bottom gap and the same hole pattern on all four.
+**Do:** Repeat Steps 02.06–02.08 on the other three vertical extrusions. **Each rail faces the other rail on its own side of the machine** — front-left faces rear-left, front-right faces rear-right — so all four rails are mounted on faces whose normal runs front-to-back, and the two front rails are parallel to each other rather than opposed. Keep the same 3 mm bottom gap and the same hole pattern on all four.
 
-**Check:** Four rails installed, all facing inward at each other, all four bottom gaps equal, every carriage taped or stoppered, every carriage running smoothly over full travel.
+**Check:** Four rails installed; sight along the machine's left side and then its right — on each side the two rails point at each other. All four bottom gaps equal, every carriage taped or stoppered, every carriage running smoothly over full travel.
 
-Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=27)
+⚠ Manual p.27 says only *"make sure the rails face each other as shown in the graphic"* and leaves the pairing to the drawing. An earlier revision of this step read it as front-left facing front-**right**; the official CAD at the pinned commit `de7e89d` says otherwise — every Z rail's mounting face is normal to ±Y, with the two rear rails facing forward (rail at y ≈ 345.5–352 on verticals at y ≈ 352–372) and the two front rails facing rearward (rail at y ≈ −18 to −11.5 on verticals at y ≈ −38 to −18). Corrected 2026-09-05. [src](assets/cad/PILOT.md)
+
+Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=27) · [CAD-render pilot §8 — Z rail orientation](assets/cad/PILOT.md) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip)
 
 ### Step 02.10 — Optional: fit the LDO rail stops at the top of each Z rail
 
-(no image — see text; LDO [printed parts guide Rev D](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d))
+![Step 02.10 — LDO rail stop at the top of a Z rail (CAD render; the stop itself is LDO's part and is drawn as a labelled placeholder)](assets/cad/02-10-b.png)
+![](assets/parts/z_rail_stop_x4.png){ width=96 }
+
+**What you're looking at:** The CAD render shows the top of one Z rail with its carriage and the LDO **rail stop** — a small printed clip that caps the rail's top end so a carriage cannot run off it during the gantry install in Ch 06. The stop itself is not in the Voron CAD (it is LDO's part), so the renderer draws it as a labelled placeholder; the grey render beside it is the actual STL.
 
 **Parts:** `z_rail_stop_x4.stl` ×4 (LDO repo, black) — printed in batch **B05**, which comes *after* this chapter in the timeline.
 
@@ -245,13 +272,15 @@ Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Tip: LDO also uses a rubber rail stopper under the Z joints as a gantry rest at manual p.114–116. That is Chapter 06 — do not confuse the two. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
+Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [CAD render — assets/cad/PILOT.md](assets/cad/PILOT.md)
 
 Pause: ~35 min since the last pause — all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.
 
 ### Step 02.11 — Turn the printer upside down and pre-load the deck T-nuts
 
 ![Voron manual p.28](assets/manual-pages/manual-p028.png)
+
+**What you're looking at:** Manual p.28 — the frame inverted, with four M5 roll-in T-nuts dropped into the top slots of the two bed extrusions. The printer spends the next fifteen manual pages upside down because every Z drive bolts to the *underside* of the bottom frame rails.
 
 **Parts:** M5 roll-in T-nut ×4.
 
@@ -264,6 +293,8 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.12 — Caliper the deck panel and choose the support thickness
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png)
+
+**What you're looking at:** Manual p.29 — the deck panel and its support clips. The **deck panel** is the acrylic floor that separates the electronics bay below from the print chamber above ([glossary](16-glossary.md#d)); the printed clips slot into the extrusion and hold up the middle of the panel, and their slot width has to match the panel's thickness, which is why you caliper it rather than read it.
 
 **Parts:** deck panel; caliper; `deck_support_4mm_x8` ×8 and `deck_support_3mm_x8` ×8.
 
@@ -279,6 +310,8 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png)
 
+**What you're looking at:** Manual p.29 — eight deck support clips going into the extrusion slots. They carry the unsupported middle of the acrylic so it does not bow under the weight of the boards and cabling mounted to it later.
+
 **Parts:** deck support clips ×8 (the thickness you chose in Step 02.12).
 
 **Do:** Slide the eight clips into the extrusion slots that the deck panel will rest on, spaced evenly along the unsupported spans. They carry the middle of the panel so it does not sag under the weight of the electronics.
@@ -293,6 +326,8 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.28](assets/manual-pages/manual-p028.png)
 
+**What you're looking at:** Manual p.28 — the deck panel dropping onto the bed extrusions. The cut-out notch is the pass-through every cable between the chamber and the bay uses; put it anywhere but the back and there is no route for the bed harness, the toolhead umbilical or the Z chain.
+
 **Parts:** deck panel ×1.
 
 **Do:** Peel any protective film. Lay the panel on the bed extrusions with the **cut-out notch toward the back** of the printer — the notch is the wire pass-through and it is wrong in every other orientation. Line the four bolt holes up over the four T-nuts.
@@ -305,9 +340,11 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png)
 
+**What you're looking at:** Manual p.29 — the four T-nuts sitting under the four holes in the deck, and nothing else. The bolts that go through those holes also clamp the two DIN rails that carry the electronics, so they belong to one step in Ch 09 rather than being fitted twice.
+
 **Parts:** the four M5 T-nuts from Step 02.11. **No bolts and no DIN rails yet.**
 
-**Do:** Slide each T-nut until it sits directly under one of the four holes in the deck panel, then leave them there. The two 35 mm DIN rails and the four M5×10 BHCS that clamp them — and the deck — down go on in **Ch 09 Step 09.5**, which is the authoritative DIN-rail step (LDO's left-to-right orientation, plus the four end caps). Doing it twice is how the same four bolts end up counted in two chapters.
+**Do:** Slide each T-nut until it sits directly under one of the four holes in the deck panel, then leave them there — once the panel is down you cannot see them, and Ch 09 has to find them again. The two 35 mm DIN rails and the four M5×10 BHCS that clamp them — and the deck — down go on in **Ch 09 Step 09.5**, which is the authoritative DIN-rail step (LDO's left-to-right orientation, plus the four end caps). Doing it twice is how the same four bolts end up counted in two chapters.
 
 **Check:** Four T-nuts visible through the four deck holes, free to nudge but not lost inside an extrusion. Panel sitting flat, unbolted, notch to the back.
 
@@ -318,6 +355,8 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.16 — Fix the printer's orientation in your head
 
 ![Voron manual p.30](assets/manual-pages/manual-p030.png)
+
+**What you're looking at:** Manual p.30 — the orientation cube the manual prints on every graphic from here on. With the printer inverted, front and back stop being obvious, and every "which corner" callout for the rest of the chapter is read against that marker.
 
 **Parts:** none.
 
@@ -333,6 +372,8 @@ Pause: ~30 min since the last pause — the printer is inverted and stable, the 
 
 ![Voron manual p.32](assets/manual-pages/manual-p032.png)
 
+**What you're looking at:** Manual p.32 — the Z drive's shaft assembly starting to come together. The **5 × 60 mm shaft** is the axle the whole drive turns on; the **20T pulley** clamped near one end is what the long Z belt runs over to lift that corner of the gantry. A **set screw** is a headless screw that clamps a pulley to a shaft; one of each pair has to land on the shaft's machined flat, because a set screw tightened onto round steel will eventually slip ([glossary](16-glossary.md#s)).
+
 **Parts:** 5×60 mm shaft ×1; GT2 20T 9 mm pulley ×1; M4×4 set screws ×2 (pre-threadlocked).
 
 **Do:** Slide the 20T 9 mm pulley onto the shaft so **33 mm of shaft protrudes past the pulley** on the long side (the dimension on the page). Rotate the pulley so that **one set screw lands on the D-cut flat** of the shaft. Fit both set screws and tighten with a proper hex driver — **not** a ball-end driver, which cams out and rounds the socket.
@@ -347,6 +388,8 @@ Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.32](assets/manual-pages/manual-p032.png)
 
+**What you're looking at:** Manual p.32 with the printed `pulley_jig` — a flat gauge with steps cut to the pulley heights the build uses. It repeats the 33 mm dimension across all four shafts without re-measuring, so the four corners lift on belts that all sit in the same plane.
+
 **Parts:** `pulley_jig.stl`; the remaining three shafts and 20T pulleys; M4×4 set screws ×6.
 
 **Do:** Check the pulley position against the printed `pulley_jig` — it gives you a repeatable stack height without re-measuring. Build the other three shaft/pulley pairs the same way.
@@ -358,6 +401,8 @@ Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.19 — Build the bearing/pulley stack on each shaft
 
 ![Voron manual p.33](assets/manual-pages/manual-p033.png)
+
+**What you're looking at:** Manual p.33 — the full stack on the shaft, in section. Three **625-2RS** bearings (plain 5 × 16 × 5 mm ball bearings, used only in the Z drives) carry the shaft; the **80T pulley** is the big one the short 188 mm belt drives, and the 80:16 tooth ratio between it and the motor pulley is the reduction that gives Z its resolution. The brass **precision spacers** between them set exactly how far apart everything sits ([glossary](16-glossary.md#p)).
 
 **Parts:** per drive — 625-2RS bearings ×3; GT2 80T pulley ×1; M5 precision spacer 1 mm ×4; the shaft from Step 02.17.
 
@@ -373,6 +418,8 @@ Source: [Voron manual p.33](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.33](assets/manual-pages/manual-p033.png)
 
+**What you're looking at:** Manual p.33 — the 80T pulley's two set screws. This is the joint the entire weight of the gantry hangs on through the belt, and loose set screws are the most-reported failure on this machine, so both get threadlocker and one lands on the flat.
+
 **Parts:** M4×4 set screws ×2 per 80T pulley.
 
 **Do:** Set the 80T pulley so a set screw meets the flat of the shaft, fit both set screws with threadlocker, and tighten. The manual is blunt about this: loose set screws account for the majority of user problems on this machine. Build all four stacks.
@@ -385,9 +432,11 @@ Source: [Voron manual p.33](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.34](assets/manual-pages/manual-p034.png)
 
+**What you're looking at:** Manual p.34 — the closed 188 mm belt loop dropped over the 80T pulley. It is a continuous loop with no join, so it has to be threaded on before the drive is closed; there is no way to add it afterwards without taking the drive apart again.
+
 **Parts:** Gates 2GT closed loop 6 mm × 188 mm ×1 per drive.
 
-**Do:** Drop the closed belt loop over the 80T pulley, teeth inward, before the shaft goes into the housing. This loop is captive once the drive is closed — there is no way to add it later without dismantling the drive.
+**Do:** Drop the closed belt loop over the 80T pulley, teeth inward, before the shaft goes into the housing — the loop has no join, so this is the only moment it can go on. This loop is captive once the drive is closed — there is no way to add it later without dismantling the drive.
 
 **Check:** Loop seated in the 80T pulley's teeth, hanging free, not twisted.
 
@@ -401,6 +450,8 @@ Pause: ~35 min since the last pause — four complete shaft assemblies: 20T pull
 
 ![Voron manual p.35](assets/manual-pages/manual-p035.png)
 
+**What you're looking at:** Manual p.35 — the shaft assembly lowering into `z_drive_main`, the printed housing that is the body of the gearbox. Its three moulded seats hold the outer races of the 625 bearings, which is what fixes the shaft's position relative to the frame.
+
 **Parts:** `z_drive_main_a` or `_b` ×1; the belted shaft assembly from Step 02.21.
 
 **Do:** Lower the whole shaft assembly into the printed housing so each 625 bearing drops into its seat and the belt loop lies inside the body. The bearings should go in with firm thumb pressure. **If one needs real force, do not drive it.** Warm the part to roughly 50 °C first (a few minutes on a warm bed or under a hair dryer), then press the bearing square using a flat block on the outer race — never a hammer, never a screwdriver against the seal, and never at an angle. ASA at room temperature cracks along the layer lines when a bearing is driven into a seat that shrank slightly on cooling.
@@ -412,6 +463,8 @@ Source: [Voron manual p.35](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.23 — Check the shaft position against the section view
 
 ![Voron manual p.35](assets/manual-pages/manual-p035.png)
+
+**What you're looking at:** Manual p.35's section view beside your part. The section is the only place the manual shows which side of the 20T pulley each spacer and bearing belongs on — worth a careful comparison, because after the retainer goes on, six long screws have to come back out to fix it.
 
 **Parts:** none.
 
@@ -425,6 +478,8 @@ Source: [Voron manual p.35](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.36](assets/manual-pages/manual-p036.png)
 
+**What you're looking at:** Manual p.36 — `z_drive_retainer`, the lid that closes the drive. Its bearing cradles clamp down on the same three bearings from the other side, and the six M3×40 screws run through the whole sandwich into the heat-set inserts you fitted in Step 02.03. `_a` and `_b` retainers are mirror images: two of each, matched to the drive body they close.
+
 **Parts:** `z_drive_retainer_a` or `_b` ×1 (inserts already fitted, Step 02.03); M3×40 SHCS ×6.
 
 **Do:** Lay the retainer over the drive body so the bearing cradles line up, press it down until the two mating faces meet with no gap, and drive the six M3×40 SHCS through the stack into the heat-set inserts. Tighten in a criss-cross pattern, a little at a time, so the retainer pulls down evenly. Snug, then stop — the thread is a brass insert in ASA.
@@ -436,6 +491,9 @@ Source: [Voron manual p.36](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.25 — Fit the orange baseplate and its captive M5 nut
 
 ![Voron manual p.37](assets/manual-pages/manual-p037.png)
+![`[a]_z_drive_baseplate_a` (left) vs `_b` (right)](assets/parts/pair-z_drive_baseplate_x2.png)
+
+**What you're looking at:** Manual p.37 — the orange `[a]_z_drive_baseplate`, the accent-coloured foot of the drive, with an M5 hex nut dropped into a pocket in it. That captive nut is the thread the belt tensioner pulls against in Step 02.34; the Voron heart embossed on the part is the manual's marker for an accent-colour piece. `_a` and `_b` are mirrors — in the pair render the nut pocket and the three screw holes sit on opposite sides of the plate — so match the baseplate to the letter you wrote on its drive body.
 
 **Parts:** `[a]_z_drive_baseplate_a` or `_b` ×1 (orange); M5 hexnut ×1; M3×8 SHCS ×3.
 
@@ -448,6 +506,8 @@ Source: [Voron manual p.37](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.26 — Confirm the belt loop is captured
 
 ![Voron manual p.37](assets/manual-pages/manual-p037.png)
+
+**What you're looking at:** Manual p.37 — the assembled drive with the belt loop visible inside it. The loop has to reach out far enough to go over the motor's 16T pulley when the drive is offered to the frame, so this is the last chance to see it before the drive is bolted down.
 
 **Parts:** none.
 
@@ -463,6 +523,8 @@ Pause: ~35 min since the last pause — all four drives closed: shafts seated, r
 
 ![Voron manual p.38](assets/manual-pages/manual-p038.png)
 
+**What you're looking at:** Manual p.38 — a Z stepper motor with its **16T pulley**. The Z motors are the only place in this printer that uses 16T; the 20T pulleys everywhere else look almost identical, and fitting a 20T here silently changes the gear ratio the firmware assumes, so every Z dimension comes out wrong without any error appearing ([glossary](16-glossary.md#p)).
+
 **Parts:** NEMA17 Z motor `LDO-42STH48-2004AC` ×1; GT2 **16T** pulley ×1; M4×4 set screws ×2.
 
 **Do:** **These are the only 16T pulleys in the printer** — check the tooth count on the pulley itself, not the bag it came out of. Slide it onto the motor shaft so the gap from the motor's front face to the underside of the pulley is **10.7 mm**. Rotate so at least one set screw contacts the flat of the motor shaft, then fit and tighten both with threadlocker. Depending on the motor, the pulley may sit better flipped; what matters is where the *teeth* end up, not which way the boss faces.
@@ -476,6 +538,9 @@ Source: [Voron manual p.38](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.28 — Bolt the motor to `z_motor_mount`, watching the cable exit
 
 ![Voron manual p.39](assets/manual-pages/manual-p039.png)
+![`z_motor_mount_a` (left) vs `_b` (right)](assets/parts/pair-z_motor_mount_x2.png)
+
+**What you're looking at:** Manual p.39 — the motor bolted to `z_motor_mount`, the printed L-bracket that stands the motor off the frame at the right height for its belt. The mounts are mirrored `_a` / `_b` and the two hands put the motor's cable exit on opposite sides, which is why the cable direction is checked against the graphic rather than chosen. In the pair render, seen from one camera, `_a`'s bolt-down arm reaches to the left of the motor plate and `_b`'s to the right.
 
 **Parts:** `z_motor_mount_a` or `_b` ×1; M3×8 SHCS ×3.
 
@@ -493,6 +558,8 @@ Pause: ~25 min since the last pause — four Z motors carry their 16T pulleys at
 
 ![Voron manual p.40](assets/manual-pages/manual-p040.png)
 
+**What you're looking at:** Manual p.40 — the highlighted corner is Z0, front-left. The mirror hand of the printed parts decides which corner an assembly fits, so the drive and motor mount are matched to the corner before a single bolt goes in.
+
 **Parts:** one complete drive + one motor/mount assembly.
 
 **Do:** Z0 is the first drive to go on the printer. With the printer upside down, find the corner the graphic highlights and lay the matching drive and motor assembly beside it. Match the mirror hand (`a` vs `b`) to the corner before you fit anything.
@@ -504,6 +571,8 @@ Source: [Voron manual p.40](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.30 — Pre-load four M5 T-nuts at the Z0 corner
 
 ![Voron manual p.41](assets/manual-pages/manual-p041.png)
+
+**What you're looking at:** Manual p.41 — four M5 roll-in T-nuts loaded into the two bottom extrusions meeting at this corner. They are the threads for everything that bolts down here: two for the motor mount, one for the drive body, one for the tensioner.
 
 **Parts:** M5 roll-in T-nut ×4.
 
@@ -517,6 +586,8 @@ Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.41](assets/manual-pages/manual-p041.png)
 
+**What you're looking at:** Manual p.41 — the motor assembly landing at the corner on two long M5×40 screws through its foot. It is left loose deliberately, because the tensioner in Step 02.34 works by pushing the drive body away from the motor and both have to be free to move for that.
+
 **Parts:** M5×40 SHCS ×2; the motor/mount assembly.
 
 **Do:** Set the motor assembly at the corner and drive two M5×40 SHCS down through the counterbored holes in the mount's foot into two of the pre-loaded T-nuts. Do not fully tighten yet — the belt tensioner still has to pull the drive body into position.
@@ -529,6 +600,8 @@ Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.42](assets/manual-pages/manual-p042.png)
 
+**What you're looking at:** Manual p.42 — the finished drive sliding into the corner at an angle, with its belt loop being fed over the motor's 16T pulley on the way in. That angled entry is the only path that gets the belt onto both pulleys with the drive already assembled.
+
 **Parts:** M5×10 BHCS ×1; the completed Z drive.
 
 **Do:** Insert the drive body at an angle and slide it into place against the corner, feeding the belt loop over the 16T motor pulley as it goes. Fit one M5×10 BHCS through the drive body's foot into a T-nut. **Leave it loose** — the manual says so explicitly, and the tensioner in the next step needs the drive free to move.
@@ -540,6 +613,9 @@ Source: [Voron manual p.42](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.33 — Fit the orange belt tensioner, still loose
 
 ![Voron manual p.43](assets/manual-pages/manual-p043.png)
+![`[a]_belt_tensioner_a` (left) vs `_b` (right)](assets/parts/pair-belt_tensioner_x2.png)
+
+**What you're looking at:** Manual p.43 — the orange `[a]_belt_tensioner`, a cam that pivots on a single M5 bolt. It is a lever, not a bracket: rotating it pushes the drive body away from the motor and takes up the slack in the 188 mm loop, so its bolt stays loose until the cam has done its work. The `_a` and `_b` cams are mirrors: in the pair render, both seen from one camera, the upright tab stands at opposite ends of the rounded cam body. The wrong hand will swing *away* from the drive instead of into it.
 
 **Parts:** `[a]_belt_tensioner_a` or `_b` ×1 (orange); M5×10 BHCS ×1.
 
@@ -553,6 +629,8 @@ Source: [Voron manual p.43](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.44](assets/manual-pages/manual-p044.png)
 
+**What you're looking at:** Manual p.44 — the cam being rotated closed. Closing it is what tensions the belt; the arrow on the page is the direction that drives the body away from the motor rather than toward it.
+
 **Parts:** none.
 
 **Do:** Rotate the tensioner cam closed, in the direction of the arrow. Closing it drives the Z drive body away from the motor and tensions the 188 mm belt loop.
@@ -564,6 +642,8 @@ Source: [Voron manual p.44](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.35 — Tighten the M5 bolts
 
 ![Voron manual p.45](assets/manual-pages/manual-p045.png)
+
+**What you're looking at:** Manual p.45 — all four M5 bolts at this corner. They are tightened only now, with the tensioner closed, so the geometry the cam set is what gets locked in.
 
 **Parts:** none — the four M5 bolts already fitted.
 
@@ -577,6 +657,8 @@ Source: [Voron manual p.45](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.45](assets/manual-pages/manual-p045.png)
 
+**What you're looking at:** Manual p.45 — one of the printer's four rubber feet, bolted to the corner while the machine is still upside down and the underside is reachable.
+
 **Parts:** Rubber foot 38×19 mm ×1; M5×16 BHCS ×1.
 
 **Do:** With the printer still upside down, fit a rubber foot at this corner and fix it with one M5×16 BHCS.
@@ -588,6 +670,8 @@ Source: [Voron manual p.45](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.37 — Check the drive did not shift when the tensioner closed
 
 ![Voron manual p.46](assets/manual-pages/manual-p046.png)
+
+**What you're looking at:** Manual p.46 — a section through the finished corner. Closing the tensioner pushes hard on the drive body, and if the body was not seated square against both extrusions it moves; the section is how you tell.
 
 **Parts:** none.
 
@@ -603,6 +687,8 @@ Pause: ~30 min since the last pause — the Z0 corner is complete: motor mount, 
 
 ![Voron manual p.47](assets/manual-pages/manual-p047.png)
 
+**What you're looking at:** Manual p.47 — all four corners done. Two corners take the `_a` hand of every printed part and two take `_b`; the cable labels go on now because in Ch 10 four identical black stepper cables arrive at the mainboard together.
+
 **Parts:** the remaining three drives, motors, mounts, tensioners, feet and their hardware.
 
 **Do:** Repeat Steps 02.29–02.37 at the opposing corner with the same hand of parts, then at the two remaining corners with the **mirrored** printed parts (`_b` where you used `_a`, and vice versa). Label each motor's cable Z0/Z1/Z2/Z3 by its physical corner as you go.
@@ -616,6 +702,9 @@ Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 
 ### Step 02.39 — Assemble a Z idler cage
 
 ![Voron manual p.48](assets/manual-pages/manual-p048.png)
+![`z_tensioner_bracket_a` (left) vs `_b` (right)](assets/parts/pair-z_tensioner_bracket_x2.png)
+
+**What you're looking at:** Manual p.48 — the **Z idler**, the assembly that sits at the top corner directly above a drive and turns the long Z belt back down again. `z_tensioner_bracket` is the printed cage that bolts to the frame; the orange `[a]_z_tensioner_9mm` slides inside it on a screw, and that screw is what you turn to tension the Z belt in Ch 07. The bracket comes in mirrored `_a` / `_b` hands: in the pair render, both from one camera, the outboard rib is visible on `_a`'s left flank and hidden behind `_b`. The orange slider is the same part in all four.
 
 **Parts:** `z_tensioner_bracket_a` or `_b` ×1; `[a]_z_tensioner_9mm` ×1 (orange); M3×16 SHCS ×1; M3 hexnut ×1.
 
@@ -629,9 +718,11 @@ Source: [Voron manual p.48](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.48](assets/manual-pages/manual-p048.png)
 
+**What you're looking at:** Manual p.48 — a 20T **idler** dropped into the fork of the orange tensioner on an M5×30 screw used as its axle. An idler is a pulley that redirects a belt without driving it ([glossary](16-glossary.md#i)); it just has to spin freely and stay in plane.
+
 **Parts:** GT2 20T 9 mm idler ×1; M5×30 BHCS ×1.
 
-**Do:** Slot the 20T 9 mm idler into the fork of the orange tensioner and push the M5×30 BHCS through as the axle. Build all four idlers — two `a` brackets, two `b`.
+**Do:** Slot the 20T 9 mm idler into the fork of the orange tensioner and push the M5×30 BHCS through as the axle, so the pulley turns on the screw's plain shank rather than on its thread. Build all four idlers — two `a` brackets, two `b`.
 
 **Check:** Idler spins freely on the axle with no axial slop, and its tooth band sits centred in the fork. Four idlers built.
 
@@ -642,6 +733,8 @@ Pause: ~20 min since the last pause — four idler cages assembled with their ca
 ### Step 02.41 — Pre-load two M5 T-nuts at a top corner
 
 ![Voron manual p.49](assets/manual-pages/manual-p049.png)
+
+**What you're looking at:** Manual p.49 — two M5 T-nuts in the vertical extrusion at a top corner, positioned for the idler bracket's two mounting holes.
 
 **Parts:** M5 roll-in T-nut ×2.
 
@@ -655,6 +748,8 @@ Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.49](assets/manual-pages/manual-p049.png)
 
+**What you're looking at:** Manual p.49 — the idler bracket going onto the top corner. Its pulley and the 20T pulley in the drive directly below it have to lie in one vertical plane, because the Z belt runs between them; a bracket that is not pressed hard into the corner before tightening leaves a twist in that plane.
+
 **Parts:** M5×30 BHCS ×2; the idler from Step 02.40.
 
 **Do:** Offer the idler up to the corner. **Its pulley must face the same way as the pulley in the drive directly below it** — this is what keeps the Z belt running in a single plane. Press the bracket **firmly into the corner** before you tighten anything, then fit two M5×30 BHCS into the T-nuts and tighten.
@@ -667,6 +762,8 @@ Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.50](assets/manual-pages/manual-p050.png)
 
+**What you're looking at:** Manual p.50 — the other three idlers, two `_a` brackets and two `_b`. Each one is aligned to the drive underneath it, so all four Z belts run true.
+
 **Parts:** the remaining three idlers; M5×30 BHCS ×6; M5 roll-in T-nut ×6.
 
 **Do:** Repeat Steps 02.41–02.42 at the opposing corner, then at the two mirrored corners with the `b`-hand brackets.
@@ -678,6 +775,8 @@ Source: [Voron manual p.50](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 02.44 — Close the chapter
 
 ![Voron manual p.51](assets/manual-pages/manual-p051.png)
+
+**What you're looking at:** Manual p.51 is a divider page with no assembly content — the marker that the Z chapter is finished. The photographs matter because the gantry and the electronics bay are about to cover most of what you just built.
 
 **Parts:** none — p.51 is a filler page in the manual and carries no assembly step.
 
@@ -695,7 +794,7 @@ Pause: ~25 min since the last pause — all four Z idlers mounted, each aligned 
 
 - [ ] All four Z rails run their full travel with no notch, tight spot or grinding; every carriage is taped or stoppered.
 - [ ] Rail surfaces are clean and dry and grease is inside the carriages only — carried over from Ch 00 Steps 00.18–00.21 and re-confirmed at Step 02.05.
-- [ ] All four rails are centred on their extrusions, face each other, and share the same ~3 mm bottom gap and the same hole pattern.
+- [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left ↔ rear-left, front-right ↔ rear-right), and share the same ~3 mm bottom gap and the same hole pattern.
 - [ ] Deck panel notch is at the **back**; panel sits flat with no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
 - [ ] Measured deck-panel thickness is written down and the fitted deck supports (8 off) match it.
 - [ ] Every 20T drive pulley sits 33 mm along its shaft; every 16T motor pulley sits 10.7 mm off the motor face.

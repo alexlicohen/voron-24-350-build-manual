@@ -212,10 +212,27 @@ class Scene:
         return np.asarray(self.npz[f"v{pid}"]), np.asarray(self.npz[f"t{pid}"])
 
     def select(self, patterns):
+        """Each pattern is either a regex on the part path, or `ids:1,2,3`.
+
+        Prefer the id form in a committed manifest: Fusion instance suffixes
+        (`(3)`, `(Mirror)`) are the only thing separating otherwise identical
+        parts, so a regex that resolves correctly today can silently resolve to
+        a different instance after a CAD re-export. Ids are stable for a given
+        cache; re-resolve them from the `resolve:` regex when the cache is
+        rebuilt.
+        """
         out = []
         for pat in patterns:
-            rx = re.compile(pat, re.I)
-            hits = [r["id"] for r in self.index if rx.search(r["path"])]
+            if pat.startswith("ids:"):
+                hits = [int(x) for x in pat[4:].replace(" ", "").split(",") if x]
+                missing = [i for i in hits if i not in self.by_id]
+                if missing:
+                    sys.exit(f"ids not in this cache: {missing} "
+                             f"(cache has {len(self.index)} parts) - rebuild "
+                             f"steps.yml ids from the entry's resolve: regex")
+            else:
+                rx = re.compile(pat, re.I)
+                hits = [r["id"] for r in self.index if rx.search(r["path"])]
             if not hits:
                 sys.exit(f"no part matched /{pat}/")
             out.append((pat, hits))

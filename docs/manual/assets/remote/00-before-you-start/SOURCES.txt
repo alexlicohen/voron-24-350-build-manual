@@ -68,3 +68,12 @@ grease_pack.jpg
   date    : 2026-09-05
   licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
   sha256  : e7348ee6a59f0a3ab1d5765a6cb7ea84af8eb8ba63d825d113618f491fc8c703
+
+nhsbv2_pcb_pinout.jpg
+  used at : Step 00.5
+  owner   : LDO Motors (MotorDynamicsLab/Nitehawk-SB-V2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/Images/nhsbv2_pcb_pinout.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/Nitehawk-SB-V2/LICENSE)
+  sha256  : 0a209602bf34b96d7e38f00974b827be6bce0c5b2f4ed1bd829b1d7e7faa262b

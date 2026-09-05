@@ -1,0 +1,30 @@
+# Mirrored step images for docs/manual/11-skirts-panels-door.md
+# Added 2026-09-05 (wave 3, "describe the pieces" pass) for steps that previously had
+# no image. Mirrored under Alex's ruling (CONVENTIONS "Image licensing"): LDO
+# documentation images may be mirrored for this non-commercial, attributed manual.
+# Original filenames kept. Each entry: file -> URL -> owner/licence -> date -> step.
+
+PITFT43_FFC.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/PITFT43_FFC.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/PITFT43_FFC.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 11.6
+
+RPI_DSI_FFC.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/RPI_DSI_FFC.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/RPI_DSI_FFC.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 11.8
+
+nevermore_base_placement.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/nevermore_base_placement.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/nevermore_base_placement.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 11.38
+

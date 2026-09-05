@@ -2,6 +2,8 @@
 
 Everything you must decide, buy and agree *before* the electronics bay exists: who is allowed to do the mains work, who is allowed in the room, what meter you need, where the protective earth runs in this machine, and what to do when it goes wrong. Nothing is built here — this chapter exists so that Ch 09 and Ch 10 never stop to ask a question that should already have an answer.
 
+**What you're building in this chapter:** no hardware — four decisions and one purchase, each of which has to exist before a part goes in. **A named person** for the mains connections, and a written rule about who is in the room while they are made. **A multimeter with a category rating**, proved on a live outlet, because Ch 10's Checkpoint #1 is seven measurements and a meter that has quietly died reads every one of them as safe. **An RCD/GFCI outlet with a labelled breaker**, so the circuit can be killed from outside the room. And **a mental map of the parts you will meet in Ch 09–10**: the combined AC inlet (socket, switch and fuse in one body), the WAGO lever blocks that fan mains out to three destinations, the Meanwell PSU that makes the machine's 24 V, the solid-state relay that switches mains to the bed heater, and the protective-earth chain that ties the frame, the plate and the PSU back to the wall socket's earth pin.
+
 **Time:** 0.75–1.0 h hands-on, first build — reading, one shopping decision, one outlet check. No kit parts are touched.
 
 **Sessions:** 2 × ~30 min
@@ -36,6 +38,7 @@ Everything you must decide, buy and agree *before* the electronics bay exists: w
 - **The meter is not optional and it is not a formality.** Ch 10's Checkpoint #1 is seven meter measurements on an unplugged machine, and it is the hard gate before the bay closes (survey §5.2 W8).
 - **If your local rules say a certified person must make the mains connections, that is the whole of Ch 10 Section 1.** Decide it now, not with the printer on its back and the WAGOs half-populated.
 - **Nothing in this chapter overrides a step.** Where this chapter and a step disagree, the step wins and the disagreement is a bug — log it in the corrections table in [00-index.md](00-index.md).
+- Mirrored images in this chapter are LDO Motors' (LDOVoron2 wiring guide, docs.ldomotors.com), used with attribution; see `assets/remote/00a-mains-safety/SOURCES.txt`. Each step keeps the original URL on its `Source:` line.
 
 ---
 
@@ -159,7 +162,7 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 
 ### Step 00a.6 — Learn the protective-earth chain in this build
 
-(no image — see [LDO Rev D bay, wiring complete](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg))
+![LDO Rev D — the finished electronics bay, every earth branch in one frame](assets/remote/00a-mains-safety/VS9_Final.jpg)
 
 **What you're looking at:** LDO's photo of a finished Rev D electronics bay. Every branch of the **protective earth** chain is in this one frame: the inlet at the back wall, the yellow/green WAGO block that fans it out, the PSU's earth screw, the ring terminal bolted to a frame extrusion, and the lead that runs up to the build plate ([glossary](16-glossary.md#p)). PE is the conductor that makes the machine safe to *touch* — it gives a stray live current a path of far lower resistance than you.
 
@@ -183,13 +186,13 @@ The whole chain is proved in one sweep at [Step 10.77](10-wiring.md#step-1077-pr
 
 ⚠ **Rev D+ / LDO:** the bed's PE screw is **already fitted to the plate** and is an **M4×6 BHCS**, not the M3×6 the official manual asks you to supply. Verify it is tight at [Step 03.6](03-build-plate.md#step-036-verify-the-pe-screw-and-identify-the-three-cables); do not remove it and refit it. Its serrated washer is what bites through the surface to make the bond. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [Ch 10 Step 10.77](10-wiring.md#step-1077-protective-earth-bonding)
+Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [image: LDO `VS9_Final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg) · [Ch 10 Step 10.77](10-wiring.md#step-1077-protective-earth-bonding)
 
 ---
 
 ### Step 00a.7 — The SSR is marked "earth the mounting rail" and this build does not
 
-(no image — see [LDO S4 mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S4_mapping.jpg))
+![LDO — the SSR on its bracket; the body reads EARTH THE MOUNTING RAIL (Rev C photo: 20 A G3NB-220B-1, DIN terminal bus)](assets/remote/00a-mains-safety/SSR_Close_Up.jpg)
 
 **What you're looking at:** The **solid-state relay** on its metal bracket, with the wording on its body legible: *1 LOAD 2*, *3 + INPUT 4 −*, and the line this step is about — *EARTH THE MOUNTING RAIL*. An SSR is a semiconductor switch with no moving contacts; here it switches mains to the bed heater on a low-voltage signal from the mainboard ([glossary](16-glossary.md#s)). The photo is from LDO's Rev C guide, so the relay in it is the 20 A G3NB-220B-1 and the bus behind it is DIN terminal blocks; your Rev D kit ships the 10 A G3NB-210B-1 and WAGO 221 blocks, and carries the same marking.
 
@@ -207,13 +210,13 @@ Two more facts from Omron's own datasheet that change how you handle this part. 
 
 ⚠ Omron's caution for this relay family is *"Be sure to conduct wiring with the power supply turned OFF"* and *"Do not touch the G3NB's main circuit terminals immediately after the power is turned OFF."* Both are already how Ch 10 sequences the work — every mains connection is made with the cord in another room, and [Step 10.73](10-wiring.md#step-1073-confirm-dead) measures 0 V for ten seconds before anything is touched again.
 
-Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [Ch 10 Step 10.10](10-wiring.md#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
+Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [image: LDO `SSR_Close_Up.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Ch 10 Step 10.10](10-wiring.md#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
 
 ---
 
 ### Step 00a.8 — Ferrules and the no-whisker rule
 
-(no image — see text)
+![LDO Rev D — ferrules in the PSU's screw terminals, WAGO 221 levers below](assets/remote/00a-mains-safety/S3_wago_PSU.jpg)
 
 **What you're looking at:** The two kinds of mains terminal, side by side in LDO's Rev D bay. Above: the Meanwell PSU's three **screw terminals** (⏚, N, L), each taking a stranded core that has been crimped into a red **ferrule** — a metal sleeve that turns loose strands into one solid tube the screw can clamp ([glossary](16-glossary.md#f)). Below: the orange **WAGO 221** lever blocks, which clamp the core themselves and need no ferrule.
 
@@ -225,7 +228,7 @@ On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG
 
 **Check:** Ferrules found in the kit before Ch 10 starts (Ch 09's hardware table counts five). You know which terminals get a ferrule and which get bare stranded core, and you know the pull-and-look test.
 
-Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Ch 09 — Hardware](09-electronics-bay.md) · [Ch 10 Step 10.8](10-wiring.md#step-108-inlet-wago-bus), [Step 10.9](10-wiring.md#step-109-wago-bus-psu)
+Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [image: LDO `S3_wago_PSU.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg) · [Ch 09 — Hardware](09-electronics-bay.md) · [Ch 10 Step 10.8](10-wiring.md#step-108-inlet-wago-bus), [Step 10.9](10-wiring.md#step-109-wago-bus-psu)
 
 ---
 
@@ -249,7 +252,7 @@ Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Ch 10 Step 10.69
 
 ### Step 00a.10 — The fuse in the inlet, and what it does not protect
 
-(no image — see [LDO inlet layout diagram](https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png))
+![LDO — combined AC inlet: C14 socket, double-pole rocker, fuse drawer](assets/remote/00a-mains-safety/inlet_layout.png)
 
 **What you're looking at:** LDO's diagram of the combined AC inlet — one moulded body carrying the C14 socket where the cord plugs in, the illuminated double-pole rocker switch, and a pull-out fuse drawer. **C14** is the male inlet on the machine and **C13** the socket on the cord ([glossary](16-glossary.md#i)). The three properties below — fuse on live only, rocker on both poles, earth straight through — are what Step 10.5 proves with the meter.
 
@@ -265,7 +268,7 @@ What the fuse is for: Omron's datasheet for your SSR says *"The G3NB may rupture
 
 **Check:** You can find the fuse drawer with the machine upright, and the rating printed on the fuse or its holder is written in the build log **(verify on bench — LDO does not publish the value)**.
 
-Source: [Omron — G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet)
+Source: [Omron — G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet) · [image: LDO `inlet_layout.png`](https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png)
 
 ---
 

@@ -114,3 +114,23 @@ voron-slicer-cereal-test-print.png
   date    : 2026-09-05
   licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
   sha256  : c103a8ad44184e81a6ffef2083bc117c704cf5885399611b85f6238b25170b21
+
+# --- Added 2026-09-05 (wave 3, "describe the pieces" pass) for steps that
+# --- previously had no image. Mirrored under Alex's ruling (CONVENTIONS
+# --- "Image licensing"). Original filenames kept.
+
+SSR_Close_Up.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 13.8 (Rev C bay — the SSR body and its LED are what the step reads)
+
+Probe_Insulation.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/Probe_Insulation.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/Probe_Insulation.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 13.21

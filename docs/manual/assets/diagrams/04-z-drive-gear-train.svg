@@ -11,121 +11,123 @@
 <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
 </defs>
 <rect width="1200" height="880" fill="#FBFAF8"/>
-<text x="40.0" y="46.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Z drive gear train and Z belt loop — one corner, side view</text>
-<text x="40.0" y="72.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Motor 16T → 188 mm closed loop → 80T on the shaft → 20T on the same shaft → the Z belt that lifts the gantry. gear_ratio: 80:16.</text>
-<text x="1160.0" y="46.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">Ch 02, Steps 02.17 · 02.19 · 02.21 · 02.27 · 02.34 · 02.40 · Ch 06, Steps 06.18–06.19</text>
-<line x1="40.0" y1="88.0" x2="1160.0" y2="88.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
-<rect x="30.0" y="104.0" width="350.0" height="700.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<text x="48.0" y="134.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">One corner, side view</text>
-<text x="48.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the Z belt is a single strand, both ends clamped at the Z joint</text>
-<rect x="126.0" y="174.0" width="26.0" height="640.0" rx="3" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
-<text x="139.0" y="164.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">frame upright</text>
-<rect x="170.0" y="182.0" width="74.0" height="82.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
-<circle cx="204.0" cy="222.0" r="21.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.4"/>
-<circle cx="204.0" cy="222.0" r="6.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
-<text x="252.0" y="206.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">z_tensioner_bracket</text>
-<text x="252.0" y="223.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">20T 9 mm idler on an</text>
-<text x="252.0" y="238.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">M5x30 BHCS axle</text>
-<rect x="192.0" y="266.0" width="24.0" height="26.0" rx="3" fill="#FBE6D2" stroke="#E8751A" stroke-width="2"/>
-<text x="252.0" y="282.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="start" fill="#E8751A" letter-spacing="0">[a]_z_tensioner_9mm</text>
-<text x="252.0" y="297.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">M3x16 into a captive M3 nut</text>
-<rect x="158.0" y="640.0" width="96.0" height="108.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
-<circle cx="204.0" cy="692.0" r="21.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.4"/>
-<circle cx="204.0" cy="692.0" r="6.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
-<text x="264.0" y="666.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">z_drive_main</text>
-<text x="264.0" y="682.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">20T 9 mm pulley on</text>
-<text x="264.0" y="697.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the 5 x 60 shaft</text>
-<rect x="120.0" y="450.0" width="96.0" height="52.0" rx="5" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
-<text x="226.0" y="472.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Z joint / Z bearing block</text>
-<text x="226.0" y="488.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">both belt ends clamped here</text>
-<line x1="86.0" y1="476.0" x2="118.0" y2="476.0" stroke="#2A6FB5" stroke-width="6" stroke-linecap="round"/>
-<text x="82.0" y="480.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#2A6FB5" letter-spacing="0">gantry</text>
-<path d="M 183 472 L 183 692 A 21 21 0 1 0 225 692 L 225 222 A 21 21 0 0 0 183 222 L 183 480" fill="none" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="183.0" y1="516.0" x2="190.0" y2="516.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="542.0" x2="190.0" y2="542.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="568.0" x2="190.0" y2="568.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="594.0" x2="190.0" y2="594.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="620.0" x2="190.0" y2="620.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="646.0" x2="190.0" y2="646.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="262.0" x2="190.0" y2="262.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="288.0" x2="190.0" y2="288.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="314.0" x2="190.0" y2="314.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="340.0" x2="190.0" y2="340.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="366.0" x2="190.0" y2="366.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="392.0" x2="190.0" y2="392.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="418.0" x2="190.0" y2="418.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="183.0" y1="444.0" x2="190.0" y2="444.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="268.0" x2="218.0" y2="268.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="294.0" x2="218.0" y2="294.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="320.0" x2="218.0" y2="320.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="346.0" x2="218.0" y2="346.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="372.0" x2="218.0" y2="372.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="398.0" x2="218.0" y2="398.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="424.0" x2="218.0" y2="424.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="450.0" x2="218.0" y2="450.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="476.0" x2="218.0" y2="476.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="502.0" x2="218.0" y2="502.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="528.0" x2="218.0" y2="528.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="554.0" x2="218.0" y2="554.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="580.0" x2="218.0" y2="580.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="606.0" x2="218.0" y2="606.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="225.0" y1="632.0" x2="218.0" y2="632.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<text x="50.0" y="794.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#0E8F86" letter-spacing="0">Z belt — teeth face inward, onto the pulleys</text>
-<text x="50.0" y="812.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the two vertical runs are parallel; the smooth back of one</text>
-<text x="50.0" y="828.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">faces the toothed face of the other</text>
-<rect x="400.0" y="104.0" width="430.0" height="430.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<text x="418.0" y="134.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Inside the Z drive</text>
-<text x="418.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">16T motor pulley → 188 mm closed loop → 80T</text>
-<rect x="444.0" y="320.0" width="104.0" height="104.0" rx="4" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
-<text x="496.0" y="394.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">Z motor</text>
-<circle cx="496.0" cy="298.0" r="26.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
-<circle cx="496.0" cy="298.0" r="9.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
-<text x="496.0" y="302.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">16T</text>
-<line x1="430.0" y1="286.0" x2="430.0" y2="320.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<line x1="425.0" y1="286.0" x2="435.0" y2="286.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<line x1="425.0" y1="320.0" x2="435.0" y2="320.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<text x="421.0" y="307.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">10.7 mm</text>
-<text x="418.0" y="476.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">10.7 mm = motor face → underside of the pulley</text>
-<text x="418.0" y="494.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the only 16T pulleys in the printer — check the tooth count</text>
-<circle cx="692.0" cy="298.0" r="74.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.6"/>
-<circle cx="692.0" cy="298.0" r="12.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.8"/>
-<text x="692.0" y="303.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">80T</text>
-<text x="692.0" y="398.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">on the 5 x 60 shaft</text>
-<path d="M 502.4 323.2 L 710.1 369.7 A 74 74 0 1 0 710.1 226.3 L 502.4 272.8 A 26 26 0 1 0 502.4 323.2 Z" fill="none" stroke="#7A4FD6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="600.0" y="200.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#7A4FD6" letter-spacing="0">Gates 2GT closed loop, 6 mm x 188 mm</text>
-<text x="600.0" y="217.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">teeth inward — captive once the drive is closed</text>
-<rect x="430.0" y="420.0" width="116.0" height="34.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.4"/>
-<text x="488.0" y="442.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">[a]_belt_tensioner</text>
-<path d="M 550 437 L 596 437" fill="none" stroke="#E8751A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
-<text x="602.0" y="441.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">closing the cam drives the</text>
-<text x="602.0" y="457.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">drive body away from the motor</text>
-<rect x="850.0" y="104.0" width="320.0" height="430.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<text x="868.0" y="134.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">The shaft stack</text>
-<text x="868.0" y="155.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">working outward from the 20T pulley (Step 02.19)</text>
-<line x1="898.0" y1="180.0" x2="898.0" y2="512.0" stroke="#B6BDC6" stroke-width="10" stroke-linecap="round"/>
-<rect x="875.0" y="186.0" width="46.0" height="30.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="938.0" y="205.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
-<rect x="867.0" y="222.0" width="62.0" height="34.0" rx="3" fill="#FBE6D2" stroke="#E8751A" stroke-width="2"/>
-<text x="938.0" y="243.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">GT2 20T 9 mm pulley</text>
-<rect x="875.0" y="262.0" width="46.0" height="12.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
-<text x="938.0" y="272.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
-<rect x="875.0" y="280.0" width="46.0" height="12.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
-<text x="938.0" y="290.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
-<rect x="875.0" y="298.0" width="46.0" height="30.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="938.0" y="317.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
-<rect x="875.0" y="334.0" width="46.0" height="12.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
-<text x="938.0" y="344.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
-<rect x="875.0" y="352.0" width="46.0" height="12.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
-<text x="938.0" y="362.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
-<rect x="867.0" y="370.0" width="62.0" height="40.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="938.0" y="394.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">GT2 80T pulley</text>
-<rect x="875.0" y="416.0" width="46.0" height="30.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="938.0" y="435.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
-<text x="868.0" y="172.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">shaft end</text>
-<line x1="866.0" y1="528.0" x2="930.0" y2="528.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<line x1="866.0" y1="523.0" x2="866.0" y2="533.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<line x1="930.0" y1="523.0" x2="930.0" y2="533.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
-<text x="898.0" y="545.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle" fill="#5C6675" letter-spacing="0">33 mm of shaft past the 20T</text>
-<line x1="40.0" y1="832.0" x2="1160.0" y2="832.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
-<text x="40.0" y="854.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Z gearing is stock: the LDO Klipper config carries [stepper_z] rotation_distance: 40 and gear_ratio: 80:16. Four identical drives, two 'a' and two 'b'. The Z idler's pulley must face the same way as the 20T in the drive directly below it, or the Z belt does not run in one plane.</text>
+<text x="40.0" y="44.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Z drive gear train and Z belt loop</text>
+<text x="40.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">One corner, side view. Motor 16T → 188 mm closed loop → 80T on the shaft → 20T on the same</text>
+<text x="40.0" y="87.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">shaft → the Z belt that lifts the gantry. gear_ratio: 80:16.</text>
+<text x="1160.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">Ch 02, Steps 02.17 · 02.19 · 02.21 · 02.27 · Ch 06, Step 06.18</text>
+<line x1="40.0" y1="110.0" x2="1160.0" y2="110.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="30.0" y="126.0" width="344.0" height="700.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="48.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">One corner, side view</text>
+<text x="48.0" y="177.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">one strand, both ends clamped at the Z joint</text>
+<rect x="104.0" y="204.0" width="24.0" height="524.0" rx="3" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
+<text x="98.0" y="198.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">frame upright</text>
+<rect x="144.0" y="216.0" width="70.0" height="78.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
+<circle cx="176.0" cy="254.0" r="21.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.4"/>
+<circle cx="176.0" cy="254.0" r="6.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
+<text x="222.0" y="240.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">z_tensioner_bracket</text>
+<text x="222.0" y="257.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">20T 9 mm idler on an</text>
+<text x="222.0" y="272.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">M5x30 BHCS axle</text>
+<rect x="164.0" y="296.0" width="24.0" height="24.0" rx="3" fill="#FBE6D2" stroke="#E8751A" stroke-width="2"/>
+<text x="222.0" y="306.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="start" fill="#E8751A" letter-spacing="0">[a]_z_tensioner_9mm</text>
+<text x="222.0" y="321.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">M3x16 into a captive nut</text>
+<rect x="132.0" y="624.0" width="92.0" height="104.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
+<circle cx="176.0" cy="674.0" r="21.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.4"/>
+<circle cx="176.0" cy="674.0" r="6.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
+<text x="232.0" y="652.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">z_drive_main</text>
+<text x="232.0" y="668.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">20T 9 mm pulley on</text>
+<text x="232.0" y="683.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the 5 x 60 shaft</text>
+<rect x="98.0" y="482.0" width="92.0" height="48.0" rx="5" fill="#E2E4E8" stroke="#3E4550" stroke-width="2"/>
+<text x="196.0" y="502.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Z joint / Z bearing block</text>
+<text x="196.0" y="518.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">both belt ends clamped here</text>
+<line x1="68.0" y1="506.0" x2="96.0" y2="506.0" stroke="#2A6FB5" stroke-width="6" stroke-linecap="round"/>
+<text x="64.0" y="510.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#2A6FB5" letter-spacing="0">gantry</text>
+<path d="M 155 502 L 155 674 A 21 21 0 1 0 197 674 L 197 254 A 21 21 0 0 0 155 254 L 155 510" fill="none" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="155.0" y1="540.0" x2="162.0" y2="540.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="566.0" x2="162.0" y2="566.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="592.0" x2="162.0" y2="592.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="618.0" x2="162.0" y2="618.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="644.0" x2="162.0" y2="644.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="288.0" x2="162.0" y2="288.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="314.0" x2="162.0" y2="314.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="340.0" x2="162.0" y2="340.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="366.0" x2="162.0" y2="366.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="392.0" x2="162.0" y2="392.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="418.0" x2="162.0" y2="418.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="444.0" x2="162.0" y2="444.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="155.0" y1="470.0" x2="162.0" y2="470.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="294.0" x2="190.0" y2="294.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="320.0" x2="190.0" y2="320.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="346.0" x2="190.0" y2="346.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="372.0" x2="190.0" y2="372.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="398.0" x2="190.0" y2="398.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="424.0" x2="190.0" y2="424.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="450.0" x2="190.0" y2="450.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="476.0" x2="190.0" y2="476.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="502.0" x2="190.0" y2="502.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="528.0" x2="190.0" y2="528.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="554.0" x2="190.0" y2="554.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="580.0" x2="190.0" y2="580.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="606.0" x2="190.0" y2="606.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="197.0" y1="632.0" x2="190.0" y2="632.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<text x="48.0" y="760.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="#0E8F86" letter-spacing="0">Z belt — teeth face inward, onto the pulleys</text>
+<text x="48.0" y="780.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.3" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the two vertical runs are parallel; the smooth back</text>
+<text x="48.0" y="796.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.3" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">of one faces the toothed face of the other</text>
+<rect x="394.0" y="126.0" width="452.0" height="484.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="412.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Inside the Z drive</text>
+<text x="412.0" y="177.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">16T motor pulley → 188 mm closed loop → 80T</text>
+<rect x="434.0" y="384.0" width="104.0" height="100.0" rx="4" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.5"/>
+<text x="486.0" y="456.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">Z motor</text>
+<circle cx="486.0" cy="360.0" r="26.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="486.0" cy="360.0" r="9.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.6"/>
+<text x="486.0" y="364.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">16T</text>
+<line x1="426.0" y1="384.0" x2="458.0" y2="384.0" stroke="#9AA3AF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<line x1="426.0" y1="334.0" x2="458.0" y2="334.0" stroke="#9AA3AF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="3 3"/>
+<line x1="426.0" y1="334.0" x2="426.0" y2="384.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="421.0" y1="334.0" x2="431.0" y2="334.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="421.0" y1="384.0" x2="431.0" y2="384.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<text x="417.0" y="363.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">10.7 mm</text>
+<text x="412.0" y="482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">10.7 mm = motor face → underside of the pulley</text>
+<text x="412.0" y="500.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the only 16T pulleys in the printer — check the count</text>
+<circle cx="700.0" cy="334.0" r="74.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.6"/>
+<circle cx="700.0" cy="334.0" r="12.0" fill="#FFFFFF" stroke="#7E8794" stroke-width="1.8"/>
+<text x="700.0" y="339.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">80T</text>
+<text x="700.0" y="434.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">on the 5 x 60 shaft</text>
+<path d="M 494.8 384.5 L 725.1 403.6 A 74 74 0 1 0 707.7 260.4 L 488.7 334.1 A 26 26 0 1 0 494.8 384.5 Z" fill="none" stroke="#7A4FD6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="620.0" y="200.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#7A4FD6" letter-spacing="0">Gates 2GT closed loop, 6 mm x 188 mm</text>
+<text x="620.0" y="217.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">teeth inward — captive once the drive is closed</text>
+<rect x="420.0" y="524.0" width="120.0" height="32.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.4"/>
+<text x="480.0" y="545.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">[a]_belt_tensioner</text>
+<path d="M 544 540 L 584 540" fill="none" stroke="#E8751A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwo)"/>
+<text x="590.0" y="536.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">closing the cam drives the drive</text>
+<text x="590.0" y="552.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">body away from the motor</text>
+<rect x="866.0" y="126.0" width="304.0" height="484.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="884.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">The shaft stack</text>
+<text x="884.0" y="177.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">outward from the 20T pulley (Step 02.19)</text>
+<line x1="918.0" y1="176.0" x2="918.0" y2="462.0" stroke="#B6BDC6" stroke-width="10" stroke-linecap="round"/>
+<rect x="895.0" y="200.0" width="46.0" height="26.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<text x="960.0" y="217.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
+<rect x="887.0" y="232.0" width="62.0" height="30.0" rx="3" fill="#FBE6D2" stroke="#E8751A" stroke-width="2"/>
+<text x="960.0" y="251.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">GT2 20T 9 mm pulley</text>
+<rect x="895.0" y="268.0" width="46.0" height="11.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
+<text x="960.0" y="278.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
+<rect x="895.0" y="285.0" width="46.0" height="11.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
+<text x="960.0" y="295.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
+<rect x="895.0" y="302.0" width="46.0" height="26.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<text x="960.0" y="319.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
+<rect x="895.0" y="334.0" width="46.0" height="11.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
+<text x="960.0" y="344.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
+<rect x="895.0" y="351.0" width="46.0" height="11.0" rx="3" fill="#FBE6D2" stroke="#8A5A2B" stroke-width="2"/>
+<text x="960.0" y="361.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="500" text-anchor="start" fill="#8A5A2B" letter-spacing="0">M5 precision spacer</text>
+<rect x="887.0" y="368.0" width="62.0" height="36.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<text x="960.0" y="390.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">GT2 80T pulley</text>
+<rect x="895.0" y="410.0" width="46.0" height="26.0" rx="3" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
+<text x="960.0" y="427.5" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">625-2RS bearing</text>
+<text x="960.0" y="180.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">shaft end</text>
+<line x1="884.0" y1="482.0" x2="952.0" y2="482.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="884.0" y1="477.0" x2="884.0" y2="487.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<line x1="952.0" y1="477.0" x2="952.0" y2="487.0" stroke="#5C6675" stroke-width="1.4" stroke-linecap="round"/>
+<text x="918.0" y="499.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" text-anchor="middle" fill="#5C6675" letter-spacing="0">33 mm of shaft past the 20T</text>
+<line x1="40.0" y1="823.0" x2="1160.0" y2="823.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
+<text x="40.0" y="845.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Z gearing is stock: the LDO Klipper config carries [stepper_z] rotation_distance: 40 and gear_ratio: 80:16. Four identical drives, two 'a' and two</text>
+<text x="40.0" y="862.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">'b'. The Z idler's pulley must face the same way as the 20T in the drive directly below it, or the Z belt does not run in one plane.</text>
 </svg>

@@ -2,6 +2,8 @@
 
 Turns the wired machine on for the first time and proves every subsystem in the order the Voron startup wizard prescribes — temperatures, heaters, fans, motors, endstops, homing, probe, PID, QGL, Z=0, bed mesh — then hands off to gantry squaring and comes back for the first print.
 
+**What you're building in this chapter.** Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the four **temperature sensors** are read cold; then each **heater** is driven briefly and watched to stop; then every **fan** and **light** is commanded on and off; then each of the seven **motors** is buzzed a millimetre to prove the right cable is in the right socket; then each **endstop** and the **probe** are pressed by hand. Only then does the machine move on its own, in the **homing** sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on.
+
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, plus ~1 h for the cube print at the end.
 
 **Sessions:** 11 × ~30 min hands-on (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
@@ -64,6 +66,8 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 
 ![Voron 2.4 reference render](assets/remote/13-initial-startup/voron-v2-reference-render.png)
 
+**What you're looking at:** The render is a stock Voron 2.4: the gantry across the top, four Z drives in the corners, the bed on its own frame, the electronics bay under the deck. Everything this step takes out of the chamber is something that could be crushed, cut or set alight the first time the machine moves under its own power.
+
 **Parts:** none — preparation.
 
 **Do:** Take everything out of the chamber: tools, offcuts, zip-tie tails, the bag of spare fasteners, the filament spool. Check the gantry and bed for anything resting on them and pull off any rubber rail stoppers still on the rails. Put a fire extinguisher within arm's reach and clear the bench of paper and IPA. Confirm the side and top panels are off.
@@ -77,6 +81,8 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 ### Step 13.2 — Re-confirm the Checkpoint #1 result and the PSU voltage selector
 
 ![LDO Rev D bay, wiring complete](assets/remote/13-initial-startup/ldo-revd-vs9-finished-bay.jpg)
+
+**What you're looking at:** LDO's finished Rev D bay, photographed from below — the view you have with the machine on its side. Three things are being re-read in it: the PSU's red voltage slider, the SSR's four numbered terminals, and the Leviathan's five-position voltage-selection jumper block.
 
 **Parts:** none — verification.
 
@@ -96,6 +102,8 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 ![LDO PSU switch](assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg)
 
+**What you're looking at:** The photo is the PSU's 115/230 V slide switch one last time. The rocker your hand is on is the one built into the C14 inlet module — the machine's only mains isolator, and the fastest way to cut power if something is wrong.
+
 **Parts:** none.
 
 **Do:** Plug the mains lead in. Stand to the side of the machine, put your hand on the IEC inlet's rocker switch, and switch on. Keep your hand there for a full ten seconds. Listen and smell.
@@ -111,6 +119,8 @@ Source: [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/Moto
 ### Step 13.4 — Connect Klipper and confirm both MCUs
 
 ![Fluidd/Mainsail console](assets/remote/13-initial-startup/voron-startup-mainsail-console.png)
+
+**What you're looking at:** The screenshot is the web interface's **Console** tab, where every command in this chapter is typed and every reply is read. `FIRMWARE_RESTART` restarts the host process *and* both microcontrollers, so a clean `Ready` after it means the whole software stack is talking to the whole machine.
 
 **Parts:** none.
 
@@ -136,6 +146,8 @@ Source: [Voron docs image mainsail_terminal.png](https://raw.githubusercontent.c
 
 (no image — see text)
 
+**What you're looking at:** Nothing to see on the machine — you are asking the *running* Klipper instance what it believes the machine's dimensions are, instead of trusting the file on disk. A config that was edited but never restarted still reports the old numbers, and homing would drive the toolhead into the frame.
+
 **Parts:** none.
 
 **Do:** Do not trust the file on disk; ask the running instance. Send `GET_POSITION` and check the reported axis maximums in the interface's status panel, then confirm in the config editor that these are uncommented: `[stepper_x] position_endstop: 350` and `position_max: 350`; `[stepper_y]` the same; `[stepper_z] position_max: 330`; `[quad_gantry_level] gantry_corners: -60,-10 / 410,420` and `points: 50,25 / 50,275 / 300,275 / 300,25`; `[gcode_macro G32]` park line `G0 X175 Y175 Z30 F3600`; `[resonance_tester] probe_points: 175, 175, 20`.
@@ -151,6 +163,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 13.6 — Verify the four temperature readings at room temperature
 
 ![Mainsail temperature graph](assets/remote/13-initial-startup/voron-startup-mainsail-temp-graph.png)
+
+**What you're looking at:** The screenshot is the temperature panel, one trace per sensor. Four are expected: the hotend, the bed, the chamber sensor on the toolboard, and the Pi's own CPU temperature. A sensor reading room temperature and staying there is a sensor that is wired and configured correctly.
 
 **Parts:** none.
 
@@ -168,6 +182,8 @@ Source: [Voron docs image mainsail_temp_graph.png](https://raw.githubusercontent
 
 ![Heater verification](assets/remote/13-initial-startup/voron-startup-heater-verification.gif)
 
+**What you're looking at:** The animation shows a heater climbing on the graph once a target is set. 50 °C is chosen deliberately: hot enough to prove the heater and its thermistor are the same pair, cool enough to be harmless if they are not.
+
 **Parts:** none.
 
 **Do:** Hand back on the power switch. Set the **Tool** target to 50 and press enter. Watch the graph.
@@ -180,7 +196,9 @@ Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDe
 
 ### Step 13.8 — Short heat test: bed to 50 °C, and watch the SSR
 
-(no image — see text)
+![LDO close-up of the SSR and its indicator LED (Rev C bay — terminal blocks instead of your WAGOs)](assets/remote/13-initial-startup/SSR_Close_Up.jpg)
+
+**What you're looking at:** The same test on the other heater, with a second thing to watch — the SSR's own indicator LED down in the bay. That LED shows the relay's control side receiving its signal, which splits any bed fault cleanly into two halves: mains side, or control side.
 
 **Parts:** none.
 
@@ -190,13 +208,15 @@ Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDe
 
 Tip: `[heater_bed] max_power: 0.6` in the LDO config is deliberate — it limits warp on a 350 plate. Do not raise it because 100 °C feels slow.
 
-Source: [Voron startup wizard § Verify heaters](https://docs.vorondesign.com/build/startup/startup.html#verify-heaters) · [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307)
+Source: [LDO wiring photo SSR_Close_Up.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Voron startup wizard § Verify heaters](https://docs.vorondesign.com/build/startup/startup.html#verify-heaters) · [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307)
 
 ---
 
 ### Step 13.9 — Hotend fan (Stealthburner **bottom** fan)
 
 (no image — see text)
+
+**What you're looking at:** The Stealthburner's **bottom** fan is the hotend fan. It cools the heatsink above the nozzle and runs automatically whenever the hotend is hot, with nobody commanding it. A hotend heated with this fan dead will jam within one print.
 
 **Parts:** none.
 
@@ -211,6 +231,8 @@ Source: [Voron startup wizard § Hotend fan](https://docs.vorondesign.com/build/
 ### Step 13.10 — Part cooling fan (Stealthburner **top** fan)
 
 (no image — see text)
+
+**What you're looking at:** The **top** fan is the part-cooling fan — it blows down through the printed ducts onto the plastic just laid, and only the slicer or a manual `M106` turns it on. Nothing about the hotend's temperature affects it.
 
 **Parts:** none.
 
@@ -228,6 +250,8 @@ Source: [Voron startup wizard § Part cooling fan](https://docs.vorondesign.com/
 
 (no image — see text)
 
+**What you're looking at:** Two fans that are not on the toolhead: the 6020 pair in the electronics bay, which the config ties to the bed heater so they run whenever the bay is warm, and the Nevermore's blower, which Ch 12 deliberately made a macro-commandable fan rather than a heater-slaved one.
+
 **Parts:** none.
 
 **Do:** Set the **Bed** target to 60 and wait for it to pass 60 °C, then send `SET_FAN_SPEED FAN=nevermore SPEED=1` and, after confirming it, `SET_FAN_SPEED FAN=nevermore SPEED=0`.
@@ -243,6 +267,8 @@ Source: [Voron startup wizard § Controller fan](https://docs.vorondesign.com/bu
 ### Step 13.12 — Lights
 
 (no image — see text)
+
+**What you're looking at:** Two independent lighting systems. The COB strips on the chamber ceiling are plain LEDs on a dimmable output, switched with `SET_PIN`. The three Stealthburner LEDs are addressable — each carries its own tiny controller — so they take a colour command rather than a brightness.
 
 **Parts:** none.
 
@@ -261,6 +287,8 @@ Pause: ~40 min since the last pause — the machine has been powered, Klipper re
 ### Step 13.13 — `STEPPER_BUZZ` the four Z motors
 
 ![Voron V2 stepper locations and configuration guide](assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png)
+
+**What you're looking at:** The chart is Voron's own map of which motor sits at which corner and which config name it answers to. `STEPPER_BUZZ` moves one named motor 1 mm and back, ten times: the only way to prove a cable goes where its tag says without moving anything else.
 
 **Parts:** none.
 
@@ -292,6 +320,8 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 ![Stepper buzz](assets/remote/13-initial-startup/voron-startup-stepper-buzz.gif)
 
+**What you're looking at:** The animation shows what a healthy buzz looks like. A and B are the two rear-corner motors that drive the whole gantry through the crossed CoreXY belts, so neither one moves a single axis by itself — which is why their direction is settled later, at the homing check.
+
 **Parts:** none.
 
 **Do:** Run the two gantry commands.
@@ -311,6 +341,8 @@ Source: [Voron docs image verifysteppers.gif](https://raw.githubusercontent.com/
 
 (no image — see text)
 
+**What you're looking at:** The extruder motor lives on the toolhead and drives the Clockwork 2's pair of geared wheels that grip the filament. With no filament loaded, all you are looking for is those gears turning back and forth.
+
 **Parts:** none.
 
 **Do:** Send `STEPPER_BUZZ STEPPER=extruder` with no filament loaded.
@@ -324,6 +356,8 @@ Source: [Voron startup wizard § Stepper motor check](https://docs.vorondesign.c
 ### Step 13.16 — Correct any wrong motor or wrong direction
 
 (no image — see text)
+
+**What you're looking at:** Four different faults look almost identical from the console, and each has its own fix: nothing at all is power or pins, a buzz without travel is coil wiring, a wrong motor is a wrong port, and a wrong direction is one character in the config. Only the last of the four is fixed in software.
 
 **Parts:** none.
 
@@ -347,6 +381,8 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 (no image — see text)
 
+**What you're looking at:** `QUERY_ENDSTOPS` reports each limit switch's present state without moving anything at all. `open` means the switch is not pressed. Stock Voron endstops are wired normally-closed to ground, so a `TRIGGERED` reading on an untouched switch means a broken circuit, not a reversed one.
+
 **Parts:** none.
 
 **Do:** Send `M84` to de-energise the motors, push the toolhead to the middle of the build volume by hand, and send `QUERY_ENDSTOPS`.
@@ -368,6 +404,8 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 (no image — see text)
 
+**What you're looking at:** The X endstop is one of the two microswitches on the gantry pod, pressed by the toolhead at the right-hand end of its travel. Pushing it by hand tests the switch, its cable and its board port as one chain, with no motor involved.
+
 **Parts:** none.
 
 **Do:** Push the toolhead all the way to the **right** until you hear the endstop pod click, hold it there, and send `QUERY_ENDSTOPS`.
@@ -386,6 +424,8 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 ### Step 13.19 — Y endstop by hand
 
 (no image — see text)
+
+**What you're looking at:** The Y endstop is the other switch on that same pod, pressed when the whole gantry reaches the back of the machine. Same three-part chain, same test.
 
 **Parts:** none.
 
@@ -406,6 +446,8 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 ![LDO nozzle probe installed](assets/remote/13-initial-startup/ldo-nozzle-probe-installed.jpg)
 
+**What you're looking at:** The photo is the LDO nozzle probe as installed: a sprung 5 mm shaft standing up beside the bed with a D2F microswitch under it. The nozzle presses that shaft at the end of every Z homing move, which is what makes this part — not the inductive probe — the machine's definition of Z=0.
+
 **Parts:** none.
 
 **Do:** Press the nozzle probe's sliding shaft down with a finger until the D2F switch clicks, hold, and send `QUERY_ENDSTOPS`.
@@ -423,7 +465,9 @@ Source: [LDO wiring photo z_stop_final.jpg](https://raw.githubusercontent.com/Mo
 
 ### Step 13.21 — `QUERY_PROBE` on the inductive probe
 
-(no image — see text)
+![LDO photo of the inductive probe's fibreglass tape — front and sides only, sensing face bare](assets/remote/13-initial-startup/Probe_Insulation.jpg)
+
+**What you're looking at:** The Omron inductive probe senses metal at a distance without touching it, and on this build it is used only to level the gantry and shape the mesh. The photo shows the fibreglass heat shield it must wear: front and sides only, sensing face bare, because tape across the face changes the height at which it triggers.
 
 **Parts:** none.
 
@@ -443,7 +487,7 @@ Recv: // probe: TRIGGERED
 
 ⚠ Rev D+ / LDO: the PROBE port is **JST-PH2.0** on Rev D+ and is **24 V only**. Also confirm the probe body still carries the supplied fibreglass tape on the **front and sides only — not the back and not the bottom** (manual p.143 / LDO note); tape on the sensing face changes the trigger height. (survey §4.1 ③, §4.2 p.143)
 
-Source: [Voron startup wizard § Probe check](https://docs.vorondesign.com/build/startup/startup.html#probe-check) · [Klipper docs § QUERY_PROBE](https://www.klipper3d.org/G-Codes.html#query_probe) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326)
+Source: [LDO wiring photo Probe_Insulation.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/Probe_Insulation.jpg) · [Voron startup wizard § Probe check](https://docs.vorondesign.com/build/startup/startup.html#probe-check) · [Klipper docs § QUERY_PROBE](https://www.klipper3d.org/G-Codes.html#query_probe) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326)
 
 Pause: ~20 min since the last pause — all three endstops and the inductive probe respond correctly to `QUERY_ENDSTOPS` / `QUERY_PROBE`, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.
 
@@ -454,6 +498,8 @@ Pause: ~20 min since the last pause — all three endstops and the inductive pro
 ### Step 13.22 — Home X, with an abort ready
 
 ![Mainsail control panel](assets/remote/13-initial-startup/voron-startup-mainsail-controls.png)
+
+**What you're looking at:** The screenshot is the interface's jog and homing panel. Homing X means driving toward the endstop until it trips, backing off 5 mm and touching again slowly; the small lift before all that is `z_hop`, which keeps the nozzle off the bed while the toolhead crosses it.
 
 **Parts:** none.
 
@@ -468,6 +514,8 @@ Source: [Voron docs image mainsail_controls.png](https://raw.githubusercontent.c
 ### Step 13.23 — Home Y, then read the chart
 
 ![Voron V2 stepper locations and configuration guide](assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png)
+
+**What you're looking at:** The chart maps every combination of observed X and Y homing directions onto a cause. The upper block is a direction problem, fixed with one character in the config; the lower orange block means the two motors are physically swapped, fixed at the connector with the power off.
 
 **Parts:** none.
 
@@ -486,6 +534,8 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 ![LDO nozzle probe, installation](assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg)
 
+**What you're looking at:** The photo is the nozzle probe as LDO mounts it. Two things have to line up: the shaft directly under the nozzle when the toolhead is parked there, and 2–3 mm of clearance between that shaft and the back edge of the build plate across the plate's whole range.
+
 **Parts:** none — repositioning parts already fitted in Ch 09.
 
 **Do:** `G28 X Y`, then jog the toolhead left along the rear of the machine until the nozzle is in line with the nozzle probe. Loosen the probe's two M3×25 SHCS and slide the whole probe along the extrusion until the shaft is centred **directly under the nozzle**. Re-tighten. Then check the bed: there must be a 2–3 mm gap between the back edge of the build plate and the probe shaft.
@@ -499,6 +549,8 @@ Source: [LDO wiring photo z_stop_install_3.jpg](https://raw.githubusercontent.co
 ### Step 13.25 — Define the 0,0 point
 
 (no image — see text)
+
+**What you're looking at:** 0,0 is the machine's origin — the nozzle position Klipper calls X0 Y0. It is set indirectly, by telling each axis how far its endstop sits from that origin, which is why `position_endstop` and `position_max` always move together.
 
 **Parts:** none.
 
@@ -517,6 +569,8 @@ Source: [Voron startup wizard § Define 0,0 point](https://docs.vorondesign.com/
 ### Step 13.26 — Record the Z endstop coordinate into `[safe_z_home]`
 
 (no image — see text)
+
+**What you're looking at:** `M114` reports where Klipper currently believes the nozzle is. Parking it over the probe shaft and reading those two numbers is how the deliberate placeholder in `[safe_z_home]` becomes a real, measured position — the one the toolhead will move to before every Z home from now on.
 
 **Parts:** none.
 
@@ -539,6 +593,8 @@ Source: [Voron startup wizard § Z endstop pin location](https://docs.vorondesig
 
 (no image — see text)
 
+**What you're looking at:** The full sequence: X to its switch, Y to its switch, then a move to the coordinate you just recorded and a slow two-touch descent onto the nozzle probe. The stock `position_endstop: -0.5` deliberately leaves the nozzle high; the real value is measured in Step 13.36.
+
 **Parts:** none.
 
 **Do:** Send `G28` and watch the whole sequence: X to the right, Y to the back, then a move to the `[safe_z_home]` coordinate and a slow descent onto the nozzle probe.
@@ -556,6 +612,8 @@ Pause: ~30 min since the last pause — **homing works.** X, Y and Z home, the b
 ### Step 13.28 — `PROBE_ACCURACY` at the bed centre, cold
 
 (no image — see text)
+
+**What you're looking at:** `PROBE_ACCURACY` probes the same spot ten times and reports how far the readings scattered. It is a measurement of the machine's repeatability rather than of the bed: a tight standard deviation means the gantry returns to the same height every time, which is the precondition for levelling it.
 
 **Parts:** none.
 
@@ -585,6 +643,8 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 
 (no image — see text)
 
+**What you're looking at:** PID is the control loop that holds a heater at a setpoint without overshooting or hunting. `PID_CALIBRATE` deliberately drives the heater into oscillation, measures how it responds, and computes the three constants that damp it. Nothing else can happen while it runs.
+
 **Parts:** none.
 
 **Do:** Move the nozzle to the bed centre, 5–10 mm above the surface, then run the calibration. It takes about 10 minutes; leave it alone.
@@ -608,6 +668,8 @@ Source: [Voron startup wizard § PID tune heated bed](https://docs.vorondesign.c
 ### Step 13.30 — PID tune the hotend at 245 °C with the part fan at 25 %
 
 (no image — see text)
+
+**What you're looking at:** The same procedure on the hotend, with the part fan at 25 % on purpose: that fan is a disturbance the loop will face in every real print, so tuning against it produces constants that hold under printing conditions.
 
 **Parts:** none.
 
@@ -635,6 +697,8 @@ Source: [Voron startup wizard § PID tune hotend](https://docs.vorondesign.com/b
 
 (no image — see text)
 
+**What you're looking at:** A heat soak is waiting for the **frame** to come up to temperature, not the bed. Aluminium extrusions grow as they warm, which moves the gantry relative to the bed — so anything measured on a cold frame was measured on a different machine from the one that prints.
+
 **Parts:** none.
 
 **Do:** `G28`. Set the bed to 100 °C and the hotend to 150 °C. Put the side and top panels loosely in place so the chamber comes up to temperature (you will take them off again for Ch 06b). Wait 10–20 minutes from cold.
@@ -651,6 +715,8 @@ Pause: ~20 min since the last pause — cold `PROBE_ACCURACY` is in range, both 
 
 (no image — see text)
 
+**What you're looking at:** The same ten-probe repeatability test as Step 13.28, now hot. This is the gate: a probe still drifting will make gantry levelling report success while leaving the gantry tilted, and every measurement downstream inherits that error.
+
 **Parts:** none.
 
 **Do:** With the printer at temperature, `G0 X175 Y175 Z10 F6000` and run `PROBE_ACCURACY` again.
@@ -664,6 +730,8 @@ Source: [Voron startup wizard § Probe accuracy check](https://docs.vorondesign.
 ### Step 13.33 — `QUAD_GANTRY_LEVEL`
 
 (no image — see text)
+
+**What you're looking at:** [QGL](16-glossary.md#q) probes four points near the bed's corners, computes how far each of the four Z motors must move to bring the gantry parallel to the bed, moves them independently, and repeats. The number to watch is `Probed points range` — it should shrink on every pass.
 
 **Parts:** none.
 
@@ -698,6 +766,8 @@ Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL co
 
 ![Fully release A/B tension before squaring](assets/remote/13-initial-startup/voron-gantry-squaring-ab-tension-release.png)
 
+**What you're looking at:** The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring physically undoes belt tension, which is why Ch 07's tensioning was only provisional and why final tension belongs after this, in Ch 14.
+
 **Parts:** none — Ch 06b and Ch 07 hardware only.
 
 **Do:** Leave this chapter here and run [**Ch 06b — Gantry squaring**](06-z-axis-and-gantry-squaring.md), which needs exactly what you now have: a printer that homes and QGLs. It starts by raising the idle timeout (`SET_IDLE_TIMEOUT TIMEOUT=99999`), homing, QGL-ing, disabling *only* the A/B motors (`SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0`, same for `stepper_y`), **fully releasing A/B belt tension**, taking the side panels off and dropping the lower Z joints. When squaring is done, re-tension both A/B belts at Ch 06b step 06b.15 — the target, the method and the verification live in [**Ch 14 Step 14.4**](14-calibration.md#step-144-set-ab-belt-tension-to-110-hz-over-a-150-mm-span), which is authoritative for final belt tension.
@@ -714,6 +784,8 @@ Pause: ~10 min since the last pause — you are handed off to **Ch 06b**: A/B te
 
 (no image — see text)
 
+**What you're looking at:** Everything measured before squaring is now stale, so the soak, the probe check and the level are all repeated on the squared machine. A QGL that converges in fewer passes and from a smaller starting range is the evidence that squaring actually took.
+
 **Parts:** none.
 
 **Do:** Panels back on, bed to 100 °C, hotend to 150 °C, soak for the time you recorded in Step 13.32. Then `G28`, `PROBE_ACCURACY` (σ < 0.003 mm), `QUAD_GANTRY_LEVEL`.
@@ -729,6 +801,8 @@ Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.v
 ### Step 13.36 — `Z_ENDSTOP_CALIBRATE` and the paper test
 
 ![Mainsail manual probe dialog](assets/remote/13-initial-startup/voron-startup-mainsail-manual-probe.png)
+
+**What you're looking at:** The screenshot is Klipper's manual-probe dialog. `Z_ENDSTOP_CALIBRATE` steps the nozzle down in known increments until a sheet of paper just drags under it, then records that height as Z=0. The extra step at the end corrects for the fact that Klipper's procedure assumes a cold machine and yours is hot.
 
 **Parts:** one sheet of printer paper.
 
@@ -763,6 +837,8 @@ Source: [Voron docs image mainsail_manual_probe.png](https://raw.githubuserconte
 
 (no image — see text)
 
+**What you're looking at:** The same sheet of paper, now used as a check rather than a measurement: the nozzle is commanded to the Z=0 you just saved and the paper should behave the same way. The sign convention catches people out — a **larger** `position_endstop` puts the nozzle closer to the bed.
+
 **Parts:** paper.
 
 **Do:** `G28`, then `G0 X175 Y175 Z0 F1200`. Slide the paper under the nozzle.
@@ -781,6 +857,8 @@ Pause: ~20 min since the last pause — re-heated, re-QGL'd after squaring, `Z_E
 
 (no image — see text)
 
+**What you're looking at:** Nothing to build here. `[bed_mesh]` is one config section, owned by Ch 12, and this step only confirms it survived. `PRINT_END` calls `BED_MESH_CLEAR`, which is why a missing section shows up as a console warning at the end of every print rather than as a failure.
+
 **Parts:** none.
 
 **Do:** The LDO config ships **no `[bed_mesh]` section at all** — but `PRINT_END` calls `BED_MESH_CLEAR`, which will print `Unknown command:"BED_MESH_CLEAR"` at the end of every print until one exists. **Ch 12 Step 12.34 owns that block.** Do not retype it here: open `printer.cfg`, confirm the section is present and unchanged, then `FIRMWARE_RESTART`.
@@ -794,6 +872,8 @@ Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.ht
 ### Step 13.39 — `BED_MESH_CALIBRATE`
 
 (no image — see text)
+
+**What you're looking at:** `BED_MESH_CALIBRATE` probes a grid across the plate and stores the height at each point, so Klipper can correct Z continuously as the nozzle travels. It has to be taken hot and after levelling, because both the plate and the gantry change shape with temperature.
 
 **Parts:** none.
 
@@ -827,6 +907,8 @@ The first print is the last check in this chapter, not the start of tuning. The 
 
 (no image — see text)
 
+**What you're looking at:** `rotation_distance` is how far the filament advances for one turn of the extruder motor. Until it is right, every flow number downstream is wrong by the same percentage — and that error is indistinguishable from a first-layer or extrusion problem when you go looking for it.
+
 **Parts:** ASA filament; caliper or steel rule; masking tape.
 
 **Do:** Go and run [**Ch 14 Step 14.7 — Rotation-distance check**](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion) now, then come back here. Ch 14 owns `rotation_distance` — the formula, the Clockwork 2 starting values and the two ways of extruding 100 mm are all there, and are not repeated here.
@@ -840,6 +922,8 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 ### Step 13.41 — Slice the Voron cube
 
 (no image — see text)
+
+**What you're looking at:** `Voron_Design_Cube_v7` is a 30 mm test cube that batch B00 already printed on the Prusa. Printing the same file, in the same filament, with the same slicer overrides is what makes the two cubes comparable when Ch 14 puts a caliper on them.
 
 **Parts:** `Voron_Design_Cube_v7.stl`; ASA.
 
@@ -856,6 +940,8 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 ### Step 13.42 — Print it, and set the first-layer squish
 
 ![Voron cereal](assets/remote/13-initial-startup/voron-slicer-cereal-test-print.png)
+
+**What you're looking at:** The photo is Voron's own example of correct first-layer squish: beads that touch with no gaps between them but are still individually visible. Babystepping moves Z live while the layer prints; `Z_OFFSET_APPLY_ENDSTOP` is what turns that live adjustment into a saved value instead of one thrown away at the next restart.
 
 **Parts:** the sliced cube; clean flex plate; IPA.
 
@@ -877,6 +963,8 @@ Source: [Voron docs image voron_cereal.png](https://raw.githubusercontent.com/Vo
 ### Step 13.43 — Shut down properly
 
 (no image — see text)
+
+**What you're looking at:** The Pi is a small computer with a filesystem that can be corrupted by losing power mid-write. Shutting the host down first and only then cutting mains is the ordinary rule for any Linux machine — and here the file at risk holds every calibration in this chapter.
 
 **Parts:** none.
 

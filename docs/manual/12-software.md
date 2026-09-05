@@ -2,6 +2,8 @@
 
 Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer.cfg` that is correct for a **350 mm Rev D+** — so that Ch 13 can power up a machine that already knows its own geometry.
 
+**What you're building in this chapter.** The printer's software comes in layers, and keeping them apart makes everything below easier. **Klipper** is the firmware, and it is split in two: a *host* process on the Raspberry Pi that does all the planning and arithmetic, and a thin *MCU* firmware on each microcontroller — the Leviathan mainboard in the bay and the Nitehawk-SB V2 toolboard on the printhead — that does nothing but execute precisely timed pin changes. **Moonraker** is the API service sitting in front of Klipper so other programs can talk to it, and **Mainsail** (in a browser) and **KlipperScreen** (on the front panel) are two such programs — two windows onto the same machine. You will image the Pi with MainsailOS, which ships all of that pre-installed; compile and flash both MCU firmwares from the exact host version; and then write **`printer.cfg`**, the single text file that tells Klipper what this machine is — its pins, its 350 mm dimensions, its heaters, probe, fans and macros. Nothing moves and nothing heats until Ch 13.
+
 **Time:** 2.0–3.0 h hands-on, first build (survey §7.2). Add ~30 min if you have to reinstall Katapult on either board.
 
 **Sessions:** 9 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).
@@ -61,6 +63,8 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 (no image — see text)
 
+**What you're looking at:** The Raspberry Pi 4B is the printer's **host**: it runs the [Klipper](16-glossary.md#k) motion planner, the web interface and the touchscreen, and feeds the two microcontroller boards a stream of precisely timed step commands. Nothing in steps 12.1–12.10 needs the printer at all — only the Pi, its SD card and a network connection.
+
 **Parts:** none — Pi 4B, supplied 32 GB microSD, laptop, card reader.
 
 **Do:** Steps 12.1–12.10 need only the Pi, the SD card and the network. If the electronics bay is not yet wired, take the Pi off the Leviathan mount, feed it from a USB-C 5 V/3 A supply on the bench, and do this half now. If Ch 10 is done and Checkpoint #1 has passed, leave the Pi on the board and power the bay instead. Plug the Ethernet cable in either way — a wired link makes the flashing steps deterministic.
@@ -76,6 +80,8 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 ### Step 12.2 — Write MainsailOS with Raspberry Pi Imager
 
 (no image — see text)
+
+**What you're looking at:** MainsailOS is a ready-made Raspberry Pi disk image with the whole printer stack already on it: **Klipper** (the software that actually runs the machine), **Moonraker** (the API service that sits in front of Klipper so other programs can talk to it), and [**Mainsail**](16-glossary.md#m) (the web page you drive the printer from). Raspberry Pi Imager writes that image onto the microSD card the Pi boots from.
 
 **Parts:** microSD 32 GB ×1, card reader ×1.
 
@@ -93,6 +99,8 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 
 (no image — see text)
 
+**What you're looking at:** The Imager's customisation pages write settings into the image before it ever boots, so the Pi comes up already named, already on the network and already reachable over SSH. The hostname you choose here is the address you will type for the rest of the build.
+
 **Parts:** none.
 
 **Do:** Work through the customisation pages: **Hostname** — set it to something you will type a lot; `voron` gives you `http://voron.local`. **Localisation** — set your timezone (log timestamps and timelapse depend on it). **User** — set a username and a real password; do not leave the `pi`/`raspberry` default. **Wi-Fi** — SSID and password (the Wi-Fi country comes from your localisation setting). **Remote access** — enable SSH. Then write, confirming the erase prompt.
@@ -108,6 +116,8 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 ### Step 12.4 — First boot
 
 (no image — see text)
+
+**What you're looking at:** On its first boot the image expands itself to fill the card, which is why this takes minutes rather than seconds. The DHCP reservation pins the Pi's address in your router so it cannot move later and break every link you have written down.
 
 **Parts:** none.
 
@@ -125,6 +135,8 @@ Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/fir
 
 ![LDO: Mainsail Machine page](assets/remote/12-software/ldo-revd-mainsail-machine-page.png)
 
+**What you're looking at:** The screenshot is Mainsail's **Machine** page — the web interface's file manager and settings view, and where every config file in this chapter gets edited. The error it shows on first load is correct and expected: MainsailOS ships no `printer.cfg`, and writing that file is most of what this chapter does. SSH gives you the same machine as a command line, which is where the firmware builds happen.
+
 **Parts:** none.
 
 **Do:** Open `http://voron.local` in a browser. Mainsail loads and immediately reports a Klipper error — *"Unable to open config file printer.cfg"*. That is expected and correct; MainsailOS ships no `printer.cfg`. In a terminal, `ssh <youruser>@voron.local`.
@@ -138,6 +150,8 @@ Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.c
 ### Step 12.6 — Update everything before you touch anything else
 
 (no image — see text)
+
+**What you're looking at:** The Update Manager is Moonraker's package updater, shown inside Mainsail. It runs now rather than later because each MCU's firmware has to be compiled from exactly the Klipper version the host ends up on.
 
 **Parts:** none.
 
@@ -156,6 +170,8 @@ Pause: ~25 min since the last pause — MainsailOS written, first boot done, the
 ### Step 12.7 — Record the Klipper version you are building against
 
 (no image — see text)
+
+**What you're looking at:** Klipper is two halves that must match: a host process on the Pi and a small firmware on each microcontroller. `git describe` prints the exact commit the host half is at, and both firmware builds later in this chapter have to come out of this same working copy.
 
 **Parts:** none.
 
@@ -179,6 +195,8 @@ Source: [Mainsail FAQ — command format mismatch](https://docs.mainsail.xyz/faq
 
 (no image — see text)
 
+**What you're looking at:** [KIAUH](16-glossary.md#k) — Klipper Installation And Update Helper — is a menu-driven installer for the Klipper ecosystem. MainsailOS has already installed everything it offers except KlipperScreen, so it is here for exactly one job. 
+
 **Parts:** none.
 
 **Do:** In SSH:
@@ -199,7 +217,9 @@ Source: [KIAUH README](https://github.com/dw-0/kiauh)
 
 ### Step 12.9 — Install KlipperScreen
 
-(no image — see text)
+![KIAUH's Installation menu — option 5 is KlipperScreen](assets/remote/12-software/KIAUH_install_opt.png)
+
+**What you're looking at:** KlipperScreen is the touchscreen front end — the same printer, driven from the 4.3" panel on the front of the machine instead of from a browser. It installs into its own Python environment and runs as a background service, alongside Mainsail rather than instead of it. The screenshot is KIAUH's Installation menu, where it is option 5.
 
 **Parts:** none.
 
@@ -207,13 +227,15 @@ Source: [KIAUH README](https://github.com/dw-0/kiauh)
 
 **Check:** `systemctl status KlipperScreen` shows the unit loaded. It will not display anything useful yet — there is no `printer.cfg`.
 
-Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScreen/Installation/) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScreen/Installation/) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide) · [LDO wiring photo KIAUH_install_opt.png](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/KIAUH_install_opt.png)
 
 ---
 
 ### Step 12.10 — Bring up the DSI panel and rotate it
 
 (no image — see text)
+
+**What you're looking at:** DSI is the Raspberry Pi's native display connection, the one the flat ribbon from Ch 11 plugs into, and `/sys/class/drm/` is where the Linux kernel reports the displays it can see. Rotation is set in the kernel command line because the current display driver ignores the older config-file setting LDO's guide describes.
 
 **Parts:** 4.3" DSI touchscreen ×1, Pi FFC ribbon ×1 — both already fitted in Ch 11.
 
@@ -247,6 +269,8 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 (no image — see text)
 
+**What you're looking at:** An **MCU** is a microcontroller — a small processor board that turns Klipper's commands into actual pin signals. This machine has two: the [Leviathan](16-glossary.md#l) mainboard in the bay and the [Nitehawk-SB V2](16-glossary.md#n) toolboard on the printhead. `lsusb` lists what the Pi can see on USB, which is the first proof both are alive and talking.
+
 **Parts:** none.
 
 **Do:** **Stop here unless LDO Checkpoint #1 has passed** (Ch 10: multimeter, unplugged — continuity within each colour group, no continuity between L/N/PE, PSU 115/230 V selector confirmed). With that done, switch the inlet on. The PSU LED lights. Then, over SSH:
@@ -266,6 +290,8 @@ Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron
 ### Step 12.12 — Read the two serial IDs and work out which is which
 
 ![LDO: ls /dev/serial/by-id output](assets/remote/12-software/ldo-revd-serial-by-id-output.png)
+
+**What you're looking at:** The screenshot is `ls /dev/serial/by-id/` — Linux's stable naming for USB serial devices. Each entry contains the MCU family and that chip's unique id, so a board keeps the same path across reboots and re-plugs. These two strings go straight into `printer.cfg` and are what tells Klipper which board is which.
 
 **Parts:** none.
 
@@ -297,6 +323,8 @@ Source: [LDO Rev D photo, `ls /dev/serial/by-id` output](https://raw.githubuserc
 
 (no image — see text)
 
+**What you're looking at:** Silkscreen is the printed lettering on the circuit board itself. Which processor your Leviathan carries decides three fields of the firmware build — the processor model, the crystal frequency its clock is derived from, and where in flash the firmware starts — and LDO's own documents disagree about it, so the board is the only authority.
+
 **Parts:** none.
 
 **Do:** Read the revision printed on the mainboard silkscreen, and cross-check it against the ID you just read. They must agree:
@@ -321,6 +349,8 @@ Pause: ~15 min since the last pause — the bay has been powered once, both MCUs
 ### Step 12.14 — Build Klipper firmware for the Leviathan
 
 (no image — see text)
+
+**What you're looking at:** `make menuconfig` is a text-mode settings screen for the firmware build; it produces `out/klipper.bin`, the binary the mainboard will run. The bootloader offset is the field that bites: it tells the firmware to start further into flash and leave the first few kilobytes to the bootloader that put it there.
 
 **Parts:** none.
 
@@ -371,6 +401,8 @@ Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan
 
 (no image — see text)
 
+**What you're looking at:** [Katapult](16-glossary.md#k) is the bootloader already on the board — a small program that runs first at power-up and can overwrite the main firmware over USB, so no programmer and no jumper are needed. Double-clicking RESET makes it stay in that mode instead of handing control to Klipper, and the board briefly re-appears under a `usb-katapult_…` name.
+
 **Parts:** none.
 
 **Do:** The Leviathan ships with Katapult and Klipper already installed, so you normally never touch DFU. Put it into the bootloader by **double-clicking SW1 (RESET) quickly**, then confirm and flash:
@@ -398,6 +430,8 @@ Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan
 
 (no image — see text)
 
+**What you're looking at:** [DFU](16-glossary.md#d) is the USB bootloader baked into the STM32 chip at the factory. It cannot be erased, which makes it the recovery route when Katapult itself has been overwritten; holding the two buttons in that order forces the chip into it and `dfu-util` writes Katapult back.
+
 **Parts:** none.
 
 **Do:** Skip this step unless Step 12.15 found no `usb-katapult_…` device after a double-click of SW1. If you have to: disconnect every other USB device from the Pi, then press **SW2 and SW1 together, release SW1 first, then SW2**. Confirm with `lsusb` — you want `ID 0483:df11 STMicroelectronics STM Device in DFU Mode`. Then build Katapult with the same processor/clock/offset row from Step 12.13, plus `Communication interface: USB (on PA11/PA12)`, *Support bootloader entry on rapid double click of reset button*, *Enable Status LED*, `Status LED GPIO Pin: PE1`. Flash it:
@@ -422,6 +456,8 @@ Pause: ~20 min since the last pause — the Leviathan is running your own Klippe
 ### Step 12.17 — Build Klipper firmware for the Nitehawk-SB V2
 
 ![Nitehawk-SB V2 `make menuconfig` settings](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
+
+**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard — the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry lights the board's ACT LED at startup, which becomes your at-a-glance sign that Klipper is running out on the toolhead.
 
 **Parts:** none.
 
@@ -460,6 +496,8 @@ Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotor
 
 (no image — see text)
 
+**What you're looking at:** `make flash` builds nothing new; it hands the binary you just compiled to the board's Katapult bootloader over the serial path you name. Same operation as step 12.15, wrapped up so no buttons are involved.
+
 **Parts:** none.
 
 **Do:** The recommended path needs no buttons at all:
@@ -482,6 +520,9 @@ Source: [Nitehawk-SB V2 doc § Uploading Klipper via make flash](https://docs.ld
 ### Step 12.19 — Fallback: flash the Nitehawk through Katapult
 
 ![Nitehawk-SB V2 RESET and BOOT0 buttons and the five LEDs](assets/remote/12-software/nitehawk-sb-v2-reset-boot-buttons.jpg)
+![Nitehawk-SB V2 Katapult `make menuconfig` settings](assets/remote/12-software/nitehawk-sb-v2-katapult-menuconfig.png)
+
+**What you're looking at:** The photo shows the toolboard's two buttons and five status LEDs. RESET restarts the chip; BOOT0 held across a reset forces the factory DFU bootloader instead. ACT — the fourth LED from the left — blinks slowly when Katapult is sitting waiting for a flash.
 
 **Parts:** none.
 
@@ -516,6 +557,8 @@ Source: [Nitehawk-SB V2 doc § Installing the Katapult bootloader](https://docs.
 
 (no image — see text)
 
+**What you're looking at:** Both boards should now be back under their `usb-Klipper_…` names with no `usb-katapult_…` left; a board still showing katapult never actually received its firmware. Mainsail's **Machine** → **DEVICES** → **SERIAL** panel shows the same list from the browser.
+
 **Parts:** none.
 
 **Do:**
@@ -540,6 +583,8 @@ Pause: ~20 min since the last pause — both boards flashed, both serial paths r
 
 ![LDO: Mainsail config devices panel](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
 
+**What you're looking at:** `printer.cfg` is the single text file that describes this machine to Klipper: which pin drives which motor, what shape the bed is, what every heater, sensor and fan is. LDO publishes one per kit variant and the `-sbv2` suffix is the Rev D+ one. The screenshot is Mainsail's config list, where the file lands.
+
 **Parts:** none.
 
 **Do:** Download **[`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)** from LDO's kit repo.
@@ -555,6 +600,8 @@ Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent
 ### Step 12.22 — Upload it as `printer.cfg` and add the Mainsail include
 
 (no image — see text)
+
+**What you're looking at:** An `[include]` line pulls another config file in at that point. `mainsail.cfg` is already on the card and supplies the handful of sections and macros the web interface needs — virtual SD card, display status, pause, resume, cancel — which is why it belongs on line 1 rather than being optional.
 
 **Parts:** none.
 
@@ -575,6 +622,8 @@ Source: [Mainsail `mainsail.cfg`](https://docs.mainsail.xyz/configuration/mainsa
 ### Step 12.23 — Paste the two serial paths
 
 (no image — see text)
+
+**What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin elsewhere in the file that starts `nhk:` is resolved against the second one. Swap these two paths and the config still loads — it just drives the wrong board's pins.
 
 **Parts:** none.
 
@@ -609,6 +658,8 @@ Pause: ~15 min since the last pause — `printer.cfg` is the `-sbv2` file with t
 ### Step 12.24 — 350 mm: `[stepper_x]` and `[stepper_y]`
 
 (no image — see text)
+
+**What you're looking at:** A `[stepper_x]` section describes one axis motor and its limit switch: how far one motor revolution moves the axis, how finely the driver subdivides a step, which pin the endstop is on, and where the axis ends. LDO ships all three build sizes present but commented out, so until you uncomment yours the machine has no dimensions at all.
 
 **Parts:** none.
 
@@ -659,6 +710,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 (no image — see text)
 
+**What you're looking at:** `position_max` is how high the gantry may be driven. It is 330 rather than 350 because the gantry runs out of frame before it runs out of nominal build volume. `position_endstop` here is a placeholder — Ch 13 measures the real value and `SAVE_CONFIG` writes it.
+
 **Parts:** none.
 
 **Do:** Uncomment the 350 line only. Note that Z max is **330**, not 350 — the gantry cannot reach the last 20 mm.
@@ -692,6 +745,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 12.26 — 350 mm: `[quad_gantry_level]`
 
 (no image — see text)
+
+**What you're looking at:** [QGL](16-glossary.md#q) — quad gantry level — probes four points and then drives each of the four Z motors independently until the gantry is parallel to the bed. `gantry_corners` tells it where the gantry's pivots physically are and `points` where to probe, so both are specific to a 350.
 
 **Parts:** none.
 
@@ -755,6 +810,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 (no image — see text)
 
+**What you're looking at:** `[resonance_tester]` names the spot on the bed where Ch 14's accelerometer measurements are taken. `G32` is the macro that homes, runs QGL and re-homes, and its final move parks the toolhead over bed centre. Both carry hard-coded coordinates that only make sense for one build size.
+
 **Parts:** none.
 
 **Do:** Two more 350 blocks that the survey's checklist does not mention. In `[resonance_tester]`:
@@ -802,6 +859,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 (no image — see text)
 
+**What you're looking at:** `full_steps_per_rotation` is how many full steps the motor takes per revolution. The A/B motors here are 0.9° units — 400 steps — while the Z and extruder motors are ordinary 1.8° units at 200. Nothing warns you if this is wrong; every X and Y dimension simply comes out doubled or halved.
+
 **Parts:** none.
 
 **Do:** Confirm — do not change — that `[stepper_x]` and `[stepper_y]` both read:
@@ -825,6 +884,8 @@ Pause: ~15 min since the last pause — every 350 mm dimension is set (X/Y/Z lim
 ### Step 12.29 — Probe: Omron active, Klicky written but commented
 
 (no image — see text)
+
+**What you're looking at:** A `[probe]` section describes whatever the machine uses to measure bed height. Two are possible with this kit: the Omron [inductive probe](16-glossary.md#i), which senses metal without touching and is used for gantry levelling only, and the Klicky dockable microswitch. Klipper allows exactly one live `[probe]`, so the unused one is parked as commented text.
 
 **Parts:** none.
 
@@ -878,6 +939,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 (no image — see text)
 
+**What you're looking at:** The `[extruder]` section carries both the hotend heater and its temperature sensor. `sensor_type` names the thermistor's resistance curve and `pullup_resistor` the fixed resistor on the board it is measured against — get either wrong and the printer reads a plausible but false temperature.
+
 **Parts:** none.
 
 **Do:** Confirm the `[extruder]` heater and sensor block matches your hotend. For the kit's Revo HF, LDO's shipped values are already correct — verify rather than edit:
@@ -911,6 +974,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 12.31 — Bed heater and chamber sensor
 
 (no image — see text)
+
+**What you're looking at:** `[heater_bed]` is the SSR output and the bed thermistor you wired in Ch 10; `[temperature_sensor chamber_temp]` is a sensor with no heater attached, so it only reports. `max_power: 0.6` deliberately caps how hard the 355 mm heat pad is driven.
 
 **Parts:** none.
 
@@ -952,6 +1017,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 12.32 — Fans and lighting: Nevermore, COB strips, bay fans
 
 ![LDO Rev D: fan and LED strip connections](assets/remote/12-software/ldo-revd-s7-fans-wired.jpg)
+
+**What you're looking at:** Klipper has four fan section types and the difference is the whole point of this step: `[fan]` is the slicer-controlled part-cooling fan, `[heater_fan]` runs automatically whenever its heater is on, `[controller_fan]` follows the steppers and bed, and `[fan_generic]` is one a macro can command directly. The photo is LDO's fan and LED wiring for reference.
 
 **Parts:** none.
 
@@ -1030,6 +1097,8 @@ Pause: ~15 min since the last pause — probe, hotend, bed, chamber sensor, fans
 
 (no image — see text)
 
+**What you're looking at:** `[safe_z_home]` is the XY position the toolhead moves to before homing Z, which on this machine has to be directly over the nozzle-probe pin. The shipped `-10,-10` sits outside the machine's own travel limits on purpose, so Klipper refuses the move instead of driving the nozzle into the plate at a guessed spot.
+
 **Parts:** none.
 
 **Do:** Do **not** guess the nozzle-probe coordinates. Leave the section as LDO ships it and add a marker:
@@ -1055,6 +1124,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 12.34 — Add a `[bed_mesh]` section
 
 (no image — see text)
+
+**What you're looking at:** A [bed mesh](16-glossary.md#b) is a grid of probed heights that Klipper applies as a small Z correction while printing, compensating for a bed that is not perfectly flat. `mesh_min`/`mesh_max` are given in **probe** coordinates rather than nozzle coordinates, and `zero_reference_position` pins the whole mesh to one point so it stays relative to the nozzle-probe Z0.
 
 **Parts:** none.
 
@@ -1100,6 +1171,8 @@ Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.ht
 
 (no image — see text)
 
+**What you're looking at:** [Input shaping](16-glossary.md#i) is Klipper's anti-ringing filter, fitted to the machine's measured resonance in Ch 14 — the empty section here is simply somewhere for those numbers to land. `[exclude_object]` is what lets one failed part be cancelled mid-print without abandoning the rest of the plate.
+
 **Parts:** none.
 
 **Do:** Add both. `[input_shaper]` goes in as a disabled placeholder so Ch 14 has somewhere to write:
@@ -1135,6 +1208,8 @@ Source: [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Referenc
 ### Step 12.36 — Replace `PRINT_START` with a skeleton that waits on the chamber
 
 (no image — see text)
+
+**What you're looking at:** `PRINT_START` is the macro the slicer calls at the top of every print, and it holds the whole warm-up sequence: home, heat the bed, soak the chamber, level the gantry, mesh the bed, then bring the hotend up. The order is deliberate — a machine still expanding will not level repeatably.
 
 **Parts:** none.
 
@@ -1209,6 +1284,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 ### Step 12.37 — The config-compiles check
 
 (no image — see text)
+
+**What you're looking at:** `SAVE & RESTART` reloads the config into the host process; `FIRMWARE_RESTART` restarts the MCUs as well. The four things you are reading are the entire state of the machine at this point: Klipper Ready, both MCUs connected, and three temperature sensors telling the truth about a cold room.
 
 **Parts:** none.
 

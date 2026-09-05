@@ -72,7 +72,7 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 - [Voron 2.4r2 assembly manual (pinned `de7e89d`)](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf) pages 4–11, 24–26, 31 — print spec, filenames, fastener names, drivers, blind joints, exploded-view conventions, rail handling, inserts
 - [Voron-2 `STLs/Tools`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools) and [Voron-2 `STLs/Test_Prints`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) — the B00 jigs and the practice coupon
 - [survey](../voron-build-instructions-survey.md) §4.1, §4.3, §5.2, §7.4, §7.5 · [print plan](../voron-print-plan.md) §1.2, §1.4
-- Mirrored images in this chapter are LDO Motors' (docs.ldomotors.com heat-set and rail-grease guides), used with attribution; see `assets/remote/00-before-you-start/SOURCES.txt`. Every step keeps the original URL on its `Source:` line.
+- Mirrored images in this chapter are LDO Motors' (the heat-set and rail-grease guides on docs.ldomotors.com, and the Nitehawk-SB-V2 repo), used with attribution; see `assets/remote/00-before-you-start/SOURCES.txt`. Every step keeps the original URL on its `Source:` line.
 
 ---
 
@@ -150,9 +150,9 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 ### Step 00.5 — Verify you actually received a Rev D+ (Nitehawk-SB V2)
 
-*(no image — see text)*
+![LDO Nitehawk-SB V2 — board and connector pinout](assets/remote/00-before-you-start/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** The Nitehawk-SB V2 **toolboard** — the small PCB that rides on the toolhead and drives the hotend, its fans, the LEDs, the probe and the accelerometer over a single cable, so the moving printhead needs one umbilical instead of a dozen wires ([glossary](16-glossary.md#t)). The "+" in Rev D+ *is* this board; the four physical markers below are how you prove you got it.
+**What you're looking at:** The Nitehawk-SB V2 **toolboard** — the small PCB that rides on the toolhead and drives the hotend, its fans, the LEDs, the probe and the accelerometer over a single cable, so the moving printhead needs one umbilical instead of a dozen wires ([glossary](16-glossary.md#t)). The "+" in Rev D+ *is* this board; the four physical markers below are how you prove you got it, and LDO's own pinout drawing labels three of them — `PROBE` and `XY ENDSTOP` as JST-PH2.0, the `E Motor` port as the coarser JST-XH2.5, and the five-pin JST-ZH1.5 **USB expansion port**. The silkscreen in the drawing reads *LDO NiteHawk-SB V2.0.0*; read yours.
 
 **Parts:** *Electronics 2* box — Nitehawk SB toolhead PCB ×1, Stealthburner fan adapter ×1, USB adapter PCB ×1.
 
@@ -162,7 +162,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 ⚠ **Rev D+ / LDO:** the definitive confirmation is the USB serial ID, and you cannot read it until the Pi is up in Ch 12. There it must contain **`stm32g0b1xx`** (`usb-Klipper_stm32g0b1xx_…`). LDO's Rev D wiring guide says to expect `usb-Klipper_rp2040_…` — that sentence is wrong for this kit. If it reads `rp2040` you have a V1 board and must load `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`. Loading the wrong one mis-drives the heater, thermistor, probe, both fans and the accelerometer at once. Write the check into your Ch 12 notes now. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg) · survey §4.1 ①②
 
-Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [LDO Klipper config `leviathan-printer-rev-d-sbv2.cfg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [image: Nitehawk-SB-V2 `Images/nhsbv2_pcb_pinout.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg) · [LDO Klipper config `leviathan-printer-rev-d-sbv2.cfg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 ---
 

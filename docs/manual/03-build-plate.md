@@ -2,6 +2,8 @@
 
 Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so the frame has its datum surface and the bed harness is hanging below deck ready for Ch 10.
 
+**What you're building in this chapter:** the heated bed, as a stack of four things. The **build plate** is a cast, ground aluminium slab with a mains-powered silicone **heater pad** and a 125 °C **thermal fuse** already bonded to its underside — both are factory-fitted on this kit, so two of the official manual's pages become inspections. On top of it you laminate the **magnetic pad**, an adhesive magnetised sheet, and onto that drops the **flex plate**: removable spring steel, the surface prints actually stick to and the reason you can pop a finished part off by flexing it. The whole stack sits on four **thumb-nut spacers** on the two bed extrusions from Ch 01, held by four bolts of which only one is ever tightened — the other three let a 355 mm aluminium plate expand as it heats instead of buckling. Nothing is wired here; the plate's three cables are left hanging below the deck for Ch 10.
+
 **Time:** 1.5–2.5 h hands-on, first build (survey §7.2).
 
 **Sessions:** 4 × ~30 min — the `Pause:` lines below break the chapter into 4 segments; every minute figure is a first-build estimate.
@@ -59,12 +61,15 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 - [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) — where the three bed cables actually terminate (Ch 10)
 - [magnet lamination demo](https://voron.link/rm6tpld) — the lamination demo the manual links from p.54
 - [survey](../voron-build-instructions-survey.md) §5.2 W6
+- The one mirrored image in this chapter (Step 03.4) is LDO Motors', used with attribution; see `assets/remote/03-build-plate/SOURCES.txt`. Its original URL stays on that step's `Source:` line.
 
 ---
 
 ### Step 03.1 — Unpack the plate and read the end state
 
 ![Voron manual p.52](assets/manual-pages/manual-p052.png)
+
+**What you're looking at:** Manual p.52 — the finished bed, and on the bench the three parts that make it. The **build plate** is a 355 × 355 × 10 mm cast aluminium slab with an AC heater pad already bonded underneath; the **magnetic pad** is an adhesive sheet you laminate to its top face; and the **flex plate** is the removable spring-steel sheet that snaps onto that magnet and is the surface prints actually stick to.
 
 **Parts:** build plate ×1, magnetic pad ×1, spring steel flex plate ×1.
 
@@ -80,6 +85,8 @@ Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.53](assets/manual-pages/manual-p053.png)
 
+**What you're looking at:** Manual p.53 — the plate's two faces. The top is the one whose four corner holes are **counterbored**, a widened pocket that lets a bolt head sit below the surface so nothing stands proud under the flex plate; the bottom carries the heater, the thermal fuse and the earth screw.
+
 **Parts:** build plate.
 
 **Do:** Find the four corner mounting holes. The face where those holes are **counterbored** — so a bolt head sits flush or below the surface — is the **top**. The opposite face carries the heater, the thermal fuse and the tapped holes for the PE screw, and is the **bottom**. Mark the back edge (the edge the cables leave from) with a strip of masking tape.
@@ -93,6 +100,8 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.3 — Strip the protective film
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
+
+**What you're looking at:** Manual p.54 — the ground top face under its protective film. The face is Blanchard-ground, which is the swirl pattern you will see; the film has been protecting it since the factory and has to come off before the magnet, because adhesive will not bond through it.
 
 **Parts:** build plate.
 
@@ -109,6 +118,9 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.4 — Verify the heater pad (do not apply one)
 
 ![Voron manual p.55](assets/manual-pages/manual-p055.png)
+![LDO — build-plate underside, heater pad and thermal fuse pre-applied (Rev C guide photo: 300 mm / 220 VAC pad; your 350 pad differs)](assets/remote/03-build-plate/build_plate_bottom_view.jpg)
+
+**What you're looking at:** Manual p.55 shows the official manual *applying* a heater pad — a page you skip. The LDO photo beside it is what your plate actually looks like from below: the silicone AC pad already bonded and screwed down, the thermal-fuse patch, and the cable exit. (LDO's photo is the Rev C guide's 300 mm / 220 VAC pad; your 350 kit's pad is a different part number and its label reads differently — the layout is what to compare, not the ratings.)
 
 **Parts:** none.
 
@@ -118,13 +130,15 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ⚠ **Rev D+ / LDO:** **SKIP manual p.55 entirely** — the heater pad is pre-applied on Rev C and later kits. This step is inspection only. If the pad is genuinely lifting, stop and raise it in `#ldo_motors` before you bolt the plate in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
-Source: [Voron manual p.55](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=55) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+Source: [Voron manual p.55](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=55) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [image: LDO `build_plate_bottom_view.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/build_plate_bottom_view.jpg)
 
 ---
 
 ### Step 03.5 — Verify the thermal fuse (do not fit one)
 
 ![Voron manual p.56](assets/manual-pages/manual-p056.png)
+
+**What you're looking at:** Manual p.56 shows the official fuse installation, also a page you skip. The **thermal fuse** is a one-shot cut-out that opens permanently at 125 °C and is wired in series with one heater lead, so a runaway heater loses its supply whatever the firmware is doing ([glossary](16-glossary.md#t)). It only works if its body is pressed flat against the aluminium — which is what you are checking.
 
 **Parts:** none. The manual's M3×12 SHCS and M3 washer stay in the bag.
 
@@ -141,6 +155,8 @@ Source: [Voron manual p.56](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.6 — Verify the PE screw and identify the three cables
 
 ![Voron manual p.57](assets/manual-pages/manual-p057.png)
+
+**What you're looking at:** Manual p.57 — the plate's cable exit. Three cables leave here: two thick braided AC leads (**N** and **Bed L**) that carry mains to the heater, and one thin two-pin **BED TH** cable, the thermistor the firmware reads the bed temperature from. Beside them is the **protective-earth** screw — an M4×6 with a serrated washer that bites through the surface to bond the plate to earth ([glossary](16-glossary.md#p)).
 
 **Parts:** none — the PE screw is already fitted.
 
@@ -162,6 +178,8 @@ Pause: ~30 min since the last pause — the plate is unpacked and identified top
 
 ![Voron manual p.53](assets/manual-pages/manual-p053.png)
 
+**What you're looking at:** The bare ground face and a straightedge. This is the last moment the aluminium is visible; once the magnet is on, a dish or crown in the plate can only be inferred from a bed mesh, and neither mesh nor quad gantry level can correct a plate that is not flat in itself.
+
 **Parts:** build plate, steel rule or straightedge.
 
 **Do:** Stand the straightedge on edge on the ground face and sight against a light: both diagonals, both centrelines, and both edge-to-edge runs near the front and back. Do this now — once the magnet is on you cannot inspect the ground surface again.
@@ -178,9 +196,11 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
+**What you're looking at:** The top face, IPA and a lint-free cloth. Anything left on the surface — oil, dust, a fingerprint — becomes a permanent bump under an adhesive sheet you cannot lift again.
+
 **Parts:** build plate; IPA, lint-free cloth, gloves.
 
-**Do:** Wipe the whole top face with IPA and let it flash off completely. Wear gloves from here on — a fingerprint under the magnet is a permanent bump.
+**Do:** Wipe the whole top face with IPA and let it flash off completely, so no solvent is trapped under the adhesive. Wear gloves from here on — a fingerprint under the magnet is a permanent bump.
 
 **Check:** Surface dry, no lint, no residue in the counterbores.
 
@@ -191,6 +211,8 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.9 — Apply the magnet sheet
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
+
+**What you're looking at:** Manual p.54 and the magnetic pad. It is a flexible sheet of magnetised rubber with a pressure-sensitive adhesive back; laminated to the plate it becomes the thing that holds the spring-steel flex plate down. On this kit it is a separate BOM line, not factory-applied, so this lamination is yours to get right first time.
 
 **Parts:** Magnetic Pad 2.4-350 ×1.
 
@@ -208,9 +230,11 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
+**What you're looking at:** The laminated magnet with four dimples where the plate's counterbored corner holes are underneath. The mounting bolts have to pass through those holes and a hex key has to reach their heads, so the magnet is cut away over each one — now, while the bolts are still in their bag.
+
 **Parts:** Magnetic pad (applied), sharp craft knife.
 
-**Do:** Locate the four counterbored corner holes under the magnet — press down and they show as dimples. Cut the magnet away over each one, following the bore, so the M3×20 head and a 2.5 mm hex key both drop in cleanly. Cut with light repeated passes; do not gouge the aluminium.
+**Do:** Locate the four counterbored corner holes under the magnet — press down and they show as dimples. Cut the magnet away over each one, following the bore, so the M3×20 head and a 2.5 mm hex key both drop in cleanly. Cut with light repeated passes; do not gouge the aluminium, because a burr in a counterbore stops the bolt head sitting flush.
 
 **Check:** All four bores fully open. Test each with an M3×20 SHCS and the hex key before you go anywhere near the frame.
 
@@ -226,6 +250,8 @@ Pause: ~30 min since the last pause — the top face is cleaned, the magnet is r
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png)
 
+**What you're looking at:** Manual p.58 — the front elevation of the frame with the bed extrusions in it. You are re-checking Ch 01's placement because those two extrusions carry the plate's four mounting points; if they are not where the plate's holes are, the plate cannot sit down evenly on its spacers.
+
 **Parts:** none — measurement only.
 
 **Do:** With the printer upright, measure the two bed extrusions: **130 mm of clear space between their facing inner faces**, centred on the printer centreline, i.e. 65 mm from the centreline to each inner face (manual p.20 — the dimension lines land on the inner faces, so the centres are 150 mm apart). Then take p.58's front elevation: 25 mm from the top face of the lower front frame extrusion up to the bolt centre in each front vertical extrusion. Measure both sides — a difference here shows up later as a plate that will not sit down on all four spacers.
@@ -239,6 +265,8 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.12 — Load the four M3 T-nuts
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png)
+
+**What you're looking at:** Manual p.58 — four M3 roll-in T-nuts in the top slots of the bed extrusions, two per extrusion. Each is the thread one corner bolt picks up.
 
 **Parts:** M3 roll-in T-nut, 2020 ×4 (two per bed extrusion).
 
@@ -256,6 +284,8 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png)
 
+**What you're looking at:** Manual p.58 — four knurled **thumb nuts**, used here as spacers rather than as nuts. They hold the plate a fixed height above the extrusion so the bolt is the only contact; the bolt passes straight through the thumb nut's bore and threads into the T-nut below ([glossary](16-glossary.md#t)).
+
 **Parts:** M4 knurled thumb nut ×4.
 
 **Do:** Stand one M4 thumb nut over each T-nut, knurl up, so it sits on the extrusion face with its bore concentric with the T-nut thread. These are used purely as heat-resistant spacers — the M3 bolt passes straight through the M4 bore and threads into the T-nut below. Do not thread anything into the thumb nut.
@@ -270,6 +300,8 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png)
 
+**What you're looking at:** Manual p.60 — the plate coming down onto its four spacers, cables first. The three cables have to go through the deck opening before the plate lands, because once the plate is on them there is no way to feed them through without lifting it again.
+
 **Parts:** build plate assembly.
 
 **Do:** Two hands, plate flat, magnet up, cables at the **back**. Feed the two AC leads and the thermistor cable down through the opening in the deck panel first, then lower the plate onto the four thumb nuts. Keep the cables clear of the plate edge as it comes down so nothing gets pinched.
@@ -283,6 +315,8 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.15 — Start the four bolts
 
 ![Voron manual p.59](assets/manual-pages/manual-p059.png)
+
+**What you're looking at:** Manual p.59 — the four M3×20 bolts. They are longer than the official manual's M3×16 because this plate is 10 mm thick and sits on a spacer; started by hand first so the T-nuts can still be nudged along the slot to meet each hole.
 
 **Parts:** M3×20 SHCS ×4.
 
@@ -300,6 +334,8 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png)
 
+**What you're looking at:** Manual p.60 — the plate's position in plan. The 38 mm setback puts the plate where the toolhead can reach all of it, and equal side gaps keep it clear of the vertical extrusions and Z rails, which is tight because a 355 mm plate is in a 350 mm machine.
+
 **Parts:** steel rule / caliper.
 
 **Do:** With the bolts still loose, slide the plate front-to-back until its front edge sits **38 mm behind the front edge of the frame** (p.60). Then check the left and right gaps between the plate edge and the vertical extrusions and split any difference evenly. Re-check the 38 mm after the sideways move. No tolerance is specified for either dimension — make the two sides read the same on the caliper. The plate is 355 mm in a 350 machine, so run a finger right round the perimeter afterwards; the clearances are small.
@@ -313,6 +349,8 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.17 — Tighten one bolt only
 
 ![Voron manual p.59](assets/manual-pages/manual-p059.png)
+
+**What you're looking at:** Manual p.59 and its **DON'T TIGHTEN** rule. One bolt locates the plate; the other three are deliberately left loose so the aluminium can grow as it heats — clamped hard at all four corners and taken to 110 °C, a plate this size buckles and never comes flat again.
 
 **Parts:** the four M3×20 SHCS already fitted.
 
@@ -332,6 +370,8 @@ Pause: ~35 min since the last pause — the plate is on its four thumb-nut space
 
 (no image — see text)
 
+**What you're looking at:** The four corners and a caliper. You are proving the plate is sitting on all four spacers and not on a tipped thumb nut or a half-rolled T-nut — a short corner here is a permanent tilt every bed mesh afterwards has to fight.
+
 **Parts:** caliper.
 
 **Do:** Measure the gap between the top face of the bed extrusion and the underside of the plate at each of the four bolts. Then sight along the plate from the front of the frame at eye level, and again from the side. A short corner means a T-nut is not fully rolled in, a thumb nut is tipped, or that bolt got tightened.
@@ -348,6 +388,8 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png)
 
+**What you're looking at:** Manual p.60 — the three bed cables below the deck, loose. Nothing is terminated in this chapter: the AC pair goes to the relay and the WAGO bus, and the thermistor to a splicer PCB, all in Ch 10 after those parts are actually mounted.
+
 **Parts:** none — no zip ties yet.
 
 **Do:** Below the deck, separate the two AC leads from the thin thermistor cable and lay them along the route they will take toward the electronics bay, leaving generous slack at the plate end. Make sure nothing bears on the sharp edge of the deck opening, nothing is pulled taut against the plate's cable exit, and nothing rests on a bed extrusion where the plate can pinch it. Leave the ends free and unterminated.
@@ -363,6 +405,8 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.20 — Fit the flex plate, then cover the bed
 
 ![Voron manual p.61](assets/manual-pages/manual-p061.png)
+
+**What you're looking at:** Manual p.61 — the **flex plate**, the removable spring-steel print surface that clicks onto the magnet ([glossary](16-glossary.md#f)). It goes on once to prove it sits flat, then straight back in its sleeve: the six chapters above this surface drop hex keys, swarf and threadlocker, and the magnet is not something you can resurface.
 
 **Parts:** Spring Steel Flex Plate 2.4-350 ×1.
 

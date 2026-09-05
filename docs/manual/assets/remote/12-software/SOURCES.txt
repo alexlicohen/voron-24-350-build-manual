@@ -58,3 +58,16 @@ nitehawk-sb-v2-katapult-menuconfig.png
   date    : 2026-09-05
   licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
   sha256  : dc182e9bb41bbfa6b4373c5ddab6d7f40dda254a33fde737661c17ef51a62dd0
+
+# --- Added 2026-09-05 (wave 3, "describe the pieces" pass) for steps that
+# --- previously had no image. Mirrored under Alex's ruling (CONVENTIONS
+# --- "Image licensing"). Original filenames kept.
+
+KIAUH_install_opt.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/KIAUH_install_opt.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/KIAUH_install_opt.png
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 12.9
+
