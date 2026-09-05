@@ -81,7 +81,7 @@ each a 2-piece assembly. **Brim the 100 mm mounts** (they're on the long-flat br
 [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). The power inlet does **not** go on this plate:
 with the mandated 3 mm brims the eight mounts plus the 118 × 66.8 mm inlet fill 84 % of the 250 × 220 bed
 and cannot be placed, so the inlet has its own plate B07-P3.
-**Parts:** the eight COB mounts — 8.2 h, 124 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** the eight COB mounts — 8.1 h, 124 g (PrusaSlicer 2.9.6 estimate).
 **Check:** 3 mm brim applied to the 100 mm mounts; eight mounts on the plate and nothing else.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)

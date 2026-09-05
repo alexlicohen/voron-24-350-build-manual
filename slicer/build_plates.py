@@ -269,9 +269,9 @@ def build(plate_id: str) -> dict:
 
     prev_h, prev_g = MODEL_ESTIMATE[plate_id]
     return dict(plate=plate_id, batch=spec["batch"], colour=colour,
-                parts=len(pieces), hours=round(hours, 2), grams=round(grams, 1),
+                parts=len(pieces), hours=hours, grams=grams,
                 raw_time=raw_time, prev_hours=prev_h, prev_grams=prev_g,
-                d_hours=round(hours - prev_h, 2), d_grams=round(grams - prev_g, 1),
+                d_hours=hours - prev_h, d_grams=grams - prev_g,
                 brim=(max(brims) if brims else 0.0),
                 size_kb=round(dst.stat().st_size / 1024))
 
@@ -290,12 +290,12 @@ def main() -> int:
         csv_path = ROOT / "estimates.csv"
         with csv_path.open("w", newline="") as fh:
             w = csv.writer(fh)
-            w.writerow(["plate", "batch", "colour", "parts", "hours", "grams",
+            w.writerow(["plate", "batch", "colour", "parts", "raw_time", "hours", "grams",
                         "prev_model_hours", "prev_model_grams",
                         "delta_hours", "delta_grams", "brim_mm", "size_kb"])
             for r in rows:
-                w.writerow([r["plate"], r["batch"], r["colour"], r["parts"],
-                            f"{r['hours']:.2f}", f"{r['grams']:.1f}",
+                w.writerow([r["plate"], r["batch"], r["colour"], r["parts"], r["raw_time"],
+                            f"{r['hours']:.4f}", f"{r['grams']:.2f}",
                             f"{r['prev_hours']:.1f}", r["prev_grams"],
                             f"{r['d_hours']:+.2f}", f"{r['d_grams']:+.1f}",
                             f"{r['brim']:g}", r["size_kb"]])
@@ -303,8 +303,8 @@ def main() -> int:
             tg = sum(r["grams"] for r in rows)
             ph = sum(r["prev_hours"] for r in rows)
             pg = sum(r["prev_grams"] for r in rows)
-            w.writerow(["TOTAL", "", "", sum(r["parts"] for r in rows),
-                        f"{th:.2f}", f"{tg:.1f}", f"{ph:.1f}", pg,
+            w.writerow(["TOTAL", "", "", sum(r["parts"] for r in rows), "",
+                        f"{th:.4f}", f"{tg:.2f}", f"{ph:.1f}", pg,
                         f"{th - ph:+.2f}", f"{tg - pg:+.1f}", "", ""])
         print(f"\nTOTAL {th:.1f} h / {tg:.0f} g   (model said {ph:.1f} h / {pg} g)")
         print(f"wrote {csv_path}")

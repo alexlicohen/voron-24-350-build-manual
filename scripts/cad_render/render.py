@@ -47,8 +47,13 @@ def _scatter(keybuf, pix, key):
     np.minimum.at(keybuf, pix, key)
 
 
-def rasterize(scr, tris, W, H, cull=True):
-    """Orthographic z-buffer. Returns int32 (H,W) winning triangle index, -1 empty."""
+def rasterize(scr, tris, W, H, cull=True, max_span=192):
+    """Orthographic z-buffer. Returns int32 (H,W) winning triangle index, -1 empty.
+
+    Triangles larger than `max_span` px are subdivided first: the per-triangle
+    scatter is bounded by the bbox, so one screen-filling triangle would
+    otherwise cost more than the rest of the scene put together.
+    """
     if len(tris) == 0:
         return np.full((H, W), -1, np.int32)
     p0, p1, p2 = scr[tris[:, 0]], scr[tris[:, 1]], scr[tris[:, 2]]
@@ -56,14 +61,41 @@ def rasterize(scr, tris, W, H, cull=True):
             - (p2[:, 0] - p0[:, 0]) * (p1[:, 1] - p0[:, 1]))
     keep = np.abs(area) > 1e-9
     if cull:
-        keep &= area < 0            # screen y is down: front faces are CW -> negative
-    idx_all = np.flatnonzero(keep)
-    if len(idx_all) == 0:
+        keep &= area < 0            # screen y is down: front faces wind negative
+    parent = np.flatnonzero(keep)
+    if len(parent) == 0:
         return np.full((H, W), -1, np.int32)
-    p0, p1, p2, area = p0[idx_all], p1[idx_all], p2[idx_all], area[idx_all]
+    p0, p1, p2 = p0[parent], p1[parent], p2[parent]
 
-    xs = np.stack([p0[:, 0], p1[:, 0], p2[:, 0]], 1)
-    ys = np.stack([p0[:, 1], p1[:, 1], p2[:, 1]], 1)
+    def spans(a, b, c):
+        xs = np.stack([a[:, 0], b[:, 0], c[:, 0]], 1)
+        ys = np.stack([a[:, 1], b[:, 1], c[:, 1]], 1)
+        return xs, ys, np.maximum(xs.max(1) - xs.min(1), ys.max(1) - ys.min(1))
+
+    for _ in range(10):                     # 4-way split until every span fits
+        _, _, sp = spans(p0, p1, p2)
+        big = sp > max_span
+        if not big.any():
+            break
+        a, b, c = p0[big], p1[big], p2[big]
+        ab, bc, ca = (a + b) / 2, (b + c) / 2, (c + a) / 2
+        sm = ~big
+        p0 = np.concatenate([p0[sm], a, ab, ca, ab])
+        p1 = np.concatenate([p1[sm], ab, b, bc, bc])
+        p2 = np.concatenate([p2[sm], ca, bc, c, ca])
+        pb = parent[big]
+        parent = np.concatenate([parent[sm], pb, pb, pb, pb])
+
+    area = ((p1[:, 0] - p0[:, 0]) * (p2[:, 1] - p0[:, 1])
+            - (p2[:, 0] - p0[:, 0]) * (p1[:, 1] - p0[:, 1]))
+    ok = np.abs(area) > 1e-9
+    p0, p1, p2, area, parent = p0[ok], p1[ok], p2[ok], area[ok], parent[ok]
+    if len(parent) == 0:
+        return np.full((H, W), -1, np.int32)
+    if len(parent) >= (1 << IDX_BITS):
+        sys.exit(f"{len(parent)} triangles exceeds the {1 << IDX_BITS} index budget")
+
+    xs, ys, _ = spans(p0, p1, p2)
     x0 = np.clip(np.floor(xs.min(1)).astype(np.int64), 0, W - 1)
     x1 = np.clip(np.ceil(xs.max(1)).astype(np.int64), 0, W - 1)
     y0 = np.clip(np.floor(ys.min(1)).astype(np.int64), 0, H - 1)
@@ -72,24 +104,16 @@ def rasterize(scr, tris, W, H, cull=True):
 
     zs = np.stack([p0[:, 2], p1[:, 2], p2[:, 2]], 1)
     zlo, zhi = zs.min(), zs.max()
-    span = max(zhi - zlo, 1e-9)
-    qz = ((zs - zlo) / span * ((1 << DEPTH_BITS) - 1)).astype(np.int64)
+    qz = ((zs - zlo) / max(zhi - zlo, 1e-9) * ((1 << DEPTH_BITS) - 1)).astype(np.int64)
 
     keybuf = np.full(W * H, EMPTY, np.int64)
-    bw, bh = x1 - x0 + 1, y1 - y0 + 1
-    size = np.maximum(bw, bh)
-
-    for k in (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1 << 30):
-        sel = np.flatnonzero(onscreen & (size <= k) & (size > (k // 2 if k > 1 else 0)))
+    size = np.maximum(x1 - x0 + 1, y1 - y0 + 1)
+    lo = 0
+    while lo < max_span + 2:
+        k = max(1, lo * 2)
+        sel = np.flatnonzero(onscreen & (size > lo) & (size <= k))
+        lo = k
         if len(sel) == 0:
-            continue
-        if k > 512:                                   # a handful of huge triangles
-            for t in sel:
-                gx = np.arange(x0[t], x1[t] + 1)
-                gy = np.arange(y0[t], y1[t] + 1)
-                px, py = np.meshgrid(gx, gy)
-                _tri_scatter(keybuf, px.ravel(), py.ravel(),
-                             np.full(px.size, t), p0, p1, p2, area, qz, W)
             continue
         kk = k * k
         ox, oy = np.meshgrid(np.arange(k), np.arange(k))
@@ -105,7 +129,7 @@ def rasterize(scr, tris, W, H, cull=True):
 
     out = np.full(W * H, -1, np.int32)
     hit = keybuf < EMPTY
-    out[hit] = idx_all[(keybuf[hit] & ((1 << IDX_BITS) - 1)).astype(np.int64)]
+    out[hit] = parent[(keybuf[hit] & ((1 << IDX_BITS) - 1)).astype(np.int64)]
     return out.reshape(H, W)
 
 
@@ -213,6 +237,36 @@ def gather(scene, ids, shift=None):
     return np.concatenate(V), np.concatenate(T), np.concatenate(owner)
 
 
+def clip_to_box(V, T, own, lo, hi):
+    """Trim a triangle soup to a box. Triangles that straddle the boundary are
+    subdivided first, so the framed context does not end in ragged slabs where a
+    coarsely tessellated panel happened to cross the edge."""
+    TV = V[T].astype(np.float32)
+    for _ in range(5):
+        bl, bh = TV.min(1), TV.max(1)
+        out = (bh < lo).any(1) | (bl > hi).any(1)
+        TV, own = TV[~out], own[~out]
+        if not len(TV):
+            break
+        bl, bh = TV.min(1), TV.max(1)
+        cross = ((bl < lo) | (bh > hi)).any(1)
+        if not cross.any():
+            break
+        B = TV[cross]
+        a, b, c = B[:, 0], B[:, 1], B[:, 2]
+        ab, bc, ca = (a + b) / 2, (b + c) / 2, (c + a) / 2
+        TV = np.concatenate([TV[~cross],
+                             np.stack([a, ab, ca], 1), np.stack([ab, b, bc], 1),
+                             np.stack([ca, bc, c], 1), np.stack([ab, bc, ca], 1)])
+        own = np.concatenate([own[~cross], np.tile(own[cross], 4)])
+    if len(TV):
+        cen = TV.mean(1)
+        keep = ((cen >= lo) & (cen <= hi)).all(1)
+        TV, own = TV[keep], own[keep]
+    return (TV.reshape(-1, 3),
+            np.arange(len(TV) * 3, dtype=np.int32).reshape(-1, 3), own)
+
+
 def compose(scr, tris, colours, W, H, cull=True):
     """Returns (rgb float (H,W,3), mask bool, tri index (H,W))."""
     tid = rasterize(scr, tris, W, H, cull=cull)
@@ -236,7 +290,8 @@ def outline(idbuf, mask, strength=0.55):
 
 
 def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
-           labels=True, title=None, subtitle=None, note=None, shift=None):
+           labels=True, title=None, subtitle=None, note=None, shift=None,
+           ghost_exclude=None, frame=None):
     t0 = time.time()
     hi_ids = [i for _, ids in sel for i in ids]
     hi_col = {}
@@ -254,7 +309,10 @@ def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
     centre = (lo + hi) / 2
 
     # framing: project the corners of the region of interest
-    if mode == "a":
+    if frame is not None:
+        region = np.stack([frame[:3], frame[3:]])
+        centre = region.mean(0)
+    elif mode == "a":
         region = np.stack([lo, hi])
     else:
         half = np.full(3, (hi - lo).max() / 2 * ctx_scale + 10.0)
@@ -281,15 +339,15 @@ def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
         for r in scene.index:
             if r["id"] in keep:
                 continue
+            if ghost_exclude and ghost_exclude.search(r["path"]):
+                continue
             b = np.array(r["bbox"], float)
             if (b[3:] < r0).any() or (b[:3] > r1).any():
                 continue
             ctx.append(r["id"])
         if ctx:
             Vc, Tc, ownc = gather(scene, ctx)
-            cen = Vc[Tc].mean(axis=1)          # clip context to the framed box
-            inb = ((cen >= region[0] - 4) & (cen <= region[1] + 4)).all(axis=1)
-            Tc, ownc = Tc[inb], ownc[inb]
+            Vc, Tc, ownc = clip_to_box(Vc, Tc, ownc, region[0] - 4, region[1] + 4)
             sc = project(Vc, M, centre, scale, Ws, Hs)
             gcol = np.tile(GHOST_RGB, (len(Tc), 1))
             grgb, gmask, gtid = compose(sc, Tc, shade(Vc, Tc, gcol), Ws, Hs)
@@ -384,6 +442,11 @@ def main():
     ap.add_argument("--subtitle-b", default=None)
     ap.add_argument("--note", default="Voron 2.4r2 CAD (VoronDesign, GPL-3.0) @ de7e89d")
     ap.add_argument("--only", choices=["a", "b"], default=None)
+    ap.add_argument("--frame-a", default=None,
+                    help="'x0,y0,z0,x1,y1,z1': frame view (a) on this box instead "
+                         "of on the selected parts' own extent")
+    ap.add_argument("--ghost-exclude", default=None,
+                    help="regex: keep these out of the ghosted context layer")
     ap.add_argument("--list", action="store_true")
     args = ap.parse_args()
 
@@ -416,7 +479,11 @@ def main():
             continue
         render(scene, sel, f"{args.out}-{mode}.png", mode, args.azim, args.elev,
                args.width, args.height, args.ss, args.context_scale,
-               title=args.title, subtitle=sub, note=args.note, shift=shift)
+               title=args.title, subtitle=sub, note=args.note, shift=shift,
+               ghost_exclude=(re.compile(args.ghost_exclude, re.I)
+                              if args.ghost_exclude else None),
+               frame=(np.array([float(x) for x in args.frame_a.split(",")])
+                      if args.frame_a and mode == "a" else None))
 
 
 if __name__ == "__main__":

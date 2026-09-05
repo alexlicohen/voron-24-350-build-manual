@@ -45,6 +45,8 @@ Everything you must decide, buy and agree *before* the electronics bay exists: w
 
 (no image — see text)
 
+**What you're looking at:** No parts — a decision about one stretch of the build. The conductors in question are the ones that carry wall voltage: the C14 inlet where the power cord plugs in, the WAGO lever blocks that fan it out, the PSU's AC terminal block, the solid-state relay that switches the bed heater, and the heater's own live lead. Everything else in this machine runs on 24 V and is not this conversation.
+
 **Parts:** none.
 
 **Do:** This build has exactly one region that can kill you: **Ch 10 Section 1, Steps [10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe)** — the C14 inlet, the three-way WAGO bus, the Meanwell LRS-200-24's AC terminal block, the Omron SSR's LOAD pair, and the bed heater's live lead. Read your local rules for who may make those connections in a dwelling. If the answer is "not you", the Voron community's standard advice applies: build the machine, mount every part, and *"install the parts and then find a qualified electrician to do the connecting up."* Ch 10's own **Read first** says the same thing and names the stopping line — get to [Step 10.4](10-wiring.md#step-104-fit-the-ac-inlet-into-the-printed-plug-panel) and hand over. Write the decision down today; it changes nothing else in the build order.
@@ -58,6 +60,8 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 ### Step 00a.2 — Write the "who is in the room" rule and post it on the wall
 
 (no image — see text)
+
+**What you're looking at:** No parts — a written rule for the two people building this printer. It names the exact step ranges where only one person is at the machine, and what the other person does instead, so the rule is decided in daylight rather than at the bench.
 
 **Parts:** none.
 
@@ -82,6 +86,8 @@ Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-build-log)
 
 (no image — see text)
 
+**What you're looking at:** No parts — the meter you will buy. A digital multimeter measures continuity, resistance, DC volts and AC volts; the **CAT rating** printed on its face says how large an electrical surge the meter can survive at the place you are using it, which is a different question from what voltage it can display ([glossary](16-glossary.md#c)). The four functions in the table are the ones Ch 10's Checkpoint #1 asks for.
+
 **Parts:** none.
 
 **Do:** [Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) lists the multimeter as one row in a thirteen-row table. This is that row expanded. A meter's **CAT rating** says what size transient it can survive where you are using it, not what voltage it can display — a meter with no category rating, or the wrong one, can fail violently. Fluke's definitions: **CAT II** is *"Single-phase receptacle-connected loads such as appliances and portable tools"*; **CAT III** is *"3-phase distribution including single-phase commercial lighting and equipment in fixed locations such as switchgear and polyphase motors."* This printer is a receptacle-connected appliance, so CAT II is the category — buy **CAT III 600 V** anyway, because it is the common rating on decent meters and it leaves you margin if you ever probe at a panel.
@@ -105,6 +111,8 @@ Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/
 
 (no image — see text)
 
+**What you're looking at:** The meter, its two test leads, and a wall outlet you know is live. **Live–dead–live** is the practice of proving the meter works immediately before and immediately after the measurement that matters ([glossary](16-glossary.md#l)) — a meter with a flat battery or a broken lead reads "no voltage" on a live conductor, which is the one wrong answer that gets someone hurt.
+
 **Parts:** multimeter, a known-live wall outlet.
 
 **Do:** A meter that has quietly died reads "no voltage" on a live conductor, which is the most dangerous reading in electrical work. The standard defence is **live–dead–live**: prove the meter on a known-live source, take your measurement, then prove the meter again on the same known-live source — if it failed in between, you find out before you act on the reading. Do it in this order the first time you use the meter, and every time you are about to touch something you have declared dead:
@@ -126,6 +134,8 @@ Source: [NFPA 70E live–dead–live practice](https://www.70econsultants.com/li
 ### Step 00a.5 — Put the printer on an RCD/GFCI outlet you can reach
 
 (no image — see text)
+
+**What you're looking at:** The wall outlet the printer will live on, and the breaker that feeds it. An **RCD** (a GFCI receptacle or GFCI breaker in a US house) compares the current flowing out on live with the current returning on neutral and cuts the supply when they differ, because a difference means current is leaving by some other path — through the frame, or through a person ([glossary](16-glossary.md#g)).
 
 **Parts:** none.
 
@@ -150,6 +160,8 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 ### Step 00a.6 — Learn the protective-earth chain in this build
 
 (no image — see [LDO Rev D bay, wiring complete](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg))
+
+**What you're looking at:** LDO's photo of a finished Rev D electronics bay. Every branch of the **protective earth** chain is in this one frame: the inlet at the back wall, the yellow/green WAGO block that fans it out, the PSU's earth screw, the ring terminal bolted to a frame extrusion, and the lead that runs up to the build plate ([glossary](16-glossary.md#p)). PE is the conductor that makes the machine safe to *touch* — it gives a stray live current a path of far lower resistance than you.
 
 **Parts:** none.
 
@@ -179,6 +191,8 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 (no image — see [LDO S4 mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S4_mapping.jpg))
 
+**What you're looking at:** The **solid-state relay** on its metal bracket, with the wording on its body legible: *1 LOAD 2*, *3 + INPUT 4 −*, and the line this step is about — *EARTH THE MOUNTING RAIL*. An SSR is a semiconductor switch with no moving contacts; here it switches mains to the bed heater on a low-voltage signal from the mainboard ([glossary](16-glossary.md#s)). The photo is from LDO's Rev C guide, so the relay in it is the 20 A G3NB-220B-1 and the bus behind it is DIN terminal blocks; your Rev D kit ships the 10 A G3NB-210B-1 and WAGO 221 blocks, and carries the same marking.
+
 **Parts:** none.
 
 **Do:** [Step 10.10](10-wiring.md#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it) records something you will read on the SSR body itself: *EARTH THE MOUNTING RAIL*. LDO's build does not run a PE conductor to the DIN rail. Understand the gap before you are standing in front of it:
@@ -201,6 +215,8 @@ Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omro
 
 (no image — see text)
 
+**What you're looking at:** The two kinds of mains terminal, side by side in LDO's Rev D bay. Above: the Meanwell PSU's three **screw terminals** (⏚, N, L), each taking a stranded core that has been crimped into a red **ferrule** — a metal sleeve that turns loose strands into one solid tube the screw can clamp ([glossary](16-glossary.md#f)). Below: the orange **WAGO 221** lever blocks, which clamp the core themselves and need no ferrule.
+
 **Parts:** none — the kit supplies the ferrules.
 
 **Do:** Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's ⏚/N/L block and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. Crimp a **ferrule** onto the core so the screw clamps a solid ferrule instead of loose strands. The kit ships **VE0508** ferrules for exactly this, counted in Ch 09 and used in Ch 10. **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — take bare stranded or ferruled core to the stop; the failure there is not splaying but *escaping*, and [Step 10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
@@ -217,6 +233,8 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 (no image — see text)
 
+**What you're looking at:** No parts — a routing rule. Everything here is about keeping load off a termination: the wire ducts that carry the mains run below deck, the anchor at the deck opening, and the zip ties at both ends of every drag chain, so it is the duct or the chain that takes the pull, not the screw terminal at the end of the wire.
+
 **Parts:** none.
 
 **Do:** A terminal is a connection, not an anchor. RepRap's rule is the one to hold: *"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."* In this build that means the mains run goes **inside a wire duct**, not across open deck ([10.8](10-wiring.md#step-108-inlet-wago-bus)), the deck opening is strain-relieved ([10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening)), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion ([10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain)). Ch 10's own warning is that cables pulled tight *"will survive assembly and fail in three months"*.
@@ -232,6 +250,8 @@ Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Ch 10 Step 10.69
 ### Step 00a.10 — The fuse in the inlet, and what it does not protect
 
 (no image — see [LDO inlet layout diagram](https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png))
+
+**What you're looking at:** LDO's diagram of the combined AC inlet — one moulded body carrying the C14 socket where the cord plugs in, the illuminated double-pole rocker switch, and a pull-out fuse drawer. **C14** is the male inlet on the machine and **C13** the socket on the cord ([glossary](16-glossary.md#i)). The three properties below — fuse on live only, rocker on both poles, earth straight through — are what Step 10.5 proves with the meter.
 
 **Parts:** none.
 
@@ -255,6 +275,8 @@ Source: [Omron — G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/c
 
 (no image — see text)
 
+**What you're looking at:** No parts — two scripted sequences, read now so neither is improvised. Checkpoint #1 is a set of meter measurements on a completely unplugged machine followed by one deliberate plug-in; the first real power-on in Ch 13 is a ten-second hand-on-the-switch listen with the chamber cleared.
+
 **Parts:** none.
 
 **Do:** This machine is deliberately powered on only three times before it is closed, and two of those are scripted rituals. Read both now so neither is improvised.
@@ -274,6 +296,8 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 ### Step 00a.12 — Decide now what you do when it smokes, trips or bites
 
 (no image — see text)
+
+**What you're looking at:** No parts — five agreed responses. Each row's *Do this first* is the action that removes energy from the machine; the *Then* column points at the existing step that owns the diagnosis, so nothing here is improvised in the moment.
 
 **Parts:** none.
 

@@ -9,7 +9,7 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 **Prerequisites:**
 
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
-- **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 7.7 h, 130 g black ([print plan](../voron-print-plan.md)). B03's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
+- **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 8.5 h, 119 g black ([print plan](../voron-print-plan.md)). B03's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
 - **Print batch B02** — *the orange day*, plate **B02-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
 - **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 

@@ -43,7 +43,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B03-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
 No rotation, no brim.
-**Parts:** the four items above — 4.4 h, 61 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** the four items above — 4.4 h, 60 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Parts sit flat as shipped.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)

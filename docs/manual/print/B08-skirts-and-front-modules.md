@@ -4,7 +4,7 @@
 [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) — 6 of the 27 plates in this batch
 are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 
-**Time:** 29.1 h (6 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 29.2 h (6 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Prerequisites:** B00, B02 (accent belt guards, fan grills, faceplate feed the same visible assembly), B07,
 and **the Gen 2 belt-upgrade pause point** if the kit is on hand — re-run the calibration-cube gate first.

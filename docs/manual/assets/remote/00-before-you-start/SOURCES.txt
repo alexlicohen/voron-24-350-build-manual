@@ -1,27 +1,70 @@
-Ch 00 — Before you start: remote image provenance
-Recorded 2026-09-05 (wave-2 chapter pass, R6 B3).
+# Mirrored step images for docs/manual/00-before-you-start.md
+# Mirrored 2026-09-05 (wave-3 chapter pass) from the local LDO cache
+# (docs/manual/assets/ldo/, gitignored). Supersedes the wave-2 "NOT MIRRORED"
+# note: CONVENTIONS.md "Image licensing" (Alex's ruling, 2026-09-05 evening)
+# allows LDO documentation images to be mirrored for this non-commercial,
+# attributed manual. Each step keeps the original URL on its Source: line.
+# Attribution: LDO Motors.
 
-Nothing is mirrored for this chapter. All six external images are hosted on
-docs.ldomotors.com, whose wiki content licence is "alr" (all rights reserved)
-per the site's own siteConfig — survey §7.4 and README "Attribution and
-licences" both settle this as link-only. Each reference keeps its remote URL
-in the chapter and carries a "(remote image)" marker after it, and the same
-URL is repeated on that step's Source: line.
+heatsettoolcomponents.jpg
+  used at : Step 00.13
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : fd200ab64b6a8080cc2343731f3e10ccc4175472e8a7b8bb8c6349c96fd36c43
 
-file (would-be local path)          | URL                                                                          | licence
-------------------------------------+------------------------------------------------------------------------------+-------------------------------
-NOT MIRRORED (Step 00.13)           | https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg | LDO wiki, all rights reserved
-NOT MIRRORED (Step 00.13)           | https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg           | LDO wiki, all rights reserved
-NOT MIRRORED (Step 00.14)           | https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg         | LDO wiki, all rights reserved
-NOT MIRRORED (Step 00.18)           | https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg                | LDO wiki, all rights reserved
-NOT MIRRORED (Step 00.19)           | https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg                   | LDO wiki, all rights reserved
-NOT MIRRORED (Step 00.19)           | https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg                   | LDO wiki, all rights reserved
+tongueflush.jpg
+  used at : Step 00.13
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 648364428daa6abd8f3449e474acbd2708f0c1e020ea6abc4a548d73c90ead19
 
-All six verified HTTP 200 on 2026-09-05. Chapters 01-04 carry no external
-images — every step illustration there is a committed manual-page PNG under
-assets/manual-pages/, rendered from the pinned Voron-2 commit de7e89d
-(GPL-3.0), so assets/remote/ has no folder for those chapters.
+heatset_dim.png
+  used at : Step 00.7
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/heatset_dim.png
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/heatset_dim.png
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : c4ab3e4fba2a4e19d6ee2adc87e5fe5bbd3c0b8326940fe3806ea26c9ddde06d
 
-If LDO's licence ever changes, the mirror target for these is
-docs/manual/assets/remote/00-before-you-start/<descriptive-name>.jpg and the
-chapter lines are the six listed above.
+insertinstall.jpg
+  used at : Step 00.14
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 55a241e5a6f50f16891e0b632213fe84ffd2d91c6508dbcb6838d3ab8694d580
+
+soaking_rails3.jpg
+  used at : Step 00.18
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : a8635e477e7c099c03042e1a8d97ea3a25e428d0e51fd978506af5f24a9c3ebb
+
+grease_prep.jpg
+  used at : Step 00.19
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : b1141d54fb8f6fb0f6bbb29734d1b7a1f1003993f876d20766f95e144aa5fbae
+
+grease_pack.jpg
+  used at : Step 00.19
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : e7348ee6a59f0a3ab1d5765a6cb7ea84af8eb8ba63d825d113618f491fc8c703

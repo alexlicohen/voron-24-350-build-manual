@@ -258,3 +258,64 @@ ldo-b-motor-cable-wiring.jpg
   date    : 2026-09-05
   licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
   sha256  : e28dd07b9bbf855de6ed828f366eb361169cbaa3e6ca1f8dc6fa0bf7e62582a0
+
+# --- Added 2026-09-05 (wave 3, "describe the pieces" pass): photos for steps that
+# --- previously had no image. Mirrored under Alex's ruling (CONVENTIONS "Image
+# --- licensing"): LDO documentation images may be mirrored for this non-commercial,
+# --- attributed manual. Original filenames kept.
+
+wiring_V1.3.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4/Media/wiring_V1.3.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/wiring_V1.3.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.3, Step 10.28
+
+S0General_Placement.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S0General_Placement.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevD/S0General_Placement.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.6
+
+bed_heater_wires_revd.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater
+  fetched : https://docs.ldomotors.com/bed_heater_wires_revd.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.13
+
+SSR_Close_Up.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.21
+
+retention_tab.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide
+  fetched : https://docs.ldomotors.com/retention_tab.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.32
+
+led_final.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8cf6c7ba29a7fd11d143c287bd3af576934/Images/WiringGuide/led_final.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.35
+
+nk36_cable_comparison.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#umbilical-cable
+  fetched : https://docs.ldomotors.com/nk36_cable_comparison.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors, attributed, non-commercial
+  used-at : Step 10.54

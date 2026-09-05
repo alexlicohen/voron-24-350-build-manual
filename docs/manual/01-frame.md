@@ -9,7 +9,7 @@ Builds the 2020 frame — bottom square, four verticals, top square — plus the
 **Prerequisites:**
 
 - **Ch 00** — inventory, extrusions counted, tools to hand.
-- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Put batch **B00** (calibration & jigs, plate B00-P1, 3.5 h) on the Prusa while you build — it is the calibration gate for every batch after it.
+- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Put batch **B00** (calibration & jigs, plate B00-P1, 4.0 h) on the Prusa while you build — it is the calibration gate for every batch after it.
 
 **Tools**
 
@@ -428,4 +428,4 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3** (≈34 h of printing, print plan §2) — start them now if they are not already running.
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3** (≈41 h of printing, print plan §2) — start them now if they are not already running.

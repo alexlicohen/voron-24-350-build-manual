@@ -1,6 +1,6 @@
 # Batch B09 — Panels, filtration, spool
 
-**Time:** 21.9 h (5 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.8 h (5 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Prerequisites:** B00, B08.
 
@@ -54,7 +54,7 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥296 g remaining across all five plates. Spool #2 is expected to run out
+**Do:** Galaxy Black, confirm ≥297 g remaining across all five plates. Spool #2 is expected to run out
 during **B09-P3** (plan §4.3) — stage spool #3.
 **Check:** Clean purge.
 
@@ -66,7 +66,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B09-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid`. Leave `V2_Duo_Plenum`'s
 built-in support in place.
-**Parts:** the three items above — 4.6 h, 63 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** the three items above — 4.5 h, 63 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Plenum's built-in support visible in preview, not suppressed.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)

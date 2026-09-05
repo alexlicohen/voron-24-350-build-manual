@@ -6,6 +6,11 @@ A Prusa-style, single-track build manual for an LDO Voron 2.4 R2 Rev D+ 350 kit,
 - `docs/manual/00-…14-*.md` — assembly chapters (frame → calibration), transcribed from the official Voron 2.4r2 manual with LDO Rev D/D+ deviations inline.
 - `docs/manual/print/` — PrusaSlicer setup (quality-first overrides) and eleven print-batch chapters with per-plate packing lists.
 - `docs/voron-print-plan.md`, `docs/voron-build-instructions-survey.md` — the research the chapters are built from.
+- `slicer/` — the PrusaSlicer 2.9.6 config bundle and one committed project per plate.
+
+## Slicer projects
+
+`slicer/` holds a PrusaSlicer **2.9.6** project for each of the 27 plates (`slicer/plates/B01-P1.3mf`, 28 MB total), each one carrying its own arrangement on the 250 × 220 bed, its per-object brims and the complete print/filament/printer configuration — open one with **File → Open Project** and slice, without re-entering the thirty-odd Voron overrides by hand or guessing at a plate layout. The configuration is generated, not hand-written: `slicer/build_config.py` reads the system presets (`0.20mm STRUCTURAL @COREONE 0.4`, `Prusament ASA @COREONE HF0.4`, `Prusa CORE One HF0.4 nozzle`) out of the `PrusaResearch.ini` shipped with the installed slicer, resolves `inherits`, applies the override table from `docs/manual/print/00-slicer-setup.md`, and writes `slicer/OVERRIDES.md` mapping every key back to the doc line it came from. Every hour and gram quoted in the print plan and the batch chapters is read from the G-code these projects produce (`slicer/estimates.csv`), which is why they replaced the throughput model that preceded them: **157.1 h / 2092 g**, against the model's 134.3 h / 2248 g. Rebuild the lot with `python3 slicer/fetch_stls.py && python3 slicer/build_plates.py` — the STLs themselves are not committed (78 MB, re-fetchable from the commits pinned in `slicer/stl/MANIFEST.sha256`).
 
 ## Read it
 

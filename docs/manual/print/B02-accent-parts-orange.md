@@ -4,7 +4,7 @@ Every accent part in the whole build, printed in one continuous orange session s
 mounted exactly once. **Two colour changes in the whole build: black → orange here, orange → black after.**
 Everything here is printed before the kit arrives anyway, so nothing waits on this.
 
-**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Prerequisites:** B00 printed and gate passed (colour change doesn't skip the calibration requirement).
 
