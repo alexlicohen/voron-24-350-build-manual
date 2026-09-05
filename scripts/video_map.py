@@ -205,7 +205,9 @@ RANK = {"low": 0, "med": 1, "high": 2}
 def build(cfg, captions):
     ids_by_chapter = manual_steps()
     playlist_id = cfg["playlist"]["list_id"]
-    titles = {v["id"]: v["title"] for v in json.loads(PLAYLIST_JSON.read_text())["videos"]}
+    pl_videos = json.loads(PLAYLIST_JSON.read_text())["videos"]
+    titles = {v["id"]: v["title"] for v in pl_videos}
+    pl_order = {v["id"]: i for i, v in enumerate(pl_videos)}
     differs = cfg.get("differs", {})
     rows, unresolved = [], 0
 
@@ -242,7 +244,8 @@ def build(cfg, captions):
                 "title": titles[vid], "t": int(t),
                 "url": f"https://www.youtube.com/watch?v={vid}&list={playlist_id}&t={int(t)}s",
                 "covers": seg["covers"], "confidence": conf, "differs": note,
-                "order": (ids.index(sid), int(t)),
+                "seg_end": seg["end"],
+                "order": (ids.index(sid), pl_order[vid], int(t)),
             })
 
     rows.sort(key=lambda r: (list(ids_by_chapter).index(r["chapter"]), r["order"]))
@@ -298,6 +301,10 @@ def write_manifest(cfg, rows):
         short = r["title"].replace("LDO Voron 2.4 Kit Hangout and Build ", "").strip("()")
         t = r["t"]
         stamp = f"{t // 3600}:{t % 3600 // 60:02d}:{t % 60:02d}"
+        if r["confidence"] == "low":
+            # No phrase matched, so the link is the start of the whole segment.
+            # Say how far past it the step can be, rather than implying precision.
+            stamp += f" +{max(1, (r['seg_end'] - t + 59) // 60)}m"
         A(f"| `{r['chapter'].split('-')[0]}` | {r['step']} | {short} | [{stamp}]({r['url']}) "
           f"| {r['covers']} | {r['confidence']} | {r['differs'] or '—'} |")
     A("")
@@ -322,6 +329,15 @@ def main():
     captions = load_captions(args.cache)
     if not captions:
         print(f"! no captions in {args.cache} — timestamps fall back to segment starts", file=sys.stderr)
+    else:
+        # A partial --refresh (YouTube answers 429 partway through a playlist)
+        # leaves a video with no captions, and every one of its rows silently
+        # drops to `low`. Say so rather than quietly losing precision.
+        missing = [v["id"] for v in json.loads(PLAYLIST_JSON.read_text())["videos"]
+                   if v["id"] not in captions]
+        if missing:
+            print(f"! no cached captions for {', '.join(missing)} — those rows fall back to "
+                  f"segment starts; re-run --refresh", file=sys.stderr)
     rows, unresolved = build(cfg, captions)
     write_manifest(cfg, rows)
     print(f"MANIFEST.md: {len(rows)} rows, "

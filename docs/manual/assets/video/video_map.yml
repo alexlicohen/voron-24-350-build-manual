@@ -94,7 +94,7 @@ segments:
   - id: p1-manual-intro
     video: feTxcc0LIWM
     start: 3002
-    end: 3282
+    end: 3350
     chapter: 00-before-you-start.md
     steps: "00.23, 00.24, 00.28, 00.29"
     covers: Opens the official assembly manual and reads the print guidelines and blind-joint page
@@ -109,15 +109,18 @@ segments:
     covers: Sorting the fastener bags into bins, and why he leaves most of them bagged
     keywords:
       "00.12": ["fastener sorting"]
-  - id: p1-rail-degrease
+  - id: p1-rail-prep
     video: feTxcc0LIWM
-    start: 8635
+    start: 6850
     end: 9172
     chapter: 00-before-you-start.md
-    steps: "00.17-00.21"
-    covers: Pushing the factory grease out of the MGN rails by hand and re-greasing
+    steps: "00.17-00.22"
+    covers: Every rail out of the bag, the best two picked for Y, then the factory grease pushed out by hand and replaced
     keywords:
+      "00.17": ["install the z rails", "prep work on the rails"]
+      "00.21": ["select our best two for y"]
       "00.18": ["through the channel", "wiping away"]
+      "00.20": ["wipe them off"]
   - id: p1-printed-parts
     video: feTxcc0LIWM
     start: 9172
@@ -186,8 +189,8 @@ segments:
       "01.17": ["t-nut there", "t-nuts in the frame"]
   - id: p1-bed-extrusions
     video: feTxcc0LIWM
-    start: 5865
-    end: 6021
+    start: 5340
+    end: 6450
     chapter: 01-frame.md
     steps: "01.16, 01.18, 01.19"
     covers: Bed extrusions on their anodised angle brackets, flat, 150 mm apart centre to centre
@@ -302,25 +305,36 @@ segments:
     covers: Z idlers at the top corners — LDO ships toothed idlers, not smooth bearings
     keywords:
       "02.39": ["z idler", "tooth idlers"]
-  - id: p4-zrails
+  - id: p4-gantry-start
     video: ViB5Ulc9zDI
-    start: 2089
-    end: 3352
-    chapter: 02-z-drives.md
-    steps: "02.05-02.09"
-    covers: Z rails installed flush to the extrusions, tightened from the centre outward
-    differs: [order]
+    start: 376
+    end: 760
+    chapter: 05-gantry.md
+    steps: "05.1, 05.19-05.21"
+    covers: '"We''re at the point where we''re gonna start putting the gantry together" — front idlers onto the Y extrusions, checked for float and flush'
     keywords:
-      "02.07": ["from the center", "work your way to the outside"]
-      "02.06": ["front rails"]
+      "05.1": ["putting the gantry together"]
+      "05.19": ["both the front idlers", "the y extrusions"]
+      "05.20": ["flush with the front of the extrusion", "idlers can float"]
+  - id: p4-index-front-idlers
+    video: ViB5Ulc9zDI
+    start: 2050
+    end: 2560
+    chapter: 05-gantry.md
+    steps: "05.4, 05.13, 05.14, 05.22, 05.23"
+    covers: Everything indexes off the front idlers from here — T-nuts pre-inserted, then the A/B modules go on and the rear closes
+    keywords:
+      "05.22": ["indexing things off the front idlers", "the a b modules"]
+      "05.4": ["pre-inserting all these m5 t-nuts", "to hold that"]
   - id: p4-railstops
     video: ViB5Ulc9zDI
     start: 5241
     end: 5400
     chapter: 02-z-drives.md
     steps: "02.10"
-    covers: Rail stops at the top of the Z rails
-    max_confidence: med
+    covers: LDO rail stops bolted on with hammerhead nuts — no official V2.4 part for this
+    keywords:
+      "02.10": ["speaking of rail stops", "hammerhead nuts for these"]
 
   # ------------------------------------------------------ Ch 03 — build plate
   - id: p1-plate
@@ -359,28 +373,34 @@ segments:
     end: 4683
     chapter: 04-ab-drives.md
     steps: "04.1-04.6, 04.8-04.13, 04.20-04.23"
-    covers: Every A/B bearing stack built on its assembly-aid bolt, then capped and closed
+    covers: '"A 1 mm shim, a set of bearings, a 1 mm shim" — the rule for every A/B stack, and the washer trick when a bolt head protrudes'
     keywords:
-      "04.7": ["bearing stacks on a"]
+      "04.7": ["1 mm shim to either side", "bearing stacks on a"]
+      "04.8": ["every pair of bearings", "surrounded on each side"]
+      "04.11": ["a washer underneath the head", "sticking out"]
       "04.20": ["30 mm bolts", "our steppers"]
   - id: p3-bdrive
     video: ii14-2COjuA
     start: 4683
     end: 4763
     chapter: 04-ab-drives.md
-    steps: "04.2, 04.29-04.37"
+    steps: "04.2, 04.29-04.32, 04.37"
     covers: '"BAA like a sheep" — the mnemonic for which drive is A and which is B, looking at the front'
     keywords:
       "04.2": ["like a sheep", "the a drive"]
   - id: p3-pulley-jig
     video: ii14-2COjuA
-    start: 4440
-    end: 4520
+    start: 4040
+    end: 4620
     chapter: 04-ab-drives.md
-    steps: "04.24, 04.25, 04.33, 04.34"
-    covers: The printed pulley-alignment jig used to set motor pulley height
+    steps: "04.24, 04.26, 04.27, 04.33, 04.35, 04.36"
+    covers: The printed pulley-alignment jig — A side one way, B side the opposite, then M3×30s into the motor
     keywords:
-      "04.24": ["pulley alignment jig"]
+      "04.24": ["this is the a side", "center the"]
+      "04.33": ["the opposite way", "we use the b side"]
+      "04.27": ["m3 by 30s"]
+      "04.26": ["pointing towards the inside of the printer"]
+      "04.35": ["wires going towards the"]
   - id: p3-idler-shims
     video: ii14-2COjuA
     start: 5000
@@ -409,14 +429,21 @@ segments:
     chapter: 05-gantry.md
     steps: "05.1, 05.2"
     covers: Gantry parts on the bench and named
-  - id: p3-gantry-build
+  - id: p3-xy-joints
     video: ii14-2COjuA
     start: 4763
     end: 5676
     chapter: 05-gantry.md
-    steps: "05.4-05.15, 05.22-05.24"
-    covers: Drives onto the XY bridge, the two Y axes rails fitted and bolted to the drives
+    steps: "05.25-05.31"
+    covers: '"Let''s build the XY joints" — bearing stacks shimmed, 22T idlers left free to float, one bolt threading straight into plastic'
     differs: [nobackers]
+    keywords:
+      "05.25": ["build the xy joints"]
+      "05.26": ["m5 hex bolts", "threads into plastic"]
+      "05.27": ["careful about shimming", "going to separate"]
+      "05.28": ["a bunch of 3 by 40s"]
+      "05.29": ["22-tooth idlers", "meant to float"]
+      "05.31": ["that is the xy joints"]
   - id: p3-carriage-grease
     video: ii14-2COjuA
     start: 5676
@@ -441,7 +468,7 @@ segments:
     start: 4680
     end: 4830
     chapter: 05-gantry.md
-    steps: "05.25-05.31"
+    steps: "05.25"
     covers: XY joints — the parts that got revised, and the inserts that go in them
     differs: [trident]
     keywords:
@@ -474,18 +501,22 @@ segments:
     end: 1838
     chapter: 06-z-axis-and-gantry-squaring.md
     steps: "06.3-06.8"
-    covers: Z belt clamps — the R2 revision of this joint, and how the belt end seats
+    covers: Z belt clamps — the R2 revision of this joint, which face the notch goes to, and how the belt end seats
     keywords:
       "06.5": ["r2 improvements", "an attempt at an improvement"]
+      "06.6": ["the z-belt clamps", "two m5 holes"]
+      "06.7": ["the notch of it goes to the side"]
   - id: p4-z-joints
     video: ViB5Ulc9zDI
     start: 3352
     end: 5241
     chapter: 06-z-axis-and-gantry-squaring.md
     steps: "06.1, 06.2, 06.9-06.15"
-    covers: Gantry into the frame and the four Z joints made, everything left loose until it lines up
+    covers: Gantry into the frame and the four Z joints made — he deviates from the manual and mounts before belting
     keywords:
-      "06.9": ["three by twenties"]
+      "06.2": ["covers the z joints", "assembly diagram"]
+      "06.9": ["m3 by 30", "three by twenties"]
+      "06.11": ["belting the gantry before you have it mounted"]
       "06.13": ["loose enough that we can move"]
       "06.15": ["set this in here", "holding things in place"]
   - id: p4-z-belt-route
@@ -496,8 +527,7 @@ segments:
     steps: "06.16-06.22"
     covers: Routing the four Z belts down around the drives and up over the idlers
     keywords:
-      "06.18": ["let's route the belts"]
-      "06.23": ["riding in the right spots"]
+      "06.18": ["let's route the belts", "one of these front"]
   - id: p5-z-belt-cont
     video: hTKCBrk36R0
     start: 2760
@@ -608,7 +638,7 @@ segments:
       "08.32": ["square end", "25.5"]
   - id: p5-part-fan
     video: hTKCBrk36R0
-    start: 8531
+    start: 8270
     end: 10027
     chapter: 08-toolhead.md
     steps: "08.34, 08.42"
@@ -679,7 +709,7 @@ segments:
   - id: p11-led-harness
     video: D_44fDp9xt8
     start: 2769
-    end: 3151
+    end: 4300
     chapter: 08-toolhead.md
     steps: "08.35-08.39"
     covers: LED harness made up and tinned; the clear-PETG diffuser holder
@@ -728,7 +758,7 @@ segments:
   - id: p7-mounts
     video: eHo0k2wQsJw
     start: 1467
-    end: 1866
+    end: 2000
     chapter: 09-electronics-bay.md
     steps: "09.7, 09.15, 09.20"
     covers: DIN clips — which way they click on, and taping between components and their mounts
@@ -763,7 +793,7 @@ segments:
       "09.6": ["lay out the wire channels"]
   - id: p7-compartment
     video: eHo0k2wQsJw
-    start: 3896
+    start: 3560
     end: 4240
     chapter: 09-electronics-bay.md
     steps: "09.10-09.12"
@@ -834,7 +864,7 @@ segments:
       "10.60": ["first link", "when you move the tool"]
   - id: p6-stepper-wires
     video: 8pWoYkY1DiA
-    start: 4341
+    start: 3850
     end: 5445
     chapter: 10-wiring.md
     steps: "10.40-10.43, 10.61"
@@ -912,7 +942,7 @@ segments:
   - id: p9-leds
     video: dmNwxUm4oik
     start: 297
-    end: 1052
+    end: 1150
     chapter: 10-wiring.md
     steps: "10.35-10.38"
     covers: Chamber LED strips installed and routed to the breakout board along the rear extrusion
@@ -973,7 +1003,7 @@ segments:
       "10.55": ["5 volts and ground"]
   - id: p11-pull-wires
     video: D_44fDp9xt8
-    start: 8500
+    start: 8290
     end: 11429
     chapter: 10-wiring.md
     steps: "10.65, 10.66, 10.69"
@@ -1206,7 +1236,7 @@ segments:
       "12.26": ["quad gantry level", "checked and uncommented"]
   - id: p9-printer-cfg
     video: dmNwxUm4oik
-    start: 9674
+    start: 9340
     end: 10140
     chapter: 12-software.md
     steps: "12.21-12.24"
@@ -1287,13 +1317,21 @@ segments:
   - id: p9-stepper-buzz
     video: dmNwxUm4oik
     start: 5973
-    end: 6646
+    end: 6900
     chapter: 13-initial-startup.md
     steps: "13.13-13.16"
     covers: STEPPER_BUZZ on every motor — and why a single A or B buzz always moves diagonally
     keywords:
       "13.14": ["always diagonal", "single stepper movements"]
       "13.13": ["the z steppers"]
+  - id: p9-invert-stepper
+    video: dmNwxUm4oik
+    start: 8600
+    end: 8760
+    chapter: 13-initial-startup.md
+    steps: "13.16"
+    covers: What to change when a motor turns the wrong way — swapped axis vs. inverted direction
+    keywords:
       "13.16": ["invert stepper", "if it's swapped"]
   - id: p9-heaters
     video: dmNwxUm4oik

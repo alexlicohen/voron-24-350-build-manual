@@ -74,12 +74,12 @@ steps:
   out: 02-09
   chapter: 02-z-drives.md
   modes: [a, b]
-  elev_a: 72.0                    # deliberate override: plan view is the only
-                                  # camera that settles which face a rail is on
+  elev_a: 90.0                    # deliberate override: only a true plan view
+                                  # settles which face each rail is on
   context_scale: 1.05
   ghost_exclude: 'Panels|Skirt'
   title: "Step 02.09 - which face each Z rail is actually mounted on"
-  subtitle_a: "Plan view. All four rails lie on faces whose normal is +/-Y, so each rail faces the one diagonally opposite it in Y - not the one across the machine in X."
+  subtitle_a: "Plan view. Every rail sits on a face whose normal is +/-Y, so each faces the rail in front of or behind it - not the one across the machine."
   subtitle_b: "Same four rails in the frame; rest of the machine ghosted at 20%."
   select:
     - label: "REAR rails: on the front face of the rear verticals, facing -Y"
@@ -213,7 +213,7 @@ steps:
   chapter: 05-gantry.md
   modes: [a]
   title: "Step 05.16 - which backer is which, and which face it goes on"
-  subtitle_a: "Two matched long pieces are the Y backers (top face of each C); the odd shorter one is the X backer (rear face of D). Backers are schematic - they are a mod and are not in the Voron CAD."
+  subtitle_a: "Backers lifted off the faces they belong to: two matched long Y backers, one shorter X backer. Schematic - a mod, not in the Voron CAD."
   select:
     - label: "C extrusions (Y axes) - Y backer on the TOP face"
       resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/=>'
@@ -225,10 +225,10 @@ steps:
       resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/MGN9 - 300mm[^/]*:1/=>|HFSB5-20-330:1/MGN12 rail[^/]*/=>'
       ids: [298, 414, 440]
   boxes:
-    - label: "Y backer x2 - the matched long pair (schematic)"
-      geom: '313,8,88,331,326,91;-77,8,88,-59,326,91'
-    - label: "X backer x1 - the odd shorter one (schematic)"
-      geom: '-23,193,70,277,196,86'
+    - label: "Y backer x2 - matched long pair, onto the TOP face of each C (lifted off)"
+      geom: '313,8,104,331,326,107;-77,8,104,-59,326,107'
+    - label: "X backer x1 - the odd shorter one, onto the REAR face of D (lifted off)"
+      geom: '-23,206,96,277,209,112'
   caption: "The three extrusions that take a backer, each with its backer drawn on the face opposite its rail."
   looking_at: "The three backers laid on the extrusions they belong to - the two matching long ones on top of the Y (C) beams, the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail."
   note_350: "Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by matched pair versus odd one, not by the lengths drawn here."
@@ -283,18 +283,40 @@ steps:
 - step: "05.35"
   out: 05-35
   chapter: 05-gantry.md
-  modes: [a, b]
-  frame_a: '298,240,72,342,340,125'
-  context_scale: 2.2
-  ghost_exclude: 'Panels|Skirt'
-  title: "Step 05.35 - cable-chain end link over a 3 mm backer"
-  subtitle_a: "The chain's fixed end bolts through the C extrusion's top face - the same face the Y backer covers. Dry fit only; the chain is Ch 10."
-  subtitle_b: "The whole Y chain run and both bridge variants in place; rest of the machine ghosted at 20%."
+  modes: [a]
+  frame_a: '288,196,52,352,348,196'
+  title: "Step 05.35 - the chain's fixed end lands on the backer's face"
+  subtitle_a: "Chain lifted off for clarity. Its end link bolts down through the top face of the Y beam - the same face the 3 mm backer covers."
   select:
-    - label: "chain end link bolts into the C extrusion's TOP face"
+    - label: "M3x6 FHCS - the end link bolts down into the C extrusion's TOP face"
       resolve: 'Y Cable Chain:3/M3x6 FHCS \(3\)'
       ids: [374]
-    - label: "Y cable chain (fitted in Ch 10 - dry fit only here)"
+    - label: "Y cable chain, lifted off here (it is actually fitted in Ch 10)"
+      resolve: 'Y Cable Chain:3/0[^/]*:1$'
+      ids: [357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369,
+            370, 371]
+      offset: '0,0,70'
+    - label: "C extrusion (Y axis) - the face both the backer and the link want"
+      resolve: 'Gantry Extrusions:1/HFSB5-2020-350:1/=>'
+      ids: [415]
+  boxes:
+    - label: "titanium Y backer, 3 mm, on that same top face (schematic)"
+      geom: '313,8,88,331,326,91'
+  caption: "The cable chain's fixed end lifted off the Y beam, showing that its end link and the 3 mm titanium backer want the same extrusion face."
+  looking_at: "The fixed end of the Y cable chain, lifted off the beam it bolts to - that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link may now sit 3 mm proud."
+  note_350: "CAD chain and extrusion are the 250 machine's; a 350 chain run is longer. What transfers is which face the end link lands on."
+  insert: true
+
+- step: "05.35"
+  out: 05-35
+  chapter: 05-gantry.md
+  modes: [b]
+  frame_b: '284,148,42,356,352,206'
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 05.35 - which bridge, and the run it has to serve"
+  subtitle_b: "Whole Y chain run in place with both bridge variants; rest of the machine ghosted at 20 per cent."
+  select:
+    - label: "Y cable chain (Ch 10) - dry fit only at this step"
       resolve: 'Y Cable Chain:3/0[^/]*:1$'
       ids: [357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369,
             370, 371]
@@ -306,16 +328,16 @@ steps:
       ids: [225, 226, 227, 228]
       offset: '0,0,60'
   boxes:
-    - label: "titanium Y backer, 3 mm, on the same top face (schematic)"
+    - label: "titanium Y backer, 3 mm (schematic)"
       geom: '313,8,88,331,326,91'
-  caption: "The Y cable chain's fixed end, its two bridge variants, and the 3 mm Y backer that shares the extrusion face they bolt to."
-  looking_at: "The cable chain's fixed end where it bolts down through the top face of the Y beam - the same face the titanium backer covers - and the printed bridge at the other end of the run whose foot has to sit flat."
-  note_350: "CAD chain and extrusion are the 250 machine's; the chain run on a 350 is longer. What transfers is which face the end link lands on."
+  caption: "The whole Y cable-chain run with both bridge variants and the Y backer, in place on the right-hand Y beam."
+  looking_at: "The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front - and both bridge variants, of which this kit uses the 2-hole one."
+  note_350: "Run length is the 250 machine's; a 350 needs more links. Which bridge and which face do not change."
   insert: true
   insert_note: >-
     The raised alternative the step names, XY_cable_chain_bridge-Igus-3mm_backer,
     is a mod part and is NOT in the Voron CAD - only the stock 2-hole and 3-hole
-    bridges are. Caption must not imply the render shows the raised variant.
+    bridges are. The caption must not imply the render shows the raised variant.
 
 - step: "05.45"
   out: 05-45
@@ -396,26 +418,46 @@ steps:
 - step: "06.23"
   out: 06-23
   chapter: 06-z-axis-and-gantry-squaring.md
-  modes: [a, b]
-  frame_a: '-72,-32,318,-18,42,382'
-  context_scale: 1.05
-  ghost_exclude: 'Panels|Skirt'
-  title: "Step 06.23 - the four Z belts and the bolt that tensions each one"
-  subtitle_a: "One corner, top of the upright: the Z idler and its M3x16 tensioner bolt. Same at all four corners."
-  subtitle_b: "All four Z belt runs; rest of the machine ghosted at 20%."
+  modes: [a]
+  elev_a: -20.0                   # deliberate override: the tensioner screw
+                                  # stands proud UNDER the idler mount, so the
+                                  # only camera that shows it looks up from below
+  frame_a: '-78,-38,324,-12,48,386'
+  title: "Step 06.23 - the bolt that tensions one Z belt"
+  subtitle_a: "Front-left upright from below. The M3x16 stands proud under the idler mount; there is one at each of the four corners."
   select:
-    - label: "Z idler tensioner bolt (M3x16 SHCS) - top of each upright"
+    - label: "Z idler tensioner bolt (M3x16 SHCS) - one per corner"
       resolve: 'Z Idlers:1/[^/]+/M3x16 SHCS'
       ids: [500, 510, 521, 531]
-    - label: "Z idler, top of each vertical"
+    - label: "Z idler mount, top of each vertical"
       resolve: 'Z Idlers:1/[^/]+/=>\['
       ids: [501, 512, 523, 534]
+    - label: "that corner's Z belt"
+      resolve: 'Z Belts:1/Z Belt'
+      ids: [749, 750, 751, 752]
+  caption: "One Z idler mount seen from below, with the M3x16 tensioner bolt that adjusts that corner's belt."
+  looking_at: "The Z idler at the top of one upright, seen from underneath - the small bolt standing proud below it is the tensioner, and turning it changes that corner's belt tension."
+  note_350: "Idler height is the 250 machine's. There is one of these at each of the four corners either way."
+  insert: true
+
+- step: "06.23"
+  out: 06-23
+  chapter: 06-z-axis-and-gantry-squaring.md
+  modes: [b]
+  context_scale: 1.05
+  ghost_exclude: 'Panels|Skirt'
+  title: "Step 06.23 - the four Z belts you are evening up"
+  subtitle_b: "All four Z belt runs and the idler at the top of each upright; rest of the machine ghosted at 20 per cent."
+  select:
     - label: "the four Z belts - pluck each on its fixed run"
       resolve: 'Z Belts:1/Z Belt'
       ids: [749, 750, 751, 752]
-  caption: "The four Z belt runs and, at the top of each upright, the Z idler tensioner bolt that evens them."
-  looking_at: "The four Z belts that hang the gantry, and the tensioner bolt at the top of each upright - a few turns there raises or lowers that corner's belt tension."
-  note_350: "Belt runs and idler heights in the picture are the 250 machine's. There are four belts and four tensioner bolts either way."
+    - label: "Z idler mount, top of each vertical - tensioner bolt is under it"
+      resolve: 'Z Idlers:1/[^/]+/=>\['
+      ids: [501, 512, 523, 534]
+  caption: "All four Z belt runs, from the drives at the bottom of each upright up to the idlers at the top."
+  looking_at: "The four Z belts that hang the gantry, one down each upright - each runs from its drive at the bottom, up over the idler at the top, and back to the gantry corner."
+  note_350: "Belt runs are the 250 machine's and are shorter than yours. There are four belts either way."
   insert: true
 
 - step: "06b.7"
