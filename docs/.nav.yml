@@ -1,0 +1,7 @@
+ignore: manual/CONVENTIONS.md
+
+nav:
+  - Home: index.md
+  - Manual: manual
+  - Print plan: voron-print-plan.md
+  - Instruction survey: voron-build-instructions-survey.md
