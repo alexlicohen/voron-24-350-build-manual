@@ -4,7 +4,7 @@
 Most efficient AND most effective print/build order for the Voron 2.4 350 once the Core One+ is running: one interleaved timeline of Prusa print batches and Voron assembly phases, dependency-ordered, so the printer is never idle and no assembly step waits on a part. Deliverables: docs/voron-print-plan.md (what to print, batch order), docs/voron-build-instructions-survey.md (which instructions to follow, Prusa-manual-style consolidation), and docs/manual/ — the actual consolidated build manual: Prusa-style numbered steps with fasteners, checks, and print batches interleaved as chapters (Alex: "not just an order, a detailed set of instructions"). Printing guidance is Prusa/PrusaSlicer-specific and quality-first: "speed is not the priority, quality is." Delivery: MkDocs Material site from docs/ (`scripts/serve.sh` → LAN URL), read on an iPad at the bench; markdown is the single source, PDFs only as exported snapshots.
 
 
-**Status 2026-09-05:** manual complete — 16 assembly chapters (docs/manual/00–14, ~640 steps) + 12 printing chapters (docs/manual/print/) + index/timeline (docs/manual/00-index.md, corrections log there). Site: `./scripts/serve.sh`, `mkdocs build --strict` passes. Not a git repo yet. Bench-verify items are marked `(verify on bench)` in-chapter.
+**Status 2026-09-05:** manual complete — 16 assembly chapters (docs/manual/00–14, ~640 steps) + 12 printing chapters (docs/manual/print/) + index/timeline (docs/manual/00-index.md, corrections log there). Site: `./scripts/serve.sh`, `mkdocs build --strict` passes. Git: public repo https://github.com/alexlicohen/voron-24-350-build-manual (context/ and the manual PDF are gitignored). Bench-verify items are marked `(verify on bench)` in-chapter.
 
 ## Hardware
 
