@@ -1,4 +1,5 @@
 site_name: "Voron 2.4 350 — Build Manual"
+site_url: https://alexlicohen.github.io/voron-24-350-build-manual/
 docs_dir: docs
 
 theme:
