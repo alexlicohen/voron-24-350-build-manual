@@ -45,3 +45,75 @@
 
 /* R5 F17 — fit more config per line in portrait without wrapping (config reads as lines, not prose). */
 @media (max-width: 76.1875em) { .md-typeset pre > code { font-size: .72rem; } }
+
+/* R6 CONVENTIONS "Source lines" — muted caption, tap it to compare with the original. */
+.md-typeset p.src {
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  margin: .35rem 0 1.1rem;
+}
+.md-typeset p.src::before { content: "🔗 "; }
+
+/* R6 B2 — per-step progress + resume. */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 0 0 1.2rem;
+  padding: .5rem .8rem;
+  border-radius: .4rem;
+  background: var(--md-code-bg-color);
+}
+.progress-summary { font-weight: 600; font-size: .85rem; }
+.progress-resume, .progress-reset {
+  min-height: 44px;
+  min-width: 44px;
+  padding: .3rem .9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+.step-done-toggle {
+  width: 22px;
+  height: 22px;
+  margin: 0 .6rem 0 0;
+  vertical-align: middle;
+}
+h3.step-done { opacity: .6; text-decoration: line-through; }
+.progress-badge { font-size: .8rem; opacity: .75; margin-left: .3rem; white-space: nowrap; }
+
+/* R6 B9 — sticky section jump bar. */
+.jump-bar {
+  position: sticky;
+  top: var(--md-header-height, 2.4rem);
+  z-index: 5;
+  display: flex;
+  gap: .4rem;
+  overflow-x: auto;
+  padding: .4rem .2rem;
+  margin: 0 0 1.2rem;
+  background: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  -webkit-overflow-scrolling: touch;
+}
+.jump-bar__chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .3rem .9rem;
+  border-radius: 999px;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: .8rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.jump-bar__chip--active {
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}

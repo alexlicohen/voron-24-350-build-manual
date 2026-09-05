@@ -1,0 +1,32 @@
+Ch 08 — Toolhead: remote-image mirroring record (B3)
+Checked 2026-09-05.
+
+MIRRORED: none.
+
+Every step illustration in this chapter is either already local
+(assets/sb-pages/*.png from the GPL-3.0 Voron-Stealthburner PDF,
+assets/manual-pages/*.png from the GPL-3.0 Voron-2 PDF) or is a remote image
+that the licence does not let this manual copy. The chapter contains zero
+`![...](https://...)` references, so nothing was rewritten.
+
+LEFT REMOTE (link-only), with the licence finding:
+
+file (not mirrored)                | URL                                                                                              | licence
+nhsbv2_pcb_pinout.jpg              | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg       | no LICENSE in repo
+sbv2_fan_adapter_pcb_pinout.jpg    | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg | no LICENSE in repo
+grounding_scheme.jpg               | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/grounding_scheme.jpg        | no LICENSE in repo
+toolboard_ground_routing.jpg       | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/toolboard_ground_routing.jpg| no LICENSE in repo
+cable_chain_ties.jpg               | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/cable_chain_ties.jpg        | no LICENSE in repo
+usb_adapter_gnd.jpg                | https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/usb_adapter_gnd.jpg         | no LICENSE in repo
+LDO wiring-guide / printed-parts / BOM / build-FAQ page images | https://docs.ldomotors.com/...                                | wiki licence "alr" (all rights reserved)
+
+Licence evidence, MotorDynamicsLab/Nitehawk-SB-V2 (re-verified 2026-09-05):
+  `gh api repos/MotorDynamicsLab/Nitehawk-SB-V2/license` -> 404 Not Found
+  repo root contains only CAD/ Configs/ Hardware/ Images/ README.md STLs/ — no LICENSE file.
+Matches survey §7.4 ("No LICENSE file in the repo — link, do not redistribute;
+ask LDO in #ldo_motors if embedding matters") and CONVENTIONS.md line 8.
+LDO docs.ldomotors.com images are link-only per survey §7.4 (siteConfig licence "alr").
+
+To revisit: if LDO adds a LICENSE to Nitehawk-SB-V2, six step illustrations
+(Steps 08.33, 08.43–08.53, 08.60, 08.63, 08.64) become mirrorable and Ch 08's
+image coverage goes from 42/65 to 65/65 steps.

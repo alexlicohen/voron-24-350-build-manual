@@ -2,7 +2,18 @@
 site/
 .DS_Store
 .playwright-mcp/
+__pycache__/
+*.pyc
 # private: order history with address/phone/card digits, and the raw chat transcript
 context/
 # re-downloadable (pinned URL in README); too large for a public repo
 docs/manual/assets/Voron2.4r2-manual.pdf
+docs/manual/assets/Voron-Stealthburner-manual.pdf
+# LDO image cache (82 MB sweep; chapters copy what they use into assets/remote/<chapter>/)
+docs/manual/assets/ldo/*
+!docs/manual/assets/ldo/MANIFEST.csv
+!docs/manual/assets/ldo/SOURCES.txt
+
+# re-fetchable from the pinned commits in slicer/stl/MANIFEST.sha256
+slicer/stl/*
+!slicer/stl/MANIFEST.sha256

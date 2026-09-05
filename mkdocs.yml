@@ -31,9 +31,12 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/print.css
 
 extra_javascript:
   - javascripts/wakelock.js
+  - javascripts/progress.js
+  - javascripts/jumpbar.js
 
 markdown_extensions:
   - admonition
@@ -55,6 +58,8 @@ plugins:
 
 hooks:
   - hooks/callouts.py
+  - scripts/build_tonight.py
+  - scripts/build_printables.py
 
 validation:
   links:

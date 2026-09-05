@@ -4,7 +4,10 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 
 **Time:** 5.0–7.0 h hands-on, first build, two people ([survey §5.1 P05 / §7.2](../voron-build-instructions-survey.md)).
 
+**Sessions:** 12 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes).
+
 **Prerequisites:**
+
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
 - **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**).
 - **Print batches: B04** (XY joints + X carriage, plate B04-P1, 7.3 h, black) and **B02-P3** (the orange accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 is itself gated on B00 + B02 + B03.
@@ -12,6 +15,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
 
 **Tools**
+
 - Hex drivers 2 / 2.5 / 3 / 4 mm; a **ball-end 2.5 mm** helps at the XY joints
 - **T10 Torx driver** — strongly preferred for the backer M3 FHCS; hex cams out of a countersink easily ([backers README](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers))
 - Printed rail-centring jigs `MGN9_rail_guide_x2`, `MGN12_rail_guide_x2`
@@ -21,6 +25,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 - Camera for the build log
 
 **Printed parts**
+
 
 | STL | Qty | Colour |
 |---|---|---|
@@ -68,12 +73,24 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS** with a few spares, and **no T-nuts** ([West3D](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack)).
 
 **Read first**
+
 - **The titanium backers go on during this chapter, not after it.** Fitting them once the gantry is assembled or installed means a teardown (survey §5.2 W2). They mount on the face **opposite the rail** — top of the Y extrusions, rear of the X extrusion. *"If you have a single MGN12 but decide to put a backer on top, you will be actively contributing to the problem of bimetallic expansion!"* [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
 - **Do not tension the A/B belts and do not square the gantry here.** Both are Ch 06/07, and the official squaring procedure begins by *releasing* A/B tension — tension it now and you undo it (survey §4.4 #2, §5.2 W1). Several joints in this chapter are deliberately left "slightly loose".
 - **Every T-nut this chapter needs must go in before the drive and idler frames cap the extrusion ends.** LDO: *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly … or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - **Rails ship dry.** If Ch 00's clean-and-pack pass has not been done, stop and do it — the flip-and-pack method needs access to the back of the rail (survey §4.4 #5).
 - **Carriages slide off rails and are ruined by a drop** (manual p.88, p.101). Tape or stopper every carriage the moment its rail is on an extrusion.
 - The gantry is assembled **upside down** through p.105 — that is a continuation of Ch 04's "UPSIDE DOWN ASSEMBLY" (manual p.74, p.78) — and is flipped at p.106.
+
+**Sources for this chapter:**
+
+- [Voron 2.4r2 assembly manual, p.82–107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=82) — the page sequence this chapter transcribes, pinned at commit `de7e89d`
+- [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) — Rev D kit deviations, T-nut pre-loading, rail stoppers
+- [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — 2-hole cable bridge, D2F endstop pod
+- [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) — rail clean-and-pack, done in Ch 00
+- [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) — chain-end clearance over the backers
+- [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) — which face the backers go on, and why; source of the two backer images (GPL-3.0)
+- [Fabreeko](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) and [West3D](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack) backer sets — supplied screw counts
+- [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — why nothing is squared or tensioned in this chapter
 
 ---
 
@@ -87,6 +104,8 @@ The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS** w
 
 **Check:** Four Ch 04 assemblies present, pulleys and bearing stacks matching the p.80 "CHECK YOUR WORK" graphic, all four spinning freely.
 
+Source: [Voron manual p.82](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=82)
+
 ---
 
 ### Step 05.2 — Name the six gantry parts
@@ -98,6 +117,8 @@ The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS** w
 **Do:** Read the overview and fix the vocabulary — B Drive (rear left), A Drive (rear right), XY Bridge (the E extrusion joining them), Left XY Joint, Right XY Joint, X Linear Rail, B Idler (front left), A Idler (front right). Write "A" and "B" on masking tape on the two drive units now; from here to Ch 10 the wiring, the belt paths and the Klipper config all use those letters.
 
 **Check:** You can point at the A drive, the B idler and the right XY joint without hesitating.
+
+Source: [Voron manual p.83](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=83)
 
 ---
 
@@ -115,6 +136,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** One 2-hole bridge on the bench, one alternate beside it, the 3-hole variant binned.
 
+Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=84) · [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
+
 ---
 
 ### Step 05.4 — Test-fit T-nuts and stage the fasteners
@@ -126,6 +149,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Take one M5 and one M3 T-nut and roll them through each face of each of the four extrusions. Note which faces run freely and which bind, and mark the tight faces with tape. Count the fasteners out into labelled trays per the hardware table above — this chapter loads T-nuts on six different faces and there is no way to add one later.
 
 **Check:** Every T-nut you will use rolls in without force. A forced roll-in nut galls the channel and the next one will not go in at all.
+
+Source: [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Voron manual p.85](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=85)
+
+Pause: ~25 min since the last pause — bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off.
 
 ---
 
@@ -139,6 +166,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** 4 nuts at each end, threaded holes facing outward, none of them jammed.
 
+Source: [Voron manual p.85](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=85)
+
 ---
 
 ### Step 05.6 — Slide the A drive onto the E extrusion
@@ -150,6 +179,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Push the A drive unit onto one end of the E extrusion, motor pointing **down** (the assembly stays upside down until p.106). Seat it until the printed part is flush with the extrusion end.
 
 **Check:** Plastic flush to the aluminium end face, and the four M5 T-nuts visible through the drive frame's bolt holes.
+
+Source: [Voron manual p.85](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=85)
 
 ---
 
@@ -163,6 +194,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** All four bolts bite. The drive frame does not rock on the extrusion.
 
+Source: [Voron manual p.86](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=86)
+
 ---
 
 ### Step 05.8 — Slide the B drive onto the other end
@@ -174,6 +207,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Push the B drive onto the free end of the E extrusion, motor down, flush to the end face. The two drives are mirror images — the motor cable exits must point **towards each other** (manual p.75, MOTOR ORIENTATION). If they point apart, you have the drives swapped end for end.
 
 **Check:** Both motor cable exits face inboard, both printed parts flush.
+
+Source: [Voron manual p.86](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=86)
 
 ---
 
@@ -187,6 +222,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Drives parallel, no twist along the bridge, all eight M5×10 in and snug. Nothing here is torqued yet.
 
+Source: [Voron manual p.87](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=87)
+
+Pause: ~30 min since the last pause — XY bridge bolted to both drive units, bridge bolts tight. Lay the assembly flat, still upside down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.
+
 ---
 
 ### Step 05.10 — Load M3 T-nuts for the first Y rail
@@ -198,6 +237,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** This kit's Y rails are **400 mm** MGN9H (`LDO-SLR9H-400Z0`), not the 250-spec rails the manual's drawings are dimensioned from. A 400 mm MGN9 has 20 holes at 20 mm pitch and the pattern uses **every other hole**, so you need about **10** T-nuts per rail. Count the holes on your own rail and mark the ones you will use before loading any nuts. Slide them into the slot that will carry the rail, spread along its length, orientation as the highlight shows. Leave roughly 25 mm of free slot at each end — the rail does not reach the extrusion ends and later steps need that space.
 
 **Check:** ~10 nuts, one per marked hole, evenly spread, all rolled flat in the channel, ~25 mm clear at both ends.
+
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 ---
 
@@ -213,6 +254,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Rail centred on the extrusion by both jigs. The p.88 detail dimensions **25 mm** from the extrusion end to the rail end — measure both ends and make them equal.
 
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)
+
 ---
 
 ### Step 05.12 — Tighten the first Y rail
@@ -224,6 +267,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Run every screw down finger-tight first, re-check the jigs at both ends and the middle, then tighten from the centre outwards in two passes. The manual gives no torque figure — take them to firm and even, not maximum. Re-fit a jig after the last pass to confirm nothing walked.
 
 **Check:** Rail sits flat with no visible gap under it anywhere; the guide jig still slides on at both ends and the middle; the carriage runs the full length with no notch or tight spot.
+
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)
+
+Pause: ~30 min since the last pause — first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away.
 
 ---
 
@@ -237,6 +284,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Two rails installed and equally centred. 2 M5 T-nuts sitting at each of the four extrusion ends.
 
+Source: [Voron manual p.89](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=89)
+
 ---
 
 ### Step 05.14 — Load the reserved M5 + M3 pair at each end
@@ -248,6 +297,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** At each end of each C extrusion add **one M5 T-nut and one M3 T-nut** in the slot the blow-ups show — M5 outermost, M3 just inboard of it, both in the free slot beyond the rail end. Nothing in this chapter uses them; they are for the Z joints, chain retainers and endstop hardware in Ch 06 and Ch 10, and once the idler and drive frames are on you cannot get another nut into these slots.
 
 **Check:** Four ends, each with one M5 and one M3 T-nut in addition to the pair from Step 05.13 — three M5 and one M3 per end. Count them before you go on.
+
+Source: [Voron manual p.90](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=90)
 
 ---
 
@@ -261,6 +312,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Each Y carriage is captive. *"Dropping the carriage likely irreparably damages it"* (manual p.88).
 
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+
+Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.
+
 ---
 
 ### Step 05.16 — Unpack and identify the titanium backers
@@ -273,19 +328,23 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** 2 Y + 1 X backer, hole counts written down, and you have at least that many M3 T-nuts. The set does not include T-nuts.
 
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [Fabreeko backer set](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) · [West3D backer set](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack)
+
 ---
 
 ### Step 05.17 — Fit the first Y backer
 
-(no image — see text)
+![Backer faces for a 1×MGN12 gantry — backers (magenta) on the top of both Y extrusions and the rear of the X extrusion](assets/remote/05-gantry/ti-backer-face-layout.jpeg)
 
 **Parts:** Y backer ×1, M3×8 FHCS ×~10, M3 T-nut ×~10, T10 Torx driver.
 
 **Do:** Turn the first C extrusion so the MGN9 rail faces away from you and work on the **opposite face** — in the finished machine that is the top of the Y extrusion. Roll the T-nuts into that face's slot, lay the backer on, and start every screw before tightening any. Use **M3×8 FHCS for Y**, driven with Torx if you have it: *"the added contact surface area with the countersinks makes the M3 FHCS susceptible to camming out."* Tighten from the centre outwards so the backer flattens onto the extrusion rather than bowing between fixings.
 
-⚠ Never put a backer on the same face as a rail. The whole point is to put steel on the opposite face and cancel the bending couple; doubling up on the rail side makes the bow worse. [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
+⚠ **Never on the rail face:** the whole point is to put steel on the face *opposite* the rail and cancel the bending couple. Doubling up on the rail side makes the bow worse. [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
 
 **Check:** Backer flat along its whole length, no rocking, every screw seated in its countersink and none of them cammed out. Both ends clear of where the idler and drive frames will land.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) (image [`x_axis.jpeg`](https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/main/extrusion_backers/images/x_axis.jpeg))
 
 ---
 
@@ -299,6 +358,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Both backers on the rail-opposite face, both flat. Their cable-chain pilot holes end up on the same side of the machine.
 
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
+
+Pause: ~35 min since the last pause — both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop.
+
 ---
 
 ### Step 05.19 — Fit the front idler to the first Y axis
@@ -310,6 +373,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Slide the idler onto the **front** end of the first C extrusion. Use the idler that has **two M5 holes in the top** when it is oriented as the page draws it — that is what tells the left idler from the right. Push it home, then drive two M5×16 BHCS down through its top flange into the M5 T-nuts from Step 05.13.
 
 **Check:** Two M5 holes on top, both bolts biting into T-nuts, idler pulled up tight against the extrusion.
+
+Source: [Voron manual p.91](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=91)
 
 ---
 
@@ -323,6 +388,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Plastic flush to the extrusion end, notch pointing outboard.
 
+Source: [Voron manual p.92](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=92)
+
 ---
 
 ### Step 05.21 — Fit the second front idler
@@ -334,6 +401,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Same on the second Y assembly with the opposite-hand idler. Push flush, two M5×16 BHCS into the top-slot T-nuts, snug.
 
 **Check:** Both Y assemblies now have an idler at the front, both flush, both notches pointing away from the idler body.
+
+Source: [Voron manual p.93](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=93)
 
 ---
 
@@ -347,6 +416,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** A U-shaped gantry: bridge across the back, two Y axes running forward, idlers at the front. Both rails face the same way; both backers face the same way.
 
+Source: [Voron manual p.94](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=94)
+
 ---
 
 ### Step 05.23 — Bolt the Y axes to the drives
@@ -358,6 +429,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Two M5×16 BHCS per side, down through the drive frame's top flange into the M5 T-nuts at the rear of each C extrusion. Snug only. Check the same two things as at the idlers: plastic flush with the extrusion end, and the belt-clamp notch pointing **away from the drive assembly**.
 
 **Check:** Four bolts in, both rear joints flush, both notches outboard.
+
+Source: [Voron manual p.95](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=95)
 
 ---
 
@@ -371,6 +444,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Front and rear spacing equal within ~1 mm. **Do not try to square or lock the gantry now** — squaring happens with the gantry in the frame, belts slack, in Ch 06 (survey §4.4 #2).
 
+Source: [Voron manual p.95](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=95)
+
+Pause: ~40 min since the last pause — front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go).
+
 ---
 
 ### Step 05.25 — Seat the M5 nuts in both XY joints
@@ -382,6 +459,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Drop **three M5 nuts** into the hex pockets of each XY joint body, flats aligned to the pocket. Push each one fully home with a spare M5 bolt; a nut sitting proud will stop the joint closing later and will crack the pocket if you bolt through it.
 
 **Check:** Three nuts per joint, all flush in their pockets, none rotated out of the hex.
+
+Source: [Voron manual p.96](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=96)
 
 ---
 
@@ -397,6 +476,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Two bearings and one spacer on the bolt, in that order, bearings spinning freely, cable channel unobstructed.
 
+Source: [Voron manual p.97](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=97) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+
 ---
 
 ### Step 05.27 — Close the right XY joint
@@ -409,6 +490,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Halves closed flat, bolt engaged in its nut, bearing stack still turning by finger.
 
+Source: [Voron manual p.97](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=97)
+
 ---
 
 ### Step 05.28 — Bolt the right XY joint together
@@ -420,6 +503,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Add the two remaining M5×40 SHCS from the top into the other two M5 nuts and tighten all three evenly. These clamp the joint into a single rigid part.
 
 **Check:** No light between the halves anywhere. The bearing stack still spins.
+
+Source: [Voron manual p.98](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=98)
 
 ---
 
@@ -435,6 +520,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Idler spins under a fingernail flick with no drag and no wobble.
 
+Source: [Voron manual p.98](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=98)
+
+Pause: ~25 min since the last pause — right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it.
+
 ---
 
 ### Step 05.30 — Build the left XY joint
@@ -446,6 +535,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Mirror of Steps 05.26–05.27 — M5×40 up through the upper plate, F695, F695, precision spacer, then close the joint body over it into its M5 nut. The left joint has no endstop cable channel; if the part you are holding has one, you have the right-hand pair.
 
 **Check:** Left and right joints sit as mirror images on the bench, not as two of the same hand.
+
+Source: [Voron manual p.99](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=99)
 
 ---
 
@@ -459,6 +550,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Both joints complete: 4× M5×40 each, 2× F695 each, one spacer each, one 20T idler each, all four bearing stacks and both idlers free.
 
+Source: [Voron manual p.100](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=100)
+
+Pause: ~20 min since the last pause — both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet.
+
 ---
 
 ### Step 05.32 — Load M3 T-nuts for the X rail
@@ -470,6 +565,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** The X rail is a **400 mm** MGN12H (`LDO-SLR12H-400Z1`): ~16 holes at 25 mm pitch, every other hole, so about **8** T-nuts. Count the holes and mark the ones you will use, then slide the nuts into the D extrusion's rail slot, spread along it, orientation per the highlight. Leave about 15 mm of clear slot at each end.
 
 **Check:** ~8 nuts in, one per marked hole, flat, with clear slot at both ends.
+
+Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=101)
 
 ---
 
@@ -485,11 +582,13 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** The p.101 detail dimensions **15 mm** of bare extrusion beyond the rail end — measure both ends and make them equal. Carriage runs the full rail with no tight spot; rail flat with no gap under it.
 
+Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=101) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)
+
 ---
 
 ### Step 05.34 — Fit the X backer to the rear face
 
-(no image — see text)
+![Titanium X backer on the rear face of the X extrusion, with the cable-chain pilot holes](assets/remote/05-gantry/ti-backer-x-rear-face.png)
 
 **Parts:** X backer ×1, M3×6 FHCS ×~8, M3 T-nut ×~8.
 
@@ -498,6 +597,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 ⚠ *"For X axes, in most cases you'll want to install them on the rear of the X extrusion, opposite the MGN12 rail… If you have a single MGN12 but decide to put a backer on top, you will be actively contributing to the problem of bimetallic expansion!"* [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
 
 **Check:** Backer on the face opposite the MGN12, flat, all screws seated. Nothing added to the top face of the D extrusion — the XY joints and the cable bridge need that face clear.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) (image [`fusion_x_chainmount.png`](https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/main/extrusion_backers/images/fusion_x_chainmount.png))
 
 ---
 
@@ -511,6 +612,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** You know whether you will use `[a]_xy_joint_cable_bridge_2hole` or the raised `XY_cable_chain_bridge-Igus-3mm_backer`. "Igus" = the 2-hole pattern LDO ships. [src](https://docs.ldomotors.com/guides/cable_chain_guide)
 
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide)
+
+Pause: ~35 min since the last pause — MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.
+
 ---
 
 ### Step 05.36 — Load the D extrusion's M5 T-nuts
@@ -522,6 +627,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Two slots are used here. In the slot on the face **adjacent to the rail** (the joints' bolting face) put **two M5 T-nuts at each end** — four in total. In the slot on the **opposite** face put **one M5 T-nut at each end** — two in total. Both blow-ups on the page show the orientation.
 
 **Check:** 4 + 2 = six M5 T-nuts. The two singles line up with the through-holes the M5×30 bolts will use from underneath.
+
+Source: [Voron manual p.102](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=102)
 
 ---
 
@@ -535,6 +642,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Both joints fully home; the two 20T idlers and the two bearing stacks all face the same way along the extrusion.
 
+Source: [Voron manual p.103](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=103)
+
 ---
 
 ### Step 05.38 — Bolt the joints from above, with the cable bridge
@@ -546,6 +655,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** On the **left** joint, two M5×10 BHCS straight down into the extrusion's top-slot T-nuts. On the **right** joint, lay the cable bridge's foot over the same two holes and use the longer **M5×16 BHCS** to bolt through bridge and joint into the extrusion. *"LEAVE SLIGHTLY LOOSE — lightly tighten the bolts."* These joints are re-seated when the gantry is squared in Ch 06.
 
 **Check:** Bridge foot flat with its arm standing up on the right-hand side; four bolts started and lightly tightened, none torqued.
+
+Source: [Voron manual p.104](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=104)
 
 ---
 
@@ -561,6 +672,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Two M5×30 in with black washers under the heads, both lightly tightened.
 
+Source: [Voron manual p.104](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=104) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+
 ---
 
 ### Step 05.40 — Check the X axis assembly
@@ -572,6 +685,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Compare your X assembly with the page. Sight along the extrusion at each end: the 20T idler and the F695 stack must be in the same plane as their opposite numbers, so a belt can run straight between them. Spin all four.
 
 **Check:** Idler and bearing-stack heights match end to end; nothing binds; the MGN12 carriage still slides freely and is still taped.
+
+Source: [Voron manual p.105](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=105)
+
+Pause: ~35 min since the last pause — both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still upside down; leave it that way and do not attempt the flip alone.
 
 ---
 
@@ -585,6 +702,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Motors up, both Y carriages accessible from above, nothing dropped on a bearing stack.
 
+Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
+
 ---
 
 ### Step 05.42 — Insert the X axis at an angle
@@ -596,6 +715,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** *"Tilt the X axis to install it onto the gantry."* Bring one XY joint down onto its Y carriage first, then swing the other end across and drop it onto the second carriage. The left joint goes to the left Y rail, the right joint (cable bridge, endstop channel) to the right.
 
 **Check:** Both joints sitting squarely on their carriages, bolt holes lined up, no bearing or idler fouling the Y extrusion.
+
+Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
 
 ---
 
@@ -609,6 +730,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** 4 bolts on one joint, 2 on the other, 2 M3×16 left over and bagged with `[a]_endstop_pod_D2F_switch`. Count them; the pod cannot go on later without them.
 
+Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
+
 ---
 
 ### Step 05.44 — Run the X axis end to end
@@ -620,6 +743,10 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** Push the X axis slowly from one end of the Y travel to the other, several times, with a hand on each XY joint. It should move with even, light resistance the whole way. A tight spot near one end usually means a rail is not centred; a general stiffness that grows towards one end usually means the gantry is racked — do **not** fix that by loosening rails.
 
 **Check:** Full travel both directions, no notch, no rising resistance, both Y carriages moving together. Racking is normal and is corrected in Ch 06.
+
+Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
+
+Pause: ~30 min since the last pause — gantry flipped, X axis in and bolted to both Y carriages, running end to end without binding. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.
 
 ---
 
@@ -635,6 +762,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Bolt pattern matches the MGN12 carriage; both halves and the probe retainer bagged and labelled for Ch 07.
 
+Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+
 ---
 
 ### Step 05.46 — Bag what belongs to later chapters
@@ -649,6 +778,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 
 **Check:** Two labelled bags; nothing loose on the bench that Ch 06 or Ch 07 will need.
 
+Source: [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+
 ---
 
 ### Step 05.47 — Stop here: no belts, no squaring
@@ -660,6 +791,8 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 **Do:** The gantry is complete as a mechanism and deliberately unfinished as a machine. Do not cut, route or tension the A/B belts, do not tighten the XY joints "properly", and do not try to square the gantry on the bench. The official procedure squares it **in the frame, with A/B tension released and the lower Z joints dropped** — doing it now guarantees doing it twice. [src](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
 **Check:** A/B belts still in their bag. XY joint bolts still only lightly tightened.
+
+Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=107) · [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
 ---
 
@@ -712,3 +845,7 @@ Tip: keep `XY_cable_chain_bridge-Igus-3mm_backer.stl` (also on plate B02-P3) bes
 ## Next
 
 Ch 06 — Z axis: gantry install, Z belts and gantry squaring (manual p.108–123, plus the official 16-step squaring procedure); gated on batch **B05** (Z joints + Z chain, 1 plate, 5.2 h) — start it now if it is not already printed. Keep the rubber rail stoppers: LDO uses them under the Z joints to rest the gantry during install.
+
+Source: [survey §7.5](../voron-build-instructions-survey.md) · [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=107)
+
+Pause: ~25 min since the last pause — gantry complete, measurements written down, photographs taken, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.

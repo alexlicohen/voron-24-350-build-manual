@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: General Voron / LDO build help
+    url: https://discord.gg/voron
+    about: Questions about the kit or Klipper itself, not about how this manual is written — ask in the Voron Discord (or #ldo_motors) for a faster answer.

@@ -12,6 +12,8 @@ also be introduced with an optional Markdown blockquote (`> `):
   Tip: <body>                -> !!! tip
   **Tip:** <body>            -> !!! tip
   **Check:** <body>          -> !!! success "Check"
+  Source: <body>             -> <p class="src" markdown="1">Source: <body></p>
+  Pause: ~NN min since the last pause — <body> -> !!! info "Good stopping point · ~NN min since the last one" (body = text after the dash)
 
 A trigger line's body continues onto every following line — including a
 hard-wrapped paragraph continuation, or a list/table that belongs to a
@@ -25,10 +27,12 @@ import re
 _BLOCKQUOTE_PREFIX_RE = re.compile(r"^>\s?")
 
 _WARNING_RE = re.compile(
-    r"^⚠\s*(?:\*{0,2}([^:\n*]+?)\*{0,2}:\*{0,2}\s*)?(.*)$"
+    r"^⚠\s*(?:\*{0,2}([^:\n*/]{1,40}?)\*{0,2}:(?!//)\*{0,2}\s*)?(.*)$"
 )
 _TIP_RE = re.compile(r"^\*{0,2}Tip:\*{0,2}\s*(.*)$")
 _CHECK_RE = re.compile(r"^\*{0,2}Check:\*{0,2}\s*(.*)$")
+_SRC_RE = re.compile(r"^Source:\s*(.*)$")
+_PAUSE_RE = re.compile(r"^Pause:\s*~?(\d+)\s*min\s*(.*)$")
 
 _HEADING_RE = re.compile(r"^#{1,6}\s")
 _HR_RE = re.compile(r"^(?:-{3,}|\*{3,}|_{3,})\s*$")
@@ -43,13 +47,21 @@ def _match_trigger(logical_line):
     m = _WARNING_RE.match(logical_line)
     if m:
         title, body = m.group(1), m.group(2)
-        return "warning", (title.strip() if title else None), body
+        return "warning", (title.strip() if title else "Caution"), body
     m = _CHECK_RE.match(logical_line)
     if m:
         return "success", "Check", m.group(1)
     m = _TIP_RE.match(logical_line)
     if m:
         return "tip", None, m.group(1)
+    m = _SRC_RE.match(logical_line)
+    if m:
+        return "src", None, m.group(1)
+    m = _PAUSE_RE.match(logical_line)
+    if m:
+        minutes, rest = m.group(1), m.group(2)
+        rest = re.sub(r"^\s*since the last pause\s*[—–-]\s*", "", rest)
+        return "info", f"Good stopping point · ~{minutes} min since the last one", rest
     return None
 
 
@@ -67,6 +79,11 @@ def _admonition(kind, title, body_lines):
     indented = ["    " + first] + ["    " + ln for ln in body_lines[1:]]
     header = f'!!! {kind} "{title}"' if title else f"!!! {kind}"
     return header + "\n" + "\n".join(indented)
+
+
+def _src_html(body_lines):
+    body = " ".join(ln.strip() for ln in body_lines if ln.strip())
+    return f'<p class="src" markdown="1">Source: {body}</p>'
 
 
 def _convert_callouts(markdown):
@@ -94,7 +111,10 @@ def _convert_callouts(markdown):
                 break
             body_lines.append(nxt_logical)
             i += 1
-        out.append(_admonition(kind, title, body_lines))
+        if kind == "src":
+            out.append(_src_html(body_lines))
+        else:
+            out.append(_admonition(kind, title, body_lines))
     return "\n".join(out)
 
 
@@ -159,6 +179,14 @@ if __name__ == "__main__":
             "Any deviation from that pattern means the inlet is miswired — stop and fix it "
             "before anything else. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)\n"
         ),
+        "Source line, plain": (
+            "Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15) · "
+            "[LDO Build Notes p.4](https://docs.ldomotors.com/en/voron/voron2/build-faq)\n"
+        ),
+        "Pause line": (
+            "Pause: ~25 min since the last pause — frame square, no belts on yet; do not tension "
+            "anything before walking away.\n"
+        ),
         "two adjacent callouts must not merge": (
             "⚠ First warning body.\n"
             "⚠ Second warning starts immediately after, no blank line.\n"
@@ -191,6 +219,31 @@ if __name__ == "__main__":
     )
     if "\n### Step 3.3 — Next step" not in heading_case:
         print("FAIL: heading was swallowed into the preceding callout's body")
+        fail = True
+
+    # Source-line regression: renders as a muted <p class="src"> caption with links intact.
+    src_case = on_page_markdown(fixtures["Source line, plain"], None, None, None)
+    if '<p class="src" markdown="1">Source:' not in src_case:
+        print("FAIL: Source line did not render as a <p class=\"src\"> caption")
+        fail = True
+    if "[Voron manual p.15](" not in src_case or "[LDO Build Notes p.4](" not in src_case:
+        print("FAIL: Source line lost a markdown link")
+        fail = True
+    if re.match(r"^Source:", src_case):
+        print("FAIL: raw 'Source:' marker leaked unconverted")
+        fail = True
+
+    # Pause-line regression: renders as an info admonition titled with the minute count.
+    url_case = on_page_markdown("⚠ Do not use the 3-hole bridge, see https://example.com/x for the 2-hole part.\n", None, None, None)
+    if "https://example.com/x" not in url_case.split("\n", 1)[1] or 'warning "Caution"' not in url_case:
+        print("FAIL: untitled warning with a URL was split into title/body incorrectly:", url_case[:160])
+        fail = True
+    pause_case = on_page_markdown(fixtures["Pause line"], None, None, None)
+    if '!!! info "Good stopping point · ~25 min since the last one"' not in pause_case or "since the last pause" in pause_case:
+        print("FAIL: Pause line did not render as the expected info admonition")
+        fail = True
+    if "Pause:" in pause_case:
+        print("FAIL: raw 'Pause:' marker leaked unconverted")
         fail = True
 
     # on_page_content: lazy-load / async-decode injection, idempotent on already-attributed tags.

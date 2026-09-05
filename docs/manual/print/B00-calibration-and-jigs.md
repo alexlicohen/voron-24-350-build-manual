@@ -3,11 +3,12 @@
 One plate: the dimensional gate for the whole build, plus two rail-alignment jigs. Nothing else prints
 until this plate passes.
 
-**Time:** 3.5 h (1 plate).
+**Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
 **Prerequisites:** none — this is the first batch. Slicer set up per [00-slicer-setup.md](00-slicer-setup.md).
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -21,6 +22,7 @@ until this plate passes.
 **Hardware:** none.
 
 **Read first**
+
 - The seven-item gate in [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) — nothing proceeds until all seven pass.
 - Most commonly reprinted here: the cube, until the profile is right.
 - `z_drive_retainer_a` on this plate is deliberate — it's your bearing-press-fit coupon **and** one of the two you need for B01, so nothing is wasted.
@@ -28,19 +30,26 @@ until this plate passes.
 ## Step B00.1 — Filament prep
 
 **Do:** Mount a fresh or recently-dried (≤2 weeks open) spool of Prusament ASA Galaxy Black. Load it in the
-Core One+, confirm the `Prusament ASA @COREONE` filament profile is selected.
+Core One+, confirm the `Prusament ASA @COREONE HF0.4` filament profile is selected (HF — the machine has the
+high-flow nozzle).
 **Check:** Purge is clean black, no PLA/PETG streaking from a prior print.
+
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B00.2 — Load plate B00-P1
 
-**Do:** In PrusaSlicer, select printer `Prusa CORE One 0.4 nozzle`, print `0.20mm STRUCTURAL @COREONE 0.4`
-with the overrides from [00-slicer-setup.md](00-slicer-setup.md), filament `Prusament ASA @COREONE` with
-shrinkage compensation XY/Z zeroed. Import all six files: `Voron_Design_Cube_v7`, `Heatset_Practice`,
+![Plate B00-P1](../assets/plates/B00-P1.png)
+
+**Do:** Open `slicer/plates/B00-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. It carries printer `Prusa CORE One HF0.4 nozzle`, print
+`0.20mm STRUCTURAL @COREONE 0.4` with the overrides from [00-slicer-setup.md](00-slicer-setup.md), and filament
+`Prusament ASA @COREONE HF0.4` with shrinkage compensation XY/Z zeroed. Confirm all six parts are on the bed: `Voron_Design_Cube_v7`, `Heatset_Practice`,
 `MGN12_rail_guide_x2` ×2, `MGN9_rail_guide_x2` ×2, `pulley_jig`, `z_drive_retainer_a_x2` ×1. Do not change which face any part sits on — all ship pre-oriented (rotating about Z to fit the plate is
 fine).
-**Parts:** all six items above — 3.5 h, 57 g.
-**Check:** Slicer's own time/weight estimate should be within the same ballpark as this chapter's totals;
-if wildly off, re-check the profile selection before printing.
+**Parts:** all six items above — 4.0 h, 52 g (PrusaSlicer 2.9.6 estimate).
+**Check:** The slicer reads **3 h 58 m / 51.7 g**. It is the same file these numbers came from, so anything
+else means the project did not load its own configuration — stop and check before printing.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
 ## Step B00.3 — Pre-print checks
 
@@ -49,11 +58,15 @@ gate on the ASA filament profile — don't override it). Confirm the smooth/sati
 with IPA.
 **Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges.
 
+Source: [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+
 ## Step B00.4 — Print
 
 **Do:** Start the plate. Watch the first layer for at least the first 2–3 minutes — this is the abort
 window the 1-loop skirt buys you.
 **Check:** First layer is smooth, no gaps between beads, no ridging (Ellis' smooth-bottom method).
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B00.5 — Inspect
 
@@ -66,6 +79,8 @@ cube corner snap (no delamination), `Heatset_Practice` insert flush ±0.2 mm pro
 **Check:** All seven pass. Any failure → adjust per the "if out of spec" column in
 [00-slicer-setup.md](00-slicer-setup.md), reprint this plate, do not proceed to B01.
 
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
+
 ## Step B00.6 — Label and bin
 
 **Do:** Bin the two rail guides and the pulley jig together, labelled "Z-drive tooling — Frame". Set the
@@ -74,6 +89,8 @@ and `Heatset_Practice` are consumables — keep the cube as the reference coupon
 after the Gen 2 upgrade).
 **Check:** Nothing from this plate is wasted — even the test coupons are either reused (rail guides,
 retainer) or kept as reference (cube).
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

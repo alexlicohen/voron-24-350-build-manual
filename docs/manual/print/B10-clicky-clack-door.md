@@ -1,10 +1,11 @@
 # Batch B10 — Clicky-Clack door
 
-**Time:** 5.1 h (1 plate) + the orange `Handle` printed back in B02.
+**Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the orange `Handle` printed back in B02.
 
 **Prerequisites:** B00, B02 (the orange `Handle`), B09.
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -31,6 +32,7 @@ Fabreeko before it ships **(unverified)**.
 **Hardware:** none.
 
 **Read first**
+
 - Checkpoint after B10: sleeve bearings must tap into the hinge sleeves without splitting the part; M5×45
   pin into the "solid" half should be a **very** tight hammer fit with ~20 mm proud.
 - Most commonly reprinted here: `Hinge-L-solid-2X` (split risk on the pin press).
@@ -42,22 +44,30 @@ Fabreeko before it ships **(unverified)**.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥80 g remaining. The orange `Handle` from B02 should already be set aside.
+**Do:** Galaxy Black, confirm ≥76 g remaining. The orange `Handle` from B02 should already be set aside.
 **Check:** Clean purge.
+
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B10.2 — Load plate B10-P1
 
-**Do:** Slice `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2,
+![Plate B10-P1](../assets/plates/B10-P1.png)
+
+**Do:** Open `slicer/plates/B10-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2,
 `Latch`, `Panel_Clip`. Apply 5 mm brim to `Hinge-L-sleeve-2X`, `Hinge-L-solid-2X`, and `Latch`. Mirror the
 `Hinge-L-*` parts now if you want the door to swing the opposite way — in **2.9.6**; the 3.0 preview has no
 mirror tool.
-**Parts:** the six black parts above — 5.1 h, 80 g.
+**Parts:** the six black parts above — 5.7 h, 76 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Brim applied to the three tall/narrow parts; mirroring decision made before slicing, not after.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
 ## Step B10.3 — Pre-print checks
 
 **Do:** Chamber preheated, sheet clean.
 **Check:** Chamber ≥40 °C.
+
+Source: [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B10.4 — Print
 
@@ -65,17 +75,23 @@ mirror tool.
 **Check:** The four hinge-sleeve/solid parts print upright and stable through their full 55–58 mm height —
 watch the first 10 mm for any brim lift.
 
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
 ## Step B10.5 — Inspect
 
 **Do:** Tap a split bushing into each hinge sleeve — should seat without splitting the part. Test-fit an
 M5×45 dowel pin into a `Hinge-L-solid` half — should be a very tight hammer fit with ~20 mm proud.
 **Check:** No splitting on the sleeve press; pin fit is tight, not loose, with the correct proud length.
 
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
+
 ## Step B10.6 — Label and bin
 
 **Do:** Bring the orange `Handle` (from B02) together with this plate's six black parts for
 **Panels (front door)** install, replacing the stock two-door assembly entirely.
 **Check:** All seven Clicky-Clack parts (6 black + 1 orange) reunited and labelled together.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

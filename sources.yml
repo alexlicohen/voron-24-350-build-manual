@@ -1,0 +1,1195 @@
+# Pinned-source inventory (R6 V2).
+# Rebuild: python3 scripts/sources_build.py
+# Re-verify: python3 scripts/sources_verify.py
+# Do not hand-edit URLs here without also fixing the citing chapter.
+
+generated: '2026-09-05'
+
+sources:
+- id: andrewellis93-print-tuning-gui-test-prints
+  url: https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints
+  kind: community
+  title: Print-Tuning-Guide/test_prints at main · AndrewEllis93/Print-Tuning-Guide · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: bef55254f88044149478561e6f6e7cea3d1aa352
+- id: andrewellis93-print-tuning-guide
+  url: https://github.com/AndrewEllis93/Print-Tuning-Guide
+  kind: community
+  title: GitHub - AndrewEllis93/Print-Tuning-Guide · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: bef55254f88044149478561e6f6e7cea3d1aa352
+- id: arksine-katapult
+  url: https://github.com/Arksine/katapult
+  kind: klipper
+  title: 'GitHub - Arksine/katapult: Configurable bootloader for Klipper · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ec59b9bb9ad6c2ec8d4dc6831fbc77f0b308e29e
+- id: canbus-esoterical-online
+  url: https://canbus.esoterical.online
+  kind: klipper
+  title: Home | Esoterical’s CANBus Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: cnckitchen-com-blog-building-a-voron-24-r2-in
+  url: https://www.cnckitchen.com/blog/building-a-voron-24-r2-in-2022-ldo-kit
+  kind: community
+  title: Building a VORON 2.4 R2 in 2022 (LDO Kit) | CNC Kitchen
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: discord-com-channels-460117602945990666-71
+  url: https://discord.com/channels/460117602945990666/710952853514223617
+  kind: community
+  title: Discord
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: discord-gg-nv8y6bcerp
+  url: https://discord.gg/NV8Y6bcerP
+  kind: community
+  title: Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: discord-gg-voron
+  url: https://discord.gg/voron
+  kind: community
+  title: VORONDesign
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-fluidd-xyz
+  url: https://docs.fluidd.xyz/
+  kind: community
+  title: Welcome - Fluidd
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com
+  url: https://docs.ldomotors.com/
+  kind: ldo-guide
+  title: LDO Documentation | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-guides-btt-43-rotate-guide
+  url: https://docs.ldomotors.com/en/guides/btt_43_rotate_guide
+  kind: ldo-guide
+  title: Touchscreen Setup for Klipper | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-guides-cable-chain-guide
+  url: https://docs.ldomotors.com/en/guides/cable_chain_guide
+  kind: ldo-guide
+  title: Cable Chain Guide | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-guides-xy-endstop-cable-rec
+  url: https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide
+  kind: ldo-guide
+  title: XY Endstop Cable Repinning Guide | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-toolboard-nitehawk-sb
+  url: https://docs.ldomotors.com/en/Toolboard/nitehawk-sb
+  kind: ldo-guide
+  title: Nitehawk-SB Toolboard | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-toolboard-nitehawk-sb-v2
+  url: https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2
+  kind: ldo-guide
+  title: Nitehawk SB Toolboard V2 | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2
+  url: https://docs.ldomotors.com/en/voron/voron2
+  kind: ldo-guide
+  title: Voron 2.4 Kit | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-300-bom-home
+  url: https://docs.ldomotors.com/en/voron/voron2/300_BOM/HOME
+  kind: ldo-guide
+  title: LDO V2.4 300 BOM Directory | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-350-bom-home
+  url: https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME
+  kind: ldo-guide
+  title: LDO V2.4 350 BOM Directory | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-350-bom-rev-d
+  url: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D
+  kind: ldo-guide
+  title: V2.4 350 BOM (Rev. D) | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-build-faq
+  url: https://docs.ldomotors.com/en/voron/voron2/build-faq
+  kind: ldo-guide
+  title: Build Notes/FAQ | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-printed-part-g
+  url: https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_c
+  kind: ldo-guide
+  title: Rev. C Printed Parts Guide (Voron 2.4 Kit) | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-printed-part-g-2
+  url: https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d
+  kind: ldo-guide
+  title: Rev. D Printed Parts Guide (Voron 2.4 Kit) | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-wiring-guide-r
+  url: https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_c
+  kind: ldo-guide
+  title: LDO V2.4 Kit Wiring Guide (Rev. C) | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-en-voron-voron2-wiring-guide-r-2
+  url: https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d
+  kind: ldo-guide
+  title: LDO V2.4 Kit Wiring Guide (Rev.D) | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-guides-cable-chain-guide
+  url: https://docs.ldomotors.com/guides/cable_chain_guide
+  kind: ldo-guide
+  title: Cable Chain Guide | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-guides-heatset-insert-tool-gui
+  url: https://docs.ldomotors.com/guides/heatset_insert_tool_guide
+  kind: ldo-guide
+  title: Heatset Insert Tool Guide | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-guides-klipper-id
+  url: https://docs.ldomotors.com/guides/klipper_id
+  kind: ldo-guide
+  title: Obtaining Klipper USB ID | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-guides-rail-grease-guide
+  url: https://docs.ldomotors.com/guides/rail_grease_guide
+  kind: ldo-guide
+  title: Linear Rail Greasing Guide | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-ldomotors-com-voron-voron2-build-faq
+  url: https://docs.ldomotors.com/voron/voron2/build-faq
+  kind: ldo-guide
+  title: Build Notes/FAQ | LDO Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-mainsail-xyz-configuration-mainsail-cfg
+  url: https://docs.mainsail.xyz/configuration/mainsail-cfg/
+  kind: community
+  title: mainsail.cfg - Mainsail - The 3D Printer Interface
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-mainsail-xyz-faq-klipper-errors-command-for
+  url: https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/
+  kind: community
+  title: MCU Protocol error - Mainsail - The 3D Printer Interface
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-os-mainsail-xyz
+  url: https://docs-os.mainsail.xyz/
+  kind: community
+  title: MainsailOS - Prebuilt Klipper Image for Raspberry Pi & More
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-os-mainsail-xyz-getting-started-first-boot
+  url: https://docs-os.mainsail.xyz/getting-started/first-boot/
+  kind: community
+  title: MainsailOS - Prebuilt Klipper Image for Raspberry Pi & More
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-os-mainsail-xyz-getting-started-raspberry-pi
+  url: https://docs-os.mainsail.xyz/getting-started/raspberry-pi/
+  kind: community
+  title: MainsailOS - Prebuilt Klipper Image for Raspberry Pi & More
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com
+  url: https://docs.vorondesign.com
+  kind: voron-docs
+  title: Voron Documentation | Voron Official and Community Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-build-mechanical-v2-gantry-squ
+  url: https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html
+  kind: voron-docs
+  title: V2 Gantry Squaring | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-build-slicer-first-print-html
+  url: https://docs.vorondesign.com/build/slicer/first_print.html
+  kind: voron-docs
+  title: First Print | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-build-software
+  url: https://docs.vorondesign.com/build/software/
+  kind: voron-docs
+  title: Software Installation | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-build-startup
+  url: https://docs.vorondesign.com/build/startup/
+  kind: voron-docs
+  title: Initial Startup | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-materials-html
+  url: https://docs.vorondesign.com/materials.html
+  kind: voron-docs
+  title: Materials Selection | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: docs-vorondesign-com-tuning-secondary-printer-tunin
+  url: https://docs.vorondesign.com/tuning/secondary_printer_tuning.html
+  kind: voron-docs
+  title: Secondary Printer Tuning | Voron Documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: dw-0-kiauh
+  url: https://github.com/dw-0/kiauh
+  kind: community
+  title: 'GitHub - dw-0/kiauh: Klipper Installation And Update Helper · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: d3e538de7b3163abe27fdf8116a60716d4db31ce
+- id: dw-0-kiauh-2
+  url: https://github.com/dw-0/kiauh.git
+  kind: community
+  title: 'GitHub - dw-0/kiauh: Klipper Installation And Update Helper · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: d3e538de7b3163abe27fdf8116a60716d4db31ce
+- id: e3d-online-com-pages-revo-support-60w-104nt-h
+  url: https://e3d-online.com/pages/revo-support-60w-104nt-heatercore
+  kind: vendor
+  title: 'Revo Support: 60W 104NT HeaterCore – E3D'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: e3d-online-com-pages-revo-support-voron
+  url: https://e3d-online.com/pages/revo-support-voron
+  kind: vendor
+  title: 'Revo Support: Voron – E3D'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-pressure-linear-advance-tool
+  url: https://ellis3dp.com/Pressure_Linear_Advance_Tool/
+  kind: community
+  title: Ellis' Pressure Advance / Linear Advance Calibration Tool
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide
+  url: https://ellis3dp.com/Print-Tuning-Guide/
+  kind: community
+  title: Welcome! | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-bu
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/build_surface_prep_handling.html
+  kind: community
+  title: Build Surface Preparation & Handling | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-co
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/cooling_and_layer_times.html
+  kind: community
+  title: Cooling and Layer Times | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-de
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_speeds_accels.html
+  kind: community
+  title: Determining Maximum Speeds and Accelerations | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-de-2
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_volumetric_flow_rate.html
+  kind: community
+  title: Determining Maximum Volumetric Flow Rate | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-ex
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html
+  kind: community
+  title: Extruder Calibration | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-ex-2
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html
+  kind: community
+  title: Extrusion Multiplier | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-fi
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html
+  kind: community
+  title: First Layer Squish | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-in
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/index_pressure_advance.html
+  kind: community
+  title: Pressure Advance / Linear Advance | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-in-2
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/index_troubleshooting.html
+  kind: community
+  title: Troubleshooting | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-in-3
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/infill_perimeter_overlap.html
+  kind: community
+  title: Infill/Perimeter Overlap | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-pa
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/pa_em_oddities.html
+  kind: community
+  title: PA / EM Oddities | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-pr
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/introduction.html
+  kind: community
+  title: Introduction | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-pr-2
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/pattern_method.html
+  kind: community
+  title: Pattern Method | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-pr-3
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/saving.html
+  kind: community
+  title: Saving Your Value | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-re
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/retraction.html
+  kind: community
+  title: Retraction | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-st
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/stepover.html
+  kind: community
+  title: Stepover | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-tr
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html
+  kind: community
+  title: Perimeter Separation | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ellis3dp-com-print-tuning-guide-articles-vo
+  url: https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html
+  kind: community
+  title: Voron V2 Gantry Squaring | Ellis’ Print Tuning Guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: esoterical-voron-canbus
+  url: https://github.com/Esoterical/voron_canbus
+  kind: klipper
+  title: GitHub - Esoterical/voron_canbus · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 1a5ec7616ad5ea228e4e203d14aadfb05957c882
+- id: fabreeko-com-blogs-news-exciting-changes-in
+  url: https://www.fabreeko.com/blogs/news/exciting-changes-in-the-new-ldo-voron-kits-rev-d
+  kind: vendor
+  title: Exciting Changes in the New LDO Voron Kits Rev D – Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: fabreeko-com-products-acrylic-pannel-for-cl
+  url: https://www.fabreeko.com/products/acrylic-pannel-for-clicky-clacky-door
+  kind: vendor
+  title: Acrylic panel for Clicky-clack door – Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: fabreeko-com-products-clickyclackydoor-kit
+  url: https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo
+  kind: vendor
+  title: V2. 4 Clicky-Clack Door Kit by LDO – Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: fabreeko-com-products-ldo-voron-v2-4-kit
+  url: https://www.fabreeko.com/products/ldo-voron-v2-4-kit
+  kind: vendor
+  title: Voron 2.4 R2 (Rev D+) 3D Printer Kit by LDO – Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: fabreeko-com-products-v2-4-trident-titanium
+  url: https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers
+  kind: vendor
+  title: V2.4/Trident Titanium Extrusion Backers – Fabreeko
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: forum-vorondesign-com
+  url: https://forum.vorondesign.com
+  kind: community
+  title: Checking your browser
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: forum-vorondesign-com-threads-de-racking-again-1342
+  url: https://forum.vorondesign.com/threads/de-racking-again.1342/
+  kind: community
+  title: Checking your browser
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: forum-vorondesign-com-threads-ldo-voron-rev-d-kits-a
+  url: https://forum.vorondesign.com/threads/ldo-voron-rev-d-kits-are-now-live-at-fabreeko.1802/
+  kind: community
+  title: Checking your browser
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: help-prusa3d-com-article-asa-1809
+  url: https://help.prusa3d.com/article/asa_1809
+  kind: prusa
+  title: ASA | Prusa Knowledge Base
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: help-prusa3d-com-article-warping-2011
+  url: https://help.prusa3d.com/article/warping_2011
+  kind: prusa
+  title: Warping | Prusa Knowledge Base
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: help-prusa3d-com-downloads-core-one
+  url: https://help.prusa3d.com/downloads/core-one
+  kind: prusa
+  title: https://help.prusa3d.com/downloads/core-one
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: help-prusa3d-com-manual-prusa-core-one-to-gen-2
+  url: https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435
+  kind: prusa
+  title: help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: jlas1-klicky-probe
+  url: https://github.com/jlas1/Klicky-Probe
+  kind: community
+  title: 'GitHub - jlas1/Klicky-Probe: Microswitch probe with magnetic attachement, primarily aimed at
+    CoreXY 3d printers · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ab86f91d47ac7353a0a7c7e0de26542dca00f63e
+- id: jlas1-klicky-probe-printers-voron-v1-8-v2-4-legac
+  url: https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident
+  kind: community
+  title: Klicky-Probe/Printers/Voron/v1.8_v2.4_Legacy_Trident at main · jlas1/Klicky-Probe · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ab86f91d47ac7353a0a7c7e0de26542dca00f63e
+- id: jlas1-klicky-probe-printers-voron-v1-8-v2-4-legac-2
+  url: https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL
+  kind: community
+  title: Klicky-Probe/Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL at main · jlas1/Klicky-Probe
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ab86f91d47ac7353a0a7c7e0de26542dca00f63e
+- id: jlas1-klicky-probe-probes-klickyprobe-stl
+  url: https://github.com/jlas1/Klicky-Probe/tree/main/Probes/KlickyProbe/STL
+  kind: community
+  title: Klicky-Probe/Probes/KlickyProbe/STL at main · jlas1/Klicky-Probe · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ab86f91d47ac7353a0a7c7e0de26542dca00f63e
+- id: jlas1-klicky-probe-probes-klickyprobe-stl-readme
+  url: https://github.com/jlas1/Klicky-Probe/blob/main/Probes/KlickyProbe/STL/README.md
+  kind: community
+  title: Klicky-Probe/Probes/KlickyProbe/STL/README.md at main · jlas1/Klicky-Probe · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: ab86f91d47ac7353a0a7c7e0de26542dca00f63e
+- id: klipper3d-klipper-klippy-configfile-py
+  url: https://github.com/Klipper3d/klipper/blob/master/klippy/configfile.py
+  kind: klipper
+  title: klipper/klippy/configfile.py at master · Klipper3d/klipper · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: f0892d82b0f1c1228454f09eb508eddde2250f4b
+- id: klipper3d-klipper-klippy-extras-temperature-sens
+  url: https://github.com/Klipper3d/klipper/blob/master/klippy/extras/temperature_sensors.cfg
+  kind: klipper
+  title: klipper/klippy/extras/temperature_sensors.cfg at master · Klipper3d/klipper · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: f0892d82b0f1c1228454f09eb508eddde2250f4b
+- id: klipper3d-org-config-reference-html
+  url: https://www.klipper3d.org/Config_Reference.html
+  kind: klipper
+  title: Configuration reference - Klipper documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipper3d-org-g-codes-html
+  url: https://www.klipper3d.org/G-Codes.html
+  kind: klipper
+  title: G-Codes - Klipper documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipper3d-org-measuring-resonances-html
+  url: https://www.klipper3d.org/Measuring_Resonances.html
+  kind: klipper
+  title: Measuring Resonances - Klipper documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipper3d-org-pressure-advance-html
+  url: https://www.klipper3d.org/Pressure_Advance.html
+  kind: klipper
+  title: Pressure advance - Klipper documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipper3d-org-resonance-compensation-html
+  url: https://www.klipper3d.org/Resonance_Compensation.html
+  kind: klipper
+  title: Resonance Compensation - Klipper documentation
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipperscreen-github-io-klipperscreen-installation
+  url: https://klipperscreen.github.io/KlipperScreen/Installation/
+  kind: klipper
+  title: Installation - KlipperScreen
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipperscreen-github-io-klipperscreen-troubleshooting
+  url: https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/
+  kind: klipper
+  title: Screen Rotation - KlipperScreen
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: klipperscreen-github-io-klipperscreen-troubleshooting-2
+  url: https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/
+  kind: klipper
+  title: Touch - KlipperScreen
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ldo-leviathan-rev-d-sbv2-cfg
+  url: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Firmware/leviathan-printer-rev-d-sbv2.cfg
+  kind: ldo-repo
+  title: leviathan-printer-rev-d-sbv2.cfg
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: ldomotion-com-guides
+  url: https://ldomotion.com/guides
+  kind: ldo-guide
+  title: Assembly Guides | LDO Motion
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ldomotion-com-guides-nevermore-v5-duo-v24
+  url: https://ldomotion.com/guides/nevermore-v5-duo---v24
+  kind: ldo-guide
+  title: LDO guide
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ldomotion-com-guides-voron-leviathan-v1-3
+  url: https://ldomotion.com/guides/voron-leviathan-v1-3
+  kind: ldo-guide
+  title: VORON Leviathan V1.3 | LDO Motion
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: ldomotion-com-p-guide-voron-leviathan-v12
+  url: https://ldomotion.com/p/guide/VORON-Leviathan-V12
+  kind: ldo-guide
+  title: VORON Leviathan V1.2 | LDO Motion
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: mods-vorondesign-com-details-ewdi1cntz7urtuq3cm9wgq
+  url: https://mods.vorondesign.com/details/ewDI1Cntz7urtuq3Cm9wGQ
+  kind: voron-docs
+  title: Extrusion Backers by whoppingpochard
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: moonraker-readthedocs-io-en-latest-configuration
+  url: https://moonraker.readthedocs.io/en/latest/configuration/
+  kind: klipper
+  title: Configuration - Moonraker
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: motordynamicslab-ldovoron2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2
+  kind: ldo-repo
+  title: 'GitHub - MotorDynamicsLab/LDOVoron2: Contains supplementary information for the LDO Voron 2
+    Kit · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-firmware-leviathan-printer-rev
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg
+  kind: ldo-repo
+  title: LDOVoron2/Firmware/leviathan-printer-rev-d-sbv2.cfg at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-firmware-leviathan-printer-rev-2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d.cfg
+  kind: ldo-repo
+  title: LDOVoron2/Firmware/leviathan-printer-rev-d.cfg at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-firmware-readme-md
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md
+  kind: ldo-repo
+  title: LDOVoron2/Firmware/README.md at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-images-wiringguide-revd
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/Images/WiringGuide/RevD
+  kind: ldo-repo
+  title: LDOVoron2/Images/WiringGuide/RevD at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-stls
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs
+  kind: ldo-repo
+  title: LDOVoron2/STLs at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-stls-cob-20light-20strip
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip
+  kind: ldo-repo
+  title: LDOVoron2/STLs/COB Light Strip at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovoron2-stls-z-belt-cover-a-led-stl
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/STLs/z_belt_cover_a_led.stl
+  kind: ldo-repo
+  title: LDOVoron2/STLs/z_belt_cover_a_led.stl at main · MotorDynamicsLab/LDOVoron2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8270e8cf6c7ba29a7fd11d143c287bd3af576934
+- id: motordynamicslab-ldovorontride-stls-btt-20pi-20tft4-3-20mount
+  url: https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount
+  kind: ldo-repo
+  title: LDOVoronTrident/STLs/BTT Pi TFT4.3 Mount at master · MotorDynamicsLab/LDOVoronTrident · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 5b0496a5ae8d0d6a3f782dfa7e06eb9e1c102ba5
+- id: motordynamicslab-leviathan
+  url: https://github.com/MotorDynamicsLab/Leviathan
+  kind: ldo-repo
+  title: 'GitHub - MotorDynamicsLab/Leviathan: Leviathan Main Controller for Voron 2 / Trident 3D Printers
+    · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 878c3c4893ea353552c957f574509f9890e1e37a
+- id: motordynamicslab-leviathan-stls
+  url: https://github.com/MotorDynamicsLab/Leviathan/tree/master/STLs
+  kind: ldo-repo
+  title: Leviathan/STLs at master · MotorDynamicsLab/Leviathan · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 878c3c4893ea353552c957f574509f9890e1e37a
+- id: motordynamicslab-nitehawk-sb
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB
+  kind: ldo-repo
+  title: 'GitHub - MotorDynamicsLab/Nitehawk-SB: A USB toolboard for the Voron Stealthburner Toolhead
+    · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: be93526b948d3339c755cb32116baef221ce1a8d
+- id: motordynamicslab-nitehawk-sb-stls
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB/tree/master/STLs
+  kind: ldo-repo
+  title: Nitehawk-SB/STLs at master · MotorDynamicsLab/Nitehawk-SB · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: be93526b948d3339c755cb32116baef221ce1a8d
+- id: motordynamicslab-nitehawk-sb-v-configs-nitehawk-sbv2-cfg
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Configs/nitehawk-sbv2.cfg
+  kind: ldo-repo
+  title: Nitehawk-SB-V2/Configs/nitehawk-sbv2.cfg at master · MotorDynamicsLab/Nitehawk-SB-V2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: motordynamicslab-nitehawk-sb-v-images
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/Images
+  kind: ldo-repo
+  title: Nitehawk-SB-V2/Images at master · MotorDynamicsLab/Nitehawk-SB-V2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: motordynamicslab-nitehawk-sb-v-master-stls-usb-adapter-mount
+  url: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/STLs/usb_adapter_mount_partial_cover.stl
+  kind: ldo-repo
+  title: '`usb_adapter_mount_partial_cover.stl`'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: motordynamicslab-nitehawk-sb-v-stls
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs
+  kind: ldo-repo
+  title: Nitehawk-SB-V2/STLs at master · MotorDynamicsLab/Nitehawk-SB-V2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: motordynamicslab-nitehawk-sb-v-stls-usb-adapter-mount-partial
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl
+  kind: ldo-repo
+  title: Nitehawk-SB-V2/STLs/usb_adapter_mount_partial_cover.stl at master · MotorDynamicsLab/Nitehawk-SB-V2
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: motordynamicslab-nitehawk-sb-v2
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
+  kind: ldo-repo
+  title: 'GitHub - MotorDynamicsLab/Nitehawk-SB-V2: Version 2.0 of the USB toolboard for the Voron Stealthburner
+    Toolhead · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
+- id: nevermore3d-nevermore-micro
+  url: https://github.com/nevermore3d/Nevermore_Micro
+  kind: community
+  title: 'GitHub - nevermore3d/Nevermore_Micro: Activated Carbon Filters. Bad smells or fumes, or complaints
+    thereof, should not keep you from being a maker! · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8740b34fcc88e64afff74115f2c7c7002059f229
+- id: nevermore3d-nevermore-micro-v5-duo-v2
+  url: https://github.com/nevermore3d/Nevermore_Micro/tree/master/V5_Duo/V2
+  kind: community
+  title: Nevermore_Micro/V5_Duo/V2 at master · nevermore3d/Nevermore_Micro · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8740b34fcc88e64afff74115f2c7c7002059f229
+- id: onetwo3d-co-uk-voron-bill-of-material-voron-2
+  url: https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/
+  kind: vendor
+  title: Voron 2.4 (350mm) Bill of Material - onetwo3D
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: pif-voron-dev
+  url: https://pif.voron.dev/
+  kind: community
+  title: Voron PrintItForward
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: prusa-prusaslicer-settings-prusa-fff
+  url: https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff
+  kind: prusa
+  title: PrusaSlicer-settings-prusa-fff
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: f7068ea1d7380bb1be7595946bee151931c061e1
+- id: prusa3d-prusaslicer-releases
+  url: https://github.com/prusa3d/PrusaSlicer/releases
+  kind: prusa
+  title: Releases · prusa3d/PrusaSlicer · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: releases
+  sha: 6f510128d7c2e543b62919b74bea7e876f564205
+- id: prusa3d-prusaslicer-resources-profiles-prusaresear
+  url: https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini
+  kind: prusa
+  title: PrusaSlicer/resources/profiles/PrusaResearch.ini at version_2.9.6 · prusa3d/PrusaSlicer · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: version_2.9.6
+  sha: 6f510128d7c2e543b62919b74bea7e876f564205
+- id: raspberrypi-com-software
+  url: https://www.raspberrypi.com/software/
+  kind: vendor
+  title: raspberrypi.com/software
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  last_status: 403
+- id: super-lube-com-product-sku-super-lube-multi-p
+  url: https://www.super-lube.com/product-sku/super-lube-multi-purpose-synthetic-grease-nlgi-2-sku-21030-3-oz-tube/
+  kind: vendor
+  title: 'Super Lube Multi-Purpose Synthetic Grease (NLGI 2) - [SKU# 21030 | Size: 3 OZ | Format: Tube]
+    | Super Lube'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: tanaes-whopping-voron-mods
+  url: https://github.com/tanaes/whopping_Voron_mods
+  kind: community
+  title: GitHub - tanaes/whopping_Voron_mods · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 62268ed817878e54d6a1186882060aa8368d4f0f
+- id: tanaes-whopping-voron-mods-clickyclacky-door
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door
+  kind: community
+  title: whopping_Voron_mods/clickyclacky_door at main · tanaes/whopping_Voron_mods · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 62268ed817878e54d6a1186882060aa8368d4f0f
+- id: tanaes-whopping-voron-mods-clickyclacky-door-stls
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door/STLs
+  kind: community
+  title: whopping_Voron_mods/clickyclacky_door/STLs at main · tanaes/whopping_Voron_mods · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 62268ed817878e54d6a1186882060aa8368d4f0f
+- id: tanaes-whopping-voron-mods-extrusion-backers
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers
+  kind: community
+  title: whopping_Voron_mods/extrusion_backers at main · tanaes/whopping_Voron_mods · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 62268ed817878e54d6a1186882060aa8368d4f0f
+- id: tanaes-whopping-voron-mods-extrusion-backers-stls
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers/STLs
+  kind: community
+  title: whopping_Voron_mods/extrusion_backers/STLs at main · tanaes/whopping_Voron_mods · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 62268ed817878e54d6a1186882060aa8368d4f0f
+- id: th33xitus-kiauh
+  url: https://github.com/th33xitus/kiauh
+  kind: community
+  title: 'GitHub - dw-0/kiauh: Klipper Installation And Update Helper · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: d3e538de7b3163abe27fdf8116a60716d4db31ce
+- id: voron-dozuki-com
+  url: https://voron.dozuki.com/
+  kind: voron-docs
+  title: Voron Design - Voron Design
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-link-agu0nes
+  url: https://voron.link/agu0nes
+  kind: community
+  title: voron.link/agu0nes
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-link-cekh81l
+  url: https://voron.link/cekh81l
+  kind: community
+  title: voron.link/cekh81l
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-link-kdtpzam
+  url: https://voron.link/kdtpzam
+  kind: community
+  title: frame squaring video
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-link-onjwmcd
+  url: https://voron.link/onjwmcd
+  kind: community
+  title: voron.link/onjwmcd
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-link-rm6tpld
+  url: https://voron.link/rm6tpld
+  kind: community
+  title: magnet lamination demo
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: voron-manual-assembly-pdf
+  url: https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/Manual/Assembly_Manual_2.4r2.pdf
+  kind: voron-manual
+  title: Voron 2.4r2 Assembly Manual (PDF)
+  pinned_ref: de7e89d
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4
+  kind: voron-manual
+  title: 'GitHub - VoronDesign/Voron-2: Voron 2 CoreXY 3D Printer design · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-manual-assembly-manual-2-4r2-p
+  url: https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf
+  kind: voron-manual
+  title: Voron-2/Manual/Assembly_Manual_2.4r2.pdf at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-manual-assembly-manual-2-4r2-p-2
+  url: https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf
+  kind: voron-manual
+  title: Voron-2/Manual/Assembly_Manual_2.4r2.pdf at de7e89de1908e525d6d10eda453298bd9cc83d3b · VoronDesign/Voron-2
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: de7e89d
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-manual-assembly-manual-2-4r2-p-3
+  url: https://github.com/VoronDesign/Voron-2/blob/de7e89de1908e525d6d10eda453298bd9cc83d3b/Manual/Assembly_Manual_2.4r2.pdf
+  kind: voron-manual
+  title: Voron-2/Manual/Assembly_Manual_2.4r2.pdf at de7e89de1908e525d6d10eda453298bd9cc83d3b · VoronDesign/Voron-2
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: de7e89de1908e525d6d10eda453298bd9cc83d3b
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs
+  kind: voron-manual
+  title: Voron-2/STLs at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls-gantry-ab-drive-units
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units
+  kind: voron-manual
+  title: Voron-2/STLs/Gantry/AB_Drive_Units at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls-panel-mounting
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Panel_Mounting
+  kind: voron-manual
+  title: Voron-2/STLs/Panel_Mounting at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls-skirts
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Skirts
+  kind: voron-manual
+  title: Voron-2/STLs/Skirts at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls-test-prints
+  url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints
+  kind: voron-manual
+  title: Voron-2/STLs/Test_Prints at Voron2.4 · VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: Voron2.4
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-documentatio-community-howto-simonthecat-i
+  url: https://github.com/VoronDesign/Voron-Documentation/blob/main/community/howto/simonthecat/I_wish_I_had_known.md
+  kind: voron-docs
+  title: Voron-Documentation/community/howto/simonthecat/I_wish_I_had_known.md at main · VoronDesign/Voron-Documentation
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 36b876b81e5d092b3e6f1243809468396a1b5e14
+- id: vorondesign-voron-documentation
+  url: https://github.com/VoronDesign/Voron-Documentation
+  kind: voron-docs
+  title: 'GitHub - VoronDesign/Voron-Documentation: Sources of the documentation website for all Voron
+    3D printers · GitHub'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 36b876b81e5d092b3e6f1243809468396a1b5e14
+- id: vorondesign-voron-stealthburne-manual-assembly-manual-sb-pdf
+  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf
+  kind: voron-manual
+  title: Voron-Stealthburner/Manual/Assembly_Manual_SB.pdf at 1bccf0543f40741243d81505c4ad5406eb822715
+    · VoronDesign/Voron-Stealthburner · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  pinned_ref: 1bccf0543f40741243d81505c4ad5406eb822715
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voron-stealthburne-manual-assembly-manual-sb-pdf-2
+  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf
+  kind: voron-manual
+  title: Voron-Stealthburner/Manual/Assembly_Manual_SB.pdf at main · VoronDesign/Voron-Stealthburner ·
+    GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voron-stealthburne-stls
+  url: https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs
+  kind: voron-manual
+  title: Voron-Stealthburner/STLs at main · VoronDesign/Voron-Stealthburner · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voron-stealthburne-stls-readme-md
+  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md
+  kind: voron-manual
+  title: Voron-Stealthburner/STLs/README.md at main · VoronDesign/Voron-Stealthburner · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voron-stealthburne-stls-stealthburner-printheads
+  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md
+  kind: voron-manual
+  title: Voron-Stealthburner/STLs/Stealthburner/Printheads/README.md at main · VoronDesign/Voron-Stealthburner
+    · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voron-stealthburner
+  url: https://github.com/VoronDesign/Voron-Stealthburner
+  kind: voron-manual
+  title: GitHub - VoronDesign/Voron-Stealthburner · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+- id: vorondesign-voronusers-orphaned-mods-edwardyeeks-deco
+  url: https://github.com/VoronDesign/VoronUsers/tree/main/orphaned_mods/edwardyeeks/Decontaminator_Purge_Bucket_%26_Nozzle_Scrubber
+  kind: community
+  title: VoronUsers/orphaned_mods/edwardyeeks/Decontaminator_Purge_Bucket_&_Nozzle_Scrubber at main ·
+    VoronDesign/VoronUsers · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8e5067f4f6457da8a552983dd210ec48c40be2ca
+- id: vorondesign-voronusers-printer-mods-tallman5-z-locks
+  url: https://github.com/VoronDesign/VoronUsers/tree/master/printer_mods/tallman5/z-locks/
+  kind: community
+  title: VoronUsers/printer_mods/tallman5/z-locks at main · VoronDesign/VoronUsers · GitHub
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+  sha: 8e5067f4f6457da8a552983dd210ec48c40be2ca
+- id: voronldo-com-guides-voron-belt-tension
+  url: https://voronldo.com/guides/voron-belt-tension/
+  kind: ldo-guide
+  title: Voron Belt Tension Guide — Get Perfect Tension Every Time | Voron Build Resources
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: west3d-com-products-titanium-backers-for
+  url: https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack
+  kind: vendor
+  title: Titanium Backers for Voron 2.4/Trident with screws 3-Pack
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: wiki-kb-3d-com-en-home-ldo-ldo-clicky-clacky
+  url: https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod
+  kind: community
+  title: LDO Clicky Clacky Fridge Door Mod | KB3D Wiki
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtu-be-bhuxieenygg
+  url: https://youtu.be/BHUxiEEnyGg
+  kind: community
+  title: Build It Basement Part 7.5
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtu-be-eawr10udic0
+  url: https://youtu.be/eaWr10UDIC0
+  kind: community
+  title: Part 8.5 Gantry Check and Square
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtu-be-nik-hceosb8
+  url: https://youtu.be/nik-HCeOSB8
+  kind: community
+  title: video
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist
+  url: https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY
+  kind: community
+  title: playlist
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist-2
+  url: https://www.youtube.com/playlist?list=PL16WZCqkIMPh415mwyKJNhOl5i7Qo8pip
+  kind: community
+  title: Voron 2.4 Build
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist-3
+  url: https://www.youtube.com/playlist?list=PL7zrGeKp_8CRMm8sMrxQ02QfZYhP7f0cQ
+  kind: community
+  title: Voron V2.4 Build Livestream playlist
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist-4
+  url: https://www.youtube.com/playlist?list=PLXcVv43EZh9DzcPPF0IUVnpVdxQTQX8nE
+  kind: community
+  title: playlist
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist-5
+  url: https://www.youtube.com/playlist?list=PLjlotZjUVD32oT7YpPE89dqFwjCkVNKQ9
+  kind: community
+  title: playlist
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-playlist-6
+  url: https://www.youtube.com/playlist?list=PLpQnpsv1trbQxzX1zIVISOJtE6Pnb-si6
+  kind: community
+  title: Voron 2.4 Build Series
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch
+  url: https://www.youtube.com/watch?v=-mHLoGsHp1E
+  kind: community
+  title: 'LDO Voron 2.4 Rev C Build Part 1: Frame'
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-10
+  url: https://www.youtube.com/watch?v=vpIDagUumgI
+  kind: community
+  title: Part 2
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-2
+  url: https://www.youtube.com/watch?v=0cuV6iROV1k
+  kind: community
+  title: Part 3
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-3
+  url: https://www.youtube.com/watch?v=4DbeedEe8nM
+  kind: community
+  title: Voron LDO 2.4r2 Complete Build Guide Part 2
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-4
+  url: https://www.youtube.com/watch?v=IushU1_ikKw
+  kind: community
+  title: Part 1
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-5
+  url: https://www.youtube.com/watch?v=QA0eMNXqI-E
+  kind: community
+  title: Part 4
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-6
+  url: https://www.youtube.com/watch?v=ZHO-kFlY91c
+  kind: community
+  title: Part 1
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-7
+  url: https://www.youtube.com/watch?v=cOn6u9kXvy0
+  kind: community
+  title: Nero3D's de-racking video
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-8
+  url: https://www.youtube.com/watch?v=hJPDsoD43dA
+  kind: community
+  title: video
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'
+- id: youtube-com-watch-9
+  url: https://www.youtube.com/watch?v=sNCyXx_2Um0
+  kind: community
+  title: Rev D kit review
+  first_seen: '2026-09-05'
+  last_verified: '2026-09-05'

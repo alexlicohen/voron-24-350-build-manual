@@ -1,11 +1,12 @@
 # Batch B03 — A/B drive units + front idlers
 
-**Time:** 7.7 h (2 plates).
+**Time:** 8.5 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Prerequisites:** B00 printed and gate passed; B02 printed (accent `[a]_cable_cover`,
 `[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right` feed this same assembly chapter).
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -21,6 +22,7 @@
 **Hardware:** none.
 
 **Read first**
+
 - Checkpoint after B03: **F695-2RS (13 mm OD, flanged)** bearing/spacer stacks drop into the drive-frame and
   front-idler bores without reaming — and the two halves of each drive unit must close flat with no gap.
   (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
@@ -30,31 +32,45 @@
 
 ## Step B03.1 — Filament prep
 
-**Do:** Back to Galaxy Black. Confirm spool remaining ≥130 g for both plates.
+**Do:** Back to Galaxy Black. Confirm spool remaining ≥119 g for both plates.
 **Check:** Purge clean black, no orange streaking from B02.
+
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B03.2 — Load plate B03-P1 (the A side)
 
-**Do:** Slice `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
+![Plate B03-P1](../assets/plates/B03-P1.png)
+
+**Do:** Open `slicer/plates/B03-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
 No rotation, no brim.
-**Parts:** the four items above — 3.9 h, 66 g.
+**Parts:** the four items above — 4.4 h, 61 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Parts sit flat as shipped.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B03.3 — Print plate B03-P1
 
 **Do:** Print with standing overrides.
 **Check:** No warp at drive-frame corners.
 
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
 ## Step B03.4 — Load plate B03-P2 (the B side)
 
-**Do:** Slice `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`.
-**Parts:** the four items above — 3.8 h, 64 g.
+![Plate B03-P2](../assets/plates/B03-P2.png)
+
+**Do:** Open `slicer/plates/B03-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`.
+**Parts:** the four items above — 4.1 h, 59 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Parts sit flat as shipped.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B03.5 — Print plate B03-P2
 
 **Do:** Can run while the A side is being built up, since the two are independent.
 **Check:** No warp at drive-frame corners.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B03.6 — Inspect
 
@@ -62,12 +78,16 @@ No rotation, no brim.
 upper halves of each drive unit together — they must close flat with no gap.
 **Check:** No gap when the two halves are clamped together; bearing seats accept an F695-2RS bearing snugly, no rocking.
 
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
+
 ## Step B03.7 — Label and bin
 
 **Do:** Bin by consuming assembly chapter: everything here plus B02's `[a]_cable_cover`,
 `[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right`, `[a]_endstop_pod_D2F_switch`, and the cable
 bridge feed **A/B Drives and Idlers**. Keep A-side and B-side parts in separate labelled bags.
 **Check:** Two complete, correctly-sided part sets (A and B) ready for assembly.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

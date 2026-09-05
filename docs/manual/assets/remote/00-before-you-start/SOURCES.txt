@@ -1,0 +1,27 @@
+Ch 00 — Before you start: remote image provenance
+Recorded 2026-09-05 (wave-2 chapter pass, R6 B3).
+
+Nothing is mirrored for this chapter. All six external images are hosted on
+docs.ldomotors.com, whose wiki content licence is "alr" (all rights reserved)
+per the site's own siteConfig — survey §7.4 and README "Attribution and
+licences" both settle this as link-only. Each reference keeps its remote URL
+in the chapter and carries a "(remote image)" marker after it, and the same
+URL is repeated on that step's Source: line.
+
+file (would-be local path)          | URL                                                                          | licence
+------------------------------------+------------------------------------------------------------------------------+-------------------------------
+NOT MIRRORED (Step 00.13)           | https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg | LDO wiki, all rights reserved
+NOT MIRRORED (Step 00.13)           | https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg           | LDO wiki, all rights reserved
+NOT MIRRORED (Step 00.14)           | https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg         | LDO wiki, all rights reserved
+NOT MIRRORED (Step 00.18)           | https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg                | LDO wiki, all rights reserved
+NOT MIRRORED (Step 00.19)           | https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg                   | LDO wiki, all rights reserved
+NOT MIRRORED (Step 00.19)           | https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg                   | LDO wiki, all rights reserved
+
+All six verified HTTP 200 on 2026-09-05. Chapters 01-04 carry no external
+images — every step illustration there is a committed manual-page PNG under
+assets/manual-pages/, rendered from the pinned Voron-2 commit de7e89d
+(GPL-3.0), so assets/remote/ has no folder for those chapters.
+
+If LDO's licence ever changes, the mirror target for these is
+docs/manual/assets/remote/00-before-you-start/<descriptive-name>.jpg and the
+chapter lines are the six listed above.

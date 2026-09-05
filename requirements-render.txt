@@ -1,0 +1,10 @@
+# Deps for scripts/render_parts.py (identification renders for the manual).
+# Kept out of the site's requirements.txt — mkdocs build doesn't need these.
+#
+# Renderer tries trimesh+pyrender first (needs a working OSMesa/EGL context,
+# which macOS generally does not provide); it falls back automatically to
+# the matplotlib path below, which is what actually runs on macOS today.
+matplotlib==3.9.4
+numpy==2.0.2
+trimesh==4.5.3
+pyrender==0.1.45

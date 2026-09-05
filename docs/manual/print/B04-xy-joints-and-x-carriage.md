@@ -1,10 +1,11 @@
 # Batch B04 — XY joints + X carriage
 
-**Time:** 7.3 h (1 plate).
+**Time:** 8.6 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
 **Prerequisites:** B00, B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge), B03.
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -23,6 +24,7 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 **Hardware:** none.
 
 **Read first**
+
 - Checkpoint after B04: test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before
   committing heat-sets. XY joint bores must accept the shafts without reaming.
 - Most commonly reprinted here: `xy_joint_*_lower_MGN12`.
@@ -31,27 +33,37 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥122 g remaining.
+**Do:** Galaxy Black, confirm ≥117 g remaining.
 **Check:** No colour cross-contamination from B03.
+
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B04.2 — Load plate B04-P1
 
-**Do:** Slice all seven parts together: `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`,
+![Plate B04-P1](../assets/plates/B04-P1.png)
+
+**Do:** Open `slicer/plates/B04-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all seven parts together: `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`,
 `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12`, `x_frame_V2TR_MGN12_left`,
 `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket`. No rotation, no brim.
-**Parts:** all seven — 7.3 h, 122 g.
+**Parts:** all seven — 8.6 h, 117 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Confirm the files are `x_frame_V2TR_MGN12_left/right` (V2TR = the shared V2/Trident R2 carriage,
 so `TR` in the name is correct) — **not** the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
 ## Step B04.3 — Pre-print checks
 
 **Do:** Chamber preheated, sheet clean.
 **Check:** Chamber ≥40 °C.
 
+Source: [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+
 ## Step B04.4 — Print
 
 **Do:** Print with standing overrides.
 **Check:** First layer clean on both XY joint lowers — these are the largest parts on the plate.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B04.5 — Inspect
 
@@ -59,11 +71,15 @@ so `TR` in the name is correct) — **not** the superseded `Superceded_Parts/MGN
 before committing any heat-set inserts. Check XY joint bores accept the X-axis shafts without reaming.
 **Check:** Screw pattern lines up; shafts slide into the joint bores without forcing.
 
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
+
 ## Step B04.6 — Label and bin
 
 **Do:** Bin with B02's `[a]_endstop_pod_D2F_switch` and cable bridge for **Gantry**. Keep
 `probe_retainer_bracket` loose until the probe decision (Omron barrel diameter) is confirmed.
 **Check:** All Gantry-destined parts, black and accent, grouped together.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

@@ -37,9 +37,14 @@ _VOID_TAGS = {
     "link", "meta", "param", "source", "track", "wbr",
 }
 
-_RAW_MARKER_RE = re.compile(r"⚠|\*\*Check:\*\*|(?<![A-Za-z])Tip:")
-_STEP_REF_RE = re.compile(r"\bStep\s+([A-Za-z]?\d+\.\d+)\b")
-_STEP_HEADING_RE = re.compile(r"^#{2,3}\s*Step\s+([A-Za-z]?\d+\.\d+)\b", re.MULTILINE)
+_RAW_MARKER_RE = re.compile(
+    r"⚠|\*\*Check:\*\*|(?<![A-Za-z])Tip:|(?<![A-Za-z])Source:|(?<![A-Za-z])Pause:"
+)
+_STEP_REF_RE = re.compile(r"\bStep\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b")
+_STEP_HEADING_RE = re.compile(r"^#{2,3}\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b", re.MULTILINE)
+_STEP_HEADING_ANY_RE = re.compile(r"^###\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b.*$", re.MULTILINE)
+_SOURCE_LINE_RE = re.compile(r"^>?\s*Source:")
+_GENERATED_OR_META = {"00-index.md", "00-tonight.md", "CONVENTIONS.md"}
 _STL_CELL_RE = re.compile(r"`([\w\[\]-]+\.stl)`")
 _TABLE_ROW_RE = re.compile(r"^\s*\|(.+)\|\s*$")
 _NOT_PRINTED_RE = re.compile(r"not printed|kit-supplied|\bSKIP\b", re.IGNORECASE)
@@ -58,7 +63,9 @@ class _OutsideAdmonitionText(HTMLParser):
         if tag in _VOID_TAGS:
             return
         classes = dict(attrs).get("class", "").split()
-        is_admonition = "admonition" in classes
+        # "admonition" covers ⚠/Check/Tip/Pause; "src" covers the Source: caption
+        # (hooks/callouts.py renders both, so neither is a raw-marker leak).
+        is_admonition = "admonition" in classes or "src" in classes
         is_code = tag in ("code", "pre")
         inside = (self.stack[-1] if self.stack else False) or is_admonition or is_code
         self.stack.append(inside)
@@ -171,6 +178,32 @@ def check_table_width():
     return findings
 
 
+def check_missing_source():
+    """WARN-only (R6 B improvements): every `### Step` in an assembly chapter
+    should end with a `Source:` line (docs/manual/CONVENTIONS.md, "Source
+    lines and stopping points"). Chapters are being written concurrently, so
+    this does not fail CI yet — it only reports a count."""
+    findings = []
+    assembly_files = [
+        f for f in MANUAL.glob("*.md") if f.name != "CONVENTIONS.md" and re.match(r"^\d", f.name)
+        if f.name not in _GENERATED_OR_META
+    ]
+    for f in assembly_files:
+        lines = f.read_text(encoding="utf-8").splitlines()
+        steps = list(_STEP_HEADING_ANY_RE.finditer("\n".join(lines)))
+        text = "\n".join(lines)
+        bounds = [m.start() for m in steps] + [len(text)]
+        for idx, m in enumerate(steps):
+            step_id = m.group(1)
+            block = text[m.start(): bounds[idx + 1]]
+            if not any(_SOURCE_LINE_RE.match(ln) for ln in block.splitlines()):
+                line_no = text.count("\n", 0, m.start()) + 1
+                findings.append(
+                    f"{f.relative_to(REPO)}:{line_no}: Step {step_id} has no `Source:` line"
+                )
+    return findings
+
+
 def main():
     checks = [
         ("Raw callout markers outside admonitions", check_raw_callouts),
@@ -189,6 +222,12 @@ def main():
             total += len(findings)
 
     print(f"\n{total} lint finding(s) total.")
+
+    missing_source = check_missing_source()
+    print(f"\n== WARN: Steps missing a `Source:` line: {len(missing_source)} ==")
+    for line in missing_source:
+        print(f"  WARN: {line}")
+
     return 1 if total else 0
 
 

@@ -1,0 +1,260 @@
+# Mirrored step images for docs/manual/10-wiring.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, its owner, the URL as cited
+# in the chapter, the URL actually downloaded, the fetch date, the licence/permission
+# it is mirrored under, and the sha256 of the mirrored bytes.
+
+ldo-revd-vs9-finished-bay.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 0566d5d99bf157c1990c92dc1857be5cee74e6e4e1a703bb5f0d4afc8c8575e5
+
+ldo-revd-s1-stepper-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S1_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S1_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : ffc0997a92dfa27257b60bb203b63af9cceed7218b94e6c264ea74b78aa52f65
+
+ldo-revd-s1-steppers-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S1_steppers.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S1_steppers.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 607b1ad4082c9ba8583ec5d066736ce52c84086fda3f13d5b14292d3e3a6458e
+
+ldo-revd-s2-inlet-wago-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S2_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S2_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 5d4b1960565bf4defa8b32cfb84a330d05418d7a4a1f2cbe58336912eaad885d
+
+ldo-revd-s2-inlet-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S2_inlet.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S2_inlet.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : d066f48031e7c6e078527458c1275e686ab8bfa271d0072ef77b52cd0d84c727
+
+ldo-revd-s3-wago-psu-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S3_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 4221c1d0a9b42aaeb9ed27aa6927bdeae2208c3ac1ec4dde832788659917056a
+
+ldo-revd-s4-24v-ssr-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S4_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S4_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : b3faafa9e70532c77d0a91c1b92b1a9337bb3efdcd94c09dcf5e9c1596223114
+
+ldo-revd-s4-mainboard-psu-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S4_MB_PSU.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S4_MB_PSU.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 21f7b496d7eaeccf8f462533c4215bb32e37b2052b25a54a3c5541a022c0f054
+
+ldo-revd-s5-build-plate-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S5_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S5_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 0d78252ba8dd9e09d9ab196450d1ffe1f33272f55a456576dd2c6781c8984bfa
+
+ldo-revd-s5-bed-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S5_bed.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S5_bed.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : cec3e7581283fc2f031bddce2eeb128b3b6921c600e54be576e889609e20d1d2
+
+ldo-revd-s6-gantry-cable-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S6_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S6_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : ef463bee2f70952429d5f17b27eef688b1a9eaeaa75cc4a25a72f84b37692633
+
+ldo-revd-s6-endstops-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S6_Endstop.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S6_Endstop.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 6e9c31c051965c299779174786208c96a98b2f9cf5e6af8ead82aa85968c805b
+
+ldo-revd-s7-fan-led-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S7_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 9aec84dd6c67d06bac0321176eb17d9b857d8d44004a8f33d7194da8913bffad
+
+ldo-revd-s7-fans-wired.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S7_fan.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : dcfffcd00eaf4038edf336afd6c2ebb5ace25316f1683e3c785aa97c8bf3a925
+
+ldo-revd-vs8-ffc-ethernet-usb-mapping.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS8_mapping.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS8_mapping.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : eb0df3a1a241c1ba4fc323832492cdf0258396236a83ba3f0947c6902a3ee63f
+
+ldo-revd-vs8-ethernet-usb-wired.jpg
+  owner   : 
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS8_Misc.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS8_Misc.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 4a5b2667801c4ccce54c952a7e128842dec18c45e45de47d32f2af0f1cbd21c2
+
+ldo-psu-voltage-selector.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : d3b5d4743cf79771804ea6a7b4b30cd2837b362e0fb5d55c2c93cdad4b0c932e
+
+ldo-led-route.png
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_route.png
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_route.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : de8c3c22bc207b0478eb1a0cc1ce7ad7ab4802b00048f3191fde4284a843125c
+
+ldo-led-splitter-placement.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_splitter_placement.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_splitter_placement.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : f49cd21f4b2c8aad8259a701dfb6c119682f5d996db26d2eaec0779931cd76bc
+
+ldo-nozzle-probe-installed.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : a093455058c6c09f6479c8d45839e89eb27fecc1aff6ffe2fb5fa4c130579e4e
+
+nitehawk-sb-v2-pcb-pinout.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : f9f1a90ec87d71f4fd502738eb705afa2afd5555128a711d7aebe7ea58d681ce
+
+nitehawk-sb-v2-fan-adapter-pinout.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/sbv2_fan_adapter_pcb_pinout.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/sbv2_fan_adapter_pcb_pinout.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 947bd87ecdbab0ecbfb5b344f81bd296e875d6c33a108bb246d46dac1803120a
+
+nitehawk-sb-v2-usb-adapter-gnd.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/usb_adapter_gnd.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/usb_adapter_gnd.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : f668af6cb3fb3466d155c56f6edeed9054e7387f8a036960426f49af12bb8e92
+
+nitehawk-sb-v2-grounding-scheme.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/grounding_scheme.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/grounding_scheme.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 6e8161de4b427f103915c07b7beb42ea43acde3cf846c4ff2fa2309e84abf2e4
+
+nitehawk-sb-v2-toolboard-ground-routing.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/toolboard_ground_routing.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/toolboard_ground_routing.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 132c7124e175aa7ff2905a8f4a7d9a5f0099b1925af49073045f7671a4169e2a
+
+nitehawk-sb-v2-cable-chain-ties.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/cable_chain_ties.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/cable_chain_ties.jpg
+  date    : 2026-09-05
+  licence : no LICENSE file in repo — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : ce9ef4c010c0e2af8e5bada91b81246e331e6124362911e0b1e087ab66cf6c8a
+
+ldo-inlet-layout.png
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png
+  fetched : https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : f044486f9023dc9591b62a46e011bea70c71c2140d8e52c59fc5ba77635f65de
+
+ldo-build-plate-mapping.png
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png
+  fetched : https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : e81dbb4f4344bc8ff47bfa573b535e65a91ac8023b49330fff0d6016f77bd570
+
+ldo-probe-insulation.jpg
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/v2_wire_guide/v2_revc/probe_insulation.jpg
+  fetched : https://docs.ldomotors.com/v2_wire_guide/v2_revc/probe_insulation.jpg
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 2f17b93a3677c50bebfd788f8b2e43a518e9d5dd4e6666d4599b9b0a0c8334a7
+
+ldo-xy-endstop-cable-correct.jpg
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/correct_xy_endstop_cable.jpg
+  fetched : https://docs.ldomotors.com/correct_xy_endstop_cable.jpg
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : b49baa2efba99f5bd2a6ae56b3efd0c10d5f232cc0bc18c72d3e29a7f757712b
+
+ldo-b-motor-alternate-mapping.jpg
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/mapping.jpg
+  fetched : https://docs.ldomotors.com/mapping.jpg
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 85f95d393ac9d00e7fcd7a349b02df22d34ecbbce99fab63ffd724210460cf97
+
+ldo-b-motor-cable-wiring.jpg
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/b_motor_cable_wiring.jpg
+  fetched : https://docs.ldomotors.com/b_motor_cable_wiring.jpg
+  date    : 2026-09-05
+  licence : wiki content marked all-rights-reserved — mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : e28dd07b9bbf855de6ed828f366eb361169cbaa3e6ca1f8dc6fa0bf7e62582a0

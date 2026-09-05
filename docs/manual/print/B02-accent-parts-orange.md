@@ -4,11 +4,12 @@ Every accent part in the whole build, printed in one continuous orange session s
 mounted exactly once. **Two colour changes in the whole build: black → orange here, orange → black after.**
 Everything here is printed before the kit arrives anyway, so nothing waits on this.
 
-**Time:** 18.5 h (3 plates).
+**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Prerequisites:** B00 printed and gate passed (colour change doesn't skip the calibration requirement).
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -50,6 +51,7 @@ chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joi
 **Hardware:** none.
 
 **Read first**
+
 - Checkpoint after B02: guidler and latch must move freely against the CW2 body once it exists (B06) —
   test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp.
 - Most commonly reprinted here: `[a]_stealthburner_main_body` — the most-photographed part in the build.
@@ -63,43 +65,61 @@ chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joi
 whole build, so a clean colour change matters more here than anywhere else.
 **Check:** Purge line is clean orange with no black streaking.
 
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+
 ## Step B02.2 — Load plate B02-P1
 
-**Do:** Slice `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a` ×2,
+![Plate B02-P1](../assets/plates/B02-P1.png)
+
+**Do:** Open `slicer/plates/B02-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a` ×2,
 `[a]_z_drive_baseplate_b` ×2. No rotation. Leave the SB main body's built-in supports in place — do not
 suppress them in slicer.
-**Parts:** the five items above — 5.9 h, 100 g.
+**Parts:** the five items above — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
 **Check:** SB main body oriented as shipped (supports visible in preview).
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
 ## Step B02.3 — Print plate B02-P1
 
 **Do:** Print with standing overrides, no brim on this plate's parts.
 **Check:** First layer clean; SB body prints without support failure.
 
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
 ## Step B02.4 — Load plate B02-P2
 
-**Do:** Slice `Handle`, `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2,
+![Plate B02-P2](../assets/plates/B02-P2.png)
+
+**Do:** Open `slicer/plates/B02-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Handle`, `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2,
 `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2, `[a]_tensioner_left`, `[a]_tensioner_right`. **Add a 5 mm
 brim to `Handle`** only (60 mm tall, tippy).
-**Parts:** the eight items above — 6.1 h, 102 g.
+**Parts:** the eight items above — 7.3 h, 93 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Brim applied only to `Handle`, not the flat fan grills/belt guards.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B02.5 — Print plate B02-P2
 
 **Do:** Print with standing overrides.
 **Check:** `Handle` stands through the full print with no lean; brim shows no lift.
 
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
 ## Step B02.6 — Load plate B02-P3
 
-**Do:** Slice the remaining accent parts: `[a]_belt_tensioner_a` ×2, `[a]_belt_tensioner_b` ×2,
+![Plate B02-P3](../assets/plates/B02-P3.png)
+
+**Do:** Open `slicer/plates/B02-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: the remaining accent parts: `[a]_belt_tensioner_a` ×2, `[a]_belt_tensioner_b` ×2,
 `[a]_z_tensioner_9mm` ×4, `[a]_z_chain_retainer_bracket` ×2, `[a]_endstop_pod_D2F_switch`,
 `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_lower` ×4,
 `[a]_z_belt_clip_upper` ×4, `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`,
 `[a]_pcb_spacer`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`. **Check `XY_cable_chain_bridge-Igus-3mm_backer`
 in preview** — it's a community remix that may arrive standing 44 mm tall; lay it flat to match the stock
 bridge if so.
-**Parts:** the 16 files above (29 small accent parts) — 6.5 h, 106 g.
+**Parts:** the 16 files above (29 small accent parts) — 7.6 h, 96 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Cable-chain bridge sitting flat, not standing, before slicing.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
 ## Step B02.7 — Print plate B02-P3
 
@@ -107,11 +127,15 @@ bridge if so.
 **Check:** No warp on the small parts; SB accent pieces (guidler, latch, latch shuttle) print crisp — these
 have fine features that go under close fitment tolerances later.
 
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
 ## Step B02.8 — Inspect
 
 **Do:** Check the SB main body's built-in supports snapped out clean and the LED pockets are crisp (final
 guidler/latch fit test happens at B06, not now).
 **Check:** No support remnants inside the SB body's cable channels or LED pockets.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
 ## Step B02.9 — Label and bin
 
@@ -122,6 +146,8 @@ the cable bridges, and `[a]_tensioner_left/right` go with **A/B Drives and Idler
 spacer go with **Stealthburner**. Belt guards, fan grills/retainers, keystone inserts, bestagon insert go
 with **Skirts**. `Handle` goes with **B10 — Clicky-Clack door** (keep it separate, orange, until then).
 **Check:** Every accent part labelled with its destination chapter; `Handle` set aside specifically for B10.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

@@ -1,0 +1,116 @@
+# Mirrored step images for docs/manual/13-initial-startup.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, its owner, the URL as cited
+# in the chapter, the URL actually downloaded, the fetch date, the licence/permission
+# it is mirrored under, and the sha256 of the mirrored bytes.
+
+voron-v2-reference-render.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/v2render.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/v2render.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 85e82aedf1e593588b708efc7fc78aa8094394527782885cbd0d55573f5bd257
+
+ldo-revd-vs9-finished-bay.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 0566d5d99bf157c1990c92dc1857be5cee74e6e4e1a703bb5f0d4afc8c8575e5
+
+ldo-psu-voltage-selector.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/psu_switch.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : d3b5d4743cf79771804ea6a7b4b30cd2837b362e0fb5d55c2c93cdad4b0c932e
+
+voron-startup-mainsail-console.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/mainsail_terminal.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_terminal.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : e1dda416f26681fea70fff7104ba0a7acfb0cc027cd0f84ffd81150d8b1a2cd3
+
+voron-startup-mainsail-temp-graph.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/mainsail_temp_graph.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_temp_graph.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : d09d1d702fb3a330c9abdf51bf9304c0921de2ee2c15c5d3556a94afda5127ae
+
+voron-startup-heater-verification.gif
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/heaters.gif
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/heaters.gif
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 4c8dc1d47cdf250668c40276e9575370dceeb5f870b96ccbbfabfa2c6a79dd09
+
+voron-v2-motor-configuration-guide.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/V2-motor-configuration-guide.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/V2-motor-configuration-guide.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 0eb7147d93d3e1dc6a6394865f25653336f1435df0aeb694b2b85cb29289eadf
+
+voron-startup-stepper-buzz.gif
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/verifysteppers.gif
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/verifysteppers.gif
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 6efe8bc7d8727a776eb91b82c42b25ecbc65c11036a06cd8152a988d13ba63e1
+
+ldo-nozzle-probe-installed.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : a093455058c6c09f6479c8d45839e89eb27fecc1aff6ffe2fb5fa4c130579e4e
+
+voron-startup-mainsail-controls.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/mainsail_controls.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_controls.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 346b5e497cd344ed62c19849637cde35d7c671df2b379254a786cfabef003880
+
+ldo-nozzle-probe-installation.jpg
+  owner   : LDO Motors (MotorDynamicsLab)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_3.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_install_3.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : a8ec189ffb1bba41ac945a838b403f4b4d2120dcfaf7b1a31611b8567933b18f
+
+voron-gantry-squaring-ab-tension-release.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 62a30947214ceded72bce86cca8b2d43e5b29ba071e6fdea011c8fd24ac08613
+
+voron-startup-mainsail-manual-probe.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/mainsail_manual_probe.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_manual_probe.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 80c3a5dfa15315e1e5755541956be24a27165996143a794e77ab36f25b5902d6
+
+voron-slicer-cereal-test-print.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/slicer/images/voron_cereal.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/slicer/images/voron_cereal.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : c103a8ad44184e81a6ffef2083bc117c704cf5885399611b85f6238b25170b21

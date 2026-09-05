@@ -1,10 +1,11 @@
 # Batch B05 — Z joints + Z chain
 
-**Time:** 5.2 h (1 plate).
+**Time:** 6.4 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
 **Prerequisites:** B00, B02, B04.
 
 **Printed parts**
+
 
 | STL | Repo path | Qty | Colour | g ea |
 |---|---|---:|---|---:|
@@ -20,6 +21,7 @@ hall-effect XY endstops, which this kit does not use.
 **Hardware:** none.
 
 **Read first**
+
 - Checkpoint after B05: Z joints — the 8 mm shaft should slide, not press. `z_joint_upper` must sit square
   on the extrusion.
 - Most commonly reprinted here: `z_joint_lower_x4`.
@@ -27,21 +29,29 @@ hall-effect XY endstops, which this kit does not use.
 
 ## Step B05.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥83 g remaining.
+**Do:** Galaxy Black, confirm ≥78 g remaining.
 **Check:** Clean purge.
+
+Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B05.2 — Load plate B05-P1
 
-**Do:** Slice all fourteen parts: `z_joint_lower_x4` ×4, `z_joint_upper_x4` ×4, `z_chain_bottom_anchor`,
+![Plate B05-P1](../assets/plates/B05-P1.png)
+
+**Do:** Open `slicer/plates/B05-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all fourteen parts: `z_joint_lower_x4` ×4, `z_joint_upper_x4` ×4, `z_chain_bottom_anchor`,
 `z_chain_guide`, `z_rail_stop_x4` ×4. No rotation, no brim. Confirm you are **not** including
 `z_joint_upper_hall_effect.stl`.
-**Parts:** the fourteen pieces above — 5.2 h, 83 g.
+**Parts:** the fourteen pieces above — 6.4 h, 78 g (PrusaSlicer 2.9.6 estimate).
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B05.3 — Print
 
 **Do:** Print with standing overrides.
 **Check:** First layer clean; no warp on the small joint parts.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B05.4 — Inspect
 
@@ -49,11 +59,15 @@ hall-effect XY endstops, which this kit does not use.
 each `z_joint_upper` sits square against a test extrusion face.
 **Check:** Shaft slides freely; joint sits flush and square.
 
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade)
+
 ## Step B05.5 — Label and bin
 
 **Do:** Bin for **Z Axis** and **A/B Belts** chapters. Group all four joint pairs together, plus the chain
 anchor/guide, plus the four rail stops.
 **Check:** 4 complete joint pairs, chain anchor, chain guide, 4 rail stops accounted for.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 

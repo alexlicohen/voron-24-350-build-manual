@@ -1,0 +1,24 @@
+name: Question
+description: Something in the manual is unclear, or you're not sure how to proceed.
+title: "Question: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For general Voron/LDO build help unrelated to this manual, the [Voron Discord](https://discord.gg/voron) or `#ldo_motors` will get you a faster answer. Use this template for questions about how *this manual* is written or organized.
+
+  - type: input
+    id: chapter-step
+    attributes:
+      label: Chapter / step
+      placeholder: Ch NN Step NN.M
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true

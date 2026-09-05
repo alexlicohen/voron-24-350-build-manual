@@ -1,0 +1,46 @@
+name: Correction
+description: The manual says one thing, your kit or a source says another.
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: input
+    id: chapter-step
+    attributes:
+      label: Chapter / step
+      description: e.g. "Ch 09 Step 09.25" or "print/B07-electronics-bay-and-lighting.md Step B07.3"
+      placeholder: Ch NN Step NN.M
+    validations:
+      required: true
+
+  - type: textarea
+    id: doc-says
+    attributes:
+      label: What the doc says
+      description: Quote or paraphrase the step/table as written.
+    validations:
+      required: true
+
+  - type: textarea
+    id: bench-shows
+    attributes:
+      label: What the source or bench shows
+      description: What you found on your kit, or what an updated source now says.
+    validations:
+      required: true
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: The page/repo/doc backing this correction, if any (leave blank for "confirmed on my own kit").
+      placeholder: https://...
+    validations:
+      required: false
+
+  - type: input
+    id: kit-revision
+    attributes:
+      label: Kit revision / batch
+      description: e.g. "Rev D+, LDO batch 2026-06" or "Rev C" — corrections often depend on this.
+    validations:
+      required: true

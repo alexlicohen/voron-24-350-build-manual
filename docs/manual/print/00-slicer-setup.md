@@ -12,11 +12,53 @@ back here and list only their own deviations (brim, orientation, accent colour).
 (see *PrusaSlicer 3.0 preview* below). Changing slicer version is a toolchain change: re-run the B00
 seven-item gate before the next plate.
 
-**Base profiles** (verified against `PrusaResearch.ini` @ `version_2.9.6`):
+**Base profiles** (read out of the `PrusaResearch.ini` that ships with the installed 2.9.6 —
+`config_version = 2.4.14` — with `inherits` resolved). The machine has the **high-flow 0.4 nozzle**,
+so the HF variants are the base wherever one exists:
 
-- Printer: **`Prusa CORE One 0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed 250×220, max height 270, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off.
-- Filament: **`Prusament ASA @COREONE`** — nozzle 260 °C, bed 110 °C, chamber 55 °C (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 15 mm³/s.
-- Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
+- Printer: **`Prusa CORE One HF0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed 250×220,
+  max height 270, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off. The non-HF
+  `Prusa CORE One 0.4 nozzle` preset *inherits from this one* and only sets `nozzle_high_flow = 0`;
+  every mechanical value is identical.
+- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle **265 °C**, bed 110 °C, chamber 55 °C
+  (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric
+  **26 mm³/s**. (The non-HF `Prusament ASA @COREONE` is 260 °C / 15 mm³/s.)
+- Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased
+  profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
+
+⚠ **There is no `0.20mm STRUCTURAL @COREONE HF0.4`.** At 0.20 mm the bundle ships STRUCTURAL only in
+the non-HF variant; the HF entries at this layer height are SPEED and BALANCED. That is not a problem:
+`0.20mm STRUCTURAL @COREONE 0.4`'s compatibility rule is `printer_model=~/(COREONE|…)/ and
+nozzle_diameter[0]==0.4` with **no** `nozzle_high_flow` clause, so PrusaSlicer offers it on the HF
+printer. Do not "upgrade" to `0.20mm BALANCED @COREONE HF0.4` — it inherits from the STRUCTURAL preset
+and then raises perimeter 70→150, external 50→200 and small-perimeter 50→170 mm/s, and drops bottom
+solid layers to 3.
+
+**High flow raises the ceiling, not the speeds.** Every speed below stays exactly as the table says.
+At those speeds the peak volumetric flow is 100 mm/s × 0.4 × 0.2 = **8.0 mm³/s**, well under the
+15 mm³/s the non-HF profile allows, let alone 26 — so the HF base changes the melt temperature and the
+start G-code and nothing else about these plates.
+
+## Committed projects — open the plate, don't rebuild it
+
+You do **not** re-enter any of this by hand. Every plate is committed as a PrusaSlicer 2.9.6 project
+with the arrangement, the per-object brims and the full configuration already inside it:
+
+| What | Where |
+|---|---|
+| One project per plate, 27 of them | `slicer/plates/B01-P1.3mf` … |
+| Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-orange.ini` |
+| Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
+| SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
+| Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
+
+Open `slicer/plates/<plate>.3mf` in PrusaSlicer (**File → Open Project**) and slice. The project
+carries its own print/filament/printer configuration, so it does not matter which presets you had
+selected. Re-derive everything with `python3 slicer/fetch_stls.py && python3 slicer/build_plates.py`.
+
+The times and weights in every batch chapter are **PrusaSlicer 2.9.6 estimates** from these
+projects, not a throughput model. Treat the first plate as the calibration of the *printer*, not of
+the estimate: if B00-P1 comes off within a few minutes of 4.0 h, the whole table is trustworthy.
 
 ## Overrides
 
@@ -40,7 +82,7 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
 | Seam position | Aligned | **Rear** | keeps the seam off the visible outward faces of skirts and the toolhead | build spec |
 | Skirt loops | 0 | **1 loop, 3 mm gap, min length 4 mm** | primes after the long ASA purge; lets you abort in the first 60 s if the first layer is wrong | judgment |
-| Brim | off | **off by default; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts** — see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; judgment |
+| Brim | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; judgment |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | Elephant-foot compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -53,18 +95,18 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
 
-### Filament settings (Prusament ASA @COREONE)
+### Filament settings (Prusament ASA @COREONE HF0.4)
 
 | Setting | Profile default | Set to | Why | Source |
 |---|---|---|---|---|
 | **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; on a 66.7 mm Z-drive body that is +0.15 mm and it lands straight in the bearing bores. **This is the single most important override in this document.** | docs.vorondesign.com/materials.html + profile value |
 | Shrinkage compensation Z | 0.22 % | **0 %** | same reason | as above |
-| Nozzle / first-layer nozzle | 260 / 260 °C | **keep** | Prusa's own Prusament ASA values for this machine | profile |
+| Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate | profile |
 | Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
-| Max volumetric speed | 15 mm³/s | **keep** | not a limit at these speeds | profile |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 8.0 mm³/s | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 ### Drying
@@ -92,10 +134,11 @@ Verified against the 3.0 branch, not recalled:
   as a `…0.4 nozzle` preset.
 - **Extrusion-width auto/percent values now resolve against nozzle diameter** instead of layer height.
   Harmless here — every width in the override table is an explicit mm value.
-- **No `.ini` import.** 3.0 has no Import Config / Import Config Bundle / Export Config. Carry settings over
-  by saving a 2.x **3MF project** (3.0 imports 2.x project configs and maps them to system presets), then
-  re-enter the overrides once in 3.0. A 3.0 project opened in 2.9.6 loads geometry only — the configuration
-  is discarded (2.9.1+ warns).
+- **No `.ini` import.** 3.0 has no Import Config / Import Config Bundle / Export Config, so
+  `slicer/voron-coreone-asa.ini` does not cross the boundary. What does cross is the plate projects:
+  3.0 imports a 2.x **3MF project** config and maps it to system presets, so open
+  `slicer/plates/<plate>.3mf` and check every override by hand against the tables above. A 3.0 project
+  opened in 2.9.6 loads geometry only — the configuration is discarded (2.9.1+ warns).
 - **No mirroring.** Mirroring is still on the 3.0 queue, so the B10 `Hinge-L-*` mirror cannot be done in the
   preview: slice B10 in 2.9.6, or mirror the STL outside the slicer.
 
@@ -186,6 +229,15 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 | `Hinge-L-sleeve/solid-2X` ×4 | 55.0 mm | 20.9 × 19.5 | very tall & narrow | **5 mm brim** |
 | `mount.stl` (TFT) | 44.8 mm | 117 × 67 | fine | none |
 | `z_motor_mount_a/b` ×4 | 42.0 mm | 51 × 30.7 | borderline | brim if any lift shows |
+
+The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
+orientation, and the plate preview in each chapter shows the result. That is the allowed kind of rotation:
+it never changes which face is on the bed.
+
+These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
+hand, and a part that is not on one of these two lists gets no brim even when it shares a plate with
+one that does. The plate preview at the top of each print step draws the brim outline so you can see
+which parts have one.
 
 Separately, **brim the long flat parts** — not because they're tall, but because 150–182 mm of ASA on a
 plate lifts at the ends: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
