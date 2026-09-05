@@ -4,6 +4,7 @@ docs_dir: docs
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.sections
     - navigation.indexes
@@ -31,10 +32,16 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/wakelock.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
   - attr_list
   - md_in_html
   - tables
@@ -48,3 +55,11 @@ plugins:
 
 hooks:
   - hooks/callouts.py
+
+validation:
+  links:
+    anchors: warn
+    absolute_links: warn
+    unrecognized_links: warn
+  nav:
+    omitted_files: ignore

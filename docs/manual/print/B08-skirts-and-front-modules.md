@@ -1,7 +1,7 @@
 # Batch B08 — Skirts and front modules
 
 **These are the parts people see.** Print them after the Gen 2 belt upgrade if it's in hand (see
-[00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) — 6 of the 26 plates in this batch
+[00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) — 6 of the 27 plates in this batch
 are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 
 **Time:** 25.5 h (6 plates).
@@ -9,8 +9,8 @@ are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 **Prerequisites:** B00, B02 (accent belt guards, fan grills, faceplate feed the same visible assembly), B07,
 and **the Gen 2 belt-upgrade pause point** if the kit is on hand — re-run the calibration-cube gate first.
 
-The skirt ring is made of nine segments plus three "module" segments sharing the same 67×20 mm
-cross-section. On the 350: front = `front_skirt_a` + TFT mount + `front_skirt_b`; rear = `rear_center_skirt`
+The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
+inlet — sharing a 67–72 × 20 mm cross-section. On the 350: front = `front_skirt_a` + TFT mount + `front_skirt_b`; rear = `rear_center_skirt`
 + `power_inlet` + `keystone_panel`; each side = `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
 
 **Printed parts**
@@ -42,7 +42,7 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
   rocking. A bowed skirt is the most visible defect on a finished Voron. Dry-fit the ring: front + TFT
   mount + front, rear + inlet + keystone, sides + fan supports.
 - Most commonly reprinted here: `rear_center_skirt_350` (182 mm — the worst warp candidate in the set).
-- Only two of these long parts fit per plate — every one is 118–182 mm on its long axis and 67 mm deep, so
+- Only two of these long parts fit per plate — every one is 118–182 mm on its long axis and 67–72 mm deep, so
   a 250×220 bed takes two per plate with a workable gap.
 - **3 mm brim** required on: `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
   `side_fan_support`, `keystone_panel` (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
@@ -57,9 +57,12 @@ fresh spool.
 
 ## Step B08.2 — Load plate B08-P1
 
-**Do:** Slice `rear_center_skirt_350`, `side_fan_support` ×1. Apply 3 mm brim to both.
+**Do:** Slice `rear_center_skirt_350`, `side_fan_support` ×1. Apply 3 mm brim to both. **Rotate
+`side_fan_support` 90° about Z** so its 180 mm axis runs along X — side by side in the shipped orientations
+the pair needs 254 mm of X and will not fit the 250 × 220 bed. Rotating about Z does not change which face
+is on the bed, so it is allowed (see [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
 **Parts:** the two items above — 6.1 h, 105 g.
-**Check:** Brim applied; parts not rotated.
+**Check:** Brim applied; `side_fan_support` rotated 90° about Z; neither part tipped onto a different face.
 
 ## Step B08.3 — Print plate B08-P1
 
@@ -75,7 +78,7 @@ fresh spool.
 ## Step B08.5 — Print plate B08-P2
 
 **Do:** Print with standing overrides.
-**Check:** Front skirt's built-in support intact, not suppressed in slicer.
+**Check:** Front skirt's first layer clean across the full 150 mm; no corner lift.
 
 ## Step B08.6 — Load plate B08-P3
 
@@ -135,12 +138,12 @@ Dry-fit the full ring: front `front_skirt_a` + TFT `mount` + `front_skirt_b`; re
 keystone insert(s), faceplate, and bestagon insert go to **Skirts**. `power_inlet_IECGS_1mm` (printed in B07)
 also belongs in this ring — bin it here for the dry-fit. Keep front/rear/side groupings labelled so the ring
 assembles in the right order.
-**Check:** All nine structural segments plus TFT mount labelled by ring position; power inlet (from B07) on hand.
+**Check:** All ten structural segments plus TFT mount labelled by ring position; power inlet (from B07) on hand.
 
 ---
 
 ## Checkpoint B08
-- [ ] All nine skirt segments plus TFT mount pass the flat-reference rocking test
+- [ ] All ten skirt segments plus TFT mount pass the flat-reference rocking test
 - [ ] Full ring dry-fits: front, rear, and both sides, with consistent joint gaps (power inlet from B07)
 - [ ] `mount.stl` vs `mount_thick.stl` choice confirmed and matches what was printed
 - [ ] 3 mm brims removed cleanly from all long-flat parts

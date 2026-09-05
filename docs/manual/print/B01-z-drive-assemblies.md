@@ -4,7 +4,7 @@
 
 **Prerequisites:** B00 printed and the seven-item calibration gate passed. Note: fully completing the
 *Z Drives and Idlers* assembly chapter also needs the accent parts from **B02** (`[a]_z_drive_baseplate_a/b`,
-`[a]_belt_tensioner_a/b`, `[a]_z_tensioner_9mm_x4`) — plan §9 lists hard prerequisites `B0;B2` for that chapter.
+`[a]_belt_tensioner_a/b`, `[a]_z_tensioner_9mm_x4`) — plan §9 lists hard prerequisites `B00;B02` for that chapter.
 
 **Printed parts**
 
@@ -18,17 +18,17 @@
 | `z_motor_mount_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 11.9 |
 | `z_tensioner_bracket_a_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 |
 | `z_tensioner_bracket_b_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 |
-| `deck_support_4mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 |
+| `deck_support_3mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 |
 
 ⚠ **Deck-support thickness (verify):** LDO's Rev D printed-parts guide says "our kit ships with 4 mm deck
 panels, use 4 mm deck support clips," but the Rev D 350 BOM lists the deck panel as **3 mm** acrylic (the
-4 mm panel is the *bottom* panel). Print `deck_support_4mm_x8` now; measure the deck panel on arrival — if
-it's 3 mm, print `deck_support_3mm_x8` instead (8 g, 30 min).
+4 mm panel is the *bottom* panel). The size-specific BOM wins: print `deck_support_3mm_x8` ×8 now, and
+measure the deck panel on arrival — if it measures 4 mm, reprint `deck_support_4mm_x8` (8 g, 30 min).
 
 **Hardware:** none.
 
 **Read first**
-- Checkpoint after B01: F695 (13 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing
+- Checkpoint after B01: 625-2RS (16 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing
   seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check
   the 4 mm/3 mm deck-support call above.
 - Most commonly reprinted here: `z_drive_main_*` — the largest single parts in the batch, most exposed to
@@ -63,10 +63,10 @@ the tall/narrow or long-flat lists). Do not rotate any part.
 ## Step B01.5 — Load plate B01-P2
 
 **Do:** Slice `z_motor_mount_a` ×2, `z_motor_mount_b` ×2, `z_tensioner_bracket_a` ×2, `z_tensioner_bracket_b` ×2,
-`deck_support_4mm` ×8 together. `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect — **add a brim only if
+`deck_support_3mm` ×8 together. `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect — **add a brim only if
 you see lift on this print** (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
 **Parts:** the five items above — 6.7 h, 108 g.
-**Check:** All 12 deck-support clips accounted for on the plate.
+**Check:** All 8 deck-support clips accounted for on the plate.
 
 ## Step B01.6 — Print plate B01-P2
 
@@ -75,7 +75,7 @@ you see lift on this print** (per [00-slicer-setup.md](00-slicer-setup.md#orient
 
 ## Step B01.7 — Inspect
 
-**Do:** With calipers and thumb pressure: press an F695 bearing (13 mm OD) into every `z_drive_main` and
+**Do:** With calipers and thumb pressure: press a 625-2RS bearing (16 mm OD) into every `z_drive_main` and
 `z_drive_retainer` bearing seat — should seat with thumb pressure, no rocking. Check M3 heat-set bosses on
 the motor mounts sit flush with no bulge.
 **Check:** All bearing seats pass; any that don't → reprint that part, don't proceed with a known-bad Z drive.
@@ -91,8 +91,8 @@ in a separate bag labelled "deck panel — verify thickness on arrival."
 ---
 
 ## Checkpoint B01
-- [ ] F695 bearing press-fit into all `z_drive_main_a/b` seats — thumb pressure, no rocking
-- [ ] F695 bearing press-fit into all `z_drive_retainer_a/b` seats — thumb pressure, no rocking
+- [ ] 625-2RS bearing press-fit into all `z_drive_main_a/b` seats — thumb pressure, no rocking
+- [ ] 625-2RS bearing press-fit into all `z_drive_retainer_a/b` seats — thumb pressure, no rocking
 - [ ] M3 heat-set bosses on motor mounts: flush, no bulge
 - [ ] Deck panel measured on arrival; correct deck-support thickness confirmed or reprinted
 - [ ] No corner lift or delamination on any `z_drive_main` body

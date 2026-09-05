@@ -178,7 +178,7 @@ You land in KIAUH's main menu. Do **not** use it to install Klipper, Moonraker o
 
 **Check:** `systemctl status KlipperScreen` shows the unit loaded. It will not display anything useful yet — there is no `printer.cfg`.
 
-[src](https://klipperscreen.dev/Installation.html) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+[src](https://klipperscreen.github.io/KlipperScreen/Installation/) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
 ---
 
@@ -204,9 +204,9 @@ Reboot. Valid rotations are 0, 90, 180, 270.
 
 **Check:** `/sys/class/drm/...DSI-1/status:connected` is present, the console appears the right way up, and the touch point follows your finger.
 
-⚠ **Rev D+ / LDO:** LDO's touchscreen guide tells you to edit `/boot/config.txt`, comment out `dtoverlay=vc4-fkms-v3d` and set `display_lcd_rotate=2`. That is the **legacy fake-KMS path**. MainsailOS 3.x is built on a current Raspberry Pi OS: the boot partition is mounted at **`/boot/firmware/`**, and the display stack is full KMS (`vc4-kms-v3d`), where `display_lcd_rotate` does nothing. Use the `cmdline.txt` method above. [src](https://klipperscreen.dev/Troubleshooting/Rotation.html) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+⚠ **Rev D+ / LDO:** LDO's touchscreen guide tells you to edit `/boot/config.txt`, comment out `dtoverlay=vc4-fkms-v3d` and set `display_lcd_rotate=2`. That is the **legacy fake-KMS path**. MainsailOS 3.x is built on a current Raspberry Pi OS: the boot partition is mounted at **`/boot/firmware/`**, and the display stack is full KMS (`vc4-kms-v3d`), where `display_lcd_rotate` does nothing. Use the `cmdline.txt` method above. [src](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
-Tip: if the touch axes end up rotated relative to the picture, that is a separate fix — see KlipperScreen's touch-rotation matrix page, not the display rotation above. [src](https://klipperscreen.dev/Troubleshooting/Touch_issues.html)
+Tip: if the touch axes end up rotated relative to the picture, that is a separate fix — see KlipperScreen's touch-rotation matrix page, not the display rotation above. [src](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/)
 
 ---
 
@@ -762,7 +762,7 @@ and that `[extruder]` reads `full_steps_per_rotation: 200`.
 ```ini
 [probe]
 ##  Inductive Probe (Omron) — ACTIVE
-##  Connected to Z-PROBE on the Nitehawk-SB V2
+##  Connected to PROBE on the Nitehawk-SB V2 (the Leviathan's Z-PROBE header stays empty)
 ##  This probe is not used for Z height, only Quad Gantry Leveling
 pin: nhk:PC15
 x_offset: 0
@@ -987,9 +987,10 @@ speed: 300
 horizontal_move_z: 10
 ##  mesh_min / mesh_max are PROBE coordinates, not nozzle coordinates.
 ##  The Omron sits at y_offset +25, so the toolhead goes to (X, Y-25):
-##  mesh_min Y 30 -> toolhead Y 5;  mesh_max Y 320 -> toolhead Y 295. Both legal.
-mesh_min: 30, 30
-mesh_max: 320, 320
+##  mesh_min Y 40 -> toolhead Y 15;  mesh_max Y 310 -> toolhead Y 285. Both legal.
+##  40/310 is the Voron reference inset for a 350 (keeps probe points off the bed clips).
+mesh_min: 40, 40
+mesh_max: 310, 310
 probe_count: 7, 7
 algorithm: bicubic
 ##  Z0 comes from the nozzle-probe endstop, and [probe] z_offset is 0 because
@@ -1002,7 +1003,7 @@ fade_target: 0
 adaptive_margin: 5
 ```
 
-**Check:** `mesh_max` minus the probe's `y_offset` (25) is ≤ `position_max` (350) on Y, and `mesh_min` Y (30) minus 25 is ≥ `position_min` (0). Both hold. Klipper will reject the section at restart if they do not.
+**Check:** `mesh_max` minus the probe's `y_offset` (25) is ≤ `position_max` (350) on Y, and `mesh_min` Y (40) minus 25 is ≥ `position_min` (0). Both hold. Klipper will reject the section at restart if they do not.
 
 **Why `zero_reference_position` is not optional here:** `[probe] z_offset: 0` — LDO's own comment says *"This probe is not used for Z height, only Quad Gantry Leveling"*. A mesh built with an uncalibrated probe carries the probe's trigger height as a constant offset on every point. `zero_reference_position` subtracts the mesh value at the named point from the whole mesh, making it purely relative and safe to apply on top of a nozzle-probe Z0. [src](https://www.klipper3d.org/Config_Reference.html#bed_mesh)
 

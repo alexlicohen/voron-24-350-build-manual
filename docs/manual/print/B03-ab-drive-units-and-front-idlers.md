@@ -21,8 +21,9 @@
 **Hardware:** none.
 
 **Read first**
-- Checkpoint after B03: 625 bearing seats in the drive frames — the two halves of each drive unit must
-  close flat with no gap.
+- Checkpoint after B03: **F695-2RS (13 mm OD, flanged)** bearing/spacer stacks drop into the drive-frame and
+  front-idler bores without reaming — and the two halves of each drive unit must close flat with no gap.
+  (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
 - Most commonly reprinted here: `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine.
 - Splitting A and B onto separate plates isn't just packing — a failed plate costs one drive unit, not
   both, and you can build the A side while the B side prints.
@@ -57,9 +58,9 @@ No rotation, no brim.
 
 ## Step B03.6 — Inspect
 
-**Do:** With calipers, check the 625 bearing seat diameter in each drive frame half. Dry-fit the lower and
+**Do:** With calipers, check the F695 bearing seat diameter (13 mm OD, flanged) in each drive frame half. Dry-fit the lower and
 upper halves of each drive unit together — they must close flat with no gap.
-**Check:** No gap when the two halves are clamped together; bearing seats accept a 625 bearing snugly, no rocking.
+**Check:** No gap when the two halves are clamped together; bearing seats accept an F695-2RS bearing snugly, no rocking.
 
 ## Step B03.7 — Label and bin
 
@@ -71,7 +72,7 @@ bridge feed **A/B Drives and Idlers**. Keep A-side and B-side parts in separate 
 ---
 
 ## Checkpoint B03
-- [ ] 625 bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
+- [ ] F695-2RS (13 mm OD) bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
 - [ ] A-side and B-side parts bagged separately and labelled

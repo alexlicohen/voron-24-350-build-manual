@@ -6,9 +6,9 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 
 **Prerequisites:**
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
-- **Print batch B3** — *A/B drive units + front idlers*, 2 plates, 7.7 h, 130 g black ([print plan](../voron-print-plan.md)). B3's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
-- **Print batch B2** — *the orange day*, plate **B2-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
-- **Print batch B0** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
+- **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 7.7 h, 130 g black ([print plan](../voron-print-plan.md)). B03's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
+- **Print batch B02** — *the orange day*, plate **B02-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
+- **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 
 **Tools**
 - Hex drivers 2 mm, 2.5 mm, 3 mm, 4 mm — a 2.5 mm ball-end helps at the M3×40 and the set screws
@@ -25,16 +25,16 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 
 | STL | Qty | Colour |
 |---|---|---|
-| `a_drive_frame_upper.stl` | 1 | Galaxy Black |
-| `a_drive_frame_lower.stl` | 1 | Galaxy Black |
-| `b_drive_frame_upper.stl` | 1 | Galaxy Black |
-| `b_drive_frame_lower.stl` | 1 | Galaxy Black |
-| `front_idler_right_lower.stl` | 1 | Galaxy Black |
-| `front_idler_right_upper.stl` | 1 | Galaxy Black |
-| `front_idler_left_lower.stl` | 1 | Galaxy Black |
-| `front_idler_left_upper.stl` | 1 | Galaxy Black |
-| `[a]_tensioner_right.stl` | 1 | Prusa Orange (accent) |
-| `[a]_tensioner_left.stl` | 1 | Prusa Orange (accent) |
+| `a_drive_frame_upper.stl` | 1 | Black |
+| `a_drive_frame_lower.stl` | 1 | Black |
+| `b_drive_frame_upper.stl` | 1 | Black |
+| `b_drive_frame_lower.stl` | 1 | Black |
+| `front_idler_right_lower.stl` | 1 | Black |
+| `front_idler_right_upper.stl` | 1 | Black |
+| `front_idler_left_lower.stl` | 1 | Black |
+| `front_idler_left_upper.stl` | 1 | Black |
+| `[a]_tensioner_right.stl` | 1 | Orange |
+| `[a]_tensioner_left.stl` | 1 | Orange |
 
 All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idlers/`. Two more parts sit in those same folders and are **not** used here: `[a]_cable_cover` (Ch 07) and `[a]_z_chain_retainer_bracket_x2` (Ch 06). Keep them bagged.
 
@@ -43,8 +43,8 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 | Fastener / part | Qty | Where |
 |---|---|---|
 | Stepper motor, **0.9°**, `LDO-42STH48-2004MAH(VRN)` | 2 | one per drive (p.75, p.79) |
-| GT2 pulley, 20 T, 5 mm bore, 9 mm wide | 2 | one per motor shaft (p.75, p.79) |
-| F695 flanged bearing | 16 | 6 per drive (p.74, p.78) + 2 per front idler (p.65, p.69) |
+| GT2 pulley, 20 T, 5 mm bore, **6 mm wide** (`Pulley, 2GT, 20T, 5mm ID 6mm W`) | 2 | one per motor shaft (p.75, p.79). The kit has exactly two; the four **9 mm** 20T pulleys are the Z-drive pulleys used in Ch 02 |
+| F695 flanged bearing (5×13×4 mm) | 16 | 6 per drive (p.74, p.78) + 2 per front idler (p.65, p.69). The A/B side uses **F695 only** — 625-2RS is the Z-drive bearing (Ch 02) |
 | **M5 precision spacer, brass** — the manual's "M5 shim" | 16 | one above and one below every bearing pair |
 | M5×30 BHCS | 4 | 2 per drive, upper frame → lower frame (p.73, p.77) |
 | M5×40 SHCS | 2 | 1 per front idler — first as the assembly aid, then fitted from the top (p.65–66, p.69–70) |
@@ -355,7 +355,7 @@ Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron
 
 ![Voron manual p.75](assets/manual-pages/manual-p075.png)
 
-**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T 9 mm pulley; printed `pulley_jig.stl`.
+**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; printed `pulley_jig.stl`.
 
 **Do:** Slide the pulley onto the shaft **hub first — teeth up**. Sit the pulley jig flat on the motor's front face and rest the underside of the pulley's toothed section on the jig step marked **A**. That sets 16.5 mm from the motor face to the underside of the teeth (p.75). Without the jig, set 16.5 mm with a caliper.
 
@@ -469,7 +469,7 @@ Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron
 
 ![Voron manual p.79](assets/manual-pages/manual-p079.png)
 
-**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T 9 mm pulley; `pulley_jig.stl`.
+**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; `pulley_jig.stl`.
 
 **Do:** Slide the pulley onto the shaft **the other way up from the A drive — teeth first, hub up**, so the shaft end pokes through the top of the hub. Sit the jig on the motor face and rest the pulley's lower flange on the step marked **B**: 6.5 mm from the motor face to the underside of the teeth (p.79).
 
@@ -544,6 +544,7 @@ Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron
 - [ ] Drive far posts: 4 bearings + 4 spacers, with two spacers meeting mid-stack. Drive near posts and both idlers: 2 bearings + 2 spacers.
 - [ ] All six bearing groups spin free with the frames closed and bolted.
 - [ ] `a_drive_frame_upper` has its two heat-set inserts; `b_drive_frame_upper` has none.
+- [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] A pulley: hub down, 16.5 mm. B pulley: hub up, 6.5 mm. The two are visibly different.
 - [ ] Both pulleys are threadlocked and will not slip under hand pressure.
 - [ ] The belt offcut lies flat across pulley and bearing grooves on both drives — no tilt, no flange contact.
@@ -556,6 +557,7 @@ Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron
 
 - **A bearing pair fitted flange-to-flange (or flange-in).** The belt then rides on a flange edge instead of the bearing races and shreds. Fix: open the stack, turn the two bearings so their plain faces meet. Check by sighting the stack edge-on — a flange in the middle is always wrong.
 - **Four bearings on the near post, two on the far post.** The frames will not close square, or they close and pinch a bearing. Fix: the four-bearing stack always goes on the post farther from the motor bore — right on p.74, left on p.78.
+- **Fitting a 9 mm 20T pulley on an A/B motor.** It looks like the right pulley but it is a Z-drive part, and it will not sit in the 6 mm belt plane that a flange-out F695 pair forms. The kit ships exactly two 6 mm 20T pulleys and four 9 mm ones — count them before you start, and keep the 9 mm four with the Ch 02 Z bin.
 - **Both pulleys set to the same height, or the B pulley fitted hub-down.** The A and B belts then try to share one plane and rub. This is not fixable at belting time. Fix: A = 16.5 mm hub down, B = 6.5 mm hub up, both re-checked with the jig after the set screws are tight.
 - **Motor cable exits pointing outboard.** The cables will not reach the drag chain and the drive has to come apart with the gantry in the machine. Fix: check before the three M3×30 go in — the exits face each other.
 - **M5×30 BHCS torqued down.** They thread into plastic (p.74, p.78) and strip permanently; a stripped post means reprinting a drive frame. Fix: stop at closed-and-snug.
@@ -563,4 +565,4 @@ Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron
 
 ## Next
 
-**Ch 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers.** The four assemblies you just built bolt onto the Y extrusions there (manual p.82–107); print batch **B4** must be done before you start it.
+**Ch 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers.** The four assemblies you just built bolt onto the Y extrusions there (manual p.82–107); print batch **B04** must be done before you start it.

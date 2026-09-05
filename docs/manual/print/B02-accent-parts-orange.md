@@ -23,7 +23,7 @@ Everything here is printed before the kit arrives anyway, so nothing waits on th
 | `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Orange | 0.6 |
 | `[a]_endstop_pod_D2F_switch.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 8.1 |
 | `[a]_xy_joint_cable_bridge_2hole.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 9.2 |
-| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 ⚠ *(alternate to the above — fit whichever clears the Ti backers, see §Read first)* | Orange | 9.1 |
+| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: alternate to the above — fit whichever clears the Ti backers, see §Read first | Orange | 9.1 |
 | `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.3 |
 | `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.4 |
 | `[a]_stealthburner_main_body.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Orange | 46.5 |
@@ -98,7 +98,7 @@ brim to `Handle`** only (60 mm tall, tippy).
 `[a]_pcb_spacer`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`. **Check `XY_cable_chain_bridge-Igus-3mm_backer`
 in preview** — it's a community remix that may arrive standing 44 mm tall; lay it flat to match the stock
 bridge if so.
-**Parts:** the 16 files above (25 small accent parts) — 6.5 h, 106 g.
+**Parts:** the 16 files above (29 small accent parts) — 6.5 h, 106 g.
 **Check:** Cable-chain bridge sitting flat, not standing, before slicing.
 
 ## Step B02.7 — Print plate B02-P3
@@ -129,7 +129,7 @@ with **Skirts**. `Handle` goes with **B10 — Clicky-Clack door** (keep it separ
 - [ ] SB main body built-in supports removed clean; LED pockets crisp
 - [ ] Cable-chain bridge fit decision made (stock 2-hole vs Ti-backer remix) once Ti backers are in hand
 - [ ] `Handle` brim removed cleanly, no visible scarring
-- [ ] All 25 small accent parts present and sorted by destination chapter
+- [ ] All 29 small accent parts present and sorted by destination chapter
 - [ ] Orange spool re-sealed/dry-stored — no more orange prints until B10 label check
 
 ## Common mistakes

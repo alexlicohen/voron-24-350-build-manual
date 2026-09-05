@@ -33,11 +33,11 @@ Core One+, confirm the `Prusament ASA @COREONE` filament profile is selected.
 
 ## Step B00.2 — Load plate B00-P1
 
-**Do:** In PrusaSlicer, select printer `Original Prusa CORE One 0.4 nozzle`, print `0.20mm STRUCTURAL @COREONE 0.4`
+**Do:** In PrusaSlicer, select printer `Prusa CORE One 0.4 nozzle`, print `0.20mm STRUCTURAL @COREONE 0.4`
 with the overrides from [00-slicer-setup.md](00-slicer-setup.md), filament `Prusament ASA @COREONE` with
 shrinkage compensation XY/Z zeroed. Import all six files: `Voron_Design_Cube_v7`, `Heatset_Practice`,
-`MGN12_rail_guide_x2` ×2, `MGN9_rail_guide_x2` ×2, `pulley_jig`, `z_drive_retainer_a_x2` ×1. Do not rotate
-any part — all ship pre-oriented.
+`MGN12_rail_guide_x2` ×2, `MGN9_rail_guide_x2` ×2, `pulley_jig`, `z_drive_retainer_a_x2` ×1. Do not change which face any part sits on — all ship pre-oriented (rotating about Z to fit the plate is
+fine).
 **Parts:** all six items above — 3.5 h, 57 g.
 **Check:** Slicer's own time/weight estimate should be within the same ballpark as this chapter's totals;
 if wildly off, re-check the profile selection before printing.
@@ -61,8 +61,8 @@ window the 1-loop skirt buys you.
 [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade):
 cube X/Y (30.00 mm ±0.15 mm), cube Z (30.00 mm ±0.10 mm), first-layer-vs-mid-height X delta (≤0.15 mm),
 cube corner snap (no delamination), `Heatset_Practice` insert flush ±0.2 mm proud with no boss bulge >0.2 mm,
-`MGN12_rail_guide` slides onto the real MGN12 rail with light finger pressure, `z_drive_retainer_a` F695
-bore (13.00 mm) takes the bearing with thumb pressure and no rocking.
+`MGN12_rail_guide` slides onto the real MGN12 rail with light finger pressure, `z_drive_retainer_a`'s
+625-2RS bore (16 mm OD) takes the bearing with thumb pressure and no rocking.
 **Check:** All seven pass. Any failure → adjust per the "if out of spec" column in
 [00-slicer-setup.md](00-slicer-setup.md), reprint this plate, do not proceed to B01.
 
@@ -84,7 +84,7 @@ retainer) or kept as reference (cube).
 - [ ] Cube corner snap test: no delamination
 - [ ] `Heatset_Practice`: 3/3 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
 - [ ] `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
-- [ ] `z_drive_retainer_a` F695 bore: bearing presses in by thumb, no rocking
+- [ ] `z_drive_retainer_a` 625-2RS bore: bearing presses in by thumb, no rocking
 - [ ] Shrinkage compensation XY and Z confirmed at 0 % in the filament profile
 - [ ] `z_drive_retainer_a` set aside for B01
 

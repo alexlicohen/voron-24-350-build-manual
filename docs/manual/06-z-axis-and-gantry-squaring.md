@@ -7,8 +7,8 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 **Prerequisites:**
 - **Ch 02 — Z drives, Z idlers, Z rails, deck.** Four Z drives built and bolted in, four Z idlers at the tops of the uprights, four MGN9 Z rails on the uprights with their carriages on, 16T/20T pulley stack verified, set screws threadlocked (survey §5.2 W12). The deck panel is in.
 - **Ch 05 — Gantry.** Complete gantry: X and Y extrusions, XY joints, X carriage, titanium backers already fitted (survey §5.2 W2 — backers after this point means a teardown). Left off the printer, as the manual leaves it at p.106–107.
-- **Print batch B5** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B5). Black ASA, 1 plate, 5.2 h.
-- **Print batch B2** — the single orange accent session, which carries the four Z belt clips (both halves) and the Z chain retainer brackets.
+- **Print batch B05** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 5.2 h.
+- **Print batch B02** — the single orange accent session, which carries the four Z belt clips (both halves) and the Z chain retainer brackets.
 - Heat-set inserts already done for every part in both batches (survey §5.2 W3).
 
 **Tools**
@@ -26,15 +26,15 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 
 | STL | Repo path | Qty | Colour | Batch |
 |---|---|---:|---|---|
-| `z_joint_lower_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Galaxy Black | B5 |
-| `z_joint_upper_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Galaxy Black | B5 |
-| `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Prusa Orange | B2 |
-| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Prusa Orange | B2 |
-| `z_chain_bottom_anchor.stl` | Voron-2 `STLs/Gantry/` | 1 | Galaxy Black | B5 — **fitted in Ch 10** (manual p.201) |
-| `z_chain_guide.stl` | Voron-2 `STLs/Gantry/` | 1 | Galaxy Black | B5 — **fitted in Ch 10** (manual p.203) |
-| `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Prusa Orange | B2 — **fitted in Ch 10** (manual p.204) |
-| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Galaxy Black | B5 — optional rail-end safety stop |
-| `z_joint_upper_hall_effect.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | **0** | — | **not used** — no hall-effect endstops in this kit |
+| `z_joint_lower_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | B05 |
+| `z_joint_upper_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | B05 |
+| `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | B02 |
+| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | B02 |
+| `z_chain_bottom_anchor.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.201) |
+| `z_chain_guide.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.203) |
+| `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Orange | B02 — **fitted in Ch 10** (manual p.204) |
+| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | B05 — optional rail-end safety stop |
+| `z_joint_upper_hall_effect.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | **0** | — | **SKIP** per LDO — no hall-effect endstops in this kit, not printed |
 
 **Hardware** (chapter totals — Part A)
 
@@ -45,7 +45,7 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 | M5×30 BHCS | 4 | one per corner, same stack, p.111 |
 | M3×20 SHCS | 16 | four per `z_joint_lower` into the MGN9 carriage, p.115 |
 | M5×40 SHCS | 4 | one per Z joint, up from the lower joint into the block's M5 nut, p.115 |
-| Gates open belt, 2GT, 9 mm | 4 × **≥1200 mm** | manual p.111 minimum for the 350; the kit ships **6 m** of 9 mm belt = 1500 mm per corner ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)) |
+| Gates open belt, 2GT, 9 mm | 4 × **~1400 mm** (manual minimum ≥1200 mm) | manual p.111 minimum for the 350; the kit ships **6 m** of 9 mm belt, so 4 × 1400 mm leaves ~400 mm spare for a mis-cut ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)) |
 | 6×3 mm magnet | **0** | hall-effect option only — not used |
 | Zip tie, 3×150 mm (belt tails) | 4 | manual p.120 |
 | Zip tie, long (gantry support) | 0–4 | only if you skip the rubber-rail-stopper trick |
@@ -57,7 +57,7 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 - **The gantry lift is a two-person step and the manual says so** (p.114: *"An extra pair of hands helps with this step"*). Nobody holds a 350 gantry one-handed while fishing for an M5×40.
 - **The gantry alignment on p.122 is not the gantry squaring.** p.122 gets the gantry square enough to belt. The real procedure (Part B) starts by *fully releasing* A/B belt tension and dropping the lower Z joints, so it has to come after firmware is up. Ch 07's A/B tension is provisional until Part B is signed off (survey §5.2 W1, §4.4 #2).
 - **Belt tension targets:** Z belts **140 Hz** over a 150 mm span measured from the Z idler centres; A/B belts **110 Hz** over a 150 mm span. Both from [docs.vorondesign.com](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html). voronldo.com's 80–100 Hz (A/B) and 110–130 Hz (Z) numbers are discarded — survey §4.3.
-- **A Z carriage that runs off the end of its rail is a ruined carriage.** The balls fall out. Keep the printed `z_rail_stop_x4` (batch B5) at the top of each rail, or keep a hand on the carriage.
+- **A Z carriage that runs off the end of its rail is a ruined carriage.** The balls fall out. Keep the printed `z_rail_stop_x4` (batch B05) at the top of each rail, or keep a hand on the carriage.
 
 ---
 
@@ -111,7 +111,7 @@ Manual p.108–123. Nothing in this part needs power.
 
 **Parts:** Gates open 2GT belt, 9 mm wide.
 
-**Do:** Cut four lengths. The manual's minimum for a 350 is **1200 mm**. The kit supplies 6 m of 9 mm belt, so cut four at ~1500 mm and trim the tails at the end — running short here means buying belt. Cut square with flush cutters, between teeth. Label them with masking tape so you don't mix a cut end with a factory end.
+**Do:** Cut four lengths. The manual's minimum for a 350 is **1200 mm**. The kit supplies 6 m of 9 mm belt, so cut four at **~1400 mm** and trim the tails at the end — that leaves ~400 mm spare, where 4 × 1500 mm would use the whole 6 m exactly and leave nothing for a mis-cut or a re-clamp. Cut square with flush cutters, between teeth. Label them with masking tape so you don't mix a cut end with a factory end.
 
 **Check:** Four belts, all the same length within a few mm, all with clean square ends and no frayed cords.
 
@@ -183,7 +183,7 @@ Manual p.108–123. Nothing in this part needs power.
 
 (no image — see text)
 
-**Parts:** four rubber rail stoppers off the Z rails; `z_rail_stop_x4` ×4 (optional, from batch B5).
+**Parts:** four rubber rail stoppers off the Z rails; `z_rail_stop_x4` ×4 (optional, from batch B05).
 
 **Do:** Move each Z carriage to roughly mid-rail and screw a rubber rail stopper into a rail hole **directly under** it, so the carriage and its joint rest on the stopper and cannot drop. Do all four at **the same rail hole counted from the same end** — that is what makes the four joints land at the same height, which is what makes the gantry sit flat when you lower it on. Fit the printed `z_rail_stop_x4` at the *top* of each rail as well if you printed them; a carriage that runs off the top loses its balls.
 
@@ -405,7 +405,7 @@ Tip: This is a mechanical pre-square only. The manual's own QR code on this page
 - **Fitting the hall-effect block or a 6×3 magnet** because the manual shows it. This kit has none (LDO p.145). If you printed `z_joint_upper_hall_effect.stl`, you printed the wrong file.
 - **The block's cutout facing inward.** It is the one orientation error on p.112 that the manual calls out, and it is invisible once the belt is on. Fix: check all four before belting.
 - **Undoing the top belt clamp screws completely at p.117**, which releases the *bottom* clamped belt end as well — the same two screws hold both. Loosen, don't remove.
-- **Cutting Z belts to 1200 mm and finding it is exactly not enough** after the wrap. Cut ~1500 mm; the kit's 6 m of 9 mm belt allows it.
+- **Cutting Z belts to 1200 mm and finding it is exactly not enough** after the wrap. Cut ~1400 mm — long enough to wrap, and it still leaves ~400 mm of the kit's 6 m spare. Cutting four at 1500 mm consumes the whole reel.
 - **Torquing the M5×40 Z joint bolts now.** They stay light through Part B and get their final tighten hot, at Voron squaring step 16. Tight joints here will fight every squaring adjustment you make.
 - **Leaving a Z carriage unrestrained near the top of its rail.** It slides off, the balls go on the floor, and the carriage is scrap.
 

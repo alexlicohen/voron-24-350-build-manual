@@ -35,7 +35,8 @@ Fabreeko before it ships **(unverified)**.
   pin into the "solid" half should be a **very** tight hammer fit with ~20 mm proud.
 - Most commonly reprinted here: `Hinge-L-solid-2X` (split risk on the pin press).
 - Mirror the two `Hinge-L-*` parts in the slicer if you want the door to swing the other way; handle and
-  latch are symmetric.
+  latch are symmetric. **PrusaSlicer 3.0 preview cannot mirror** — slice this batch in 2.9.6, or mirror the
+  STL outside the slicer.
 - `Hinge-L-sleeve/solid-2X` are on the tall/narrow brim list (55.0 mm, footprint 20.9×19.5) — **5 mm brim**.
   `Latch.stl` (58.0 mm) also gets a **5 mm brim**.
 
@@ -48,7 +49,8 @@ Fabreeko before it ships **(unverified)**.
 
 **Do:** Slice `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2,
 `Latch`, `Panel_Clip`. Apply 5 mm brim to `Hinge-L-sleeve-2X`, `Hinge-L-solid-2X`, and `Latch`. Mirror the
-`Hinge-L-*` parts now if you want the door to swing the opposite way.
+`Hinge-L-*` parts now if you want the door to swing the opposite way — in **2.9.6**; the 3.0 preview has no
+mirror tool.
 **Parts:** the six black parts above — 5.1 h, 80 g.
 **Check:** Brim applied to the three tall/narrow parts; mirroring decision made before slicing, not after.
 

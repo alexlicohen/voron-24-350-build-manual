@@ -1,10 +1,12 @@
 # Batch B07 — Electronics bay + lighting
 
-**Time:** 12.9 h (2 plates).
+**Time:** 13.2 h (3 plates).
 
 **Prerequisites:** B00. This batch does not depend on B01–B06 (electronics bay is independent of the
-mechanical gantry). ⚠ **This is the Gen 2 belt-upgrade pause point** — if the Gen 1→Gen 2 upgrade kit
-arrives mid-run, finish this batch, then pause before starting B08. Re-run the calibration-cube gate
+mechanical gantry).
+
+⚠ **Gen 2 belt-upgrade pause point:** if the Gen 1→Gen 2 upgrade kit arrives mid-run, finish this batch,
+then pause before starting B08. Re-run the calibration-cube gate
 (see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) before resuming.
 
 **Printed parts**
@@ -13,14 +15,14 @@ arrives mid-run, finish this batch, then pause before starting B08. Re-run the c
 |---|---|---:|---|---:|
 | `wago_221-415_mount_3by5.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 | Black | 10.6 |
 | `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 |
-| `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 ⚠ *(verify)* | Black | 4.1 |
+| `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 |
 | `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 file *(contains base **and** cover; kit supplies the base, so you get a spare; base only — cover body superseded by the V2 partial cover below)* | Black | 9.4 |
-| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 ⚠ *(est.)* |
-| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 file = 3 clips *(spares; kit supplies 4)* | Black | 5.9 |
+| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 (verify; 0.30 h est.) |
+| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(one clip per file — `_x3` is the quantity; spares, the kit supplies the 4 needed)* | Black | 5.9 |
 | `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 |
 | `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 |
 | `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 |
-| `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, not the skirts chapter)* | Black | 36.2 |
+| `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, not the skirts chapter; own plate B07-P3)* | Black | 36.2 |
 
 ⚠ **`PSU_stabilizer_50mm` (verify):** LDO Build Notes say "PAGE 169 SKIP — the kit does not use a support
 bracket," which most likely refers to this part. It is 4 g — print it, fit only if it's actually needed.
@@ -41,18 +43,19 @@ supplied printed).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥182 g remaining across both plates. Per plan §4.3, this is where spool #1 is
-expected to run out — let a runout happen mid-plate here (not on B01-P1's long plate); the Core One+ runout
-sensor pauses and resumes cleanly.
-**Check:** Clean purge; fresh spool staged if #1 is close to empty.
+**Do:** Galaxy Black, confirm ≥223 g remaining across the three plates. Per plan §4.3, spool #1 runs out
+inside **B06** and spool #2 inside **B09**, so this batch normally runs on spool #2. If a runout does land
+here, let it happen mid-plate (never on B01-P1's long plate); the Core One+ runout sensor pauses and
+resumes cleanly.
+**Check:** Clean purge; fresh spool staged if the active spool is close to empty.
 
 ## Step B07.2 — Load plate B07-P1
 
 **Do:** Slice `wago_221-415_mount_3by5`, `lrs_200_psu_bracket_x2` ×2, `PSU_stabilizer_50mm`,
 `usb_adapter_mount`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), `pcb_din_clip_x3`,
 `handlebar_spacer_x4` ×4.
-**Parts:** the seven files above — 3.3 h, 60 g.
-**Check:** No rotation applied; all sit flat as shipped.
+**Parts:** the seven files above — 3.6 h, 60 g.
+**Check:** No face re-orientation; all sit flat as shipped.
 
 ## Step B07.3 — Print plate B07-P1
 
@@ -62,28 +65,38 @@ sensor pauses and resumes cleanly.
 ## Step B07.4 — Load plate B07-P2
 
 **Do:** Slice `cob_light_strip_mount_100mm` ×6 and `cob_light_strip_mount_50mm` ×2 — eight mounts total,
-each a 2-piece assembly — plus `power_inlet_IECGS_1mm` (moved here from B08; add wherever it fits on
-the plate, verify in slicer). **Brim the 100 mm mounts and the power inlet** (they're on the long-flat
-brim list in [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
-**Parts:** the eight COB mounts + `power_inlet_IECGS_1mm` — 9.6 h, 163 g.
-**Check:** 3 mm brim applied to the 100 mm mounts and the power inlet.
+each a 2-piece assembly. **Brim the 100 mm mounts** (they're on the long-flat brim list in
+[00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). The power inlet does **not** go on this plate:
+with the mandated 3 mm brims the eight mounts plus the 118 × 66.8 mm inlet fill 84 % of the 250 × 220 bed
+and cannot be placed, so the inlet has its own plate B07-P3.
+**Parts:** the eight COB mounts — 7.5 h, 127 g.
+**Check:** 3 mm brim applied to the 100 mm mounts; eight mounts on the plate and nothing else.
 
 ## Step B07.5 — Print plate B07-P2
 
 **Do:** Print with standing overrides.
 **Check:** Watch for end-lift on the 100 mm mounts partway through — this is the batch's known warp risk.
 
-## Step B07.6 — Inspect
+## Step B07.6 — Load and print plate B07-P3
+
+**Do:** Slice `power_inlet_IECGS_1mm` ×1 alone. **3 mm brim** — it is 118 × 66.8 mm of flat ASA and lifts at
+the corners. Print with standing overrides.
+**Parts:** `power_inlet_IECGS_1mm` — 2.1 h, 36 g.
+**Check:** 3 mm brim applied; first layer clean across the full 118 mm; no corner lift.
+
+## Step B07.7 — Inspect
 
 **Do:** Lay each COB mount pair on a flat reference (granite counter); check the two halves close flush
 with 2× M3×6 FHCS test-fit. Check the Wago mount's heat-set bosses.
 **Check:** No rocking on the flat reference; halves close flush; heat-set bosses flush and not bulged.
 
-## Step B07.7 — Label and bin
+## Step B07.8 — Label and bin
 
 **Do:** Bin for **Electronics**, **Controller**, **Wiring** chapters. Keep the spare `usb_adapter_mount`
-cover and `pcb_din_clip` spares clearly marked as spares.
-**Check:** All electronics-bay parts grouped; COB mounts counted (6× 100 mm + 2× 50 mm).
+cover and `pcb_din_clip` spares clearly marked as spares. The power inlet panel off B07-P3 goes to the
+**Electronics** bin — it is consumed in Ch 09, not in the skirts chapter.
+**Check:** All electronics-bay parts grouped; COB mounts counted (6× 100 mm + 2× 50 mm);
+`power_inlet_IECGS_1mm` present.
 
 ---
 
@@ -92,6 +105,7 @@ cover and `pcb_din_clip` spares clearly marked as spares.
 - [ ] COB mounts checked flat on granite reference — no rocking
 - [ ] Wago mount heat-set bosses flush, no bulge
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
+- [ ] `power_inlet_IECGS_1mm` off B07-P3 flat, brim snapped off cleanly, binned for Ch 09
 - [ ] **If Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.9.0, re-tensioned,
       re-squared, cube gate re-passed
 

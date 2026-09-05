@@ -61,7 +61,7 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 
 **Parts:** none — verification.
 
-**Do:** With the power cable **still unplugged**, look once more at the PSU's 115/230 V selector and confirm it matches your mains. Confirm the SSR wiring against the numbered terminals: control on INPUT 3 (red, +) and INPUT 4 (black, −), bed live on LOAD 1, mains brown on LOAD 2. Confirm all Leviathan voltage-selection jumpers are back in and set for the parts actually attached.
+**Do:** With the power cable **still unplugged**, look once more at the PSU's 115/230 V selector and confirm it matches your mains. Confirm the SSR wiring against the numbered terminals: control on INPUT 3 (red, +) and INPUT 4 (black, −), bed live on LOAD 1, mains brown on LOAD 2. Confirm **exactly two** Leviathan voltage-selection jumpers are fitted — **Fan2 and Fan3, both on the 24 V pins** — and that **Probe, Fan0 and Fan1 are still bare** (Step 10.28, Checkpoint 10). LDO: *"Mixing voltage will permanantly damage the controller and attached components."*
 
 **Check:** Selector correct. No bare copper anywhere. Every wire duct still open so you can watch the bay. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
@@ -101,7 +101,7 @@ Recv: // Klipper state: Ready
 
 **Check:** `Ready`, with no `mcu 'nhk': Unable to open serial port` and no `Option 'serial' in section 'mcu' must be specified`. Any error here is a Ch 12 problem, not a Ch 13 problem.
 
-⚠ Rev D+ / LDO: `ls /dev/serial/by-id/*` over SSH must show exactly two Klipper devices — one `usb-Klipper_stmf446xx_…` (Leviathan) and one `usb-Klipper_**stm32g0b1xx**_…` (Nitehawk-SB **V2**). The Rev D wiring guide tells you to look for `rp2040`; that is the V1 board and it is not what you have. (survey §4.1 ②)
+⚠ Rev D+ / LDO: `ls /dev/serial/by-id/*` over SSH must show exactly two Klipper devices — one `usb-Klipper_**stm32f446xx**_…` (Leviathan; `stm32h743xx` on a V1.3 board — the LDO guide's `stmf446xx` is a typo, Ch 12 Step 12.13) and one `usb-Klipper_**stm32g0b1xx**_…` (Nitehawk-SB **V2**). The Rev D wiring guide tells you to look for `rp2040`; that is the V1 board and it is not what you have. (survey §4.1 ②)
 
 ---
 
@@ -127,7 +127,7 @@ Recv: // Klipper state: Ready
 
 **Do:** Look at the temperature panel. You should have four sensors: `extruder`, `heater_bed`, `chamber_temp` and the Pi's `temperature_host`. Read them and do nothing else for thirty seconds.
 
-**Check:** Extruder, bed and chamber all read within a couple of degrees of the actual room temperature, and **none of them is climbing**. If a temperature is rising with nothing commanded, cut power at the switch — a heater is energised through a wiring fault. If a reading is wildly wrong or jittering, check the crimps and the `sensor_type` / `sensor_pin` entries; all three are `ATC Semitec 104NT-4-R025H42G` with `pullup_resistor: 2200` in the LDO config. [src](https://docs.vorondesign.com/build/startup/)
+**Check:** Extruder, bed and chamber all read within a couple of degrees of the actual room temperature, and **none of them is climbing**. If a temperature is rising with nothing commanded, cut power at the switch — a heater is energised through a wiring fault. If a reading is wildly wrong or jittering, check the crimps and the `sensor_type` / `sensor_pin` entries; extruder and bed are `ATC Semitec 104NT-4-R025H42G` with `pullup_resistor: 2200` in the LDO config; the chamber sensor is on the toolboard's `CT` port, which has a **4.7 kΩ** pull-up, so `[temperature_sensor chamber_temp]` carries **no** `pullup_resistor` line and must not be given one (Klipper's default is 4700). [src](https://docs.vorondesign.com/build/startup/)
 
 ⚠ Rev D+ / LDO: the hotend and chamber thermistors land on the **Nitehawk V2** through **JST-PH2.0** connectors, not the XH2.5 the Rev D wiring guide names. A spare pigtail crimped to XH2.5 will not fit, and a PH2.0 housing can be forced into the wrong header. (survey §4.1 ③)
 
@@ -181,7 +181,7 @@ Tip: `[heater_bed] max_power: 0.6` in the LDO config is deliberate — it limits
 
 **Check:** The **top** fan spins to full and you feel air under the nozzle; `M107` stops it. This is `[fan]` on `nhk:PA15`. Note that `off_below: 0.10` means anything under 10 % commands zero — that is expected, not a fault.
 
-⚠ Rev D+ / LDO: the 2×10 board-to-board header between the Stealthburner fan adapter and the toolboard has **reversed gender and is keyed** on Rev D+. If a toolhead fan does nothing at all, do not press the connector harder — check that it seated with the key, not against it. (survey §4.1 ④)
+⚠ Rev D+ / LDO: the 2×5 (10-pin) board-to-board header between the Stealthburner fan adapter and the toolboard has **reversed gender and is keyed** on Rev D+. If a toolhead fan does nothing at all, do not press the connector harder — check that it seated with the key, not against it. (survey §4.1 ④)
 
 ---
 
@@ -191,11 +191,11 @@ Tip: `[heater_bed] max_power: 0.6` in the LDO config is deliberate — it limits
 
 **Parts:** none.
 
-**Do:** Set the **Bed** target to 60 and wait for it to pass 60 °C.
+**Do:** Set the **Bed** target to 60 and wait for it to pass 60 °C, then send `SET_FAN_SPEED FAN=nevermore SPEED=1` and, after confirming it, `SET_FAN_SPEED FAN=nevermore SPEED=0`.
 
-**Check:** The electronics-bay PCB fan runs (`[controller_fan controller_fan]`, `FAN2/PF7`, keyed off `heater_bed`) and the Nevermore fan runs (`FAN3/PF9`, `heater_temp: 60`). Then set the bed to Off. Both will keep running for a while after — that is the idle behaviour, not a fault.
+**Check:** The electronics-bay PCB fan runs on its own as the bed passes 60 °C (`[controller_fan controller_fan]`, `FAN2/PF7`, keyed off `heater_bed`) and keeps running for a while after you set the bed to Off — that is the idle behaviour, not a fault. The Nevermore fan (`FAN3/PF9`) runs **only** while you command it: it is **not** slaved to the bed.
 
-⚠ Rev D+ / LDO: the LDO config names `FAN3/PF9` `[heater_fan exhaust_fan]`, but on this build that port drives the **Nevermore filter fan** — the kit has no exhaust fan. Rename it if you like; do not go looking for a second fan. (survey §3.2, §4.2 p.250–253)
+⚠ Rev D+ / LDO: the LDO config names `FAN3/PF9` `[heater_fan exhaust_fan]`, but on this build that port drives the **Nevermore filter fan** — the kit has no exhaust fan. Ch 12 Step 12.32 replaced that section with `[fan_generic nevermore]` so `PRINT_START` can run the filter for the whole print, so there is no `heater_temp: 60` trigger any more and nothing happens at bed 60 °C. Do not go looking for a second fan or a wiring fault. (survey §3.2, §4.2 p.250–253)
 
 ---
 
@@ -366,7 +366,7 @@ Recv: // x:open y:open z:TRIGGERED
 
 **Parts:** none.
 
-**Do:** With the gantry still high and well clear of the bed, send `QUERY_PROBE`. Then hold a steel offcut (or the flex plate) up under the probe face and send it again.
+**Do:** *(Brought forward from the wizard's Probe Check page, which sits five pages later — safe here because the gantry is high and nothing is homed.)* With the gantry still high and well clear of the bed, send `QUERY_PROBE`. Then hold a steel offcut (or the flex plate) up under the probe face and send it again.
 
 ```
 Send: QUERY_PROBE
@@ -672,30 +672,15 @@ Note: this sets Z=0 from the **nozzle probe**, not the inductive probe. `[probe]
 
 ## Part J — Bed mesh
 
-### Step 13.38 — Confirm (or add) the `[bed_mesh]` section
+### Step 13.38 — Confirm the `[bed_mesh]` section from Ch 12
 
 (no image — see text)
 
 **Parts:** none.
 
-**Do:** The LDO config ships **no `[bed_mesh]` section at all** — but `PRINT_END` calls `BED_MESH_CLEAR`, which will print `Unknown command:"BED_MESH_CLEAR"` at the end of every print until one exists. Confirm the section you added in Ch 12, or add it now:
+**Do:** The LDO config ships **no `[bed_mesh]` section at all** — but `PRINT_END` calls `BED_MESH_CLEAR`, which will print `Unknown command:"BED_MESH_CLEAR"` at the end of every print until one exists. **Ch 12 Step 12.34 owns that block.** Do not retype it here: open `printer.cfg`, confirm the section is present and unchanged, then `FIRMWARE_RESTART`.
 
-```ini
-[bed_mesh]
-speed: 100
-horizontal_move_z: 10
-mesh_min: 35, 35
-mesh_max: 315, 315
-probe_count: 7, 7
-algorithm: bicubic
-zero_reference_position: 175, 175
-fade_start: 0.6
-fade_end: 10.0
-```
-
-`FIRMWARE_RESTART`.
-
-**Check:** Every number above is derived from *this* machine's config, not copied from a forum — verify each before you accept it. `mesh_min`/`mesh_max` are **probe** coordinates, and `[probe] y_offset: 25.0` means the nozzle sits 25 mm in front of the probe, so a probe Y of 35 puts the nozzle at Y10, inside travel. 35/315 is a symmetric 35 mm inset on a 350 bed. `zero_reference_position: 175, 175` normalises the mesh to zero at the bed centre — the same point where you set Z=0 in Step 13.36 — so the mesh corrects bed *shape* only and does not inherit the uncalibrated `[probe] z_offset`. `horizontal_move_z: 10` matches `[quad_gantry_level]`. (survey §4.4 #15)
+**Check:** `grep -A4 '^\[bed_mesh\]' ~/printer_data/config/printer.cfg` returns the Step 12.34 block, Klipper comes back `Ready` with no `[bed_mesh]` error, and `BED_MESH_CLEAR` is accepted at the console. If Klipper rejects the section, the cause is a range error — `mesh_min`/`mesh_max` are **probe** coordinates and `[probe] y_offset: 25.0` puts the nozzle 25 mm in front of the probe. Fix it in Step 12.34, not here, so the two chapters cannot drift apart again. (survey §4.4 #15)
 
 ---
 
@@ -789,11 +774,11 @@ Once the squish is right, make it permanent with `Z_OFFSET_APPLY_ENDSTOP` then `
 | Symptom | Most likely cause | Fix |
 |---|---|---|
 | A temperature climbs with nothing commanded | Heater energised through a wiring fault | Cut power at the switch. Back to Ch 10 — do not "just watch it" |
-| Thermistor reads a wild or jumping value | Crimp, or a PH2.0 housing half-seated / in the wrong header | Re-seat, check continuity. ⚠ Rev D+ uses **PH2.0**, not the guide's XH2.5 |
+| Thermistor reads a wild or jumping value | Crimp, or a PH2.0 housing half-seated / in the wrong header | Re-seat, check continuity. Rev D+: uses **PH2.0**, not the guide's XH2.5 |
 | Hotend heats when you command the bed (or vice versa) | Thermistor pair or heater pair swapped | Swap at the board, power off first |
 | Bed does not heat, SSR LED **on** | Fault on the mains side of the SSR | Check LOAD 1 / LOAD 2 and the bed L/N |
 | Bed does not heat, SSR LED **off** | Control polarity reversed | Leviathan **+** → SSR **INPUT 3**, **−** → INPUT 4 |
-| A fan never starts | Wrong port, wrong voltage jumper, or the keyed 2×10 toolhead header seated backwards | Check the port against the config; ⚠ Rev D+ header is keyed — if it will not drop in, it is backwards. BLDC fans do not spin backwards on reversed polarity, they do nothing or burn out |
+| A fan never starts | Wrong port, wrong voltage jumper, or the keyed 2×5 (10-pin) toolhead header seated backwards | Check the port against the config; Rev D+: header is keyed — if it will not drop in, it is backwards. BLDC fans do not spin backwards on reversed polarity, they do nothing or burn out |
 | `STEPPER_BUZZ` moves nothing | `enable_pin`/`step_pin`, or no driver power | Check the pins; check the HV/24 V rail |
 | `STEPPER_BUZZ` buzzes without travelling 1 mm | Stepper coil pairs transposed in the connector | Re-pin the connector so each coil is a pair. Power off first |
 | **A motor moves the wrong way** | `dir_pin` polarity | Add or remove `!` on that stepper's `dir_pin`, `RESTART`, re-buzz |
@@ -824,7 +809,7 @@ Once the squish is right, make it permanent with `Z_OFFSET_APPLY_ENDSTOP` then `
 Tick every line before you start Ch 14.
 
 - [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
-- [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present — `stmf446xx` and `stm32g0b1xx`.
+- [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present — `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
 - [ ] Extruder, bed and chamber all report room temperature at rest and none of them drifts upward untouched.
 - [ ] Both heaters heat and cool on command; the SSR LED tracks the bed.
 - [ ] All five fans verified: hotend (SB bottom), part cooling (SB top), bay PCB fan, Nevermore filter fan, and the chamber LEDs plus all three Stealthburner LEDs.

@@ -7,9 +7,8 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 **Prerequisites:**
 - **Ch 01–03.** Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three cables hanging free below the deck.
 - **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
-- **Batch B7 — Electronics bay + lighting.** The COB light-strip mounts on plate B7-P2 are *not* consumed here; they are Ch 10.
-- **Batch B8, plate B8-P6 — `power_inlet_IECGS_1mm`.** The print plan groups the inlet panel with the skirts (B8), but the manual fits it at p.156/167, i.e. in this chapter. Print B8-P6 (or at least that one part) before you start, or steps 09.10–09.12 stall.
-- **Batch B0 heat-set pass.** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3).
+- **Batch B07 — Electronics bay + lighting.** Plate **B07-P3** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P3 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
+- **Batch B00 heat-set pass.** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3).
 
 **Tools**
 - 2.5 mm flat-blade screwdriver (supplied — this is the tool for every plug-type terminal in the bay)
@@ -31,7 +30,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | `Electronics_Bay/pcb_din_clip_x3` | 1 file = 3 clips (spares — kit supplies 4) | Black |
 | `Electronics_Bay/PSU_stabilizer_50mm` | 1 — **fit only if needed**, see 09.16 | Black |
 | `Nitehawk-SB-V2/usb_adapter_mount_partial_cover` | 1 | Black |
-| `Skirts/power_inlet_IECGS_1mm` | 1 (batch B8-P6) | Black |
+| `Skirts/power_inlet_IECGS_1mm` | 1 (batch B07-P3) | Black |
 
 **Supplied printed by LDO — do not print these:** Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -43,7 +42,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | DIN rail plastic end cap | 4 | 2 per rail |
 | PVC wire duct, 20 W × 25 H | 5 | 3 across, 2 front-to-back; cut lengths **(verify on bench)** |
 | M5×10 BHCS | 8 | 4 DIN rails, 2 mains WAGO mount, 2 bed WAGO mount |
-| M5 T-nut | 8 | same three groups **(verify on bench for the bed WAGO mount)** |
+| M5 T-nut | 4 | 2 mains WAGO mount, 2 bed WAGO mount **(verify on bench for the bed WAGO mount)** — the 4 DIN-rail T-nuts are placed in Ch 02 Step 02.11, 0 new here |
 | M4×6 BHCS | 6 | 4 PSU brackets **(verify)**, 2 SSR to its metal bracket |
 | M3×8 SHCS | 8 | 4 Leviathan to brackets **(verify)**, 2 inlet panel, 2 XY endstop PCB |
 | M3×6 BHCS | 2 | 2×2 XH splicer PCB to the bed WAGO mount |
@@ -51,7 +50,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
 | M3×30 SHCS | 2 | XY endstop pod to the gantry |
 | M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
-| M2×10 self-tapping | 6+ | 4 DIN clips to Leviathan brackets, 2 Z endstop PCB; USB adapter mount **(verify on bench)** |
+| M2×10 self-tapping | 6+ | 4 DIN clips to Leviathan brackets, 2 Z endstop PCB, plus the USB adapter's DIN clip **(verify on bench)** — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
 | M3×5×4 heat-set insert | 2+ | 2 bed WAGO mount; inlet panel and mains WAGO mount **(verify on bench)** |
 | Meanwell LRS-200-24 PSU | 1 | 115/230 V selector switch on the side |
 | Omron G3NB-210B-1 SSR + metal DIN mount bracket | 1 + 1 | bracket is off-the-shelf metal; there is no printed SSR mount |
@@ -67,7 +66,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 **Read first**
 - **Remove *every* voltage-selection jumper from the Leviathan before it goes anywhere near the rail** (step 09.19). Mixing voltages on the shared 24 V supply permanently destroys the controller and whatever is plugged into it. Jumpers go back in Ch 10, one at a time, after each component's voltage is confirmed. [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
 - **Nothing is wired in this chapter.** Mains wiring is the one step in this build that can kill you, and it is done as one deliberate sequence in Ch 10 that ends at LDO's **Checkpoint #1** — continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. (survey §4.4 #8)
-- **The manual pages p.148–172 describe a different machine** — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; every part that differs carries a ⚠ callout at its step. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+- **The manual pages p.148–172 describe a different machine** — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; every part that differs carries a `⚠` callout at its step. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - **Do not close the bay.** Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes. Fitting them now costs an hour of re-opening plus the safety check you skipped (survey §5.2 W8).
 - **Test-fit every roll-in T-nut.** Extrusion and T-nut tolerances on this kit are tight; a forced nut galls the slot. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -129,9 +128,9 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png)
 
-**Parts:** DIN rail ×2, DIN rail plastic end cap ×4, M5×10 BHCS ×4, M5 T-nut ×4.
+**Parts:** DIN rail ×2, DIN rail plastic end cap ×4, M5×10 BHCS ×4, the four M5 T-nuts staged in Ch 02 Step 02.11.
 
-**Do:** Slide the four M5 T-nuts along the two bed extrusions so that each rail crosses **both** extrusions and picks up one T-nut in each. Position one rail toward the front of the bay and one toward the rear, leaving room between them for a wire duct. Bolt through the rail slot and the deck panel into the T-nut with M5×10 BHCS, snug only. Push a plastic end cap onto each of the four rail ends.
+**Do:** Slide the four M5 T-nuts staged in Ch 02 Step 02.11 along the two bed extrusions so that each rail crosses **both** extrusions and picks up one T-nut in each. Position one rail toward the front of the bay and one toward the rear, leaving room between them for a wire duct. Bolt through the rail slot and the deck panel into the T-nut with M5×10 BHCS, snug only. Push a plastic end cap onto each of the four rail ends.
 
 **Check:** Both rails parallel, running left–right, each held by two screws. Rails do not overhang the deck panel or foul the Z belts or the gantry's lowest travel. All four end caps on.
 
@@ -415,17 +414,17 @@ Tip: the SSR wiring is the one connection LDO flags as *"critical — an incorre
 
 ---
 
-### Step 09.25 — Build the USB adapter mount
+### Step 09.25 — Confirm the USB adapter stack and clip it
 
 (no image — the Nitehawk-SB V2 repo has no licence file, so link only: [`usb_adapter_gnd.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/Images/usb_adapter_gnd.jpg))
 
-**Parts:** NH Adapter Mount ×1 (LDO-supplied printed), USB adapter PCB ×1, `usb_adapter_mount_partial_cover` ×1 (you printed it), DIN Clip ×1, M2×10 self-tapping **(verify on bench)**.
+**Parts:** the USB adapter assembly bagged in **Ch 08 Step 08.64** (NH Adapter Mount base + USB adapter PCB + `usb_adapter_mount_partial_cover`, held together by **M3×10 SHCS ×3**), DIN Clip ×1, M2×10 self-tapping ×2 (clip only) **(verify on bench)**.
 
-**Do:** Sit the USB adapter PCB in the LDO-supplied mount base, fit a DIN clip to the back of the base, then fit the **partial** cover — the one whose cut-out deliberately leaves a mounting point exposed. Attach the supplied grounding cable's ring terminal to that exposed point. Leave the free end of the ground lead loose.
+**Do:** Do not rebuild the stack — take it out of the bag and confirm the three M3×10 SHCS still hold base, PCB and cover together and that the cover is the **partial** one, whose cut-out leaves a mounting point exposed. Fit a DIN clip to the back of the base with the M2×10 self-tappers, then attach the supplied grounding cable's ring terminal to the exposed mounting point. Leave the free end of the ground lead loose.
 
 **Check:** PCB captive, Micro-Fit 3.0 socket and USB connector both accessible, cover on, and one mounting point still bare with the ground ring terminal on it.
 
-⚠ **Rev D+ / LDO:** print-plan batch B7 lists the **V1** `usb_adapter_mount.stl`. Rev D+ needs [`usb_adapter_mount_partial_cover.stl`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/STLs/usb_adapter_mount_partial_cover.stl) from the Nitehawk-SB-V2 repo — *"a newly designed cover exposes one of the mounting points to connect a grounding point."* If you printed the V1 cover, reprint the partial cover (a few minutes) rather than omitting the ground. (survey §4.1 ⑤)
+⚠ **Rev D+ / LDO:** the stack takes **3× M3×10 SHCS** — LDO's Rev D Printed Parts Guide: *"Use 3 M3x10 SHCS screws to attach the base, adapter PCB, and cover together."* The M2×10 self-tappers are for the DIN clip only. If your bagged stack has the **V1** full cover on it, swap in [`usb_adapter_mount_partial_cover.stl`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/STLs/usb_adapter_mount_partial_cover.stl) now rather than omitting the ground (Ch 08 Step 08.64; survey §4.1 ⑤). [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ⚠ **Rev D+ / LDO:** use the **supplied** grounding cable. LDO: *"Be sure to use the supplied grounding cable since using larger O ring connectors may cause inadvertent shorting of the PCB boards."*
 
@@ -522,7 +521,7 @@ Tip: the SSR wiring is the one connection LDO flags as *"critical — an incorre
 
 ![Voron manual p.163](assets/manual-pages/manual-p163.png)
 
-**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (orange, batch B2; fitted to the gantry in Ch 05), XY endstop PCB ×1, M3×8 SHCS ×2.
+**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (orange, batch B02; fitted to the gantry in Ch 05), XY endstop PCB ×1, M3×8 SHCS ×2.
 
 **Do:** Follow the **left-hand** option only. Seat the XY endstop board on the pod so both switches face the directions the toolhead and the frame will hit them, and fasten with two M3×8 SHCS.
 

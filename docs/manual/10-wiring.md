@@ -10,7 +10,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 07 — A/B belts.** Probe wires already dressed along the X extrusion (manual p.143).
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
 - **Ch 09 — Electronics bay.** DIN rails, wire ducts, Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted, SSR on its DIN bracket, USB-adapter PCB on its DIN clip.
-- **Print batches: B5** (Z joints + Z chain), **B7** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), and **plate B8-P6** from batch B8 for `power_inlet_IECGS_1mm`. B8-P6 has to be printed early: the rest of B8 belongs to Ch 11, this one plate does not.
+- **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P3** (moved out of B08 — index correction #11). No plate of B08 is needed before Ch 11.
 
 **Tools**
 - **Multimeter — mandatory.** Continuity/beeper, resistance to at least 2 MΩ, and a DC volts range. No multimeter, no power-on.
@@ -31,7 +31,8 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 | `cob_light_strip_mount_100mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 6 | Black |
 | `cob_light_strip_mount_50mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 2 | Black |
 | `wago_221-415_mount_3by5.stl` (Voron-2 `STLs/Electronics_Bay/`) | 1 | Black — fitted in Ch 09, populated here |
-| `z_chain_guide` / `z_chain_bottom_anchor` / `[a]_z_chain_retainer_bracket_x2` (batch B5) | 1 / 1 / 2 | Black / accent |
+| `z_chain_guide` / `z_chain_bottom_anchor` (batch B05) | 1 / 1 | Black |
+| `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Orange |
 | `2x3 Splitter Spacer` | 2 | LDO-supplied printed — do not print |
 | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 1 | Black — fitted in Ch 08/09, used here |
 
@@ -231,7 +232,7 @@ Note: the SSR body is also marked *EARTH THE MOUNTING RAIL*. LDO's build does no
 
 **Parts:** *SSR to Wago* cable ×1 (one end tagged **TO SSR**).
 
-**Do:** Land the free end in a spare port of the brown **L** WAGO. Land the **TO SSR** end on SSR terminal **LOAD 2**. PH2, tight.
+**Do:** Land the free end in a spare port of the brown **L** WAGO. Land the **TO SSR** end on SSR terminal **LOAD 2**. PH2, tight. (LDO's text swaps the two labels — *"Connect the To SSR end … to a brown wago slot and the other end to LOAD 2"* — so go by the connector type: the ferruled end belongs in the SSR screw terminal.)
 
 **Check:** Continuity from the C14 L pin (rocker ON) all the way through to SSR terminal 2. Nothing on terminal 1 yet.
 
@@ -894,7 +895,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ---
 
-### Step 10.55 — ⚠ Connector types on the V2 toolboard
+### Step 10.55 — Connector types on the V2 toolboard
 
 (no image — see [nhsbv2_pcb_pinout.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg))
 
@@ -904,10 +905,12 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 | Port | Rev D wiring guide says | **Rev D+ / Nitehawk V2 actually is** |
 |---|---|---|
-| `PROBE` | JST-XH2.5 3P | **JST-PH2.0 3P**, 24 V only |
+| `PROBE` | not specified | **JST-PH2.0 3P**, 24 V only |
 | `TH0` (hotend thermistor) | *"JST-XH2.5 two pin"* | **JST-PH2.0 2P**, 2.2 kΩ pull-up |
-| `Endstop` (X/Y) | JST-XH2.5 | **JST-PH2.0 4P** — unused in a standard build |
+| `Endstop` (X/Y) | not specified — only *"the endstop port isn't used in a standard Rev D build"* | **JST-PH2.0 4P** — unused in a standard build |
 | `HE0` (hotend heater) | screw terminal / E0508 ferrule | unchanged |
+
+`TH0` is the one real conflict: JST-XH2.5 is the only connector the Rev D guide names for the toolhead, and for the SB fans it names JST-PH2.0.
 
 **Check:** Every toolhead connector is the small PH2.0 housing, not the larger XH2.5. If you have a spare thermistor or probe pigtail crimped to the documented XH2.5, it will not fit — and a PH2.0 housing can be forced into the wrong header.
 
@@ -915,13 +918,13 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ---
 
-### Step 10.56 — ⚠ The fan-adapter header is keyed and reversed
+### Step 10.56 — The fan-adapter header is keyed and reversed
 
 (no image — see [sbv2_fan_adapter_pcb_pinout.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg))
 
 **Parts:** none — verification only.
 
-**Do:** The board-to-board interface between the Stealthburner fan adapter and the main toolboard is a **2×10 header** on V2 (V1 used 2×4), with **reversed gender** and **keying**. Every Rev D photo you will find online shows the old arrangement.
+**Do:** The board-to-board interface between the Stealthburner fan adapter and the main toolboard is a **2×5 (10-pin)** header on V2 (V1 used 2×4), with **reversed gender** and **keying**. Every Rev D photo you will find online shows the old arrangement.
 
 **Check:** The Stealthburner front drops onto the toolhead and the header seats with **no gap**. **If it does not drop in, you have it backwards — do not press harder.** The key is the check.
 
@@ -929,7 +932,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ---
 
-### Step 10.57 — ⚠ The USB adapter cover is the partial cover
+### Step 10.57 — The USB adapter cover is the partial cover
 
 (no image — see [usb_adapter_gnd.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/usb_adapter_gnd.jpg))
 
@@ -943,7 +946,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ---
 
-### Step 10.58 — ⚠ Fit the ESD grounding path
+### Step 10.58 — Fit the ESD grounding path
 
 (no image — see [grounding_scheme.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/grounding_scheme.jpg), [toolboard_ground_routing.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/toolboard_ground_routing.jpg), [usb_adapter_gnd.jpg](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/usb_adapter_gnd.jpg))
 
@@ -971,7 +974,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 **Check:** Push the toolhead through its full X travel by hand. The chain rolls, never drags on the extrusion, and never reaches full extension.
 
-⚠ Rev D+ / LDO: the kit ships **2-hole** chain ends — print `*_2hole` variants, never `*_3hole`. [src](https://docs.ldomotors.com/guides/cable_chain_guide)
+⚠ Rev D+ / LDO: the kit ships **2-hole** chain ends — print `*_2hole` variants, never `*_3hole`. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ---
 
@@ -1007,7 +1010,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 ![Voron manual p.201](assets/manual-pages/manual-p201.png)
 ![Voron manual p.202](assets/manual-pages/manual-p202.png)
 
-**Parts:** Z chain guide (batch B5) ×1, M3×5×4 heat-set inserts ×2, M5 roll-in T-nut ×1, M5×10 BHCS ×1, drag chain 10×15 R28 ×1, M3×10 FHCS ×2.
+**Parts:** Z chain guide (batch B05) ×1, M3×5×4 heat-set inserts ×2, M5 roll-in T-nut ×1, M5×10 BHCS ×1, drag chain 10×15 R28 ×1, M3×10 FHCS ×2.
 
 **Do:** Melt the two inserts into the printed guide. Bolt it to the frame extrusion with the M5 T-nut and M5×10 BHCS at the position the page shows. Attach the chain's lower end to the guide with two M3×10 FHCS (manual p.202).
 
@@ -1019,7 +1022,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ![Voron manual p.203](assets/manual-pages/manual-p203.png)
 
-**Parts:** Z chain bottom anchor (batch B5) ×1, M5 roll-in T-nut ×1, M5×10 BHCS ×1.
+**Parts:** Z chain bottom anchor (batch B05) ×1, M5 roll-in T-nut ×1, M5×10 BHCS ×1.
 
 **Do:** T-nut into the vertical extrusion at the height the page shows, anchor over it, M5×10 BHCS through.
 
@@ -1031,7 +1034,7 @@ Note: the Leviathan can alternatively talk over UART on its dedicated 5-pin Rasp
 
 ![Voron manual p.204](assets/manual-pages/manual-p204.png)
 
-**Parts:** `[a]_z_chain_retainer_bracket` ×1 (batch B5), M3×12 SHCS ×2, M3×10 FHCS ×2, zip ties ×2.
+**Parts:** `[a]_z_chain_retainer_bracket` ×1 (batch **B02**, plate B02-P3; B02 prints 2 and Ch 06 Step 06.26 bags both — the second is a spare **(verify on bench)**), M3×12 SHCS ×2, M3×10 FHCS ×2, zip ties ×2.
 
 **Do:** Bolt the retainer bracket to the A drive with two M3×12 SHCS and attach the chain's upper end with two M3×10 FHCS. Manual p.204: *"Guide the wire bundle behind the Z belt and over the A drive as shown above. Secure it with zip ties on the strain relief of the cable chains."*
 
@@ -1298,7 +1301,7 @@ Do not start Ch 11 until every line is ticked.
 - [ ] No 24 V node and no 5 V node reads 0 Ω; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Both thermistors read within ±15 % of the room-temperature table (10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×10 fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
+- [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
 - [ ] Duct covers **off**, skirts **off**, bottom panel **off**
 - [ ] Overhead and close-up photos taken (10.72)
@@ -1310,7 +1313,7 @@ Do not start Ch 11 until every line is ticked.
 - **Probe plugged into the Leviathan's `Z-PROBE` header.** On a Nitehawk build the probe lives on the toolboard's `PROBE` port. The stock config's comment says otherwise and the comment is wrong.
 - **Chamber thermistor on a Leviathan `TH` port.** The Rev D+ config reads it as `nhk:PB2`. Put it on the toolboard's `CT` port.
 - **Cables pulled tight in the chains.** They will survive assembly and fail in three months, mid-print, usually the umbilical at a connector. Loose, and zip-tied at both ends of every chain.
-- **Forcing a PH2.0 housing into the wrong V2 header, or pressing the fan-adapter 2×10 header in backwards.** Both are physically possible and both destroy something. The key is the check — if it needs force, it is wrong.
+- **Forcing a PH2.0 housing into the wrong V2 header, or pressing the fan-adapter 2×5 (10-pin) header in backwards.** Both are physically possible and both destroy something. The key is the check — if it needs force, it is wrong.
 - **LED routing left until the panels are on.** The slot covers and the Z-belt cover choice both have to happen before Ch 11 closes the top (survey §5.2 W5).
 
 ## Next

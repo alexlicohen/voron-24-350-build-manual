@@ -22,6 +22,10 @@ curl -L -o docs/manual/assets/Voron2.4r2-manual.pdf \
 pdftoppm -png -r 110 docs/manual/assets/Voron2.4r2-manual.pdf docs/manual/assets/manual-pages/manual-p
 ```
 
+## CI and deploy
+
+`.github/workflows/check.yml` runs on every PR: `mkdocs build --strict` (with `validation.links.anchors: warn`, so a broken cross-reference anchor now fails the build, not just a missing file), the `hooks/callouts.py` self-test, and `scripts/lint_manual.py` (truncated callouts, dangling `Step NN.M` references, STLs printed in no batch, tables over 7 columns). `.github/workflows/deploy.yml` runs on push to `main`: same strict build, then `mkdocs gh-deploy --force` — chosen over `actions/deploy-pages` because `gh-pages` already exists as a classic branch-based Pages source and this keeps that config unchanged.
+
 ## Attribution and licences
 
 - Voron 2.4r2 assembly manual pages (rendered PNGs) and Stealthburner/gantry-squaring images: © VoronDesign, [GPL-3.0](https://github.com/VoronDesign/Voron-2/blob/Voron2.4/LICENSE). Page images are reproduced under that licence; the pinned source commit is `de7e89d`.

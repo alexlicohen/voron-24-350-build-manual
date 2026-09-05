@@ -301,7 +301,7 @@ Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](h
 
 | Insert pass belongs to | Manual page carrying the callout | Count |
 |---|---|---|
-| Ch 02 — Z drive mains, retainers, motor mounts | p.31 | (verify on bench) |
+| Ch 02 — Z drive mains, retainers, motor mounts | p.31 | **36** (7 × 4 retainers + 2 × 4 mains — verified against the STLs) |
 | Ch 04 — A/B drive frames | p.64 | (verify on bench) |
 | Ch 05 — X carriage and XY joints | p.129 | (verify on bench) |
 | Ch 08 — Stealthburner and Clockwork 2 | Stealthburner manual | (verify on bench) |
@@ -439,9 +439,9 @@ Tip: the linked Nero 3D video is the reference demonstration of this whole proce
 
 **Parts:** none.
 
-**Do:** **F695** flanged bearing (gantry, 20 in the kit), **625** bearing (Z drives, 12 in the kit), **shim** (DIN 988), **washer** (DIN 125, M3 only), **pulley** and **idler** (GT2), **set screw** (grub screw), **thumb nut** (bed spacer). Note that the manual calls out a *shim* at every M5 location.
+**Do:** **F695** flanged bearing (5×13×4 mm — A/B drives, front idlers and XY joints, 20 in the kit), **625-2RS** bearing (5×16×5 mm — Z drives only, 12 in the kit), **shim** (DIN 988), **washer** (DIN 125, M3 only), **pulley** and **idler** (GT2), **set screw** (grub screw), **thumb nut** (bed spacer). Note that the manual calls out a *shim* at every M5 location.
 
-**Check:** You can tell an F695 (flanged) from a 625 (plain, larger bore) on sight.
+**Check:** You can tell an F695 (flanged, 13 mm OD, 4 mm wide) from a 625-2RS (plain, 16 mm OD, 5 mm wide) on sight — both are **5 mm bore**, so sorting by bore does not work.
 
 ⚠ **Rev D+ / LDO:** wherever this manual or the official one says **M5 shim**, your kit gives you a **brass M5 1 mm precision spacer** instead — 46 of them, and they replace the shim everywhere unless a step says otherwise. p.104 is the exception: use the black M5 washer there, which is cosmetic. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 

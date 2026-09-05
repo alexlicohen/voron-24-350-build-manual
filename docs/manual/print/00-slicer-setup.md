@@ -3,12 +3,18 @@
 One-time setup for every print batch (`B00`–`B10`). Read this chapter before B00; batch chapters link
 back here and list only their own deviations (brim, orientation, accent colour).
 
-**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). 3.0.0 is alpha — do not use it.
+**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha11**
+(published 2026-09-01) is an early preview.
 ([releases](https://github.com/prusa3d/PrusaSlicer/releases))
+
+**Version posture.** Slice the dimension-critical batches — the **B00 gate**, **B01**, and **B03–B06** — on
+2.9.6. 3.0 is acceptable for **B08–B10** provided you re-enter every override in this document by hand
+(see *PrusaSlicer 3.0 preview* below). Changing slicer version is a toolchain change: re-run the B00
+seven-item gate before the next plate.
 
 **Base profiles** (verified against `PrusaResearch.ini` @ `version_2.9.6`):
 
-- Printer: **`Original Prusa CORE One 0.4 nozzle`** — bed 250×220, max height 270, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off.
+- Printer: **`Prusa CORE One 0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed 250×220, max height 270, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off.
 - Filament: **`Prusament ASA @COREONE`** — nozzle 260 °C, bed 110 °C, chamber 55 °C (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 15 mm³/s.
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
 
@@ -68,6 +74,31 @@ ASA is mildly hygroscopic. A fresh, sealed Prusament spool used within ~2 weeks 
 popping. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
 material where wet filament actually costs strength. (Prusa ASA KB; drying decision in project `CLAUDE.md`.)
 
+## PrusaSlicer 3.0 preview
+
+3.0.0-alpha11 (2026-09-01) is usable for the cosmetic batches but changes enough that it is not a drop-in.
+Verified against the 3.0 branch, not recalled:
+
+- **Profiles moved** from the single `PrusaResearch.ini` to per-preset YAML under
+  `resources/presets/prusa-research-fff/PrusaResearch/`.
+- **ASA shrinkage is still 0.22 %** on CORE One (`preset-filament-common.yaml`, id `*shrinkage_ASA*`,
+  `condition: printer.base_model=~/(COREONE|COREONE_INDX)/`) — so the zeroing override in the Filament
+  table above is unchanged and just as important.
+- **`0.20mm STRUCTURAL @COREONE 0.4` exists under the same name.** Its `bottom_solid_layers` default is
+  **3** in 3.0, not 4 — the action is unchanged: set it to **5**.
+- **`support_material` is now one enum** (CORE One base value `enforcers_only`) replacing the 2.x
+  `support_material` + `support_material_auto` pair. Set it to `none`.
+- **The printer is picked as the model** "Prusa CORE One & CORE One+" with the nozzle chosen per-tool, not
+  as a `…0.4 nozzle` preset.
+- **Extrusion-width auto/percent values now resolve against nozzle diameter** instead of layer height.
+  Harmless here — every width in the override table is an explicit mm value.
+- **No `.ini` import.** 3.0 has no Import Config / Import Config Bundle / Export Config. Carry settings over
+  by saving a 2.x **3MF project** (3.0 imports 2.x project configs and maps them to system presets), then
+  re-enter the overrides once in 3.0. A 3.0 project opened in 2.9.6 loads geometry only — the configuration
+  is discarded (2.9.1+ warns).
+- **No mirroring.** Mirroring is still on the 3.0 queue, so the B10 `Hinge-L-*` mirror cannot be done in the
+  preview: slice B10 in 2.9.6, or mirror the STL outside the slicer.
+
 ## Colour key
 
 | Prefix | Meaning | Our filament |
@@ -81,8 +112,13 @@ material where wet filament actually costs strength. (Prusa ASA KB; drying decis
 The `_x#` number is a *quantity*, not a hint that the file contains that many bodies. Files confirmed to
 contain more than one body: `[a]_stealthburner_main_body` (7 — built-in supports), `cw2_captive_pcb_cover` (2),
 `usb_adapter_mount` (2 — mount base + cover), `Leviathan_bracket_set` (2 — L+R), `bottom_panel_hinge_x2` (2),
-`cob_light_strip_mount_*` (2 — the mount is a 2-piece assembly), `V2_Duo_Plenum` (2 — built-in support).
+`cob_light_strip_mount_*` (2 — the mount is a 2-piece assembly), `V2_Duo_Plenum` (2 — built-in support),
+`usb_adapter_mount_partial_cover` (2 — Nitehawk-SB V2).
 Clicky-Clack's `Hinge-L-sleeve-2X` / `-solid-2X` contain **one** body each — "2X" means print two.
+
+Three non-Voron parts carry no `[a]_` prefix but are printed **Orange** by choice: `Handle.stl`
+(Clicky-Clack), `ldo_bestagon_insert.stl`, and `XY_cable_chain_bridge-Igus-3mm_backer.stl` (a remix of the
+accent `[a]_xy_joint_cable_bridge_2hole`).
 
 ## STL source of truth
 
@@ -97,6 +133,7 @@ mid-build reprint is identical to the first print.
 | 3 | LDO kit-specific | `MotorDynamicsLab/LDOVoron2` branch `main` | `/STLs` |
 | 4 | LDO touchscreen mount | `MotorDynamicsLab/LDOVoronTrident` branch `master` | `/STLs/BTT Pi TFT4.3 Mount` |
 | 5 | Nitehawk-SB | `MotorDynamicsLab/Nitehawk-SB` branch `master` | `/STLs` |
+| 5b | Nitehawk-SB V2 (Rev D+ USB cover) | `MotorDynamicsLab/Nitehawk-SB-V2` branch `master` | `/STLs` |
 | 6 | Klicky probe | `jlas1/Klicky-Probe` branch `main` | `/Probes/KlickyProbe/STL` + `/Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL` |
 | 7 | Nevermore Micro V5 Duo | `nevermore3d/Nevermore_Micro` branch `master` | `/V5_Duo/V2` |
 | 8 | Clicky-Clack door | `tanaes/whopping_Voron_mods` branch `main` | `/clickyclacky_door/STLs` |
@@ -104,7 +141,7 @@ mid-build reprint is identical to the first print.
 
 ## Calibration sequence — run before B00, and again after the Gen 2 upgrade
 
-1. **Install the Advanced Filtration Kit first.** ~134 h of ASA is about to run in an enclosure. Do it
+1. **Install the Advanced Filtration Kit first.** ~134.3 h of ASA is about to run in an enclosure. Do it
    while the back panel is already off (Core One+ Ch.7), not later.
 2. **Firmware ≥ 6.9.0** on the Core One+ (needed for GT1.5 belts later; harmless now).
 3. **First-layer Z.** Run Prusa's built-in First Layer Calibration *with ASA loaded and the chamber at
@@ -121,7 +158,7 @@ mid-build reprint is identical to the first print.
    | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
    | `Heatset_Practice` | 3 × M3×5×4 inserts | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Daughter's practice part — do all three before touching a real part. |
    | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
-   | `z_drive_retainer_a` F695 bore (same plate) | 13.00 mm bearing | bearing presses in with thumb pressure, no rocking | **The real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
+   | `z_drive_retainer_a` 625-2RS bore (same plate) | 625-2RS bearing, 16 mm OD | bearing presses in with thumb pressure, no rocking | **The real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
 
 6. Only when all seven pass, start B01.
 
@@ -131,8 +168,9 @@ starting the next plate. Don't print 100 g on top of a known problem.
 
 ## Orientation & brim
 
-**Do not rotate anything.** Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships pre-oriented for
-support-free printing. Two exceptions:
+**Do not change which face sits on the bed.** Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships
+pre-oriented for support-free printing. Rotating a part **about Z** (in the plane of the bed) to make it fit
+is fine — it does not change the layer orientation. Two exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
    21 mm-wide footprint, unlike the stock part which lies flat. Check it in the preview before slicing — if
@@ -155,18 +193,18 @@ plate lifts at the ends: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`. Brim
 separation stays at PrusaSlicer's 0.1 mm so it snaps off.
 
-Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, the skirt front
-covers, `Regular_Cartridge` (Nevermore), `V2_Duo_Plenum`.
+Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
+(Nevermore), `V2_Duo_Plenum`. The skirts are single-shell parts — they have no break-away body.
 
 ## Gen 2 belt-upgrade pause rule
 
 **Baseline plan:** finish the Core One+ kit through Ch.9 (self-test + first print), apply the Gen 1→Gen 2
 upgrade, re-tension and re-square, *then* start B00. The GT1.5 conversion changes belts, pulleys, steps/mm
-and firmware together — get it done and settled before 134 h of ASA.
+and firmware together — get it done and settled before 134.3 h of ASA.
 
 **If the upgrade kit arrives mid-run, pause at the end of Batch B07, before Batch B08.**
 
-1. B08 + B09 + B10 are 12 of the 26 plates and contain every surface anyone will ever look at — the
+1. B08 + B09 + B10 are 12 of the 27 plates and contain every surface anyone will ever look at — the
    150–182 mm skirts are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
 3. Clean boundary — no half-finished sub-assembly waits on it.
@@ -181,6 +219,9 @@ the single most-looked-at printed part on the machine and it's on B02-P1.
 3. Re-run the self-test and input shaper calibration.
 4. Redo first-layer calibration (step 3 above).
 5. **Re-print `Voron_Design_Cube_v7` and re-measure** — steps/mm changed with the pulleys; the dimensional
-   gate must be re-passed before printing 473 g of skirts (B08).
+   gate must be re-passed before printing 437 g of skirts (B08).
+
+**The same rule generalises:** *any* toolchain change — slicer version (2.9.6 → 3.0), profile bundle, belts,
+pulleys or nozzle — re-runs the B00 seven-item gate before the next plate.
 
 Do **not** try to interleave the upgrade with a running plate — the Nextruder and bed have to come apart.

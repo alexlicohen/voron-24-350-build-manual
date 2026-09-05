@@ -11,9 +11,10 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 1. `# Chapter NN — Title`
 2. One-line scope: what this chapter builds and what it unlocks.
 3. **Time:** hands-on estimate (first build), with source.
-4. **Prerequisites:** chapters and print batches that must be done (name batches by their `batch_id` from the print plan; if the print plan isn't available yet, list the STL filenames and write `batch: TBD`).
+4. **Prerequisites:** chapters and print batches that must be done (name batches by their `batch_id` from the print plan; if the print plan isn't available yet, list the STL filenames and write `batch: TBD`). Canonical form: batches are `B00`–`B10` (always two digits); plates are `B00-P1` (two-digit batch, plate number as printed — no padding on the plate digit).
 5. **Tools** (bullets), **Printed parts** (table: STL, qty, color), **Hardware** (table: fastener/part, qty) — chapter totals, pulled from the official manual pages and the LDO batch BOM notes.
 6. **Read first:** 2–5 bullets of the pitfalls for this chapter (from survey §4).
+7. Colour cells use exactly `Black` or `Orange` (add `(opaque)` where the STL is `[o]_`); the filament identity lives once, in print plan §1.2.
 
 ## Steps
 - `### Step NN.M — short imperative title`
@@ -37,6 +38,9 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 - Never invent a count or a torque. If the source doesn't give it, write `(verify on bench)` or `(not specified — snug)`.
 - Cite: `[src](url)` at the end of a step or a callout; manual pages by `p.XX`.
 - No emoji except the `⚠` callout marker.
+
+## Lint
+`scripts/lint_manual.py` runs in CI, after `mkdocs build --strict`. Four checks: raw `⚠` / `**Check:**` / `Tip:` text outside an admonition or `<code>`/`<pre>` block; `Step NN.M` references with no matching heading; STL filenames in an assembly-chapter table with no matching print-batch table row (exempt: a row containing `not printed`, `kit-supplied`, or `SKIP`, case-insensitive); Markdown tables wider than 7 columns (exempt: tables under a heading whose text contains "Machine-readable").
 
 ## Print-batch chapters (added 2026-09-05)
 - Live in `docs/manual/print/`: `00-slicer-setup.md` then `B00-calibration-and-jigs.md` … `B10-clicky-clack-door.md` (batch ids from `docs/voron-print-plan.md`). Assembly chapters stay in `docs/manual/NN-*.md`; `00-index.md` holds the interleaved timeline that says which batch to start before which assembly chapter.

@@ -5,7 +5,7 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 **Time:** 1.5–2.5 h hands-on, first build (survey §7.2).
 
 **Prerequisites:**
-- **Ch 01 — Frame.** Squared, and the bed extrusions positioned 130 mm apart on the printer centreline (manual p.20).
+- **Ch 01 — Frame.** Squared, and the bed extrusions positioned with **65 mm from the centreline to each inner face** — a 130 mm clear gap, 150 mm centre-to-centre (manual p.20; Ch 01 Step 01.19).
 - **Ch 02 — Z drives and idlers.** Deck panel and deck supports fitted (manual p.28–29); the wire opening in the deck must be clear and unobstructed.
 - **Printed parts: none.** No print batch gates this chapter. The 2.4r2 mounts the plate straight onto the bed extrusions with metal hardware — there are no printed feet, bed mounts or spacers anywhere in p.52–61. The bed WAGO mount is supplied printed by LDO and is fitted in Ch 09, not here.
 
@@ -189,9 +189,9 @@ Tip: a cast, Blanchard-ground 5083 plate is deliberately thick and stress-reliev
 
 **Parts:** none — measurement only.
 
-**Do:** With the printer upright, measure the two bed extrusions: 130 mm apart, centred on the printer centreline, i.e. 65 mm each side (manual p.20). Then take p.58's front elevation: 25 mm from the top face of the lower front frame extrusion up to the bolt centre in each front vertical extrusion. Measure both sides.
+**Do:** With the printer upright, measure the two bed extrusions: **130 mm of clear space between their facing inner faces**, centred on the printer centreline, i.e. 65 mm from the centreline to each inner face (manual p.20 — the dimension lines land on the inner faces, so the centres are 150 mm apart). Then take p.58's front elevation: 25 mm from the top face of the lower front frame extrusion up to the bolt centre in each front vertical extrusion. Measure both sides.
 
-**Check:** 130 mm centre-to-centre; 65 mm each side of centre; the 25 mm reads the same left and right. A difference here shows up later as a plate that will not sit down on all four spacers.
+**Check:** 130 mm clear gap between the facing inner faces (= 150 mm centre-to-centre); 65 mm from the centreline to each inner face; the 25 mm reads the same left and right. A difference here shows up later as a plate that will not sit down on all four spacers.
 
 ---
 

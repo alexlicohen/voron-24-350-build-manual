@@ -5,10 +5,11 @@ Takes a machine that homes, probes, levels and has printed its first cube (Ch 13
 **Time:** 2.5–4.0 h hands-on (survey §7.2), spread over ~6–8 h wall-clock. Most of the wall-clock is heat soaks (~30 min each) and four test prints.
 
 **Prerequisites:**
-- **Ch 13 — First power-up and initial startup.** All 16 wizard steps passed, including PID, QGL and Z-offset.
+- **Ch 13 — First power-up and initial startup.** All wizard steps passed (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset).
 - **The Voron-printed `Voron_Design_Cube_v7`** from [Ch 13 Steps 13.41–13.42](13-initial-startup.md#step-1341-slice-the-voron-cube), kept. Ch 13 prints the cube and commits the first-layer squish; this chapter measures it, at step 14.11.
 - **Ch 06b — Squaring the gantry.** Run immediately after Ch 13, followed by a QGL re-run. **This chapter's belt-tension steps must come after 06b** — the squaring procedure starts by fully releasing A/B tension, so anything you set before it is gone (survey §4.4 #2, §5.2 W1).
-- **Ch 12 — Software.** `[bed_mesh]` added, 350 mm values uncommented (survey §4.4 #15).
+- **Ch 11 Part B — Panels and the Clicky-Clack door.** The chamber has to close: Step 14.8 and Checkpoint 14 both gate on a 50–60 °C chamber with panels on and the door shut.
+- **Ch 12 — Software.** `[bed_mesh]` added at Step 12.34, `PRINT_START` replaced at Step 12.36 (survey §4.4 #15).
 - **Batch B00.** The Prusa-printed `Voron_Design_Cube_v7` in Prusament ASA Galaxy Black, kept as the reference coupon ([B00 step B00.6](print/B00-calibration-and-jigs.md)). You need it in hand at step 14.11.
 - **Printed parts: none.** Everything this chapter prints, it prints on the Voron.
 - A spool of Prusament ASA in the dryer, warm and loaded (survey §7.3).
@@ -140,11 +141,14 @@ These three steps only run **after Ch 06b squaring and its QGL re-run.** Squarin
 - **Voron guide way:** extrude 50 mm twice.
 - **Ellis way (preferred, slower and more accurate):** add `max_extrude_only_distance: 150` to `[extruder]`, `RESTART`, then extrude once at 1 mm/s: `G1 E100 F60`. Extruding slowly removes the pressure-related error that a fast extrude introduces.
 
-Put a piece of tape on the filament at the **120 mm** mark measured from where the filament enters the extruder. Extrude 100 mm. Measure from the extruder entrance to the tape again. Then:
+Put a piece of tape on the filament at the **120 mm** mark measured from where the filament enters the extruder. Extrude 100 mm. Measure from the extruder entrance to the tape again — this is the **remaining** distance R, and it should be ≈20 mm. Then:
 
 ```
+actual_extruded      = 120 − R
 new_rotation_distance = old_rotation_distance × (actual_extruded / 100)
 ```
+
+R is what the rule reads, not the amount extruded — forgetting the subtraction is the classic way to land a rotation distance five times too small.
 
 Iterate without restarting using `SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=<value>`, then write the final number into `[extruder] rotation_distance` and `RESTART`. Remember: **a higher value means less filament comes out.** Always use your *current* value in the formula, not the original.
 
@@ -162,48 +166,36 @@ Iterate without restarting using `SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extrud
 
 **Do:** There is no chamber heater on this machine — the chamber is heated by the bed and the enclosure. The Voron target to work to is **55–60 °C**, which is the band the printed parts were designed for: "It is common for the chamber temperatures inside an enclosed Voron printer to reach 55–60 ºC." A 350 with a 100–110 °C bed, panels on and the Clicky-Clack door shut will get there passively. Read it off `[temperature_sensor chamber_temp]` in the web UI — that sensor is already wired to the Nitehawk (`nhk:PB2`, T1). Expect **30–45 minutes** from cold to a stable chamber; that is the soak, and it is also what makes `PROBE_ACCURACY` repeatable.
 
-**Check:** With bed at 110 °C, panels on and door closed, `chamber_th` climbs past 45 °C within ~20 minutes and settles somewhere in the 50–60 °C band. If it stalls below 45 °C, look for a missing panel, an open keystone blank, or the exhaust left open. [src](https://docs.vorondesign.com/materials.html)
+**Check:** With bed at 110 °C, panels on and door closed, `chamber_th` climbs past 45 °C within ~20 minutes and settles in the **50–60 °C accept band** (target 55–60 °C). If it stalls below 45 °C, look for a missing panel, an open keystone blank, or the exhaust left open. [src](https://docs.vorondesign.com/materials.html)
 
-### Step 14.9 — Write a real `PRINT_START` with a heat soak
+### Step 14.9 — Close Ch 12's `PRINT_START` TODO with the purge line
 
 (no image — see text)
 
 **Parts:** none.
 
-**Do:** The stock LDO `PRINT_START` is a three-line stub (`G32`, `G90`, `G1 Z20 F3000`) — it does not heat, soak, level or mesh. Replace it. This version takes bed/extruder/chamber from the slicer, soaks on the chamber sensor, then levels hot:
+**Do:** `PRINT_START` is owned by **[Ch 12 Step 12.36](12-software.md)** — do not write a second one here. That macro already homes, soaks (chamber sensor or timed), QGLs hot, meshes adaptively and brings the nozzle up, and it ends with a `##  TODO Ch 14: purge / prime line goes here` marker. Now that the extruder is calibrated, replace that marker with:
 
 ```ini
-[gcode_macro PRINT_START]
-gcode:
-    {% set BED = params.BED|default(110)|float %}
-    {% set EXTRUDER = params.EXTRUDER|default(260)|float %}
-    {% set CHAMBER = params.CHAMBER|default(50)|float %}
-
-    M140 S{BED}                                  ; start bed
-    M104 S150                                    ; hotend to a non-oozing standby
-    M190 S{BED}                                  ; wait for bed
-    TEMPERATURE_WAIT SENSOR="temperature_sensor chamber_temp" MINIMUM={CHAMBER}
-    G32                                          ; home + QGL (hot)
-    BED_MESH_CALIBRATE                           ; mesh after levelling, before the print
     G90
-    G1 X5 Y5 Z10 F6000
-    M109 S{EXTRUDER}                             ; now bring the nozzle up
-    G1 Z0.3 F600
-    G1 X120 E20 F1200                            ; purge line
+    G1 X5 Y5 Z0.3 F6000                    ; <-- 350 only
+    M83                                    ; relative extrusion for the purge
+    G92 E0
+    G1 X120 E20 F1200                      ; purge line
     G1 Z2 F600
 ```
 
-In PrusaSlicer's **Printer Settings → Custom G-code → Start G-code**, call it with the slicer's own values:
+`M83` and `G92 E0` are not optional. Klipper starts in **absolute** extrusion mode, and Ch 12's macro does not set `M83`/`G92 E0` until *after* this point — a bare `G1 E20` here would extrude to an arbitrary absolute position instead of 20 mm.
+
+Then set the slicer's start G-code (PrusaSlicer → **Printer Settings → Custom G-code → Start G-code**):
 
 ```
-PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=50
+PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0
 ```
 
-`PRINT_END` already ships correct in the LDO config, including `BED_MESH_CLEAR`.
+**Check:** Run `PRINT_START CHAMBER=0` by hand from the console with the machine cold. It heats the bed, does the timed soak, homes, QGLs, meshes, heats the nozzle, and lays a purge line at X5 → X120 that is continuous and sticks. Nothing in Ch 12's macro has been duplicated or re-declared — `grep -c '^\[gcode_macro PRINT_START\]' printer.cfg` returns **1**.
 
-**Check:** Run `PRINT_START` by hand from the console with the machine cold. It should heat the bed, sit on `TEMPERATURE_WAIT` until the chamber passes 50 °C, then home, QGL, mesh, and lay a purge line. If `TEMPERATURE_WAIT` errors, the sensor name string is wrong — it must match the section name exactly, `temperature_sensor chamber_temp`. [src](https://www.klipper3d.org/G-Codes.html)
-
-⚠ `BED_MESH_CALIBRATE` only works if Ch 12 added a `[bed_mesh]` section — the stock LDO config has none (survey §4.4 #15). If you skipped it, either add it now or delete that line; the macro will otherwise fail on every print.
+⚠ **Keep `CHAMBER=0` until Step 14.8 has told you what your chamber actually reaches.** `TEMPERATURE_WAIT` has **no timeout** (Ch 12 Step 12.36): a `CHAMBER=50` the machine never reaches blocks the print forever, and the only way out is cancelling. Once 14.8 gives you a repeatable settled value, set `CHAMBER` a few degrees **below** it — never at or above it. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
 
 ### Step 14.10 — Fetch the cube you already printed in Ch 13
 
@@ -213,7 +205,7 @@ PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature]
 
 **Do:** The cube is printed **once**, in Ch 13, and Ch 13 is authoritative for it. [Step 13.41](13-initial-startup.md#step-1341-slice-the-voron-cube) slices `Voron_Design_Cube_v7.stl` at 260 °C / 110 °C / chamber 50 °C with XY size compensation and shrinkage compensation both at zero — the same overrides the Prusa profile used, which is what makes the two cubes comparable ([print/00-slicer-setup.md](print/00-slicer-setup.md)). [Step 13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) prints it, live-adjusts the first layer and commits the squish with `Z_OFFSET_APPLY_ENDSTOP`. Put both cubes on the bench. Re-print only if you have changed a slicer setting since — and then re-run 13.41–13.42 as written, not a variation of them.
 
-**Check:** Two cubes in front of you, both `Voron_Design_Cube_v7`, both in Prusament ASA Galaxy Black. The `PRINT_START` you just wrote governs the *next* print — it does not invalidate this cube.
+**Check:** Two cubes in front of you, both `Voron_Design_Cube_v7`, both in Prusament ASA Galaxy Black. The purge line you just added to `PRINT_START` governs the *next* print — it does not invalidate this cube.
 
 ### Step 14.11 — Caliper the cube against the Prusa-printed one
 
@@ -251,13 +243,13 @@ Now, and not before — the machine has printed successfully, the belts are at f
 
 **Parts:** none.
 
-**Do:** Install the measurement dependencies on the Pi (they are not part of a stock Klipper install):
+**Do:** MainsailOS pre-installs the resonance dependencies (Ch 12 Step 12.2), so there is nothing to install. Verify:
 
 ```
-sudo apt update
-sudo apt install python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev
-~/klippy-env/bin/pip install -v "numpy<1.26"
+~/klippy-env/bin/python -c 'import numpy, matplotlib; print(numpy.__version__)'
 ```
+
+Only if that fails — i.e. you are on a plain Raspberry Pi OS image rather than MainsailOS — follow Klipper's own installation instructions. Do **not** pin `numpy<1.26`, and do not ask for `libatlas-base-dev`: that package was merged into `libopenblas-dev` in Trixie and no longer exists, and the pinned numpy does not support Trixie's Python — either one can break `klippy-env` and stop Klipper. [src](https://www.klipper3d.org/Measuring_Resonances.html)
 
 Then uncomment the **350 mm** probe point in `[resonance_tester]` — the stock config ships all three build sizes commented out:
 
@@ -508,7 +500,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other
 - [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot; `PROBE_ACCURACY` σ < 0.003 mm with no trend
 - [ ] `rotation_distance` verified: 100 mm requested measures 99.5–100.5 mm
-- [ ] `PRINT_START` heats, waits on the chamber sensor, homes, QGLs, meshes and purges — tested standalone from the console
+- [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) heats, soaks, homes, QGLs, meshes and purges — tested standalone from the console with `CHAMBER=0`
 - [ ] Chamber reaches the 50–60 °C band with panels and door closed
 - [ ] Voron cube (printed in Ch 13) calipered; X, Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm
 - [ ] Both cubes (Prusa and Voron) measured into the comparison table

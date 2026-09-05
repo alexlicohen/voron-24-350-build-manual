@@ -1,0 +1,36 @@
+name: Deploy manual
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - run: mkdocs build --strict
+
+      # gh-pages already exists as a classic-Pages branch (Settings -> Pages ->
+      # "Deploy from a branch"), so gh-deploy is the smaller change: it keeps
+      # that config as-is instead of switching the repo over to the
+      # actions/deploy-pages (Pages-as-a-workflow-artifact) source.
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdocs gh-deploy --force

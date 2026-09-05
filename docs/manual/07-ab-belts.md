@@ -6,7 +6,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Prerequisites:**
 - Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, X carriage on the rail, Ti backers), **Ch 06a** (gantry installed on the Z joints, Z belts clamped).
-- Print batches **B2** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B3** (front idlers), **B4** (XY joints + X carriage + `probe_retainer_bracket`), **B5** (gates *A/B Belts* in the print plan).
+- Print batches **B02** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B03** (front idlers), **B04** (XY joints + X carriage + `probe_retainer_bracket`), **B05** (gates *A/B Belts* in the print plan).
 - The gantry must move freely by hand over its full travel with no belts on. Fix binding now, not after belting.
 
 **Tools**
@@ -47,6 +47,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 - **There is no sourced deflection number.** The official manual gives *no* tension figure at all — only the equal-length rule. The one sourced number in this build's document set is **110 Hz over a 150 mm span** ([Voron secondary tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)). voronldo.com's 80–100 Hz is discarded ([survey §4.3](../voron-build-instructions-survey.md)). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.
 - **Nothing in this chapter is torqued.** Belt clamps and carriage bolts go on lightly, the belts get pulled tight by hand, then the carriage bolts are fully tightened (p.140–141). The manual specifies no torque values; don't invent one.
 - Three LDO deviations land in this page range: the X-carriage variant check (p.129–130), probe insulation (p.143), and p.145 skipped entirely.
+- **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). Ch 08 does not touch the probe again — it only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
 
 ---
 
@@ -116,7 +117,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Check:** Inserts flush and square; nuts fully seated with no gap behind them; an M3 screw starts by hand in every insert.
 
-> ⚠ **Rev D+ / LDO:** *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* For this kit that is the pair `x_frame_V2TR_MGN12_left` / `x_frame_V2TR_MGN12_right` — the R2 / Clockwork-2 halves, not the Afterburner ones. Confirm the filenames against what you actually printed before the belts go in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.129–130)
+⚠ **Rev D+ / LDO:** *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* For this kit that is the pair `x_frame_V2TR_MGN12_left` / `x_frame_V2TR_MGN12_right` — the R2 / Clockwork-2 halves, not the Afterburner ones. Confirm the filenames against what you actually printed before the belts go in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.129–130)
 
 ### Step 07.7 — Set the two carriage stop screws to 3 mm
 
@@ -142,7 +143,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Check:** Lay the two belts side by side on the bench with one pair of ends against a square edge. The far ends must be flush — any mismatch you can see is a mismatch you will chase with the tensioners forever. Cut the ends square across the belt, not at an angle.
 
-**Tip:** Mark one belt "A" with a dot of marker on the smooth back near each end. Once both are threaded they are impossible to tell apart. ([survey §7.2 Ch 07](../voron-build-instructions-survey.md))
+Tip: Mark one belt "A" with a dot of marker on the smooth back near each end. Once both are threaded they are impossible to tell apart. ([survey §7.2 Ch 07](../voron-build-instructions-survey.md))
 
 ### Step 07.9 — Clamp the first end of both belts in the left carriage half
 
@@ -200,7 +201,7 @@ Work in one direction round the loop. Needle-nose pliers or tweezers make the be
 
 **Check:** Nudge the belt along its run — the motor pulley turns with it and indexes tooth by tooth; it does not slip. The belt leaves the drive unit heading forward along the right Y extrusion.
 
-**Tip:** If a bearing stack will not take the belt, temporarily remove the **M3×40 SHCS** at that idler to open it up, thread the belt, then refit (manual p.134, "BELTING IDLERS").
+Tip: If a bearing stack will not take the belt, temporarily remove the **M3×40 SHCS** at that idler to open it up, thread the belt, then refit (manual p.134, "BELTING IDLERS").
 
 ### Step 07.14 — A belt: run forward down the right Y extrusion
 
@@ -434,7 +435,7 @@ Work in one direction round the loop. Needle-nose pliers or tweezers make the be
 
 **Check:** ~150 mm of lead, insulation intact, conductors not nicked.
 
-> ⚠ **Rev D+ / LDO:** *"We recommend you insulated the inductive probe prior to installation."* Wrap the probe body with the supplied fibreglass tape **before** it goes into the carriage — **front and sides only, not the back and not the bottom sensing face**. It is far more awkward to do once the probe is captured. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.143), [survey §4.2](../voron-build-instructions-survey.md)
+⚠ **Rev D+ / LDO:** *"We recommend you insulated the inductive probe prior to installation."* Wrap the probe body with the supplied fibreglass tape **before** it goes into the carriage — **front and sides only, not the back and not the bottom sensing face**. It is far more awkward to do once the probe is captured. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.143), [survey §4.2](../voron-build-instructions-survey.md)
 
 ### Step 07.35 — Fit the probe and its retainer bracket
 
@@ -446,7 +447,7 @@ Work in one direction round the loop. Needle-nose pliers or tweezers make the be
 
 **Check:** The probe is held square, parallel to the carriage face, and can still be pushed up and down with firm finger pressure.
 
-**Tip:** If the probe barrel measures 9 mm rather than 8 mm, use `probe_retainer_bracket_9mm.stl` instead — a 0.5 g reprint. ([print plan, batch B4](../voron-print-plan.md))
+Tip: If the probe barrel measures 9 mm rather than 8 mm, use `probe_retainer_bracket_9mm.stl` instead — a 0.5 g reprint. ([print plan, batch B04](../voron-print-plan.md))
 
 ### Step 07.36 — Set the probe height
 
@@ -478,7 +479,7 @@ Work in one direction round the loop. Needle-nose pliers or tweezers make the be
 
 **Check:** No magnet in the carriage pocket.
 
-> ⚠ **Rev D+ / LDO:** *"PAGE 145 SKIP — The kit does not use hall effect endstops."* This kit ships the XY microswitch PCB and the `[a]_endstop_pod_D2F_switch` printed part (fitted in Ch 05). Do not insert a 3×6 magnet. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.145), [survey §4.2](../voron-build-instructions-survey.md)
+⚠ **Rev D+ / LDO:** *"PAGE 145 SKIP — The kit does not use hall effect endstops."* This kit ships the XY microswitch PCB and the `[a]_endstop_pod_D2F_switch` printed part (fitted in Ch 05). Do not insert a 3×6 magnet. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.145), [survey §4.2](../voron-build-instructions-survey.md)
 
 ### Step 07.39 — Fit the A/B drive cable cover
 
@@ -486,7 +487,7 @@ Work in one direction round the loop. Needle-nose pliers or tweezers make the be
 
 **Parts:** `[a]_cable_cover` ×1.
 
-**Do:** Clip the accent cable cover onto the drive-unit cable exit now, while the rear of the gantry is still open and reachable. The official manual has no page for this part; if the A/B motor leads are not yet dressed, leave it off and fit it during the gantry cable routing in Ch 10 instead. ([`Gantry/AB_Drive_Units/[a]_cable_cover.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units), print batch B2)
+**Do:** Clip the accent cable cover onto the drive-unit cable exit now, while the rear of the gantry is still open and reachable. The official manual has no page for this part; if the A/B motor leads are not yet dressed, leave it off and fit it during the gantry cable routing in Ch 10 instead. ([`Gantry/AB_Drive_Units/[a]_cable_cover.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units), print batch B02)
 
 **Check:** The cover does not touch either belt at any point of travel — re-run the Step 07.29 rub inspection at that drive unit after fitting it.
 

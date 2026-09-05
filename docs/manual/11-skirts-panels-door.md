@@ -7,11 +7,11 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 **Prerequisites**
 - **Ch 10 — Wiring**, complete, including LDO **Checkpoint #1** (multimeter, unplugged). This is a hard gate: once the skirts and bottom panel go on, the bay is closed and re-opening costs an hour (survey §5.2 W8).
 - **Ch 10** must also have finished LED routing and the extrusion covers — a skirt over an unrouted LED wire means the skirt comes off again (survey §5.2 W5).
-- **Print batch B8** — skirts and front modules (6 plates, 27.6 h).
-- **Print batch B9** — panels, filtration, spool (5 plates, 19.1 h).
-- **Print batch B10** — Clicky-Clack door (1 plate, 5.1 h) + `Handle.stl` from **B2**.
-- **Print batch B2** — the orange accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
-- **Print batch B7** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
+- **Print batch B08** — skirts and front modules (6 plates, 25.5 h).
+- **Print batch B09** — panels, filtration, spool (5 plates, 19.1 h).
+- **Print batch B10** — Clicky-Clack door (1 plate, 5.1 h) + `Handle.stl` from **B02**.
+- **Print batch B02** — the orange accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
+- **Print batch B07** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
 - **Part B additionally requires Ch 13 — First power-up and initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
 
 **Tools**
@@ -30,45 +30,45 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 
 | STL | Qty | Colour | Batch |
 |---|---:|---|---|
-| `rear_center_skirt_350.stl` | 1 | Black | B8 |
-| `front_skirt_a_350.stl` | 1 | Black | B8 |
-| `front_skirt_b_350.stl` | 1 | Black | B8 |
-| `side_skirt_a_350_x2.stl` | 2 | Black | B8 |
-| `side_skirt_b_350_x2.stl` | 2 | Black | B8 |
-| `side_fan_support_x2.STL` | 2 | Black | B8 |
-| `keystone_panel.stl` | 1 | Black | B8 |
-| `power_inlet_IECGS_1mm.stl` | 1 | Black | B8 *(fitted in Ch 10; listed here because it is a ring segment)* |
-| `mount.stl` (BTT Pi TFT4.3 Mount) | 1 | Black | B8 |
-| `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 1 | Orange | B2 |
-| `[a]_belt_guard_a_x2.stl` | 2 | Orange | B2 |
-| `[a]_belt_guard_b_x2.stl` | 2 | Orange | B2 |
-| `[a]_fan_grill_a_x2.stl` | 2 | Orange | B2 |
-| `[a]_fan_grill_b_x2.stl` | 2 | Orange | B2 |
-| `[a]_fan_grill_retainer_x2.stl` | 2 | Orange | B2 |
-| `[a]_keystone_blank_insert.stl` | 2 *(1 used, 1 spare)* | Orange | B2 |
-| `ldo_bestagon_insert.stl` | 1 *(optional trim)* | Orange | B2 |
-| `corner_panel_clip_4mm_x8.stl` | 8 | Black | B9 |
-| `midspan_panel_clip_4mm_x7.stl` | 7 | Black | B9 |
-| `corner_panel_clip_6mm_x8.stl` | 8 | Black | B9 |
-| `midspan_panel_clip_6mm_x8.stl` | 8 | Black | B9 |
-| `bottom_panel_clip_x4.stl` | 4 | Black | B9 |
-| `bottom_panel_hinge_x2.stl` | 2 | Black | B9 |
-| `z_belt_cover_a_x2.stl` | 2 | Black | B9 |
-| `z_belt_cover_b_x2.stl` | 2 | Black | B9 |
-| `z_belt_cover_a_led.stl` (LDO) | 0–2 *(alternate — see 11.22)* | Black | optional |
-| `exhaust_cover.stl` (LDO) | 1 | Black | B9 |
-| `exhaust_filter_grill.stl` (Voron) | 1 | Black | B9 |
-| `V2_Duo_Plenum.stl` | 1 | Black | B9 |
-| `V2_Duo_Plenum_LID.stl` | 1 | Black | B9 |
-| `Regular_Cartridge(contributed_by_Bucknova).3mf` | 1 | Black | B9 |
-| `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | 1 | Black | B9 |
-| `spool_holder.stl` | 1 | Black | B9 |
-| `bowden_retainer.stl` | 1 | Black | B9 |
-| `handlebar_spacer_x4.stl` (LDO) | 4 | Black | B7 |
+| `rear_center_skirt_350.stl` | 1 | Black | B08 |
+| `front_skirt_a_350.stl` | 1 | Black | B08 |
+| `front_skirt_b_350.stl` | 1 | Black | B08 |
+| `side_skirt_a_350_x2.stl` | 2 | Black | B08 |
+| `side_skirt_b_350_x2.stl` | 2 | Black | B08 |
+| `side_fan_support_x2.STL` | 2 | Black | B08 |
+| `keystone_panel.stl` | 1 | Black | B08 |
+| `power_inlet_IECGS_1mm.stl` | 1 | Black | **B07-P3** *(fitted in Ch 09 Steps 09.10–09.12; listed here because it is a ring segment)* |
+| `mount.stl` (BTT Pi TFT4.3 Mount) | 1 | Black | B08 |
+| `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 1 | Orange | B02 |
+| `[a]_belt_guard_a_x2.stl` | 2 | Orange | B02 |
+| `[a]_belt_guard_b_x2.stl` | 2 | Orange | B02 |
+| `[a]_fan_grill_a_x2.stl` | 2 | Orange | B02 |
+| `[a]_fan_grill_b_x2.stl` | 2 | Orange | B02 |
+| `[a]_fan_grill_retainer_x2.stl` | 2 | Orange | B02 |
+| `[a]_keystone_blank_insert.stl` | 2 *(1 used, 1 spare)* | Orange | B02 |
+| `ldo_bestagon_insert.stl` | 1 *(optional trim)* | Orange | B02 |
+| `corner_panel_clip_4mm_x8.stl` | 8 | Black | B09 |
+| `midspan_panel_clip_4mm_x7.stl` | 7 | Black | B09 |
+| `corner_panel_clip_6mm_x8.stl` | 8 | Black | B09 |
+| `midspan_panel_clip_6mm_x8.stl` | 8 | Black | B09 |
+| `bottom_panel_clip_x4.stl` | 4 | Black | B09 |
+| `bottom_panel_hinge_x2.stl` | 2 | Black | B09 |
+| `z_belt_cover_a_x2.stl` | 2 | Black | B09 |
+| `z_belt_cover_b_x2.stl` | 2 | Black | B09 |
+| `z_belt_cover_a_led.stl` (LDO) | 0 | Black | not printed — Ch 10 Step 10.38 routes the LED lead through the extrusion slot, not the Z-motor opening; see 11.22 for the rejected alternative |
+| `exhaust_cover.stl` (LDO) | 1 | Black | B09 |
+| `exhaust_filter_grill.stl` (Voron) | 1 | Black | B09 |
+| `V2_Duo_Plenum.stl` | 1 | Black | B09 |
+| `V2_Duo_Plenum_LID.stl` | 1 | Black | B09 |
+| `Regular_Cartridge(contributed_by_Bucknova).3mf` | 1 | Black | B09 |
+| `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | 1 | Black | B09 |
+| `spool_holder.stl` | 1 | Black | B09 |
+| `bowden_retainer.stl` | 1 | Black | B09 |
+| `handlebar_spacer_x4.stl` (LDO) | 4 | Black | B07 |
 | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 1 each | Black | B10 |
 | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 2 each | Black | B10 |
 | `Latch.stl` / `Panel_Clip.stl` | 1 each | Black | B10 |
-| `Handle.stl` (Clicky-Clack) | 1 | Orange | B2 |
+| `Handle.stl` (Clicky-Clack) | 1 | Orange | B02 |
 
 **Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7).
 
@@ -106,7 +106,7 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 | 3×2 XH splicer PCB | 1 | joins the two bay fans ([wiring guide](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)) |
 | 5015 fan (Nevermore) | 2 | supplied in the kit's "Nevermore Micro V5 Parts" bag |
 | Nevermore bridge PCB | 1 | supplied |
-| 6×3 mm neodymium magnet | 8 | Nevermore plenum + cartridge (print plan B9; LDO's guide gives no count) |
+| 6×3 mm neodymium magnet | 8 | Nevermore plenum + cartridge (print plan B09; LDO's guide gives no count) |
 | 6×3 mm neodymium magnet | 12 | Clicky-Clack handle, latch, handle hinges ([mod BOM](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)) |
 | M3×16 BHCS | 4 | Nevermore fans to plenum |
 | M3×12 SHCS | 2 | Nevermore plenum to bed extrusions |
@@ -131,7 +131,7 @@ Counts marked *(verify on bench)* are pages where the manual prints the fastener
 
 | Panel | Material | Size (mm) | Thickness | Foam tape | Clips | Screw |
 |---|---|---|---|---|---|---|
-| Deck | Acrylic, black | 469 × 469 | **3 mm** ⚠ *(see below)* | — | `deck_support_*mm_x8`, fitted in **Ch 02** | — |
+| Deck | Acrylic, black | 469 × 469 | **3 mm** (verify — see below) | — | `deck_support_*mm_x8`, fitted in **Ch 02** | — |
 | Bottom | Acrylic, black | 469 × 469 | **4 mm** | none — VHB pads instead | `bottom_panel_clip_x4` ×4 + `bottom_panel_hinge_x2` ×2 | M3×8 SHCS ×6 |
 | Back | Acrylic, black | 483 × 503 | **3 mm** | **1 mm** | 4 × `corner_panel_clip_4mm` + 3 × `midspan_panel_clip_4mm` | M3×8 SHCS ×7 |
 | Side (×2) | PC, clear | 483 × 503 | **3 mm** | **3 mm** | 4 × `corner_panel_clip_6mm` + 4 × `midspan_panel_clip_6mm`, **each side** | M3×12 SHCS ×8 each |
@@ -149,7 +149,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 - **The Clicky-Clack replaces the entire stock front-door assembly**, not the front skirt. `front_skirt_a_350` + the TFT module + `front_skirt_b_350` still go on. Manual p.245–249 are dead pages.
 - **The BTT 4.3" DSI touchscreen replaces the mini12864 module.** Manual p.211, p.214–216 and p.220–221 are dead pages; the mount STL lives in the **Trident** repo, not the Voron-2 repo. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - **Nevermore replaces the stock exhaust filter.** Manual p.250–253 and p.256 are skipped; you print LDO's `exhaust_cover` and use it with the stock `exhaust_filter_grill` to seal the back panel's exhaust cut-out. Decide this now — a back panel sealed the wrong way means the panel comes off and a part gets reprinted (survey §5.2 W11).
-- **Lay every skirt segment on the flat reference and check for rock before you fit anything.** `rear_center_skirt_350` is 182 mm on its long axis and the worst warp candidate in the whole build. A bowed skirt is the most visible defect on a finished Voron (print plan §5.2, B8 checkpoint).
+- **Lay every skirt segment on the flat reference and check for rock before you fit anything.** `rear_center_skirt_350` is 182 mm on its long axis and the worst warp candidate in the whole build. A bowed skirt is the most visible defect on a finished Voron (print plan §5.2, B08 checkpoint).
 
 ---
 
@@ -208,7 +208,7 @@ Tip: the built-in supports in the skirt front covers snap out; don't cut them. [
 
 **Do:** Skip all four pages. p.211 (front cover heat-sets and built-in support), p.214 (mini12864 screen into the case rear, M3×12 SHCS), p.215 (encoder light blocker) and p.216 (M3×40 SHCS hinge pin plus a filament offcut as the second pin) describe a display module this kit does not have. Confirm you never printed `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert` or `[a]_btt_knob_light_shield`.
 
-**Check:** No mini12864 parts in your bins. The front-centre ring position is filled by the BTT mount from B8.
+**Check:** No mini12864 parts in your bins. The front-centre ring position is filled by the BTT mount from B08.
 
 ⚠ **Rev D+ / LDO:** *"For Rev C/D please use The BigTreeTech touchscreen, print the mount from here."* The mount STL is in the **LDOVoronTrident** repo — it is not in the Voron-2 tree. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [mount](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount)
 
@@ -264,7 +264,7 @@ Tip: the built-in supports in the skirt front covers snap out; don't cut them. [
 
 **Check:** Both latches closed with the ribbon square and fully seated; no exposed contacts outside either connector; the ribbon is not pinched by the skirt or trapped against an extrusion edge.
 
-⚠ **Rev D+ / LDO:** this is the wiring guide's *"Connecting the FFC Cable, Ethernet Cable, USB Cable and Frame PE"* step. If you left it for later in Ch 10 because the screen was not mounted yet, this is where it gets done. Screen rotation (`display_lcd_rotate=2` plus the `rpi-ft5406` overlay) is a **Ch 12** software step, not a wiring one. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+⚠ **Rev D+ / LDO:** this is the wiring guide's *"Connecting the FFC Cable, Ethernet Cable, USB Cable and Frame PE"* step. If you left it for later in Ch 10 because the screen was not mounted yet, this is where it gets done. Screen rotation is a **Ch 12** software step, not a wiring one — Step 12.10, which uses the `/boot/firmware/cmdline.txt` `video=DSI-1:…rotate=` method. Do **not** use `display_lcd_rotate`: that is the legacy fake-KMS path and does nothing on MainsailOS 3.x. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
 ---
 
@@ -693,7 +693,7 @@ Tip: `[a]_fan_grill_open_optional_x2` is an alternate grill with more open area 
 
 **Parts:** none.
 
-**Do:** Write the pin on a tag and tape it to the plenum so Ch 12 does not have to re-derive it. The `[heater_fan exhaust_fan]` section from LDO's Nevermore guide is correct in shape — `max_power: 1.0`, `shutdown_speed: 0.0`, `kick_start_time: 5.0`, `heater: heater_bed`, `heater_temp: 60`, `fan_speed: 1.0` — but its `pin: PD13` is the Octopus pin and must become the Leviathan's **PF9**. Nothing to edit yet; the config work is Ch 12.
+**Do:** Write the pin on a tag and tape it to the plenum so Ch 12 does not have to re-derive it. The `[heater_fan exhaust_fan]` section from LDO's Nevermore guide is correct in shape — `max_power: 1.0`, `shutdown_speed: 0.0`, `kick_start_time: 5.0`, `heater: heater_bed`, `heater_temp: 60`, `fan_speed: 1.0` — but its `pin: PD13` is the Octopus pin and must become the Leviathan's **PF9**. Nothing to edit yet; the config work is Ch 12 — and Step 12.32 goes further, replacing `[heater_fan exhaust_fan]` with `[fan_generic nevermore]` on the same `PF9` pin so `PRINT_START` can run the filter for the whole print instead of slaving it to the bed.
 
 **Check:** Tag on the plenum reading "FILTER FAN → FAN3 / PF9". Ch 12's config checklist has the Nevermore section on it.
 
@@ -864,7 +864,7 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 
 **Check:** Seven clips, all engaged on the panel edge, panel flat against the frame with the 1 mm foam just compressed. No clip loaded so hard it bows the acrylic.
 
-⚠ **Clip-thickness assignment — verify before you commit.** The manual never says which clip goes on which panel; this is the print plan's inference (§B9), and it is corroborated three ways: 3 mm panel + 1 mm foam = **4 mm**, the back panel takes **7** clips and the top panel **8** (counted off p.239 and p.243) which is exactly `_4mm_x8` + `_4mm_x7`, and the manual specifies **M3×8** here versus **M3×12** for the side panels — the longer screw is for the thicker 6 mm clip. **Test-fit one 4 mm clip and one 6 mm clip on an extrusion with a 3 mm panel offcut and the right foam tape before you commit all 31 clips.** The 4 mm clip should hold a 3 mm panel plus 1 mm foam with light preload; the 6 mm clip on the same stack will be visibly loose. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Panel_Mounting)
+⚠ **Clip-thickness assignment — verify before you commit.** The manual never says which clip goes on which panel; this is the print plan's inference (§B09), and it is corroborated three ways: 3 mm panel + 1 mm foam = **4 mm**, the back panel takes **7** clips and the top panel **8** (counted off p.239 and p.243) which is exactly `_4mm_x8` + `_4mm_x7`, and the manual specifies **M3×8** here versus **M3×12** for the side panels — the longer screw is for the thicker 6 mm clip. **Test-fit one 4 mm clip and one 6 mm clip on an extrusion with a 3 mm panel offcut and the right foam tape before you commit all 31 clips.** The 4 mm clip should hold a 3 mm panel plus 1 mm foam with light preload; the 6 mm clip on the same stack will be visibly loose. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Panel_Mounting)
 
 Tip: a drop of thread locker turns each hammerhead nut into a quarter-turn quick release for the panel — but do it once the whole assembly is finished, not now. [Voron manual p.239]
 
@@ -958,7 +958,7 @@ Tip: a drop of thread locker turns each hammerhead nut into a quarter-turn quick
 
 (no image — see [LDO STLs README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs))
 
-**Parts:** aluminium handle ×2 (LDO), `handlebar_spacer_x4` ×4 (batch B7), M5×14 BHCS ×4, M5 hammerhead T-nut ×4.
+**Parts:** aluminium handle ×2 (LDO), `handlebar_spacer_x4` ×4 (batch B07), M5×14 BHCS ×4, M5 hammerhead T-nut ×4.
 
 **Do:** The manual has no handlebar step — this is an LDO kit extra. Put a printed spacer under each handle foot to take up the top panel's thickness, then bolt each handle down with M5×14 BHCS into M5 hammerhead nuts in the top frame extrusions. One handle per side, positioned so a two-person lift is balanced.
 
@@ -1079,4 +1079,4 @@ Tip: if the latch will not catch cleanly, the problem is almost always door alig
 
 ## Next
 
-Ch 12 — Software: Pi image, Klipper/Moonraker/Fluidd/KlipperScreen, firmware and `printer.cfg` — using `leviathan-printer-rev-d-sbv2.cfg`, with the Nevermore `[heater_fan exhaust_fan]` pin corrected to `PF9`. Then Ch 13, then back here for Part B.
+Ch 12 — Software: Pi image, Klipper/Moonraker/Fluidd/KlipperScreen, firmware and `printer.cfg` — using `leviathan-printer-rev-d-sbv2.cfg`, with LDO's Nevermore `[heater_fan exhaust_fan]` replaced by `[fan_generic nevermore]` on the Leviathan's `PF9`. Then Ch 13, then back here for Part B.

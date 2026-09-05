@@ -40,7 +40,8 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12`, `x_frame_V2TR_MGN12_left`,
 `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket`. No rotation, no brim.
 **Parts:** all seven — 7.3 h, 122 g.
-**Check:** Confirm `x_frame_V2TR_MGN12_*` files, not a Trident or MGN9 variant.
+**Check:** Confirm the files are `x_frame_V2TR_MGN12_left/right` (V2TR = the shared V2/Trident R2 carriage,
+so `TR` in the name is correct) — **not** the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
 
 ## Step B04.3 — Pre-print checks
 
@@ -70,10 +71,11 @@ before committing any heat-set inserts. Check XY joint bores accept the X-axis s
 - [ ] MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
 - [ ] XY joint bores accept shafts without reaming
 - [ ] Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
-- [ ] Confirmed X-carriage is the V2TR/Clockwork-2 variant, not a Trident or legacy carriage
+- [ ] Confirmed X-carriage is `x_frame_V2TR_MGN12_left/right` (V2TR/Clockwork-2), not the superseded MGN9 carriage
 
 ## Common mistakes
-- Grabbing a Trident or MGN9 X-carriage file by mistake — LDO Build Notes flag this explicitly.
+- Grabbing a superseded MGN9 X-carriage file by mistake — LDO Build Notes flag this explicitly. `V2TR` is the
+  right file: it is the carriage shared by the V2 and the Trident.
 - Committing heat-set inserts into the carriage before dry-fitting the screw pattern.
 - Reaming an XY joint bore instead of checking the shaft or reprinting.
 

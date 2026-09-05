@@ -3,7 +3,8 @@
 **Time:** 9.8 h (2 plates).
 
 **Prerequisites:** B00, B02 (SB main body, faceplate, guidler, latch, latch shuttle, pcb spacer), B04.
-Also requires `probe_retainer_bracket.stl` from B04.
+The toolhead chapter also needs `probe_retainer_bracket.stl` from B04 — nothing on this plate depends
+on it, and it is fitted in Ch 07/08, not in a batch.
 
 **Printed parts**
 
