@@ -609,6 +609,8 @@ Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=41)
 
+⚠ Rev D+ / LDO: **Interim notice (2026-09-06):** a verification re-read found that Steps 02.32–02.33 place the motor-foot M5×10 and the cam wrongly (review/2026-09-06/G2-ch02-03.md, G1). Per manual p.42–45 and the CAD: the single M5×10 goes in the foot hole **farthest from the drive**; the cam's lobe slides into the 4 mm pocket under the **drive end** of the foot and pivots on the drive-end screw, bearing on the drive body. Follow p.42–45 for these two steps until they are rewritten; the rest of the Z-drive sequence stands.
+
 ### Step 02.32 — Slide the motor assembly in at an angle
 
 ![Voron manual p.42](assets/manual-pages/manual-p042.png)
