@@ -93,7 +93,7 @@ Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measuremen
 
 **Parts:** none.
 
-**Do:** [Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) lists the multimeter as one row in a thirteen-row table. This is that row expanded. A meter's **CAT rating** says what size transient it can survive where you are using it, not what voltage it can display — a meter with no category rating, or the wrong one, can fail violently. Fluke's definitions: **CAT II** is *"Single-phase receptacle-connected loads such as appliances and portable tools"*; **CAT III** is *"3-phase distribution including single-phase commercial lighting and equipment in fixed locations such as switchgear and polyphase motors."* This printer is a receptacle-connected appliance, so CAT II is the category — buy **CAT III 600 V** anyway, because it is the common rating on decent meters and it leaves you margin if you ever probe at a panel.
+**Do:** [Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) lists the multimeter as one row in a twelve-row table. This is that row expanded. A meter's **CAT rating** says what size transient it can survive where you are using it, not what voltage it can display — a meter with no category rating, or the wrong one, can fail violently. Fluke's definitions: **CAT II** is *"Single-phase receptacle-connected loads such as appliances and portable tools"*; **CAT III** is *"3-phase distribution including single-phase commercial lighting and equipment in fixed locations such as switchgear and polyphase motors."* This printer is a receptacle-connected appliance, so CAT II is the category — buy **CAT III 600 V** anyway, because it is the common rating on decent meters and it leaves you margin if you ever probe at a panel.
 
 | Function | Why this build needs it | Used at |
 |---|---|---|
@@ -181,7 +181,7 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 
 A sixth path is not protective earth but shares the same bus at the far end: the **ESD ground** from the extruder motor body to the toolboard, fitted at [Step 10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path). It is why the extruder can appears in the earth-bonding table.
 
-The whole chain is proved in one sweep at [Step 10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, and the frame, bare plate aluminium and extruder motor body read **a few Ω or less** — while the bed heater's L and N, and every 24 V node, read `OL`.
+The whole chain is proved in one sweep at [Step 10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, and the frame, bare plate aluminium and extruder motor body read **a few Ω or less** — while the bed heater's L and N, and the **+24 V** side of the rail, read `OL`. The rail's **−V / GND** side reads a few Ω on purpose — that is the ESD bond from [Step 10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path), and [10.74](10-wiring.md#step-1074-24-v-rails) and 10.77 both expect it; do not go hunting a reversed ferrule for it.
 
 **Check:** You can draw the five branches from memory and say where each is verified. That is the whole of the reason the bay is not allowed to close before Checkpoint #1.
 
@@ -243,7 +243,7 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 **Do:** A terminal is a connection, not an anchor. RepRap's rule is the one to hold: *"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."* In this build that means the mains run goes **inside a wire duct**, not across open deck ([10.8](10-wiring.md#step-108-inlet-wago-bus)), the deck opening is strain-relieved ([10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening)), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion ([10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain)). Ch 10's own warning is that cables pulled tight *"will survive assembly and fail in three months"*.
 
-The same page sets the end state for the whole electronics bay: *"All connections of mains (110/230V) shall be physically protected and you shall not be capable to access them even if you try."* That is what the bottom panel, the skirts and the duct covers in **Ch 11** are for. Closing the machine is a safety step, not a cosmetic one — which is exactly why Ch 11 is not allowed to start until Checkpoint #1 has passed.
+The same page sets the end state for the whole electronics bay: *"All connections of mains (110/230V) shall be physically protected and you shall not be capable to access them even if you try."* That is what the bottom panel and the skirts in **Ch 11 Part A** are for, and the duct covers once Ch 13 has driven every motor, heater and fan ([Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off)). Closing the machine is a safety step, not a cosmetic one — which is exactly why Ch 11 is not allowed to start until Checkpoint #1 has passed.
 
 **Check:** You can name the three places this manual anchors a cable near its termination, and you understand that Ch 11 is the step that makes the mains inaccessible.
 

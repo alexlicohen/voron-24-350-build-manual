@@ -11,7 +11,7 @@ Builds the 2020 frame — bottom square, four verticals, top square — plus the
 **Prerequisites:**
 
 - **Ch 00** — inventory, extrusions counted, tools to hand.
-- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Put batch **B00** (calibration & jigs, plate B00-P1, 4.0 h) on the Prusa while you build — it is the calibration gate for every batch after it.
+- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Batch **B01-P1** went on the Prusa the morning the kit landed, after Gate B (Step B00.7) — it prints under Ch 00 and this chapter, and Ch 02 waits only on B01-P2.
 
 **Tools**
 
@@ -52,7 +52,7 @@ C, D and E extrusions are sorted here but **not used** in this chapter — they 
 - Extrusion and roll-in T-nut tolerances are tight in this kit. LDO: *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly to identify the sides of the extrusions that fits the best or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - Every **"M5 shim"** in the official manual is a **brass M5 precision spacer** in this kit — here and for the rest of the build.
 - **Titanium extrusion backers are NOT installed in this chapter.** They go onto the gantry's X and Y extrusions during **Ch 05**, on the face opposite the rail. Leave them bagged; fitting them to frame extrusions now would be wrong and fitting them after the gantry is assembled costs a teardown (survey §4.4 #3, §5.2 W2). This is the only place this note appears.
-- Nothing here is printed. Build it the day the kit lands, while batch **B00** is still on the Prusa.
+- Nothing here is printed. Build it the day the kit lands, while batch **B01** prints.
 
 **Sources for this chapter:**
 
@@ -108,9 +108,9 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** 1× M5 roll-in T-nut and 1× M3 roll-in T-nut (for the fit test — both go back in their bags).
 
-**Do:** Run a finger over every end face of the 10 A and 4 B extrusions. Any burr, swarf or anodising lip on an end face becomes a squareness error you cannot tune out later — knock it back with a fine file or a deburring blade and blow the chips out of the channels. Then roll the M5 nut into the top channel of the two A extrusions you will use as the front and rear bottom rails (they carry the bed brackets), and the **M3** nut into every channel of each B vertical — Ch 02 puts a Z rail on one face of each with M3 T-nuts, and a face that binds is easier to reject now than after the frame is torqued. Note which channels take the nut cleanly.
+**Do:** Run a finger over every end face of the 10 A and 4 B extrusions. Any burr, swarf or anodising lip on an end face becomes a squareness error you cannot tune out later — knock it back with a fine file or a deburring blade and blow the chips out of the channels. Then roll the M5 nut into the top channel of the two A extrusions you will use as the front and rear bottom rails (they carry the bed brackets), and the **M3** nut into the two channels of each B vertical that have **no** access holes — Ch 02 puts a Z rail on one of those two faces with M3 T-nuts (the one that looks front or back along its side; the access-hole pair faces outward and never carries a rail), and a face that binds is easier to reject now than after the frame is torqued. Mark the better of the two with tape; if only one is clean, place that vertical so the clean face looks front/back.
 
-**Check:** Every end face sits flat against the machinist square blade with no rock. Every T-nut rolls in and rotates with finger pressure; each vertical has at least one face that takes the M3 nut cleanly, marked with tape.
+**Check:** Every end face sits flat against the machinist square blade with no rock. Every T-nut rolls in and rotates with finger pressure; each vertical has a marked face without access holes that takes the M3 nut cleanly.
 
 ⚠ Rev D+ / LDO: extrusion and roll-in T-nut tolerances are tight on this kit — LDO's advice is to test-fit *before* assembly and identify the best-fitting sides, or to pre-load T-nuts. If one refuses to rotate, use a different face or a different extrusion; do not force it. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -326,7 +326,7 @@ Pause: ~65 min since the last pause — the frame is assembled, squared on both 
 
 **Parts:** 2× A extrusion (the last two), 4× corner bracket, 4× M5×16 BHCS.
 
-**Do:** Take the two remaining A extrusions — these are the bed extrusions. They are the same 470 mm as the bottom rails, so they cannot rest on top of two rails: they sit on their brackets *between* the front and rear rails, ends flush with those rails' inner faces (p.19 inset, p.20). Fit a gusseted corner bracket to each end so that one leg is flat on the end face with its hole over the centre bore (M5×16 BHCS into the bore) and the other leg points **down and outward**. When the extrusion is lowered into the frame that free leg lies on top of the front or rear bottom rail, and the bed extrusion sits on its four brackets with its underside about level with the rails' top faces `(confirm on bench)` — it does not sit on the rails. Snug only — the brackets must still swivel while you position them.
+**Do:** Take the two remaining A extrusions — these are the bed extrusions. They are the same 470 mm as the bottom rails, so they cannot rest on top of two rails: they sit on their brackets *between* the front and rear rails, ends flush with those rails' inner faces (p.19 inset, p.20). Fit a gusseted corner bracket to each end so that one leg is flat on the end face with its hole over the centre bore (M5×16 BHCS into the bore) and the other leg points **down and outward**. When the extrusion is lowered into the frame that free leg lies on top of the front or rear bottom rail, and the bed extrusion sits on its four brackets with its underside about level with the rails' top faces `(verify on bench)` — it does not sit on the rails. Snug only — the brackets must still swivel while you position them.
 
 **Check:** 4 brackets, 4 bolts, all four free legs pointing down and outward with the bolt hole clear of the extrusion end, and all four brackets oriented identically.
 
@@ -360,7 +360,7 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:** The bed extrusions run **front-to-back**: their bracketed ends land on the **front and rear** bottom rails, and they sit left and right of the printer centreline. If your FRONT tape from Step 01.1 is on a face parallel to them, move it now — Ch 02, 03 and 09 all assume this. Lower both bed extrusions into the frame so every bracket's free leg lands on the front or rear rail over a T-nut. Drop a precision spacer onto each bracket hole, then start an M5×10 BHCS through spacer and bracket into the T-nut. Leave all four finger-loose — you position them in the next step.
 
-**Check:** Four bolts started, four spacers seated, both extrusions level with their undersides about at the rails' top faces `(confirm on bench)` and their ends flush with the rails' inner faces; all four bracket legs flat on the rails.
+**Check:** Four bolts started, four spacers seated, both extrusions level with their undersides about at the rails' top faces `(verify on bench)` and their ends flush with the rails' inner faces; all four bracket legs flat on the rails.
 
 ⚠ Rev D+ / LDO: the manual calls this part an **"M5 Shim"** (p.19). This kit supplies a **brass M5 precision spacer** instead, and it substitutes for *every* M5 shim in the manual from here on unless a later note says otherwise. LDO: *"The brass M5 Precision Spacer are used in place of the M5 Shim. This will be for all M5 Shims in the guide unless noted."* This deviation is not illustrated anywhere — the brass spacer in your hand is the part. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq) (survey §4.2 p.19, §7.5 #1)
 
@@ -406,7 +406,7 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.21 — Titanium backers: not now
 
-*(no image — see text)*
+(no image — see text)
 
 **What you're looking at:** The titanium extrusion backers, still bagged. A **backer** is a titanium strip bolted to the face opposite a linear rail; steel rail plus aluminium extrusion bow like a bimetallic strip when the chamber heats, and the backer cancels that ([glossary](16-glossary.md#b)). They belong to the gantry's X and Y extrusions in Ch 05, not to any frame extrusion.
 
@@ -422,7 +422,7 @@ Source: [whopping_Voron_mods — `extrusion_backers`](https://github.com/tanaes/
 
 ### Step 01.22 — Record the frame log
 
-*(no image — see text)*
+(no image — see text)
 
 **What you're looking at:** The finished frame, a tape measure and the log table. These numbers are the only baseline you will have when Ch 06 asks why the gantry will not square — "it looked fine" is not a measurement you can compare against.
 
@@ -479,4 +479,4 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3** (≈41 h of printing, print plan §2) — start them now if they are not already running.
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3**. B00 and B02 printed before the kit; B01 has been running since Gate B on kit-day morning, so Ch 02 waits only on B01-P2 (22.8 h in all, print plan §2).

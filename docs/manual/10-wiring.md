@@ -755,7 +755,7 @@ Source: [LDO XY endstop reconnecting guide](https://docs.ldomotors.com/en/guides
 
 **What you're looking at:** The [XY endstop pod](16-glossary.md#x) is the small PCB on the **right** XY joint carrying both the X and the Y microswitch, which the gantry presses at the ends of its travel — X homes to the right and Y to the rear, so the pod sits where both limits are hit. Plugging the 4-pin end in here brings both switches onto one cable.
 
-**Parts:** XY endstop cable ×1, XY endstop PCB (on the right XY joint, fitted in Ch 05).
+**Parts:** XY endstop cable ×1, XY endstop PCB (on the right XY joint — bagged in Ch 05, mounted at Ch 09 Steps 09.32–09.33).
 
 **Do:** Plug the **4-pin** end into the XY endstop PCB. Leave the two 3-pin ends free; they reach the Leviathan in step 10.45. Dress the cable along the **right** Y extrusion toward the rear-right, ready to enter the Y chain (10.60), which lives on the same side.
 
