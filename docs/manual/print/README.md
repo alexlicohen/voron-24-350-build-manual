@@ -29,6 +29,8 @@ chapter-level prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 2 | 12.2 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
 | **TOTAL** | **27** | **157.1** | **1813** | **279** | | |
 
+All 27 diagrams on one page: [Plate plans](../../print/plate-plans.md).
+
 **Filament margin:** Black 1813 g needed / 2400 g on hand → **587 g margin (32 %)**. Orange 279 g needed /
 800 g on hand → **521 g margin (187 %)**. Setup and the full override table:
 [00-slicer-setup.md](00-slicer-setup.md).

@@ -2,7 +2,7 @@
 
 This is the single track for building an **LDO Voron 2.4 R2 Rev D+, 350 mm, blue** (Fabreeko F6424626) — the official Voron and Stealthburner manuals, the LDO Rev D guides and the Rev D+ corrections consolidated into one Prusa-style set of numbered steps.
 
-Every printed part is made here, on a **Prusa Core One+** (Gen 2 belts), in Prusament ASA Galaxy Black with a Prusa Orange accent: 27 plates, 157.1 h, 1813 g black + 279 g orange.
+Every printed part is made here, on a **Prusa Core One+** (Gen 2 belts), in Prusament ASA Galaxy Black with a Prusa Orange accent: 27 plates, 157.1 h, 1813 g black + 279 g orange — see [Plate plans](../print/plate-plans.md) for every diagram at a glance.
 
 Start at [**Ch 00 — Before you start**](00-before-you-start.md) if the kit has landed, and at [**print/00-slicer-setup.md**](print/00-slicer-setup.md) if it has not — **six of the eleven print batches (B00, B02, B07, B08, B09, B10 — 98.6 h of the 157.1) run before the Voron arrives**; the five with bearing seats and shaft bores (B01, B03–B06 — 58.5 h) wait for Gate B on kit day.
 
