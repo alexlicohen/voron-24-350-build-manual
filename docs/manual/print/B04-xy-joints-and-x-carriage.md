@@ -2,7 +2,11 @@
 
 **Time:** 8.6 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
-**Prerequisites:** B00, B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge), B03.
+**Sessions:** 1 plate start (~5 min hands-on, 8.6 h unattended) + ~15 min inspect and bin.
+
+**Prerequisites:** **Gate B passed** (Step B00.7, kit day — XY joint bores and the MGN12 carriage pattern).
+B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge) feeds the same assembly chapter and is already printed
+in the pre-kit order. B03 is not a print prerequisite — the two batches only meet at Ch 04/05.
 
 **Printed parts**
 
@@ -33,8 +37,8 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥117 g remaining.
-**Check:** No colour cross-contamination from B03.
+**Do:** Galaxy Black, confirm ≥117 g remaining (the ledger has B04-P1 ending spool #2 at ~13 g — stage spool #3).
+**Check:** Clean purge.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -44,7 +48,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B04-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all seven parts together: `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`,
 `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12`, `x_frame_V2TR_MGN12_left`,
-`x_frame_V2TR_MGN12_right`, `probe_retainer_bracket`. No rotation, no brim.
+`x_frame_V2TR_MGN12_right`, `probe_retainer_bracket`. No rotation, no brim in the project — the preview shows no
+brim outline.
 **Parts:** all seven — 8.6 h, 117 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Confirm the files are `x_frame_V2TR_MGN12_left/right` (V2TR = the shared V2/Trident R2 carriage,
 so `TR` in the name is correct) — **not** the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
@@ -53,10 +58,10 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B04.3 — Pre-print checks
 
-**Do:** Chamber preheated, sheet clean.
+**Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
 **Check:** Chamber ≥40 °C.
 
-Source: [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B04.4 — Print
 
@@ -71,6 +76,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 before committing any heat-set inserts. Check XY joint bores accept the X-axis shafts without reaming.
 **Check:** Screw pattern lines up; shafts slide into the joint bores without forcing.
 
+Pause: ~10 min since the last pause — carriage pattern and shaft bores dry-fitted and taken apart again; no inserts set (Ch 05 does that).
+
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B04.6 — Label and bin
@@ -84,6 +91,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ---
 
 ## Checkpoint B04
+- [ ] Gate B passed before B04-P1 started
 - [ ] MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
 - [ ] XY joint bores accept shafts without reaming
 - [ ] Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed

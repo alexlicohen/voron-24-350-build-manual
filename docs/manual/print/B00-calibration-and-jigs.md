@@ -24,7 +24,7 @@ real inserts) runs the morning the kit lands and releases B01 and B03–B06.
 | `pulley_jig.stl` | Voron-2 `STLs/Tools/` | 1 | Black | 2.8 |
 | `z_drive_retainer_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 1 *(of the 2 needed — this is the bearing-fit coupon and a real part)* | Black | 19.5 |
 
-**Hardware:** none printed here. Gate B (Step B00.7) needs three M3×5×4 [heat-set inserts](../16-glossary.md#h),
+**Hardware:** none printed here. Gate B (Step B00.7) needs seven M3×5×4 [heat-set inserts](../16-glossary.md#h) (the coupon has seven pockets; 146 of the kit's 153 remain for the build),
 one [625-2RS](../16-glossary.md#f) bearing and the MGN12 rail — all from the Voron kit, unless you order
 2× 625-2RS and 10× inserts with the filament so Gate B can run early.
 
@@ -137,8 +137,9 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 **Do:** The morning the kit lands, before the inventory: open the GATE B bag and run
 [Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts). Press a 625-2RS (16 mm OD) into
 `z_drive_retainer_a`'s bore — thumb pressure, no rocking. Slide `MGN12_rail_guide` onto the real MGN12 rail —
-light finger pressure. Set three M3×5×4 inserts into `Heatset_Practice` with the kit's brass tip (Ch 00
-Steps 00.13–00.16 teach the technique on this same coupon) — flush to 0.2 mm proud, no boss bulge >0.2 mm.
+light finger pressure. Set M3×5×4 inserts into all **seven** pockets of `Heatset_Practice` with the kit's brass
+tip (Ch 00 Steps 00.13–00.16 teach the technique on this same coupon) — flush to 0.2 mm proud, no boss bulge
+>0.2 mm; that leaves 146 of the kit's 153 inserts for the build.
 **Check:** All three pass → start B01 now (Step B01.1); B03–B06 follow. A tight or loose bore → adjust
 extrusion multiplier per the table, re-print the cube (Gate A again) and re-print this retainer before B01.
 A bulging boss is technique, not the profile — practise, don't re-slice.
@@ -166,7 +167,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-
 
 - [ ] `z_drive_retainer_a` 625-2RS bore: bearing presses in by thumb, no rocking
 - [ ] `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
-- [ ] `Heatset_Practice`: 3/3 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
+- [ ] `Heatset_Practice`: 7/7 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
 - [ ] `z_drive_retainer_a` moved to the B01 `a` bag
 
 ## Common mistakes

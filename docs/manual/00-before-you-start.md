@@ -48,7 +48,7 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 — M3 thread, 5 mm OD × 4 mm long `(verify against the bag)` | 3 | practice coupon only, from the 153 supplied — 150 remain for the build |
+| Heat-set insert, brass, M3×5×4 — M3 thread, 5 mm OD × 4 mm long `(verify against the bag)` | 7 | practice coupon only (the coupon STL has 7 pockets), from the 153 supplied — 146 remain for the build |
 | — no other kit hardware is consumed in this chapter — | 0 | every rail, fastener and PCB goes back in its bag |
 
 **Read first**
@@ -363,13 +363,13 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 **What you're looking at:** Manual p.31 shows the general insert operation — the blue pills are inserts going into the bosses of real Z-drive parts. The `Heatset_Practice` coupon is a printed block of seven insert pockets whose only job is to let you find the iron temperature before you spend an insert on a structural part.
 
-**Parts:** `Heatset_Practice` coupon ×1 (batch B00), M3×5×4 inserts ×3.
+**Parts:** `Heatset_Practice` coupon ×1 (batch B00), M3×5×4 inserts ×7 (one per pocket).
 
 **Do:** LDO publishes no temperature. Set the iron so the plastic goes *very soft but not runny*: too low and you have to force the insert down, too high and the boss slumps. Start at the bottom of the iron's range and step up 10 °C at a time — never start where the iron was left after soldering; the manual's linked guide ([voron.link/m5ybt4d](https://voron.link/m5ybt4d), p.31) shows the technique. Sit the narrow end of the insert in the hole by hand — every Voron boss is drawn for this — then bring the tongue down and push straight until the insert is flush. Do all three on the coupon, and let your daughter do them; this is the part of the build where practice is free.
 
 **Check:** Iron does not linger in any hole longer than it takes to seat the insert. You have a working temperature written on tape stuck to the iron's base.
 
-⚠ **Rev D+ / LDO:** ASA behaves differently from the PLA in most insert tutorials. Calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 150 remaining inserts.
+⚠ **Rev D+ / LDO:** ASA behaves differently from the PLA in most insert tutorials. Calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 146 remaining inserts.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -728,7 +728,7 @@ Pause: ~20 min since the last pause — measurement log started, all three Disco
 - **Leaving grease on the rail surface.** It looks well-lubricated and it is not — the film collects dust and hair and drags it into the carriage. Grease belongs inside the carriage only.
 - **Lubricating before the IPA has fully evaporated.** The residue emulsifies with the grease and you get a milky paste with none of the film strength. Give the rails longer to dry than you think they need.
 - **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is bolted down.
-- **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 150 remaining inserts.
+- **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 146 remaining inserts.
 - **Decanting the fastener bags on day one.** M3×8, M3×12 and M3×16 are indistinguishable in a mixed tray, and there are 283 of the first one.
 - **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it, and it has to be settled before batch B01 prints its deck supports.
 

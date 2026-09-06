@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 968" width="1200" height="968" role="img" aria-label="Voron 2.4r2 — CoreXY belt path" style="color:#14181D">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" width="1200" height="1000" role="img" aria-label="Voron 2.4r2 — CoreXY belt path" style="color:#14181D">
 <title>Voron 2.4r2 — CoreXY belt path</title>
 <defs>
 <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
@@ -10,11 +10,11 @@
 <marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
 <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
 </defs>
-<rect width="1200" height="968" fill="#FBFAF8"/>
+<rect width="1200" height="1000" fill="#FBFAF8"/>
 <text x="40.0" y="44.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">CoreXY belt path — A belt and B belt</text>
 <text x="40.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">The two belts are stacked at different heights and never cross. Each belt stays in one</text>
-<text x="40.0" y="87.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">horizontal plane for its whole loop.</text>
-<text x="1160.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15</text>
+<text x="40.0" y="87.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">horizontal plane for its whole loop, and its toothed face never changes sides.</text>
+<text x="1160.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15 · 07.16 · 07.22</text>
 <line x1="40.0" y1="110.0" x2="1160.0" y2="110.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
 <rect x="30.0" y="126.0" width="560.0" height="672.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
 <text x="48.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">A belt  —  A drive is rear RIGHT</text>
@@ -44,9 +44,14 @@
 <circle cx="475.0" cy="334.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="475.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="155.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="435.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="427.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
 <circle cx="427.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
+<circle cx="435.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="435.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+<text x="367.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">return turn: TEETH ON</text>
+<text x="367.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#E8751A" letter-spacing="0">this joint's 20T idler</text>
+<text x="187.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">leaving turn: smooth</text>
+<text x="187.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">back on the F695 pair</text>
 <path d="M 251.00 508.00 L 155.00 508.00 A 20.00 20.00 0 0 1 135.00 488.00 L 135.00 278.00 A 20.00 20.00 0 0 1 155.00 258.00 L 435.00 258.00 A 20.00 20.00 0 0 1 447.00 294.00 L 415.00 318.00 A 20.00 20.00 0 1 0 443.67 345.06 L 458.33 322.94 A 20.00 20.00 0 0 1 495.00 334.00 L 495.00 668.00 A 20.00 20.00 0 0 1 455.00 668.00 L 455.00 488.00 A 20.00 20.00 0 0 0 435.00 468.00 L 339.00 468.00" fill="none" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="235.5" y1="508.0" x2="235.5" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
 <line x1="219.2" y1="508.0" x2="219.2" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
@@ -180,9 +185,14 @@
 <circle cx="695.0" cy="334.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="695.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="1015.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="735.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
 <circle cx="743.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
 <circle cx="743.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
+<circle cx="735.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="735.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+<text x="803.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">return turn: TEETH ON</text>
+<text x="803.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#E8751A" letter-spacing="0">this joint's 20T idler</text>
+<text x="983.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">leaving turn: smooth</text>
+<text x="983.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">back on the F695 pair</text>
 <path d="M 831.00 508.00 L 1015.00 508.00 A 20.00 20.00 0 0 0 1035.00 488.00 L 1035.00 278.00 A 20.00 20.00 0 0 0 1015.00 258.00 L 735.00 258.00 A 20.00 20.00 0 0 0 723.00 294.00 L 755.00 318.00 A 20.00 20.00 0 1 1 726.33 345.06 L 711.67 322.94 A 20.00 20.00 0 0 0 675.00 334.00 L 675.00 668.00 A 20.00 20.00 0 0 0 715.00 668.00 L 715.00 488.00 A 20.00 20.00 0 0 1 735.00 468.00 L 919.00 468.00" fill="none" stroke="#7A4FD6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="890.5" y1="508.0" x2="890.5" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
 <line x1="906.8" y1="508.0" x2="906.8" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
@@ -288,7 +298,7 @@
 <text x="885.0" y="692.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">180° U-turn at the front idler —</text>
 <text x="885.0" y="706.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">smooth back on the stack, teeth</text>
 <text x="885.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">outward on both runs</text>
-<rect x="30.0" y="814.0" width="1140.0" height="60.0" rx="8" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<rect x="30.0" y="814.0" width="1140.0" height="88.0" rx="8" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
 <line x1="50.0" y1="838.0" x2="84.0" y2="838.0" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round"/>
 <line x1="54.0" y1="838.0" x2="54.0" y2="845.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
 <line x1="63.0" y1="838.0" x2="63.0" y2="845.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
@@ -302,11 +312,15 @@
 <line x1="403.0" y1="838.0" x2="403.0" y2="845.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
 <text x="414.0" y="843.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B belt</text>
 <circle cx="530.0" cy="838.0" r="9.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2"/>
-<text x="546.0" y="843.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="currentColor" letter-spacing="0">F695 bearing stack — smooth back rides here</text>
-<circle cx="880.0" cy="838.0" r="9.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.4"/>
-<text x="896.0" y="843.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="currentColor" letter-spacing="0">20T motor pulley — teeth engage here</text>
-<line x1="40.0" y1="894.0" x2="1160.0" y2="894.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
-<text x="40.0" y="916.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Clamp points: one end of BOTH belts goes into the left X carriage half, one into the upper slot and one into the lower, teeth facing the front of</text>
-<text x="40.0" y="933.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the machine (Step 07.9); both tails are captured by the right half (Step 07.24). Lane spacing inside each drive unit is schematic — the chapter</text>
-<text x="40.0" y="950.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">fixes the order of the wraps, not their top-view coordinates.</text>
+<text x="546.0" y="843.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="currentColor" letter-spacing="0">F695 stack — smooth back rides here (drives, front idler, the leaving XY joint)</text>
+<circle cx="60.0" cy="874.0" r="9.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.4"/>
+<text x="76.0" y="879.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="currentColor" letter-spacing="0">20T motor pulley — teeth engage here</text>
+<circle cx="400.0" cy="874.0" r="9.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.4"/>
+<circle cx="400.0" cy="874.0" r="4.5" fill="none" stroke="#E8751A" stroke-width="1.4" stroke-dasharray="2 1.5"/>
+<text x="416.0" y="879.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="currentColor" letter-spacing="0">20T idler at the RETURN XY joint — wraps teeth-on (A: right joint, Step 07.16 · B: left joint, Step 07.22) — never twist a belt</text>
+<line x1="40.0" y1="909.0" x2="1160.0" y2="909.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
+<text x="40.0" y="931.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Clamp points: one end of BOTH belts goes into the left X carriage half, one into the upper slot and one into the lower, teeth facing the front of</text>
+<text x="40.0" y="948.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the machine (Step 07.9); both tails are captured by the right half (Step 07.24). The toothed face never changes sides: smooth back on every plain</text>
+<text x="40.0" y="965.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">F695 stack, teeth into the motor pulley and into the return joint's 20T idler. Lane spacing inside each drive unit is schematic — the chapter fixes</text>
+<text x="40.0" y="982.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the order of the wraps, not their top-view coordinates.</text>
 </svg>

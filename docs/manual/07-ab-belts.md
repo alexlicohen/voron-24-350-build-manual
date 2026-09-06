@@ -2,15 +2,15 @@
 
 Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish the X carriage with the inductive probe. This makes the gantry a working XY motion system — everything after it (toolhead, wiring, bring-up) assumes the belts are on.
 
-**What you're building in this chapter.** Two belt loops and the printed carriage that clamps them. In [CoreXY](16-glossary.md#c) neither motor owns an axis: the rear-**right** motor drives the **A** belt, the rear-**left** drives the **B** belt, and the toolhead moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one long loop that starts and ends at the [X carriage](16-glossary.md#x), and on a Voron the two loops sit at **different heights and never cross** — each stays in its own horizontal plane the whole way round. Where a belt has to be *driven* it wraps a toothed motor pulley teeth-first; everywhere it is merely turned, it runs **smooth-side-on** over a plain bearing stack. Both loops are the same length by design, so two belts cut identical arrive at identical tension — and no amount of tensioner adjustment can undo a length error, which is why they are cut together and their protruding tails measured against each other at the carriage. The chapter finishes by fitting the inductive probe that later levels the gantry and maps the bed.
+**What you're building in this chapter.** Two belt loops and the printed carriage that clamps them. In [CoreXY](16-glossary.md#c) neither motor owns an axis: the rear-**right** motor drives the **A** belt, the rear-**left** drives the **B** belt, and the toolhead moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one long loop that starts and ends at the [X carriage](16-glossary.md#x), and on a Voron the two loops sit at **different heights and never cross** — each stays in its own horizontal plane the whole way round. Where a belt has to be *driven* it wraps a toothed motor pulley teeth-first; everywhere it is merely turned, it runs **smooth-side-on** over a plain bearing stack — except at the XY joints: each belt leaves the carriage smooth-back-on one joint's plain stack and comes back **teeth-on** the other joint's toothed 20T idler (p.135, p.138). That is by design; never twist a belt to change which face touches an idler. The A belt is the **upper** of the two planes, B the lower. Both loops are the same length by design, so two belts cut identical arrive at identical tension — and no amount of tensioner adjustment can undo a length error, which is why they are cut together and their protruding tails measured against each other at the carriage. The chapter finishes by fitting the inductive probe that later levels the gantry and maps the bed.
 
 **Time:** 2.5–4.0 h hands-on, first build ([survey §5.1 P07 / §7.2 Ch 07](../voron-build-instructions-survey.md)).
 
-**Sessions:** 5 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes — note that segment 3, threading both belts, cannot be broken and needs ~80 min in one sitting).
+**Sessions:** 5 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes — note that segment 3, threading both belts, cannot be broken and needs ~80 min in one sitting — there is a soft stop after Step 07.16 if you must).
 
 **Prerequisites:**
 
-- Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, X carriage on the rail, Ti backers), **Ch 06a** (gantry installed on the Z joints, Z belts clamped).
+- Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, X carriage on the rail, Ti backers), **Ch 06 Part A** (gantry installed on the Z joints, Z belts clamped).
 - Print batches **B02** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B03** (front idlers), **B04** (XY joints + X carriage + `probe_retainer_bracket`), **B05** (gates *A/B Belts* in the print plan).
 - The gantry must move freely by hand over its full travel with no belts on. Fix binding now, not after belting.
 
@@ -49,7 +49,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Read first**
 
-- **The tension you set here is provisional.** Gantry squaring (Ch 06b) *begins* by fully releasing A/B belt tension, and it needs a running printer (`G28`, `QUAD_GANTRY_LEVEL`, `SET_STEPPER_ENABLE`), so it happens after Ch 13. Set enough tension to run the machine, then re-tension in Ch 06b. Tensioning to final now just gets undone — that is [survey §5.2 W1](../voron-build-instructions-survey.md), a ~1.5 h rework.
+- **The tension you set here is provisional.** Gantry squaring (Ch 06b) *begins* by fully releasing A/B belt tension, and it needs a running printer (`G28`, `QUAD_GANTRY_LEVEL`, `SET_STEPPER_ENABLE`), so it happens inside Ch 13. Set enough tension to home and QGL. A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, machine cold and open) and Ch 14 Step 14.4 (final: hot, chamber closed). Z belts: Ch 06b Step 06b.3 (so QGL converges for squaring), re-checked hot at Ch 14 Step 14.5. Ch 14 owns the final number; tensioning to final now just gets undone — that is [survey §5.2 W1](../voron-build-instructions-survey.md), a ~1.5 h rework.
 - **Equal length is the whole trick.** Both belt paths are the same length by design, so if the two belts are cut identical, equal tension follows (p.125). Cut them together, not one after the other.
 - **There is no sourced deflection number.** The official manual gives *no* tension figure at all — only the equal-length rule. The one sourced number in this build's document set is **110 Hz over a 150 mm span** ([Voron secondary tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)). voronldo.com's 80–100 Hz is discarded ([survey §4.3](../voron-build-instructions-survey.md)). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.
 - **Nothing in this chapter is torqued.** Belt clamps and carriage bolts go on lightly, the belts get pulled tight by hand, then the carriage bolts are fully tightened (p.140–141). The manual specifies no torque values; don't invent one.
@@ -79,7 +79,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Parts:** none.
 
-**Do:** Confirm the gantry is on the Z joints and the Z belts are clamped (Ch 06a). Push the gantry through its full Y travel and the X carriage through its full X travel by hand. Everything from here forward is harder to correct once two belts are threaded through six bearing stacks.
+**Do:** Confirm the gantry is on the Z joints and the Z belts are clamped (Ch 06 Part A). Push the gantry through its full Y travel and the X carriage through its full X travel by hand. Everything from here forward is harder to correct once two belts are threaded through six bearing stacks.
 
 **Check:** No notchiness, no rising resistance at either end of travel, no rail carriage running off the end of a rail. The X carriage coasts when you push it.
 
@@ -104,7 +104,7 @@ Source: [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.126](assets/manual-pages/manual-p126.png)
 ![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** The **A** belt is the one driven by the rear-**right** motor. Trace it on the real machine with the page open rather than reading it. What identifies it afterwards on sight: on the right-hand side of the machine the A belt gives you **two** parallel runs — out to the front idler and back — and on the left only one. The diagram's A-belt panel traces the same loop top-down with every 90° turn, the S-wrap at the drive and the 180° U-turn at the front idler marked, and the toothed face carried continuously along the belt.
+**What you're looking at:** The **A** belt is the one driven by the rear-**right** motor. Trace it on the real machine with the page open rather than reading it. What identifies it afterwards on sight: on the right-hand side of the machine the A belt gives you **two** parallel runs — out to the front idler and back — and on the left only one. A is the **upper** of the two belt planes — its motor pulley and its front idler sit 10 mm higher than B's (Ch 04 Step 04.2). The diagram's A-belt panel traces the same loop top-down with every 90° turn, the S-wrap at the drive and the 180° U-turn at the front idler marked, and the toothed face carried continuously along the belt.
 
 **Parts:** none.
 
@@ -119,7 +119,7 @@ Source: [Voron manual p.126](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.127](assets/manual-pages/manual-p127.png)
 ![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** The **B** belt is the mirror image, driven by the rear-**left** motor and running in the other plane: two runs on the left, one on the right. The structural fact this page exists to teach is that each rear drive unit carries **two** things — the toothed motor pulley for its own belt, and a plain bearing stack for the *other* belt, at a different height. The diagram's B-belt panel shows the mirrored two-runs-on-one-side asymmetry — two parallel runs on the left, one on the right, the opposite of the A panel.
+**What you're looking at:** The **B** belt is the mirror image, driven by the rear-**left** motor and running in the other plane: two runs on the left, one on the right. The structural fact this page exists to teach is that each rear drive unit carries **two** things — the toothed motor pulley for its own belt, and a plain bearing stack for the *other* belt, at a different height. B is the **lower** plane. The diagram's B-belt panel shows the mirrored two-runs-on-one-side asymmetry — two parallel runs on the left, one on the right, the opposite of the A panel.
 
 **Parts:** none.
 
@@ -144,7 +144,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Manual text, verbatim: *"Loosen the idler bolt to extend the idler. Once extended to the maximum tighten 4 turns. Repeat for the second idler."* Operationally: back the M3×40 out until the tension arm is at its slackest end of travel, then wind it back in exactly 4 turns. Count the turns and give both idlers the same number. **Turning the tensioner screw in pulls the tension arm forward and adds belt tension; backing it out releases it** — this is the same screw the squaring procedure means when it says *"idlers fully backed off"* ([V2 gantry squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)).
 
-**Check:** Both tensioner screws stand proud of the front idler bodies by the same amount. You have travel left in both directions — this is what you will adjust in Step 07.32 and again in Ch 06b.
+**Check:** Both tensioner screws stand proud of the front idler bodies by the same amount. You have travel left in both directions — this is what you will adjust in Step 07.32, again in Ch 06b, and for the last time in Ch 14 Step 14.4.
 
 Source: [Voron manual p.128](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=128) · [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -193,11 +193,13 @@ Source: [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** Gates 2GT 6 mm open belt, 2 lengths.
 
-**Do:** The manual gives **no cut length** — only p.125's rule: run one belt to find the length, then cut the second to match. The LDO Rev D 350 BOM supplies **6.21 m of "Gates Open Belt, 2GT, 6 mm (by metre)"** — **bulk, not pre-cut**, and the LDO Build Notes list no belt deviation anywhere in p.124–145, so there is no pre-cut pair in the box to look for ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D), [Build Notes](https://docs.ldomotors.com/voron/voron2/build-faq)). Cut **two lengths of 2000 mm**: fold the belt back on itself so both lengths lie together, and cut both ends through the pair in one pass, square across the belt, so they are identical. 2000 mm is the per-belt figure third-party 350 BOMs use, and the routed path on a 350 works out at roughly 1.8 m (340 mm X extrusion + 2 × 450 mm Y extrusions, plus wraps), which leaves about 100 mm of tail at each carriage clamp. ([onetwo3D's Voron 2.4 350 BOM](https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/) lists "GT2 Open Belt LL-2GT-6 (6 mm wide) — 2000 mm ×2"; verify against your own kit's belt on the bench.)
+**Do:** The manual gives **no cut length** — only p.125's rule: run one belt to find the length, then cut the second to match. The LDO Rev D 350 BOM supplies **6.21 m of "Gates Open Belt, 2GT, 6 mm (by metre)"** — **bulk, not pre-cut**, and the LDO Build Notes list no belt deviation anywhere in p.124–145, so there is no pre-cut pair in the box to look for ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D), [Build Notes](https://docs.ldomotors.com/voron/voron2/build-faq)). Cut **two lengths of 2000 mm**: measure 2000 mm from the free end, fold the belt back on itself there, lay the doubled belt flat, cut through both layers at the fold, then cut the reel side level with the free end — square across the belt each time — so the two are identical rather than merely carefully measured. 2000 mm is the per-belt figure third-party 350 BOMs use, and the routed path on a 350 works out at roughly 1.8 m — the X beam (430 mm) plus the rear beam (340 mm) plus two Y spans (the outbound and return runs on one side always add up to two full spans wherever the gantry sits, ≈ 2 × 450 mm) plus the wraps — which leaves roughly 100 mm of tail at each carriage clamp (verify on bench). 6.21 m − 2 × 2.0 m leaves exactly one spare belt: one mis-cut is survivable, two are not. ([onetwo3D's Voron 2.4 350 BOM](https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/) lists "GT2 Open Belt LL-2GT-6 (6 mm wide) — 2000 mm ×2"; verify against your own kit's belt on the bench.)
 
 **Check:** Lay both belts side by side with one pair of ends against a square edge — the far ends are flush. A mismatch you can see is a mismatch you will chase with the tensioners forever.
 
-Tip: Mark one belt "A" with a dot of marker on the smooth back near each end. Once both are threaded they are impossible to tell apart. ([survey §7.2 Ch 07](../voron-build-instructions-survey.md))
+Tip: Mark one belt "A" with a dot of marker on the smooth back near each end — it is the one that goes into the **upper** slot at Step 07.9. Once both are threaded they are impossible to tell apart. ([survey §7.2 Ch 07](../voron-build-instructions-survey.md))
+
+Tip: First build and nervous about the number? The manual's own p.125 method protects you better than cut-together: cut one belt generously (2100 mm), route it as A (Steps 07.9–07.16), cut its tail where you want it, then cut the second belt to exactly that length. The reel still leaves ~2 m spare.
 
 Source: [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [onetwo3D Voron 2.4 350 BOM](https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/)
 
@@ -207,19 +209,19 @@ Pause: ~30 min since the last pause — heat-set inserts and M3 nuts in the carr
 
 ![Voron manual p.131](assets/manual-pages/manual-p131.png)
 
-**What you're looking at:** The X carriage clamps a belt by squeezing it between its two printed halves. Both belts' *first* ends go into the **left** half — one in the upper slot, one in the lower — because the two belts live at two different heights and keep those heights all the way to the clamp. Teeth face away from the extrusion, towards the front of the machine, on both.
+**What you're looking at:** The X carriage clamps a belt by squeezing it between its two printed halves. Both belts' *first* ends go into the **left** half — one in the upper slot, one in the lower — because the two belts live at two different heights and keep those heights all the way to the clamp. The belt in the **upper** slot is **A**: the A motor pulley and the A front idler sit 10 mm higher than B's (Ch 04 Step 04.2), so the upper plane is A's the whole way round; the lower slot is B. Teeth face away from the extrusion, towards the front of the machine, on both.
 
 **Parts:** M3×8 SHCS ×2; both belts.
 
-**Do:** Feed one end of each belt into its clamp slot in the **left** X carriage part — one belt into the upper slot, one into the lower. Install the left carriage part against the rail carriage and run the two M3×8 SHCS in. **The belt teeth face away from the extrusion** (p.131), i.e. towards the front of the machine, on both belts. Snug only — you will pull these tight later.
+**Do:** Feed one end of each belt into its clamp slot in the **left** X carriage part — the belt you marked **A** into the **upper** slot, the other (**B**) into the lower. Install the left carriage part against the rail carriage and run the two M3×8 SHCS in. **The belt teeth face away from the extrusion** (p.131), i.e. towards the front of the machine, on both belts. Snug only — you will pull these tight later.
 
-**Check:** Both belt ends are captured in their slots and cannot pull out with a firm tug; both belts leave the carriage in the same direction with teeth facing the same way; neither belt is twisted where it exits.
+**Check:** Both belt ends are captured in their slots and cannot pull out with a firm tug; the A mark is on the belt in the upper slot; both belts leave the carriage in the same direction with teeth facing the same way; neither belt is twisted where it exits.
 
 ---
 
 ## Route the A belt
 
-Work in one direction round the loop. Needle-nose pliers or tweezers make the bearing stacks manageable (p.132). Do not force a belt round a stack — if it will not go, use the access trick in Step 07.13.
+Work in one direction round the loop. Needle-nose pliers or tweezers make the bearing stacks manageable (p.132). Do not force a belt round a stack — if it will not go at a front idler, use the access trick in Step 07.15.
 
 Source: [Voron manual p.131](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=131)
 
@@ -227,13 +229,13 @@ Source: [Voron manual p.131](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.132](assets/manual-pages/manual-p132.png)
 
-**What you're looking at:** The left XY joint's bearing stack is the belt corner you built in Ch 05; the A belt turns 90° on it, from running along X to running along Y. Centred in the groove is the whole requirement — a belt climbing a flange wears its own edge away and eventually frays through.
+**What you're looking at:** The left XY joint's bearing stack is the belt corner you built in Ch 05; the A belt turns 90° on it, from running along X to running along Y, with its **smooth back** on the bearings — this is the joint's plain F695 stack; the toothed idler in this joint belongs to B's return run (Step 07.22). Centred in the groove is the whole requirement — a belt climbing a flange wears its own edge away and eventually frays through.
 
 **Parts:** A belt.
 
-**Do:** Take the A belt end left along the X extrusion to the left XY joint and wrap it 90° around the joint's idler stack, so it turns to run rearward along the left Y extrusion. Follow the arrows on p.132.
+**Do:** Take the A belt end left along the X extrusion to the left XY joint and wrap it 90° around the joint's plain bearing stack, smooth back on the bearings, so it turns to run rearward along the left Y extrusion. Follow the arrows on p.132.
 
-**Check:** The belt sits squarely in its groove in the stack, centred, not climbing a flange, and has not picked up a twist between the carriage and the joint.
+**Check:** The belt sits squarely in its groove in the stack, centred, not climbing a flange, smooth back on the bearings, and has not picked up a twist between the carriage and the joint.
 
 Source: [Voron manual p.132](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=132)
 
@@ -259,7 +261,7 @@ Source: [Voron manual p.126](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** A belt.
 
-**Do:** Wrap the belt round the **idler stack** at the rear-left corner — *not* the B motor pulley next to it — and turn it to run right, along the rear extrusion, towards the A drive. The p.126 top-left inset is the reference for this corner.
+**Do:** Wrap the belt round the **idler stack** at the rear-left corner, smooth back on it — *not* the B motor pulley next to it — and turn it to run right, along the rear extrusion, towards the A drive. The p.126 top-left inset is the reference for this corner.
 
 **Check:** The B motor pulley is untouched and free to spin. The A belt runs along the rear extrusion at a constant height.
 
@@ -276,8 +278,6 @@ Source: [Voron manual p.126](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:** At the rear-right (A) drive unit, take the belt round the first bearing stack, over the toothed motor pulley, and back out round the second bearing stack — the S-shape drawn on p.133. This is the wrap that gives the drive pulley its grip, so make sure the belt is seated on the pulley teeth, not riding up on a flange.
 
 **Check:** Nudge the belt along its run — the motor pulley turns with it and indexes tooth by tooth; it does not slip. The belt leaves the drive unit heading forward along the right Y extrusion.
-
-Tip: If a bearing stack will not take the belt, temporarily remove the **M3×40 SHCS** at that idler to open it up, thread the belt, then refit (manual p.134, "BELTING IDLERS").
 
 Source: [Voron manual p.133](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=133)
 
@@ -305,7 +305,9 @@ Source: [Voron manual p.134](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Wrap the belt 180° around the front-right idler bearing stack and bring it back rearward, parallel to the run you just made (p.134, right-hand image).
 
-**Check:** The two runs on the right side are parallel and do not touch each other. The smooth back of the belt is what contacts the idler stack; the teeth face outward on both runs.
+**Check:** The two runs on the right side are parallel and do not touch each other. The smooth back of the belt is what contacts the idler stack; on both runs the teeth face away from the idler — outboard on the outbound run, inboard on the return run. That opposite-facing pair is correct, not a twist.
+
+Tip: If the front-idler stack will not take the belt, temporarily remove the **M3×40 SHCS** tensioner screw at that idler to open it up, thread the belt, refit — then repeat Step 07.5 on that idler, because you have just lost its "max + 4 turns" setting (manual p.134, "BELTING IDLERS"). There is no such screw at a drive unit or an XY joint.
 
 Source: [Voron manual p.134](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=134)
 
@@ -313,13 +315,15 @@ Source: [Voron manual p.134](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.135](assets/manual-pages/manual-p135.png)
 
-**What you're looking at:** The right XY joint turns the returning run back along X to the carriage and closes the A loop. Walking the whole loop once with a finger — confirming it never changes height and never crosses itself — is the last cheap check before the B belt goes in on top of it.
+**What you're looking at:** The right XY joint turns the returning run back along X to the carriage and closes the A loop — and here, unlike the left joint, the belt wraps the joint's **toothed** 20T idler with its **teeth** on it (p.135; Ch 05 Step 05.29). The return run doubled back at the front idler, so its teeth now face inboard, and the toothed idler is the one built for that. This is correct, not a mis-route — never put a half-twist in a belt to get the smooth back onto this idler. Walking the whole loop once with a finger — confirming it never changes height and never crosses itself — is the last cheap check before the B belt goes in on top of it.
 
 **Parts:** A belt.
 
-**Do:** Take the returning run rearward to the right XY joint, wrap it 90° round the joint's idler stack, and bring it left along the X extrusion back to the X carriage. Leave the tail loose at the carriage for now — it gets captured in Step 07.24.
+**Do:** Take the returning run rearward to the right XY joint, wrap it 90° round the joint's toothed idler — teeth meshing with it — and bring it left along the X extrusion back to the X carriage. Leave the tail loose at the carriage for now — it gets captured in Step 07.24.
 
-**Check:** The A belt is now a closed path with both ends at the carriage. Walk the whole loop once with a finger and confirm it never changes height and never crosses itself.
+**Check:** The A belt is now a closed path with both ends at the carriage, teeth on the right joint's toothed idler and smooth back on every other stack. Walk the whole loop once with a finger and confirm it never changes height and never crosses itself.
+
+*Soft stop (not a Pause):* if you must break here, tape the loose A tail to the X beam so it cannot pull back through a stack. On resuming, walk the six A wraps with a fingertip and re-do the Step 07.23 checks for A before starting Step 07.17.
 
 ---
 
@@ -331,13 +335,13 @@ Source: [Voron manual p.135](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.136](assets/manual-pages/manual-p136.png)
 
-**What you're looking at:** The B belt leaves the same carriage but turns right instead of left, and wraps the right XY joint at the **other** height. A visible gap between the two belts at this joint is the evidence that you really are in two planes and not about to run one belt on top of the other.
+**What you're looking at:** The B belt leaves the same carriage but turns right instead of left, and wraps the right XY joint at the **other** height — on this joint's plain bearing stack, smooth back on it (the toothed idler here is A's, and you have just used it). A visible gap between the two belts at this joint is the evidence that you really are in two planes and not about to run one belt on top of the other.
 
 **Parts:** B belt.
 
-**Do:** Take the B belt end right along the X extrusion to the right XY joint and wrap it 90° round the joint's stack at the **other** height from the A belt, so it turns rearward along the right Y extrusion.
+**Do:** Take the B belt end right along the X extrusion to the right XY joint and wrap it 90° round the joint's plain stack at the **other** height from the A belt, smooth back on the bearings, so it turns rearward along the right Y extrusion.
 
-**Check:** A and B are clearly in two different planes at this joint, with a visible gap between them. Neither is riding on the other.
+**Check:** A and B are clearly in two different planes at this joint, with a visible gap between them. Neither is riding on the other; B's smooth back is on its stack.
 
 Source: [Voron manual p.136](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=136)
 
@@ -393,7 +397,9 @@ Source: [Voron manual p.137](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Wrap 180° around the front-left idler bearing stack and bring the belt back rearward, parallel to the outbound run (p.136, right-hand image; p.127 bottom-left inset).
 
-**Check:** Two parallel, non-touching runs on the left side. Smooth back on the idler, teeth outward.
+**Check:** Two parallel, non-touching runs on the left side. Smooth back on the idler; teeth face away from the idler on both runs — outboard on the outbound run, inboard on the return.
+
+Tip: If the front-idler stack will not take the belt, temporarily remove the **M3×40 SHCS** tensioner screw at that idler to open it up, thread the belt, refit — then repeat Step 07.5 on that idler, because you have just lost its "max + 4 turns" setting (manual p.134, "BELTING IDLERS"). There is no such screw at a drive unit or an XY joint.
 
 Source: [Voron manual p.136](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=136)
 
@@ -401,13 +407,13 @@ Source: [Voron manual p.136](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.138](assets/manual-pages/manual-p138.png)
 
-**What you're looking at:** The left XY joint turns B's returning run back along X to the carriage, closing the second loop. Both belts are now complete paths with all four ends waiting at the X carriage.
+**What you're looking at:** The left XY joint turns B's returning run back along X to the carriage, closing the second loop — teeth-on the joint's toothed 20T idler (p.138; Ch 05 Step 05.31), the mirror of what A did at the right joint in Step 07.16. Correct, not a mis-route. Both belts are now complete paths with all four ends waiting at the X carriage.
 
 **Parts:** B belt.
 
-**Do:** Take the returning run to the left XY joint, wrap it 90° at the B-belt height, and bring it right along the X extrusion back to the carriage. Leave the tail loose.
+**Do:** Take the returning run to the left XY joint, wrap it 90° round the joint's toothed idler at the B-belt height — teeth meshing with it — and bring it right along the X extrusion back to the carriage. Leave the tail loose.
 
-**Check:** Both belts are now closed paths with all four ends at the carriage.
+**Check:** Both belts are now closed paths with all four ends at the carriage; B's teeth are on the left joint's toothed idler.
 
 Source: [Voron manual p.138](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=138)
 
@@ -416,15 +422,15 @@ Source: [Voron manual p.138](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.127](assets/manual-pages/manual-p127.png)
 ![CoreXY belt path — A belt and B belt](assets/diagrams/03-corexy-belt-path.svg)
 
-**What you're looking at:** Two complete loops, still open at the carriage — the last moment when a mis-route costs minutes rather than an hour of unthreading. Four things get tested individually here: teeth on the toothed pulleys, smooth back on every plain stack, no half-twist in either loop, and the two belts stacked rather than crossed. The diagram shows both loops side by side one final time as the pre-close check, with the toothed face marked continuously along each belt so the smooth back on every bearing stack is visible at a glance.
+**What you're looking at:** Two complete loops, still open at the carriage — the last moment when a mis-route costs minutes rather than an hour of unthreading. Four things get tested individually here: teeth on the toothed wheels — both motor pulleys and the two toothed XY-joint idlers where each belt *returns* — smooth back on every plain stack, no half-twist in either loop, and the two belts stacked rather than crossed. The diagram shows both loops side by side one final time as the pre-close check, with the toothed face marked continuously along each belt.
 
 **Parts:** none.
 
 **Do:** Put p.126 and p.127 side by side with the machine and walk both loops, inset by inset. This is the last cheap moment to fix a mis-route. Test each item: nudge the belt at each motor pulley and watch that the pulley *indexes* rather than slipping; sight down every straight run to see the teeth facing the same way at both ends; turn each pulley by hand.
 
 **Check:**
-- Teeth on both motor pulleys, smooth back on every plain stack, teeth away from the extrusion at the carriage.
-- No half-twist in either loop.
+- Teeth on both motor pulleys and on the two XY-joint toothed idlers where each belt *returns* (A at the right joint, B at the left); smooth back on every plain stack, including the two XY-joint stacks where each belt *leaves* the carriage; teeth away from the extrusion at the carriage.
+- **No half-twist anywhere.** A belt's toothed face never changes sides along its loop: it faces *away* from every plain bearing stack it turns on and *into* the two toothed wheels it meets — its motor pulley and the 20T idler at its return XY joint. If, following a belt round with a finger, you find teeth on a plain stack or a smooth back on a toothed one, the belt has a half-twist somewhere — take it out at the twist, never by flipping the belt at the idler.
 - Belts stacked, not crossed, each in its own plane.
 - Every pulley turns freely.
 
@@ -510,11 +516,11 @@ Pause: ~80 min since the last pause — the long one, and it has no safe interio
 
 ![Voron manual p.142](assets/manual-pages/manual-p142.png)
 
-**What you're looking at:** Six bearing stacks, each inspected with the gantry parked in four different places — a belt that clears at centre travel can still bite at the ends of X or Y. A belt riding a printed flange ticks once per pulley revolution and leaves plastic dust behind it; found now it is an adjustment, found later it is a shredded belt and a full re-thread.
+**What you're looking at:** Ten belt contacts at six locations — two idlers per XY joint, one per front idler, and at each drive both S-wrap posts, the motor pulley and the other belt's idler post — each inspected with the gantry parked in four different places — a belt that clears at centre travel can still bite at the ends of X or Y. A belt riding a printed flange ticks once per pulley revolution and leaves plastic dust behind it; found now it is an adjustment, found later it is a shredded belt and a full re-thread.
 
 **Parts:** none.
 
-**Do:** *"Make sure that the belt is not riding on the plastic parts."* (p.142) Go round all six stacks in turn — left XY joint, right XY joint, front-left idler, front-right idler, A drive (rear-right), B drive (rear-left) — and look at the belt edges where they enter and leave each stack, top edge and bottom edge. Then push the gantry to the extreme front, the extreme rear, and both ends of X, and look again at each stack in each position: a belt that clears at centre travel can still bite at the ends. A tick once per pulley revolution is a belt riding a flange; plastic dust on a drive frame is the same thing, already happening.
+**Do:** *"Make sure that the belt is not riding on the plastic parts."* (p.142) Go round every contact in turn — left XY joint and right XY joint (both idlers each: the plain stack and the toothed one), front-left and front-right idler, A drive (rear-right) and B drive (rear-left) (both S-wrap posts, the motor pulley and the other belt's idler post at each) — and look at the belt edges where they enter and leave each stack, top edge and bottom edge. Then push the gantry to the extreme front, the extreme rear, and both ends of X, and look again at each stack in each position: a belt that clears at centre travel can still bite at the ends. A tick once per pulley revolution is a belt riding a flange; plastic dust on a drive frame is the same thing, already happening.
 
 **Check:** Visible daylight between both belt edges and the printed part, at every stack in every position. No witness marks, no plastic dust, no tick or squeak as the gantry moves.
 
@@ -522,7 +528,7 @@ Pause: ~80 min since the last pause — the long one, and it has no safe interio
 
 ## Initial tension (provisional)
 
-> The final tension is set in **Ch 06b**, after gantry squaring, on a printer that can home and QGL — the squaring procedure starts by releasing this tension completely ([V2 gantry squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html); [survey §4.4 #2 and §5.2 W1](../voron-build-instructions-survey.md)). Ch 14 re-checks it after the machine has been heat-soaked. What you set here only needs to be good enough to home, QGL and run the bring-up in Ch 13.
+> A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, machine cold and open) and Ch 14 Step 14.4 (final: hot, chamber closed). Z belts: Ch 06b Step 06b.3 (so QGL converges for squaring), re-checked hot at Ch 14 Step 14.5. The squaring procedure starts by releasing this tension completely ([V2 gantry squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html); [survey §4.4 #2 and §5.2 W1](../voron-build-instructions-survey.md)). What you set here only needs to be good enough to home, QGL and run the bring-up in Ch 13; **Ch 14 Step 14.4 owns the final number.**
 
 Source: [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=142) · [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Video: Part 4 @1:39:56](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5996s)
 
@@ -531,7 +537,7 @@ Source: [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the two centres the 150 mm is measured between](assets/cad/07-30-a.png)
 ![CAD render — the two centres the 150 mm is measured between, in place](assets/cad/07-30-b.png)
 
-**What you're looking at:** No picture — this is a measurement, not an operation. A plucked belt's pitch depends on the length of the span, so a tension figure only means anything with its span stated: 150 mm centre-to-centre between the XY joint idler and the front idler is the span Voron's number is quoted for. The two idlers a belt runs between on each side — one in the XY joint at the back of the Y beam, one in the front idler block — and the free length of belt between them that you pluck.
+**What you're looking at:** The two idlers a belt runs between on each side — one in the XY joint at the back of the Y beam, one in the front idler block — and the free length of belt between them that you pluck. A plucked belt's pitch depends on the length of the span, so a tension figure only means anything with its span stated: 150 mm centre-to-centre between the XY joint idler and the front idler is the span Voron's number is quoted for.
 
 **Parts:** none.
 
@@ -567,7 +573,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 **Do:** Adjust with the front-idler tensioner screws from Step 07.5 — **in for more tension, out for less**. Target **approximately 110 Hz over the 150 mm span**; that is about 2 lb of tension, deliberately at the low end of the useful range. **The two tensions affect each other — tightening one also tightens the other — so go back and forth in small increments (quarter turns) until they are equal**, rather than finishing one belt and then starting the other ([Voron secondary tuning § A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)).
 
-**Check:** Both belts read ~110 Hz. Do not chase the absolute number hard at this stage — it is provisional.
+**Check:** Both belts read ~110 Hz. Do not chase the absolute number hard at this stage — it is provisional; Ch 14 Step 14.4 sets it for the last time.
 
 Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
 
@@ -593,7 +599,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [survey §7.2 Ch 07](../voron-build-instructions-survey.md) · [Video: Part 6 @0:15:01](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=901s)
 
-Pause: ~30 min since the last pause — belt-rub inspection clean at all six stacks, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further, Ch 06b releases it entirely.
+Pause: ~30 min since the last pause — belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.
 
 ### Step 07.34 — Insulate the probe and trim its wires
 
@@ -676,7 +682,7 @@ Source: [Voron manual p.145](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the A/B drive cable cover](assets/cad/07-39-a.png)
 ![CAD render — the A/B drive cable cover, in place](assets/cad/07-39-b.png)
 
-**What you're looking at:** The `[a]_cable_cover` is the orange shroud that tidies the A/B motor leads where they leave a drive unit. The official manual has no page for it — it goes on now purely because the rear of the gantry is still open and easy to reach. The printed cable cover that clips over the cable exit on a drive unit, and the two belts running past it that it must never touch.
+**What you're looking at:** The `[a]_cable_cover` is the orange shroud that clips over the cable exit on a drive unit and tidies the A/B motor leads where they leave it; the two belts run past it and it must never touch them. The official manual has no page for it — it goes on now purely because the rear of the gantry is still open and easy to reach.
 
 **Parts:** `[a]_cable_cover` ×1.
 
@@ -691,25 +697,25 @@ Source: CAD: Voron 2.4r2 STEP @ de7e89d
 ## Checkpoint 07
 
 - [ ] Both belts routed to match p.126 (A) and p.127 (B); each belt stays in one plane, neither crosses the other.
-- [ ] No half-twist anywhere; belt teeth face away from the extrusion at the X carriage.
-- [ ] Teeth meshed on both toothed motor pulleys — each pulley indexes when the belt is nudged, no slip.
-- [ ] Belt not riding on any printed part at any of the six stacks, checked at both ends of X travel and both ends of Y travel (p.142).
+- [ ] No half-twist anywhere; belt teeth face away from the extrusion at the X carriage; each belt's toothed face stays on the same side all the way round.
+- [ ] Teeth meshed on both toothed motor pulleys — each pulley indexes when the belt is nudged, no slip — and on the two XY-joint toothed idlers (A at the right joint, B at the left); smooth back on every plain stack.
+- [ ] Belt not riding on any printed part at any of the ten contacts (six locations), checked at both ends of X travel and both ends of Y travel (p.142).
 - [ ] Equal length of belt protruding from the X carriage on both belts, after moving the gantry and returning (p.141).
 - [ ] Carriage bolts and all four M3×8 belt clamps fully tightened; nothing slips under a hard pull.
-- [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry.
+- [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry — provisional; Ch 14 Step 14.4 sets the final value.
 - [ ] Gantry moves through the full XY envelope by hand with even resistance, no ticking, no notchiness.
 - [ ] Probe insulated (front + sides only), fitted, wires cut to ~150 mm, tip 6 mm below the plastic, cable in its channel.
 - [ ] No hall-effect magnet fitted (p.145 skipped).
-- [ ] Photos taken: each of the six stacks with the belt seated, and the carriage clamp with both tails visible. ([survey §7.5](../voron-build-instructions-survey.md))
 
 ## Common mistakes
 
-- **Tensioning to final now.** Ch 06b releases A/B tension completely as its first move, and it cannot run until the printer is alive (Ch 13). Set ~110 Hz, confirm A ≈ B, move on. Chasing the last 5 Hz here is time you will spend again.
+- **Tensioning to final now.** Ch 06b releases A/B tension completely as its first move, and it cannot run until the printer is alive (Ch 13); the final value is Ch 14 Step 14.4, hot. Set ~110 Hz, confirm A ≈ B, move on. Chasing the last 5 Hz here is time you will spend again.
 - **Cutting the second belt after the first is installed.** Any length error becomes a permanent tension imbalance you will try to fix with the tensioners, which cannot fix it. Cut both together against a square edge (Step 07.8).
 - **Wrapping the wrong element of a rear drive unit.** Each drive unit holds the motor pulley for its own belt *and* an idler stack for the other belt. Putting the A belt on the B motor pulley looks plausible and locks the two axes together. The p.126 top-left and p.127 top-right insets show which is which.
 - **A half-twist in a long run.** It shows up as a belt that runs fine at one end of travel and rubs at the other. Sight down each straight run and confirm the teeth face the same way at both ends.
+- **"Fixing" the teeth-on turn at a return XY joint with a half-twist.** Each belt is meant to wrap its return joint's toothed idler teeth-on (Steps 07.16 and 07.22). A twist put in to get the smooth back there walks the belt off a flange at the far end of travel.
 - **Reading a harmonic on the phone.** Spectrum apps show peaks at 2× and 3× the fundamental; 220 Hz reads as "too tight" and sends you loosening a correctly tensioned belt. Take the *lowest* peak, and take three plucks.
-- **Forcing a belt round a bearing stack.** You will damage the flange or unseat a bearing. Pull the M3×40 SHCS at that idler, thread the belt, refit (p.134).
+- **Forcing a belt round a bearing stack.** You will damage the flange or unseat a bearing. At a front idler, pull the M3×40 SHCS, thread the belt, refit and redo Step 07.5 (Step 07.15, p.134). A drive unit or XY joint has no such screw — find what is fouling instead.
 
 ## Next
 

@@ -171,12 +171,18 @@ material where wet filament actually costs you strength.
 1. **Install the Advanced Filtration Kit first.** You're about to run ~157 h of ASA in an enclosure.
    Do it while the back panel is already off (Ch. 7 of the Core One build), not later.
 2. **Firmware ≥ 6.9.0** on the Core One+ (needed for GT1.5 belts later; harmless now).
-3. **First-layer Z.** Run Prusa's built-in First Layer Calibration *with ASA loaded and the chamber at 40 °C+* —
-   ASA's first layer behaves differently from PLA's. Then fine-tune squish by
-   [Ellis' smooth-bottom method](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html):
-   the bottom should be smooth with no visible gaps between beads and no ridging.
-4. **Print plate B00-P1** (§3). It contains the gate parts.
-5. **Measure with the calipers, at mid-height (not across the first layer):**
+3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
+   Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling
+   ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)). Judge B00-P1's
+   first layer by [Ellis' smooth-bottom method](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html):
+   smooth, no visible gaps between beads, no ridging. If it needs a nudge, long-press the knob during the
+   first layer → Live Adjust Z — and note the nudge is *not* saved for the next print, so fix the cause
+   (sheet seating, glue film, nozzle seat) rather than nudging every plate.
+4. **Print plate B00-P1** (§3). It carries the coupons for both gates.
+5. **Measure with the calipers, at mid-height (not across the first layer).** The gate is in two parts,
+   because three coupons need parts that only arrive with the Voron kit.
+
+   **Gate A — no kit needed (the cube):**
 
    | Coupon | Nominal | Accept | If out of spec |
    |---|---|---|---|
@@ -184,11 +190,19 @@ material where wet filament actually costs you strength.
    | `Voron_Design_Cube_v7` Z | 30.00 mm | **±0.10 mm** | over → first layer under-squished; under → over-squished |
    | Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
    | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
-   | `Heatset_Practice` | 3 × M3×5×4 inserts | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all three before touching a real part. |
+
+   **Gate B — kit day (bore, rail, inserts):**
+
+   | Coupon | Nominal | Accept | If out of spec |
+   |---|---|---|---|
+   | `Heatset_Practice` | 7 × M3×5×4 inserts — all seven pockets (146 of the kit's 153 remain) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all seven before touching a real part. |
    | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
    | `z_drive_retainer_a` 625-2RS bore (on the same plate) | 16.00 mm bearing (625-2RS; F695 is the A/B-drive bearing, not the Z drive) | bearing presses in with thumb pressure, no rocking | **This is the real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
 
-6. Only when all seven pass, start Batch 1.
+6. **Gate A passed → B02 and B07** print now; **B08 → B09 → B10** once the Gen 2 belt upgrade is done and
+   a fresh cube re-passes Gate A. **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A
+   alone — that is 58.5 h and 763 g of bearing-seat and shaft-bore parts against an unverified fit. Two
+   625-2RS and ten inserts ordered with the filament let Gate B run before the kit lands.
 
 **Quality gate before every later batch:** look at the *last* plate you pulled off. If any part shows
 (a) a lifted corner, (b) a delaminated layer, or (c) a bore/boss that failed a test fit — fix that before
@@ -212,6 +226,12 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 
 So the minimum to start building is **B00 + B01 + B02-P1 + B02-P3** ≈ 34 h of printing.
 Everything else can be printed while you build.
+
+**What prints before the kit.** Gate A (§1.4) releases the batches with no bearing seat, rail fit or shaft
+bore: **B00 → B02 → B07**, then — after the Gen 2 belt upgrade and a fresh cube — **B08 → B09 → B10**:
+98.6 h of the 157.1. Gate B (kit day) releases **B01, B03, B04, B05, B06**: 58.5 h, printed under Ch 00–05.
+So on kit day the frame (no printed part) and Ch 00 start at once, B01 prints under them, and Ch 02 waits
+on B01-P2 for half a day at most.
 
 **Tall parts (> 150 mm in Z): none.** The tallest part in the whole set is the Clicky-Clack `Handle` at
 **60.0 mm**. Orientation rules that do matter are in §5.
@@ -784,7 +804,8 @@ pulleys, steps/mm and firmware together — you want it done and settled before 
 1. B08 + B09 + B10 are 12 of the 27 plates and contain **every surface anyone will ever look at** — the 150–182 mm
    skirts are large flat vertical faces, which is exactly where GT1.5's reduced VFA shows.
 2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
-3. It's a clean boundary — no half-finished sub-assembly waits on it.
+3. It's a clean boundary — no half-finished sub-assembly waits on it, and in the pre-kit print order
+   (B00 → B02 → B07 → B08) it is exactly where the cosmetic run begins.
 
 **Second-best boundary:** if the kit arrives *before* B02 starts, do it then — the Stealthburner main body is the
 single most-looked-at printed part on the machine and it's on B02-P1.
@@ -795,9 +816,9 @@ single most-looked-at printed part on the machine and it's on B02-P1.
 2. Re-tension both belts and re-square the gantry, per
    [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
-4. Redo first-layer calibration (§1.4 step 3).
-5. **Re-print `Voron_Design_Cube_v7` and re-measure** — steps/mm changed with the pulleys, so the dimensional gate
-   has to be re-passed before you print 437 g of skirts.
+4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** (§1.4) — steps/mm changed with the pulleys, so the
+   dimensional gate has to be re-passed before you print 399 g of skirts. Judge its first layer per §1.4
+   step 3; the loadcell re-zeroes on its own and there is no wizard to redo.
 
 Do **not** try to interleave the upgrade with a running plate; the Nextruder and bed have to come apart.
 

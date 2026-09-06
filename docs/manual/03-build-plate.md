@@ -17,9 +17,9 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 **Tools**
 
 - Hex 2.5 mm and 3 mm
-- PH2 screwdriver (checking the heatpad's mechanical retaining screws)
 - Plastic scraper, squeegee or an old credit card (magnet application)
-- Sharp craft knife with a fresh blade (trimming the magnet at the bolt holes)
+- Sharp craft knife with a fresh blade (trimming the magnet at the bolt holes; cutting the liner at Step 03.9)
+- Masking tape (marking the back edge at Step 03.2; the hinge for the magnet at Step 03.9)
 - Steel rule or straightedge ≥360 mm (flatness check and the 38 mm offset)
 - Digital caliper
 
@@ -42,7 +42,7 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 | M3×20 SHCS | 4 | **not** the manual's M3×16 |
 | M4 knurled thumb nut | 4 | used as the spacer, not as a nut |
 | M3 roll-in T-nut, 2020 | 4 | bed extrusion top slots |
-| M4×6 BHCS + serrated washer (bed PE) | 1 | already fitted to the plate — verify only, do not remove |
+| M4×6 BHCS (bed PE) | 1 | already fitted to the plate — verify only, do not remove (washer: verify on bench) |
 | M3×12 SHCS + M3 washer (thermal fuse) | 0 | manual p.56 hardware — **not used**, fuse is pre-installed |
 
 **Read first**
@@ -50,6 +50,7 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 - The heater pad (p.55) and the thermal fuse (p.56) are already on your plate. Both pages are **verify-only**. Do not peel, re-seat or re-bolt anything. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - Trim the magnet at the four bolt holes **immediately after** you roll it down and **before** you bolt anything. Discovering it at p.59 means peeling the magnet or drilling through it (survey §5.2 W6).
 - Use **M3×20 SHCS**, not the manual's M3×16 — this plate and these spacers are thicker. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+- The magnet goes on with the hinge method at Step 03.9 — one shot; read the whole step before you peel anything.
 - Only one of the four bolts gets tightened (p.59). A bed clamped hard at all four corners while cold, then heated fast, tacos.
 - No wiring happens here. The Omron SSR, the WAGO breakout, the bed PE run and the thermistor connection are all Ch 10. Leave the three bed cables loose below deck.
 
@@ -77,7 +78,7 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 
 **Do:** Take the plate out flat, never on edge — a 355×355×10 mm cast slab will dent a corner if you drop it. Lay it on a clean towel on the bench. Note the target in the render: the plate sits on the two bed extrusions above the deck panel, with the cables dropping through the deck.
 
-**Check:** Three cables leave the plate at the back-centre edge, and a small screw with a serrated washer sits near them. All present before you go further.
+**Check:** Three cables leave the plate at the back-centre edge, and a small screw (the M4×6 PE screw; washer: verify on bench) sits near them. All present before you go further.
 
 Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @0:44:56](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2696s)
 
@@ -126,9 +127,9 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** none.
 
-**Do:** Turn the plate bottom-up. Confirm the AC heatpad is bonded flat and centred, with no lifted corner, no wrinkle and no trapped air. No bubble size is specified anywhere — judge it against "flat and fully bonded", and photograph anything you are unsure about. Check the small mechanical retaining screws that hold the pad down (PH2) are present and snug — LDO screws the pad as a failsafe in addition to the adhesive. Do not add adhesive and do not re-press a lifted edge with heat.
+**Do:** Turn the plate bottom-up. Confirm the AC heatpad is bonded flat and centred, with no lifted corner, no wrinkle and no trapped air. No bubble size is specified anywhere — judge it against "flat and fully bonded", and raise anything you are unsure about in `#ldo_motors`. Confirm every pad screw is present. Do not tighten them — LDO's label on the pad says not to (verify screw head type on bench; the 350 pad may differ from the photo). Do not add adhesive and do not re-press a lifted edge with heat.
 
-**Check:** Pad flat and centred; every retaining screw present and tight; nothing peeling at the cable exit.
+**Check:** Pad flat and centred; every pad screw present and untouched; nothing peeling at the cable exit.
 
 ⚠ **Rev D+ / LDO:** **SKIP manual p.55 entirely** — the heater pad is pre-applied on Rev C and later kits. This step is inspection only. If the pad is genuinely lifting, stop and raise it in `#ldo_motors` before you bolt the plate in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
@@ -158,13 +159,13 @@ Source: [Voron manual p.56](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.57](assets/manual-pages/manual-p057.png)
 
-**What you're looking at:** Manual p.57 — the plate's cable exit. Three cables leave here: two thick braided AC leads (**N** and **Bed L**) that carry mains to the heater, and one thin two-pin **BED TH** cable, the thermistor the firmware reads the bed temperature from. Beside them is the **protective-earth** screw — an M4×6 with a serrated washer that bites through the surface to bond the plate to earth ([glossary](16-glossary.md#p)).
+**What you're looking at:** Manual p.57 — the plate's cable exit. Three cables leave here: two thick braided AC leads (**N** and **Bed L**) that carry mains to the heater, and one thin two-pin **BED TH** cable, the thermistor the firmware reads the bed temperature from. Beside them is the **protective-earth** screw — an M4×6 BHCS that bonds the plate to earth ([glossary](16-glossary.md#p)); whether it carries a serrated washer is not in LDO's note (verify on bench).
 
 **Parts:** none — the PE screw is already fitted.
 
-**Do:** Identify the three cables leaving the back edge: two thick braided AC leads labelled **N** and **Bed L**, and one thin two-pin cable labelled **BED TH** (the ATC Semitec 104NT bed thermistor). Find the **M4×6 BHCS with its serrated washer** threaded into the plate beside them — that is the bed PE point. Leave it in place; back it off later only when you land the PE ring terminal in Ch 10.
+**Do:** Identify the three cables leaving the back edge: two thick braided AC leads labelled **N** and **Bed L**, and one thin two-pin cable labelled **BED TH** (the ATC Semitec 104NT bed thermistor). Find the **M4×6 BHCS** threaded into the plate beside them — that is the bed PE point (washer: verify on bench). Leave it in place; back it off later only when you land the PE ring terminal in Ch 10.
 
-**Check:** Three labelled cables, no chafe or cut in the braid, no exposed conductor. PE screw present with its serrated washer, snug.
+**Check:** Three labelled cables, no chafe or cut in the braid, no exposed conductor. PE screw present, snug.
 
 ⚠ **Rev D+ / LDO:** the manual calls for an M3×6 BHCS you supply. Your plate ships with an **M4×6 BHCS** already attached — use that one. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -184,9 +185,9 @@ Pause: ~30 min since the last pause — the plate is unpacked and identified top
 
 **Parts:** build plate, steel rule or straightedge.
 
-**Do:** Stand the straightedge on edge on the ground face and sight against a light: both diagonals, both centrelines, and both edge-to-edge runs near the front and back. Do this now — once the magnet is on you cannot inspect the ground surface again.
+**Do:** Stand the straightedge on edge on the ground face and sight against a light: one diagonal and one centreline, two minutes. Do this now — once the magnet is on you cannot inspect the ground surface again.
 
-**Check:** No daylight under the straightedge anywhere. Voron and LDO publish **no flatness tolerance (not specified)** for this plate, so photograph anything you can see light through and raise it in `#ldo_motors` before you build on it.
+**Check:** No daylight under the straightedge. Voron and LDO publish **no flatness tolerance (not specified)** for this plate; only a gap you can slide a sheet of paper under is worth raising in `#ldo_motors` before you build on it — a Blanchard-ground 10 mm cast plate is not going to be dished.
 
 Tip: a cast, Blanchard-ground 5083 plate is deliberately thick and stress-relieved; a visible dish here does not get corrected by mesh or QGL later. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -214,13 +215,13 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
-**What you're looking at:** Manual p.54 and the magnetic pad. It is a flexible sheet of magnetised rubber with a pressure-sensitive adhesive back; laminated to the plate it becomes the thing that holds the spring-steel flex plate down. On this kit it is a separate BOM line, not factory-applied, so this lamination is yours to get right first time.
+**What you're looking at:** Manual p.54 and the magnetic pad. It is a flexible sheet of magnetised rubber with a pressure-sensitive adhesive back under a liner; laminated to the plate it becomes the thing that holds the spring-steel flex plate down. On this kit it is a separate BOM line, not factory-applied, so this lamination is yours to get right first time (one shot — read the whole step first).
 
-**Parts:** Magnetic Pad 2.4-350 ×1.
+**Parts:** Magnetic Pad 2.4-350 ×1; masking tape; plastic squeegee or card; knife or scissors for the liner.
 
-**Do:** Dry-fit first: lay the pad on the plate with the backing still on and note the border on each side. Peel the backing from one edge only, align that edge and the two adjacent corners, then lower the pad progressively across the plate, driving the front of the contact line with a plastic scraper or card so no air is trapped. Press the whole area down firmly — the bond is pressure-activated. Watch the manual's linked demo first if you have never laminated an adhesive sheet: [https://voron.link/rm6tpld](https://voron.link/rm6tpld) (manual p.54).
+**Do:** Measure the pad against the plate before peeling anything (verify on bench — LDO publishes no drawing): same 355 mm as the plate → it goes edge-flush to the **back** edge and one side; smaller → centre it and write the border down. The liner side is the adhesive; the plain rubber face is the magnet. The four bolt holes are not pre-cut (that is Step 03.10). Hinge it: with the liner on, lay the pad exactly where it goes and tape it along the back edge with two strips of masking tape running from the pad's top face over the plate's side — that tape is the hinge. Fold the pad back over the hinge, peel 40–50 mm of liner at the hinged edge and cut it off, lay that strip down and squeegee it. Then pull the liner out underneath while squeegeeing from the hinge toward you, ~50 mm per stroke, keeping the unlaid pad lifted so adhesive never touches ahead of the squeegee. Remove the hinge tape and press the whole sheet with a card edge or roller (p.54) — the bond is pressure-activated. If the first strip lands crooked, lift it **immediately** — once more than a few cm are down it will not reposition. Watch the manual's linked demo first if you have never laminated an adhesive sheet: [https://voron.link/rm6tpld](https://voron.link/rm6tpld) (manual p.54).
 
-**Check:** No bubbles, no wrinkles, even border all round, pad square to the plate edges. Bubbles pushed to an edge can still be worked out; ones in the middle cannot.
+**Check:** No bubbles, no wrinkles, the border you wrote down (or flush edges) all round, pad square to the plate edges. Bubbles pushed to an edge can still be worked out; ones in the middle cannot.
 
 ⚠ **Rev D+ / LDO:** the magnetic pad is a **separate line item** in the 350 Rev D BOM — it is not laminated at the factory, unlike the heater and fuse. If your plate did arrive with the magnet already on, skip to 03.10 and check whether the four bolt holes are already cut. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -252,13 +253,13 @@ Pause: ~30 min since the last pause — the top face is cleaned, the magnet is r
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png)
 
-**What you're looking at:** Manual p.58 — the front elevation of the frame with the bed extrusions in it. You are re-checking Ch 01's placement because those two extrusions carry the plate's four mounting points; if they are not where the plate's holes are, the plate cannot sit down evenly on its spacers.
+**What you're looking at:** Manual p.58 — the front elevation of the frame with the bed extrusions in it. You are re-checking Ch 01's placement because those two extrusions carry the plate's four mounting points; if they are not where the plate's holes are, the plate cannot sit down evenly on its spacers. (p.58 also carries a bare "25" on the verticals; what it dimensions is not identified, and nothing in this chapter depends on it.)
 
 **Parts:** none — measurement only.
 
-**Do:** With the printer upright, measure the two bed extrusions: **130 mm of clear space between their facing inner faces**, centred on the printer centreline, i.e. 65 mm from the centreline to each inner face (manual p.20 — the dimension lines land on the inner faces, so the centres are 150 mm apart). Then take p.58's front elevation: 25 mm from the top face of the lower front frame extrusion up to the bolt centre in each front vertical extrusion. Measure both sides — a difference here shows up later as a plate that will not sit down on all four spacers.
+**Do:** With the printer upright, measure the two bed extrusions: **130 mm of clear space between their facing inner faces**, centred on the printer centreline, i.e. 65 mm from the centreline to each inner face (manual p.20 — the dimension lines land on the inner faces, so the centres are 150 mm apart). Measure at both ends of the extrusions — a difference between the ends shows up later as a plate that will not sit down on all four spacers.
 
-**Check:** 130 mm clear gap between the facing inner faces (= 150 mm centre-to-centre), 65 mm from the centreline to each inner face, and the 25 mm reading the same left and right.
+**Check:** 130 mm clear gap between the facing inner faces (= 150 mm centre-to-centre), 65 mm from the centreline to each inner face, the same at both ends.
 
 Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [Voron manual p.20](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20)
 
@@ -431,14 +432,14 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the b
 
 - [ ] Protective film removed; top face clean, magnet applied with no bubbles or wrinkles.
 - [ ] All four bolt holes trimmed clear through the magnet; a 2.5 mm hex key reaches each bolt head.
-- [ ] Heater pad flat and centred, retaining screws present and snug — inspected, not re-applied.
+- [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
 - [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
-- [ ] M4×6 BHCS + serrated washer present on the plate as the PE point; nothing wired to it.
+- [ ] M4×6 BHCS present on the plate as the PE point (washer: verify on bench); nothing wired to it.
 - [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers.
 - [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
 - [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.
-- [ ] Straightedge check recorded (photo) before the magnet went on.
+- [ ] Straightedge check done before the magnet went on — no gap you could slide paper under.
 - [ ] Three bed cables hanging free below the deck with slack, unterminated, nothing pinched or tied.
 - [ ] Flex plate test-fitted, removed, and the bed covered for the rest of the build.
 
@@ -447,7 +448,7 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the b
 - **Applying the magnet over untrimmed bolt holes and only noticing at p.59.** The fix is a peel-and-replace magnet or drilling through it — both bad. Trim at 03.10.
 - **Using the M3×16 the manual calls for.** It engages barely any thread through a 10 mm plate plus spacer, and strips the T-nut on first tighten. M3×20.
 - **Tightening all four bolts because three loose bolts feel wrong.** The plate tacos on the first fast heat-up to 110 °C and never comes flat again.
-- **Trying to "fix" the pre-applied heater or fuse.** Peeling a bonded AC heatpad to re-seat it wrecks it. Inspect, photograph, and ask in `#ldo_motors` if something looks wrong.
+- **Trying to "fix" the pre-applied heater or fuse.** Peeling a bonded AC heatpad to re-seat it wrecks it. Inspect and ask in `#ldo_motors` if something looks wrong.
 - **Wiring the bed here.** The PE, heater leads and thermistor all terminate in Ch 10 after the SSR and WAGOs are mounted. Landing them now means undoing them.
 - **Building on the bare magnet, or leaving the surface exposed.** The magnet sheet is not a print surface, and everything you drop for the next six chapters lands on it.
 

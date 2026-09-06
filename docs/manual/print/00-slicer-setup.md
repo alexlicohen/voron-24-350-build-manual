@@ -190,7 +190,7 @@ bearing-seat and shaft-bore parts printed against an unverified fit.
 
 | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|
-| `Heatset_Practice` | 3 × M3×5×4 inserts, from the kit's 153 | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all three before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
+| `Heatset_Practice` | 7 × M3×5×4 inserts — all seven pockets, from the kit's 153 (146 remain for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
 | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 | `z_drive_retainer_a` 625-2RS bore (same plate) | 625-2RS bearing, 16 mm OD | bearing presses in with thumb pressure, no rocking | **The real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
 
@@ -198,7 +198,7 @@ bearing-seat and shaft-bore parts printed against an unverified fit.
 and unblocks 22.8 h of printing, so run it before Ch 00's inventory, not after. If Gate B moves the
 extrusion multiplier, re-print the cube and re-pass Gate A before B01.
 
-Two 625-2RS bearings and ten M3×5×4 inserts cost a few dollars: order them with the filament and Gate B
+Two 625-2RS bearings and ten M3×5×4 inserts (seven for the coupon) cost a few dollars: order them with the filament and Gate B
 can run in the same week as Gate A, with the parts otherwise sitting idle until the kit lands.
 
 6. **Which gate releases which batch:**

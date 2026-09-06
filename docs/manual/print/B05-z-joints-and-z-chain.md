@@ -2,7 +2,10 @@
 
 **Time:** 6.4 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
-**Prerequisites:** B00, B02, B04.
+**Sessions:** 1 plate start (~5 min hands-on, 6.4 h unattended) + ~10 min inspect and bin.
+
+**Prerequisites:** **Gate B passed** (Step B00.7, kit day — 8 mm shaft bores in the Z joints). B02 and B04 feed
+the same assembly chapters; neither is a print prerequisite.
 
 **Printed parts**
 
@@ -29,8 +32,9 @@ hall-effect XY endstops, which this kit does not use.
 
 ## Step B05.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥78 g remaining.
-**Check:** Clean purge.
+**Do:** Galaxy Black. Per the ledger this plate starts a fresh spool (#3): spool #2's last ~13 g is not worth a
+resume seam on a Z joint — keep it for a clip reprint. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Check:** Clean purge; ≥78 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -39,7 +43,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 ![Plate B05-P1](../assets/plates/B05-P1.png)
 
 **Do:** Open `slicer/plates/B05-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all fourteen parts: `z_joint_lower_x4` ×4, `z_joint_upper_x4` ×4, `z_chain_bottom_anchor`,
-`z_chain_guide`, `z_rail_stop_x4` ×4. No rotation, no brim. Confirm you are **not** including
+`z_chain_guide`, `z_rail_stop_x4` ×4. No rotation, no brim in the project. Confirm you are **not** including
 `z_joint_upper_hall_effect.stl`.
 **Parts:** the fourteen pieces above — 6.4 h, 78 g (PrusaSlicer 2.9.6 estimate).
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
@@ -59,6 +63,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 each `z_joint_upper` sits square against a test extrusion face.
 **Check:** Shaft slides freely; joint sits flush and square.
 
+Pause: ~10 min since the last pause — shafts and joints dry-fitted and apart again; nothing pressed.
+
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade)
 
 ## Step B05.5 — Label and bin
@@ -72,6 +78,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ---
 
 ## Checkpoint B05
+- [ ] Gate B passed before B05-P1 started
 - [ ] 8 mm Z shaft slides freely through every `z_joint_lower` — no press-fit
 - [ ] Every `z_joint_upper` sits square on a test extrusion
 - [ ] Confirmed zero copies of `z_joint_upper_hall_effect.stl` were printed

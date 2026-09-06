@@ -22,11 +22,13 @@ from __future__ import annotations
 
 import argparse
 import math
+import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "docs" / "manual" / "assets" / "diagrams"
+PRINT_README = REPO / "docs" / "manual" / "print" / "README.md"
 
 W = 1200
 
@@ -637,10 +639,25 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
     d.text(X(CAR[0]), Y(CAR[1] + 10), "right half", size=10.5, anchor="middle", fill=MUTED)
 
     # ---- stations ----
-    for (cx, cy), lab in ((FAR_L, ""), (S1, ""), (S2, ""), (FRI, ""), (XYL, ""), (XYR, "")):
+    # Plain F695 stacks: the other drive's far post, this drive's two posts, the
+    # front idler, and the XY joint the belt LEAVES the carriage through (smooth
+    # back on all of them). The joint the belt RETURNS through is a 20T toothed
+    # idler and the belt wraps it teeth-on (Ch 07 Steps 07.16 / 07.22).
+    for (cx, cy), lab in ((FAR_L, ""), (S1, ""), (S2, ""), (FRI, ""), (XYL, "")):
         d.circle(X(cx), Y(cy), 15, fill=GREY_F, stroke=GREY, sw=2.2)
     d.circle(X(PUL[0]), Y(PUL[1]), 15, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
     d.circle(X(PUL[0]), Y(PUL[1]), 8, fill="none", stroke=ORANGE, sw=1.6)
+    d.circle(X(XYR[0]), Y(XYR[1]), 15, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
+    d.circle(X(XYR[0]), Y(XYR[1]), 8, fill="none", stroke=ORANGE, sw=1.6, dash="2.5 2")
+    # callouts sit in the free band under the carriage, clear of the belt legs
+    d.text(X(312), Y(XYR[1] + 74), "return turn: TEETH ON", size=10.8, anchor="middle",
+           fill=ORANGE, weight=700)
+    d.text(X(312), Y(XYR[1] + 88), "this joint's 20T idler", size=10.8, anchor="middle",
+           fill=ORANGE, weight=600)
+    d.text(X(132), Y(XYL[1] + 74), "leaving turn: smooth", size=10.8, anchor="middle",
+           fill=MUTED, weight=600)
+    d.text(X(132), Y(XYL[1] + 88), "back on the F695 pair", size=10.8, anchor="middle",
+           fill=MUTED)
 
     # ---- the belt ----
     def N(p, s=S):
@@ -678,11 +695,12 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
 
 
 def d03_belt_path() -> Doc:
-    d = Doc(968, "Voron 2.4r2 — CoreXY belt path")
+    d = Doc(1000, "Voron 2.4r2 — CoreXY belt path")
     top = header(d, "CoreXY belt path — A belt and B belt",
                  "The two belts are stacked at different heights and never cross. Each belt "
-                 "stays in one horizontal plane for its whole loop.",
-                 "Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15")
+                 "stays in one horizontal plane for its whole loop, and its toothed face "
+                 "never changes sides.",
+                 "Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15 · 07.16 · 07.22")
 
     d.panel(30, top + 16, 560, 672, "A belt  —  A drive is rear RIGHT",
             "two parallel runs on the right side, one on the left")
@@ -694,29 +712,38 @@ def d03_belt_path() -> Doc:
     _corexy_panel(d, 635, top + 78, True, BELT_B, "arwb", "", "", "",
                   "B drive", "B idler", "A drive")
 
-    # legend
+    # legend — two rows
     ly = top + 704
-    d.rect(30, ly, 1140, 60, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
+    d.rect(30, ly, 1140, 88, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
+    r1, r2 = ly + 24, ly + 60
     lx = 50
-    d.line(lx, ly + 24, lx + 34, ly + 24, stroke=BELT_A, sw=3.4)
+    d.line(lx, r1, lx + 34, r1, stroke=BELT_A, sw=3.4)
     for i in range(4):
-        d.line(lx + 4 + i * 9, ly + 24, lx + 4 + i * 9, ly + 31, stroke=BELT_A, sw=1.8,
+        d.line(lx + 4 + i * 9, r1, lx + 4 + i * 9, r1 + 7, stroke=BELT_A, sw=1.8,
                cap="butt")
-    d.text(lx + 42, ly + 29, "A belt — ticks mark the toothed face", size=12.5, weight=600)
+    d.text(lx + 42, r1 + 5, "A belt — ticks mark the toothed face", size=12.5, weight=600)
     lx = 372
-    d.line(lx, ly + 24, lx + 34, ly + 24, stroke=BELT_B, sw=3.4)
+    d.line(lx, r1, lx + 34, r1, stroke=BELT_B, sw=3.4)
     for i in range(4):
-        d.line(lx + 4 + i * 9, ly + 24, lx + 4 + i * 9, ly + 31, stroke=BELT_B, sw=1.8,
+        d.line(lx + 4 + i * 9, r1, lx + 4 + i * 9, r1 + 7, stroke=BELT_B, sw=1.8,
                cap="butt")
-    d.text(lx + 42, ly + 29, "B belt", size=12.5, weight=600)
-    d.circle(530, ly + 24, 9, fill=GREY_F, stroke=GREY, sw=2)
-    d.text(546, ly + 29, "F695 bearing stack — smooth back rides here", size=12.5)
-    d.circle(880, ly + 24, 9, fill=ORANGE_F, stroke=ORANGE, sw=2.4)
-    d.text(896, ly + 29, "20T motor pulley — teeth engage here", size=12.5)
+    d.text(lx + 42, r1 + 5, "B belt", size=12.5, weight=600)
+    d.circle(530, r1, 9, fill=GREY_F, stroke=GREY, sw=2)
+    d.text(546, r1 + 5, "F695 stack — smooth back rides here (drives, front idler, the "
+                        "leaving XY joint)", size=12.5)
+    d.circle(60, r2, 9, fill=ORANGE_F, stroke=ORANGE, sw=2.4)
+    d.text(76, r2 + 5, "20T motor pulley — teeth engage here", size=12.5)
+    d.circle(400, r2, 9, fill=ORANGE_F, stroke=ORANGE, sw=2.4)
+    d.circle(400, r2, 4.5, fill="none", stroke=ORANGE, sw=1.4, dash="2 1.5")
+    d.text(416, r2 + 5, "20T idler at the RETURN XY joint — wraps teeth-on (A: right joint, "
+                        "Step 07.16 · B: left joint, Step 07.22) — never twist a belt",
+           size=12.5)
 
     footer(d, "Clamp points: one end of BOTH belts goes into the left X carriage half, one "
               "into the upper slot and one into the lower, teeth facing the front of the "
               "machine (Step 07.9); both tails are captured by the right half (Step 07.24). "
+              "The toothed face never changes sides: smooth back on every plain F695 "
+              "stack, teeth into the motor pulley and into the return joint's 20T idler. "
               "Lane spacing inside each drive unit is schematic — the chapter fixes the "
               "order of the wraps, not their top-view coordinates.")
     return d
@@ -785,11 +812,11 @@ def d04_z_drive() -> Doc:
         d.line(inner_x, y, inner_x + 7, y, stroke=BELT_A, sw=1.8, cap="butt")
     for y in range(int(idl[1]) + 40, int(drv[1]) - 36, 26):
         d.line(outer_x, y, outer_x - 7, y, stroke=BELT_A, sw=1.8, cap="butt")
-    d.text(px + 18, py + ph - 66, "Z belt — teeth face inward, onto the pulleys",
+    d.text(px + 18, py + ph - 66, "Z belt — teeth face inward, onto both pulleys",
            size=12, fill=BELT_A, weight=600)
-    d.text(px + 18, py + ph - 46, "the two vertical runs are parallel; the smooth back",
+    d.text(px + 18, py + ph - 46, "the belt runs flat, no half-twist: the teeth of the two",
            size=11.3, fill=MUTED)
-    d.text(px + 18, py + ph - 30, "of one faces the toothed face of the other",
+    d.text(px + 18, py + ph - 30, "vertical runs face each other, smooth back outward on both",
            size=11.3, fill=MUTED)
 
     # ---------- middle panel: the drive internals ----------
@@ -878,7 +905,9 @@ def d04_z_drive() -> Doc:
     footer(d, "Z gearing is stock: the LDO Klipper config carries [stepper_z] "
               "rotation_distance: 40 and gear_ratio: 80:16. Four identical drives, two "
               "'a' and two 'b'. The Z idler's pulley must face the same way as the 20T "
-              "in the drive directly below it, or the Z belt does not run in one plane.")
+              "in the drive directly below it, or the Z belt does not run in one plane. "
+              "A tooth visible on the outside of either vertical run means the belt is "
+              "twisted (Ch 06).")
     return d
 
 
@@ -930,9 +959,9 @@ def d05_mains_pe() -> Doc:
         ("selector at 115 V for a US", MUTED),
         ("110/120 V supply", MUTED),
         ("", MUTED),
-        ("AC screw block order:", INK),
-        ("earth  ·  N  ·  L", INK),
-        ("L is the outermost", MUTED)])
+        ("AC screws, from the outer end:", INK),
+        ("1 L  ·  2 N  ·  3 FG (earth)", INK),
+        ("L outermost, FG beside −V", MUTED)])
 
     box(998, y0, 162, 160, "24 V out", [
         ("+V / −V feed:", MUTED),
@@ -976,8 +1005,8 @@ def d05_mains_pe() -> Doc:
         ("Bed TH  → 2x2 XH splicer → Leviathan TH1", MUTED),
         ("", MUTED),
         ("PE lands on the plate's own pre-fitted", GREEN),
-        ("M4x6 BHCS + serrated washer", GREEN),
-        ("(not the manual's M3x6 — do not remove it)", MUTED)])
+        ("M4x6 BHCS + serrated washer: back it out", GREEN),
+        ("3 turns, ring under the washer, retighten", MUTED)])
 
     # L from the WAGO down to the SSR, and bed L across
     d.path(f"M {600} {y0 + 190} L {600} {ys}", stroke=BROWN, sw=2.6, marker="arw")
@@ -997,7 +1026,7 @@ def d05_mains_pe() -> Doc:
            fill=GREEN)
     rows = [("Supply", "wall socket earth → C14 E pin, through the C13 cord"),
             ("Bus", "C14 E → the yellow PE WAGO"),
-            ("PSU", "PE WAGO → the Meanwell's earth terminal"),
+            ("PSU", "PE WAGO → Meanwell screw 3 FG (innermost AC screw)"),
             ("Frame", "PE WAGO → frame extrusion; ring terminal between"),
             ("", "two M5 locking washers, on scraped bare metal"),
             ("Bed", "build plate → PE WAGO, on the plate's own"),
@@ -1008,11 +1037,12 @@ def d05_mains_pe() -> Doc:
             d.text(58, yy, a, size=12.8, weight=700)
         d.text(126, yy, b, size=12.3, fill=MUTED)
         yy += 20
-    d.text(58, yy + 12, "Never switched, never fused. Continuity from the C14 earth pin to",
+    d.text(58, yy + 12, "Never switched, never fused. C14 earth pin to a screw head or T-nut",
            size=12, fill=MUTED)
-    d.text(58, yy + 29, "any frame corner must read under a few ohms — that is the check",
+    d.text(58, yy + 29, "at any frame corner (never the anodised face) must read under 2–3 Ω",
            size=12, fill=MUTED)
-    d.text(58, yy + 46, "that makes the whole machine safe to touch.", size=12, fill=MUTED)
+    d.text(58, yy + 46, "— the check that makes the whole machine safe to touch (10.18, 10.77).",
+           size=12, fill=MUTED)
 
     # PE arrows on the drawing
     for (x1, y1, x2, y2) in ((622, y0 + 190, 622, 560),):
@@ -1035,9 +1065,9 @@ def d05_mains_pe() -> Doc:
            size=12.3, width_chars=78, lh=17.5, fill=INK)
 
     footer(d, "Every mains connection is made with the C13 cord in another room. Screw "
-              "terminals (PSU earth/N/L, SSR LOAD 1/2) get VE0508 ferrules; WAGO 221 levers "
-              "take bare stranded core to the stop. Fuse rating: (verify on bench) — LDO "
-              "does not publish the value.")
+              "terminals (PSU 1 L / 2 N / 3 FG, SSR LOAD 1/2) get VE0508 ferrules; WAGO 221 "
+              "levers take bare stranded core stripped to 11 mm. Fuse rating: (verify on "
+              "bench) — LDO does not publish the value.")
     return d
 
 
@@ -1069,8 +1099,8 @@ def d06_harness_map() -> Doc:
             ("— nothing —", "", "FAN0 · FAN1", "unused, unjumpered on a Nitehawk"),
         ]),
         ("POWER — 24 V", [
-            ("24V PSU to MB   (TO MB end)", "screw terminal", "Vin 24V / Board",
-             "other end on the PSU +V / −V"),
+            ("24V PSU to MB   (24V end)", "screw terminal", "Vin 24V / Board",
+             "TO MB end on the PSU +V / −V"),
             ("HV to MB HV   (HV end)", "screw terminal", "Vin 24-48V / HV-Steppers",
              "feeds the two TMC5160s"),
             ("SSR to MB   (To SSR end)", "screw terminal", "HEATBED",
@@ -1159,9 +1189,11 @@ def d06_harness_map() -> Doc:
     y = section("Toolhead — umbilical and Nitehawk-SB V2", NHK, y)
 
     footer(d, "Positions in the notes column are read standing in front of an upright "
-              "printer. A and B must land on the two TMC5160 ports and nowhere else — on a "
-              "2209 the motor is badly under-driven. Never plug or unplug a stepper, or the "
-              "Micro-Fit umbilical, with power on.")
+              "printer. LDO's tags name the cable's destination: the end you hold reads "
+              "where the OTHER end goes (TO MB / TO TOOLHEAD sit at the PSU; 24V / 24V IN "
+              "at the device). A and B must land on the two TMC5160 ports and nowhere else "
+              "— on a 2209 the motor is badly under-driven. Never plug or unplug a stepper, "
+              "or the Micro-Fit umbilical, with power on.")
     return d
 
 
@@ -1217,10 +1249,10 @@ def d07_jumpers() -> Doc:
                  "unused — the probe is on the toolboard")
     d.rect(bx + 348, y + 180, 288, 74, fill=BG, stroke=RULE, sw=1.6, rx=8, dash="6 5")
     d.text(bx + 364, y + 208, "3 bare  ·  2 fitted  ·  5 total", size=14, weight=700)
-    d.text(bx + 364, y + 229, "a jumper left at 5 V under a 24 V load", size=11.5,
+    d.text(bx + 364, y + 229, "a jumper at 24 V with a 5 V device fitted", size=11.5,
            fill=MUTED)
-    d.text(bx + 364, y + 246, "shorts 5 V to 24 V and destroys the board", size=11.5,
-           fill=RED)
+    d.text(bx + 364, y + 246, "destroys the device; 5 V → 24 V cannot bridge",
+           size=11.5, fill=RED)
 
     # side notes
     nx = 760
@@ -1587,33 +1619,57 @@ def d10_motor_directions() -> Doc:
 
 
 # ============================================================== diagram 11 ===
+def _print_hours() -> tuple[dict[str, float], float]:
+    """Per-batch and total print hours, read from the print README's batch table
+    (the sliced PrusaSlicer estimates) so the timeline can never drift from it."""
+    rows: dict[str, float] = {}
+    total = None
+    row_re = re.compile(r"^\|\s*\[(B\d\d)\]\([^)]*\)\s*\|\s*\d+\s*\|\s*([\d.]+)\s*\|")
+    tot_re = re.compile(r"^\|\s*\*\*TOTAL\*\*\s*\|\s*\*\*\d+\*\*\s*\|\s*\*\*([\d.]+)\*\*\s*\|")
+    for line in PRINT_README.read_text(encoding="utf-8").splitlines():
+        m = row_re.match(line)
+        if m:
+            rows[m.group(1)] = float(m.group(2))
+            continue
+        m = tot_re.match(line)
+        if m:
+            total = float(m.group(1))
+    if len(rows) != 11 or total is None:
+        raise SystemExit(f"draw_diagrams: could not read the 11 batch rows + TOTAL from "
+                         f"{PRINT_README} (got {sorted(rows)}, total={total})")
+    return rows, total
+
+
 TIMELINE = [
     # (row, kind, label, duration, needs-rows)
-    (1, "P", "B00 — Calibration & jigs", "3.5 h print", []),
+    # "P" rows: the duration is replaced at render time by the hours in
+    # docs/manual/print/README.md (see _print_hours); the strings here are the
+    # values on the day this list was last edited.
+    (1, "P", "B00 — Calibration & jigs", "4.0 h print", []),
     (2, "B", "Ch 00 — Before you start", "2.5–4.0 h  KIT", [1]),
-    (3, "P", "B01 — Z drive assemblies", "19.4 h print", [1]),
+    (3, "P", "B01 — Z drive assemblies", "22.8 h print", [1]),
     (4, "B", "Ch 01 — Frame", "2.5–4.0 h  KIT 2P", []),
-    (5, "P", "B02 — Accent parts, the orange day", "18.5 h print", [1]),
+    (5, "P", "B02 — Accent parts, the orange day", "21.9 h print", [1]),
     (6, "B", "Ch 02 — Z drives, idlers, rails, deck", "4.25–6.25 h  KIT", [3, 5]),
-    (7, "P", "B03 — A/B drive units + front idlers", "7.7 h print", [5]),
+    (7, "P", "B03 — A/B drive units + front idlers", "8.5 h print", [5]),
     (8, "B", "Ch 03 — Build plate", "1.5–2.5 h  KIT", []),
-    (9, "P", "B04 — XY joints + X carriage", "7.3 h print", [7]),
+    (9, "P", "B04 — XY joints + X carriage", "8.6 h print", [7]),
     (10, "B", "Ch 04 — A/B drives and front idlers", "3.5–5.0 h  KIT", [7]),
-    (11, "P", "B05 — Z joints + Z chain", "5.2 h print", [9]),
+    (11, "P", "B05 — Z joints + Z chain", "6.4 h print", [9]),
     (12, "B", "Ch 05 — Gantry", "5.0–7.0 h  KIT 2P", [9]),
-    (13, "P", "B06 — Toolhead: SB, CW2, Klicky", "9.8 h print", [9]),
+    (13, "P", "B06 — Toolhead: SB, CW2, Klicky", "12.2 h print", [9]),
     (14, "B", "Ch 06 Part A — Z axis, hang the gantry", "3.5–5.0 h  2P lift", [11]),
-    (15, "P", "B07 — Electronics bay + lighting", "13.2 h print", []),
+    (15, "P", "B07 — Electronics bay + lighting", "16.0 h print", []),
     (16, "B", "Ch 07 — A/B belts, provisional tension", "2.5–4.0 h  KIT", [11]),
     (17, "G", "Gen 2 belt-upgrade pause", "~1 day wall clock", []),
     (18, "B", "Ch 08 — Toolhead", "3.0–4.5 h  KIT", [13]),
-    (19, "P", "B08 — Skirts and front modules", "25.5 h print", []),
+    (19, "P", "B08 — Skirts and front modules", "29.2 h print", []),
     (20, "B", "Ch 09 — Electronics bay", "2.5–4.0 h  KIT", [15]),
     (21, "B", "Ch 12 Part 1 — image the Pi", "~1.0 h  KIT", []),
     (22, "B", "Ch 10 — Wiring", "5.0–7.0 h  KIT", [15]),
-    (23, "P", "B09 — Panels, filtration, spool", "19.1 h print", []),
+    (23, "P", "B09 — Panels, filtration, spool", "21.8 h print", []),
     (24, "B", "Ch 12 Part 2 — flash both MCUs", "rest of 2.0–3.0 h", []),
-    (25, "P", "B10 — Clicky-Clack door", "5.1 h print", []),
+    (25, "P", "B10 — Clicky-Clack door", "5.7 h print", []),
     (26, "B", "Ch 11 Part A — skirts, bay fans, panel", "3.0–4.0 h  KIT", [19, 23]),
     (27, "B", "Ch 13 — Initial startup", "2.5–4.0 h + cube  KIT", []),
     (28, "B", "Ch 06b — Gantry squaring", "~1.0 h + soak  KIT 2P", []),
@@ -1623,9 +1679,16 @@ TIMELINE = [
 
 
 def d11_timeline() -> Doc:
+    hours, total_print = _print_hours()
+    rows = []
+    for row, kind, label, dur, needs in TIMELINE:
+        if kind == "P":
+            dur = f"{hours[label[:3]]:.1f} h print"
+        rows.append((row, kind, label, dur, needs))
+
     ROW_H = 40
     top = 200
-    h = int(top + len(TIMELINE) * ROW_H + 176)
+    h = int(top + len(rows) * ROW_H + 176)
     d = Doc(h, "Voron 2.4r2 — build timeline")
     header(d, "Build timeline — print batches against assembly chapters",
            "Rows are in execution order, top to bottom. Do a row only when its "
@@ -1642,7 +1705,7 @@ def d11_timeline() -> Doc:
     d.line(BL, top - 16, BR, top - 16, stroke=BLUE, sw=2)
 
     pos = {}
-    for i, (row, kind, label, dur, needs) in enumerate(TIMELINE):
+    for i, (row, kind, label, dur, needs) in enumerate(rows):
         y = top + i * ROW_H
         d.text(46, y + 25, str(row), size=12, anchor="end", fill=FAINT, weight=600)
         if kind == "G":
@@ -1659,7 +1722,7 @@ def d11_timeline() -> Doc:
         pos[row] = (x0, x1, y + 19)
 
     # dependency arrows through the middle channel
-    for row, kind, label, dur, needs in TIMELINE:
+    for row, kind, label, dur, needs in rows:
         for n in needs:
             if n not in pos or row not in pos:
                 continue
@@ -1673,11 +1736,13 @@ def d11_timeline() -> Doc:
                    f"{b:.0f} {ty:.0f}",
                    stroke=FAINT, sw=1.8, marker="arwm")
 
-    fy = top + len(TIMELINE) * ROW_H + 34
+    fy = top + len(rows) * ROW_H + 34
     d.rect(60, fy, 1100, 62, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
-    facts = [("134.3 h", "print, 27 plates / 11 batches"),
+    # print total from print/README.md; the other four are 00-index.md's own
+    # critical-path figures (§ Critical path) — update them there first.
+    facts = [(f"{total_print:.1f} h", "print, 27 plates / 11 batches (sliced)"),
              ("59.5 h", "hands-on"),
-             ("~13 printer-days", "printing, elapsed"),
+             ("~15 printer-days", "printing, elapsed"),
              ("~2.7 weeks", "building, at 22 h/week"),
              ("≈ 3 weeks", "after the kit arrives")]
     x = 84
@@ -1748,7 +1813,8 @@ DIAGRAMS = [
             "p.127: every 90° turn, the S-wrap at the drive, the 180° U-turn at the front "
             "idler, and the return to the carriage.",
             "The toothed face marked continuously along both belts, so the smooth back on "
-            "every bearing stack and the teeth on the motor pulley are visible at a glance.",
+            "every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap "
+            "at each belt's return XY joint (its 20T idler) are visible at a glance.",
             "The two-runs-on-one-side asymmetry: A has two parallel runs on the right and "
             "one on the left; B is the mirror.",
             "Where the belt ends are clamped in the X carriage halves.",
@@ -1763,12 +1829,14 @@ DIAGRAMS = [
             "*within* each drive unit are schematic. The chapters fix the order of the "
             "wraps (stack, pulley, stack) and which stack the other belt turns on, not "
             "their top-view coordinates.",
-            "The toothed face is stated by the chapter at three places only — the carriage "
+            "The toothed face is stated by the chapter at four places — the carriage "
             "clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on "
-            "the pulley, Step 07.13) and the front idler (smooth back on the stack, teeth "
-            "outward on both runs, Step 07.15). The face drawn at the remaining stations "
-            "follows from belt geometry: a belt cannot change which face is which along "
-            "its length.",
+            "the pulley, Step 07.13), the front idler (smooth back on the stack, teeth "
+            "outward on both runs, Step 07.15) and the return XY joint (teeth on its 20T "
+            "idler, Step 07.16 for A and Step 07.22 for B). The face drawn at the "
+            "remaining stations follows from belt geometry: a belt cannot change which "
+            "face is which along its length. Which joint stack a belt meets (F695 pair "
+            "or 20T idler) is fixed by the belt's height and needs no decision.",
             "The diagram does not say which X-carriage slot (upper or lower) each end goes "
             "into, because the chapter assigns the slots by belt plane rather than by side.",
         ],
@@ -1804,8 +1872,8 @@ DIAGRAMS = [
         "fn": d05_mains_pe,
         "shows": [
             "The mains path end to end: wall socket, C13 cord, the combined C14 + rocker + "
-            "fuse inlet, the three labelled WAGO 221-415 blocks, the Meanwell, the Omron "
-            "SSR, the bed heater.",
+            "fuse inlet, the three labelled WAGO 221-415 blocks, the Meanwell with its AC "
+            "screws in datasheet order (1 L, 2 N, 3 FG), the Omron SSR, the bed heater.",
             "Which pole the fuse is in (Live only), which poles the rocker switches (both), "
             "and that the earth spade is neither switched nor fused.",
             "All four SSR terminals with what lands on each, including the red-to-3 / "
@@ -1858,8 +1926,9 @@ DIAGRAMS = [
             "All five voltage-selection headers by name, which two carry a jumper on this "
             "build (Fan2, Fan3, both at 24 V) and which three stay bare (Fan0, Fan1, the "
             "Z-probe header).",
-            "The count check — 5 headers, 2 fitted, 3 bare — and what a jumper left at 5 V "
-            "under a 24 V load does.",
+            "The count check — 5 headers, 2 fitted, 3 bare — and why a jumper at 24 V with "
+            "a 5 V device on the port destroys the device (nothing on the block can bridge "
+            "5 V to 24 V).",
             "The Ch 09 / Ch 10 sequence: strip every jumper on the bench, fit two back only "
             "after each device's voltage is verified.",
         ],
@@ -1964,8 +2033,10 @@ DIAGRAMS = [
             "Dependency arrows from each batch to the chapter that consumes it.",
             "The Gen 2 belt-upgrade pause as a full-width band at its contingency position, "
             "between B07 and B08.",
-            "The critical-path totals: 134.3 h of printing, 59.5 h hands-on, about three "
-            "calendar weeks once the kit lands.",
+            "The critical-path totals: the print hours (per batch and total) are read from "
+            "docs/manual/print/README.md at render time so they cannot drift from the "
+            "sliced estimates; 59.5 h hands-on and about three calendar weeks once the kit "
+            "lands are 00-index.md's own figures.",
         ],
         "insert": [
             ("00-index.md", "The timeline", "at the head of the section, above the row "
@@ -1975,7 +2046,8 @@ DIAGRAMS = [
         "verify": [
             "The vertical axis is execution order, not calendar time. The manual's timeline "
             "is dependency-ordered and gives no per-row calendar date, so none is invented "
-            "here; the elapsed figures in the footer strip are the index's own.",
+            "here; the elapsed figures in the footer strip are the index's own and are "
+            "hard-coded in the script — change 00-index.md's Critical path table first.",
         ],
     },
 ]

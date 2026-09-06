@@ -1,10 +1,17 @@
 # Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
 
+The Stealthburner and Clockwork 2 black parts on P1, and the Klicky probe set on P2. The Klicky set is
+printed here and **bagged as the alternative probe** — this build fits the inductive probe, and Ch 08 Step
+08.54 is where the bag is set aside, unbuilt.
+
 **Time:** 12.2 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Prerequisites:** B00, B02 (SB main body, faceplate, guidler, latch, latch shuttle, pcb spacer), B04.
-The toolhead chapter also needs `probe_retainer_bracket.stl` from B04 — nothing on this plate depends
-on it, and it is fitted in Ch 07/08, not in a batch.
+**Sessions:** 2 plate starts (~5 min hands-on each, 8.0 / 4.2 h unattended) + ~15 min inspect and bin.
+
+**Prerequisites:** **Gate B passed** (Step B00.7, kit day — the hotend seat and the CW2 gear bores). B02 (SB
+main body, faceplate, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
+are not print prerequisites; the toolhead chapter also needs `probe_retainer_bracket.stl` from B04, fitted
+in Ch 07/08, not in a batch.
 
 **Printed parts**
 
@@ -37,21 +44,22 @@ Chain Anchor Tilted" printed).
 
 **Read first**
 
-- Checkpoint after B06: Revo Voron hotend must sit flat in the printhead front with 4× M3×8. Klicky:
-  magnets pressed **below** the plastic surface, polarity consistent, and the probe must attach/detach
-  cleanly from the AB mount.
-- Most commonly reprinted here: `KlickyProbe_v2` — that's why two are printed.
+- Checkpoint after B06: the Revo Voron heatsink (the glossary's *Revo HF* — same part, HF nozzle fitted) must
+  sit flat in the printhead front with 4× M3×8. Klicky: **count and bag, do not build** — no magnets are
+  pressed in this batch or anywhere else in this manual (Ch 08 Step 08.54).
+- Most commonly reprinted here: `KlickyProbe_v2` — that's why two are printed, in case the option is ever taken up.
 - Hotend file choice is settled: E3D Revo Voron → the `revo_voron` folder, `..._rear_cw2` for Clockwork 2.
 - `cw2_captive_pcb_cover` is LDO's improved cable door (captive screw + external chamber thermistor); the
   stock alternative is `Clockwork2/cable_door_for_pcb.stl` if you'd rather use it.
 - Klicky dock: **fixed** mount chosen for simplicity. If you later add the Decontaminator purge bucket, you
   need `Dock_sidemount_fixed_v2.stl` + `Dock_sidemount_left_v2.stl` instead (~25 g, 1.5 h) — not printed here.
 - The `Probe_*_pressfit_helper` / `_holder` parts are jigs for pressing the 6×3 magnets in square. Print
-  them — a crooked magnet is a probe that doesn't repeat.
+  them and bag them with the set — if Klicky is ever built, a crooked magnet is a probe that doesn't repeat.
 
 ## Step B06.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥148 g remaining across both plates.
+**Do:** Galaxy Black, confirm ≥148 g remaining across both plates (the ledger has this batch on spool #3 after
+B05). Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -62,9 +70,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B06-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`,
 `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask`, `main_body` (CW2), `motor_plate`
-(CW2), `cw2_captive_pcb_cover`. Confirm the `revo_voron` printhead folder, not a different hotend variant.
+(CW2), `cw2_captive_pcb_cover` — 7 files, 7 objects. No brim in the project. Confirm the `revo_voron` printhead folder, not a different hotend variant.
 **Parts:** the seven items above — 8.0 h, 97 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Printhead files confirmed from `revo_voron/`, not `dragon/` or another hotend folder.
+**Check:** Printhead files confirmed from `revo_voron/`, not `dragon/` or another hotend folder; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner printhead README](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md)
 
@@ -82,9 +90,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:** Open `slicer/plates/B06-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: the full Klicky set: `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`,
 `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`,
 `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`,
-`Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2`.
+`Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` — 11 files, 12 objects. No brim in the project.
 **Parts:** the twelve pieces above — 4.2 h, 51 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Confirm the *fixed* dock variant, not the sidemount variant.
+**Check:** The project carries the *fixed* dock variant, not the sidemount one; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
 
@@ -97,37 +105,35 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B06.6 — Inspect
 
-**Do:** Dry-fit the Revo Voron hotend into the printhead front — must sit flat, ready for 4× M3×8. Press
-the 6×3 mm magnets into the Klicky holders using the pressfit-helper jigs — check they sit **below** the
-plastic surface and polarity is consistent across probe and mount magnets. Attach/detach the probe from the
-AB mount and dock repeatedly.
-**Check:** Hotend sits flat, no rocking. Magnets flush or below surface, consistent polarity. Probe
-attaches/detaches cleanly and repeatably.
+**Do:** Dry-fit the Revo Voron heatsink into the printhead front — must sit flat, no rock, ready for 4× M3×8.
+Klicky parts: count them against the table (12 pieces), check the magnet pockets printed clean, bag them
+and label the bag **KLICKY — alternative probe only, see Ch 08.54**. Do **not** press magnets — the
+inductive probe is the one this build fits, and the kit's config, wiring and cable are all for it.
+**Check:** Hotend sits flat, no rocking. Klicky bag closed, 12 pieces plus the spare `KlickyProbe_v2`, labelled.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
+Pause: ~10 min since the last pause — hotend dry-fitted and removed, Klicky bag closed. Nothing pressed, no magnets.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [Ch 08 Step 08.54 — bag the Klicky set](../08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
 
 ## Step B06.7 — Label and bin
 
 **Do:** Bin with B02's `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_guidler_a/b`, `[a]_latch`,
 `[a]_latch_shuttle`, `[a]_pcb_spacer` for **Stealthburner**.
-**Check:** All toolhead parts, black and accent, grouped together with the spare `KlickyProbe_v2`
-clearly marked "spare."
+The Klicky bag from B06.6 goes in the same bin, still closed.
+**Check:** All toolhead parts, black and accent, grouped together; the Klicky bag labelled as the alternative.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
 
 ---
 
 ## Checkpoint B06
-- [ ] Revo Voron hotend sits flat in the printhead front, ready for 4× M3×8
-- [ ] Klicky magnets pressed below the plastic surface using the pressfit-helper jigs
-- [ ] Magnet polarity consistent between probe and AB mount
-- [ ] Probe attaches and detaches cleanly and repeatably from the dock and AB mount
-- [ ] Spare `KlickyProbe_v2` bagged separately and labelled
+- [ ] Gate B passed before B06-P1 started
+- [ ] Revo Voron heatsink sits flat in the printhead front, ready for 4× M3×8
+- [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged, labelled "alternative probe only — Ch 08.54", no magnets pressed
 
 ## Common mistakes
 - Slicing the wrong hotend printhead folder (not `revo_voron`).
-- Pressing Klicky magnets in with inconsistent polarity — the probe won't attach reliably.
-- Skipping the pressfit-helper jigs and pressing magnets in freehand, crooked.
+- Building Klicky because the parts are on the bench — the kit's config, wiring and pre-terminated cable are all for the inductive probe (Ch 08.54).
 
 ## Next
-Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual). Printing: [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md).
+Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual). Printing: this is the last kit-day batch — if B07–B10 printed before the kit, all 27 plates are done; if not, continue with [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md).

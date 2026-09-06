@@ -23,7 +23,7 @@
 <text x="46.0" y="225.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">1</text>
 <rect x="60.0" y="204.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="224.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B00 — Calibration &amp; jigs</text>
-<text x="508.0" y="224.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">3.5 h print</text>
+<text x="508.0" y="224.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">4.0 h print</text>
 <text x="46.0" y="265.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">2</text>
 <rect x="700.0" y="244.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="264.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 00 — Before you start</text>
@@ -31,7 +31,7 @@
 <text x="46.0" y="305.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">3</text>
 <rect x="60.0" y="284.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="304.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B01 — Z drive assemblies</text>
-<text x="508.0" y="304.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">19.4 h print</text>
+<text x="508.0" y="304.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">22.8 h print</text>
 <text x="46.0" y="345.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">4</text>
 <rect x="700.0" y="324.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="344.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 01 — Frame</text>
@@ -39,7 +39,7 @@
 <text x="46.0" y="385.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">5</text>
 <rect x="60.0" y="364.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="384.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B02 — Accent parts, the orange day</text>
-<text x="508.0" y="384.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">18.5 h print</text>
+<text x="508.0" y="384.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">21.9 h print</text>
 <text x="46.0" y="425.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">6</text>
 <rect x="700.0" y="404.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="424.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 02 — Z drives, idlers, rails, deck</text>
@@ -47,7 +47,7 @@
 <text x="46.0" y="465.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">7</text>
 <rect x="60.0" y="444.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="464.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B03 — A/B drive units + front idlers</text>
-<text x="508.0" y="464.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">7.7 h print</text>
+<text x="508.0" y="464.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">8.5 h print</text>
 <text x="46.0" y="505.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">8</text>
 <rect x="700.0" y="484.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="504.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 03 — Build plate</text>
@@ -55,7 +55,7 @@
 <text x="46.0" y="545.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">9</text>
 <rect x="60.0" y="524.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B04 — XY joints + X carriage</text>
-<text x="508.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">7.3 h print</text>
+<text x="508.0" y="544.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">8.6 h print</text>
 <text x="46.0" y="585.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">10</text>
 <rect x="700.0" y="564.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="584.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 04 — A/B drives and front idlers</text>
@@ -63,7 +63,7 @@
 <text x="46.0" y="625.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">11</text>
 <rect x="60.0" y="604.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="624.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B05 — Z joints + Z chain</text>
-<text x="508.0" y="624.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">5.2 h print</text>
+<text x="508.0" y="624.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">6.4 h print</text>
 <text x="46.0" y="665.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">12</text>
 <rect x="700.0" y="644.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="664.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 05 — Gantry</text>
@@ -71,7 +71,7 @@
 <text x="46.0" y="705.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">13</text>
 <rect x="60.0" y="684.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="704.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B06 — Toolhead: SB, CW2, Klicky</text>
-<text x="508.0" y="704.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">9.8 h print</text>
+<text x="508.0" y="704.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">12.2 h print</text>
 <text x="46.0" y="745.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">14</text>
 <rect x="700.0" y="724.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="744.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 06 Part A — Z axis, hang the gantry</text>
@@ -79,7 +79,7 @@
 <text x="46.0" y="785.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">15</text>
 <rect x="60.0" y="764.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="784.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B07 — Electronics bay + lighting</text>
-<text x="508.0" y="784.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">13.2 h print</text>
+<text x="508.0" y="784.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">16.0 h print</text>
 <text x="46.0" y="825.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">16</text>
 <rect x="700.0" y="804.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="824.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 07 — A/B belts, provisional tension</text>
@@ -95,7 +95,7 @@
 <text x="46.0" y="945.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">19</text>
 <rect x="60.0" y="924.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="944.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B08 — Skirts and front modules</text>
-<text x="508.0" y="944.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">25.5 h print</text>
+<text x="508.0" y="944.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">29.2 h print</text>
 <text x="46.0" y="985.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">20</text>
 <rect x="700.0" y="964.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="984.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 09 — Electronics bay</text>
@@ -111,7 +111,7 @@
 <text x="46.0" y="1105.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">23</text>
 <rect x="60.0" y="1084.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="1104.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B09 — Panels, filtration, spool</text>
-<text x="508.0" y="1104.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">19.1 h print</text>
+<text x="508.0" y="1104.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">21.8 h print</text>
 <text x="46.0" y="1145.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">24</text>
 <rect x="700.0" y="1124.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="1144.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 12 Part 2 — flash both MCUs</text>
@@ -119,7 +119,7 @@
 <text x="46.0" y="1185.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">25</text>
 <rect x="60.0" y="1164.0" width="460.0" height="30.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.2"/>
 <text x="72.0" y="1184.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">B10 — Clicky-Clack door</text>
-<text x="508.0" y="1184.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">5.1 h print</text>
+<text x="508.0" y="1184.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="end" fill="#5C6675" letter-spacing="0">5.7 h print</text>
 <text x="46.0" y="1225.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#9AA3AF" letter-spacing="0">26</text>
 <rect x="700.0" y="1204.0" width="460.0" height="30.0" rx="6" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.2"/>
 <text x="712.0" y="1224.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.8" font-weight="600" text-anchor="start" fill="currentColor" letter-spacing="0">Ch 11 Part A — skirts, bay fans, panel</text>
@@ -154,11 +154,11 @@
 <path d="M 524 1099 C 609 1099 609 1219 694 1219" fill="none" stroke="#9AA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
 <path d="M 524 1179 C 609 1179 609 1339 694 1339" fill="none" stroke="#9AA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwm)"/>
 <rect x="60.0" y="1434.0" width="1100.0" height="62.0" rx="8" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
-<text x="84.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">134.3 h</text>
-<text x="84.0" y="1482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">print, 27 plates / 11 batches</text>
+<text x="84.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">157.1 h</text>
+<text x="84.0" y="1482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">print, 27 plates / 11 batches (sliced)</text>
 <text x="300.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">59.5 h</text>
 <text x="300.0" y="1482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">hands-on</text>
-<text x="516.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">~13 printer-days</text>
+<text x="516.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">~15 printer-days</text>
 <text x="516.0" y="1482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">printing, elapsed</text>
 <text x="732.0" y="1462.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">~2.7 weeks</text>
 <text x="732.0" y="1482.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">building, at 22 h/week</text>

@@ -41,6 +41,7 @@ Source: [Ch 00 Step 00.24](00-before-you-start.md#step-0024-file-naming-and-wher
 |---|---|---|
 | **A and B** | The two CoreXY motors and their belts. A is the right-hand drive, B the left; moving both together moves X, moving them oppositely moves Y | [04 — A/B drives](04-ab-drives.md) |
 | **ADXL345** | The accelerometer built into the Nitehawk-SB V2, used by `SHAPER_CALIBRATE` to measure resonance | [14.12](14-calibration.md#step-1412-bring-up-the-on-board-accelerometer) |
+| **Arachne** | PrusaSlicer's variable-width perimeter generator, kept on for every plate: it widens or narrows a bead to fill Voron's thin ribs instead of leaving a gap. The 0.40 mm width in the override table is Arachne's *target*, not a fixed bead | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Anodising** | The hard oxide layer on the extrusions. It is an electrical **insulator**, which is why it gets scraped under the frame PE washer | [10.16](10-wiring.md#step-1016-frame-pe) |
 | **ASA** | The material this whole build is printed in — Voron spec for an enclosed printer, 4 perimeters, 5 top/bottom, 40 % infill, 0.2 mm layers | [00.23](00-before-you-start.md#step-0023-print-guidelines-p4) |
 
@@ -98,7 +99,7 @@ Source: [Ch 02 Step 02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-c
 
 | Term | What it is | First matters at |
 |---|---|---|
-| **Elephant foot** | The first layer coming out wider than the rest, from squish plus heat. Corrected with the slicer's compensation, in 0.05 mm steps | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
+| **Elephant foot** | The first layer coming out wider than the rest, from squish plus heat. Corrected with the slicer's compensation, in 0.05 mm steps — first on the Core One+ (Gate A's first-layer-vs-mid-height check), again on the Voron | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides); [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
 | **E-RV** | The hotend code embossed on both Stealthburner printhead halves for **E3D Revo Voron**. Read it before you build — it decides which printhead folder you slice | [08.1](08-toolhead.md#step-081-sort-the-printed-parts-and-confirm-the-hotend-code) |
 | **ESD ground** | The Rev D+ bonding path from the extruder motor body to the toolboard, exposed by the V2 partial USB-adapter cover | [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path) |
 | **Extrusion multiplier (EM) / flow** | The slicer's scaling of how much plastic is extruded. The correct lever for an oversize part — **not** XY size compensation | [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
@@ -128,6 +129,7 @@ Source: [Ch 00 Steps 00.19](00-before-you-start.md#step-0019-flip-and-pack), [00
 |---|---|---|
 | **G28** | Klipper's home-all command. On this machine it needs a reachable `safe_z_home` position, which is deliberately left invalid until you measure it | [13.27](13-initial-startup.md#step-1327-full-g28) |
 | **G32** | The Voron macro that homes, runs QGL and re-homes. Re-run it after every `SAVE_CONFIG`, which restarts Klipper and loses homing | [12.27](12-software.md#step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position) |
+| **Gate A / Gate B** | The two halves of the B00 print gate. **Gate A** — the cube alone, no kit needed — releases B02, B07 and (after the Gen 2 belt upgrade) B08–B10. **Gate B** — 625-2RS bore, MGN12 rail, real heat-set inserts, so kit day — releases B01 and B03–B06 | [print/00-slicer-setup — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) |
 | **Gantry** | The X extrusion, its two XY joints and the X carriage, carried on the two Y axes. Everything above the deck that moves in XY | [05 — Gantry](05-gantry.md) |
 | **GFCI / RCD** | Residual-current device — cuts the supply when live and neutral currents differ, which is what happens when current leaves through a person | [00a.5](00a-mains-safety.md#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach) |
 
@@ -179,7 +181,7 @@ Source: [Ch 10 Step 10.55](10-wiring.md#step-1055-connector-types-on-the-v2-tool
 |---|---|---|
 | **Katapult** | The CAN/USB bootloader on both MCUs, letting you reflash without touching the boards. Building Klipper with the wrong bootloader **offset** erases it | [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) |
 | **KIAUH** | Klipper Installation And Update Helper — the script that installs Klipper, Moonraker, Mainsail and KlipperScreen on the Pi | [12.8](12-software.md#step-128-install-kiauh) |
-| **Klicky** | A dockable microswitch probe. Its parts are printed and bagged on this build but **not fitted** — the kit's config, wiring and cable are for the inductive probe | [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) |
+| **Klicky** | A dockable microswitch probe. Its parts are printed (B06-P2) and bagged on this build as the alternative probe, **not fitted** and no magnets pressed — the kit's config, wiring and cable are for the inductive probe | [B06.6](print/B06-toolhead-sb-cw2-klicky.md#step-b066-inspect); [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) |
 | **Klipper** | The firmware: a host process on the Raspberry Pi plus thin firmware on each MCU. Configuration lives in `printer.cfg` on the Pi, not on the boards | [12 — Software](12-software.md) |
 | **klippy.log** | Klipper's full log, at `~/printer_data/logs/klippy.log`. Attach it complete and unmodified to any question — a snippet is not useful | [15 — Where to ask](15-troubleshooting.md#not-covered-here-where-to-ask) |
 
@@ -221,7 +223,7 @@ Source: [Ch 12 Step 12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh
 |---|---|---|
 | **Nevermore** | A recirculating activated-carbon filter inside the chamber — the Micro V5 Duo here, on the Leviathan's FAN3, declared as `fan_generic` so a macro can run it | [11.26](11-skirts-panels-door.md#step-1126-break-out-the-nevermore-printed-supports) |
 | **Nitehawk-SB V2** | The Rev D+ toolboard: STM32G0B1, integrated ADXL345, PH2.0 connectors, keyed fan-adapter header, secondary USB port. The "+" in Rev D+ | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
-| **Nozzle probe** | LDO's mechanical Z endstop — a pin the nozzle presses. This, not the inductive probe, sets Z=0 | [08.56](08-toolhead.md#step-0856-assemble-the-ldo-nozzle-probe-z-endstop) |
+| **Nozzle probe** | LDO's mechanical Z endstop — a pin the nozzle presses. This, not the inductive probe, sets Z=0 | [09.27](09-electronics-bay.md#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body) |
 
 Source: [Ch 11 Step 11.26](11-skirts-panels-door.md#step-1126-break-out-the-nevermore-printed-supports) · [Ch 00 Step 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) · [Ch 08 Step 08.56](08-toolhead.md#step-0856-assemble-the-ldo-nozzle-probe-z-endstop)
 
@@ -248,6 +250,7 @@ Source: [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-me
 | **Precision spacer** | The brass M5 1 mm spacer the kit supplies wherever the manual says *M5 shim*. A controlled thickness, not a washer — 46 in the kit | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **Pressure advance** | Klipper's compensation for filament pressure lag in the nozzle, tuned from a printed pattern. Shifts when input shaping is switched on, so it comes after | [14.17](14-calibration.md#step-1417-generate-and-print-the-ellis-pa-pattern) |
 | **`PROBE_ACCURACY`** | Klipper's repeatability test for the probe. σ < 0.003 mm hot, with no trend, is the gate on QGL and everything downstream | [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream) |
+| **Purge line** | The line of filament the printer lays along the front edge before every print to prime the nozzle. On a colour change it is where you look for the old colour still streaking | [B02.1](print/B02-accent-parts-orange.md#step-b021-filament-prep) |
 | **Pulley (16T / 20T / 80T)** | GT2 toothed pulleys. 16T on the Z motors, 20T everywhere else, 80T on the Z drive shafts — 16T and 20T look nearly identical and are not interchangeable | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 
 Source: [Ch 00a Step 00a.6](00a-mains-safety.md#step-00a6-learn-the-protective-earth-chain-in-this-build) · [Ch 00 Steps 00.23](00-before-you-start.md#step-0023-print-guidelines-p4), [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 13 Steps 13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c), [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream) · [Ch 14 Step 14.17](14-calibration.md#step-1417-generate-and-print-the-ellis-pa-pattern)
@@ -271,8 +274,9 @@ Source: [Ch 13 Steps 13.17](13-initial-startup.md#step-1317-query_endstops-with-
 |---|---|---|
 | **Racking** | The gantry's X extrusion sitting out of square to the Y axes — a parallelogram instead of a rectangle. QGL passes happily on a racked gantry and the parts print skewed | [05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) |
 | **Rev D+** | This kit: LDO Rev D **plus** the Nitehawk-SB V2. An electrical change plus exactly one STL (`usb_adapter_mount_partial_cover`) — LDO publishes no Rev D+ guide | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
-| **Revo HF** | The E3D hotend in this kit — quick-change nozzle, screwed in by hand, which is why the strain relief has to be bent clear first | [08.27](08-toolhead.md#step-0827-assemble-the-revo-hf-hotend) |
+| **Revo Voron / Revo HF** | One hotend, two names: the E3D **Revo Voron** heatsink (printhead code E-RV, STL folder `revo_voron`) fitted with the **HF** high-flow nozzle — quick-change, screwed in by hand, which is why the strain relief has to be bent clear first. Verify against the kit's hotend box | [08.27](08-toolhead.md#step-0827-assemble-the-revo-hf-hotend); printhead files at [B06.2](print/B06-toolhead-sb-cw2-klicky.md#step-b062-load-plate-b06-p1) |
 | **Roll-in T-nut** | A nut that drops into an extrusion slot and rotates to lock, so it can be added after assembly. Used everywhere except panel mounting | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
+| **Runout (sensor)** | The Core One+'s filament sensor: when the spool ends mid-plate the printer pauses, you load the next spool, it resumes with a seam at that layer — fine on a cosmetic part, never planned on a bearing-seat plate | [print/README — Spool ledger](print/README.md#spool-ledger) |
 | **Rotation distance** | The millimetres of filament (or belt) per motor revolution. Checked by extruding a measured 100 mm — **not** the lever for an oversize printed part | [14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion) |
 
 Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · [Ch 00 Steps 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 08 Step 08.27](08-toolhead.md#step-0827-assemble-the-revo-hf-hotend) · [Ch 14 Step 14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion)
@@ -285,10 +289,12 @@ Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · 
 |---|---|---|
 | **`SAVE_CONFIG`** | Klipper's command to write calibrated values into an auto-generated block at the end of `printer.cfg`. It **restarts Klipper**, so homing is lost each time | [13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c) |
 | **"Second hole in"** | LDO's rail rule that overrides the manual: never use a rail's **end** hole — use the second hole from each end, because the end holes are where later T-nuts must live | [00.22](00-before-you-start.md#step-0022-understand-the-rail-jigs-before-you-need-them) |
+| **Seam** | Where each perimeter loop starts and stops, leaving a faint vertical line. Set to *Rear* for every plate so it lands on the faces nobody sees | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Set screw (grub screw)** | A headless screw that clamps a pulley to a shaft. One of the pair goes on the shaft's machined **flat**, and both get threadlocker | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **SHCS** | Socket Head Cap Screw — straight cylindrical head. The most common fastener in the machine: 283 M3×8 alone | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Shim** | A thin DIN 988 spacer the official manual calls for at M5 locations. Your kit replaces every one with a brass precision spacer | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
-| **Skirt** | The ring of printed segments around the base that hides and closes the electronics bay, and carries the touchscreen and bay-fan modules | [11.1](11-skirts-panels-door.md#step-111-dry-fit-the-whole-skirt-ring) |
+| **Skirt (machine)** | The ring of printed segments around the base that hides and closes the electronics bay, and carries the touchscreen and bay-fan modules | [11.1](11-skirts-panels-door.md#step-111-dry-fit-the-whole-skirt-ring) |
+| **Skirt (slicer)** | One loop of filament the slicer draws around the plate at a 3 mm gap before the parts start — it primes the nozzle after the purge and gives you 60 s to abort a bad first layer. Not the machine's skirt | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides); [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) |
 | **Snubber** | The RC network inside the SSR. It leaks a small current **even with no input**, which is why the SSR is only ever wired dead | [00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not) |
 | **Squish** | How hard the first layer is pressed into the sheet, set live during a print and committed with `Z_OFFSET_APPLY_ENDSTOP`. Moves again when extrusion multiplier changes | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | **SSR (solid-state relay)** | A semiconductor switch with no moving contacts, used here to switch mains to the bed. One that reads short when unpowered is dead and the bed would be permanently live | [09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket) |
@@ -303,7 +309,7 @@ Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail
 
 | Term | What it is | First matters at |
 |---|---|---|
-| **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, photograph it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
+| **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
 | **Thumb nut** | The knurled nut used as a **bed spacer** under the build plate, letting it float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
 | **Toolboard** | The PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one umbilical. Here: Nitehawk-SB V2, over USB | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
 | **"Snug, not torqued"** | This manual's instruction to close a joint without setting it, so a later squaring pass can still move it. No Voron or LDO source publishes a torque figure for any fastener in this build | [00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) |
@@ -329,6 +335,7 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 |---|---|---|
 | **VE0508** | The ferrule size the kit supplies for its mains screw terminals — 0.5 mm², 8 mm barrel | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
 | **VFA (vertical fine artifacts)** | Fine periodic vertical ripple, 0.5–2 mm apart, from belt-tooth engagement. Cosmetic only, and **not** the same thing as ringing | [print/00-slicer-setup — Gen 2 pause rule](print/00-slicer-setup.md#gen-2-belt-upgrade-pause-rule) |
+| **Volumetric flow (mm³/s)** | Plastic through the nozzle per second — speed × width × layer height. These plates peak at 8 mm³/s against the HF profile's 26 mm³/s ceiling, so the high-flow nozzle changes temperature, not speed | [print/00-slicer-setup — Base profiles](print/00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) |
 | **Voron 2.4r2 Assembly Manual** | The official PDF this manual transcribes, unchanged since 2023-07-18. Cited throughout as `p.NN` | [00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11) |
 | **Voron Stealthburner manual** | The separate official PDF for the toolhead, referenced by page through Ch 08 | [08 — Toolhead](08-toolhead.md) |
 
@@ -367,6 +374,7 @@ Source: [Ch 05 Steps 05.25](05-gantry.md#step-0525-seat-the-m5-nuts-in-both-xy-j
 | **Z=0 / `Z_ENDSTOP_CALIBRATE`** | Setting the nozzle-to-bed zero with the paper test, done **hot**, with an extra `TESTZ Z=-0.1` because Klipper's test assumes a cold machine | [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test) |
 | **Z joint** | The printed block joining each corner of the gantry to a Z carriage. Kept light through squaring and tightened **hot**, at the end | [06.14](06-z-axis-and-gantry-squaring.md#step-0614-bolt-the-first-z-joint-together) |
 | **`Z_OFFSET_APPLY_ENDSTOP`** | The command that commits a live babystepping adjustment. Without it — followed by `SAVE_CONFIG` — the slider is discarded on restart | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
+| **Z-hop** | The 0.2 mm lift the Nextruder makes on every travel move so the nozzle clears the part. Printer-preset value — never edited | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Z0–Z3** | The four Z drive positions: Z0 front-left, Z1 rear-left, Z2 rear-right, Z3 front-right, mapped to `STEPPER-0` … `-3`. QGL fails loudly if this map is wrong | [02.2](02-z-drives.md#step-0202-learn-the-four-z-positions-before-you-build-anything) |
 
 Source: [Ch 13 Steps 13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test), [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) · [Ch 06 Step 06.14](06-z-axis-and-gantry-squaring.md#step-0614-bolt-the-first-z-joint-together) · [Ch 02 Step 02.02](02-z-drives.md#step-0202-learn-the-four-z-positions-before-you-build-anything)

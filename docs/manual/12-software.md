@@ -273,7 +273,7 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 **What you're looking at:** An **MCU** is a microcontroller — a small processor board that turns Klipper's commands into actual pin signals. This machine has two: the [Leviathan](16-glossary.md#l) mainboard in the bay and the [Nitehawk-SB V2](16-glossary.md#n) toolboard on the printhead. `lsusb` lists what the Pi can see on USB, which is the first proof both are alive and talking. This is also the **first time those boards, the drivers and the heater outputs are energised** — Ch 10 Step 10.23 powered the PSU with its DC terminals empty — so it gets the same hand-on-switch drill as 10.23 and as [Ch 00a Step 00a.11](00a-mains-safety.md).
 
-**Parts:** none — C13 cord ×1, fire extinguisher within arm's reach.
+**Parts:** C13 power cord ×1; fire extinguisher within arm's reach.
 
 **Do:** **Stop here unless LDO Checkpoint #1 has passed** (Ch 10: multimeter, unplugged — continuity within each colour group, no continuity between L/N/PE, PSU 115/230 V selector confirmed). Clear the chamber and the bay of tools and offcuts; hands out of the bay from here on. Two people: one on the switch, the other watching from the front with hands out of the machine. Plug the cord into the inlet, then the wall. Stand to the **side**, put your hand on the inlet rocker, switch on, and keep it there for a full ten seconds while you look, listen and smell. Then, over SSH:
 
@@ -447,7 +447,7 @@ cd ~/katapult
 make menuconfig
 ```
 
-with the same processor/clock/offset row from Step 12.13 — `Micro-controller Architecture: STMicroelectronics STM32`, `Processor model`, `Build Katapult deployment application` left off, `Clock Reference` (tick *Enable extra low-level configuration options* first if the line is absent), `Application start offset` = the offset from 12.13, `Communication interface: USB (on PA11/PA12)`, *Support bootloader entry on rapid double click of reset button*, *Enable Status LED*, `Status LED GPIO Pin: PE1`. `Q`, `Y`, then flash it:
+with the same processor/clock/offset row from Step 12.13 — `Micro-controller Architecture: STMicroelectronics STM32`, `Processor model`, `Clock Reference` (tick *Enable extra low-level configuration options* first if the line is absent), `Application start offset` = the offset from 12.13, `Communication interface: USB (on PA11/PA12)`, *Support bootloader entry on rapid double click of reset button*, *Enable Status LED*, `Status LED GPIO Pin: PE1`. `Q`, `Y`, then flash it:
 
 ```bash
 make clean && make
@@ -470,7 +470,7 @@ Pause: ~20 min since the last pause — the Leviathan is running your own Klippe
 
 ![Nitehawk-SB V2 `make menuconfig` settings](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
 
-**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard — the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry drives the board's ACT LED pin low at MCU start-up, which LDO documents as the LED coming on; what it does once Klipper connects depends on `[output_pin pcb_led]` in the config **(verify on bench)** — see the ⚠ below.
+**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard — the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry drives the board's ACT LED pin low at MCU start-up, which LDO documents as the LED coming on; what it does once Klipper connects depends on `[output_pin pcb_led]` in the config **(verify on bench)** — see the Rev D+ callout below.
 
 **Parts:** none.
 
@@ -1345,7 +1345,16 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 **Do not** home, jog, heat or run a fan. Every one of those is a Ch 13 step with its own safety check in front of it.
 
-⚠ If you get *"MCU 'nhk' shutdown: Command format mismatch"*, the toolboard firmware and the host Klipper were built from different commits — go back to Step 12.17 and rebuild from the current `~/klipper`. [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
+Then put the config under version control, so every `SAVE_CONFIG` in Ch 13–14 becomes a version you can read back and diff instead of a copy you hope you kept:
+
+```bash
+cd ~/printer_data/config
+git init -q && git add -A && git commit -q -m "Ch 12 baseline: -sbv2 config, 350 mm, bed_mesh, PRINT_START"
+```
+
+Commit again after each `SAVE_CONFIG` (`git add -A && git commit -m "13.29 bed PID"` and so on); `git log` then answers "which of the saved blocks do I have".
+
+⚠ If you get *"MCU 'nhk' shutdown: Command format mismatch"*, the toolboard firmware and the host Klipper were built from different commits — go back to Step 12.17 and rebuild from the current `~/klipper`. A `Pin '…' is not a valid pin name on mcu '…'` error is Step 12.23's ⚠: the wrong config file (`gpio…` on `nhk`) or swapped serial paths (`PG0` on `mcu`). [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
 Source: [Klipper docs § Config checks](https://www.klipper3d.org/Config_checks.html) · [Mainsail FAQ — command format mismatch](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
@@ -1358,7 +1367,8 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 - [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
 - [ ] The Klipper version string from Step 12.7 is written down, and **both** MCUs were flashed from that same working copy.
 - [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices: one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan). No `katapult` entries.
-- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio2 printer.cfg` returns 0.
+- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20).
+- [ ] `config.leviathan` and `config.nitehawk` are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
 - [ ] Line 1 is `[include mainsail.cfg]`, and Mainsail shows no missing-configuration panel.
 - [ ] All six 350 mm sites are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.
 - [ ] `[bed_mesh]` exists and carries `zero_reference_position: 175, 175`.
@@ -1375,6 +1385,7 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 - **Hunting for `rp2040` in `/dev/serial/by-id/`.** There is no RP2040 in a Rev D+ kit. The toolboard is `stm32g0b1xx`. The guide is wrong; the board is not.
 - **Building MCU firmware before running the Update Manager.** You will flash both boards twice. Update the host first, then flash.
 - **Omitting the bootloader offset in `make menuconfig`.** 8 KiB for the Nitehawk, 32 KiB (F446) or 128 KiB (H743) for the Leviathan. Flash with no offset and Katapult is gone, and the only way back is DFU with the board buttons.
+- **Never seeing `Clock Reference` in menuconfig.** It only appears once *Enable extra low-level configuration options* is ticked; without it the build silently uses 8 MHz, flashes cleanly and never enumerates. Double-click SW1 for Katapult, fix, re-flash — no DFU needed.
 - **Following the V1.3 Leviathan guide on a V1.2 board.** STM32H743/25 MHz/128 KiB against STM32F446/12 MHz/32 KiB. Read the silkscreen and the serial ID before menuconfig, not after.
 - **Filling in `home_xy_position` with a guess.** `-10,-10` failing is the interlock working. A plausible wrong value drives the nozzle into the plate.
 - **Adding `[bed_mesh]` without `zero_reference_position`.** The Omron's `z_offset` is 0 by design, so the raw mesh carries its whole trigger height as a constant offset.

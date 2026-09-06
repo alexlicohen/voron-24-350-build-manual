@@ -56,7 +56,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | M3×6 BHCS | 2 | 2×2 XH splicer PCB to the bed WAGO mount |
 | M3×10 FHCS | 2 | IEC inlet module into the printed panel **(verify on bench)** |
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
-| M3×30 SHCS | 2 | XY endstop pod to the gantry, the manual p.164 value — the two M3×16 Ch 05 Step 05.43 bagged with the pod are spares here `(verify against your Ch 05 bag)` |
+| M3×30 SHCS | 2 | XY endstop pod to the gantry (manual p.164) — bagged with the pod by Ch 05 Step 05.46 `(verify against the bag)` |
 | M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
 | M2×10 self-tapping | 6+ | 4 DIN clips to Leviathan brackets, 2 Z endstop PCB, plus the USB adapter's DIN clip **(verify on bench)** — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
 | M3×5×4 heat-set insert | 2+ | 2 bed WAGO mount; inlet panel and mains WAGO mount **(verify on bench)** |
@@ -648,7 +648,7 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** nozzle probe assembly, M3×25 SHCS ×2, M3 T-nut ×2.
 
-**Do:** No flip. Reach in through the open rear of the inverted frame to the rear end of the bed extrusion on the Z-endstop side — p.161's overview draws it on the **right-hand** extrusion `(verify on bench: any spot beside the plate that the nozzle can reach works, and Ch 13 measures the real X/Y for` `home_xy_position)`. Slide two M3 T-nuts into that extrusion's **side slot** past the rear edge of the plate, hold the probe body flat against the extrusion's side with the pin pointing the same way as the plate's print surface (down, while the printer is inverted), and fasten with M3×25 SHCS, snug. Slide the body along the extrusion — front/back, not sideways — until the pin is about **1.5 mm** clear of the plate's rear edge, per the p.161 detail. If 09.29 showed your shaft is not captive upside down, lift it out for this step and drop it back in the next time the printer is upright, before Ch 13 Step 13.24 needs it.
+**Do:** No flip. Reach in through the open rear of the inverted frame to the rear end of the bed extrusion on the Z-endstop side — p.161's overview draws it on the **right-hand** extrusion `(verify on bench — any spot beside the plate that the nozzle can reach works; Ch 13 measures the real X/Y for home_xy_position)`. Slide two M3 T-nuts into that extrusion's **side slot** past the rear edge of the plate, hold the probe body flat against the extrusion's side with the pin pointing the same way as the plate's print surface (down, while the printer is inverted), and fasten with M3×25 SHCS, snug. Slide the body along the extrusion — front/back, not sideways — until the pin is about **1.5 mm** clear of the plate's rear edge, per the p.161 detail. If 09.29 showed your shaft is not captive upside down, lift it out for this step and drop it back in the next time the printer is upright, before Ch 13 Step 13.24 needs it.
 
 **Check:** Sighting along the plate's rear edge, the pin clears it by ~1.5 mm and touches nothing. Push the pin toward the body: it clicks the switch and slides back out to its stop when you let go. Probe body square, screws snug, connector reachable for Ch 10.
 
@@ -702,9 +702,9 @@ Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.164](assets/manual-pages/manual-p164.png)
 
-**What you're looking at:** The pod bolts up into the right-hand XY joint on two **M3×30 SHCS** (manual p.164) — long enough to pass through the pod body. The two screws Ch 05 held back from that joint were **M3×16**, which cannot reach the joint through the pod. With the printer still inverted the joint's underside faces up, which is the easy direction. Running the gantry through its full X and Y travel afterwards is the check that the pod only meets something at the two places it is meant to.
+**What you're looking at:** The pod bolts up into the right-hand XY joint on two **M3×30 SHCS** (manual p.164) — long enough to pass through the pod body — which Ch 05 Step 05.46 bagged with the pod; the M3×16 of p.106 cannot reach the joint through it. With the printer still inverted the joint's underside faces up, which is the easy direction. Running the gantry through its full X and Y travel afterwards is the check that the pod only meets something at the two places it is meant to.
 
-**Parts:** pod assembly, M3×30 SHCS ×2 — the manual p.164 value; Ch 05 Step 05.43 bagged two **M3×16** with the pod, which are spares here `(verify against your Ch 05 bag)`.
+**Parts:** pod assembly, M3×30 SHCS ×2 — the manual p.164 value, bagged by Ch 05 (Step 05.46) `(verify against the bag)`.
 
 **Do:** Hold the pod against the underside of the **right-hand XY joint** — facing up with the printer inverted — and drive two M3×30 SHCS through it into the joint's two free holes, the ones Ch 05 left empty. If Ch 05 already fitted the pod, this step is: drop the two screws, fit the PCB from 09.32, and put the screws back.
 

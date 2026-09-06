@@ -2,8 +2,11 @@
 
 **Time:** 8.5 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Prerequisites:** B00 printed and gate passed; B02 printed (accent `[a]_cable_cover`,
-`[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right` feed this same assembly chapter).
+**Sessions:** 2 plate starts (~5 min hands-on each, 4.4 / 4.1 h unattended) + ~15 min inspect and bin.
+
+**Prerequisites:** **Gate B passed** (Step B00.7, kit day — these are F695 bearing seats). B02 printed
+(accent `[a]_cable_cover`, `[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right` feed this same assembly
+chapter; in the pre-kit order it is already on the shelf).
 
 **Printed parts**
 
@@ -32,8 +35,9 @@
 
 ## Step B03.1 — Filament prep
 
-**Do:** Back to Galaxy Black. Confirm spool remaining ≥119 g for both plates.
-**Check:** Purge clean black, no orange streaking from B02.
+**Do:** Galaxy Black, confirm spool remaining ≥119 g for both plates (the ledger has B03 on spool #2 after B01).
+Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Check:** Purge clean black.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -42,9 +46,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 ![Plate B03-P1](../assets/plates/B03-P1.png)
 
 **Do:** Open `slicer/plates/B03-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
-No rotation, no brim.
+No rotation, no brim in the project.
 **Parts:** the four items above — 4.4 h, 60 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Parts sit flat as shipped.
+**Check:** Parts sit flat as shipped; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
@@ -59,9 +63,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ![Plate B03-P2](../assets/plates/B03-P2.png)
 
-**Do:** Open `slicer/plates/B03-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`.
+**Do:** Open `slicer/plates/B03-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`. No rotation, no brim in the project.
 **Parts:** the four items above — 4.1 h, 59 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Parts sit flat as shipped.
+**Check:** Parts sit flat as shipped; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
@@ -78,7 +82,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 upper halves of each drive unit together — they must close flat with no gap.
 **Check:** No gap when the two halves are clamped together; bearing seats accept an F695-2RS bearing snugly, no rocking.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
+Pause: ~10 min since the last pause — bearing seats tested and the bearings pulled back out, halves dry-fitted and separated again. Nothing pressed for keeps.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B03.7 — Label and bin
 
@@ -92,6 +98,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ---
 
 ## Checkpoint B03
+- [ ] Gate B passed before B03-P1 started
 - [ ] F695-2RS (13 mm OD) bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts

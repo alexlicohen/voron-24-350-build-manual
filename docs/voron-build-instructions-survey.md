@@ -216,7 +216,7 @@ Pre-load or test-fit roll-in T-nuts — LDO warns extrusion/T-nut tolerances are
 |---|---|
 | 19 | Brass **M5 precision spacer** replaces the M5 shim — everywhere in the manual unless noted |
 | 29–30 | Install deck supports now; use `deck_support_4mm_x8` (but see §4.3) |
-| 29 | DIN rails run **left to right** (LDO), not front-to-back as manual p.29 draws — *"These DIN rails run from left to right"* (`S0_Din_Raill.jpg`). Every LDO component position in the bay depends on this orientation. See `docs/manual/09-electronics-bay.md` step 09.5 |
+| 29 | DIN rails run **left to right** (LDO), not front-to-back as manual p.29 draws — *"These DIN rails run from left to right"* (`S0_Din_Raill.jpg`). Every LDO component position in the bay depends on this orientation. See `docs/manual/09-electronics-bay.md` step 09.5  **RETRACTED 2026-09-06:** manual p.28–29 already show the rails left-to-right across the bed extrusions; manual and LDO agree — no deviation (Fable review F5). |
 | 39 | Stepper wiring per the LDO wiring guide, not the manual |
 | 54 | Remove bed protective film; after applying the magnet sheet, trim the bolt holes |
 | 55, 56 | **SKIP** — heatpad and thermal fuse pre-applied |

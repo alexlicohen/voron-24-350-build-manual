@@ -65,7 +65,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **What it shows**
 
 - Both belt loops as separate top views, the way the manual splits p.126 and p.127: every 90° turn, the S-wrap at the drive, the 180° U-turn at the front idler, and the return to the carriage.
-- The toothed face marked continuously along both belts, so the smooth back on every bearing stack and the teeth on the motor pulley are visible at a glance.
+- The toothed face marked continuously along both belts, so the smooth back on every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap at each belt's return XY joint (its 20T idler) are visible at a glance.
 - The two-runs-on-one-side asymmetry: A has two parallel runs on the right and one on the left; B is the mirror.
 - Where the belt ends are clamped in the X carriage halves.
 
@@ -78,7 +78,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **Drawn schematically / left unlabelled (verify)**
 
 - Lane spacing and the position of the two bearing stacks and the motor pulley *within* each drive unit are schematic. The chapters fix the order of the wraps (stack, pulley, stack) and which stack the other belt turns on, not their top-view coordinates.
-- The toothed face is stated by the chapter at three places only — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13) and the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length.
+- The toothed face is stated by the chapter at four places — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13), the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15) and the return XY joint (teeth on its 20T idler, Step 07.16 for A and Step 07.22 for B). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length. Which joint stack a belt meets (F695 pair or 20T idler) is fixed by the belt's height and needs no decision.
 - The diagram does not say which X-carriage slot (upper or lower) each end goes into, because the chapter assigns the slots by belt plane rather than by side.
 
 ---
@@ -107,7 +107,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **What it shows**
 
-- The mains path end to end: wall socket, C13 cord, the combined C14 + rocker + fuse inlet, the three labelled WAGO 221-415 blocks, the Meanwell, the Omron SSR, the bed heater.
+- The mains path end to end: wall socket, C13 cord, the combined C14 + rocker + fuse inlet, the three labelled WAGO 221-415 blocks, the Meanwell with its AC screws in datasheet order (1 L, 2 N, 3 FG), the Omron SSR, the bed heater.
 - Which pole the fuse is in (Live only), which poles the rocker switches (both), and that the earth spade is neither switched nor fused.
 - All four SSR terminals with what lands on each, including the red-to-3 / black-to-4 control pair from the Leviathan's HEATBED terminals.
 - The five branches of the protective-earth chain, the bed's M4x6 BHCS + serrated washer, and the thermistor path from the pad to TH1.
@@ -150,7 +150,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **What it shows**
 
 - All five voltage-selection headers by name, which two carry a jumper on this build (Fan2, Fan3, both at 24 V) and which three stay bare (Fan0, Fan1, the Z-probe header).
-- The count check — 5 headers, 2 fitted, 3 bare — and what a jumper left at 5 V under a 24 V load does.
+- The count check — 5 headers, 2 fitted, 3 bare — and why a jumper at 24 V with a 5 V device on the port destroys the device (nothing on the block can bridge 5 V to 24 V).
 - The Ch 09 / Ch 10 sequence: strip every jumper on the bench, fit two back only after each device's voltage is verified.
 
 **Insert at**
@@ -238,7 +238,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 - All 30 timeline rows in execution order on two lanes — print batches B00–B10 on the Core One+, assembly chapters on the bench — with each row's duration.
 - Dependency arrows from each batch to the chapter that consumes it.
 - The Gen 2 belt-upgrade pause as a full-width band at its contingency position, between B07 and B08.
-- The critical-path totals: 134.3 h of printing, 59.5 h hands-on, about three calendar weeks once the kit lands.
+- The critical-path totals: the print hours (per batch and total) are read from docs/manual/print/README.md at render time so they cannot drift from the sliced estimates; 59.5 h hands-on and about three calendar weeks once the kit lands are 00-index.md's own figures.
 
 **Insert at**
 
@@ -246,7 +246,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The vertical axis is execution order, not calendar time. The manual's timeline is dependency-ordered and gives no per-row calendar date, so none is invented here; the elapsed figures in the footer strip are the index's own.
+- The vertical axis is execution order, not calendar time. The manual's timeline is dependency-ordered and gives no per-row calendar date, so none is invented here; the elapsed figures in the footer strip are the index's own and are hard-coded in the script — change 00-index.md's Critical path table first.
 
 ---
 
