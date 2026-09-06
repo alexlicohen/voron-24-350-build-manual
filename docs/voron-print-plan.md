@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 22 plates · **157.1 h** print time · **1812 g Galaxy Black + 279 g Prusa Orange** ·
+**Totals at a glance:** 22 plates · **157.1 h** print time · **1813 g Galaxy Black + 279 g Prusa Orange** ·
 against 2400 g black + 800 g orange on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 
@@ -492,7 +492,7 @@ Notes:
 
 ---
 
-### Batch B08 — Skirts and front modules · **4 plates · 29.2 h · 398 g black**
+### Batch B08 — Skirts and front modules · **4 plates · 29.2 h · 399 g black**
 **Unlocks:** *Skirts* (p.212–239).
 
 The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
@@ -513,7 +513,7 @@ each side = `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
 
 - **B08-P1** (6.3 h, 99 g): `rear_center_skirt_350`, `side_fan_support` ×1
 - **B08-P2** (8.4 h, 108 g): `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×1
-- **B08-P3** (9.5 h, 121 g): `side_fan_support` ×1, `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, `mount.stl`
+- **B08-P3** (9.5 h, 122 g): `side_fan_support` ×1, `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, `mount.stl`
 - **B08-P4** (5.0 h, 70 g): `side_skirt_b_350` ×1, `keystone_panel`
 
 Every one of these is 117–182 mm on its long axis and 67–72 mm deep. Packed on bounding boxes that meant two
@@ -632,7 +632,7 @@ extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams us
 1.07 g/cm³ ASA density.
 
 **What replaced what.** The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
-wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.1 h / 2091 g** —
+wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.1 h / 2092 g** —
 **+17 % time, −7 % filament**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
 override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
 layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
@@ -656,11 +656,11 @@ less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
 |---|---:|---:|---:|---:|
-| **Galaxy Black** | **1812 g** | 2400 g (3 × 800 g) | **588 g** | **32 %** |
+| **Galaxy Black** | **1813 g** | 2400 g (3 × 800 g) | **587 g** | **32 %** |
 | **Prusa Orange** | **279 g** | 800 g (1 × 800 g) | **521 g** | **187 %** |
-| Total | 2091 g | 3200 g | 1109 g | — |
+| Total | 2092 g | 3200 g | 1108 g | — |
 
-**Black margin is comfortable, but not unlimited.** 588 g is about three of the largest plates. Typical
+**Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates. Typical
 first-build reprint rate is 10–15 %, so you should land fine — but:
 
 - Don't burn black on the optional extras (`bed_hole_marking_template`, `bottom_panel_template`, purge-bucket
@@ -673,7 +673,7 @@ first-build reprint rate is 10–15 %, so you should land fine — but:
 ### 4.3 Spool changes
 
 Cumulative black consumed after each batch: B00 **52** · B01 **353** · B03 **472** · B04 **589** · B05 **667** ·
-B06 **815** · B07 **1041** · B08 **1439** · B09 **1736** · B10 **1812 g**.
+B06 **815** · B07 **1041** · B08 **1440** · B09 **1737** · B10 **1813 g**.
 
 With 800 g spools, spool #1 runs out inside **B06**, on the merged **B06-P1**, which starts with only ~133 g
 left; spool #2 runs out inside **B09**, during **B09-P3** (~31 g left at its start). The Core One+ runout
@@ -819,7 +819,7 @@ single most-looked-at printed part on the machine and it's on B02-P1.
    [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** (§1.4) — steps/mm changed with the pulleys, so the
-   dimensional gate has to be re-passed before you print 398 g of skirts. Judge its first layer per §1.4
+   dimensional gate has to be re-passed before you print 399 g of skirts. Judge its first layer per §1.4
    step 3; the loadcell re-zeroes on its own and there is no wizard to redo.
 
 Do **not** try to interleave the upgrade with a running plate; the Nextruder and bed have to come apart.
@@ -845,10 +845,10 @@ mechanical chapters need).
 | B05 | Z joints + Z chain | 1 | 6.4 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
 | B06 | Toolhead (SB + CW2 + Klicky) | 1 | 12.2 | 148 | 0 | Stealthburner | B00;B02;B04 |
 | B07 | Electronics bay + lighting | 2 | 16.0 | 226 | 0 | Electronics; Controller; Wiring | B00 |
-| B08 | Skirts + front modules | 4 | 29.2 | 398 | 0 | Skirts | B00;B02;B07 |
+| B08 | Skirts + front modules | 4 | 29.2 | 399 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 21.8 | 297 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 76 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **22** | **157.1** | **1812** | **279** | | |
+| **TOTAL** | | **22** | **157.1** | **1813** | **279** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_orange,unlocks_chapter,hard_prereq_batches
@@ -863,7 +863,7 @@ B07,Electronics bay + lighting,2,16.0,226,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,4,29.2,398,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,21.8,297,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,76,0,Panels (front door),B00;B02;B09
-TOTAL,,22,157.1,1812,279,,
+TOTAL,,22,157.1,1813,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -884,7 +884,7 @@ B07-P1,B07,7.9,102,black
 B07-P2,B07,8.1,124,black
 B08-P1,B08,6.3,99,black
 B08-P2,B08,8.4,108,black
-B08-P3,B08,9.5,121,black
+B08-P3,B08,9.5,122,black
 B08-P4,B08,5.0,70,black
 B09-P1,B09,4.5,63,black
 B09-P2,B09,4.9,67,black

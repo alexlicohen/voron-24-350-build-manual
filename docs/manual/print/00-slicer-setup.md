@@ -321,7 +321,7 @@ the single most-looked-at printed part on the machine and it's on B02-P1.
 2. Re-tension both belts and re-square the gantry, per [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changed with the pulleys; the
-   dimensional gate must be re-passed before printing 398 g of skirts (B08). Judge the cube's first layer as
+   dimensional gate must be re-passed before printing 399 g of skirts (B08). Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 
 **The same rule generalises:** *any* toolchain change — slicer version (2.9.6 → 3.0), profile bundle, belts,
