@@ -87,6 +87,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Plenum lid groove prints crisp.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B09.4 — Load plate B09-P2
@@ -106,6 +108,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Cartridge magnet pockets (8× 6×3 mm) print crisp.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -128,6 +132,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Clean first layer.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B09.8 — Load plate B09-P4
@@ -148,6 +154,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Clean first layer.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B09.10 — Load plate B09-P5
@@ -166,6 +174,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Clean first layer.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 

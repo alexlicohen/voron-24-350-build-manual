@@ -86,6 +86,8 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 **Check:** The four hinge-sleeve/solid parts print upright and stable through their full 55–58 mm height —
 watch the first 10 mm for any brim lift.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B10.5 — Inspect

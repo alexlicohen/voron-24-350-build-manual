@@ -17,15 +17,15 @@ chapter-level prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | batch | plates | hours | g black | g orange | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---:|---|---|
 | [B00](B00-calibration-and-jigs.md) | 1 | 4.0 | 52 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 02 / 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
-| [B02](B02-accent-parts-orange.md) | 3 | 21.9 | 0 | 279 | accent for Ch 02, 04, 05, 06, 08, 11; `Handle` for B10 | Gate A |
-| [B07](B07-electronics-bay-and-lighting.md) | 3 | 16.0 | 226 | 0 | Ch 09 Electronics bay; Ch 10 Wiring | Gate A |
+| [B02](B02-accent-parts-orange.md) | 3 | 21.9 | 0 | 279 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
+| [B07](B07-electronics-bay-and-lighting.md) | 3 | 16.0 | 226 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
 | [B08](B08-skirts-and-front-modules.md) | 6 | 29.2 | 399 | 0 | Ch 11 Part A Skirts | Gate A, re-passed after the Gen 2 upgrade |
 | [B09](B09-panels-filtration-spool.md) | 5 | 21.8 | 297 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 76 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
 | [B01](B01-z-drive-assemblies.md) | 2 | 22.8 | 301 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (kit day) |
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 2 | 8.5 | 119 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.6 | 117 | 0 | Ch 05 Gantry | Gate B |
-| [B05](B05-z-joints-and-z-chain.md) | 1 | 6.4 | 78 | 0 | Ch 06 Z axis; Ch 07 A/B belts | Gate B |
+| [B05](B05-z-joints-and-z-chain.md) | 1 | 6.4 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 2 | 12.2 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
 | **TOTAL** | **27** | **157.1** | **1813** | **279** | | |
 
@@ -50,7 +50,7 @@ each of its two corners, a `_x4` file one in each corner.
 
 | bin | label | chapter · steps | parts (qty) | from batches |
 |---|---|---|---|---|
-| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.10) | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
+| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.11) | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
 | **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` | B00, B01, B02 |
 | **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` | B01, B02 |
 | **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` | B01, B02 |

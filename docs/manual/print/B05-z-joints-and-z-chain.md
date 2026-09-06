@@ -57,6 +57,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** First layer clean; no warp on the small joint parts.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B05.4 — Inspect

@@ -83,6 +83,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** LED carrier and diffuser mask pockets print crisp — fine features.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B06.4 — Load plate B06-P2
@@ -104,6 +106,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Magnet-holder pockets print crisp and centered.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 

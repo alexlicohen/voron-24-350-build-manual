@@ -20,8 +20,8 @@ then pause before starting B08. Re-run the calibration-cube gate
 | `wago_221-415_mount_3by5.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 | Black | 10.6 | 09-bay |
 | `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 | 09-bay |
 | `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 | 09-bay |
-| `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 file, 2 bodies *(optional spare: the kit supplies the base printed, and the V2 partial cover below replaces the cover — 9 g, on the plate as shipped)* | Black | 9.4 | spare-alt |
-| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 (verify; 0.30 h est.) | 09-bay |
+| `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 *(spare — kit supplies one; → spare-alt)* | Black | 9.4 | spare-alt |
+| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 | 09-bay |
 | `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies the 4 needed)* | Black | 5.9 | 09-bay |
 | `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 11-panels |
 | `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 | 10-lights |
@@ -78,6 +78,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Clean first layer.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B07.4 — Load plate B07-P2
@@ -102,6 +104,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Watch for end-lift on the 100 mm mounts partway through — this is the batch's known warp risk.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B07.6 — Load and print plate B07-P3
@@ -114,6 +118,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 flat ASA and lifts at the corners. Print with standing overrides.
 **Parts:** `power_inlet_IECGS_1mm` — 2.3 h, 35 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Brim outline shows in the preview; first layer clean across the full 118 mm; no corner lift.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
 

@@ -88,6 +88,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Watch the ends of `rear_center_skirt_350` for the first hour — 182 mm is the worst warp candidate in the set.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B08.4 — Load plate B08-P2
@@ -106,6 +108,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Front skirt's first layer clean across the full 150 mm; no corner lift.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -126,6 +130,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** No corner lift.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B08.8 — Load plate B08-P4
@@ -144,6 +150,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** No corner lift.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -164,6 +172,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Keystone panel's two cutout slots print crisp and undistorted.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B08.12 — Load plate B08-P6
@@ -183,6 +193,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Clean first layer, no warp on the tall/narrow mount.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 

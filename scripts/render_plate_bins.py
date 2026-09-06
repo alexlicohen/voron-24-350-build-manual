@@ -588,7 +588,11 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
         def draw_block(rot: bool, on_pill: bool) -> None:
             if on_pill:
                 w, h = (block_h, block_w) if rot else (block_w, block_h)
-                cv.rect(cx - w / 2 - 1, cy - h / 2 - 1, w + 2, h + 2, fill="#ffffff", opacity=0.84, rx=3)
+                # Opaque: this pill exists to guarantee the label reads over holes/ribs, so a
+                # partial-opacity fill (blending differently over solid material than over a
+                # hole showing the bed colour through) defeats the point — it renders as
+                # diagonal stripes wherever a hole crosses the box (see review F12).
+                cv.rect(cx - w / 2 - 1, cy - h / 2 - 1, w + 2, h + 2, fill="#ffffff", opacity=1.0, rx=3)
             c = TEXT if on_pill else tcol
             if rot:
                 cv.text(cx - block_h / 2 + 2 + nh / 2, cy, num, n_size, c, bold=True, rotate=90)

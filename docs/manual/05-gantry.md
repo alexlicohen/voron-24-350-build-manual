@@ -12,7 +12,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
 - **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17) — they come off at Steps 05.11 / 05.33.
-- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 7.3 h, black) and **B02-P3** (the orange accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 is itself gated on B00 + B02 + B03.
+- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.6 h, black) and **B02-P3** (the orange accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
 - **Titanium backer set** (Fabreeko/LDO, 350 size) unpacked and counted.
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
 
@@ -970,7 +970,7 @@ Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ## Next
 
-Ch 06 — Z axis: gantry install, Z belts and gantry squaring (manual p.108–123, plus the official 16-step squaring procedure); gated on batch **B05** (Z joints + Z chain, 1 plate, 5.2 h) — start it now if it is not already printed. Keep the rubber rail stoppers: LDO uses them under the Z joints to rest the gantry during install.
+Ch 06 — Z axis: gantry install, Z belts and gantry squaring (manual p.108–123, plus the official 16-step squaring procedure); gated on batch **B05** (Z joints + Z chain, 1 plate, 6.4 h) — start it now if it is not already printed. Keep the rubber rail stoppers: LDO uses them under the Z joints to rest the gantry during install.
 
 Source: [survey §7.5](../voron-build-instructions-survey.md) · [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=107)
 

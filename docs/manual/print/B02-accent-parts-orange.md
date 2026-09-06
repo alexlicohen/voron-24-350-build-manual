@@ -93,6 +93,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides, no brim on this plate's parts.
 **Check:** First layer clean; SB body prints without support failure.
 
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B02.4 — Load plate B02-P2
@@ -115,6 +117,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** `Handle` stands through the full print with no lean; brim shows no lift.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -141,6 +145,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** No warp on the small parts; SB accent pieces (guidler, latch, latch shuttle) print crisp — these
 have fine features that go under close fitment tolerances later.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 

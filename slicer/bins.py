@@ -27,7 +27,7 @@ import re
 BINS: dict[str, dict[str, str]] = {
     "00-jigs": dict(
         label="Jigs and coupons",
-        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.10)",
+        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.11)",
         colour="#8a8f98"),
     "02-Z0": dict(label="Z0 corner (front-left, `_a` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)", colour="#2457c5"),
     "02-Z1": dict(label="Z1 corner (rear-left, `_b` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)", colour="#1a9c8c"),
@@ -205,7 +205,7 @@ PLATE_ASSIGN: dict[tuple[str, str], list[str]] = {
 
 # Per-part notes that belong on the label / sort table (not on the diagram).
 NOTES: dict[str, str] = {
-    "Voron_Design_Cube_v7.stl": "reference coupon — keep for the Gen 2 re-check and 14.10",
+    "Voron_Design_Cube_v7.stl": "reference coupon — keep for the Gen 2 re-check and 14.11",
     "Heatset_Practice.stl": "Gate B coupon (7 inserts, Step B00.7)",
     "MGN12_rail_guide_x2.stl": "one is the Gate B coupon (Step B00.7)",
     "z_drive_retainer_a_x2.stl": "B00 copy is the Gate B bore coupon",

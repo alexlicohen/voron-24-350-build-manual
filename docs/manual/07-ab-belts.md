@@ -11,7 +11,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 **Prerequisites:**
 
 - Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, X carriage on the rail, Ti backers), **Ch 06 Part A** (gantry installed on the Z joints, Z belts clamped).
-- Print batches **B02** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B03** (front idlers), **B04** (XY joints + X carriage + `probe_retainer_bracket`), **B05** (gates *A/B Belts* in the print plan).
+- Print batches **B02** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B03** (front idlers), **B04** (XY joints + X carriage + `probe_retainer_bracket`).
 - The gantry must move freely by hand over its full travel with no belts on. Fix binding now, not after belting.
 
 **Tools**
