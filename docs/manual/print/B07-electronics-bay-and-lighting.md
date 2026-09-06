@@ -15,18 +15,18 @@ then pause before starting B08. Re-run the calibration-cube gate
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `wago_221-415_mount_3by5.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 | Black | 10.6 |
-| `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 |
-| `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 |
-| `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 file, 2 bodies *(optional spare: the kit supplies the base printed, and the V2 partial cover below replaces the cover — 9 g, on the plate as shipped)* | Black | 9.4 |
-| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 (verify; 0.30 h est.) |
-| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies the 4 needed)* | Black | 5.9 |
-| `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 |
-| `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 |
-| `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 |
-| `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, not the skirts chapter; own plate B07-P3)* | Black | 36.2 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `wago_221-415_mount_3by5.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 | Black | 10.6 | 09-bay |
+| `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 | 09-bay |
+| `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 | 09-bay |
+| `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 file, 2 bodies *(optional spare: the kit supplies the base printed, and the V2 partial cover below replaces the cover — 9 g, on the plate as shipped)* | Black | 9.4 | spare-alt |
+| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 (verify; 0.30 h est.) | 09-bay |
+| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies the 4 needed)* | Black | 5.9 | 09-bay |
+| `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 11-panels |
+| `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 | 10-lights |
+| `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 | 10-lights |
+| `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, not the skirts chapter; own plate B07-P3)* | Black | 36.2 | 09-bay |
 
 ⚠ **`PSU_stabilizer_50mm` (verify):** LDO Build Notes say "PAGE 169 SKIP — the kit does not use a support
 bracket," which most likely refers to this part. It is 4 g — print it, fit only if it's actually needed.
@@ -60,7 +60,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B07.2 — Load plate B07-P1
 
-![Plate B07-P1](../assets/plates/B07-P1.png)
+![Plate B07-P1 — sorting diagram](../assets/plates/B07-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
 **Do:** Open `slicer/plates/B07-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `wago_221-415_mount_3by5`, `lrs_200_psu_bracket_x2` ×2, `PSU_stabilizer_50mm`,
 `usb_adapter_mount`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), `pcb_din_clip_x3` ×3,
@@ -80,7 +82,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B07.4 — Load plate B07-P2
 
-![Plate B07-P2](../assets/plates/B07-P2.png)
+![Plate B07-P2 — sorting diagram](../assets/plates/B07-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
 **Do:** Open `slicer/plates/B07-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `cob_light_strip_mount_100mm` ×6 and `cob_light_strip_mount_50mm` ×2 — eight mounts total,
 each a 2-piece assembly. **3 mm brim on the six 100 mm mounts — already in the project** (they're on the
@@ -102,7 +106,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B07.6 — Load and print plate B07-P3
 
-![Plate B07-P3](../assets/plates/B07-P3.png)
+![Plate B07-P3 — sorting diagram](../assets/plates/B07-P3.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
 **Do:** Open `slicer/plates/B07-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `power_inlet_IECGS_1mm` ×1 alone. **3 mm brim — already in the project** — it is 118 × 66.8 mm of
 flat ASA and lifts at the corners. Print with standing overrides.
@@ -122,15 +128,33 @@ Pause: ~15 min since the last pause — every mount checked on the reference, br
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip)
 
-## Step B07.8 — Label and bin
+## Step B07.8 — Sort into bins
 
-**Do:** Bin for **Electronics**, **Controller**, **Wiring** chapters (Ch 09–10). Keep the spare
-`usb_adapter_mount` base and the `pcb_din_clip` spares in a bag marked "spares — kit supplies these". The power inlet panel off B07-P3 goes to the
-**Electronics** bin — it is consumed in Ch 09, not in the skirts chapter.
-**Check:** All electronics-bay parts grouped; COB mounts counted (6× 100 mm + 2× 50 mm);
-`power_inlet_IECGS_1mm` present.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **09-bay** takes the whole bay, including the `power_inlet_IECGS_1mm` off B07-P3 — it is consumed in Ch 09 (Steps 09.10–09.12) and only borrowed for the skirt-ring dry-fit at B08.14 / Ch 11 Step 11.1. The `pcb_din_clip` ×3 are spares (the kit supplies 4; one is the Step 09.7 practice clip) — they stay in 09-bay. The spare `usb_adapter_mount` base (LDO supplies one printed) goes to **spare-alt**; the `handlebar_spacer` ×4 to **11-panels** (Ch 11 Step 11.60).
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B07-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3 |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `handlebar_spacer` ×4 |
+| **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |
+
+**B07-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 |
+
+**B07-P3**
+
+| bin | parts off this plate |
+|---|---|
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips | `power_inlet_IECGS_1mm` |
+
+**Check:** COB mounts counted (6× 100 mm + 2× 50 mm) in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 

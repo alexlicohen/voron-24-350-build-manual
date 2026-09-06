@@ -15,37 +15,37 @@ before assembly.
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `[a]_z_drive_baseplate_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 9.7 |
-| `[a]_z_drive_baseplate_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 9.7 |
-| `[a]_belt_tensioner_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 1.9 |
-| `[a]_belt_tensioner_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 1.9 |
-| `[a]_z_tensioner_9mm_x4.stl` | Voron-2 `STLs/Z_Idlers/` | 4 | Orange | 8.1 |
-| `[a]_tensioner_left.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Orange | 7.4 |
-| `[a]_tensioner_right.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Orange | 7.4 |
-| `[a]_cable_cover.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Orange | 8.0 |
-| `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Orange | 0.6 |
-| `[a]_endstop_pod_D2F_switch.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 8.1 |
-| `[a]_xy_joint_cable_bridge_2hole.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 9.2 |
-| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: alternate to the above — fit whichever clears the Ti backers, see §Read first | Orange | 9.1 |
-| `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.3 |
-| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.4 |
-| `[a]_stealthburner_main_body.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Orange | 46.5 |
-| `[a]_guidler_a.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 3.7 |
-| `[a]_guidler_b.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 2.1 |
-| `[a]_latch.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 3.5 |
-| `[a]_latch_shuttle.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 1.7 |
-| `[a]_pcb_spacer.stl` | Stealthburner `STLs/Clockwork2/` | 1 *(spare — kit supplies one)* | Orange | 0.3 |
-| `[a]_belt_guard_a_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.4 |
-| `[a]_belt_guard_b_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.4 |
-| `[a]_fan_grill_a_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.9 |
-| `[a]_fan_grill_b_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.9 |
-| `[a]_fan_grill_retainer_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 4.2 |
-| `[a]_keystone_blank_insert.stl` | Voron-2 `STLs/Skirts/` | 2 *(1 used + 1 spare; LDO ships one CAT6 keystone)* | Orange | 2.5 |
-| `[a]_faceplate.stl` | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Orange | 6.6 |
-| `ldo_bestagon_insert.stl` | LDOVoron2 `STLs/` | 1 | Orange | 3.0 |
-| `Handle.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Orange | 33.7 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `[a]_z_drive_baseplate_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 9.7 | 02-Z0, 02-Z2 (one each) |
+| `[a]_z_drive_baseplate_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 9.7 | 02-Z1, 02-Z3 (one each) |
+| `[a]_belt_tensioner_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 1.9 | 02-Z0, 02-Z2 (one each) |
+| `[a]_belt_tensioner_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Orange | 1.9 | 02-Z1, 02-Z3 (one each) |
+| `[a]_z_tensioner_9mm_x4.stl` | Voron-2 `STLs/Z_Idlers/` | 4 | Orange | 8.1 | 02-Z0–Z3, one each |
+| `[a]_tensioner_left.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Orange | 7.4 | 04-B |
+| `[a]_tensioner_right.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Orange | 7.4 | 04-A |
+| `[a]_cable_cover.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Orange | 8.0 | 07-X |
+| `[a]_z_chain_retainer_bracket_x2.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Orange | 0.6 | 10-chains |
+| `[a]_endstop_pod_D2F_switch.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 8.1 | 05-XY |
+| `[a]_xy_joint_cable_bridge_2hole.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Orange | 9.2 | 05-XY |
+| `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: alternate to the above — fit whichever clears the Ti backers, see §Read first | Orange | 9.1 | 05-XY |
+| `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.3 | 06-Z-joints |
+| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Orange | 2.4 | 06-Z-joints |
+| `[a]_stealthburner_main_body.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Orange | 46.5 | 08-SB |
+| `[a]_guidler_a.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 3.7 | 08-CW2 |
+| `[a]_guidler_b.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 2.1 | 08-CW2 |
+| `[a]_latch.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 3.5 | 08-CW2 |
+| `[a]_latch_shuttle.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Orange | 1.7 | 08-CW2 |
+| `[a]_pcb_spacer.stl` | Stealthburner `STLs/Clockwork2/` | 1 *(spare — kit supplies one)* | Orange | 0.3 | spare-alt |
+| `[a]_belt_guard_a_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.4 | 11-fans |
+| `[a]_belt_guard_b_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.4 | 11-fans |
+| `[a]_fan_grill_a_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.9 | 11-fans |
+| `[a]_fan_grill_b_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 5.9 | 11-fans |
+| `[a]_fan_grill_retainer_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Orange | 4.2 | 11-fans |
+| `[a]_keystone_blank_insert.stl` | Voron-2 `STLs/Skirts/` | 2 *(1 used + 1 spare; LDO ships one CAT6 keystone)* | Orange | 2.5 | 11-skirts |
+| `[a]_faceplate.stl` | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Orange | 6.6 | 11-skirts |
+| `ldo_bestagon_insert.stl` | LDOVoron2 `STLs/` | 1 | Orange | 3.0 | 11-skirts |
+| `Handle.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Orange | 33.7 | 11-door |
 
 ⚠ **Cable-chain bridge, conditional:** Fabreeko's titanium extrusion backers ship pre-tapped for the cable
 chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
@@ -76,7 +76,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B02.2 — Load plate B02-P1
 
-![Plate B02-P1](../assets/plates/B02-P1.png)
+![Plate B02-P1 — sorting diagram](../assets/plates/B02-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
 **Do:** Open `slicer/plates/B02-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. The filament box reads `Prusament ASA @COREONE HF0.4 - Voron orange` — the accent preset, same overrides. On the plate, **5 files, 7 objects**: `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a` ×2,
 `[a]_z_drive_baseplate_b` ×2. No rotation, no brim. Leave the SB main body's built-in supports in place — do not
@@ -95,7 +97,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B02.4 — Load plate B02-P2
 
-![Plate B02-P2](../assets/plates/B02-P2.png)
+![Plate B02-P2 — sorting diagram](../assets/plates/B02-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
 **Do:** Open `slicer/plates/B02-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **8 files, 13 objects**: `Handle`, `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2,
 `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2, `[a]_tensioner_left`, `[a]_tensioner_right`. **5 mm brim on
@@ -116,7 +120,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B02.6 — Load plate B02-P3
 
-![Plate B02-P3](../assets/plates/B02-P3.png)
+![Plate B02-P3 — sorting diagram](../assets/plates/B02-P3.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
 **Do:** Open `slicer/plates/B02-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, the remaining accent parts, **16 files, 29 objects**: `[a]_belt_tensioner_a` ×2, `[a]_belt_tensioner_b` ×2,
 `[a]_z_tensioner_9mm` ×4, `[a]_z_chain_retainer_bracket` ×2, `[a]_endstop_pod_D2F_switch`,
@@ -148,23 +154,49 @@ Pause: ~10 min since the last pause — supports out, brim off, nothing pressed 
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
-## Step B02.9 — Label and bin
+## Step B02.9 — Sort into bins
 
-**Do:** Bin by consuming assembly chapter, one bag per line:
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Write the bin id on the inside face of every `_a` / `_b` part as it comes off the plate (`_a` = Z0 and Z2, `_b` = Z1 and Z3; the four `[a]_z_tensioner_9mm` are identical, one per corner). `Handle` goes to **11-door** now and waits there for B10's black parts. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05 — hence **10-chains**; the `[a]_pcb_spacer` is a spare (the kit supplies one printed).
 
-| Bag label | Parts |
+**B02-P1**
+
+| bin | parts off this plate |
 |---|---|
-| **Ch 02 — Z drives (orange)** | `[a]_z_drive_baseplate_a` ×2, `_b` ×2, `[a]_belt_tensioner_a` ×2, `_b` ×2, `[a]_z_tensioner_9mm` ×4 — write the letter on the inside face of each `_a` / `_b` part as it comes off the plate (Ch 02's corner map: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right); they join B01's `a` / `b` bags by letter on kit day |
-| **Ch 04 — A/B drives (orange)** | `[a]_cable_cover`, `[a]_tensioner_left`, `[a]_tensioner_right` |
-| **Ch 05 — Gantry (orange)** | `[a]_endstop_pod_D2F_switch`, both cable bridges, `[a]_z_chain_retainer_bracket` ×2 |
-| **Ch 06 — Z axis (orange)** | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4 |
-| **Ch 08 — Stealthburner (orange)** | `[a]_stealthburner_main_body`, `[a]_guidler_a/b`, `[a]_latch`, `[a]_latch_shuttle`, `[a]_pcb_spacer` |
-| **Ch 11 — Skirts (orange)** | `[a]_belt_guard_a/b` ×2 each, `[a]_fan_grill_a/b` ×2 each, `[a]_fan_grill_retainer` ×2, `[a]_keystone_blank_insert` ×2, `[a]_faceplate`, `ldo_bestagon_insert` |
-| **B10 — Clicky-Clack `Handle`** | `Handle` — keep it separate until B10's black parts join it |
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_z_drive_baseplate_a` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_z_drive_baseplate_b` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_z_drive_baseplate_a` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_z_drive_baseplate_b` |
+| **07-X** — X carriage halves, probe bracket, cable cover | `[a]_cable_cover` |
+| **08-SB** — Stealthburner body, printhead, LEDs | `[a]_stealthburner_main_body` |
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `[a]_faceplate` |
 
-**Check:** Every accent part labelled with its destination chapter; `Handle` set aside specifically for B10.
+**B02-P2**
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+| bin | parts off this plate |
+|---|---|
+| **04-A** — A drive unit + A (right) front idler | `[a]_tensioner_right` |
+| **04-B** — B drive unit + B (left) front idler | `[a]_tensioner_left` |
+| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 |
+| **11-door** — Clicky-Clack door | `Handle` |
+
+**B02-P3**
+
+| bin | parts off this plate |
+|---|---|
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
+| **05-XY** — XY joints, cable bridge, endstop pod | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer` |
+| **06-Z-joints** — Z joints, belt clips, rail stops | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4 |
+| **08-CW2** — Clockwork 2 extruder + toolboard cover | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle` |
+| **10-chains** — Z cable chain anchor, guide, retainer | `[a]_z_chain_retainer_bracket` ×2 |
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert` |
+| **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
+
+**Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
@@ -172,7 +204,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] SB main body built-in supports removed clean; LED pockets crisp
 - [ ] Cable-chain bridge fit decision made (stock 2-hole vs Ti-backer remix) once Ti backers are in hand
 - [ ] `Handle` brim removed cleanly, no visible scarring
-- [ ] All 29 small accent parts present and sorted by destination chapter
+- [ ] All 29 small accent parts present and in their bins (B02.9), ids written on the `_a` / `_b` parts
 - [ ] Orange spool re-sealed/dry-stored — no more orange prints in the build
 
 ## Common mistakes

@@ -238,14 +238,14 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 | `z_motor_mount_a/b` ×4 | 42.0 mm | 51 × 30.7 | borderline | none — add one by hand only if a print shows lift |
 
 The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
-orientation, and the plate preview in each chapter shows the result. That is the allowed kind of rotation:
+orientation, and the plate diagram in each chapter shows the result (drawn from the committed project itself, so a plate you re-arrange in the GUI and save is redrawn by `python3 slicer/build_plates.py --from-3mf`). That is the allowed kind of rotation:
 it never changes which face is on the bed. Example: B08-P1 stands the 182 mm `rear_center_skirt_350`
 front-to-back (turned 90° from the STL) beside an unturned `side_fan_support`, because side by side as
 shipped the pair needs 254 mm of X on a 250 mm bed.
 
 These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
 hand, and a part that is not on one of these two lists gets no brim even when it shares a plate with
-one that does. The plate preview at the top of each Load step draws the brim outline, so the check at every
+one that does. The plate diagram at the top of each Load step draws the brim ring, so the check at every
 plate is the same: *the outline shows on the parts the chapter names, and on nothing else.*
 
 Separately, the projects **brim the long flat parts** — not because they're tall, but because 150–182 mm of ASA

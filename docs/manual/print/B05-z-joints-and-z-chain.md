@@ -10,13 +10,13 @@ the same assembly chapters; neither is a print prerequisite.
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `z_joint_lower_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | 9.1 |
-| `z_joint_upper_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | 6.6 |
-| `z_chain_bottom_anchor.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 9.1 |
-| `z_chain_guide.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 6.0 |
-| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 1.4 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `z_joint_lower_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | 9.1 | 06-Z-joints |
+| `z_joint_upper_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | 6.6 | 06-Z-joints |
+| `z_chain_bottom_anchor.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 9.1 | 10-chains |
+| `z_chain_guide.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 6.0 | 10-chains |
+| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 1.4 | 06-Z-joints |
 
 Print **4× `z_joint_upper_x4`** and **zero** `z_joint_upper_hall_effect.stl` — that variant exists only for
 hall-effect XY endstops, which this kit does not use.
@@ -40,7 +40,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B05.2 — Load plate B05-P1
 
-![Plate B05-P1](../assets/plates/B05-P1.png)
+![Plate B05-P1 — sorting diagram](../assets/plates/B05-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B05.5.*
 
 **Do:** Open `slicer/plates/B05-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all fourteen parts: `z_joint_lower_x4` ×4, `z_joint_upper_x4` ×4, `z_chain_bottom_anchor`,
 `z_chain_guide`, `z_rail_stop_x4` ×4. No rotation, no brim in the project. Confirm you are **not** including
@@ -67,13 +69,20 @@ Pause: ~10 min since the last pause — shafts and joints dry-fitted and apart a
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade)
 
-## Step B05.5 — Label and bin
+## Step B05.5 — Sort into bins
 
-**Do:** Bin for **Z Axis** and **A/B Belts** chapters. Group all four joint pairs together, plus the chain
-anchor/guide, plus the four rail stops.
-**Check:** 4 complete joint pairs, chain anchor, chain guide, 4 rail stops accounted for.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **06-Z-joints** already holds B02's eight orange belt clips. The chain anchor and guide go to **10-chains** with B02's retainer bracket — they are fitted in Ch 10, not Ch 06.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B05-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **06-Z-joints** — Z joints, belt clips, rail stops | `z_joint_lower` ×4, `z_joint_upper` ×4, `z_rail_stop` ×4 |
+| **10-chains** — Z cable chain anchor, guide, retainer | `z_chain_bottom_anchor`, `z_chain_guide` |
+
+**Check:** 4 joint pairs and 4 rail stops in 06-Z-joints; anchor and guide in 10-chains.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 

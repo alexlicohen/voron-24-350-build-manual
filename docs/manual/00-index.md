@@ -113,7 +113,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **24 · Build** — [Ch 09 — Electronics bay](09-electronics-bay.md) **KIT** · 2.5–4.0 · needs: Ch 01–03, Ch 06, Ch 00a; B07
     - *Gate:* Checkpoint 09: DIN rails **left-to-right**, everything mounted, nothing wired yet
     - *Sessions:* 7 × ~30 min
-- **25 · Build** — [Ch 10 — Wiring](10-wiring.md) **KIT** · 5.0–7.0 · needs: Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07
+- **25 · Build** — [Ch 10 — Wiring](10-wiring.md) **KIT** · 5.0–7.0 · needs: Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07, B08 (`mount.stl`), B02 (`[a]_faceplate`) — the TFT module is built at 10.50
     - *Gate:* **LDO Checkpoint #1** — multimeter, machine unplugged. Hard gate: the bay does not close until it passes (survey W8)
     - *Sessions:* 14 × ~30 min
 - **26 · Build** — [Ch 12 Part 2 — flash both MCUs, `printer.cfg` for a 350 Rev D+](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) **KIT** · the rest of 2.0–3.0 · needs: Ch 10

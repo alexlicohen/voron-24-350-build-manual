@@ -53,7 +53,7 @@ The same planner over the timeline rows without the **KIT** marker — the Core 
 ### 1 · Print — B00 — Calibration & jigs
 - <span data-first-step="B00.2">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B00.5">Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.</span>
-- <span data-first-step="B00.6">Step B00.6 → Step B00.7 · ~15 min · leave-state: Gate B is measured and written down; B01 and B03–B06 are released. Put the retainer with the B01 `a` parts and the rail guide back in its bag before the inventory starts.</span>
+- <span data-first-step="B00.6">Step B00.6 → Step B00.7 · ~15 min · leave-state: Gate B is measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and the rail guide back in 00-jigs before the inventory starts.</span>
 
 ### 2 · Print — B02 — Accent parts, the orange day
 - <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.0 h unattended · leave-state: plate B02-P1 running, 7.0 h unattended — door shut; come back for the next step when it ends</span>
@@ -111,7 +111,7 @@ The same planner over the timeline rows without the **KIT** marker — the Core 
 
 ### 11 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail
 - <span data-first-step="12.1">Step 12.1 → Step 12.6 · ~25 min · leave-state: MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.</span>
-- <span data-first-step="12.7">Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI panel is up and rotated the right way round, and the Klipper version you are building against is written down. The Pi boots to a working screen.</span>
+- <span data-first-step="12.7">Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.</span>
 
 ### 12 · Build — Ch 01 — Frame
 - <span data-first-step="01.1">Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.</span>

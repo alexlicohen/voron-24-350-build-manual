@@ -11,15 +11,15 @@ batch. B02's orange `Handle` joins these parts at B10.6. No bearing seat here, s
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `Handle-Hinge_Bottom.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 17.1 |
-| `Handle-Hinge_Top.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 17.1 |
-| `Hinge-L-sleeve-2X.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 2 | Black | 9.0 |
-| `Hinge-L-solid-2X.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 2 | Black | 9.2 |
-| `Latch.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 8.4 |
-| `Panel_Clip.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 0.9 |
-| `Handle.stl` | *(printed in B02, orange)* | 1 | Orange | 33.7 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `Handle-Hinge_Bottom.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 17.1 | 11-door |
+| `Handle-Hinge_Top.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 17.1 | 11-door |
+| `Hinge-L-sleeve-2X.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 2 | Black | 9.0 | 11-door |
+| `Hinge-L-solid-2X.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 2 | Black | 9.2 | 11-door |
+| `Latch.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 8.4 | 11-door |
+| `Panel_Clip.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 0.9 | 11-door |
+| `Handle.stl` | *(printed in B02, orange)* | 1 | Orange | 33.7 |  |
 
 The "2X" in the filenames means print two copies; each file contains one body. Cross-check against the
 mod's BOM: 6 split bushings and 4 M5×45 dowel pins = 2 door hinges + 2 handle hinges.
@@ -59,7 +59,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B10.2 — Load plate B10-P1
 
-![Plate B10-P1](../assets/plates/B10-P1.png)
+![Plate B10-P1 — sorting diagram](../assets/plates/B10-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
 **Do:** Open `slicer/plates/B10-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2,
 `Latch`, `Panel_Clip` — 6 files, 8 objects. **5 mm brim on the four `Hinge-L-*` and on `Latch` — already in the
@@ -98,13 +100,19 @@ Pause: ~10 min since the last pause — brims off, parts bagged; the bushing and
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
-## Step B10.6 — Label and bin
+## Step B10.6 — Sort into bins
 
-**Do:** Bring the orange `Handle` (from B02) together with this plate's six black parts for
-**Panels (front door)** install, replacing the stock two-door assembly entirely.
-**Check:** All seven Clicky-Clack parts (6 black + 1 orange) reunited and labelled together.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). All six black parts join the orange `Handle` (from B02) in **11-door** — the complete Clicky-Clack set, replacing the stock two-door assembly.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B10-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **11-door** — Clicky-Clack door | `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` |
+
+**Check:** All seven Clicky-Clack parts (6 black + 1 orange) in 11-door.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 

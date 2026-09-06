@@ -4,7 +4,9 @@
 The plate hours and grams appear in five places (the batch chapters, the plan's
 §3 headers, §4, §9 and print/README.md). This checks all of them against the
 one file the slicer wrote, so a re-slice cannot silently leave a stale number at
-the bench.
+the bench. It also checks the bin scheme (slicer/bins.py) against the batch
+chapters' Printed-parts `Bin` column and *Sort into bins* steps, print/README.md
+§ Bins, and the `bin` column of docs/manual/assets/parts/MANIFEST.csv.
 
     python3 slicer/check_docs.py        # exits non-zero on any mismatch
 
@@ -24,6 +26,9 @@ from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+import bins  # noqa: E402
+from plates import PLATES  # noqa: E402
 REPO = ROOT.parent
 DOCS = REPO / "docs"
 PRINT = DOCS / "manual" / "print"
@@ -61,6 +66,65 @@ CHAPTER = {
 }
 
 
+def _batch_bins() -> dict[str, dict[str, set[str]]]:
+    """batch -> stl -> bins its copies go to, per slicer/bins.py."""
+    out: dict[str, dict[str, set[str]]] = {}
+    for pid, spec in PLATES.items():
+        for _r, path, qty in spec["parts"]:
+            stl = path.rsplit("/", 1)[-1]
+            out.setdefault(spec["batch"], {}).setdefault(stl, set()).update(
+                bins.copies_bins(pid, stl, qty))
+    return out
+
+
+def check_bins(readme: str) -> list[str]:
+    bad: list[str] = []
+    sources = [p.rsplit("/", 1)[-1] for pl in PLATES.values() for _r, p, _q in pl["parts"]]
+    bad += [f"bins.py: {b}" for b in bins.check(sources)]
+    expected = _batch_bins()
+    for bid, stem in CHAPTER.items():
+        text = (PRINT / f"{stem}.md").read_text()
+        # Printed-parts table: Bin column present and each row's bins match
+        tbl = re.search(r"^\| STL \| Repo path \| Qty \| Colour \| g ea \| Bin \|\n\|[-:| ]+\n((?:\|.*\n)+)",
+                        text, re.M)
+        if not tbl:
+            bad.append(f"{stem}.md: Printed-parts table has no Bin column")
+        else:
+            for row in tbl.group(1).splitlines():
+                m = re.search(r"`([^`]+\.(?:stl|3mf|STL))`", row)
+                if not m or m.group(1) not in expected[bid]:
+                    continue
+                cell = row.strip().strip("|").split("|")[-1]
+                want = expected[bid][m.group(1)]
+                got = set(re.findall(r"\b(\d\d-[A-Za-z0-9-]+|spare-alt)\b", cell.replace("02-Z0–Z3", "02-Z0 02-Z1 02-Z2 02-Z3")))
+                if got != want:
+                    bad.append(f"{stem}.md: Bin cell for {m.group(1)} says {sorted(got)}, bins.py says {sorted(want)}")
+        # Sort step: every bin the batch feeds is named, nothing else
+        sm = re.search(r"^## Step B\d\d\.\d+ — Sort into bins\n(.*?)(?=^---$|^## )", text, re.M | re.S)
+        if not sm:
+            bad.append(f"{stem}.md: no 'Sort into bins' step")
+        else:
+            named = set(re.findall(r"\| \*\*([^*]+)\*\* — ", sm.group(1)))
+            want = {b for s_ in expected[bid].values() for b in s_}
+            if named != want:
+                bad.append(f"{stem}.md: Sort step tables name {sorted(named)}, bins.py says {sorted(want)}")
+    # README § Bins: one row per bin
+    for b in bins.BINS:
+        if not re.search(rf"^\| \*\*{re.escape(b)}\*\* \|", readme, re.M):
+            bad.append(f"print/README § Bins: no row for {b}")
+    # manifest column
+    manifest = DOCS / "manual" / "assets" / "parts" / "MANIFEST.csv"
+    rows = list(csv.DictReader(manifest.open()))
+    if rows and "bin" not in rows[0]:
+        bad.append("MANIFEST.csv: no `bin` column (run scripts/render_plate_bins.py --write-manifest)")
+    else:
+        for r in rows:
+            want = bins.manifest_value(r["stl"]) if r["stl"] in bins.ASSIGN else ""
+            if r.get("bin", "") != want:
+                bad.append(f"MANIFEST.csv: {r['stl']} bin {r.get('bin')!r}, bins.py says {want!r}")
+    return bad
+
+
 def main() -> int:
     plate, batch = load()
     plan = (DOCS / "voron-print-plan.md").read_text()
@@ -76,8 +140,8 @@ def main() -> int:
                 text, re.S):
             pid, body = m.group(1), m.group(2)
             seen.add(pid)
-            if f"![Plate {pid}](../assets/plates/{pid}.png)" not in body:
-                bad.append(f"{stem}.md: {pid} has no plate preview image")
+            if not re.search(rf"!\[Plate {pid}[^\]]*\]\(\.\./assets/plates/{pid}\.png\)", body):
+                bad.append(f"{stem}.md: {pid} has no plate diagram image")
             pm = re.search(r"\*\*Parts:\*\*.*?— ([\d.]+) h, (\d+) g "
                            r"\(PrusaSlicer 2\.9\.6 estimate\)", body)
             if not pm:
@@ -142,6 +206,9 @@ def main() -> int:
             bad.append(f"print/README: {bid} row does not match "
                        f"{d['plates']}/{d['h']}/{d['black']}/{d['orange']}")
 
+    # 5. bins: scheme vs chapters, README and manifest
+    bad += check_bins(readme)
+
     if bad:
         print(f"{len(bad)} mismatch(es):")
         for b in bad:
@@ -149,7 +216,8 @@ def main() -> int:
         return 1
     print(f"OK — {len(plate)} plates, {len(batch)} batches, {th} h, "
           f"{tb} g black + {to} g orange, consistent across the chapters, "
-          f"the plan (§3/§4/§9), print/README.md and README.md")
+          f"the plan (§3/§4/§9), print/README.md and README.md; "
+          f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and MANIFEST.csv")
     return 0
 
 

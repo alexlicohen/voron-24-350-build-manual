@@ -11,24 +11,24 @@ B08 → B09 → B10 back to back. No bearing seat here, so Gate B is not needed.
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `corner_panel_clip_4mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 3.0 |
-| `midspan_panel_clip_4mm_x7.stl` | Voron-2 `STLs/Panel_Mounting/` | 7 | Black | 2.0 |
-| `corner_panel_clip_6mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 4.5 |
-| `midspan_panel_clip_6mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 2.9 |
-| `bottom_panel_clip_x4.stl` | Voron-2 `STLs/Panel_Mounting/` | 4 | Black | 3.2 |
-| `bottom_panel_hinge_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 4.3 |
-| `z_belt_cover_a_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 |
-| `z_belt_cover_b_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 |
-| `exhaust_cover.stl` | LDOVoron2 `STLs/` | 1 | Black | 30.2 |
-| `exhaust_filter_grill.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Black | 9.9 |
-| `V2_Duo_Plenum.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 50.2 |
-| `V2_Duo_Plenum_LID.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 12.3 |
-| `Regular_Cartridge(contributed_by_Bucknova).3mf` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 43.0 |
-| `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 8.4 |
-| `spool_holder.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 16.6 |
-| `bowden_retainer.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 5.6 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `corner_panel_clip_4mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 3.0 | 11-clips-4mm |
+| `midspan_panel_clip_4mm_x7.stl` | Voron-2 `STLs/Panel_Mounting/` | 7 | Black | 2.0 | 11-clips-4mm |
+| `corner_panel_clip_6mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 4.5 | 11-clips-6mm |
+| `midspan_panel_clip_6mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 2.9 | 11-clips-6mm |
+| `bottom_panel_clip_x4.stl` | Voron-2 `STLs/Panel_Mounting/` | 4 | Black | 3.2 | 11-panels |
+| `bottom_panel_hinge_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 4.3 | 11-panels |
+| `z_belt_cover_a_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 | 11-panels |
+| `z_belt_cover_b_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 | 11-panels |
+| `exhaust_cover.stl` | LDOVoron2 `STLs/` | 1 | Black | 30.2 | 11-nevermore |
+| `exhaust_filter_grill.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Black | 9.9 | 11-nevermore |
+| `V2_Duo_Plenum.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 50.2 | 11-nevermore |
+| `V2_Duo_Plenum_LID.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 12.3 | 11-nevermore |
+| `Regular_Cartridge(contributed_by_Bucknova).3mf` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 43.0 | 11-nevermore |
+| `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 8.4 | 11-nevermore |
+| `spool_holder.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 16.6 | 11-spool |
+| `bowden_retainer.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 5.6 | 11-spool |
 
 ⚠ **Panel-clip mapping is an inference, not a stated spec.** Back panel: 4 corner + 3 midspan → `_4mm_x8` /
 `_4mm_x7`. Top panel: 4 corner + 4 midspan → also drawn from the `_4mm` set per the manual's illustrated
@@ -71,7 +71,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B09.2 — Load plate B09-P1
 
-![Plate B09-P1](../assets/plates/B09-P1.png)
+![Plate B09-P1 — sorting diagram](../assets/plates/B09-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid`. Leave `V2_Duo_Plenum`'s
 built-in support in place. 3 mm brim on `V2_Duo_Plenum` — already in the project; the lids have none.
@@ -89,7 +91,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B09.4 — Load plate B09-P2
 
-![Plate B09-P2](../assets/plates/B09-P2.png)
+![Plate B09-P2 — sorting diagram](../assets/plates/B09-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Regular_Cartridge` (3mf) and `exhaust_cover`. Leave the cartridge's built-in support in
 place. 3 mm brim on both — already in the project.
@@ -107,7 +111,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B09.6 — Load plate B09-P3
 
-![Plate B09-P3](../assets/plates/B09-P3.png)
+![Plate B09-P3 — sorting diagram](../assets/plates/B09-P3.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `exhaust_filter_grill`, `spool_holder`, `bowden_retainer`, `z_belt_cover_a` ×2,
 `z_belt_cover_b` ×2 — 5 files, 7 objects. 3 mm brim on `exhaust_filter_grill` — already in the project;
@@ -126,7 +132,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B09.8 — Load plate B09-P4
 
-![Plate B09-P4](../assets/plates/B09-P4.png)
+![Plate B09-P4 — sorting diagram](../assets/plates/B09-P4.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P4.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7, `bottom_panel_hinge` ×2,
 `bottom_panel_clip` ×4. No brim in the project.
@@ -144,7 +152,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B09.10 — Load plate B09-P5
 
-![Plate B09-P5](../assets/plates/B09-P5.png)
+![Plate B09-P5 — sorting diagram](../assets/plates/B09-P5.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P5.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8. No brim in the project.
 **Parts:** the two files above (16 pieces) — 4.3 h, 56 g (PrusaSlicer 2.9.6 estimate).
@@ -172,14 +182,46 @@ Pause: ~10 min since the last pause — Nevermore dry-fitted and apart again, br
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
-## Step B09.13 — Label and bin
+## Step B09.13 — Sort into bins
 
-**Do:** Bin for **Panels** (Ch 11) and the Nevermore install. Keep 4 mm and 6 mm clips in clearly separated
-bags, each marked "test one on kit day before use".
-**Check:** 31 panel clips counted and separated by thickness; Nevermore assembly (plenum, lid, cartridge,
-cartridge lid) bagged together; spool holder and bowden retainer bagged for **Spool Management**.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Keep the 4 mm and 6 mm clips in their two bins with a note "test one on kit day before use" — a mixed bin costs a panel. **11-nevermore** holds the plenum, lid, cartridge and cartridge lid together with the exhaust cover and grill; **11-spool** the spool holder and bowden retainer.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B09-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)` |
+
+**B09-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `Regular_Cartridge(contributed_by_Bucknova)`, `exhaust_cover` |
+
+**B09-P3**
+
+| bin | parts off this plate |
+|---|---|
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `z_belt_cover_a` ×2, `z_belt_cover_b` ×2 |
+| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `exhaust_filter_grill` |
+| **11-spool** — Spool holder + bowden retainer | `spool_holder`, `bowden_retainer` |
+
+**B09-P4**
+
+| bin | parts off this plate |
+|---|---|
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7 |
+
+**B09-P5**
+
+| bin | parts off this plate |
+|---|---|
+| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
+
+**Check:** 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
@@ -189,7 +231,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Nevermore cartridge snaps positively onto the plenum
 - [ ] Cartridge built-in support pushed out clean
 - [ ] Exhaust sealed with `exhaust_cover` + `exhaust_filter_grill` only — no Voron exhaust-filter parts printed
-- [ ] All 31 panel clips counted and bagged by thickness
+- [ ] All 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm
 
 ## Common mistakes
 - Fitting the clips in Ch 11 without the one-clip test against real panel and tape stock — a wrong thickness costs a 4.3 h plate, not the build.

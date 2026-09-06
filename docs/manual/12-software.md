@@ -12,6 +12,7 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 - **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at **Step 12.11**, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
 - The Pi-side half (Steps 12.1–12.10) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one").
+- **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Steps 12.11–12.37 (index rows 25–27). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
 - **Printed parts: none.** No print batch gates this chapter.
 - Do **not** start Ch 13 until Checkpoint 12 below passes.
 
@@ -36,7 +37,7 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| — none — | 0 | Software only. The Pi was fitted in Ch 09, the DSI ribbon latched at both ends at Ch 10 Step 10.50, and the screen mounted with the front skirt in Ch 11 |
+| — none — | 0 | Software only. The Pi was fitted in Ch 09; the touchscreen module was built and its DSI ribbon latched at both ends at Ch 10 Step 10.50 (Ch 11 Steps 11.5–11.6 run from there); the module is bolted into the skirt ring at Ch 11 Step 11.7, after this chapter |
 
 **Read first**
 
@@ -237,25 +238,25 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 
 (no image — see text)
 
-**What you're looking at:** DSI is the Raspberry Pi's native display connection, the one the flat ribbon from Ch 11 plugs into, and `/sys/class/drm/` is where the Linux kernel reports the displays it can see. Rotation is set in the kernel command line because the current display driver ignores the older config-file setting LDO's guide describes.
+**What you're looking at:** DSI is the Raspberry Pi's native display connection — the flat ribbon that Ch 10 Step 10.50 latches at both ends plugs into it — and `/sys/class/drm/` is where the Linux kernel reports the displays it can see. Rotation is set in the kernel command line because the current display driver ignores the older config-file setting LDO's guide describes. On the bench, in Part 1, there is no panel yet: this step prepares the two boot files, and the panel is proved at Step 12.11, the first time the Pi is powered with the ribbon in.
 
-**Parts:** 4.3" DSI touchscreen ×1, Pi FFC ribbon ×1 — the ribbon was latched at both ends at Ch 10 Step 10.50, the screen mounted in Ch 11.
+**Parts:** none on the bench. The 4.3" DSI touchscreen and its FFC ribbon are connected at Ch 10 Step 10.50 (screen end at Ch 11 Step 11.6, Pi end at 10.50) — nothing is plugged in here.
 
-**Do:** With the panel connected, confirm the kernel sees it:
-
-```bash
-grep -H . /sys/class/drm/card*-*/status | grep :connected
-```
-
-You should get a line containing `DSI-1`. No `DSI-1` at all: power off and check the ribbon first (contacts toward the board at both ends, latches closed — Step 10.50), then confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; if it is and the panel is still absent, add a line `dtoverlay=vc4-kms-dsi-7inch` to that file and reboot. If the panel is upside down for how it is mounted, rotate it in the kernel command line — `sudo nano /boot/firmware/cmdline.txt` — and append to the single existing line (no line breaks):
+**Do:** Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt` (`grep display_auto_detect /boot/firmware/config.txt`); add it if it is missing. Second, set the rotation: LDO's mount hangs the panel upside down relative to the Pi's default (their guide's `display_lcd_rotate=2` is 180°), so `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line (no line breaks):
 
 ```
 video=DSI-1:800x480@60,rotate=180
 ```
 
-Reboot. Valid rotations are 0, 90, 180, 270.
+Reboot. Valid rotations are 0, 90, 180, 270. Then, **at Step 12.11** — the bay powered and the ribbon latched at both ends — confirm the kernel sees the panel:
 
-**Check:** `/sys/class/drm/...DSI-1/status:connected` is present, the console appears the right way up, and the touch point follows your finger.
+```bash
+grep -H . /sys/class/drm/card*-*/status | grep :connected
+```
+
+You should get a line containing `DSI-1`. No `DSI-1` at all: power off and check the ribbon first (both latches closed, contacts up at the screen and forward at the Pi — Ch 10 Step 10.50, Ch 11 Step 11.6), then `display_auto_detect=1` again; if both are right and the panel is still absent, add a line `dtoverlay=vc4-kms-dsi-7inch` to `config.txt` and reboot. If the picture is upside down for how the module is mounted, change `rotate=180` to `rotate=0` and reboot.
+
+**Check:** On the bench: `config.txt` carries `display_auto_detect=1`, `cmdline.txt` carries the `video=` line, and the Pi still boots and answers on the network. At 12.11: `/sys/class/drm/...DSI-1/status:connected` is present, the console appears the right way up, and the touch point follows your finger.
 
 ⚠ **Rev D+ / LDO:** LDO's touchscreen guide tells you to edit `/boot/config.txt`, comment out `dtoverlay=vc4-fkms-v3d` and set `display_lcd_rotate=2`. That is the **legacy fake-KMS path**. MainsailOS 3.x is built on a current Raspberry Pi OS: the boot partition is mounted at **`/boot/firmware/`**, and the display stack is full KMS (`vc4-kms-v3d`), where `display_lcd_rotate` does nothing. Use the `cmdline.txt` method above. [src](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
@@ -263,7 +264,7 @@ Tip: if the touch axes end up rotated relative to the picture, that is a separat
 
 Source: [KlipperScreen rotation](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [KlipperScreen touch issues](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
-Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the DSI panel is up and rotated the right way round, and the Klipper version you are building against is written down. The Pi boots to a working screen.
+Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.
 
 ---
 
@@ -281,7 +282,7 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 lsusb
 ```
 
-**Check:** In the ten seconds: the PSU's green LED lights; the Pi's red PWR LED lights and its green ACT LED flickers as it boots; the toolboard's **3V3** and **24V** LEDs are lit (Step 12.19 shows where they are — skip this if the toolhead cover hides them); no click-cycling, no buzz, no hot smell; a minute later no stepper is hot and nothing is warm to the touch. Anything on that list wrong: switch off and go back to Ch 10. Then `lsusb` shows two `ID 1d50:614e OpenMoko, Inc.` entries — the Leviathan and the Nitehawk-SB V2 (the text after the ID is `Klipper 3d-Printer Firmware` or the MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`) — plus the Nitehawk's onboard USB hub as a separate hub device, which is normal on V2 and is the "+" feature. Klipper has **no config yet** (Step 12.21), so no heater or motor can be commanded by software until then: anything warming up now is a wiring fault, not a setting.
+**Check:** In the ten seconds: the PSU's green LED lights; the Pi's red PWR LED lights and its green ACT LED flickers as it boots; the toolboard's **3V3** and **24V** LEDs are lit (Step 12.19 shows where they are — skip this if the toolhead cover hides them); the 4.3" panel lights and, once KlipperScreen starts, shows the right way up (Step 12.10 — no picture at all means switch off and check the ribbon's two latches before anything else); no click-cycling, no buzz, no hot smell; a minute later no stepper is hot and nothing is warm to the touch. Anything on that list wrong: switch off and go back to Ch 10. Then `lsusb` shows two `ID 1d50:614e OpenMoko, Inc.` entries — the Leviathan and the Nitehawk-SB V2 (the text after the ID is `Klipper 3d-Printer Firmware` or the MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`) — plus the Nitehawk's onboard USB hub as a separate hub device, which is normal on V2 and is the "+" feature. Klipper has **no config yet** (Step 12.21), so no heater or motor can be commanded by software until then: anything warming up now is a wiring fault, not a setting.
 
 ⚠ **Rev D+ / LDO:** the Nitehawk-SB V2 adds a **USB hub and a secondary USB port** that the V1 board does not have, so expect one more device in `lsusb` than any Rev D photo shows. The machine now stays powered, bay open, through the flashing steps — the one time this is allowed; if you want to touch anything in the bay, switch off first. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
@@ -1392,4 +1393,4 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 
 ## Next
 
-**Ch 13 — First power-up and initial startup**: work the Voron startup wizard in its own order (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), which closes the `safe_z_home` TODO from Step 12.33.
+**Ch 11 Part A** — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool holder and the door sub-assembly — closes the bay this chapter powered. Then **Ch 13 — Initial startup**: work the Voron startup wizard in its own order (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), which closes the `safe_z_home` TODO from Step 12.33.

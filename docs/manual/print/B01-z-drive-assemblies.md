@@ -16,17 +16,17 @@ needs the accent parts from **B02** (`[a]_z_drive_baseplate_a/b`, `[a]_belt_tens
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `z_drive_main_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 39.4 |
-| `z_drive_main_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 39.4 |
-| `z_drive_retainer_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 1 *(second copy; first was on B00)* | Black | 19.5 |
-| `z_drive_retainer_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 19.5 |
-| `z_motor_mount_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 11.9 |
-| `z_motor_mount_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 11.9 |
-| `z_tensioner_bracket_a_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 |
-| `z_tensioner_bracket_b_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 |
-| `deck_support_3mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `z_drive_main_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 39.4 | 02-Z0, 02-Z2 (one each) |
+| `z_drive_main_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 39.4 | 02-Z1, 02-Z3 (one each) |
+| `z_drive_retainer_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 1 *(second copy; first was on B00)* | Black | 19.5 | 02-Z2 |
+| `z_drive_retainer_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 19.5 | 02-Z1, 02-Z3 (one each) |
+| `z_motor_mount_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 11.9 | 02-Z0, 02-Z2 (one each) |
+| `z_motor_mount_b_x2.stl` | Voron-2 `STLs/Z_Drive/` | 2 | Black | 11.9 | 02-Z1, 02-Z3 (one each) |
+| `z_tensioner_bracket_a_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 | 02-Z0, 02-Z2 (one each) |
+| `z_tensioner_bracket_b_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 | 02-Z1, 02-Z3 (one each) |
+| `deck_support_3mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 | 02-deck |
 
 ⚠ **Deck-support thickness (verify):** LDO's Rev D printed-parts guide says "our kit ships with 4 mm deck
 panels, use 4 mm deck support clips," but the Rev D 350 BOM lists the deck panel as **3 mm** acrylic (the
@@ -39,8 +39,8 @@ On kit day you can caliper the panel before B01-P2 starts and print the right cl
 **Read first**
 
 - The parts come in **mirrored pairs**: every `_a` file has a `_b` twin, and each Z corner takes *either* the
-  `a` set *or* the `b` set — two corners of each. They are not interchangeable, so Step B01.8 bins them as
-  two `a` bags and two `b` bags, not four identical sets.
+  `a` set *or* the `b` set — two corners of each. They are not interchangeable, so Step B01.8 sorts them into
+  the four corner bins 02-Z0–Z3 by hand, not four identical sets.
 - Checkpoint after B01: 625-2RS (16 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing
   seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check
   the 4 mm/3 mm deck-support call above.
@@ -61,7 +61,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B01.2 — Load plate B01-P1
 
-![Plate B01-P1](../assets/plates/B01-P1.png)
+![Plate B01-P1 — sorting diagram](../assets/plates/B01-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B01.8.*
 
 **Do:** Open `slicer/plates/B01-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **5 files, 7 objects**: `z_drive_main_a` ×2, `z_drive_main_b` ×2, `z_drive_retainer_a` ×1, `z_drive_retainer_b` ×2,
 `0.20mm STRUCTURAL @COREONE 0.4 (modified)` with the standing overrides. No brim on this plate (nothing here is on
@@ -88,7 +90,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B01.5 — Load plate B01-P2
 
-![Plate B01-P2](../assets/plates/B01-P2.png)
+![Plate B01-P2 — sorting diagram](../assets/plates/B01-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B01.8.*
 
 **Do:** Open `slicer/plates/B01-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **5 files, 16 objects**: `z_motor_mount_a` ×2, `z_motor_mount_b` ×2, `z_tensioner_bracket_a` ×2, `z_tensioner_bracket_b` ×2,
 `deck_support_3mm` ×8. No brim in the project. `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect —
@@ -119,18 +123,32 @@ Pause: ~15 min since the last pause — every bearing seat tested and the bearin
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
-## Step B01.8 — Label and bin
+## Step B01.8 — Sort into bins
 
-**Do:** Everything on this batch feeds **Z Drives and Idlers** (Ch 02). Bin as **two `a` bags and two `b`
-bags** — the sets are mirrored, not identical: each bag = one `z_drive_main_?` + one `z_drive_retainer_?` +
-one `z_motor_mount_?` + one `z_tensioner_bracket_?` of the same letter (the B00 retainer is one of the two
-`a` retainers). **Write the letter on the inside face of each part as it comes off the plate** — Ch 02
-Step 02.01 asks for it, and Ch 02's corner map is `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left
-and Z3 front-right. The four orange baseplates and tensioners from B02 join their letter's bag. Deck supports go in a separate bag
-labelled "deck panel — 3 mm clips; confirm against the calipered panel".
-**Check:** Two `a` sets and two `b` sets, letters marked, plus 8 deck supports, labelled and boxed.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). The parts come as mirrored pairs and each bin is one corner: the `_a` set splits between **02-Z0** and **02-Z2**, the `_b` set between **02-Z1** and **02-Z3** (Ch 02's corner map, Step 02.02: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right). Write the bin id on the inside face of each part as it comes off the plate — Ch 02 Step 02.01 asks for it. Z0's `z_drive_retainer_a` is the Gate B coupon from B00; the orange baseplates and belt tensioners from B02 are already in these four bins. Deck supports go to **02-deck** with a note "3 mm clips — confirm against the calipered panel (Step 02.12)".
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B01-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_drive_main_a` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `z_drive_main_b`, `z_drive_retainer_b` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `z_drive_main_a`, `z_drive_retainer_a` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `z_drive_main_b`, `z_drive_retainer_b` |
+
+**B01-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_motor_mount_a`, `z_tensioner_bracket_a` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `z_motor_mount_b`, `z_tensioner_bracket_b` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `z_motor_mount_a`, `z_tensioner_bracket_a` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `z_motor_mount_b`, `z_tensioner_bracket_b` |
+| **02-deck** — Deck panel clips | `deck_support_3mm` ×8 |
+
+**Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids written on the parts; 02-deck holds 8 clips.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
@@ -141,13 +159,13 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] M3 heat-set bosses on motor mounts: flush, no bulge
 - [ ] Deck panel measured; correct deck-support thickness confirmed or reprinted
 - [ ] No corner lift or delamination on any `z_drive_main` body
-- [ ] Two `a` sets and two `b` sets bagged, letters marked on the parts
+- [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
 
 ## Common mistakes
 - Starting the 15.2 h P1 plate late in the day and having it finish unattended overnight with no chance to
   abort a bad first layer.
 - Starting B01 on Gate A alone — the bore fit on the real bearing is what protects these 22.8 h.
-- Trying to make four identical bags from two `a` and two `b` of each part — the sets are mirrored.
+- Trying to make four identical sets from two `a` and two `b` of each part — the sets are mirrored; the corner bins are not interchangeable.
 - Assuming the deck-support thickness without measuring the actual panel.
 - Forcing a tight bearing seat with a press instead of reducing extrusion multiplier for the reprint.
 

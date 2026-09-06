@@ -11,15 +11,15 @@ in the pre-kit order. B03 is not a print prerequisite — the two batches only m
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `xy_joint_left_lower_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 32.0 |
-| `xy_joint_left_upper_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 11.7 |
-| `xy_joint_right_lower_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 32.7 |
-| `xy_joint_right_upper_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 11.1 |
-| `x_frame_V2TR_MGN12_left.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 17.1 |
-| `x_frame_V2TR_MGN12_right.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 17.2 |
-| `probe_retainer_bracket.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 0.5 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `xy_joint_left_lower_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 32.0 | 05-XY |
+| `xy_joint_left_upper_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 11.7 | 05-XY |
+| `xy_joint_right_lower_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 32.7 | 05-XY |
+| `xy_joint_right_upper_MGN12.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Black | 11.1 | 05-XY |
+| `x_frame_V2TR_MGN12_left.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 17.1 | 07-X |
+| `x_frame_V2TR_MGN12_right.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 17.2 | 07-X |
+| `probe_retainer_bracket.stl` | Voron-2 `STLs/Gantry/X_Axis/X_Carriage/` | 1 | Black | 0.5 | 07-X |
 
 ⚠ **Probe retainer bracket, conditional:** only used with the Omron inductive probe. Costs 0.5 g — print
 it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival, print
@@ -44,7 +44,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B04.2 — Load plate B04-P1
 
-![Plate B04-P1](../assets/plates/B04-P1.png)
+![Plate B04-P1 — sorting diagram](../assets/plates/B04-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B04.6.*
 
 **Do:** Open `slicer/plates/B04-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all seven parts together: `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`,
 `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12`, `x_frame_V2TR_MGN12_left`,
@@ -80,13 +82,20 @@ Pause: ~10 min since the last pause — carriage pattern and shaft bores dry-fit
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-## Step B04.6 — Label and bin
+## Step B04.6 — Sort into bins
 
-**Do:** Bin with B02's `[a]_endstop_pod_D2F_switch` and cable bridge for **Gantry**. Keep
-`probe_retainer_bracket` loose until the probe decision (Omron barrel diameter) is confirmed.
-**Check:** All Gantry-destined parts, black and accent, grouped together.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **05-XY** also holds B02's `[a]_endstop_pod_D2F_switch` and both cable bridges. **07-X** (the X-carriage halves and probe bracket) is staged at Ch 05 Step 05.45 and fitted in Ch 07 — keep `probe_retainer_bracket` loose in it until the probe decision (Omron barrel diameter) is confirmed.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B04-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **05-XY** — XY joints, cable bridge, endstop pod | `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` |
+| **07-X** — X carriage halves, probe bracket, cable cover | `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` |
+
+**Check:** 05-XY: four joint halves plus the pod and bridges; 07-X: two frame halves and the bracket.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 

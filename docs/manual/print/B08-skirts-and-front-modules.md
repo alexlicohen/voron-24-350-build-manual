@@ -20,16 +20,16 @@ inlet — sharing a 67–72 × 20 mm cross-section. On the 350: front = `front_s
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `rear_center_skirt_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 71.9 |
-| `front_skirt_a_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 41.4 |
-| `front_skirt_b_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 41.4 |
-| `side_skirt_a_350_x2.stl` | Voron-2 `STLs/Skirts/350/` | 2 | Black | 36.9 |
-| `side_skirt_b_350_x2.stl` | Voron-2 `STLs/Skirts/350/` | 2 | Black | 36.9 |
-| `side_fan_support_x2.STL` | Voron-2 `STLs/Skirts/` | 2 | Black | 33.0 |
-| `keystone_panel.stl` | Voron-2 `STLs/Skirts/` | 1 | Black | 38.6 |
-| `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `rear_center_skirt_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 71.9 | 11-skirts |
+| `front_skirt_a_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 41.4 | 11-skirts |
+| `front_skirt_b_350.stl` | Voron-2 `STLs/Skirts/350/` | 1 | Black | 41.4 | 11-skirts |
+| `side_skirt_a_350_x2.stl` | Voron-2 `STLs/Skirts/350/` | 2 | Black | 36.9 | 11-skirts |
+| `side_skirt_b_350_x2.stl` | Voron-2 `STLs/Skirts/350/` | 2 | Black | 36.9 | 11-skirts |
+| `side_fan_support_x2.STL` | Voron-2 `STLs/Skirts/` | 2 | Black | 33.0 | 11-skirts |
+| `keystone_panel.stl` | Voron-2 `STLs/Skirts/` | 1 | Black | 38.6 | 11-skirts |
+| `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 | 11-skirts |
 
 `power_inlet_IECGS_1mm` moved to [B07](B07-electronics-bay-and-lighting.md) — it's consumed in Ch 09, not the skirts chapter.
 
@@ -68,7 +68,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B08.2 — Load plate B08-P1
 
-![Plate B08-P1](../assets/plates/B08-P1.png)
+![Plate B08-P1 — sorting diagram](../assets/plates/B08-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `rear_center_skirt_350`, `side_fan_support` ×1 — 3 mm brim on both, already in the project.
 In the project the **rear skirt is turned 90° about Z so its 182 mm axis runs front-to-back (along Y)**,
@@ -90,7 +92,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B08.4 — Load plate B08-P2
 
-![Plate B08-P2](../assets/plates/B08-P2.png)
+![Plate B08-P2 — sorting diagram](../assets/plates/B08-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_fan_support` ×1, `front_skirt_a_350`. 3 mm brim on both, already in the project.
 **Parts:** the two items above — 5.0 h, 67 g (PrusaSlicer 2.9.6 estimate).
@@ -107,7 +111,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B08.6 — Load plate B08-P3
 
-![Plate B08-P3](../assets/plates/B08-P3.png)
+![Plate B08-P3 — sorting diagram](../assets/plates/B08-P3.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `front_skirt_b_350`, `side_skirt_a_350` ×1. 3 mm brim on both, already in the project.
 **Parts:** the two items above — 5.5 h, 71 g (PrusaSlicer 2.9.6 estimate).
@@ -124,7 +130,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B08.8 — Load plate B08-P4
 
-![Plate B08-P4](../assets/plates/B08-P4.png)
+![Plate B08-P4 — sorting diagram](../assets/plates/B08-P4.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P4.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_skirt_a_350` ×1, `side_skirt_b_350` ×1. 3 mm brim on both, already in the project.
 **Parts:** the two items above — 5.1 h, 66 g (PrusaSlicer 2.9.6 estimate).
@@ -141,7 +149,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B08.10 — Load plate B08-P5
 
-![Plate B08-P5](../assets/plates/B08-P5.png)
+![Plate B08-P5 — sorting diagram](../assets/plates/B08-P5.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P5.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_skirt_b_350` ×1, `keystone_panel`. 3 mm brim on both, already in the project.
 **Parts:** the two items above — 5.0 h, 70 g (PrusaSlicer 2.9.6 estimate).
@@ -158,7 +168,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B08.12 — Load plate B08-P6
 
-![Plate B08-P6](../assets/plates/B08-P6.png)
+![Plate B08-P6 — sorting diagram](../assets/plates/B08-P6.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
 **Do:** Open `slicer/plates/B08-P6.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `mount.stl` alone — no brim in the project (44.8 mm tall on a 117 × 67 footprint, on neither
 brim list). `power_inlet_IECGS_1mm` moved to B07 (Ch 09, not the skirts chapter) — see B07.6.
@@ -185,15 +197,49 @@ Pause: ~20 min since the last pause — every segment checked flat, brims off, r
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
 
-## Step B08.15 — Label and bin
+## Step B08.15 — Sort into bins
 
-**Do:** Bin by consuming assembly chapter — everything here plus B02's accent belt guards, fan grills/retainers,
-keystone insert(s), faceplate, and bestagon insert go to **Skirts**. `power_inlet_IECGS_1mm` (printed in B07)
-also belongs in this ring — bin it here for the dry-fit. Keep front/rear/side groupings labelled so the ring
-assembles in the right order.
-**Check:** All ten structural segments plus TFT mount labelled by ring position; power inlet (from B07) on hand.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Every plate in this batch feeds **11-skirts**, where B02's `[a]_faceplate`, keystone blank inserts and bestagon insert already are; B02's grills, retainers and belt guards sit beside it in 11-fans. Stack the segments by ring position (front / rear / left / right) so the ring assembles in order. The power inlet stays in 09-bay and is borrowed for the dry-fit.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B08-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `rear_center_skirt_350`, `side_fan_support` |
+
+**B08-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_fan_support`, `front_skirt_a_350` |
+
+**B08-P3**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `front_skirt_b_350`, `side_skirt_a_350` |
+
+**B08-P4**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_skirt_a_350`, `side_skirt_b_350` |
+
+**B08-P5**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_skirt_b_350`, `keystone_panel` |
+
+**B08-P6**
+
+| bin | parts off this plate |
+|---|---|
+| **11-skirts** — Skirt ring, keystone panel, TFT mount | `mount` |
+
+**Check:** All ten structural segments plus the TFT mount in 11-skirts, stacked by ring position.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 

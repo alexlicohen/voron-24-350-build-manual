@@ -16,26 +16,26 @@ in Ch 07/08, not in a batch.
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `stealthburner_printhead_revo_voron_front.stl` | Stealthburner `STLs/Stealthburner/Printheads/revo_voron/` | 1 | Black | 40.6 |
-| `stealthburner_printhead_revo_voron_rear_cw2.stl` | Stealthburner `STLs/Stealthburner/Printheads/revo_voron/` | 1 | Black | 15.0 |
-| `[o]_stealthburner_LED_carrier.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.9 |
-| `[o]_stealthburner_LED_diffuser_mask.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.3 |
-| `main_body.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 23.7 |
-| `motor_plate.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 14.1 |
-| `cw2_captive_pcb_cover.stl` | Nitehawk-SB `STLs/` | 1 | Black | 10.9 |
-| `KlickyProbe_v2.stl` | Klicky `Probes/KlickyProbe/STL/` | 2 *(1 + spare, per the mod's own advice)* | Black | 2.5 |
-| `Probe_Dock_v2.1.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 3.1 |
-| `Probe_magnet_holder.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 2.3 |
-| `Probe_magnet_pressfit_helper.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 1.6 |
-| `Probe_pressfit_holder.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 4.6 |
-| `KlickyProbe_AB_mount_v2.stl` | Klicky `Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL/` | 1 | Black | 4.4 |
-| `KlickyProbe_AB_mount_v2_holder.stl` | Klicky (same folder) | 1 | Black | 1.6 |
-| `Mount_magnet_holder.stl` | Klicky (same folder) | 1 | Black | 2.3 |
-| `Mount_magnet_pressfit_helper.stl` | Klicky (same folder) | 1 | Black | 1.6 |
-| `Mount_pressfit_holder_v2.stl` | Klicky (same folder) | 1 | Black | 6.6 |
-| `Dock_mount_fixed_v2.stl` | Klicky (same folder) | 1 | Black | 22.7 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `stealthburner_printhead_revo_voron_front.stl` | Stealthburner `STLs/Stealthburner/Printheads/revo_voron/` | 1 | Black | 40.6 | 08-SB |
+| `stealthburner_printhead_revo_voron_rear_cw2.stl` | Stealthburner `STLs/Stealthburner/Printheads/revo_voron/` | 1 | Black | 15.0 | 08-SB |
+| `[o]_stealthburner_LED_carrier.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.9 | 08-SB |
+| `[o]_stealthburner_LED_diffuser_mask.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.3 | 08-SB |
+| `main_body.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 23.7 | 08-CW2 |
+| `motor_plate.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 14.1 | 08-CW2 |
+| `cw2_captive_pcb_cover.stl` | Nitehawk-SB `STLs/` | 1 | Black | 10.9 | 08-CW2 |
+| `KlickyProbe_v2.stl` | Klicky `Probes/KlickyProbe/STL/` | 2 *(1 + spare, per the mod's own advice)* | Black | 2.5 | spare-alt |
+| `Probe_Dock_v2.1.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 3.1 | spare-alt |
+| `Probe_magnet_holder.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 2.3 | spare-alt |
+| `Probe_magnet_pressfit_helper.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 1.6 | spare-alt |
+| `Probe_pressfit_holder.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 4.6 | spare-alt |
+| `KlickyProbe_AB_mount_v2.stl` | Klicky `Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL/` | 1 | Black | 4.4 | spare-alt |
+| `KlickyProbe_AB_mount_v2_holder.stl` | Klicky (same folder) | 1 | Black | 1.6 | spare-alt |
+| `Mount_magnet_holder.stl` | Klicky (same folder) | 1 | Black | 2.3 | spare-alt |
+| `Mount_magnet_pressfit_helper.stl` | Klicky (same folder) | 1 | Black | 1.6 | spare-alt |
+| `Mount_pressfit_holder_v2.stl` | Klicky (same folder) | 1 | Black | 6.6 | spare-alt |
+| `Dock_mount_fixed_v2.stl` | Klicky (same folder) | 1 | Black | 22.7 | spare-alt |
 
 **Do not print:** an ADXL mount (Nitehawk-SB has one on board); the CW2 chain anchor (kit supplies "CW2
 Chain Anchor Tilted" printed).
@@ -66,7 +66,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B06.2 — Load plate B06-P1
 
-![Plate B06-P1](../assets/plates/B06-P1.png)
+![Plate B06-P1 — sorting diagram](../assets/plates/B06-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.7.*
 
 **Do:** Open `slicer/plates/B06-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`,
 `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask`, `main_body` (CW2), `motor_plate`
@@ -85,7 +87,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B06.4 — Load plate B06-P2
 
-![Plate B06-P2](../assets/plates/B06-P2.png)
+![Plate B06-P2 — sorting diagram](../assets/plates/B06-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.7.*
 
 **Do:** Open `slicer/plates/B06-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: the full Klicky set: `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`,
 `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`,
@@ -115,21 +119,33 @@ Pause: ~10 min since the last pause — hotend dry-fitted and removed, Klicky ba
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [Ch 08 Step 08.54 — bag the Klicky set](../08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
 
-## Step B06.7 — Label and bin
+## Step B06.7 — Sort into bins
 
-**Do:** Bin with B02's `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_guidler_a/b`, `[a]_latch`,
-`[a]_latch_shuttle`, `[a]_pcb_spacer` for **Stealthburner**.
-The Klicky bag from B06.6 goes in the same bin, still closed.
-**Check:** All toolhead parts, black and accent, grouped together; the Klicky bag labelled as the alternative.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **08-SB** and **08-CW2** already hold B02's orange body, guidler halves, latch and shuttle; the `cw2_captive_pcb_cover` goes with the extruder. The Klicky bag from Step B06.6 goes into **spare-alt**, still closed, labelled "KLICKY — alternative probe only, see Ch 08.54".
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B06-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **08-SB** — Stealthburner body, printhead, LEDs | `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` |
+| **08-CW2** — Clockwork 2 extruder + toolboard cover | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
+
+**B06-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **spare-alt** — Spares / alternates (not fitted) | `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` |
+
+**Check:** All toolhead parts in 08-SB / 08-CW2; the Klicky bag closed in spare-alt.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
 ## Checkpoint B06
 - [ ] Gate B passed before B06-P1 started
 - [ ] Revo Voron heatsink sits flat in the printhead front, ready for 4× M3×8
-- [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged, labelled "alternative probe only — Ch 08.54", no magnets pressed
+- [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged in spare-alt, labelled "alternative probe only — Ch 08.54", no magnets pressed
 
 ## Common mistakes
 - Slicing the wrong hotend printhead folder (not `revo_voron`).

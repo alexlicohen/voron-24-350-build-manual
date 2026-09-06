@@ -212,7 +212,7 @@ Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDe
 
 **Parts:** none.
 
-**Do:** Hand back on the switch. Set the **Bed** target to 50. Watch the SSR's indicator LED in the electronics bay as well as the graph.
+**Do:** With the machine on its side or lifted onto blocks so the bay is visible (the feet leave no room to look under it), Hand back on the switch. Set the **Bed** target to 50. Watch the SSR's indicator LED in the electronics bay as well as the graph.
 
 **Check:** The SSR LED comes on, and the bed temperature climbs. Set the target to **Off**. If the SSR LED lights but the bed does not heat, the fault is on the mains side of the SSR. If the SSR LED never lights, the fault is on the control side — the commonest cause is the control pair reversed (Leviathan **+** must go to SSR INPUT **3**). [src](https://docs.vorondesign.com/build/startup/)
 

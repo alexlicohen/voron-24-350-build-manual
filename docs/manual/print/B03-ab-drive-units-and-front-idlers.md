@@ -11,16 +11,16 @@ chapter; in the pre-kit order it is already on the shelf).
 **Printed parts**
 
 
-| STL | Repo path | Qty | Colour | g ea |
-|---|---|---:|---|---:|
-| `a_drive_frame_lower.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 22.4 |
-| `a_drive_frame_upper.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 21.8 |
-| `b_drive_frame_lower.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 20.5 |
-| `b_drive_frame_upper.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 21.3 |
-| `front_idler_left_lower.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 7.7 |
-| `front_idler_left_upper.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 14.1 |
-| `front_idler_right_lower.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 13.8 |
-| `front_idler_right_upper.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 7.9 |
+| STL | Repo path | Qty | Colour | g ea | Bin |
+|---|---|---:|---|---:|---|
+| `a_drive_frame_lower.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 22.4 | 04-A |
+| `a_drive_frame_upper.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 21.8 | 04-A |
+| `b_drive_frame_lower.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 20.5 | 04-B |
+| `b_drive_frame_upper.stl` | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 1 | Black | 21.3 | 04-B |
+| `front_idler_left_lower.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 7.7 | 04-B |
+| `front_idler_left_upper.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 14.1 | 04-B |
+| `front_idler_right_lower.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 13.8 | 04-A |
+| `front_idler_right_upper.stl` | Voron-2 `STLs/Gantry/Front_Idlers/` | 1 | Black | 7.9 | 04-A |
 
 **Hardware:** none.
 
@@ -43,7 +43,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ## Step B03.2 — Load plate B03-P1 (the A side)
 
-![Plate B03-P1](../assets/plates/B03-P1.png)
+![Plate B03-P1 — sorting diagram](../assets/plates/B03-P1.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.7.*
 
 **Do:** Open `slicer/plates/B03-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
 No rotation, no brim in the project.
@@ -61,7 +63,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B03.4 — Load plate B03-P2 (the B side)
 
-![Plate B03-P2](../assets/plates/B03-P2.png)
+![Plate B03-P2 — sorting diagram](../assets/plates/B03-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.7.*
 
 **Do:** Open `slicer/plates/B03-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`. No rotation, no brim in the project.
 **Parts:** the four items above — 4.1 h, 59 g (PrusaSlicer 2.9.6 estimate).
@@ -86,14 +90,25 @@ Pause: ~10 min since the last pause — bearing seats tested and the bearings pu
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-## Step B03.7 — Label and bin
+## Step B03.7 — Sort into bins
 
-**Do:** Bin by consuming assembly chapter: everything here plus B02's `[a]_cable_cover`,
-`[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right`, `[a]_endstop_pod_D2F_switch`, and the cable
-bridge feed **A/B Drives and Idlers**. Keep A-side and B-side parts in separate labelled bags.
-**Check:** Two complete, correctly-sided part sets (A and B) ready for assembly.
+**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). A is the right-hand side (`a_drive_frame`, `front_idler_right_*`), B the left — Ch 04 Step 04.2 fixes which is which. The orange `[a]_tensioner_right` / `[a]_tensioner_left` from B02 are already in these two bins.
 
-Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+**B03-P1**
+
+| bin | parts off this plate |
+|---|---|
+| **04-A** — A drive unit + A (right) front idler | `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper` |
+
+**B03-P2**
+
+| bin | parts off this plate |
+|---|---|
+| **04-B** — B drive unit + B (left) front idler | `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` |
+
+**Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one orange tensioner.
+
+Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
@@ -102,7 +117,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] F695-2RS (13 mm OD) bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
-- [ ] A-side and B-side parts bagged separately and labelled
+- [ ] A-side parts in 04-A, B-side parts in 04-B
 
 ## Common mistakes
 - Mixing A-side and B-side parts in one bag — they are not interchangeable.
