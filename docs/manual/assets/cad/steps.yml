@@ -869,7 +869,8 @@ chapters:
       resolve: "XY Joint - Right:1/D2F Microswitch Pod"
       ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
 # Chapter 10 (wiring) has no render of its own - nothing it adds reads at this
-# scale. Its parts ride into ch-11-after, whose subtitle says so.
+# scale. Its parts ride into ch-11-after as already-built (grey) and are hidden
+# by the panels there.
 - chapter: "10"
   out: null
   select:
@@ -888,8 +889,8 @@ chapters:
 - chapter: "11"
   out: ch-11-after
   title: "End of Chapter 11 - the machine closed up"
-  subtitle: "Orange: added since the last render - Chapter 10's cable chains and all of Chapter 11, acrylic in pale amber. Grey: already built."
-  caption: "Skirts, bay fans, bottom panel, back and side panels, top panel, the door and the Z belt covers - plus the drag chains from Chapter 10."
+  subtitle: "Orange: everything Chapter 11 adds, acrylic in pale amber. Grey: already built."
+  caption: "Skirts, bay fans, bottom panel, back and side panels, top panel, the door and the Z belt covers."
   note_350: "Panels and skirts are the 250 set. The Nevermore, the BTT touchscreen and the Clicky-Clack door frame are not in the Voron CAD; the stock door is shown in their place."
   select:
     - label: "skirt segments, bay fans and grills"  # 99 parts
