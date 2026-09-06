@@ -13,9 +13,21 @@ every override in this document by hand (see *PrusaSlicer 3.0 preview*, referenc
 Changing slicer version is a toolchain change: re-run Gate A — and Gate B once the kit is here — before the
 next plate.
 
-**Base profiles** (read out of the `PrusaResearch.ini` that ships with the installed 2.9.6 —
-`config_version = 2.4.14` — with `inherits` resolved). The machine has the **high-flow 0.4 nozzle**,
-so the HF variants are the base wherever one exists:
+**Base profiles** (read out of a `PrusaResearch.ini` with `inherits` resolved). Two copies of that
+file exist and they are not the same file:
+
+- `/Applications/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini` — the copy shipped
+  inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
+  reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
+- `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.8` today.
+
+They differ on one key that reaches these plates: 2.5.8's CORE One `start_gcode` bumps the firmware
+check from `M115 U6.5.3+12780` to `U6.8.1+16182`. That, plus the `thumbnails` override below, is why
+the Plater's **printer** box reads "(modified)" — see the table under *One-time PrusaSlicer setup*.
+Nothing mechanical differs; a re-derive should be resolved against the live bundle.
+
+The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wherever one exists:
 
 - Printer: **`Prusa CORE One HF0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed 250×220,
   max height 270, retract 0.7 mm @ 45 mm/s, [z-hop](../16-glossary.md#z) 0.2 mm, wipe off. The non-HF
@@ -70,12 +82,15 @@ selected. Re-derive everything with `python3 slicer/fetch_stls.py && python3 sli
 
    | Box | What it shows | Why |
    |---|---|---|
-   | Printer | `Prusa CORE One HF0.4 nozzle` | system preset |
+   | Printer | `Prusa CORE One HF0.4 nozzle` — normally with **(modified)** | the project adds one printer key, `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview); and if your vendor bundle has auto-updated past 2.4.14 its `start_gcode` firmware check differs too. Both are expected |
    | Print | `0.20mm STRUCTURAL @COREONE 0.4 (modified)` | the project's overrides sit on the system preset |
    | Filament | `Prusament ASA @COREONE HF0.4 - Voron black` (` - Voron orange` on the three B02 plates) | the project's renamed filament preset, shrinkage zeroed |
 
-   A print box **without** "(modified)", or a filament box reading the bare `Prusament ASA @COREONE HF0.4`,
-   means the project's configuration did not load — do not slice; reopen the project.
+   "(modified)" on the printer box is **not** a fault and is not the signal to look for. The two
+   signals that the project did not load are a **print** box without "(modified)" and a **filament**
+   box reading the bare `Prusament ASA @COREONE HF0.4` — either of those, or an estimate that does not
+   match the Load step's numbers, means do not slice; reopen the project. A printer box naming a
+   different printer entirely (not just "(modified)") is the wizard problem in step 1.
 
 The times and weights in every batch chapter are **PrusaSlicer 2.9.6 estimates** from these
 projects, not a throughput model. Treat the first plate as the calibration of the *printer*, not of

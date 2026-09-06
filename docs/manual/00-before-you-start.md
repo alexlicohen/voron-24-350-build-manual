@@ -42,7 +42,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/MGN12_rail_guide_x2.png){ width=96 } | `MGN12_rail_guide_x2.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 2 | Black |
 | ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `MGN9_rail_guide_x2.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 2 | Black |
 | ![](assets/parts/pulley_jig.png){ width=96 } | `pulley_jig.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 1 | Black |
-| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `z_drive_retainer_a_x2.stl` | 02-Z0 · 02-Z2 | Voron-2 `STLs/Z_Drive/` | 1 | Black |
+| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `z_drive_retainer_a_x2.stl` | 02-Z0 | Voron-2 `STLs/Z_Drive/` | 1 | Black |
 
 `z_drive_retainer_a` is on the jig plate as the bearing press-fit coupon — Gate B's bore test, Step B00.7 — and it is a real part you will fit in Ch 02; nothing is wasted.
 
@@ -293,27 +293,27 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 (no image — see text)
 
-**What you're looking at:** Empty bins and a marker. Each bin belongs to one chapter; parts land in it as they arrive from the Prusa or out of a kit box, so an assembly session never starts with a hunt.
+**What you're looking at:** Empty bins and a marker. Each bin belongs to one sub-assembly — a Z corner, a drive unit, the door — not to a whole chapter, because Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive from the Prusa or out of a kit box, so an assembly session never starts with a hunt.
 
-**Parts:** stackable bins or boxes, one per chapter, plus masking tape and marker.
+**Parts:** ~25 stackable bins, boxes or labelled zip bags, plus masking tape and marker.
 
-**Do:** Label a bin per chapter and stage parts into it as they arrive, printed or from the kit, so an assembly session never opens with a hunt through boxes. This is the receiving end of the "label and bin" step at the close of every print batch — a batch is not finished until its parts are in the bin of the chapter that consumes them.
+**Do:** Print the bin labels from the Print section — [bin labels](../print/bin-labels.md), one label per bin with the parts it should hold and a QR to the chapter it opens at — and tape one to each container. The scheme is [print/README.md § Bins](print/README.md#bins): **25 bins**, named `02-Z0` … `spare-alt`, and it is what every batch chapter's *Sort into bins* step and every plate diagram already uses. This is the receiving end of that step — a batch is not finished until its parts are in their bins.
 
-| Print batch | Bins it feeds |
+| Print batch | Bins it fills |
 |---|---|
-| B00 — Calibration & jigs | Ch 00, Ch 02 |
-| B01 — Z drive assemblies | Ch 02 |
-| B02 — The orange day (all accent parts) | Ch 02, Ch 04, Ch 05, Ch 08, Ch 11 |
-| B03 — A/B drive units + front idlers | Ch 04 |
-| B04 — XY joints + X carriage | Ch 05 |
-| B05 — Z joints + Z chain | Ch 06, Ch 07 |
-| B06 — Toolhead | Ch 08 |
-| B07 — Electronics bay + lighting | Ch 09, Ch 10 |
-| B08 — Skirts and front modules | Ch 11 |
-| B09 — Panels, filtration, spool | Ch 11 |
-| B10 — Clicky-Clack door | Ch 11 |
+| B00 — Calibration & jigs | 00-jigs, 02-Z0 |
+| B01 — Z drive assemblies | 02-Z0, 02-Z1, 02-Z2, 02-Z3, 02-deck |
+| B02 — The orange day (all accent parts) | 02-Z0 … 02-Z3, 04-A, 04-B, 05-XY, 06-Z-joints, 07-X, 08-SB, 08-CW2, 10-chains, 11-skirts, 11-fans, 11-door, spare-alt |
+| B03 — A/B drive units + front idlers | 04-A, 04-B |
+| B04 — XY joints + X carriage | 05-XY, 07-X |
+| B05 — Z joints + Z chain | 06-Z-joints, 10-chains |
+| B06 — Toolhead | 08-SB, 08-CW2, spare-alt |
+| B07 — Electronics bay + lighting | 09-bay, 10-lights, 11-panels, spare-alt |
+| B08 — Skirts and front modules | 11-skirts |
+| B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool |
+| B10 — Clicky-Clack door | 11-door |
 
-**Check:** Fifteen chapter bins, plus the "LDO SUPPLIED — DO NOT PRINT" bin from Step 00.6, plus one bin for the greased rails from Step 00.21.
+**Check:** ~25 containers labelled from the bin-labels sheet and the batch → bin map above posted where you sort, plus the "LDO SUPPLIED — DO NOT PRINT" bin from Step 00.6 and one bin for the greased rails from Step 00.21.
 
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
@@ -649,7 +649,7 @@ Then note the contract that makes this manual possible: the official PDF has not
 
 Source: [Voron manual p.11](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=11) · [Voron manual p.25](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=25)
 
-Pause: ~25 min since the last pause — you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.
+Pause: ~25 min since the last pause (pre-kit) — you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.
 
 ---
 
@@ -704,7 +704,7 @@ Source: [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-
 
 Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [survey](../voron-build-instructions-survey.md)
 
-Pause: ~20 min since the last pause — measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.
+Pause: ~20 min since the last pause (pre-kit) — measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.
 
 ---
 
@@ -720,7 +720,7 @@ Pause: ~20 min since the last pause — measurement log started, all three Disco
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B passed at Step B00.7 (625-2RS bore, MGN12 guide on the bare rail, seven coupon inserts) and B01 is on the Prusa; both guide sizes then fitted rail-plus-extrusion with light finger pressure (Step 00.20).
-- [ ] Chapter bins labelled 00–14 and the batch-to-bin map posted on the wall.
+- [ ] 25 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

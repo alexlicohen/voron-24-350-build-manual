@@ -25,7 +25,9 @@ rest of that batch waits for it. A hands-on segment that does not fit is
 skipped together with the rest of its row (a chapter's segments are
 sequential), so a 30-minute bucket never offers a 40-minute segment; a bucket
 that fits nothing says so. "Kit not here yet" runs the same planner over the
-rows that carry no **KIT** marker.
+rows that carry no **KIT** marker, plus any `Pause: ~NN min since the last pause
+(pre-kit) — …` segment inside a row that does carry one (Ch 00's reading, log
+and Discord steps are real bench work weeks before the kit ships).
 
 Each segment carries `data-first-step` so scripts/build_steps.py can link it
 to its first step page. This file is regenerated on every build — never
@@ -66,8 +68,11 @@ _STEP_HEADING_RE = re.compile(
     r"^#{2,3}\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\s*—\s*(.*?)\s*$", re.MULTILINE
 )
 _SECTION_RE = re.compile(r"^#{2,3}\s+(.+?)\s*$", re.MULTILINE)  # any h2/h3: a row's anchor may be a Part or a Step
+# `(pre-kit)` after "since the last pause" marks a segment that needs no Voron
+# part, so the "Kit not here yet" planner can offer it even though its timeline
+# row is **KIT** (Ch 00's reading, log and Discord steps).
 _PAUSE_RE = re.compile(
-    r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*—\s*(.+?)\s*$",
+    r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?\s*—\s*(.+?)\s*$",
     re.MULTILINE,
 )
 _LOAD_TITLE_RE = re.compile(r"^Load(?: and print)? plate (B\d\d-P\d)")
@@ -85,7 +90,12 @@ _EXCLUDE = {"00-index.md", "00-tonight.md", "CONVENTIONS.md", "README.md"}
 # --------------------------------------------------------------------------
 
 def _timeline_rows():
-    """The index's numbered rows, in order: n, kind, title, file, anchor, kit."""
+    """The index's numbered rows, in order: n, kind, title, file, anchor, kit, rest.
+
+    `rest` is the row's raw text after the kind — scripts/draw_diagrams.py reads
+    the duration, the marker and the `needs:` list out of it so diagram 11 draws
+    the same timeline this planner walks.
+    """
     rows = []
     for m in _ROW_RE.finditer(INDEX.read_text(encoding="utf-8")):
         n, kind, rest = int(m.group(1)), m.group(2), m.group(3)
@@ -97,7 +107,7 @@ def _timeline_rows():
             file = anchor = None
         rows.append({
             "n": n, "kind": kind, "title": title, "file": file, "anchor": anchor,
-            "kit": "**KIT" in rest, "segments": [],
+            "kit": "**KIT" in rest, "rest": rest, "segments": [],
         })
     return rows
 
@@ -177,7 +187,8 @@ def _parse_chapter(path):
             continue
         segments.append({
             "kind": "build", "pos": first[0], "first_step": first[1], "last_step": last,
-            "minutes": int(pm.group(1)), "leave_state": pm.group(2),
+            "minutes": int(pm.group(1)), "leave_state": pm.group(3),
+            "pre_kit": bool(pm.group(2)),
         })
         boundary = ppos
 
@@ -342,12 +353,19 @@ def build_tonight_markdown():
     else:
         _planner(lines, rows)
 
-    pre_kit = [r for r in rows if not r["kit"] and r["segments"]]
+    # a row without **KIT**, or the (pre-kit) segments of a row that has it
+    pre_kit = []
+    for r in rows:
+        segs = (r["segments"] if not r["kit"]
+                else [s for s in r["segments"] if s.get("pre_kit")])
+        if segs:
+            pre_kit.append(dict(r, segments=segs))
     lines += ["## Kit not here yet", ""]
     if pre_kit:
         lines += [
-            "The same planner over the timeline rows without the **KIT** marker — the Core One+ "
-            "batches and the bench work that needs no Voron part.",
+            "The same planner over the timeline rows without the **KIT** marker, plus the "
+            "individual `(pre-kit)` stopping points inside rows that do need the kit — the "
+            "Core One+ batches and every piece of bench work that needs no Voron part.",
             "",
         ]
         _planner(lines, pre_kit)

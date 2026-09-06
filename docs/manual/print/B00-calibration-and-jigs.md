@@ -7,7 +7,7 @@ real inserts) runs the morning the kit lands and releases B01 and B03–B06.
 
 **Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
-**Sessions:** 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~15 min for Gate B on kit day.
+**Sessions:** ~15 min one-time slicer and filament setup, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B on kit day.
 
 **Prerequisites:** none — this is the first batch. Slicer set up per [00-slicer-setup.md](00-slicer-setup.md)
 (Step B00.0 below walks the one-time wizard).
@@ -46,10 +46,15 @@ one [625-2RS](../16-glossary.md#f) bearing and the MGN12 rail — all from the V
 One+** → tick the **0.4 HF** nozzle (even if plain 0.4 is already ticked) → Filaments: **Prusament ASA** →
 Finish. Then **File → Open Project → `slicer/plates/B00-P1.3mf`**; if a dialog offers to install a printer
 profile, accept.
-**Check:** The three preset boxes on the Plater read `Prusa CORE One HF0.4 nozzle`,
-`0.20mm STRUCTURAL @COREONE 0.4 (modified)` and `Prusament ASA @COREONE HF0.4 - Voron black`. The
-"(modified)" and the " - Voron black" suffix are correct — they are the project's overrides on top of the
-system presets. Anything else means the project's configuration did not load; reopen it before slicing.
+**Check:** The three preset boxes on the Plater read `Prusa CORE One HF0.4 nozzle` — normally with
+**(modified)** after it — plus `0.20mm STRUCTURAL @COREONE 0.4 (modified)` and
+`Prusament ASA @COREONE HF0.4 - Voron black`. All three "(modified)" marks and the " - Voron black"
+suffix are correct: they are the project's overrides on top of the system presets. The printer box is
+marked modified because the project adds a 640×480 thumbnail, and because PrusaSlicer's vendor bundle
+auto-updates itself past the copy these plates were derived from — expected, not a fault. The two
+signals that the project did **not** load are a print box *without* "(modified)" and a filament box
+reading the bare `Prusament ASA @COREONE HF0.4`; the third is the estimate at Step B00.2. Any of those
+three, or a printer box naming a different printer, means reopen the project before slicing.
 
 Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [PrusaSlicer releases](https://github.com/prusa3d/PrusaSlicer/releases)
 
@@ -59,6 +64,8 @@ Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-t
 **Load Filament → ASA** (the printer asks for a material type only — slicer preset names do not exist on
 it; the HF profile is chosen in the slicer, not here).
 **Check:** Purge is clean black, no PLA/PETG streaking from a prior print.
+
+Pause: ~15 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -133,6 +140,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_drive_retainer_a` |
 
 **Check:** Nothing from this plate is wasted — the jigs are reused, the retainer is a real part, the cube is the reference. Bins 00-jigs and 02-Z0 labelled; the Gate B bag closed.
+
+Pause: ~10 min since the last pause — plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 waits for the kit, so this is the end of B00 until kit day.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

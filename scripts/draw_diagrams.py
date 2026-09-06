@@ -1676,60 +1676,116 @@ def _print_hours() -> tuple[dict[str, float], float]:
     return rows, total
 
 
-TIMELINE = [
-    # (row, kind, label, duration, needs-rows)
-    # "P" rows: the duration is replaced at render time by the hours in
-    # docs/manual/print/README.md (see _print_hours); the strings here are the
-    # values on the day this list was last edited.
-    (1, "P", "B00 — Calibration & jigs", "4.0 h print", []),
-    (2, "B", "Ch 00 — Before you start", "2.5–4.0 h  KIT", [1]),
-    (3, "P", "B01 — Z drive assemblies", "22.8 h print", [1]),
-    (4, "B", "Ch 01 — Frame", "2.5–4.0 h  KIT 2P", []),
-    (5, "P", "B02 — Accent parts, the orange day", "21.9 h print", [1]),
-    (6, "B", "Ch 02 — Z drives, idlers, rails, deck", "4.25–6.25 h  KIT", [3, 5]),
-    (7, "P", "B03 — A/B drive units + front idlers", "8.5 h print", [5]),
-    (8, "B", "Ch 03 — Build plate", "1.5–2.5 h  KIT", []),
-    (9, "P", "B04 — XY joints + X carriage", "8.6 h print", [7]),
-    (10, "B", "Ch 04 — A/B drives and front idlers", "3.5–5.0 h  KIT", [7]),
-    (11, "P", "B05 — Z joints + Z chain", "6.4 h print", [9]),
-    (12, "B", "Ch 05 — Gantry", "5.0–7.0 h  KIT 2P", [9]),
-    (13, "P", "B06 — Toolhead: SB, CW2, Klicky", "12.2 h print", [9]),
-    (14, "B", "Ch 06 Part A — Z axis, hang the gantry", "3.5–5.0 h  2P lift", [11]),
-    (15, "P", "B07 — Electronics bay + lighting", "16.0 h print", []),
-    (16, "B", "Ch 07 — A/B belts, provisional tension", "2.5–4.0 h  KIT", [11]),
-    (17, "G", "Gen 2 belt-upgrade pause", "~1 day wall clock", []),
-    (18, "B", "Ch 08 — Toolhead", "3.0–4.5 h  KIT", [13]),
-    (19, "P", "B08 — Skirts and front modules", "29.2 h print", []),
-    (20, "B", "Ch 09 — Electronics bay", "2.5–4.0 h  KIT", [15]),
-    (21, "B", "Ch 12 Part 1 — image the Pi", "~1.0 h  KIT", []),
-    (22, "B", "Ch 10 — Wiring", "5.0–7.0 h  KIT", [15]),
-    (23, "P", "B09 — Panels, filtration, spool", "21.8 h print", []),
-    (24, "B", "Ch 12 Part 2 — flash both MCUs", "rest of 2.0–3.0 h", []),
-    (25, "P", "B10 — Clicky-Clack door", "5.7 h print", []),
-    (26, "B", "Ch 11 Part A — skirts, bay fans, panel", "3.0–4.0 h  KIT", [19, 23]),
-    (27, "B", "Ch 13 — Initial startup", "2.5–4.0 h + cube  KIT", []),
-    (28, "B", "Ch 06b — Gantry squaring", "~1.0 h + soak  KIT 2P", []),
-    (29, "B", "Ch 11 Part B — panels, Clicky-Clack door", "1.0–2.0 h  KIT", [25]),
-    (30, "B", "Ch 14 — Calibration and tuning", "2.5–4.0 h  KIT", []),
-]
+# --- diagram 11 rows: read straight out of 00-index.md ------------------------
+# The index's timeline is the single source of execution order. build_tonight.py
+# already parses those rows for the planner; this reuses that parser so the
+# picture and the list under it can never disagree.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_tonight import _timeline_rows as _index_rows  # noqa: E402
+
+INDEX_MD = REPO / "docs" / "manual" / "00-index.md"
+_TL_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)#\s]+)(?:#([^)\s]+))?\)")
+_TL_KIND = {"Print": "P", "Build": "B", "Both": "G"}
+
+
+def _fit(label: str, avail: float, px_per_char: float = 7.3) -> str:
+    """Trim a row label to the space left beside its duration, on a comma if
+    there is one (the index titles list sub-assemblies), else on a word."""
+    label = label.replace("`", "")
+    limit = int(avail / px_per_char)
+    if len(label) <= limit:
+        return label
+    cut = label.rfind(", ", 0, limit + 1)
+    if cut > limit * 0.5:
+        return label[:cut]
+    cut = label.rfind(" ", 0, limit)
+    return (label[:cut] if cut > 0 else label[:limit]).rstrip(" ,:;—-") + "…"
+
+
+def _row_duration(kind: str, seg: str, marker: str) -> str:
+    """The index writes durations as prose ("the rest of 2.0–3.0", "2.5–4.0 plus
+    ~1 h cube print"); the diagram wants the hours plus the KIT/2P marker."""
+    if kind == "G":
+        return seg
+    m = re.match(r"(?:the rest of\s+)?(~?\d+(?:\.\d+)?(?:\s*[–-]\s*\d+(?:\.\d+)?)?)", seg)
+    core = m.group(1) if m else seg
+    if seg.startswith("the rest of"):
+        core = f"rest of {core}"
+    txt = f"{core} h"
+    if "cube" in seg:
+        txt += " + cube"
+    return f"{txt}  {marker}" if marker else txt
+
+
+def timeline_rows() -> list[dict]:
+    """00-index.md's timeline as drawable rows: n, kind, label, duration, deps.
+
+    `deps` are the row numbers of the print batches named in this row's `needs:`
+    text — the arrows in the picture are the index's own dependency contract.
+    """
+    rows = []
+    for r in _index_rows():
+        rest = r["rest"]
+        lm = _TL_LINK_RE.search(rest)
+        if lm:
+            label, tail = lm.group(1), rest[lm.end():]
+        else:                                   # the Gen 2 pause row carries no link
+            bm = re.search(r"\*\*(.+?)\*\*", rest)
+            label = bm.group(1) if bm else rest.split(" · ")[0]
+            tail = rest[bm.end():] if bm else rest
+        parts = [p.strip() for p in tail.split(" · ")]
+        mm = re.match(r"\*\*([^*]+)\*\*$", parts[0]) if parts and parts[0] else None
+        marker = mm.group(1) if mm else ""
+        seg = next((p for p in parts
+                    if p and not p.startswith(("needs:", "**")) and re.search(r"\d", p)), "")
+        nm = re.search(r"needs:\s*(.*)$", rest)
+        rows.append({
+            "n": r["n"], "kind": _TL_KIND[r["kind"]], "label": label,
+            "marker": marker, "seg": seg, "needs": nm.group(1) if nm else "",
+        })
+    by_batch = {}
+    for row in rows:
+        m = re.match(r"(B\d\d)\b", row["label"])
+        if m:
+            by_batch[m.group(1)] = row["n"]
+    for row in rows:
+        row["deps"] = sorted({by_batch[b] for b in re.findall(r"\bB\d\d\b", row["needs"])
+                              if b in by_batch and by_batch[b] < row["n"]})
+    return rows
+
+
+def _index_facts() -> dict[str, str]:
+    """The Critical path table's own figures — never restated here by hand."""
+    t = INDEX_MD.read_text(encoding="utf-8")
+
+    def grab(pat, default="?"):
+        m = re.search(pat, t, re.M)
+        return m.group(1) if m else default
+
+    return {
+        "hands_on": grab(r"^\| Hands-on time \| \*\*([\d.]+) h\*\*"),
+        "pre_kit_days": grab(r"Pre-kit: \*\*~(\d+) printer-days"),
+        "kit_days": grab(r"Kit day onward: ~(\d+) printer-days"),
+        "build_weeks": grab(r"^\| Building, elapsed \| \*\*~([\d.]+) weeks"),
+        "build_rate": grab(r"^\| Building, elapsed \|.*at (\d+ h/week)"),
+        "after_kit": grab(r"^\| \*\*\(b\) After the kit arrives\*\* \| \*\*≈ ([^*]+)\*\*"),
+    }
 
 
 def d11_timeline() -> Doc:
     hours, total_print = _print_hours()
-    rows = []
-    for row, kind, label, dur, needs in TIMELINE:
-        if kind == "P":
-            dur = f"{hours[label[:3]]:.1f} h print"
-        rows.append((row, kind, label, dur, needs))
+    rows = timeline_rows()
+    facts_src = _index_facts()
 
     ROW_H = 40
     top = 200
     h = int(top + len(rows) * ROW_H + 176)
     d = Doc(h, "Voron 2.4r2 — build timeline")
     header(d, "Build timeline — print batches against assembly chapters",
-           "Rows are in execution order, top to bottom. Do a row only when its "
-           "dependencies are done; do the print in the same sitting so the Core One+ is "
-           "never idle.",
+           "Rows are in execution order, top to bottom — the same order as the row "
+           "list in 00-index.md, which this diagram is generated from. Do a row only "
+           "when its dependencies are done; do the print in the same sitting so the "
+           "Core One+ is never idle.",
            "docs/manual/00-index.md — The timeline")
 
     PL, PR = 60, 520          # print lane
@@ -1740,57 +1796,82 @@ def d11_timeline() -> Doc:
     d.line(PL, top - 16, PR, top - 16, stroke=ORANGE, sw=2)
     d.line(BL, top - 16, BR, top - 16, stroke=BLUE, sw=2)
 
+    # geometry first: the rails are drawn under the row boxes so the full-width
+    # Gen 2 band sits on top of them rather than being crossed by them.
     pos = {}
-    for i, (row, kind, label, dur, needs) in enumerate(rows):
+    for i, row in enumerate(rows):
         y = top + i * ROW_H
-        d.text(46, y + 25, str(row), size=12, anchor="end", fill=FAINT, weight=600)
+        row["y"] = y
+        row["dur"] = (f"{hours[row['label'][:3]]:.1f} h print" if row["kind"] == "P"
+                      else _row_duration(row["kind"], row["seg"], row["marker"]))
+        x0, x1 = (PL, BR) if row["kind"] == "G" else \
+                 ((PL, PR) if row["kind"] == "P" else (BL, BR))
+        pos[row["n"]] = (x0, x1, y + 19)
+
+    # Dependency arrows: one vertical rail per batch through the middle channel,
+    # forking off to every chapter that consumes it. With the pre-kit batches
+    # grouped at the top a single bezier per pair would be an unreadable bundle.
+    cl, cr = PR + 12, BL - 16
+    consumers = {}                     # print row -> the build rows that need it
+    for row in rows:
+        if row["kind"] != "B":         # a batch gating a batch is already implied
+            continue                   # by the row order, and shares the lane
+        for s in row["deps"]:
+            consumers.setdefault(s, []).append(row["n"])
+    srcs = sorted(consumers)
+    for i, s in enumerate(srcs):
+        lx = cl + (cr - cl) * (i + 0.5) / max(len(srcs), 1)
+        tgts = consumers[s]
+        if not tgts or s not in pos:
+            continue
+        sy = pos[s][2]
+        ly = pos[tgts[-1]][2]
+        d.path(f"M {PR + 4:.0f} {sy:.0f} H {lx - 6:.0f} Q {lx:.0f} {sy:.0f} "
+               f"{lx:.0f} {sy + 6:.0f} V {ly:.0f}",
+               stroke=ORANGE, sw=1.4, op=0.5)
+        for t in tgts:
+            ty = pos[t][2]
+            d.path(f"M {lx:.0f} {ty - 6:.0f} Q {lx:.0f} {ty:.0f} {lx + 6:.0f} {ty:.0f} "
+                   f"H {BL - 8:.0f}",
+                   stroke=ORANGE, sw=1.4, op=0.5, marker="arwo")
+
+    for row in rows:
+        y, n, kind, dur = row["y"], row["n"], row["kind"], row["dur"]
+        d.text(46, y + 25, str(n), size=12, anchor="end", fill=FAINT, weight=600)
         if kind == "G":
+            label = _fit(row["label"], BR - PL - 28 - len(dur) * 6.1)
             d.rect(PL, y + 4, BR - PL, 30, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=6)
             d.text(PL + 14, y + 24, label, size=13.5, weight=700, fill=AMBER)
             d.text(BR - 14, y + 24, dur, size=12.5, anchor="end", fill=AMBER, weight=600)
-            pos[row] = (PL, BR, y + 19)
             continue
-        x0, x1 = (PL, PR) if kind == "P" else (BL, BR)
+        x0, x1 = pos[n][0], pos[n][1]
         col, fill = (ORANGE, ORANGE_F) if kind == "P" else (BLUE, BLUE_F)
+        label = _fit(row["label"], x1 - x0 - 40 - len(dur) * 6.1)
         d.rect(x0, y + 4, x1 - x0, 30, fill=fill, stroke=col, sw=2.2, rx=6)
         d.text(x0 + 12, y + 24, label, size=12.8, weight=600)
         d.text(x1 - 12, y + 24, dur, size=11.8, anchor="end", fill=MUTED)
-        pos[row] = (x0, x1, y + 19)
-
-    # dependency arrows through the middle channel
-    for row, kind, label, dur, needs in rows:
-        for n in needs:
-            if n not in pos or row not in pos:
-                continue
-            sx0, sx1, sy = pos[n]
-            tx0, tx1, ty = pos[row]
-            if sx1 > tx0:                         # same lane: order already implies it
-                continue
-            a, b = sx1 + 4, tx0 - 6
-            mid = (a + b) / 2
-            d.path(f"M {a:.0f} {sy:.0f} C {mid:.0f} {sy:.0f} {mid:.0f} {ty:.0f} "
-                   f"{b:.0f} {ty:.0f}",
-                   stroke=FAINT, sw=1.8, marker="arwm")
 
     fy = top + len(rows) * ROW_H + 34
     d.rect(60, fy, 1100, 62, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
-    # print total from print/README.md; the other four are 00-index.md's own
-    # critical-path figures (§ Critical path) — update them there first.
-    facts = [(f"{total_print:.1f} h", "print, 27 plates / 11 batches (sliced)"),
-             ("59.5 h", "hands-on"),
-             ("~15 printer-days", "printing, elapsed"),
-             ("~2.7 weeks", "building, at 22 h/week"),
-             ("≈ 3 weeks", "after the kit arrives")]
+    # print total from print/README.md; the rest from 00-index.md § Critical path.
+    facts = [(f"{total_print:.1f} h", f"print, {len(rows)} rows / 11 batches (sliced)"),
+             (f"{facts_src['hands_on']} h", "hands-on"),
+             (f"~{facts_src['pre_kit_days']} + ~{facts_src['kit_days']} printer-days",
+              "printing: pre-kit, then kit day on"),
+             (f"~{facts_src['build_weeks']} weeks", f"building, at {facts_src['build_rate']}"),
+             (f"≈ {facts_src['after_kit']}", "after the kit arrives")]
     x = 84
     for a, b in facts:
         d.text(x, fy + 28, a, size=15, weight=700)
         d.text(x, fy + 48, b, size=11.5, fill=MUTED)
         x += 216
 
+    pause_row = next((r["n"] for r in rows if r["kind"] == "G"), None)
     footer(d, "The vertical axis is execution order, not calendar time — the manual's "
-              "timeline is dependency-ordered. Arrows show the batch each chapter needs; "
-              "chapters also depend on the chapters above them. Row 17 is the contingency "
-              "pause if the Gen 2 belt-upgrade kit turns up mid-run.")
+              "timeline is dependency-ordered. Each orange rail leaves a print batch and "
+              "forks to every chapter whose needs list names it; chapters also depend on "
+              f"the chapters above them. Row {pause_row} is the contingency pause if the "
+              "Gen 2 belt-upgrade kit turns up mid-run.")
     return d
 
 
@@ -2072,15 +2153,16 @@ DIAGRAMS = [
         "title": "Build timeline — print batches against assembly chapters",
         "fn": d11_timeline,
         "shows": [
-            "All 30 timeline rows in execution order on two lanes — print batches B00–B10 "
-            "on the Core One+, assembly chapters on the bench — with each row's duration.",
-            "Dependency arrows from each batch to the chapter that consumes it.",
-            "The Gen 2 belt-upgrade pause as a full-width band at its contingency position, "
-            "between B07 and B08.",
-            "The critical-path totals: the print hours (per batch and total) are read from "
-            "docs/manual/print/README.md at render time so they cannot drift from the "
-            "sliced estimates; 59.5 h hands-on and about three calendar weeks once the kit "
-            "lands are 00-index.md's own figures.",
+            "Every row of 00-index.md's timeline in execution order on two lanes — print "
+            "batches B00–B10 on the Core One+, assembly chapters (including Ch 00a, the "
+            "two-part Ch 06/06b, Ch 11 A/B and Ch 12 1/2) on the bench — with each row's "
+            "duration and KIT / 2P marker.",
+            "One orange rail per print batch through the middle channel, forking to every "
+            "chapter whose `needs:` list names that batch.",
+            "The Gen 2 belt-upgrade pause as a full-width band at its contingency position "
+            "in the pre-kit block, between B07 and B08.",
+            "The critical-path strip: print hours (per batch and total) from "
+            "docs/manual/print/README.md, the rest from 00-index.md § Critical path.",
         ],
         "insert": [
             ("00-index.md", "The timeline", "at the head of the section, above the row "
@@ -2088,10 +2170,15 @@ DIAGRAMS = [
              "chapter step"),
         ],
         "verify": [
+            "Nothing on this diagram is authored here. The rows, their order, their "
+            "durations, their markers and their dependency arrows are parsed out of "
+            "00-index.md's timeline (via build_tonight.py's own row parser, so the picture "
+            "and the Tonight planner always walk the same list); the hours come from "
+            "print/README.md and the footer figures from 00-index.md § Critical path. "
+            "Edit the index, then re-run this script.",
             "The vertical axis is execution order, not calendar time. The manual's timeline "
             "is dependency-ordered and gives no per-row calendar date, so none is invented "
-            "here; the elapsed figures in the footer strip are the index's own and are "
-            "hard-coded in the script — change 00-index.md's Critical path table first.",
+            "here.",
         ],
     },
 ]

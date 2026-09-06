@@ -125,6 +125,63 @@ def check_bins(readme: str) -> list[str]:
     return bad
 
 
+DIAGRAMS = DOCS / "manual" / "assets" / "diagrams"
+
+
+def check_index_and_timeline(batch, th) -> list[str]:
+    """The numbers that live outside the plan/README pair: 00-index.md's timeline
+    rows and batch table, 00-slicer-setup's two round figures, and diagram 11 —
+    which is generated from the index, so a stale SVG means nobody re-ran
+    scripts/draw_diagrams.py."""
+    bad: list[str] = []
+    index = (DOCS / "manual" / "00-index.md").read_text()
+    setup = (PRINT / "00-slicer-setup.md").read_text()
+    svg = (DIAGRAMS / "11-build-timeline.svg").read_text()
+    manifest = (DIAGRAMS / "MANIFEST.md").read_text()
+
+    for bid, d in batch.items():
+        if not re.search(rf"^- \*\*\d+ · Print\*\* — \[{bid} —[^\]]*\]\([^)]*\) · "
+                         rf"{d['h']} h print\b", index, re.M):
+            bad.append(f"00-index.md: timeline row for {bid} does not read {d['h']} h print")
+        if not re.search(rf"^\| \[{bid} —[^\]]*\]\([^)]*\) \|[^|]*\| "
+                         rf"{d['plates']} · {d['h']} \|", index, re.M):
+            bad.append(f"00-index.md: batch table row for {bid} is not "
+                       f"{d['plates']} · {d['h']}")
+        if f">{d['h']} h print<" not in svg:
+            bad.append(f"11-build-timeline.svg: no '{d['h']} h print' text for {bid} — "
+                       f"re-run `python3 scripts/draw_diagrams.py --only 11`")
+
+    b08 = batch["B08"]["black"] + batch["B08"]["orange"]
+    for name, pat in (("~157 h of ASA", rf"~{round(th)} h of ASA"),
+                      ("399 g of skirts", rf"\b{b08} g of skirts \(B08\)")):
+        if not re.search(pat, setup):
+            bad.append(f"00-slicer-setup.md: expected /{pat}/ ({name})")
+
+    n_rows = len(re.findall(r"^- \*\*\d+ · (?:Print|Build|Both)\*\* — ", index, re.M))
+    strip = f"print, {n_rows} rows / {len(batch)} batches (sliced)"
+    if strip not in svg:
+        bad.append(f"11-build-timeline.svg: facts strip does not say {strip!r} — "
+                   f"the index has {n_rows} timeline rows; re-run scripts/draw_diagrams.py")
+    if f">{th} h<" not in svg:
+        bad.append(f"11-build-timeline.svg: facts strip does not carry the {th} h print total")
+    hm = re.search(r"^\| Hands-on time \| \*\*([\d.]+) h\*\*", index, re.M)
+    if not hm:
+        bad.append("00-index.md § Critical path: no parseable 'Hands-on time' row")
+    elif f">{hm.group(1)} h<" not in svg:
+        bad.append(f"11-build-timeline.svg: facts strip does not carry the index's "
+                   f"{hm.group(1)} h hands-on figure")
+
+    entry = re.search(r"^## 11\..*?(?=^## |\Z)", manifest, re.M | re.S)
+    if not entry:
+        bad.append("diagrams/MANIFEST.md: no entry 11")
+    else:
+        stale = re.findall(r"\b\d+ timeline rows\b|\b[\d.]+ h hands-on\b", entry.group(0))
+        if stale:
+            bad.append(f"diagrams/MANIFEST.md entry 11 restates a figure the diagram now "
+                       f"reads from 00-index.md: {stale} — drop it, don't update it")
+    return bad
+
+
 def main() -> int:
     plate, batch = load()
     plan = (DOCS / "voron-print-plan.md").read_text()
@@ -209,6 +266,9 @@ def main() -> int:
     # 5. bins: scheme vs chapters, README and manifest
     bad += check_bins(readme)
 
+    # 6. 00-index.md, 00-slicer-setup.md and diagram 11
+    bad += check_index_and_timeline(batch, th)
+
     if bad:
         print(f"{len(bad)} mismatch(es):")
         for b in bad:
@@ -217,7 +277,9 @@ def main() -> int:
     print(f"OK — {len(plate)} plates, {len(batch)} batches, {th} h, "
           f"{tb} g black + {to} g orange, consistent across the chapters, "
           f"the plan (§3/§4/§9), print/README.md and README.md; "
-          f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and MANIFEST.csv")
+          f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and "
+          f"MANIFEST.csv; 00-index.md's timeline rows and batch table, 00-slicer-setup's "
+          f"totals and diagram 11's hours all agree")
     return 0
 
 

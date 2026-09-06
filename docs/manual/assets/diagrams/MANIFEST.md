@@ -237,10 +237,10 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **What it shows**
 
-- All 30 timeline rows in execution order on two lanes — print batches B00–B10 on the Core One+, assembly chapters on the bench — with each row's duration.
-- Dependency arrows from each batch to the chapter that consumes it.
-- The Gen 2 belt-upgrade pause as a full-width band at its contingency position, between B07 and B08.
-- The critical-path totals: the print hours (per batch and total) are read from docs/manual/print/README.md at render time so they cannot drift from the sliced estimates; 59.5 h hands-on and about three calendar weeks once the kit lands are 00-index.md's own figures.
+- Every row of 00-index.md's timeline in execution order on two lanes — print batches B00–B10 on the Core One+, assembly chapters (including Ch 00a, the two-part Ch 06/06b, Ch 11 A/B and Ch 12 1/2) on the bench — with each row's duration and KIT / 2P marker.
+- One orange rail per print batch through the middle channel, forking to every chapter whose `needs:` list names that batch.
+- The Gen 2 belt-upgrade pause as a full-width band at its contingency position in the pre-kit block, between B07 and B08.
+- The critical-path strip: print hours (per batch and total) from docs/manual/print/README.md, the rest from 00-index.md § Critical path.
 
 **Insert at**
 
@@ -248,7 +248,8 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The vertical axis is execution order, not calendar time. The manual's timeline is dependency-ordered and gives no per-row calendar date, so none is invented here; the elapsed figures in the footer strip are the index's own and are hard-coded in the script — change 00-index.md's Critical path table first.
+- Nothing on this diagram is authored here. The rows, their order, their durations, their markers and their dependency arrows are parsed out of 00-index.md's timeline (via build_tonight.py's own row parser, so the picture and the Tonight planner always walk the same list); the hours come from print/README.md and the footer figures from 00-index.md § Critical path. Edit the index, then re-run this script.
+- The vertical axis is execution order, not calendar time. The manual's timeline is dependency-ordered and gives no per-row calendar date, so none is invented here.
 
 ---
 

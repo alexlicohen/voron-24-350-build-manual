@@ -5,7 +5,7 @@ bore test) and then prints under Ch 00–01 while the frame goes together.
 
 **Time:** 22.8 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 15.2 h and 7.6 h unattended) + ~20 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 15.2 h and 7.6 h unattended) + ~15 min inspect + ~10 min sort into bins.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — kit day: 625-2RS bore, MGN12 rail, real inserts). Gate A
 alone does not release this batch. Note: fully completing the *Z Drives and Idlers* assembly chapter also
@@ -147,6 +147,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-deck** — Deck panel clips | `deck_support_3mm` ×8 |
 
 **Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids written on the parts; 02-deck holds 8 clips.
+
+Pause: ~10 min since the last pause — both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
