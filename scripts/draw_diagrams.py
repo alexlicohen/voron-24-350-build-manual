@@ -595,7 +595,9 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
 
     S = -1 if not mirror else 1          # wrap sense flips with the mirror
     R = 20                               # belt wrap radius
-    side = +1 if not mirror else -1      # toothed face = left of travel (A belt)
+    # toothed face = left of travel for BOTH belts: the mirror flips handedness and
+    # the reversed traversal (below) flips it back
+    side = +1
 
     # stations, local coords (unmirrored / A-belt frame)
     XYL = (100, 300)          # left XY joint idler stack
@@ -620,16 +622,21 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
     d.text(X(240), Y(556), "FRONT", size=12, anchor="middle", weight=700, fill=BLUE)
 
     # ---- printed assemblies ----
-    def block(x, y, w, h, label, lab_dy=-8, col=BLACKPART, fill=BLACKPART_F, tsize=12):
+    def block(x, y, w, h, label, lab_dy=-8, col=BLACKPART, fill=BLACKPART_F, tsize=12,
+              lab_dx=0.0):
         xa2 = X(x + w) if mirror else X(x)
         d.rect(xa2, Y(y), w, h, fill=fill, stroke=col, sw=2, rx=6, dash="5 4")
-        d.text(X(x + w / 2), Y(y + lab_dy), label, size=tsize, anchor="middle", weight=700)
+        d.text(X(x + w / 2) + lab_dx, Y(y + lab_dy), label, size=tsize, anchor="middle",
+               weight=700)
 
     block(334, 50, 122, 126, own_drive, -8)        # this belt's own drive unit
     block(58, 50, 86, 82, other_drive, -8)         # the other drive: a 90° turn only
     block(388, 446, 74, 70, own_idler, 86)
-    block(356, 258, 76, 84, "XY joint", -8, BLACKPART, "none")
-    block(64, 258, 76, 84, "XY joint", -8, BLACKPART, "none")
+    # B panel: nudge the joint labels left, clear of the run that drops from the
+    # rear-right post onto the right joint
+    jdx = -12 if mirror else 0
+    block(356, 258, 76, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
+    block(64, 258, 76, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
 
     # X carriage with its clamp points
     xa2 = X(CAR[0] + 44) if mirror else X(CAR[0] - 44)
@@ -640,43 +647,70 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
 
     # ---- stations ----
     # Plain F695 stacks: the other drive's far post, this drive's two posts, the
-    # front idler, and the XY joint the belt LEAVES the carriage through (smooth
-    # back on all of them). The joint the belt RETURNS through is a 20T toothed
-    # idler and the belt wraps it teeth-on (Ch 07 Steps 07.16 / 07.22).
+    # front idler, and one XY joint (A: the left joint's upper pair, B: the right
+    # joint's lower pair) — smooth back on all of them. The other XY joint carries
+    # this belt's 20T toothed idler, wrapped teeth-on (A: right joint, Step 07.16;
+    # B: left joint, Step 07.17). In local (A-frame) coords the toothed joint is
+    # always XYR; the mirror puts B's at screen-left.
     for (cx, cy), lab in ((FAR_L, ""), (S1, ""), (S2, ""), (FRI, ""), (XYL, "")):
         d.circle(X(cx), Y(cy), 15, fill=GREY_F, stroke=GREY, sw=2.2)
     d.circle(X(PUL[0]), Y(PUL[1]), 15, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
     d.circle(X(PUL[0]), Y(PUL[1]), 8, fill="none", stroke=ORANGE, sw=1.6)
     d.circle(X(XYR[0]), Y(XYR[1]), 15, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
     d.circle(X(XYR[0]), Y(XYR[1]), 8, fill="none", stroke=ORANGE, sw=1.6, dash="2.5 2")
-    # callouts sit in the free band under the carriage, clear of the belt legs
-    d.text(X(312), Y(XYR[1] + 74), "return turn: TEETH ON", size=10.8, anchor="middle",
-           fill=ORANGE, weight=700)
-    d.text(X(312), Y(XYR[1] + 88), "this joint's 20T idler", size=10.8, anchor="middle",
-           fill=ORANGE, weight=600)
-    d.text(X(132), Y(XYL[1] + 74), "leaving turn: smooth", size=10.8, anchor="middle",
-           fill=MUTED, weight=600)
-    d.text(X(132), Y(XYL[1] + 88), "back on the F695 pair", size=10.8, anchor="middle",
-           fill=MUTED)
+    # callouts sit in the free band under the carriage, clear of the belt legs.
+    # A leaves smooth (left joint) and returns teeth-on (right joint); B leaves
+    # teeth-on (left joint) and returns smooth (right joint).
+    if not mirror:
+        t1, t2 = "return turn: TEETH ON", "the upper 20T idler here"
+        p1, p2 = "leaving turn: smooth back", "on the upper F695 pair"
+    else:
+        t1, t2 = "leaving turn: TEETH ON", "the lower 20T idler here"
+        p1, p2 = "return turn: smooth back", "on the lower F695 pair"
+    d.text(X(312), Y(XYR[1] + 74), t1, size=10.8, anchor="middle", fill=ORANGE, weight=700)
+    d.text(X(312), Y(XYR[1] + 88), t2, size=10.8, anchor="middle", fill=ORANGE, weight=600)
+    d.text(X(132), Y(XYL[1] + 74), p1, size=10.8, anchor="middle", fill=MUTED, weight=600)
+    d.text(X(132), Y(XYL[1] + 88), p2, size=10.8, anchor="middle", fill=MUTED)
 
     # ---- the belt ----
     def N(p, s=S):
         return (X(p[0]), Y(p[1]), R, s)
 
-    start = (X(CAR[0] - 44) if not mirror else X(CAR[0] + 44), Y(320), 0, 0)
-    end = (X(CAR[0] + 44) if not mirror else X(CAR[0] - 44), Y(280), 0, 0)
-    nodes = [start,
-             N(XYL, S), N(FAR_L, S), N(S1, S), N(PUL, -S), N(S2, S), N(FRI, S),
-             N(XYR, -S), end]
+    if not mirror:
+        # A: leaves the LEFT carriage half heading left on the front lane; first
+        # turn the left joint (upper F695, smooth), last turn the right joint
+        # (upper 20T, teeth-on).
+        start = (X(CAR[0] - 44), Y(320), 0, 0)
+        end = (X(CAR[0] + 44), Y(280), 0, 0)
+        nodes = [start,
+                 N(XYL, S), N(FAR_L, S), N(S1, S), N(PUL, -S), N(S2, S), N(FRI, S),
+                 N(XYR, -S), end]
+    else:
+        # B: the same stations mirrored, but traversed the other way round the
+        # frame — both belts leave the LEFT carriage half heading left (p.131), so
+        # B's first turn is the left joint (screen-left = local XYR: its lower 20T,
+        # teeth-on, turning FORWARD to the front idler) and its last the right
+        # joint (local XYL: lower F695, smooth). Reversal negates every wrap sense.
+        start = (X(CAR[0] + 44), Y(280), 0, 0)      # screen-left edge of the carriage
+        end = (X(CAR[0] - 44), Y(320), 0, 0)        # screen-right edge
+        nodes = [start,
+                 N(XYR, S), N(FRI, -S), N(S2, -S), N(PUL, S), N(S1, -S), N(FAR_L, -S),
+                 N(XYL, -S), end]
     prims = belt_geometry(nodes)
     d.path(prims_to_path(prims), stroke=belt_col, sw=3.4)
     teeth_marks(d, prims, side, belt_col, length=6, sw=1.8)
 
-    # travel arrows
-    d.path(f"M {X(80)} {Y(210)} L {X(80)} {Y(178)}", stroke=belt_col, sw=3.2, marker=marker)
-    d.path(f"M {X(190)} {Y(70)} L {X(244)} {Y(70)}", stroke=belt_col, sw=3.2, marker=marker)
-    d.path(f"M {X(440)} {Y(330)} L {X(440)} {Y(372)}", stroke=belt_col, sw=3.2, marker=marker)
-    d.path(f"M {X(400)} {Y(408)} L {X(400)} {Y(366)}", stroke=belt_col, sw=3.2, marker=marker)
+    # travel arrows (A-frame directions; B runs the loop the other way, so flip)
+    def arrow(x0, y0, x1, y1):
+        if mirror:
+            x0, y0, x1, y1 = x1, y1, x0, y0
+        d.path(f"M {X(x0)} {Y(y0)} L {X(x1)} {Y(y1)}", stroke=belt_col, sw=3.2,
+               marker=marker)
+
+    arrow(80, 210, 80, 178)
+    arrow(190, 70, 244, 70)
+    arrow(440, 330, 440, 372)
+    arrow(400, 408, 400, 366)
 
     # ---- callouts ----
     d.text(X(250), Y(212), "S-wrap at this belt's OWN drive:", size=11.5,
@@ -695,12 +729,12 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
 
 
 def d03_belt_path() -> Doc:
-    d = Doc(1000, "Voron 2.4r2 — CoreXY belt path")
+    d = Doc(1020, "Voron 2.4r2 — CoreXY belt path")
     top = header(d, "CoreXY belt path — A belt and B belt",
                  "The two belts are stacked at different heights and never cross. Each belt "
                  "stays in one horizontal plane for its whole loop, and its toothed face "
                  "never changes sides.",
-                 "Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15 · 07.16 · 07.22")
+                 "Ch 07, Steps 07.3 · 07.4 · 07.9 · 07.13 · 07.15 · 07.16 · 07.17 · 07.22")
 
     d.panel(30, top + 16, 560, 672, "A belt  —  A drive is rear RIGHT",
             "two parallel runs on the right side, one on the left")
@@ -729,23 +763,25 @@ def d03_belt_path() -> Doc:
                cap="butt")
     d.text(lx + 42, r1 + 5, "B belt", size=12.5, weight=600)
     d.circle(530, r1, 9, fill=GREY_F, stroke=GREY, sw=2)
-    d.text(546, r1 + 5, "F695 stack — smooth back rides here (drives, front idler, the "
-                        "leaving XY joint)", size=12.5)
+    d.text(546, r1 + 5, "F695 stack — smooth back rides here (drives, front idler, one XY "
+                        "joint: A's left, B's right)", size=12.5)
     d.circle(60, r2, 9, fill=ORANGE_F, stroke=ORANGE, sw=2.4)
     d.text(76, r2 + 5, "20T motor pulley — teeth engage here", size=12.5)
     d.circle(400, r2, 9, fill=ORANGE_F, stroke=ORANGE, sw=2.4)
     d.circle(400, r2, 4.5, fill="none", stroke=ORANGE, sw=1.4, dash="2 1.5")
-    d.text(416, r2 + 5, "20T idler at the RETURN XY joint — wraps teeth-on (A: right joint, "
-                        "Step 07.16 · B: left joint, Step 07.22) — never twist a belt",
+    d.text(416, r2 + 5, "20T idler at the other XY joint — wraps teeth-on (A: right joint, "
+                        "Step 07.16 · B: left joint, Step 07.17) — never twist a belt",
            size=12.5)
 
     footer(d, "Clamp points: one end of BOTH belts goes into the left X carriage half, one "
               "into the upper slot and one into the lower, teeth facing the front of the "
               "machine (Step 07.9); both tails are captured by the right half (Step 07.24). "
               "The toothed face never changes sides: smooth back on every plain F695 "
-              "stack, teeth into the motor pulley and into the return joint's 20T idler. "
-              "Lane spacing inside each drive unit is schematic — the chapter fixes the "
-              "order of the wraps, not their top-view coordinates.")
+              "stack, teeth into the motor pulley and into this belt's one toothed "
+              "XY-joint idler (A: right joint, B: left). Both X runs physically lie in "
+              "front of the X extrusion — each panel draws one behind it so the two lanes "
+              "read apart. Lane spacing inside each drive unit is schematic — the chapter "
+              "fixes the order of the wraps, not their top-view coordinates.")
     return d
 
 
@@ -1814,7 +1850,12 @@ DIAGRAMS = [
             "idler, and the return to the carriage.",
             "The toothed face marked continuously along both belts, so the smooth back on "
             "every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap "
-            "at each belt's return XY joint (its 20T idler) are visible at a glance.",
+            "at each belt's one toothed XY joint (A: the right joint's upper 20T, B: the "
+            "left joint's lower 20T) are visible at a glance.",
+            "The direction each belt is threaded: both leave the LEFT carriage half "
+            "heading left (p.131), so the two loops are mirror images traversed in "
+            "opposite senses — A's first turn is the left joint's plain stack, B's first "
+            "turn is the left joint's toothed idler.",
             "The two-runs-on-one-side asymmetry: A has two parallel runs on the right and "
             "one on the left; B is the mirror.",
             "Where the belt ends are clamped in the X carriage halves.",
@@ -1832,13 +1873,16 @@ DIAGRAMS = [
             "The toothed face is stated by the chapter at four places — the carriage "
             "clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on "
             "the pulley, Step 07.13), the front idler (smooth back on the stack, teeth "
-            "outward on both runs, Step 07.15) and the return XY joint (teeth on its 20T "
-            "idler, Step 07.16 for A and Step 07.22 for B). The face drawn at the "
+            "outward on both runs, Step 07.15) and the toothed XY joint (teeth on its 20T "
+            "idler — A's return turn at the right joint, Step 07.16; B's first turn at "
+            "the left joint, Step 07.17). The face drawn at the "
             "remaining stations follows from belt geometry: a belt cannot change which "
             "face is which along its length. Which joint stack a belt meets (F695 pair "
             "or 20T idler) is fixed by the belt's height and needs no decision.",
             "The diagram does not say which X-carriage slot (upper or lower) each end goes "
             "into, because the chapter assigns the slots by belt plane rather than by side.",
+            "Both X runs physically lie in front of the X extrusion (p.131); each panel "
+            "draws one of them behind it so the two lanes read apart in a top view.",
         ],
     },
     {

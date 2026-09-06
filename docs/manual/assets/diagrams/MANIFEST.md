@@ -65,7 +65,8 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **What it shows**
 
 - Both belt loops as separate top views, the way the manual splits p.126 and p.127: every 90° turn, the S-wrap at the drive, the 180° U-turn at the front idler, and the return to the carriage.
-- The toothed face marked continuously along both belts, so the smooth back on every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap at each belt's return XY joint (its 20T idler) are visible at a glance.
+- The toothed face marked continuously along both belts, so the smooth back on every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap at each belt's one toothed XY joint (A: the right joint's upper 20T, B: the left joint's lower 20T) are visible at a glance.
+- The direction each belt is threaded: both leave the LEFT carriage half heading left (p.131), so the two loops are mirror images traversed in opposite senses — A's first turn is the left joint's plain stack, B's first turn is the left joint's toothed idler.
 - The two-runs-on-one-side asymmetry: A has two parallel runs on the right and one on the left; B is the mirror.
 - Where the belt ends are clamped in the X carriage halves.
 
@@ -78,8 +79,9 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **Drawn schematically / left unlabelled (verify)**
 
 - Lane spacing and the position of the two bearing stacks and the motor pulley *within* each drive unit are schematic. The chapters fix the order of the wraps (stack, pulley, stack) and which stack the other belt turns on, not their top-view coordinates.
-- The toothed face is stated by the chapter at four places — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13), the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15) and the return XY joint (teeth on its 20T idler, Step 07.16 for A and Step 07.22 for B). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length. Which joint stack a belt meets (F695 pair or 20T idler) is fixed by the belt's height and needs no decision.
+- The toothed face is stated by the chapter at four places — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13), the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15) and the toothed XY joint (teeth on its 20T idler — A's return turn at the right joint, Step 07.16; B's first turn at the left joint, Step 07.17). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length. Which joint stack a belt meets (F695 pair or 20T idler) is fixed by the belt's height and needs no decision.
 - The diagram does not say which X-carriage slot (upper or lower) each end goes into, because the chapter assigns the slots by belt plane rather than by side.
+- Both X runs physically lie in front of the X extrusion (p.131); each panel draws one of them behind it so the two lanes read apart in a top view.
 
 ---
 
