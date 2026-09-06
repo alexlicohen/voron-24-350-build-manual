@@ -413,11 +413,11 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 **Check:** The insert pass is written into your batch checklist as a gate, not as a reminder. A missed insert in an XY joint means taking the gantry apart (survey §5.2 W3).
 
-⚠ **Rev D+ / LDO:** LDO does not state whether 153 includes spares. Treat every insert after the three practice ones as load-bearing.
+⚠ **Rev D+ / LDO:** LDO does not state whether 153 includes spares. Treat every insert after the seven practice ones as load-bearing.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-Pause: ~30 min since the last pause — the iron is set up with the brass tip, the working temperature is written on tape, and the three practice inserts are done. Unplug the iron and let it cool before you walk away; leave the remaining 150 inserts bagged.
+Pause: ~30 min since the last pause — the iron is set up with the brass tip, the working temperature is written on tape, and the seven practice inserts (one per coupon pocket) are done. Unplug the iron and let it cool before you walk away; leave the remaining 150 inserts bagged.
 
 ---
 
@@ -715,7 +715,7 @@ Pause: ~20 min since the last pause — measurement log started, all three Disco
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to `usb_adapter_mount_partial_cover.stl`.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
-- [ ] Three practice inserts set: flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
+- [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Both rail guides fit their real rails with light finger pressure (Step 00.20) — the B00 gate's first kit-day confirmation; the second (bearing in the retainer bore) is due in Ch 02.
 - [ ] Chapter bins labelled 00–14 and the batch-to-bin map posted on the wall.
