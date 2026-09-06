@@ -1,0 +1,123 @@
+# Mirrored step images for docs/manual/06-z-axis-and-gantry-squaring.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, the URL as cited in the
+# chapter, the pinned-commit URL actually downloaded, the owner, and the licence.
+
+ab-tensioners-release.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 62a30947214ceded72bce86cca8b2d43e5b29ba071e6fdea011c8fd24ac08613
+
+z-joint-lowered.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ZJoint-Lowered.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/ZJoint-Lowered.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : c0af44fb87bad6fdbcb3c46a2c7569755408f70035d4f0e408a645b7cbc28b85
+
+z-joints-all-lowered.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ZJoints-Lowered.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/ZJoints-Lowered.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 9e8697c4f057e352cf7c90c2a8286244b548e51db1bf5df8cb404f1a2f58fffa
+
+xy-joint-loosen-top.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/XYLoosen-Top.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/XYLoosen-Top.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : b38684f3976bbb49a11fb4b2aa923ce609da136b1437551992c10e8aab899737
+
+xy-joint-loosen-bottom.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/XYLoosen-Bottom.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/XYLoosen-Bottom.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 15d08efb1e544c26cf48d6959d86253620cf0cbd5825341d4a22d98afd0943c4
+
+ab-joint-loosen-top.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ABLoosen-Top.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/ABLoosen-Top.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 9b195dbd86ee38e91f54251d2e25540f6b32225f5365f1cb07496850c2b75848
+
+ab-joint-loosen-bottom.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ABLoosen-Bottom.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/ABLoosen-Bottom.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : e3aaffb76ebdc80640c46fe47a1545ebe8b9ba87d974d71c0f780a61fba6bea4
+
+front-idler-loosen-top.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Top.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Top.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 76986c3b5ec13148a6a3ca6e215e17c373fb89ea7cdce0959b009108e00b0daa
+
+front-idler-loosen-bottom.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Bottom.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Bottom.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 68293d92d38c270470748900db74a0eb1382e0f0faccf083940898b9829bc514
+
+gantry-adjust-x.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/XAdjust.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/XAdjust.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : c100d8b2147aea2261e5d4813edf4a23878ead681fac055515693cc8ced96585
+
+gantry-adjust-y.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/YAdjust.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/YAdjust.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 986d3819ebb68c80ffa8660eea69e2ad3700e4fb721c15a44480e863efd7b29f
+
+alignment-flush-side.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Alignment-Side.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Alignment-Side.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 105bf9b885f1f99a1968831e8e68fe704bbf6b2f33eacbfbd83fa8087b28eed7
+
+alignment-bolt-hole.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Alignment-Hole.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Alignment-Hole.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 73bffd2a8be9488211d077cd6b9d0596fd7383b329e33f6a6726c709ceb91821
+
+alignment-ab-good.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Alignment-AB-Good.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Alignment-AB-Good.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 747bc859f57c262bed637d17edbd80833059be5a2306e4b4e7ca6b6150e27704
+
+alignment-ab-bad.png
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Alignment-AB-Bad.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Alignment-AB-Bad.png
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 891dd8c010cfd49b62270852946b439e6768da0ef9f972199e2f4ce64a1a1ddd

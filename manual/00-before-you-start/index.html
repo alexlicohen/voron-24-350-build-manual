@@ -1,0 +1,3619 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/00-before-you-start/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 00 — Before you start - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-00-before-you-start" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 00 — Before you start
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#before-the-kit-ships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before the kit ships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kit-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kit day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unboxing-and-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unboxing and inventory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unboxing and inventory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-001-open-the-cartons-without-cutting-into-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.1 — Open the cartons without cutting into them
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-002-find-the-kit-serial-and-open-your-batch-bom-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.2 — Find the kit serial and open your batch BOM page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-003-inventory-carton-1-box-by-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.3 — Inventory carton 1, box by box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-004-inventory-carton-2-and-caliper-the-deck-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.4 — Inventory carton 2 and caliper the deck panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.5 — Verify you actually received a Rev D+ (Nitehawk-SB V2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-006-set-aside-the-ten-ldo-supplied-printed-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.6 — Set aside the ten LDO-supplied printed parts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-007-lay-out-what-the-kit-already-gives-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.7 — Lay out what the kit already gives you
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-008-settle-the-tool-list-owned-vs-buy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.8 — Settle the tool list: owned vs. buy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-009-order-the-consumables-with-the-longest-lead-time-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.9 — Order the consumables with the longest lead time first
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workspace
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0010-verify-the-flat-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.10 — Verify the flat reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0011-bin-the-workspace-by-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.11 — Bin the workspace by chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0012-leave-the-fasteners-in-their-bags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.12 — Leave the fasteners in their bags
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heat-set-inserts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heat-set inserts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Heat-set inserts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0013-fit-the-brass-tip-and-set-the-tongue-flush" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.13 — Fit the brass tip and set the tongue flush
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0014-find-the-iron-temperature-on-the-practice-coupon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.14 — Find the iron temperature on the practice coupon
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0015-learn-what-a-good-insert-looks-like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.15 — Learn what a good insert looks like
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0016-plan-the-153-inserts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.16 — Plan the 153 inserts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rail-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rail preparation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rail preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0017-unbag-the-rails-and-immobilise-every-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.17 — Unbag the rails and immobilise every carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0018-degrease-ipa-soak-then-dry-completely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.18 — Degrease: IPA soak, then dry completely
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0019-flip-and-pack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.19 — Flip and pack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0020-clean-the-rail-surface-back-to-bare-steel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.20 — Clean the rail surface back to bare steel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0021-label-and-bag-the-seven-rails-by-destination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.21 — Label and bag the seven rails by destination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0022-understand-the-rail-jigs-before-you-need-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.22 — Understand the rail jigs before you need them
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-the-manual-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read the manual pages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to read the manual pages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0023-print-guidelines-p4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.23 — Print guidelines (p.4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0024-file-naming-and-where-to-get-help-p56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.24 — File naming, and where to get help (p.5–6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0025-fastener-names-part-1-p7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.25 — Fastener names, part 1 (p.7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.26 — Fastener names, part 2, and the spacer substitution (p.8)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0027-drivers-p9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.27 — Drivers (p.9)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0028-blind-joints-p10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.28 — Blind joints (p.10)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.29 — How to read an exploded view, and the page-number contract (p.11)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measurement-log-and-lifelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement log and lifelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measurement log and lifelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-0030-start-the-measurement-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.30 — Start the measurement log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0031-join-the-three-lifelines-now" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.31 — Join the three lifelines now
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-0032-post-the-two-questions-that-gate-later-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00.32 — Post the two questions that gate later chapters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-00" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 00
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-00-before-you-start">Chapter 00 — Before you start<a class="headerlink" href="#chapter-00-before-you-start" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/00-before-you-start/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Inventories the kit against its own batch BOM, settles the tools and consumables, verifies the flat reference, teaches heat-set inserts, and cleans and greases all seven rails — so that Ch 01 can start the moment the frame extrusions come out of the box and no later chapter stops for a missing tool.</p>
+<p><strong>What you're building in this chapter:</strong> nothing yet — this chapter builds the conditions for everything else. Four things come out of it. <strong>A counted kit</strong>: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. <strong>A working bench</strong>: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. <strong>A heat-set technique</strong>: the brass tip fitted to the soldering iron and an iron temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. <strong>Seven prepared linear rails</strong> — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them. Roughly half of this chapter happens weeks before the cartons arrive — the two headings <em>Before the kit ships</em> and <em>Kit day</em> below say which steps belong to which day; the step numbers stay in bench order.</p>
+<p><strong>Time:</strong> 2.5–4.0 h hands-on, first build (survey §5.1 P00). Rail prep is roughly half of it.</p>
+<p><strong>Sessions:</strong> 7 × ~30 min — the <code>Pause:</code> lines below break the chapter into 7 segments; every minute figure is a first-build estimate.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Print batch B00 — Calibration &amp; jigs</strong> (<a href="../print/B00-calibration-and-jigs/">print/B00-calibration-and-jigs.md</a>). B00 prints the day the Core One+ runs, months before the Voron kit lands, and its gate is in two parts. <strong>Gate A</strong> (the cube, Step B00.5) is long passed by kit day — it released the pre-kit batches B02 and B07, and B08–B10 after the Gen 2 upgrade. <strong>Gate B</strong> — the 625-2RS bearing in the <code>z_drive_retainer_a</code> bore, the <code>MGN12_rail_guide</code> on the real rail, and all seven inserts in the <code>Heatset_Practice</code> coupon — is Step B00.7 and runs <strong>the morning the kit lands, before the inventory</strong>; it releases B01 (which goes on the Prusa before Step 00.2) and B03–B06. Steps 00.13–00.16 <em>are</em> its insert item. This chapter needs the <code>Heatset_Practice</code> coupon and both rail-guide sizes off that plate; nothing else from B00.</li>
+<li>The kit itself, unopened — for the <em>Kit day</em> steps only. Fabreeko order <strong>F6424626</strong>, pre-order, ETA mid/late September 2026.</li>
+<li>Nothing else. This chapter has no assembly prerequisites — it is the first thing you do.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Digital caliper, 150 mm</li>
+<li>Machinist square, 150 mm, DIN 875/2 or better</li>
+<li>Flat reference surface (the kitchen stone counter, verified in Step 00.10)</li>
+<li>Steel rule / straightedge ≥ 600 mm</li>
+<li>Feeler gauge set</li>
+<li>Temperature-controlled soldering iron that accepts <strong>900M-T</strong> tips (Hakko FX888D-style sleeve with a thumb ring) — the LDO brass insert tip in the kit will not fit anything else. <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">src</a></li>
+<li>LDO brass M3 heat-set tip (supplied in the kit)</li>
+<li>Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — kit wrenches or the Fabreeko precision set</li>
+<li>Flush cutters</li>
+<li>10 ml syringe with a blunt tip (grease delivery), or use the grease tube nozzle</li>
+<li>2 mm drill bit (supplied), 2.5 mm slot screwdriver (supplied)</li>
+<li>Clean towel, for drying the rails after the IPA soak</li>
+</ul>
+<p><strong>Consumables:</strong> IPA ≥ 90% (enough to cover a 400 mm rail inside its own shipping bag, seven times over); Super Lube 21030 synthetic grease; nitrile gloves; lint-free cloth; masking tape (labels, and the rail end stops); permanent marker.</p>
+<p><strong>Printed parts</strong> — batch <strong>B00</strong>, all Galaxy Black ASA on the Core One+</p>
+<p>Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.</p>
+<table>
+<thead>
+<tr>
+<th>Looks like</th>
+<th>STL</th>
+<th>Bin</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/Voron_Design_Cube_v7.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/Voron_Design_Cube_v7.png" width="96"></a></td>
+<td><code>Voron_Design_Cube_v7.stl</code></td>
+<td>00-jigs</td>
+<td>Voron-2 <code>STLs/Test_Prints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/Heatset_Practice.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/Heatset_Practice.png" width="96"></a></td>
+<td><code>Heatset_Practice.stl</code></td>
+<td>00-jigs</td>
+<td>Voron-2 <code>STLs/Test_Prints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/MGN12_rail_guide_x2.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/MGN12_rail_guide_x2.png" width="96"></a></td>
+<td><code>MGN12_rail_guide_x2.stl</code></td>
+<td>00-jigs</td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/MGN9_rail_guide_x2.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/MGN9_rail_guide_x2.png" width="96"></a></td>
+<td><code>MGN9_rail_guide_x2.stl</code></td>
+<td>00-jigs</td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/pulley_jig.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/pulley_jig.png" width="96"></a></td>
+<td><code>pulley_jig.stl</code></td>
+<td>00-jigs</td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/z_drive_retainer_a_x2.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/z_drive_retainer_a_x2.png" width="96"></a></td>
+<td><code>z_drive_retainer_a_x2.stl</code></td>
+<td>02-Z0</td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+</tr>
+</tbody>
+</table>
+<p><code>z_drive_retainer_a</code> is on the jig plate as the bearing press-fit coupon — Gate B's bore test, Step B00.7 — and it is a real part you will fit in Ch 02; nothing is wasted.</p>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heat-set insert, brass, M3×5×4 — M3 thread, ~4 mm OD × 5 mm long — the STL pockets are 5.0 mm deep with a ~4 mm bore and the LDO tip tongue is 5.0 mm <code>(verify against the bag)</code></td>
+<td>7</td>
+<td>practice coupon only (the coupon STL has 7 pockets) — this is Gate B's insert item, Step B00.7. Kit inserts (146 of the 153 remain for the build), or the ten ordered with the filament (Step 00.9)</td>
+</tr>
+<tr>
+<td>— no other kit hardware is consumed in this chapter —</td>
+<td>0</td>
+<td>every rail, fastener and PCB goes back in its bag</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>The rails ship dry and must be cleaned and packed before they go on an extrusion.</strong> The flip-and-pack method needs access to the <em>back</em> of the rail. Once a rail is bolted to a 2020 you cannot do this (survey §5.2 W9). <a href="https://docs.ldomotors.com/guides/rail_grease_guide">src</a></li>
+<li><strong>A rail carriage will slide off its rail and spill its bearing balls, and dropping one ruins it.</strong> Tape every carriage in place the moment you unbag a rail — the MGN12 comes out first, at Gate B (Step B00.7), so tape it there — and fit the two end-stop bands before the soak (Step 00.17; manual p.24, p.26).</li>
+<li><strong>Heat-set inserts go in per print batch, before the part enters any assembly.</strong> One missed insert in an XY joint costs a gantry teardown (survey §5.2 W3).</li>
+<li><strong>Caliper the deck panel during inventory.</strong> LDO's guides say 4 mm, LDO's own BOM says 3 mm. This decides which <code>deck_support_*</code> you print, and it is a Ch 02 step, not a Ch 11 one (survey §4.3).</li>
+<li><strong>Post the two Discord questions on day one</strong> (Step 00.32). Both have multi-day answer latency and both gate work in Ch 08–Ch 10.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">LDO batch BOM index</a> — find your batch tile from the kit serial</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> — the inventory checklist and every count in this chapter</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed parts guide (Rev D)</a> — which parts LDO supplies printed</li>
+<li><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">LDO Nitehawk-SB V2 board doc</a> — the Rev D+ toolboard identification markers</li>
+<li><a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY endstop cable guide</a> — the mislabelled XY endstop cable batch</li>
+<li><a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> — degrease, flip-and-pack, wipe</li>
+<li><a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a> — tongue adjustment, temperature technique, the 90 %/10 % trick</li>
+<li><a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg">LDO Klipper config <code>leviathan-printer-rev-d-sbv2.cfg</code></a> — the <code>stm32g0b1xx</code> serial-ID check written into Ch 12</li>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf">Voron 2.4r2 assembly manual (pinned <code>de7e89d</code>)</a> pages 4–11, 24–26, 31 — print spec, filenames, fastener names, drivers, blind joints, exploded-view conventions, rail handling, inserts</li>
+<li><a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools">Voron-2 <code>STLs/Tools</code></a> and <a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints">Voron-2 <code>STLs/Test_Prints</code></a> — the B00 jigs and the practice coupon</li>
+<li><a href="../../voron-build-instructions-survey/">survey</a> §4.1, §4.3, §5.2, §7.4, §7.5 · <a href="../../voron-print-plan/">print plan</a> §1.2, §1.4</li>
+<li>Mirrored images in this chapter are LDO Motors' (the heat-set and rail-grease guides on docs.ldomotors.com, and the Nitehawk-SB-V2 repo), used with attribution; see <code>assets/remote/00-before-you-start/SOURCES.txt</code>. Every step keeps the original URL on its <code>Source:</code> line.</li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=124s">Part 1 @0:02:04</a> (+11m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=731s">Part 1 @0:12:11</a> (+8m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3002s">Part 1 @0:50:02</a> (+6m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6850s">Part 1 @1:54:10</a> (+39m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=7513s">Part 1 @2:05:13</a> (+19m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=9172s">Part 1 @2:32:52</a> (+32m), <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=11505s">Part 1 @3:11:45</a> (+10m)</p>
+<p>This manual also links timestamps from <strong>Steve Builds'</strong> eleven-part <em>LDO Voron 2.4 Kit Build</em> playlist — livestreams in which he assembles the <strong>pre-release "feedback" kit</strong> LDO shipped him in December 2021–January 2022 to review before the kit went on sale, the closest thing to a full video walkthrough of this machine. It is not this kit: Steve's build is Afterburner + Clockwork 1 on a BTT Octopus with a separate Raspberry Pi and a Euclid probe, where this build is Stealthburner + Clockwork 2 + Revo HF on a Nitehawk-SB V2 toolboard, a Leviathan carrying the Pi, an Omron inductive probe plus the LDO nozzle probe, and a Clicky-Clack door instead of the stock doors. Every step link that lands on a step where this matters carries a <code>(differs: …)</code> note; low-confidence links (the video's segment start rather than the exact moment) are collected instead in each chapter's <code>Video coverage</code> line, above. Links and timestamps only — no stills, clips, thumbnails, or transcript excerpts (<code>assets/video/SOURCES.txt</code>).</p>
+<hr>
+<h2 id="before-the-kit-ships">Before the kit ships<a class="headerlink" href="#before-the-kit-ships" title="Permanent link">¶</a></h2>
+<p>Do these the week batch B00 prints and passes Gate A, weeks before the cartons arrive — none of them needs a kit part: <strong>Steps 00.8–00.11</strong> (tools, consumables, flat reference, bins), <strong>00.23–00.29</strong> (reading the manual's front matter), <strong>00.30</strong> (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and <strong>00.31–00.32</strong> (the three lifelines and the two gating questions, which gate batches B06/B07). <strong>00.13–00.16</strong> (heat-set practice) are pre-kit <em>only</em> if you ordered the LDO tip kit and ten inserts with the filament (Step 00.9); otherwise they wait for the kit's brass tip and inserts, below. The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.</p>
+<h2 id="kit-day">Kit day<a class="headerlink" href="#kit-day" title="Permanent link">¶</a></h2>
+<p>The day the cartons land, in this order: <strong>Step 00.1</strong> (open the cartons), then <strong>Gate B</strong> (<a href="../print/B00-calibration-and-jigs/#step-b007-gate-b-on-kit-day-bore-rail-inserts">Step B00.7</a>, ~15 min — the brass tip, seven inserts, one 625-2RS and the MGN12 rail come out of carton 1 ahead of the count; <strong>00.13–00.16</strong> are its insert item, done here on the same coupon, and the guide-on-rail and bearing-in-bore tests are the other two), then <strong>B01-P1 onto the Prusa</strong>, then <strong>00.2–00.7</strong> (batch BOM, inventory, deck caliper, board check, LDO-supplied parts, kit tools), <strong>00.12</strong> (fastener bags stay closed) and <strong>00.17–00.22</strong> (rail prep — the grease and IPA from Step 00.9 must already be on the bench). The log from Step 00.30 gets the deck thickness and the inventory result today. Rail prep is the one kit-day job with a wait state — the IPA dry — so start it as soon as the inventory is done.</p>
+<h2 id="unboxing-and-inventory">Unboxing and inventory<a class="headerlink" href="#unboxing-and-inventory" title="Permanent link">¶</a></h2>
+<h3 id="step-001-open-the-cartons-without-cutting-into-them">Step 00.1 — Open the cartons without cutting into them<a class="headerlink" href="#step-001-open-the-cartons-without-cutting-into-them" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Two shipping cartons and a blade. Carton 1 is the mechanical and electrical kit: extrusions, motors, rails, fasteners, boards. Carton 2 is the flat, fragile half: eight acrylic and polycarbonate panels and the 355 × 355 × 10 mm cast aluminium build plate.</p>
+<p><strong>Parts:</strong> the shipping cartons, 2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Check all six faces of each carton; log dents and punctures.</li>
+<li>Score tape only, blade shallow: carton 2's panels and plate sit under the flaps.</li>
+<li>Lift the plate out flat, never on edge; leave the rest boxed.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>No crushed corners, no rattle from carton 2, no oil through carton 1; every panel filmed both faces until Ch 11.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 id="step-002-find-the-kit-serial-and-open-your-batch-bom-page">Step 00.2 — Find the kit serial and open your batch BOM page<a class="headerlink" href="#step-002-find-the-kit-serial-and-open-your-batch-bom-page" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The printed label on carton 1. Its serial ties your kit to the right <strong>batch BOM</strong>, LDO's per-batch bill of materials and the inventory checklist for the next two steps. Quantities and substitutions change between batches, so the generic page is no stand-in.</p>
+<p><strong>Parts:</strong> the label on carton 1.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>The serial reads <code>V2-YYMMDD####</code>: batch, pack date, four-digit kit number.</li>
+<li>Open <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">350_BOM/HOME</a> and open the batch tile whose <code>Kit#:</code> range contains your serial.</li>
+<li>Print it or open it on the iPad: this is your inventory checklist.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The page you land on is headed <code>V2.4 350 BOM (Rev. D)</code>; every Rev D batch tile from 2406 onward resolves to that one page, as expected.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the index tops out at batch <strong>2606</strong>. A September/October 2026 kit will be a batch LDO has not listed yet. If your serial is not in any tile, use the Rev_D page above and ask Fabreeko for your batch sheet — do not assume quantities from an older batch. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">LDO batch BOM index</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a></p>
+<hr>
+<h3 id="step-003-inventory-carton-1-box-by-box">Step 00.3 — Inventory carton 1, box by box<a class="headerlink" href="#step-003-inventory-carton-1-box-by-box" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Nine labelled boxes plus loose items: the mechanical and electrical half of the printer. The bags hold <strong>SHCS</strong> and <strong>BHCS</strong> screws, <strong>roll-in T-nuts</strong> and 153 brass <strong>heat-set inserts</strong>. The motors and extrusions in here are the frame and the four Z drives.</p>
+<p><strong>Parts:</strong> carton 1 — boxes <em>Cable Kit 2.4-350</em>, <em>Motion</em>, <em>Electronics 1</em>, <em>Electronics 2</em>, <em>Fasteners, Tools &amp; Misc</em>, <em>Belts, Chains &amp; Fans</em>, <em>Linear Rail Kit</em>, <em>Frame Kit 2.4-350</em>, <em>Motor Kit</em>, plus loose <em>Other</em> items (C13 cord, PVC wire duct ×5, Revo HF hotend, DIN rails ×2, Leviathan mainboard, Meanwell LRS-200-24 PSU, extrusion slot cover ×9).</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Work one box at a time against the BOM and tick <code>Check1</code>.</li>
+<li>Count each fastener bag closed, each board through its antistatic bag, each rail bag unopened.</li>
+<li>The counts below are the large, easy-to-be-short-on ones.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Bag or kit</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3×8 SHCS</td>
+<td>283</td>
+</tr>
+<tr>
+<td>M3 roll-in T-nut</td>
+<td>135</td>
+</tr>
+<tr>
+<td>M5 roll-in T-nut</td>
+<td>80</td>
+</tr>
+<tr>
+<td>M3 hammerhead</td>
+<td>75</td>
+</tr>
+<tr>
+<td>M5 precision spacer</td>
+<td>46</td>
+</tr>
+<tr>
+<td>Heat-set insert M3×5×4</td>
+<td>153</td>
+</tr>
+<tr>
+<td>Zip tie</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Frame kit, 18 extrusions</td>
+<td>340E ×1, 430D ×1, 450C ×2, 470A ×10, 530B ×4</td>
+</tr>
+<tr>
+<td>Motor kit, 7 motors</td>
+<td>1× 36STH20 E, 2× 42STH48-2004MAH A/B 0.9°, 4× 42STH48-2004AC Z 1.8°</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every BOM line ticked, or written down as short, and the frame and motor kits match the table above.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> in the <em>Cable Kit</em> box, read the labels on the XY endstop cable now. LDO documents a batch where they read <strong>"X Stop / Y Stop"</strong> instead of <strong>"XES / YES"</strong> and need re-pinning before they will work. Finding this in Ch 10 with the bay half-closed is much worse than finding it now. <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY endstop cable guide</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=181s">Video: Part 1 @0:03:01</a> (differs: pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D)</p>
+<hr>
+<h3 id="step-004-inventory-carton-2-and-caliper-the-deck-panel">Step 00.4 — Inventory carton 2 and caliper the deck panel<a class="headerlink" href="#step-004-inventory-carton-2-and-caliper-the-deck-panel" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The eight flat panels and the plate. The <strong>deck panel</strong> is the acrylic floor of the chamber: it sits on the bed extrusions and separates the electronics bay below from the print chamber above. Its thickness decides which support clip you fit in Ch 02.</p>
+<p><strong>Parts:</strong> deck panel (acrylic, black, 469×469), back panel (acrylic, black, 483×503), bottom panel (acrylic, black, 469×469), door panels (PC clear, 241×503) ×2, side panels (PC clear, 483×503) ×2, top panel (PC clear, 483×483), magnetic pad, spring steel flex plate, build plate.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Count the panels against the BOM.</li>
+<li>Peel back one corner of the <strong>deck</strong> film and caliper it at three points along one edge.</li>
+<li>Write the number on tape stuck to the film, re-cover it, leave others filmed.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Eight panels present, no cracks, no chips at the corners. You now have one number written down: the deck thickness.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO's Build Notes p.29–30 and Printed Parts Guide say <strong>4 mm</strong>; LDO's own Rev D BOM says <strong>3 mm</strong>. B01-P2 carries <code>deck_support_3mm_x8</code> and has not started; if the caliper reads <strong>4 mm</strong>, follow the <a href="../print/B01-z-drive-assemblies/">B01 deck note</a> first. Those clips, <code>deck_support_4mm_x8</code>, are an 8 g, 30-minute print and must exist before Ch 02. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed parts guide (Rev D)</a></p>
+<hr>
+<h3 id="step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2">Step 00.5 — Verify you actually received a Rev D+ (Nitehawk-SB V2)<a class="headerlink" href="#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/nhsbv2_pcb_pinout.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Nitehawk-SB V2 — board and connector pinout" src="../assets/remote/00-before-you-start/nhsbv2_pcb_pinout.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The Nitehawk-SB V2 <strong>toolboard</strong>: the small PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one cable. The <code>+</code> in Rev D+ <em>is</em> this board. The silkscreen in the drawing reads <code>LDO NiteHawk-SB V2.0.0</code>; read yours.</p>
+<p><strong>Parts:</strong> <em>Electronics 2</em> box — Nitehawk SB toolhead PCB ×1, Stealthburner fan adapter ×1, USB adapter PCB ×1.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Handle the board by its edges on an antistatic bag.</li>
+<li>Check all four markers below against the V2 board doc.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Marker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>PROBE</strong>, <strong>TH0</strong>, <strong>CT</strong> and <strong>Endstop</strong> are JST-<strong>PH 2.0 mm</strong> pitch, visibly finer than the JST-XH 2.5 mm <strong>E Motor</strong> connector on the <strong>back</strong> of the board</td>
+</tr>
+<tr>
+<td>2</td>
+<td>a <strong>secondary USB port</strong> is present: JST-ZH 1.5 mm, 5-pin, labelled as the USB expansion port</td>
+</tr>
+<tr>
+<td>3</td>
+<td>the board-to-board header that mates with the fan adapter is <strong>keyed</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>the MCU is marked STM32G0B1, not RP2040</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All four markers present means Rev D+; any one absent means a V1 board, so stop and ask Fabreeko before going further. <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the USB serial ID settles it, and Ch 12 reads it once the Pi is up: it must contain <strong><code>stm32g0b1xx</code></strong>. LDO's Rev D wiring guide expects <code>usb-Klipper_rp2040_…</code>, which is wrong for this kit. On <code>rp2040</code>, load <code>leviathan-printer-rev-d.cfg</code> instead of <code>leviathan-printer-rev-d-sbv2.cfg</code>; the wrong one mis-drives heater, thermistor, probe, fans and accelerometer. <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg">src</a> · survey §4.1 ①②</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">LDO Nitehawk-SB V2 board doc</a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg">image: Nitehawk-SB-V2 <code>Images/nhsbv2_pcb_pinout.jpg</code></a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg">LDO Klipper config <code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-006-set-aside-the-ten-ldo-supplied-printed-parts">Step 00.6 — Set aside the ten LDO-supplied printed parts<a class="headerlink" href="#step-006-set-aside-the-ten-ldo-supplied-printed-parts" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Ten printed parts LDO makes for you, in one bag: the pieces the Voron STL set does not cover or you cannot reproduce. They include the two Leviathan brackets, DIN clips, the nozzle-probe body, the bed WAGO mount and the clear Stealthburner LED diffuser.</p>
+<p><strong>Parts:</strong> the <em>LDO Printed Parts</em> bag — Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, CW2 Chain Anchor Tilted ×1, 2×3 Splitter Spacer ×2, LDO Nozzle Probe ×1, Bed WAGO Mount ×1, Stealthburner LED Diffuser ×1 (clear PETG), CW2 PCB Spacer ×1.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Count them and put them in their own labelled bin.</li>
+<li>Do <strong>not</strong> print these; the print plan already excludes them, and you have no clear filament for the PETG LED diffuser.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Ten part types accounted for, in one bin, labelled <code>LDO SUPPLIED — DO NOT PRINT</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the USB-adapter mount base is supplied printed, but the <strong>cover</strong> changed for the V2 board. The Rev D Printed Parts Guide points at the V1 <code>usb_adapter_mount.stl</code> cover; Rev D+ needs <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl"><code>usb_adapter_mount_partial_cover.stl</code></a> from the <strong>V2</strong> repo. Batch <strong>B07</strong> currently lists the V1 file. Fix the B07 plate before you print it. <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">src</a> · survey §4.1 ⑤</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed parts guide (Rev D)</a> · <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">LDO Nitehawk-SB V2 board doc</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs">Nitehawk-SB-V2 <code>STLs/</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~40 min since the last one</p>
+<p>both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench.</p>
+</div>
+<hr>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h2>
+<h3 id="step-007-lay-out-what-the-kit-already-gives-you">Step 00.7 — Lay out what the kit already gives you<a class="headerlink" href="#step-007-lay-out-what-the-kit-already-gives-you" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/heatset_dim.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO brass M3 heat-set tip — dimensioned drawing" src="../assets/remote/00-before-you-start/heatset_dim.png"></a></p>
+<p><strong>What you're looking at:</strong> The kit's own tools: five hex wrenches, a 2.5 mm slot driver, a 2 mm drill bit, a brass brush, and the brass <strong>heat-set insert tip</strong> that screws into a soldering iron. The drawing dimensions its tongue: 2.4 mm across, 5.0 mm long.</p>
+<p><strong>Parts:</strong> from <em>Fasteners, Tools &amp; Misc</em> — hex wrenches 1.5 / 2 / 2.5 / 3 / 4 mm, 2.5 mm slot-head screwdriver, brass heat-set insert tool (M3), 2 mm drill bit, brass brush, aluminium handles ×2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Put these on the bench, not back in the box.</li>
+<li>The five hex sizes span every fastener drive in the BOM; nothing needs a 5 mm hex.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Fastener</th>
+<th>Drive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M3 BHCS/FHCS</td>
+<td>2 mm</td>
+</tr>
+<tr>
+<td>M3 SHCS</td>
+<td>2.5 mm</td>
+</tr>
+<tr>
+<td>M4 BHCS</td>
+<td>2.5 mm</td>
+</tr>
+<tr>
+<td>M5 BHCS</td>
+<td>3 mm</td>
+</tr>
+<tr>
+<td>M5 SHCS</td>
+<td>4 mm</td>
+</tr>
+<tr>
+<td>Set screw</td>
+<td>1.5–2 mm</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Five wrenches, one slot driver, one brass tip with its two knurled tongue-adjuster nuts, and one drill bit.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>CLAUDE.md</code> lists "5 mm hex driver for M5 frame bolts" as an open purchase. It is not needed — the M5 BHCS the frame uses is a 3 mm drive.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a></p>
+<hr>
+<h3 id="step-008-settle-the-tool-list-owned-vs-buy">Step 00.8 — Settle the tool list: owned vs. buy<a class="headerlink" href="#step-008-settle-the-tool-list-owned-vs-buy" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts, a purchasing decision. The column that matters is <em>First needed</em>: it says which chapter stops dead without that tool, so anything marked Ch 00 or Ch 01 has to be on the bench before the kit lands.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Work down this table and buy what is missing. Column <em>First needed</em> is the chapter that stops without it.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Status</th>
+<th>First needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precision hex driver set of 5, ball-end</td>
+<td><strong>Bought</strong> — Fabreeko, in kit order F6424626</td>
+<td>Ch 02 (Ch 01 uses the kit's straight 3 mm key)</td>
+</tr>
+<tr>
+<td>Hex wrenches 1.5–4 mm</td>
+<td><strong>In the kit</strong></td>
+<td>Ch 01</td>
+</tr>
+<tr>
+<td>Flat reference surface</td>
+<td><strong>Resolved</strong> — kitchen stone counter, verified in Step 00.10</td>
+<td>Ch 01</td>
+</tr>
+<tr>
+<td>Digital caliper, 150 mm</td>
+<td><strong>Buy</strong></td>
+<td>Ch 00 (deck gate, cube gate)</td>
+</tr>
+<tr>
+<td>Machinist square, 150 mm DIN 875/2</td>
+<td><strong>Buy</strong></td>
+<td>Ch 01 (frame squaring)</td>
+</tr>
+<tr>
+<td>Temperature-controlled soldering iron, 900M-T tip fitting</td>
+<td><strong>Buy</strong></td>
+<td>Ch 00 (insert practice)</td>
+</tr>
+<tr>
+<td>LDO brass M3 heat-set tip</td>
+<td><strong>In the kit</strong> — the $9.99 LDO Heat Insert Tool Kit buys you spares, or an early Gate B if ordered with the filament</td>
+<td>Ch 00</td>
+</tr>
+<tr>
+<td>Flush cutters</td>
+<td><strong>Buy</strong></td>
+<td>Ch 07 (belts), Ch 10 (zip ties)</td>
+</tr>
+<tr>
+<td>Torque screwdriver 0.5–3 N·m</td>
+<td><strong>Buy — optional.</strong> No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec</td>
+<td>Ch 01</td>
+</tr>
+<tr>
+<td>T10 Torx driver</td>
+<td><strong>Buy</strong></td>
+<td>Ch 05 (titanium backer FHCS cam out easily in countersinks)</td>
+</tr>
+<tr>
+<td>Multimeter</td>
+<td><strong>Buy if not owned</strong></td>
+<td>Ch 10 (mandatory — Checkpoint #1)</td>
+</tr>
+<tr>
+<td>Dial indicator + magnetic base</td>
+<td>Optional, skip for now</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every "Buy" row has an order placed or a decision to skip written down.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 id="step-009-order-the-consumables-with-the-longest-lead-time-first">Step 00.9 — Order the consumables with the longest lead time first<a class="headerlink" href="#step-009-order-the-consumables-with-the-longest-lead-time-first" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts, the consumables order. Two of these gate work rather than improve it: the rails cannot be prepared without the synthetic grease and the IPA.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Order everything below before the kit lands.</li>
+<li>Add the last row only if you want Gate B and the insert practice done before the kit; otherwise all three wait for kit-day morning.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Super Lube 21030</strong> synthetic grease</td>
+<td>3 oz / 85 g tube, far more than seven carriages need; LDO publishes no quantity</td>
+</tr>
+<tr>
+<td>IPA ≥ 90%</td>
+<td>enough to fill a rail's own shipping bag seven times over — the bag is the soak tray</td>
+</tr>
+<tr>
+<td><strong>Loctite 243</strong> blue threadlocker</td>
+<td>Ch 02, Ch 04, Ch 05</td>
+</tr>
+<tr>
+<td>Nitrile gloves, lint-free cloth, masking tape, permanent marker</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Ten M3×5×4 brass heat-set inserts, two 625-2RS bearings, the $9.99 LDO Heat Insert Tool Kit</strong></td>
+<td>order with the filament for an early Gate B</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Grease and IPA are on the bench before you touch a rail; rail prep cannot start without them.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO's rail guide recommends an <strong>NLGI 0 or 1</strong> grease and in the same sentence names Super Lube 21030 as a community favourite. Super Lube's data lists 21030 as <strong>NLGI 2</strong>, one grade stiffer. The Voron community uses it and it works, so a tube marked NLGI 2 is not a wrong order. <a href="https://docs.ldomotors.com/guides/rail_grease_guide">src</a> · <a href="https://www.super-lube.com/product-sku/super-lube-multi-purpose-synthetic-grease-nlgi-2-sku-21030-3-oz-tube/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> · <a href="https://www.super-lube.com/product-sku/super-lube-multi-purpose-synthetic-grease-nlgi-2-sku-21030-3-oz-tube/">Super Lube 21030 product data</a></p>
+<hr>
+<h2 id="workspace">Workspace<a class="headerlink" href="#workspace" title="Permanent link">¶</a></h2>
+<h3 id="step-0010-verify-the-flat-reference">Step 00.10 — Verify the flat reference<a class="headerlink" href="#step-0010-verify-the-flat-reference" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The kitchen stone counter, a long straightedge and a set of feeler gauges. This surface is the reference the whole frame is squared against in Ch 01, so its flatness becomes the printer's flatness. The gauges measure the gap under the straightedge.</p>
+<p><strong>Parts:</strong> straightedge ≥ 600 mm, feeler gauge set, marker or tape.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Clear and clean at least <strong>600 × 600 mm</strong> of stone counter.</li>
+<li>Stand the straightedge on edge in five positions: left-right, front-back, both diagonals, centre.</li>
+<li>Slide feeler leaves under from the thinnest and record the largest.</li>
+</ol>
+<p>The 350's frame uses 470 mm and 530 mm extrusions, which is where the 600 mm comes from.</p>
+<table>
+<thead>
+<tr>
+<th>Reading</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>worst leaf <strong>≤ 0.1 mm</strong></td>
+<td>finer than the extrusions themselves — proceed</td>
+</tr>
+<tr>
+<td><strong>≥ 0.3 mm</strong>, or any rock of the straightedge</td>
+<td>choose another patch or another surface</td>
+</tr>
+<tr>
+<td><strong>twist</strong>, one corner high</td>
+<td>matters; a symmetric dish does not, because the frame's four corners stay coplanar on it</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>No rock in any of the five positions, worst leaf ≤ 0.1 mm and logged, flattest sub-area masked off for Ch 01.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>between sessions lay a clean towel or foam over the masked area; grit trapped under an extrusion will make a flat surface lie to you.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15">Voron manual p.15</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 id="step-0011-bin-the-workspace-by-chapter">Step 00.11 — Bin the workspace by chapter<a class="headerlink" href="#step-0011-bin-the-workspace-by-chapter" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Empty bins and a marker. Each bin belongs to one sub-assembly, not to a whole chapter: Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive, so a session never starts with a hunt.</p>
+<p><strong>Parts:</strong> ~25 stackable bins, boxes or labelled zip bags, plus masking tape and marker.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Print the <a href="../../print/bin-labels/">bin labels</a>, one per bin, and tape one to each container.</li>
+<li>The scheme is <a href="../print/#bins">print/README.md § Bins</a>: <strong>25 bins</strong>, <code>02-Z0</code> … <code>spare-alt</code>, the names every batch chapter and plate diagram already uses.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Print batch</th>
+<th>Bins it fills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B00 — Calibration &amp; jigs</td>
+<td>00-jigs, 02-Z0</td>
+</tr>
+<tr>
+<td>B01 — Z drive assemblies</td>
+<td>02-Z0, 02-Z1, 02-Z2, 02-Z3, 02-deck</td>
+</tr>
+<tr>
+<td>B02 — The orange day (all accent parts)</td>
+<td>02-Z0 … 02-Z3, 04-A, 04-B, 05-XY, 06-Z-joints, 07-X, 08-SB, 08-CW2, 10-chains, 11-skirts, 11-fans, 11-door, spare-alt</td>
+</tr>
+<tr>
+<td>B03 — A/B drive units + front idlers</td>
+<td>04-A, 04-B</td>
+</tr>
+<tr>
+<td>B04 — XY joints + X carriage</td>
+<td>05-XY, 07-X</td>
+</tr>
+<tr>
+<td>B05 — Z joints + Z chain</td>
+<td>06-Z-joints, 10-chains</td>
+</tr>
+<tr>
+<td>B06 — Toolhead</td>
+<td>08-SB, 08-CW2, spare-alt</td>
+</tr>
+<tr>
+<td>B07 — Electronics bay + lighting</td>
+<td>09-bay, 10-lights, 11-panels, spare-alt</td>
+</tr>
+<tr>
+<td>B08 — Skirts and front modules</td>
+<td>11-skirts</td>
+</tr>
+<tr>
+<td>B09 — Panels, filtration, spool</td>
+<td>11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool</td>
+</tr>
+<tr>
+<td>B10 — Clicky-Clack door</td>
+<td>11-door</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>25 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.</p>
+</div>
+<p class="src">Source: <a href="../../voron-print-plan/">print plan</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 id="step-0012-leave-the-fasteners-in-their-bags">Step 00.12 — Leave the fasteners in their bags<a class="headerlink" href="#step-0012-leave-the-fasteners-in-their-bags" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The <em>Fasteners, Tools &amp; Misc</em> box, unopened bags. Every bag is one size of screw or nut; mixing them is easy and un-mixing them is not, because M3×8, M3×12 and M3×16 differ only by a few millimetres of shank.</p>
+<p><strong>Parts:</strong> the <em>Fasteners, Tools &amp; Misc</em> box.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Keep every fastener bag closed and labelled; do not decant 283 M3×8 SHCS into a tray.</li>
+<li>Decant only what one chapter calls for, and tip the remainder back into its bag at the end of the session.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every fastener bag still closed and legible. One small tray, empty, staged for Ch 01.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=7508s">Video: Part 1 @2:05:08</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Leave the fastener bags closed; do not decant anything into a tray yet.</p>
+</div>
+<hr>
+<h2 id="heat-set-inserts">Heat-set inserts<a class="headerlink" href="#heat-set-inserts" title="Permanent link">¶</a></h2>
+<h3 id="step-0013-fit-the-brass-tip-and-set-the-tongue-flush">Step 00.13 — Fit the brass tip and set the tongue flush<a class="headerlink" href="#step-0013-fit-the-brass-tip-and-set-the-tongue-flush" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/heatsettoolcomponents.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO brass heat-set tip — the tool's components" src="../assets/remote/00-before-you-start/heatsettoolcomponents.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/tongueflush.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Tongue set flush with the far face of an insert" src="../assets/remote/00-before-you-start/tongueflush.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/insertinstall.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — fitting the brass tip: sleeve off, stock tip out, LDO tip in, sleeve on" src="../assets/remote/00-before-you-start/insertinstall.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The LDO brass tip, and the same tip set against an insert. The four-panel photo is the tip going into the iron: sleeve off, stock tip out, LDO tip in, sleeve on. The <strong>tongue</strong> is the thin pin that goes inside the insert.</p>
+<p><strong>Parts:</strong> LDO brass M3 heat-set tip (from the kit, or the LDO tool kit ordered with the filament — Step 00.9), soldering iron, one M3×5×4 insert as the gauge.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Unscrew the iron's sleeve, remove the stock tip, fit the LDO tip, re-fit the sleeve.</li>
+<li>Hold an insert alongside the tip and move the two knurled nuts until the <strong>exposed tongue length equals the insert height</strong>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>With an insert on the tongue, the tongue tip and the insert's far face are level.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the adjustment nuts on LDO's own tool are themselves brass inserts. <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a> · <a href="https://www.youtube.com/watch?v=ii14-2COjuA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4609s">Video: Part 3 @1:16:49</a></p>
+<hr>
+<h3 id="step-0014-find-the-iron-temperature-on-the-practice-coupon">Step 00.14 — Find the iron temperature on the practice coupon<a class="headerlink" href="#step-0014-find-the-iron-temperature-on-the-practice-coupon" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p031.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.31" src="../assets/manual-pages/manual-p031.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.31 shows the general insert operation: the blue pills are inserts going into the bosses of real Z-drive parts. The <code>Heatset_Practice</code> coupon is a printed block of seven insert pockets for finding the iron temperature.</p>
+<p><strong>Parts:</strong> <code>Heatset_Practice</code> coupon ×1 (batch B00), M3×5×4 inserts ×7 (one per pocket).</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Start at the bottom of the iron's range, never where soldering left it, and step up 10 °C at a time.</li>
+<li>Sit each insert narrow end down by hand, then push the tongue straight down until flush.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Plastic very soft but not runny, the iron never lingering longer than seating takes, and the working temperature on tape on the iron.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO publishes no temperature, and the <a href="https://voron.link/m5ybt4d">technique guide</a> on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 146 remaining inserts.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31">Voron manual p.31</a> · <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a></p>
+<hr>
+<h3 id="step-0015-learn-what-a-good-insert-looks-like">Step 00.15 — Learn what a good insert looks like<a class="headerlink" href="#step-0015-learn-what-a-good-insert-looks-like" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The seven inserts you just set, one per pocket of the practice coupon. A good one is flush with the surface, square to it, and has not made the plastic boss around it swell. A swollen boss will not fit its neighbour.</p>
+<p><strong>Parts:</strong> the practice coupon from Step 00.14.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Push each insert 90 % in with the iron, then press the last 10 % home with a flat cold tool.</li>
+<li>Check squareness by eye from two directions.</li>
+<li>Nudge a tilted insert briefly with the iron.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Seven inserts flush to ≤ 0.2 mm proud, square, with no boss bulged more than 0.2 mm.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A bulged boss is a technique fault, too hot or pushed too fast, never a slicer fault. On a real part with a free-standing boss, caliper the boss OD before and after; on the coupon the raised ring is the tell. <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">src</a> · print plan §1.4</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a> · <a href="../../voron-print-plan/">print plan</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=11539s">Video: Part 1 @3:12:19</a></p>
+<hr>
+<h3 id="step-0016-plan-the-153-inserts">Step 00.16 — Plan the 153 inserts<a class="headerlink" href="#step-0016-plan-the-153-inserts" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts, the insert budget. The manual draws every insert with the same blue <em>Heat Set Insert</em> pill and no count, so the table below holds only the totals this manual could verify.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>LDO ships <strong>153</strong> M3×5×4 brass inserts; seven went into the coupon, leaving 146.</li>
+<li>Count the rest off each printed part.</li>
+<li>Run that pass <strong>per batch, off the plate and before any part enters an assembly chapter</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Insert pass belongs to</th>
+<th>Manual page carrying the callout</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch 02 — Z drive mains, retainers, motor mounts</td>
+<td>p.31</td>
+<td><strong>36</strong> (7 × 4 retainers + 2 × 4 mains — verified against the STLs)</td>
+</tr>
+<tr>
+<td>Ch 04 — A/B drive frames</td>
+<td>p.64</td>
+<td>(verify on bench)</td>
+</tr>
+<tr>
+<td>Ch 05 — X carriage and XY joints</td>
+<td>p.129</td>
+<td>(verify on bench)</td>
+</tr>
+<tr>
+<td>Ch 08 — Stealthburner and Clockwork 2</td>
+<td>Stealthburner manual</td>
+<td>(verify on bench)</td>
+</tr>
+<tr>
+<td>Ch 10 — power inlet, Z cable chain</td>
+<td>p.156, p.201</td>
+<td>(verify on bench)</td>
+</tr>
+<tr>
+<td>Ch 11 — skirt front cover, screen and fan modules, exhaust cover</td>
+<td>p.211, p.212, p.213, p.250</td>
+<td>(verify on bench)</td>
+</tr>
+<tr>
+<td><strong>Supplied in the kit</strong></td>
+<td>LDO Rev D 350 BOM</td>
+<td><strong>153</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The insert pass is written into your batch checklist as a gate, not a reminder.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO does not state whether 153 includes spares. Treat every insert after the seven practice ones as load-bearing.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31">Voron manual p.31</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>the iron is set up with the brass tip, the working temperature is written on tape, and the seven practice inserts (one per coupon pocket) are done. Unplug the iron and let it cool before you walk away; leave the remaining 146 inserts bagged.</p>
+</div>
+<hr>
+<h2 id="rail-preparation">Rail preparation<a class="headerlink" href="#rail-preparation" title="Permanent link">¶</a></h2>
+<h3 id="step-0017-unbag-the-rails-and-immobilise-every-carriage">Step 00.17 — Unbag the rails and immobilise every carriage<a class="headerlink" href="#step-0017-unbag-the-rails-and-immobilise-every-carriage" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p026.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.26" src="../assets/manual-pages/manual-p026.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.26: the linear rails and their carriages. A <strong>linear rail</strong> is a hardened steel bar with ball-bearing grooves down each side; the <strong>carriage</strong> is the block that rides on it. Its balls fall out if it runs off the end.</p>
+<p><strong>Parts:</strong> 1× <code>LDO-SLR12H-400Z1</code> stainless MGN12H (X axis), 6× <code>LDO-SLR9H-400Z0</code> stainless MGN9H (2× Y, 4× Z).</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Work one rail at a time, over the bench.</li>
+<li>Slide it out to reach the carriage and tape it to the rail.</li>
+<li>Band tape <strong>15 mm from each end</strong>, remove the carriage tape, re-bag the rail.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Seven rails, each back in its own bag with two end stops on and none dropped. Bags laid flat, not stacked on each other.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The carriage is designed to slide freely, which includes sliding off the end and spilling its ball bearings. Never work over the floor, never let a rail hang vertically with an untaped, unstopped carriage, and never let one fall: a dent or nick anywhere on the raceway makes that rail misbehave for the life of the machine.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>a small zip tie round the rail does the same job and shrugs off the IPA; plastic end stoppers work if your rails shipped with them.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=26">Voron manual p.26</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24">Voron manual p.24</a> · <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6843s">Video: Part 1 @1:54:03</a></p>
+<hr>
+<h3 id="step-0018-degrease-ipa-soak-then-dry-completely">Step 00.18 — Degrease: IPA soak, then dry completely<a class="headerlink" href="#step-0018-degrease-ipa-soak-then-dry-completely" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/soaking_rails3.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — rails soaking in IPA" src="../assets/remote/00-before-you-start/soaking_rails3.jpg"></a></p>
+<p><strong>What you're looking at:</strong> A rail in its own shipping bag with one corner cut off and IPA poured in: LDO's method makes the bag the soak tray. The rails ship coated in a shipping oil, not a lubricant; the soak dissolves it out of the ball tracks.</p>
+<p><strong>Parts:</strong> one rail at a time, in its own bag with the end stops on; IPA ≥ 90%; nitrile gloves; a clean towel.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Cut a corner off the rail's bag and pour in <strong>IPA ≥ 90%</strong> to cover it.</li>
+<li>Work the carriage between the end stops for about <strong>10 minutes</strong>.</li>
+<li>Drain, dry the rail on a towel, and repeat.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>No oil film on the raceway, no visible wet IPA, both end-stop bands still tight, and the carriage running dry and slightly notchy. <a href="https://docs.ldomotors.com/guides/rail_grease_guide">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Gloves on and window open for the soak. IPA softens masking-tape adhesive, so re-wrap any end-stop band that has slipped before the grease goes in.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the linked Nero 3D video is the reference demonstration of this whole procedure — manual p.24 QR, <a href="https://voron.link/agu0nes">voron.link/agu0nes</a>.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24">Voron manual p.24</a> · <a href="https://voron.link/agu0nes">Nero 3D rail prep video</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=8452s">Video: Part 1 @2:20:52</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.</p>
+</div>
+<hr>
+<h3 id="step-0019-flip-and-pack">Step 00.19 — Flip and pack<a class="headerlink" href="#step-0019-flip-and-pack" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/grease_prep.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — grease loaded into a syringe" src="../assets/remote/00-before-you-start/grease_prep.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00-before-you-start/grease_pack.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — packing the carriage through a rail mounting hole" src="../assets/remote/00-before-you-start/grease_pack.jpg"></a></p>
+<p><strong>What you're looking at:</strong> Grease prepared in a syringe, and grease forced into a carriage through one of the rail's mounting holes. This is LDO's <strong>flip-and-pack</strong> method: upside down, the mounting hole lines up with the ball tracks, so grease reaches the bearings without taking the carriage apart.</p>
+<p><strong>Parts:</strong> dried rail; Super Lube 21030 in a syringe or its own nozzle.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Flip the rail so the carriage faces <strong>downwards</strong>.</li>
+<li>Slide the carriage over one of the rail's mounting holes and force grease through it.</li>
+<li>Keep going until grease <strong>oozes out at both end caps of the carriage</strong>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Grease visible at both end caps of the carriage. The carriage now runs smooth and silent along the rail with no notchiness.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a></p>
+<hr>
+<h3 id="step-0020-clean-the-rail-surface-back-to-bare-steel">Step 00.20 — Clean the rail surface back to bare steel<a class="headerlink" href="#step-0020-clean-the-rail-surface-back-to-bare-steel" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The greased rail and a cloth. Grease belongs inside the carriage; the polished outer faces of the rail are a running surface, and any film left there collects dust and hair and feeds it into the bearings.</p>
+<p><strong>Parts:</strong> greased rail; lint-free cloth; <code>MGN12_rail_guide_x2</code> and <code>MGN9_rail_guide_x2</code> (batch B00) and one C extrusion from the frame box, for the guide test.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Stroke the carriage stop to stop to spread grease inside.</li>
+<li>Wipe every trace of grease off the rail's <strong>outside</strong>.</li>
+<li>Clip each guide over its rail on the spare C extrusion, locating with <strong>light finger pressure</strong>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The rail is visibly clean and dry, the carriage slides smoothly and silently, and both guide sizes locate with light finger pressure, logged.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A guide that will not seat now, with Gate A and Gate B both passed, is more likely a burr on the extrusion or a string in the guide than the profile. Clean it and retry before you blame the slicer.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=7126s">Video: Part 1 @1:58:46</a></p>
+<hr>
+<h3 id="step-0021-label-and-bag-the-seven-rails-by-destination">Step 00.21 — Label and bag the seven rails by destination<a class="headerlink" href="#step-0021-label-and-bag-the-seven-rails-by-destination" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Seven finished rails, tape and a marker. One is the MGN12H that carries the toolhead on X; the six MGN9H split into two gantry Y rails and four vertical Z rails. Labelling them now stops a mix-up in Ch 02 and Ch 05.</p>
+<p><strong>Parts:</strong> 7 greased rails; masking tape; marker; a bin.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Label the tape <strong>X</strong> for the MGN12H, <strong>Y1/Y2</strong> and <strong>Z0/Z1/Z2/Z3</strong> for the six MGN9H.</li>
+<li>Leave both end stops on until Ch 02 and Ch 05.</li>
+<li>Tape each carriage, bag each rail, and store them in one bin.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Seven labelled, bagged rails; end stops and carriage tape intact on all seven; bin stored flat and away from foot traffic.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6870s">Video: Part 1 @1:54:30</a></p>
+<hr>
+<h3 id="step-0022-understand-the-rail-jigs-before-you-need-them">Step 00.22 — Understand the rail jigs before you need them<a class="headerlink" href="#step-0022-understand-the-rail-jigs-before-you-need-them" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p025.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.25" src="../assets/manual-pages/manual-p025.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.25 draws the rail guides in green, its jig colour. A <strong>rail guide</strong> clips over the 2020 extrusion and the rail and holds the rail centred while you start the screws; the <code>pulley_jig</code> sets how far a pulley sits along a motor shaft.</p>
+<p><strong>Parts:</strong> <code>MGN9_rail_guide_x2</code> ×2, <code>MGN12_rail_guide_x2</code> ×2, <code>pulley_jig</code> ×1 (all batch B00).</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Keep both rail-guide sizes with the jigs; the rails stay bagged now.</li>
+<li>Keep the <code>pulley_jig</code> with the Z-drive bin. It sets pulley stack height on the Z motors in Ch 02.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both guide sizes fitted, the MGN12 on the bare rail at Gate B and both on the extrusion at Step 00.20.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> two rail-mounting rules that override the manual's default from Ch 02 onward. First, do <strong>not</strong> use the end hole; use the <strong>second hole in from each end</strong>, per LDO Build Notes p.88. Second, tighten rail screws from the <strong>centre outward</strong> to pull the rail flush, leaving a ~3 mm gap between frame and rail bottom. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=25">Voron manual p.25</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24">Voron manual p.24</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a> · <a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools">Voron-2 <code>STLs/Tools</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~40 min since the last one</p>
+<p>all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.</p>
+</div>
+<hr>
+<h2 id="how-to-read-the-manual-pages">How to read the manual pages<a class="headerlink" href="#how-to-read-the-manual-pages" title="Permanent link">¶</a></h2>
+<h3 id="step-0023-print-guidelines-p4">Step 00.23 — Print guidelines (p.4)<a class="headerlink" href="#step-0023-print-guidelines-p4" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p004.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.4" src="../assets/manual-pages/manual-p004.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.4, the Voron print specification. These are the numbers the parts in this build are designed around: ABS or ASA, 0.2 mm layers, 4 perimeters, 5 solid top and bottom layers, 40 % infill. You print every part yourself.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Read the spec: ABS/ASA, 0.2 mm layers, <strong>forced 0.4 mm extrusion width</strong>, <strong>4 perimeters</strong>, <strong>5 solid top and bottom layers</strong>, <strong>40% infill</strong> in grid, gyroid, honeycomb, triangle or cubic.</li>
+<li>Ignore the Print It Forward box.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Nothing to do on the bench. If your slicer profile disagrees with this page, the profile is wrong.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>_x4</code> means four, regardless of how many bodies are in the file.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The infill spec makes parts stiff enough to hold a bearing and stable in a 60 °C chamber.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=4">Voron manual p.4</a> · <a href="../print/00-slicer-setup/">slicer setup</a></p>
+<hr>
+<h3 id="step-0024-file-naming-and-where-to-get-help-p56">Step 00.24 — File naming, and where to get help (p.5–6)<a class="headerlink" href="#step-0024-file-naming-and-where-to-get-help-p56" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p005.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.5" src="../assets/manual-pages/manual-p005.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p006.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.6" src="../assets/manual-pages/manual-p006.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.5–6, the STL filename convention and the two support routes. A prefix in square brackets sets the colour and a <code>_xN</code> suffix is how many the machine needs. The print plan and every parts table here use that convention.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Learn the filename convention: a bare name is <strong>primary colour</strong>, Galaxy Black; an <code>[a]_</code> prefix is <strong>accent colour</strong>, Prusa Orange; a <code>_x#</code> suffix is the <strong>quantity needed</strong>.</li>
+<li>Bookmark p.5–6's two help routes: Voron Discord, CAD on GitHub.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can read <code>[a]_z_belt_clip_lower_x4.stl</code> as "accent colour, four required".</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=5">Voron manual p.5</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=6">Voron manual p.6</a> · <a href="../../voron-print-plan/">print plan</a></p>
+<hr>
+<h3 id="step-0025-fastener-names-part-1-p7">Step 00.25 — Fastener names, part 1 (p.7)<a class="headerlink" href="#step-0025-fastener-names-part-1-p7" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p007.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.7" src="../assets/manual-pages/manual-p007.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.7, the first half of the fastener vocabulary, each drawn beside its name. <strong>BHCS</strong> is a domed button head, <strong>SHCS</strong> a plain cylinder, <strong>FHCS</strong> a countersunk cone. Every <em>Parts:</em> line in this manual uses these names exactly.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Lay one of each on the bench next to the page; these names are the contract for every <em>Parts</em> line in this manual.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BHCS</strong></td>
+<td>domed head, mostly M5</td>
+</tr>
+<tr>
+<td><strong>SHCS</strong></td>
+<td>cylindrical head, the most common fastener in the machine</td>
+</tr>
+<tr>
+<td><strong>FHCS</strong></td>
+<td>countersunk cone head, flat top</td>
+</tr>
+<tr>
+<td><strong>Self-tapping</strong></td>
+<td>screwed straight into plastic</td>
+</tr>
+<tr>
+<td><strong>Hex nut</strong></td>
+<td>M3 and M5</td>
+</tr>
+<tr>
+<td><strong>Heat-set insert</strong></td>
+<td>brass, melted in</td>
+</tr>
+<tr>
+<td><strong>T-nut, roll-in</strong></td>
+<td>drops into an extrusion slot after assembly, used everywhere</td>
+</tr>
+<tr>
+<td><strong>Hammerhead nut</strong></td>
+<td>used <strong>exclusively for panel mounting</strong>; everything else takes a T-nut</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can pick a BHCS out of a bag by its dome and an SHCS by its straight cylinder without reading a label.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=7">Voron manual p.7</a></p>
+<hr>
+<h3 id="step-0026-fastener-names-part-2-and-the-spacer-substitution-p8">Step 00.26 — Fastener names, part 2, and the spacer substitution (p.8)<a class="headerlink" href="#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p008.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.8" src="../assets/manual-pages/manual-p008.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.8, the second half: bearings, spacers, pulleys and set screws. <strong>F695</strong> and <strong>625-2RS</strong> are both 5 mm-bore ball bearings with different jobs: F695 is flanged and lives in the A/B drives, 625-2RS is plain and lives in the Z drives.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Learn these, and note that the manual calls out a <em>shim</em> at every M5 location.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>F695</strong> flanged bearing</td>
+<td>5×13×4 mm — A/B drives, front idlers, XY joints; 20 in the kit</td>
+</tr>
+<tr>
+<td><strong>625-2RS</strong> bearing</td>
+<td>5×16×5 mm — Z drives only; 12 in the kit</td>
+</tr>
+<tr>
+<td><strong>shim</strong></td>
+<td>DIN 988</td>
+</tr>
+<tr>
+<td><strong>washer</strong></td>
+<td>DIN 125, M3 only</td>
+</tr>
+<tr>
+<td><strong>pulley</strong>, <strong>idler</strong></td>
+<td>GT2</td>
+</tr>
+<tr>
+<td><strong>set screw</strong></td>
+<td>grub screw</td>
+</tr>
+<tr>
+<td><strong>thumb nut</strong></td>
+<td>bed spacer</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can tell the flanged 13 mm F695 from the plain 16 mm 625-2RS on sight; both are <strong>5 mm bore</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> wherever this manual or the official one says <strong>M5 shim</strong>, your kit gives you a <strong>brass M5 1 mm precision spacer</strong> instead — 46 of them, and they replace the shim everywhere unless a step says otherwise. p.104 is the exception: use the black M5 washer there, which is cosmetic. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the 16T and 20T GT2 pulleys look nearly identical: 16T goes on the Z motors, 20T everywhere else. Bag them separately during Ch 02 prep.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=8">Voron manual p.8</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a></p>
+<hr>
+<h3 id="step-0027-drivers-p9">Step 00.27 — Drivers (p.9)<a class="headerlink" href="#step-0027-drivers-p9" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p009.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.9" src="../assets/manual-pages/manual-p009.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.9, the drivers. A <strong>ball-end</strong> driver has a spherical tip that turns a screw at an angle, the only way to reach several joints in this frame. A plain hex tip grips more of the socket, for when you need force.</p>
+<p><strong>Parts:</strong> hex drivers.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Put <strong>ball-end</strong> drivers in 2.0, 2.5 and 3.0 mm on the bench.</li>
+<li>The <strong>2.5 mm</strong> driver does the most work in the build.</li>
+<li>Keep the kit's L-wrenches as backup where a handle will not fit.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>2, 2.5 and 3 mm ball-end drivers on the bench, plus a plain 2.5 mm where ball ends would cam out under load.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=9">Voron manual p.9</a></p>
+<hr>
+<h3 id="step-0028-blind-joints-p10">Step 00.28 — Blind joints (p.10)<a class="headerlink" href="#step-0028-blind-joints-p10" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p010.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.10" src="../assets/manual-pages/manual-p010.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.10, the <strong>blind joint</strong>, the joint the frame is built from. A button-head screw threads into the tapped bore in the end of one extrusion, its head captured inside the slot of the mating extrusion, tightened through a small access hole in the side.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Watch the <a href="https://voron.link/onjwmcd">blind-joint video</a> once before Ch 01.</li>
+<li>The screw goes in <em>before</em> the two extrusions are brought together; you tighten it through the access hole afterwards.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can point at the access hole on a 2020 extrusion and describe which way the BHCS goes in.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=10">Voron manual p.10</a> · <a href="https://voron.link/onjwmcd">blind-joint video</a> · <a href="https://www.youtube.com/watch?v=feTxcc0LIWM&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3298s">Video: Part 1 @0:54:58</a></p>
+<hr>
+<h3 id="step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11">Step 00.29 — How to read an exploded view, and the page-number contract (p.11)<a class="headerlink" href="#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p011.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.11" src="../assets/manual-pages/manual-p011.png"></a></p>
+<p><strong>What you're looking at:</strong> Manual p.11, how to read the drawings. Blue is what you add on this page, grey what you already built, green a printed jig; a rounded pill names a part, and the wireframe cube says which way round the machine is drawn.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Learn the manual's visual conventions, all visible on p.25.</p>
+<table>
+<thead>
+<tr>
+<th>In the drawing</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>blue</strong> part</td>
+<td>what you are adding at this page</td>
+</tr>
+<tr>
+<td><strong>grey/white</strong></td>
+<td>structure you have already built</td>
+</tr>
+<tr>
+<td><strong>blue rounded pill</strong></td>
+<td>names a part or fastener, with a leader line to it</td>
+</tr>
+<tr>
+<td>wireframe cube, top-left, labelled <em>Top / Back / Front</em></td>
+<td>which way round the machine you are looking</td>
+</tr>
+<tr>
+<td><strong>green</strong></td>
+<td>a printed jig or tool, not a machine part</td>
+</tr>
+<tr>
+<td>plain dimension arrow with a bare number</td>
+<td>a millimetre gap you must leave</td>
+</tr>
+<tr>
+<td>red heading</td>
+<td>section title or warning</td>
+</tr>
+</tbody>
+</table>
+<p>Then note the contract that makes this manual possible: the official PDF has not changed since <strong>2023-07-18</strong>, and LDO's Build Notes are a page-indexed diff pinned to that exact commit. Every <code>p.XX</code> reference in these chapters points at a page number that will not move. Pages like this one are dividers with no assembly content — they still get a page number, so do not assume a missing step when a page looks empty.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Open any page in Ch 02 and identify, without reading the text, which part is new and which way the machine is facing.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=11">Voron manual p.11</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=25">Voron manual p.25</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>since the last pause (pre-kit) — you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</p>
+</div>
+<hr>
+<h2 id="measurement-log-and-lifelines">Measurement log and lifelines<a class="headerlink" href="#measurement-log-and-lifelines" title="Permanent link">¶</a></h2>
+<h3 id="step-0030-start-the-measurement-log">Step 00.30 — Start the measurement log<a class="headerlink" href="#step-0030-start-the-measurement-log" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A notebook. A handful of numbers in this build cannot be re-derived later: the deck panel thickness, the frame diagonals, the belt frequency, the probe accuracy sigma. Each one gates a decision several chapters downstream.</p>
+<p><strong>Parts:</strong> a notebook, or a shared note on the iPad.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Start a log with one line per measurement: what you measured, the number, the date, and the step it came from. Your daughter owns it.</li>
+<li>Four matter most, plus the date of the two gating questions.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Where it comes from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deck panel thickness</td>
+<td>Step 00.4; it chooses which <code>deck_support_*</code> prints in batch B01</td>
+</tr>
+<tr>
+<td>frame diagonals</td>
+<td>Ch 01</td>
+</tr>
+<tr>
+<td>belt frequency</td>
+<td>Ch 07, and again in Ch 14</td>
+</tr>
+<tr>
+<td><code>PROBE_ACCURACY</code> sigma</td>
+<td>Ch 13</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The log exists the week B00 prints, holding the flat-reference gap; the deck thickness and inventory result join on kit day.</p>
+</div>
+<p class="src">Source: <a href="../../voron-build-instructions-survey/">survey</a></p>
+<hr>
+<h3 id="step-0031-join-the-three-lifelines-now">Step 00.31 — Join the three lifelines now<a class="headerlink" href="#step-0031-join-the-three-lifelines-now" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts, three chat channels. Fabreeko is the vendor and owns anything missing or wrong in the box; the Voron Discord is the community; <code>#ldo_motors</code> inside it is LDO's own channel and the place their Build Notes send Rev D corrections.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Join all three before the kit arrives.</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>What it is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fabreeko Discord</strong>, <a href="https://discord.gg/NV8Y6bcerP">discord.gg/NV8Y6bcerP</a></td>
+<td>missing or wrong parts and anything vendor-specific; linked from the SKU page</td>
+</tr>
+<tr>
+<td><strong>Voron Discord</strong>, <a href="https://discord.gg/voron">discord.gg/voron</a></td>
+<td>general build questions, in <code>#voron_2_questions</code></td>
+</tr>
+<tr>
+<td><strong><code>#ldo_motors</code></strong> inside the Voron Discord, <a href="https://discord.com/channels/460117602945990666/710952853514223617">channel link</a></td>
+<td>LDO's own support channel, where their Build Notes page directs Rev D corrections</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All three joined, notifications on for <code>#ldo_motors</code>.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes (Rev D)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">LDO batch BOM index</a></p>
+<hr>
+<h3 id="step-0032-post-the-two-questions-that-gate-later-chapters">Step 00.32 — Post the two questions that gate later chapters<a class="headerlink" href="#step-0032-post-the-two-questions-that-gate-later-chapters" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts, two questions with slow answers. Both concern gaps in LDO's published documentation for Rev D+: the toolboard grounding scheme, and whether any STL changed. Both gate printing or wiring work several weeks out.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Post both questions today; each has days of answer latency.</li>
+<li>Quote the Fabreeko order number <strong>F6424626</strong>; neither needs the kit serial.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Ask for</th>
+<th>Where</th>
+<th>Gates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>the written Nitehawk-SB V2 grounding procedure: what bonds to what, with what wire, and at which mounting point on <code>usb_adapter_mount_partial_cover</code></td>
+<td><code>#ldo_motors</code></td>
+<td><strong>Ch 10</strong></td>
+</tr>
+<tr>
+<td>confirmation that <strong>no STL changed between Rev D and Rev D+ apart from the USB-adapter cover</strong>, and whether a D+ wiring guide has been posted</td>
+<td>Fabreeko Discord</td>
+<td><strong>batches B06 and B07</strong>, the toolhead and electronics-bay parts</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both questions posted and the date noted in the log; if either is unanswered when batch B06 is due, ask again rather than assume.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The V2 repo ships <code>Images/grounding_scheme.jpg</code>, <code>Images/toolboard_ground_routing.jpg</code> and <code>Images/usb_adapter_gnd.jpg</code> with <strong>no accompanying prose in any LDO document</strong>, while the V2 change list claims "vastly improved ESD performance". Treat the grounding as a required build step in Ch 08 and Ch 10, not an option.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>LDO publishes Printed Parts Guides for Rev A/B, C and D only; <code>printed_part_guide_rev_d_plus</code> returns 404, and the whole print plan runs on Fabreeko's statement that D+ is an electrical change.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">LDO Nitehawk-SB V2 board doc</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed parts guide (Rev D)</a> · <a href="../../voron-build-instructions-survey/">survey</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>since the last pause (pre-kit) — measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.</p>
+</div>
+<hr>
+<h2 id="checkpoint-00">Checkpoint 00<a class="headerlink" href="#checkpoint-00" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both cartons inventoried against <strong>your batch's</strong> BOM page; <code>Check1</code> ticked on every line; shortages written down and reported to Fabreeko.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Deck panel thickness measured and written down before B01-P2 started; B01-P2 carries the matching <code>deck_support_*</code> (3 mm as committed, or the 8 g <code>deck_support_4mm_x8</code> per the B01 deck note).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Nitehawk board confirmed as a <strong>V2</strong>: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The <code>stm32g0b1xx</code> USB-serial check is written into the Ch 12 notes.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> XY endstop cable labels read <code>XES / YES</code>, or the re-pin guide is bookmarked.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to <code>usb_adapter_mount_partial_cover.stl</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged &gt; 0.2 mm. Working iron temperature written on the iron.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Gate B passed at Step B00.7 (625-2RS bore, MGN12 guide on the bare rail, seven coupon inserts) and B01 is on the Prusa; both guide sizes then fitted rail-plus-extrusion with light finger pressure (Step 00.20).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> 25 bins labelled from the <a href="../../print/bin-labels/">bin-labels sheet</a> (<code>00-jigs</code> … <code>spare-alt</code>, <a href="../print/#bins">print/README.md § Bins</a>) and the batch → bin map posted on the wall.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Fabreeko Discord, Voron Discord and <code>#ldo_motors</code> joined; both gating questions posted.</li>
+</ul>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Installing a rail before greasing it.</strong> Flip-and-pack needs the back of the rail. Once it is on an extrusion your only options are to take it off again or run it dry and wear it out (survey §5.2 W9).</li>
+<li><strong>Leaving grease on the rail surface.</strong> It looks well-lubricated and it is not — the film collects dust and hair and drags it into the carriage. Grease belongs inside the carriage only.</li>
+<li><strong>Lubricating before the IPA has fully evaporated.</strong> The residue emulsifies with the grease and you get a milky paste with none of the film strength. Give the rails longer to dry than you think they need.</li>
+<li><strong>Letting a carriage run off the end of a rail.</strong> The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is lying on its extrusion at the install step (Ch 02 Step 02.06, Ch 05 Steps 05.11/05.33).</li>
+<li><strong>Practising heat-set inserts on PLA.</strong> ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 146 remaining inserts.</li>
+<li><strong>Decanting the fastener bags on day one.</strong> M3×8, M3×12 and M3×16 are indistinguishable in a mixed tray, and there are 283 of the first one.</li>
+<li><strong>Resolving the deck thickness from the documents.</strong> LDO's guide and LDO's BOM contradict each other. Only the caliper settles it, and it has to be settled before batch B01 prints its deck supports.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><strong>Ch 01 — Frame</strong>: sort and prepare the 18 extrusions and build the squared frame on the reference surface you just verified.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

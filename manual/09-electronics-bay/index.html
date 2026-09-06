@@ -1,0 +1,3142 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/09-electronics-bay/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 09 — Electronics bay - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-09-electronics-bay" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 09 — Electronics bay
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#step-091-read-the-end-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.1 — Read the end state
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-092-read-the-placement-you-are-actually-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.2 — Read the placement you are actually building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-093-turn-the-printer-over-and-pre-load-the-rear-t-nuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.3 — Turn the printer over and pre-load the rear T-nuts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-094-verify-the-deck-panel-before-you-drill-anything-into-the-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.4 — Verify the deck panel before you drill anything into the layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-095-fit-the-two-din-rails-running-left-to-right" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.5 — Fit the two DIN rails, running left to right
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-096-cut-and-stick-the-five-wire-ducts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.6 — Cut and stick the five wire ducts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-097-learn-the-din-clip-motion-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.7 — Learn the DIN clip motion once
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-098-do-not-build-the-pi-bracket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.8 — Do not build the Pi bracket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-099-do-not-fit-a-5-v-psu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.9 — Do not fit a 5 V PSU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0910-heat-set-the-power-inlet-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.10 — Heat-set the power inlet panel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0911-fit-the-combined-iec-inlet-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.11 — Fit the combined IEC inlet module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0912-mount-the-inlet-panel-to-the-rear-extrusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.12 — Mount the inlet panel to the rear extrusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0913-build-and-mount-the-mains-wago-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.13 — Build and mount the mains WAGO block
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0914-set-the-psu-voltage-selector-to-115-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.14 — Set the PSU voltage selector to 115 V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0915-fit-the-printed-din-brackets-to-the-psu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.15 — Fit the printed DIN brackets to the PSU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0916-clip-the-psu-onto-the-rear-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.16 — Clip the PSU onto the rear rail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0917-fit-the-ssr-to-its-metal-din-bracket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.17 — Fit the SSR to its metal DIN bracket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0918-clip-the-ssr-onto-the-rear-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.18 — Clip the SSR onto the rear rail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.19 — Strip every voltage-selection jumper off the Leviathan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0920-fit-din-clips-to-the-two-leviathan-brackets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.20 — Fit DIN clips to the two Leviathan brackets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0921-bolt-the-leviathan-to-its-brackets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.21 — Bolt the Leviathan to its brackets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0922-heatsink-and-mount-the-raspberry-pi-4b-on-the-leviathan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.22 — Heatsink and mount the Raspberry Pi 4B on the Leviathan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0923-fit-the-raspberry-pi-34-hat-power-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.23 — Fit the Raspberry Pi 3/4 HAT power adapter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0924-clip-the-leviathan-and-pi-onto-the-front-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.24 — Clip the Leviathan and Pi onto the front rail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0925-confirm-the-usb-adapter-stack-and-clip-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.25 — Confirm the USB adapter stack and clip it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0926-clip-the-usb-adapter-to-the-front-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.26 — Clip the USB adapter to the front rail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.27 — Confirm the collar in the LDO nozzle-probe body
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0928-fit-the-z-endstop-pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.28 — Fit the Z endstop PCB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0929-fit-the-5-mm-shaft-and-its-retaining-set-screw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.29 — Fit the 5 mm shaft and its retaining set screw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0930-mount-the-nozzle-probe-on-the-bed-extrusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.30 — Mount the nozzle probe on the bed extrusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0931-do-not-build-the-soldered-xy-microswitches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.31 — Do not build the soldered X/Y microswitches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0932-fit-the-xy-endstop-pcb-to-the-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.32 — Fit the XY endstop PCB to the pod
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0933-mount-the-endstop-pod-to-the-gantry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.33 — Mount the endstop pod to the gantry
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0934-build-and-mount-the-bed-wago-breakout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.34 — Build and mount the bed WAGO breakout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0935-stage-the-mains-safety-hardware-then-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.35 — Stage the mains-safety hardware, then stop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-0936-check-the-bay-against-ldos-layout-and-hand-it-to-ch-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 09.36 — Check the bay against LDO's layout and hand it to Ch 10
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 09
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-09-electronics-bay">Chapter 09 — Electronics bay<a class="headerlink" href="#chapter-09-electronics-bay" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/09-electronics-bay/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Fits out the space under the deck panel: two DIN rails and five wire ducts, the Meanwell 24 V PSU, the Omron SSR, the Leviathan mainboard carrying the Raspberry Pi 4B, the Nitehawk USB adapter, the mains inlet and WAGO blocks, and both endstops. Everything is mounted and nothing is wired — that unlocks Ch 10, which is one continuous harness job ending at Checkpoint #1.</p>
+<p><strong>What you're building in this chapter.</strong> The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two <strong>DIN rails</strong> — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck, and five slotted <strong>wire ducts</strong> loop around them to carry the harness Ch 10 will lay in. On the rear rail go the <strong>PSU</strong> (the Meanwell supply that turns mains into the 24 V everything runs on) and the <strong>SSR</strong> (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the <strong>Leviathan</strong> — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the <strong>USB adapter</strong> that terminates the toolhead umbilical. Round the rear frame go the <strong>IEC inlet</strong> module (socket, switch and fuse in one) and three <strong>WAGO</strong> lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted <strong>nozzle probe</strong> that sets Z zero and the <strong>XY endstop PCB</strong> in its pod on the gantry — are built and mounted here too.</p>
+<p><strong>Left and right in this chapter</strong> are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's <strong>rear</strong> (the edge the deck notch points to — 09.4 — with the A/B motors hanging from the gantry's rear corners above it) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled <em>Front</em> at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.</p>
+<p><strong>Time:</strong> 2.5–4.0 h hands-on, first build (survey §7.2).</p>
+<p><strong>Sessions:</strong> 7 × ~30 min (first-build estimate; each <code>Pause:</code> line carries its own segment minutes).</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 01–03.</strong> Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three cables hanging free below the deck.</li>
+<li><strong>Ch 06.</strong> Gantry installed — step 09.33 mounts the XY endstop pod to it.</li>
+<li><strong>Batch B07 — Electronics bay + lighting.</strong> Plate <strong>B07-P1</strong> carries <code>power_inlet_IECGS_1mm</code> (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are <em>not</em> consumed here; they are Ch 10. <strong>No part of B08 is needed in this chapter.</strong></li>
+<li><strong>Batch B00 heat-set pass.</strong> The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3).</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>2.5 mm flat-blade screwdriver (supplied — this is the tool for every plug-type terminal in the bay)</li>
+<li>PH1 (M2 self-tapping) and PH2 (PSU and SSR terminals) screwdrivers</li>
+<li>Hex 2 / 2.5 / 3 mm</li>
+<li>Soldering iron + brass M3 heat-set tip</li>
+<li>Hacksaw or fine-tooth saw + file (DIN rail), side cutters or a fine saw (wire duct)</li>
+<li>Steel rule ≥300 mm, marker, digital caliper</li>
+<li>Multimeter (used properly in Ch 10; keep it on the bench from now on)</li>
+</ul>
+<p><strong>Consumables:</strong> 3M VHB tape (supplied, for the wire ducts), IPA + lint-free cloth, masking tape and marker for labelling.</p>
+<p><strong>Printed parts</strong></p>
+<p>Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.</p>
+<table>
+<thead>
+<tr>
+<th>Looks like</th>
+<th>STL</th>
+<th>Bin</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/lrs_200_psu_bracket_x2.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/lrs_200_psu_bracket_x2.png" width="96"></a></td>
+<td><code>Electronics_Bay/lrs_200_psu_bracket_x2</code></td>
+<td>09-bay</td>
+<td>2</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/wago_221-415_mount_3by5.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/wago_221-415_mount_3by5.png" width="96"></a></td>
+<td><code>Electronics_Bay/wago_221-415_mount_3by5</code></td>
+<td>09-bay</td>
+<td>1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/pcb_din_clip_x3.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/pcb_din_clip_x3.png" width="96"></a></td>
+<td><code>Electronics_Bay/pcb_din_clip_x3</code></td>
+<td>09-bay</td>
+<td>1 file = 3 clips (spares — kit supplies 4)</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/PSU_stabilizer_50mm.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/PSU_stabilizer_50mm.png" width="96"></a></td>
+<td><code>Electronics_Bay/PSU_stabilizer_50mm</code></td>
+<td>09-bay</td>
+<td>1 — <strong>fit only if needed</strong>, see 09.16</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/usb_adapter_mount_partial_cover.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/usb_adapter_mount_partial_cover.png" width="96"></a></td>
+<td><code>Nitehawk-SB-V2/usb_adapter_mount_partial_cover</code></td>
+<td>09-bay</td>
+<td>1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/parts/power_inlet_IECGS_1mm.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../assets/parts/power_inlet_IECGS_1mm.png" width="96"></a></td>
+<td><code>Skirts/power_inlet_IECGS_1mm</code></td>
+<td>09-bay</td>
+<td>1 (batch B07-P1)</td>
+<td>Black</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supplied printed by LDO — do not print these:</strong> Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">src</a></p>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DIN rail, 35 mm W, slotted</td>
+<td>2</td>
+<td>length not stated by the manual or LDO — <strong>(verify on bench)</strong></td>
+</tr>
+<tr>
+<td>DIN rail plastic end cap</td>
+<td>4</td>
+<td>2 per rail</td>
+</tr>
+<tr>
+<td>PVC wire duct, 20 W × 25 H</td>
+<td>5</td>
+<td>3 across, 2 front-to-back; cut lengths <strong>(verify on bench)</strong></td>
+</tr>
+<tr>
+<td>M5×10 BHCS</td>
+<td>8</td>
+<td>4 DIN rails, 2 mains WAGO mount, 2 bed WAGO mount</td>
+</tr>
+<tr>
+<td>M5 T-nut</td>
+<td>4</td>
+<td>2 mains WAGO mount, 2 bed WAGO mount <strong>(verify on bench for the bed WAGO mount)</strong> — the 4 DIN-rail T-nuts are placed in Ch 02 Step 02.11, 0 new here</td>
+</tr>
+<tr>
+<td>M4×6 BHCS</td>
+<td>6</td>
+<td>4 PSU brackets <strong>(verify)</strong>, 2 SSR to its metal bracket</td>
+</tr>
+<tr>
+<td>M3×8 SHCS</td>
+<td>8</td>
+<td>4 Leviathan to brackets <strong>(verify)</strong>, 2 inlet panel, 2 XY endstop PCB</td>
+</tr>
+<tr>
+<td>M3×6 BHCS</td>
+<td>2</td>
+<td>2×2 XH splicer PCB to the bed WAGO mount</td>
+</tr>
+<tr>
+<td>M3×10 FHCS</td>
+<td>2</td>
+<td>IEC inlet module into the printed panel <strong>(verify on bench)</strong></td>
+</tr>
+<tr>
+<td>M3×25 SHCS</td>
+<td>2</td>
+<td>nozzle probe to the bed extrusion — <strong>not</strong> the manual's M3×20</td>
+</tr>
+<tr>
+<td>M3×30 SHCS</td>
+<td>2</td>
+<td>XY endstop pod to the gantry (manual p.164) — bagged with the pod by Ch 05 Step 05.46 <code>(verify against the bag)</code></td>
+</tr>
+<tr>
+<td>M3 T-nut</td>
+<td>4</td>
+<td>2 inlet panel, 2 nozzle probe</td>
+</tr>
+<tr>
+<td>M2×10 self-tapping</td>
+<td>8 (LDO's bag holds 24)</td>
+<td>4 DIN clips to Leviathan brackets (09.20), 2 the USB adapter's DIN clip (09.25), 2 Z endstop PCB (09.28) — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64</td>
+</tr>
+<tr>
+<td>M3×5×4 heat-set insert</td>
+<td>2+</td>
+<td>2 bed WAGO mount; inlet panel and mains WAGO mount <strong>(verify on bench)</strong></td>
+</tr>
+<tr>
+<td>Meanwell LRS-200-24 PSU</td>
+<td>1</td>
+<td>115/230 V selector switch on the side</td>
+</tr>
+<tr>
+<td>Omron G3NB-210B-1 SSR + metal DIN mount bracket</td>
+<td>1 + 1</td>
+<td>bracket is off-the-shelf metal; there is no printed SSR mount</td>
+</tr>
+<tr>
+<td>AC inlet, integrated switch &amp; fuse</td>
+<td>1</td>
+<td>one module — not the manual's separate inlet + rocker</td>
+</tr>
+<tr>
+<td>WAGO 221-415 (5-way)</td>
+<td>3</td>
+<td>mains distribution, L / N / PE</td>
+</tr>
+<tr>
+<td>WAGO 221-412 (2-way)</td>
+<td>2</td>
+<td>bed WAGO mount</td>
+</tr>
+<tr>
+<td>Ferrule, VE0508</td>
+<td>5</td>
+<td>fitted in Ch 10, counted here so you can find them</td>
+</tr>
+<tr>
+<td>LDO Leviathan mainboard</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Raspberry Pi 4B + heatsink + standoffs + 3/4 HAT power adapter</td>
+<td>1 set</td>
+<td>Pi is a reseller-optional line item</td>
+</tr>
+<tr>
+<td>XY endstop PCB / Z endstop PCB / USB adapter PCB / 2×2 XH splicer PCB</td>
+<td>1 each</td>
+<td></td>
+</tr>
+<tr>
+<td>GT2 20-tooth pulley (a plain collar) + 5 mm shaft + M3 set screw</td>
+<td>1 each</td>
+<td>nozzle probe — LDO ships the collar pressed into the printed body <code>(verify on bench)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Remove <em>every</em> voltage-selection jumper from the Leviathan before it goes anywhere near the rail</strong> (step 09.19). Mixing voltages on the shared 24 V supply permanently destroys the controller and whatever is plugged into it. Jumpers go back in Ch 10, one at a time, after each component's voltage is confirmed. <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a></li>
+<li><strong>Nothing is wired in this chapter.</strong> Mains wiring is the one step in this build that can kill you, and it is done as one deliberate sequence in Ch 10 that ends at LDO's <strong>Checkpoint #1</strong> — continuity within each colour group, no continuity between L, N and PE, PSU selector confirmed, all with the cord unplugged. Leave the C13 cord in its bag. (survey §4.4 #8)</li>
+<li><strong>The manual pages p.148–172 describe a different machine</strong> — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; every part that differs carries a <code>⚠</code> callout at its step. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></li>
+<li><strong>Do not close the bay.</strong> Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes. Fitting them now costs an hour of re-opening plus the safety check you skipped (survey §5.2 W8).</li>
+<li><strong>Test-fit every roll-in T-nut.</strong> Extrusion and T-nut tolerances on this kit are tight; a forced nut galls the slot. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></li>
+<li><strong>Bench-only work for a print-idle window</strong> (the index's <em>while it prints</em> rows assume you use them): 09.10 and 09.34's inserts, 09.14–09.15 (PSU selector and brackets), 09.17 (SSR on its bracket), 09.19–09.23 (Leviathan brackets, jumpers, Pi, HAT adapter), 09.25 (USB-adapter clip) and 09.27–09.29 (nozzle probe) need no printer. If you did the two heat-set jobs in Ch 08's iron session, 09.10 and 09.34 start with a confirm.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=148">Voron 2.4r2 assembly manual, p.148–172</a> — mounting geometry and DIN technique only; the boards on those pages are a different machine. Pinned at commit <code>de7e89d</code>. p.28–29 supply the deck and DIN-rail pages</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO wiring guide (Rev D)</a> — the placement this chapter actually builds: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">General Placement</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">DIN rails and wire ducts</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">Preparing the inlet</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">Preparing the PSU</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board">Preparing the mainboard</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">Assembling the nozzle probe</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater">Wiring the bed heater</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">Checkpoint #1</a></li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> — every page in p.148–172 that this kit skips or replaces</li>
+<li><a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 board guide</a> — voltage-selection jumpers and Pi mounting (link-only; no licence)</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed-parts guide (Rev D)</a> and <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> — which brackets to print, what the kit supplies</li>
+<li><a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">Nitehawk-SB V2 repo</a> — the USB adapter stack and its grounding wire</li>
+<li><a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY-endstop repin guide</a> — connector order on the XY endstop PCB</li>
+<li>Mirrored images in this chapter are LDO Motors' (docs.ldomotors.com, LDOVoron2, Nitehawk-SB V2), used with attribution; see <code>assets/remote/09-electronics-bay/SOURCES.txt</code></li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=hTKCBrk36R0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=10027s">Part 5 @2:47:07</a> (+21m), <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5445s">Part 6 @1:30:45</a> (+12m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=308s">Part 7 @0:05:08</a> (+4m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1467s">Part 7 @0:24:27</a> (+9m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1866s">Part 7 @0:31:06</a> (+5m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2154s">Part 7 @0:35:54</a> (+20m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3560s">Part 7 @0:59:20</a> (+12m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1862s">Part 8 @0:31:02</a> (+23m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6861s">Part 8 @1:54:21</a> (+21m)</p>
+<hr>
+<h3 id="step-091-read-the-end-state">Step 09.1 — Read the end state<a class="headerlink" href="#step-091-read-the-end-state" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p148.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.148" src="../assets/manual-pages/manual-p148.png"></a></p>
+<p><strong>What you're looking at:</strong> The bay is the space under the deck panel where every electronic part lives. Two <strong><a href="../16-glossary/#d">DIN rails</a></strong>, the 35 mm steel top-hat rail industrial gear clips onto, run across it: boards on the front rail, power on the rear.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Look at the render: the two rails and their geometry are right for your kit, even though three of the four components pictured are wrong. Nothing is fastened to the acrylic except the wire ducts.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The parts on your bench are LDO's Leviathan, LRS-200-24 and Omron SSR, not the manual's Octopus, 5 V PSU and Pi bracket.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=148">Voron manual p.148</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=302s">Video: Part 7 @0:05:02</a></p>
+<hr>
+<h3 id="step-092-read-the-placement-you-are-actually-building">Step 09.2 — Read the placement you are actually building<a class="headerlink" href="#step-092-read-the-placement-you-are-actually-building" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p149.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.149" src="../assets/manual-pages/manual-p149.png"></a></p>
+<p><strong>What you're looking at:</strong> The layout you actually build, not the one drawn. Front rail: <strong>Leviathan</strong> with the Pi on it, and the USB adapter. Rear rail: the <strong>SSR</strong> switching the mains bed heater, and the <strong>PSU</strong> making 24 V. Rear frame: mains <strong>WAGO</strong> blocks and the IEC inlet.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Match the bay against LDO's placement photo <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg"><code>S0General_Placement.jpg</code></a>. Front rail: Leviathan and Pi, USB adapter beside it. Rear rail: SSR left, PSU right, terminal block facing the SSR. Rear-left: inlet panel against the Z-motor mount, mains WAGO right of it.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You have that photo open on a phone or second screen. You will check the finished bay against it at 09.36.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual shows a <strong>Raspberry Pi on its own bracket</strong>, a <strong>BTT Octopus</strong>, and a <strong>5 V PSU</strong>. Your kit has none of those: the Pi mounts <em>on</em> the Leviathan, the Leviathan replaces the Octopus, and the Leviathan supplies the Pi's 5 V instead. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">wiring guide § General Placement</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=149">Voron manual p.149</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg"><code>S0General_Placement.jpg</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-093-turn-the-printer-over-and-pre-load-the-rear-t-nuts">Step 09.3 — Turn the printer over and pre-load the rear T-nuts<a class="headerlink" href="#step-093-turn-the-printer-over-and-pre-load-the-rear-t-nuts" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p166.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.166" src="../assets/manual-pages/manual-p166.png"></a></p>
+<p><strong>What you're looking at:</strong> The bay is on the <em>underside</em> of the machine, so this chapter happens with the printer inverted. The two M3 T-nuts go in now because once the inlet panel is against that slot, no nut can be fed in behind it.</p>
+<p><strong>Parts:</strong> M3 T-nut ×2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Strap the gantry at the top, or clamp the four Z belts.</li>
+<li>Take the flex plate off and invert the printer onto a blanket, two people.</li>
+<li>Drop two M3 T-nuts into the rear extrusion's upward slot.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Printer stable on its top, gantry strapped with no load on the belts, two M3 T-nuts free to slide in the rear slot.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=166">Voron manual p.166</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">LDO wiring guide § Installing the DIN rails and wire ducts</a></p>
+<hr>
+<h3 id="step-094-verify-the-deck-panel-before-you-drill-anything-into-the-layout">Step 09.4 — Verify the deck panel before you drill anything into the layout<a class="headerlink" href="#step-094-verify-the-deck-panel-before-you-drill-anything-into-the-layout" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p028.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.28" src="../assets/manual-pages/manual-p028.png"></a></p>
+<p><strong>What you're looking at:</strong> The deck panel separates the print chamber above from the bay below; the DIN rails bolt <strong>through</strong> it into the bed extrusions. Measure its thickness: the deck supports come in 3 mm and 4 mm versions, and the wrong pair leaves the panel flexing.</p>
+<p><strong>Parts:</strong> deck panel ×1 (already fitted in Ch 02).</p>
+<p><strong>Do:</strong> Confirm the notch faces the back and the rear wire opening is clear. Caliper the edge: the BOM lists 469 × 469 × <strong>3 mm</strong>, LDO's guide assumes 4 mm, and the deck supports must match what you measure.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Notch to the back. Wire opening unobstructed. Deck thickness recorded, and the deck supports fitted in Ch 02 are the matching variant.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> if Ch 02 fitted <code>deck_support_4mm_x8</code> and your panel calipers at 3 mm, swap them for <code>deck_support_3mm_x8</code> now — the deck is about to carry the DIN rails and everything on them. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28">Voron manual p.28</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">LDO wiring guide § Installing the DIN rails and wire ducts</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a></p>
+<hr>
+<h3 id="step-095-fit-the-two-din-rails-running-left-to-right">Step 09.5 — Fit the two DIN rails, running left to right<a class="headerlink" href="#step-095-fit-the-two-din-rails-running-left-to-right" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p029.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.29" src="../assets/manual-pages/manual-p029.png"></a></p>
+<p><strong>What you're looking at:</strong> The two rails: 35 mm slotted steel top-hat, cut to length. Everything electronic clips onto one of these, so a board can slide along or lift off without touching the deck. They run left to right across <em>both</em> bed extrusions, one screw into each.</p>
+<p><strong>Parts:</strong> DIN rail ×2, DIN rail plastic end cap ×4, M5×10 BHCS ×4, the four M5 T-nuts staged in Ch 02 Step 02.11.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Slide the four M5 T-nuts so each rail crosses <strong>both</strong> extrusions, one nut in each.</li>
+<li>One rail front, one rear, a duct's width apart.</li>
+<li>Bolt each rail down with M5×10 BHCS, snug, then cap the ends.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both rails parallel, left-to-right, two screws each, inside the deck edges, clear of the Z belts and the gantry's travel, four end caps on.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> no <strong>cut length</strong> is published for a 350's rails — <strong>(verify on bench)</strong>. Cut both the same, keep them inside the deck panel, and use p.29's escape hatch: if a rail slot does not land on a T-nut, shorten the rail by a few mm rather than moving the nut off the extrusion.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29">Voron manual p.29</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">LDO wiring guide § Installing the DIN rails and wire ducts</a> · <a href="https://www.youtube.com/watch?v=2U0YahE8w_0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3360s">Video: Part 2 @0:56:00</a></p>
+<hr>
+<h3 id="step-096-cut-and-stick-the-five-wire-ducts">Step 09.6 — Cut and stick the five wire ducts<a class="headerlink" href="#step-096-cut-and-stick-the-five-wire-ducts" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/din-rails-and-wire-ducts.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D — DIN rails and wire ducts" src="../assets/remote/09-electronics-bay/din-rails-and-wire-ducts.jpg"></a></p>
+<p><strong>What you're looking at:</strong> Wire duct is slotted PVC channel with a snap-on lid: cables drop in anywhere and the lid closes over them. Five form a loop around the bay. They are the only thing stuck to the acrylic, hence the IPA wipe before the VHB tape.</p>
+<p><strong>Parts:</strong> PVC wire duct 20 W × 25 H ×5, VHB tape.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Cut three ducts left-right: ahead of the front rail, between the rails, behind the rear.</li>
+<li>Cut two front-to-back down each side.</li>
+<li>Dry-lay all five, wipe with IPA, VHB down, rear duct behind the wire opening.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Five ducts down, none crossing the wire opening, none fouling a rail or a component. Every lid still off, kept for Ch 10.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> duct lengths are not published — <strong>(verify on bench)</strong>. Cut to fit between the side runs and the frame, and leave the offcuts: Ch 10 uses short pieces to bridge gaps. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">LDO wiring guide § Installing the DIN rails and wire ducts</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0_Din_Raill.jpg"><code>S0_Din_Raill.jpg</code></a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3308s">Video: Part 7 @0:55:08</a></p>
+<hr>
+<h3 id="step-097-learn-the-din-clip-motion-once">Step 09.7 — Learn the DIN clip motion once<a class="headerlink" href="#step-097-learn-the-din-clip-motion-once" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p168.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.168" src="../assets/manual-pages/manual-p168.png"></a></p>
+<p><strong>What you're looking at:</strong> A <a href="../16-glossary/#d">DIN clip</a> is the sprung foot that grips the rail: one side a fixed hook, the other a spring latch. Every clipped component in this chapter goes on the same way, and pressing one on flat-first breaks the latch.</p>
+<p><strong>Parts:</strong> one spare printed <code>pcb_din_clip</code> ×1.</p>
+<p><strong>Do:</strong> Practise on a spare clip: hook the <strong>fixed</strong> side over one rail edge, rotate the part down flat with that hook engaged, then press until the sprung side snaps over the other edge.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The clip sits square on the rail, does not rock, and slides along the rail with firm thumb pressure but not under its own weight.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=168">Voron manual p.168</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts">LDO wiring guide § Installing the DIN rails and wire ducts</a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1702s">Video: Part 7 @0:28:22</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and all five wire ducts cut and stuck. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.</p>
+</div>
+<hr>
+<h3 id="step-098-do-not-build-the-pi-bracket">Step 09.8 — Do not build the Pi bracket<a class="headerlink" href="#step-098-do-not-build-the-pi-bracket" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p150.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.150" src="../assets/manual-pages/manual-p150.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p151.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.151" src="../assets/manual-pages/manual-p151.png"></a></p>
+<p><strong>What you're looking at:</strong> A deliberate skip. The manual mounts the Raspberry Pi on its own printed bracket because its reference machine uses a separate controller board; the Leviathan has a dedicated Pi area with its own standoffs, so both pages are dead here.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Skip both pages. Put the Pi aside for step 09.22.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>No <code>raspberrypi_bracket</code> or <code>beefy_raspberry_bracket</code> in your printed-parts bin: the print plan never printed them.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>SKIP manual p.150–151.</strong> LDO's note on p.150 points at the Beefy Raspberry Pi Mount and then says <em>"it does not apply for rev D kits"</em> — the Leviathan has a dedicated Pi mounting area with its own standoffs. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=150">Voron manual p.150</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=151">Voron manual p.151</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-099-do-not-fit-a-5-v-psu">Step 09.9 — Do not fit a 5 V PSU<a class="headerlink" href="#step-099-do-not-fit-a-5-v-psu" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p152.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.152" src="../assets/manual-pages/manual-p152.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p172.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.172" src="../assets/manual-pages/manual-p172.png"></a></p>
+<p><strong>What you're looking at:</strong> Another skip, for a related reason: the manual's machine carries a second, 5 V power supply just to run the Pi. The Leviathan generates the Pi's 5 V itself, so this build has exactly one PSU in it.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Skip both pages. There is no RS25-5 in the kit and no space allocated for one.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>No RS-25-5 or second supply in the kit boxes; the Pi power lead and 3/4 HAT adapter are bagged for 09.23.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>SKIP manual p.152 and p.172</strong> — <em>"The kit does not use a 5V PSU."</em> The Leviathan supplies the Pi's 5 V through the GPIO power adapter fitted at 09.23. This also removes manual p.190 later in the build. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=152">Voron manual p.152</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=172">Voron manual p.172</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">LDO wiring guide § Preparing the power supply unit</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0910-heat-set-the-power-inlet-panel">Step 09.10 — Heat-set the power inlet panel<a class="headerlink" href="#step-0910-heat-set-the-power-inlet-panel" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p156.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.156" src="../assets/manual-pages/manual-p156.png"></a></p>
+<p><strong>What you're looking at:</strong> The inlet panel is the printed plate that fills a cut-out in the rear skirt and carries the mains socket. <a href="../16-glossary/#h">Heat-set inserts</a> give the plastic real metal threads for the module's screws, and they go in before the module does.</p>
+<p><strong>Parts:</strong> <code>power_inlet_IECGS_1mm</code> ×1, M3×5×4 heat-set inserts <strong>(verify on bench — count the bosses on your printed part)</strong>.</p>
+<p><strong>Do:</strong> If Ch 08's insert pass already did this panel, confirm the inserts and move on. Otherwise set the iron to ASA insert temperature, press one insert into each boss on the back, square and flush, and let it cool.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every insert flush or a hair below, none tilted, no bulged plastic around a boss.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual's part is <code>power_inlet_filtered</code>. Yours is <strong><code>power_inlet_IECGS_1mm</code></strong> — LDO ships the <strong>1.0 mm AC inlet with an integrated switch</strong>, so the printed panel is a different file with a different cut-out. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=156">Voron manual p.156</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">LDO wiring guide § Preparing the inlet</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed-parts guide (Rev D)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0911-fit-the-combined-iec-inlet-module">Step 09.11 — Fit the combined IEC inlet module<a class="headerlink" href="#step-0911-fit-the-combined-iec-inlet-module" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D — inlet fitted, shown after Ch 10 has wired it; yours has bare spades (© LDO Motors)" src="../assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00a-mains-safety/inlet_layout.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO inlet layout — L through the fuse to the rocker, N straight to the rocker, earth straight out (© LDO Motors)" src="../assets/remote/00a-mains-safety/inlet_layout.png"></a></p>
+<p><strong>What you're looking at:</strong> The <strong>IEC inlet</strong> is where mains enters the machine: one module combining the C14 socket, the on/off rocker and the fuse holder. It is live the moment a cord is in, so nothing touches its spade terminals until Ch 10.</p>
+<p><strong>Parts:</strong> AC inlet with integrated switch &amp; fuse ×1, M3×10 FHCS ×2 <strong>(verify on bench)</strong>.</p>
+<p><strong>Do:</strong> Press the module into the panel from the outside, earth pin at the top when the printer is upright, switch facing out. Fasten with M3×10 FHCS into the inserts. Connect nothing to its spade terminals.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Module square in the panel, no rocking, fuse drawer accessible, switch rocks freely. Nothing wired.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual fits <strong>two</strong> parts here, a filtered inlet <em>and</em> a separate rocker switch; yours is <strong>one module</strong> containing inlet, switch and fuse. Check its factory wiring <strong>by eye only</strong> against LDO's inlet layout above: L fused, N direct, PE never switched or fused. Nothing lights up until Ch 10's first power-on. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">LDO wiring guide § Preparing the inlet</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S2_inlet.jpg"><code>S2_inlet.jpg</code></a></p>
+<hr>
+<h3 id="step-0912-mount-the-inlet-panel-to-the-rear-extrusion">Step 09.12 — Mount the inlet panel to the rear extrusion<a class="headerlink" href="#step-0912-mount-the-inlet-panel-to-the-rear-extrusion" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p167.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.167" src="../assets/manual-pages/manual-p167.png"></a></p>
+<p><strong>What you're looking at:</strong> The panel hooks over the rear extrusion's slot and bolts to the two T-nuts from Step 09.3. Position matters twice: hard against the Z-motor mount so the rear skirt segments line up, and inside the footprint where the rear skirt lands in Ch 11.</p>
+<p><strong>Parts:</strong> M3×8 SHCS ×2, the two M3 T-nuts pre-loaded at 09.3.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Hook the panel's lip over the rear extrusion's slot, line the holes up with the T-nuts and drive M3×8 SHCS in.</li>
+<li>Slide it along until it touches the rear-left Z-motor mount. The WAGO block goes to its right.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Panel flat against the extrusion, no gap at the lip, no overhang where the rear skirt lands in Ch 11, inlet reachable from outside.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=167">Voron manual p.167</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">LDO wiring guide § Preparing the inlet</a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3597s">Video: Part 7 @0:59:57</a></p>
+<hr>
+<h3 id="step-0913-build-and-mount-the-mains-wago-block">Step 09.13 — Build and mount the mains WAGO block<a class="headerlink" href="#step-0913-build-and-mount-the-mains-wago-block" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p165.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.165" src="../assets/manual-pages/manual-p165.png"></a></p>
+<p><strong>What you're looking at:</strong> A <strong><a href="../16-glossary/#w">WAGO 221</a></strong> is a lever-operated push-in connector: lift the lever, push a stripped conductor in, drop the lever, and it is clamped. These three 5-way blocks are the mains distribution nodes, one each for live, neutral and protective earth.</p>
+<p><strong>Parts:</strong> <code>wago_221-415_mount_3by5</code> ×1, WAGO 221-415 (5-way) ×3, M5×10 BHCS ×2, M5 T-nut ×2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Snap the three WAGO 221-415 clamps into the mount, levers facing outward.</li>
+<li>Slide two M5 T-nuts into the rear extrusion's inner slot, <strong>right</strong> of the inlet panel.</li>
+<li>Hook the mount on and fasten with M5×10 BHCS.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All three clamps seated with no step between clamp and mount, every lever free to lift, mount solid within reach of the inlet's leads.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual titles p.165 <em>"ALTERNATE MAINS DISTRIBUTION — WAGO"</em>. For this kit it is not an alternate — it is the only path. The BOM ships three 221-415 clamps, and Ch 10 uses them as the L / N / PE distribution nodes. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> if your printed mount has insert bosses, heat-set them in the same pass as 09.10 — <strong>(verify on bench)</strong>; the stock Voron part is snap-fit only.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=165">Voron manual p.165</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">LDO wiring guide § Preparing the inlet</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. <strong>Nothing is terminated and the C13 cord stays in its bag</strong> — do not connect anything to the inlet.</p>
+</div>
+<hr>
+<h3 id="step-0914-set-the-psu-voltage-selector-to-115-v">Step 09.14 — Set the PSU voltage selector to 115 V<a class="headerlink" href="#step-0914-set-the-psu-voltage-selector-to-115-v" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/psu-voltage-selector.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — PSU voltage selector switch, shown at 230 V; yours must read 115 or 120 (© LDO Motors)" src="../assets/remote/09-electronics-bay/psu-voltage-selector.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong>PSU</strong> is the Meanwell LRS-200-24, which makes the 24 V that runs the motors, fans, boards and toolhead. It is not auto-ranging: a recessed slide switch selects 115 V or 230 V, and 115 V on 230 V mains destroys it.</p>
+<p><strong>Parts:</strong> Meanwell LRS-200-24 ×1.</p>
+<p><strong>Do:</strong> Find the recessed slide switch on the side of the PSU, next to the yellow warning label. Push it to <strong>115 V</strong> for US mains with the 2.5 mm flat screwdriver, while it is still easy to reach.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Selector reads 115 V, or 120 V on units marked that way: either is the low-voltage position.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO calls this out twice, in <em>Preparing the Power Supply Unit</em> and again in Checkpoint #1: <em>"Flick the switch to the correct value before powering it on! Failing to do so can destroy the power supply!"</em> Ch 10 re-checks it before the first power-on. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">src</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>EU builds may get a Meanwell RSP-200-24 instead: PFC, universal input, no switch. If yours has no selector, that is the unit and nothing needs setting. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">LDO wiring guide § Preparing the power supply unit</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/psu_switch.jpg"><code>psu_switch.jpg</code></a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2416s">Video: Part 8 @0:40:16</a></p>
+<hr>
+<h3 id="step-0915-fit-the-printed-din-brackets-to-the-psu">Step 09.15 — Fit the printed DIN brackets to the PSU<a class="headerlink" href="#step-0915-fit-the-printed-din-brackets-to-the-psu" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p153.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.153" src="../assets/manual-pages/manual-p153.png"></a></p>
+<p><strong>What you're looking at:</strong> The two printed brackets are the PSU's <em>entire</em> mounting system. They screw into the factory M4 holes on its solid, unvented face and give it two DIN hooks. Screws longer than M4×6 reach inside a 200 W mains supply.</p>
+<p><strong>Parts:</strong> <code>lrs_200_psu_bracket_x2</code> ×2, M4×6 BHCS ×4 <strong>(verify on bench)</strong>.</p>
+<p><strong>Do:</strong> Sit the two brackets on the PSU's long face, the one <em>without</em> vents, over the factory M4 holes, and drive M4×6 BHCS. Both must face the same way so their DIN hooks line up. No longer screws.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both hooks parallel and coplanar, terminal block on the edge that will face the SSR. On a rail offcut, both hooks engage at once.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual's "24 V PSU" here is a generic block. Yours is the <strong>Meanwell LRS-200-24</strong> and these two printed brackets are the <em>whole</em> mounting system for it. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=153">Voron manual p.153</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">LDO wiring guide § Preparing the power supply unit</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2224s">Video: Part 8 @0:37:04</a></p>
+<hr>
+<h3 id="step-0916-clip-the-psu-onto-the-rear-rail">Step 09.16 — Clip the PSU onto the rear rail<a class="headerlink" href="#step-0916-clip-the-psu-onto-the-rear-rail" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p169.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.169" src="../assets/manual-pages/manual-p169.png"></a></p>
+<p><strong>What you're looking at:</strong> Hook, rotate, snap: the motion from Step 09.7, now with the heaviest component in the bay. Position is decided by access, because a PH2 driver has to reach every terminal screw later, with the bay full.</p>
+<p><strong>Parts:</strong> PSU assembly from 09.15.</p>
+<p><strong>Do:</strong> Hook, rotate and snap the PSU onto the <strong>rear</strong> DIN rail, toward the right of the bay with its terminal block facing left. Slide it clear of the right-hand vertical duct so a PH2 driver reaches every terminal screw.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>PSU square with both brackets latched, no rocking under a screwdriver, vented face clear of ducts and deck, terminal block reachable.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>SKIP the bottom half of p.169</strong> — the L-shaped support bracket with its M5 T-nut, M5×10 BHCS and M4×6 BHCS. LDO: <em>"PAGE 169 SKIP. The kit does not use a support bracket."</em> The two printed DIN brackets carry the PSU on their own. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the print plan prints <code>PSU_stabilizer_50mm</code> anyway as a 4 g insurance part. Fit it <strong>only</strong> if the PSU visibly sags or rocks on the rail; otherwise it stays in the spares bin. <a href="../../voron-print-plan/">src</a> §6</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=169">Voron manual p.169</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="../../voron-print-plan/">print plan §B08</a></p>
+<hr>
+<h3 id="step-0917-fit-the-ssr-to-its-metal-din-bracket">Step 09.17 — Fit the SSR to its metal DIN bracket<a class="headerlink" href="#step-0917-fit-the-ssr-to-its-metal-din-bracket" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p157.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.157" src="../assets/manual-pages/manual-p157.png"></a></p>
+<p><strong>What you're looking at:</strong> The <strong><a href="../16-glossary/#s">SSR</a></strong>, a solid-state relay, is a contactless electronic switch: DC on its input terminals switches the mains through its load terminals. Terminals <strong>1 / 2 are LOAD</strong>, <strong>3 + / 4 − are INPUT</strong>, and swapping them is the error LDO calls catastrophic.</p>
+<p><strong>Parts:</strong> Omron G3NB-210B-1 SSR ×1, metal DIN rail mount bracket ×1, M4×6 BHCS ×2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Find the stamped metal bracket in the hardware bags.</li>
+<li>Lay the SSR on it, two M4×6 BHCS through its mounting ears.</li>
+<li>Read the label before tightening: which pair is LOAD, which is INPUT, LED beside terminal 3.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>SSR square on the bracket, both screws tight, the bracket's spring latch free to move, and you can say which pair is load.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=157">Voron manual p.157</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2219s">Video: Part 8 @0:36:59</a></p>
+<hr>
+<h3 id="step-0918-clip-the-ssr-onto-the-rear-rail">Step 09.18 — Clip the SSR onto the rear rail<a class="headerlink" href="#step-0918-clip-the-ssr-onto-the-rear-rail" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p171.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.171" src="../assets/manual-pages/manual-p171.png"></a></p>
+<p><strong>What you're looking at:</strong> The bracket's spring latch holds the SSR on the rail and locks open so both hands are free. Orientation is the point of this step: control terminals facing the front rail, load terminals facing the rear, so no mains conductor crosses the bay.</p>
+<p><strong>Parts:</strong> SSR assembly from 09.17.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Pull the latch open with the 2.5 mm screwdriver; it locks open.</li>
+<li>Hook it over the rear rail <strong>left of the PSU</strong>, release the latch, mind your fingers.</li>
+<li>INPUT to the front rail, LOAD to the rear.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>SSR latched square with no rocking, both terminal pairs reachable with a PH2 driver, roughly 30 mm of clear rail between SSR and PSU.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the SSR body is stamped <strong>"EARTH THE MOUNTING RAIL"</strong>. Your DIN rails bolt through the deck panel into the aluminium bed extrusions (09.5), so they are earthed once the frame PE lands in Ch 10. Verify rail-to-frame continuity with the multimeter at Checkpoint #1 — do not assume it. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">src</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>LDO flags the SSR wiring as <em>"critical — an incorrect connection can cause catastrophic damage"</em>. Getting the orientation right now makes Ch 10 unambiguous (survey §4.4 #8).</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=171">Voron manual p.171</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint #1</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged.</p>
+</div>
+<hr>
+<h3 id="step-0919-strip-every-voltage-selection-jumper-off-the-leviathan">Step 09.19 — Strip every voltage-selection jumper off the Leviathan<a class="headerlink" href="#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/voltageselection_V1.3.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Leviathan V1.3 — the five voltage-selection jumpers (© LDO Motors)" src="../assets/remote/09-electronics-bay/voltageselection_V1.3.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/07-leviathan-jumper-map.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Leviathan voltage-selection jumper map" src="../assets/diagrams/07-leviathan-jumper-map.svg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong><a href="../16-glossary/#l">Leviathan</a></strong> is this kit's mainboard: it drives all five steppers, both heaters, the fans and the endstops, and carries the Pi on top. The five headers arrowed here are its <strong>voltage-selection jumpers</strong>, each picking 5 V or 24 V for that output.</p>
+<p><strong>Parts:</strong> LDO Leviathan mainboard ×1, a small pot or bag for the jumpers.</p>
+<p><strong>Do:</strong> On an anti-static surface, pull <strong>all</strong> the voltage-selection jumpers, the four fan headers and the Z-probe voltage header, into a labelled bag taped to the bay wall. Do this before the board goes on the rail.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Zero jumpers left in any voltage-selection header. Bag labelled and stored where Ch 10 will find it.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO's rule, verbatim: <em>"Remove all of the jumpers used for voltage selection prior to installation."</em> and <em>"Mixing voltage will permanantly damage the controller and attached components."</em> Jumpers go back only in Ch 10, one component at a time, after each attached device's voltage is verified. <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> ignore manual p.174–178 entirely when you get there — that is Octopus jumper configuration. LDO: <em>"Follow the instruction in the LDO guide for configuring the Leviathan controller board."</em> <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 board guide</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0920-fit-din-clips-to-the-two-leviathan-brackets">Step 09.20 — Fit DIN clips to the two Leviathan brackets<a class="headerlink" href="#step-0920-fit-din-clips-to-the-two-leviathan-brackets" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p154.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.154" src="../assets/manual-pages/manual-p154.png"></a></p>
+<p><strong>What you're looking at:</strong> Two LDO-supplied printed brackets, one for each short end of the board, each carrying a DIN clip. M2 self-tapping screws cut their own thread in ASA. Run one in and out a few times and the boss is stripped.</p>
+<p><strong>Parts:</strong> Leviathan Bracket Left ×1, Leviathan Bracket Right ×1 (both LDO-supplied printed), DIN Clip ×2, M2×10 self-tapping ×4.</p>
+<p><strong>Do:</strong> Sit a DIN clip on each bracket and drive two M2×10 self-tapping screws through the clip into the bracket with a PH1. Go slowly and stop the moment the head seats.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Two bracket-and-clip assemblies, mirror images of each other, clips square and both hooks facing the same direction.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> p.154 shows the <strong>Octopus</strong> bracket set and its siblings. You use <code>Leviathan_bracket_set</code> — supplied printed by LDO, do not print it — with <strong>two</strong> DIN clips. The assembly method on this page is the same; only the parts differ. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=154">Voron manual p.154</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board">LDO wiring guide § Preparing the mainboard</a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1936s">Video: Part 7 @0:32:16</a></p>
+<hr>
+<h3 id="step-0921-bolt-the-leviathan-to-its-brackets">Step 09.21 — Bolt the Leviathan to its brackets<a class="headerlink" href="#step-0921-bolt-the-leviathan-to-its-brackets" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p155.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.155" src="../assets/manual-pages/manual-p155.png"></a></p>
+<p><strong>What you're looking at:</strong> The board bolts to those brackets at its corner mounting holes, the only place a PCB takes a screw without flexing. The two DIN hooks must end up coplanar: a twisted pair means only one clip engages the rail.</p>
+<p><strong>Parts:</strong> Leviathan ×1, the two bracket assemblies from 09.20, M3×8 SHCS ×4 <strong>(verify on bench)</strong>.</p>
+<p><strong>Do:</strong> Lay the Leviathan face down on a clean anti-static surface. Set a bracket under each short end, line up the corner mounting holes and drive M3×8 SHCS, finger-tight plus a nudge.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Board flat on both brackets with no twist, the two DIN hooks coplanar. On a rail offcut, both clips engage together.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual's board is a dummy Octopus fastened with <strong>M3×6 BHCS</strong>. The Leviathan takes <strong>M3×8 SHCS</strong> through the LDO brackets. Confirm the screw seats without bottoming out before you drive all four. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=155">Voron manual p.155</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board">LDO wiring guide § Preparing the mainboard</a></p>
+<hr>
+<h3 id="step-0922-heatsink-and-mount-the-raspberry-pi-4b-on-the-leviathan">Step 09.22 — Heatsink and mount the Raspberry Pi 4B on the Leviathan<a class="headerlink" href="#step-0922-heatsink-and-mount-the-raspberry-pi-4b-on-the-leviathan" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/bay-general-placement.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D — general placement" src="../assets/remote/09-electronics-bay/bay-general-placement.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The Raspberry Pi is the computer that runs Klipper; the Leviathan is only the motion controller it commands. The Pi mounts on the Leviathan's own standoffs, so its ports must be aimed clear of the Leviathan's connector banks before anything is bolted down.</p>
+<p><strong>Parts:</strong> Raspberry Pi 4B ×1, Pi heatsink ×1, Leviathan standoffs (supplied with the board) <strong>(verify on bench — typically 4)</strong>, 32 GB SD card ×1.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Stick the heatsink on the Pi's SoC first.</li>
+<li>Screw the standoffs in, sit the Pi on them with USB and Ethernet facing <strong>outward, away from the connector banks</strong>, and fasten.</li>
+<li>Slide the SD card in now.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Pi flat on all standoffs, Ethernet and one USB-A port clear of the Leviathan's headers, SD card seated, nothing shorting underneath.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <em>"Some ports of the Raspberry Pi may not be usable due to interference with the Leviathan ports."</em> Check which ones you lose <strong>now</strong>, while you can still rotate the Pi, because Ch 10 needs the Ethernet port and Ch 12 needs a USB port for the toolboard. <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a></p>
+</div>
+<p class="src">Source: <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 board guide</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg"><code>S0General_Placement.jpg</code></a> · <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4235s">Video: Part 7 @1:10:35</a> (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)</p>
+<hr>
+<h3 id="step-0923-fit-the-raspberry-pi-34-hat-power-adapter">Step 09.23 — Fit the Raspberry Pi 3/4 HAT power adapter<a class="headerlink" href="#step-0923-fit-the-raspberry-pi-34-hat-power-adapter" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/rpi4_installed_V1.3.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Raspberry Pi 4B mounted on the Leviathan V1.3, powered from the board (© LDO Motors)" src="../assets/remote/09-electronics-bay/rpi4_installed_V1.3.jpg"></a></p>
+<p><strong>What you're looking at:</strong> This is how the Pi gets powered: a small adapter sits on its GPIO header and takes 5 V from a dedicated port on the Leviathan. The kit ships Pi 5 and Pi 3/4 versions, and they are not interchangeable.</p>
+<p><strong>Parts:</strong> Raspberry Pi <strong>3/4</strong> HAT power adapter ×1.</p>
+<p><strong>Do:</strong> Seat the <strong>3/4</strong> adapter onto the Pi's GPIO header in the orientation LDO's image shows, and connect its lead to the Leviathan's Raspberry Pi supply port. There is no USB-C brick in this machine.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Adapter fully seated on the GPIO pins with no row offset. Lead reaches the Leviathan's Pi power port without tension.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the kit ships adapters for both <strong>Pi 5</strong> and <strong>Pi 3/4</strong>, and <em>"the orientation differs"</em> between them. You have a Pi 4B — use the 3/4 adapter. Fitting the Pi 5 adapter to a Pi 4 puts supply on the wrong pins. <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> this replaces manual p.190 as well (<em>"the kit uses the Leviathan to supply the 5v power for the Raspberry PI"</em>). <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 board guide</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6900s">Video: Part 8 @1:55:00</a> (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)</p>
+<hr>
+<h3 id="step-0924-clip-the-leviathan-and-pi-onto-the-front-rail">Step 09.24 — Clip the Leviathan and Pi onto the front rail<a class="headerlink" href="#step-0924-clip-the-leviathan-and-pi-onto-the-front-rail" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p170.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.170" src="../assets/manual-pages/manual-p170.png"></a></p>
+<p><strong>What you're looking at:</strong> Hook, rotate, snap for the third time, now with the Pi on the board. Biased left so the right-hand end of the front rail stays free for the USB adapter, high-current terminals facing the PSU so the 24 V wires run short.</p>
+<p><strong>Parts:</strong> Leviathan + Pi assembly.</p>
+<p><strong>Do:</strong> Hook, rotate and snap the assembly onto the <strong>front</strong> DIN rail, biased left so the right-hand end stays free for the USB adapter. Keep the high-current terminal block facing the PSU.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both clips latched, board square, no part of the Pi or Leviathan touching a duct, the deck or the frame, every connector bank reachable.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>SKIP the manual's arrangement on p.170–171.</strong> LDO: <em>"Refer to the wiring guide for Leviathan and electronics general placement."</em> The manual puts a Pi and an Octopus on the same rail as separate items; you have one clipped assembly. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=170">Voron manual p.170</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.</p>
+</div>
+<hr>
+<h3 id="step-0925-confirm-the-usb-adapter-stack-and-clip-it">Step 09.25 — Confirm the USB adapter stack and clip it<a class="headerlink" href="#step-0925-confirm-the-usb-adapter-stack-and-clip-it" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/usb-adapter-grounding.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO USB adapter with its grounding wire, as the Nitehawk-SB V2 repo shows it" src="../assets/remote/09-electronics-bay/usb-adapter-grounding.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong><a href="../16-glossary/#u">USB adapter</a></strong> is the bay-side end of the toolhead umbilical: 24 V goes in, and the toolhead cable comes out as a USB connection to the Pi. The V2 <strong>partial</strong> cover leaves one mounting screw bare on purpose, for the ESD ring terminal.</p>
+<p><strong>Parts:</strong> the USB adapter assembly bagged in <strong>Ch 08 Step 08.64</strong> (NH Adapter Mount base + USB adapter PCB + <code>usb_adapter_mount_partial_cover</code>, held together by <strong>M3×10 SHCS ×3</strong>), DIN Clip ×1, M2×10 self-tapping ×2 (clip only) <strong>(verify on bench)</strong>.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Confirm the bagged stack: three M3×10 SHCS, and the <strong>partial</strong> cover.</li>
+<li>Fit a DIN clip to the base's back with the M2×10 self-tappers.</li>
+<li>Bolt the supplied grounding cable's ring terminal to the exposed mounting point.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>PCB captive, the 4-pin Micro-Fit 3.0 socket and USB connector both accessible, cover on, ring terminal on the one bare mounting point.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the stack takes <strong>3× M3×10 SHCS</strong> — LDO's Rev D Printed Parts Guide: <em>"Use 3 M3x10 SHCS screws to attach the base, adapter PCB, and cover together."</em> The M2×10 self-tappers are for the DIN clip only. If your stack has the <strong>V1</strong> full cover, swap in <a href="https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/STLs/usb_adapter_mount_partial_cover.stl"><code>usb_adapter_mount_partial_cover.stl</code></a> rather than omitting the ground (survey §4.1 ⑤). <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> use the <strong>supplied</strong> grounding cable. LDO: <em>"Be sure to use the supplied grounding cable since using larger O ring connectors may cause inadvertent shorting of the PCB boards."</em></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">Nitehawk-SB V2 repo</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO printed-parts guide (Rev D)</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/Images/usb_adapter_gnd.jpg"><code>usb_adapter_gnd.jpg</code></a></p>
+<hr>
+<h3 id="step-0926-clip-the-usb-adapter-to-the-front-rail">Step 09.26 — Clip the USB adapter to the front rail<a class="headerlink" href="#step-0926-clip-the-usb-adapter-to-the-front-rail" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/cad/09-26-a.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CAD render — clip the USB adapter to the front rail" src="../assets/cad/09-26-a.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/cad/09-26-b.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="CAD render — clip the USB adapter to the front rail, in place" src="../assets/cad/09-26-b.png"></a></p>
+<p><strong>What you're looking at:</strong> The CAD renders show the position. The adapter goes on the right-hand end of the front rail, the rail nearer the door, with its umbilical socket pointing where the drag chain drops into the bay, so nothing pulls sideways on the connector.</p>
+<p><strong>Parts:</strong> USB adapter assembly from 09.25.</p>
+<p><strong>Do:</strong> Clip it onto the <strong>right-hand end of the front DIN rail</strong>, beside the Leviathan, umbilical connector facing where the cable chain drops into the bay. Route the ground lead to the nearest frame extrusion and leave it hanging.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Adapter latched and square. Umbilical socket points at the chain entry, not at a wire duct. Ground lead reaches a frame extrusion with slack.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> this is the Rev D+ ESD path: extruder motor body → toolboard → umbilical → USB adapter → <strong>frame/earth</strong>. Skipping the frame end leaves the chain broken. LDO's procedure is the board doc § ESD Hardening (Ch 08 Step 08.53); ask in <code>#ldo_motors</code> only if your hardware differs. (survey §4.1 ⑤)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The CAD bay layout is the 250 machine's; the rails are shorter than yours, but front/rear and left/right are the same.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg"><code>S0General_Placement.jpg</code></a> · CAD: Voron 2.4r2 STEP @ de7e89d</p>
+<hr>
+<h3 id="step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body">Step 09.27 — Confirm the collar in the LDO nozzle-probe body<a class="headerlink" href="#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p158.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.158" src="../assets/manual-pages/manual-p158.png"></a> ·
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/nozzle-probe-parts.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — Z endstop parts" src="../assets/remote/09-electronics-bay/nozzle-probe-parts.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong><a href="../16-glossary/#n">nozzle probe</a></strong> is this kit's Z endstop, not a bed probe: a free-sliding 5 mm shaft in a printed body bolted to the <em>frame</em>, which the nozzle is driven down onto to find Z zero.</p>
+<p><strong>Parts:</strong> LDO Nozzle Probe printed part ×1 (LDO-supplied) with the collar (BOM: GT2 20-tooth pulley) pre-pressed <code>(verify on bench)</code>.</p>
+<p><strong>Do:</strong> Confirm the collar is fully home in its seat. If yours arrived loose, press it in with steady thumb or vice pressure, never a hammer, until it bottoms out.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Collar flush and square in the body, no gap under its flange, printed part not split.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> use LDO's own printed part, not the Voron <code>nozzle_probe.stl</code> — it is supplied printed in the kit and the print plan deliberately never printed either version. Ignore the manual's "remove flange &amp; set screws" and lever-removal instructions: those are for a bare microswitch build. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=158">Voron manual p.158</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_parts.jpg"><code>z_stop_parts.jpg</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0928-fit-the-z-endstop-pcb">Step 09.28 — Fit the Z endstop PCB<a class="headerlink" href="#step-0928-fit-the-z-endstop-pcb" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p160.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.160" src="../assets/manual-pages/manual-p160.png"></a> ·
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/nozzle-probe-pcb-fitting.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — PCB going on with two HA2×10 through the switch" src="../assets/remote/09-electronics-bay/nozzle-probe-pcb-fitting.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The Z endstop PCB is a small board carrying a D2F microswitch and a plug, so nothing is soldered. Its plunger sits under the shaft's bore: the shaft drops onto it, the switch clicks, and Klipper reads that as Z zero.</p>
+<p><strong>Parts:</strong> Z endstop PCB (D2F switch board) ×1, M2×10 self-tapping ×2.</p>
+<p><strong>Do:</strong> Sit the PCB against the printed body so the switch plunger is under the pulley bore. Drive two M2×10 self-tapping screws <strong>sideways</strong> through the switch's two holes into the printed part. PH1, slow, stop when seated.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>PCB solid, switch square under the bore, plunger free. Pressing the plunger gives a clean audible click and it returns fully.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> p.160 is titled <em>"ALTERNATE Z ENDSTOP"</em> in the manual — for this kit it is the only path. LDO: <em>"Use the LDO Z endstop printed part and PCB."</em> Note it is <strong>two</strong> screws through the switch, not the four the manual's render shows. There is nothing to solder — the PCB carries a connector. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=160">Voron manual p.160</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_3.jpg"><code>z_stop_install_3.jpg</code></a></p>
+<hr>
+<h3 id="step-0929-fit-the-5-mm-shaft-and-its-retaining-set-screw">Step 09.29 — Fit the 5 mm shaft and its retaining set screw<a class="headerlink" href="#step-0929-fit-the-5-mm-shaft-and-its-retaining-set-screw" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p159.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.159" src="../assets/manual-pages/manual-p159.png"></a></p>
+<p><strong>What you're looking at:</strong> The 5 mm shaft is the part the nozzle actually touches. The single set screw only has to stop it falling out. Any tighter and it clamps the shaft, and a shaft that will not drop under its own weight drifts Z zero.</p>
+<p><strong>Parts:</strong> 5 mm shaft ×1 (LDO ships it in the collar), M3 set screw ×1 (in the collar; LDO's BOM lists pre-applied threadlocker <code>(verify on bench)</code>).</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Drop the 5 mm shaft through the bore onto the switch plunger.</li>
+<li>Run the collar's set screw in until it just retains the shaft, still sliding freely.</li>
+<li>If unnotched, stop the screw short of the shaft.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Released, the shaft drops freely and clicks the switch. Upside down, a notched shaft stays put, an un-notched one may slide.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO: <em>"Remember to install one set screw into the pulley, but do not overtighten it… it should not be so tight as to impede the shaft from freely moving up and down."</em> Follow <strong>only</strong> the 5 mm shaft part of p.159 — the soldered-connector half of the page does not apply to the PCB version. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=159">Voron manual p.159</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0930-mount-the-nozzle-probe-on-the-bed-extrusion">Step 09.30 — Mount the nozzle probe on the bed extrusion<a class="headerlink" href="#step-0930-mount-the-nozzle-probe-on-the-bed-extrusion" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p161.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.161" src="../assets/manual-pages/manual-p161.png"></a> ·
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/nozzle-probe-installed.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — finished probe (bench); mounting is p.161" src="../assets/remote/09-electronics-bay/nozzle-probe-installed.jpg"></a></p>
+<p><strong>What you're looking at:</strong> There is no rear bed extrusion: the two run front-to-back. The probe bolts to the <strong>side slot</strong> of one, at its rear end past the plate, pin beside the plate's rear edge where the nozzle can drive onto it.</p>
+<p><strong>Parts:</strong> nozzle probe assembly, M3×25 SHCS ×2, M3 T-nut ×2.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Slide two M3 T-nuts into the right-hand extrusion's <strong>side slot</strong> <code>(verify on bench)</code>.</li>
+<li>Hold the probe flat on that face, M3×25 SHCS snug.</li>
+<li>Slide it until the pin rises through the deck notch, <strong>1.5 mm</strong> from the plate.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Pin ~1.5 mm clear of the plate's rear edge, clicking the switch when pushed and returning to its stop. Body square, screws snug, connector reachable.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the manual calls for <strong>M3×20 SHCS</strong>. LDO's nozzle probe needs <strong>M3×25 SHCS ×2</strong> — the printed body is thicker. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">src</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Un-notched shaft? Bag and label it <code>probe shaft — refit before 13.24</code>.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161">Voron manual p.161</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a> · image <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg"><code>z_stop_final.jpg</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted in the bed extrusion's side slot; the printer is still on its head. Nothing plugged in.</p>
+</div>
+<hr>
+<h3 id="step-0931-do-not-build-the-soldered-xy-microswitches">Step 09.31 — Do not build the soldered X/Y microswitches<a class="headerlink" href="#step-0931-do-not-build-the-soldered-xy-microswitches" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p162.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.162" src="../assets/manual-pages/manual-p162.png"></a></p>
+<p><strong>What you're looking at:</strong> A skip. The manual builds its XY endstops from two loose microswitches with soldered flying leads; this kit ships them as one small PCB with a single 4-pin connector, so there is nothing to cut, strip or solder.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Skip the page. No wire is cut, stripped or soldered here.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Your XY endstop is one PCB with one 4-pin JST-XH connector, not two loose microswitches with flying leads.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>SKIP manual p.162</strong> — <em>"The kit uses the X/Y Endstop PCB board."</em> Also skip the hall-effect option on p.163: this kit has no hall-effect endstops anywhere (LDO note on p.145). <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=162">Voron manual p.162</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a></p>
+<hr>
+<h3 id="step-0932-fit-the-xy-endstop-pcb-to-the-pod">Step 09.32 — Fit the XY endstop PCB to the pod<a class="headerlink" href="#step-0932-fit-the-xy-endstop-pcb-to-the-pod" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p163.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.163" src="../assets/manual-pages/manual-p163.png"></a></p>
+<p><strong>What you're looking at:</strong> The XY endstop PCB carries both the X and Y limit switches, which tell the machine where each axis physically ends and give <code>G28</code> a repeatable origin. It bolts into the orange pod printed for Ch 05, which puts the switches in the toolhead's path.</p>
+<p><strong>Parts:</strong> <code>[a]_endstop_pod_D2F_switch</code> ×1 (orange, B02-P3; bagged with its 2× M3×30 at Ch 05 Step 05.46 — fitted here, at 09.33), XY endstop PCB ×1, M3×8 SHCS ×2.</p>
+<p><strong>Do:</strong> Follow the <strong>left-hand</strong> option only. Seat the XY endstop board on the pod so both switches face the directions the toolhead and the frame will hit them, and fasten with two M3×8 SHCS.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Board flat on the pod, both switches proud and clicking cleanly, connector accessible from below.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO: <em>"Follow only the step for the XY Endstop board."</em> Ignore the hall-effect half of the page. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> check the cable labels before Ch 10. LDO documents a batch whose XY endstop cable is labelled <em>"X Stop / Y Stop"</em> instead of <em>"XES / YES"</em> and needs re-pinning. <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">XY endstop repin guide</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163">Voron manual p.163</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY-endstop repin guide</a></p>
+<hr>
+<h3 id="step-0933-mount-the-endstop-pod-to-the-gantry">Step 09.33 — Mount the endstop pod to the gantry<a class="headerlink" href="#step-0933-mount-the-endstop-pod-to-the-gantry" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/manual-pages/manual-p164.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron manual p.164" src="../assets/manual-pages/manual-p164.png"></a></p>
+<p><strong>What you're looking at:</strong> The pod bolts up into the right-hand XY joint on two <strong>M3×30 SHCS</strong>, long enough to pass through the pod body; the M3×16 of p.106 cannot reach the joint through it. With the printer inverted the joint's underside faces up.</p>
+<p><strong>Parts:</strong> pod assembly, M3×30 SHCS ×2 — the manual p.164 value, bagged by Ch 05 (Step 05.46) <code>(verify against the bag)</code>.</p>
+<p><strong>Do:</strong> Hold the pod against the underside of the <strong>right-hand XY joint</strong>, facing up with the printer inverted, and drive two M3×30 SHCS through it into the joint's two free holes.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Pod solid with no rotation. Through full X and Y travel it fouls nothing: frame, Z rail, chain or toolhead.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=164">Voron manual p.164</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/build-faq">LDO Build Notes § Voron 2.4 build FAQ</a> · <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5412s">Video: Part 6 @1:30:12</a></p>
+<hr>
+<h3 id="step-0934-build-and-mount-the-bed-wago-breakout">Step 09.34 — Build and mount the bed WAGO breakout<a class="headerlink" href="#step-0934-build-and-mount-the-bed-wago-breakout" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/09-electronics-bay/bed-wago-mount.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO bed WAGO mount — splicer PCB and two 2-way WAGOs on the printed bracket" src="../assets/remote/09-electronics-bay/bed-wago-mount.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The bed WAGO mount is a small breakout under the deck where the bed's three cables, live, neutral and thermistor, terminate at connectors instead of being spliced into the harness, so the plate can be lifted off from above.</p>
+<p><strong>Parts:</strong> Bed WAGO Mount ×1 (LDO-supplied printed), M3×5×4 heat-set inserts ×2, 2×2 XH splicer PCB ×1, M3×6 BHCS ×2, WAGO 221-412 (2-way) ×2, M5×10 BHCS ×2, M5 T-nut ×2 <strong>(verify on bench)</strong>.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Heat-set two inserts into the <strong>front</strong> face; let them cool.</li>
+<li>Fasten the splicer PCB with M3×6 BHCS, snap in two WAGO 221-412.</li>
+<li>Bolt it to the rear extrusion's side slot with M5×10 BHCS <strong>(verify on bench)</strong>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Inserts flush, splicer PCB solid, both levers free and facing into the bay, three bed cables reaching with slack, plate still liftable from above.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> this whole sub-assembly is a Rev C+ addition with no page in the manual. It lets the build plate detach from above without unpicking the harness. Two 2-way WAGOs break out the bed power lines; the splicer PCB breaks out the bed thermistor. Terminating any of it is Ch 10. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater">LDO wiring guide § Wiring the bed heater</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO 350 Rev D BOM</a> · image <a href="https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg"><code>bed_wago_mount.jpg</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted under the deck. All three bed cables reach with slack; none of them terminated.</p>
+</div>
+<hr>
+<h3 id="step-0935-stage-the-mains-safety-hardware-then-stop">Step 09.35 — Stage the mains-safety hardware, then stop<a class="headerlink" href="#step-0935-stage-the-mains-safety-hardware-then-stop" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No picture; this is a laying-out step. A <strong><a href="../16-glossary/#f">ferrule</a></strong> is a metal sleeve crimped over a stranded conductor so it enters a screw terminal as one solid pin. Every stranded conductor entering a screw terminal here gets one.</p>
+<p><strong>Parts:</strong> VE0508 ferrules ×5, C13 power cord ×1 (stays bagged), ring terminal for the frame PE, cable tags.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Lay out five <strong>VE0508 ferrules</strong>, the crimp tool, the ring terminal and tags.</li>
+<li>Identify the frame's PE point, paint or anodising clear under it.</li>
+<li>Identify the inlet's strain relief and confirm the C13 cord is bagged.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Five ferrules present and the crimp tool to hand. A clean metal-to-metal frame PE point identified. Cord bagged and the inlet switch off.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> <strong>no wiring happens in this chapter and no plug goes in a socket.</strong> LDO: <em>"Mains wiring should only be performed by certified personnel…"</em> Ch 10 gates on <strong>Checkpoint #1</strong> before anything is switched on: cord unplugged, continuity within each colour group, <strong>no</strong> continuity between L, N and PE, PSU selector at 115 V. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint #1</a> · <a href="../../voron-build-instructions-survey/">survey §7.5</a></p>
+<hr>
+<h3 id="step-0936-check-the-bay-against-ldos-layout-and-hand-it-to-ch-10">Step 09.36 — Check the bay against LDO's layout and hand it to Ch 10<a class="headerlink" href="#step-0936-check-the-bay-against-ldos-layout-and-hand-it-to-ch-10" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A comparison pass, not a build step. LDO's placement image is the Rev D reference and nothing published matches a Rev D+ bay exactly, so compare component by component, not pixel by pixel. Tag everything now, while there is nothing in the way.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Light the bay from the side and compare it against LDO's <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg"><code>S0General_Placement.jpg</code></a> component by component, standing at the rear.</li>
+<li>Tag the boards and the WAGO blocks with the supplied cable tags.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Bay matches LDO's layout in kind and roughly in position, every component latched or bolted, nothing wired, no duct lids on, wire opening clear.</p>
+</div>
+<hr>
+<h2 id="checkpoint-09">Checkpoint 09<a class="headerlink" href="#checkpoint-09" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Two DIN rails run <strong>left-to-right</strong>, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Five wire ducts VHB'd down; the rear duct runs rearward of the deck's wire opening, and the opening is clear.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Meanwell LRS-200-24 selector set to <strong>115 V</strong>, on the rear rail via its two printed brackets — and <strong>no</strong> support bracket fitted.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <strong>Every</strong> Leviathan voltage-selection jumper removed and bagged.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the <strong>3/4</strong> HAT power adapter seated.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> IEC inlet module (one part, not two) in <code>power_inlet_IECGS_1mm</code>, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on <strong>M3×25 SHCS</strong> in the bed extrusion's side slot, pin rising through the deck's rear notch and ~1.5 mm clear of the plate's rear edge. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled <code>probe shaft — refit before 13.24</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Bed WAGO breakout built and mounted; the plate still lifts off the deck from above.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.</li>
+</ul>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Fitting the p.169 support bracket "because it's in the manual".</strong> LDO explicitly skips it; the two printed brackets are the mount. Bolting an unneeded L-bracket to the frame just puts a screw where a cable wants to go.</li>
+<li><strong>Leaving the Leviathan's voltage jumpers in.</strong> The one mistake in this chapter that destroys hardware. They come out before the board is installed, not before it is wired.</li>
+<li><strong>Setting the PSU selector after the bay is full.</strong> Once the PSU is on the rail behind a wire duct the switch is nearly invisible. Set it at 09.14, before it goes on the rail.</li>
+<li><strong>Fitting the V1 USB adapter cover.</strong> It hides the grounding point that Rev D+ exists to expose, and the ESD path silently ends up broken.</li>
+<li><strong>Closing the bay, or plugging the cord in "just to see the PSU light".</strong> Both belong after Checkpoint #1 in Ch 10 (survey §5.2 W8).</li>
+<li><strong>Over-driving M2 self-tapping screws into ASA.</strong> Two turns too far strips the boss and the DIN clip or the Z endstop PCB never sits solid again.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p>Ch 10 — Wiring: above-deck, below-deck, mains and <strong>Checkpoint #1</strong> (LDO wiring guide, in its own order, plus manual p.194–195 for drag-chain slack). Nothing in this bay gets energised until that checkpoint passes.</p>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement">LDO wiring guide § General Placement</a> · <a href="../../voron-build-instructions-survey/">survey §7.5</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>bay fully populated, tagged and checked against LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. <strong>Do not start Ch 10 in a leftover ten minutes</strong>: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

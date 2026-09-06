@@ -1,0 +1,28 @@
+# Mirrored step images for docs/manual/14-calibration.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, its owner, the URL as cited
+# in the chapter, the URL actually downloaded, the fetch date, the licence/permission
+# it is mirrored under, and the sha256 of the mirrored bytes.
+
+voron-tuning-belt-sound-spectrum.jpg
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/tuning/images/sound-spectrum-belt.jpg
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/sound-spectrum-belt.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 273244b826ed4d347201aee0bf4de8d8a8f1dce904e8d65d61b95774615ed62a
+
+klipper-shaper-calibrate-x-chart.png
+  owner   : 
+  cited-as: https://raw.githubusercontent.com/Klipper3d/klipper/master/docs/img/calibrate-x.png
+  fetched : https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-x.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (Klipper3d/klipper/COPYING)
+  sha256  : 3866cfdf39bcea8f913436d7e34efb3b86b964613eee2709e622a5426ad76ed9
+
+voron-tuning-heightmap-variance.png
+  owner   : Voron Design
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/heightmap_variance.png
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/heightmap_variance.png
+  date    : 2026-09-05
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  sha256  : 4749e63db846fc578f91efada18a43a1cbc52aad18bdf9e0e02f920e11c21995

@@ -1,0 +1,2790 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/00-index/">
+      
+      
+        <link rel="prev" href="../../print/bin-labels/">
+      
+      
+        <link rel="next" href="../00-tonight/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Manual index - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#voron-24-350-build-manual" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manual index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The timeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print batches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-step-links-to-its-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Every step links to its source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corrections-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corrections log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-this-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to update this manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The timeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#critical-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical path
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chapters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print batches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-step-links-to-its-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Every step links to its source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corrections-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Corrections log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-this-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to update this manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="voron-24-350-build-manual">Voron 2.4 350 — build manual<a class="headerlink" href="#voron-24-350-build-manual" title="Permanent link">¶</a></h1>
+<p>This is the single track for building an <strong>LDO Voron 2.4 R2 Rev D+, 350 mm, blue</strong> (Fabreeko F6424626) — the official Voron and Stealthburner manuals, the LDO Rev D guides and the Rev D+ corrections consolidated into one Prusa-style set of numbered steps.</p>
+<p>Every printed part is made here, on a <strong>Prusa Core One+</strong> (Gen 2 belts), in Prusament ASA Galaxy Black with a Prusa Orange accent: 22 plates, 157.1 h, 1813 g black + 279 g orange — see <a href="../../print/plate-plans/">Plate plans</a> for every diagram at a glance.</p>
+<p>Start at <a href="../steps/00-before-you-start/"><strong>Ch 00 — Before you start</strong></a> if the kit has landed, and at <a href="../print/00-slicer-setup/"><strong>print/00-slicer-setup.md</strong></a> if it has not — <strong>six of the eleven print batches (B00, B02, B07, B08, B09, B10 — 98.6 h of the 157.1) run before the Voron arrives</strong>; the five with bearing seats and shaft bores (B01, B03–B06 — 58.5 h) wait for Gate B on kit day.</p>
+<p>Keep two pages open at the bench: <a href="../00-tonight/"><strong>Tonight</strong></a>, a fresh 30/60/90-minute session planner built from every chapter's <code>Time:</code> and <code>Pause:</code> lines and every plate's print time, for deciding what fits in the time you have — including "start plate X, then …" when the printer is free; and the print pages — <a href="../../print/checklists/">checklists</a> and <a href="../../print/bin-labels/">bin labels with QR codes</a> — for the garage bench where a tablet doesn't survive.</p>
+<hr>
+<h2 id="the-timeline">The timeline<a class="headerlink" href="#the-timeline" title="Permanent link">¶</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/11-build-timeline.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Build timeline — print batches against assembly chapters" src="../assets/diagrams/11-build-timeline.svg"></a></p>
+<p>Rows are in execution order. Do a row only when its <strong>needs</strong> are satisfied; do the <em>While it prints</em> work in the same sitting so the Core One+ is never idle and no chapter waits on a part.</p>
+<p>Markers: <strong>KIT</strong> = needs the Voron kit to have arrived · <strong>2P</strong> = two people · <strong>2P lift</strong> = the gantry lift, genuinely two people. Batches are B00–B10; plates are <code>B00-P1</code> too (two-digit batch, plate number unpadded).</p>
+<p><strong>Kit not here yet:</strong> rows 1–8 are the pre-kit run — B00 → B02 → B07 → (Gen 2 upgrade) → B08 → B09 → B10, 98.6 h ≈ 10 printer-days ≈ 1.5–2 weeks at two plate swaps a day, with Ch 00a and Ch 00's own pre-kit steps (00.23–00.32: the manual's front matter, the measurement log, the Discord questions — marked <code>(pre-kit)</code> so <a href="../00-tonight/">Tonight</a> offers them) as the bench work. Rows 9 onward start the day the kit lands: <strong>Gate B</strong> first (Step B00.7, 15 min), then B01 and B03–B06 (58.5 h) print under Ch 00–05.</p>
+<ul>
+<li><strong>1 · Print</strong> — <a href="../steps/b00-calibration-and-jigs/">B00 — Calibration &amp; jigs</a> · 4.0 h print · needs: the Core One+ running, Gen 2 upgrade done (baseline)<ul>
+<li><em>While it prints:</em> Dry a spool, read <a href="../print/00-slicer-setup/">00-slicer-setup</a>, decide the sheet and glue</li>
+<li><em>Gate:</em> <strong>Gate A</strong> (Step B00.5, cube only): X/Y ±0.15 mm, Z ±0.10 mm, first-layer-vs-mid delta ≤ 0.15 mm, corner snap. Gate B (625-2RS bore, MGN12 rail, real inserts) waits for the kit</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>2 · Print</strong> — <a href="../steps/b02-accent-parts-orange/">B02 — Accent parts, the orange day</a> · 21.9 h print · needs: Gate A<ul>
+<li><em>While it prints:</em> <a href="../steps/00a-mains-safety/">Ch 00a</a> (row 3); read Ch 01–02</li>
+<li><em>Gate:</em> SB main body supports out clean, LED pockets crisp; <code>Handle</code> set aside for B10; orange spool re-sealed</li>
+<li><em>Sessions:</em> 3 plate starts</li>
+</ul>
+</li>
+<li><strong>3 · Build</strong> — <a href="../steps/00a-mains-safety/">Ch 00a — Mains safety</a> · 0.75–1.0 · needs: Ch 00 Steps 00.8 and 00.30 as reading (the tool table and the log) — no kit part is touched<ul>
+<li><em>While it prints:</em> B02</li>
+<li><em>Gate:</em> Checkpoint 00a: mains-work owner and room rule written down, meter tested live and dead, "what to do when it smokes/trips/bites" decided</li>
+<li><em>Sessions:</em> 2 × ~30 min</li>
+</ul>
+</li>
+<li><strong>4 · Print</strong> — <a href="../steps/b07-electronics-bay-and-lighting/">B07 — Electronics bay + lighting</a> · 16.0 h print · needs: Gate A<ul>
+<li><em>While it prints:</em> Read Ch 09–10; if the Gen 2 upgrade kit is on hand, stage it for row 5</li>
+<li><em>Gate:</em> COB mounts flat on the reference; this batch carries <code>power_inlet_IECGS_1mm</code> and the <strong>V2</strong> <code>usb_adapter_mount_partial_cover</code>. Its heat-set bosses get inserts on kit day (Ch 09)</li>
+<li><em>Sessions:</em> 2 plate starts</li>
+</ul>
+</li>
+<li><strong>5 · Both</strong> — <strong>Gen 2 belt-upgrade pause</strong> on the Core One+ · ~1 day wall clock · needs: B07 finished, B08 not started — the contingency row; the baseline is the upgrade before B00<ul>
+<li><em>While it prints:</em> Nothing prints — the Prusa is apart</li>
+<li><em>Gate:</em> Firmware ≥ 6.9.0, re-tension and re-square, self-test + input shaper, then <strong>re-print <code>Voron_Design_Cube_v7</code> and re-pass Gate A</strong> before B08</li>
+<li><em>Sessions:</em> —</li>
+</ul>
+</li>
+<li><strong>6 · Print</strong> — <a href="../steps/b08-skirts-and-front-modules/">B08 — Skirts and front modules</a> · 29.2 h print · needs: Gate A re-passed after the Gen 2 upgrade; B02 and B07 to hand for the ring dry-fit<ul>
+<li><em>While it prints:</em> Nothing on the bench needs the kit — read Ch 03–05</li>
+<li><em>Gate:</em> Skirt faces flat with no lift; the ring dry-fits (power inlet from B07)</li>
+<li><em>Sessions:</em> 4 plate starts</li>
+</ul>
+</li>
+<li><strong>7 · Print</strong> — <a href="../steps/b09-panels-filtration-spool/">B09 — Panels, filtration, spool</a> · 21.8 h print · needs: B08<ul>
+<li><em>While it prints:</em> Read Ch 11; the first spool runout is predicted inside B09-P2 — stage spool #2</li>
+<li><em>Gate:</em> Nevermore lid slides, cartridge snaps; the panel-clip test (extrusion, panel offcut, foam tape) waits for kit day</li>
+<li><em>Sessions:</em> 5 plate starts</li>
+</ul>
+</li>
+<li><strong>8 · Print</strong> — <a href="../steps/b10-clicky-clack-door/">B10 — Clicky-Clack door</a> · 5.7 h print · needs: B02 (<code>Handle</code>), B09; door swing decided<ul>
+<li><em>While it prints:</em> Sort every pre-kit batch into its bins — print the <a href="../../print/bin-labels/">bin labels</a> (25 bins, <a href="../print/#bins">scheme</a>) and label ~25 containers or bags</li>
+<li><em>Gate:</em> Brims off clean; the bushing and dowel tests wait for the Clicky-Clack hardware</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>9 · Build</strong> — <a href="../steps/00-before-you-start/">Ch 00 — Before you start</a> <strong>KIT</strong> · 2.5–4.0 · needs: the kit; B00 (<code>Heatset_Practice</code>, both rail guides)<ul>
+<li><em>While it prints:</em> <strong>Gate B first</strong> (Step B00.7, 15 min: 625-2RS bore, MGN12 rail, seven inserts in the coupon), then B01-P1 on the Prusa before the inventory starts</li>
+<li><em>Gate:</em> Checkpoint 00: deck panel calipered, all seven rails cleaned and greased, both Discord questions posted</li>
+<li><em>Sessions:</em> 7 × ~30 min</li>
+</ul>
+</li>
+<li><strong>10 · Print</strong> — <a href="../steps/b01-z-drive-assemblies/">B01 — Z drive assemblies</a> · 22.8 h print · needs: <strong>Gate B</strong><ul>
+<li><em>While it prints:</em> Ch 00 finishes, then Ch 12 Part 1 and Ch 01</li>
+<li><em>Gate:</em> Batch gate (bearing seats), then the heat-set pass on every drive part in Ch 02</li>
+<li><em>Sessions:</em> 2 plate starts</li>
+</ul>
+</li>
+<li><strong>11 · Build</strong> — <a href="../steps/12-software/">Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail</a> <strong>KIT</strong> · ~1.0 of Ch 12's 2.0–3.0 · needs: the Pi from carton 2 only — no hardware gate<ul>
+<li><em>While it prints:</em> B01</li>
+<li><em>Gate:</em> Pi on the network, web UI up, bench-powered from USB-C</li>
+<li><em>Sessions:</em> 2 × ~30 min</li>
+</ul>
+</li>
+<li><strong>12 · Build</strong> — <a href="../steps/01-frame/">Ch 01 — Frame</a> <strong>KIT 2P</strong> · 2.5–4.0 · needs: Ch 00<ul>
+<li><em>While it prints:</em> B01 continues</li>
+<li><em>Gate:</em> Checkpoint 01: diagonals equal, frame square on the verified-flat counter</li>
+<li><em>Sessions:</em> 4 × ~30 min</li>
+</ul>
+</li>
+<li><strong>13 · Print</strong> — <a href="../steps/b03-ab-drive-units-and-front-idlers/">B03 — A/B drive units + front idlers</a> · 8.5 h print · needs: Gate B<ul>
+<li><em>While it prints:</em> Ch 02 Z drives</li>
+<li><em>Gate:</em> Bearing-seat test on a drive frame (F695)</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>14 · Build</strong> — <a href="../steps/02-z-drives/">Ch 02 — Z drives, Z idlers, Z rails, deck</a> <strong>KIT</strong> · 4.25–6.25 · needs: Ch 01; B00, B01, <strong>B02-P1</strong>, <strong>B02-P3</strong><ul>
+<li><em>While it prints:</em> B03, then B04</li>
+<li><em>Gate:</em> Checkpoint 02: four Z carriages move freely, deck in, every set screw threadlocked on the flat</li>
+<li><em>Sessions:</em> 11 × ~30 min</li>
+</ul>
+</li>
+<li><strong>15 · Print</strong> — <a href="../steps/b04-xy-joints-and-x-carriage/">B04 — XY joints + X carriage</a> · 8.6 h print · needs: Gate B<ul>
+<li><em>While it prints:</em> Ch 03 Build plate</li>
+<li><em>Gate:</em> Carriage pattern and shaft bores dry-fitted. <code>probe_retainer_bracket</code> off this plate is fitted in Ch 07/08, not in a batch</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>16 · Build</strong> — <a href="../steps/03-build-plate/">Ch 03 — Build plate</a> <strong>KIT</strong> · 1.5–2.5 · needs: Ch 01, Ch 02<ul>
+<li><em>While it prints:</em> B04, then B05</li>
+<li><em>Gate:</em> Checkpoint 03: magnet applied <strong>and</strong> its bolt holes trimmed straight after, plate bolted, three cables hanging below deck</li>
+<li><em>Sessions:</em> 4 × ~30 min</li>
+</ul>
+</li>
+<li><strong>17 · Print</strong> — <a href="../steps/b05-z-joints-and-z-chain/">B05 — Z joints + Z chain</a> · 6.4 h print · needs: Gate B; starts spool #3<ul>
+<li><em>While it prints:</em> Ch 04</li>
+<li><em>Gate:</em> 8 mm shaft slides through every Z joint</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>18 · Build</strong> — <a href="../steps/04-ab-drives/">Ch 04 — A/B drives and front idlers</a> <strong>KIT</strong> · 3.5–5.0 · needs: Ch 01; B00 (<code>pulley_jig</code>), <strong>B02-P2</strong>, B03<ul>
+<li><em>While it prints:</em> B05, then B06</li>
+<li><em>Gate:</em> Checkpoint 04: A = rear right, B = rear left; both pulley heights set with <code>pulley_jig</code></li>
+<li><em>Sessions:</em> 6 × ~30 min</li>
+</ul>
+</li>
+<li><strong>19 · Print</strong> — <a href="../steps/b06-toolhead-sb-cw2-klicky/">B06 — Toolhead: SB, CW2, Klicky</a> · 12.2 h print · needs: Gate B<ul>
+<li><em>While it prints:</em> Ch 05 Gantry</li>
+<li><em>Gate:</em> Hotend seat flat; the Klicky set counted and <strong>bagged as the alternative probe</strong> (Ch 08.54), no magnets pressed</li>
+<li><em>Sessions:</em> 1 plate start</li>
+</ul>
+</li>
+<li><strong>20 · Build</strong> — <a href="../steps/05-gantry/">Ch 05 — Gantry</a> <strong>KIT 2P</strong> · 5.0–7.0 · needs: Ch 00 rails, Ch 04; <strong>B02-P3</strong>, B04<ul>
+<li><em>While it prints:</em> B06 — the last plate. If the kit landed before B08–B10 printed, those three batches run from here under Ch 06–12 instead, after the Gen 2 upgrade</li>
+<li><em>Gate:</em> Checkpoint 05: titanium backers fitted <strong>before</strong> the XY joints are torqued (survey W2); X carriage runs full travel</li>
+<li><em>Sessions:</em> 12 × ~30 min</li>
+</ul>
+</li>
+<li><strong>21 · Build</strong> — <a href="../06-z-axis-and-gantry-squaring/#part-a-chapter-06-z-axis-mechanical">Ch 06 Part A — Z axis: hang the gantry, Z belts</a> <strong>KIT 2P lift</strong> · 3.5–5.0 · needs: Ch 02, Ch 05; B02, B05<ul>
+<li><em>While it prints:</em> Printer idle — all 22 plates are done</li>
+<li><em>Gate:</em> Checkpoint 06: gantry travels its full Z range by hand, four Z belts even by ear</li>
+<li><em>Sessions:</em> 8 × ~30 min</li>
+</ul>
+</li>
+<li><strong>22 · Build</strong> — <a href="../steps/07-ab-belts/">Ch 07 — A/B belts, provisional tension</a> <strong>KIT</strong> · 2.5–4.0 · needs: Ch 04, Ch 05, Ch 06 Part A; B02, B03, B04, B05<ul>
+<li><em>Gate:</em> Checkpoint 07: both belts ~110 Hz and equal after moving the gantry — <strong>provisional</strong>, Ch 06b releases it again</li>
+<li><em>Sessions:</em> 5 × ~30 min</li>
+</ul>
+</li>
+<li><strong>23 · Build</strong> — <a href="../steps/08-toolhead/">Ch 08 — Toolhead</a> <strong>KIT</strong> · 3.0–4.5 · needs: Ch 05, Ch 07; B02, B04, B06<ul>
+<li><em>Gate:</em> Checkpoint 08: inductive probe built and Klicky bagged, every toolhead connector seated, ESD ground lead on</li>
+<li><em>Sessions:</em> 10 × ~30 min</li>
+</ul>
+</li>
+<li><strong>24 · Build</strong> — <a href="../steps/09-electronics-bay/">Ch 09 — Electronics bay</a> <strong>KIT</strong> · 2.5–4.0 · needs: Ch 01–03, Ch 06, Ch 00a; B07<ul>
+<li><em>Gate:</em> Checkpoint 09: DIN rails <strong>left-to-right</strong>, everything mounted, nothing wired yet</li>
+<li><em>Sessions:</em> 7 × ~30 min</li>
+</ul>
+</li>
+<li><strong>25 · Build</strong> — <a href="../steps/10-wiring/">Ch 10 — Wiring</a> <strong>KIT</strong> · 5.0–7.0 · needs: Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07, B08 (<code>mount.stl</code>), B02 (<code>[a]_faceplate</code>) — the TFT module is built at 10.50<ul>
+<li><em>Gate:</em> <strong>LDO Checkpoint #1</strong> — multimeter, machine unplugged. Hard gate: the bay does not close until it passes (survey W8)</li>
+<li><em>Sessions:</em> 14 × ~30 min</li>
+</ul>
+</li>
+<li><strong>26 · Build</strong> — <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">Ch 12 Part 2 — flash both MCUs, <code>printer.cfg</code> for a 350 Rev D+</a> <strong>KIT</strong> · the rest of 2.0–3.0 · needs: Ch 10<ul>
+<li><em>Gate:</em> Checkpoint 12: toolboard ID reads <code>stm32g0b1xx</code> (survey W13); every 350 mm value uncommented (survey W14)</li>
+<li><em>Sessions:</em> 7 × ~30 min</li>
+</ul>
+</li>
+<li><strong>27 · Build</strong> — <a href="../11-skirts-panels-door/#part-a-before-first-power-up">Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges</a> <strong>KIT</strong> · 3.0–4.0 · needs: Ch 10 Checkpoint #1, Ch 12 Part 2; B02, B07, B08, B09, <strong>B10 by Step 11.46</strong> (hinges, latch, handle)<ul>
+<li><em>Gate:</em> Bay closed. <strong>Back, side and top panels and the door stay off</strong> — Ch 13 and Ch 06b need to reach the gantry</li>
+<li><em>Sessions:</em> 12 × ~30 min</li>
+</ul>
+</li>
+<li><strong>28 · Build</strong> — <a href="../steps/13-initial-startup/">Ch 13 — Initial startup</a> <strong>KIT</strong> · 2.5–4.0 plus ~1 h cube print · needs: Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12<ul>
+<li><em>Gate:</em> Checkpoint 13: <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm, QGL converged, Z=0 set, cube printed and kept</li>
+<li><em>Sessions:</em> 11 × ~30 min</li>
+</ul>
+</li>
+<li><strong>29 · Build</strong> — <a href="../06-z-axis-and-gantry-squaring/#part-b-chapter-06b-gantry-squaring">Ch 06b — Gantry squaring, cold, and provisional tension</a> <strong>KIT 2P</strong> · ~1.0 · needs: Ch 13 Step 13.34<ul>
+<li><em>Gate:</em> Checkpoint 06b: gantry de-racked and the XY joints tightened <strong>cold</strong>; Z joints seated; A/B back to ~110 Hz provisional; Ch 13 Step 13.35 re-QGLs. No heat soak here — the chamber cannot close yet</li>
+<li><em>Sessions:</em> 1 × ~30 min</li>
+</ul>
+</li>
+<li><strong>30 · Build</strong> — <a href="../11-skirts-panels-door/#part-b-after-ch-13">Ch 11 Part B — back, side and top panels, Clicky-Clack door</a> <strong>KIT</strong> · 1.0–2.0 · needs: Ch 13, Ch 06b; B02 <code>Handle</code>, B09, B10<ul>
+<li><em>Gate:</em> Chamber reaches the 50–60 °C band with the door shut</li>
+<li><em>Sessions:</em> 5 × ~30 min</li>
+</ul>
+</li>
+<li><strong>31 · Build</strong> — <a href="../steps/14-calibration/">Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune</a> <strong>KIT</strong> · 2.5–4.0 over 6–8 h · needs: Ch 13, Ch 06b, Ch 11 Part B (the chamber has to close for the soak)<ul>
+<li><em>Gate:</em> The 1½–2 h heat soak with the panels on, Z joints tightened hot, A/B and Z belts at final tension, QGL and probe accuracy re-checked — then Checkpoint 14 and the tuning log filled in</li>
+<li><em>Sessions:</em> 13 × ~30 min</li>
+</ul>
+</li>
+</ul>
+<p><strong>Baseline vs. row 5.</strong> The plan is to do the Gen 1 → Gen 2 belt upgrade <em>before</em> B00, so the whole Voron run prints on GT1.5. Row 5 is the contingency for an upgrade kit that turns up mid-run: pause at the end of B07, because B08–B10 are 10 of the 22 plates and hold every surface anyone will ever look at (<a href="../../voron-print-plan/#8-where-to-do-the-core-one-gen-2-belt-upgrade">print plan §8</a>). Second-best boundary is before B02, whose plate P1 carries the Stealthburner body.</p>
+<p><strong>Dependencies inside B02.</strong> The orange day prints once, but its plates are consumed at five different times: <strong>B02-P1 + B02-P3</strong> gate Ch 02 (Z drive baseplates, belt tensioners, Z tensioners); the cable bridge and endstop pod off P3 go to Ch 05; the Stealthburner accent parts off P1 and P3 go to Ch 08; <strong>B02-P2</strong> gates Ch 04 (A/B tensioners); the Z belt clips and chain retainers gate Ch 06 Part A; and the belt guards, fan grills, keystone blank, TFT faceplate and door <code>Handle</code> are not needed until Ch 11.</p>
+<hr>
+<h2 id="critical-path">Critical path<a class="headerlink" href="#critical-path" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Print time</td>
+<td><strong>157.1 h</strong> across 22 plates in 11 batches (1813 g black, 279 g orange) — <strong>98.6 h in the six pre-kit batches</strong>, <strong>58.5 h in the five kit-day batches</strong></td>
+</tr>
+<tr>
+<td>Hands-on time</td>
+<td><strong>59.4 h</strong> — the sum of the chapter Time midpoints (Ch 06b's ~1 h cold squaring pass is on top of Ch 06's figure)</td>
+</tr>
+<tr>
+<td>Printing, elapsed</td>
+<td>Pre-kit: <strong>~10 printer-days ≈ 1.5–2 weeks</strong> (swap-limited, ~10 print-hours/day; the floor is ~4 days if you change plates the minute each one ends). Kit day onward: ~6 printer-days, all under Ch 00–05</td>
+</tr>
+<tr>
+<td>Building, elapsed</td>
+<td><strong>~2.7 weeks ≈ 3 weeks</strong> at 22 h/week</td>
+</tr>
+<tr>
+<td><strong>(a) After the Prusa is running</strong></td>
+<td><strong>≈ 4.5–5 calendar weeks</strong> — ~1.5–2 weeks printing the pre-kit batches while the kit ships, then ~3 weeks of build with B01 and B03–B06 printing underneath</td>
+</tr>
+<tr>
+<td><strong>(b) After the kit arrives</strong></td>
+<td><strong>≈ 3 calendar weeks</strong> — Gate B and B01 (22.8 h) run under Ch 00–01 (5–8 h hands-on ≈ 2–3 days at 22 h/week), so Ch 02 waits on B01-P2 for half a day at most; B03–B06 print under Ch 02–05 and nothing after Ch 05 waits on plastic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>≈ 141 sessions of ~30 min</strong> — the sum of every assembly chapter's <code>Sessions:</code> line (Ch 00, 00a–14, 06b and both parts of 11 and 12 counted once each) — plus 22 plate starts of ~5 min each and the inspect passes after each batch.</p>
+<p>Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of two weekend days), the Core One+ printing unattended overnight with about two plate swaps a day, no reprints beyond the plan's 24 % filament margin, the Gen 2 upgrade done before B00, and the kit landing after the pre-kit run ends.</p>
+<hr>
+<h2 id="chapters">Chapters<a class="headerlink" href="#chapters" title="Permanent link">¶</a></h2>
+<h3 id="assembly">Assembly<a class="headerlink" href="#assembly" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Scope</th>
+<th>Time (h)</th>
+<th>Sessions</th>
+<th>Prerequisites</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../steps/00-before-you-start/">00 — Before you start</a></td>
+<td>Inventory against the BOM, tools, flat reference, heat-set practice, clean and grease all seven rails</td>
+<td>2.5–4.0</td>
+<td>7 × ~30 min</td>
+<td>The kit; B00 (<code>Heatset_Practice</code>, both rail guides). Gate B (Step B00.7) runs the same morning</td>
+</tr>
+<tr>
+<td><a href="../steps/00a-mains-safety/">00a — Mains safety</a></td>
+<td>Decide who does the mains work, buy and test the meter, agree the who's-in-the-room and smoke/trip/bite rules — read before Ch 09</td>
+<td>0.75–1.0</td>
+<td>2 × ~30 min</td>
+<td>Ch 00 Steps 00.8 and 00.30 as reading. No kit part, no printed part — doable before the kit</td>
+</tr>
+<tr>
+<td><a href="../steps/01-frame/">01 — Frame</a></td>
+<td>2020 frame and the two bed extrusions, squared on a verified-flat surface</td>
+<td>2.5–4.0</td>
+<td>4 × ~30 min</td>
+<td>Ch 00. No printed part required</td>
+</tr>
+<tr>
+<td><a href="../steps/02-z-drives/">02 — Z drives, Z idlers, Z rails, deck</a></td>
+<td>Four Z drives, four Z idlers, four Z rails, deck panel and supports</td>
+<td>4.25–6.25</td>
+<td>11 × ~30 min</td>
+<td>Ch 01; B00, B01, B02-P1, B02-P3</td>
+</tr>
+<tr>
+<td><a href="../steps/03-build-plate/">03 — Build plate</a></td>
+<td>355×355×10 mm plate, magnet sheet, bed harness dressed below deck</td>
+<td>1.5–2.5</td>
+<td>4 × ~30 min</td>
+<td>Ch 01, Ch 02. No printed part required</td>
+</tr>
+<tr>
+<td><a href="../steps/04-ab-drives/">04 — A/B drives and front idlers</a></td>
+<td>The four CoreXY sub-assemblies that carry the A and B belts</td>
+<td>3.5–5.0</td>
+<td>6 × ~30 min</td>
+<td>Ch 01; B00 (<code>pulley_jig</code>), B02-P2, B03</td>
+</tr>
+<tr>
+<td><a href="../steps/05-gantry/">05 — Gantry</a></td>
+<td>X and Y axes, both XY joints, X carriage, titanium backers</td>
+<td>5.0–7.0</td>
+<td>12 × ~30 min</td>
+<td>Ch 00 rails, Ch 04; B02-P3, B04</td>
+</tr>
+<tr>
+<td><a href="../06-z-axis-and-gantry-squaring/#part-a-chapter-06-z-axis-mechanical">06 Part A — Z axis</a></td>
+<td>Hang the gantry on the Z joints, belt all four Z corners</td>
+<td>3.5–5.0</td>
+<td>8 × ~30 min</td>
+<td>Ch 02, Ch 05; B02, B05</td>
+</tr>
+<tr>
+<td><a href="../06-z-axis-and-gantry-squaring/#part-b-chapter-06b-gantry-squaring">06b — Gantry squaring</a></td>
+<td>The real squaring pass, <strong>cold</strong> — needs motor control, so it runs out of Ch 13; ends at provisional A/B tension. The hot soak and final tension are Ch 14</td>
+<td>~1.0</td>
+<td>1 × ~30 min</td>
+<td>Ch 13 Step 13.34</td>
+</tr>
+<tr>
+<td><a href="../steps/07-ab-belts/">07 — A/B belts</a></td>
+<td>Cut, route and clamp both CoreXY belts; provisional tension; inductive probe on the carriage</td>
+<td>2.5–4.0</td>
+<td>5 × ~30 min</td>
+<td>Ch 04, Ch 05, Ch 06 Part A; B02, B03, B04, B05</td>
+</tr>
+<tr>
+<td><a href="../steps/08-toolhead/">08 — Toolhead</a></td>
+<td>Stealthburner, Clockwork 2, Revo Voron (HF nozzle), Nitehawk-SB V2, hung on the carriage; Klicky bagged</td>
+<td>3.0–4.5</td>
+<td>10 × ~30 min</td>
+<td>Ch 05, Ch 07; B02, B04, B06</td>
+</tr>
+<tr>
+<td><a href="../steps/09-electronics-bay/">09 — Electronics bay</a></td>
+<td>DIN rails, ducts, PSU, SSR, Leviathan and Pi, mains inlet, WAGOs, both endstops — mounted, not wired</td>
+<td>2.5–4.0</td>
+<td>7 × ~30 min</td>
+<td>Ch 01–03, Ch 06, Ch 00a; B07</td>
+</tr>
+<tr>
+<td><a href="../steps/10-wiring/">10 — Wiring</a></td>
+<td>Every harness, ending at LDO Checkpoint #1</td>
+<td>5.0–7.0</td>
+<td>14 × ~30 min</td>
+<td>Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07, B08 (<code>mount.stl</code>), B02 (<code>[a]_faceplate</code>) — both at Step 10.50</td>
+</tr>
+<tr>
+<td><a href="../steps/11-skirts-panels-door/">11 — Skirts, panels, door, filtration</a></td>
+<td>Part A closes the bay and builds the door hinges and handle; Part B fits the back, side and top panels and hangs the Clicky-Clack door after Ch 06b</td>
+<td>3.0–4.0 + 1.0–2.0</td>
+<td>12 + 5 × ~30 min</td>
+<td>Part A: Ch 10 + Checkpoint #1; B02, B07, B08, B09, B10 (by Step 11.46). Part B also Ch 13, Ch 06b; B09, B10, B02 <code>Handle</code></td>
+</tr>
+<tr>
+<td><a href="../steps/12-software/">12 — Software</a></td>
+<td>Pi image, Klipper/Moonraker/Mainsail, both MCUs flashed, <code>printer.cfg</code> for a 350 Rev D+</td>
+<td>2.0–3.0</td>
+<td>9 × ~30 min</td>
+<td>Part 1: the Pi only. Part 2: Ch 10 + Checkpoint #1. No printed part required</td>
+</tr>
+<tr>
+<td><a href="../steps/13-initial-startup/">13 — Initial startup</a></td>
+<td>First power-on through temps, fans, motors, endstops, homing, PID, QGL, Z=0, bed mesh and the first cube</td>
+<td>2.5–4.0</td>
+<td>11 × ~30 min</td>
+<td>Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12. No printed part required</td>
+</tr>
+<tr>
+<td><a href="../steps/14-calibration/">14 — Calibration and tuning</a></td>
+<td>Hot soak with the chamber closed, Z joints tightened hot, final belt tension, squaring and QGL re-check; then rotation distance, chamber and <code>PRINT_START</code>, cube measurement, input shaper, PA, flow</td>
+<td>2.5–4.0</td>
+<td>13 × ~30 min</td>
+<td>Ch 13, Ch 06b, Ch 11 Part B, Ch 12; the B00 reference cube and Ch 13's cube</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../15-troubleshooting/">15 — Troubleshooting index</a></td>
+<td>Symptom-first lookup into the fix already owned by a step, checkpoint or callout in Ch 00–14 and the print chapters</td>
+</tr>
+<tr>
+<td><a href="../16-glossary/">16 — Glossary</a></td>
+<td>Every term the manual uses without stopping to define it, with the chapter or step it first matters at</td>
+</tr>
+</tbody>
+</table>
+<h3 id="print-batches">Print batches<a class="headerlink" href="#print-batches" title="Permanent link">¶</a></h3>
+<p>Full table with grams and plate counts: <a href="../print/">print/README.md</a>. Profile, overrides and the two-part calibration gate: <a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a>. Print order is the timeline above — the six Gate A batches before the kit, the five Gate B batches from kit day.</p>
+<table>
+<thead>
+<tr>
+<th>Batch</th>
+<th>Scope</th>
+<th>Plates · hours</th>
+<th>Print gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../steps/b00-calibration-and-jigs/">B00 — Calibration &amp; jigs</a></td>
+<td>Test cube, heat-set coupon, rail guides, pulley jig, one Z-drive retainer as the bore coupon</td>
+<td>1 · 4.0</td>
+<td>None — it <em>is</em> the gate: Gate A on the day, Gate B on kit day</td>
+</tr>
+<tr>
+<td><a href="../steps/b02-accent-parts-orange/">B02 — Accent parts, orange</a></td>
+<td>Every orange part in the build, in one session</td>
+<td>3 · 21.9</td>
+<td>Gate A</td>
+</tr>
+<tr>
+<td><a href="../steps/b07-electronics-bay-and-lighting/">B07 — Electronics bay + lighting</a></td>
+<td>WAGO and PSU mounts, DIN clips, eight COB mounts, <code>power_inlet_IECGS_1mm</code>, <code>usb_adapter_mount_partial_cover</code></td>
+<td>2 · 16.0</td>
+<td>Gate A</td>
+</tr>
+<tr>
+<td><a href="../steps/b08-skirts-and-front-modules/">B08 — Skirts and front modules</a></td>
+<td>The 350 skirt set, front touchscreen module, grills and guards</td>
+<td>4 · 29.2</td>
+<td>Gate A, re-passed after the Gen 2 upgrade</td>
+</tr>
+<tr>
+<td><a href="../steps/b09-panels-filtration-spool/">B09 — Panels, filtration, spool</a></td>
+<td>Panel clips, Z belt covers, Nevermore Micro V5 Duo, spool holder</td>
+<td>5 · 21.8</td>
+<td>Gate A (after B08)</td>
+</tr>
+<tr>
+<td><a href="../steps/b10-clicky-clack-door/">B10 — Clicky-Clack door</a></td>
+<td>The door set, plus the orange <code>Handle</code> from B02</td>
+<td>1 · 5.7</td>
+<td>Gate A (after B09)</td>
+</tr>
+<tr>
+<td><a href="../steps/b01-z-drive-assemblies/">B01 — Z drive assemblies</a></td>
+<td>Z drive bodies, retainers, motor mounts, Z tensioner brackets, deck supports</td>
+<td>2 · 22.8</td>
+<td><strong>Gate B</strong> (kit day)</td>
+</tr>
+<tr>
+<td><a href="../steps/b03-ab-drive-units-and-front-idlers/">B03 — A/B drive units + front idlers</a></td>
+<td>A and B drive frames, both front idler pairs</td>
+<td>1 · 8.5</td>
+<td>Gate B</td>
+</tr>
+<tr>
+<td><a href="../steps/b04-xy-joints-and-x-carriage/">B04 — XY joints + X carriage</a></td>
+<td>MGN12 XY joint set, X carriage halves, <code>probe_retainer_bracket</code></td>
+<td>1 · 8.6</td>
+<td>Gate B</td>
+</tr>
+<tr>
+<td><a href="../steps/b05-z-joints-and-z-chain/">B05 — Z joints + Z chain</a></td>
+<td>Upper and lower Z joints, Z chain anchor and guide</td>
+<td>1 · 6.4</td>
+<td>Gate B</td>
+</tr>
+<tr>
+<td><a href="../steps/b06-toolhead-sb-cw2-klicky/">B06 — Toolhead</a></td>
+<td>Stealthburner, Clockwork 2, <code>cw2_captive_pcb_cover</code>; the Klicky set, bagged as the alternative probe</td>
+<td>1 · 12.2</td>
+<td>Gate B</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="every-step-links-to-its-source">Every step links to its source<a class="headerlink" href="#every-step-links-to-its-source" title="Permanent link">¶</a></h2>
+<p>Every step ends with a <code>Source:</code> line naming the exact manual page, LDO doc or print-plan section it was transcribed from, pinned to a specific commit for GitHub-hosted files so the link doesn't drift under you. If a step's text and its Source line disagree, or the source itself looks wrong, file a correction with the <a href="https://github.com/alexlicohen/voron-24-350-build-manual/issues/new/choose">correction issue template</a> rather than editing the step from memory.</p>
+<hr>
+<h2 id="corrections-log">Corrections log<a class="headerlink" href="#corrections-log" title="Permanent link">¶</a></h2>
+<p>What the kit actually is, where it differs from the published documents, and which chapter holds the detail. This is the list to re-check whenever LDO updates its docs.</p>
+<p>To add a row: append it with the next <code>#</code>, today's date, and fill "Source that was wrong" / "Verified against" only when the correction actually names them — otherwise leave <code>—</code> rather than guessing.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Date</th>
+<th>Correction</th>
+<th>Source that was wrong</th>
+<th>Detail lives in</th>
+<th>Verified against</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2026-09-05</td>
+<td><strong>Rev D+ = Nitehawk-SB V2.</strong> The difference is electrical apart from one printed part: the V2 repo's <code>usb_adapter_mount_partial_cover.stl</code> (it exposes a mounting point for the ground lug), not the V1 <code>usb_adapter_mount.stl</code></td>
+<td>—</td>
+<td><a href="../steps/09-electronics-bay/">Ch 09 Step 09.25</a>; flagged in Ch 00; printed in <a href="../steps/b07-electronics-bay-and-lighting/">B07</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2026-09-05</td>
+<td><strong>The magnet sheet is user-applied</strong>, and its bolt holes are trimmed immediately after — not later</td>
+<td>—</td>
+<td><a href="../steps/03-build-plate/">Ch 03 Step 03.9</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2026-09-05</td>
+<td><strong>Both probes ship. Build the inductive one.</strong> Omron inductive for QGL, LDO nozzle probe for Z=0; the Klicky parts get printed (B06-P1 since row 25 merged the two B06 plates) and bagged</td>
+<td>—</td>
+<td><a href="../steps/08-toolhead/">Ch 08 Step 08.54</a>; config in <a href="../steps/12-software/">Ch 12</a>; printed in <a href="../steps/b06-toolhead-sb-cw2-klicky/">B06</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2026-09-05</td>
+<td><strong>RETRACTED 2026-09-06.</strong> Originally: "DIN rails run left-to-right, per LDO — the official manual runs them front-to-back." The manual's own p.28–29 already show the rails left-to-right; manual and LDO agree, so there is no deviation (Ch 09 fix, review F5)</td>
+<td>This log (row 4 as first written)</td>
+<td><a href="../steps/09-electronics-bay/">Ch 09 Step 09.5</a></td>
+<td>manual p.28–29 page images</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2026-09-05</td>
+<td><strong>Which Leviathan you have is contested</strong>: STM32F446 (V1.1/V1.2) or STM32H743 (V1.3). Processor, clock and bootloader offset all differ; settle it from the board, not from a document</td>
+<td>—</td>
+<td><a href="../steps/12-software/">Ch 12 Step 12.13</a></td>
+<td>The physical board (STM32 marking), not a document</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2026-09-05</td>
+<td><strong>The Nitehawk-SB V2 ESD grounding scheme</strong> shipped as three images with no prose until LDO's board doc was updated <strong>2026-07-10</strong>. Treat grounding as a required build step</td>
+<td>LDO Nitehawk-SB V2 board doc (pre-2026-07-10, images only, no prose)</td>
+<td><a href="../steps/10-wiring/">Ch 10 Step 10.58</a>; also Ch 08</td>
+<td>LDO board doc, updated 2026-07-10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2026-09-05</td>
+<td><strong>Deck panel: 3 mm or 4 mm.</strong> LDO's guides say 4 mm, LDO's own BOM says 3 mm. Your caliper decides which <code>deck_support_*</code> you print</td>
+<td>LDO guides (4 mm) vs. LDO's own BOM (3 mm) — internally inconsistent</td>
+<td><a href="../steps/02-z-drives/">Ch 02 Step 02.12</a>; measured at Ch 00</td>
+<td>Caliper measurement of your kit's deck panel</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2026-09-05</td>
+<td><strong>PrusaSlicer shrinkage compensation and XY size compensation must both be zero.</strong> Voron parts are already drawn for ABS/ASA shrinkage; compensating again ruins every bearing fit</td>
+<td>—</td>
+<td><a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2026-09-05</td>
+<td><strong>Four GT2 20T 9 mm idlers are consumed in Ch 02</strong> on the Z tensioners; the two XY joints need two more. Do not raid the bag early</td>
+<td>—</td>
+<td><a href="../steps/02-z-drives/">Ch 02 Step 02.40</a>; consumed again in <a href="../steps/05-gantry/">Ch 05</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2026-09-05</td>
+<td><strong>A = rear right, B = rear left</strong>, so the A idler is the front-right pair and the B idler the front-left pair. B03's plate captions <em>had</em> the pairing the wrong way round (fixed 2026-09-05; B03-P1 = A side = <code>front_idler_right_*</code>)</td>
+<td>B03 plate captions (this manual, pre-fix)</td>
+<td><a href="../steps/04-ab-drives/">Ch 04 Step 04.2</a>; belt paths in <a href="../steps/07-ab-belts/">Ch 07</a></td>
+<td>Ch 04 Step 04.2 A/B convention</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2026-09-05</td>
+<td><strong><code>power_inlet_IECGS_1mm</code> prints in B07, not B08</strong> — it is fitted in the electronics bay at manual p.156/167, not with the skirts. It needed its <strong>own plate B07-P3</strong>: with 3 mm brims it will not fit beside the eight COB mounts (84 % bed fill); row 25 moved it onto <strong>B07-P1</strong> instead, so B07 is 2 plates. At the time B07 was 3 plates, and the build is <strong>27 plates / 134.3 h at the time (re-estimated by slicing to 157.1 h, row 20)</strong></td>
+<td>—</td>
+<td><a href="../steps/09-electronics-bay/">Ch 09</a>; <a href="../steps/b07-electronics-bay-and-lighting/">B07</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2026-09-05</td>
+<td><strong>625-2RS is the Z-drive bearing (16 mm OD); F695 is the A/B-drive, front-idler and XY-joint bearing (13 mm OD).</strong> Both are 5 mm bore, so you cannot sort them by bore. The B00 press-fit gate tests a <strong>625-2RS</strong> seat</td>
+<td>—</td>
+<td><a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a>; <a href="../steps/b01-z-drive-assemblies/">B01</a>, <a href="../steps/b03-ab-drive-units-and-front-idlers/">B03</a>, <a href="../steps/00-before-you-start/">Ch 00</a>, <a href="../steps/02-z-drives/">Ch 02</a>, <a href="../steps/04-ab-drives/">Ch 04</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>13</td>
+<td>2026-09-05</td>
+<td><strong>A/B motor pulleys are GT2 20T ×2 in the 6 mm width.</strong> The kit's four 9 mm 20T pulleys are all Z-drive parts — using one on an A/B motor steals a Z pulley and puts a 9 mm pulley in the 6 mm belt plane an F695 pair forms</td>
+<td>—</td>
+<td><a href="../steps/04-ab-drives/">Ch 04 Step 04.24</a>; Z pulleys at <a href="../steps/02-z-drives/">Ch 02</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>14</td>
+<td>2026-09-05</td>
+<td><strong>Bed extrusions: 130 mm is the clear gap between inner faces</strong>, i.e. 65 mm each side of the centreline and <strong>150 mm centre-to-centre</strong>. Manual p.20's dimension lines land on the inner faces</td>
+<td>—</td>
+<td><a href="../steps/01-frame/">Ch 01 Step 01.19</a>; checked at <a href="../steps/03-build-plate/">Ch 03 Step 03.11</a></td>
+<td>Ch 03 Step 03.11 build-plate fit check</td>
+</tr>
+<tr>
+<td>15</td>
+<td>2026-09-05</td>
+<td><strong>The rails are 400 mm, not the manual's 250-spec length.</strong> ~10 M3×8 + T-nuts per MGN9 Y rail, ~8 for the MGN12 X rail — count the holes; every other hole</td>
+<td>Official Voron 2.4r2 assembly manual (specifies 250 mm rails)</td>
+<td><a href="../steps/05-gantry/">Ch 05 Steps 05.10–05.12, 05.32–05.33</a>; same rule at <a href="../steps/02-z-drives/">Ch 02</a></td>
+<td>Hole count on the 400 mm rails as received</td>
+</tr>
+<tr>
+<td>16</td>
+<td>2026-09-05</td>
+<td><strong>Rails are cleaned and greased once, in Ch 00.</strong> Ch 02 only verifies; the DIN rails are installed once, in Ch 09 Step 09.5, and Ch 02 only stages their T-nuts</td>
+<td>—</td>
+<td><a href="../steps/00-before-you-start/">Ch 00 Steps 00.18–00.21</a>, <a href="../steps/02-z-drives/">Ch 02 Steps 02.05 / 02.15</a>, <a href="../steps/09-electronics-bay/">Ch 09 Step 09.5</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>17</td>
+<td>2026-09-05</td>
+<td><strong>Printer preset is <code>Prusa CORE One 0.4 nozzle</code></strong> — the CORE One family dropped the "Original" prefix, so a search for "Original Prusa CORE One" finds nothing. <em>Superseded by #21: the HF0.4 variant is the preset in use</em></td>
+<td>—</td>
+<td><a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2026-09-05</td>
+<td><strong>Rotating a part about Z to fit the plate is allowed</strong>; changing which face sits on the bed is not. B08-P1 cannot be sliced without a 90° Z rotation of <strong><code>rear_center_skirt_350</code></strong> (it stands front-to-back beside an unturned <code>side_fan_support</code>; as first written this row named the wrong part — corrected 2026-09-06 against the committed 3MF)</td>
+<td>This log (row 18 as first written)</td>
+<td><a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a>; <a href="../steps/b08-skirts-and-front-modules/">B08 Step B08.2</a></td>
+<td><code>slicer/plates/B08-P1.3mf</code> mesh extents</td>
+</tr>
+<tr>
+<td>19</td>
+<td>2026-09-05</td>
+<td><strong>PrusaSlicer version posture:</strong> 2.9.6 for the dimension-critical batches (B00 gate, B01, B03–B06); the 3.0 preview is acceptable for B08–B10 with overrides re-entered by hand. Any toolchain change re-runs the B00 gate</td>
+<td>—</td>
+<td><a href="../print/00-slicer-setup/#prusaslicer-30-preview">print/00-slicer-setup.md</a></td>
+<td>—</td>
+</tr>
+<tr>
+<td>20</td>
+<td>2026-09-05</td>
+<td><strong>Print estimates now from PrusaSlicer 2.9.6 slices (were a throughput model).</strong> Totals moved to 27 plates, 157.1 h, 1813 g black + 279 g orange</td>
+<td>Throughput-model estimate (this manual, pre-fix)</td>
+<td><code>print/README.md</code></td>
+<td>Sliced <code>.3mf</code> project per plate (<code>slicer/estimates.csv</code>)</td>
+</tr>
+<tr>
+<td>21</td>
+<td>2026-09-05</td>
+<td><strong>HF 0.4 nozzle: slicer profiles use the Core One HF presets</strong> — <code>Prusa CORE One HF0.4 nozzle</code> printer preset and <code>Prusament ASA @COREONE HF0.4</code> filament preset, both hotter and faster than their non-HF equivalents. In the GUI the project shows them as <code>0.20mm STRUCTURAL @COREONE 0.4 (modified)</code> and <code>Prusament ASA @COREONE HF0.4 - Voron black</code></td>
+<td>—</td>
+<td><a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a></td>
+<td><code>Slic3r_PE.config</code> inside every committed <code>.3mf</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td>2026-09-06</td>
+<td><strong>The B00 calibration gate is split.</strong> Three of its seven coupons (heat-set inserts, the MGN12 rail, the 625-2RS bearing) only arrive with the kit, so a pre-kit builder could never pass "all seven". <strong>Gate A</strong> (the cube) releases B02, B07 and — after the Gen 2 upgrade — B08–B10; <strong>Gate B</strong> (kit day) releases B01 and B03–B06. Pre-kit print order is B00 → B02 → B07 → (Gen 2) → B08 → B09 → B10</td>
+<td>This manual and print plan §1.4, pre-fix ("only when all seven pass, start B01")</td>
+<td><a href="../print/00-slicer-setup/#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade">print/00-slicer-setup.md</a>; <a href="../steps/b00-calibration-and-jigs/">B00 Steps B00.5 / B00.7</a>; <a href="../print/">print/README.md</a>; this timeline</td>
+<td>Ch 00's insert count (kit-supplied, 153) and the B00 plate contents</td>
+</tr>
+<tr>
+<td>23</td>
+<td>2026-09-06</td>
+<td><strong>Ch 06b is cold; the hot soak moved to Ch 14.</strong> Timeline order is Ch 13 → Ch 06b (cold squaring, provisional tension) → Ch 11 Part B (panels) → Ch 14 (hot soak with the chamber closed, Z joints tightened hot, final tension, re-check). As first written 06b soaked a machine with no back, top or side panels</td>
+<td>This manual's timeline and Ch 06b Steps 06b.16–06b.18, pre-fix</td>
+<td><a href="../06-z-axis-and-gantry-squaring/#part-b-chapter-06b-gantry-squaring">Ch 06b</a>; <a href="../steps/14-calibration/">Ch 14 Parts A–B</a>; this timeline</td>
+<td>Voron gantry-squaring procedure (assumes a panelled machine, sides off) — review F7</td>
+</tr>
+<tr>
+<td>24</td>
+<td>2026-09-06</td>
+<td><strong>Each A/B belt is teeth-on at exactly one XY joint: A at the RIGHT joint's upper 20T, B at the LEFT joint's lower 20T; smooth-back on the other joint's F695 stack.</strong> A leaves the X carriage westward, rounds the LEFT joint's plain F695 stack smooth-back, wraps its own drive and front idler, and returns through the RIGHT joint on its upper 20T teeth-on; B mirrors it: first turn teeth-on the LEFT joint's lower 20T, return smooth-back on the RIGHT joint's lower F695 (manual p.105, p.131, p.135–138; Ch 07 Steps 07.16 / 07.17 / 07.23).</td>
+<td>Ch 07 intro and Step 07.23 Check, pre-fix ("smooth back on every plain stack")</td>
+<td><a href="../steps/07-ab-belts/">Ch 07 Steps 07.16 / 07.17 / 07.23 / 07.23</a>; <a href="../steps/05-gantry/">Ch 05 Step 05.29</a></td>
+<td>Manual p.135 and p.138; Ch 05.29 — review F4</td>
+</tr>
+<tr>
+<td>25</td>
+<td>2026-09-06</td>
+<td><strong>Plates consolidated 27 → 22; same parts, same 157.1 h, fewer plate swaps.</strong> Same-batch merges only: B03-P1+P2 into one plate, B06-P1+P2 into one, B07-P3's <code>power_inlet_IECGS_1mm</code> onto B07-P1, and B08's six skirt plates re-packed on real outlines into four (B08-P6's <code>mount.stl</code> rides on B08-P3). Every merged plate was proved to fit at a 6 mm gap between silhouettes with its 3 mm brims. Batch hours are unchanged; black drops 1813 → 1812 g</td>
+<td>—</td>
+<td><a href="../print/">print/README</a>; <a href="../../voron-print-plan/#3-the-batches">print plan §3</a></td>
+<td><code>slicer/nest.py</code> packing + re-sliced <code>slicer/plates/*.3mf</code> (<code>slicer/estimates.csv</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="how-to-update-this-manual">How to update this manual<a class="headerlink" href="#how-to-update-this-manual" title="Permanent link">¶</a></h2>
+<ol>
+<li>Everything is markdown under <code>docs/</code>; one chapter per file, <code>docs/manual/NN-slug.md</code>, print batches in <code>docs/manual/print/</code>.</li>
+<li>Serve it to the iPad with <code>./scripts/serve.sh</code> and read it at the bench on the LAN URL.</li>
+<li>Chapter format — header block, <code>### Step NN.M</code>, Parts / Do / Check, <code>⚠ Rev D+ / LDO:</code> callouts, Checkpoint, Common mistakes — is fixed by <a href="../CONVENTIONS/">CONVENTIONS.md</a>. Follow it exactly.</li>
+<li>A new correction goes in <strong>two</strong> places: the log above (one row, with the chapter link) and inline at the step it affects, as a <code>⚠ Rev D+ / LDO:</code> callout. Never only in a preamble.</li>
+<li><a href="../../voron-print-plan/"><code>docs/voron-print-plan.md</code></a> and <a href="../../voron-build-instructions-survey/"><code>docs/voron-build-instructions-survey.md</code></a> are the sources these chapters were written from — change them first when a fact moves, then the chapters, then this page.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../print/bin-labels/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bin labels">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Bin labels
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../00-tonight/" class="md-footer__link md-footer__link--next" aria-label="Next: Tonight">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Tonight
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

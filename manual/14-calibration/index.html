@@ -1,0 +1,3314 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/14-calibration/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 14 — Calibration and tuning - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-14-calibration-and-tuning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 14 — Calibration and tuning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#part-a-heaters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A — Heaters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part A — Heaters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-141-pre-flight-the-config-before-you-tune-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.1 — Pre-flight the config before you tune anything
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-142-confirm-the-heaters-are-already-pid-tuned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.2 — Confirm the heaters are already PID-tuned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-143-verify-thermal-stability-then-re-qgl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.3 — Verify thermal stability, then re-QGL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b-belts-final-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B — Belts, final tension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part B — Belts, final tension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-144-set-ab-belt-tension-to-110-hz-over-a-150-mm-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.4 — Set A/B belt tension to 110 Hz over a 150 mm span
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-145-set-the-four-z-belts-to-140-hz-over-150-mm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.5 — Set the four Z belts to 140 Hz over 150 mm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.6 — Closed-chamber soak, settle QGL, lock the Z joints hot, re-verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c-extruder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C — Extruder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part C — Extruder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-147-rotation-distance-check-100-mm-extrusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.7 — Rotation-distance check (100 mm extrusion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-chamber-and-the-first-real-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Chamber and the first real print
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part D — Chamber and the first real print">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-148-set-the-chamber-target-and-understand-the-soak" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.8 — Set the chamber target and understand the soak
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-149-close-ch-12s-print_start-todo-with-the-purge-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.9 — Close Ch 12's PRINT_START TODO with the purge line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1410-fetch-the-cube-you-already-printed-in-ch-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.10 — Fetch the cube you already printed in Ch 13
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1411-caliper-the-cube-against-the-prusa-printed-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.11 — Caliper the cube against the Prusa-printed one
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-e-input-shaper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E — Input shaper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part E — Input shaper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1412-bring-up-the-on-board-accelerometer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.12 — Bring up the on-board accelerometer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1413-run-shaper_calibrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.13 — Run SHAPER_CALIBRATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1414-read-the-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.14 — Read the graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1415-save-the-shaper-and-set-the-real-max_accel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.15 — Save the shaper and set the real max_accel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1416-z-axis-shaping-and-z-limits-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.16 — Z-axis shaping and Z limits (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-f-pressure-advance-and-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part F — Pressure advance and flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part F — Pressure advance and flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1417-generate-and-print-the-ellis-pa-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.17 — Generate and print the Ellis PA pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1418-read-the-pattern-and-save-the-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.18 — Read the pattern and save the value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1419-extrusion-multiplier-flow-the-2-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.19 — Extrusion multiplier / flow: the 2 % pass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1420-the-05-refinement-pass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.20 — The 0.5 % refinement pass
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1421-re-check-first-layer-squish-because-em-moved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.21 — Re-check first-layer squish, because EM moved
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-g-ongoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part G — Ongoing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part G — Ongoing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1422-bed-mesh-variance-and-a-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.22 — Bed mesh variance, and a backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1423-hand-off-to-ellis-for-everything-after-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 14.23 — Hand off to Ellis for everything after this
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuning log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 14
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-14-calibration-and-tuning">Chapter 14 — Calibration and tuning<a class="headerlink" href="#chapter-14-calibration-and-tuning" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/14-calibration/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Takes a machine that homes, probes, levels, is squared cold and has printed its first cube (Ch 13), now closed in by Ch 11 Part B, and turns it into a machine that prints Voron-quality ASA: belts at final tension, the gantry's Z joints locked at working temperature, extruder refined, input shaper set, pressure advance and flow dialled in, and that cube calipered against the Prusa-printed reference.</p>
+<p><strong>What you're building in this chapter.</strong> Nothing mechanical is added; six calibration items are measured and written down. <strong>Belt tension</strong> is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its first real <strong>heat soak</strong>, QGL is run until it settles, and the four <strong>Z joint</strong> bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The <strong>extruder</strong> value measured in Ch 13 is re-checked. <strong>Input shaping</strong> uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. <strong>Pressure advance</strong> compensates for the lag between the extruder and the nozzle at corners, and <strong>extrusion multiplier</strong> scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the <strong>chamber</strong>: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable.</p>
+<p><strong>Time:</strong> 2.5–4.0 h hands-on (survey §7.2), spread over ~8–10 h wall-clock. Most of the wall-clock is the 1½–2 h closed-chamber soak at Step 14.6, the shorter soaks (~30 min each) and four test prints.</p>
+<p><strong>Sessions:</strong> 13 × ~30 min hands-on (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 13 — First power-up and initial startup.</strong> All wizard steps passed (temperatures → heaters → fans → <code>STEPPER_BUZZ</code> → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), filament loaded and <code>rotation_distance</code> measured at Step 13.40, the Voron printer profile made at Step 13.41.</li>
+<li><strong>The Voron-printed <code>Voron_Design_Cube_v7</code></strong> from <a href="../13-initial-startup/#step-1341-make-the-voron-printer-profile-and-slice-the-cube">Ch 13 Steps 13.41–13.42</a>, kept. Ch 13 prints the cube and commits the first-layer squish; this chapter measures it, at step 14.11.</li>
+<li><strong>Ch 06b — Squaring the gantry, cold</strong>, run out of the middle of Ch 13 at Step 13.34 and finished before Ch 13's Z=0 and mesh: gantry square, the four Z joint M5×40 bolts reinstalled <strong>lightly</strong> (06b.13) and not yet torqued, A/B belts at a provisional tension. <strong>This chapter's belt-tension steps must come after 06b</strong> — the squaring procedure starts by fully releasing A/B tension, so anything you set before it is gone (survey §4.4 #2, §5.2 W1). Voron's squaring steps 14–17 (closed-chamber soak, QGL 3–5×, tighten the Z joints hot, restart) are Step 14.6 here, because they need the panels.</li>
+<li><strong>Ch 11 Part B — Panels and the Clicky-Clack door</strong>, on. The chamber has to close: Step 14.6's soak, Step 14.8 and Checkpoint 14 all gate on a closed chamber.</li>
+<li><strong>Ch 12 — Software.</strong> <code>[bed_mesh]</code> added at Step 12.34, <code>PRINT_START</code> replaced at Step 12.36 (survey §4.4 #15).</li>
+<li><strong>Batch B00.</strong> The Prusa-printed <code>Voron_Design_Cube_v7</code> in Prusament ASA Galaxy Black, kept as the reference coupon (<a href="../print/B00-calibration-and-jigs/">B00 step B00.6</a>). You need it in hand at step 14.11.</li>
+<li><strong>Printed parts: none.</strong> Everything this chapter prints, it prints on the Voron.</li>
+<li>A spool of Prusament ASA in the dryer, warm and loaded (survey §7.3).</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Digital caliper, 150 mm</li>
+<li>Steel rule, 150 mm minimum (belt spans and the e-step mark)</li>
+<li>Masking tape and a fine marker (e-step mark; Ellis prefers tape to a marker line)</li>
+<li>Phone with a spectrum analyser: <strong>Sound Spectrum Analysis</strong> (iOS), <strong>Spectroid</strong> (Android), or <strong>Gates Carbon Drive</strong> (both — use the "motorcycle" option) <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">src</a></li>
+<li>Hex 2.5 mm (A/B front tensioners, M3×40; Z idler tensioners, M3×16) and a ball-end hex 4 mm (the four Z joint M5×40 bolts, Step 14.6 — the rear pair are reached at an angle from the door)</li>
+<li>150 mm machinist square (the hot re-square check at Step 14.6 — the same one as Ch 06b)</li>
+<li>Laptop or tablet on the Mainsail console, with <code>M112</code> typed and unsent in a second window for the shaper run at Step 14.13 (Ch 13 Tools)</li>
+</ul>
+<p><strong>Printed parts</strong></p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>No fasteners are added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the belt clamps at the XY joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Consumables:</strong> Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate.</p>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Order is not intuitive and is enforced.</strong> PID before QGL (a thermally unstable machine will not QGL repeatably); e-steps before the first print; <strong>input shaper and pressure advance only <em>after</em> a successful first print</strong> (survey §3.3). Pressure advance changes when input shaping is enabled, so shaper comes first of the two. <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/introduction.html">src</a></li>
+<li><strong><code>SAVE_CONFIG</code> restarts Klipper.</strong> Every <code>SAVE_CONFIG</code> in this chapter loses your homing. Re-<code>G32</code> after each one. Saved values land in the auto-generated block at the <em>bottom</em> of <code>printer.cfg</code> and override anything you typed above.</li>
+<li><strong>Change one thing at a time and write it down.</strong> The <a href="#tuning-log">tuning log</a> at the end of this chapter is the deliverable. If two things change between prints you cannot attribute the result.</li>
+<li><strong>Do not chase dimensional error with <code>rotation_distance</code> or XY compensation.</strong> Ellis: deviations are material shrinkage and bulging, not axis errors; 100–101 % X/Y scaling "is about the range you would expect with ABS". <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">src</a></li>
+<li><strong>Shaper auto-calibration is destructive if abused.</strong> Klipper: "It is not advisable to run the shaper auto-calibration very frequently… There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer are securely fixed in place after each auto-tuning." <a href="https://www.klipper3d.org/Measuring_Resonances.html">src</a></li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs — Secondary printer tuning</a> — belt frequencies and the mesh-variance check; <a href="https://docs.vorondesign.com/materials.html">materials</a> for the chamber band; <a href="https://docs.vorondesign.com/build/startup/startup.html">initial-startup wizard</a> for PID, QGL and e-steps</li>
+<li><a href="https://www.klipper3d.org/Measuring_Resonances.html">Klipper — Measuring Resonances</a>, <a href="https://www.klipper3d.org/Resonance_Compensation.html">Resonance Compensation</a>, <a href="https://www.klipper3d.org/Pressure_Advance.html">Pressure Advance</a>, <a href="https://www.klipper3d.org/Rotation_Distance.html">Rotation Distance</a>, <a href="https://www.klipper3d.org/Bed_Mesh.html">Bed Mesh</a>, plus <a href="https://www.klipper3d.org/Config_Reference.html">Config Reference</a> and <a href="https://www.klipper3d.org/G-Codes.html">G-Codes</a></li>
+<li><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> at commit <code>667521d</code> — the line ranges each tuning step reads or edits</li>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125">Voron 2.4r2 Assembly Manual p.125</a> — the belt step that gives no frequency, which is why step 14.4 exists</li>
+<li><a href="https://ellis3dp.com/Print-Tuning-Guide/">Ellis' Print Tuning Guide</a> and the <a href="https://ellis3dp.com/Pressure_Linear_Advance_Tool/">Pressure/Linear Advance tool</a> — <strong>linked only.</strong> The guide publishes no licence, so nothing from it is copied, quoted at length or mirrored here; every reference is a link out</li>
+<li><a href="https://e3d-online.com/pages/revo-support-60w-104nt-heatercore">E3D Revo 60 W heatercore / 104NT thermistor</a> — the 270 °C <code>max_temp</code> question in step 14.2</li>
+<li>Step images mirrored into <code>assets/remote/14-calibration/</code> from <a href="https://github.com/VoronDesign/Voron-Documentation/tree/36b876b">Voron-Documentation</a> and <a href="https://github.com/Klipper3d/klipper/tree/f0892d8/docs/img">Klipper</a>, both GPL-3.0 — see that folder's <code>SOURCES.txt</code></li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4559s">Extras! @1:15:59</a> (+10m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=14947s">More Extras! @4:09:07</a> (+8m)</p>
+<hr>
+<h2 id="part-a-heaters">Part A — Heaters<a class="headerlink" href="#part-a-heaters" title="Permanent link">¶</a></h2>
+<h3 id="step-141-pre-flight-the-config-before-you-tune-anything">Step 14.1 — Pre-flight the config before you tune anything<a class="headerlink" href="#step-141-pre-flight-the-config-before-you-tune-anything" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Nothing to look at. You are reading four config sections before letting any of them generate numbers. The thermistor type, the pull-up resistor and the temperature ceiling all live in <code>[extruder]</code>, and a wrong value in any makes every PID constant wrong with it.</p>
+<p><strong>Parts:</strong> none — console only.</p>
+<p><strong>Do:</strong> Open <code>printer.cfg</code> and confirm these four sections before any of them generates a number.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Must hold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[extruder]</code></td>
+<td><code>sensor_type: ATC Semitec 104NT-4-R025H42G</code>, <code>pullup_resistor: 2200</code>, <code>max_temp: 270</code>, <code>gear_ratio: 50:10</code>, and <strong>your</strong> measured <code>rotation_distance</code> from Ch 13 Step 13.40. <code>22.6789511</code> is only the Clockwork 2 starting point; do not put it back</td>
+</tr>
+<tr>
+<td><code>[heater_bed]</code></td>
+<td><code>max_power: 0.6</code> and <code>control: pid</code></td>
+</tr>
+<tr>
+<td><code>[resonance_tester]</code></td>
+<td><code>accel_chip: adxl345</code> and the live <code>probe_points: 175, 175, 20</code></td>
+</tr>
+<tr>
+<td><code>[input_shaper]</code></td>
+<td>present, both <code>shaper_freq</code> lines still commented. Do not delete it</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>STATUS</code> is clean, both MCUs connected, and chamber, hotend and bed all read within a couple of degrees of the room.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A hotend reading 20 °C off the bed at rest means a wrong <code>sensor_type</code>, and every PID number you generate will be wrong with it.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>E3D's 60 W HeaterCore uses the Semitec 104NT-4-R025H42G and is rated to <strong>300 °C</strong>, so <code>max_temp: 270</code> is a deliberate ceiling below the hardware limit.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: These values come from <code>leviathan-printer-rev-d-**sbv2**.cfg</code>, not <code>leviathan-printer-rev-d.cfg</code>. If <code>[extruder] sensor_pin</code> reads <code>nhk:gpio29</code> instead of <code>nhk:PB12</code> you are on the V1 config and must go back to Ch 12 before doing anything thermal. <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs — Secondary printer tuning</a></p>
+<h3 id="step-142-confirm-the-heaters-are-already-pid-tuned">Step 14.2 — Confirm the heaters are already PID-tuned<a class="headerlink" href="#step-142-confirm-the-heaters-are-already-pid-tuned" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> PID constants are the three numbers that hold a heater steady at a target. They were measured in Ch 13, and they belong to the temperature they were measured at, so changing your bed target means re-running the tune.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Both heaters were tuned and saved in Ch 13 at <a href="../13-initial-startup/#step-1329-pid-tune-the-bed-at-100-c">Step 13.29</a>; do not repeat that here. Open <code>printer.cfg</code> and confirm both PID stanzas are in the auto-generated block at the bottom.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both stanzas hold <em>your</em> numbers, not the LDO config's generic starting values.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Ch 13 owns the tuning procedure</p>
+<p>bed at 100 °C, hotend at 245 °C with the part fan at 25 %. Re-run it only if you have moved a target since, for example re-tuning the bed at <code>TARGET=110</code> for ASA; PID is most accurate near the temperature it was tuned at.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Do not re-run the hotend tune at 260 °C, the ASA print temperature. <code>PID_CALIBRATE</code> overshoots the target during the relay test and <code>[extruder] max_temp</code> is <strong>270</strong>, so a 60 W Revo HF trips <code>max_temp</code> and shuts Klipper down mid-tune. To tune at the print temperature, raise <code>max_temp</code> to 290 first, safely under the Revo HF's rated 300 °C, then set it back.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the generic values are <code>58.437 / 2.347 / 363.769</code> for the bed and <code>26.213 / 1.304 / 131.721</code> for the hotend. Do <strong>not</strong> add <code>pwm_cycle_time</code>; Klipper's 0.100 s default is correct here.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#pid-tune-bed--hotend">Voron startup wizard § PID tune bed &amp; hotend</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-307"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://e3d-online.com/pages/revo-support-60w-104nt-heatercore">E3D Revo 60 W heatercore / 104NT thermistor</a></p>
+<h3 id="step-143-verify-thermal-stability-then-re-qgl">Step 14.3 — Verify thermal stability, then re-QGL<a class="headerlink" href="#step-143-verify-thermal-stability-then-re-qgl" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Thermal stability here means the frame, not just the heaters. <code>PROBE_ACCURACY</code> is the instrument: ten probes at one spot, and a series that drifts steadily downward is aluminium still expanding, not a fault in the probe.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><code>SET_IDLE_TIMEOUT TIMEOUT=7200</code>, then bed to 100 °C and hotend to 150 °C, door open.</li>
+<li>Sit 10–20 minutes from cold, watching the temperature graph.</li>
+<li><code>G32</code>, then <code>PROBE_ACCURACY</code> at bed centre. Heaters off, <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both heaters hold within ±0.5 °C of setpoint with no slow oscillation, and <code>PROBE_ACCURACY</code> reports σ <strong>&lt; 0.003 mm</strong> with no trend.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The LDO config's 1800 s idle timeout switches the heaters and the Z motors off 30 minutes after the last move, which is exactly what a static soak looks like.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A drifting probe series, each probe lower than the last, means the frame is still expanding: wait longer. If σ stays high after the soak, suspect uneven Z belts.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the door stays open so this does not become the long soak; the closed-chamber soak that locks the geometry in is Step 14.6.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#probe-accuracy-check">Voron startup wizard § Probe accuracy check</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber">Voron startup wizard § QGL with heated bed and chamber</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_idle_timeout">Klipper docs § SET_IDLE_TIMEOUT</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>config pre-flighted against the <code>-sbv2</code> file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.</p>
+</div>
+<hr>
+<h2 id="part-b-belts-final-tension">Part B — Belts, final tension<a class="headerlink" href="#part-b-belts-final-tension" title="Permanent link">¶</a></h2>
+<p>These three steps are the end of Voron's gantry-squaring procedure, split off from Ch 06b because they need a closed chamber. Prerequisites: <strong>Ch 06b cold squaring done</strong> (Checkpoint 06b ticked, Z joint M5×40 bolts still at their light 06b.13 torque, A/B belts at the provisional tension 06b set) and <strong>Ch 11 Part B panels and door on</strong>. Ch 14 owns final belt tension: 14.4 sets A/B, 14.5 sets Z, 14.6 soaks the closed machine, settles QGL and locks the Z joints hot. Voron's order — tension first (its step 13), then soak, QGL and the hot tighten (14–17) — is kept, because tightening the joints hot freezes the gantry's geometry and re-tensioning afterwards would move what was just frozen.</p>
+<h3 id="step-144-set-ab-belt-tension-to-110-hz-over-a-150-mm-span">Step 14.4 — Set A/B belt tension to 110 Hz over a 150 mm span<a class="headerlink" href="#step-144-set-ab-belt-tension-to-110-hz-over-a-150-mm-span" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/14-calibration/voron-tuning-belt-sound-spectrum.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Sound Spectrum Analysis reading a belt" src="../assets/remote/14-calibration/voron-tuning-belt-sound-spectrum.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The photo shows a phone spectrum analyser on a plucked belt. A tensioned belt is a string: its lowest frequency peak is its pitch. A frequency means nothing without its span. Ch 06b put a working tension on these belts; this is the final one.</p>
+<p><strong>Parts:</strong> 2.5 mm hex (the two M3×40 front-idler tensioner screws), steel rule, phone spectrum analyser.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Cold or cooling, panels on, door open: <code>SET_IDLE_TIMEOUT TIMEOUT=99999</code>, <code>G28</code>, gantry mid-height, <code>SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0</code> and <code>STEPPER=stepper_y</code>.</li>
+<li>Set a measured <strong>150 mm</strong> span between the idler centres, pluck A, read the <strong>lowest</strong> peak, tension to <strong>110 Hz</strong>, repeat on B until equal.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>A and B agree within a few Hz at ~110 Hz after moving the gantry and returning. Write both in the tuning log.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If one reads 110 and the other 95, the gantry is not square — go back to Ch 06b, do not compensate with tension.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Never <code>M84</code> on this machine with the gantry in the air: it releases the Z motors too and the gantry drops onto the bed. Disable only <code>stepper_x</code> and <code>stepper_y</code>, so the X carriage moves by hand while the four Z motors hold the gantry.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the two tensions affect each other, so go back and forth until both are equal. Move the X extrusion back a few centimetres and forward again, then re-check both.</p>
+</div>
+<details class="note">
+<summary>Why 110 Hz over a 150 mm span — the three sources disagree</summary>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>A/B target</th>
+<th>Z target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Official assembly manual p.125</td>
+<td><strong>no number</strong> — "cut both belts to the same length"</td>
+<td>no number</td>
+</tr>
+<tr>
+<td><a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">docs.vorondesign.com — Secondary Printer Tuning</a></td>
+<td><strong>110 Hz over a 150 mm span</strong> (≈ 2 lb, "on the lower end of the range")</td>
+<td><strong>140 Hz</strong> over 150 mm</td>
+</tr>
+<tr>
+<td>voronldo.com belt tension guide</td>
+<td>80–100 Hz for a 350</td>
+<td>"same as X/Y, 110–130 Hz"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use 110 Hz / 150 mm.</strong> It is the only sourced official figure, and it is the only
+one that names the span, which is what makes a frequency mean anything — the same
+belt at a 200 mm span reads far lower. The Voron docs also explain <em>why</em> 110: it
+corresponds to roughly 2 lb of tension and is deliberately at the low end, so you
+get a good starting point without stretching the belts. The survey rejects
+voronldo.com as unaffiliated, uncited and internally inconsistent (survey §4.3,
+§9 Rejected sources) — ignore the 80–100 Hz figure entirely.</p>
+</details>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/sound-spectrum-belt.jpg">Voron docs image <code>sound-spectrum-belt.jpg</code></a> · <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs — Secondary printer tuning § Belt tension</a> · <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125">Voron manual p.125</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_idle_timeout">Klipper docs § SET_IDLE_TIMEOUT</a> · <a href="../06-z-axis-and-gantry-squaring/#step-06b1-raise-the-stepper-idle-timeout">Ch 06b Steps 06b.1, 06b.5</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p><strong>A and B are both at final tension and equal.</strong> Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised — Step 14.6's <code>RESTART</code> clears it.</p>
+</div>
+<h3 id="step-145-set-the-four-z-belts-to-140-hz-over-150-mm">Step 14.5 — Set the four Z belts to 140 Hz over 150 mm<a class="headerlink" href="#step-145-set-the-four-z-belts-to-140-hz-over-150-mm" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The four Z belts lift the gantry and are set like A and B. One odd belt shows up as scatter in <code>PROBE_ACCURACY</code> rather than as anything you can see. The adjuster is the <strong>Z idler tensioner bolt</strong> at the top of each upright, an M3×16.</p>
+<p><strong>Parts:</strong> 2.5 mm hex (the M3×16 Z idler tensioner bolt at the top of each upright), steel rule, phone.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Set a <strong>150 mm</strong> span: Z bearing block top belt clip to that corner's Z idler pulley centre.</li>
+<li>Pluck it, read the lowest peak, adjust to <strong>≈140 Hz</strong>. All four, then re-check after jogging down and back up.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All four Z belts within a few Hz of each other at ~140 Hz, and four numbers in the tuning log.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Adjust at the Z idler tensioner bolt only, never the belt clamps down at the XY joints: those hold both belt ends and let a belt go if loosened.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Evenness across the four matters more than hitting 140 exactly: the Voron QGL troubleshooting text points at uneven Z belts when <code>PROBE_ACCURACY</code> σ is high. This is the final setting; <a href="../06-z-axis-and-gantry-squaring/#step-06b3-set-the-z-belts-to-140-hz">Ch 06b Step 06b.3</a> was the working value. (survey §4.3)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the tensioner head is under the orange slider: 2.5 mm key from below, clockwise as you look up at the head is tighter (verify on bench). The note rises.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs — Secondary printer tuning § Belt tension</a> · <a href="../06-z-axis-and-gantry-squaring/#step-06b3-set-the-z-belts-to-140-hz">Ch 06b Step 06b.3</a></p>
+<h3 id="step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify">Step 14.6 — Closed-chamber soak, settle QGL, lock the Z joints hot, re-verify<a class="headerlink" href="#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Aluminium grows as it warms, so a gantry squared cold in Ch 06b is not square at chamber temperature. A long soak brings the frame to its working size, and the four Z joint M5×40 bolts get their first and only full tighten hot.</p>
+<p><strong>Parts:</strong> the four M5×40 Z joint SHCS (already fitted, light), ball-end hex 4 mm, 150 mm machinist square.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><code>SET_IDLE_TIMEOUT TIMEOUT=99999</code>, <code>G28</code>, note the Z height where a ball-end 4 mm reaches all four Z-joint heads.</li>
+<li>Shut the panels and door, bed to 110 °C, hotend 150 °C, and soak <strong>1½–2 hours</strong>. Then work the table hot.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Hot, with the chamber closed</th>
+<th>Accept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>PROBE_ACCURACY</code> at bed centre, then <code>QUAD_GANTRY_LEVEL</code> <strong>three to five times</strong> in a row</td>
+<td>Each run converges and its correction shrinks run over run rather than bouncing around</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jog Z back to the height you noted, open the door, and repeat Ch 06b's machinist-square check at both front corners, gantry forward and back</td>
+<td>No light under the square at either front corner, hot</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Fully tighten the four M5×40 Z joint bolts while the machine is still hot</strong>, rear pair first, door open as briefly as you can</td>
+<td>First and only full torque on these four bolts</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Refit any side panel you took off, its M3×12 clip screws back in, <code>RESTART</code> to clear the idle timeout, <code>G28</code>, one more <code>QUAD_GANTRY_LEVEL</code></td>
+<td><code>SET_IDLE_TIMEOUT</code> back to the config default, <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm with no trend, QGL converging in ≤3 retries within <code>retry_tolerance: 0.0075</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>chamber_temp</code> was plateaued for at least 20 minutes before the QGL runs, and each run's correction got smaller rather than bouncing around.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Light showing under the square hot when it did not cold means the squaring did not survive thermal expansion or the belt change: leave the Z joints light, go back to Ch 06b Step 06b.14, and return here. Do <strong>not</strong> tighten the Z joints cold; cold-tightening throws away the point of the soak and shows up as first-layer inconsistency.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If the QGL runs need all 5 retries where Ch 13 converged in 2, one of the six belts is off. Fix it at 14.4/14.5 <strong>before</strong> tightening anything: the tighten freezes whatever geometry the belts are holding.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>bed to your print temperature, 110 °C for ASA. If a rear Z joint is out of reach, take that side panel off and refit it before the last QGL.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs § V2 Gantry Squaring, steps 14–17</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level">Voron startup wizard § Quad gantry level</a> · <a href="https://www.klipper3d.org/G-Codes.html#quad_gantry_level">Klipper docs § QUAD_GANTRY_LEVEL</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_idle_timeout">Klipper docs § SET_IDLE_TIMEOUT</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="../06-z-axis-and-gantry-squaring/#part-b-chapter-06b-gantry-squaring">Ch 06b Part B</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=10156s">Video: Part 9 @2:49:16</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the machine soaked closed, QGL settled over 3–5 runs, the four Z joint bolts locked hot, idle timeout cleared and <code>PROBE_ACCURACY</code> re-verified afterwards. The whole belt-and-geometry item is closed; heaters can go off. The next item is the extruder.</p>
+</div>
+<hr>
+<h2 id="part-c-extruder">Part C — Extruder<a class="headerlink" href="#part-c-extruder" title="Permanent link">¶</a></h2>
+<h3 id="step-147-rotation-distance-check-100-mm-extrusion">Step 14.7 — Rotation-distance check (100 mm extrusion)<a class="headerlink" href="#step-147-rotation-distance-check-100-mm-extrusion" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>rotation_distance</code> is millimetres of filament per motor revolution. The measurement is indirect: the rule reads the <strong>remainder</strong>, not the amount extruded. <a href="../13-initial-startup/#step-1340-set-the-extruder-rotation-distance-ch-14-procedure">Ch 13 Step 13.40</a> owns it; this is the refinement pass, now that the extruder has run a print.</p>
+<p><strong>Parts:</strong> masking tape, steel rule, caliper, loaded ASA.</p>
+<p><strong>Do:</strong> Heat the hotend to the ASA print temperature of 260 °C with filament loaded and the extruder engaged. Repeat 13.40's measurement once, caliper rather than rule on the remainder: tape at the <strong>120 mm</strong> mark from the extruder entrance, then</p>
+<div class="highlight"><pre><span></span><code>M83
+G1 E100 F60
+</code></pre></div>
+<p>and measure from the extruder entrance to the tape — that reading is the <strong>remaining</strong> distance R. <code>[extruder]</code> still carries the <code>max_extrude_only_distance: 150</code> from 13.40. If the result is outside 0.5 %, apply 13.40's formula (<code>new = old × (120 − R) / 100</code>, using the value <em>currently</em> in the config), test it live with <code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=&lt;value&gt;</code>, and when it lands write the final number into <code>[extruder] rotation_distance</code> and <code>RESTART</code>. Never put <code>22.6789511</code> back — it is the Clockwork 2 starting point, not a calibration.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>R reads ≈20 mm, so the extruded amount is within <strong>0.5 %</strong> of target: 99.5 to 100.5 mm. Record it in the tuning log.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#extruder-calibration-e-steps">Voron startup wizard § Extruder calibration (e-steps)</a> · <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html">Ellis' Print Tuning Guide — extruder calibration</a> · <a href="https://www.klipper3d.org/Rotation_Distance.html">Klipper docs § Rotation distance</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_extruder_rotation_distance">Klipper docs § SET_EXTRUDER_ROTATION_DISTANCE</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=19449s">Video: Part 9 @5:24:09</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>rotation distance measured, iterated and written into <code>[extruder]</code>, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.</p>
+</div>
+<hr>
+<h2 id="part-d-chamber-and-the-first-real-print">Part D — Chamber and the first real print<a class="headerlink" href="#part-d-chamber-and-the-first-real-print" title="Permanent link">¶</a></h2>
+<h3 id="step-148-set-the-chamber-target-and-understand-the-soak">Step 14.8 — Set the chamber target and understand the soak<a class="headerlink" href="#step-148-set-the-chamber-target-and-understand-the-soak" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> There is no chamber heater on this machine; the chamber is warmed by the bed and held there by the panels and the door. The toolboard sensor tells you how hot the enclosure gets, and 30–45 minutes is how long the frame takes to arrive.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><code>SET_IDLE_TIMEOUT TIMEOUT=7200</code> before you set a temperature.</li>
+<li>Bed 100–110 °C, panels on, Clicky-Clack door shut. Read <code>[temperature_sensor chamber_temp]</code> in the web UI and wait <strong>30–45 minutes</strong> from cold.</li>
+<li>Put the settled value in the tuning log, then <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>With bed at 110 °C, panels on and door closed, <code>chamber_temp</code> climbs past 45 °C within ~20 minutes and settles in the <strong>50–60 °C accept band</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The LDO config's 1800 s idle timeout turns the heaters <strong>and the Z motors</strong> off 30 minutes after the last move, and a static soak is exactly that. <code>RESTART</code>, <code>FIRMWARE_RESTART</code> and every <code>SAVE_CONFIG</code> put it back to 1800.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The chamber sensor is already wired to the Nitehawk on <code>nhk:PB2</code>, the toolboard's <strong>CT</strong> port; the config's <code>T1</code> comment is a Leviathan-era label. Mainsail names it <code>chamber_temp</code>; its <code>gcode_id</code> in <code>M105</code> output is <code>chamber_th</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If the chamber stalls below 45 °C, first check the bed is still heating: targets that went to 0 by themselves mean the idle timeout fired. Then look for a missing panel, an open keystone blank, or the exhaust left open.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the Voron target is <strong>55–60 °C</strong>, the band the printed parts were designed for. A 350 with a 100–110 °C bed, panels on and the door shut gets there passively.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/materials.html">Voron docs — materials</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/G-Codes.html#set_idle_timeout">Klipper docs § SET_IDLE_TIMEOUT</a></p>
+<h3 id="step-149-close-ch-12s-print_start-todo-with-the-purge-line">Step 14.9 — Close Ch 12's <code>PRINT_START</code> TODO with the purge line<a class="headerlink" href="#step-149-close-ch-12s-print_start-todo-with-the-purge-line" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A purge line is a short stripe of filament laid at the plate edge before the real print, to build nozzle pressure and wipe off ooze. It goes into Ch 12's <code>PRINT_START</code> macro rather than the slicer, so every print gets it.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>PRINT_START</code> is owned by <a href="../12-software/">Ch 12 Step 12.36</a>; do not write a second one here. It ends with a <code>##  TODO Ch 14: purge / prime line goes here</code> marker. Now that the extruder is calibrated, replace that marker with:</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="na">G90</span>
+<span class="w">    </span><span class="na">G1 X5 Y5 Z0.3 F6000                    ; &lt;-- 350 only</span>
+<span class="w">    </span><span class="na">M83                                    ; relative extrusion for the purge</span>
+<span class="w">    </span><span class="na">G92 E0</span>
+<span class="w">    </span><span class="na">G1 X120 E20 F1200                      ; purge line</span>
+<span class="w">    </span><span class="na">G1 Z2 F600</span>
+</code></pre></div>
+<p><code>M83</code> and <code>G92 E0</code> are not optional. Klipper starts in <strong>absolute</strong> extrusion mode, and Ch 12's macro does not set <code>M83</code>/<code>G92 E0</code> until <em>after</em> this point — a bare <code>G1 E20</code> here would extrude to an arbitrary absolute position instead of 20 mm.</p>
+<p>The slicer side already exists: the <code>Voron 2.4 350</code> printer preset from Ch 13 calls <code>PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0</code> and <code>PRINT_END</code>; nothing in the slicer changes for the purge line, because it lives in the macro.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>A hand-run <code>PRINT_START CHAMBER=0</code> lays a continuous purge line at X5 to X120 that sticks, and <code>grep -c '^\[gcode_macro PRINT_START\]' printer.cfg</code> returns <strong>1</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Run it from the console with the machine cold and watch Ch 12's order: homes first, heats the bed, timed soak, QGL hot, re-homes Z, meshes, parks at X5 Y5, heats the nozzle, then purges. Send <code>PRINT_END</code> afterwards; the hand run leaves the heaters on otherwise.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Keep <code>CHAMBER=0</code> until the previous step has told you what your chamber actually reaches.</strong> <code>TEMPERATURE_WAIT</code> has <strong>no timeout</strong>: a <code>CHAMBER=50</code> the machine never reaches blocks the print forever, and the only way out is cancelling. Once 14.8 gives you a repeatable settled value, set <code>CHAMBER</code> a few degrees <strong>below</strong> it — never at or above it. <a href="https://www.klipper3d.org/G-Codes.html#temperature_wait">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/G-Codes.html#temperature_wait">Klipper docs § TEMPERATURE_WAIT</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>chamber behaviour measured and written down, and <code>PRINT_START</code>'s Ch 12 TODO closed with the real purge line. <code>CHAMBER</code> is still set from a measured number, not a guess. Config restarts clean.</p>
+</div>
+<h3 id="step-1410-fetch-the-cube-you-already-printed-in-ch-13">Step 14.10 — Fetch the cube you already printed in Ch 13<a class="headerlink" href="#step-1410-fetch-the-cube-you-already-printed-in-ch-13" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Two cubes of the same file in the same filament: one printed on the Prusa in batch B00, one on the Voron in Ch 13. Nothing is printed here; the pair goes on the bench so the next step can measure them.</p>
+<p><strong>Parts:</strong> the Voron-printed cube; the Prusa-printed B00 reference cube.</p>
+<p><strong>Do:</strong> Put both cubes on the bench. The cube is printed <strong>once</strong>, in Ch 13, and <a href="../13-initial-startup/#step-1341-make-the-voron-printer-profile-and-slice-the-cube">Step 13.41</a> is authoritative for it. Re-print only if you have changed a slicer setting since, and then re-run 13.41–13.42 as written.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Two cubes in front of you, both <code>Voron_Design_Cube_v7</code>, both in Prusament ASA Galaxy Black.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The purge line you just added to <code>PRINT_START</code> governs the <em>next</em> print; it does not invalidate this cube.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>13.41 sliced it at 260 °C / 110 °C with XY size and shrinkage compensation both zero, the same overrides the Prusa profile used.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints">Voron-2 <code>STLs/Test_Prints/</code></a> · <a href="https://docs.vorondesign.com/build/slicer/first_print.html">Voron docs — first print</a></p>
+<h3 id="step-1411-caliper-the-cube-against-the-prusa-printed-one">Step 14.11 — Caliper the cube against the Prusa-printed one<a class="headerlink" href="#step-1411-caliper-the-cube-against-the-prusa-printed-one" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A caliper on a 30 mm cube is the cheapest whole-machine test there is. Mid-height is the honest place to measure: the first layer is squashed and the top can bulge. The difference between the X and Y readings is a squareness proxy.</p>
+<p><strong>Parts:</strong> both cubes, digital caliper.</p>
+<p><strong>Do:</strong> Measure both cubes at <strong>mid-height</strong>, not across the first layer: X, Y and Z, recorded in the table below. Same STL, same filament, same nominal settings; the only variables are the two machines.</p>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Nominal</th>
+<th>Prusa Core One+ (B00 reference)</th>
+<th>Voron 2.4 350 (this print)</th>
+<th>Accept</th>
+<th>If out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X, mid-height</td>
+<td>30.00 mm</td>
+<td>______</td>
+<td>______</td>
+<td>±0.15 mm</td>
+<td>see below</td>
+</tr>
+<tr>
+<td>Y, mid-height</td>
+<td>30.00 mm</td>
+<td>______</td>
+<td>______</td>
+<td>±0.15 mm</td>
+<td>see below</td>
+</tr>
+<tr>
+<td>Z (total height)</td>
+<td>30.00 mm</td>
+<td>______</td>
+<td>______</td>
+<td>±0.10 mm</td>
+<td>over → first layer under-squished; under → over-squished</td>
+</tr>
+<tr>
+<td>X at first layer</td>
+<td>—</td>
+<td>______</td>
+<td>______</td>
+<td>within 0.15 mm of mid-height X</td>
+<td>elephant-foot compensation wrong; adjust in 0.05 mm steps</td>
+</tr>
+<tr>
+<td>X − Y (squareness proxy)</td>
+<td>0.00 mm</td>
+<td>______</td>
+<td>______</td>
+<td>≤0.10 mm</td>
+<td>a persistent X−Y difference on the Voron is a gantry-square problem → Ch 06b</td>
+</tr>
+<tr>
+<td>Corner snap test</td>
+<td>—</td>
+<td>pass/fail</td>
+<td>pass/fail</td>
+<td>must not delaminate along a layer line</td>
+<td>chamber too cold or fan too high</td>
+</tr>
+</tbody>
+</table>
+<p>Two honest expectations before you start chasing numbers:</p>
+<ul>
+<li><strong>Oversize is normal and is not an axis error.</strong> Ellis: 100–101 % X/Y scaling "is about the range you would expect with ABS", and <em>"don't mess with your <code>steps_per_mm</code>/<code>rotation_distance</code>. Deviations are almost always from material shrinkage, bulging, layer inconsistencies, etc, NOT issues with your axes."</em> Fix it with extrusion multiplier at step 14.19, never with XY compensation — negative XY compensation wrecks every bearing fit in the machine. <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">src</a></li>
+<li><strong>A Voron-vs-Prusa difference of ~0.1 mm is chamber, not calibration.</strong> The Voron runs a hotter, more uniform chamber than the Core One+, so its parts shrink slightly differently. Both being <em>in</em> tolerance matters more than them matching each other.</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both cubes inside tolerance: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm, and within 0.15 mm of <em>each other</em>.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">Ellis' Print Tuning Guide — extrusion multiplier</a> · <a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints">Voron-2 <code>STLs/Test_Prints/</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; dimensional error is fixed later, at 14.19–14.20.</p>
+</div>
+<hr>
+<h2 id="part-e-input-shaper">Part E — Input shaper<a class="headerlink" href="#part-e-input-shaper" title="Permanent link">¶</a></h2>
+<p>Now, and not before — the machine has printed successfully, the belts are at final tension, and the frame has been hot.</p>
+<h3 id="step-1412-bring-up-the-on-board-accelerometer">Step 14.12 — Bring up the on-board accelerometer<a class="headerlink" href="#step-1412-bring-up-the-on-board-accelerometer" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The ADXL345 is an accelerometer: a chip that measures how hard it is being shaken, in three axes. On this build it is soldered onto the toolboard itself, so there is nothing to mount and nothing to wire.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> MainsailOS pre-installs the resonance dependencies, so there is nothing to install. Verify:</p>
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python -c 'import numpy, matplotlib; print(numpy.__version__)'
+</code></pre></div>
+<p>Only if that fails — i.e. you are on a plain Raspberry Pi OS image rather than MainsailOS — follow Klipper's own installation instructions. Do <strong>not</strong> pin <code>numpy&lt;1.26</code>, and do not ask for <code>libatlas-base-dev</code>: that package was merged into <code>libopenblas-dev</code> in Trixie and no longer exists, and the pinned numpy does not support Trixie's Python — either one can break <code>klippy-env</code> and stop Klipper. <a href="https://www.klipper3d.org/Measuring_Resonances.html">src</a></p>
+<p>Then confirm — do not edit — that the <strong>350 mm</strong> probe point in <code>[resonance_tester]</code> is live; Ch 12 Step 12.27 uncommented it and Checkpoint 12 required it (the stock config ships all three build sizes commented out):</p>
+<div class="highlight"><pre><span></span><code><span class="k">[adxl345]</span>
+<span class="na">cs_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PB10</span>
+<span class="na">spi_software_sclk_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PA5</span>
+<span class="na">spi_software_mosi_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PA2</span>
+<span class="na">spi_software_miso_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PA6</span>
+
+<span class="k">[resonance_tester]</span>
+<span class="na">accel_chip</span><span class="o">:</span><span class="w"> </span><span class="s">adxl345</span>
+<span class="na">accel_per_hz</span><span class="o">:</span><span class="w"> </span><span class="s">100</span>
+<span class="na">sweeping_accel</span><span class="o">:</span><span class="w"> </span><span class="s">400</span>
+<span class="na">sweeping_period</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">probe_points</span><span class="o">:</span>
+<span class="w">    </span><span class="na">175, 175, 20</span>
+</code></pre></div>
+<p>Then <code>ACCELEROMETER_QUERY</code> and <code>MEASURE_AXES_NOISE</code> (no restart needed — nothing was edited).</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>ACCELEROMETER_QUERY</code> returns three axis values with roughly 9800, free-fall in mm/s², on one of them, and <code>MEASURE_AXES_NOISE</code> returns figures <strong>in the ~1–100 range</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>1000 or more from <code>MEASURE_AXES_NOISE</code> means a sensor, power or wiring problem, or a badly imbalanced fan. On <code>Invalid adxl345 id</code>, run it again; SPI init is flaky on the first attempt.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: The accelerometer is <strong>on the Nitehawk-SB V2 board itself</strong>. There is no separate ADXL345 breakout and no printed ADXL mount to fit — the V1 documentation's ADXL mount does not apply to this kit (survey §4.1). The <code>[adxl345]</code> pins above are already correct in <code>leviathan-printer-rev-d-sbv2.cfg</code>; if yours read <code>nhk:gpio21/18/20/19</code> you are on the V1 config.</p>
+</div>
+<p class="src">Source: <a href="https://www.klipper3d.org/Measuring_Resonances.html#installation-instructions">Klipper docs § Installation instructions</a> · <a href="https://www.klipper3d.org/Measuring_Resonances.html#checking-the-setup">Klipper docs § Checking the setup</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L411-440"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/G-Codes.html#accelerometer_query">Klipper docs § ACCELEROMETER_QUERY</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2522s">Video: Extras! @0:42:02</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>accelerometer answers, noise is in the 1–100 band, and the 350 mm <code>[resonance_tester]</code> probe point is confirmed live. Nothing has been shaped yet.</p>
+</div>
+<h3 id="step-1413-run-shaper_calibrate">Step 14.13 — Run <code>SHAPER_CALIBRATE</code><a class="headerlink" href="#step-1413-run-shaper_calibrate" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>SHAPER_CALIBRATE</code> drives the toolhead through a frequency sweep while the accelerometer records, then fits a filter to what it measured. Both axes run in one pass because the sensor is on the toolhead rather than clipped to a moving bed.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>G28</code> first. Make sure nothing is resting on the gantry and the panels are on, and have <code>M112</code> typed and unsent in a second console window; this is the fastest the machine has moved so far. Then:</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE
+</code></pre></div>
+<p>Both axes run in one pass (the accelerometer is on the toolhead, so this is not a bed-slinger — no re-mounting between axes). It takes a few minutes and is loud. <strong>Do not</strong> <code>SAVE_CONFIG</code> yet.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>One output block per axis, each ending in a <code>Recommended shaper_type_x = …, shaper_freq_x = … Hz</code> line.</p>
+</div>
+<details class="note">
+<summary>What the output block looks like</summary>
+<p>Klipper's own worked example, one block per axis. Each block gives the fitted
+frequency, the residual vibration %, the smoothing figure and a suggested
+<code>max_accel</code>, for each of the five shaper types:</p>
+<div class="highlight"><pre><span></span><code>Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150)
+To avoid too much smoothing with 'mzv', suggested max_accel &lt;= 4000 mm/sec^2
+...
+Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
+</code></pre></div>
+</details>
+<p class="src">Source: <a href="https://www.klipper3d.org/Measuring_Resonances.html#input-shaper-auto-calibration">Klipper docs § Input shaper auto-calibration</a> · <a href="https://www.klipper3d.org/G-Codes.html#shaper_calibrate">Klipper docs § SHAPER_CALIBRATE</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6406s">Video: Extras! @1:46:46</a></p>
+<h3 id="step-1414-read-the-graphs">Step 14.14 — Read the graphs<a class="headerlink" href="#step-1414-read-the-graphs" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/14-calibration/klipper-shaper-calibrate-x-chart.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Klipper shaper calibration chart, X axis" src="../assets/remote/14-calibration/klipper-shaper-calibrate-x-chart.png"></a></p>
+<p><strong>What you're looking at:</strong> The chart plots vibration against frequency: the tall peak is the machine's dominant resonance, and the curves show how far each shaper type would suppress it. A plot with no peak at all means the run measured noise rather than the machine.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Generate the PNGs from the CSVs the run left in <code>/tmp</code>:</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_x.png
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y_*.csv -o /tmp/shaper_y.png
+</code></pre></div>
+<p>Read them in this order:
+1. <strong>Where is the tallest peak?</strong> That is the dominant resonance and it is what sets <code>shaper_freq</code>.
+2. <strong>How many big peaks are there, and how far apart?</strong> One clean peak → <code>mzv</code> or <code>zv</code> and a high <code>max_accel</code>. Two or more widely separated peaks → the script will push you to <code>2hump_ei</code>/<code>3hump_ei</code>, which cost acceleration. Widely separated peaks are usually a <em>mechanical</em> message: a loose backer, an under-tensioned belt, a rail bolt in the end hole.
+3. <strong><code>vibrations = X %</code></strong> — residual ringing after shaping. Lower is better; single digits is good.
+4. <strong><code>smoothing ~= Y</code></strong> — how much the shaper blurs fine detail. Higher smoothing forces a lower <code>max_accel</code>. The two trade against each other; the script's <code>max_accel</code> line is that trade expressed as a number.
+5. <strong>Is the plot noise with no peak?</strong> Then you measured nothing — go back to <code>MEASURE_AXES_NOISE</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Both plots show a clear dominant peak, and neither axis peaks <strong>below 25 Hz</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Below 25 Hz on either axis is a build fault, not a tuning result. Stop, and go re-check belt tension, the titanium backers, the XY joints and the frame bolts before you shape over it.</p>
+</div>
+<details class="note">
+<summary>What to expect on a 350, and where the 25 Hz floor comes from</summary>
+<p>No official per-model figure exists; what <em>is</em> sourced is the floor. Klipper:
+<strong>"If the measured ringing frequency is very low (below approx 20-25 Hz), it might
+be a good idea to invest into stiffening the printer or decreasing the moving
+mass… before proceeding with further input shaping tuning."</strong></p>
+<p>In practice a well-built 350 with backers fitted lands both axes in roughly the
+<strong>35–60 Hz</strong> band, X usually the higher of the two — the toolhead alone is lighter
+than the whole gantry that Y has to move. Treat that band as community-observed,
+not a spec.</p>
+</details>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-x.png">Klipper <code>docs/img/calibrate-x.png</code></a> · <a href="https://www.klipper3d.org/Resonance_Compensation.html">Klipper docs § Resonance compensation</a> · <a href="https://www.klipper3d.org/Measuring_Resonances.html#max-smoothing">Klipper docs § Max smoothing</a></p>
+<h3 id="step-1415-save-the-shaper-and-set-the-real-max_accel">Step 14.15 — Save the shaper and set the real <code>max_accel</code><a class="headerlink" href="#step-1415-save-the-shaper-and-set-the-real-max_accel" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>SAVE_CONFIG</code> writes the shaper's four values into the auto-generated block at the bottom of the config. It deliberately does <strong>not</strong> touch <code>max_accel</code>, which the stock file leaves at a 10000 placeholder, so setting that by hand is the half of this step everyone forgets.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> If the recommendations look sane, <code>SAVE_CONFIG</code>. That writes <code>[input_shaper]</code> with <code>shaper_type_x/y</code> and <code>shaper_freq_x/y</code>. It does <strong>not</strong> touch <code>max_accel</code>; Klipper says so explicitly, and this is the step everyone skips. The LDO config ships:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[printer]</span>
+<span class="na">max_velocity</span><span class="o">:</span><span class="w"> </span><span class="s">300</span>
+<span class="na">max_accel</span><span class="o">:</span><span class="w"> </span><span class="s">10000</span><span class="w">          </span><span class="c1"># placeholder — must come down</span>
+<span class="na">max_z_velocity</span><span class="o">:</span><span class="w"> </span><span class="s">15</span>
+<span class="na">max_z_accel</span><span class="o">:</span><span class="w"> </span><span class="s">350</span>
+<span class="na">square_corner_velocity</span><span class="o">:</span><span class="w"> </span><span class="s">5.0</span>
+</code></pre></div>
+<p>Set <code>max_accel</code> to <strong>at or below the lower of the two per-axis suggested values, with margin</strong> — if the run suggested ≤4000 for X and ≤3500 for Y, use 3000–3500. Leave <code>square_corner_velocity</code> at <strong>5.0</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>printer.cfg</code>'s bottom block has <code>[input_shaper]</code> with four values and <code>[printer] max_accel</code> is no longer 10000.</p>
+</div>
+<details class="note">
+<summary>Why the suggested number is a ceiling, not a setting — and the post-run walk</summary>
+<p>Klipper is blunt that the suggested figure "is by no means a recommendation to set
+this acceleration for printing"; it is only the ceiling at which that shaper stops
+smoothing badly, and your real ceiling is also limited by motor torque. Leave
+<code>square_corner_velocity</code> at 5.0 because the calibration script assumed it — changing
+it invalidates the <code>max_accel</code> numbers.</p>
+<p>Re-print the Voron cube and compare the corners to the first one; that is your
+before/after. Then walk the machine and check nothing has unscrewed itself —
+Klipper warns that resonance testing loosens fasteners.</p>
+</details>
+<p class="src">Source: <a href="https://www.klipper3d.org/Measuring_Resonances.html#input-shaper-auto-calibration">Klipper docs § Input shaper auto-calibration</a> · <a href="https://www.klipper3d.org/Config_Reference.html#input_shaper">Klipper docs § input_shaper</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=7200s">Video: Extras! @2:00:00</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p><code>SHAPER_CALIBRATE</code> run, graphs read, <code>[input_shaper]</code> saved and <code>max_accel</code> brought down from the 10000 placeholder. <strong>Never stop between running the calibration and saving it</strong>; the CSVs live in <code>/tmp</code> and a reboot loses them.</p>
+</div>
+<h3 id="step-1416-z-axis-shaping-and-z-limits-optional">Step 14.16 — Z-axis shaping and Z limits (optional)<a class="headerlink" href="#step-1416-z-axis-shaping-and-z-limits-optional" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> On a 2.4 the gantry itself moves in Z, so the toolhead's accelerometer can measure the Z axis too. The Z speed and acceleration limits must be raised for the test only; they exist because Z is belt-driven on four motors.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Worth doing if you see Z-direction artefacts. It needs two temporary changes, because the stock Z limits are far below what the test needs:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[resonance_tester]</span>
+<span class="na">accel_chip_z</span><span class="o">:</span><span class="w"> </span><span class="s">adxl345</span>
+
+<span class="k">[printer]</span>
+<span class="na">max_z_velocity</span><span class="o">:</span><span class="w"> </span><span class="s">20</span><span class="w">        </span><span class="c1"># temporarily, up from 15</span>
+<span class="na">max_z_accel</span><span class="o">:</span><span class="w"> </span><span class="s">1550</span><span class="w">         </span><span class="c1"># temporarily, up from 350</span>
+</code></pre></div>
+<p><code>RESTART</code>, run <code>SHAPER_CALIBRATE AXIS=Z</code>, <code>SAVE_CONFIG</code> if you like the result (it writes <code>shaper_type_z</code> / <code>shaper_freq_z</code>), then <strong>put <code>max_z_velocity</code> and <code>max_z_accel</code> back to 15 and 350.</strong></p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The two Z limits read 15 and 350 again after you are done.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>those are belt-and-driver limits for a four-motor belted Z, not resonance limits; leaving them at 20/1550 is a way to skip Z steps. Skipping this step breaks nothing downstream.</p>
+</div>
+<p class="src">Source: <a href="https://www.klipper3d.org/Measuring_Resonances.html#measuring-the-resonances-of-z-axis">Klipper docs § Measuring the resonances of Z axis</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~10 min since the last one</p>
+<p>optional Z shaping either done or skipped, and <code>max_z_velocity</code> / <code>max_z_accel</code> are back at <strong>15 and 350</strong>. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.</p>
+</div>
+<hr>
+<h2 id="part-f-pressure-advance-and-flow">Part F — Pressure advance and flow<a class="headerlink" href="#part-f-pressure-advance-and-flow" title="Permanent link">¶</a></h2>
+<h3 id="step-1417-generate-and-print-the-ellis-pa-pattern">Step 14.17 — Generate and print the Ellis PA pattern<a class="headerlink" href="#step-1417-generate-and-print-the-ellis-pa-pattern" title="Permanent link">¶</a></h3>
+<p>(no image — the pattern and an annotated example are on <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/pattern_method.html">Ellis' Pattern Method page</a>)</p>
+<p><strong>What you're looking at:</strong> Pressure advance compensates for molten plastic behaving like a spring in the nozzle: pressure lags the extruder, so corners under-extrude going in and over-extrude coming out. Ellis' pattern prints many corners across a sweep of values so the right one can be picked by eye.</p>
+<p><strong>Parts:</strong> ASA, ~15 g.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Open <a href="https://ellis3dp.com/Pressure_Linear_Advance_Tool/">ellis3dp.com/Pressure_Linear_Advance_Tool/</a> with nozzle 0.4, layer 0.2, ASA temps 260/110.</li>
+<li><strong>Enable the acceleration-control option and set it to your external-perimeter acceleration</strong>, not your new <code>max_accel</code>.</li>
+<li>Sweep <strong>PA 0 to 0.10 in 0.005 steps</strong> and print it.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Pattern prints cleanly with visible, distinct corner tests across the full sweep.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If you leave the acceleration at the machine maximum the pattern will ring and the result is worthless.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if the extremes of your sweep both look equally bad, widen the range and re-run rather than guessing.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/pattern_method.html">Ellis' Print Tuning Guide — pressure advance, pattern method</a> · <a href="https://ellis3dp.com/Pressure_Linear_Advance_Tool/">Ellis' Pressure/Linear Advance tool</a></p>
+<h3 id="step-1418-read-the-pattern-and-save-the-value">Step 14.18 — Read the pattern and save the value<a class="headerlink" href="#step-1418-read-the-pattern-and-save-the-value" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> You are hunting for the one corner in the sweep that is sharp with no gap and no bulge. The value belongs to the <strong>filament</strong>, not the machine, so it is saved in the filament profile rather than in <code>printer.cfg</code>.</p>
+<p><strong>Parts:</strong> caliper not needed; good light and, ideally, a loupe.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Find the <strong>sharpest corner with the fewest artefacts</strong>: no gaps, no bulges, no divots.</li>
+<li>Re-run at 0.001–0.002 intervals around it to refine.</li>
+<li>Put the value in the PrusaSlicer <strong>filament</strong> custom G-code for ASA:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>SET_PRESSURE_ADVANCE ADVANCE=&lt;your value&gt;
+</code></pre></div>
+<p>Or set <code>[extruder] pressure_advance:</code> if you only ever print ASA on this machine.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>One corner is visibly the sharpest, and the value you saved is in the <strong>0.02–0.05</strong> band.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>there is rarely a perfect value. Ellis leans <strong>higher</strong>: if the sharpest corner has a tiny bit of gapping, still take it. Direct drive is that sensitive.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If you cannot get a clean corner at <em>any</em> value, or you see gapping and bulging simultaneously, stop tuning — Ellis: <em>"you likely have extruder issues."</em> Check the CW2 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.</p>
+</div>
+<details class="note">
+<summary>Where the 0.02–0.05 band comes from</summary>
+<p>The LDO config's own commented starting point is <code>#pressure_advance: 0.05</code>, and
+Klipper documents typical values as "between 0.050 and 1.000 (the high end usually
+only with bowden extruders)". For a direct-drive Clockwork 2 with a Revo HF and a
+0.4 nozzle in ASA, expect the bottom of that band. No vendor publishes a
+Revo-HF-specific number; treat 0.04 as the place to start looking and let the
+pattern decide.</p>
+</details>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/saving.html">Ellis' Print Tuning Guide — saving the pressure-advance value</a> · <a href="https://www.klipper3d.org/Pressure_Advance.html">Klipper docs § Pressure advance</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_pressure_advance">Klipper docs § SET_PRESSURE_ADVANCE</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>the PA pattern is printed, read and the chosen value saved into the ASA <strong>filament</strong> profile. One calibration item closed; extrusion multiplier is the next.</p>
+</div>
+<h3 id="step-1419-extrusion-multiplier-flow-the-2-pass">Step 14.19 — Extrusion multiplier / flow: the 2 % pass<a class="headerlink" href="#step-1419-extrusion-multiplier-flow-the-2-pass" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Extrusion multiplier is a straight percentage scaling of how much plastic comes out. It is judged on the centre of a top surface: too little leaves visible valleys between the lines, too much leaves ridges. The edges always look over-extruded and prove nothing.</p>
+<p><strong>Parts:</strong> ASA, ~25 g.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Print Ellis' <strong>30 × 30 × 3 mm</strong> test cubes in a row at EM <strong>92, 94, 96, 98 %</strong>.</li>
+<li>Slice at top-layer line width 100 %, infill 30 %+, top solid infill speed ~60 mm/s, normal fan.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Judged on the <strong>centre</strong> of each top surface, one cube has no gaps between the top lines and no ridging.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Too low leaves visible gaps and valleys between the top lines when held toward a light; too high leaves pellets, ridging and a rough raised surface. Most filaments land in the 92–98 % window, and Prusament ASA should.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the cubes are in Ellis' <a href="https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints"><code>test_prints</code></a> folder. In PrusaSlicer, right-click each object → add settings → <strong>Extrusion multiplier</strong> to vary them on one plate.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">Ellis' Print Tuning Guide — extrusion multiplier</a> · <a href="https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints">Ellis' <code>test_prints/</code></a></p>
+<h3 id="step-1420-the-05-refinement-pass">Step 14.20 — The 0.5 % refinement pass<a class="headerlink" href="#step-1420-the-05-refinement-pass" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A second, finer pass around the winner. This is also the right lever for an oversize cube from Step 14.11: 1 % of extrusion multiplier is worth about 0.1 mm on a 30 mm face, because the error was extra plastic, not a mis-measuring axis.</p>
+<p><strong>Parts:</strong> ASA, ~25 g.</p>
+<p><strong>Do:</strong> Take the winner from 14.19 and print four more cubes at ±0.5 % and ±1.0 % around it. Pick the smoothest centre and write that number into the <strong>filament</strong> profile's extrusion multiplier, not the print profile.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The chosen cube has a uniformly smooth top with no gaps and no ridging, and re-calipering it puts it in tolerance.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">Ellis' Print Tuning Guide — extrusion multiplier</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>both extrusion-multiplier passes done and the final EM written into the filament profile. The cube has been re-calipered against 14.11.</p>
+</div>
+<h3 id="step-1421-re-check-first-layer-squish-because-em-moved">Step 14.21 — Re-check first-layer squish, because EM moved<a class="headerlink" href="#step-1421-re-check-first-layer-squish-because-em-moved" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Changing extrusion multiplier changes how much plastic the first layer puts down, so the squish set in Ch 13 is now slightly off. Same live-Z procedure, same commit command; this loop back is expected, not a sign that something was done wrong.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Print one more cube, or any wide flat part, and repeat the live-Z procedure from <a href="../13-initial-startup/#step-1342-print-it-and-set-the-first-layer-squish">Ch 13 Step 13.42</a>. Save with <code>Z_OFFSET_APPLY_ENDSTOP</code> then <code>SAVE_CONFIG</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Bottom surface is smooth, lines still individually visible, no gaps.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>this closes the essentials loop. Ellis' order is extruder → surface prep → first layer → PA → EM, and EM feeding back into first layer is expected.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html">Ellis' Print Tuning Guide — first layer squish</a> · <a href="https://www.klipper3d.org/G-Codes.html#z_offset_apply_endstop">Klipper docs § Z_OFFSET_APPLY_ENDSTOP</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~10 min since the last one</p>
+<p>first-layer squish re-set after the EM change and saved with <code>Z_OFFSET_APPLY_ENDSTOP</code> + <code>SAVE_CONFIG</code>. The essentials loop is closed.</p>
+</div>
+<hr>
+<h2 id="part-g-ongoing">Part G — Ongoing<a class="headerlink" href="#part-g-ongoing" title="Permanent link">¶</a></h2>
+<h3 id="step-1422-bed-mesh-variance-and-a-backup">Step 14.22 — Bed mesh variance, and a backup<a class="headerlink" href="#step-1422-bed-mesh-variance-and-a-backup" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/14-calibration/voron-tuning-heightmap-variance.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron bed-mesh heightmap variance example" src="../assets/remote/14-calibration/voron-tuning-heightmap-variance.png"></a></p>
+<p><strong>What you're looking at:</strong> The heightmap is the bed mesh drawn as a surface. The <strong>Variance</strong> figure is the real reading; the colours are stretched to fill the scale and make a 0.03 mm bed look alarming. <code>zero_reference_position</code> is what centres the mesh on Z0.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Fully heat-soaked and QGL'd, run <code>BED_MESH_CALIBRATE</code> and open Mainsail's <strong>Heightmap</strong> page.</li>
+<li>Read the <strong>Variance</strong> number, not the colours, and confirm <code>zero_reference_position: 175,175</code> is set.</li>
+<li>Back up: <code>cd ~/printer_data/config &amp;&amp; git add -A &amp;&amp; git commit -m "Ch 14 done: belts, shaper, max_accel, Z offset"</code>, and copy the directory off the Pi.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The heightmap sits centred around Z0, the variance is in the tuning log, and the config directory is copied off the Pi.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A V2 on the stock Z endstop <strong>must</strong> have <code>zero_reference_position: 175,175</code>, or the mesh floats away from Z0. Under ~0.05 mm total variance a mesh is optional, but keep generating one per print: the variance changes with chamber temperature as the gantry extrusions bend.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>copy <code>printer.cfg</code> with its auto-save block, <code>moonraker.conf</code>, <code>config.leviathan</code> and <code>config.nitehawk</code>. <code>git log</code> should show one commit per <code>SAVE_CONFIG</code> since the Ch 12 baseline.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/heightmap_variance.png">Voron docs image <code>heightmap_variance.png</code></a> · <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Voron docs — Secondary printer tuning § Bed mesh</a> · <a href="https://www.klipper3d.org/Bed_Mesh.html">Klipper docs § Bed Mesh</a></p>
+<h3 id="step-1423-hand-off-to-ellis-for-everything-after-this">Step 14.23 — Hand off to Ellis for everything after this<a class="headerlink" href="#step-1423-hand-off-to-ellis-for-everything-after-this" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Nothing to do on the machine. What is left after this chapter is print tuning rather than machine tuning, and it has an accepted order: each of Ellis' sections assumes the ones above it are already done.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <a href="https://ellis3dp.com/Print-Tuning-Guide/"><strong>Ellis' Print Tuning Guide</strong></a> is the ongoing reference from here. Work his <strong>Tuning</strong> section in his order; the numbering is his, and each step assumes the ones above it:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Section</th>
+<th>Status after this chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html">Extruder Calibration</a></td>
+<td>done — Ch 13 step 13.40, refined at step 14.7</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/build_surface_prep_handling.html">Build Surface Preparation &amp; Handling</a></td>
+<td>read it — smooth PEI + ASA needs no glue, but it needs to be clean</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html">First Layer Squish</a></td>
+<td>done — Ch 13 step 13.42, then step 14.21</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/index_pressure_advance.html">Pressure Advance / Linear Advance</a></td>
+<td>done — steps 14.17, 14.18</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">Extrusion Multiplier</a></td>
+<td>done — steps 14.19, 14.20</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/pa_em_oddities.html">PA / EM Oddities</a></td>
+<td>read when a result won't converge</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/cooling_and_layer_times.html">Cooling and Layer Times</a></td>
+<td><strong>next</strong> — the ASA-specific one; minimum layer times matter more than fan % in a hot chamber</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/retraction.html">Retraction</a></td>
+<td><strong>next</strong> — CW2 is direct drive, expect a small value</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/infill_perimeter_overlap.html">Infill/Perimeter Overlap</a></td>
+<td>later</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/stepover.html">Stepover</a></td>
+<td>later</td>
+</tr>
+</tbody>
+</table>
+<p>Beyond that, his <strong>Advanced Tuning</strong> section covers <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_volumetric_flow_rate.html">Maximum Volumetric Flow Rate</a> (worth doing — the Revo HF's whole point is flow) and <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_speeds_accels.html">Maximum Speeds and Accelerations</a>, and his <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/index_troubleshooting.html">Troubleshooting</a> index is the fastest way to name a defect you are looking at.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Cooling/layer times and retraction are on the list for the next session, with the tuning log ready to record them.</p>
+</div>
+<p class="src">Source: <a href="https://ellis3dp.com/Print-Tuning-Guide/">Ellis' Print Tuning Guide</a> — link only, nothing from it is copied or mirrored</p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>mesh variance recorded, <code>printer.cfg</code> backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.</p>
+</div>
+<hr>
+<h2 id="tuning-log">Tuning log<a class="headerlink" href="#tuning-log" title="Permanent link">¶</a></h2>
+<p>Fill this in as you go — one row per change, both of you initialling. This is the record that makes the next tuning session cheap, and the thing you check first when a print goes wrong three months from now.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>What</th>
+<th>Value set</th>
+<th>How measured</th>
+<th>Result / notes</th>
+<th>By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Bed PID @ 100 °C</td>
+<td>Kp ___ Ki ___ Kd ___</td>
+<td><code>PID_CALIBRATE</code> + <code>SAVE_CONFIG</code></td>
+<td>holds ±___ °C</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Hotend PID @ 245 °C</td>
+<td>Kp ___ Ki ___ Kd ___</td>
+<td><code>PID_CALIBRATE</code>, fans 25 %</td>
+<td>holds ±___ °C</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>A belt tension</td>
+<td>___ Hz</td>
+<td>150 mm span, ___ app</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>B belt tension</td>
+<td>___ Hz</td>
+<td>150 mm span, ___ app</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Z belts (4)</td>
+<td>___ / ___ / ___ / ___ Hz</td>
+<td>150 mm, top belt clip to Z idler centre</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Z joints locked hot (14.6)</td>
+<td>soak ___ min, chamber ___ °C</td>
+<td>QGL ×___ runs, square OK</td>
+<td>QGL after: ___ retries</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>PROBE_ACCURACY</code> σ</td>
+<td>___ mm</td>
+<td>hot, soaked ___ min</td>
+<td>target &lt; 0.003</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>rotation_distance</code></td>
+<td>13.40: <strong><em>_</em>_ → 14.7: </strong>____</td>
+<td>100 mm extrude, actual ___ mm</td>
+<td>within 0.5 %?</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Chamber soak</td>
+<td>___ °C in ___ min</td>
+<td><code>chamber_temp</code>, panels + door on</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Cube X / Y / Z (Voron)</td>
+<td>___ / ___ / ___ mm</td>
+<td>caliper, mid-height</td>
+<td>vs Prusa: ___ / ___ / ___</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>shaper_type_x</code> / freq</td>
+<td>______ / ___ Hz</td>
+<td><code>SHAPER_CALIBRATE</code></td>
+<td>vibrations ___ %, smoothing ___</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>shaper_type_y</code> / freq</td>
+<td>______ / ___ Hz</td>
+<td><code>SHAPER_CALIBRATE</code></td>
+<td>vibrations ___ %, smoothing ___</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><code>max_accel</code></td>
+<td>______ mm/s²</td>
+<td>lower of the two suggestions, minus margin</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Pressure advance (ASA)</td>
+<td>______</td>
+<td>Ellis pattern, ___ to ___ step ___</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Extrusion multiplier (ASA)</td>
+<td>___ %</td>
+<td>Ellis 30×30×3 cubes</td>
+<td>cube X now ___ mm</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Z offset (final)</td>
+<td><code>position_endstop</code> ______</td>
+<td><code>Z_OFFSET_APPLY_ENDSTOP</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Bed mesh variance</td>
+<td>___ mm</td>
+<td><code>BED_MESH_CALIBRATE</code>, hot</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="checkpoint-14">Checkpoint 14<a class="headerlink" href="#checkpoint-14" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Bed and hotend PID tuned in Ch 13 and <code>SAVE_CONFIG</code>'d; both hold within ±0.5 °C at setpoint</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Closed-chamber soak of 1½–2 h done with panels and door on; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened <strong>hot</strong>, idle timeout cleared with <code>RESTART</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>QUAD_GANTRY_LEVEL</code> converges in ≤3 retries hot after the lock; <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm with no trend</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>rotation_distance</code> verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; <code>22.6789511</code> nowhere in <code>printer.cfg</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>PRINT_START</code> (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with <code>CHAMBER=0</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Chamber reaches the 50–60 °C band with panels and door closed</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Voron cube (printed in Ch 13) calipered; X, Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both cubes (Prusa and Voron) measured into the comparison table</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>MEASURE_AXES_NOISE</code> in the 1–100 range; <code>[resonance_tester] probe_points: 175, 175, 20</code> confirmed live (Ch 12 Step 12.27)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[input_shaper]</code> saved for X and Y; neither axis below 25 Hz</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[printer] max_accel</code> reduced from the stock 10000 to at or below the calibration's suggestion, with margin</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>max_z_velocity: 15</code> / <code>max_z_accel: 350</code> restored if Z shaping was attempted</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Pressure advance set per-filament for ASA and recorded</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Extrusion multiplier set in the ASA filament profile and recorded</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> First-layer squish re-checked <em>after</em> the EM change and saved with <code>Z_OFFSET_APPLY_ENDSTOP</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Every fastener the shaper run could have loosened re-checked</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>~/printer_data/config</code> committed (one commit per <code>SAVE_CONFIG</code>) and copied off the Pi</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Tuning log filled in, with initials</li>
+</ul>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Tensioning belts before Ch 06b squaring.</strong> The squaring procedure begins by fully releasing A/B tension; anything set before it is thrown away, and you will have done the work twice (survey §5.2 W1).</li>
+<li><strong>Reading a belt frequency without measuring the span.</strong> 110 Hz is only meaningful at 150 mm. Eyeballing the span is the single most common way people end up with belts 30 % out and blame the printer.</li>
+<li><strong>Loosening a Z belt clamp to "adjust" Z tension.</strong> The clamps at the XY joints hold both belt ends; the adjuster is the idler tensioner bolt at the top of each upright. A released clamp means re-threading the belt.</li>
+<li><strong>Tightening the Z joints cold, or skipping the closed-chamber soak.</strong> The value of Step 14.6 is locking the gantry in at full thermal expansion; a cold tighten looks the same on the bench and shows up as first-layer inconsistency.</li>
+<li><strong>Running <code>SHAPER_CALIBRATE</code> before the first successful print, or before final belt tension.</strong> Both change the resonances you just measured, so the result is stale before you use it. Same for pressure advance, which also shifts when input shaping is switched on.</li>
+<li><strong><code>SAVE_CONFIG</code> after the shaper run and stopping there.</strong> It writes <code>[input_shaper]</code> but explicitly does <em>not</em> touch <code>max_accel</code>. Leaving the stock <code>max_accel: 10000</code> means you shaped the ringing and then printed at an acceleration that reintroduces it.</li>
+<li><strong>Fixing an oversize cube with negative XY size compensation.</strong> It makes every bearing bore and screw hole in the machine oversize. Use extrusion multiplier (step 14.19), which is what actually changed.</li>
+<li><strong>PID-tuning the hotend at 260 °C with <code>max_temp: 270</code>.</strong> The calibration overshoots and trips the limit mid-run. Tune at 245, or raise <code>max_temp</code> to 290 first.</li>
+<li><strong>Raising <code>[heater_bed] max_power</code> above 0.6 to speed up warm-up.</strong> LDO set it to protect a 355 mm cast plate from warping. Wait the extra five minutes.</li>
+<li><strong>Skipping the heat soak because the bed says 110 °C.</strong> The bed reaches temperature in minutes; the <em>frame</em> takes 30–45. Probing a cold frame gives a mesh and a Z offset that are wrong for every print you then run.</li>
+<li><strong>Soaking on the stock idle timeout.</strong> <code>[idle_timeout] timeout: 1800</code> (LDO config) runs <code>TURN_OFF_HEATERS</code> + <code>M84</code> 30 minutes after the last move; a static soak has no moves, so the heaters go off, the Z motors release and the chamber "stalls". <code>SET_IDLE_TIMEOUT TIMEOUT=7200</code> before 14.3 and 14.8 (99999 for 14.6, which runs longer), and put it back to 1800 afterwards.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p>The machine is tuned. Print something for the machine itself — a nozzle brush, a spool holder, the Clicky-Clack spares — and then work Ellis' sections 7 and 8 (cooling/layer times, retraction) as your first real tuning session on ASA.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

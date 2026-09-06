@@ -1,0 +1,2041 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/steps/10-wiring/start/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Before you start Chapter 10 - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#before-you-start-chapter-10" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Before you start Chapter 10
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div class="step-crumbs" data-chapter="10-wiring" data-index="0" data-total="79"><a href="../">Ch 10</a><span class="step-crumbs__counter">Before you start</span></div>
+<h1 id="before-you-start-chapter-10">Before you start Chapter 10<a class="headerlink" href="#before-you-start-chapter-10" title="Permanent link">¶</a></h1>
+<p class="step-counter">Before you start · <a href="../">Chapter 10 — Wiring and Checkpoint #1</a><span class="step-counter__done"></span></p>
+<div class="step-text step-text--wide">
+<p>Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbilical — and ends at the gate that must pass before the machine is ever plugged in.</p>
+<p><strong>What you're building in this chapter.</strong> Four systems, in this order. The <strong>mains side</strong> — the C14 inlet with its integrated switch and fuse, a three-block WAGO bus for Live, Neutral and earth, the 24 V PSU, and the solid-state relay that lets firmware switch a mains bed heater — goes in first and is then proved with a meter before anything is plugged in. The <strong>24 V side</strong> fans out from the PSU to the Leviathan mainboard, to its separate high-voltage stepper supply, and to the USB adapter PCB that feeds the toolhead. The <strong>signal side</strong> is everything the machine senses and lights with: six motor cables on their mapped driver sockets, the XY endstop pod on the gantry, the mechanical nozzle probe that sets Z=0, the bed thermistor, two COB light strips and their junction PCB, the bay and filter fans, and the Pi's screen, network and USB links. Finally the three <strong>drag chains</strong> — X, Y and Z — are mounted and filled, so every cable can follow the moving gantry for years without fatiguing. The chapter ends unplugged, open and metered, with LDO's Checkpoint #1 behind you.</p>
+<p><strong>Time:</strong> 5.0–7.0 h hands-on, first build (survey §5.1, §7.2).</p>
+<p><strong>Sessions:</strong> 14 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 03 — Build plate.</strong> Plate bolted down; heater, thermistor and PE leads hanging loose below deck.</li>
+<li><strong>Ch 06 — Z axis.</strong> Gantry in, Z belts on. The gantry must move by hand over its full Z travel — that is what sets the chain slack.</li>
+<li><strong>Ch 07 — A/B belts.</strong> Probe wires already dressed along the X extrusion (manual p.143).</li>
+<li><strong>Ch 08 — Toolhead.</strong> Stealthburner + CW2 + Nitehawk-SB <strong>V2</strong> assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.</li>
+<li><strong>Ch 09 — Electronics bay.</strong> DIN rails, wire ducts, Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — <strong>and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).</strong> Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.</li>
+<li><strong>Print batches: B05</strong> (Z joints + Z chain), <strong>B07</strong> (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries <code>power_inlet_IECGS_1mm</code> on <strong>plate B07-P1</strong> (moved out of B08 — index correction #11). One B08 part is needed early: <code>mount.stl</code> (plate B08-P3) plus the B02 <code>[a]_faceplate</code>, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li><strong>Multimeter — mandatory.</strong> Continuity/beeper, a resistance range to at least 2 MΩ (a 20 MΩ range is preferred — it turns an <code>OL</code> pass into a number you can write down), and a DC volts range. No multimeter, no power-on.</li>
+<li>2.5 mm flat-blade screwdriver (supplied) — WAGO levers, plug-type terminals, drag-chain latches</li>
+<li>PH2 Phillips — PSU terminal block and SSR terminals</li>
+<li>Hex 2 / 2.5 / 3 / 4 mm</li>
+<li>Flush cutters, small long-nose pliers, tweezers (endstop repin)</li>
+<li>Soldering iron + brass M3 insert tip — all twenty inserts in one pass at step 10.35 (COB mounts ×16, Z chain guide ×2, Z chain retainer bracket ×2), so the iron is out once and never during an electrical segment</li>
+<li>Label maker, or the cable tags supplied in the kit</li>
+</ul>
+<p><strong>Consumables:</strong> zip ties (of the 100 supplied, this chapter eats 30–40), VE0508 ferrules ×5 (spares), IPA and a lint-free cloth for the extrusion slots before the covers go on.</p>
+<p><strong>Printed parts</strong></p>
+<p>Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.</p>
+<table>
+<thead>
+<tr>
+<th>Looks like</th>
+<th>STL</th>
+<th>Bin</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/power_inlet_IECGS_1mm.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/power_inlet_IECGS_1mm.png" width="96"></a></td>
+<td><code>power_inlet_IECGS_1mm.stl</code> (Voron-2 <code>STLs/Skirts/</code>)</td>
+<td>09-bay</td>
+<td>1</td>
+<td>Black — heat-set, fitted with its IEC module and mounted in Ch 09 (09.10–09.12); nothing to build here</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/cob_light_strip_mount_100mm.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/cob_light_strip_mount_100mm.png" width="96"></a></td>
+<td><code>cob_light_strip_mount_100mm.stl</code> (LDOVoron2 <code>STLs/COB Light Strip/</code>)</td>
+<td>10-lights</td>
+<td>6</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/cob_light_strip_mount_50mm.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/cob_light_strip_mount_50mm.png" width="96"></a></td>
+<td><code>cob_light_strip_mount_50mm.stl</code> (LDOVoron2 <code>STLs/COB Light Strip/</code>)</td>
+<td>10-lights</td>
+<td>2</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/wago_221-415_mount_3by5.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/wago_221-415_mount_3by5.png" width="96"></a></td>
+<td><code>wago_221-415_mount_3by5.stl</code> (Voron-2 <code>STLs/Electronics_Bay/</code>)</td>
+<td>09-bay</td>
+<td>1</td>
+<td>Black — fitted in Ch 09, populated here</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/z_chain_guide.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/z_chain_guide.png" width="96"></a> <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/z_chain_bottom_anchor.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/z_chain_bottom_anchor.png" width="96"></a></td>
+<td><code>z_chain_guide</code> / <code>z_chain_bottom_anchor</code> (batch B05)</td>
+<td>10-chains</td>
+<td>1 / 1</td>
+<td>Black</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png" width="96"></a></td>
+<td><code>[a]_z_chain_retainer_bracket_x2</code> (batch <strong>B02</strong>, plate B02-P3)</td>
+<td>10-chains</td>
+<td>2 printed, 1 fitted, 1 spare <strong>(verify on bench)</strong></td>
+<td>Orange</td>
+</tr>
+<tr>
+<td></td>
+<td><code>2x3 Splitter Spacer</code></td>
+<td>—</td>
+<td>2</td>
+<td>LDO-supplied printed — do not print</td>
+</tr>
+<tr>
+<td><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/parts/usb_adapter_mount_partial_cover.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="" src="../../../assets/parts/usb_adapter_mount_partial_cover.png" width="96"></a></td>
+<td><code>usb_adapter_mount_partial_cover.stl</code> (<strong>Nitehawk-SB-V2</strong> repo)</td>
+<td>09-bay</td>
+<td>1</td>
+<td>Black — fitted in Ch 08/09, used here</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AC inlet, integrated switch + fuse</td>
+<td>1</td>
+<td>pre-wired; verify, don't rewire</td>
+</tr>
+<tr>
+<td>Meanwell LRS-200-24 PSU</td>
+<td>1</td>
+<td>24 V 8.8 A; 115/230 V selector on the side</td>
+</tr>
+<tr>
+<td>Omron SSR G3NB-210B-1 + DIN bracket</td>
+<td>1</td>
+<td>24–220 VAC 10 A</td>
+</tr>
+<tr>
+<td>WAGO 221-415 (5-way)</td>
+<td>3</td>
+<td>N / L / PE bus</td>
+</tr>
+<tr>
+<td>WAGO 221-412 (2-way)</td>
+<td>2</td>
+<td>bed L and bed N breakout, on the bed WAGO mount</td>
+</tr>
+<tr>
+<td>3×2 XH splicer PCB</td>
+<td>2</td>
+<td>one for the 6020 fan pair, one as the LED junction</td>
+</tr>
+<tr>
+<td>2×2 XH splicer PCB</td>
+<td>1</td>
+<td>bed thermistor breakout (fitted Ch 09)</td>
+</tr>
+<tr>
+<td>Drag chain 10×10 R18</td>
+<td>2</td>
+<td>X chain and Y chain</td>
+</tr>
+<tr>
+<td>Drag chain 10×15 R28</td>
+<td>1</td>
+<td>Z chain</td>
+</tr>
+<tr>
+<td>M3×5×4 brass heat-set insert</td>
+<td>20</td>
+<td>16 for the COB mounts, 2 for the Z chain guide, 2 for the Z chain retainer bracket (p.204 carries the heat-set icon but no count — count the bosses on your part, verify on bench)</td>
+</tr>
+<tr>
+<td>M3×6 FHCS</td>
+<td>16</td>
+<td>COB mount halves</td>
+</tr>
+<tr>
+<td>M3×8 SHCS</td>
+<td>20</td>
+<td>16 COB mounts to extrusion, 2 per splicer PCB ×2</td>
+</tr>
+<tr>
+<td>M3 hammerhead T-nut, 2020</td>
+<td>20</td>
+<td>pairs with the M3×8 SHCS above</td>
+</tr>
+<tr>
+<td>M3×6 FHCS (chain ends, X and Y)</td>
+<td>(verify on bench)</td>
+<td>manual p.197, p.199 — 2-hole chain ends</td>
+</tr>
+<tr>
+<td>M3 roll-in T-nut, 2020</td>
+<td>2</td>
+<td>X and Y chain ends</td>
+</tr>
+<tr>
+<td>M3×10 FHCS</td>
+<td>4</td>
+<td>Z chain top and bottom ends (p.202)</td>
+</tr>
+<tr>
+<td>M3×12 SHCS</td>
+<td>2</td>
+<td>Z chain retainer bracket to the A drive (p.204)</td>
+</tr>
+<tr>
+<td>M5×10 BHCS + M5 roll-in T-nut</td>
+<td>2 + 2</td>
+<td>Z chain guide (p.201), Z chain bottom anchor (p.203)</td>
+</tr>
+<tr>
+<td>M5×10 BHCS + M5 roll-in T-nut (frame PE)</td>
+<td>1 + 1</td>
+<td>plus the two M5 locking washers below</td>
+</tr>
+<tr>
+<td>M5 locking washer</td>
+<td>2</td>
+<td>frame PE stack</td>
+</tr>
+<tr>
+<td>Extrusion slot cover, 6 mm</td>
+<td>up to 9</td>
+<td>closes the slots the LED leads run in</td>
+</tr>
+<tr>
+<td>VE0508 ferrule</td>
+<td>5</td>
+<td>spares</td>
+</tr>
+<tr>
+<td>Zip ties 3×150 mm</td>
+<td>~35</td>
+<td>from the 100 supplied</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Mains is the one step in this build that can kill you.</strong> Nothing gets plugged in until Checkpoint #1 passes with a meter. If your local regulations forbid you from wiring the mains side, stop at step 10.8 — the first mains run — and get Section 1 done by someone certified. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></li>
+<li><strong>Set the PSU's 115/230 V selector before anything else</strong> and check it again at Checkpoint #1. Getting it wrong destroys the PSU on the first switch-on. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">src</a></li>
+<li><strong>Keep every wire loose inside every drag chain.</strong> Taut wires fatigue and break — the single most-repeated LDO warning, and the umbilical is the cable it kills. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></li>
+<li><strong>Close nothing until Checkpoint #1 passes.</strong> No duct covers, no skirts, no bottom panel. Re-opening a closed bay costs an hour and tempts you to skip the meter (survey §5.2 W8).</li>
+<li><strong>Never plug or unplug a stepper, or the Micro-Fit umbilical connector, with power on.</strong> Back-EMF kills drivers; hot-plugging the umbilical can take out the Nitehawk or the Pi. <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#cable-pinout-adapter-side">src</a></li>
+<li>Your Rev D+ toolboard is a <strong>Nitehawk-SB V2</strong>. The Klipper config and the USB serial-ID pattern both differ from the Rev D wiring guide — that is Ch 12's problem, but do not let anyone talk you into loading <code>leviathan-printer-rev-d.cfg</code> on this board (survey §4.1 ①②).</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf">Voron 2.4r2 Assembly Manual</a>, pinned commit <code>de7e89d</code> — p.143, p.156, p.181, p.194–195, p.197–204</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO wiring guide, Rev D</a> — every connector step below cites its own section anchor</li>
+<li><a href="https://docs.ldomotors.com/voron/voron2/build-faq#build-notes">LDO Build Notes (build FAQ)</a> — the per-page SKIP notes for p.152, p.162–163, p.169, p.172, p.190, p.194–198</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO Rev D printed-parts guide</a> and <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a></li>
+<li><a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 guide</a> — board silkscreen, jumper block, port map</li>
+<li><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">Nitehawk-SB V2 board doc</a> and the <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497">Nitehawk-SB-V2 repo</a> at commit <code>42ae497</code> (pinout, grounding and cable-chain images)</li>
+<li><a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY endstop reconnecting guide</a> and <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide">BTT 4.3" screen rotate guide</a></li>
+<li><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> at commit <code>667521d</code> — the pin assignments this chapter wires to</li>
+<li><a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_sensors.cfg">Klipper <code>temperature_sensors.cfg</code></a> at commit <code>f0892d8</code> — the thermistor curve in step 10.76</li>
+<li>Step images mirrored into <code>assets/remote/10-wiring/</code> — <a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/Images/WiringGuide">LDOVoron2</a> at <code>8270e8c</code>, the <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497/Images">Nitehawk-SB-V2 images</a> at <code>42ae497</code>, and six diagrams from the LDO wiki. All are LDO Motors' work, mirrored with attribution for this non-commercial manual; owner, source URL, date and sha256 for each are in that folder's <code>SOURCES.txt</code></li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=ViB5Ulc9zDI&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6230s">Part 4 @1:43:50</a> (+13m), <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1448s">Part 6 @0:24:08</a> (+2m), <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1544s">Part 6 @0:25:44</a> (+22m), <a href="https://www.youtube.com/watch?v=8pWoYkY1DiA&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3850s">Part 6 @1:04:10</a> (+27m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=516s">Part 7 @0:08:36</a> (+16m), <a href="https://www.youtube.com/watch?v=eHo0k2wQsJw&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5380s">Part 7 @1:29:40</a> (+12m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3186s">Part 8 @0:53:06</a> (+37m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5100s">Part 8 @1:25:00</a> (+10m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5681s">Part 8 @1:34:41</a> (+3m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5842s">Part 8 @1:37:22</a> (+7m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6225s">Part 8 @1:43:45</a> (+11m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=297s">Part 9 @0:04:57</a> (+15m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2719s">Part 9 @0:45:19</a> (+3m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2876s">Part 9 @0:47:56</a> (+8m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2581s">More Extras! @0:43:01</a> (+4m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=7160s">More Extras! @1:59:20</a> (+23m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=8290s">More Extras! @2:18:10</a> (+53m)</p>
+<p><strong>Manual pages this chapter replaces.</strong> The official manual's Wiring chapter describes a BTT Octopus machine with a 5 V PSU. Per LDO's build notes, <strong>skip p.182–183, 186–193, 196 and 205–209 entirely</strong> and follow the LDO wiring guide instead. Only p.181 (PSU voltage check), p.194–195 (cable-chain overview) and p.197–204 (chain mounting) survive, and they appear below as steps. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<div class="step-nav">
+<p><a class="step-nav__link step-nav__prev" href="../"><span class="step-nav__dir">← Previous</span><span class="step-nav__label">Ch 10 — chapter overview</span></a></p>
+<p><a class="step-nav__link step-nav__next" href="../10-1/"><span class="step-nav__dir">Next →</span><span class="step-nav__label">Step 10.1 — Empty the bay and set the end state</span></a></p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../javascripts/wakelock.js"></script>
+      
+        <script src="../../../../javascripts/progress.js"></script>
+      
+        <script src="../../../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

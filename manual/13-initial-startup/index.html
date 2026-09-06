@@ -1,0 +1,3860 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/13-initial-startup/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 13 — Initial startup - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-13-initial-startup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 13 — Initial startup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#part-a-power-on-and-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A — Power-on and connect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part A — Power-on and connect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-131-clear-the-machine-and-stage-the-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.1 — Clear the machine and stage the bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-132-re-confirm-the-checkpoint-1-result-and-the-psu-voltage-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.2 — Re-confirm the Checkpoint #1 result and the PSU voltage selector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-133-power-on-again-hand-on-the-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.3 — Power on again, hand on the switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-134-connect-klipper-and-confirm-both-mcus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.4 — Connect Klipper and confirm both MCUs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-135-prove-the-350-mm-config-edits-are-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.5 — Prove the 350 mm config edits are live
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b-temperatures-heaters-fans-lights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B — Temperatures, heaters, fans, lights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part B — Temperatures, heaters, fans, lights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-136-verify-the-three-temperature-readings-at-room-temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.6 — Verify the three temperature readings at room temperature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-137-short-heat-test-hotend-to-50-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.7 — Short heat test: hotend to 50 °C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.8 — Short heat test: bed to 50 °C, and watch the SSR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-139-hotend-fan-stealthburner-bottom-fan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.9 — Hotend fan (Stealthburner bottom fan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1310-part-cooling-fan-stealthburner-top-fan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.10 — Part cooling fan (Stealthburner top fan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1311-bay-fan-and-filter-fan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.11 — Bay fan and filter fan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1312-lights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.12 — Lights
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C — Motors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part C — Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1313-stepper_buzz-the-four-z-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.13 — STEPPER_BUZZ the four Z motors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1314-stepper_buzz-the-a-and-b-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.14 — STEPPER_BUZZ the A and B motors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1315-stepper_buzz-the-extruder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.15 — STEPPER_BUZZ the extruder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1316-correct-any-wrong-motor-or-wrong-direction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.16 — Correct any wrong motor or wrong direction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d-endstops-and-probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D — Endstops and probe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part D — Endstops and probe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1317-query_endstops-with-everything-released" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.17 — QUERY_ENDSTOPS with everything released
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1318-x-endstop-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.18 — X endstop by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1319-y-endstop-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.19 — Y endstop by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1320-z-endstop-the-ldo-nozzle-probe-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.20 — Z endstop (the LDO nozzle probe) by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1321-query_probe-on-the-inductive-probe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.21 — QUERY_PROBE on the inductive probe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-e-homing-and-machine-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E — Homing and machine coordinates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part E — Homing and machine coordinates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1322-home-x-with-an-abort-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.22 — Home X, with an abort ready
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1323-home-y-then-read-the-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.23 — Home Y, then read the chart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1324-bed-locating-line-up-the-z-endstop-and-set-the-bed-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.24 — Bed locating: line up the Z endstop and set the bed gap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1325-define-the-00-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.25 — Define the 0,0 point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1326-record-the-z-endstop-coordinate-into-safe_z_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.26 — Record the Z endstop coordinate into [safe_z_home]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1327-full-g28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.27 — Full G28
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-f-probe-accuracy-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part F — Probe accuracy, cold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part F — Probe accuracy, cold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1328-probe_accuracy-at-the-bed-centre-cold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.28 — PROBE_ACCURACY at the bed centre, cold
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-g-pid-before-qgl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part G — PID, before QGL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part G — PID, before QGL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1329-pid-tune-the-bed-at-100-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.29 — PID tune the bed at 100 °C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.30 — PID tune the hotend at 245 °C with the part fan at 25 %
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-h-quad-gantry-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part H — Quad gantry level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part H — Quad gantry level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1331-heat-soak-bed-100-c-hotend-150-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.31 — Heat soak: bed 100 °C, hotend 150 °C
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.32 — PROBE_ACCURACY hot — the gate on everything downstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1333-quad_gantry_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.33 — QUAD_GANTRY_LEVEL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.34 — Hand off to Ch 06b: square the gantry, then re-tension A/B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1335-re-heat-and-re-qgl-after-squaring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.35 — Re-heat and re-QGL after squaring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-i-z-offset-z0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part I — Z offset (Z=0)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part I — Z offset (Z=0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1336-z_endstop_calibrate-and-the-paper-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.36 — Z_ENDSTOP_CALIBRATE and the paper test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1337-sanity-check-z0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.37 — Sanity-check Z=0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-j-bed-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part J — Bed mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part J — Bed mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1338-confirm-the-bed_mesh-section-from-ch-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.38 — Confirm the [bed_mesh] section from Ch 12
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1339-bed_mesh_calibrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.39 — BED_MESH_CALIBRATE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-k-first-print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part K — First print
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part K — First print">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1340-set-the-extruder-rotation-distance-ch-14-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.40 — Set the extruder rotation distance (Ch 14 procedure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1341-make-the-voron-printer-profile-and-slice-the-cube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.41 — Make the Voron printer profile and slice the cube
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1342-print-it-and-set-the-first-layer-squish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.42 — Print it, and set the first-layer squish
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1343-shut-down-properly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 13.43 — Shut down properly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-if-first-start-failures-and-what-they-actually-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What if — first-start failures and what they actually mean
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 13
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-13-initial-startup">Chapter 13 — Initial startup<a class="headerlink" href="#chapter-13-initial-startup" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/13-initial-startup/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Turns the wired machine on for the first time and proves every subsystem in the order the Voron startup wizard prescribes — temperatures, heaters, fans, motors, endstops, homing, probe, PID, QGL, Z=0, bed mesh — then hands off to gantry squaring and comes back for the first print.</p>
+<p><strong>What you're building in this chapter.</strong> Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the three <strong>temperature sensors</strong> are read cold; then each <strong>heater</strong> is driven briefly and watched to stop; then every <strong>fan</strong> and <strong>light</strong> is commanded on and off; then each of the seven <strong>motors</strong> is buzzed a millimetre to prove the right cable is in the right socket; then each <strong>endstop</strong> and the <strong>probe</strong> are pressed by hand. Only then does the machine move on its own, in the <strong>homing</strong> sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for cold squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on. Final belt tension, the closed-chamber soak and the hot Z-joint lock are Ch 14's, once Ch 11 Part B has put the panels on.</p>
+<p><strong>Time:</strong> 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end.</p>
+<p><strong>Sessions:</strong> 11 × ~30 min hands-on (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 10 — Wiring.</strong> <strong>Checkpoint #1 passed</strong> with a multimeter, machine unplugged. This is a hard gate: if you have not done it, stop and do it. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></li>
+<li><strong>Ch 12 — Software.</strong> Klipper, Moonraker and Mainsail installed; <code>leviathan-printer-rev-d-sbv2.cfg</code> fetched as <code>printer.cfg</code> (<code>grep -c gpio printer.cfg</code> → 0); both MCU serial IDs filled in; the 350 mm options uncommented. The boards were energised for the first time at Ch 12 Step 12.11, with the hand-on-switch drill; Step 13.3 repeats it.</li>
+<li><strong><a href="../06-z-axis-and-gantry-squaring/">Ch 06 Part A — Z axis</a></strong> (gantry installed, Z belts on) and <strong><a href="../07-ab-belts/">Ch 07 — A/B belts</a></strong> at provisional tension. The gantry is <em>not</em> squared yet — that is Ch 06 Part B (06b), which runs out of the middle of this chapter at Step 13.34: cold squaring and a provisional A/B re-tension only. Final tension, the closed-chamber soak and the hot Z-joint lock are Ch 14 Steps 14.4–14.6.</li>
+<li><strong>Ch 11 — Skirts and panels:</strong> bottom panel and skirts on (Ch 11 Part A). <strong>Back, side and top panels off</strong> and left off (Ch 11 Part B comes after this chapter, before Ch 14) — you need access to the gantry for Ch 06b, and you want to see and smell everything on power-up. The heat soaks in this chapter therefore run with the front open; their gate is probe repeatability, not a chamber temperature.</li>
+<li><strong>Print batches:</strong> none. You will <em>print</em> <code>Voron_Design_Cube_v7</code> at the end of this chapter, on the new machine.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Laptop or tablet on the same network, with the Mainsail console open, and a second window with <strong><code>M112</code></strong> already typed and unsent — that is your software emergency stop. Mainsail's red <strong>Emergency Stop</strong> button in the top bar and the touchscreen's E-stop send the same thing. <code>RESTART</code> is <strong>not</strong> a stop: a console command normally queues behind the move that is running. Type <code>M112</code> and <strong>nothing else on the line</strong> — Mainsail turns exactly that into the same emergency-stop call as its red button (and KlipperScreen's E-stop), which bypasses the command queue; <code>RESTART</code>, or <code>M112</code> with a comment or a second command on the line, waits its turn behind the move. After an <code>M112</code>, <code>FIRMWARE_RESTART</code> brings Klipper back.</li>
+<li>A sheet of ordinary printer paper (~0.1 mm) for the Z=0 paper test</li>
+<li>Digital caliper, steel rule and masking tape (rotation distance, Step 13.40)</li>
+<li>2 mm and 2.5 mm hex keys (Z endstop position, probe height)</li>
+<li>Phone with a belt-tension spectrum app, for the Ch 06b return leg</li>
+<li>A dried spool of Prusament ASA, the PTFE reverse-bowden fitted (Ch 11 Steps 11.42–11.43), and the laptop with PrusaSlicer for Step 13.41</li>
+</ul>
+<p><strong>Consumables:</strong> a spool of ASA, dried and warm from the dryer (survey §7.3). Nothing else is consumed.</p>
+<p><strong>Printed parts</strong></p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>Nothing is fastened in this chapter except re-positioning the Z endstop and the probe, both already installed in Ch 09/Ch 10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>PID tuning comes before QGL, and QGL is run hot.</strong> A thermally unstable machine will not QGL repeatably. Do not reorder this. (survey §3.3, §4.4 #16)</li>
+<li><strong>Do not trust a QGL until <code>PROBE_ACCURACY</code> shows σ &lt; 0.003 mm with no trend across the 10 samples.</strong> From cold, that takes 10–20 minutes of soak at temperature. (survey §4.4 #16)</li>
+<li><strong>Never unplug or re-plug a stepper with the power on.</strong> Every "swap the A and B connectors" instruction in this chapter means: power down, swap, power up. (survey §4.4 #10)</li>
+<li><strong>The stock LDO config ships every build-size option commented out and <code>[safe_z_home] home_xy_position</code> set to the placeholder <code>-10,-10</code>.</strong> A full <code>G28</code> will refuse to run until you replace it with a real coordinate — that is Step 13.26, not a fault. (survey §4.4 #15)</li>
+<li><strong>If Ch 12 loaded <code>leviathan-printer-rev-d.cfg</code> instead of <code>leviathan-printer-rev-d-sbv2.cfg</code>, stop now.</strong> Every <code>nhk:</code> pin differs. Klipper refuses the V1 file on this toolboard (<code>Pin 'gpio23' is not a valid pin name on mcu 'nhk'</code>), so you will not mis-drive anything — but you will not get past Step 13.4 either. The check is not the serial ID (you pasted that yourself, and it is right in both files); it is <code>grep -c gpio ~/printer_data/config/printer.cfg</code> over SSH: <strong>0</strong> is the V2 file, <strong>20</strong> is the V1 file. (survey §4.1 ①, §5.2 W13)</li>
+<li><strong><code>M112</code> is the stop. <code>RESTART</code> is not.</strong> Have <code>M112</code> typed — alone on the line — and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://docs.vorondesign.com/build/startup/startup.html">Voron initial-startup wizard</a> — the spine of this chapter; every step links its exact wizard section</li>
+<li><a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs — V2 gantry squaring</a> (step 13.34, handed off to Ch 06b) and <a href="https://docs.vorondesign.com/build/slicer/first_print.html">first print</a></li>
+<li><a href="https://www.klipper3d.org/G-Codes.html">Klipper G-Codes</a> and <a href="https://www.klipper3d.org/Config_Reference.html">Config Reference</a> for every command this chapter sends, plus <a href="https://www.klipper3d.org/Bed_Mesh.html">Bed Mesh</a>, <a href="https://www.klipper3d.org/Manual_Level.html">Manual Level</a> and <a href="https://www.klipper3d.org/Rotation_Distance.html">Rotation distance</a></li>
+<li>Klipper source at commit <code>f0892d8</code> where a number is quoted: <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/thermistor.py#L73"><code>thermistor.py</code></a> (the 4700 Ω <code>pullup_resistor</code> default), <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/probe.py"><code>probe.py</code></a>, <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/manual_probe.py"><code>manual_probe.py</code></a></li>
+<li><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> at commit <code>667521d</code> — line ranges for every section a step reads or edits</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO wiring guide, Rev D</a> — Checkpoint #1, the nozzle probe, steppers, fans and the LED strip</li>
+<li><a href="https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html">Ellis' Print Tuning Guide — first layer squish</a> — <strong>linked only</strong>; no licence, nothing from it is copied or mirrored</li>
+<li>Step images mirrored into <code>assets/remote/13-initial-startup/</code> from <a href="https://github.com/VoronDesign/Voron-Documentation/tree/36b876b">Voron-Documentation</a> (GPL-3.0) and LDOVoron2 (<code>8270e8c</code>, LDO Motors' work, mirrored with attribution) — see that folder's <code>SOURCES.txt</code></li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5760s">Part 9 @1:36:00</a> (+4m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5973s">Part 9 @1:39:33</a> (+16m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6646s">Part 9 @1:50:46</a> (+3m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=10140s">Part 9 @2:49:00</a> (+5m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=19000s">Part 9 @5:16:40</a> (+9m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=12030s">More Extras! @3:20:30</a> (+5m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=13445s">More Extras! @3:44:05</a> (+15m)</p>
+<hr>
+<h2 id="part-a-power-on-and-connect">Part A — Power-on and connect<a class="headerlink" href="#part-a-power-on-and-connect" title="Permanent link">¶</a></h2>
+<h3 id="step-131-clear-the-machine-and-stage-the-bench">Step 13.1 — Clear the machine and stage the bench<a class="headerlink" href="#step-131-clear-the-machine-and-stage-the-bench" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-v2-reference-render.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron 2.4 reference render" src="../assets/remote/13-initial-startup/voron-v2-reference-render.png"></a></p>
+<p><strong>What you're looking at:</strong> The render is a stock Voron 2.4: the gantry across the top, four Z drives in the corners, the bed on its own frame, the electronics bay under the deck. Anything left in the chamber can be crushed or set alight.</p>
+<p><strong>Parts:</strong> none — preparation.</p>
+<p><strong>Do:</strong> Clear the chamber: tools, offcuts, zip-tie tails, spare fasteners, filament spool. Pull off any rubber rail stoppers. Put a fire extinguisher within reach, clear the bench of paper and IPA, and confirm the side and top panels are off.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can see the toolhead, all four Z drives, the electronics bay and the PSU without moving anything.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/v2render.png">Voron docs image v2render.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#preparation">Voron startup wizard § Preparation</a></p>
+<hr>
+<h3 id="step-132-re-confirm-the-checkpoint-1-result-and-the-psu-voltage-selector">Step 13.2 — Re-confirm the Checkpoint #1 result and the PSU voltage selector<a class="headerlink" href="#step-132-re-confirm-the-checkpoint-1-result-and-the-psu-voltage-selector" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/ldo-revd-vs9-finished-bay.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D bay, wiring complete" src="../assets/remote/13-initial-startup/ldo-revd-vs9-finished-bay.jpg"></a></p>
+<p><strong>What you're looking at:</strong> LDO's finished Rev D bay, photographed from below: the view you have with the machine on its side. Three things are re-read in it: the PSU's red voltage slider, the SSR's four numbered terminals, and the Leviathan's five-position voltage-selection jumper block.</p>
+<p><strong>Parts:</strong> none — verification.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Switch off at the inlet rocker and <strong>pull the cord out of the inlet</strong>.</li>
+<li>Confirm the PSU's 115/230 V selector matches your mains.</li>
+<li>Confirm the SSR terminals and the Leviathan jumpers against the table.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Must be</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSR INPUT 3 / INPUT 4</td>
+<td>control red <strong>+</strong> / control black <strong>−</strong></td>
+</tr>
+<tr>
+<td>SSR LOAD 1 / LOAD 2</td>
+<td>bed live / mains brown</td>
+</tr>
+<tr>
+<td>Leviathan jumpers</td>
+<td>exactly two: <strong>Fan2</strong> and <strong>Fan3</strong>, both on the <strong>24 V</strong> pins</td>
+</tr>
+<tr>
+<td>Probe, Fan0, Fan1</td>
+<td>bare, no jumper</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Selector correct. No bare copper anywhere. Every wire duct still open so you can watch the bay. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">LDO</p>
+<p><em>"Mixing voltage will permanantly damage the controller and attached components."</em></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: there is <strong>no 5 V PSU</strong> in this kit — the Leviathan supplies the Pi's 5 V through the Pi HAT adapter. If you are looking for a second supply, you have the wrong manual pages (manual p.152, p.172, p.190 are all SKIP). (survey §4.2)</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg">LDO wiring photo VS9 finished bay</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint 1</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit">LDO wiring guide § Preparing the power supply unit</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. <strong>The cord is out of the inlet.</strong> The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.</p>
+</div>
+<hr>
+<h3 id="step-133-power-on-again-hand-on-the-switch">Step 13.3 — Power on again, hand on the switch<a class="headerlink" href="#step-133-power-on-again-hand-on-the-switch" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO PSU switch" src="../assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The photo is the PSU's 115/230 V slide switch again. The rocker your hand is on is built into the C14 inlet module: the machine's only mains isolator. This is the first power-on with a live <code>printer.cfg</code> that can drive heaters and motors.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Two people: one on the switch, one watching with hands out.</li>
+<li>Plug the mains lead in, stand to the side, switch on at the IEC inlet rocker.</li>
+<li>Keep your hand on it ten seconds. Listen and smell.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>PSU green LED, Pi power and activity LEDs, the toolboard's <strong>3V3</strong> and <strong>24V</strong> LEDs all lit, with no clicking, buzzing, hot smell or humming stepper.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If any of that is wrong, switch off at the inlet immediately and go back to Ch 10.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>a stepper that is warm to the touch after a minute of idling is normal (they hold at <code>run_current</code>); a stepper that is <em>hot</em> in a minute is not.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg">LDO wiring photo psu_switch.jpg</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint 1</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#preparation">Voron startup wizard § Preparation</a> · <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">Ch 12 Step 12.11</a></p>
+<hr>
+<h3 id="step-134-connect-klipper-and-confirm-both-mcus">Step 13.4 — Connect Klipper and confirm both MCUs<a class="headerlink" href="#step-134-connect-klipper-and-confirm-both-mcus" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-mainsail-console.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Mainsail console" src="../assets/remote/13-initial-startup/voron-startup-mainsail-console.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is the web interface's <strong>Console</strong> tab, where every command in this chapter is typed and every reply is read. <code>FIRMWARE_RESTART</code> restarts the host process <em>and</em> both microcontrollers, so a clean <code>Ready</code> after it means the whole software stack is talking to the whole machine.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Open the web interface at the Pi's address. Go to the <strong>Console</strong> tab: every command in this chapter is typed there. Send <code>FIRMWARE_RESTART</code>, then <code>STATUS</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: FIRMWARE_RESTART
+Recv: // Klipper state: Shutdown
+Recv: // Klipper state: Ready
+Send: STATUS
+Recv: // Klipper state: Ready
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>Ready</code>, with no <code>mcu 'nhk': Unable to open serial port</code> and no <code>Option 'serial' in section 'mcu' must be specified</code>. Any error here is a Ch 12 problem, not a Ch 13 problem.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: <code>ls /dev/serial/by-id/*</code> over SSH must show exactly two Klipper devices — one <code>usb-Klipper_**stm32f446xx**_…</code> (Leviathan; <code>stm32h743xx</code> on a V1.3 board — the LDO guide's <code>stmf446xx</code> is a typo, Ch 12 Step 12.13) and one <code>usb-Klipper_**stm32g0b1xx**_…</code> (Nitehawk-SB <strong>V2</strong>). The Rev D wiring guide tells you to look for <code>rp2040</code>; that is the V1 board and it is not what you have. (survey §4.1 ②)</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_terminal.png">Voron docs image mainsail_terminal.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#mainsail-and-fluidd">Voron startup wizard § Mainsail and Fluidd</a> · <a href="https://www.klipper3d.org/G-Codes.html#firmware_restart">Klipper docs § FIRMWARE_RESTART</a></p>
+<hr>
+<h3 id="step-135-prove-the-350-mm-config-edits-are-live">Step 13.5 — Prove the 350 mm config edits are live<a class="headerlink" href="#step-135-prove-the-350-mm-config-edits-are-live" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Nothing to see on the machine. You are asking the <em>running</em> Klipper instance what it believes the machine's dimensions are, rather than trusting the file on disk. Moonraker answers that in a browser; Mainsail has no panel for the limits, and <code>GET_POSITION</code> prints positions, not limits.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Do not trust the file on disk; ask the running instance. In a browser open:</p>
+<div class="highlight"><pre><span></span><code>http://voron.local/printer/objects/query?toolhead=axis_maximum
+</code></pre></div>
+<p>Then confirm in Mainsail's config editor that these are uncommented: <code>[stepper_x] position_endstop: 350</code> and <code>position_max: 350</code>; <code>[stepper_y]</code> the same; <code>[stepper_z] position_max: 330</code>; <code>[quad_gantry_level] gantry_corners: -60,-10 / 410,420</code> and <code>points: 50,25 / 50,275 / 300,275 / 300,25</code>; <code>[gcode_macro G32]</code> park line <code>G0 X175 Y175 Z30 F3600</code>; <code>[resonance_tester] probe_points: 175, 175, 20</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The browser shows <code>"axis_maximum": [350.0, 350.0, 330.0, 0.0]</code> from the <em>running</em> config; <code>250</code> or <code>300</code> in the first two slots means the wrong size pair is live.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>with every size commented out Klipper refuses to start, so if it is running one pair is live. Step 13.22 proves it: <code>M114</code> must read <code>X:350.000 Y:350.000</code>. (survey §5.2 W14)</p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-235"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#preparation">Voron startup wizard § Preparation</a> · <a href="https://moonraker.readthedocs.io/en/latest/external_api/printer/">Moonraker API § Query printer object status</a></p>
+<hr>
+<h2 id="part-b-temperatures-heaters-fans-lights">Part B — Temperatures, heaters, fans, lights<a class="headerlink" href="#part-b-temperatures-heaters-fans-lights" title="Permanent link">¶</a></h2>
+<h3 id="step-136-verify-the-three-temperature-readings-at-room-temperature">Step 13.6 — Verify the three temperature readings at room temperature<a class="headerlink" href="#step-136-verify-the-three-temperature-readings-at-room-temperature" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-mainsail-temp-graph.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Mainsail temperature graph" src="../assets/remote/13-initial-startup/voron-startup-mainsail-temp-graph.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is the temperature panel, one trace per sensor. Three are expected: the hotend, the bed, and the chamber sensor on the toolboard. A sensor reading room temperature and staying there is a sensor that is wired and configured correctly.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Look at the temperature panel. You should have exactly three sensors: <code>extruder</code>, <code>heater_bed</code> and <code>chamber_temp</code>. Read them and do nothing else for thirty seconds.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Extruder, bed and chamber all read within a couple of degrees of room temperature, and <strong>none of them is climbing</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A temperature rising with nothing commanded means a heater is energised through a wiring fault: cut power at the switch.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: the hotend and chamber thermistors land on the <strong>Nitehawk V2</strong> through <strong>JST-PH2.0</strong> connectors, not the XH2.5 the Rev D wiring guide names. A spare pigtail crimped to XH2.5 will not fit, and a PH2.0 housing can be forced into the wrong header. (survey §4.1 ③)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>extruder and bed are <code>ATC Semitec 104NT-4-R025H42G</code> with <code>pullup_resistor: 2200</code>; the chamber sensor is on the toolboard <code>CT</code> port, whose 4.7 kΩ pull-up is Klipper's default, so it carries no <code>pullup_resistor</code> line.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_temp_graph.png">Voron docs image mainsail_temp_graph.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#verify-temperature">Voron startup wizard § Verify temperature</a> · <a href="https://www.klipper3d.org/Config_Reference.html#common-thermistors">Klipper docs § Common thermistors</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/thermistor.py#L73">Klipper <code>thermistor.py</code></a> (the 4700 Ω default)</p>
+<hr>
+<h3 id="step-137-short-heat-test-hotend-to-50-c">Step 13.7 — Short heat test: hotend to 50 °C<a class="headerlink" href="#step-137-short-heat-test-hotend-to-50-c" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-heater-verification.gif" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Heater verification" src="../assets/remote/13-initial-startup/voron-startup-heater-verification.gif"></a></p>
+<p><strong>What you're looking at:</strong> The animation shows a heater climbing on the graph once a target is set. 50 °C is chosen deliberately: hot enough to prove the heater and its thermistor are the same pair, cool enough to be harmless if they are not.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Hand back on the power switch. Set the <strong>Extruder</strong> target to 50 and press enter. Watch the graph and the toolboard's <strong>HE0</strong> LED.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The extruder temperature climbs within about 10 s and the <strong>HE0</strong> LED is lit; set the target to <strong>Off</strong> and it decays toward room temperature.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If a <em>different</em> sensor heats, the thermistor or heater pairs are swapped. <strong>HE0</strong> lit with no climb is the heater side: cartridge lead, ferrules, the HE0 screw terminal. <strong>HE0</strong> dark is the pin or config side: <code>[extruder] heater_pin: nhk:PA7</code>.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/heaters.gif">Voron docs image heaters.gif</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#verify-heaters">Voron startup wizard § Verify heaters</a></p>
+<hr>
+<h3 id="step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr">Step 13.8 — Short heat test: bed to 50 °C, and watch the SSR<a class="headerlink" href="#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/SSR_Close_Up.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO close-up of the SSR and its indicator LED (Rev C bay — terminal blocks instead of your WAGOs)" src="../assets/remote/13-initial-startup/SSR_Close_Up.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The same test on the other heater, with a second thing to watch: the SSR's own indicator LED down in the bay. That LED shows the relay's control side receiving its signal, splitting any bed fault into mains side or control side.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Lift the machine onto blocks or lay it on its side so the bay is visible. Hand back on the switch. Set the <strong>Bed</strong> target to 50 and watch the SSR's indicator LED as well as the graph.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The SSR LED comes on and the bed temperature climbs; set the target to <strong>Off</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>[heater_bed] max_power: 0.6</code> in the LDO config is deliberate — it limits warp on a 350 plate. Do not raise it because 100 °C feels slow.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg">LDO wiring photo SSR_Close_Up.jpg</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#verify-heaters">Voron startup wizard § Verify heaters</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v">LDO wiring guide § Connecting 24V</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5762s">Video: Part 9 @1:36:02</a></p>
+<hr>
+<h3 id="step-139-hotend-fan-stealthburner-bottom-fan">Step 13.9 — Hotend fan (Stealthburner <strong>bottom</strong> fan)<a class="headerlink" href="#step-139-hotend-fan-stealthburner-bottom-fan" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Stealthburner's <strong>bottom</strong> fan is the hotend fan. It cools the heatsink above the nozzle and runs automatically whenever the hotend is hot, with nobody commanding it. A hotend heated with this fan dead will jam within one print.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Set the Extruder target to 50 again and leave it there for this step and the next.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The <strong>bottom</strong> fan spins up as soon as the hotend is active and stays on above 50 °C.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If the <em>top</em> 5015 fan answers the hotend instead, and the bottom fan answers <code>M106</code> at Step 13.10, exchange <code>pin: nhk:PD0</code> and <code>pin: nhk:PA15</code> between <code>[heater_fan hotend_fan]</code> and <code>[fan]</code>, move the commented <code>tachometer_pin</code> lines <code>PD1</code>/<code>PD2</code> with them, <code>RESTART</code>, and re-run 13.9–13.10. Do <strong>not</strong> re-plug P2/P4 or re-crimp anything.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>this fan is <code>[heater_fan hotend_fan]</code> on <code>nhk:PD0</code> with <code>heater_temp: 50.0</code>. A hotend fan that does not run will clog the hotend on your first print.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#hotend-fan">Voron startup wizard § Hotend fan</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L337-347"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1310-part-cooling-fan-stealthburner-top-fan">Step 13.10 — Part cooling fan (Stealthburner <strong>top</strong> fan)<a class="headerlink" href="#step-1310-part-cooling-fan-stealthburner-top-fan" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The <strong>top</strong> fan is the part-cooling fan. It blows down through the printed ducts onto the plastic just laid, and only the slicer or a manual <code>M106</code> turns it on. Nothing about the hotend's temperature affects it.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Send <code>M106 S255</code>, then <code>M107</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The <strong>top</strong> fan spins to full and you feel air under the nozzle; <code>M107</code> stops it.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>this is <code>[fan]</code> on <code>nhk:PA15</code>; <code>off_below: 0.10</code> commands zero below 10 %, which is expected. If the <strong>bottom</strong> fan answers <code>M106</code>, apply Step 13.9's fix, then set the Extruder target to <strong>Off</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: the 2×5 (10-pin) board-to-board header between the Stealthburner fan adapter and the toolboard has <strong>reversed gender and is keyed</strong> on Rev D+. If a toolhead fan does nothing at all, do not press the connector harder — check that it seated with the key, not against it. (survey §4.1 ④)</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#part-cooling-fan">Voron startup wizard § Part cooling fan</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L327-336"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1311-bay-fan-and-filter-fan">Step 13.11 — Bay fan and filter fan<a class="headerlink" href="#step-1311-bay-fan-and-filter-fan" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Two fans that are not on the toolhead: the 6020 pair in the electronics bay, tied to the bed heater being commanded and to any enabled stepper, and the Nevermore blower, which Ch 12 made a macro-commandable fan rather than a heater-slaved one.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Set the <strong>Bed</strong> target to 60; the bay fan pair starts within a second.</li>
+<li>Set the bed back to <strong>Off</strong>; the pair keeps running about 30 s, then stops.</li>
+<li>Send <code>SET_FAN_SPEED FAN=nevermore SPEED=1</code>, confirm it runs, then <code>SET_FAN_SPEED FAN=nevermore SPEED=0</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The bay fan pair starts the instant a bed target is set and runs on 30 s after <strong>Off</strong>; the Nevermore runs only when commanded.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: the LDO config names <code>FAN3/PF9</code> <code>[heater_fan exhaust_fan]</code>, but that port drives the <strong>Nevermore filter fan</strong>; the kit has no exhaust fan. Ch 12 Step 12.32 replaced it with <code>[fan_generic nevermore]</code>, so there is no <code>heater_temp: 60</code> trigger and nothing happens at bed 60 °C. (survey §3.2, §4.2 p.250–253)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>[controller_fan controller_fan]</code> on <code>FAN2/PF7</code> keys on the heater's non-zero <strong>target</strong> or on any enabled stepper, not on temperature, and runs on for <code>idle_timeout</code>, 30 s by default. The Nevermore is <code>FAN3/PF9</code>.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#controller-fan">Voron startup wizard § Controller fan</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L348-383"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/controller_fan.py">Klipper <code>controller_fan.py</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip">LDO wiring guide § Connecting the fans and the LED strip</a></p>
+<hr>
+<h3 id="step-1312-lights">Step 13.12 — Lights<a class="headerlink" href="#step-1312-lights" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Two independent lighting systems. The COB strips on the chamber ceiling are plain LEDs on a dimmable output, switched with <code>SET_PIN</code>. The three Stealthburner LEDs are addressable, each with its own tiny controller, so they take a colour command rather than a brightness.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Send <code>SET_PIN PIN=caselight VALUE=1</code>, then <code>SET_LED LED=rgb_light RED=1 GREEN=1 BLUE=1 WHITE=1</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The chamber COB strips come on and all three Stealthburner LEDs light.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the strips are <code>[output_pin caselight]</code> on <code>PE6</code>. Colours that come out wrong rather than absent mean <code>color_order</code> only; the LDO config's <code>chain_count: 3</code>, <code>color_order: GRBW</code> is correct for the supplied LEDs. (survey §4.4 #12)</p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L384-410"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip">LDO wiring guide § Connecting the fans and the LED strip</a> · <a href="https://www.klipper3d.org/Config_Reference.html#neopixel">Klipper docs § neopixel</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~40 min since the last one</p>
+<p>the machine has been powered, Klipper reports <code>Ready</code> with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.</p>
+</div>
+<hr>
+<h2 id="part-c-motors">Part C — Motors<a class="headerlink" href="#part-c-motors" title="Permanent link">¶</a></h2>
+<h3 id="step-1313-stepper_buzz-the-four-z-motors">Step 13.13 — <code>STEPPER_BUZZ</code> the four Z motors<a class="headerlink" href="#step-1313-stepper_buzz-the-four-z-motors" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron V2 stepper locations and configuration guide" src="../assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/10-stepper-buzz-directions.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="STEPPER_BUZZ motor-direction cheat sheet" src="../assets/diagrams/10-stepper-buzz-directions.svg"></a></p>
+<p><strong>What you're looking at:</strong> Voron's own map of which motor sits at which corner and which config name it answers to. The diagram below names all four Z corners with the command that moves each, its port, and what rises: the gantry corner, not the bed.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Run the four Z commands one at a time, watching the machine, not the console. <code>STEPPER_BUZZ</code> prints nothing; it moves the named stepper 1 mm positive, pauses, returns, and repeats ten times.</p>
+<div class="highlight"><pre><span></span><code>Send: STEPPER_BUZZ STEPPER=stepper_z
+Send: STEPPER_BUZZ STEPPER=stepper_z1
+Send: STEPPER_BUZZ STEPPER=stepper_z2
+Send: STEPPER_BUZZ STEPPER=stepper_z3
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Exactly one motor responds per command, it moves cleanly forward, pause, back, pause, and it lifts the corner named below <strong>first</strong>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Motor</th>
+<th>Corner that must rise first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>STEPPER_BUZZ STEPPER=stepper_z</code></td>
+<td>Z0, <code>STEPPER-0</code></td>
+<td>front <strong>left</strong></td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ STEPPER=stepper_z1</code></td>
+<td>Z1, <code>STEPPER-1</code></td>
+<td>rear <strong>left</strong></td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ STEPPER=stepper_z2</code></td>
+<td>Z2, <code>STEPPER-2</code></td>
+<td>rear <strong>right</strong></td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ STEPPER=stepper_z3</code></td>
+<td>Z3, <code>STEPPER-3</code></td>
+<td>front <strong>right</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Note: the wizard's V2 table words this as "the corner of the <strong>bed</strong> moves up". On a 2.4 the bed is bolted to the frame and does not move — what rises 1 mm is the corresponding corner of the <strong>gantry</strong>. Sight along the top of the X extrusion against the frame to see it.</p>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/V2-motor-configuration-guide.png">Voron docs image V2-motor-configuration-guide.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#stepper-motor-check">Voron startup wizard § Stepper motor check</a> · <a href="https://www.klipper3d.org/G-Codes.html#stepper_buzz">Klipper docs § STEPPER_BUZZ</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6124s">Video: Part 9 @1:42:04</a></p>
+<hr>
+<h3 id="step-1314-stepper_buzz-the-a-and-b-motors">Step 13.14 — <code>STEPPER_BUZZ</code> the A and B motors<a class="headerlink" href="#step-1314-stepper_buzz-the-a-and-b-motors" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-stepper-buzz.gif" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Stepper buzz" src="../assets/remote/13-initial-startup/voron-startup-stepper-buzz.gif"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/10-stepper-buzz-directions.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="STEPPER_BUZZ motor-direction cheat sheet" src="../assets/diagrams/10-stepper-buzz-directions.svg"></a></p>
+<p><strong>What you're looking at:</strong> The animation shows a healthy buzz. A and B are the two rear-corner motors that drive the gantry through the crossed CoreXY belts, so neither moves a single axis by itself. The diagram's A/B panel names both: <code>[stepper_x]</code> is motor B, <code>[stepper_y]</code> is motor A.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Run the two gantry commands.</p>
+<div class="highlight"><pre><span></span><code>Send: STEPPER_BUZZ STEPPER=stepper_x
+Send: STEPPER_BUZZ STEPPER=stepper_y
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>stepper_x</code> moves the <strong>rear-left</strong> motor B on <code>HV-STEPPER-0</code> and <code>stepper_y</code> the <strong>rear-right</strong> motor A on <code>HV-STEPPER-1</code>, both cleanly, with no grinding.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ignore the wizard's clockwise-then-counterclockwise expectation. On CoreXY one motor's rotation direction proves nothing by eye; A/B direction is settled at Step 13.22.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/verifysteppers.gif">Voron docs image verifysteppers.gif</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#motor-configuration-guide-for-the-voron-v2">Voron startup wizard § Motor configuration guide for the Voron V2</a> · <a href="https://www.klipper3d.org/G-Codes.html#stepper_buzz">Klipper docs § STEPPER_BUZZ</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=6827s">Video: Part 9 @1:53:47</a></p>
+<hr>
+<h3 id="step-1315-stepper_buzz-the-extruder">Step 13.15 — <code>STEPPER_BUZZ</code> the extruder<a class="headerlink" href="#step-1315-stepper_buzz-the-extruder" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The extruder motor lives on the toolhead and drives the Clockwork 2's pair of geared wheels that grip the filament. With no filament loaded, all you are looking for is those gears turning back and forth.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Send <code>STEPPER_BUZZ STEPPER=extruder</code> with no filament loaded.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The Clockwork 2 gears turn back and forth. Direction is not tested here; it is tested when you first extrude, at Step 13.40.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if nothing moves, check <code>[extruder] step_pin: nhk:PB8 / dir_pin: nhk:PB9 / enable_pin: !nhk:PC14</code>. Those are the <strong>V2</strong> pins; the V1 config's <code>gpio23/24/25</code> silently does nothing on this board.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#stepper-motor-check">Voron startup wizard § Stepper motor check</a> · <a href="https://www.klipper3d.org/G-Codes.html#stepper_buzz">Klipper docs § STEPPER_BUZZ</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-287"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1316-correct-any-wrong-motor-or-wrong-direction">Step 13.16 — Correct any wrong motor or wrong direction<a class="headerlink" href="#step-1316-correct-any-wrong-motor-or-wrong-direction" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Four faults look almost identical from the console, each with its own fix: nothing at all is power or pins, a buzz without travel is coil wiring, a wrong motor is a wrong port, a wrong direction is one character in the config.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Fix what Steps 13.13–13.15 found, one cause at a time, from the table.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nothing moved</td>
+<td>Check <code>enable_pin</code> and <code>step_pin</code>, and that the driver has power</td>
+</tr>
+<tr>
+<td>Buzzed but did not travel 1 mm cleanly</td>
+<td>Stepper phase wiring: the two coil pairs are transposed in the connector</td>
+</tr>
+<tr>
+<td>The wrong motor answered</td>
+<td>Motors in the wrong ports. <strong>Power the machine down</strong> before moving any stepper connector</td>
+</tr>
+<tr>
+<td>It moved the wrong way</td>
+<td>Invert that stepper's <code>dir_pin</code>: add a <code>!</code> so <code>dir_pin: PD3</code> becomes <code>dir_pin: !PD3</code>, or remove an existing <code>!</code>. <code>RESTART</code> and re-run the buzz</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All seven motors answer the right command and move cleanly; the four Z motors turn the right way. Do not proceed with a known-bad axis.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#motor-configuration-guide-for-the-voron-v2">Voron startup wizard § Motor configuration guide for the Voron V2</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers">LDO wiring guide § Connecting steppers</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=8636s">Video: Part 9 @2:23:56</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>every motor buzzed, identified and turning the right way, and any swap has been fixed <strong>at the connector, not in the config</strong>. The machine still has not homed.</p>
+</div>
+<hr>
+<h2 id="part-d-endstops-and-probe">Part D — Endstops and probe<a class="headerlink" href="#part-d-endstops-and-probe" title="Permanent link">¶</a></h2>
+<h3 id="step-1317-query_endstops-with-everything-released">Step 13.17 — <code>QUERY_ENDSTOPS</code> with everything released<a class="headerlink" href="#step-1317-query_endstops-with-everything-released" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>QUERY_ENDSTOPS</code> reports each limit switch's present state without moving anything at all. <code>open</code> means the switch is not pressed. Stock Voron endstops are wired normally-closed to ground, so a <code>TRIGGERED</code> reading on an untouched switch means a broken circuit, not a reversed one.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Put a hand under the gantry, send <code>M84</code>, and lower it to a third of its travel, nozzle about 100 mm above the plate.</li>
+<li>Push the toolhead to the middle of the bed by hand, then send <code>QUERY_ENDSTOPS</code>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Send: QUERY_ENDSTOPS
+Recv: // x:open y:open z:open
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All three read <code>open</code>. A <code>TRIGGERED</code> reading with nothing pressing it is a wiring fault, not a missing <code>!</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><code>M84</code> releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This and Step 13.24 are the only places <code>M84</code> is right; elsewhere disable just <code>stepper_x</code>/<code>stepper_y</code> with <code>SET_STEPPER_ENABLE</code> and leave Z holding.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: if your XY endstop cables are labelled <strong>"X Stop / Y Stop"</strong> instead of <strong>"XES / YES"</strong>, you have the mis-pinned batch and both X and Y will misbehave here. Re-pin per LDO's guide before going further. <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">src</a> (survey §4.4 #14)</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#endstop-check">Voron startup wizard § Endstop check</a> · <a href="https://www.klipper3d.org/G-Codes.html#query_endstops">Klipper docs § QUERY_ENDSTOPS</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/safe_z_home.py">Klipper <code>safe_z_home.py</code></a> · <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">LDO XY endstop reconnecting guide</a></p>
+<hr>
+<h3 id="step-1318-x-endstop-by-hand">Step 13.18 — X endstop by hand<a class="headerlink" href="#step-1318-x-endstop-by-hand" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The X endstop is one of the two microswitches on the gantry pod, pressed by the toolhead at the right-hand end of its travel. Pushing it by hand tests the switch, its cable and its board port as one chain, with no motor involved.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Push the toolhead all the way to the <strong>right</strong> until you hear the endstop pod click, hold it there, and send <code>QUERY_ENDSTOPS</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: QUERY_ENDSTOPS
+Recv: // x:TRIGGERED y:open z:open
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Only <code>x</code> changes, and it returns to <code>open</code> when you push the toolhead back to the middle.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if the toolhead cannot reach the switch, look for a rubber rail stopper still on the rail, then for a racked gantry.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#endstop-check">Voron startup wizard § Endstop check</a> · <a href="https://www.klipper3d.org/G-Codes.html#query_endstops">Klipper docs § QUERY_ENDSTOPS</a></p>
+<hr>
+<h3 id="step-1319-y-endstop-by-hand">Step 13.19 — Y endstop by hand<a class="headerlink" href="#step-1319-y-endstop-by-hand" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Y endstop is the other switch on that same pod, pressed when the whole gantry reaches the back of the machine. Same three-part chain, same test.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Push the gantry all the way to the <strong>back</strong> until the endstop clicks, hold, and send <code>QUERY_ENDSTOPS</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: QUERY_ENDSTOPS
+Recv: // x:open y:TRIGGERED z:open
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Only <code>y</code> changes, and it releases when you move the gantry forward again.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#endstop-check">Voron startup wizard § Endstop check</a> · <a href="https://www.klipper3d.org/G-Codes.html#query_endstops">Klipper docs § QUERY_ENDSTOPS</a></p>
+<hr>
+<h3 id="step-1320-z-endstop-the-ldo-nozzle-probe-by-hand">Step 13.20 — Z endstop (the LDO nozzle probe) by hand<a class="headerlink" href="#step-1320-z-endstop-the-ldo-nozzle-probe-by-hand" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/ldo-nozzle-probe-installed.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO nozzle probe installed" src="../assets/remote/13-initial-startup/ldo-nozzle-probe-installed.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The photo is the LDO nozzle probe installed: a sprung 5 mm shaft beside the bed with a D2F microswitch under it. The nozzle presses that shaft at the end of every Z homing move, so this part, not the inductive probe, defines Z=0.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Press the nozzle probe's sliding shaft down with a finger until the D2F switch clicks, hold, and send <code>QUERY_ENDSTOPS</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: QUERY_ENDSTOPS
+Recv: // x:open y:open z:TRIGGERED
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Only <code>z</code> changes, and the shaft springs back up <strong>freely</strong> to read <code>open</code> again.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if the shaft is sticky, back off the probe body's set screw a quarter turn. That screw only stops the shaft falling out; it must not grip it.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg">LDO wiring photo z_stop_final.jpg</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#endstop-check">Voron startup wizard § Endstop check</a></p>
+<hr>
+<h3 id="step-1321-query_probe-on-the-inductive-probe">Step 13.21 — <code>QUERY_PROBE</code> on the inductive probe<a class="headerlink" href="#step-1321-query_probe-on-the-inductive-probe" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/Probe_Insulation.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO photo of the inductive probe's fibreglass tape — front and sides only, sensing face bare" src="../assets/remote/13-initial-startup/Probe_Insulation.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The Omron inductive probe senses metal without touching it, and on this build it is used only to level the gantry and shape the mesh. The photo shows the fibreglass heat shield it must wear: front and sides only, sensing face bare.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> With the gantry still high and well clear of the bed, send <code>QUERY_PROBE</code>. Then hold a steel offcut or the flex plate up under the probe face and send it again.</p>
+<div class="highlight"><pre><span></span><code>Send: QUERY_PROBE
+Recv: // probe: open
+
+  (metal close to the probe)
+
+Send: QUERY_PROBE
+Recv: // probe: TRIGGERED
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>open</code> when far, <code>TRIGGERED</code> when metal is close.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if it is stuck one way, check ground, signal and 24 V at the probe, and that <code>[probe] pin: nhk:PC15</code> matches where it is plugged. If the sense is inverted, use <code>pin: !nhk:PC15</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Rev D+ / LDO: the PROBE port is <strong>JST-PH2.0</strong> on Rev D+ and is <strong>24 V only</strong>. Also confirm the probe body still carries the supplied fibreglass tape on the <strong>front and sides only — not the back and not the bottom</strong>; tape on the sensing face changes the trigger height. (survey §4.1 ③, §4.2 p.143)</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/Probe_Insulation.jpg">LDO wiring photo Probe_Insulation.jpg</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#probe-check">Voron startup wizard § Probe check</a> · <a href="https://www.klipper3d.org/G-Codes.html#query_probe">Klipper docs § QUERY_PROBE</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>all three endstops and the inductive probe respond correctly to <code>QUERY_ENDSTOPS</code> / <code>QUERY_PROBE</code>, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.</p>
+</div>
+<hr>
+<h2 id="part-e-homing-and-machine-coordinates">Part E — Homing and machine coordinates<a class="headerlink" href="#part-e-homing-and-machine-coordinates" title="Permanent link">¶</a></h2>
+<h3 id="step-1322-home-x-with-an-abort-ready">Step 13.22 — Home X, with an abort ready<a class="headerlink" href="#step-1322-home-x-with-an-abort-ready" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-mainsail-controls.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Mainsail control panel" src="../assets/remote/13-initial-startup/voron-startup-mainsail-controls.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is the interface's jog and homing panel. The stop you test first is <code>M112</code>, typed alone on the line: Mainsail sends that as its emergency-stop call, so it goes round the command queue while a move is running. <code>RESTART</code> waits behind the move instead.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Two people: one owns the stop, one watches, hands out.</li>
+<li>Test the stop: <code>M112</code> alone on the line, Mainsail's red <strong>Emergency Stop</strong>, then the touchscreen E-stop.</li>
+<li>Put <code>M112</code> typed and unsent in a second window, <code>FIRMWARE_RESTART</code>, then send <code>G28 X</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The toolhead lifts 10 mm, then travels to the <strong>right</strong> until it hits the X endstop, backs off 5 mm and re-touches.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Before <code>G28 X</code>, confirm the gantry is still a third of the way up, where Step 13.17 left it: every homing move before Z is homed lifts it another 10 mm.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the 10 mm lift is <code>[safe_z_home] z_hop: 10</code>. Any other direction: <code>M112</code>, <code>FIRMWARE_RESTART</code>, note what happened, and still test Y before changing anything; you need both results to read the chart.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_controls.png">Voron docs image mainsail_controls.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check">Voron startup wizard § XY homing check</a> · <a href="https://www.klipper3d.org/G-Codes.html#g-code-commands">Klipper docs § M112</a> · <a href="https://github.com/mainsail-crew/mainsail/blob/develop/src/store/printer/actions.ts">Mainsail <code>src/store/printer/actions.ts</code></a> (<code>sendGcode</code>: a line that is exactly <code>M112</code>, trimmed and case-insensitive, is sent as <code>printer.emergency_stop</code>; anything else goes to <code>printer.gcode.script</code> and queues) · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/webhooks.py">Klipper <code>webhooks.py</code></a> (the <code>emergency_stop</code> endpoint calls <code>invoke_shutdown</code> directly, without the G-code mutex)</p>
+<hr>
+<h3 id="step-1323-home-y-then-read-the-chart">Step 13.23 — Home Y, then read the chart<a class="headerlink" href="#step-1323-home-y-then-read-the-chart" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron V2 stepper locations and configuration guide" src="../assets/remote/13-initial-startup/voron-v2-motor-configuration-guide.png"></a></p>
+<p><strong>What you're looking at:</strong> The chart maps each combination of observed X and Y homing directions onto a cause. The upper block is a direction problem, fixed with one character in the config; the lower orange block means the two motors are swapped, fixed with the power off.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>M112</code> ready. Send <code>G28 Y</code>, which lifts another 10 mm first because Z is still unhomed. Compare what X and Y actually did against the chart, then send <code>M114</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The toolhead travels to the <strong>back</strong> until it hits the Y endstop, and <code>M114</code> reads <code>X:350.000 Y:350.000</code>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Observation</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matches a column in the <strong>upper</strong> block of the chart</td>
+<td>Invert <code>dir_pin</code> on the stepper that column marks <em>Inverted</em>. <code>[stepper_x]</code> is motor <strong>B</strong>, <code>[stepper_y]</code> is motor <strong>A</strong></td>
+</tr>
+<tr>
+<td>Matches the <strong>lower (orange)</strong> block</td>
+<td>The motors themselves are swapped: <strong>power down</strong>, exchange the A and B connectors at the board, power up, re-test</td>
+</tr>
+<tr>
+<td>Gantry moves <em>downward</em> first instead of sideways</td>
+<td>Z stepper directions are reversed. Go back to Step 13.16</td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/V2-motor-configuration-guide.png">Voron docs image V2-motor-configuration-guide.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check">Voron startup wizard § XY homing check</a></p>
+<hr>
+<h3 id="step-1324-bed-locating-line-up-the-z-endstop-and-set-the-bed-gap">Step 13.24 — Bed locating: line up the Z endstop and set the bed gap<a class="headerlink" href="#step-1324-bed-locating-line-up-the-z-endstop-and-set-the-bed-gap" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — the probe body in the hand with its PCB screwed on; not the machine" src="../assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The photo is LDO's bench shot of the probe body, not how it sits on the extrusion. Two things have to line up: the shaft directly under the nozzle, and 2–3 mm of clearance between that shaft and the back edge of the build plate.</p>
+<p><strong>Parts:</strong> none — repositioning parts already fitted in Ch 09.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><code>M112</code> ready, <code>G28 X Y</code>, then jog the toolhead left along the rear until the nozzle lines up with the probe.</li>
+<li>Loosen the probe's two M3×25 SHCS, slide it until the shaft is <strong>directly under the nozzle</strong>, re-tighten.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The nozzle tip is over the middle of the probe shaft, with a 2–3 mm gap to the plate's back edge across its travel.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Each <code>G28 X Y</code> lifts the gantry another 10 mm until Z is homed at Step 13.27. If it is getting near the top, <code>M84</code> with a hand under the gantry, lower it by hand, and re-home.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if the bed fouls the shaft, loosen the bed and shift it forward. This is the last chance to do it easily.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_install_3.jpg">LDO wiring photo z_stop_install_3.jpg</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#bed-locating">Voron startup wizard § Bed locating</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe">LDO wiring guide § Assembling the nozzle probe</a></p>
+<hr>
+<h3 id="step-1325-define-the-00-point">Step 13.25 — Define the 0,0 point<a class="headerlink" href="#step-1325-define-the-00-point" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> 0,0 is the machine's origin: the nozzle position Klipper calls X0 Y0. It is set indirectly, by telling each axis how far its endstop sits from that origin, which is why <code>position_endstop</code> and <code>position_max</code> always move together.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Send <code>SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0</code> and <code>SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0</code>, never <code>M84</code>.</li>
+<li>Push the toolhead by hand to the front-left corner. If it binds before the nozzle reaches the corner, stop.</li>
+<li><code>M112</code> ready, <code>G28 X Y</code>, then jog to X0 Y0, watching for skipping near the corner.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The nozzle sits over the plate, within about 5 mm of the front-left corner, with no skipping on the way.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nozzle too far <strong>into</strong> the bed</td>
+<td><strong>Increase</strong> <code>position_endstop</code> and <code>position_max</code> together, on that axis only. +2 mm on <code>[stepper_x]</code> moves 0,0 2 mm left</td>
+</tr>
+<tr>
+<td>Nozzle <strong>beyond</strong> the bed edge</td>
+<td><strong>Decrease</strong> both together</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>binding before the corner is racking or a mechanical fault, not a config problem. <code>FIRMWARE_RESTART</code> after any config edit, then re-check.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#define-00-point">Voron startup wizard § Define 0,0 point</a></p>
+<hr>
+<h3 id="step-1326-record-the-z-endstop-coordinate-into-safe_z_home">Step 13.26 — Record the Z endstop coordinate into <code>[safe_z_home]</code><a class="headerlink" href="#step-1326-record-the-z-endstop-coordinate-into-safe_z_home" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>M114</code> reports where Klipper currently believes the nozzle is. Parking it over the probe shaft and reading those two numbers is how the deliberate placeholder in <code>[safe_z_home]</code> becomes a real, measured position: the one the toolhead will move to before every Z home from now on.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>M112</code> ready. <code>G28 X Y</code>, jog the nozzle back to directly over the probe shaft from Step 13.24, and send <code>M114</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: M114
+Recv: X:163.500 Y:350.000 Z:10.000 E:0.000
+</code></pre></div>
+<p>Copy the X and Y values into <code>[safe_z_home] home_xy_position:</code> replacing the placeholder <code>-10,-10</code>. <code>FIRMWARE_RESTART</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The values are yours, not the example above <code>(verify on bench)</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>until you do this, a full <code>G28</code> fails with <code>Move out of range: -10.000 -10.000 …</code> because the placeholder is outside <code>position_min: 0</code>. Re-set these if you ever re-calibrate the X or Y endstop.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#z-endstop-pin-location">Voron startup wizard § Z endstop pin location</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L458-470"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1327-full-g28">Step 13.27 — Full <code>G28</code><a class="headerlink" href="#step-1327-full-g28" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The full sequence: X to its switch, Y to its switch, then a move to the coordinate you just recorded and a slow two-touch descent onto the nozzle probe. The stock <code>position_endstop: -0.5</code> deliberately leaves the nozzle high.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><code>M112</code> typed and unsent, someone watching the nozzle.</li>
+<li>Send <code>G28</code>: X right, Y back, then a slow descent onto the nozzle probe at the <code>[safe_z_home]</code> coordinate.</li>
+<li><strong>Stop the descent with <code>M112</code></strong> if the nozzle will miss the shaft.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Z homes on the probe: first touch at <code>homing_speed: 8</code>, 3 mm retract, second touch at 3 mm/s, nozzle pressing the shaft, not the printed body.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The Z homing move only ends when the switch trips. Beside the pin there is nothing to trip it: the move runs on to <code>position_min: -5</code> and drives the nozzle into whatever is under it.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the stock <code>[stepper_z] position_endstop: -0.5</code> leaves the nozzle deliberately high, a safe placeholder that Step 13.36 replaces. Do not send the nozzle to Z0 yet.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#z-endstop-location">Voron startup wizard § Z endstop location</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L458-470"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/G-Codes.html#set_kinematic_position">Klipper docs § SET_KINEMATIC_POSITION</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p><strong>homing works.</strong> X, Y and Z home, the bed is located, 0,0 is defined and the <code>[safe_z_home]</code> coordinate is written into <code>printer.cfg</code>, and a full <code>G28</code> completes without a crash. Klipper came back clean after the edits (commit them: <code>cd ~/printer_data/config &amp;&amp; git add -A &amp;&amp; git commit -m "13.26 safe_z_home"</code>). This is the biggest milestone in the chapter — a good place to stop.</p>
+</div>
+<hr>
+<h2 id="part-f-probe-accuracy-cold">Part F — Probe accuracy, cold<a class="headerlink" href="#part-f-probe-accuracy-cold" title="Permanent link">¶</a></h2>
+<h3 id="step-1328-probe_accuracy-at-the-bed-centre-cold">Step 13.28 — <code>PROBE_ACCURACY</code> at the bed centre, cold<a class="headerlink" href="#step-1328-probe_accuracy-at-the-bed-centre-cold" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>PROBE_ACCURACY</code> probes the same spot ten times and reports how far the readings scattered. It measures the machine's repeatability rather than the bed: a tight standard deviation means the gantry returns to the same height every time.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>G28</code>, then <code>G0 X175 Y175 Z10 F6000</code>, then <code>PROBE_ACCURACY</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: PROBE_ACCURACY
+Recv: // PROBE_ACCURACY at X:175.000 Y:175.000 Z:10.000 (samples=10 retract=3.000 speed=10.0 lift_speed=10.0)
+Recv: // probe: at 175.000,200.000 bed will contact at z=2.077500
+      ... (8 more)
+Recv: // probe: at 175.000,200.000 bed will contact at z=2.075000
+Recv: // probe accuracy results: maximum 2.080000, minimum 2.075000, range 0.005000,
+      average 2.077250, median 2.077500, standard deviation 0.001803
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Standard deviation <strong>&lt; 0.003 mm</strong>, and the ten values are not marching steadily one way.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>values that trend are mechanical: Z pulley grub screws, Z belt tensions. Random scatter is usually probe mounting or cable. The hot test at Step 13.32 is the QGL gate.</p>
+</div>
+<p>Note: <code>[probe] y_offset: 25.0</code>, so the probe sits 25 mm behind the nozzle — that is why the reported probe Y is 200 when the nozzle is at 175. Older Klipper prints these lines as <code>probe at 175.000,200.000 is z=2.077500</code>; same thing.</p>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#probe-accuracy-check">Voron startup wizard § Probe accuracy check</a> · <a href="https://www.klipper3d.org/G-Codes.html#probe_accuracy">Klipper docs § PROBE_ACCURACY</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/probe.py">Klipper <code>probe.py</code></a></p>
+<hr>
+<h2 id="part-g-pid-before-qgl">Part G — PID, before QGL<a class="headerlink" href="#part-g-pid-before-qgl" title="Permanent link">¶</a></h2>
+<h3 id="step-1329-pid-tune-the-bed-at-100-c">Step 13.29 — PID tune the bed at 100 °C<a class="headerlink" href="#step-1329-pid-tune-the-bed-at-100-c" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> PID is the control loop that holds a heater at a setpoint without overshooting or hunting. <code>PID_CALIBRATE</code> deliberately drives the heater into oscillation, measures how it responds, and computes the three constants that damp it. Nothing else can happen while it runs.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Move the nozzle to the bed centre, 5–10 mm above the surface, then run the calibration. It takes about 10 minutes; leave it alone.</p>
+<div class="highlight"><pre><span></span><code>Send: G0 X175 Y175 Z10 F6000
+Send: PID_CALIBRATE HEATER=heater_bed TARGET=100
+      ... ~10 min ...
+Recv: // PID parameters: pid_Kp=58.437 pid_Ki=2.347 pid_Kd=363.769
+Recv: // The SAVE_CONFIG command will update the printer config file
+Recv: // with these parameters and restart the printer.
+Send: SAVE_CONFIG
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>SAVE_CONFIG</code> restarts Klipper and the new <code>pid_Kp/Ki/Kd</code> appear in the auto-generated block at the bottom of <code>printer.cfg</code>. Your numbers will differ from the example. <a href="https://docs.vorondesign.com/build/startup/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#pid-tune-heated-bed">Voron startup wizard § PID tune heated bed</a> · <a href="https://www.klipper3d.org/G-Codes.html#pid_calibrate">Klipper docs § PID_CALIBRATE</a> · <a href="https://www.klipper3d.org/G-Codes.html#save_config">Klipper docs § SAVE_CONFIG</a></p>
+<hr>
+<h3 id="step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25">Step 13.30 — PID tune the hotend at 245 °C with the part fan at 25 %<a class="headerlink" href="#step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The same procedure on the hotend, with the part fan at 25 % on purpose: that fan is a disturbance the loop will face in every real print, so tuning against it produces constants that hold under printing conditions.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> <code>G28</code> first, because <code>SAVE_CONFIG</code> restarted the printer. Then set the part fan to 25 % and run the hotend calibration; about 5 minutes.</p>
+<div class="highlight"><pre><span></span><code>Send: G28
+Send: M106 S64
+Send: PID_CALIBRATE HEATER=extruder TARGET=245
+      ... ~5 min ...
+Recv: // PID parameters: pid_Kp=26.213 pid_Ki=1.304 pid_Kd=131.721
+Send: SAVE_CONFIG
+Send: M107
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Saved and restarted, with the new <code>pid_Kp/Ki/Kd</code> written into the auto-generated block.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>running the hotend PID with the part fan at 25 % is deliberate; it tunes for the disturbance the fan actually causes in a print.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#pid-tune-hotend">Voron startup wizard § PID tune hotend</a> · <a href="https://www.klipper3d.org/G-Codes.html#pid_calibrate">Klipper docs § PID_CALIBRATE</a></p>
+<hr>
+<h2 id="part-h-quad-gantry-level">Part H — Quad gantry level<a class="headerlink" href="#part-h-quad-gantry-level" title="Permanent link">¶</a></h2>
+<h3 id="step-1331-heat-soak-bed-100-c-hotend-150-c">Step 13.31 — Heat soak: bed 100 °C, hotend 150 °C<a class="headerlink" href="#step-1331-heat-soak-bed-100-c-hotend-150-c" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A heat soak is waiting for the <strong>frame</strong> to come up to temperature, not the bed. Aluminium extrusions grow as they warm, which moves the gantry relative to the bed, so anything measured cold was measured on a different machine.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Send <code>SET_IDLE_TIMEOUT TIMEOUT=7200</code>, then <code>G28</code>.</li>
+<li>Set the bed to 100 °C and the hotend to 150 °C.</li>
+<li>Wait 10–20 minutes from cold.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The bed holds 100 °C without hunting and the hotend 150 °C; <code>chamber_temp</code> rises only a few degrees with the machine open.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The LDO config ships <code>[idle_timeout] timeout: 1800</code>, and Klipper's idle timeout runs <code>TURN_OFF_HEATERS</code> then <code>M84</code> after 30 minutes without a move, which is exactly what a static soak looks like. <code>RESTART</code>, <code>FIRMWARE_RESTART</code> and every <code>SAVE_CONFIG</code> put it back to 1800.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>150 °C is below <code>min_extrude_temp: 170</code> on purpose: hot enough to expand the toolhead, cold enough that nothing oozes. The soak gate at Step 13.32 is probe repeatability, not a chamber number.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber">Voron startup wizard § QGL with heated bed and chamber</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_idle_timeout">Klipper docs § SET_IDLE_TIMEOUT</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>cold <code>PROBE_ACCURACY</code> is in range, both PID tunes are saved, and the machine is holding its heat soak at bed 100 °C / hotend 150 °C. The soak is a genuine wait state: leave it soaking, but do not leave the room with the heaters on.</p>
+</div>
+<hr>
+<h3 id="step-1332-probe_accuracy-hot-the-gate-on-everything-downstream">Step 13.32 — <code>PROBE_ACCURACY</code> hot — the gate on everything downstream<a class="headerlink" href="#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The same ten-probe repeatability test as Step 13.28, now hot. This is the gate: a probe still drifting will make gantry levelling report success while leaving the gantry tilted, and every measurement downstream inherits that error.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> With the printer at temperature, <code>G0 X175 Y175 Z10 F6000</code> and run <code>PROBE_ACCURACY</code> again.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>σ <strong>&lt; 0.003 mm</strong> and no trend across the ten samples.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Do not run QGL until this passes.</strong> A drifting probe produces a QGL that looks like it converged and is not level. If the values are still drifting, wait another 5 minutes and repeat. Write down how long it took to stabilise: that is your print-start soak time from now on. (survey §4.4 #16)</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#probe-accuracy-check">Voron startup wizard § Probe accuracy check</a> · <a href="https://www.klipper3d.org/G-Codes.html#probe_accuracy">Klipper docs § PROBE_ACCURACY</a></p>
+<hr>
+<h3 id="step-1333-quad_gantry_level">Step 13.33 — <code>QUAD_GANTRY_LEVEL</code><a class="headerlink" href="#step-1333-quad_gantry_level" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#q">QGL</a> probes four points near the bed's corners, computes how far each of the four Z motors must move to bring the gantry parallel to the bed, moves them independently, and repeats. The number to watch is <code>Probed points range</code>; it should shrink on every pass.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Send <code>QUAD_GANTRY_LEVEL</code>. It probes the four points <code>50,25 / 50,275 / 300,275 / 300,25</code>, computes each Z actuator's height against the gantry corners, adjusts, and repeats until the probed range is inside <code>retry_tolerance: 0.0075</code> or it runs out of <code>retries: 5</code>.</p>
+<div class="highlight"><pre><span></span><code>Send: QUAD_GANTRY_LEVEL
+Recv: // Gantry-relative probe points:
+Recv: // 0: 0.052500 1: 0.031250 2: -0.018750 3: 0.005000
+Recv: // Actuator Positions:
+Recv: // z: 0.061250 z1: 0.030000 z2: -0.022500 z3: 0.008750
+Recv: // Average: 0.019375
+Recv: // Making the following Z adjustments:
+Recv: // stepper_z = -0.041875
+Recv: // stepper_z1 = -0.010625
+Recv: // stepper_z2 = 0.041875
+Recv: // stepper_z3 = 0.010625
+Recv: // Retries: 0/5 Probed points range: 0.071250 tolerance: 0.007500
+      ... repeats ...
+Recv: // Retries: 2/5 Probed points range: 0.005250 tolerance: 0.007500
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>Probed points range</code> <strong>shrinks</strong> on every pass and ends below 0.007500. Watch that number, not the individual adjustments.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if it grows, or stalls well above tolerance, the gantry is racked. Go to Step 13.34 now rather than retrying.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level">Voron startup wizard § Quad gantry level</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#common-qgl-problems">Voron startup wizard § Common QGL problems</a> · <a href="https://www.klipper3d.org/G-Codes.html#quad_gantry_level">Klipper docs § QUAD_GANTRY_LEVEL</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=10151s">Video: Part 9 @2:49:11</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>hot <code>PROBE_ACCURACY</code> passed and <strong>QGL converges</strong>. Heaters can go off; <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code> puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or <code>SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0</code> / <code>…stepper_y…</code> (never <code>M84</code>) and re-home first.</p>
+</div>
+<hr>
+<h3 id="step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab">Step 13.34 — Hand off to Ch 06b: square the gantry, then re-tension A/B<a class="headerlink" href="#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-gantry-squaring-ab-tension-release.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Fully release A/B tension before squaring" src="../assets/remote/13-initial-startup/voron-gantry-squaring-ab-tension-release.png"></a></p>
+<p><strong>What you're looking at:</strong> The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring undoes belt tension, so Ch 07's tensioning was only provisional, Ch 06b puts back only a working tension, and final tension belongs to Ch 14.</p>
+<p><strong>Parts:</strong> none — Ch 06b and Ch 07 hardware only.</p>
+<p><strong>Do:</strong> Leave this chapter here and run <a href="../06-z-axis-and-gantry-squaring/#part-b-chapter-06b-gantry-squaring"><strong>Ch 06b gantry squaring</strong></a>, which needs exactly what you now have: a printer that homes and QGLs.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Ch 06b's checkpoint is ticked and the A/B belts are back at its provisional tension.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Do not skip this even if QGL converged</p>
+<p>a QGL that converges on a racked gantry is a levelled parallelogram. Ch 06b fully releases A/B belt tension and drops the lower Z joints, then leaves the gantry square, cold, with the A/B belts at a provisional tension. (survey §5.2 W1)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Final</strong> belt tensions are <a href="../14-calibration/#part-b-belts-final-tension">Ch 14 Steps 14.4–14.6</a>: A/B 110 Hz, Z 140 Hz, both over 150 mm, cold with the door open.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png">Voron docs image Gantry-ABTension.png</a> · <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">Voron docs — V2 gantry squaring</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~10 min since the last one</p>
+<p>you are handed off to <strong>Ch 06b</strong>: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.</p>
+</div>
+<hr>
+<h3 id="step-1335-re-heat-and-re-qgl-after-squaring">Step 13.35 — Re-heat and re-QGL after squaring<a class="headerlink" href="#step-1335-re-heat-and-re-qgl-after-squaring" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Everything measured before squaring is now stale, so the soak, the probe check and the level are all repeated on the squared machine. A QGL that converges in fewer passes and from a smaller starting range is the evidence that squaring actually took.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Machine still open, no panels. Send <code>SET_IDLE_TIMEOUT TIMEOUT=7200</code> again.</li>
+<li>Bed to 100 °C, hotend to 150 °C, soak for the time you recorded at Step 13.32.</li>
+<li><code>G28</code>, <code>PROBE_ACCURACY</code> at σ under 0.003 mm, then <code>QUAD_GANTRY_LEVEL</code>.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>QGL converges in fewer passes and from a smaller range than before. If not, the squaring did not take: go back to Ch 06b.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ch 06b's <code>RESTART</code> put <code>[idle_timeout]</code> back to 1800 s. Stay hot: the remaining steps run in this same session.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber">Voron startup wizard § QGL with heated bed and chamber</a> · <a href="https://www.klipper3d.org/G-Codes.html#quad_gantry_level">Klipper docs § QUAD_GANTRY_LEVEL</a></p>
+<hr>
+<h2 id="part-i-z-offset-z0">Part I — Z offset (Z=0)<a class="headerlink" href="#part-i-z-offset-z0" title="Permanent link">¶</a></h2>
+<h3 id="step-1336-z_endstop_calibrate-and-the-paper-test">Step 13.36 — <code>Z_ENDSTOP_CALIBRATE</code> and the paper test<a class="headerlink" href="#step-1336-z_endstop_calibrate-and-the-paper-test" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-startup-mainsail-manual-probe.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Mainsail manual probe dialog" src="../assets/remote/13-initial-startup/voron-startup-mainsail-manual-probe.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is Klipper's manual-probe dialog. <code>Z_ENDSTOP_CALIBRATE</code> steps the nozzle down in known increments until a sheet of paper just drags under it, then records that height as Z=0. The paper is ~0.1 mm thick, so this Z=0 sits one paper-thickness above the plate.</p>
+<p><strong>Parts:</strong> one sheet of printer paper.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Hot and levelled: <code>G28</code>, nozzle to the bed centre, wipe off any ooze, put the paper under it.</li>
+<li>Run <code>Z_ENDSTOP_CALIBRATE</code>. Step down with <code>TESTZ Z=-1</code> until close, then <code>TESTZ Z=-0.1</code>; <code>TESTZ Z=0.1</code> backs off.</li>
+<li><code>ACCEPT</code> at the first position where the paper drags.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Send: Z_ENDSTOP_CALIBRATE
+Recv: // Starting manual Z probe. Use TESTZ to adjust position.
+Recv: // Finish with ACCEPT or ABORT command.
+Recv: // Z position: ?????? --&gt; 9.800 &lt;-- ??????
+Send: TESTZ Z=-1
+Recv: // Z position: ?????? --&gt; 8.800 &lt;-- 9.800
+      ... down to ...
+Send: TESTZ Z=-0.1
+Recv: // Z position: 0.150 --&gt; 0.250 &lt;-- 0.350
+Send: ACCEPT
+Recv: // stepper_z: position_endstop: -0.750
+Recv: // The SAVE_CONFIG command will update the printer config file
+Recv: // with the above and restart the printer.
+Send: SAVE_CONFIG
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You accepted at light drag: the paper still slides, but with resistance, and Klipper printed a new <code>position_endstop</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Do <strong>not</strong> add an extra step down "for the heat". The number Klipper prints is <code>old position_endstop − the Z you accepted at</code>: with the stock <code>−0.5</code> and an accept at <code>0.250</code>, that is <code>−0.5 − 0.250 = −0.750</code>. Yours will differ; the arithmetic will not.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the small back-and-forth Klipper does on tiny moves is deliberate backlash compensation; the final position is the one you asked for.</p>
+</div>
+<p>Note: this sets Z=0 from the <strong>nozzle probe</strong>, not the inductive probe. <code>[probe] z_offset: 0</code> stays uncalibrated on purpose — that probe is used only for QGL and mesh shape.</p>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_manual_probe.png">Voron docs image mainsail_manual_probe.png</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#z-endstop-calibrate">Voron startup wizard § Z endstop calibrate</a> · <a href="https://www.klipper3d.org/G-Codes.html#manual_probe">Klipper docs § MANUAL_PROBE / TESTZ</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/manual_probe.py">Klipper <code>manual_probe.py</code></a> · <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=14037s">Video: More Extras! @3:53:57</a> (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)</p>
+<hr>
+<h3 id="step-1337-sanity-check-z0">Step 13.37 — Sanity-check Z=0<a class="headerlink" href="#step-1337-sanity-check-z0" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The same sheet of paper, now a check rather than a measurement: the nozzle is commanded to the Z=0 you just saved and the paper should behave the same way. A <strong>larger</strong> <code>position_endstop</code> puts the nozzle closer to the bed.</p>
+<p><strong>Parts:</strong> paper.</p>
+<p><strong>Do:</strong> <code>G28</code>, then <code>G0 X175 Y175 Z0 F1200</code>. Slide the paper under the nozzle.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The paper drags but is not pinned or torn, and the nozzle has not touched the PEI; at Z0 it sits one paper-thickness above it.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if it is wrong, re-run Step 13.36; do not hand-edit <code>position_endstop</code> yet. Increasing <code>[stepper_z] position_endstop</code> brings the nozzle closer to the bed, so −0.700 is closer than −0.750.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#z-offset-adjustment">Voron startup wizard § Z offset adjustment</a> · <a href="https://www.klipper3d.org/Manual_Level.html">Klipper docs § Manual Level</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>re-heated, re-QGL'd after squaring, <code>Z_ENDSTOP_CALIBRATE</code> done at the paper-drag height, and Z=0 sanity-checked at the bed centre. <code>SAVE_CONFIG</code> run and committed. The machine now knows where the bed is.</p>
+</div>
+<hr>
+<h2 id="part-j-bed-mesh">Part J — Bed mesh<a class="headerlink" href="#part-j-bed-mesh" title="Permanent link">¶</a></h2>
+<h3 id="step-1338-confirm-the-bed_mesh-section-from-ch-12">Step 13.38 — Confirm the <code>[bed_mesh]</code> section from Ch 12<a class="headerlink" href="#step-1338-confirm-the-bed_mesh-section-from-ch-12" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Nothing to build here. <code>[bed_mesh]</code> is one config section, owned by Ch 12, and this step only confirms it survived. <code>PRINT_END</code> calls <code>BED_MESH_CLEAR</code>, which is why a missing section shows up as a console warning at the end of every print rather than as a failure.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Open <code>printer.cfg</code>, confirm the <code>[bed_mesh]</code> section from Ch 12 Step 12.34 is present and unchanged, then <code>FIRMWARE_RESTART</code>. Do not retype it here.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>grep -A4 '^\[bed_mesh\]' ~/printer_data/config/printer.cfg</code> returns the block, Klipper comes back <code>Ready</code>, and <code>BED_MESH_CLEAR</code> is accepted at the console.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>the LDO config ships no <code>[bed_mesh]</code> section at all, so <code>PRINT_END</code> prints <code>Unknown command:"BED_MESH_CLEAR"</code> until one exists. A rejected section is a range error: fix it in Ch 12, not here. (survey §4.4 #15)</p>
+</div>
+<p class="src">Source: <a href="https://www.klipper3d.org/Config_Reference.html#bed_mesh">Klipper docs § bed_mesh</a> · <a href="https://www.klipper3d.org/Bed_Mesh.html">Klipper docs § Bed Mesh</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1339-bed_mesh_calibrate">Step 13.39 — <code>BED_MESH_CALIBRATE</code><a class="headerlink" href="#step-1339-bed_mesh_calibrate" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>BED_MESH_CALIBRATE</code> probes a grid across the plate and stores the height at each point, so Klipper can correct Z continuously as the nozzle travels. It has to be taken hot and after levelling, because both the plate and the gantry change shape with temperature.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Still hot and still levelled: <code>G28</code>, <code>QUAD_GANTRY_LEVEL</code>, <code>G28</code>, then <code>BED_MESH_CALIBRATE</code>. 49 probe points takes a few minutes.</p>
+<div class="highlight"><pre><span></span><code>Send: BED_MESH_CALIBRATE
+      ... 49 probes ...
+Recv: // Mesh Bed Leveling Complete
+Recv: // Bed Mesh state has been saved to profile [default]
+Recv: // for the current session.  The SAVE_CONFIG command will
+Recv: // update the printer config file and restart the printer.
+Send: SAVE_CONFIG
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>BED_MESH_OUTPUT</code> shows the whole plate inside roughly ±0.10 mm at 100 °C.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>A corner 0.3 mm out of family points at a bed screw torqued cold in Ch 03, not at a bad plate. Mesh <strong>after</strong> QGL, always, and re-mesh whenever you change the bed or the plate.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>this mesh is a hot mesh at 100 °C. It is not valid for a 60 °C PLA bed — take a second profile later if you print cold materials.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#bed-leveling">Voron startup wizard § Bed leveling</a> · <a href="https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate">Klipper docs § BED_MESH_CALIBRATE</a> · <a href="https://www.klipper3d.org/Bed_Mesh.html">Klipper docs § Bed Mesh</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p><code>[bed_mesh]</code> confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code> sent to put the timeout back.</p>
+</div>
+<hr>
+<h2 id="part-k-first-print">Part K — First print<a class="headerlink" href="#part-k-first-print" title="Permanent link">¶</a></h2>
+<p>The first print is the last check in this chapter, not the start of tuning. The cube is printed <strong>once</strong>, here. Step 13.40 loads the first filament and <strong>measures</strong> <code>rotation_distance</code> — this step owns that measurement; Ch 14 Step 14.7 only re-checks and refines it after the first print. The cube's <em>measurement</em> is Ch 14's and stays there. Keep the cube.</p>
+<h3 id="step-1340-set-the-extruder-rotation-distance-ch-14-procedure">Step 13.40 — Set the extruder rotation distance (Ch 14 procedure)<a class="headerlink" href="#step-1340-set-the-extruder-rotation-distance-ch-14-procedure" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>rotation_distance</code> is how far the filament advances for one turn of the extruder motor. Until it is right, every flow number downstream is wrong by the same percentage. The measurement is indirect: the rule reads the <strong>remainder</strong>, not the amount extruded.</p>
+<p><strong>Parts:</strong> Prusament ASA, dried; steel rule or caliper; masking tape.</p>
+<p><strong>Do:</strong> <em>Load filament.</em> Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Homed and hot from Step 13.39, send <code>LOAD_FILAMENT TEMP=260</code>. Wipe the extruded blob off the nozzle.</p>
+<p><em>Measure.</em> Add <code>max_extrude_only_distance: 150</code> to <code>[extruder]</code> and <code>RESTART</code> — Klipper's default is <strong>50 mm</strong>, so a single <code>G1 E100</code> errors out with "Extrude only move too long". <code>G28</code>, park with <code>G0 X175 Y10 Z50 F6000</code>, heat to 260 °C. Put a piece of tape on the filament at the <strong>120 mm</strong> mark, measured from where the filament enters the extruder. Then extrude 100 mm slowly, in relative mode, at 1 mm/s:</p>
+<div class="highlight"><pre><span></span><code>M83
+G1 E100 F60
+</code></pre></div>
+<p>Measure from the extruder entrance to the tape again — that reading is the <strong>remaining</strong> distance R.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>R reads ≈20 mm, so the extruded amount is within <strong>0.5 %</strong> of target: 99.5 to 100.5 mm for a 100 mm request.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Watch the gears. If the filament is pushed <em>back up</em> the tube, invert <code>[extruder] dir_pin</code> by adding or removing the <code>!</code> on <code>nhk:PB9</code>, <code>RESTART</code>, and send the macro again. That is the extruder direction test. If the gears do not grab, open the CW2 latch, push the filament past them by hand, close it and repeat.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>write the value you end on into <code>[extruder] rotation_distance</code>, <code>RESTART</code>, and commit. This has to be right before the first print; extrusion error looks exactly like a flow or first-layer problem.</p>
+</div>
+<details class="note">
+<summary>The arithmetic, how to iterate, and the two classic mistakes</summary>
+<div class="highlight"><pre><span></span><code>actual_extruded       = 120 − R
+new_rotation_distance = old_rotation_distance × (actual_extruded / 100)
+</code></pre></div>
+<p>R is what the rule reads, <strong>not</strong> the amount extruded — forgetting the subtraction is
+the classic way to land a rotation distance five times too small. The other one:
+always use your <em>current</em> <code>rotation_distance</code> in the formula, never the original.
+And remember <strong>a higher value means less filament comes out.</strong></p>
+<p>Iterate without restarting using
+<code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=&lt;value&gt;</code>, then write the
+final number into <code>[extruder] rotation_distance</code> and <code>RESTART</code>. <code>M83</code> before every
+<code>G1 E100</code> — in absolute mode the move only extrudes 100 mm if E happens to be 0.</p>
+<p>Extruding slowly is deliberate: it removes the pressure-related error a fast extrude
+introduces. If you would rather not raise <code>max_extrude_only_distance</code>, the Voron
+guide's way is to extrude 50 mm twice instead.</p>
+<p>Starting value for Clockwork 2 is <code>rotation_distance: 22.6789511</code> with
+<code>gear_ratio: 50:10</code>; expect to land within about ±2 % of that. If you are 5 %+ off,
+you have the wrong <code>gear_ratio</code> (50:17 is Clockwork <strong>1</strong>), not a calibration
+problem.</p>
+</details>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#extruder-calibration-e-steps">Voron startup wizard § Extruder calibration (e-steps)</a> · <a href="https://www.klipper3d.org/Rotation_Distance.html">Klipper docs § Rotation distance</a> · <a href="https://www.klipper3d.org/G-Codes.html#set_extruder_rotation_distance">Klipper docs § SET_EXTRUDER_ROTATION_DISTANCE</a> · <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html">Ellis' Print Tuning Guide — extruder calibration</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L723-L746"><code>leviathan-printer-rev-d-sbv2.cfg</code> <code>LOAD_FILAMENT</code></a></p>
+<hr>
+<h3 id="step-1341-make-the-voron-printer-profile-and-slice-the-cube">Step 13.41 — Make the Voron printer profile and slice the cube<a class="headerlink" href="#step-1341-make-the-voron-printer-profile-and-slice-the-cube" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>Voron_Design_Cube_v7</code> is a 30 mm test cube that batch B00 already printed on the Prusa. Everything sliced so far used the Core One+ profile. The Voron profile is four things: the 350 mm bed, the Klipper flavour, a start G-code calling <code>PRINT_START</code>, and a physical printer.</p>
+<p><strong>Parts:</strong> <code>Voron_Design_Cube_v7.stl</code>; ASA; the laptop with PrusaSlicer.</p>
+<p><strong>Do:</strong> <em>Printer profile.</em> In <strong>Printer Settings</strong>, with <code>Prusa CORE One HF0.4 nozzle</code> selected, <strong>Save as… <code>Voron 2.4 350</code></strong>, then change: bed shape rectangular <strong>350 × 350</strong>, origin <strong>0, 0</strong>; <strong>max print height 330</strong>; <strong>G-code flavor: Klipper</strong>. Untick <strong>Emit temperature commands automatically</strong>. Replace the <strong>Start G-code</strong> with:</p>
+<div class="highlight"><pre><span></span><code>PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0
+</code></pre></div>
+<p>Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from <a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a> compatible with it. <strong>Extruder 1</strong>: nozzle <strong>0.4</strong> stays; leave retraction at the copied value and tune it in Ch 14 <code>(verify on bench)</code>. Unticking the automatic temperature commands stops PrusaSlicer prepending <code>M104</code>/<code>M190</code> before <code>PRINT_START</code>, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze.</p>
+<p><strong>End G-code</strong>, replacing everything: <code>PRINT_END</code>. Save. Then the <strong>physical printer</strong> (the icon next to the printer preset → <em>Add physical printer</em>): host type <strong>Moonraker</strong> if your PrusaSlicer lists it, otherwise <strong>OctoPrint</strong> — Moonraker answers OctoPrint's upload API (<code>[octoprint_compat]</code> in MainsailOS's <code>moonraker.conf</code>); hostname <code>voron.local</code>, no API key; <strong>Test</strong> must say OK.</p>
+<p><em>Slice.</em> Load <a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints"><code>Voron_Design_Cube_v7.stl</code></a> — the same file batch B00 printed on the Prusa. It is exactly <strong>30.000 × 30.000 × 30.000 mm</strong>. Slice it at <strong>hotend 260 °C, bed 110 °C, no XY size compensation, shrinkage compensation 0 %</strong> — the same overrides the Prusa profile uses, so the two cubes are comparable (<a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a>). No supports, seam to the rear. Chamber temperature is <strong>not</strong> a slicer setting on this machine: the Prusa filament profile's chamber values emit <code>M141</code>/<code>M191</code>, which this config does not define (Klipper answers <code>Unknown command</code>, harmless); the chamber is <code>CHAMBER=</code> on <code>PRINT_START</code>, kept at <strong>0</strong>, a timed soak, until Ch 14 has measured what the closed chamber reaches.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The preview shows no supports and the seam at the rear, its first lines are <code>PRINT_START BED=110 EXTRUDER=260 CHAMBER=0</code> with <strong>no</strong> <code>M190</code>/<code>M109</code> before them, and the physical-printer <strong>Test</strong> passed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>The Voron slicer guide's own starting point is 240 °C / 100 °C / 92 % flow for ABS. Use 260/110 here anyway: it is the Prusament ASA figure, and it is what makes this cube comparable with the B00 reference you caliper it against at <a href="../14-calibration/#step-1411-caliper-the-cube-against-the-prusa-printed-one">Ch 14 Step 14.11</a>.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints">Voron-2 <code>STLs/Test_Prints/</code></a> · <a href="https://docs.vorondesign.com/build/slicer/first_print.html">Voron docs — first print</a> · <a href="https://docs.vorondesign.com/build/slicer/">Voron docs — slicer setup</a> · <a href="https://moonraker.readthedocs.io/en/latest/configuration/#octoprint_compat">Moonraker configuration § octoprint_compat</a> · <a href="../12-software/#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber">Ch 12 Step 12.36</a></p>
+<hr>
+<h3 id="step-1342-print-it-and-set-the-first-layer-squish">Step 13.42 — Print it, and set the first-layer squish<a class="headerlink" href="#step-1342-print-it-and-set-the-first-layer-squish" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/13-initial-startup/voron-slicer-cereal-test-print.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Voron cereal" src="../assets/remote/13-initial-startup/voron-slicer-cereal-test-print.png"></a></p>
+<p><strong>What you're looking at:</strong> The photo is Voron's own example of correct first-layer squish: beads that touch with no gaps but are still individually visible. Babystepping moves Z live while the layer prints; <code>Z_OFFSET_APPLY_ENDSTOP</code> turns that live adjustment into a saved value.</p>
+<p><strong>Parts:</strong> the sliced cube; clean flex plate; IPA.</p>
+<p><strong>Do:</strong> Upload from the slicer using the physical printer from Step 13.41, start it, and <strong>watch the whole first layer</strong>. Live-adjust Z in 0.01 mm steps while it lays down; Mainsail's "Z Offset" babystep control does the same thing:</p>
+<div class="highlight"><pre><span></span><code>SET_GCODE_OFFSET Z_ADJUST=-0.01 MOVE=1     ; closer to the bed
+SET_GCODE_OFFSET Z_ADJUST=0.01 MOVE=1      ; further away
+</code></pre></div>
+<p>Note the total you end on (Mainsail shows it next to the Z-offset buttons) and <strong>let the cube finish.</strong> Only then make it permanent: <code>Z_OFFSET_APPLY_ENDSTOP</code>, then <code>SAVE_CONFIG</code>. <code>SAVE_CONFIG</code> restarts Klipper and would abort a running print — never send it mid-print. Keep the cube.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>On smooth PEI the bottom has <strong>no gaps between the beads and no ridging</strong>, and you can still see the individual lines.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Do <strong>not</strong> use <code>Z_OFFSET_APPLY_PROBE</code>: this machine's Z reference is the LDO nozzle probe, not the inductive probe. After the save, <code>stepper_z: position_endstop</code> in the saved block has moved by the amount you babystepped; babystepping alone is discarded on restart. (survey §3.3)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>completely featureless and glassy is too much squish. Do not touch input shaper or pressure advance until this print has finished successfully.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/slicer/images/voron_cereal.png">Voron docs image voron_cereal.png</a> · <a href="https://docs.vorondesign.com/build/slicer/first_print.html">Voron docs — first print</a> · <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html">Ellis' Print Tuning Guide — first layer squish</a></p>
+<hr>
+<h3 id="step-1343-shut-down-properly">Step 13.43 — Shut down properly<a class="headerlink" href="#step-1343-shut-down-properly" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Pi is a computer with a filesystem that can be corrupted by losing power mid-write. Shutting the host down first and only then cutting mains is the ordinary rule for any Linux machine, and the file at risk holds every calibration in this chapter.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Commit the config: <code>cd ~/printer_data/config &amp;&amp; git add -A &amp;&amp; git commit -m "Ch 13 done: PID, Z endstop, mesh, rotation_distance"</code>, then <code>scp</code> the directory to the laptop.</li>
+<li>Use the web interface's <strong>Shutdown</strong>, wait for the Pi's activity LED to go dark, then switch the machine off at the inlet.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>git log</code> on the Pi lists the Ch 12 baseline and every <code>SAVE_CONFIG</code> since, and a copy of the directory is off the Pi's SD card.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Pulling power on a running Pi corrupts the SD card and costs you Ch 12 all over again.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/startup/startup.html#finish">Voron startup wizard § Finish</a> · <a href="https://docs.vorondesign.com/build/startup/startup.html#next-slicer-setup">Voron startup wizard § Next: slicer setup</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B.</p>
+</div>
+<hr>
+<h2 id="what-if-first-start-failures-and-what-they-actually-mean">What if — first-start failures and what they actually mean<a class="headerlink" href="#what-if-first-start-failures-and-what-they-actually-mean" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Most likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A temperature climbs with nothing commanded</td>
+<td>Heater energised through a wiring fault</td>
+<td>Cut power at the switch. Back to Ch 10 — do not "just watch it"</td>
+</tr>
+<tr>
+<td>Thermistor reads a wild or jumping value</td>
+<td>Crimp, or a PH2.0 housing half-seated / in the wrong header</td>
+<td>Re-seat, check continuity. Rev D+: uses <strong>PH2.0</strong>, not the guide's XH2.5</td>
+</tr>
+<tr>
+<td>Hotend heats when you command the bed (or vice versa)</td>
+<td>Thermistor pair or heater pair swapped</td>
+<td>Swap at the board, power off first</td>
+</tr>
+<tr>
+<td>Bed does not heat, SSR LED <strong>on</strong></td>
+<td>Fault on the mains side of the SSR</td>
+<td>Check LOAD 1 / LOAD 2 and the bed L/N</td>
+</tr>
+<tr>
+<td>Bed does not heat, SSR LED <strong>off</strong></td>
+<td>Control polarity reversed</td>
+<td>Leviathan <strong>+</strong> → SSR <strong>INPUT 3</strong>, <strong>−</strong> → INPUT 4</td>
+</tr>
+<tr>
+<td>A fan never starts</td>
+<td>Wrong port, wrong voltage jumper, or the keyed 2×5 (10-pin) toolhead header seated backwards</td>
+<td>Check the port against the config; Rev D+: header is keyed — if it will not drop in, it is backwards. BLDC fans do not spin backwards on reversed polarity, they do nothing or burn out</td>
+</tr>
+<tr>
+<td><strong>The wrong toolhead fan answers</strong> — the top (5015) fan follows the hotend, the bottom (4010) fan follows <code>M106</code></td>
+<td>Fan adapter HEF/PCF assignment is the reverse of the config (the Ch 08 Step 08.46 source conflict)</td>
+<td>Swap <code>pin: nhk:PD0</code> and <code>pin: nhk:PA15</code> between <code>[heater_fan hotend_fan]</code> and <code>[fan]</code>, <code>RESTART</code>, re-run 13.9–13.10. Do not re-plug or re-crimp</td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ</code> moves nothing</td>
+<td><code>enable_pin</code>/<code>step_pin</code>, or no driver power</td>
+<td>Check the pins; check the HV/24 V rail</td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ</code> buzzes without travelling 1 mm</td>
+<td>Stepper coil pairs transposed in the connector</td>
+<td>Re-pin the connector so each coil is a pair. Power off first</td>
+</tr>
+<tr>
+<td><strong>A motor moves the wrong way</strong></td>
+<td><code>dir_pin</code> polarity</td>
+<td>Add or remove <code>!</code> on that stepper's <code>dir_pin</code>, <code>RESTART</code>, re-buzz</td>
+</tr>
+<tr>
+<td>The wrong motor answers</td>
+<td>Motors in the wrong ports</td>
+<td>Power <strong>off</strong>, move the connector, power on. Never hot-swap a stepper</td>
+</tr>
+<tr>
+<td><code>G28 X</code> sends the gantry <em>down</em> first</td>
+<td>Z stepper directions reversed</td>
+<td>Fix Z <code>dir_pin</code>s before touching A/B</td>
+</tr>
+<tr>
+<td>X and Y both move, but the toolhead goes diagonally / the wrong axis</td>
+<td>A and B swapped, or one inverted</td>
+<td>Read the V2 configuration chart; upper block → invert a <code>dir_pin</code>; lower (orange) block → physically swap A and B</td>
+</tr>
+<tr>
+<td>An endstop reads <code>TRIGGERED</code> untouched</td>
+<td>Wiring, not polarity</td>
+<td>Stock Voron endstops are N.C. to ground — a needed <code>!</code> usually means a wiring fault. Fix the wiring</td>
+</tr>
+<tr>
+<td>Endstop unreachable by the toolhead</td>
+<td>Rubber rail stopper still on the rail, or racked gantry</td>
+<td>Remove stoppers; then Ch 06b</td>
+</tr>
+<tr>
+<td><code>G28</code> → <code>Move out of range: -10.000 -10.000 …</code></td>
+<td><code>[safe_z_home] home_xy_position</code> still the <code>-10,-10</code> placeholder</td>
+<td>Step 13.26</td>
+</tr>
+<tr>
+<td>Homing overshoots into the frame, or stops short</td>
+<td>The wrong build-size pair is uncommented (there is no default — with all three commented Klipper does not start)</td>
+<td>Step 13.5: the Moonraker query must show <code>350.0, 350.0, 330.0</code></td>
+</tr>
+<tr>
+<td>A <code>G28 X</code> or <code>G28 Y</code> stalls the Z motors against the frame, or drops the nozzle onto the bed</td>
+<td>Gantry parked at its top stop (or a reversed Z <code>dir_pin</code>) — every homing move before Z is homed lifts 10 mm from wherever the gantry is</td>
+<td>Step 13.17: park the gantry a third of the way up by hand first; Step 13.16 for the <code>dir_pin</code></td>
+</tr>
+<tr>
+<td><code>QUERY_PROBE</code> stuck <code>open</code> or stuck <code>TRIGGERED</code></td>
+<td>Ground/signal/24 V, wrong <code>[probe] pin</code>, or a voltage-select jumper</td>
+<td>Check wiring first, then <code>pin: !nhk:PC15</code></td>
+</tr>
+<tr>
+<td><strong>Probe triggers too early</strong> (large gap at trigger)</td>
+<td>Probe mounted too high in the retainer bracket, or fibreglass tape on the sensing face</td>
+<td>Lower the probe in the bracket so it triggers ~2 mm above the plate; strip tape from the <strong>back and bottom</strong> — front and sides only</td>
+</tr>
+<tr>
+<td><strong>Probe triggers too late</strong> (nozzle nearly touching, or the probe grazes the plate)</td>
+<td>Probe mounted too low</td>
+<td>Raise it in the bracket. It must clear the plate and any clips at every mesh point</td>
+</tr>
+<tr>
+<td><code>PROBE_ACCURACY</code> σ high but stable</td>
+<td>Probe mount, cable strain, or <code>[probe] speed</code> too fast</td>
+<td>Check the bracket is tight; try a lower <code>speed</code></td>
+</tr>
+<tr>
+<td><code>PROBE_ACCURACY</code> values trending one way</td>
+<td>Thermal, or mechanical: Z pulley grub screws, uneven Z belts</td>
+<td>Soak longer; then check all four Z belts and the pulley set screws</td>
+</tr>
+<tr>
+<td><code>Probe samples exceed samples_tolerance</code></td>
+<td>Same causes; <code>samples_tolerance: 0.006</code> is tight by design</td>
+<td>Fix the cause, do not widen the tolerance</td>
+</tr>
+<tr>
+<td>Bed and hotend switched themselves off mid-soak, motors released (gantry may have dropped)</td>
+<td><code>[idle_timeout] timeout: 1800</code> in the LDO config — 30 min without a move runs <code>TURN_OFF_HEATERS</code> + <code>M84</code>; not a fault</td>
+<td><code>SET_IDLE_TIMEOUT TIMEOUT=7200</code> before every soak (Steps 13.31, 13.35, Ch 14 Steps 14.3, 14.8); re-heat, <code>G28</code>, repeat the soak</td>
+</tr>
+<tr>
+<td><strong>QGL does not converge</strong> — <code>Probed points range</code> stalls or grows</td>
+<td><strong>Gantry racking</strong></td>
+<td>Step 13.34 → Ch 06b (cold squaring, provisional A/B tension), then Step 13.35 re-QGL</td>
+</tr>
+<tr>
+<td>A move will not stop when you send <code>RESTART</code></td>
+<td><code>RESTART</code> queues behind the running move; only a line that is exactly <code>M112</code> goes round it — Mainsail sends that as its emergency-stop call</td>
+<td>Send <code>M112</code> alone on the line (or Mainsail's red Emergency Stop), then <code>FIRMWARE_RESTART</code></td>
+</tr>
+<tr>
+<td>QGL: <code>Retries aborting: Probed points range is increasing. Possibly Z motor numbering is wrong</code></td>
+<td>Z motors on the wrong drivers</td>
+<td>Recheck the Z map: Z0 front-left → <code>STEPPER-0</code>, Z1 rear-left → <code>-1</code>, Z2 rear-right → <code>-2</code>, Z3 front-right → <code>-3</code></td>
+</tr>
+<tr>
+<td>QGL: <code>Aborting quad_gantry_level required adjustment … is greater than max_adjust</code></td>
+<td>Gantry too far out of level to correct in software</td>
+<td><code>M84</code> with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, <code>G28</code>, retry</td>
+</tr>
+<tr>
+<td>QGL "out of bounds" / cannot reach the probe point</td>
+<td>Gantry far from level, or wrong <code>gantry_corners</code></td>
+<td><code>FIRMWARE_RESTART</code>, hand-level, <code>G28</code>, retry; confirm the 350 corners <code>-60,-10 / 410,420</code></td>
+</tr>
+<tr>
+<td><code>Unknown command:"BED_MESH_CLEAR"</code> at the end of a print</td>
+<td>No <code>[bed_mesh]</code> section</td>
+<td>Step 13.38. It is a warning, not a failure — but you have no mesh</td>
+</tr>
+<tr>
+<td>First layer is right at the front and wrong at the back (or similar)</td>
+<td>Meshed before QGL, or mesh taken cold</td>
+<td>Re-run: <code>G28</code> → <code>QUAD_GANTRY_LEVEL</code> → <code>G28</code> → <code>BED_MESH_CALIBRATE</code>, hot</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="checkpoint-13">Checkpoint 13<a class="headerlink" href="#checkpoint-13" title="Permanent link">¶</a></h2>
+<p>Tick every line before you start Ch 14.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>STATUS</code> returns <code>Klipper state: Ready</code>, and both MCUs are present — <code>stm32f446xx</code> (or <code>stm32h743xx</code> on a V1.3 board) and <code>stm32g0b1xx</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>grep -c gpio ~/printer_data/config/printer.cfg</code> returns 0 — the <code>-sbv2</code> config.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>M112</code> tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and <code>RESTART</code> is not.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Extruder, bed and chamber (three sensors) all report room temperature at rest and none of them drifts upward untouched.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both heaters heat and cool on command; the SSR LED tracks the bed, the toolboard HE0 LED tracks the hotend.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All seven motors pass <code>STEPPER_BUZZ</code> — correct motor, clean motion; correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>QUERY_ENDSTOPS</code> reads <code>x:open y:open z:open</code> at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>QUERY_PROBE</code> toggles <code>open</code> / <code>TRIGGERED</code> with metal, and the probe's fibreglass tape is front-and-sides only.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>G28</code> completes on all three axes; 0,0 lands within 5 mm of the front-left corner of the plate with no skipping.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[safe_z_home] home_xy_position</code> holds your measured Z-endstop coordinate, not <code>-10,-10</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Bed and hotend PID tuned and <code>SAVE_CONFIG</code>-ed; <code>PROBE_ACCURACY</code> hot shows σ &lt; 0.003 mm with no trend, and you wrote down the soak time.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Ch 06b cold gantry squaring done (Checkpoint 06b ticked), A/B belts back at its provisional tension, and QGL re-run and converged afterwards. Final tension is Ch 14 Steps 14.4–14.6, not here.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>Z_ENDSTOP_CALIBRATE</code> done hot at the paper-drag height (no extra step down) and saved; bed mesh taken hot <strong>after</strong> QGL and saved.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Filament loaded, extruder direction confirmed, <code>rotation_distance</code> measured here (Step 13.40) and written into <code>[extruder]</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> PrusaSlicer has a <code>Voron 2.4 350</code> printer preset (350×350, Klipper flavour, <code>PRINT_START</code>/<code>PRINT_END</code>, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with <code>Z_OFFSET_APPLY_ENDSTOP</code> + <code>SAVE_CONFIG</code> <strong>after</strong> the print ended, cube kept for Ch 14's measurement.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>~/printer_data/config</code> committed after every <code>SAVE_CONFIG</code> and copied off the Pi.</li>
+</ul>
+<hr>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Running QGL before PID, or cold.</strong> A drifting probe gives a QGL that reports success and leaves the gantry unlevel; you then chase it through first-layer tuning for a week. PID first, soak to temperature, and gate on <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm. (survey §3.3, §4.4 #16)</li>
+<li><strong>Setting the Z offset and the bed mesh before squaring the gantry.</strong> Ch 06b fully releases A/B tension and drops the Z joints — everything measured before it is scrap. Square first, re-tension, re-QGL, <em>then</em> Z=0 and mesh.</li>
+<li><strong>Adding a <code>!</code> to an endstop pin to make a <code>TRIGGERED</code> reading go away.</strong> Every stock Voron endstop is normally-closed to ground. If it needs inverting, you almost certainly have a wiring fault that will fail intermittently later.</li>
+<li><strong>Moving a stepper connector with the power on.</strong> Back-EMF from a spinning or hot-swapped motor kills drivers, and you will not find out until the next homing move. Power down for every connector change. (survey §4.4 #10)</li>
+<li><strong>Using <code>RESTART</code> as an emergency stop.</strong> It waits its turn behind the move you are trying to stop. <code>M112</code> typed alone on the line (or the red button) is sent as Mainsail's emergency-stop call and goes round the queue; <code>M112 ; stop</code>, or <code>M112</code> after another command on the line, is just a queued command. <code>FIRMWARE_RESTART</code> afterwards.</li>
+<li><strong>"Correcting" the paper test for temperature.</strong> The paper test leaves the nozzle one paper-thickness (~0.1 mm) high by design, hot or cold; Step 13.42's babystepping closes that gap on the real first layer. An extra <code>TESTZ Z=-0.1</code> puts Z=0 on the PEI and makes 13.37's check fail by construction.</li>
+<li><strong><code>SAVE_CONFIG</code> during the first print.</strong> It restarts Klipper and kills the print at layer one. Babystep, note the total, let the cube finish, then <code>Z_OFFSET_APPLY_ENDSTOP</code> + <code>SAVE_CONFIG</code>.</li>
+<li><strong>Trusting babystepping.</strong> The Z Offset slider is discarded on restart unless you commit it with <code>Z_OFFSET_APPLY_ENDSTOP</code> followed by <code>SAVE_CONFIG</code>.</li>
+</ul>
+<hr>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><a href="../11-skirts-panels-door/"><strong>Ch 11 Part B</strong></a> — back, side and top panels and the Clicky-Clack door — then <a href="../14-calibration/"><strong>Ch 14 — Calibration and tuning</strong></a>: final belt tension, the closed-chamber soak and the hot Z-joint lock, then caliper the cube against the Prusa-printed reference, then input shaper → pressure advance → extrusion multiplier → first-layer squish, in that order, and only now that a cube has printed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

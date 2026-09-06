@@ -1,0 +1,2235 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/assets/diagrams/MANIFEST/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Diagram manifest - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagram-manifest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagram manifest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-six-ab-bearing-stacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The six A/B bearing stacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ab-handedness-and-pulley-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. A/B handedness and pulley height
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-corexy-belt-path-a-belt-and-b-belt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. CoreXY belt path — A belt and B belt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-z-drive-gear-train-and-z-belt-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Z drive gear train and Z belt loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mains-path-and-the-protective-earth-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Mains path and the protective-earth chain
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-harness-map-every-cable-to-its-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Harness map — every cable to its port
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-leviathan-voltage-selection-jumper-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Leviathan voltage-selection jumper map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-rev-d-vs-rev-d-connector-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Rev D+ vs Rev D — connector differences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-racking-and-how-to-measure-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Racking, and how to measure it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-stepper_buzz-motor-direction-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. STEPPER_BUZZ motor-direction cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-build-timeline-print-batches-against-assembly-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Build timeline — print batches against assembly chapters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown-to-paste-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Markdown to paste in
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regenerating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regenerating
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="diagram-manifest">Diagram manifest<a class="headerlink" href="#diagram-manifest" title="Permanent link">¶</a></h1>
+<p>Eleven generated SVGs covering the things the official manual states in prose but never draws. Regenerate with <code>python3 scripts/draw_diagrams.py</code>; the geometry and every label live in that script, not here.</p>
+<p>No chapter has been edited. The <strong>Insert at</strong> column is the proposal: the chapter file and the step whose image block the diagram belongs in.</p>
+<p>All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins <code>color</code> on the <code>&lt;svg&gt;</code> root, so <code>currentColor</code> text stays dark whether the file is referenced with <code>&lt;img&gt;</code> or inlined. Style is uniform: 2 px strokes, orange for <code>[a]_</code> accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.</p>
+<h2 id="index">Index<a class="headerlink" href="#index" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Diagram</th>
+<th>File</th>
+<th>Insert at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The six A/B bearing stacks</td>
+<td><a href="../01-ab-bearing-stacks.svg"><code>01-ab-bearing-stacks.svg</code></a></td>
+<td><code>04-ab-drives.md</code> — Step 04.7 (+1 more)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A/B handedness and pulley height</td>
+<td><a href="../02-ab-pulley-height-handedness.svg"><code>02-ab-pulley-height-handedness.svg</code></a></td>
+<td><code>04-ab-drives.md</code> — Step 04.2 (+1 more)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CoreXY belt path — A belt and B belt</td>
+<td><a href="../03-corexy-belt-path.svg"><code>03-corexy-belt-path.svg</code></a></td>
+<td><code>07-ab-belts.md</code> — Step 07.3 (+2 more)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Z drive gear train and Z belt loop</td>
+<td><a href="../04-z-drive-gear-train.svg"><code>04-z-drive-gear-train.svg</code></a></td>
+<td><code>02-z-drives.md</code> — Step 02.19 (+2 more)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mains path and the protective-earth chain</td>
+<td><a href="../05-mains-and-pe-chain.svg"><code>05-mains-and-pe-chain.svg</code></a></td>
+<td><code>00a-mains-safety.md</code> — Step 00a.6 (+1 more)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Harness map — every cable to its port</td>
+<td><a href="../06-harness-map.svg"><code>06-harness-map.svg</code></a></td>
+<td><code>10-wiring.md</code> — Step 10.40 (+2 more)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Leviathan voltage-selection jumper map</td>
+<td><a href="../07-leviathan-jumper-map.svg"><code>07-leviathan-jumper-map.svg</code></a></td>
+<td><code>09-electronics-bay.md</code> — Step 09.19 (+1 more)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Rev D+ vs Rev D — connector differences</td>
+<td><a href="../08-rev-d-plus-connectors.svg"><code>08-rev-d-plus-connectors.svg</code></a></td>
+<td><code>10-wiring.md</code> — Step 10.55 (+3 more)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Racking, and how to measure it</td>
+<td><a href="../09-gantry-racking.svg"><code>09-gantry-racking.svg</code></a></td>
+<td><code>06-z-axis-and-gantry-squaring.md</code> — Step 06b.11 (+1 more)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>STEPPER_BUZZ motor-direction cheat sheet</td>
+<td><a href="../10-stepper-buzz-directions.svg"><code>10-stepper-buzz-directions.svg</code></a></td>
+<td><code>13-initial-startup.md</code> — Step 13.13 (+1 more)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Build timeline — print batches against assembly chapters</td>
+<td><a href="../11-build-timeline.svg"><code>11-build-timeline.svg</code></a></td>
+<td><code>00-index.md</code> — The timeline</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-the-six-ab-bearing-stacks">1. The six A/B bearing stacks<a class="headerlink" href="#1-the-six-ab-bearing-stacks" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/01-ab-bearing-stacks.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>All six F695 stacks as exploded vertical stacks in build order: A drive near post (2 bearings, 10 mm), A drive far post (4 bearings, 20 mm), B drive far post, B drive near post, A idler (front right), B idler (front left).</li>
+<li>Flange orientation item by item — spacer, flange down, flange up, spacer — and the two spacers that meet in the middle of every 4-bearing stack.</li>
+<li>Which bolt each stack builds on (M5x30 BHCS in the drives, M5x40 SHCS in the idlers) and the handed lower/upper frame heights.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/04-ab-drives.md</code> — <strong>Step 04.7</strong>: after the image line, as the reference for every stack in the chapter.</li>
+<li><code>docs/manual/04-ab-drives.md</code> — <strong>Step 04.22</strong>: again at the four-bearing stack — the most often mis-stacked assembly in the build.</li>
+</ul>
+<hr>
+<h2 id="2-ab-handedness-and-pulley-height">2. A/B handedness and pulley height<a class="headerlink" href="#2-ab-handedness-and-pulley-height" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/02-ab-pulley-height-handedness.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>Top view fixing A = rear right and B = rear left, with the idler that belongs to each and the controller port each motor lands on.</li>
+<li>Both motor elevations side by side: A hub-down, teeth up, 16.5 mm; B hub-up, teeth low, 6.5 mm — both measured motor face to the underside of the teeth.</li>
+<li>Motor cable exits pointing inboard, and the 21.6/11.6 mm lower-idler-frame heights that make the 10.0 mm difference between the two belt planes.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/04-ab-drives.md</code> — <strong>Step 04.2</strong>: the handedness half — this is the step that fixes A/B before anything is assembled.</li>
+<li><code>docs/manual/04-ab-drives.md</code> — <strong>Step 04.24</strong>: the pulley-height half, and again at Step 04.33.</li>
+</ul>
+<hr>
+<h2 id="3-corexy-belt-path-a-belt-and-b-belt">3. CoreXY belt path — A belt and B belt<a class="headerlink" href="#3-corexy-belt-path-a-belt-and-b-belt" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/03-corexy-belt-path.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>Both belt loops as separate top views, the way the manual splits p.126 and p.127: every 90° turn, the S-wrap at the drive, the 180° U-turn at the front idler, and the return to the carriage.</li>
+<li>The toothed face marked continuously along both belts, so the smooth back on every plain F695 stack, the teeth on the motor pulley, and the teeth-on wrap at each belt's one toothed XY joint (A: the right joint's upper 20T, B: the left joint's lower 20T) are visible at a glance.</li>
+<li>The direction each belt is threaded: both leave the LEFT carriage half heading left (p.131), so the two loops are mirror images traversed in opposite senses — A's first turn is the left joint's plain stack, B's first turn is the left joint's toothed idler.</li>
+<li>The two-runs-on-one-side asymmetry: A has two parallel runs on the right and one on the left; B is the mirror.</li>
+<li>Where the belt ends are clamped in the X carriage halves.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/07-ab-belts.md</code> — <strong>Step 07.3</strong>: the A panel, as the trace reference.</li>
+<li><code>docs/manual/07-ab-belts.md</code> — <strong>Step 07.4</strong>: the B panel.</li>
+<li><code>docs/manual/07-ab-belts.md</code> — <strong>Step 07.23</strong>: whole diagram again, as the pre-close check.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>Lane spacing and the position of the two bearing stacks and the motor pulley <em>within</em> each drive unit are schematic. The chapters fix the order of the wraps (stack, pulley, stack) and which stack the other belt turns on, not their top-view coordinates.</li>
+<li>The toothed face is stated by the chapter at four places — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13), the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15) and the toothed XY joint (teeth on its 20T idler — A's return turn at the right joint, Step 07.16; B's first turn at the left joint, Step 07.17). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length. Which joint stack a belt meets (F695 pair or 20T idler) is fixed by the belt's height and needs no decision.</li>
+<li>The diagram does not say which X-carriage slot (upper or lower) each end goes into, because the chapter assigns the slots by belt plane rather than by side.</li>
+<li>Both X runs physically lie in front of the X extrusion (p.131); each panel draws one of them behind it so the two lanes read apart in a top view.</li>
+</ul>
+<hr>
+<h2 id="4-z-drive-gear-train-and-z-belt-loop">4. Z drive gear train and Z belt loop<a class="headerlink" href="#4-z-drive-gear-train-and-z-belt-loop" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/04-z-drive-gear-train.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>One corner in side elevation: the Z belt down the inside of the upright, around the Z drive's 20T pulley, up the outside, over the Z idler, back down to the Z joint where both ends clamp.</li>
+<li>Inside the drive: the motor's 16T at 10.7 mm, the 188 mm closed loop, the 80T on the 5 x 60 shaft, and the orange cam tensioner that pushes the motor away from the fixed drive body (the body is held by its two M5x40).</li>
+<li>The shaft stack in the order Step 02.19 gives it, with the 33 mm of shaft past the 20T pulley.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/02-z-drives.md</code> — <strong>Step 02.19</strong>: the shaft-stack panel.</li>
+<li><code>docs/manual/02-z-drives.md</code> — <strong>Step 02.21</strong>: the gear-train panel, where the 188 mm loop becomes captive.</li>
+<li><code>docs/manual/06-z-axis-and-gantry-squaring.md</code> — <strong>Step 06.18</strong>: the corner elevation, for the belt wrap direction.</li>
+</ul>
+<hr>
+<h2 id="5-mains-path-and-the-protective-earth-chain">5. Mains path and the protective-earth chain<a class="headerlink" href="#5-mains-path-and-the-protective-earth-chain" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/05-mains-and-pe-chain.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>The mains path end to end: wall socket, C13 cord, the combined C14 + rocker + fuse inlet, the three labelled WAGO 221-415 blocks, the Meanwell with its AC screws in datasheet order (1 L, 2 N, 3 FG), the Omron SSR, the bed heater.</li>
+<li>Which pole the fuse is in (Live only), which poles the rocker switches (both), and that the earth spade is neither switched nor fused.</li>
+<li>All four SSR terminals with what lands on each, including the red-to-3 / black-to-4 control pair from the Leviathan's HEATBED terminals.</li>
+<li>The five branches of the protective-earth chain, the bed's M4x6 BHCS + serrated washer, and the thermistor path from the pad to TH1.</li>
+<li>What the SSR's EARTH THE MOUNTING RAIL marking does and does not mean on this build, and what the inlet fuse does not protect.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/00a-mains-safety.md</code> — <strong>Step 00a.6</strong>: the whole diagram — this is the step that teaches the five branches.</li>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.10</strong>: the SSR panel, before the terminals are wired.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>The inlet fuse rating is left unlabelled: LDO does not publish it, and Ch 00a already asks for it to be read off the part and written in the build log.</li>
+</ul>
+<hr>
+<h2 id="6-harness-map-every-cable-to-its-port">6. Harness map — every cable to its port<a class="headerlink" href="#6-harness-map-every-cable-to-its-port" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/06-harness-map.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>Every LDO harness cable, by the tag printed on it, against the Leviathan port it lands on: both HV-STEPPER ports, STEPPER-0..3 by corner, STEPPER-4 empty, TH1, the three endstop headers, FAN2/FAN3 by role, LED-Strip, the three 24 V feeds, HEATBED, and the data links.</li>
+<li>The ports that stay empty and why — STEPPER-4, TH0, Z-PROBE, FAN0, FAN1.</li>
+<li>The toolhead umbilical (Micro-Fit at the bay, XT30(2+2) at the toolboard) and every Nitehawk-SB V2 port with its connector type and pin.</li>
+<li>The three fan-adapter ports P2/P3/P4 by function.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.40</strong>: the Leviathan half, alongside the stepper tag table.</li>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.54</strong>: the toolhead half.</li>
+<li><code>docs/manual/08-toolhead.md</code> — <strong>Step 08.52</strong>: the toolhead half again, at the account-for-unused-ports step.</li>
+</ul>
+<hr>
+<h2 id="7-leviathan-voltage-selection-jumper-map">7. Leviathan voltage-selection jumper map<a class="headerlink" href="#7-leviathan-voltage-selection-jumper-map" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/07-leviathan-jumper-map.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>All five voltage-selection headers by name, which two carry a jumper on this build (Fan2, Fan3, both at 24 V) and which three stay bare (Fan0, Fan1, the Z-probe header).</li>
+<li>The count check — 5 headers, 2 fitted, 3 bare — and why a jumper at 24 V with a 5 V device on the port destroys the device (nothing on the block can bridge 5 V to 24 V).</li>
+<li>The Ch 09 / Ch 10 sequence: strip every jumper on the bench, fit two back only after each device's voltage is verified.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/09-electronics-bay.md</code> — <strong>Step 09.19</strong>: as the picture of what 'all of them' means.</li>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.28</strong>: as the picture of the end state.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>Header positions on the board outline are schematic, and so is the 5V / 24V pin order inside each header. The chapters name the five headers and say which two are fitted, but never give a physical location or a pin order — LDO's Leviathan V1.3 guide and the S1_mapping photo are the authority. Every header in the drawing is therefore labelled by name only.</li>
+</ul>
+<hr>
+<h2 id="8-rev-d-vs-rev-d-connector-differences">8. Rev D+ vs Rev D — connector differences<a class="headerlink" href="#8-rev-d-vs-rev-d-connector-differences" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/08-rev-d-plus-connectors.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>JST-PH2.0 and JST-XH2.5 drawn to the same scale so the 2.0 mm vs 2.5 mm pitch is visible, with the four ports that are PH2.0 and the one that is not.</li>
+<li>What the Rev D wiring guide says against what the V2 board actually is, port by port.</li>
+<li>The 2 x 5 keyed fan-adapter header with its key and the toolboard-side row order, and why a V1 2 x 4 adapter cannot be reused.</li>
+<li>The V2 partial cover with its deliberately exposed mounting point, and the full ESD ground chain from the extruder motor body to earth.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.55</strong>: the pitch panel, at the connector-type table.</li>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.56</strong>: the keyed-header panel.</li>
+<li><code>docs/manual/10-wiring.md</code> — <strong>Step 10.57</strong>: the partial-cover panel, carrying into Step 10.58.</li>
+<li><code>docs/manual/08-toolhead.md</code> — <strong>Step 08.62</strong>: the keyed-header panel again, where the board-to-board joint is actually mated.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>Connector body proportions other than the pitch (housing height, latch shape) are generic — the chapters give the pitch, pin count and pinout, not a mechanical drawing.</li>
+</ul>
+<hr>
+<h2 id="9-racking-and-how-to-measure-it">9. Racking, and how to measure it<a class="headerlink" href="#9-racking-and-how-to-measure-it" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/09-gantry-racking.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>A racked gantry against a square one in exaggerated top view, with the four measurement points (front-left, rear-left, front-right, rear-right) marked on both.</li>
+<li>The two tolerances: front and rear on the same side within 0.5 mm, left and right within 1 mm, plus the machinist-square check at each front corner.</li>
+<li>Which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B joints and front idlers — and the de-racking move itself.</li>
+<li>The one thing not to over-loosen: an X/Y joint that also carries a Z belt clamp.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/06-z-axis-and-gantry-squaring.md</code> — <strong>Step 06b.11</strong>: the measurement half, beside the four-point table.</li>
+<li><code>docs/manual/06-z-axis-and-gantry-squaring.md</code> — <strong>Step 06b.14</strong>: the de-racking half.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>The racked view is deliberately exaggerated; real racking is a fraction of a millimetre. The skew shown is not a measurement.</li>
+</ul>
+<hr>
+<h2 id="10-stepper_buzz-motor-direction-cheat-sheet">10. STEPPER_BUZZ motor-direction cheat sheet<a class="headerlink" href="#10-stepper_buzz-motor-direction-cheat-sheet" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/10-stepper-buzz-directions.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>A top view naming all four Z corners with the command that must move each one and the port it is on, and the arrow showing which corner rises first.</li>
+<li>That what rises is the gantry corner, not the bed.</li>
+<li>A and B on the rear extrusion with the config sections that drive them — [stepper_x] is motor B, [stepper_y] is motor A.</li>
+<li>Why A/B direction is not judged at the buzz, and the homing directions that do settle it (G28 X to the right, G28 Y to the back).</li>
+<li>The four failure modes and the fix for each.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/13-initial-startup.md</code> — <strong>Step 13.13</strong>: the whole sheet, replacing nothing — it is the picture of the step's table.</li>
+<li><code>docs/manual/13-initial-startup.md</code> — <strong>Step 13.14</strong>: again, for the A/B panel.</li>
+</ul>
+<hr>
+<h2 id="11-build-timeline-print-batches-against-assembly-chapters">11. Build timeline — print batches against assembly chapters<a class="headerlink" href="#11-build-timeline-print-batches-against-assembly-chapters" title="Permanent link">¶</a></h2>
+<p><code>docs/manual/assets/diagrams/11-build-timeline.svg</code></p>
+<p><strong>What it shows</strong></p>
+<ul>
+<li>Every row of 00-index.md's timeline in execution order on two lanes — print batches B00–B10 on the Core One+, assembly chapters (including Ch 00a, the two-part Ch 06/06b, Ch 11 A/B and Ch 12 1/2) on the bench — with each row's duration and KIT / 2P marker.</li>
+<li>One orange rail per print batch through the middle channel, forking to every chapter whose <code>needs:</code> list names that batch.</li>
+<li>The Gen 2 belt-upgrade pause as a full-width band at its contingency position in the pre-kit block, between B07 and B08.</li>
+<li>The critical-path strip: print hours (per batch and total) from docs/manual/print/README.md, the rest from 00-index.md § Critical path.</li>
+</ul>
+<p><strong>Insert at</strong></p>
+<ul>
+<li><code>docs/manual/00-index.md</code> — <strong>The timeline</strong>: at the head of the section, above the row list — this is the only diagram that belongs in the index rather than in a chapter step.</li>
+</ul>
+<p><strong>Drawn schematically / left unlabelled (verify)</strong></p>
+<ul>
+<li>Nothing on this diagram is authored here. The rows, their order, their durations, their markers and their dependency arrows are parsed out of 00-index.md's timeline (via build_tonight.py's own row parser, so the picture and the Tonight planner always walk the same list); the hours come from print/README.md and the footer figures from 00-index.md § Critical path. Edit the index, then re-run this script.</li>
+<li>The vertical axis is execution order, not calendar time. The manual's timeline is dependency-ordered and gives no per-row calendar date, so none is invented here.</li>
+</ul>
+<hr>
+<h2 id="markdown-to-paste-in">Markdown to paste in<a class="headerlink" href="#markdown-to-paste-in" title="Permanent link">¶</a></h2>
+<p>Diagrams sit in the step's image block, in the same position a manual page image would take:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">The six A/B bearing stacks</span>](<span class="na">assets/diagrams/01-ab-bearing-stacks.svg</span>)
+</code></pre></div>
+<p>From <code>00-index.md</code> the path is the same; from a print-batch chapter under <code>docs/manual/print/</code> it is <code>../assets/diagrams/…</code>.</p>
+<h2 id="regenerating">Regenerating<a class="headerlink" href="#regenerating" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>python3 scripts/draw_diagrams.py            # all eleven + this file
+python3 scripts/draw_diagrams.py --only 3 7 # just those two
+</code></pre></div>
+<p>The script has no third-party dependencies — it emits SVG strings directly. To check a render: <code>rsvg-convert -w 1200 -o /tmp/x.png docs/manual/assets/diagrams/03-corexy-belt-path.svg</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../javascripts/wakelock.js"></script>
+      
+        <script src="../../../../javascripts/progress.js"></script>
+      
+        <script src="../../../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

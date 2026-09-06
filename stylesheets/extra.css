@@ -1,0 +1,456 @@
+/* Bench-mode readability tuning for iPad viewing */
+.md-typeset {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.md-typeset table:not([class]) {
+  font-size: 1rem;
+}
+
+.md-typeset h1 { font-size: 2rem; }
+.md-typeset h2 { font-size: 1.6rem; }
+.md-typeset h3 { font-size: 1.3rem; }
+
+/* R5 F3 — callouts carry the safety + kit-deviation content, never smaller than body. */
+.md-typeset .admonition,
+.md-typeset details            { font-size: 0.95rem; }
+.md-typeset .admonition-title,
+.md-typeset summary            { font-size: 1rem; }
+
+/* R5 F1/F2/F6 — wide tables: fit more, keep the row label, show there's more to the right. */
+.md-typeset__table                              { padding: 0 .4rem; }
+.md-typeset table:not([class])                  { font-size: 0.85rem; }
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td               { padding: .5em .6em; }
+.md-typeset table:not([class]) tbody td:first-child { position: sticky; left: 0; z-index: 1;
+                                                      background: var(--md-default-bg-color); }
+.md-typeset table:not([class]) thead th:first-child { position: sticky; left: 0; z-index: 2;
+                                                      background: var(--md-default-bg-color); }
+.md-typeset__scrollwrap {
+  background:
+    linear-gradient(to right, var(--md-default-bg-color) 30%, transparent) left  / 40px 100% no-repeat local,
+    linear-gradient(to left,  var(--md-default-bg-color) 30%, transparent) right / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%,   rgba(0,0,0,.28), transparent) left  / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.28), transparent) right / 14px 100% no-repeat scroll;
+}
+
+/* R5 F11 — manual-page renders are white; stop them glaring in dark mode. */
+[data-md-color-scheme="slate"] .md-typeset a.glightbox img { filter: brightness(.82) contrast(1.06); }
+[data-md-color-scheme="slate"] .md-typeset a.glightbox img:hover,
+[data-md-color-scheme="slate"] .md-typeset a.glightbox img:focus { filter: none; }
+
+/* R5 F14 — 44 pt tap targets on the most-used header/footer controls. */
+.md-header__button, .md-top { min-width: 44px; min-height: 44px; padding: .55rem; }
+
+/* R5 F17 — fit more config per line in portrait without wrapping (config reads as lines, not prose). */
+@media (max-width: 76.1875em) { .md-typeset pre > code { font-size: .72rem; } }
+
+/* R6 CONVENTIONS "Source lines" — muted caption, tap it to compare with the original. */
+.md-typeset p.src {
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  margin: .35rem 0 1.1rem;
+}
+.md-typeset p.src::before { content: "🔗 "; }
+
+/* R6 B2 — per-step progress + resume. */
+.progress-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 0 0 1.2rem;
+  padding: .5rem .8rem;
+  border-radius: .4rem;
+  background: var(--md-code-bg-color);
+}
+.progress-summary { font-weight: 600; font-size: .85rem; }
+.progress-resume, .progress-reset {
+  min-height: 44px;
+  min-width: 44px;
+  padding: .3rem .9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+.step-done-toggle {
+  width: 22px;
+  height: 22px;
+  margin: 0 .6rem 0 0;
+  vertical-align: middle;
+}
+h3.step-done { opacity: .6; text-decoration: line-through; }
+.progress-badge { font-size: .8rem; opacity: .75; margin-left: .3rem; white-space: nowrap; }
+
+/* Tabs on the iPad. Material hides .md-tabs below 76.234375em (1220px), which
+ * is wider than every iPad in landscape except the 12.9" (1024, 1080, 1180 CSS
+ * px) — the five-tab IA would be invisible on the bench device. Show the tab row
+ * from 48em (768px) so both iPad orientations get it; phones keep the hamburger
+ * drawer, where five drill-down rows are the better shape. Only the one Material
+ * rule `@media screen and (max-width:76.234375em){.md-tabs{display:none}}` is
+ * being overridden; the sidebar stays a drawer below 76.25em as before.
+ *
+ * --md-header-height is ours, not Material's (which never defines it, hence the
+ * 2.4rem fallback used by .jump-bar and .step-crumbs below). Wherever the sticky
+ * tab row is showing, the pinned area is header + tabs = 4.8rem — the same value
+ * Material uses for .md-sidebar when the header is lifted. */
+@media screen and (min-width: 48em) {
+  .md-tabs { display: block; }
+  :root { --md-header-height: 4.8rem; }
+}
+
+/* Pages deliberately kept out of the nav — the generated step pages and the
+ * whole-chapter NN-*.md pages — mark no tab active, and Material's lifted
+ * sidebar (`.md-nav--lifted` shows only the active tab's subtree) would then
+ * render an empty column beside them. Drop it and let the page use the width;
+ * those pages navigate by their own breadcrumb and prev/next bar. Scoped to
+ * >=76.25em because below that the same element is the hamburger drawer and
+ * must stay. `:has()` is Safari 15.4+/Chrome 105+; where it is missing the
+ * rule is skipped and the column is merely empty, as before. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary:not(:has(.md-nav__item--active)) { display: none; }
+}
+
+/* R6 B9 — sticky section jump bar. */
+.jump-bar {
+  position: sticky;
+  top: var(--md-header-height, 2.4rem);
+  z-index: 5;
+  display: flex;
+  gap: .4rem;
+  overflow-x: auto;
+  padding: .4rem .2rem;
+  margin: 0 0 1.2rem;
+  background: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  -webkit-overflow-scrolling: touch;
+}
+.jump-bar__chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .3rem .9rem;
+  border-radius: 999px;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: .8rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.jump-bar__chip--active {
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}
+
+/* ==========================================================================
+   Step pages (generated by scripts/build_steps.py) — Prusa-style one page
+   per step: big picture, short text, prev/next always reachable.
+   ========================================================================== */
+
+/* Slim sticky breadcrumb; replaces the jump bar on a step page. */
+.md-typeset .step-crumbs {
+  position: sticky;
+  top: var(--md-header-height, 2.4rem);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin: 0 0 .4rem;
+  padding: .35rem .1rem;
+  font-size: .75rem;
+  color: var(--md-default-fg-color--light);
+  background: var(--md-default-bg-color);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-crumbs a { font-weight: 600; }
+.md-typeset .step-crumbs__section { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.md-typeset .step-crumbs__counter { margin-left: auto; white-space: nowrap; }
+
+.md-typeset .step-page h1,
+.md-typeset .step-crumbs + h1 { font-size: 1.55rem; line-height: 1.2; margin: .2rem 0 .4rem; }
+.md-typeset .step-counter {
+  margin: 0 0 .9rem;
+  font-size: .78rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .step-page-h1,
+.md-typeset .step-body + * { clear: both; }
+
+/* Figure column: the manual page first and large, everything else after. */
+.md-typeset .step-figure { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1rem; }
+.md-typeset .step-figure > p { margin: 0; flex: 0 0 calc(50% - .2rem); }
+.md-typeset .step-figure > p:first-of-type { flex: 1 0 100%; }
+.md-typeset .step-figure img { display: block; width: 100%; height: auto; border-radius: .2rem; }
+.md-typeset img.step-figure__main { max-height: 68vh; width: auto; max-width: 100%; margin: 0 auto; }
+.md-typeset img.step-figure__extra { width: 100%; max-height: 30vh; object-fit: contain; object-position: center top; }
+.md-typeset .step-figure__none {
+  flex: 1 0 100%;
+  margin: 0;
+  padding: 1.6rem .8rem;
+  text-align: center;
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  background: var(--md-code-bg-color);
+  border: 1px dashed var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+}
+
+/* Parts, as a compact list. */
+.md-typeset .step-parts { margin: 0 0 .9rem; }
+.md-typeset .step-parts p { margin: 0 0 .2rem; }
+.md-typeset .step-parts ul { margin: 0 0 0 .2rem; padding-left: 1.1rem; }
+.md-typeset .step-parts li { margin: 0; line-height: 1.45; }
+
+/* Landscape / wide: text left, picture right and sticky — Prusa's split. */
+@media (min-width: 50em) and (min-aspect-ratio: 1/1) {
+  .md-typeset .step-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 1.4rem;
+    align-items: start;
+  }
+  /* Clears the sticky header — plus the sticky tab row where it shows. */
+  .md-typeset .step-figure { order: 2; position: sticky;
+                             top: calc(var(--md-header-height, 2.4rem) + .6rem); }
+  .md-typeset .step-text { order: 1; }
+  .md-typeset img.step-figure__main { max-height: 56vh; }
+}
+
+/* Prev / next — sticky to the bottom of the viewport, 44 pt tap targets. */
+.md-typeset .step-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  gap: .4rem;
+  margin: 1.2rem 0 0;
+  padding: .35rem 0 .5rem;
+  background: var(--md-default-bg-color);
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-nav > p { flex: 1 1 0; min-width: 0; margin: 0; }
+.md-typeset a.step-nav__link,
+.md-typeset .step-nav__link--off {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 52px;
+  height: 100%;
+  padding: .4rem .7rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .35rem;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+}
+.md-typeset .step-nav__link--off { opacity: .35; }
+.md-typeset .step-nav__next { text-align: right; }
+.md-typeset .step-nav__dir { font-size: .72rem; font-weight: 700; opacity: .8; }
+.md-typeset .step-nav__label {
+  font-size: .8rem;
+  line-height: 1.25;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Done toggle sits just above the prev/next bar. */
+.md-typeset .step-done-bar { margin: 1rem 0 .2rem; }
+.md-typeset .step-done-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 44px;
+  padding: .3rem .9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 999px;
+  background: var(--md-default-bg-color);
+  cursor: pointer;
+  font-size: .85rem;
+}
+body.step-is-done .md-typeset .step-done-label {
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+  border-color: transparent;
+}
+
+/* Chapter overview. */
+.md-typeset h1 + .chapter-meta { margin-top: -1.1rem; }
+.md-typeset .chapter-meta { margin: 0 0 .5rem; font-size: .85rem; }
+.md-typeset .chapter-actions { margin: 0 0 1.2rem; font-size: .85rem; }
+.md-typeset .chapter-nav { margin: 1.4rem 0 0; font-size: .85rem; }
+.md-typeset .step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: .55rem;
+}
+.md-typeset .step-grid > p { margin: 0; }
+.md-typeset a.step-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: .4rem .45rem .5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .35rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  position: relative;
+}
+.md-typeset a.step-card:hover { border-color: var(--md-accent-fg-color); }
+.md-typeset .step-card img.step-card__thumb,
+.md-typeset .step-card__thumb--none {
+  display: block;
+  width: 100%;
+  height: 6rem;
+  object-fit: cover;
+  object-position: center 42%;
+  margin: 0 0 .3rem;
+  background: var(--md-code-bg-color);
+  border-radius: .2rem;
+}
+.md-typeset .step-card__id { font-size: .72rem; font-weight: 700; opacity: .75; }
+.md-typeset .step-card__title { font-size: .8rem; line-height: 1.25; }
+.md-typeset .step-card--meta { background: var(--md-code-bg-color); }
+.md-typeset .step-card__tick {
+  position: absolute;
+  top: .3rem;
+  right: .35rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color);
+}
+.md-typeset .step-card--done { opacity: .62; }
+.md-typeset .step-card--done .step-card__tick {
+  background: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+.md-typeset .step-card--done .step-card__tick::after {
+  content: "✓";
+  display: block;
+  line-height: 1.05rem;
+  text-align: center;
+  font-size: .72rem;
+  color: var(--md-accent-bg-color);
+}
+
+/* Plate plans: one card per plate, reusing the .step-grid rhythm at 2 columns. */
+.md-typeset .plate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: .75rem;
+  margin: 0 0 1.2rem;
+}
+.md-typeset .plate-card {
+  padding: .5rem .6rem .6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .35rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .plate-card img { border-radius: .2rem; }
+.md-typeset .plate-card p { margin: .4rem 0 0; font-size: .8rem; }
+
+/* Tonight: a segment is a link to the first step page of that segment. */
+.md-typeset a.tonight-seg { color: inherit; }
+.md-typeset .step-figure__note {
+  flex: 1 0 100%;
+  margin: .2rem 0 0;
+  font-size: .75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Action-first step pages (2026-09-06): the Do line leads, the description
+   collapses under it. See docs/manual/CONVENTIONS.md § "Action-first steps
+   and word budgets". Colours are theme variables, so slate follows. */
+.md-typeset .step-do { margin: 0 0 .9rem; }
+.md-typeset .step-do > p { font-size: 1.05rem; line-height: 1.5; margin: 0 0 .4rem; }
+.md-typeset .step-do > p:last-child,
+.md-typeset .step-do > ol:last-child,
+.md-typeset .step-do > ul:last-child { margin-bottom: 0; }
+.md-typeset .step-do > p:first-child > strong:first-child { color: var(--md-accent-fg-color); }
+.md-typeset .step-do ol,
+.md-typeset .step-do ul { margin: .3rem 0 .4rem; padding-left: 1.2rem; font-size: 1.05rem; }
+.md-typeset .step-do li { margin: 0 0 .25rem; line-height: 1.5; }
+
+/* Part render beside the Parts item that names its STL. */
+.md-typeset img.step-parts__thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: .4rem;
+  border-radius: .2rem;
+  background: var(--md-code-bg-color);
+}
+
+/* "What you're looking at" — orientation only, muted and folded away. */
+.md-typeset .step-text > details { margin: 0 0 .9rem; font-size: .74rem; }
+.md-typeset .step-text > details,
+.md-typeset .step-text > details > summary {
+  border-color: var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-text > details > summary {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  background-color: var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-text > details > summary::before {
+  background-color: var(--md-default-fg-color--light);
+}
+
+/* Chapter progress (2026-09-06): the "What this chapter builds" before/after
+   pair on a chapter overview, and the same after-image on that chapter's
+   Checkpoint page. Images come from scripts/cad_render/render_steps.py
+   --chapters. Two-up from tablet width, stacked on a phone. */
+.md-typeset figure.chapter-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: .5rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1.2rem;
+  text-align: left;
+}
+.md-typeset .chapter-progress__shot { flex: 1 1 14rem; min-width: 0; }
+.md-typeset .chapter-progress p { margin: 0; }
+.md-typeset .chapter-progress img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .chapter-progress__cap {
+  display: block;
+  margin-top: .2rem;
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .chapter-progress > figcaption {
+  flex: 1 0 100%;
+  margin: .1rem 0 0;
+  font-size: .72rem;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--md-default-fg-color--light);
+}
+/* A figure with a single image (Ch 01's overview, every Checkpoint page): the
+   image is a direct child, full row, capped so it does not fill a desktop. */
+.md-typeset .chapter-progress > p { flex: 1 1 100%; }
+.md-typeset .chapter-progress > p img { max-width: 22rem; margin: 0 auto; }
+
+@media screen and (max-width: 44.98em) {
+  .md-typeset .chapter-progress__shot { flex: 1 1 100%; }
+}

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif">
+<title>Plate B09-P5 — sorting diagram</title>
+<rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
+<text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B09-P5</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">16 parts  ·  4.3 h  ·  56 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
+<rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
+<line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="564.0" y1="90.0" x2="564.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="744.0" y1="90.0" x2="744.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="702.0" x2="924.0" y2="702.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="522.0" x2="924.0" y2="522.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="342.0" x2="924.0" y2="342.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
+<text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
+<path d="M152.0,696.5 183.5,696.0 189.5,699.0 193.0,702.5 195.0,706.5 195.0,710.5 196.0,711.5 196.0,807.5 195.0,808.5 195.0,812.5 193.0,816.5 188.5,821.0 184.5,822.0 183.5,823.0 80.5,823.0 79.5,822.0 75.5,821.0 71.0,816.5 69.0,812.5 69.0,777.5 71.0,773.5 145.5,699.0Z M158.5,723.0 157.5,724.0 155.5,724.0 154.0,725.5 153.0,729.5 154.0,730.5 154.0,732.5 155.5,734.0 159.5,735.0 160.5,734.0 162.5,734.0 164.0,732.5 165.0,728.5 164.0,727.5 164.0,725.5 162.5,724.0Z M99.5,781.0 97.5,782.0 96.0,784.5 96.0,789.5 98.5,792.0 103.5,792.0 105.5,791.0 107.0,788.5 107.0,784.5 103.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#9 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M153.0,559.5 182.5,559.0 190.5,563.0 195.0,569.5 195.0,573.5 196.0,574.5 196.0,670.5 195.0,671.5 195.0,675.5 193.0,679.5 187.5,685.0 185.5,685.0 184.5,686.0 79.5,686.0 78.5,685.0 76.5,685.0 71.0,679.5 69.0,675.5 69.0,641.5 70.0,640.5 70.0,638.5 73.0,635.5 73.0,634.5 145.5,562.0 149.5,560.0Z M156.5,587.0 153.0,591.5 154.0,595.5 157.5,598.0 160.5,598.0 164.0,595.5 165.0,591.5 161.5,587.0Z M99.5,644.0 97.5,645.0 96.0,647.5 96.0,652.5 98.5,655.0 104.5,655.0 107.0,651.5 107.0,647.5 103.5,644.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#4 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M150.0,423.5 185.5,423.0 187.5,424.0 195.0,432.5 195.0,436.5 196.0,437.5 196.0,534.5 195.0,535.5 195.0,539.5 187.5,548.0 185.5,549.0 181.5,549.0 180.5,550.0 83.5,550.0 82.5,549.0 78.5,549.0 76.5,548.0 69.0,539.5 69.0,504.5 70.0,503.5 70.0,501.5 73.0,498.5 73.0,497.5 74.5,497.0 143.0,428.5 144.5,426.0 145.5,426.0 147.5,424.0Z M156.5,450.0 154.0,452.5 153.0,456.5 155.5,460.0 157.5,461.0 160.5,461.0 164.0,458.5 165.0,454.5 161.5,450.0Z M100.5,507.0 96.0,510.5 96.0,515.5 98.5,518.0 102.5,519.0 106.0,516.5 107.0,514.5 107.0,511.5 104.5,508.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#3 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M150.0,286.5 184.5,286.0 185.5,287.0 187.5,287.0 193.0,292.5 195.0,296.5 195.0,300.5 196.0,301.5 196.0,397.5 195.0,398.5 195.0,402.5 194.0,404.5 189.5,410.0 182.5,413.0 81.5,413.0 80.5,412.0 76.5,411.0 72.0,407.5 69.0,402.5 69.0,367.5 71.0,363.5 146.5,288.0Z M157.5,313.0 154.0,315.5 153.0,319.5 156.5,324.0 161.5,324.0 164.0,321.5 165.0,317.5 162.5,314.0 160.5,313.0Z M98.5,371.0 96.0,373.5 96.0,378.5 97.0,380.5 99.5,382.0 103.5,382.0 107.0,378.5 107.0,374.5 104.5,371.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#2 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M151.0,149.5 183.5,149.0 184.5,150.0 188.5,151.0 193.0,155.5 195.0,159.5 195.0,163.5 196.0,164.5 196.0,260.5 195.0,261.5 195.0,265.5 193.0,269.5 189.5,273.0 183.5,276.0 80.5,276.0 79.5,275.0 77.5,275.0 71.0,269.5 69.0,265.5 69.0,230.5 71.0,226.5 146.5,151.0Z M157.5,176.0 154.0,178.5 153.0,182.5 156.5,187.0 161.5,187.0 165.0,182.5 164.0,178.5 160.5,176.0Z M98.5,234.0 96.0,236.5 96.0,241.5 97.0,243.5 99.5,245.0 103.5,245.0 107.0,241.5 107.0,237.5 106.0,235.5 103.5,234.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#1 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M289.0,696.5 320.5,696.0 326.5,699.0 331.0,704.5 331.0,706.5 332.0,707.5 332.0,811.5 331.0,812.5 330.0,816.5 325.5,821.0 321.5,822.0 320.5,823.0 216.5,823.0 212.5,821.0 207.0,815.5 206.0,813.5 206.0,810.5 205.0,809.5 205.0,781.5 206.0,780.5 206.0,777.5 208.0,773.5 282.5,699.0Z M295.5,723.0 294.5,724.0 292.5,724.0 291.0,725.5 290.0,727.5 290.0,730.5 292.5,734.0 296.5,735.0 301.0,732.5 301.0,725.5Z M236.5,781.0 233.0,783.5 233.0,789.5 235.5,792.0 240.5,792.0 243.0,790.5 244.0,788.5 244.0,785.5 240.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#10 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M425.0,696.5 457.5,696.0 458.5,697.0 460.5,697.0 463.5,700.0 464.5,700.0 469.0,707.5 469.0,811.5 466.0,817.5 460.5,822.0 458.5,822.0 457.5,823.0 353.5,823.0 349.5,821.0 346.0,818.5 342.0,810.5 342.0,779.5 343.0,778.5 344.0,774.5 346.0,772.5 346.0,771.5 348.5,770.0 417.0,701.5 417.5,700.0 422.5,697.0Z M431.5,723.0 428.0,725.5 427.0,727.5 427.0,730.5 429.5,734.0 433.5,735.0 438.0,731.5 438.0,726.5 435.5,724.0Z M373.5,781.0 370.0,783.5 369.0,787.5 372.5,792.0 377.5,792.0 380.0,789.5 381.0,785.5 378.5,782.0 376.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#11 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M562.0,696.5 594.5,696.0 598.5,698.0 604.0,703.5 605.0,705.5 605.0,707.5 606.0,708.5 606.0,810.5 605.0,811.5 604.0,815.5 601.5,819.0 594.5,823.0 490.5,823.0 489.5,822.0 487.5,822.0 482.0,817.5 479.0,811.5 479.0,779.5 482.0,772.5 518.5,736.0 519.5,736.0 554.0,701.5 554.5,700.0 559.5,697.0Z M568.5,723.0 564.0,726.5 564.0,731.5 566.5,734.0 570.5,735.0 574.0,732.5 575.0,730.5 575.0,727.5 572.5,724.0Z M509.5,781.0 506.0,785.5 506.0,788.5 507.0,790.5 509.5,792.0 514.5,792.0 517.0,789.5 517.0,783.5 513.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#12 corner_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M645.0,750.5 712.5,750.0 713.5,751.0 716.5,751.0 718.5,752.0 740.0,773.5 742.0,777.5 742.0,780.5 743.0,781.5 743.0,809.5 742.0,810.5 742.0,813.5 740.0,815.5 740.0,816.5 735.5,821.0 731.5,823.0 627.5,823.0 621.5,820.0 618.0,816.5 616.0,812.5 616.0,778.5 617.0,777.5 617.0,775.5 619.0,773.5 619.0,772.5 638.5,753.0Z M676.5,781.0 674.0,783.5 674.0,789.5 676.5,792.0 681.5,792.0 685.0,788.5 685.0,784.5 681.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#15 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M782.0,750.5 849.5,750.0 850.5,751.0 853.5,751.0 855.5,753.0 856.5,753.0 876.0,772.5 879.0,777.5 879.0,782.5 880.0,783.5 880.0,807.5 879.0,808.5 879.0,812.5 877.0,816.5 872.5,821.0 868.5,823.0 763.5,823.0 759.5,821.0 755.0,816.5 753.0,812.5 753.0,777.5 756.0,772.5 775.5,753.0 776.5,753.0 778.5,751.0Z M813.5,781.0 811.0,783.5 810.0,787.5 813.5,792.0 818.5,792.0 821.0,789.5 822.0,785.5 818.5,781.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#16 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M645.0,667.5 712.5,667.0 713.5,668.0 718.5,669.0 740.0,690.5 742.0,694.5 742.0,697.5 743.0,698.5 743.0,726.5 742.0,727.5 742.0,730.5 740.0,732.5 740.0,733.5 734.5,739.0 732.5,740.0 626.5,740.0 625.5,739.0 623.5,739.0 618.0,733.5 616.0,729.5 616.0,695.5 619.0,689.5 636.5,672.0 637.5,672.0 640.5,669.0Z M677.5,698.0 674.0,700.5 674.0,706.5 676.5,709.0 682.5,709.0 685.0,705.5 685.0,701.5 681.5,698.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#13 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M782.0,667.5 849.5,667.0 856.5,670.0 876.0,689.5 877.0,692.5 879.0,694.5 879.0,699.5 880.0,700.5 880.0,724.5 879.0,725.5 879.0,729.5 877.0,733.5 871.5,739.0 869.5,739.0 868.5,740.0 763.5,740.0 762.5,739.0 760.5,739.0 755.0,733.5 753.0,729.5 753.0,694.5 755.0,692.5 756.0,689.5 775.5,670.0Z M814.5,698.0 811.0,700.5 810.0,702.5 810.0,705.5 811.0,707.5 813.5,709.0 818.5,709.0 821.0,707.5 822.0,705.5 822.0,702.5 819.5,699.0 817.5,698.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#14 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M235.0,613.5 302.5,613.0 303.5,614.0 307.5,615.0 310.5,618.0 311.5,618.0 329.0,635.5 332.0,641.5 332.0,675.5 330.0,679.5 325.5,684.0 321.5,686.0 215.5,686.0 213.5,685.0 208.0,679.5 208.0,678.5 206.0,676.5 206.0,673.5 205.0,672.5 205.0,644.5 206.0,643.5 206.0,640.5 208.0,636.5 229.5,615.0Z M266.5,644.0 263.0,647.5 263.0,651.5 265.5,655.0 271.5,655.0 274.0,652.5 274.0,646.5 270.5,644.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#5 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M372.0,613.5 439.5,613.0 442.5,615.0 444.5,615.0 464.0,633.5 469.0,642.5 469.0,674.5 466.0,680.5 462.5,684.0 458.5,686.0 352.5,686.0 350.5,685.0 345.0,680.5 345.0,679.5 343.0,677.5 343.0,674.5 342.0,673.5 342.0,643.5 345.0,636.5 366.5,615.0Z M403.5,644.0 400.0,647.5 400.0,652.5 402.5,655.0 408.5,655.0 411.0,652.5 411.0,647.5 407.5,644.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#6 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M508.0,613.5 575.5,613.0 576.5,614.0 581.5,615.0 603.0,636.5 606.0,643.5 606.0,673.5 605.0,674.5 605.0,677.5 603.0,679.5 603.0,680.5 595.5,686.0 489.5,686.0 485.5,684.0 482.0,680.5 479.0,674.5 479.0,642.5 484.0,633.5 503.5,615.0 505.5,615.0Z M540.5,644.0 537.0,647.5 537.0,652.5 539.5,655.0 545.5,655.0 548.0,652.5 548.0,647.5 544.5,644.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#7 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<path d="M642.0,585.5 715.5,585.0 717.5,586.0 719.5,588.0 720.5,588.0 738.0,605.5 738.0,606.5 740.0,607.5 741.0,609.5 741.0,611.5 743.0,615.5 743.0,643.5 742.0,644.5 742.0,647.5 741.0,649.5 738.0,652.5 738.0,653.5 734.5,656.0 732.5,657.0 728.5,657.0 727.5,658.0 630.5,658.0 629.5,657.0 623.5,656.0 617.0,649.5 617.0,647.5 616.0,646.5 616.0,613.5 617.0,612.5 618.0,608.5 639.5,587.0Z M677.5,615.0 675.5,616.0 674.0,618.5 674.0,623.5 675.5,626.0 677.5,627.0 680.5,627.0 684.0,624.5 685.0,622.5 685.0,619.5 682.5,616.0 680.5,615.0Z" fill-rule="evenodd" fill="#6d4c41" stroke="#3c2a24" stroke-width="1.0" stroke-linejoin="round"><title>#8 midspan_panel_clip_6mm_x8.stl → 11-clips-6mm</title></path>
+<text x="150.5" y="231.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<text x="150.5" y="242.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="149.5" y="779.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">9</text>
+<text x="149.5" y="790.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="149.5" y="642.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<text x="149.5" y="653.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="149.5" y="369.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="149.5" y="380.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="149.5" y="504.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<text x="149.5" y="515.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="551.0" y="784.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 551.0 778.5)">12</text>
+<text x="565.5" y="782.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 565.5 778.5)">11-clips-6mm</text>
+<text x="423.5" y="779.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">11</text>
+<text x="423.5" y="790.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<text x="286.5" y="779.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">10</text>
+<text x="286.5" y="790.0" font-size="12" fill="#ffffff" text-anchor="middle">11-clips-6mm</text>
+<rect x="636.5" y="605.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="678.5" y="623.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">8</text>
+<text x="678.5" y="634.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="637.5" y="770.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="679.5" y="788.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">15</text>
+<text x="679.5" y="799.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="637.5" y="687.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="679.5" y="705.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">13</text>
+<text x="679.5" y="716.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="226.5" y="633.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="268.5" y="651.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">5</text>
+<text x="268.5" y="662.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="773.5" y="770.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="815.5" y="788.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">16</text>
+<text x="815.5" y="799.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="773.5" y="687.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="815.5" y="705.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">14</text>
+<text x="815.5" y="716.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="363.5" y="633.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="405.5" y="651.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">6</text>
+<text x="405.5" y="662.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<rect x="500.5" y="633.0" width="84.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="542.5" y="651.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">7</text>
+<text x="542.5" y="662.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-clips-6mm</text>
+<text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
+<rect x="950.0" y="48.0" width="92.0" height="18.0" rx="4.0" fill="#6d4c41"/>
+<text x="996.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">11-clips-6mm</text>
+<text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#6d4c41"/>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1–4, 9–12</text>
+<text x="1038.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">corner_panel_clip_6mm_x8.stl  ×8</text>
+<text x="1038.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-clips-6mm · Panel clips, 6 mm (side panels) · Ch 11 · 11.57–11.58</text>
+<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#6d4c41"/>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5–8, 13–16</text>
+<text x="1038.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">midspan_panel_clip_6mm_x8.stl  ×8</text>
+<text x="1038.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">11-clips-6mm · Panel clips, 6 mm (side panels) · Ch 11 · 11.57–11.58</text>
+<text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
+<text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B09-P5.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
+</svg>

@@ -1,0 +1,2377 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/assets/cad/MANIFEST/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CAD render manifest - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cad-render-manifest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CAD render manifest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#for-the-pass-that-inserts-these" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For the pass that inserts these
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-step-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-step detail
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Per-step detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0115-check-the-frame-sits-without-rock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01.15 — Check the frame sits without rock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0209-install-the-remaining-three-z-rails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02.09 — Install the remaining three Z rails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0210-optional-fit-the-ldo-rail-stops-at-the-top-of-each-z-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02.10 — Optional: fit the LDO rail stops at the top of each Z rail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0318-verify-the-plate-floats-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03.18 — Verify the plate floats level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#054-test-fit-t-nuts-and-stage-the-fasteners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.4 — Test-fit T-nuts and stage the fasteners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0515-stop-the-carriages-running-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.15 — Stop the carriages running off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0516-unpack-and-identify-the-titanium-backers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.16 — Unpack and identify the titanium backers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0518-fit-the-second-y-backer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.18 — Fit the second Y backer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0535-check-backer-clearance-for-the-cable-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.35 — Check backer clearance for the cable chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0545-stage-the-x-carriage-frame-halves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.45 — Stage the X-carriage frame halves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0546-bag-what-belongs-to-later-chapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05.46 — Bag what belongs to later chapters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0623-even-the-four-belts-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06.23 — Even the four belts by hand
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06b7-take-the-side-panels-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06b.7 — Take the side panels off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06b13-reinstall-the-lower-z-joints-lightly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06b.13 — Reinstall the lower Z joints, lightly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06b14-de-rack-the-gantry-then-tighten-the-xy-joints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06b.14 — De-rack the gantry, then tighten the X/Y joints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0730-set-the-150-mm-measuring-span" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07.30 — Set the 150 mm measuring span
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0739-fit-the-ab-drive-cable-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07.39 — Fit the A/B drive cable cover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0926-clip-the-usb-adapter-to-the-front-rail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09.26 — Clip the USB adapter to the front rail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cad-render-manifest">CAD render manifest<a class="headerlink" href="#cad-render-manifest" title="Permanent link">¶</a></h1>
+<p>18 manual steps illustrated from the official Voron 2.4r2 STEP
+(22 manifest entries, 33 PNGs).
+Generated from <code>steps.yml</code> by <code>scripts/cad_render/render_steps.py --manifest</code> —
+edit that file, not this one.</p>
+<p>Two standing caveats apply to every image and are printed in every footer:</p>
+<ol>
+<li><strong>The published CAD is the 250 machine.</strong> Part identity, handedness, mounting
+   faces and assembly relationships transfer to this 350 build; extrusion, rail
+   and belt <strong>lengths do not</strong>. Per-image detail is in the <em>350 caveat</em> line below.</li>
+<li>Anything labelled <strong>(schematic)</strong> is a box drawn by the renderer, not Voron
+   geometry — the LDO Rev D+ and mod hardware (rail stops, titanium backers,
+   the USB/ESD adapter) is absent from the Voron CAD.</li>
+</ol>
+<h2 id="for-the-pass-that-inserts-these">For the pass that inserts these<a class="headerlink" href="#for-the-pass-that-inserts-these" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>a</code> = the selected parts alone; <code>b</code> = the same parts in place with the rest of
+  the machine ghosted. Where only one is listed, the other was judged to add
+  nothing.</li>
+<li>Put the image line(s) directly under the <code>### Step</code> heading, replacing
+  <code>(no image — see text)</code> where that is what the step still shows. Where the
+  step already carries a manual page, a parts render or a bench photo, <strong>add</strong>
+  these after it — do not replace the existing image.</li>
+<li>Every one of these steps already has a <code>**What you're looking at:**</code> line
+  written by the chapter author. Fold the sentence below into it; do not add a
+  second one.</li>
+<li>The <em>currently shows</em> column and the <em>already in the chapter</em> lines record the
+  chapters as they stood when this file was generated, while they were still
+  being written. Re-run <code>--manifest</code> and re-check before inserting.</li>
+</ul>
+<h2 id="index">Index<a class="headerlink" href="#index" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Chapter</th>
+<th>Images</th>
+<th>Currently shows</th>
+<th>Ready</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01.15</td>
+<td><code>01-frame.md</code></td>
+<td>01-15-a.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>02.09</td>
+<td><code>02-z-drives.md</code></td>
+<td>02-09-a.png, 02-09-b.png</td>
+<td>assets/manual-pages/manual-p027.png</td>
+<td><strong>no</strong></td>
+</tr>
+<tr>
+<td>02.10</td>
+<td><code>02-z-drives.md</code></td>
+<td>02-10-a.png, 02-10-b.png</td>
+<td>assets/cad/02-10-b.png + assets/parts/z_rail_stop_x4.png</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>03.18</td>
+<td><code>03-build-plate.md</code></td>
+<td>03-18-a.png, 03-18-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.4</td>
+<td><code>05-gantry.md</code></td>
+<td>05-04-a.png, 05-04-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.15</td>
+<td><code>05-gantry.md</code></td>
+<td>05-15-a.png, 05-15-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.16</td>
+<td><code>05-gantry.md</code></td>
+<td>05-16-a.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.18</td>
+<td><code>05-gantry.md</code></td>
+<td>05-18-a.png, 05-18-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.35</td>
+<td><code>05-gantry.md</code></td>
+<td>05-35-a.png, 05-35-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.45</td>
+<td><code>05-gantry.md</code></td>
+<td>05-45-a.png, 05-45-b.png</td>
+<td>assets/parts/pair-x_frame_V2TR_MGN12.png</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>05.46</td>
+<td><code>05-gantry.md</code></td>
+<td>05-46-a.png, 05-46-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>06.23</td>
+<td><code>06-z-axis-and-gantry-squaring.md</code></td>
+<td>06-23-a.png, 06-23-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>06b.7</td>
+<td><code>06-z-axis-and-gantry-squaring.md</code></td>
+<td>06b-07-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>06b.13</td>
+<td><code>06-z-axis-and-gantry-squaring.md</code></td>
+<td>06b-13-a.png, 06b-13-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>06b.14</td>
+<td><code>06-z-axis-and-gantry-squaring.md</code></td>
+<td>06b-14-a.png, 06b-14-b.png</td>
+<td>assets/diagrams/09-gantry-racking.svg</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>07.30</td>
+<td><code>07-ab-belts.md</code></td>
+<td>07-30-a.png, 07-30-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>07.39</td>
+<td><code>07-ab-belts.md</code></td>
+<td>07-39-a.png, 07-39-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>09.26</td>
+<td><code>09-electronics-bay.md</code></td>
+<td>09-26-a.png, 09-26-b.png</td>
+<td>(no image — see text)</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="per-step-detail">Per-step detail<a class="headerlink" href="#per-step-detail" title="Permanent link">¶</a></h2>
+<h3 id="0115-check-the-frame-sits-without-rock">01.15 — Check the frame sits without rock<a class="headerlink" href="#0115-check-the-frame-sits-without-rock" title="Permanent link">¶</a></h3>
+<p>Chapter <code>01-frame.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>01-15-a.png</code></strong> (parts alone) — The squared frame on its reference surface: the four bottom corners that must all touch, and the four top corners you press.</p>
+<p><strong>350 caveat:</strong> CAD frame is the 250: 370 mm horizontals on 430 mm verticals. Yours is the 350 set. The contact geometry is the same.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the frame on the reference surface</span>](<span class="na">assets/cad/01-15-a.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The finished frame standing on the stone - the four bottom corners are the only things that should touch it, and the four top corners are where you press to find a rock.</p>
+<h3 id="0209-install-the-remaining-three-z-rails">02.09 — Install the remaining three Z rails<a class="headerlink" href="#0209-install-the-remaining-three-z-rails" title="Permanent link">¶</a></h3>
+<p>Chapter <code>02-z-drives.md</code> · currently shows: assets/manual-pages/manual-p027.png</p>
+<p><strong><code>02-09-a.png</code></strong> (parts alone) and <strong><code>02-09-b.png</code></strong> (in place, rest of the machine ghosted) — Plan view of the four Z rails. Rear rails occupy y 345.5-352 on verticals at y 352-372 (facing forward); front rails occupy y -18 to -11.5 on verticals at y -38 to -18 (facing rearward). All four normals are +/-Y.</p>
+<p><strong>350 caveat:</strong> CAD rails are MGN9 300 mm on 430 mm verticals (250). Yours are MGN9H 400 mm on the 350 verticals. Which face the rail is on does not change with size.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — which face each Z rail is actually mounted on</span>](<span class="na">assets/cad/02-09-a.png</span>)
+![<span class="nt">CAD render — which face each Z rail is actually mounted on, in place</span>](<span class="na">assets/cad/02-09-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The four Z rails seen from above. Each rail sits on a face whose normal points along Y, so the left pair faces each other front-to-back and the right pair does the same - the two front rails are parallel, not opposed.</p>
+<blockquote>
+<p>EVIDENCE FOR PILOT.md §8 - do NOT insert until Step 02.09's text is fixed. The step currently says "front-left faces front-right, rear-left faces rear-right"; the CAD says front-left faces rear-left. Insert once the chapter owner has corrected the pairing claim.</p>
+</blockquote>
+<h3 id="0210-optional-fit-the-ldo-rail-stops-at-the-top-of-each-z-rail">02.10 — Optional: fit the LDO rail stops at the top of each Z rail<a class="headerlink" href="#0210-optional-fit-the-ldo-rail-stops-at-the-top-of-each-z-rail" title="Permanent link">¶</a></h3>
+<p>Chapter <code>02-z-drives.md</code> · currently shows: assets/cad/02-10-b.png + assets/parts/z_rail_stop_x4.png</p>
+<p><strong><code>02-10-a.png</code></strong> (parts alone) and <strong><code>02-10-b.png</code></strong> (in place, rest of the machine ghosted) — The free top end of one Z rail and the carriage that must not run off it; the LDO printed stop clips over that end (drawn schematically).</p>
+<p><strong>350 caveat:</strong> CAD rail is MGN9 300 mm on a 430 mm vertical (250), leaving ~107 mm of bare extrusion above the rail. Your 400 mm rail on the 350 vertical leaves a different length. The stop clips to the rail end, not to a dimension.</p>
+<p>Already in the chapter, do not add again: <code>02-10-b.png</code></p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — LDO rail stop at the top of a Z rail</span>](<span class="na">assets/cad/02-10-a.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The top of one Z rail where it stops short of the vertical extrusion's end - that free length is where the printed stop clips on, and the carriage below it is the thing the stop keeps captive.</p>
+<h3 id="0318-verify-the-plate-floats-level">03.18 — Verify the plate floats level<a class="headerlink" href="#0318-verify-the-plate-floats-level" title="Permanent link">¶</a></h3>
+<p>Chapter <code>03-build-plate.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>03-18-a.png</code></strong> (parts alone) and <strong><code>03-18-b.png</code></strong> (in place, rest of the machine ghosted) — The plate floating on its four bolts above the two bed extrusions: four gaps, all equal to the thumb-nut height.</p>
+<p><strong>350 caveat:</strong> CAD bed is the 10 in (254 mm) MIC6 plate on 370 mm bed extrusions (250). Yours is the 350 plate on the 350 frame - still four bolts, four gaps.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the four gaps that have to match</span>](<span class="na">assets/cad/03-18-a.png</span>)
+![<span class="nt">CAD render — the four gaps that have to match, in place</span>](<span class="na">assets/cad/03-18-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The build plate riding on four bolts above the two bed extrusions that span the frame - the gap under each bolt is what you measure, and all four should be the same.</p>
+<h3 id="054-test-fit-t-nuts-and-stage-the-fasteners">05.4 — Test-fit T-nuts and stage the fasteners<a class="headerlink" href="#054-test-fit-t-nuts-and-stage-the-fasteners" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-04-a.png</code></strong> (parts alone) and <strong><code>05-04-b.png</code></strong> (in place, rest of the machine ghosted) — The four gantry extrusions with every T-nut the chapter uses, shown on the faces they go into.</p>
+<p><strong>350 caveat:</strong> CAD extrusions are the 250 lengths (E 240, C 350, D 330 mm); yours are the 350 set. Which faces carry nuts, and how many, is what transfers.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — every T-nut this chapter will ever load</span>](<span class="na">assets/cad/05-04-a.png</span>)
+![<span class="nt">CAD render — every T-nut this chapter will ever load, in place</span>](<span class="na">assets/cad/05-04-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The four gantry extrusions - E across the back, the two C side beams and the D cross beam - with every T-nut this chapter needs already in its slot, because the printed blocks cap those slots later on.</p>
+<h3 id="0515-stop-the-carriages-running-off">05.15 — Stop the carriages running off<a class="headerlink" href="#0515-stop-the-carriages-running-off" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-15-a.png</code></strong> (parts alone) and <strong><code>05-15-b.png</code></strong> (in place, rest of the machine ghosted) — Both Y rails with their carriages and a schematic stopper near each of the four rail ends.</p>
+<p><strong>350 caveat:</strong> CAD Y rails are MGN9 300 mm; yours are 400 mm (Step 05.10). The stoppers go near the ends wherever those ends are.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — keep both Y carriages captive</span>](<span class="na">assets/cad/05-15-a.png</span>)
+![<span class="nt">CAD render — keep both Y carriages captive, in place</span>](<span class="na">assets/cad/05-15-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two Y rails on the undersides of the C extrusions, each carrying one carriage - the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings.</p>
+<h3 id="0516-unpack-and-identify-the-titanium-backers">05.16 — Unpack and identify the titanium backers<a class="headerlink" href="#0516-unpack-and-identify-the-titanium-backers" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-16-a.png</code></strong> (parts alone) — The three extrusions that take a backer, each with its backer drawn on the face opposite its rail.</p>
+<p><strong>350 caveat:</strong> Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by matched pair versus odd one, not by the lengths drawn here.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — which backer is which, and which face it goes on</span>](<span class="na">assets/cad/05-16-a.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The three backers laid on the extrusions they belong to - the two matching long ones on top of the Y (C) beams, the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail.</p>
+<h3 id="0518-fit-the-second-y-backer">05.18 — Fit the second Y backer<a class="headerlink" href="#0518-fit-the-second-y-backer" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-18-a.png</code></strong> (parts alone) — One Y beam from below: the rail face and, opposite it, the face the titanium backer goes on.</p>
+<p><strong><code>05-18-b.png</code></strong> (in place, rest of the machine ghosted) — Both finished Y assemblies in the gantry, mirrored: rails underneath, backers on the two top faces.</p>
+<p><strong>350 caveat:</strong> CAD C extrusion is 350 mm with a 300 mm rail (250 machine); yours is the 350-kit C with a 400 mm rail.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the backer goes on the face opposite the rail</span>](<span class="na">assets/cad/05-18-a.png</span>)
+![<span class="nt">CAD render — both Y backers, mirrored, on the top faces</span>](<span class="na">assets/cad/05-18-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> One Y extrusion seen from underneath, so the rail face and the backer face are both in frame - the backer always goes on the face directly opposite the rail. Both Y beams in place, mirrored about the machine's centreline - rails underneath on both, backers on top on both.</p>
+<h3 id="0535-check-backer-clearance-for-the-cable-chain">05.35 — Check backer clearance for the cable chain<a class="headerlink" href="#0535-check-backer-clearance-for-the-cable-chain" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-35-a.png</code></strong> (parts alone) — The cable chain's fixed end lifted off the Y beam, showing that its end link and the 3 mm titanium backer want the same extrusion face.</p>
+<p><strong><code>05-35-b.png</code></strong> (in place, rest of the machine ghosted) — The whole Y cable-chain run with both bridge variants and the Y backer, in place on the right-hand Y beam.</p>
+<p><strong>350 caveat:</strong> CAD chain and extrusion are the 250 machine's; a 350 chain run is longer. What transfers is which face the end link lands on.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the chain's fixed end lands on the backer's face</span>](<span class="na">assets/cad/05-35-a.png</span>)
+![<span class="nt">CAD render — which bridge, and the run it has to serve</span>](<span class="na">assets/cad/05-35-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The fixed end of the Y cable chain, lifted off the beam it bolts to - that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link may now sit 3 mm proud. The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front - and both bridge variants, of which this kit uses the 2-hole one.</p>
+<blockquote>
+<p>The raised alternative the step names, XY_cable_chain_bridge-Igus-3mm_backer, is a mod part and is NOT in the Voron CAD - only the stock 2-hole and 3-hole bridges are. The caption must not imply the render shows the raised variant.</p>
+</blockquote>
+<h3 id="0545-stage-the-x-carriage-frame-halves">05.45 — Stage the X-carriage frame halves<a class="headerlink" href="#0545-stage-the-x-carriage-frame-halves" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: assets/parts/pair-x_frame_V2TR_MGN12.png</p>
+<p><strong><code>05-45-a.png</code></strong> (parts alone) and <strong><code>05-45-b.png</code></strong> (in place, rest of the machine ghosted) — The two handed X-carriage halves, the probe retainer and the MGN12H carriage whose bolt pattern they have to match.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — stage the X-carriage frame halves</span>](<span class="na">assets/cad/05-45-a.png</span>)
+![<span class="nt">CAD render — stage the X-carriage frame halves, in place</span>](<span class="na">assets/cad/05-45-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two halves of the X carriage - handed, so they only nest one way - together with the probe retainer and the MGN12 carriage block whose bolt pattern they must match.</p>
+<blockquote>
+<p>Step 05.45 already carries assets/parts/pair-x_frame_V2TR_MGN12.png from an earlier pass. Add these as additional images, do not replace that one.</p>
+</blockquote>
+<h3 id="0546-bag-what-belongs-to-later-chapters">05.46 — Bag what belongs to later chapters<a class="headerlink" href="#0546-bag-what-belongs-to-later-chapters" title="Permanent link">¶</a></h3>
+<p>Chapter <code>05-gantry.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>05-46-a.png</code></strong> (parts alone) — Both Rev D+ alternates pulled apart along Z and labelled: the D2F pod you print, the hall-effect pod you skip, the 2-hole bridge you keep, the 3-hole one you do not.</p>
+<p><strong><code>05-46-b.png</code></strong> (in place, rest of the machine ghosted) — The two parts you keep, shown where they will eventually sit on the right XY joint.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the two Rev D+ variant choices, pulled apart</span>](<span class="na">assets/cad/05-46-a.png</span>)
+![<span class="nt">CAD render — where the two parts you keep end up</span>](<span class="na">assets/cad/05-46-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two either/or choices on the right XY joint, pulled apart so you can see both at once - print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit. Where the endstop pod and the cable bridge you kept eventually live - both on the right-hand XY joint, fitted in later chapters.</p>
+<h3 id="0623-even-the-four-belts-by-hand">06.23 — Even the four belts by hand<a class="headerlink" href="#0623-even-the-four-belts-by-hand" title="Permanent link">¶</a></h3>
+<p>Chapter <code>06-z-axis-and-gantry-squaring.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>06-23-a.png</code></strong> (parts alone) — One Z idler mount seen from below, with the M3x16 tensioner bolt that adjusts that corner's belt.</p>
+<p><strong><code>06-23-b.png</code></strong> (in place, rest of the machine ghosted) — All four Z belt runs, from the drives at the bottom of each upright up to the idlers at the top.</p>
+<p><strong>350 caveat:</strong> Idler height is the 250 machine's. There is one of these at each of the four corners either way.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the bolt that tensions one Z belt</span>](<span class="na">assets/cad/06-23-a.png</span>)
+![<span class="nt">CAD render — the four Z belts you are evening up</span>](<span class="na">assets/cad/06-23-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The Z idler at the top of one upright, seen from underneath - the small bolt standing proud below it is the tensioner, and turning it changes that corner's belt tension. The four Z belts that hang the gantry, one down each upright - each runs from its drive at the bottom, up over the idler at the top, and back to the gantry corner.</p>
+<h3 id="06b7-take-the-side-panels-off">06b.7 — Take the side panels off<a class="headerlink" href="#06b7-take-the-side-panels-off" title="Permanent link">¶</a></h3>
+<p>Chapter <code>06-z-axis-and-gantry-squaring.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>06b-07-b.png</code></strong> (in place, rest of the machine ghosted) — The two side panels, and the four Z joints and two XY joints that come within reach once they are off.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — both side panels come off</span>](<span class="na">assets/cad/06b-07-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two side panels of the enclosure, and behind them the four Z joints in the corners and the two XY joints on the gantry - the parts every step in Part B has to reach.</p>
+<h3 id="06b13-reinstall-the-lower-z-joints-lightly">06b.13 — Reinstall the lower Z joints, lightly<a class="headerlink" href="#06b13-reinstall-the-lower-z-joints-lightly" title="Permanent link">¶</a></h3>
+<p>Chapter <code>06-z-axis-and-gantry-squaring.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>06b-13-a.png</code></strong> (parts alone) and <strong><code>06b-13-b.png</code></strong> (in place, rest of the machine ghosted) — One Z joint in section: the lower half on its rail carriage, the upper half under the gantry, and the single M5x40 that joins them.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the four M5x40 back in, light</span>](<span class="na">assets/cad/06b-13-a.png</span>)
+![<span class="nt">CAD render — the four M5x40 back in, light, in place</span>](<span class="na">assets/cad/06b-13-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> A Z joint at one corner - the lower block rides the Z rail carriage, the upper block sits under the gantry corner, and one M5x40 joins the two; left light, the pair can still pivot.</p>
+<h3 id="06b14-de-rack-the-gantry-then-tighten-the-xy-joints">06b.14 — De-rack the gantry, then tighten the X/Y joints<a class="headerlink" href="#06b14-de-rack-the-gantry-then-tighten-the-xy-joints" title="Permanent link">¶</a></h3>
+<p>Chapter <code>06-z-axis-and-gantry-squaring.md</code> · currently shows: assets/diagrams/09-gantry-racking.svg</p>
+<p><strong><code>06b-14-a.png</code></strong> (parts alone) and <strong><code>06b-14-b.png</code></strong> (in place, rest of the machine ghosted) — The six bolts that hold each XY joint to the X beam - two from the top per side, one from below per side - and the drive units the beam is pushed back against.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — which bolts you tighten while holding the beam back</span>](<span class="na">assets/cad/06b-14-a.png</span>)
+![<span class="nt">CAD render — which bolts you tighten while holding the beam back, in place</span>](<span class="na">assets/cad/06b-14-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The XY joint clamped to the end of the X beam: two bolts come down from the top of the beam and one comes up from underneath, and those are the ones you tighten while the beam is held hard back against both drive units.</p>
+<blockquote>
+<p>The same image serves Step 06b.12 ("retighten everything except the X/Y joints") - it identifies exactly the bolts that step tells you to leave.</p>
+</blockquote>
+<h3 id="0730-set-the-150-mm-measuring-span">07.30 — Set the 150 mm measuring span<a class="headerlink" href="#0730-set-the-150-mm-measuring-span" title="Permanent link">¶</a></h3>
+<p>Chapter <code>07-ab-belts.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>07-30-a.png</code></strong> (parts alone) and <strong><code>07-30-b.png</code></strong> (in place, rest of the machine ghosted) — The XY joint idler and the front idler on each side, and the belt span between them that the 150 mm figure refers to.</p>
+<p><strong>350 caveat:</strong> The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the two centres the 150 mm is measured between</span>](<span class="na">assets/cad/07-30-a.png</span>)
+![<span class="nt">CAD render — the two centres the 150 mm is measured between, in place</span>](<span class="na">assets/cad/07-30-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck.</p>
+<h3 id="0739-fit-the-ab-drive-cable-cover">07.39 — Fit the A/B drive cable cover<a class="headerlink" href="#0739-fit-the-ab-drive-cable-cover" title="Permanent link">¶</a></h3>
+<p>Chapter <code>07-ab-belts.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>07-39-a.png</code></strong> (parts alone) and <strong><code>07-39-b.png</code></strong> (in place, rest of the machine ghosted) — The cable cover on the A drive unit, with the A and B belts it must clear.</p>
+<p><strong>350 caveat:</strong> none - nothing in this image is size-dependent.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — the A/B drive cable cover</span>](<span class="na">assets/cad/07-39-a.png</span>)
+![<span class="nt">CAD render — the A/B drive cable cover, in place</span>](<span class="na">assets/cad/07-39-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The printed cable cover that clips over the cable exit on a drive unit, and the two belts running past it that it must never touch.</p>
+<blockquote>
+<p>The Voron CAD models the cover only on the A drive; the step fits one.</p>
+</blockquote>
+<h3 id="0926-clip-the-usb-adapter-to-the-front-rail">09.26 — Clip the USB adapter to the front rail<a class="headerlink" href="#0926-clip-the-usb-adapter-to-the-front-rail" title="Permanent link">¶</a></h3>
+<p>Chapter <code>09-electronics-bay.md</code> · currently shows: (no image — see text)</p>
+<p><strong><code>09-26-a.png</code></strong> (parts alone) and <strong><code>09-26-b.png</code></strong> (in place, rest of the machine ghosted) — The two bay DIN rails, which one is the front, and where along it the USB/ESD adapter clips.</p>
+<p><strong>350 caveat:</strong> Bay layout is the 250 machine's; the rails are shorter than yours, but front/rear and left/right are the same.</p>
+<p>Image line(s) to add, immediately after the step heading:</p>
+<div class="highlight"><pre><span></span><code>![<span class="nt">CAD render — clip the USB adapter to the front rail</span>](<span class="na">assets/cad/09-26-a.png</span>)
+![<span class="nt">CAD render — clip the USB adapter to the front rail, in place</span>](<span class="na">assets/cad/09-26-b.png</span>)
+</code></pre></div>
+<p><strong>What you're looking at:</strong> The two DIN rails that run across the electronics bay - the front one is the one nearer the door, and the adapter clips onto its right-hand end.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../javascripts/wakelock.js"></script>
+      
+        <script src="../../../../javascripts/progress.js"></script>
+      
+        <script src="../../../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

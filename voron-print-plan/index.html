@@ -1,0 +1,5276 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/voron-print-plan/">
+      
+      
+        <link rel="prev" href="../manual/00-tonight/">
+      
+      
+        <link rel="next" href="../voron-build-instructions-survey/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#voron-24-r2-ldo-rev-d-350-printed-parts-plan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../manual/00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#0-what-kit-you-actually-have-established-facts-with-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. What kit you actually have (established facts, with sources)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-before-the-first-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Before the first plate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Before the first plate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-stl-source-of-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 STL source of truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-colour-key-vorons-own-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Colour key (Voron's own naming convention)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-slicer-prusaslicer-profile-and-the-voron-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Slicer: PrusaSlicer profile and the Voron overrides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Slicer: PrusaSlicer profile and the Voron overrides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filament-settings-prusament-asa-coreone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filament settings (Prusament ASA @COREONE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drying
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Calibration sequence — run this before Batch 1, and again after the Gen 2 upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-parts-gate-the-frame-and-z-drive-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Which parts gate the frame and Z-drive steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The batches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. The batches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-b00-calibration-jigs-1-plate-40-h-52-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B00 — Calibration &amp; jigs · 1 plate · 4.0 h · 52 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b01-z-drive-assemblies-2-plates-228-h-301-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B01 — Z drive assemblies · 2 plates · 22.8 h · 301 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b02-the-orange-day-every-accent-part-in-the-build-3-plates-219-h-279-g-orange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B02 — The orange day (every accent part in the build) · 3 plates · 21.9 h · 279 g orange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b03-ab-drive-units-front-idlers-1-plate-85-h-119-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B03 — A/B drive units + front idlers · 1 plate · 8.5 h · 119 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b04-xy-joints-x-carriage-1-plate-86-h-117-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B04 — XY joints + X carriage · 1 plate · 8.6 h · 117 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b05-z-joints-z-chain-1-plate-64-h-78-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B05 — Z joints + Z chain · 1 plate · 6.4 h · 78 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b06-toolhead-stealthburner-clockwork-2-klicky-1-plate-122-h-148-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · 1 plate · 12.2 h · 148 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b07-electronics-bay-lighting-2-plates-160-h-226-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B07 — Electronics bay + lighting · 2 plates · 16.0 h · 226 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b08-skirts-and-front-modules-4-plates-292-h-399-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B08 — Skirts and front modules · 4 plates · 29.2 h · 399 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b09-panels-filtration-spool-5-plates-218-h-297-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B09 — Panels, filtration, spool · 5 plates · 21.8 h · 297 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b10-clicky-clack-door-1-plate-57-h-76-g-black-the-orange-handle-from-b02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B10 — Clicky-Clack door · 1 plate · 5.7 h · 76 g black (+ the orange Handle from B02)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-totals-margin-spool-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Totals, margin, spool changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Totals, margin, spool changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-how-these-numbers-were-produced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 How these numbers were produced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-filament-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Filament budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-spool-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Spool changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-orientation-brim-and-per-batch-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Orientation, brim, and per-batch checkpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Orientation, brim, and per-batch checkpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-orientation-and-brim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Orientation and brim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-checkpoint-after-each-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Checkpoint after each batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conditional-verify-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Conditional / verify items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deliberately-not-printed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Deliberately NOT printed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-where-to-do-the-core-one-gen-2-belt-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Where to do the Core One+ Gen 2 belt upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-machine-readable-batch-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Machine-readable batch summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#0-what-kit-you-actually-have-established-facts-with-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. What kit you actually have (established facts, with sources)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-before-the-first-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Before the first plate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Before the first plate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-stl-source-of-truth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 STL source of truth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-colour-key-vorons-own-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Colour key (Voron's own naming convention)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-slicer-prusaslicer-profile-and-the-voron-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Slicer: PrusaSlicer profile and the Voron overrides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Slicer: PrusaSlicer profile and the Voron overrides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filament-settings-prusament-asa-coreone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filament settings (Prusament ASA @COREONE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drying
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Calibration sequence — run this before Batch 1, and again after the Gen 2 upgrade
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-which-parts-gate-the-frame-and-z-drive-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Which parts gate the frame and Z-drive steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. The batches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. The batches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-b00-calibration-jigs-1-plate-40-h-52-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B00 — Calibration &amp; jigs · 1 plate · 4.0 h · 52 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b01-z-drive-assemblies-2-plates-228-h-301-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B01 — Z drive assemblies · 2 plates · 22.8 h · 301 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b02-the-orange-day-every-accent-part-in-the-build-3-plates-219-h-279-g-orange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B02 — The orange day (every accent part in the build) · 3 plates · 21.9 h · 279 g orange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b03-ab-drive-units-front-idlers-1-plate-85-h-119-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B03 — A/B drive units + front idlers · 1 plate · 8.5 h · 119 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b04-xy-joints-x-carriage-1-plate-86-h-117-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B04 — XY joints + X carriage · 1 plate · 8.6 h · 117 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b05-z-joints-z-chain-1-plate-64-h-78-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B05 — Z joints + Z chain · 1 plate · 6.4 h · 78 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b06-toolhead-stealthburner-clockwork-2-klicky-1-plate-122-h-148-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · 1 plate · 12.2 h · 148 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b07-electronics-bay-lighting-2-plates-160-h-226-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B07 — Electronics bay + lighting · 2 plates · 16.0 h · 226 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b08-skirts-and-front-modules-4-plates-292-h-399-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B08 — Skirts and front modules · 4 plates · 29.2 h · 399 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b09-panels-filtration-spool-5-plates-218-h-297-g-black" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B09 — Panels, filtration, spool · 5 plates · 21.8 h · 297 g black
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-b10-clicky-clack-door-1-plate-57-h-76-g-black-the-orange-handle-from-b02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch B10 — Clicky-Clack door · 1 plate · 5.7 h · 76 g black (+ the orange Handle from B02)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-totals-margin-spool-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Totals, margin, spool changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Totals, margin, spool changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-how-these-numbers-were-produced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 How these numbers were produced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-filament-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Filament budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-spool-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Spool changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-orientation-brim-and-per-batch-checkpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Orientation, brim, and per-batch checkpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Orientation, brim, and per-batch checkpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-orientation-and-brim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Orientation and brim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-checkpoint-after-each-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Checkpoint after each batch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conditional-verify-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Conditional / verify items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deliberately-not-printed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Deliberately NOT printed
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-where-to-do-the-core-one-gen-2-belt-upgrade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Where to do the Core One+ Gen 2 belt upgrade
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-machine-readable-batch-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Machine-readable batch summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="voron-24-r2-ldo-rev-d-350-printed-parts-plan">Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan<a class="headerlink" href="#voron-24-r2-ldo-rev-d-350-printed-parts-plan" title="Permanent link">¶</a></h1>
+<p>Print every part on the <strong>Prusa Core One+</strong>, Prusament ASA, plate by plate, in build order.
+Written to be followed with a 13-year-old: one plate = one job.</p>
+<p><strong>Totals at a glance:</strong> 22 plates · <strong>157.1 h</strong> print time · <strong>1813 g Galaxy Black + 279 g Prusa Orange</strong> ·
+against 2400 g black + 800 g orange on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
+projects in <code>slicer/plates/</code> (§4.1); they replace a throughput model that read 134.3 h / 2248 g.</p>
+<hr>
+<h2 id="0-what-kit-you-actually-have-established-facts-with-sources">0. What kit you actually have (established facts, with sources)<a class="headerlink" href="#0-what-kit-you-actually-have-established-facts-with-sources" title="Permanent link">¶</a></h2>
+<p>Everything below is from LDO's or Fabreeko's own pages, not from blogs.</p>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kit</td>
+<td>LDO Voron 2.4 R2 <strong>Rev D+</strong>, 350 mm</td>
+<td><a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko product page</a></td>
+</tr>
+<tr>
+<td>What "Rev D+" changes vs Rev D</td>
+<td>"Nitehawk SB update with USB passthrough for USB based eddy current probes" (Mar 2026). <strong>Mostly electrical — one printed-part change:</strong> the V2 board's USB-adapter cover is <code>MotorDynamicsLab/Nitehawk-SB-V2/STLs/usb_adapter_mount_partial_cover.stl</code> (ground-lug mount), not the V1 <code>usb_adapter_mount.stl</code> cover — see batch B07.</td>
+<td><a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko</a></td>
+</tr>
+<tr>
+<td>Mainboard</td>
+<td><strong>LDO Leviathan</strong> (5× TMC2209 + 2× TMC5160HV for A/B, 48 V capable, integrated Raspberry Pi mount)</td>
+<td><a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO wiring guide Rev D</a></td>
+</tr>
+<tr>
+<td>Toolhead board</td>
+<td><strong>Nitehawk-SB V2</strong> (STM32G0B1; USB toolhead PCB, <strong>integrated ADXL</strong>) — the "+" in Rev D+</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2">LDO Voron 2.4 kit page</a></td>
+</tr>
+<tr>
+<td>Bed probe</td>
+<td><strong>Omron inductive probe included AND a Klicky Probe Kit included</strong> — you pick one. LDO: <em>"Instead of the included Omron inductive probe, we also provide the parts to build your machine using the optional Klicky mod by jlas1."</em> Wiring guide: <em>"Connect the inductive probe or Klicky cable to the PROBE port."</em></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2">LDO kit page</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">Rev D wiring guide</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a> lists "Klicky Probe Kit ×1"</td>
+</tr>
+<tr>
+<td>Z endstop</td>
+<td>LDO <strong>nozzle-probe PCB</strong>; the printed part <code>nozzle_probe_ldo.stl</code> <strong>is supplied printed in the kit</strong></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a></td>
+</tr>
+<tr>
+<td>XY endstop</td>
+<td><strong>D2F microswitch PCB</strong> — print <code>[a]_endstop_pod_D2F_switch</code>, <em>not</em> the hall-effect pod. No hall effect anywhere in this kit.</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a>; <a href="https://docs.ldomotors.com/voron/voron2/build-faq">Build Notes p.145</a></td>
+</tr>
+<tr>
+<td>Screen</td>
+<td><strong>BigTreeTech Pi TFT4.3</strong> (4.3" capacitive DSI). Print the LDO <strong>BTT Pi TFT4.3 Mount</strong>; <strong>do not print the mini12864 parts.</strong></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a></td>
+</tr>
+<tr>
+<td>Filtration</td>
+<td><strong>Nevermore Micro V5 Duo</strong> (6×3 mm magnets), <em>instead of</em> the stock Voron exhaust filter. Stock exhaust housing is NOT built; the back panel is sealed with LDO's <code>exhaust_cover</code> + the stock <code>exhaust_filter_grill</code>. Carbon not included.</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2">LDO kit page</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a>; <a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">LDO Nevermore guide</a></td>
+</tr>
+<tr>
+<td>Hotend</td>
+<td>E3D <strong>Revo High-Flow (Revo Voron form factor)</strong> → Stealthburner printhead files <code>revo_voron/*</code></td>
+<td><a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko</a>; <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md">SB printhead compatibility table</a> ("E3D Revo Voron → E-RV")</td>
+</tr>
+<tr>
+<td>Cable chains</td>
+<td><strong>2-hole</strong> ends → always take the <code>_2hole</code> variants, never <code>_3hole</code></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a></td>
+</tr>
+<tr>
+<td>Power inlet</td>
+<td>1.0 mm AC inlet with integrated switch → <code>power_inlet_IECGS_1mm.stl</code></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Rev D printed parts guide</a></td>
+</tr>
+<tr>
+<td>Panels</td>
+<td>Deck 3 mm acrylic, back 3 mm acrylic, bottom 4 mm acrylic, doors/sides/top 3 mm PC. Foam tape 1 mm and 3 mm both supplied.</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a></td>
+</tr>
+<tr>
+<td>Rails</td>
+<td>1× stainless MGN12H 400 (X) + 6× stainless MGN9H 400 (2× Y, 4× Z) → print <strong>both</strong> rail guides</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a></td>
+</tr>
+<tr>
+<td>Printed parts included</td>
+<td><strong>NOT</strong> included with the kit — except the ten LDO parts listed in §7</td>
+<td><a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko</a></td>
+</tr>
+<tr>
+<td>Clicky-Clack door kit</td>
+<td>Hardware + extrusions only. <strong>STLs come from GitHub</strong>, panel bought separately (you did).</td>
+<td><a href="https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo">Fabreeko Clicky-Clack page</a></td>
+</tr>
+<tr>
+<td>Titanium backers</td>
+<td>Gantry X/Y extrusion stiffeners; <strong>no stock STL changes</strong>. Fabreeko's set ships pre-tapped for the cable chain. See §6 note.</td>
+<td><a href="https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers">Fabreeko backers</a>; <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">whoppingpochard backer README</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parts where the kit revision changes the STL</strong> — all three already resolved above, but flag them if the kit
+that arrives is not Rev D/D+:</p>
+<ol>
+<li><strong>Mainboard bracket.</strong> Rev C and earlier shipped a BTT Octopus → <code>Octopus_bracket_set.stl</code>.
+   Rev D ships Leviathan → <code>Leviathan_bracket_set.stl</code> (supplied printed). If a Rev C kit arrives, print the Octopus set.</li>
+<li><strong>Raspberry Pi mount.</strong> Rev C needed <code>beefy_raspberry_bracket.stl</code>; LDO Build Notes p.150 explicitly say
+   <em>"it does not apply for rev D kits"</em> — Leviathan carries the Pi. Print nothing.</li>
+<li><strong>XY endstop pod.</strong> Rev A/B kits used a hall-effect endstop → <code>[a]_endstop_pod_hall_effect.stl</code> +
+   <code>z_joint_upper_hall_effect.stl</code>. Rev C/D use the D2F PCB → <code>[a]_endstop_pod_D2F_switch.stl</code> + 4× plain <code>z_joint_upper_x4</code>.</li>
+<li><strong>Display.</strong> Rev A used the mini12864 skirt module; Rev C/D use the BTT touchscreen mount. Different front-skirt module entirely.</li>
+<li><strong>Plug panel.</strong> <code>power_inlet_IECGS_1mm</code> (Rev C/D, 1.0 mm inlet) vs <code>_1.2mm</code> vs <code>power_inlet_filtered</code>. LDO's own
+   <code>plug_panel_1.2mm.stl</code> is marked deprecated for 2.4R2.</li>
+</ol>
+<p><strong>Resolved 2026-09-05:</strong> Rev D+ = Rev D + <strong>Nitehawk-SB V2</strong> — electrical plus one printed part
+(<code>usb_adapter_mount_partial_cover</code>, batch B07). The Rev D printed-parts guide applies for everything else.
+LDO still publishes no "Rev D+" printed-parts page (<code>printed_part_guide_rev_d_plus</code> returns 404); the only
+open question for the Fabreeko Discord is whether one will ever be published.</p>
+<hr>
+<h2 id="1-before-the-first-plate">1. Before the first plate<a class="headerlink" href="#1-before-the-first-plate" title="Permanent link">¶</a></h2>
+<h3 id="11-stl-source-of-truth">1.1 STL source of truth<a class="headerlink" href="#11-stl-source-of-truth" title="Permanent link">¶</a></h3>
+<p>Download these exact trees. Do not use a re-hosted zip or a Printables mirror.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>What</th>
+<th>Repo / branch</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Voron 2.4 R2 core</td>
+<td><code>VoronDesign/Voron-2</code> branch <strong><code>Voron2.4</code></strong></td>
+<td><a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs"><code>/STLs</code></a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Stealthburner + Clockwork 2</td>
+<td><code>VoronDesign/Voron-Stealthburner</code> branch <strong><code>main</code></strong></td>
+<td><a href="https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs"><code>/STLs</code></a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>LDO kit-specific</td>
+<td><code>MotorDynamicsLab/LDOVoron2</code> branch <strong><code>main</code></strong></td>
+<td><a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs"><code>/STLs</code></a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>LDO touchscreen mount</td>
+<td><code>MotorDynamicsLab/LDOVoronTrident</code> branch <strong><code>master</code></strong></td>
+<td><a href="https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount"><code>/STLs/BTT Pi TFT4.3 Mount</code></a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Nitehawk-SB</td>
+<td><code>MotorDynamicsLab/Nitehawk-SB</code> branch <strong><code>master</code></strong></td>
+<td><a href="https://github.com/MotorDynamicsLab/Nitehawk-SB/tree/master/STLs"><code>/STLs</code></a></td>
+</tr>
+<tr>
+<td>5b</td>
+<td>Nitehawk-SB V2 (Rev D+ USB cover)</td>
+<td><code>MotorDynamicsLab/Nitehawk-SB-V2</code> branch <strong><code>master</code></strong></td>
+<td><a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs"><code>/STLs</code></a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Klicky probe</td>
+<td><code>jlas1/Klicky-Probe</code> branch <strong><code>main</code></strong></td>
+<td><a href="https://github.com/jlas1/Klicky-Probe/tree/main/Probes/KlickyProbe/STL"><code>/Probes/KlickyProbe/STL</code></a> + <a href="https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL"><code>/Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL</code></a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Nevermore Micro V5 Duo</td>
+<td><code>nevermore3d/Nevermore_Micro</code> branch <strong><code>master</code></strong></td>
+<td><a href="https://github.com/nevermore3d/Nevermore_Micro/tree/master/V5_Duo/V2"><code>/V5_Duo/V2</code></a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Clicky-Clack door</td>
+<td><code>tanaes/whopping_Voron_mods</code> branch <strong><code>main</code></strong></td>
+<td><a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door/STLs"><code>/clickyclacky_door/STLs</code></a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Backer-aware cable bridge (conditional)</td>
+<td><code>tanaes/whopping_Voron_mods</code> branch <strong><code>main</code></strong></td>
+<td><a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers/STLs"><code>/extrusion_backers/STLs</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>The Voron repos have no release tags; take the branch head and <strong>record the commit SHA in a text file next to
+your STLs</strong> so a mid-build reprint is identical to the first print.</p>
+<h3 id="12-colour-key-vorons-own-naming-convention">1.2 Colour key (Voron's own naming convention)<a class="headerlink" href="#12-colour-key-vorons-own-naming-convention" title="Permanent link">¶</a></h3>
+<p>From the <a href="https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf">2.4r2 Assembly Manual p.4–5</a>
+and the <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md">Stealthburner STL README</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Meaning</th>
+<th>Our filament</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(none)</em></td>
+<td>Primary colour</td>
+<td><strong>Prusament ASA Galaxy Black</strong></td>
+</tr>
+<tr>
+<td><code>[a]_</code></td>
+<td>Accent colour</td>
+<td><strong>Prusament ASA Prusa Orange</strong></td>
+</tr>
+<tr>
+<td><code>[o]_</code></td>
+<td>Opaque — must block light</td>
+<td>Galaxy Black (perfect)</td>
+</tr>
+<tr>
+<td><code>[c]_</code></td>
+<td>Clear / translucent</td>
+<td><strong>Do not print</strong> — LDO supplies the SB LED diffuser in clear PETG</td>
+</tr>
+<tr>
+<td><code>_x#</code> suffix</td>
+<td><strong>Quantity required to build the machine</strong></td>
+<td>e.g. <code>z_joint_lower_x4.stl</code> → print 4 copies of the file</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>_x#</code> number is a <em>quantity</em>, not a hint that the file contains that many bodies. I checked every file:
+only these contain more than one body — <code>[a]_stealthburner_main_body</code> (7 — built-in supports),
+<code>cw2_captive_pcb_cover</code> (2), <code>usb_adapter_mount</code> (2 — mount base + cover), <code>Leviathan_bracket_set</code> (2 — L+R),
+<code>bottom_panel_hinge_x2</code> (2), <code>cob_light_strip_mount_*</code> (2 — the mount is a 2-piece assembly),
+<code>V2_Duo_Plenum</code> (2 — built-in support).
+Clicky-Clack's <code>Hinge-L-sleeve-2X</code> / <code>-solid-2X</code> contain <strong>one</strong> body each — "2X" means print two.</p>
+<h3 id="13-slicer-prusaslicer-profile-and-the-voron-overrides">1.3 Slicer: PrusaSlicer profile and the Voron overrides<a class="headerlink" href="#13-slicer-prusaslicer-profile-and-the-voron-overrides" title="Permanent link">¶</a></h3>
+<p><strong>Slicer:</strong> PrusaSlicer <strong>2.9.6</strong> (current stable, released 2026-06-25 —
+<a href="https://github.com/prusa3d/PrusaSlicer/releases">GitHub releases</a>). 3.0.0-alpha11 shipped 2026-09-01 as an
+early preview. <strong>Version posture:</strong> the dimension-critical batches — the B00 gate, B01, and B03–B06 — are sliced on
+2.9.6; 3.0 is acceptable for B08–B10 with every override re-entered by hand. Any toolchain change re-runs the
+B00 seven-item gate. Deltas and the migration route are in
+<a href="../manual/print/00-slicer-setup/#prusaslicer-30-preview"><code>docs/manual/print/00-slicer-setup.md</code></a>.</p>
+<p><strong>Base profiles to select (verified against
+<a href="https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini"><code>PrusaResearch.ini</code> @ version_2.9.6</a>):</strong></p>
+<ul>
+<li>Printer: <strong><code>Prusa CORE One 0.4 nozzle</code></strong> (printer model <code>Prusa CORE One &amp; CORE One+</code>) — bed <code>250×220</code>, max height <code>270</code>, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off.</li>
+<li>Filament: <strong><code>Prusament ASA @COREONE</code></strong> — nozzle 260 °C, bed 110 °C, <strong>chamber 55 °C</strong> (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 15 mm³/s.</li>
+<li>Print: <strong><code>0.20mm STRUCTURAL @COREONE 0.4</code></strong> — <em>not</em> SPEED. STRUCTURAL is already the quality-biased profile
+  (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).</li>
+</ul>
+<p><strong>Overrides.</strong> Column "source" = where the number comes from; <strong>judgment</strong> = my call, not a cited spec.</p>
+<h4 id="print-settings">Print settings<a class="headerlink" href="#print-settings" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Prusa STRUCTURAL default</th>
+<th>Set to</th>
+<th>Why</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layer height / first layer</td>
+<td>0.20 / 0.20</td>
+<td><strong>keep</strong></td>
+<td>Voron spec</td>
+<td><a href="https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf">Manual p.4</a></td>
+</tr>
+<tr>
+<td>Perimeters</td>
+<td>2</td>
+<td><strong>4</strong></td>
+<td>Voron spec; wall count is what carries load in these parts</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>Top solid layers</td>
+<td>5</td>
+<td><strong>keep 5</strong></td>
+<td>Voron spec</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>Bottom solid layers</td>
+<td>4</td>
+<td><strong>5</strong></td>
+<td>Voron spec says 5 top <strong>and</strong> bottom</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>Fill density</td>
+<td>15 %</td>
+<td><strong>40 %</strong></td>
+<td>Voron spec</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>Fill pattern</td>
+<td>Grid</td>
+<td><strong>keep Grid</strong></td>
+<td>Voron allows grid/gyroid/honeycomb/triangle/cubic</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>Extrusion width (default, perimeter, external, infill, solid)</td>
+<td>0.45</td>
+<td><strong>0.40</strong></td>
+<td>Voron: <em>"Extrusion width — Recommended: Forced 0.4 mm"</em>. Ribs, bosses and bearing seats were drawn around a 0.4 bead.</td>
+<td>Manual p.4</td>
+</tr>
+<tr>
+<td>First layer extrusion width</td>
+<td>0.50</td>
+<td><strong>keep 0.50</strong></td>
+<td>wider first bead = better ASA adhesion</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Top infill extrusion width</td>
+<td>0.42</td>
+<td><strong>0.40</strong></td>
+<td>consistency</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Perimeter generator</td>
+<td>Arachne</td>
+<td><strong>keep Arachne</strong></td>
+<td>Voron's "forced 0.4" predates Arachne. Arachne varies bead width <em>on purpose</em> and handles Voron's thin ribs better than Classic. Setting nominal width to 0.4 gives Arachne the right target.</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Supports</td>
+<td>on (auto <strong>off</strong>)</td>
+<td><strong>None</strong></td>
+<td>Every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed</td>
+<td>Manual; <a href="https://github.com/nevermore3d/Nevermore_Micro#assembly">Nevermore README</a>; <a href="https://github.com/jlas1/Klicky-Probe/blob/main/Probes/KlickyProbe/STL/README.md">Klicky STL README</a></td>
+</tr>
+<tr>
+<td>Seam position</td>
+<td>Aligned</td>
+<td><strong>Rear</strong></td>
+<td>keeps the seam off the visible outward faces of skirts and the toolhead</td>
+<td>your build spec</td>
+</tr>
+<tr>
+<td>Skirt loops</td>
+<td>0</td>
+<td><strong>1 loop, 3 mm gap, min length 4 mm</strong></td>
+<td>primes after the long ASA purge; lets you abort in the first 60 s if the first layer is wrong</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Brim</td>
+<td>off</td>
+<td><strong>off by default; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts</strong> — list in §5</td>
+<td>ASA corner lift on long flat parts and tippy tall parts</td>
+<td><a href="https://help.prusa3d.com/article/warping_2011">Prusa warping KB</a>; judgment</td>
+</tr>
+<tr>
+<td><strong>XY size compensation</strong></td>
+<td>0</td>
+<td><strong>keep 0</strong></td>
+<td>Voron: <em>"The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large."</em></td>
+<td><a href="https://docs.vorondesign.com/materials.html">docs.vorondesign.com/materials.html</a></td>
+</tr>
+<tr>
+<td>Elephant-foot compensation</td>
+<td>0.20</td>
+<td><strong>keep 0.20 for now, verify on the cube</strong></td>
+<td>it shrinks only the <em>first</em> layer; several Voron parts have a bearing bore starting at the bed. Measure before changing.</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>External perimeter speed</td>
+<td>50</td>
+<td><strong>35</strong></td>
+<td>surface finish and corner accuracy on the visible skirts; speed is not a goal here</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Perimeter speed</td>
+<td>70</td>
+<td><strong>55</strong></td>
+<td>more time at temperature per bead = better interlayer bond at 4 walls</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Infill speed</td>
+<td>120</td>
+<td><strong>100</strong></td>
+<td>interior quality and less pressure variation into the perimeters</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Solid infill speed</td>
+<td>140</td>
+<td><strong>110</strong></td>
+<td>flatter top/bottom faces on the skirts</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Top solid infill</td>
+<td>80</td>
+<td><strong>keep 80</strong></td>
+<td>already conservative</td>
+<td>—</td>
+</tr>
+<tr>
+<td>First layer speed</td>
+<td>45</td>
+<td><strong>25</strong></td>
+<td>ASA on smooth PEI is the single biggest failure mode; slow the first layer</td>
+<td><a href="https://help.prusa3d.com/article/asa_1809">Prusa ASA KB</a>; judgment</td>
+</tr>
+<tr>
+<td>External perimeters first</td>
+<td>off</td>
+<td><strong>keep off</strong></td>
+<td>inside-out gives better dimensional accuracy on holes; only flip it if you see external-perimeter bulging</td>
+<td>judgment</td>
+</tr>
+<tr>
+<td>Dynamic overhang speeds</td>
+<td>on (15/25/45/90 %)</td>
+<td><strong>keep on</strong></td>
+<td>Prusa tuned these for the Core One's part fan</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ironing</td>
+<td>off</td>
+<td><strong>keep off</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4 id="filament-settings-prusament-asa-coreone">Filament settings (Prusament ASA @COREONE)<a class="headerlink" href="#filament-settings-prusament-asa-coreone" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Profile default</th>
+<th>Set to</th>
+<th>Why</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shrinkage compensation XY</strong></td>
+<td><strong>0.22 %</strong></td>
+<td><strong>0 %</strong></td>
+<td>Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; on a 66.7 mm Z-drive body that is +0.15 mm and it lands straight in the bearing bores. <strong>This is the single most important override in this document.</strong></td>
+<td><a href="https://docs.vorondesign.com/materials.html">docs.vorondesign.com/materials.html</a> + profile value</td>
+</tr>
+<tr>
+<td>Shrinkage compensation Z</td>
+<td>0.22 %</td>
+<td><strong>0 %</strong></td>
+<td>same reason</td>
+<td>as above</td>
+</tr>
+<tr>
+<td>Nozzle / first-layer nozzle</td>
+<td>260 / 260 °C</td>
+<td><strong>keep</strong></td>
+<td>Prusa's own Prusament ASA values for this machine</td>
+<td>profile</td>
+</tr>
+<tr>
+<td>Bed / first-layer bed</td>
+<td>110 / 110 °C</td>
+<td><strong>keep</strong></td>
+<td>Prusa ASA guidance is ≥100 °C bed</td>
+<td>profile; <a href="https://help.prusa3d.com/article/asa_1809">Prusa ASA KB</a></td>
+</tr>
+<tr>
+<td>Chamber temperature</td>
+<td>55 °C</td>
+<td><strong>keep 55</strong></td>
+<td>matches the 55–60 °C a real Voron sees; the Voron parts are designed for it</td>
+<td>profile; <a href="https://docs.vorondesign.com/materials.html">docs.vorondesign.com/materials.html</a></td>
+</tr>
+<tr>
+<td>Chamber minimal temperature</td>
+<td>40 °C</td>
+<td><strong>keep 40</strong></td>
+<td>printer will not start until the chamber reaches 40 °C — this <em>is</em> your preheat gate</td>
+<td>profile</td>
+</tr>
+<tr>
+<td>Min / max fan</td>
+<td>20 / 25 %</td>
+<td><strong>keep for batch 0–1, then decide</strong></td>
+<td>Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to <strong>0 / 15 %</strong> and keep bridge fan at 25 %.</td>
+<td>profile; <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html">Ellis — Perimeter Separation</a></td>
+</tr>
+<tr>
+<td>Max volumetric speed</td>
+<td>15 mm³/s</td>
+<td><strong>keep</strong></td>
+<td>not a limit at these speeds</td>
+<td>profile</td>
+</tr>
+<tr>
+<td>Retraction / z-hop</td>
+<td>0.7 mm / 0.2 mm</td>
+<td><strong>keep</strong></td>
+<td>Nextruder-specific; do not touch</td>
+<td>printer profile</td>
+</tr>
+</tbody>
+</table>
+<h4 id="drying">Drying<a class="headerlink" href="#drying" title="Permanent link">¶</a></h4>
+<p>ASA is mildly hygroscopic. A fresh, sealed Prusament spool used within ~2 weeks needs nothing.
+Dry at <strong>80 °C for 4 h</strong> if a spool has been open longer, or the moment you see stringing, matte striping, or
+popping. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
+material where wet filament actually costs you strength.
+(Sources: <a href="https://help.prusa3d.com/article/asa_1809">Prusa ASA KB</a>; your own drying decision in <code>CLAUDE.md</code>.)</p>
+<h3 id="14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade">1.4 Calibration sequence — run this before Batch 1, and again after the Gen 2 upgrade<a class="headerlink" href="#14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Install the Advanced Filtration Kit first.</strong> You're about to run ~157 h of ASA in an enclosure.
+   Do it while the back panel is already off (Ch. 7 of the Core One build), not later.</li>
+<li><strong>Firmware ≥ 6.9.0</strong> on the Core One+ (needed for GT1.5 belts later; harmless now).</li>
+<li><strong>First layer: there is nothing to run.</strong> The Core One+ has no first-layer calibration wizard — the
+   Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling
+   (<a href="https://help.prusa3d.com/article/live-adjust-z_112427">Prusa KB — Live Adjust Z</a>). Judge B00-P1's
+   first layer by <a href="https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html">Ellis' smooth-bottom method</a>:
+   smooth, no visible gaps between beads, no ridging. If it needs a nudge, long-press the knob during the
+   first layer → Live Adjust Z — and note the nudge is <em>not</em> saved for the next print, so fix the cause
+   (sheet seating, glue film, nozzle seat) rather than nudging every plate.</li>
+<li><strong>Print plate B00-P1</strong> (§3). It carries the coupons for both gates.</li>
+<li><strong>Measure with the calipers, at mid-height (not across the first layer).</strong> The gate is in two parts,
+   because three coupons need parts that only arrive with the Voron kit.</li>
+</ol>
+<p><strong>Gate A — no kit needed (the cube):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Coupon</th>
+<th>Nominal</th>
+<th>Accept</th>
+<th>If out of spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Voron_Design_Cube_v7</code> X and Y</td>
+<td>30.00 mm</td>
+<td><strong>±0.15 mm</strong></td>
+<td>&gt;+0.15: confirm shrinkage compensation is 0 % and XY compensation is 0. Still over → reduce extrusion multiplier in 1 % steps (<a href="https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html">Ellis — Extrusion Multiplier</a>). Do <strong>not</strong> dial in negative XY compensation; you will wreck the bearing fits.</td>
+</tr>
+<tr>
+<td><code>Voron_Design_Cube_v7</code> Z</td>
+<td>30.00 mm</td>
+<td><strong>±0.10 mm</strong></td>
+<td>over → first layer under-squished; under → over-squished</td>
+</tr>
+<tr>
+<td>Cube first layer vs mid-height X</td>
+<td>—</td>
+<td>difference <strong>≤ 0.15 mm</strong></td>
+<td>bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps</td>
+</tr>
+<tr>
+<td>Cube corner snap test</td>
+<td>—</td>
+<td>must <strong>not</strong> delaminate along a layer line</td>
+<td>delamination → chamber too cold or fan too high → drop min/max fan to 0/15 %</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gate B — kit day (bore, rail, inserts):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Coupon</th>
+<th>Nominal</th>
+<th>Accept</th>
+<th>If out of spec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Heatset_Practice</code></td>
+<td>7 × M3×5×4 inserts — all seven pockets (146 of the kit's 153 remain)</td>
+<td>insert sits flush to 0.2 mm proud, boss does not bulge &gt; 0.2 mm</td>
+<td>bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all seven before touching a real part.</td>
+</tr>
+<tr>
+<td><code>MGN12_rail_guide</code> on the real MGN12 rail</td>
+<td>—</td>
+<td>slides on with light finger pressure</td>
+<td>very tight → over-extrusion; loose → under-extrusion</td>
+</tr>
+<tr>
+<td><code>z_drive_retainer_a</code> 625-2RS bore (on the same plate)</td>
+<td>16.00 mm bearing (625-2RS; F695 is the A/B-drive bearing, not the Z drive)</td>
+<td>bearing presses in with thumb pressure, no rocking</td>
+<td><strong>This is the real press-fit gate.</strong> Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><strong>Gate A passed → B02 and B07</strong> print now; <strong>B08 → B09 → B10</strong> once the Gen 2 belt upgrade is done and
+   a fresh cube re-passes Gate A. <strong>Gate B passed → B01, then B03–B06.</strong> Never start B01 or B03–B06 on Gate A
+   alone — that is 58.5 h and 763 g of bearing-seat and shaft-bore parts against an unverified fit. Two
+   625-2RS and ten inserts ordered with the filament let Gate B run before the kit lands.</li>
+</ol>
+<p><strong>Quality gate before every later batch:</strong> look at the <em>last</em> plate you pulled off. If any part shows
+(a) a lifted corner, (b) a delaminated layer, or (c) a bore/boss that failed a test fit — fix that before
+starting the next plate, don't print 100 g on top of a known problem.</p>
+<hr>
+<h2 id="2-which-parts-gate-the-frame-and-z-drive-steps">2. Which parts gate the frame and Z-drive steps<a class="headerlink" href="#2-which-parts-gate-the-frame-and-z-drive-steps" title="Permanent link">¶</a></h2>
+<p><strong>Frame</strong> (Assembly Manual ch. <em>Frame</em>, p.12–21): <strong>no printed part is required.</strong> The frame is extrusion,
+corner brackets and hardware. You can square the frame the day the kit lands.</p>
+<p><strong>Z rails</strong> (p.24–27, inside ch. <em>Z Drives and Idlers</em>): the only printed items are the optional-but-worth-it
+alignment jigs — <code>MGN12_rail_guide_x2</code> ×2 and <code>MGN9_rail_guide_x2</code> ×2. Both are on plate <strong>B00-P1</strong>.</p>
+<p><strong>Z Drives and Idlers</strong> (p.22–51) — the first step that genuinely stops without plastic. It needs:</p>
+<ul>
+<li>all of <strong>Batch 1</strong> (Z-drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports), <strong>and</strong></li>
+<li>these accent parts from <strong>Batch 2</strong>: <code>[a]_z_drive_baseplate_a/b</code> ×2 each, <code>[a]_belt_tensioner_a/b</code> ×2 each,
+  <code>[a]_z_tensioner_9mm_x4</code> ×4.</li>
+</ul>
+<p>So the minimum to start building is <strong>B00 + B01 + B02-P1 + B02-P3</strong> ≈ 34 h of printing.
+Everything else can be printed while you build.</p>
+<p><strong>What prints before the kit.</strong> Gate A (§1.4) releases the batches with no bearing seat, rail fit or shaft
+bore: <strong>B00 → B02 → B07</strong>, then — after the Gen 2 belt upgrade and a fresh cube — <strong>B08 → B09 → B10</strong>:
+98.6 h of the 157.1. Gate B (kit day) releases <strong>B01, B03, B04, B05, B06</strong>: 58.5 h, printed under Ch 00–05.
+So on kit day the frame (no printed part) and Ch 00 start at once, B01 prints under them, and Ch 02 waits
+on B01-P2 for half a day at most.</p>
+<p><strong>Tall parts (&gt; 150 mm in Z): none.</strong> The tallest part in the whole set is the Clicky-Clack <code>Handle</code> at
+<strong>60.0 mm</strong>. Orientation rules that do matter are in §5.</p>
+<hr>
+<h2 id="3-the-batches">3. The batches<a class="headerlink" href="#3-the-batches" title="Permanent link">¶</a></h2>
+<p>Format for each: what it unlocks (manual chapter name), plates, hours, grams, then the parts table
+(exact filenames, repo path, qty, colour, grams and hours per copy).</p>
+<p><strong>Batch headers and plate lines are PrusaSlicer 2.9.6 estimates</strong> — sliced from the committed projects in
+<code>slicer/plates/</code>, with this build's overrides, the real arrangement and the real brims (§4.1). The per-copy
+<code>g ea</code> / <code>h ea</code> columns inside the parts tables are still the older geometry model, kept for relative sizing
+only; they do not sum to the plate line, which also carries skirt, brim and travel.</p>
+<hr>
+<h3 id="batch-b00-calibration-jigs-1-plate-40-h-52-g-black">Batch B00 — Calibration &amp; jigs · <strong>1 plate · 4.0 h · 52 g black</strong><a class="headerlink" href="#batch-b00-calibration-jigs-1-plate-40-h-52-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Frame</em> (rail installation aids) — and gates every batch after it.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Voron_Design_Cube_v7.stl</code></td>
+<td>Voron-2 <code>STLs/Test_Prints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+<tr>
+<td><code>Heatset_Practice.stl</code></td>
+<td>Voron-2 <code>STLs/Test_Prints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">6.5</td>
+<td style="text-align: right;">0.39</td>
+</tr>
+<tr>
+<td><code>MGN12_rail_guide_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr>
+<td><code>MGN9_rail_guide_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr>
+<td><code>pulley_jig.stl</code></td>
+<td>Voron-2 <code>STLs/Tools/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr>
+<td><code>z_drive_retainer_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">1 <em>(of the 2 needed)</em></td>
+<td>Black</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plate B00-P1</strong> — all of the above. 4.0 h, 52 g.
+The <code>z_drive_retainer_a</code> here is deliberate: it is your bearing-press-fit coupon, and it is a real part you
+will use, so nothing is wasted.</p>
+<hr>
+<h3 id="batch-b01-z-drive-assemblies-2-plates-228-h-301-g-black">Batch B01 — Z drive assemblies · <strong>2 plates · 22.8 h · 301 g black</strong><a class="headerlink" href="#batch-b01-z-drive-assemblies-2-plates-228-h-301-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Z Drives and Idlers</em> (p.22–51) and the deck-panel step (p.28–30).</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>z_drive_main_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">39.4</td>
+<td style="text-align: right;">2.31</td>
+</tr>
+<tr>
+<td><code>z_drive_main_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">39.4</td>
+<td style="text-align: right;">2.31</td>
+</tr>
+<tr>
+<td><code>z_drive_retainer_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">1 <em>(second copy; first was on B00)</em></td>
+<td>Black</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+<tr>
+<td><code>z_drive_retainer_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">19.5</td>
+<td style="text-align: right;">1.15</td>
+</tr>
+<tr>
+<td><code>z_motor_mount_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr>
+<td><code>z_motor_mount_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">11.9</td>
+<td style="text-align: right;">0.75</td>
+</tr>
+<tr>
+<td><code>z_tensioner_bracket_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Idlers/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">13.0</td>
+<td style="text-align: right;">0.79</td>
+</tr>
+<tr>
+<td><code>z_tensioner_bracket_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Idlers/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">13.0</td>
+<td style="text-align: right;">0.79</td>
+</tr>
+<tr>
+<td><code>deck_support_3mm_x8.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">8</td>
+<td>Black</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Plate B01-P1</strong> (15.2 h, 201 g): <code>z_drive_main_a</code> ×2, <code>z_drive_main_b</code> ×2, <code>z_drive_retainer_a</code> ×1, <code>z_drive_retainer_b</code> ×2.
+  Longest plate in the build — start it in the morning, not at bedtime.</li>
+<li><strong>Plate B01-P2</strong> (7.6 h, 100 g): <code>z_motor_mount_a</code> ×2, <code>z_motor_mount_b</code> ×2, <code>z_tensioner_bracket_a</code> ×2, <code>z_tensioner_bracket_b</code> ×2, <code>deck_support_3mm</code> ×8.</li>
+</ul>
+<p><strong>Deck supports (verify):</strong> LDO's Rev D printed-parts guide says <em>"Our kit ships with 4 mm deck panels, use 4 mm
+deck support clips"</em>, but the Rev D 350 BOM lists the deck panel as <strong>3 mm</strong> acrylic (the 4 mm panel is the
+<em>bottom</em> panel). The size-specific 350 BOM wins: print <code>deck_support_3mm_x8</code> ×8, and if the deck panel
+measures 4 mm when it arrives, reprint <code>deck_support_4mm_x8</code> — 8 g, 30 minutes.
+(<a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">guide</a>, <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">BOM</a>, <a href="https://docs.ldomotors.com/voron/voron2/build-faq">Build Notes p.29-30</a>)</p>
+<hr>
+<h3 id="batch-b02-the-orange-day-every-accent-part-in-the-build-3-plates-219-h-279-g-orange">Batch B02 — <strong>The orange day</strong> (every accent part in the build) · <strong>3 plates · 21.9 h · 279 g orange</strong><a class="headerlink" href="#batch-b02-the-orange-day-every-accent-part-in-the-build-3-plates-219-h-279-g-orange" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> the accent half of <em>Z Drives and Idlers</em>, <em>A/B Drives and Idlers</em>, <em>Gantry</em>, <em>Stealthburner</em>,
+<em>Skirts</em> and the Clicky-Clack door.</p>
+<p>All 49 accent parts are printed in one continuous orange session so the accent spool is mounted exactly
+once. <strong>Two colour changes in the whole build: black → orange here, orange → black after.</strong>
+Everything is printed before the kit arrives anyway, so nothing waits on this.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[a]_z_drive_baseplate_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: right;">0.57</td>
+</tr>
+<tr>
+<td><code>[a]_z_drive_baseplate_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9.7</td>
+<td style="text-align: right;">0.57</td>
+</tr>
+<tr>
+<td><code>[a]_belt_tensioner_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr>
+<td><code>[a]_belt_tensioner_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Drive/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr>
+<td><code>[a]_z_tensioner_9mm_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Z_Idlers/</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr>
+<td><code>[a]_tensioner_left.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr>
+<td><code>[a]_tensioner_right.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr>
+<td><code>[a]_cable_cover.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr>
+<td><code>[a]_z_chain_retainer_bracket_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+<tr>
+<td><code>[a]_endstop_pod_D2F_switch.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.1</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr>
+<td><code>[a]_xy_joint_cable_bridge_2hole.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">0.56</td>
+</tr>
+<tr>
+<td><code>XY_cable_chain_bridge-Igus-3mm_backer.stl</code></td>
+<td>whopping_Voron_mods <code>extrusion_backers/STLs/</code></td>
+<td style="text-align: right;">1 <em>(alternate — see §6)</em></td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">0.58</td>
+</tr>
+<tr>
+<td><code>[a]_z_belt_clip_lower_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td><code>[a]_z_belt_clip_upper_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td><code>[a]_stealthburner_main_body.stl</code></td>
+<td>Stealthburner <code>STLs/Stealthburner/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">46.5</td>
+<td style="text-align: right;">2.73</td>
+</tr>
+<tr>
+<td><code>[a]_guidler_a.stl</code></td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr>
+<td><code>[a]_guidler_b.stl</code></td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td><code>[a]_latch.stl</code></td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">0.22</td>
+</tr>
+<tr>
+<td><code>[a]_latch_shuttle.stl</code></td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+<tr>
+<td><code>[a]_pcb_spacer.stl</code></td>
+<td>Stealthburner <code>STLs/Clockwork2/</code></td>
+<td style="text-align: right;">1 <em>(spare — kit supplies one)</em></td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.02</td>
+</tr>
+<tr>
+<td><code>[a]_belt_guard_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr>
+<td><code>[a]_belt_guard_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+<tr>
+<td><code>[a]_fan_grill_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.9</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr>
+<td><code>[a]_fan_grill_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.9</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr>
+<td><code>[a]_fan_grill_retainer_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr>
+<td><code>[a]_keystone_blank_insert.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2 <em>(1 used + 1 spare; LDO ships one CAT6 keystone)</em></td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr>
+<td><code>[a]_faceplate.stl</code></td>
+<td>LDOVoronTrident <code>STLs/BTT Pi TFT4.3 Mount/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr>
+<td><code>ldo_bestagon_insert.stl</code></td>
+<td>LDOVoron2 <code>STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr>
+<td><code>Handle.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">33.7</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Plate B02-P1</strong> (7.0 h, 90 g): <code>[a]_stealthburner_main_body</code>, <code>[a]_faceplate</code>, <code>[a]_cable_cover</code>, <code>[a]_z_drive_baseplate_a</code> ×2, <code>[a]_z_drive_baseplate_b</code> ×2.</li>
+<li><strong>Plate B02-P2</strong> (7.3 h, 93 g): <code>Handle</code>, <code>[a]_fan_grill_a</code> ×2, <code>[a]_fan_grill_b</code> ×2, <code>[a]_fan_grill_retainer</code> ×2, <code>[a]_belt_guard_a</code> ×2, <code>[a]_belt_guard_b</code> ×2, <code>[a]_tensioner_left</code>, <code>[a]_tensioner_right</code>.</li>
+<li><strong>Plate B02-P3</strong> (7.6 h, 96 g): everything else — the 29 small accent parts.</li>
+</ul>
+<p>Notes: the SB main body has <strong>built-in supports</strong> — snap them out, don't cut
+(<a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf">SB manual, "Remove built-in supports"</a>).
+<code>Handle.stl</code> is 60 mm tall on a 68×19 footprint — give it a 5 mm brim (§5).</p>
+<hr>
+<h3 id="batch-b03-ab-drive-units-front-idlers-1-plate-85-h-119-g-black">Batch B03 — A/B drive units + front idlers · <strong>1 plate · 8.5 h · 119 g black</strong><a class="headerlink" href="#batch-b03-ab-drive-units-front-idlers-1-plate-85-h-119-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>A/B Drives and Idlers</em> (p.62–81).</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a_drive_frame_lower.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">22.4</td>
+<td style="text-align: right;">1.32</td>
+</tr>
+<tr>
+<td><code>a_drive_frame_upper.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">21.8</td>
+<td style="text-align: right;">1.28</td>
+</tr>
+<tr>
+<td><code>b_drive_frame_lower.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">20.5</td>
+<td style="text-align: right;">1.21</td>
+</tr>
+<tr>
+<td><code>b_drive_frame_upper.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/AB_Drive_Units/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">21.3</td>
+<td style="text-align: right;">1.25</td>
+</tr>
+<tr>
+<td><code>front_idler_left_lower.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: right;">0.46</td>
+</tr>
+<tr>
+<td><code>front_idler_left_upper.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">0.84</td>
+</tr>
+<tr>
+<td><code>front_idler_right_lower.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">13.8</td>
+<td style="text-align: right;">0.83</td>
+</tr>
+<tr>
+<td><code>front_idler_right_upper.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Front_Idlers/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">7.9</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Plate B03-P1</strong> (8.5 h, 119 g): both sides — <code>a_drive_frame_lower</code>, <code>a_drive_frame_upper</code>,
+  <code>front_idler_right_lower</code>, <code>front_idler_right_upper</code>, <code>b_drive_frame_lower</code>, <code>b_drive_frame_upper</code>,
+  <code>front_idler_left_lower</code>, <code>front_idler_left_upper</code>.</li>
+</ul>
+<p>A and B were on separate plates until 2026-09-06, when the two were merged to cut a plate swap. The trade is
+real: a failed plate now costs both drive units instead of one, so watch the first layer before walking away.</p>
+<hr>
+<h3 id="batch-b04-xy-joints-x-carriage-1-plate-86-h-117-g-black">Batch B04 — XY joints + X carriage · <strong>1 plate · 8.6 h · 117 g black</strong><a class="headerlink" href="#batch-b04-xy-joints-x-carriage-1-plate-86-h-117-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Gantry</em> (p.82–107).</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xy_joint_left_lower_MGN12.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">32.0</td>
+<td style="text-align: right;">1.90</td>
+</tr>
+<tr>
+<td><code>xy_joint_left_upper_MGN12.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">11.7</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+<tr>
+<td><code>xy_joint_right_lower_MGN12.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">32.7</td>
+<td style="text-align: right;">1.94</td>
+</tr>
+<tr>
+<td><code>xy_joint_right_upper_MGN12.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/XY_Joints/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">11.1</td>
+<td style="text-align: right;">0.67</td>
+</tr>
+<tr>
+<td><code>x_frame_V2TR_MGN12_left.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/X_Carriage/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">17.1</td>
+<td style="text-align: right;">1.02</td>
+</tr>
+<tr>
+<td><code>x_frame_V2TR_MGN12_right.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/X_Carriage/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">17.2</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr>
+<td><code>probe_retainer_bracket.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/X_Axis/X_Carriage/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plate B04-P1</strong> — all seven. 8.6 h, 117 g.</p>
+<p><code>probe_retainer_bracket</code> is only used if you run the Omron inductive probe. It costs 0.5 g — print it, decide later.
+If the probe barrel measures 9 mm rather than 8 mm, print <code>probe_retainer_bracket_9mm.stl</code> instead <strong>(verify on arrival)</strong>.
+<code>x_frame_V2TR_MGN12_*</code> are the R2 / Clockwork-2 carriage halves — LDO Build Notes p.129-130 warn specifically about
+using the wrong X-carriage here.</p>
+<hr>
+<h3 id="batch-b05-z-joints-z-chain-1-plate-64-h-78-g-black">Batch B05 — Z joints + Z chain · <strong>1 plate · 6.4 h · 78 g black</strong><a class="headerlink" href="#batch-b05-z-joints-z-chain-1-plate-64-h-78-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Z Axis</em> (p.108–123) and <em>A/B Belts</em> (p.124–145).</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>z_joint_lower_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Z_Joints/</code></td>
+<td style="text-align: right;">4</td>
+<td>Black</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">0.56</td>
+</tr>
+<tr>
+<td><code>z_joint_upper_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/Z_Joints/</code></td>
+<td style="text-align: right;">4</td>
+<td>Black</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr>
+<td><code>z_chain_bottom_anchor.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">9.1</td>
+<td style="text-align: right;">0.55</td>
+</tr>
+<tr>
+<td><code>z_chain_guide.stl</code></td>
+<td>Voron-2 <code>STLs/Gantry/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">0.37</td>
+</tr>
+<tr>
+<td><code>z_rail_stop_x4.stl</code></td>
+<td>LDOVoron2 <code>STLs/</code></td>
+<td style="text-align: right;">4</td>
+<td>Black</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plate B05-P1</strong> — all fourteen. 6.4 h, 78 g.</p>
+<p>Print <strong>4× <code>z_joint_upper_x4</code></strong> and <strong>zero</strong> <code>z_joint_upper_hall_effect.stl</code> — that variant exists only for
+hall-effect XY endstops, which this kit does not use
+(<a href="https://docs.ldomotors.com/voron/voron2/build-faq">LDO Build Notes p.145</a>).
+The LDO <code>z_rail_stop</code> is optional but stops a Z carriage from falling off the top of a rail and spilling its balls.</p>
+<hr>
+<h3 id="batch-b06-toolhead-stealthburner-clockwork-2-klicky-1-plate-122-h-148-g-black">Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · <strong>1 plate · 12.2 h · 148 g black</strong><a class="headerlink" href="#batch-b06-toolhead-stealthburner-clockwork-2-klicky-1-plate-122-h-148-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Stealthburner</em> (p.146–147, then the separate Stealthburner manual). Also requires
+<code>probe_retainer_bracket.stl</code> from B04.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stealthburner_printhead_revo_voron_front.stl</code></td>
+<td>Stealthburner <code>STLs/Stealthburner/Printheads/revo_voron/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">40.6</td>
+<td style="text-align: right;">2.38</td>
+</tr>
+<tr>
+<td><code>stealthburner_printhead_revo_voron_rear_cw2.stl</code></td>
+<td>Stealthburner <code>STLs/Stealthburner/Printheads/revo_voron/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">15.0</td>
+<td style="text-align: right;">0.90</td>
+</tr>
+<tr>
+<td><code>[o]_stealthburner_LED_carrier.stl</code></td>
+<td>Stealthburner <code>STLs/Stealthburner/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black (opaque)</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr>
+<td><code>[o]_stealthburner_LED_diffuser_mask.stl</code></td>
+<td>Stealthburner <code>STLs/Stealthburner/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black (opaque)</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+<tr>
+<td><code>main_body.stl</code> (Clockwork 2)</td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">23.7</td>
+<td style="text-align: right;">1.40</td>
+</tr>
+<tr>
+<td><code>motor_plate.stl</code> (Clockwork 2)</td>
+<td>Stealthburner <code>STLs/Clockwork2/Direct_Drive/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">14.1</td>
+<td style="text-align: right;">0.83</td>
+</tr>
+<tr>
+<td><code>cw2_captive_pcb_cover.stl</code></td>
+<td>Nitehawk-SB <code>STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">0.69</td>
+</tr>
+<tr>
+<td><code>KlickyProbe_v2.stl</code></td>
+<td>Klicky <code>Probes/KlickyProbe/STL/</code></td>
+<td style="text-align: right;">2 <em>(1 + spare, per the mod's own advice)</em></td>
+<td>Black</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.16</td>
+</tr>
+<tr>
+<td><code>Probe_Dock_v2.1.stl</code></td>
+<td>Klicky <code>Probes/KlickyProbe/STL/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr>
+<td><code>Probe_magnet_holder.stl</code></td>
+<td>Klicky <code>Probes/KlickyProbe/STL/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td><code>Probe_magnet_pressfit_helper.stl</code></td>
+<td>Klicky <code>Probes/KlickyProbe/STL/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr>
+<td><code>Probe_pressfit_holder.stl</code></td>
+<td>Klicky <code>Probes/KlickyProbe/STL/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr>
+<td><code>KlickyProbe_AB_mount_v2.stl</code></td>
+<td>Klicky <code>Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr>
+<td><code>KlickyProbe_AB_mount_v2_holder.stl</code></td>
+<td>Klicky (same folder)</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr>
+<td><code>Mount_magnet_holder.stl</code></td>
+<td>Klicky (same folder)</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">0.14</td>
+</tr>
+<tr>
+<td><code>Mount_magnet_pressfit_helper.stl</code></td>
+<td>Klicky (same folder)</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.10</td>
+</tr>
+<tr>
+<td><code>Mount_pressfit_holder_v2.stl</code></td>
+<td>Klicky (same folder)</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr>
+<td><code>Dock_mount_fixed_v2.stl</code></td>
+<td>Klicky (same folder)</td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">22.7</td>
+<td style="text-align: right;">1.36</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Plate B06-P1</strong> (12.2 h, 148 g): the Stealthburner + Clockwork 2 black parts <em>and</em> the whole Klicky set,
+  19 objects. Merged 2026-09-06 from two plates to cut a swap.</li>
+</ul>
+<p>Notes:
+- <strong>Hotend file choice is settled:</strong> E3D Revo Voron → the <code>revo_voron</code> folder, <code>..._rear_cw2</code> for Clockwork 2
+  (<a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md">SB printhead README</a>).
+- <strong>Do not print an ADXL mount</strong> — the Nitehawk-SB has one on board
+  (<a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO Rev D guide</a>).
+- <strong>Do not print the CW2 chain anchor</strong> — the kit supplies "CW2 Chain Anchor Tilted" printed
+  (<a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">Rev D 350 BOM</a>).
+- <code>cw2_captive_pcb_cover</code> is LDO's improved cable door (captive screw + external chamber thermistor); the stock
+  alternative is <code>Clockwork2/cable_door_for_pcb.stl</code> if you'd rather.
+- Klicky dock: <strong>fixed</strong> mount chosen for simplicity. If you later add the Decontaminator purge bucket, you need
+  <code>Dock_sidemount_fixed_v2.stl</code> + <code>Dock_sidemount_left_v2.stl</code> instead (~25 g, 1.5 h).
+- The <code>Probe_*_pressfit_helper</code> / <code>_holder</code> parts are jigs for pressing the 6×3 magnets in square. Print them —
+  a crooked magnet is a probe that doesn't repeat.
+  (<a href="https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident">Klicky "What to print"</a>)</p>
+<hr>
+<h3 id="batch-b07-electronics-bay-lighting-2-plates-160-h-226-g-black">Batch B07 — Electronics bay + lighting · <strong>2 plates · 16.0 h · 226 g black</strong><a class="headerlink" href="#batch-b07-electronics-bay-lighting-2-plates-160-h-226-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Electronics</em> (p.148–173), <em>Controller</em> (p.174–179), <em>Wiring</em> (p.180–211).</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wago_221-415_mount_3by5.stl</code></td>
+<td>Voron-2 <code>STLs/Electronics_Bay/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">10.6</td>
+<td style="text-align: right;">0.63</td>
+</tr>
+<tr>
+<td><code>lrs_200_psu_bracket_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Electronics_Bay/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr>
+<td><code>PSU_stabilizer_50mm.stl</code></td>
+<td>Voron-2 <code>STLs/Electronics_Bay/</code></td>
+<td style="text-align: right;">1 <strong>(verify)</strong></td>
+<td>Black</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr>
+<td><code>usb_adapter_mount.stl</code></td>
+<td>Nitehawk-SB <code>STLs/</code></td>
+<td style="text-align: right;">1 file <em>(contains base </em><em>and</em><em> cover; kit supplies the base, so you get a spare; base only — cover body superseded by the V2 partial cover below)</em></td>
+<td>Black</td>
+<td style="text-align: right;">9.4</td>
+<td style="text-align: right;">0.55</td>
+</tr>
+<tr>
+<td><code>usb_adapter_mount_partial_cover.stl</code></td>
+<td>Nitehawk-SB-V2 <code>STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">5.0 (est.)</td>
+<td style="text-align: right;">0.30 (est.)</td>
+</tr>
+<tr>
+<td><code>pcb_din_clip_x3.stl</code></td>
+<td>Voron-2 <code>STLs/Electronics_Bay/</code></td>
+<td style="text-align: right;">3 <em>(one clip per file; spares — the kit supplies the 4 needed)</em></td>
+<td>Black</td>
+<td style="text-align: right;">5.9</td>
+<td style="text-align: right;">0.35</td>
+</tr>
+<tr>
+<td><code>handlebar_spacer_x4.stl</code></td>
+<td>LDOVoron2 <code>STLs/</code></td>
+<td style="text-align: right;">4</td>
+<td>Black</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">0.13</td>
+</tr>
+<tr>
+<td><code>cob_light_strip_mount_100mm.stl</code></td>
+<td>LDOVoron2 <code>STLs/COB Light Strip/</code></td>
+<td style="text-align: right;">6</td>
+<td>Black</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">1.06</td>
+</tr>
+<tr>
+<td><code>cob_light_strip_mount_50mm.stl</code></td>
+<td>LDOVoron2 <code>STLs/COB Light Strip/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">9.3</td>
+<td style="text-align: right;">0.55</td>
+</tr>
+<tr>
+<td><code>power_inlet_IECGS_1mm.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">1 <em>(moved from B08 — consumed in Ch 09, p.156/167, not the skirts chapter; rides on B07-P1)</em></td>
+<td>Black</td>
+<td style="text-align: right;">36.2</td>
+<td style="text-align: right;">2.11</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Plate B07-P1</strong> (7.9 h, 102 g): wago mount, PSU brackets ×2, PSU stabilizer, USB adapter mount, <code>usb_adapter_mount_partial_cover</code> (ground-lug mount, est.), DIN clips, handlebar spacers ×4, <code>power_inlet_IECGS_1mm</code>.</li>
+<li><strong>Plate B07-P2</strong> (8.1 h, 124 g): the eight COB light-strip mounts, brimmed. Nothing else fits.</li>
+</ul>
+<p>Notes:
+- COB counts are LDO's own for a 2.4-350: <strong>6× 100 mm + 2× 50 mm</strong>
+  (<a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip">COB README</a>).
+  Each STL contains a 2-piece assembly joined with 2× M3 heat-sets + 2× M3×6 FHCS. This is the heaviest
+  single group of "small" parts in the build — 127 g.
+- <code>PSU_stabilizer_50mm</code> is marked <strong>(verify)</strong>: LDO Build Notes say <em>"PAGE 169 SKIP — the kit does not use a
+  support bracket"</em>, which most likely refers to this part. It is 4 g; print it and only fit it if it's needed.
+- <strong>Do not print</strong> <code>raspberrypi_bracket.stl</code>, <code>beefy_raspberry_bracket.stl</code> or <code>rs25_psu_bracket.stl</code> — Leviathan
+  carries the Pi and there is no 5 V PSU in this kit
+  (<a href="https://docs.ldomotors.com/voron/voron2/build-faq">Build Notes p.150, p.152</a>).
+- <strong>Do not print</strong> the Leviathan bracket set or the bed WAGO mount — both supplied printed.
+- <code>power_inlet_IECGS_1mm</code> lives here, not in B08, because it's fitted in Ch 09 (p.156/167) — see <code>docs/manual/09-electronics-bay.md</code>.
+- It cannot ride on <strong>B07-P2</strong>: with the mandated 3 mm brims the eight COB mounts plus the 118 × 66.8 mm inlet
+  come to 46 280 mm², 84 % of the 250 × 220 bed, and no placement exists. It had a plate to itself until
+  2026-09-06, when the outline packer proved it fits on <strong>B07-P1</strong> at a 6 mm gap, saving a swap.</p>
+<hr>
+<h3 id="batch-b08-skirts-and-front-modules-4-plates-292-h-399-g-black">Batch B08 — Skirts and front modules · <strong>4 plates · 29.2 h · 399 g black</strong><a class="headerlink" href="#batch-b08-skirts-and-front-modules-4-plates-292-h-399-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Skirts</em> (p.212–239).</p>
+<p>The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
+inlet — that all share a 67–72 × 20 mm cross-section. On the 350 the ring works out as:
+front = <code>front_skirt_a</code> + <strong>TFT mount</strong> + <code>front_skirt_b</code>; rear = <code>rear_center_skirt</code> + <code>power_inlet</code> + <code>keystone_panel</code>;
+each side = <code>side_skirt_a</code> + <code>side_fan_support</code> + <code>side_skirt_b</code>.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rear_center_skirt_350.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/350/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">71.9</td>
+<td style="text-align: right;">4.18</td>
+</tr>
+<tr>
+<td><code>front_skirt_a_350.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/350/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">2.42</td>
+</tr>
+<tr>
+<td><code>front_skirt_b_350.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/350/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">2.42</td>
+</tr>
+<tr>
+<td><code>side_skirt_a_350_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/350/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">2.16</td>
+</tr>
+<tr>
+<td><code>side_skirt_b_350_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/350/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">2.16</td>
+</tr>
+<tr>
+<td><code>side_fan_support_x2.STL</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">33.0</td>
+<td style="text-align: right;">1.93</td>
+</tr>
+<tr>
+<td><code>keystone_panel.stl</code></td>
+<td>Voron-2 <code>STLs/Skirts/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">2.26</td>
+</tr>
+<tr>
+<td><code>mount.stl</code> (BTT Pi TFT4.3)</td>
+<td>LDOVoronTrident <code>STLs/BTT Pi TFT4.3 Mount/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">1.80</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>B08-P1</strong> (6.3 h, 99 g): <code>rear_center_skirt_350</code>, <code>side_fan_support</code> ×1</li>
+<li><strong>B08-P2</strong> (8.4 h, 108 g): <code>front_skirt_a_350</code>, <code>front_skirt_b_350</code>, <code>side_skirt_a_350</code> ×1</li>
+<li><strong>B08-P3</strong> (9.5 h, 122 g): <code>side_fan_support</code> ×1, <code>side_skirt_a_350</code> ×1, <code>side_skirt_b_350</code> ×1, <code>mount.stl</code></li>
+<li><strong>B08-P4</strong> (5.0 h, 70 g): <code>side_skirt_b_350</code> ×1, <code>keystone_panel</code></li>
+</ul>
+<p>Every one of these is 117–182 mm on its long axis and 67–72 mm deep. Packed on bounding boxes that meant two
+per plate; packed on the real outlines (<code>slicer/nest.py</code>, 6 mm between silhouettes plus each part's brim) the
+C-shaped segments interleave and the set fits on four plates instead of six — the 2026-09-06 consolidation.
+<code>power_inlet_IECGS_1mm</code> is not here: it moved to B07 (Ch 09, not the skirts chapter).
+<strong>These are the parts people see.</strong> Print them after the Gen 2 belt upgrade if you have it (§8).</p>
+<p>Notes:
+- <code>mount.stl</code> vs <code>mount_thick.stl</code>: <code>mount.stl</code> is 30 g / 44.8 mm tall; <code>mount_thick.stl</code> is 74 g / 67.8 mm and
+  gives access to the screen's brightness buttons with a pointy tool. <code>mount.stl</code> is the recommendation —
+  swap if you find you want the buttons <strong>(judgment; LDO links the folder, not a specific file)</strong>
+  (<a href="https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount">mount README</a>).
+- <strong>Do not print</strong> <code>mini12864_case_front/rear</code>, <code>[a]_mini12864_case_hinge</code>, <code>[a]_mini12864_case_front_insert</code>,
+  <code>[a]_btt_knob_light_shield</code> — the touchscreen mount replaces that whole front module
+  (<a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">LDO Rev D guide</a>).
+- Optional: <code>[a]_fan_grill_open_optional_x2</code> (more airflow, less filtering) instead of <code>[a]_fan_grill_a/b</code>;
+  <code>ldo_bestagon_insert</code> (in B02) snaps into the skirt hexagons — print more copies if you like the look.</p>
+<hr>
+<h3 id="batch-b09-panels-filtration-spool-5-plates-218-h-297-g-black">Batch B09 — Panels, filtration, spool · <strong>5 plates · 21.8 h · 297 g black</strong><a class="headerlink" href="#batch-b09-panels-filtration-spool-5-plates-218-h-297-g-black" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> <em>Panels</em> (p.240–259) and the Nevermore install.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>corner_panel_clip_4mm_x8.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">8</td>
+<td>Black</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr>
+<td><code>midspan_panel_clip_4mm_x7.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">7</td>
+<td>Black</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+<tr>
+<td><code>corner_panel_clip_6mm_x8.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">8</td>
+<td>Black</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr>
+<td><code>midspan_panel_clip_6mm_x8.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">8</td>
+<td>Black</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr>
+<td><code>bottom_panel_clip_x4.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">4</td>
+<td>Black</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr>
+<td><code>bottom_panel_hinge_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr>
+<td><code>z_belt_cover_a_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+<tr>
+<td><code>z_belt_cover_b_x2.stl</code></td>
+<td>Voron-2 <code>STLs/Panel_Mounting/</code></td>
+<td style="text-align: right;">2</td>
+<td>Black</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+<tr>
+<td><code>exhaust_cover.stl</code></td>
+<td>LDOVoron2 <code>STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">1.76</td>
+</tr>
+<tr>
+<td><code>exhaust_filter_grill.stl</code></td>
+<td>Voron-2 <code>STLs/Exhaust_Filter/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">9.9</td>
+<td style="text-align: right;">0.58</td>
+</tr>
+<tr>
+<td><code>V2_Duo_Plenum.stl</code></td>
+<td>Nevermore_Micro <code>V5_Duo/V2/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">50.2</td>
+<td style="text-align: right;">2.93</td>
+</tr>
+<tr>
+<td><code>V2_Duo_Plenum_LID.stl</code></td>
+<td>Nevermore_Micro <code>V5_Duo/V2/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">12.3</td>
+<td style="text-align: right;">0.71</td>
+</tr>
+<tr>
+<td><code>Regular_Cartridge(contributed_by_Bucknova).3mf</code></td>
+<td>Nevermore_Micro <code>V5_Duo/V2/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">43.0</td>
+<td style="text-align: right;">2.51</td>
+</tr>
+<tr>
+<td><code>Regular_Cartridge_Lid(contributed_by_Bucknova).3mf</code></td>
+<td>Nevermore_Micro <code>V5_Duo/V2/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr>
+<td><code>spool_holder.stl</code></td>
+<td>Voron-2 <code>STLs/Spool_Management/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">16.6</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+<tr>
+<td><code>bowden_retainer.stl</code></td>
+<td>Voron-2 <code>STLs/Spool_Management/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: right;">0.33</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>B09-P1</strong> (4.5 h, 63 g): <code>V2_Duo_Plenum</code>, <code>V2_Duo_Plenum_LID</code>, <code>Regular_Cartridge_Lid</code></li>
+<li><strong>B09-P2</strong> (4.9 h, 67 g): <code>Regular_Cartridge</code>, <code>exhaust_cover</code></li>
+<li><strong>B09-P3</strong> (3.9 h, 55 g): <code>exhaust_filter_grill</code>, <code>spool_holder</code>, <code>bowden_retainer</code>, <code>z_belt_cover_a</code> ×2, <code>z_belt_cover_b</code> ×2</li>
+<li><strong>B09-P4</strong> (4.2 h, 56 g): <code>corner_panel_clip_4mm</code> ×8, <code>midspan_panel_clip_4mm</code> ×7, <code>bottom_panel_hinge</code> ×2, <code>bottom_panel_clip</code> ×4</li>
+<li><strong>B09-P5</strong> (4.3 h, 56 g): <code>corner_panel_clip_6mm</code> ×8, <code>midspan_panel_clip_6mm</code> ×8</li>
+</ul>
+<p><strong>Why both 4 mm and 6 mm panel clips.</strong> The manual mounts back and top panels with <strong>1 mm foam tape</strong>
+(3 mm panel + 1 mm tape = 4 mm) and side panels with <strong>3 mm foam tape</strong> (3 + 3 = 6 mm, <em>"to prevent the gantry
+from rubbing on the panels"</em>). Counting the clips in the manual's own illustrations: back panel 4 corner + 3
+midspan, top panel 4 corner + 4 midspan → exactly the <code>_4mm_x8</code> / <code>_4mm_x7</code> quantities; each side panel 4 corner
++ 4 midspan → exactly the <code>_6mm_x8</code> / <code>_6mm_x8</code> quantities. (Manual p.239–244; the <code>_x#</code> filename suffix is the
+authoritative count.)
+<strong>This mapping is an inference</strong> — neither Voron nor LDO states which clip goes on which panel. The arithmetic
+lands exactly, so I'm confident, but snap one clip of each thickness onto an extrusion with a 3 mm panel offcut
+and the right foam tape before you commit to printing all 31.</p>
+<p><strong>Nevermore V5 Duo, exactly which files.</strong> The Voron-2 plenum/lid are STLs; the <strong>cartridge and its lid are
+3MF files</strong> in the same folder (PrusaSlicer imports them fine). Use the <strong>Regular</strong> cartridge, not XL — XL wants
+carbon pellets and a faster/louder fan. 8× 6×3 mm magnets, 6× M3 heat-sets. The cartridge has a <strong>built-in
+support you push out</strong>. (<a href="https://github.com/nevermore3d/Nevermore_Micro">Nevermore README</a>,
+<a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">LDO Nevermore guide</a>)</p>
+<p><strong>Exhaust:</strong> you are <em>not</em> building the Voron exhaust filter (76 g, 4.5 h saved). LDO: <em>"print this exhaust cover
+with the stock exhaust grill to seal the back panel"</em> — that is <code>exhaust_cover.stl</code> (LDO) + <code>exhaust_filter_grill.stl</code>
+(Voron). Skip <code>exhaust_filter_housing</code>, <code>[a]_exhaust_filter_mount_x2</code>, <code>[a]_filter_access_cover</code>, <code>[a]_exhaust_fan_grill</code>.</p>
+<hr>
+<h3 id="batch-b10-clicky-clack-door-1-plate-57-h-76-g-black-the-orange-handle-from-b02">Batch B10 — Clicky-Clack door · <strong>1 plate · 5.7 h · 76 g black</strong> (+ the orange <code>Handle</code> from B02)<a class="headerlink" href="#batch-b10-clicky-clack-door-1-plate-57-h-76-g-black-the-orange-handle-from-b02" title="Permanent link">¶</a></h3>
+<p><strong>Unlocks:</strong> front door install, replacing the stock two-door assembly entirely.</p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Repo path</th>
+<th style="text-align: right;">Qty</th>
+<th>Colour</th>
+<th style="text-align: right;">g ea</th>
+<th style="text-align: right;">h ea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Handle-Hinge_Bottom.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">17.1</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr>
+<td><code>Handle-Hinge_Top.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">17.1</td>
+<td style="text-align: right;">1.03</td>
+</tr>
+<tr>
+<td><code>Hinge-L-sleeve-2X.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td>Black</td>
+<td style="text-align: right;">9.0</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr>
+<td><code>Hinge-L-solid-2X.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td>Black</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">0.61</td>
+</tr>
+<tr>
+<td><code>Latch.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">8.4</td>
+<td style="text-align: right;">0.57</td>
+</tr>
+<tr>
+<td><code>Panel_Clip.stl</code></td>
+<td>whopping_Voron_mods <code>clickyclacky_door/STLs/</code></td>
+<td style="text-align: right;">1</td>
+<td>Black</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.06</td>
+</tr>
+<tr>
+<td><code>Handle.stl</code></td>
+<td><em>(printed in B02, orange)</em></td>
+<td style="text-align: right;">1</td>
+<td>Orange</td>
+<td style="text-align: right;">33.7</td>
+<td style="text-align: right;">2.03</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plate B10-P1</strong> — all six black parts. 5.7 h, 76 g.</p>
+<p>Notes:
+- The "2X" in the filenames means <strong>print two copies</strong>; each file contains one body. Cross-check against the
+  mod's BOM: 6 split bushings and 4 M5×45 dowel pins = 2 door hinges + 2 handle hinges.
+- Hinge on the right / handle on the left? Mirror the two <code>Hinge-L-*</code> parts in the slicer; handle and latch are
+  symmetric. (<a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door">Clicky-Clack README</a>)
+- <strong>Because you're fitting Clicky-Clack, do not print</strong> <code>door_hinge_x6</code>, <code>handle_a_x2</code>, <code>handle_b_x2</code>, <code>latch_x2</code>
+  (Voron), nor LDO's <code>LDO Door/</code> set. That also means you lose the LDO kit-number nameplate — if you want it,
+  print <code>LDO Door/handle_b_nameplate.stl</code> and glue it somewhere else.
+- <strong>Open question from your notes:</strong> the Clicky-Clack kit was ordered in "Blue". Fabreeko's page doesn't say what
+  the colour option governs; it is almost certainly the anodised door-frame extrusions, i.e. <strong>visible blue trim
+  around the front opening</strong> — which matches the blue LDO frame but sits next to an orange/black scheme.
+  Worth one message to Fabreeko before it ships. <strong>(unverified)</strong></p>
+<hr>
+<h2 id="4-totals-margin-spool-changes">4. Totals, margin, spool changes<a class="headerlink" href="#4-totals-margin-spool-changes" title="Permanent link">¶</a></h2>
+<h3 id="41-how-these-numbers-were-produced">4.1 How these numbers were produced<a class="headerlink" href="#41-how-these-numbers-were-produced" title="Permanent link">¶</a></h3>
+<p>Every plate hour and gram in this document is a <strong>PrusaSlicer 2.9.6 estimate</strong>, produced by actually slicing
+the plate — not modelled. <code>slicer/build_plates.py</code> arranges each plate's real STLs on the 250 × 220 bed,
+applies the per-object brims, writes <code>slicer/plates/&lt;plate&gt;.3mf</code>, slices it and reads
+<code>; estimated printing time (normal mode)</code> and <code>; total filament used [g]</code> from the G-code footer.
+<code>slicer/estimates.csv</code> lists every plate beside the figure it replaced.</p>
+<p>The configuration is the one in <a href="../manual/print/00-slicer-setup/"><code>manual/print/00-slicer-setup.md</code></a>: system
+presets <code>0.20mm STRUCTURAL @COREONE 0.4</code> / <code>Prusament ASA @COREONE HF0.4</code> / <code>Prusa CORE One HF0.4 nozzle</code>,
+plus every override in that document — 4 perimeters, 5 solid top and bottom, 40 % grid, forced 0.4 mm
+extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams use the profile's own
+1.07 g/cm³ ASA density.</p>
+<p><strong>What replaced what.</strong> The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
+wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is <strong>157.1 h / 2092 g</strong> —
+<strong>+17 % time, −7 % filament</strong>. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
+override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
+layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
+varies the beads. Every plate moved the same direction — the largest single change is B07-P1 at +2.2 h — so
+the <em>shape</em> of the plan (which plates are long, which are short, what to start in the morning) is unchanged.</p>
+<p><strong>Still calibrate on the first plate.</strong> These are estimates from a slicer, not measurements from a printer.
+Slicing <code>slicer/plates/B00-P1.3mf</code> yourself will return 3 h 58 m and 51.7 g to the minute, because it is the
+same file. What is worth measuring is the <em>printer</em>: record B00-P1's wall-clock time and the weight of what
+comes off the bed, and carry that ratio forward.</p>
+<p><strong>Cross-check against the community numbers:</strong> stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
+gives ≈ <strong>0.95 kg functional</strong> and ≈ <strong>0.90 kg cosmetic</strong>, against the widely-quoted ~1.0 kg / ~0.9 kg for a
+Voron 2.4 350 set. Total print time 157.1 h sits at the top of the commonly reported 120–160 h band — which is
+what a quality-biased profile is supposed to do.</p>
+<h3 id="42-filament-budget">4.2 Filament budget<a class="headerlink" href="#42-filament-budget" title="Permanent link">¶</a></h3>
+<p>PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g orange; slicing gives 127 g and 29 g
+less — margin you gain, not a budget to spend.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">Needed</th>
+<th style="text-align: right;">On hand</th>
+<th style="text-align: right;">Margin</th>
+<th style="text-align: right;">Reprint allowance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Galaxy Black</strong></td>
+<td style="text-align: right;"><strong>1813 g</strong></td>
+<td style="text-align: right;">2400 g (3 × 800 g)</td>
+<td style="text-align: right;"><strong>587 g</strong></td>
+<td style="text-align: right;"><strong>32 %</strong></td>
+</tr>
+<tr>
+<td><strong>Prusa Orange</strong></td>
+<td style="text-align: right;"><strong>279 g</strong></td>
+<td style="text-align: right;">800 g (1 × 800 g)</td>
+<td style="text-align: right;"><strong>521 g</strong></td>
+<td style="text-align: right;"><strong>187 %</strong></td>
+</tr>
+<tr>
+<td>Total</td>
+<td style="text-align: right;">2092 g</td>
+<td style="text-align: right;">3200 g</td>
+<td style="text-align: right;">1108 g</td>
+<td style="text-align: right;">—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Black margin is comfortable, but not unlimited.</strong> 587 g is about three of the largest plates. Typical
+first-build reprint rate is 10–15 %, so you should land fine — but:</p>
+<ul>
+<li>Don't burn black on the optional extras (<code>bed_hole_marking_template</code>, <code>bottom_panel_template</code>, purge-bucket
+  sheet stops, extra bestagon inserts) until the machine is standing.</li>
+<li>If any single plate fails twice, order a fourth black spool that day rather than mid-B08.</li>
+<li>If you do run short, the cheapest place to substitute is the <strong>skirts and panel clips</strong> — those see no heat
+  and no load, and the Voron docs explicitly permit PLA/PETG there
+  (<a href="https://docs.vorondesign.com/materials.html">materials page</a>). Don't substitute anywhere else.</li>
+</ul>
+<h3 id="43-spool-changes">4.3 Spool changes<a class="headerlink" href="#43-spool-changes" title="Permanent link">¶</a></h3>
+<p>Cumulative black consumed after each batch: B00 <strong>52</strong> · B01 <strong>353</strong> · B03 <strong>472</strong> · B04 <strong>589</strong> · B05 <strong>667</strong> ·
+B06 <strong>815</strong> · B07 <strong>1041</strong> · B08 <strong>1440</strong> · B09 <strong>1737</strong> · B10 <strong>1813 g</strong>.</p>
+<p>With 800 g spools, spool #1 runs out inside <strong>B06</strong>, on the merged <strong>B06-P1</strong>, which starts with only ~133 g
+left; spool #2 runs out inside <strong>B09</strong>, during <strong>B09-P3</strong> (~31 g left at its start). The Core One+ runout
+sensor pauses and resumes, so a mid-plate swap on B09-P3 (panel clips, nothing dimension-critical) is fine.
+B06-P1 is not: it carries the hotend seat and the Clockwork 2 bores, so start it on a fresh spool — which is
+what the ledger does, on spool #3. Same rule for B01-P1 (the 15.2 h, 201 g plate): a resume seam on a Z-drive
+body is not worth the risk. Record what is <em>actually</em> consumed in the spool ledger in
+<a href="../manual/print/#spool-ledger"><code>manual/print/README.md</code></a>; the prediction above is only as good as the
+first few weighings.</p>
+<hr>
+<h2 id="5-orientation-brim-and-per-batch-checkpoints">5. Orientation, brim, and per-batch checkpoints<a class="headerlink" href="#5-orientation-brim-and-per-batch-checkpoints" title="Permanent link">¶</a></h2>
+<h3 id="51-orientation-and-brim">5.1 Orientation and brim<a class="headerlink" href="#51-orientation-and-brim" title="Permanent link">¶</a></h3>
+<p><strong>Do not change which face sits on the bed.</strong> Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships
+pre-oriented for support-free printing. Rotating a part <strong>about Z</strong> (in the plane of the bed) to make it fit is
+fine — it does not change the layer orientation, and plate B08-P1 needs it (<code>side_fan_support</code> turned 90°).
+Two exceptions to the face rule:</p>
+<ol>
+<li><code>XY_cable_chain_bridge-Igus-3mm_backer.stl</code> is a community remix and arrives standing 44 mm tall on a
+   21 mm-wide footprint, unlike the stock part which lies flat. <strong>Check it in the preview before slicing</strong> — if
+   it isn't sitting on a flat face, lay it down to match the stock <code>[a]_xy_joint_cable_bridge_2hole</code>.</li>
+<li>Mirror the two Clicky-Clack <code>Hinge-L-*</code> parts if you want the door to swing the other way.</li>
+</ol>
+<p><strong>No part in this build exceeds 150 mm in Z.</strong> The tallest are, in order:</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th style="text-align: right;">Height</th>
+<th>Footprint</th>
+<th>Aspect</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Handle.stl</code> (Clicky-Clack)</td>
+<td style="text-align: right;">60.0 mm</td>
+<td>67.9 × 18.6</td>
+<td>tall &amp; narrow</td>
+<td><strong>5 mm brim</strong></td>
+</tr>
+<tr>
+<td><code>Latch.stl</code> (Clicky-Clack)</td>
+<td style="text-align: right;">58.0 mm</td>
+<td>25.9 × 14.6</td>
+<td>very tall &amp; narrow</td>
+<td><strong>5 mm brim</strong></td>
+</tr>
+<tr>
+<td><code>Hinge-L-sleeve/solid-2X</code> ×4</td>
+<td style="text-align: right;">55.0 mm</td>
+<td>20.9 × 19.5</td>
+<td>very tall &amp; narrow</td>
+<td><strong>5 mm brim</strong></td>
+</tr>
+<tr>
+<td><code>mount.stl</code> (TFT)</td>
+<td style="text-align: right;">44.8 mm</td>
+<td>117 × 67</td>
+<td>fine</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>z_motor_mount_a/b</code> ×4</td>
+<td style="text-align: right;">42.0 mm</td>
+<td>51 × 30.7</td>
+<td>borderline</td>
+<td>brim if you see any lift</td>
+</tr>
+</tbody>
+</table>
+<p>Separately, <strong>brim the long flat parts</strong> — not because they're tall but because 150–182 mm of ASA on a plate lifts
+at the ends: <strong>3 mm brim</strong> on <code>rear_center_skirt_350</code>, <code>front_skirt_a/b_350</code>, <code>side_skirt_a/b_350</code>,
+<code>side_fan_support_x2</code>, <code>keystone_panel</code>, <code>power_inlet_IECGS_1mm</code>, <code>exhaust_cover</code>, <code>V2_Duo_Plenum</code>,
+<code>Regular_Cartridge</code>, <code>wago_221-415_mount_3by5</code>, <code>exhaust_filter_grill</code>, <code>cob_light_strip_mount_100mm</code>.
+Brim separation stays at PrusaSlicer's 0.1 mm so it snaps off.
+(<a href="https://help.prusa3d.com/article/warping_2011">Prusa warping KB</a>)</p>
+<p>Parts with <strong>built-in supports to break out, not cut</strong>: <code>[a]_stealthburner_main_body</code>, <code>Regular_Cartridge</code>
+(Nevermore), <code>V2_Duo_Plenum</code>. The skirts are single-shell parts — they have no break-away body.</p>
+<h3 id="52-checkpoint-after-each-batch">5.2 Checkpoint after each batch<a class="headerlink" href="#52-checkpoint-after-each-batch" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>After</th>
+<th>Inspect</th>
+<th>Most commonly reprinted here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B00</strong></td>
+<td>The seven-item gate in §1.4. Nothing proceeds until all pass.</td>
+<td>the cube, until the profile is right</td>
+</tr>
+<tr>
+<td><strong>B01</strong></td>
+<td>625-2RS (16 mm OD) press-fit into each <code>z_drive_main</code> and <code>z_drive_retainer</code> bearing seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check the 4 mm/3 mm deck-support call.</td>
+<td><code>z_drive_main_*</code> — largest single parts, most exposed to warp at the corners</td>
+</tr>
+<tr>
+<td><strong>B02</strong></td>
+<td>Guidler and latch must move freely against the CW2 body once it exists (B06) — test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp.</td>
+<td><code>[a]_stealthburner_main_body</code> (most-photographed part in the build)</td>
+</tr>
+<tr>
+<td><strong>B03</strong></td>
+<td><strong>F695-2RS (13 mm OD, flanged)</strong> bearing/spacer stacks must drop into the drive-frame and front-idler bores without reaming, and the two halves of each drive unit must close flat with no gap. (625-2RS is the Z-drive bearing — B01, not this batch.)</td>
+<td><code>a/b_drive_frame_lower</code> — the bearing seats are the tightest fit in the machine</td>
+</tr>
+<tr>
+<td><strong>B04</strong></td>
+<td>Test the MGN12 carriage screw pattern against <code>x_frame_V2TR_MGN12_*</code> before you commit heat-sets. XY joint bores must accept the shafts without reaming.</td>
+<td><code>xy_joint_*_lower_MGN12</code></td>
+</tr>
+<tr>
+<td><strong>B05</strong></td>
+<td>Z joints: the 8 mm shaft should slide, not press. <code>z_joint_upper</code> must sit square on the extrusion.</td>
+<td><code>z_joint_lower_x4</code></td>
+</tr>
+<tr>
+<td><strong>B06</strong></td>
+<td>Revo Voron hotend must sit flat in the printhead front with 4× M3×8. Klicky: magnets pressed <strong>below</strong> the plastic surface, polarity consistent, and the probe must attach/detach cleanly from the AB mount.</td>
+<td><code>KlickyProbe_v2</code> (that's why you print two)</td>
+</tr>
+<tr>
+<td><strong>B07</strong></td>
+<td>Wago mount heat-sets; COB mount halves must close flush on their 2× M3×6 FHCS.</td>
+<td><code>cob_light_strip_mount_100mm</code> (warps at the ends — check flatness on glass)</td>
+</tr>
+<tr>
+<td><strong>B08</strong></td>
+<td><strong>Lay every skirt segment on a flat reference (your granite counter) and check for rocking.</strong> A bowed skirt is the most visible defect on a finished Voron. Also dry-fit the ring: front + TFT mount + front, rear + inlet + keystone, sides + fan supports.</td>
+<td><code>rear_center_skirt_350</code> (182 mm — the worst warp candidate in the set)</td>
+</tr>
+<tr>
+<td><strong>B09</strong></td>
+<td>Panel clips: snap one onto an extrusion with a 3 mm offcut to confirm 4 mm vs 6 mm choice <strong>before</strong> printing all 31. Nevermore: plenum lid must slide in its groove; cartridge must snap onto the plenum.</td>
+<td>the 6 mm corner clips, if the foam tape choice changes</td>
+</tr>
+<tr>
+<td><strong>B10</strong></td>
+<td>Sleeve bearings must tap into the hinge sleeves without splitting the part; M5×45 pin into the "solid" half should be a <strong>very</strong> tight hammer fit with ~20 mm proud.</td>
+<td><code>Hinge-L-solid-2X</code> (split risk on the pin press)</td>
+</tr>
+</tbody>
+</table>
+<p>Across the whole build, the three parts most often reprinted by Voron builders are the <strong>A/B drive frames</strong>
+(bearing fit), the <strong>long skirts</strong> (warp), and the <strong>Stealthburner main body</strong> (cosmetics). Budget your 587 g of
+black margin against those.</p>
+<hr>
+<h2 id="6-conditional-verify-items">6. Conditional / verify items<a class="headerlink" href="#6-conditional-verify-items" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deck support thickness</td>
+<td>LDO's guide says 4 mm, LDO's <strong>350</strong> BOM says the deck panel is 3 mm</td>
+<td>Print <code>deck_support_3mm_x8</code> ×8 now (the size-specific BOM wins); measure the panel on arrival; 8 g to reprint at 4 mm</td>
+</tr>
+<tr>
+<td><code>PSU_stabilizer_50mm</code></td>
+<td>LDO says "SKIP p.169 — no support bracket"</td>
+<td>Print it (4 g), fit only if the PSU needs it</td>
+</tr>
+<tr>
+<td>Probe retainer bracket</td>
+<td>8 mm vs 9 mm probe barrel</td>
+<td>Measure the Omron on arrival; the <code>_9mm</code> variant is 0.5 g</td>
+</tr>
+<tr>
+<td>Cable-chain bridge with Ti backers</td>
+<td>Fabreeko's backers ship pre-drilled with <strong>pilot</strong> holes for the cable-chain end link (drill 2.5 mm, tap M3 to use them), which may make the printed bridge unnecessary; the backer-aware remix exists in 3 mm and 6.5 mm</td>
+<td>Both the stock <code>[a]_xy_joint_cable_bridge_2hole</code> and <code>XY_cable_chain_bridge-Igus-3mm_backer</code> are on plate B02-P3 (18 g total). Fit whichever clears. "Igus" = the <strong>2-hole</strong> chain pattern, which is what LDO ships.</td>
+</tr>
+<tr>
+<td>Keystone blanks</td>
+<td>Panel has <strong>2</strong> slots; LDO supplies 1 CAT6 keystone</td>
+<td>1 blank used, 1 spare — both on B02-P3</td>
+</tr>
+<tr>
+<td>Clicky-Clack "Blue"</td>
+<td>Fabreeko doesn't state what the colour governs</td>
+<td>Ask before it ships</td>
+</tr>
+<tr>
+<td>Rev D+ printed-parts guide</td>
+<td>Doesn't exist; only Rev A/B, C, D</td>
+<td><strong>Resolved:</strong> D+ changes one printed part (§0). The remaining Discord question is only whether a D+ guide will be published.</td>
+</tr>
+<tr>
+<td><code>mount.stl</code> vs <code>mount_thick.stl</code></td>
+<td>LDO links the folder, not a file</td>
+<td><code>mount.stl</code> chosen (30 g vs 74 g); swap if you want brightness-button access</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optional, not in any batch</strong> (print later if you want them): <code>bed_hole_marking_template_x1_Rev2</code> (LDO's bed is
+pre-drilled), <code>bottom_panel_template</code>, <code>Purge Bucket/brush_holder_sheet_stop</code> + <code>individual_sheet_stop</code>
+(the kit does include a brass brush, so the Decontaminator nozzle-scrubber mod is on the table —
+add ~9 g plus the mod's own STLs from
+<a href="https://github.com/VoronDesign/VoronUsers/tree/main/orphaned_mods/edwardyeeks/Decontaminator_Purge_Bucket_%26_Nozzle_Scrubber">VoronUsers</a>),
+<code>[a]_fan_grill_open_optional_x2</code>, <code>z_belt_cover_a_led</code> (LDO variant if you route the LED strip through the
+Z-belt opening), extra <code>ldo_bestagon_insert</code>s.</p>
+<hr>
+<h2 id="7-deliberately-not-printed">7. Deliberately NOT printed<a class="headerlink" href="#7-deliberately-not-printed" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nozzle_probe.stl</code> (Voron) and <code>nozzle_probe_ldo.stl</code> (LDO)</td>
+<td>LDO supplies the nozzle probe printed</td>
+</tr>
+<tr>
+<td><code>Leviathan_bracket_set.stl</code></td>
+<td>Supplied printed (L + R)</td>
+</tr>
+<tr>
+<td><code>usb_adapter_mount</code> <strong>base</strong> body</td>
+<td>Supplied printed (the file is still printed — for a spare <strong>base</strong>; the Nitehawk-SB V2 partial cover replaces its cover body)</td>
+</tr>
+<tr>
+<td><code>bed_wago_mount.stl</code></td>
+<td>Supplied printed</td>
+</tr>
+<tr>
+<td><code>led_fan_pcb_spacer_x2.stl</code></td>
+<td>Supplied printed (×2)</td>
+</tr>
+<tr>
+<td><code>[a]_pcb_spacer.stl</code> (CW2)</td>
+<td>Supplied printed — printing a spare anyway, 0.3 g</td>
+</tr>
+<tr>
+<td><code>cw2_chain_anchor_tilted.stl</code></td>
+<td>Supplied printed</td>
+</tr>
+<tr>
+<td><code>[c]_stealthburner_LED_diffuser.stl</code></td>
+<td>Supplied printed in <strong>clear PETG</strong>; you have no clear filament</td>
+</tr>
+<tr>
+<td><code>[a]_endstop_pod_hall_effect.stl</code>, <code>z_joint_upper_hall_effect.stl</code></td>
+<td>No hall-effect endstops in this kit</td>
+</tr>
+<tr>
+<td><code>Octopus_bracket_set.stl</code> and all other <code>Controller_Mounts/*</code></td>
+<td>Leviathan, not Octopus</td>
+</tr>
+<tr>
+<td><code>raspberrypi_bracket.stl</code>, <code>beefy_raspberry_bracket.stl</code></td>
+<td>Leviathan has an integrated Pi mount (Rev D)</td>
+</tr>
+<tr>
+<td><code>rs25_psu_bracket.stl</code></td>
+<td>No 5 V PSU in this kit</td>
+</tr>
+<tr>
+<td><code>mini12864_case_front/rear</code>, <code>[a]_mini12864_case_hinge</code>, <code>[a]_mini12864_case_front_insert</code>, <code>[a]_btt_knob_light_shield</code></td>
+<td>BTT touchscreen replaces the mini12864 module</td>
+</tr>
+<tr>
+<td><code>exhaust_filter_housing</code>, <code>[a]_exhaust_filter_mount_x2</code>, <code>[a]_filter_access_cover</code>, <code>[a]_exhaust_fan_grill</code></td>
+<td>Nevermore replaces the stock exhaust filter; kit has no fan for it</td>
+</tr>
+<tr>
+<td><code>door_hinge_x6</code>, <code>handle_a_x2</code>, <code>handle_b_x2</code>, <code>latch_x2</code>, LDO <code>LDO Door/*</code></td>
+<td>Clicky-Clack replaces the stock doors</td>
+</tr>
+<tr>
+<td><code>power_inlet_IECGS_1.2mm</code>, <code>power_inlet_filtered</code>, <code>plug_panel_1.2mm</code></td>
+<td>Kit ships the 1.0 mm inlet</td>
+</tr>
+<tr>
+<td><code>xy_joint_*_MGN9</code>, <code>x_carriage_*_MGN9</code>, <code>[a]_belt_clamp_MGN9_x2</code> (Superceded)</td>
+<td>X axis is MGN12</td>
+</tr>
+<tr>
+<td><code>zipchain2_*</code> (Superceded)</td>
+<td>Kit ships real drag chain</td>
+</tr>
+<tr>
+<td><code>[a]_z_tensioner_x4_6mm</code> (Superceded)</td>
+<td>Kit ships 9 mm-wide Z idlers</td>
+</tr>
+<tr>
+<td><code>pinda_adapter</code>, <code>chain_anchor_3hole*</code>, <code>cable_door.stl</code>, <code>Bowden/*</code>, <code>ADXL345_Mounts/*</code></td>
+<td>Wrong variant for this kit</td>
+</tr>
+<tr>
+<td><code>deck_support_4mm_x8</code>, <code>probe_retainer_bracket_9mm</code></td>
+<td><strong>Conditional, not excluded</strong> — the caliper decides (§6). <code>deck_support_3mm_x8</code> is the printed default (Rev D 350 BOM); the 4 mm set is the reprint if the panel measures 4 mm.</td>
+</tr>
+<tr>
+<td><code>spool_holder</code>/<code>bowden_retainer</code> — <em>these ARE printed</em> (B09)</td>
+<td>listed here only to avoid confusion with Spool_Management's other files</td>
+</tr>
+<tr>
+<td>Beacon, Nevermore StealthMax, StealthChanger parts</td>
+<td>Explicitly out of scope for this build</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="8-where-to-do-the-core-one-gen-2-belt-upgrade">8. Where to do the Core One+ Gen 2 belt upgrade<a class="headerlink" href="#8-where-to-do-the-core-one-gen-2-belt-upgrade" title="Permanent link">¶</a></h2>
+<p><strong>Baseline plan (unchanged):</strong> finish the Core One+ kit through Ch. 9 (self-test + first print), then apply the
+Gen 1 → Gen 2 upgrade, re-tension and re-square, <em>then</em> start batch B00. The GT1.5 conversion changes belts,
+pulleys, steps/mm and firmware together — you want it done and settled before 157 h of ASA.</p>
+<p><strong>If the upgrade kit arrives mid-run, pause at the end of Batch B07, before Batch B08.</strong> Reasons:</p>
+<ol>
+<li>B08 + B09 + B10 are 10 of the 22 plates and contain <strong>every surface anyone will ever look at</strong> — the 150–182 mm
+   skirts are large flat vertical faces, which is exactly where GT1.5's reduced VFA shows.</li>
+<li>B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.</li>
+<li>It's a clean boundary — no half-finished sub-assembly waits on it, and in the pre-kit print order
+   (B00 → B02 → B07 → B08) it is exactly where the cosmetic run begins.</li>
+</ol>
+<p><strong>Second-best boundary:</strong> if the kit arrives <em>before</em> B02 starts, do it then — the Stealthburner main body is the
+single most-looked-at printed part on the machine and it's on B02-P1.</p>
+<p><strong>After the upgrade, before restarting prints:</strong></p>
+<ol>
+<li>Firmware <strong>≥ 6.9.0</strong> (adds GT1.5 belt support and Gen 2 expansion joints).</li>
+<li>Re-tension both belts and re-square the gantry, per
+   <a href="https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435">help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435</a>.</li>
+<li>Re-run the self-test and input shaper calibration.</li>
+<li><strong>Re-print <code>Voron_Design_Cube_v7</code> and re-pass Gate A</strong> (§1.4) — steps/mm changed with the pulleys, so the
+   dimensional gate has to be re-passed before you print 399 g of skirts. Judge its first layer per §1.4
+   step 3; the loadcell re-zeroes on its own and there is no wizard to redo.</li>
+</ol>
+<p>Do <strong>not</strong> try to interleave the upgrade with a running plate; the Nextruder and bed have to come apart.</p>
+<hr>
+<h2 id="9-machine-readable-batch-summary">9. Machine-readable batch summary<a class="headerlink" href="#9-machine-readable-batch-summary" title="Permanent link">¶</a></h2>
+<p>Hours and grams are <strong>PrusaSlicer 2.9.6 estimates</strong> sliced from <code>slicer/plates/*.3mf</code> (§4.1); per-plate
+detail with the previous model figure beside each one is in <code>slicer/estimates.csv</code>.</p>
+<p><code>hard_prereq_batches</code> = batches that must be <strong>printed</strong> before the assembly chapter in <code>unlocks_chapter</code> can
+actually be completed (B00 is the calibration gate for everything; B02 carries the accent parts that most
+mechanical chapters need).</p>
+<table>
+<thead>
+<tr>
+<th>batch_id</th>
+<th>name</th>
+<th style="text-align: right;">plates</th>
+<th style="text-align: right;">hours</th>
+<th style="text-align: right;">g_black</th>
+<th style="text-align: right;">g_orange</th>
+<th>unlocks_chapter</th>
+<th>hard_prereq_batches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B00</td>
+<td>Calibration &amp; jigs</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">0</td>
+<td>Frame</td>
+<td>—</td>
+</tr>
+<tr>
+<td>B01</td>
+<td>Z drive assemblies</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">301</td>
+<td style="text-align: right;">0</td>
+<td>Z Drives and Idlers</td>
+<td>B00;B02</td>
+</tr>
+<tr>
+<td>B02</td>
+<td>Accent parts (orange)</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">21.9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">279</td>
+<td><em>(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)</em></td>
+<td>B00</td>
+</tr>
+<tr>
+<td>B03</td>
+<td>A/B drive units + front idlers</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: right;">119</td>
+<td style="text-align: right;">0</td>
+<td>A/B Drives and Idlers</td>
+<td>B00;B02</td>
+</tr>
+<tr>
+<td>B04</td>
+<td>XY joints + X carriage</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8.6</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">0</td>
+<td>Gantry</td>
+<td>B00;B02;B03</td>
+</tr>
+<tr>
+<td>B05</td>
+<td>Z joints + Z chain</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0</td>
+<td>Z Axis; A/B Belts</td>
+<td>B00;B02;B04</td>
+</tr>
+<tr>
+<td>B06</td>
+<td>Toolhead (SB + CW2 + Klicky)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12.2</td>
+<td style="text-align: right;">148</td>
+<td style="text-align: right;">0</td>
+<td>Stealthburner</td>
+<td>B00;B02;B04</td>
+</tr>
+<tr>
+<td>B07</td>
+<td>Electronics bay + lighting</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16.0</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">0</td>
+<td>Electronics; Controller; Wiring</td>
+<td>B00</td>
+</tr>
+<tr>
+<td>B08</td>
+<td>Skirts + front modules</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">399</td>
+<td style="text-align: right;">0</td>
+<td>Skirts</td>
+<td>B00;B02;B07</td>
+</tr>
+<tr>
+<td>B09</td>
+<td>Panels, filtration, spool</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21.8</td>
+<td style="text-align: right;">297</td>
+<td style="text-align: right;">0</td>
+<td>Panels</td>
+<td>B00;B08</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>Clicky-Clack door</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0</td>
+<td>Panels (front door)</td>
+<td>B00;B02;B09</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td style="text-align: right;"><strong>22</strong></td>
+<td style="text-align: right;"><strong>157.1</strong></td>
+<td style="text-align: right;"><strong>1813</strong></td>
+<td style="text-align: right;"><strong>279</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>batch_id,name,plates,hours,g_black,g_orange,unlocks_chapter,hard_prereq_batches
+B00,Calibration &amp; jigs,1,4.0,52,0,Frame,
+B01,Z drive assemblies,2,22.8,301,0,Z Drives and Idlers,B00;B02
+B02,Accent parts (orange),3,21.9,0,279,Multiple (accent),B00
+B03,A/B drive units + front idlers,1,8.5,119,0,A/B Drives and Idlers,B00;B02
+B04,XY joints + X carriage,1,8.6,117,0,Gantry,B00;B02;B03
+B05,Z joints + Z chain,1,6.4,78,0,Z Axis;A/B Belts,B00;B02;B04
+B06,Toolhead (SB + CW2 + Klicky),1,12.2,148,0,Stealthburner,B00;B02;B04
+B07,Electronics bay + lighting,2,16.0,226,0,Electronics;Controller;Wiring,B00
+B08,Skirts + front modules,4,29.2,398,0,Skirts,B00;B02;B07
+B09,"Panels, filtration, spool",5,21.8,297,0,Panels,B00;B08
+B10,Clicky-Clack door,1,5.7,76,0,Panels (front door),B00;B02;B09
+TOTAL,,22,157.1,1813,279,,
+</code></pre></div>
+<p>Plate-level detail (batch, plate, hours, grams) for scheduling:</p>
+<div class="highlight"><pre><span></span><code>plate_id,batch_id,hours,grams,colour
+B00-P1,B00,4.0,52,black
+B01-P1,B01,15.2,201,black
+B01-P2,B01,7.6,100,black
+B02-P1,B02,7.0,90,orange
+B02-P2,B02,7.3,93,orange
+B02-P3,B02,7.6,96,orange
+B03-P1,B03,8.5,119,black
+B04-P1,B04,8.6,117,black
+B05-P1,B05,6.4,78,black
+B06-P1,B06,12.2,148,black
+B07-P1,B07,7.9,102,black
+B07-P2,B07,8.1,124,black
+B08-P1,B08,6.3,99,black
+B08-P2,B08,8.4,108,black
+B08-P3,B08,9.5,122,black
+B08-P4,B08,5.0,70,black
+B09-P1,B09,4.5,63,black
+B09-P2,B09,4.9,67,black
+B09-P3,B09,3.9,55,black
+B09-P4,B09,4.2,56,black
+B09-P5,B09,4.3,56,black
+B10-P1,B10,5.7,76,black
+</code></pre></div>
+<hr>
+<h2 id="10-sources">10. Sources<a class="headerlink" href="#10-sources" title="Permanent link">¶</a></h2>
+<p><strong>Voron official</strong>
+- Voron-2 repo, branch <code>Voron2.4</code> — <a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4">https://github.com/VoronDesign/Voron-2/tree/Voron2.4</a>
+- Voron 2.4r2 Assembly Manual (2023-07-04) — <a href="https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf">https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf</a>
+  (print settings p.4; file naming p.5; deck panel p.28–30; skirts p.211–221; bottom panel p.232–233; Z belt covers p.234–236; panels p.239–244; exhaust p.250–256; spool holder p.257–259)
+- Voron STL folder — <a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs">https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs</a>
+- Stealthburner repo — <a href="https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs">https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs</a>
+- Stealthburner filename nomenclature — <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md">https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md</a>
+- Stealthburner printhead compatibility — <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md">https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md</a>
+- Stealthburner Assembly Manual — <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf">https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf</a>
+- Voron materials selection (shrinkage = 100 %) — <a href="https://docs.vorondesign.com/materials.html">https://docs.vorondesign.com/materials.html</a>
+- Voron secondary printer tuning (belt tensions) — <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">https://docs.vorondesign.com/tuning/secondary_printer_tuning.html</a></p>
+<p><strong>LDO</strong>
+- LDO Voron 2.4 kit landing page — <a href="https://docs.ldomotors.com/en/voron/voron2">https://docs.ldomotors.com/en/voron/voron2</a>
+- Rev D printed parts guide — <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d</a>
+- Rev D wiring guide — <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d</a>
+- Build Notes / FAQ (manual deviations by page) — <a href="https://docs.ldomotors.com/voron/voron2/build-faq">https://docs.ldomotors.com/voron/voron2/build-faq</a>
+- Rev D 350 BOM — <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D</a>
+- LDO Nevermore V5 Duo assembly guide — <a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">https://ldomotion.com/guides/nevermore-v5-duo---v24</a>
+- LDOVoron2 STLs — <a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs">https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs</a>
+- COB light strip mount counts — <a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip">https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip</a>
+- BTT Pi TFT4.3 mount — <a href="https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount">https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount</a>
+- Nitehawk-SB STLs — <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB/tree/master/STLs">https://github.com/MotorDynamicsLab/Nitehawk-SB/tree/master/STLs</a>
+- Nitehawk-SB V2 STLs (<code>usb_adapter_mount_partial_cover</code>) — <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs">https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs</a>
+- Leviathan STLs — <a href="https://github.com/MotorDynamicsLab/Leviathan/tree/master/STLs">https://github.com/MotorDynamicsLab/Leviathan/tree/master/STLs</a></p>
+<p><strong>Vendor</strong>
+- Fabreeko — LDO Voron 2.4 R2 (Rev D+) kit — <a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">https://www.fabreeko.com/products/ldo-voron-v2-4-kit</a>
+- Fabreeko — Clicky-Clack Door Kit by LDO — <a href="https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo">https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo</a>
+- Fabreeko — V2.4/Trident titanium extrusion backers — <a href="https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers">https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers</a></p>
+<p><strong>Mods</strong>
+- Klicky Probe — <a href="https://github.com/jlas1/Klicky-Probe">https://github.com/jlas1/Klicky-Probe</a> (what-to-print + BOM: <a href="https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident">https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident</a>)
+- Nevermore Micro (V5 Duo) — <a href="https://github.com/nevermore3d/Nevermore_Micro">https://github.com/nevermore3d/Nevermore_Micro</a>
+- Clicky-Clack Fridge Door (whoppingpochard / tanaes) — <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door">https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door</a>
+- Extrusion backers — <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers</a></p>
+<p><strong>Prusa / slicer</strong>
+- PrusaSlicer releases (2.9.6 stable, 2026-06-25) — <a href="https://github.com/prusa3d/PrusaSlicer/releases">https://github.com/prusa3d/PrusaSlicer/releases</a>
+- PrusaResearch.ini @ version_2.9.6 (source of every quoted default) — <a href="https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini">https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini</a>
+- Prusa KB — ASA — <a href="https://help.prusa3d.com/article/asa_1809">https://help.prusa3d.com/article/asa_1809</a>
+- Prusa KB — Warping — <a href="https://help.prusa3d.com/article/warping_2011">https://help.prusa3d.com/article/warping_2011</a>
+- Prusa KB — CORE One to Gen 2 upgrade — <a href="https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435">https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435</a>
+- Prusa KB — CORE One downloads / firmware — <a href="https://help.prusa3d.com/downloads/core-one">https://help.prusa3d.com/downloads/core-one</a></p>
+<p><strong>Community</strong>
+- Ellis' Print Tuning Guide — <a href="https://ellis3dp.com/Print-Tuning-Guide/">https://ellis3dp.com/Print-Tuning-Guide/</a> (first-layer squish, extrusion multiplier, perimeter separation)
+- Voron Print It Forward (the option not taken) — <a href="https://pif.voron.dev/">https://pif.voron.dev/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../manual/00-tonight/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tonight">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Tonight
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../voron-build-instructions-survey/" class="md-footer__link md-footer__link--next" aria-label="Next: Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/wakelock.js"></script>
+      
+        <script src="../javascripts/progress.js"></script>
+      
+        <script src="../javascripts/jumpbar.js"></script>
+      
+        <script src="../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

@@ -1,0 +1,3530 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/12-software/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-12-software-pi-os-image-klippermoonrakermainsail-firmware-printercfg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#step-121-decide-where-you-are-doing-the-pi-half" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.1 — Decide where you are doing the Pi half
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-122-write-mainsailos-with-raspberry-pi-imager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.2 — Write MainsailOS with Raspberry Pi Imager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-123-fill-in-the-imager-customisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.3 — Fill in the Imager customisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-124-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.4 — First boot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-125-reach-mainsail-and-open-an-ssh-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.5 — Reach Mainsail and open an SSH session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-126-update-everything-before-you-touch-anything-else" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.6 — Update everything before you touch anything else
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-127-record-the-klipper-version-you-are-building-against" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.7 — Record the Klipper version you are building against
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-128-install-kiauh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.8 — Install KIAUH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-129-install-klipperscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.9 — Install KlipperScreen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1210-bring-up-the-dsi-panel-and-rotate-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.10 — Bring up the DSI panel and rotate it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.11 — Gate: power the bay and confirm both MCUs enumerate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1212-read-the-two-serial-ids-and-work-out-which-is-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.12 — Read the two serial IDs and work out which is which
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1213-identify-your-leviathan-revision-before-you-build-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.13 — Identify your Leviathan revision before you build anything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1214-build-klipper-firmware-for-the-leviathan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.14 — Build Klipper firmware for the Leviathan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1215-flash-the-leviathan-through-katapult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.15 — Flash the Leviathan through Katapult
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.16 — Recovery only: reinstall Katapult on the Leviathan over DFU
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1217-build-klipper-firmware-for-the-nitehawk-sb-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.17 — Build Klipper firmware for the Nitehawk-SB V2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1218-flash-the-nitehawk-with-make-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.18 — Flash the Nitehawk with make flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1219-fallback-flash-the-nitehawk-through-katapult" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.19 — Fallback: flash the Nitehawk through Katapult
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1220-re-read-and-record-both-serial-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.20 — Re-read and record both serial paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1221-download-the-correct-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.21 — Download the correct config file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1222-add-the-mainsail-include-at-the-top-of-printercfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.22 — Add the Mainsail include at the top of printer.cfg
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1223-paste-the-two-serial-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.23 — Paste the two serial paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1224-350-mm-stepper_x-and-stepper_y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.24 — 350 mm: [stepper_x] and [stepper_y]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1225-350-mm-stepper_z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.25 — 350 mm: [stepper_z]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1226-350-mm-quad_gantry_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.26 — 350 mm: [quad_gantry_level]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.27 — 350 mm: resonance probe point and the G32 homing end position
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1228-verify-the-09-ab-motor-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.28 — Verify the 0.9° A/B motor setting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1229-probe-omron-active-klicky-written-but-commented" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.29 — Probe: Omron active, Klicky written but commented
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1230-hotend-e3d-revo-hf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.30 — Hotend: E3D Revo HF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1231-bed-heater-and-chamber-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.31 — Bed heater and chamber sensor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.32 — Fans and lighting: Nevermore, COB strips, bay fans
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.33 — Z endstop: leave safe_z_home deliberately unreachable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1234-add-a-bed_mesh-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.34 — Add a [bed_mesh] section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1235-add-input_shaper-and-exclude_object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.35 — Add [input_shaper] and [exclude_object]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.36 — Replace PRINT_START with a skeleton that waits on the chamber
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1237-the-config-compiles-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 12.37 — The config-compiles check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 12
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-12-software-pi-os-image-klippermoonrakermainsail-firmware-printercfg">Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg<a class="headerlink" href="#chapter-12-software-pi-os-image-klippermoonrakermainsail-firmware-printercfg" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/12-software/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a <code>printer.cfg</code> that is correct for a <strong>350 mm Rev D+</strong> — so that Ch 13 can power up a machine that already knows its own geometry.</p>
+<p><strong>What you're building in this chapter.</strong> The printer's software comes in layers, and keeping them apart makes everything below easier. <strong>Klipper</strong> is the firmware, and it is split in two: a <em>host</em> process on the Raspberry Pi that does all the planning and arithmetic, and a thin <em>MCU</em> firmware on each microcontroller — the Leviathan mainboard in the bay and the Nitehawk-SB V2 toolboard on the printhead — that does nothing but execute precisely timed pin changes. <strong>Moonraker</strong> is the API service sitting in front of Klipper so other programs can talk to it, and <strong>Mainsail</strong> (in a browser) and <strong>KlipperScreen</strong> (on the front panel) are two such programs — two windows onto the same machine. You will image the Pi with MainsailOS, which ships all of that pre-installed; compile and flash both MCU firmwares from the exact host version; and then write <strong><code>printer.cfg</code></strong>, the single text file that tells Klipper what this machine is — its pins, its 350 mm dimensions, its heaters, probe, fans and macros. Nothing moves and nothing heats until Ch 13.</p>
+<p><strong>Time:</strong> 2.0–3.0 h hands-on, first build (survey §7.2). Add ~30 min if you have to reinstall Katapult on either board.</p>
+<p><strong>Sessions:</strong> 9 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 10 — Electronics bay wiring</strong>, complete, with <strong>LDO Checkpoint #1 passed</strong> (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at <strong>Step 12.11</strong>, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.</li>
+<li>The Pi-side half (Steps 12.1–12.10) has <strong>no hardware prerequisite</strong> and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one").</li>
+<li><strong>Ch 11 Part A comes after this chapter's Part 2</strong>, not before: the bay stays open through Steps 12.11–12.37 (index rows 25–27). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.</li>
+<li><strong>Printed parts: none.</strong> No print batch gates this chapter.</li>
+<li>Do <strong>not</strong> start Ch 13 until Checkpoint 12 below passes.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Laptop with an SD card reader</li>
+<li>Raspberry Pi Imager (download from <a href="https://www.raspberrypi.com/software/">raspberrypi.com/software</a>)</li>
+<li>Ethernet cable (use wired for the flashing session; Wi-Fi is the fallback)</li>
+<li>USB cable, Pi ↔ Leviathan (supplied with the kit; connector type <code>(verify on bench)</code>)</li>
+<li>A USB-C 5 V/3 A supply if you are bench-doing the Pi half before the bay is live</li>
+</ul>
+<p><strong>Consumables:</strong> the supplied 32 GB microSD card. Nothing else.</p>
+<p><strong>Printed parts</strong></p>
+<table>
+<thead>
+<tr>
+<th>STL</th>
+<th>Qty</th>
+<th>Colour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hardware</strong> (chapter totals)</p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— none —</td>
+<td>0</td>
+<td>Software only. The Pi was fitted in Ch 09; the touchscreen module was built and its DSI ribbon latched at both ends at Ch 10 Step 10.50 (Ch 11 Steps 11.5–11.6 run from there); the module is bolted into the skirt ring at Ch 11 Step 11.7, after this chapter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Use <code>leviathan-printer-rev-d-sbv2.cfg</code>, never <code>leviathan-printer-rev-d.cfg</code>.</strong> The Rev D wiring guide links the wrong one. Every <code>nhk:</code> pin differs because the toolboard MCU changed family. Klipper checks every pin name against the board it is sent to, so the V1 file does not mis-drive anything — it refuses to start at Step 12.37 with <code>Pin 'gpio23' is not a valid pin name on mcu 'nhk'</code>. The one-line identity check is <code>grep -c gpio printer.cfg</code>: <strong>0</strong> on the V2 file, <strong>20</strong> on the V1 file (survey §4.1 ①).</li>
+<li><strong>The toolboard is an STM32G0B1, not an RP2040.</strong> The wiring guide's sentence <em>"The Nitehawk uses an RP2040 MCU"</em> is stale. Its USB ID will read <code>usb-Klipper_stm32g0b1xx_…</code>. Match on that string, not on <code>rp2040</code> (survey §4.1 ②).</li>
+<li><strong>The stock config ships with every build-size option commented out and no <code>[bed_mesh]</code> at all.</strong> Six separate places need the 350 mm lines uncommented, and the mesh section has to be written from scratch (survey §4.4 #15).</li>
+<li><strong>Confirm which Leviathan you have before you run <code>make menuconfig</code>.</strong> LDO shipped an <strong>STM32F446</strong> Leviathan (V1.1/V1.2) and later an <strong>STM32H743</strong> one (V1.3). Processor model, clock reference and bootloader offset all differ; the wrong combination produces firmware that will not run. Step 12.13 settles it from the board itself.</li>
+<li><strong>Nothing moves and nothing heats in this chapter.</strong> The chapter ends at "Klipper reports Ready with both MCUs connected". Homing, heaters, fans and motion are Ch 13.</li>
+</ul>
+<p><strong>Sources for this chapter:</strong></p>
+<ul>
+<li><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> at commit <code>667521d</code> — the config this chapter edits; every config step links the exact line range</li>
+<li><a href="https://www.klipper3d.org/Config_Reference.html">Klipper Config Reference</a>, <a href="https://www.klipper3d.org/G-Codes.html">G-Codes</a>, <a href="https://www.klipper3d.org/Installation.html">Installation</a> and <a href="https://www.klipper3d.org/Config_checks.html">Config checks</a></li>
+<li><a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">MainsailOS docs</a> (imaging, first boot) and <a href="https://docs.mainsail.xyz/configuration/mainsail-cfg/">Mainsail docs</a> (<code>mainsail.cfg</code>, error FAQ)</li>
+<li><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">Nitehawk-SB V2 board doc</a> — menuconfig, <code>make flash</code>, Katapult; repo images at commit <code>42ae497</code></li>
+<li><a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">LDO Leviathan V1.2 guide</a>, <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">Leviathan V1.3 guide</a> and the <a href="https://github.com/MotorDynamicsLab/Leviathan">Leviathan repo</a> — the contested MCU question in step 12.13</li>
+<li><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">LDO wiring guide § Software setup</a> and the <a href="https://docs.ldomotors.com/guides/klipper_id">LDO Klipper-ID guide</a></li>
+<li><a href="https://github.com/dw-0/kiauh">KIAUH</a>, <a href="https://klipperscreen.github.io/KlipperScreen/Installation/">KlipperScreen</a>, <a href="https://moonraker.readthedocs.io/en/latest/configuration/">Moonraker configuration</a></li>
+<li>Screenshots mirrored into <code>assets/remote/12-software/</code> from LDOVoron2 (<code>8270e8c</code>) and Nitehawk-SB-V2 (<code>42ae497</code>) — LDO Motors' work, mirrored with attribution for this non-commercial manual; see that folder's <code>SOURCES.txt</code></li>
+</ul>
+<p><strong>Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):</strong> <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=8700s">Part 8 @2:25:00</a> (+9m), <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=9200s">Part 8 @2:33:20</a> (+9m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3643s">Part 9 @1:00:43</a> (+5m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3913s">Part 9 @1:05:13</a> (+18m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=4948s">Part 9 @1:22:28</a> (+3m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5100s">Part 9 @1:25:00</a> (+5m), <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=9340s">Part 9 @2:35:40</a> (+14m), <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=845s">Extras! @0:14:05</a> (+26m), <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2730s">Extras! @0:45:30</a> (+3m), <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=2903s">Extras! @0:48:23</a> (+18m), <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=11429s">More Extras! @3:10:29</a> (+11m)</p>
+<hr>
+<h3 id="step-121-decide-where-you-are-doing-the-pi-half">Step 12.1 — Decide where you are doing the Pi half<a class="headerlink" href="#step-121-decide-where-you-are-doing-the-pi-half" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Raspberry Pi 4B is the printer's <strong>host</strong>: it runs the <a href="../16-glossary/#k">Klipper</a> motion planner, the web interface and the touchscreen, and feeds the two microcontroller boards precisely timed step commands.</p>
+<p><strong>Parts:</strong> none — Pi 4B, supplied 32 GB microSD, laptop, card reader.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Bay not yet wired: take the Pi off its mount and feed it from a USB-C 5 V/3 A supply.</li>
+<li>Checkpoint #1 passed: leave the Pi on the board and power the bay.</li>
+<li>Plug in Ethernet.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can identify the Pi's SD slot and its Ethernet port, and you have a way to power it that is not the printer's mains.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer". That is why this chapter is gated on Checkpoint #1 (survey §4.4 #8). <a href="https://github.com/MotorDynamicsLab/Leviathan">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">MainsailOS install docs</a> · <a href="https://github.com/MotorDynamicsLab/Leviathan">LDO Leviathan repo</a></p>
+<hr>
+<h3 id="step-122-write-mainsailos-with-raspberry-pi-imager">Step 12.2 — Write MainsailOS with Raspberry Pi Imager<a class="headerlink" href="#step-122-write-mainsailos-with-raspberry-pi-imager" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> MainsailOS is a ready-made Raspberry Pi disk image carrying the whole printer stack: <strong>Klipper</strong>, which runs the machine, <strong>Moonraker</strong>, the API service in front of it, and <a href="../16-glossary/#m"><strong>Mainsail</strong></a>, the web page you drive the printer from.</p>
+<p><strong>Parts:</strong> microSD 32 GB ×1, card reader ×1.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Insert the card, launch Raspberry Pi Imager, <strong>Choose Device</strong> → Raspberry Pi 4.</li>
+<li><strong>Choose OS</strong> → <strong>Other specific-purpose OS</strong> → <strong>3D printing</strong> → <strong>MainsailOS</strong> → <strong>64-bit</strong>.</li>
+<li><strong>Choose Storage</strong> → the SD card; read the description twice.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The summary line names your Pi model, MainsailOS 64-bit, and the correct removable drive.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO's wiring guide tells you to install <strong>Raspberry Pi OS Lite (32-bit)</strong> and add Klipper/Moonraker/Mainsail with KIAUH. MainsailOS ships those plus Crowsnest, Sonar, Timelapse and the input-shaper dependencies, pre-wired: same end state, four fewer passes. Take the MainsailOS path; you need KIAUH in Step 12.8 for KlipperScreen, which MainsailOS does <strong>not</strong> include. <a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">src</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">MainsailOS install docs</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">LDO wiring guide § Software setup</a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=9103s">Video: Part 8 @2:31:43</a></p>
+<hr>
+<h3 id="step-123-fill-in-the-imager-customisation">Step 12.3 — Fill in the Imager customisation<a class="headerlink" href="#step-123-fill-in-the-imager-customisation" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Imager's customisation pages write settings into the image before it boots, so the Pi comes up already named, on the network and reachable over SSH. The hostname you choose here is the address you type for the rest of the build.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><strong>Hostname</strong>: <code>voron</code> gives you <code>http://voron.local</code>. <strong>Localisation</strong>: your timezone.</li>
+<li><strong>User</strong>: a username and a real password, never the <code>pi</code>/<code>raspberry</code> default. <strong>Wi-Fi</strong>: SSID and password.</li>
+<li><strong>Remote access</strong>: enable SSH. Write, confirming the erase prompt.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Imager reports a successful write and verify. Eject the card.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>set both Wi-Fi <em>and</em> plug in Ethernet. Wi-Fi is the long-term link; Ethernet is what you fall back to when Wi-Fi is the thing that broke. <a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs-os.mainsail.xyz/getting-started/raspberry-pi/">MainsailOS install docs</a> · <a href="https://www.youtube.com/watch?v=Q3Q1szaFfSE&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=8716s">Video: Part 8 @2:25:16</a></p>
+<hr>
+<h3 id="step-124-first-boot">Step 12.4 — First boot<a class="headerlink" href="#step-124-first-boot" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> On its first boot the image expands itself to fill the card, which is why this takes minutes rather than seconds. The DHCP reservation pins the Pi's address in your router so it cannot move later and break every link you have written down.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Put the card in the Pi, connect Ethernet, power on and leave it alone. First boot expands the filesystem, up to five minutes. Watch the green activity LED: occasional flickers mean it is done.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>ping voron.local</code> answers, with your own hostname. If the <code>.local</code> name does not resolve, find the Pi's IP in your router's DHCP table.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Give the Pi a DHCP reservation in your router now, before you paste its address into anything.</p>
+</div>
+<p class="src">Source: <a href="https://docs-os.mainsail.xyz/getting-started/first-boot/">MainsailOS first boot</a></p>
+<hr>
+<h3 id="step-125-reach-mainsail-and-open-an-ssh-session">Step 12.5 — Reach Mainsail and open an SSH session<a class="headerlink" href="#step-125-reach-mainsail-and-open-an-ssh-session" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/ldo-revd-mainsail-machine-page.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO: Mainsail Machine page" src="../assets/remote/12-software/ldo-revd-mainsail-machine-page.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is Mainsail's <strong>Machine</strong> page, the file manager and settings view where every config file in this chapter gets edited. The error on first load is expected: MainsailOS ships no <code>printer.cfg</code>. SSH gives you the same machine as a command line.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Open <code>http://voron.local</code> in a browser. Mainsail loads and reports a Klipper error: <em>"Unable to open config file printer.cfg"</em>. That is expected; MainsailOS ships no <code>printer.cfg</code>. In a terminal, <code>ssh &lt;youruser&gt;@voron.local</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Mainsail's UI renders, the error names the missing <code>printer.cfg</code>, and your SSH session lands at a shell prompt.</p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_machine.png">LDO Rev D photo, Mainsail Machine page</a> · <a href="https://docs-os.mainsail.xyz/getting-started/first-boot/">MainsailOS first boot</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=3964s">Video: Part 9 @1:06:04</a></p>
+<hr>
+<h3 id="step-126-update-everything-before-you-touch-anything-else">Step 12.6 — Update everything before you touch anything else<a class="headerlink" href="#step-126-update-everything-before-you-touch-anything-else" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The Update Manager is Moonraker's package updater, shown inside Mainsail. It runs now rather than later because each MCU's firmware has to be compiled from exactly the Klipper version the host ends up on.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In Mainsail go to <strong>Machine</strong> → <strong>Update Manager</strong>, bottom right, and click <strong>Update all components</strong>. Let it finish, including the system packages. Reboot if it asks.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every row in the Update Manager reads up to date.</p>
+</div>
+<p><strong>Why now:</strong> the version of Klipper you end up with here is the version you must build MCU firmware from in Steps 12.14 and 12.17. Update first, then flash — do it the other way round and you will re-flash both boards after the first update. <a href="https://docs-os.mainsail.xyz/getting-started/first-boot/">src</a></p>
+<p class="src">Source: <a href="https://docs-os.mainsail.xyz/getting-started/first-boot/">MainsailOS first boot</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1081s">Video: Extras! @0:18:01</a> (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)</p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on <code>voron.local</code>, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.</p>
+</div>
+<hr>
+<h3 id="step-127-record-the-klipper-version-you-are-building-against">Step 12.7 — Record the Klipper version you are building against<a class="headerlink" href="#step-127-record-the-klipper-version-you-are-building-against" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Klipper is two halves that must match: a host process on the Pi and a small firmware on each microcontroller. <code>git describe</code> prints the exact commit the host half is at, and both firmware builds must come from this working copy.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In SSH:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/klipper<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>describe<span class="w"> </span>--tags<span class="w"> </span>--always<span class="w"> </span>--dirty
+</code></pre></div>
+<p>Write the string down (or paste it into your build notes). Both MCUs must be flashed from this exact working copy.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You have one version string, and <code>ls ~/printer_data/config/</code> shows <code>mainsail.cfg</code> and <code>moonraker.conf</code> but no <code>printer.cfg</code>.</p>
+</div>
+<p><strong>Why:</strong> if the host Klipper and an MCU's firmware were built from different commits, Klipper aborts at connect with a <em>Command format mismatch</em> error naming the offending MCU. <a href="https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/">src</a></p>
+<p class="src">Source: <a href="https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/">Mainsail FAQ — command format mismatch</a> · <a href="https://www.klipper3d.org/Installation.html">Klipper docs § Installation</a></p>
+<hr>
+<h3 id="step-128-install-kiauh">Step 12.8 — Install KIAUH<a class="headerlink" href="#step-128-install-kiauh" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#k">KIAUH</a>, the Klipper Installation And Update Helper, is a menu-driven installer for the Klipper ecosystem. MainsailOS has already installed everything it offers except KlipperScreen, so it is here for exactly one job. </p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In SSH:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>-y
+<span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dw-0/kiauh.git
+./kiauh/kiauh.sh
+</code></pre></div>
+<p>You land in KIAUH's main menu. Do <strong>not</strong> use it to install Klipper, Moonraker or Mainsail — MainsailOS already has them, and a second install will fight the first.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>KIAUH's status panel shows Klipper, Moonraker and Mainsail as already installed, and KlipperScreen as not installed.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/dw-0/kiauh">KIAUH README</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5408s">Video: Extras! @1:30:08</a></p>
+<hr>
+<h3 id="step-129-install-klipperscreen">Step 12.9 — Install KlipperScreen<a class="headerlink" href="#step-129-install-klipperscreen" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/KIAUH_install_opt.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="KIAUH's Installation menu — option 5 is KlipperScreen" src="../assets/remote/12-software/KIAUH_install_opt.png"></a></p>
+<p><strong>What you're looking at:</strong> KlipperScreen is the touchscreen front end: the same printer, driven from the 4.3" panel instead of a browser. It installs into its own Python environment and runs as a service alongside Mainsail. The screenshot is KIAUH's Installation menu, where it is option 5.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>From KIAUH's main menu choose <strong>Install</strong> → <strong>KlipperScreen</strong> and let it run.</li>
+<li>Confirm Moonraker gained an <code>[update_manager KlipperScreen]</code> block in <code>~/printer_data/config/moonraker.conf</code>.</li>
+<li>If not, add it by hand from the KlipperScreen install docs and restart Moonraker.</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>systemctl status KlipperScreen</code> shows the unit loaded. It will not display anything useful yet: there is no <code>printer.cfg</code>.</p>
+</div>
+<p class="src">Source: <a href="https://klipperscreen.github.io/KlipperScreen/Installation/">KlipperScreen installation</a> · <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide">LDO BTT 4.3" screen guide</a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/KIAUH_install_opt.png">LDO wiring photo KIAUH_install_opt.png</a></p>
+<hr>
+<h3 id="step-1210-bring-up-the-dsi-panel-and-rotate-it">Step 12.10 — Bring up the DSI panel and rotate it<a class="headerlink" href="#step-1210-bring-up-the-dsi-panel-and-rotate-it" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> DSI is the Raspberry Pi's native display connection, what the panel's flat ribbon plugs into; <code>/sys/class/drm/</code> is where the kernel reports the displays it can see. Rotation goes in the kernel command line because the current driver ignores the older config-file setting.</p>
+<p><strong>Parts:</strong> none on the bench. The 4.3" DSI touchscreen and its FFC ribbon are connected in Ch 10 and Ch 11 — nothing is plugged in here.</p>
+<p><strong>Do:</strong> Two edits now, with the Pi still on the bench. First, confirm <code>display_auto_detect=1</code> is present in <code>/boot/firmware/config.txt</code>; add it if missing. Second, <code>sudo nano /boot/firmware/cmdline.txt</code> and append to the single existing line, no line breaks:</p>
+<div class="highlight"><pre><span></span><code>video=DSI-1:800x480@60,rotate=180
+</code></pre></div>
+<p>Reboot. Valid rotations are 0, 90, 180, 270. LDO's mount hangs the panel 180° from the Pi's default. Then, <strong>at Step 12.11</strong>, with the bay powered and the ribbon latched at both ends, confirm the kernel sees the panel:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-H<span class="w"> </span>.<span class="w"> </span>/sys/class/drm/card*-*/status<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:connected
+</code></pre></div>
+<p>You should get a line containing <code>DSI-1</code>. No <code>DSI-1</code> at all: power off and check the ribbon first (both latches closed, contacts up at the screen and forward at the Pi), then <code>display_auto_detect=1</code> again; if both are right and the panel is still absent, add a line <code>dtoverlay=vc4-kms-dsi-7inch</code> to <code>config.txt</code> and reboot. If the picture is upside down for how the module is mounted, change <code>rotate=180</code> to <code>rotate=0</code> and reboot.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>On the bench: <code>config.txt</code> carries <code>display_auto_detect=1</code>, <code>cmdline.txt</code> carries the <code>video=</code> line, the Pi still boots. At 12.11: <code>/sys/class/drm/...DSI-1/status:connected</code>, console the right way up, touch following your finger.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> LDO's touchscreen guide tells you to edit <code>/boot/config.txt</code>, comment out <code>dtoverlay=vc4-fkms-v3d</code> and set <code>display_lcd_rotate=2</code>. That is the <strong>legacy fake-KMS path</strong>. MainsailOS 3.x is built on a current Raspberry Pi OS: the boot partition is mounted at <strong><code>/boot/firmware/</code></strong>, and the display stack is full KMS (<code>vc4-kms-v3d</code>), where <code>display_lcd_rotate</code> does nothing. Use the <code>cmdline.txt</code> method above. <a href="https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/">src</a> · <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide">src</a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if the touch axes end up rotated relative to the picture, that is a separate fix — see KlipperScreen's touch-rotation matrix page, not the display rotation above. <a href="https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/">KlipperScreen rotation</a> · <a href="https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/">KlipperScreen touch issues</a> · <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide">LDO BTT 4.3" screen guide</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.</p>
+</div>
+<hr>
+<h3 id="step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">Step 12.11 — Gate: power the bay and confirm both MCUs enumerate<a class="headerlink" href="#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> An <strong>MCU</strong> is a microcontroller, a processor board that turns Klipper's commands into pin signals. Two here: the <a href="../16-glossary/#l">Leviathan</a> mainboard and the <a href="../16-glossary/#n">Nitehawk-SB V2</a> toolboard. <code>lsusb</code> proves both are alive. This is the <strong>first time the boards, drivers and heater outputs are energised</strong>.</p>
+<p><strong>Parts:</strong> C13 power cord ×1; fire extinguisher within arm's reach.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li><strong>Stop unless LDO Checkpoint #1 has passed.</strong> Clear tools from the bay.</li>
+<li>Two people, hands out: cord into the inlet, then the wall.</li>
+<li>Stand aside, hand on the rocker, switch on ten seconds, then over SSH:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>lsusb
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Every row below true in ten seconds; anything wrong, switch off and return to Ch 10. Then <code>lsusb</code> lists two <code>ID 1d50:614e</code> devices plus the Nitehawk hub.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Watch</th>
+<th>What is right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSU</td>
+<td>green LED lit</td>
+</tr>
+<tr>
+<td>Pi</td>
+<td>red PWR lit, green ACT flickering as it boots</td>
+</tr>
+<tr>
+<td>Toolboard</td>
+<td><strong>3V3</strong> and <strong>24V</strong> LEDs lit, unless the toolhead cover hides them</td>
+</tr>
+<tr>
+<td>4.3" panel</td>
+<td>lights, and KlipperScreen comes up the right way up</td>
+</tr>
+<tr>
+<td>Sound, smell</td>
+<td>no click-cycling, no buzz, no hot smell</td>
+</tr>
+<tr>
+<td>A minute on</td>
+<td>no stepper hot, nothing warm to the touch</td>
+</tr>
+</tbody>
+</table>
+<p>No picture on the panel at all means switch off and check the ribbon's two latches before anything else. The text after the USB ID reads <code>Klipper 3d-Printer Firmware</code> or an MCU name such as <code>stm32f446xx</code>, depending on the Pi's USB ID database; match on <code>1d50:614e</code>. The Nitehawk's onboard USB hub is a separate hub device, normal on V2 and the "+" feature. Klipper has <strong>no config yet</strong>, so no heater or motor can be commanded by software: anything warming up now is a wiring fault, not a setting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the Nitehawk-SB V2 adds a <strong>USB hub and a secondary USB port</strong> the V1 lacks, so expect one more device than any Rev D photo shows. The machine now stays powered with the bay open through the flashing steps, the one time this is allowed: to touch anything in the bay, switch off first. <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">LDO wiring guide § Software setup</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint 1</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497">Nitehawk-SB-V2 repo</a> · <a href="../10-wiring/#step-1023-first-power-on-then-off-again">Ch 10 Step 10.23</a> · <a href="../00a-mains-safety/">Ch 00a Step 00a.11</a></p>
+<hr>
+<h3 id="step-1212-read-the-two-serial-ids-and-work-out-which-is-which">Step 12.12 — Read the two serial IDs and work out which is which<a class="headerlink" href="#step-1212-read-the-two-serial-ids-and-work-out-which-is-which" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/ldo-revd-serial-by-id-output.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO: ls /dev/serial/by-id output" src="../assets/remote/12-software/ldo-revd-serial-by-id-output.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is <code>ls /dev/serial/by-id/</code>, Linux's stable naming for USB serial devices. Each entry carries the MCU family and that chip's unique id, so a board keeps the same path across reboots. These two strings go into <code>printer.cfg</code> and tell Klipper which board is which.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/dev/serial/by-id/
+</code></pre></div>
+<p>Copy both lines into a scratch file. Identify them by MCU family, not by order:</p>
+<table>
+<thead>
+<tr>
+<th>Board</th>
+<th>Expected ID substring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leviathan V1.1 / V1.2 mainboard</td>
+<td><code>usb-Klipper_stm32f446xx_…-if00</code></td>
+</tr>
+<tr>
+<td>Leviathan V1.3 mainboard</td>
+<td><code>usb-Klipper_stm32h743xx_…-if00</code></td>
+</tr>
+<tr>
+<td><strong>Nitehawk-SB V2 toolboard</strong></td>
+<td><strong><code>usb-Klipper_stm32g0b1xx_…-if00</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>If you are unsure, unplug one board's USB, re-run the command, and see which line disappears. Mainsail's <strong>Machine</strong> → open a config file → <strong>DEVICES</strong> → <strong>SERIAL</strong> → <strong>REFRESH</strong> shows the same list under <em>Path by ID</em>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Exactly two Klipper devices, one toolboard <code>stm32g0b1xx</code> and one mainboard <code>stm32f446xx</code> or <code>stm32h743xx</code>, and you know which physical board each belongs to.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the wiring guide states the toolboard ID will look like <code>usb-Klipper_rp2040_…</code>. <strong>It will not.</strong> Rev D+ ships the STM32G0B1 Nitehawk-SB V2. Matching <code>rp2040</code> assigns the <em>mainboard's</em> ID to <code>[mcu nhk]</code> or finds nothing (survey §4.1 ②). The guide also writes <code>stmf446xx</code>; the real string is <code>stm32f446xx</code>. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">src</a> · <a href="https://docs.ldomotors.com/guides/klipper_id">src</a> · <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">src</a></p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/serial_by_id_output.png">LDO Rev D photo, <code>ls /dev/serial/by-id</code> output</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards">LDO wiring guide § Determining the USB ID of your mainboard and toolboards</a> · <a href="https://docs.ldomotors.com/guides/klipper_id">LDO Klipper-ID guide</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=1478s">Video: Extras! @0:24:38</a> (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)</p>
+<hr>
+<h3 id="step-1213-identify-your-leviathan-revision-before-you-build-anything">Step 12.13 — Identify your Leviathan revision before you build anything<a class="headerlink" href="#step-1213-identify-your-leviathan-revision-before-you-build-anything" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Silkscreen is the printed lettering on the board itself. Which processor your Leviathan carries decides three fields of the firmware build: processor model, crystal frequency and where in flash the firmware starts. LDO's own documents disagree, so the board is the only authority.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Read the revision printed on the mainboard silkscreen, and cross-check it against the ID you just read. They must agree:</p>
+<table>
+<thead>
+<tr>
+<th>Silkscreen</th>
+<th>MCU</th>
+<th>Klipper/Katapult clock</th>
+<th>Bootloader offset</th>
+<th>Serial ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leviathan <strong>V1.1 / V1.2</strong></td>
+<td>STM32F446</td>
+<td>12 MHz crystal</td>
+<td><strong>32 KiB</strong></td>
+<td><code>stm32f446xx</code></td>
+</tr>
+<tr>
+<td>Leviathan <strong>V1.3</strong></td>
+<td>STM32H743</td>
+<td>25 MHz crystal</td>
+<td><strong>128 KiB</strong></td>
+<td><code>stm32h743xx</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use the row that matches <em>your</em> board in Step 12.14. If the silkscreen and the serial ID disagree, trust the serial ID and stop to ask in <code>#ldo_motors</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You have written down one MCU model, one clock reference and one offset, and you are not going to look at the other row again.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> do not resolve this from paperwork. The Rev D wiring guide and the kit config header both say <strong>STM32F446 / Leviathan V1.1</strong>; the Leviathan repo README was changed on 2025-10-30 from <em>"STM32F446"</em> to <em>"STM32H743"</em>, and LDO publishes two setup guides with different menuconfig values. The board itself is the only authority. <a href="https://github.com/MotorDynamicsLab/Leviathan">src</a> · <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">src</a> · <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/Leviathan">LDO Leviathan repo</a> · <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">LDO Leviathan V1.2 guide</a> · <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 guide</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>the bay has been powered once, both MCUs enumerate on <code>/dev/serial/by-id/</code>, both IDs are written down, and you have read the Leviathan's own silkscreen. <strong>Nothing has been flashed yet.</strong> Do not start a firmware build you cannot finish and flash in the same sitting.</p>
+</div>
+<hr>
+<h3 id="step-1214-build-klipper-firmware-for-the-leviathan">Step 12.14 — Build Klipper firmware for the Leviathan<a class="headerlink" href="#step-1214-build-klipper-firmware-for-the-leviathan" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>make menuconfig</code> is a text-mode settings screen for the firmware build; it produces <code>out/klipper.bin</code>, the binary the mainboard will run. The bootloader offset is the field that bites: it tells the firmware to start further into flash and leave the first few kilobytes to the bootloader.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Stop Klipper so it releases the serial ports, then configure. <code>KCONFIG_CONFIG=</code> keeps this board's settings in <code>~/klipper/config.leviathan</code> instead of the shared <code>.config</code>, so the toolboard build cannot overwrite them:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>klipper
+<span class="nb">cd</span><span class="w"> </span>~/klipper
+make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.leviathan<span class="w"> </span>menuconfig
+</code></pre></div>
+<p>Set, for an <strong>F446 (V1.1/V1.2)</strong> board — the first line first, because <code>Clock Reference</code> only appears once it is ticked:</p>
+<div class="highlight"><pre><span></span><code>[*] Enable extra low-level configuration options
+    Micro-controller Architecture: STMicroelectronics STM32
+    Processor model:               STM32F446
+    Bootloader offset:             32KiB bootloader
+    Clock Reference:               12 MHz crystal
+    Communication interface:       USB (on PA11/PA12)
+</code></pre></div>
+<p>or, for an <strong>H743 (V1.3)</strong> board:</p>
+<div class="highlight"><pre><span></span><code>[*] Enable extra low-level configuration options
+    Micro-controller Architecture: STMicroelectronics STM32
+    Processor model:               STM32H743
+    Bootloader offset:             128KiB bootloader
+    Clock Reference:               25 MHz crystal
+    Communication interface:       USB (on PA11/PA12)
+</code></pre></div>
+<p><code>Q</code> to quit, <code>Y</code> to save. Then:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.leviathan<span class="w"> </span>clean
+make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.leviathan
+cp<span class="w"> </span>config.leviathan<span class="w"> </span>~/printer_data/config/
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The screen shows <code>Clock Reference (12 MHz crystal)</code> or <code>25 MHz</code> before you save. The build ends with <code>Creating hex file out/klipper.bin</code>, and <code>config.leviathan</code> sits beside <code>printer.cfg</code> in Mainsail.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the bootloader offset is dangerous: build with <strong>no</strong> offset and the Katapult flash wipes the bootloader, recoverable only through DFU at Step 12.16. The clock is the sneaky one: a wrong clock or processor flashes cleanly, then the board never returns as <code>usb-Klipper_…</code>. Double-click SW1 for <code>usb-katapult_…</code>, fix menuconfig, rebuild, re-flash. <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">src</a> · <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">src</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/src/stm32/Kconfig#L351">src</a></p>
+</div>
+<p class="src">Source: <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">LDO Leviathan V1.2 guide</a> · <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">LDO Leviathan V1.3 guide</a> · <a href="https://www.klipper3d.org/Installation.html#building-and-flashing-the-micro-controller">Klipper docs § Building and flashing the micro-controller</a></p>
+<hr>
+<h3 id="step-1215-flash-the-leviathan-through-katapult">Step 12.15 — Flash the Leviathan through Katapult<a class="headerlink" href="#step-1215-flash-the-leviathan-through-katapult" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#k">Katapult</a> is the bootloader already on the board: a small program that runs first at power-up and can overwrite the main firmware over USB. Double-clicking RESET makes it stay there instead of handing control to Klipper, and the board re-appears as <code>usb-katapult_…</code>.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> The Leviathan ships with Katapult and Klipper already installed, so you normally never touch DFU. Put it into the bootloader by <strong>double-clicking SW1, the RESET button, quickly</strong>, then confirm and flash:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/serial/by-id/*
+<span class="c1"># expect a line containing:  usb-katapult_stm32f446xx_&lt;id&gt;-if00   (or stm32h743xx)</span>
+
+virtualenv<span class="w"> </span>-p<span class="w"> </span>python3<span class="w"> </span>~/katapult-env<span class="w">      </span><span class="c1"># "command not found"? use: python3 -m venv ~/katapult-env</span>
+~/katapult-env/bin/pip3<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span>greenlet<span class="w"> </span>cffi<span class="w"> </span>python-can<span class="w"> </span>aenum
+<span class="nb">test</span><span class="w"> </span>-e<span class="w"> </span>~/katapult<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>~/katapult<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull<span class="o">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Arksine/katapult<span class="o">)</span>
+
+~/katapult-env/bin/python3<span class="w"> </span>~/katapult/scripts/flashtool.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span>/dev/serial/by-id/usb-katapult_stm32f446xx_&lt;id&gt;-if00<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-f<span class="w"> </span>~/klipper/out/klipper.bin
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The tool ends <code>Verification Complete: SHA = &lt;id&gt;</code> then <code>Flash Success</code>, the status LED goes out, and <code>usb-Klipper_stm32f446xx_&lt;id&gt;-if00</code> is back. Restart Klipper with <code>sudo systemctl start klipper</code>.</p>
+</div>
+<p>The <code>&lt;id&gt;</code> is the MCU's, not the firmware's, so it is the same as before. <code>Flash Success</code> but no <code>usb-Klipper_…</code> line after 30 s: the menuconfig clock or processor was wrong (Step 12.14's Rev D+ callout). Katapult is intact, so double-click SW1 and go back to 12.14; do <strong>not</strong> go to 12.16.</p>
+<p class="src">Source: <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">LDO Leviathan V1.2 guide</a></p>
+<hr>
+<h3 id="step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu">Step 12.16 — Recovery only: reinstall Katapult on the Leviathan over DFU<a class="headerlink" href="#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#d">DFU</a> is the USB bootloader baked into the STM32 chip at the factory. It cannot be erased, which makes it the recovery route when Katapult itself has been overwritten; holding the two buttons in that order forces the chip into it and <code>dfu-util</code> writes Katapult back.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Skip this step unless the double-click of SW1 found no <code>usb-katapult_…</code> device. If you must: disconnect every other USB device from the Pi, press <strong>SW2 and SW1 together, release SW1 first, then SW2</strong>, and confirm <code>lsusb</code> shows <code>ID 0483:df11 STMicroelectronics STM Device in DFU Mode</code>. Then build Katapult:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dfu-util
+<span class="nb">cd</span><span class="w"> </span>~/katapult
+make<span class="w"> </span>menuconfig
+</code></pre></div>
+<p>with the same processor/clock/offset row you wrote down — <code>Micro-controller Architecture: STMicroelectronics STM32</code>, <code>Processor model</code>, <code>Clock Reference</code> (tick <em>Enable extra low-level configuration options</em> first if the line is absent), <code>Application start offset</code> = the offset you wrote down, <code>Communication interface: USB (on PA11/PA12)</code>, <em>Support bootloader entry on rapid double click of reset button</em>, <em>Enable Status LED</em>, <code>Status LED GPIO Pin: PE1</code>. <code>Q</code>, <code>Y</code>, then flash it:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make
+sudo<span class="w"> </span>dfu-util<span class="w"> </span>-d<span class="w"> </span><span class="m">0483</span>:df11<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-s<span class="w"> </span>0x08000000:mass-erase:force<span class="w"> </span>-D<span class="w"> </span>out/katapult.bin
+</code></pre></div>
+<p>Then go back to Step 12.14.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>after a press of SW1, <code>lsusb</code> shows <code>ID 1d50:6177 OpenMoko, Inc. stm32f446xx</code> and <code>/dev/serial/by-id/</code> gains a <code>usb-katapult_…</code> entry.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">`mass-erase</p>
+<p>force` wipes the board.** It removes Klipper too, so you must build and flash again afterwards or the mainboard will not enumerate as a Klipper device at all. <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">src</a></p>
+</div>
+<p class="src">Source: <a href="https://ldomotion.com/p/guide/VORON-Leviathan-V12">LDO Leviathan V1.2 guide</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between <code>make</code> and the flash: <code>out/</code> is shared between the two boards, so a built binary that never reaches its board is rebuilt from <code>config.leviathan</code> before you go on — one <code>make</code>, but do it before touching the toolboard.</p>
+</div>
+<hr>
+<h3 id="step-1217-build-klipper-firmware-for-the-nitehawk-sb-v2">Step 12.17 — Build Klipper firmware for the Nitehawk-SB V2<a class="headerlink" href="#step-1217-build-klipper-firmware-for-the-nitehawk-sb-v2" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Nitehawk-SB V2 make menuconfig settings" src="../assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png"></a></p>
+<p><strong>What you're looking at:</strong> The screenshot is LDO's own <code>make menuconfig</code> screen for the toolboard: the same tool as step 12.14, but a different chip, offset and clock. The <code>!PC6</code> entry drives the ACT LED pin low at MCU start-up, which LDO documents as the LED coming on <strong>(verify on bench)</strong>.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Same pattern as 12.14, with the toolboard's own settings file:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>klipper
+<span class="nb">cd</span><span class="w"> </span>~/klipper
+make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.nitehawk<span class="w"> </span>menuconfig
+</code></pre></div>
+<p>Set exactly:</p>
+<div class="highlight"><pre><span></span><code>[*] Enable extra low-level configuration options
+    Micro-controller Architecture: STMicroelectronics STM32
+    Processor model:               STM32G0B1
+    Bootloader offset:             8KiB bootloader
+    Clock Reference:               12 MHz crystal
+    Communication interface:       USB (on PA11/PA12)
+[*] Optimize stepper code for 'step on both edges'
+    (!PC6) GPIO pins to set at micro-controller startup
+</code></pre></div>
+<p><code>Q</code>, <code>Y</code>, then:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.nitehawk<span class="w"> </span>clean
+make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.nitehawk
+cp<span class="w"> </span>config.nitehawk<span class="w"> </span>~/printer_data/config/
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>~/klipper/out/klipper.bin</code> exists and is newer than the Leviathan build you just flashed, and the screen showed <code>Clock Reference (12 MHz crystal)</code> before you saved.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> this is the deviation that defines Rev D+. The Nitehawk-SB <strong>V1</strong> is an RP2040 and takes a different menuconfig; the <strong>V2</strong> is an STM32G0B1, and choosing RP2040 produces a binary the board cannot run. The <strong>8 KiB bootloader offset is mandatory</strong>: build with no offset and the Katapult flash erases the bootloader. <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">src</a> · <a href="../assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png">menuconfig screenshot</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the ACT LED: <code>!PC6</code> turns it on at MCU start-up, but the kit config's <code>[output_pin pcb_led] pin: !nhk:PC6</code> with default <code>value: 0</code> may drive the pin the other way once Klipper connects, so the LED could go <strong>dark</strong> at <code>Ready</code> <strong>(verify on bench)</strong>. LDO's own <code>nitehawk-sbv2.cfg</code> uses <code>pin: nhk:PC6</code>; drop the <code>!</code> if you want it lit. <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#compiling-klipper-firmware">Nitehawk-SB V2 doc § Compiling Klipper firmware</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/make_menuconfig.png">Nitehawk-SB-V2 <code>make_menuconfig.png</code></a></p>
+<hr>
+<h3 id="step-1218-flash-the-nitehawk-with-make-flash">Step 12.18 — Flash the Nitehawk with <code>make flash</code><a class="headerlink" href="#step-1218-flash-the-nitehawk-with-make-flash" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>make flash</code> builds nothing new; it hands the binary you just compiled to the board's Katapult bootloader over the serial path you name. Same operation as step 12.15, wrapped up so no buttons are involved.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> The recommended path needs no buttons at all:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/klipper
+sudo<span class="w"> </span>service<span class="w"> </span>klipper<span class="w"> </span>stop
+make<span class="w"> </span><span class="nv">KCONFIG_CONFIG</span><span class="o">=</span>config.nitehawk<span class="w"> </span>flash<span class="w"> </span><span class="nv">FLASH_DEVICE</span><span class="o">=</span>/dev/serial/by-id/usb-Klipper_stm32g0b1xx_&lt;id&gt;-if00
+sudo<span class="w"> </span>service<span class="w"> </span>klipper<span class="w"> </span>start
+</code></pre></div>
+<p>Use the <code>stm32g0b1xx</code> ID you recorded in Step 12.12. (Every future toolboard update is this same line after <code>make KCONFIG_CONFIG=config.nitehawk</code>; the Leviathan's is its own <code>flashtool.py</code> line after <code>make KCONFIG_CONFIG=config.leviathan</code>.)</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>the flash completes without error, and <code>ls /dev/serial/by-id/</code> still shows <code>usb-Klipper_stm32g0b1xx_&lt;id&gt;-if00</code>. If the board does not come back, reboot the printer before assuming anything is broken.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#uploading-klipper-via-make-flash">Nitehawk-SB V2 doc § Uploading Klipper via make flash</a></p>
+<hr>
+<h3 id="step-1219-fallback-flash-the-nitehawk-through-katapult">Step 12.19 — Fallback: flash the Nitehawk through Katapult<a class="headerlink" href="#step-1219-fallback-flash-the-nitehawk-through-katapult" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/nitehawk-sb-v2-reset-boot-buttons.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Nitehawk-SB V2 RESET and BOOT0 buttons and the five LEDs" src="../assets/remote/12-software/nitehawk-sb-v2-reset-boot-buttons.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/nitehawk-sb-v2-katapult-menuconfig.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Nitehawk-SB V2 Katapult make menuconfig settings" src="../assets/remote/12-software/nitehawk-sb-v2-katapult-menuconfig.png"></a></p>
+<p><strong>What you're looking at:</strong> The photo shows the toolboard's two buttons and five status LEDs. RESET restarts the chip; BOOT0 held across a reset forces the factory DFU bootloader instead. ACT, the fourth LED from the left, blinks slowly when Katapult is waiting for a flash.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Only if <code>make flash</code> failed. Move the toolhead to the front and open the cover so you can reach <strong>RESET</strong> and <strong>BOOT0</strong> and see the five LEDs: 3V3, 24V, HE0, ACT, HUB. <strong>Double-click RESET quickly</strong>; the ACT LED blinks slowly. Then:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/serial/by-id/
+<span class="c1"># expect: usb-katapult_stm32g0b1xx_&lt;id&gt;-if00</span>
+
+~/katapult-env/bin/python3<span class="w"> </span>~/katapult/scripts/flashtool.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span>/dev/serial/by-id/usb-katapult_stm32g0b1xx_&lt;id&gt;-if00
+</code></pre></div>
+<p>If there is no <code>usb-katapult_…</code> line, Katapult itself is missing: hold <strong>RESET and BOOT0</strong> together, release <strong>RESET</strong> first then <strong>BOOT0</strong>, confirm <code>lsusb</code> shows <code>ID 0483:df11 … STM Device in DFU mode</code>, then build Katapult:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dfu-util
+<span class="nb">cd</span><span class="w"> </span>~/katapult
+make<span class="w"> </span>menuconfig
+</code></pre></div>
+<p>with <code>Micro-controller Architecture STMicroelectronics STM32 / Processor model STM32G0B1 / Clock Reference 12 MHz crystal (tick "Enable extra low-level configuration options" first if the line is absent) / Communication interface USB (on PA11/PA12) / Application start offset 8KiB offset / Support bootloader entry on rapid double click of reset button / Enable Status LED / Status LED GPIO Pin (PC6)</code> — the second screenshot above — then <code>Q</code>, <code>Y</code> and:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make
+sudo<span class="w"> </span>dfu-util<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-s<span class="w"> </span>0x08000000:leave<span class="w"> </span>-D<span class="w"> </span>~/katapult/out/katapult.bin
+</code></pre></div>
+<p>Then repeat Steps 12.17–12.18.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>ACT blinks slowly in Katapult, and <code>usb-Klipper_stm32g0b1xx_&lt;id&gt;-if00</code> is back after flashing.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>Installing Katapult this way <strong>erases the Klipper firmware</strong>. You must re-flash Klipper afterwards. <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">src</a> · <a href="../assets/remote/12-software/nitehawk-sb-v2-reset-boot-buttons.jpg">button/LED photo</a> · <a href="../assets/remote/12-software/nitehawk-sb-v2-katapult-menuconfig.png">Katapult menuconfig screenshot</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#installing-the-katapult-bootloader">Nitehawk-SB V2 doc § Installing the Katapult bootloader</a> · <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#uploading-klipper-via-katapult">Nitehawk-SB V2 doc § Uploading Klipper via Katapult</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/reset_boot_buttons.jpg">Nitehawk-SB-V2 <code>reset_boot_buttons.jpg</code></a></p>
+<hr>
+<h3 id="step-1220-re-read-and-record-both-serial-paths">Step 12.20 — Re-read and record both serial paths<a class="headerlink" href="#step-1220-re-read-and-record-both-serial-paths" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> Both boards should now be back under their <code>usb-Klipper_…</code> names with no <code>usb-katapult_…</code> left; a board still showing katapult never actually received its firmware. Mainsail's <strong>Machine</strong> → <strong>DEVICES</strong> → <strong>SERIAL</strong> panel shows the same list from the browser.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/serial/by-id/
+</code></pre></div>
+<p>Copy both full paths — including the <code>-if00</code> suffix — somewhere you can paste from. You need them twice in the next few steps.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Exactly two lines, both containing <code>usb-Klipper_</code>, one <code>stm32g0b1xx</code> and one <code>stm32f446xx</code>/<code>stm32h743xx</code>. No <code>katapult</code> entries left.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If <code>ls /dev/serial/by-id/*</code> comes back empty on a machine that was working a moment ago, that is the first thing to investigate — a known <code>udev</code> failure mode on older Pi OS releases. On MainsailOS 3.x you should not hit it; if you do, check <code>dmesg | tail</code> for USB enumeration errors before touching the config (survey §4.3). <a href="https://docs.ldomotors.com/guides/klipper_id">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/guides/klipper_id">LDO Klipper-ID guide</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards">LDO wiring guide § Determining the USB ID of your mainboard and toolboards</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p>both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.</p>
+</div>
+<hr>
+<h3 id="step-1221-download-the-correct-config-file">Step 12.21 — Download the correct config file<a class="headerlink" href="#step-1221-download-the-correct-config-file" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/ldo-revd-mainsail-config-devices.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO: Mainsail config devices panel" src="../assets/remote/12-software/ldo-revd-mainsail-config-devices.png"></a></p>
+<p><strong>What you're looking at:</strong> <code>printer.cfg</code> is the single text file that describes this machine to Klipper: which pin drives which motor, what shape the bed is, what every heater, sensor and fan is. LDO publishes one per kit variant and the <code>-sbv2</code> suffix is the Rev D+ one.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Fetch <strong><code>leviathan-printer-rev-d-sbv2.cfg</code></strong> onto the Pi as <code>printer.cfg</code>, from the pinned commit. A GitHub page is not the file: "Save as" on the <code>blob/</code> page gives you HTML, so use the raw URL over SSH:</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-O<span class="w"> </span>~/printer_data/config/printer.cfg<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'nhk:PB8'</span><span class="w"> </span>~/printer_data/config/printer.cfg
+grep<span class="w"> </span>-c<span class="w"> </span>gpio<span class="w"> </span>~/printer_data/config/printer.cfg
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The first <code>grep</code> prints <strong>1</strong> and the second <strong>0</strong>, and the file appears as <code>printer.cfg</code> in Mainsail's <strong>Machine</strong> page.</p>
+</div>
+<p>A <code>0</code> then <code>20</code> means you fetched the Rev D (RP2040) file: re-run the <code>wget</code> with the <code>-sbv2</code> name.</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the Rev D wiring guide's "pre-made configuration file" link points at <code>leviathan-printer-rev-d.cfg</code>, the <strong>RP2040</strong> toolboard config: every <code>nhk:</code> pin in it is wrong for your board, and it defines a <code>[temperature_sensor nh_temp]</code> on a pin the V2 does not have. Do not add that section back (survey §4.1 ①, §4.3). <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md">src</a></p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png">LDO Rev D photo, Mainsail config devices</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md">LDOVoron2 <code>Firmware/README.md</code></a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=9354s">Video: Part 9 @2:35:54</a> (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)</p>
+<hr>
+<h3 id="step-1222-add-the-mainsail-include-at-the-top-of-printercfg">Step 12.22 — Add the Mainsail include at the top of <code>printer.cfg</code><a class="headerlink" href="#step-1222-add-the-mainsail-include-at-the-top-of-printercfg" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> An <code>[include]</code> line pulls another config file in at that point. <code>mainsail.cfg</code> is already on the card and supplies the sections and macros the web interface needs: virtual SD card, display status, pause, resume, cancel.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In Mainsail, <strong>Machine</strong> → open <code>printer.cfg</code> in the editor. It is already there under the right name, so no upload and no rename. Add one line at the very top, above the header comments:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[include mainsail.cfg]</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>printer.cfg</code> sits next to <code>mainsail.cfg</code> and <code>moonraker.conf</code> in the config list, and line 1 is the include.</p>
+</div>
+<p><strong>Why:</strong> Mainsail needs <code>[virtual_sdcard]</code>, <code>[display_status]</code>, <code>[pause_resume]</code> and the <code>PAUSE</code>/<code>RESUME</code>/<code>CANCEL_PRINT</code> macros. <code>mainsail.cfg</code> is already on the SD card and bundles all six. Do not edit <code>mainsail.cfg</code> itself — it is a read-only include; override it later with a <code>_CLIENT_VARIABLE</code> macro in <code>printer.cfg</code> if you need to. <a href="https://docs.mainsail.xyz/configuration/mainsail-cfg/">src</a></p>
+<p class="src">Source: <a href="https://docs.mainsail.xyz/configuration/mainsail-cfg/">Mainsail <code>mainsail.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L1-17"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1223-paste-the-two-serial-paths">Step 12.23 — Paste the two serial paths<a class="headerlink" href="#step-1223-paste-the-two-serial-paths" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>[mcu]</code> is the mainboard and <code>[mcu nhk]</code> is the toolboard; every pin starting <code>nhk:</code> is resolved against the second one. Klipper checks each pin name against the board it is sent to, so swapping the paths stops Klipper with a pin-name error rather than driving the wrong pins.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Replace both <code>{REPLACE WITH YOUR SERIAL}</code> placeholders. <code>[mcu]</code> is the <strong>mainboard</strong>; <code>[mcu nhk]</code> is the <strong>toolboard</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[mcu]</span>
+<span class="c1">##  Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+<span class="na">serial</span><span class="o">:</span><span class="w"> </span><span class="s">/dev/serial/by-id/usb-Klipper_stm32f446xx_XXXXXXXXXXXX-if00</span><span class="w">   </span><span class="c1"># CHANGED — Leviathan; stm32h743xx if V1.3</span>
+<span class="na">restart_method</span><span class="o">:</span><span class="w"> </span><span class="s">command</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+
+<span class="k">[mcu nhk]</span>
+<span class="c1">##  Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+<span class="na">serial</span><span class="o">:</span><span class="w"> </span><span class="s">/dev/serial/by-id/usb-Klipper_stm32g0b1xx_XXXXXXXXXXXX-if00</span><span class="w">   </span><span class="c1"># CHANGED — Nitehawk-SB V2, NOT rp2040</span>
+<span class="na">restart_method</span><span class="o">:</span><span class="w"> </span><span class="s">command</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>the two paths are different from each other, both start <code>/dev/serial/by-id/usb-Klipper_</code>, and both end <code>-if00</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> swapping these two is the most common Rev D+ mistake: the guide primes you to look for <code>rp2040</code>, and there isn't one. <code>[mcu nhk]</code> gets the <strong><code>stm32g0b1xx</code></strong> path. At Step 12.37: <code>Pin 'PG0' is not a valid pin name on mcu 'mcu'</code> means the two serial paths are swapped (the toolboard has no port G); <code>Pin 'gpio23' is not a valid pin name on mcu 'nhk'</code> means you loaded <code>leviathan-printer-rev-d.cfg</code>, not the <code>-sbv2</code> file. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">src</a> · <a href="https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L18-31"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#klipper-configuration">LDO wiring guide § Klipper configuration</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p><code>printer.cfg</code> is the <code>-sbv2</code> file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.</p>
+</div>
+<hr>
+<h3 id="step-1224-350-mm-stepper_x-and-stepper_y">Step 12.24 — 350 mm: <code>[stepper_x]</code> and <code>[stepper_y]</code><a class="headerlink" href="#step-1224-350-mm-stepper_x-and-stepper_y" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A <code>[stepper_x]</code> section describes one axis motor and its limit switch: how far one revolution moves the axis, how finely the driver subdivides a step, which pin the endstop is on, and where the axis ends. All three build sizes ship commented out.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In <strong>both</strong> <code>[stepper_x]</code> and <code>[stepper_y]</code>, uncomment the 350 pair and leave the 250 and 300 pairs commented. <code>[stepper_x]</code> after editing, with <code>[stepper_y]</code> identical below the header:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">##  B Stepper - Left</span>
+<span class="c1">##  Connected to HV STEPPER 0</span>
+<span class="c1">##  Endstop connected to X-ENDSTOP</span>
+<span class="k">[stepper_x]</span>
+<span class="na">step_pin</span><span class="o">:</span><span class="w"> </span><span class="s">PB10</span>
+<span class="na">dir_pin</span><span class="o">:</span><span class="w"> </span><span class="s">!PB11</span>
+<span class="na">enable_pin</span><span class="o">:</span><span class="w"> </span><span class="s">!PG0</span>
+<span class="na">rotation_distance</span><span class="o">:</span><span class="w"> </span><span class="s">40</span>
+<span class="na">microsteps</span><span class="o">:</span><span class="w"> </span><span class="s">32</span>
+<span class="na">full_steps_per_rotation</span><span class="o">:</span><span class="s">400</span><span class="w">  </span><span class="c1">#set to 200 for 1.8 degree stepper</span>
+<span class="na">endstop_pin</span><span class="o">:</span><span class="w"> </span><span class="s">PC1</span>
+<span class="na">position_min</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+
+<span class="c1">##  Uncomment below for 250mm build</span>
+<span class="c1">#position_endstop: 250</span>
+<span class="c1">#position_max: 250</span>
+
+<span class="c1">##  Uncomment for 300mm build</span>
+<span class="c1">#position_endstop: 300</span>
+<span class="c1">#position_max: 300</span>
+
+<span class="c1">##  Uncomment for 350mm build</span>
+<span class="na">position_endstop</span><span class="o">:</span><span class="w"> </span><span class="s">350</span><span class="w">        </span><span class="c1"># CHANGED — uncommented for 350</span>
+<span class="na">position_max</span><span class="o">:</span><span class="w"> </span><span class="s">350</span><span class="w">            </span><span class="c1"># CHANGED — uncommented for 350</span>
+
+<span class="c1">##--------------------------------------------------------------------</span>
+<span class="na">homing_speed</span><span class="o">:</span><span class="w"> </span><span class="s">25</span><span class="w">   </span><span class="c1">#Max 100</span>
+<span class="na">homing_retract_dist</span><span class="o">:</span><span class="w"> </span><span class="s">5</span>
+<span class="na">homing_positive_dir</span><span class="o">:</span><span class="w"> </span><span class="s">true</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Exactly two live <code>position_endstop</code>/<code>position_max</code> pairs in the file's X/Y sections, one per stepper.</p>
+</div>
+<p>Klipper's parser is non-strict: a second live <code>position_max</code> in the same section is silently accepted and the <em>last</em> one wins.</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the kit config ships with <strong>every</strong> build size commented out. This is the first of six places that need the 350 lines uncommented (survey §4.4 #15). <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#stepper">Klipper docs § stepper</a></p>
+<hr>
+<h3 id="step-1225-350-mm-stepper_z">Step 12.25 — 350 mm: <code>[stepper_z]</code><a class="headerlink" href="#step-1225-350-mm-stepper_z" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>position_max</code> is how high the gantry may be driven. It is 330 rather than 350 because the gantry runs out of frame before it runs out of nominal build volume. <code>position_endstop</code> here is a placeholder: Ch 13 measures the real value and <code>SAVE_CONFIG</code> writes it.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Uncomment the 350 line only. Z max is <strong>330</strong>, not 350: the gantry cannot reach the last 20 mm.</p>
+<div class="highlight"><pre><span></span><code><span class="na">position_endstop</span><span class="o">:</span><span class="w"> </span><span class="s">-0.5</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+
+<span class="c1">##  Uncomment below for 250mm build</span>
+<span class="c1">#position_max: 230</span>
+
+<span class="c1">##  Uncomment below for 300mm build</span>
+<span class="c1">#position_max: 280</span>
+
+<span class="c1">##  Uncomment below for 350mm build</span>
+<span class="na">position_max</span><span class="o">:</span><span class="w"> </span><span class="s">330</span><span class="w">            </span><span class="c1"># CHANGED — uncommented for 350</span>
+
+<span class="c1">##--------------------------------------------------------------------</span>
+<span class="na">position_min</span><span class="o">:</span><span class="w"> </span><span class="s">-5</span>
+<span class="na">homing_speed</span><span class="o">:</span><span class="w"> </span><span class="s">8</span>
+<span class="na">second_homing_speed</span><span class="o">:</span><span class="w"> </span><span class="s">3</span>
+<span class="na">homing_retract_dist</span><span class="o">:</span><span class="w"> </span><span class="s">3</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>position_max: 330</code> is live; <code>position_endstop: -0.5</code> is untouched, the placeholder <code>Z_ENDSTOP_CALIBRATE</code> overwrites in Ch 13 via <code>SAVE_CONFIG</code>.</p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L133-235"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#stepper">Klipper docs § stepper</a></p>
+<hr>
+<h3 id="step-1226-350-mm-quad_gantry_level">Step 12.26 — 350 mm: <code>[quad_gantry_level]</code><a class="headerlink" href="#step-1226-350-mm-quad_gantry_level" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#q">QGL</a>, quad gantry level, probes four points and drives each of the four Z motors independently until the gantry is parallel to the bed. <code>gantry_corners</code> says where the gantry's pivots are and <code>points</code> where to probe, both specific to a 350.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Uncomment the 350 <code>gantry_corners</code> and <code>points</code> blocks. Both keys need their continuation lines uncommented too, and the indentation must survive.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[quad_gantry_level]</span>
+
+<span class="c1">#--------------------------------------------------------------------</span>
+<span class="c1">##  Gantry Corners for 250mm Build</span>
+<span class="c1">##  Uncomment for 250mm build</span>
+<span class="c1">#gantry_corners:</span>
+<span class="c1">#   -60,-10</span>
+<span class="c1">#   310, 320</span>
+<span class="c1">##  Probe points</span>
+<span class="c1">#points:</span>
+<span class="c1">#   50,25</span>
+<span class="c1">#   50,175</span>
+<span class="c1">#   200,175</span>
+<span class="c1">#   200,25</span>
+
+<span class="c1">##  Gantry Corners for 300mm Build</span>
+<span class="c1">##  Uncomment for 300mm build</span>
+<span class="c1">#gantry_corners:</span>
+<span class="c1">#   -60,-10</span>
+<span class="c1">#   360,370</span>
+<span class="c1">##  Probe points</span>
+<span class="c1">#points:</span>
+<span class="c1">#   50,25</span>
+<span class="c1">#   50,225</span>
+<span class="c1">#   250,225</span>
+<span class="c1">#   250,25</span>
+
+<span class="c1">##  Gantry Corners for 350mm Build</span>
+<span class="c1">##  Uncomment for 350mm build</span>
+<span class="na">gantry_corners</span><span class="o">:</span><span class="w">              </span><span class="c1"># CHANGED — uncommented for 350</span>
+<span class="w">   </span><span class="na">-60,-10                   # CHANGED</span>
+<span class="w">   </span><span class="na">410,420                   # CHANGED</span>
+<span class="c1">##  Probe points</span>
+<span class="na">points</span><span class="o">:</span><span class="w">                      </span><span class="c1"># CHANGED — uncommented for 350</span>
+<span class="w">   </span><span class="na">50,25                     # CHANGED</span>
+<span class="w">   </span><span class="na">50,275                    # CHANGED</span>
+<span class="w">   </span><span class="na">300,275                   # CHANGED</span>
+<span class="w">   </span><span class="na">300,25                    # CHANGED</span>
+
+<span class="c1">#--------------------------------------------------------------------</span>
+<span class="na">speed</span><span class="o">:</span><span class="w"> </span><span class="s">100</span>
+<span class="na">horizontal_move_z</span><span class="o">:</span><span class="w"> </span><span class="s">10</span>
+<span class="na">retries</span><span class="o">:</span><span class="w"> </span><span class="s">5</span>
+<span class="na">retry_tolerance</span><span class="o">:</span><span class="w"> </span><span class="s">0.0075</span>
+<span class="na">max_adjust</span><span class="o">:</span><span class="w"> </span><span class="s">10</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>gantry_corners</code> has exactly two coordinate lines and <code>points</code> exactly four, all indented by three spaces.</p>
+</div>
+<p>Klipper errors loudly if a continuation line loses its indent, so a bad edit here fails at Step 12.37 rather than silently.</p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#quad_gantry_level">Klipper docs § quad_gantry_level</a> · <a href="https://www.youtube.com/watch?v=dmNwxUm4oik&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=5099s">Video: Part 9 @1:24:59</a></p>
+<hr>
+<h3 id="step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position">Step 12.27 — 350 mm: resonance probe point and the G32 homing end position<a class="headerlink" href="#step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>[resonance_tester]</code> names the spot on the bed where Ch 14's accelerometer measurements are taken. <code>G32</code> is the macro that homes, runs QGL and re-homes, and its final move parks the toolhead over bed centre. Both carry hard-coded coordinates that only make sense for one build size.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Two more 350 blocks that the survey's checklist does not mention. In <code>[resonance_tester]</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[resonance_tester]</span>
+<span class="na">accel_chip</span><span class="o">:</span><span class="w"> </span><span class="s">adxl345</span>
+<span class="na">accel_per_hz</span><span class="o">:</span><span class="w"> </span><span class="s">100</span>
+<span class="na">sweeping_accel</span><span class="o">:</span><span class="w"> </span><span class="s">400</span>
+<span class="na">sweeping_period</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+<span class="c1">## Uncomment below for 350mm build</span>
+<span class="na">probe_points</span><span class="o">:</span><span class="w">                </span><span class="c1"># CHANGED — uncommented for 350</span>
+<span class="w">    </span><span class="na">175, 175, 20             # CHANGED</span>
+<span class="c1">##--------------------------------------------------------------------</span>
+</code></pre></div>
+<p>and in <code>[gcode_macro G32]</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[gcode_macro G32]</span>
+<span class="na">gcode</span><span class="o">:</span>
+<span class="w">    </span><span class="na">SAVE_GCODE_STATE NAME</span><span class="o">=</span><span class="s">STATE_G32</span>
+<span class="w">    </span><span class="na">G90</span>
+<span class="w">    </span><span class="na">G28</span>
+<span class="w">    </span><span class="na">QUAD_GANTRY_LEVEL</span>
+<span class="w">    </span><span class="na">G28</span>
+<span class="w">    </span><span class="c1">##  Uncomment for for your size printer:</span>
+<span class="w">    </span><span class="c1">#--------------------------------------------------------------------</span>
+<span class="w">    </span><span class="c1">##  Uncomment for 350mm build</span>
+<span class="w">    </span><span class="na">G0 X175 Y175 Z30 F3600   ; CHANGED — uncommented for 350</span>
+<span class="w">    </span><span class="c1">#--------------------------------------------------------------------</span>
+<span class="w">    </span><span class="na">RESTORE_GCODE_STATE NAME</span><span class="o">=</span><span class="s">STATE_G32</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Count the live lines; each command prints one number, and the still-commented 250/300 blocks do not count:</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/printer_data/config
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'^position_max: 350'</span><span class="w"> </span>printer.cfg<span class="w">        </span><span class="c1"># 2  (stepper_x, stepper_y)</span>
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'^position_max: 330'</span><span class="w"> </span>printer.cfg<span class="w">        </span><span class="c1"># 1  (stepper_z)</span>
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'^points:'</span><span class="w"> </span>printer.cfg<span class="w">                  </span><span class="c1"># 1  (quad_gantry_level)</span>
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'^probe_points:'</span><span class="w"> </span>printer.cfg<span class="w">            </span><span class="c1"># 1  (resonance_tester)</span>
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'^    G0 X175 Y175 Z30'</span><span class="w"> </span>printer.cfg<span class="w">     </span><span class="c1"># 1  (G32)</span>
+</code></pre></div>
+<p>Expect <code>2 / 1 / 1 / 1 / 1</code>. A <code>0</code> is a block still commented; a <code>2</code> where <code>1</code> is expected is a second size uncommented as well.</p>
+<p><strong>Naming note:</strong> the config header calls this <em>"Homing end position — <code>[gcode_macro G32]</code> section"</em>. This kit does <strong>not</strong> use a <code>[homing_override]</code> block; homing behaviour lives in <code>[safe_z_home]</code> (Step 12.33) and this G32 macro. Do not add a <code>[homing_override]</code> — an incorrect one drives the nozzle into the bed. <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg">src</a></p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L418-440"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L601-620"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#resonance_tester">Klipper docs § resonance_tester</a></p>
+<hr>
+<h3 id="step-1228-verify-the-09-ab-motor-setting">Step 12.28 — Verify the 0.9° A/B motor setting<a class="headerlink" href="#step-1228-verify-the-09-ab-motor-setting" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>full_steps_per_rotation</code> is how many full steps the motor takes per revolution. A/B motors are 0.9° units, 400 steps; the Z and extruder motors are 1.8° units at 200. Nothing warns you if this is wrong: every X and Y dimension comes out doubled or halved.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Confirm, do not change, that <code>[stepper_x]</code> and <code>[stepper_y]</code> both read:</p>
+<div class="highlight"><pre><span></span><code><span class="na">full_steps_per_rotation</span><span class="o">:</span><span class="s">400</span><span class="w">  </span><span class="c1">#set to 200 for 1.8 degree stepper</span>
+</code></pre></div>
+<p>and that <code>[extruder]</code> reads <code>full_steps_per_rotation: 200</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>X/Y = 400, extruder = 200, and none of the four <code>[stepper_z*]</code> sections has a <code>full_steps_per_rotation</code> line; they inherit the 200 default.</p>
+</div>
+<p><strong>Why:</strong> the Rev D+ A/B motors are <code>LDO-42STH48-2004MAH(VRN)</code>, <strong>0.9°</strong> — 400 full steps per revolution. The Z motors (<code>LDO-42STH48-2004AC(VRN)</code>) and the extruder motor (<code>LDO-36STH20-1004AHG(VRN)</code>) are 1.8°. LDO already sets this correctly in the <code>-sbv2</code> config; the value is on this checklist only because it is the one thing that will silently halve or double every X/Y dimension if someone "fixes" it. <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">src</a></p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO Rev D 350 BOM</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. <code>SAVE &amp; RESTART</code> completes cleanly.</p>
+</div>
+<hr>
+<h3 id="step-1229-probe-omron-active-klicky-written-but-commented">Step 12.29 — Probe: Omron active, Klicky written but commented<a class="headerlink" href="#step-1229-probe-omron-active-klicky-written-but-commented" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A <code>[probe]</code> section describes what the machine uses to measure bed height. This kit has two: the Omron <a href="../16-glossary/#i">inductive probe</a>, for gantry levelling only, and the Klicky dockable microswitch. Klipper allows exactly one live <code>[probe]</code>, so the unused one is parked as commented text.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> The kit ships both probes. Build stock: Omron inductive for QGL only, LDO nozzle probe for Z0, Klicky parts bagged. Replace the <code>[probe]</code> section with the following, which keeps LDO's live values and parks a Klicky block beside them:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[probe]</span>
+<span class="c1">##  Inductive Probe (Omron) — ACTIVE</span>
+<span class="c1">##  Connected to PROBE on the Nitehawk-SB V2 (the Leviathan's Z-PROBE header stays empty)</span>
+<span class="c1">##  This probe is not used for Z height, only Quad Gantry Leveling</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PC15</span>
+<span class="na">x_offset</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">y_offset</span><span class="o">:</span><span class="w"> </span><span class="s">25.0</span>
+<span class="na">z_offset</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">speed</span><span class="o">:</span><span class="w"> </span><span class="s">10.0</span>
+<span class="na">samples</span><span class="o">:</span><span class="w"> </span><span class="s">3</span>
+<span class="na">samples_result</span><span class="o">:</span><span class="w"> </span><span class="s">median</span>
+<span class="na">sample_retract_dist</span><span class="o">:</span><span class="w"> </span><span class="s">3.0</span>
+<span class="na">samples_tolerance</span><span class="o">:</span><span class="w"> </span><span class="s">0.006</span>
+<span class="na">samples_tolerance_retries</span><span class="o">:</span><span class="w"> </span><span class="s">3</span>
+
+<span class="c1">##  ---- Klicky alternative — NOT ACTIVE ----------------------------------</span>
+<span class="c1">##  Comment out the [probe] block above before uncommenting this one.</span>
+<span class="c1">##  Klicky also needs the klicky-probe macro set, a printed dock, and its own</span>
+<span class="c1">##  attach/dock sequence inside QUAD_GANTRY_LEVEL. On the toolhead PCB the</span>
+<span class="c1">##  Klicky cable goes to the same PROBE port, but the 24V pin is not connected.</span>
+<span class="c1">##  Confirm the sense of the switch with QUERY_PROBE before ANY Z move: if it</span>
+<span class="c1">##  reports TRIGGERED with the probe off the dock, add a leading "!" to the pin.</span>
+<span class="c1">#[probe]</span>
+<span class="c1">#pin: ^nhk:PC15             # (verify on bench) — microswitch needs a pull-up</span>
+<span class="c1">#x_offset: 0                # (verify on bench) — depends on your dock/mount</span>
+<span class="c1">#y_offset: 19.75            # (verify on bench) — klicky default, measure yours</span>
+<span class="c1">#z_offset: 6.42             # (verify on bench) — set by PROBE_CALIBRATE</span>
+<span class="c1">#speed: 10.0</span>
+<span class="c1">#samples: 3</span>
+<span class="c1">#samples_result: median</span>
+<span class="c1">#sample_retract_dist: 3.0</span>
+<span class="c1">#samples_tolerance: 0.006</span>
+<span class="c1">#samples_tolerance_retries: 3</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>exactly one live <code>[probe]</code> section. <code>grep -c '^\[probe\]' printer.cfg</code> returns 1.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the PROBE port on the Nitehawk-SB <strong>V2</strong> is <strong>JST-PH2.0</strong>, not the JST-XH2.5 the wiring guide describes; a pigtail crimped to XH2.5 will not fit (survey §4.1 ③). The fibreglass tape goes on the <strong>front and sides</strong> of the Omron only, never the back or bottom, or it will not sense. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#probe">Klipper docs § probe</a> · <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions">Nitehawk-SB V2 doc § Port and pin definitions</a> · <a href="https://www.youtube.com/watch?v=D_44fDp9xt8&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=12240s">Video: More Extras! @3:24:00</a> (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)</p>
+<hr>
+<h3 id="step-1230-hotend-e3d-revo-hf">Step 12.30 — Hotend: E3D Revo HF<a class="headerlink" href="#step-1230-hotend-e3d-revo-hf" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The <code>[extruder]</code> section carries both the hotend heater and its temperature sensor. <code>sensor_type</code> names the thermistor's resistance curve and <code>pullup_resistor</code> the fixed resistor on the board it is measured against. Get either wrong and the printer reads a plausible but false temperature.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Confirm the <code>[extruder]</code> heater and sensor block matches your hotend. For the kit's Revo HF, LDO's shipped values are already correct, so verify rather than edit:</p>
+<div class="highlight"><pre><span></span><code><span class="na">heater_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PA7</span>
+<span class="c1">## Check what thermistor type you have.</span>
+<span class="na">sensor_type</span><span class="o">:</span><span class="w"> </span><span class="s">ATC Semitec 104NT-4-R025H42G</span><span class="w">   </span><span class="c1"># correct for the Revo 60 W 104NT HeaterCore</span>
+<span class="na">sensor_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PB12</span>
+<span class="na">pullup_resistor</span><span class="o">:</span><span class="w"> </span><span class="s">2200</span><span class="w">                        </span><span class="c1"># Nitehawk TH0 port has 2k2 pull-ups</span>
+<span class="na">min_temp</span><span class="o">:</span><span class="w"> </span><span class="s">10</span>
+<span class="na">max_temp</span><span class="o">:</span><span class="w"> </span><span class="s">270</span><span class="w">                                </span><span class="c1"># Revo HF core is rated 300 C; 270 is LDO's cap</span>
+<span class="na">max_power</span><span class="o">:</span><span class="w"> </span><span class="s">1.0</span>
+<span class="na">min_extrude_temp</span><span class="o">:</span><span class="w"> </span><span class="s">170</span>
+<span class="na">control</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pid</span>
+<span class="na">pid_kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">26.213</span>
+<span class="na">pid_ki</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1.304</span>
+<span class="na">pid_kd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">131.721</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>sensor_type</code> reads <code>ATC Semitec 104NT-4-R025H42G</code> and <code>pullup_resistor: 2200</code> is present. Leave the PID values alone; <code>PID_CALIBRATE HEATER=extruder TARGET=245</code> in Ch 13 replaces them.</p>
+</div>
+<p><strong>Sourcing:</strong> E3D publishes the Revo 60 W 104NT HeaterCore as <em>Thermistor Type: Semitec 104NT-4-R025H42G</em>, <em>Klipper Setting: "ATC Semitec 104NT-4-R025H42G"</em>, <em>60W</em>, <em>Max Printing Temperature: 300°C</em>. Use the Revo's <strong>integrated</strong> thermistor lead into TH0; the loose Semitec 104NT in the kit bag is a spare. <a href="https://e3d-online.com/pages/revo-support-60w-104nt-heatercore">src</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the wiring guide says the TH0 connector is <em>"JST-XH2.5 two pin"</em>. On the V2 board it is <strong>JST-PH2.0</strong> (survey §4.1 ③). The heater screw terminal and the E0508 ferrule spec are unchanged. If you fitted a Rapido HF instead of the Revo, its thermistor is a different part — re-check <code>sensor_type</code> against its datasheet before power-up. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></p>
+</div>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-287"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#extruder">Klipper docs § extruder</a> · <a href="https://e3d-online.com/pages/revo-support-60w-104nt-heatercore">E3D Revo 60 W heatercore / 104NT thermistor</a></p>
+<hr>
+<h3 id="step-1231-bed-heater-and-chamber-sensor">Step 12.31 — Bed heater and chamber sensor<a class="headerlink" href="#step-1231-bed-heater-and-chamber-sensor" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>[heater_bed]</code> is the SSR output and the bed thermistor you wired in Ch 10; <code>[temperature_sensor chamber_temp]</code> is a sensor with no heater attached, so it only reports. <code>max_power: 0.6</code> deliberately caps how hard the 355 mm heat pad is driven.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Verify, do not edit:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[heater_bed]</span>
+<span class="c1">##  SSR Pin - HEATBED</span>
+<span class="c1">##  Thermistor - TH1</span>
+<span class="na">heater_pin</span><span class="o">:</span><span class="w"> </span><span class="s">PG11</span>
+<span class="na">sensor_type</span><span class="o">:</span><span class="w"> </span><span class="s">ATC Semitec 104NT-4-R025H42G</span>
+<span class="na">sensor_pin</span><span class="o">:</span><span class="w"> </span><span class="s">PA2</span>
+<span class="na">pullup_resistor</span><span class="o">:</span><span class="w"> </span><span class="s">2200</span><span class="w">                  </span><span class="c1"># Leviathan thermistor ports are 2k2</span>
+<span class="na">max_power</span><span class="o">:</span><span class="w"> </span><span class="s">0.6</span>
+<span class="na">min_temp</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">max_temp</span><span class="o">:</span><span class="w"> </span><span class="s">120</span>
+<span class="na">control</span><span class="o">:</span><span class="w"> </span><span class="s">pid</span>
+<span class="na">pid_kp</span><span class="o">:</span><span class="w"> </span><span class="s">58.437</span>
+<span class="na">pid_ki</span><span class="o">:</span><span class="w"> </span><span class="s">2.347</span>
+<span class="na">pid_kd</span><span class="o">:</span><span class="w"> </span><span class="s">363.769</span>
+
+<span class="k">[temperature_sensor chamber_temp]</span>
+<span class="c1">## Chamber Temperature — plugs into the CT port on the toolhead PCB</span>
+<span class="na">sensor_type</span><span class="o">:</span><span class="w"> </span><span class="s">ATC Semitec 104NT-4-R025H42G</span>
+<span class="na">sensor_pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PB2</span>
+<span class="na">min_temp</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">max_temp</span><span class="o">:</span><span class="w"> </span><span class="s">100</span>
+<span class="na">gcode_id</span><span class="o">:</span><span class="w"> </span><span class="s">chamber_th</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>After Step 12.37, Mainsail's temperature panel shows <strong>bed</strong> and <strong>chamber</strong> within ~2 °C of room temperature.</p>
+</div>
+<p>If the chamber reads wrong while the bed and hotend read correctly, suspect the CT port's pull-up: LDO's board-level config for that port specifies <code>pullup_resistor: 4700</code>, Klipper's default, which is why the kit config omits the line. Add an explicit value only if the reading is wrong.</p>
+<p><strong>Note:</strong> <code>max_power: 0.6</code> on the bed is deliberate — a 355×355 heatpad at full power warps the plate. Do not raise it. The Leviathan README specifies <em>"4x Thermistor ports with 2k2 ohm pullup resistors"</em>, which is where the bed's <code>2200</code> comes from. <a href="https://github.com/MotorDynamicsLab/Leviathan">src</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Configs/nitehawk-sbv2.cfg">src</a></p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#heater_bed">Klipper docs § heater_bed</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg">Nitehawk-SB V2 <code>nitehawk-sbv2.cfg</code></a></p>
+<hr>
+<h3 id="step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans">Step 12.32 — Fans and lighting: Nevermore, COB strips, bay fans<a class="headerlink" href="#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/12-software/ldo-revd-s7-fans-wired.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D: fan and LED strip connections" src="../assets/remote/12-software/ldo-revd-s7-fans-wired.jpg"></a></p>
+<p><strong>What you're looking at:</strong> Klipper has four fan section types and the difference is the point of this step: <code>[fan]</code> is the slicer-controlled part-cooling fan, <code>[heater_fan]</code> runs automatically whenever its heater is on, <code>[controller_fan]</code> follows the steppers and bed, and <code>[fan_generic]</code> is one a macro can command directly.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> The kit's mainboard fan/LED mapping, per the wiring guide's own table, is: <strong>PCB Fan → FAN2/PF7</strong>, <strong>LED Strip → LED-Strip/PE6</strong>, <strong>Filter Fan → FAN3/PF9</strong>. Note what LDO's config calls FAN3 and what is actually plugged into it. Edit as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[fan]</span>
+<span class="c1">##  Print Cooling Fan - FAN0 (toolhead, 5015 blower on fan adapter P4)</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PA15</span>
+<span class="c1">##tachometer_pin: nhk:PD2</span>
+<span class="na">kick_start_time</span><span class="o">:</span><span class="w"> </span><span class="s">0.5</span>
+<span class="na">off_below</span><span class="o">:</span><span class="w"> </span><span class="s">0.10</span>
+
+<span class="k">[heater_fan hotend_fan]</span>
+<span class="c1">##  Hotend Fan - FAN1 (toolhead, 4010 axial on fan adapter P2)</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">nhk:PD0</span>
+<span class="c1">#tachometer_pin: nhk:PD1</span>
+<span class="na">max_power</span><span class="o">:</span><span class="w"> </span><span class="s">1.0</span>
+<span class="na">kick_start_time</span><span class="o">:</span><span class="w"> </span><span class="s">0.5</span>
+<span class="na">heater</span><span class="o">:</span><span class="w"> </span><span class="s">extruder</span>
+<span class="na">heater_temp</span><span class="o">:</span><span class="w"> </span><span class="s">50.0</span>
+
+<span class="k">[controller_fan controller_fan]</span>
+<span class="c1">##  Electronics bay fans — 2x 6020 joined by the 3x2 splicer PCB. FAN2 / "PCB FAN"</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">PF7</span>
+<span class="c1">##tachometer_pin: PF6</span>
+<span class="na">kick_start_time</span><span class="o">:</span><span class="w"> </span><span class="s">0.5</span>
+<span class="na">heater</span><span class="o">:</span><span class="w"> </span><span class="s">heater_bed</span>
+
+<span class="c1">##  ---- REPLACES LDO's [heater_fan exhaust_fan] ---------------------------</span>
+<span class="c1">##  FAN3 is labelled "FILTER FAN" in the harness and feeds the Nevermore</span>
+<span class="c1">##  Micro V5 Duo. LDO's stock config declares it as a [heater_fan] slaved to</span>
+<span class="c1">##  the bed at 60 C, which cannot be commanded from the slicer or a macro.</span>
+<span class="c1">##  fan_generic lets PRINT_START run it during the print and leave it running</span>
+<span class="c1">##  afterwards, which is the whole point of a recirculating filter.</span>
+<span class="k">[fan_generic nevermore]                # CHANGED — was [heater_fan exhaust_fan]</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">PF9</span>
+<span class="na">max_power</span><span class="o">:</span><span class="w"> </span><span class="s">1.0</span>
+<span class="na">shutdown_speed</span><span class="o">:</span><span class="w"> </span><span class="s">0.0</span>
+<span class="na">kick_start_time</span><span class="o">:</span><span class="w"> </span><span class="s">5.0</span>
+
+<span class="c1">##  ---- LDO stock, kept for reference — NOT ACTIVE -----------------------</span>
+<span class="c1">#[heater_fan exhaust_fan]</span>
+<span class="c1">#pin: PF9</span>
+<span class="c1">#max_power: 1.0</span>
+<span class="c1">#shutdown_speed: 0.0</span>
+<span class="c1">#kick_start_time: 5.0</span>
+<span class="c1">#heater: heater_bed</span>
+<span class="c1">#heater_temp: 60</span>
+<span class="c1">#fan_speed: 1.0</span>
+
+<span class="c1">## Chamber Lighting — 2x COB strips joined by the 2x3 splitter PCB, LED-STRIP port</span>
+<span class="k">[output_pin caselight]</span>
+<span class="na">pin</span><span class="o">:</span><span class="w"> </span><span class="s">PE6</span>
+<span class="na">pwm</span><span class="o">:</span><span class="w"> </span><span class="s">true</span>
+<span class="na">hardware_pwm</span><span class="o">:</span><span class="w"> </span><span class="s">False</span>
+<span class="na">value</span><span class="o">:</span><span class="w"> </span><span class="s">0.20</span><span class="w">                   </span><span class="c1"># startup brightness</span>
+<span class="na">shutdown_value</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="c1">#value:1                      # CHANGED — commented out; see note below</span>
+<span class="na">cycle_time</span><span class="o">:</span><span class="w"> </span><span class="s">0.00025</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>grep -c '^\[heater_fan exhaust_fan\]' printer.cfg</code> returns 0, <code>grep -c '^\[fan_generic nevermore\]' printer.cfg</code> returns 1, and <code>[output_pin caselight]</code> contains exactly one live <code>value:</code> line.</p>
+</div>
+<p><strong>Why the caselight edit:</strong> LDO's stanza declares <code>value</code> <strong>twice</strong> — <code>value: 0.20</code> and then <code>value:1</code>. Klipper builds its parser with <code>RawConfigParser(strict=False)</code>, so duplicate keys are accepted silently and the <strong>last one wins</strong>: the COB strips come up at full brightness on every boot, and the 0.20 you thought you set is dead text. The same duplicate is present in LDO's Leviathan-repo configs, so it is not a transcription error in your file. <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/configfile.py">src</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the stock exhaust-filter fan is <strong>not included</strong> in the Rev D kit, so nothing else wants FAN3. The Nevermore Micro V5 Duo is built in Ch 11 and is the only thing on that port. <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></p>
+</div>
+<p class="src">Source: <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg">LDO Rev D photo S7 fans wired</a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L327-410"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#fan">Klipper docs § fan</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip">LDO wiring guide § Connecting the fans and the LED strip</a> · <a href="https://www.youtube.com/watch?v=0aPi1rBwDC0&amp;list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&amp;t=14425s">Video: Extras! @4:00:25</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~15 min since the last one</p>
+<p>probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.</p>
+</div>
+<hr>
+<h3 id="step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable">Step 12.33 — Z endstop: leave <code>safe_z_home</code> deliberately unreachable<a class="headerlink" href="#step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>[safe_z_home]</code> is the XY position the toolhead moves to before homing Z, which here must be directly over the nozzle-probe pin. The shipped <code>-10,-10</code> sits outside the machine's travel limits on purpose, so Klipper refuses the move rather than guessing.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Do <strong>not</strong> guess the nozzle-probe coordinates. Leave the section as LDO ships it and add a marker:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[safe_z_home]</span>
+<span class="c1">##  XY Location of the Z Endstop Switch</span>
+<span class="c1">##  Update -10,-10 to the XY coordinates of your endstop pin</span>
+<span class="c1">##  after going through the "Z Endstop Pin Location Definition" step.</span>
+<span class="na">home_xy_position</span><span class="o">:</span><span class="s">-10,-10</span><span class="w">      </span><span class="c1"># TODO Ch 13 — measured on the machine, NOT a 350 preset</span>
+<span class="na">speed</span><span class="o">:</span><span class="s">100</span>
+<span class="na">z_hop</span><span class="o">:</span><span class="s">10</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>home_xy_position</code> is still <code>-10,-10</code>, and you understand that <code>G28 Z</code> will fail in Ch 13 with <strong>"Move out of range"</strong> until you replace it.</p>
+</div>
+<p><strong>Why leave it broken:</strong> <code>-10,-10</code> is outside <code>position_min: 0</code> for both X and Y, so Klipper refuses the move rather than attempting it. That refusal <em>is</em> the safety interlock. Substituting a plausible-looking value — bed centre, say — makes <code>G28 Z</code> drive the nozzle down at a spot where there is no pin, into the build plate. The LDO nozzle probe's real XY location is read off the machine during the startup wizard's <em>Z Endstop</em> page in Ch 13. <a href="https://docs.vorondesign.com/build/startup/">src</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">src</a></p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L458-470"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/Config_Reference.html#safe_z_home">Klipper docs § safe_z_home</a> · <a href="https://docs.vorondesign.com/build/startup/">Voron startup wizard</a></p>
+<hr>
+<h3 id="step-1234-add-a-bed_mesh-section">Step 12.34 — Add a <code>[bed_mesh]</code> section<a class="headerlink" href="#step-1234-add-a-bed_mesh-section" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> A <a href="../16-glossary/#b">bed mesh</a> is a grid of probed heights Klipper applies as a small Z correction while printing, compensating for a bed that is not flat. <code>mesh_min</code>/<code>mesh_max</code> are <strong>probe</strong> coordinates, not nozzle coordinates, and <code>zero_reference_position</code> pins the mesh to one point.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> There is <strong>no <code>[bed_mesh]</code> anywhere in the LDO config</strong>. Add this block anywhere above the macros; next to <code>[quad_gantry_level]</code> reads well:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#####################################################################</span>
+<span class="c1">#   Bed Mesh  — ADDED, not present in the LDO config</span>
+<span class="c1">#####################################################################</span>
+
+<span class="k">[bed_mesh]</span>
+<span class="na">speed</span><span class="o">:</span><span class="w"> </span><span class="s">300</span>
+<span class="na">horizontal_move_z</span><span class="o">:</span><span class="w"> </span><span class="s">10</span>
+<span class="c1">##  mesh_min / mesh_max are PROBE coordinates, not nozzle coordinates.</span>
+<span class="c1">##  The Omron sits at y_offset +25, so the toolhead goes to (X, Y-25):</span>
+<span class="c1">##  mesh_min Y 40 -&gt; toolhead Y 15;  mesh_max Y 310 -&gt; toolhead Y 285. Both legal.</span>
+<span class="c1">##  40/310 is the Voron reference inset for a 350 (keeps probe points off the bed clips).</span>
+<span class="na">mesh_min</span><span class="o">:</span><span class="w"> </span><span class="s">40, 40</span>
+<span class="na">mesh_max</span><span class="o">:</span><span class="w"> </span><span class="s">310, 310</span>
+<span class="na">probe_count</span><span class="o">:</span><span class="w"> </span><span class="s">7, 7</span>
+<span class="na">algorithm</span><span class="o">:</span><span class="w"> </span><span class="s">bicubic</span>
+<span class="c1">##  Z0 comes from the nozzle-probe endstop, and [probe] z_offset is 0 because</span>
+<span class="c1">##  the Omron is a QGL-only probe. Without a zero reference the whole mesh</span>
+<span class="c1">##  would be offset by the Omron's trigger height. Pin it to bed centre:</span>
+<span class="na">zero_reference_position</span><span class="o">:</span><span class="w"> </span><span class="s">175, 175</span>
+<span class="na">fade_start</span><span class="o">:</span><span class="w"> </span><span class="s">1.0</span>
+<span class="na">fade_end</span><span class="o">:</span><span class="w"> </span><span class="s">10.0</span>
+<span class="na">fade_target</span><span class="o">:</span><span class="w"> </span><span class="s">0</span>
+<span class="na">adaptive_margin</span><span class="o">:</span><span class="w"> </span><span class="s">5</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p><code>mesh_max</code> minus the probe's 25 mm <code>y_offset</code> stays ≤ <code>position_max</code> on Y, and <code>mesh_min</code> Y minus 25 stays ≥ <code>position_min</code>. Both hold.</p>
+</div>
+<p><strong>Why <code>zero_reference_position</code> is not optional here:</strong> <code>[probe] z_offset: 0</code> — LDO's own comment says <em>"This probe is not used for Z height, only Quad Gantry Leveling"</em>. A mesh built with an uncalibrated probe carries the probe's trigger height as a constant offset on every point. <code>zero_reference_position</code> subtracts the mesh value at the named point from the whole mesh, making it purely relative and safe to apply on top of a nozzle-probe Z0. <a href="https://www.klipper3d.org/Config_Reference.html#bed_mesh">src</a></p>
+<p><strong>Note:</strong> 7×7 with <code>[probe] samples: 3</code> is 147 probes and takes a while. Use <code>BED_MESH_CALIBRATE SAMPLES=2</code> for routine meshes, and <code>ADAPTIVE=1</code> (as PRINT_START does below) to mesh only the area the print actually covers — which is what makes a per-print mesh practical on a 350 (survey §4.4 #15). <a href="https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate">src</a></p>
+<p class="src">Source: <a href="https://www.klipper3d.org/Config_Reference.html#bed_mesh">Klipper docs § bed_mesh</a> · <a href="https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate">Klipper docs § BED_MESH_CALIBRATE</a></p>
+<hr>
+<h3 id="step-1235-add-input_shaper-and-exclude_object">Step 12.35 — Add <code>[input_shaper]</code> and <code>[exclude_object]</code><a class="headerlink" href="#step-1235-add-input_shaper-and-exclude_object" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <a href="../16-glossary/#i">Input shaping</a> is Klipper's anti-ringing filter, fitted to the machine's measured resonance in Ch 14; the empty section here is somewhere for those numbers to land. <code>[exclude_object]</code> is what lets one failed part be cancelled mid-print without abandoning the rest of the plate.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Add both. <code>[input_shaper]</code> goes in as a disabled placeholder so Ch 14 has somewhere to write:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#####################################################################</span>
+<span class="c1">#   Input shaper  — ADDED, placeholder. Values come from Ch 14.</span>
+<span class="c1">#####################################################################</span>
+
+<span class="k">[input_shaper]</span>
+<span class="c1">##  Leave both frequencies commented until you have run SHAPER_CALIBRATE</span>
+<span class="c1">##  on a machine that has already produced a good first print (survey §3.3).</span>
+<span class="c1">##  The ADXL345 is on the toolboard; [resonance_tester] is already configured.</span>
+<span class="c1">#shaper_freq_x: 0</span>
+<span class="c1">#shaper_freq_y: 0</span>
+<span class="c1">#shaper_type: mzv</span>
+
+<span class="c1">#####################################################################</span>
+<span class="c1">#   Object exclusion  — ADDED</span>
+<span class="c1">#####################################################################</span>
+
+<span class="k">[exclude_object]</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Klipper accepts a bare <code>[input_shaper]</code> with no frequencies: a valid "shaping disabled" state, not an error. <code>[exclude_object]</code> takes no parameters.</p>
+</div>
+<p><strong>Also:</strong> for cancel-object to actually work, the G-code needs object labels. Either turn on PrusaSlicer's <strong>Output options → Label objects → Firmware-specific</strong>, or set <code>enable_object_processing: True</code> under <code>[file_manager]</code> in <code>moonraker.conf</code> and let Moonraker inject them. Slicer-side is cheaper — Moonraker's preprocessor is file-I/O heavy. Decide this in the slicer chapter, not here. <a href="https://www.klipper3d.org/Config_Reference.html#input_shaper">src</a> · <a href="https://moonraker.readthedocs.io/en/latest/configuration/">src</a></p>
+<p class="src">Source: <a href="https://www.klipper3d.org/Config_Reference.html#input_shaper">Klipper docs § input_shaper</a> · <a href="https://www.klipper3d.org/Config_Reference.html#exclude_object">Klipper docs § exclude_object</a> · <a href="https://moonraker.readthedocs.io/en/latest/configuration/">Moonraker configuration</a></p>
+<hr>
+<h3 id="step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber">Step 12.36 — Replace <code>PRINT_START</code> with a skeleton that waits on the chamber<a class="headerlink" href="#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>PRINT_START</code> is the macro the slicer calls at the top of every print. It holds the warm-up sequence: home, heat the bed, soak the chamber, level the gantry, mesh the bed, then bring the hotend up. A machine still expanding will not level repeatably.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> LDO's stock <code>PRINT_START</code> is three lines and takes no parameters. Replace it. Leave <code>PRINT_END</code> alone; it already ends with <code>BED_MESH_CLEAR</code>, which pairs correctly with the mesh you just added.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[gcode_macro PRINT_START]</span>
+<span class="c1">#   Slicer start G-code:  PRINT_START EXTRUDER={first_layer_temperature[0]} BED={first_layer_bed_temperature[0]} CHAMBER=45</span>
+<span class="c1">#   CHAMBER=0 (the default) skips the chamber wait entirely and does a timed soak instead.</span>
+<span class="na">gcode</span><span class="o">:</span>
+<span class="w">    </span><span class="na">{% set bed</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s">params.BED|default(100)|float %}</span>
+<span class="w">    </span><span class="na">{% set extruder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">params.EXTRUDER|default(240)|float %}</span>
+<span class="w">    </span><span class="na">{% set chamber</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s">params.CHAMBER|default(0)|float %}</span>
+<span class="w">    </span><span class="na">{% set soak</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">params.SOAK|default(8)|int %}</span>
+
+<span class="w">    </span><span class="na">CLEAR_PAUSE</span>
+<span class="w">    </span><span class="na">BED_MESH_CLEAR</span>
+<span class="w">    </span><span class="na">SET_GCODE_OFFSET Z</span><span class="o">=</span><span class="s">0</span>
+
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Homing"</span>
+<span class="w">    </span><span class="na">G28                                    ; cold home; Z on the nozzle-probe pin</span>
+<span class="w">    </span><span class="na">G90</span>
+<span class="w">    </span><span class="na">G0 X175 Y175 Z30 F3600                 ; park over centre  &lt;-- 350 only</span>
+
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Bed {bed}C"</span>
+<span class="w">    </span><span class="na">SET_FAN_SPEED FAN</span><span class="o">=</span><span class="s">nevermore SPEED=1</span><span class="w">    </span><span class="c1">; filter runs from the start of the soak</span>
+<span class="w">    </span><span class="na">M140 S{bed}</span>
+<span class="w">    </span><span class="na">M190 S{bed}                            ; wait for the bed</span>
+
+<span class="w">    </span><span class="na">{% if chamber &gt; 0 %}</span>
+<span class="w">      </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Chamber {chamber}C"</span>
+<span class="w">      </span><span class="na">M106 S255                            ; part fan stirs the chamber while soaking</span>
+<span class="w">      </span><span class="na">TEMPERATURE_WAIT SENSOR</span><span class="o">=</span><span class="s">"temperature_sensor chamber_temp"</span><span class="w"> </span><span class="na">MINIMUM</span><span class="o">=</span><span class="s">{chamber}</span>
+<span class="w">      </span><span class="na">M107</span>
+<span class="w">    </span><span class="na">{% else %}</span>
+<span class="w">      </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Soak {soak} min"</span>
+<span class="w">      </span><span class="na">G4 P{soak * 60000}</span>
+<span class="w">    </span><span class="na">{% endif %}</span>
+
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"QGL"</span>
+<span class="w">    </span><span class="na">M104 S150                              ; 150C for QGL</span><span class="o">:</span><span class="w"> </span><span class="s">hot enough to be dimensionally</span>
+<span class="w">    </span><span class="na">TEMPERATURE_WAIT SENSOR</span><span class="o">=</span><span class="s">extruder MINIMUM=145</span><span class="w">   </span><span class="c1">; honest, cold enough not to ooze</span>
+<span class="w">    </span><span class="na">QUAD_GANTRY_LEVEL</span>
+<span class="w">    </span><span class="na">G28 Z                                  ; re-home Z hot; this is the Z0 that counts</span>
+
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Meshing"</span>
+<span class="w">    </span><span class="na">BED_MESH_CALIBRATE ADAPTIVE</span><span class="o">=</span><span class="s">1</span>
+
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Hotend {extruder}C"</span>
+<span class="w">    </span><span class="na">G0 X5 Y5 Z10 F3600                     ; park at the purge-line start, so ooze lands there, not under the part</span>
+<span class="w">    </span><span class="na">M109 S{extruder}</span>
+
+<span class="w">    </span><span class="c1">##  TODO Ch 14: purge / prime line goes here, once the nozzle is calibrated.</span>
+
+<span class="w">    </span><span class="na">G21</span>
+<span class="w">    </span><span class="na">G90</span>
+<span class="w">    </span><span class="na">M83                                    ; relative extrusion</span>
+<span class="w">    </span><span class="na">G92 E0</span>
+<span class="w">    </span><span class="na">SET_DISPLAY_TEXT MSG</span><span class="o">=</span><span class="s">"Printing"</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The macro parses at the config check. Do not run it: <code>G28</code> will fail until Step 12.33's TODO is closed in Ch 13.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong><code>TEMPERATURE_WAIT</code> has no timeout.</strong> If the chamber never reaches <code>CHAMBER</code>, the macro blocks forever and the only way out is cancelling the print. Keep <code>CHAMBER=0</code> (timed soak) until you have measured what your chamber actually reaches with the door shut and the bed at your print temperature. <a href="https://www.klipper3d.org/G-Codes.html#temperature_wait">src</a></p>
+</div>
+<p><strong>Ordering note:</strong> bed heat and soak come first, then QGL hot, then the mesh — matching the Voron wizard's own order and the rule that a thermally unstable machine will not QGL repeatably (survey §3.3, §4.4 #16). <code>SET_DISPLAY_TEXT</code> needs <code>[display_status]</code>, which arrived with <code>[include mainsail.cfg]</code>. <a href="https://docs.vorondesign.com/build/startup/">src</a></p>
+<p class="src">Source: <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628"><code>leviathan-printer-rev-d-sbv2.cfg</code></a> · <a href="https://www.klipper3d.org/G-Codes.html#temperature_wait">Klipper docs § TEMPERATURE_WAIT</a> · <a href="https://docs.vorondesign.com/build/startup/">Voron startup wizard</a></p>
+<hr>
+<h3 id="step-1237-the-config-compiles-check">Step 12.37 — The config-compiles check<a class="headerlink" href="#step-1237-the-config-compiles-check" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> <code>SAVE &amp; RESTART</code> reloads the config into the host process; <code>FIRMWARE_RESTART</code> restarts the MCUs as well. The four things you are reading are the entire state of the machine at this point: Klipper Ready, both MCUs connected, and three temperature sensors telling the truth about a cold room.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> In Mainsail's editor press <strong>SAVE &amp; RESTART</strong>. Then, if anything at all looks wrong, run <code>FIRMWARE_RESTART</code> from the console, which restarts the MCUs as well as the host. Read the whole console output, not just the last line.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>all four rows of the table, and nothing less.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>where</th>
+<th>expect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mainsail status</td>
+<td><strong>Ready</strong>; no red banner, no orange "missing configuration" panel</td>
+</tr>
+<tr>
+<td><code>STATUS</code> in the console</td>
+<td>returns without an error</td>
+</tr>
+<tr>
+<td>console startup block</td>
+<td><strong>two</strong> MCUs, <code>mcu</code> and <code>mcu nhk</code>; no <code>Unable to connect</code> or <code>Command format mismatch</code></td>
+</tr>
+<tr>
+<td>temperature panel</td>
+<td><strong>extruder</strong>, <strong>heater_bed</strong>, <strong>chamber</strong> all within a couple of degrees of room temperature</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Do not</strong> home, jog, heat or run a fan. Every one of those is a Ch 13 step with its own safety check in front of it.</p>
+<p>Then put the config under version control, so every <code>SAVE_CONFIG</code> in Ch 13–14 becomes a version you can read back and diff instead of a copy you hope you kept:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/printer_data/config
+git<span class="w"> </span>init<span class="w"> </span>-q<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>-A<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-q<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Ch 12 baseline: -sbv2 config, 350 mm, bed_mesh, PRINT_START"</span>
+</code></pre></div>
+<p>Commit again after each <code>SAVE_CONFIG</code> (<code>git add -A &amp;&amp; git commit -m "13.29 bed PID"</code> and so on); <code>git log</code> then answers "which of the saved blocks do I have".</p>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>If you get <em>"MCU 'nhk' shutdown: Command format mismatch"</em>, the toolboard firmware and the host Klipper were built from different commits, so rebuild the toolboard firmware from the current <code>~/klipper</code>. A <code>Pin '…' is not a valid pin name on mcu '…'</code> error is Step 12.23's ⚠: the wrong config file (<code>gpio…</code> on <code>nhk</code>) or swapped serial paths (<code>PG0</code> on <code>mcu</code>). <a href="https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/">src</a></p>
+</div>
+<p class="src">Source: <a href="https://www.klipper3d.org/Config_checks.html">Klipper docs § Config checks</a> · <a href="https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/">Mainsail FAQ — command format mismatch</a></p>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~20 min since the last one</p>
+<p><code>[bed_mesh]</code>, <code>[input_shaper]</code>, <code>[exclude_object]</code> and the new <code>PRINT_START</code> skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.</p>
+</div>
+<hr>
+<h2 id="checkpoint-12">Checkpoint 12<a class="headerlink" href="#checkpoint-12" title="Permanent link">¶</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The Klipper version string from Step 12.7 is written down, and <strong>both</strong> MCUs were flashed from that same working copy.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>ls /dev/serial/by-id/</code> shows exactly two Klipper devices: one <code>stm32g0b1xx</code> (Nitehawk-SB V2) and one <code>stm32f446xx</code> <strong>or</strong> <code>stm32h743xx</code> (Leviathan). No <code>katapult</code> entries.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>printer.cfg</code> is the <strong><code>-sbv2</code></strong> file — <code>grep -c 'nhk:PB8' printer.cfg</code> returns 1 and <code>grep -c gpio printer.cfg</code> returns 0 (the V1 file returns 20).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>config.leviathan</code> and <code>config.nitehawk</code> are in <code>~/printer_data/config/</code>, and <code>~/printer_data/config</code> is a git repo with the Ch 12 baseline committed.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Line 1 is <code>[include mainsail.cfg]</code>, and Mainsail shows no missing-configuration panel.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> All six 350 mm sites are uncommented: <code>[stepper_x]</code>, <code>[stepper_y]</code>, <code>[stepper_z]</code>, <code>[quad_gantry_level]</code>, <code>[resonance_tester]</code>, <code>[gcode_macro G32]</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[bed_mesh]</code> exists and carries <code>zero_reference_position: 175, 175</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[input_shaper]</code> and <code>[exclude_object]</code> exist; exactly one live <code>[probe]</code> section.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>[fan_generic nevermore]</code> on PF9; <code>[output_pin caselight]</code> has one live <code>value:</code>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>safe_z_home</code> still reads <code>-10,-10</code> with the Ch 13 TODO next to it.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> <code>STATUS</code> is clean after <code>RESTART</code>, both MCUs connected, three sensors reading room temperature.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> KlipperScreen is running and the DSI panel shows the right way up.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Nothing has been homed, heated or jogged.</li>
+</ul>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Downloading <code>leviathan-printer-rev-d.cfg</code>.</strong> The wiring guide links it and it looks right. Every <code>nhk:</code> pin in it belongs to an RP2040. Grep for <code>nhk:PB8</code> before you upload anything.</li>
+<li><strong>Hunting for <code>rp2040</code> in <code>/dev/serial/by-id/</code>.</strong> There is no RP2040 in a Rev D+ kit. The toolboard is <code>stm32g0b1xx</code>. The guide is wrong; the board is not.</li>
+<li><strong>Building MCU firmware before running the Update Manager.</strong> You will flash both boards twice. Update the host first, then flash.</li>
+<li><strong>Omitting the bootloader offset in <code>make menuconfig</code>.</strong> 8 KiB for the Nitehawk, 32 KiB (F446) or 128 KiB (H743) for the Leviathan. Flash with no offset and Katapult is gone, and the only way back is DFU with the board buttons.</li>
+<li><strong>Never seeing <code>Clock Reference</code> in menuconfig.</strong> It only appears once <em>Enable extra low-level configuration options</em> is ticked; without it the build silently uses 8 MHz, flashes cleanly and never enumerates. Double-click SW1 for Katapult, fix, re-flash — no DFU needed.</li>
+<li><strong>Following the V1.3 Leviathan guide on a V1.2 board.</strong> STM32H743/25 MHz/128 KiB against STM32F446/12 MHz/32 KiB. Read the silkscreen and the serial ID before menuconfig, not after.</li>
+<li><strong>Filling in <code>home_xy_position</code> with a guess.</strong> <code>-10,-10</code> failing is the interlock working. A plausible wrong value drives the nozzle into the plate.</li>
+<li><strong>Adding <code>[bed_mesh]</code> without <code>zero_reference_position</code>.</strong> The Omron's <code>z_offset</code> is 0 by design, so the raw mesh carries its whole trigger height as a constant offset.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><strong>Ch 11 Part A</strong> — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool holder and the door sub-assembly — closes the bay this chapter powered. Then <strong>Ch 13 — Initial startup</strong>: work the Voron startup wizard in its own order (temperatures → heaters → fans → <code>STEPPER_BUZZ</code> → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), which closes the <code>safe_z_home</code> TODO from Step 12.33.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

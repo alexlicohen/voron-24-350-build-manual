@@ -1,0 +1,4207 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/voron-build-instructions-survey/">
+      
+      
+        <link rel="prev" href="../voron-print-plan/">
+      
+      
+        <link rel="next" href="../manual/15-troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#voron-24-r2-rev-d-ldofabreeko-350mm-build-instruction-source-survey-and-consolidation-spec" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../manual/00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#0-verdict-up-front" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Verdict up front
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-kit-facts-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kit facts (verified)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Kit facts (verified)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-rev-d-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 What "Rev D+" means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-rev-d-contents-electronics-probe-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Rev D+ contents (electronics, probe, motion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-documentation-ldo-actually-publishes-for-this-sku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Documentation LDO actually publishes for this SKU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-source-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Source survey
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verdict-the-single-track-and-the-per-phase-overlay-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verdict — the single track and the per-phase overlay map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verdict — the single track and the per-phase overlay map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-spine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 The spine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-per-phase-overlay-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Per-phase overlay map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-correct-order-of-operations-for-the-softwarecalibration-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Correct order of operations for the software/calibration tail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rev-d-deviations-and-first-build-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Rev D+ deviations and first-build pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Rev D+ deviations and first-build pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-rev-d-deviations-from-ldos-own-rev-d-documentation-the-five-that-will-bite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Rev D+ deviations from LDO's own Rev D documentation — the five that will bite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-rev-d-deviations-from-the-official-manual-all-from-ldo-build-notes-page-indexed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Rev D deviations from the official manual (all from LDO Build Notes, page-indexed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-conflicts-between-sources-and-what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Conflicts between sources, and what to do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-first-build-pitfalls-ranked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 First-build pitfalls, ranked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-build-phase-plan-printassemble-interleave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Build-phase plan (print/assemble interleave)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Build-phase plan (print/assemble interleave)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-phase-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Phase table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-wrong-order-pitfalls-that-cost-rework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Wrong-order pitfalls that cost rework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gap-analysis-vs-a-prusa-style-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Gap analysis vs. a Prusa-style manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-proposal-the-consolidated-instruction-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Proposal — the consolidated instruction set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Proposal — the consolidated instruction set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-recommended-shape-and-the-deciding-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Recommended shape and the deciding criterion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-chapter-outline-writing-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Chapter outline — writing spec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tools-and-consumables-checklist-per-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Tools and consumables checklist, per chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-image-and-asset-sourcing-with-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Image and asset sourcing, with licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-what-to-photograph-during-his-own-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 What to photograph during his own build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-effort-estimate-for-producing-the-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Effort estimate for producing the manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-machine-readable-phase-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Machine-readable phase summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-corrections-to-claudemd-surfaced-by-this-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Corrections to CLAUDE.md surfaced by this survey
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#0-verdict-up-front" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Verdict up front
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-kit-facts-verified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Kit facts (verified)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Kit facts (verified)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-rev-d-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 What "Rev D+" means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-rev-d-contents-electronics-probe-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Rev D+ contents (electronics, probe, motion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-documentation-ldo-actually-publishes-for-this-sku" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Documentation LDO actually publishes for this SKU
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-source-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Source survey
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verdict-the-single-track-and-the-per-phase-overlay-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verdict — the single track and the per-phase overlay map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Verdict — the single track and the per-phase overlay map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-the-spine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 The spine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-per-phase-overlay-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Per-phase overlay map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-correct-order-of-operations-for-the-softwarecalibration-tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Correct order of operations for the software/calibration tail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rev-d-deviations-and-first-build-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Rev D+ deviations and first-build pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Rev D+ deviations and first-build pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-rev-d-deviations-from-ldos-own-rev-d-documentation-the-five-that-will-bite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Rev D+ deviations from LDO's own Rev D documentation — the five that will bite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-rev-d-deviations-from-the-official-manual-all-from-ldo-build-notes-page-indexed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Rev D deviations from the official manual (all from LDO Build Notes, page-indexed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-conflicts-between-sources-and-what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Conflicts between sources, and what to do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-first-build-pitfalls-ranked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 First-build pitfalls, ranked
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-build-phase-plan-printassemble-interleave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Build-phase plan (print/assemble interleave)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Build-phase plan (print/assemble interleave)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-phase-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Phase table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-wrong-order-pitfalls-that-cost-rework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Wrong-order pitfalls that cost rework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-gap-analysis-vs-a-prusa-style-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Gap analysis vs. a Prusa-style manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-proposal-the-consolidated-instruction-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Proposal — the consolidated instruction set
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Proposal — the consolidated instruction set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-recommended-shape-and-the-deciding-criterion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Recommended shape and the deciding criterion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-chapter-outline-writing-spec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Chapter outline — writing spec
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-tools-and-consumables-checklist-per-chapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Tools and consumables checklist, per chapter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-image-and-asset-sourcing-with-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Image and asset sourcing, with licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-what-to-photograph-during-his-own-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 What to photograph during his own build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-effort-estimate-for-producing-the-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Effort estimate for producing the manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-machine-readable-phase-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Machine-readable phase summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-corrections-to-claudemd-surfaced-by-this-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Corrections to CLAUDE.md surfaced by this survey
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="voron-24-r2-rev-d-ldofabreeko-350mm-build-instruction-source-survey-and-consolidation-spec">Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec<a class="headerlink" href="#voron-24-r2-rev-d-ldofabreeko-350mm-build-instruction-source-survey-and-consolidation-spec" title="Permanent link">¶</a></h1>
+<p>Compiled 2026-09-05. Every claim below was checked against the live source on that date; dates/versions are quoted from the source itself (HTTP metadata, PDF <code>ModDate</code>, wiki <code>updated-at</code>, GitHub commit dates), not from recall.</p>
+<hr>
+<h2 id="0-verdict-up-front">0. Verdict up front<a class="headerlink" href="#0-verdict-up-front" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Spine = the official Voron 2.4r2 Assembly Manual PDF</strong> (263 pages, <code>ModDate</code> 2023-07-18), read <em>only</em> through <strong>LDO's Build Notes/FAQ</strong>, which is a page-indexed diff against that exact PDF commit.</li>
+<li><strong>Electronics/wiring/software spine = LDO Wiring Guide Rev D</strong> (updated 2026-07-14), not the manual — the manual's Electronics/Controller/Wiring chapters (p.148–211) are almost entirely superseded.</li>
+<li><strong>"Rev D+" is a one-line hardware delta</strong>: Rev D with the <strong>Nitehawk-SB V2</strong> toolboard. Everything else in the kit is Rev D. But that one delta invalidates a surprising amount of LDO's own Rev D toolhead text (MCU family, USB serial ID pattern, connector types, header keying, Klipper config file).</li>
+<li><strong>LDO publishes no Rev D+ document.</strong> Verified by enumerating every link on <code>docs.ldomotors.com/en/voron/voron2</code>: guides exist for Rev A/B, Rev C, Rev D only. The Rev D+ specifics live in three other places (the <code>-sbv2</code> Klipper config, the Nitehawk-SB-V2 board doc, the Nitehawk-SB-V2 repo).</li>
+<li><strong>No video series exists for this kit revision at build-along granularity.</strong> The only Rev D video content is a 4-part ~45-minute overview (123-3D, Oct–Nov 2024) and one 10-hour unedited livestream (Nathan Builds Robots, Feb 2025). Every step-by-step series is Rev A/B/C or a FormBot/Blurolls kit.</li>
+</ul>
+<hr>
+<h2 id="1-kit-facts-verified">1. Kit facts (verified)<a class="headerlink" href="#1-kit-facts-verified" title="Permanent link">¶</a></h2>
+<h3 id="11-what-rev-d-means">1.1 What "Rev D+" means<a class="headerlink" href="#11-what-rev-d-means" title="Permanent link">¶</a></h3>
+<p>Fabreeko's product page for the exact SKU states, verbatim:</p>
+<blockquote>
+<p><strong>Rev D+ Changes for March 2026</strong> — Nitehawk SB update with USB passthrough for USB based eddy current probes</p>
+</blockquote>
+<p>— <a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">fabreeko.com/products/ldo-voron-v2-4-kit</a></p>
+<p>That is the <em>only</em> listed change vs. Rev D. Cross-checked against LDO's own board documentation, "USB passthrough" = the <strong>Nitehawk-SB V2</strong>:</p>
+<blockquote>
+<p>Added USB hub and secondary USB port as in Nitehawk-36 … Onboard microcontroller changed from RP2040 to <strong>STM32G0B1</strong> … Probe, TH0, XY Endstop ports changed from JST-XH2.5 to <strong>JST-PH2.0</strong> … Reversed connector gender between main toolboard and fan adapter PCB. The headers are also now keyed … Vastly Improved ESD performance.</p>
+</blockquote>
+<p>— <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2</a> (page created 2025-12-22, updated 2026-07-10) and <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">github.com/MotorDynamicsLab/Nitehawk-SB-V2</a> (README, repo pushed 2026-07-22)</p>
+<p>Corroborating: LDO added <code>Firmware/leviathan-printer-rev-d-sbv2.cfg</code> to the kit repo on <strong>2026-07-21</strong> with the commit message <em>"feat(leviathan-rev-d): add Nitehawk-SB toolboard config"</em>, and its <code>Firmware/README.md</code> says <em>"This contains mainboard configs for LDO V2.4 kits Rev.D with the </em><em>Nitehawk-SB V2</em><em> toolboard."</em> — <a href="https://github.com/MotorDynamicsLab/LDOVoron2">github.com/MotorDynamicsLab/LDOVoron2</a></p>
+<h3 id="12-rev-d-contents-electronics-probe-motion">1.2 Rev D+ contents (electronics, probe, motion)<a class="headerlink" href="#12-rev-d-contents-electronics-probe-motion" title="Permanent link">¶</a></h3>
+<p>Sourced from the <a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko SKU page</a>, the <a href="https://docs.ldomotors.com/en/voron/voron2">LDO kit index</a>, and the per-batch <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">LDO V2.4-350 Rev D BOM</a> (BOM page updated 2026-02-05).</p>
+<table>
+<thead>
+<tr>
+<th>Subsystem</th>
+<th>Rev D+ content</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mainboard</td>
+<td><strong>LDO Leviathan</strong> (STM32F446 <strong>(contested: F446 per wiring guide/config, H743 per LDO README since 2025-10-30 — read the silkscreen; see manual Ch 12 step 12.13)</strong>), 5× TMC2209 + 2× TMC5160 HV for A/B, separate HV rail 24/48 V, on-board Pi mount + Pi HAT power adapter</td>
+<td>Replaces BTT Octopus of Rev A–C</td>
+</tr>
+<tr>
+<td>Toolboard</td>
+<td><strong>Nitehawk-SB V2</strong> (STM32G0B1, TMC2209, ADXL345, USB hub, secondary USB port, I²C port) + Fan Adapter PCB + USB Adapter PCB + flat umbilical</td>
+<td><strong>The "+" in D+</strong></td>
+</tr>
+<tr>
+<td>Toolhead</td>
+<td>Stealthburner + <strong>Clockwork 2</strong>, Bondtech IGDA gear set, <strong>E3D Revo HF</strong> with 60 W heater (Rapido HF is a $9.99 swap)</td>
+<td>ADXL mount not needed — accelerometer is on-board</td>
+</tr>
+<tr>
+<td>Z probe</td>
+<td><strong>Omron inductive probe</strong> (QGL only) + fibreglass insulation tape. <strong>Klicky Probe Kit</strong> included as the optional alternative</td>
+<td><strong>Not</strong> Tap. <strong>Not</strong> Cartographer/Beacon.</td>
+</tr>
+<tr>
+<td>Z endstop</td>
+<td>LDO <strong>nozzle probe</strong> PCB (D2F microswitch + 5 mm shaft) + LDO printed part</td>
+<td>Replaces the manual's <code>nozzle_probe.stl</code> and hall-effect endstops</td>
+</tr>
+<tr>
+<td>XY endstop</td>
+<td>LDO <strong>XY microswitch PCB</strong> (single 4-pin, breaks out to X Stop / Y Stop)</td>
+<td>Manual's hall-effect pods not used</td>
+</tr>
+<tr>
+<td>A/B motors</td>
+<td>2× <code>LDO-42STH48-2004MAH(VRN)</code> — <strong>0.9°</strong> (config uses <code>full_steps_per_rotation: 400</code>)</td>
+<td></td>
+</tr>
+<tr>
+<td>Z motors</td>
+<td>4× <code>LDO-42STH48-2004AC(VRN)</code>, 1.8°, <code>gear_ratio: 80:16</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Extruder motor</td>
+<td>1× <code>LDO-36STH20-1004AHG(VRN)</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Rails</td>
+<td>1× <code>LDO-SLR12H-400Z1</code> stainless <strong>MGN12H</strong> (X); 6× <code>LDO-SLR9H-400Z0</code> stainless <strong>MGN9H</strong> (Y×2, Z×4). Ship <strong>dry</strong></td>
+<td>Grease before install</td>
+</tr>
+<tr>
+<td>Bed</td>
+<td>Cast 5083 Al, Blanchard-ground, 355×355×10 mm, LDO AC heatpad + 125 °C thermal fuse <strong>pre-applied</strong>, magnetic pad <strong>NOT pre-applied</strong> — separate BOM line <code>Magnetic Pad 2.4-350</code>, applied during the build (<code>docs/manual/03-build-plate.md</code>), spring-steel flex plate</td>
+<td>Manual p.55/56 become no-ops (magnet still applied per manual)</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Meanwell <strong>LRS-200-24</strong> (US 110 V build; EU may get RSP-200-24), Omron SSR + DIN bracket, AC inlet with integrated switch + fuse</td>
+<td>115/230 V selector switch on the PSU</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>4.3" capacitive DSI touchscreen + Pi ribbon cable</td>
+<td>Mount STL lives in the <strong>Trident</strong> repo, not the V2 repo</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Raspberry Pi 4B + heatsink + 32 GB SD (BOM marks the Pi "OPTIONAL — check with your reseller"; the Fabreeko SKU includes it)</td>
+<td></td>
+</tr>
+<tr>
+<td>Lighting</td>
+<td>2× <strong>COB</strong> LED strip + 2× splitter PCB (LDO ships the splitter spacers printed)</td>
+<td>Rev D upgraded from discrete LEDs to COB</td>
+</tr>
+<tr>
+<td>Filtration</td>
+<td><strong>Nevermore Micro V5 Duo</strong> parts, no carbon (shipping restriction)</td>
+<td>Stock exhaust filter parts are optional and the fan is not included</td>
+</tr>
+<tr>
+<td>Panels</td>
+<td>Acrylic deck/back/bottom (black); PC clear doors/sides/top</td>
+<td>See §4.3 — deck thickness is contested</td>
+</tr>
+<tr>
+<td>Belts</td>
+<td>Gates 2GT 9 mm × 6 m (Z), 2GT 6 mm × 6.21 m (A/B), 4× closed 2GT 6×188 mm loops (Z drive)</td>
+<td></td>
+</tr>
+<tr>
+<td>Drag chain</td>
+<td>10×10 R18 × 2, 10×15 R28 × 1, <strong>2-hole</strong> chain ends</td>
+<td>Print <code>*_2hole</code> parts, never <code>*_3hole</code></td>
+</tr>
+<tr>
+<td>Printed parts <strong>included</strong> by LDO</td>
+<td>Leviathan Bracket L/R, NH Adapter Mount, DIN Clip ×4, CW2 Chain Anchor Tilted, 2×3 Splitter Spacer ×2, LDO Nozzle Probe, Bed WAGO Mount, Stealthburner LED Diffuser (clear PETG), CW2 PCB Spacer</td>
+<td>Do <strong>not</strong> re-print these</td>
+</tr>
+</tbody>
+</table>
+<p>Bulk consumables that drive the build plan (Rev D 350 BOM): <strong>153×</strong> M3×5×4 brass heat-set inserts, <strong>283×</strong> M3×8 SHCS, 135× M3 roll-in T-nut, 80× M5 roll-in T-nut, 75× M3 hammerhead, 16× M5 hammerhead, 46× M5 1 mm precision spacer (used <em>instead of</em> every M5 shim in the manual), 44× M3×30, 43× M3×16-equivalent… plus 100 zip ties, 16× 6×3 mm magnets, VE0508 ferrules ×5, brass heat-set tip, 2 mm drill bit, 5 hex wrenches, 2.5 mm flat screwdriver, brass brush, 1 mm + 3 mm foam tape, 3M VHB.</p>
+<p><strong>Batch-specific BOM.</strong> LDO publishes a <em>separate BOM page per production batch</em>, indexed by kit serial (<code>V2-YYMM…</code>). The index at <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">350_BOM/HOME</a> (updated 2026-06-26) currently tops out at batch <strong>2606</strong>. Order F6424626 (2026-09-04, ETA mid/late September) will be a later batch. <strong>Action on arrival:</strong> find the kit serial on the carton, open its batch BOM, and use <em>that</em> page as the inventory checklist — it has <code>Check1</code>/<code>Check2</code> columns designed for exactly this.</p>
+<h3 id="13-documentation-ldo-actually-publishes-for-this-sku">1.3 Documentation LDO actually publishes for this SKU<a class="headerlink" href="#13-documentation-ldo-actually-publishes-for-this-sku" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Doc</th>
+<th>URL</th>
+<th>Created</th>
+<th>Last updated</th>
+<th>Images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kit index / features</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2">docs.ldomotors.com/en/voron/voron2</a></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Build Notes / FAQ</strong> (page-indexed diff vs official manual)</td>
+<td><a href="https://docs.ldomotors.com/voron/voron2/build-faq">/voron/voron2/build-faq</a></td>
+<td>2022-09-12</td>
+<td><strong>2026-02-10</strong></td>
+<td>few</td>
+</tr>
+<tr>
+<td><strong>Wiring Guide Rev D</strong> (incl. full software setup)</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">/en/voron/voron2/wiring_guide_rev_d</a></td>
+<td>2024-06-17</td>
+<td><strong>2026-07-14</strong></td>
+<td>39</td>
+</tr>
+<tr>
+<td><strong>Printed Parts Guide Rev D</strong></td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">/en/voron/voron2/printed_part_guide_rev_d</a></td>
+<td>2024-07-22</td>
+<td>2025-07-14</td>
+<td>20</td>
+</tr>
+<tr>
+<td>350 BOM index (per batch)</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">/en/voron/voron2/350_BOM/HOME</a></td>
+<td>2022-06-22</td>
+<td>2026-06-26</td>
+<td>—</td>
+</tr>
+<tr>
+<td>350 Rev D BOM</td>
+<td><a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">/en/voron/voron2/350_BOM/Rev_D</a></td>
+<td>2024-07-05</td>
+<td>2026-02-05</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Nitehawk-SB V2 board doc</strong> (pinout, changes)</td>
+<td><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">/en/Toolboard/nitehawk-sb-v2</a></td>
+<td>2025-12-22</td>
+<td>2026-07-10</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Nitehawk-SB <strong>V1</strong> board doc (do not use for D+)</td>
+<td><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb">/en/Toolboard/nitehawk-sb</a></td>
+<td>—</td>
+<td>—</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Rail grease guide</td>
+<td><a href="https://docs.ldomotors.com/guides/rail_grease_guide">/guides/rail_grease_guide</a></td>
+<td>2022-01-31</td>
+<td>2023-09-16</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Heat-set insert tool guide</td>
+<td><a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">/guides/heatset_insert_tool_guide</a></td>
+<td>2021-05-19</td>
+<td>2022-07-29</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cable chain guide</td>
+<td><a href="https://docs.ldomotors.com/guides/cable_chain_guide">/guides/cable_chain_guide</a></td>
+<td>2021-09-25</td>
+<td>2022-07-29</td>
+<td>7</td>
+</tr>
+<tr>
+<td><strong>Leviathan V1.3 firmware guide</strong> (numbered steps + step photos)</td>
+<td><a href="https://ldomotion.com/guides/voron-leviathan-v1-3">ldomotion.com/guides/voron-leviathan-v1-3</a></td>
+<td>—</td>
+<td>—</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>Nevermore V5 Duo — V2.4</strong> (numbered steps + step photos)</td>
+<td><a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">ldomotion.com/guides/nevermore-v5-duo---v24</a></td>
+<td>—</td>
+<td>—</td>
+<td>37</td>
+</tr>
+<tr>
+<td>Klipper config (Rev D, Nitehawk V1)</td>
+<td><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d.cfg"><code>Firmware/leviathan-printer-rev-d.cfg</code></a></td>
+<td>—</td>
+<td>2026-07-21</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Klipper config (Rev D+, Nitehawk V2)</strong></td>
+<td><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>Firmware/leviathan-printer-rev-d-sbv2.cfg</code></a></td>
+<td>2026-07-21</td>
+<td>2026-07-21</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hi-res Rev D wiring photos (GPL-3.0)</td>
+<td><a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/Images/WiringGuide/RevD"><code>Images/WiringGuide/RevD/</code></a></td>
+<td>—</td>
+<td>—</td>
+<td>19 build + 6 UI</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <strong>ldomotion.com</strong> (LDO's newer guide platform) hosts step-numbered, photo-per-step guides — literally the Prusa format ("Step 3 of 7 in this section", "Step Images"). Only two are relevant here (Leviathan, Nevermore); there is no Voron 2.4 <em>assembly</em> guide on it. This is the strongest existing evidence that the target format is achievable and that LDO would have done it if they had the budget.</p>
+<hr>
+<h2 id="2-source-survey">2. Source survey<a class="headerlink" href="#2-source-survey" title="Permanent link">¶</a></h2>
+<p>Legend for <strong>Fit</strong>: 🟢 use as-is · 🟡 use with documented overlay · 🔴 do not follow for this kit.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Source</th>
+<th>Covers</th>
+<th>Kit rev / date</th>
+<th>Format &amp; strengths</th>
+<th>Gaps / conflicts with Rev D+</th>
+<th>Fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Official Voron 2.4r2 Assembly Manual</strong> — <a href="https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf"><code>Voron-2/Manual/Assembly_Manual_2.4r2.pdf</code></a></td>
+<td>Whole machine, Frame→Panels</td>
+<td>Generic 2.4r2. Title page "VERSION 2023-07-04"; PDF <code>ModDate</code> <strong>2023-07-18</strong>; last commit touching <code>Manual/</code> 2023-07-18 ("stealthburner integration"). Release tag <code>V2.4r2</code> is 2022-02-23</td>
+<td>263-page A4-landscape PDF, CAD exploded views, one action per page, fastener callouts drawn in place</td>
+<td>No step numbers, no photos, no "what you should see" checks, no time estimates, no per-step BOM totals. Ch. Electronics/Controller/Wiring (p.148–211) is Octopus + 5 V PSU + mini12864 — <strong>wrong board, wrong PSU topology, wrong screen</strong> for this kit</td>
+<td>🟡 spine for mechanical (p.12–147); 🔴 for p.148–211</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>LDO Build Notes / FAQ</strong> — <a href="https://docs.ldomotors.com/voron/voron2/build-faq">build-faq</a></td>
+<td>Page-by-page deltas vs. #1</td>
+<td>Rev A→D. Page updated <strong>2026-02-10</strong>; explicitly pinned to manual commit <code>de7e89d</code>, "as of July 18, 2023"</td>
+<td>Wiki text, ~35 numbered page callouts</td>
+<td>Silent on everything Rev D+ (toolboard). Contains an internal contradiction on deck thickness (§4.3). Some notes still reference Rev A/C parts</td>
+<td>🟢 mandatory overlay on #1</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>LDO Wiring Guide Rev D</strong> — <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">wiring_guide_rev_d</a></td>
+<td>Above-deck + below-deck wiring, mains, Checkpoint #1, Pi OS, KIAUH, KlipperScreen, firmware, USB IDs, printer.cfg</td>
+<td>Rev D; updated <strong>2026-07-14</strong>; 39 images</td>
+<td>The only end-to-end electrical doc for this machine. Has a real safety checkpoint with multimeter procedure. Sourced hi-res images on GitHub under GPL-3.0</td>
+<td><strong>Toolhead section is Nitehawk V1</strong>: says JST-XH2.5 connectors, says the toolboard is RP2040, links the V1 <code>leviathan-printer-rev-d.cfg</code>. All three are wrong for Rev D+</td>
+<td>🟢 spine for electrical, with §4.1 patch</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>LDO Printed Parts Guide Rev D</strong> — <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">printed_part_guide_rev_d</a></td>
+<td>Which STLs to print/skip/substitute</td>
+<td>Rev D; updated 2025-07-14; 20 images</td>
+<td>Colour-coded (must / optional / already-in-kit). Names the 2-hole chain parts, D2F endstop pod, <code>power_inlet_IECGS_1mm</code>, 4 mm deck supports, COB light-bar clips</td>
+<td>Points at the <strong>V1</strong> Nitehawk USB-adapter cover; V2 uses <code>usb_adapter_mount_partial_cover.stl</code> from the V2 repo</td>
+<td>🟢 with one substitution</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>LDO Nitehawk-SB V2 doc + repo</strong> — <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">board doc</a> · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">repo</a></td>
+<td>Pinout, connectors, change list, grounding images, <code>Configs/nitehawk-sbv2.cfg</code></td>
+<td>Rev D+ era; doc updated 2026-07-10, repo pushed 2026-07-22</td>
+<td>The authoritative Rev D+ delta. Full port/pin table. <code>ibom.html</code> interactive BOM, schematic PDF</td>
+<td>Thin: no assembly text, no license file on the repo, grounding images (<code>grounding_scheme.jpg</code>, <code>toolboard_ground_routing.jpg</code>, <code>usb_adapter_gnd.jpg</code>) have <strong>no prose anywhere</strong></td>
+<td>🟢 mandatory for Ch. toolhead + wiring</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Voron Stealthburner Assembly Manual</strong> — <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf"><code>Assembly_Manual_SB.pdf</code></a></td>
+<td>SB body, CW2 extruder, LEDs</td>
+<td>73 pages, "VERSION 2023-07-07", <code>ModDate</code> 2023-07-07; last <code>Manual/</code> commit 2023-07-13. High-contrast variant also present</td>
+<td>Same CAD-exploded style; covers CW2 and the LED chain properly</td>
+<td>Generic — assumes hartk 2-piece PCB, not Nitehawk V2. Fan/neopixel connector routing differs</td>
+<td>🟡 spine for Ch. toolhead with #3/#5 overlay</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Voron Documentation site</strong> — <a href="https://docs.vorondesign.com">docs.vorondesign.com</a> (<a href="https://github.com/VoronDesign/Voron-Documentation">repo</a>, pushed 2026-08-29)</td>
+<td>Sourcing, <strong>V2 gantry squaring</strong>, software, <strong>Initial Startup wizard</strong>, tuning (belt tension, bed mesh), maintenance, community how-tos</td>
+<td>Actively maintained; generic 2.4</td>
+<td>The Startup guide is a <em>stepped wizard with a progress bar</em> that branches on probe type and web UI — closest existing thing to the target format. Authoritative belt-tension numbers</td>
+<td>Generic: nothing kit-specific. <code>build/electrical/v2_octopus_wiring.md</code> is the wrong board</td>
+<td>🟢 spine for Ch. squaring, startup, tuning</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Ellis' Print Tuning Guide</strong> — <a href="https://ellis3dp.com/Print-Tuning-Guide/">ellis3dp.com</a> · <a href="https://github.com/AndrewEllis93/Print-Tuning-Guide">repo</a> (2.1k★, last push <strong>2025-03-14</strong>)</td>
+<td>First-layer squish, pressure advance, extrusion multiplier, flow, max accel, VFA troubleshooting, macros</td>
+<td>Printer-agnostic; also carries the original V2 gantry-squaring procedure</td>
+<td>The de-facto community standard; LDO and Fabreeko both link it. Concrete, image-heavy, decision-tree structured</td>
+<td>Not a build guide. Slicer examples are SuperSlicer-centric; needs translation to PrusaSlicer/Orca. No commits in ~18 months</td>
+<td>🟢 spine for Ch. tuning</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Klicky Probe</strong> — <a href="https://github.com/jlas1/Klicky-Probe">github.com/jlas1/Klicky-Probe</a> (1.4k★, pushed 2026-05-09)</td>
+<td>Dockable microswitch probe, macros, <code>[gcode_macro]</code> set</td>
+<td>Active</td>
+<td>Only needed if he abandons the Omron. Kit ships the parts</td>
+<td>Adds a whole macro layer and dock calibration; conflicts with the stock LDO config</td>
+<td>🔴 for the first build (defer)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Nevermore Micro V5</strong> — <a href="https://github.com/nevermore3d/Nevermore_Micro">github.com/nevermore3d/Nevermore_Micro</a> (1.6k★, pushed 2025-01-01) + <a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">LDO's V5-Duo–V2.4 guide</a></td>
+<td>Filter build + mount</td>
+<td>Current</td>
+<td>LDO's version is <strong>step-numbered with 37 step images</strong> — already Prusa-format</td>
+<td>Print the 3×6-magnet variant. Carbon media not supplied</td>
+<td>🟢 for Ch. filter/panels</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Extrusion backers + Clicky-Clack</strong> — <a href="https://github.com/tanaes/whopping_Voron_mods">github.com/tanaes/whopping_Voron_mods</a></td>
+<td>Ti backers; Clicky-Clack fridge door</td>
+<td>Current, widely deployed</td>
+<td>Backers README is explicit on <strong>placement</strong> (opposite the rail) and fasteners (M3×8 FHCS for Y, M3×6 FHCS for X, ~30 T-nuts)</td>
+<td>Clicky-Clack README has <strong>no print settings and no install steps</strong> — see #12</td>
+<td>🟢 backers · 🟡 door</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>KB3D wiki — LDO Clicky-Clacky Door Mod</strong> — <a href="https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod">wiki.kb-3d.com</a></td>
+<td>Hinge/handle/latch assembly and mounting</td>
+<td>Created 2024-10-27, updated <strong>2025-09-15</strong>; demonstrated on a 300 V2.4; <strong>34 images</strong></td>
+<td>The only photo-illustrated Clicky-Clack install guide. Lists the exact STL set and print settings</td>
+<td>Reseller wiki (KB3D, not Fabreeko/LDO). Demo uses NanoNest panels, not the plain acrylic panel he ordered</td>
+<td>🟢 for Ch. door, with panel-mount substitution</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Voron community how-tos</strong> — <a href="https://github.com/VoronDesign/Voron-Documentation/blob/main/community/howto/simonthecat/I_wish_I_had_known.md"><code>community/howto/simonthecat/I_wish_I_had_known.md</code></a> et al.</td>
+<td>Accumulated first-build gotchas</td>
+<td>Live in the docs repo</td>
+<td>Genuinely non-obvious items: bed tacos from cold-tightening, 16T vs 20T Z pulleys look alike, never unplug a stepper with power on, don't hand-spin connected steppers</td>
+<td>Unstructured, partly stale (Afterburner-era)</td>
+<td>🟢 mine for check-text, don't follow as a track</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>Voron Discord</strong> (<code>#voron_2_questions</code>, <code>#ldo_motors</code>) — <a href="https://discord.gg/voron">discord.gg/voron</a></td>
+<td>Live Q&amp;A, LDO's own support channel</td>
+<td>Live</td>
+<td>LDO's build-notes page explicitly directs Rev D corrections to <code>#ldo_motors</code>. Fastest path for a Rev D+ ambiguity</td>
+<td>Not citable, not searchable offline, no version pinning</td>
+<td>🟢 as escalation only</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Fabreeko Discord</strong> — <a href="https://discord.gg/NV8Y6bcerP">discord.gg/NV8Y6bcerP</a> (linked from the SKU page)</td>
+<td>Vendor support, missing/wrong parts</td>
+<td>Live</td>
+<td>Right channel for the <em>"is my batch Nitehawk V1 or V2"</em> question and for the XY-endstop-cable mis-label issue</td>
+<td>Vendor-scoped</td>
+<td>🟢 as escalation only</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Voron forum</strong> — <a href="https://forum.vorondesign.com">forum.vorondesign.com</a></td>
+<td>Threads incl. the <a href="https://forum.vorondesign.com/threads/ldo-voron-rev-d-kits-are-now-live-at-fabreeko.1802/">Rev D launch thread (2024-06-12)</a></td>
+<td>Live but Cloudflare-gated to scripted access</td>
+<td>Useful archive of Rev D discussion</td>
+<td>Thin traffic; no Rev D+ discussion found</td>
+<td>🟡 background only</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Steve Builds — "LDO Voron 2.4 Kit Hangout and Build"</strong> (<a href="https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY">playlist</a>)</td>
+<td>11 parts, full build</td>
+<td><strong>Dec 2021 – Jan 2022 → Rev A/B</strong></td>
+<td>Livestream video · Linked from LDO's own docs; Steve is on the Voron team</td>
+<td>Octopus board, Afterburner toolhead, mini12864, 5 V PSU, discrete LEDs. <strong>Nothing about the electronics half transfers</strong></td>
+<td>🔴 electrical · 🟡 mechanical only</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>Nero3D / Canuck Creator — "Voron V2.4r2 LDOmotors kit Livestream build"</strong> (<a href="https://www.youtube.com/watch?v=ZHO-kFlY91c">Part 1</a>, 3 h 49 m, 2022-02-15)</td>
+<td>Full build, LDO kit</td>
+<td><strong>Feb 2022 → Rev A/B</strong></td>
+<td>Livestream · Nero is a Voron team member; the reference "why" commentary (t-nuts, rail grease NLGI 0/1, gantry racking)</td>
+<td>Same revision problem as #17</td>
+<td>🟡 mechanical rationale only</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>Minimal 3DP — "Voron 2.4 R2 Build Guide"</strong> (<a href="https://www.youtube.com/playlist?list=PLXcVv43EZh9DzcPPF0IUVnpVdxQTQX8nE">playlist</a>)</td>
+<td>15 parts, Apr–Oct 2024, unboxing→wiring</td>
+<td><strong>FormBot kit</strong>, explicitly ("VORON 2.4 R2 Build Guide for the <strong>FormBot</strong> Kit")</td>
+<td>Edited tutorial, 15–40 min/part · The best-structured recent mechanical series; chapter boundaries match the manual</td>
+<td>Not the LDO kit. Different harness, board, bed, endstops. Rails/bed/probe differ</td>
+<td>🟡 mechanical only</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Build It Basement — "ULTIMATE Voron 2.4R2 Build"</strong> (<a href="https://www.youtube.com/playlist?list=PLjlotZjUVD32oT7YpPE89dqFwjCkVNKQ9">playlist</a>)</td>
+<td>15+ parts, Dec 2022 – Feb 2023</td>
+<td>2.4r2, non-LDO; <strong>includes Ti backers (Part 7.5) and Tap (Part 9.5)</strong></td>
+<td>Edited tutorial · The only series with a dedicated <strong>titanium-backers</strong> episode and a gantry square-check episode (Part 8.5)</td>
+<td>Uses Tap, not the LDO probe stack. Pre-Rev-D</td>
+<td>🟡 backers + gantry-square episodes only</td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>123-3D — "Building The Voron 2.4 Rev D LDO Motors Kit"</strong> (<a href="https://www.youtube.com/watch?v=IushU1_ikKw">Part 1</a> 2024-10-04 · <a href="https://www.youtube.com/watch?v=vpIDagUumgI">Part 2</a> · <a href="https://www.youtube.com/watch?v=0cuV6iROV1k">Part 3</a> · <a href="https://www.youtube.com/watch?v=QA0eMNXqI-E">Part 4</a> 2024-11-08)</td>
+<td>Unbox → frame/motion → electrics/gantry → first print</td>
+<td><strong>Rev D</strong>, Oct–Nov 2024</td>
+<td>4 videos, ~10–15 min each (~45 min total) · <strong>The only Rev D-specific series.</strong> Shows the real Leviathan/Nitehawk bay layout</td>
+<td>Far too coarse to build from — 45 minutes for a 50-hour build. Rev D, not D+</td>
+<td>🟡 reference imagery only</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>Nathan Builds Robots — "Help me build this printer! LDO Voron 2.4 Rev D Kit"</strong> (<a href="https://www.youtube.com/watch?v=hJPDsoD43dA">video</a>, 2025-02-15, <strong>10 h 13 m</strong>)</td>
+<td>One-sitting Rev D build</td>
+<td><strong>Rev D</strong>, Feb 2025</td>
+<td>Unedited livestream · Longest Rev D-specific footage in existence; good for "what does this actually look like" on the Leviathan bay</td>
+<td>Unindexed, no chapters, real-time. Rev D, not D+</td>
+<td>🟡 spot-reference (scrub to timestamp)</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>Esoterical CAN-bus guide</strong> — <a href="https://canbus.esoterical.online">canbus.esoterical.online</a> / <a href="https://github.com/Esoterical/voron_canbus">repo</a> (pushed 2026-04-23)</td>
+<td>CAN toolhead bring-up, Katapult flashing</td>
+<td>Current</td>
+<td>The community standard for CAN builds</td>
+<td><strong>Not applicable.</strong> Nitehawk-SB V2 is USB; the kit ships no CAN hardware. Following it would add complexity for zero benefit</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>voronldo.com "Voron Belt Tension Guide"</strong> — <a href="https://voronldo.com/guides/voron-belt-tension/">voronldo.com/guides/voron-belt-tension</a></td>
+<td>Belt tension numbers</td>
+<td>"Last updated May 2025"; self-described <em>"independent resource site. Not affiliated with the Voron project"</em></td>
+<td>—</td>
+<td>Publishes 350 mm targets (X 80–100 Hz, Y 75–90 Hz) that <strong>contradict the official 110 Hz</strong>, cites nothing, and is internally inconsistent (says Z "same as X/Y" then gives 110–130 Hz). Domain-for-sale notice on the page. Reads as SEO content</td>
+<td>🔴 <strong>do not use</strong></td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong>voron.dozuki.com</strong></td>
+<td>Old wiki, step-format guides</td>
+<td>Last revision <strong>2019-12-09</strong>; Voron 1.6/2.2/Afterburner</td>
+<td>Dozuki step format</td>
+<td>Format is right, content is 6 years obsolete</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>CNC Kitchen — "Should you build a VORON 2.4 in 2023? (LDO Kit Review)"</strong> (<a href="https://youtu.be/nik-HCeOSB8">video</a>, 2022-09-24) + <a href="https://www.cnckitchen.com/blog/building-a-voron-24-r2-in-2022-ldo-kit">blog</a></td>
+<td>Review / expectation-setting</td>
+<td>Rev A/B era</td>
+<td>23 min</td>
+<td>Good expectation-setting for a first-timer; not instructional</td>
+<td>🟡 morale only</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="3-verdict-the-single-track-and-the-per-phase-overlay-map">3. Verdict — the single track and the per-phase overlay map<a class="headerlink" href="#3-verdict-the-single-track-and-the-per-phase-overlay-map" title="Permanent link">¶</a></h2>
+<h3 id="31-the-spine">3.1 The spine<a class="headerlink" href="#31-the-spine" title="Permanent link">¶</a></h3>
+<p><strong>Primary spine: the official Voron 2.4r2 manual PDF, pages 12–147, read through LDO's Build Notes.</strong>
+Reasons, in order of weight:</p>
+<ol>
+<li>It is the only source that covers the whole mechanical machine at one action per illustration, with fastener callouts in place. Nothing else is even close on completeness.</li>
+<li>LDO's Build Notes are a <em>page-indexed diff against that exact PDF</em>, pinned to commit <code>de7e89d</code>. That makes the two documents mechanically composable — every LDO deviation maps to a manual page number. No other kit vendor publishes this.</li>
+<li>The PDF has not changed since 2023-07-18, so page numbers are stable and will stay stable. LDO's pinned link removes even that risk.</li>
+<li>Everything else (videos, third-party guides) is either the wrong kit revision or the wrong vendor.</li>
+</ol>
+<p><strong>Secondary spine: the LDO Wiring Guide Rev D, for everything from the electronics bay onward.</strong> The manual's p.148–211 describe a machine this kit is not.</p>
+<p><strong>Tertiary spine: docs.vorondesign.com Initial Startup wizard (V2 path) for bring-up, then Ellis for print tuning.</strong></p>
+<h3 id="32-per-phase-overlay-map">3.2 Per-phase overlay map<a class="headerlink" href="#32-per-phase-overlay-map" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Follow</th>
+<th>Overlay from</th>
+<th>Ignore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prep / inventory</strong></td>
+<td>LDO batch BOM for your kit serial</td>
+<td>LDO rail grease guide; heat-set tool guide; Voron <code>STLs/Tools/*</code> jigs</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Frame</strong></td>
+<td>Manual p.12–21</td>
+<td>LDO note p.19 (M5 precision spacer replaces every M5 shim); docs.vorondesign flat-surface guidance</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Z drives &amp; idlers</strong></td>
+<td>Manual p.22–51</td>
+<td>LDO notes p.29–30 (deck supports now, 4 mm — but measure), p.39 (stepper wiring per wiring guide)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Build plate / bed</strong></td>
+<td>Manual p.52–61</td>
+<td>LDO notes p.54 (remove film, trim magnet holes), p.55/56 <strong>SKIP</strong> (heatpad + fuse pre-applied), p.57 (M4×6 BHCS already fitted), p.59 (M3×<strong>20</strong>, not M3×16)</td>
+<td>Manual p.55–56 entirely</td>
+</tr>
+<tr>
+<td><strong>A/B drives &amp; idlers</strong></td>
+<td>Manual p.62–81</td>
+<td>LDO note p.88 (rails: use the <em>second</em> hole from each end, not the end holes)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Gantry (X/Y, XY joints)</strong></td>
+<td>Manual p.82–107</td>
+<td>Ti backers README (placement + M3×8 FHCS Y / M3×6 FHCS X, ~30 T-nuts); LDO printed-parts guide (<code>endstop_pod_D2F_switch</code>, <code>xy_joint_cable_bridge_2hole</code>); Build It Basement Part 7.5 for backer technique</td>
+<td>Hall-effect endstop pods</td>
+</tr>
+<tr>
+<td><strong>Z axis / gantry install</strong></td>
+<td>Manual p.108–123</td>
+<td>LDO note p.114–116 (do p.115–116 first, then rest the gantry on rubber rail stoppers under the Z joints — avoids the long-zip-tie dance)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Gantry squaring</strong></td>
+<td><a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html</a> (16 numbered steps, image per step)</td>
+<td>Ellis' identical section; Build It Basement Part 8.5</td>
+<td>Manual's brief "SQUARING THE GANTRY" page</td>
+</tr>
+<tr>
+<td><strong>A/B belts + tension</strong></td>
+<td>Manual p.124–145</td>
+<td>Official tension target: <strong>110 Hz over a 150 mm span</strong> (<a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">secondary_printer_tuning</a>). Z belts: <strong>140 Hz over 150 mm</strong></td>
+<td>voronldo.com numbers</td>
+</tr>
+<tr>
+<td><strong>Toolhead</strong></td>
+<td>Stealthburner manual (73 pp) + LDO note p.129–130, p.146–147</td>
+<td><strong>LDO Wiring Guide "Wiring the Toolhead PCB"</strong> + <strong>Nitehawk-SB V2 pinout</strong> (§4.1 patch: PH2.0 connectors, keyed reversed fan header, no ADXL mount, <code>usb_adapter_mount_partial_cover.stl</code>)</td>
+<td>Manual p.196 (toolhead wiring); ADXL mount</td>
+</tr>
+<tr>
+<td><strong>Electronics bay</strong></td>
+<td><strong>LDO Wiring Guide "Below Deck Wiring"</strong></td>
+<td>Leviathan V1.3 guide (jumper removal, Pi HAT adapter, standoffs); LDO notes p.150/152/156/158–163/169–172</td>
+<td>Manual p.148–179 wholesale</td>
+</tr>
+<tr>
+<td><strong>Wiring / mains</strong></td>
+<td><strong>LDO Wiring Guide</strong>, in order, including <strong>Checkpoint #1</strong></td>
+<td>Manual p.194–195 (cable-chain slack) + LDO cable-chain guide; LDO XY-endstop-cable repin guide if the labels read "X Stop/Y Stop" instead of "XES/YES"</td>
+<td>Manual p.180–211</td>
+</tr>
+<tr>
+<td><strong>Skirts / panels</strong></td>
+<td>Manual p.212–259</td>
+<td>LDO notes p.214–216 &amp; 220–221 (BTT 4.3" screen — mount STL is in the <strong>Trident</strong> repo), p.234 (alt Z-belt cover if LEDs routed through the Z-motor opening), <code>power_inlet_IECGS_1mm</code></td>
+<td>mini12864 case parts</td>
+</tr>
+<tr>
+<td><strong>Door (Clicky-Clack)</strong></td>
+<td>KB3D wiki install guide</td>
+<td>tanaes STL set; the plain acrylic panel instead of NanoNest</td>
+<td>Stock Voron door parts (<code>Front_Doors/*</code>)</td>
+</tr>
+<tr>
+<td><strong>Filter (Nevermore)</strong></td>
+<td><a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">LDO Nevermore V5 Duo — V2.4 guide</a> (step-numbered)</td>
+<td>LDO note p.250–253 &amp; 256 <strong>SKIP</strong>; print the 3×6-magnet variant + exhaust cover</td>
+<td>Manual's exhaust filter section</td>
+</tr>
+<tr>
+<td><strong>Firmware / Klipper</strong></td>
+<td><strong>LDO Wiring Guide "Software Setup"</strong> + Leviathan V1.3 guide</td>
+<td>§4.1: use <code>leviathan-printer-rev-d-**sbv2**.cfg</code>; expect <code>stm32g0b1xx</code> in the toolboard USB ID</td>
+<td>The wiring guide's RP2040 sentence and its config link</td>
+</tr>
+<tr>
+<td><strong>Initial startup</strong></td>
+<td><a href="https://docs.vorondesign.com/build/startup/">docs.vorondesign.com Startup wizard, V2 path</a> — 16 gated steps</td>
+<td>Probe selection = "Stock Inductive probe"</td>
+<td>Dockable/Tap branches</td>
+</tr>
+<tr>
+<td><strong>Calibration / tuning</strong></td>
+<td>Voron startup order, then Ellis</td>
+<td>Voron: PID bed @100 °C, PID hotend @245 °C with fans 25%; QGL hot (bed 100 °C, hotend 150 °C) with <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm before trusting it</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-correct-order-of-operations-for-the-softwarecalibration-tail">3.3 Correct order of operations for the software/calibration tail<a class="headerlink" href="#33-correct-order-of-operations-for-the-softwarecalibration-tail" title="Permanent link">¶</a></h3>
+<p>The Voron V2 wizard's own page order (extracted from <code>build/startup/buttons.js</code>) is authoritative and is <strong>not</strong> the order people intuit:</p>
+<p><code>Verify temperatures → Verify heaters → Verify fans → Motor checks (STEPPER_BUZZ) → XY endstop check → Homing check → Bed locating → 0,0 point → Z endstop → Probe check → **PID tuning** → **Quad Gantry Level** → Z-offset → Finish</code>
+then, after the wizard: <strong>extruder e-steps</strong> → first print → <strong>input shaper</strong> → <strong>pressure advance</strong> → extrusion multiplier.</p>
+<p>Two things people get wrong: PID tuning comes <em>before</em> QGL (a thermally unstable machine will not QGL repeatably), and input shaper/pressure advance come <em>after</em> a first successful print, not before.</p>
+<hr>
+<h2 id="4-rev-d-deviations-and-first-build-pitfalls">4. Rev D+ deviations and first-build pitfalls<a class="headerlink" href="#4-rev-d-deviations-and-first-build-pitfalls" title="Permanent link">¶</a></h2>
+<h3 id="41-rev-d-deviations-from-ldos-own-rev-d-documentation-the-five-that-will-bite">4.1 Rev D+ deviations from LDO's own Rev D documentation — the five that will bite<a class="headerlink" href="#41-rev-d-deviations-from-ldos-own-rev-d-documentation-the-five-that-will-bite" title="Permanent link">¶</a></h3>
+<p><strong>① Wrong Klipper config file.</strong> The Rev D wiring guide's "pre-made configuration file" link points at <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d.cfg"><code>leviathan-printer-rev-d.cfg</code></a>. For Rev D+ you need <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a>. <em>Every</em> <code>nhk:</code> pin differs, because the MCU changed family. Verified by diffing the two files:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Rev D (<code>nhk:</code> RP2040)</th>
+<th><strong>Rev D+ (<code>nhk:</code> STM32G0B1)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extruder step/dir/enable</td>
+<td><code>gpio23 / gpio24 / !gpio25</code></td>
+<td><code>PB8 / PB9 / !PC14</code></td>
+</tr>
+<tr>
+<td>hotend heater</td>
+<td><code>gpio9</code></td>
+<td><code>PA7</code></td>
+</tr>
+<tr>
+<td>hotend thermistor</td>
+<td><code>gpio29</code></td>
+<td><code>PB12</code></td>
+</tr>
+<tr>
+<td>extruder TMC uart/tx</td>
+<td><code>gpio0 / gpio1</code></td>
+<td><code>PB7 / PB6</code></td>
+</tr>
+<tr>
+<td>probe</td>
+<td><code>gpio10</code></td>
+<td><code>PC15</code></td>
+</tr>
+<tr>
+<td>part fan / tacho</td>
+<td><code>gpio6 / gpio17</code></td>
+<td><code>PA15 / PD2</code></td>
+</tr>
+<tr>
+<td>hotend fan / tacho</td>
+<td><code>gpio5 / gpio16</code></td>
+<td><code>PD0 / PD1</code></td>
+</tr>
+<tr>
+<td>PCB LED</td>
+<td><code>!gpio8</code></td>
+<td><code>!PC6</code></td>
+</tr>
+<tr>
+<td>neopixel</td>
+<td><code>gpio7</code></td>
+<td><code>PD3</code></td>
+</tr>
+<tr>
+<td>ADXL cs/sclk/mosi/miso</td>
+<td><code>gpio21/18/20/19</code></td>
+<td><code>PB10/PA5/PA2/PA6</code></td>
+</tr>
+<tr>
+<td>chamber thermistor</td>
+<td><code>gpio28</code></td>
+<td><code>PB2</code></td>
+</tr>
+<tr>
+<td>on-board PCB temp sensor</td>
+<td><code>[temperature_sensor nh_temp]</code> on <code>gpio26</code> with a custom <code>[thermistor CMFB103F3950FANT]</code></td>
+<td><strong>removed — does not exist on V2</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Loading the V1 config on a V2 board mis-drives the heater, thermistor, probe, both fans and the accelerometer simultaneously.</p>
+<p><strong>② Wrong USB serial-ID pattern.</strong> The wiring guide says: <em>"The Nitehawk uses an RP2040 MCU, therefore its ID will be in a format similar to <code>usb-Klipper_rp2040_…</code>"</em>. On Rev D+ it will be an <strong>STM32G0B1</strong> ID (<code>usb-Klipper_stm32g0b1xx_…</code>). If you match by the documented pattern you will assign the <em>mainboard's</em> ID to <code>[mcu nhk]</code> or fail to find the board at all. (Mainboard is unchanged: STM32F446, <code>usb-Klipper_stmf446xx_…</code>.)</p>
+<p><strong>③ Connectors changed from JST-XH2.5 to JST-PH2.0</strong> on <strong>PROBE, TH0 and XY-Endstop</strong>. The wiring guide still says <em>"The connector type to use is JST-XH2.5 two pin"</em> for the hotend thermistor. Consequence: any aftermarket or spare thermistor/probe pigtail crimped to the documented XH2.5 will not fit, and the smaller PH2.0 housings are easy to force into the wrong header. The heater screw terminal and E0508 ferrule spec are unchanged.</p>
+<p><strong>④ Fan-adapter PCB header gender reversed and now keyed.</strong> The 2×10 board-to-board interface between the Stealthburner fan adapter and the main toolboard is physically different from every Rev D photo. The keying is the check — if it does not drop in, you have it backwards; do not press harder.</p>
+<p><strong>⑤ USB-adapter mount cover changed, and there is an undocumented grounding scheme.</strong> The printed-parts guide points at the V1 <code>cw2_captive_pcb_cover.stl</code>/<code>usb_adapter_mount.stl</code> cover; Rev D+ uses <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl"><code>usb_adapter_mount_partial_cover.stl</code></a>, whose whole purpose per the board doc is <em>"a newly designed cover exposes one of the mounting points to connect a grounding point."</em> The V2 repo ships <code>Images/grounding_scheme.jpg</code>, <code>Images/toolboard_ground_routing.jpg</code> and <code>Images/usb_adapter_gnd.jpg</code> with <strong>no accompanying prose in any LDO document</strong>. Given the change list also claims <em>"Vastly Improved ESD performance"</em>, treat the grounding images as a required build step and ask in <code>#ldo_motors</code> before wiring the bay.</p>
+<p><strong>Update 2026-09-05:</strong> LDO gained an "ESD Hardening" section on 2026-07-10 at <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening">docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening</a>, which now documents the discharge path (extruder motor body → toolboard ground → umbilical → USB adapter → frame → earth) with supplied grounding cables. See <code>docs/manual/10-wiring.md</code> step 10.58 for the transcribed wording. <code>#ldo_motors</code> is now only the fallback for a kit missing the grounding cables.</p>
+<p><strong>Sixth, benign:</strong> the secondary USB port on the toolhead is the actual "+" feature. Nothing to do now (Beacon/Cartographer deferred), but leave enough umbilical slack that the port stays reachable without pulling the toolhead.</p>
+<h3 id="42-rev-d-deviations-from-the-official-manual-all-from-ldo-build-notes-page-indexed">4.2 Rev D deviations from the official manual (all from LDO Build Notes, page-indexed)<a class="headerlink" href="#42-rev-d-deviations-from-the-official-manual-all-from-ldo-build-notes-page-indexed" title="Permanent link">¶</a></h3>
+<p>Pre-load or test-fit roll-in T-nuts — LDO warns extrusion/T-nut tolerances are tight.</p>
+<table>
+<thead>
+<tr>
+<th>Manual page</th>
+<th>Deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19</td>
+<td>Brass <strong>M5 precision spacer</strong> replaces the M5 shim — everywhere in the manual unless noted</td>
+</tr>
+<tr>
+<td>29–30</td>
+<td>Install deck supports now; use <code>deck_support_4mm_x8</code> (but see §4.3)</td>
+</tr>
+<tr>
+<td>29</td>
+<td>DIN rails run <strong>left to right</strong> (LDO), not front-to-back as manual p.29 draws — <em>"These DIN rails run from left to right"</em> (<code>S0_Din_Raill.jpg</code>). Every LDO component position in the bay depends on this orientation. See <code>docs/manual/09-electronics-bay.md</code> step 09.5  <strong>RETRACTED 2026-09-06:</strong> manual p.28–29 already show the rails left-to-right across the bed extrusions; manual and LDO agree — no deviation (Fable review F5).</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Stepper wiring per the LDO wiring guide, not the manual</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Remove bed protective film; after applying the magnet sheet, trim the bolt holes</td>
+</tr>
+<tr>
+<td>55, 56</td>
+<td><strong>SKIP</strong> — heatpad and thermal fuse pre-applied</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Use the M4×6 BHCS already fitted to the bed</td>
+</tr>
+<tr>
+<td>59</td>
+<td>M3×<strong>20</strong> SHCS, not M3×16 (thicker bed + spacers)</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Do not use the end holes of the rails; use the second holes in</td>
+</tr>
+<tr>
+<td>104</td>
+<td>Black M5 washer instead of the M5 shim (cosmetic)</td>
+</tr>
+<tr>
+<td>114–116</td>
+<td>Do 115–116 first, then rest the gantry on rubber rail stoppers under the Z joints</td>
+</tr>
+<tr>
+<td>129–130</td>
+<td>Verify the correct X-carriage for Clockwork 2; follow the Stealthburner manual</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Insulate the inductive probe with the supplied fibreglass tape (front + sides only; <strong>not</strong> the back or bottom)</td>
+</tr>
+<tr>
+<td>145</td>
+<td><strong>SKIP</strong> — no hall-effect endstops</td>
+</tr>
+<tr>
+<td>146–147</td>
+<td>Stealthburner + CW2 per the SB manual</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Kit wiring differs; <strong>no 5 V PSU</strong></td>
+</tr>
+<tr>
+<td>150</td>
+<td><strong>SKIP</strong> the manual's Pi bracket; the Beefy Pi Mount explicitly <em>does not apply to Rev D</em> — the Pi mounts to the Leviathan on standoffs with the Pi 3/4 HAT power adapter</td>
+</tr>
+<tr>
+<td>152, 172, 190</td>
+<td><strong>SKIP</strong> — no 5 V PSU; the Leviathan supplies the Pi 5 V</td>
+</tr>
+<tr>
+<td>156</td>
+<td>Use <code>power_inlet_IECGS_1mm</code> (1.0 mm AC inlet with integrated switch)</td>
+</tr>
+<tr>
+<td>158–160, 163</td>
+<td>LDO Z-endstop printed part + PCB; LDO XY endstop PCB</td>
+</tr>
+<tr>
+<td>162, 169</td>
+<td><strong>SKIP</strong> — XY endstop board; no support bracket</td>
+</tr>
+<tr>
+<td>170–171, 182–189, 192–193, 205–209</td>
+<td><strong>SKIP</strong> — see wiring guide</td>
+</tr>
+<tr>
+<td>194–195</td>
+<td>Keep drag-chain wiring <strong>loose</strong> — taut wires fatigue and break</td>
+</tr>
+<tr>
+<td>196</td>
+<td><strong>SKIP</strong> — toolhead PCB</td>
+</tr>
+<tr>
+<td>214–216, 220–221</td>
+<td>BTT 4.3" touchscreen; mount STL in the <strong>Trident</strong> repo; wiring/rotation per LDO's <code>btt_43_rotate_guide</code></td>
+</tr>
+<tr>
+<td>234</td>
+<td>Alternate Z-belt cover if LEDs are routed through the Z-motor opening</td>
+</tr>
+<tr>
+<td>250–253, 256</td>
+<td><strong>SKIP</strong> — follow LDO's Nevermore guide instead</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-conflicts-between-sources-and-what-to-do">4.3 Conflicts between sources, and what to do<a class="headerlink" href="#43-conflicts-between-sources-and-what-to-do" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Conflict</th>
+<th>Positions</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deck panel thickness</strong></td>
+<td>LDO Build Notes p.29–30 and the Printed Parts Guide both say the deck is <strong>4 mm</strong> → print <code>deck_support_4mm_x8</code>. The Rev D 350 BOM lists "Deck Panel, Acrylic, Black, 469×469×<strong>3</strong> mm" (and Bottom Panel at 4 mm)</td>
+<td><strong>Caliper the actual deck panel on arrival.</strong> Print <em>both</em> <code>deck_support_3mm_x8</code> and <code>deck_support_4mm_x8</code> (16 small parts, minutes of print time) and fit whichever matches. Do not resolve this from documents</td>
+</tr>
+<tr>
+<td><strong>A/B belt tension</strong></td>
+<td>Official manual: no number at all — "cut both belts to the same length" (p.125). Voron docs: <strong>110 Hz over a 150 mm span</strong>, ≈2 lb, deliberately at the low end. voronldo.com: 80–100 Hz for a 350</td>
+<td><strong>Use 110 Hz / 150 mm span from docs.vorondesign.com.</strong> It is the only sourced, official number and it names the span, which is what makes a frequency meaningful. Discard voronldo.com</td>
+</tr>
+<tr>
+<td><strong>Z belt tension</strong></td>
+<td>Voron docs: <strong>140 Hz</strong> with the fixed side 150 mm from the Z idler centres. voronldo.com: "same as X/Y, 110–130 Hz"</td>
+<td>140 Hz / 150 mm, official. Also the QGL troubleshooting text points at uneven Z belts when σ is high — tension all four, evenly</td>
+</tr>
+<tr>
+<td><strong>Klicky vs. Omron</strong></td>
+<td>Kit ships both. LDO config and wiring guide assume the Omron inductive probe (QGL only) with the LDO nozzle probe as the Z endstop. <code>CLAUDE.md</code> currently records "Stock kit ships Klicky … instead"</td>
+<td><strong>Build stock: Omron inductive + LDO nozzle probe.</strong> Klicky is an optional mod that adds a dock, macros and a calibration procedure. Keep the Klicky parts bagged for later. <em>This is a correction to <code>CLAUDE.md</code></em></td>
+</tr>
+<tr>
+<td><strong>Pi OS version</strong></td>
+<td>LDO wiring guide: "Raspberry Pi OS Lite (32-bit)". Leviathan V1.3 guide: "we recommend Raspberry Pi OS lite (Legacy) Bullseye", and carries a Bullseye-specific <code>udev</code> bug fix for a broken <code>/dev/serial/by-id/</code></td>
+<td>On a Pi 4B, take the wiring guide's path (current Pi OS Lite) but <strong>know the Bullseye <code>/dev/serial/by-id</code> bug and its fix</strong> — if <code>ls /dev/serial/by-id/*</code> comes up empty, that's the first thing to check</td>
+</tr>
+<tr>
+<td><strong><code>nh_temp</code> sensor</strong></td>
+<td>V1 config exposes a Nitehawk PCB temperature sensor; the V2 config removes it</td>
+<td>Do not add it back. It does not exist on the V2 board</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-first-build-pitfalls-ranked">4.4 First-build pitfalls, ranked<a class="headerlink" href="#44-first-build-pitfalls-ranked" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>Frame squaring is the one irreversible quality decision.</strong> Build on the verified-flat stone counter, check both diagonals and both faces, and re-check after every bolt-tightening pass (manual p.16–17: "BUILD ON A FLAT SURFACE", "CHECK FOR SQUARENESS"). Everything downstream inherits this.</li>
+<li><strong>Gantry racking/squaring must happen after the gantry is in and <em>before</em> A/B belts are tensioned.</strong> The official procedure (<a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">v2_gantry_squaring</a>) starts by <em>fully releasing A/B belt tension</em> and <em>dropping the lower Z joints</em>. Tension the A/B belts first and you will undo them.</li>
+<li><strong>Update 2026-09-05:</strong> the manual deliberately inverts this. Squaring needs motor control (<code>G28</code>, <code>QUAD_GANTRY_LEVEL</code>, <code>SET_STEPPER_ENABLE</code>), so it runs out of Ch 13 as <strong>Ch 06b</strong>. Ch 07 sets <em>provisional</em> tension only; final A/B tension is Ch 06b Step 06b.15 / Ch 14 Step 14.4.</li>
+<li><strong>Titanium backers go on during gantry assembly, on the face opposite the rail.</strong> Y-axis backers on <strong>top</strong> of the Y extrusions; X-axis backer on the <strong>rear</strong> of the X extrusion, opposite the MGN12. The README is blunt: <em>"If you have a single MGN12 but decide to put a backer on top, you will be actively contributing to the problem of bimetallic expansion!"</em> Fasteners: M3×8 FHCS (Y), M3×6 FHCS (X), ~30 T-nuts, Torx preferred (M3 FHCS cams out easily in countersinks).</li>
+<li><strong>Heat-set inserts (153 of them) go in before assembly, not during.</strong> A missed insert in an XY joint means a gantry teardown. Batch them per printed-part group, use the supplied brass tip with the tongue adjusted flush to the insert height, and practise on <code>STLs/Test_Prints/Heatset_Practice.stl</code> first.</li>
+<li><strong>Rails ship dry and must be cleaned and packed before installation</strong> — the flip-and-pack method requires access to the back of the rail, i.e. <em>before</em> it goes on an extrusion. IPA soak 10 min, dry fully, pack NLGI 0/1 grease (Super Lube 21030) through a mounting hole until it oozes past the bearings, wipe the rail surface clean. Rail carriages slide off the ends easily and are ruined by a drop.</li>
+<li><strong>Use the second mounting hole from each end of every rail, never the end hole</strong> (LDO note p.88). Also use the printed <code>MGN9_rail_guide_x2</code> / <code>MGN12_rail_guide_x2</code> jigs to centre rails on the extrusion.</li>
+<li><strong>Z pulleys: 16T on the Z motors, 20T elsewhere — they look nearly identical.</strong> Threadlocker is pre-applied to the set screws; get orientation and stack height right the first time (<code>pulley_jig.stl</code>).</li>
+<li><strong>Mains wiring is the one step that can kill you.</strong> Do LDO's <em>Checkpoint #1</em> with a multimeter, unplugged: continuity within each colour group, no continuity between L/N/PE, and confirm the PSU's 115/230 V selector <strong>before</strong> the first power-on. The SSR wiring is called out as <em>"critical — an incorrect connection can cause catastrophic damage"</em>; watch the numbered terminals and the yellow LED position.</li>
+<li><strong>Leviathan voltage-selection jumpers must be removed before installation</strong> and only re-inserted after each attached component's voltage is verified. Mixing voltages on a shared 24 V supply "will permanently damage the controller and attached components."</li>
+<li><strong>Never unplug or re-plug a stepper with power on, and never hand-spin a connected stepper fast</strong> — back-EMF kills drivers.</li>
+<li><strong>Bed tacos come from tightening the bed cold and heating fast.</strong> Community guidance: one screw tight, two firm, one loose or absent.</li>
+<li><strong>Stealthburner LEDs:</strong> the kit's diffuser is clear PETG (supplied printed). <code>chain_count: 3</code>, <code>color_order: GRBW</code> in the LDO config — a mismatch here shows up as wrong colours, not as a failure.</li>
+<li><strong>Drag chains: keep the wires loose inside the chain.</strong> Taut wires fatigue and break — this is the single most-repeated LDO warning.</li>
+<li><strong>XY endstop cable mis-labelling.</strong> LDO documents a known batch where the cables are labelled "X Stop / Y Stop" instead of "XES / YES" and need re-pinning (<a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">XY_Endstop_Cable_Reconnecting_Guide</a>). Check labels before wiring.</li>
+<li><strong>The stock config ships with every build-size option commented out.</strong> For a 350 you must uncomment: <code>position_endstop: 350</code> and <code>position_max: 350</code> in <code>[stepper_x]</code> <strong>and</strong> <code>[stepper_y]</code>; <code>position_max: 330</code> in <code>[stepper_z]</code>; and the 350 <code>gantry_corners</code> (<code>-60,-10</code> / <code>410,420</code>) plus <code>points</code> (<code>50,25 / 50,275 / 300,275 / 300,25</code>) in <code>[quad_gantry_level]</code>. There is <strong>no <code>[bed_mesh]</code> section at all</strong> in the LDO config — add one (a 350 with a heated chamber will want a per-print mesh).</li>
+<li><strong>Calibration order:</strong> PID before QGL; QGL hot (bed 100 °C, hotend 150 °C) and only once <code>PROBE_ACCURACY</code> shows σ &lt; 0.003 mm with no trend — a cold printer takes 10–20 minutes to stabilise. E-steps before the first print (<code>rotation_distance: 22.6789511</code>, <code>gear_ratio: 50:10</code> for CW2). Input shaper and pressure advance <em>after</em> a successful first print.</li>
+</ol>
+<hr>
+<h2 id="5-build-phase-plan-printassemble-interleave">5. Build-phase plan (print/assemble interleave)<a class="headerlink" href="#5-build-phase-plan-printassemble-interleave" title="Permanent link">¶</a></h2>
+<h3 id="51-phase-table">5.1 Phase table<a class="headerlink" href="#51-phase-table" title="Permanent link">¶</a></h3>
+<p>Hours are <strong>first-build, hands-on</strong>, for two people (one adult, one 13-year-old) working carefully with a written procedure. Basis: apportioned across the community-standard 40–60 h first-build envelope (LDO/Voron community; also recorded in <code>CLAUDE.md</code>) weighted by official-manual page count per chapter (Frame 10 pp, Z Drives 30, Build Plate 10, A/B Drives 20, Gantry 26, Z Axis 16, A/B Belts 22, Electronics 26, Wiring 32, Skirts 28, Panels 20) plus the Stealthburner manual's 73 pp, with an explicit uplift for the 153 heat-set inserts and for teaching-as-you-go. Ranges, not points — treat the low end as "everything fits first time".</p>
+<p>Printed-part groups map to the Voron STL tree (<code>github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs</code>), which is organised by build phase. Parts LDO ships <strong>already printed</strong> are excluded (Leviathan brackets, DIN clips, NH adapter mount, CW2 chain anchor, splitter spacers, LDO nozzle probe, bed WAGO mount, SB LED diffuser, CW2 PCB spacer).</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Hands-on (h)</th>
+<th>Printed parts needed to start</th>
+<th>Prereq phases</th>
+<th>Runnable with <strong>no</strong> self-printed parts?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P00 Prep, inventory, rail prep, jigs</strong></td>
+<td>2.5–4.0</td>
+<td><em>Jigs and coupons:</em> <code>Tools/MGN9_rail_guide_x2</code>, <code>Tools/MGN12_rail_guide_x2</code>, <code>Tools/pulley_jig</code>, <code>Tools/bed_hole_marking_template_x1_Rev2</code>, <code>Tools/bottom_panel_template</code>, <code>Test_Prints/Heatset_Practice</code>, <code>Test_Prints/Voron_Design_Cube_v7</code> — <strong>Update 2026-09-05:</strong> these print in <strong>Prusament ASA Galaxy Black</strong> as batch <strong>B00</strong>, not PLA: the cube is the ASA dimensional gate and the heat-set coupon has to be in the build material or the iron temperature you find is wrong for all 150 remaining inserts. Only <strong>three</strong> Tools jigs are actually printed in B00 (<code>MGN9_rail_guide_x2</code>, <code>MGN12_rail_guide_x2</code>, <code>pulley_jig</code>); the two templates are optional extras deferred per print plan §4.2. See <code>docs/manual/print/B00-calibration-and-jigs.md</code>.</td>
+<td>—</td>
+<td>✅ (printable day one, months before the kit lands)</td>
+</tr>
+<tr>
+<td><strong>P01 Frame assembly + squaring</strong></td>
+<td>2.5–4.0</td>
+<td><strong>none</strong></td>
+<td>P00</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>P02 Z drives, Z idlers, Z rails, deck</strong></td>
+<td>5.0–7.0</td>
+<td><code>Z_Drive/*</code> (10 files), <code>Z_Idlers/*</code> (3), <code>Panel_Mounting/deck_support_{3,4}mm_x8</code></td>
+<td>P01</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P03 Build plate / bed</strong></td>
+<td>1.5–2.5</td>
+<td><strong>none</strong> (verified: no printed parts in <code>STLs/</code> for the Build Plate chapter; feet are rubber, supplied; there is no printed bed mount)</td>
+<td>P01</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>P04 A/B drives + idlers</strong></td>
+<td>3.5–5.0</td>
+<td><code>Gantry/AB_Drive_Units/*</code> (6), <code>Gantry/Front_Idlers/*</code> (6)</td>
+<td>P01</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P05 Gantry: X/Y axes, XY joints, X carriage, Ti backers</strong></td>
+<td>5.0–7.0</td>
+<td><code>Gantry/X_Axis/XY_Joints/*</code> (MGN12 set + <code>[a]_endstop_pod_D2F_switch</code> + <code>[a]_xy_joint_cable_bridge_2hole</code>), <code>Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_{left,right}</code>, <code>probe_retainer_bracket</code></td>
+<td>P04</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P06 Z axis: gantry install, Z belts, gantry squaring</strong></td>
+<td>3.5–5.0</td>
+<td><code>Gantry/Z_Joints/{z_joint_lower_x4, z_joint_upper_x4}</code>, <code>Gantry/[a]_z_belt_clip_{lower,upper}_x4</code>, <code>Gantry/z_chain_{bottom_anchor,guide}</code>, <code>Gantry/AB_Drive_Units/[a]_z_chain_retainer_bracket_x2</code></td>
+<td>P02, P05</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P07 A/B belts + tension</strong></td>
+<td>2.5–4.0</td>
+<td><code>Gantry/Front_Idlers/[a]_tensioner_{left,right}</code> (from P04), <code>Gantry/AB_Drive_Units/[a]_cable_cover</code></td>
+<td>P06</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P08 Toolhead: Stealthburner + CW2 + Nitehawk V2</strong></td>
+<td>3.0–4.5</td>
+<td>Stealthburner + Clockwork 2 sets (<a href="https://github.com/VoronDesign/Voron-Stealthburner">Voron-Stealthburner repo</a>), plus <code>Nitehawk-SB/STLs/cw2_captive_pcb_cover</code> (LDO's variant with chamber-thermistor anchor) and <strong><code>Nitehawk-SB-V2/STLs/usb_adapter_mount_partial_cover</code></strong></td>
+<td>P05</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P09 Electronics bay: DIN rails, ducts, board mounting, endstops, Pi</strong></td>
+<td>2.5–4.0</td>
+<td><code>Electronics_Bay/wago_221-415_mount_3by5</code> only (everything else LDO-supplied printed) — <strong>Update 2026-09-05:</strong> superseded. Ch 09 consumes <strong>six</strong> printed parts: <code>lrs_200_psu_bracket_x2</code> ×2, the WAGO mount, <code>pcb_din_clip_x3</code>, <code>PSU_stabilizer_50mm</code>, <code>usb_adapter_mount_partial_cover</code> (all batch B07) and <code>power_inlet_IECGS_1mm</code> (plate B07-P1). The PSU brackets in particular are self-printed. See <code>docs/manual/09-electronics-bay.md</code>.</td>
+<td>P02</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P10 Wiring: above-deck, below-deck, mains, Checkpoint #1</strong></td>
+<td>5.0–7.0</td>
+<td><code>Skirts/power_inlet_IECGS_1mm</code>, COB light-strip mounts (<a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs"><code>LDOVoron2/STLs</code> COB Light Strip Mount</a>)</td>
+<td>P06, P08, P09</td>
+<td>🟡 two small parts</td>
+</tr>
+<tr>
+<td><strong>P11 Skirts, panels, doors (Clicky-Clack), Nevermore, spool holder</strong></td>
+<td>4.0–6.0</td>
+<td><code>Skirts/350/*</code> (5), <code>Skirts/[a]_*</code> grills/guards/keystone, <code>Panel_Mounting/*</code> clips + <code>z_belt_cover_{a,b}</code>, Clicky-Clack set (tanaes), Nevermore Micro V5 Duo 3×6-magnet set, <code>Spool_Management/*</code></td>
+<td>P10</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>P12 Software: Pi image, Klipper/Moonraker/Fluidd/KlipperScreen, firmware, printer.cfg</strong></td>
+<td>2.0–3.0</td>
+<td><strong>none</strong></td>
+<td>(hardware from P09/P10 for final wiring, but the whole flash+install can be bench-done on day one)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>P13 Initial startup: verify temps/heaters/fans/motors/endstops, bed locating, 0,0, Z endstop, probe check, PID, QGL, Z offset</strong></td>
+<td>2.5–4.0</td>
+<td><strong>none</strong></td>
+<td>P10, P12</td>
+<td>❌ (needs the machine)</td>
+</tr>
+<tr>
+<td><strong>P14 Tuning: e-steps, first print, input shaper, pressure advance, EM, first-layer</strong></td>
+<td>2.5–4.0</td>
+<td><strong>none</strong></td>
+<td>P13</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><strong>Totals</strong></td>
+<td><strong>47.5–71.0</strong> (mid ≈ 59)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Reality check on the total: the low end (47.5 h) sits inside the community 40–60 h first-build envelope; the mid-point (≈59 h) sits at its top edge and the high end runs past it. That is the honest expectation for a first Voron built alongside a 13-year-old from a written procedure — the second pair of hands genuinely helps at gantry install and belt routing, but explaining every step costs more than it saves. Unattended print time is separate (~100 h).</p>
+<p><strong>Correction to <code>CLAUDE.md</code>:</strong> it records "only ~15% of the build (by time) is possible before any printed parts exist" and lists "feet + bed mounts" as a print batch gating the bed. Both are wrong. P00+P01+P03+P12 = <strong>8.5–13.5 h</strong> out of 47.5–71.0 h, i.e. <strong>~18–19%</strong> of the build with zero self-printed ASA parts. And the Build Plate chapter needs <strong>no printed parts at all</strong> — the 2.4r2 STL tree contains no bed mount and no feet (feet are supplied rubber).</p>
+<h3 id="52-wrong-order-pitfalls-that-cost-rework">5.2 Wrong-order pitfalls that cost rework<a class="headerlink" href="#52-wrong-order-pitfalls-that-cost-rework" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pitfall</th>
+<th>Cost if missed</th>
+<th>Guard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>A/B belts tensioned before gantry squaring</td>
+<td>Full de-tension + belt-clamp release; ~1.5 h</td>
+<td>Gate P07 on P06's squaring sign-off. <strong>Update 2026-09-05:</strong> revised — squaring needs motor control, so it runs out of Ch 13 as Ch 06b. Ch 07 sets <em>provisional</em> tension only; final tension is Ch 06b Step 06b.15 / Ch 14 Step 14.4.</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>Ti backers fitted after the gantry is assembled/installed</td>
+<td>Gantry teardown; ~3 h</td>
+<td>Backers are a numbered step <em>inside</em> P05, before XY joints are torqued</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Heat-set inserts missed in a printed part</td>
+<td>Disassemble whatever the part is in; 0.5–3 h</td>
+<td>Insert pass is a gated checklist per print batch, before the part enters any phase</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>Deck supports not fitted at manual p.29–30</td>
+<td>Deck out, frame partly apart; ~1 h</td>
+<td>LDO note is a step inside P02, not P11</td>
+</tr>
+<tr>
+<td>W5</td>
+<td>LED strips + extrusion covers routed after the top frame is closed / panels on</td>
+<td>Top panel and covers off again; ~0.5 h</td>
+<td>LED routing is a numbered step in P10 that runs <em>before</em> P11</td>
+</tr>
+<tr>
+<td>W6</td>
+<td>Bed magnet applied without trimming the bolt holes (manual p.54 vs p.59)</td>
+<td>Peel and re-apply magnet, or drill through the magnet; risk of ruining it</td>
+<td>Trim step immediately after magnet application in P03</td>
+</tr>
+<tr>
+<td>W7</td>
+<td>Toolhead umbilical not threaded through the drag chain before the chain ends are mounted</td>
+<td>Chain disassembly; 0.5 h</td>
+<td>P08→P10 handoff step: "pull cable, then mount chain ends"</td>
+</tr>
+<tr>
+<td>W8</td>
+<td>Electronics bay closed (skirts + bottom panel on) before Checkpoint #1</td>
+<td>Full re-open; 1 h + the safety risk of skipping it</td>
+<td>Checkpoint #1 is a hard gate at the end of P10; P11 cannot start until it passes</td>
+</tr>
+<tr>
+<td>W9</td>
+<td>Rails installed before cleaning/greasing</td>
+<td>Rails off again, or run them dry and wear them out</td>
+<td>Rail prep is P00, explicitly before P02/P05</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Rails mounted using the end holes (manual default) instead of the second holes</td>
+<td>Rail off, re-position, re-align</td>
+<td>LDO p.88 note is inlined at the step, not in an appendix</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>Nevermore vs. stock exhaust decided after the back panel is sealed</td>
+<td>Back panel off, different exhaust cover printed; 1 h + a reprint</td>
+<td>Decide in P00 (it's Nevermore — the kit has no exhaust fan); print the matching exhaust cover in the same batch as the skirts</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Z-motor pulley set screws not threadlocked/seated before Z belting</td>
+<td>Belt slip under load, re-belt all four; 1.5 h</td>
+<td>Set-screw + <code>pulley_jig</code> verification step inside P02</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>Wrong Klipper config loaded (Rev D vs Rev D+) at P12</td>
+<td>Mis-driven heater/probe/fans at P13; potentially a damaged component</td>
+<td>P12 step 1: confirm the toolboard ID reads <code>stm32g0b1xx</code>; if it reads <code>rp2040</code> you have a V1 board and the <em>other</em> config</td>
+</tr>
+<tr>
+<td>W14</td>
+<td><code>position_max</code> / QGL points left commented out for the 350</td>
+<td>Homing crashes into the frame at P13</td>
+<td>P12 config-edit checklist with the exact 350 values</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="6-gap-analysis-vs-a-prusa-style-manual">6. Gap analysis vs. a Prusa-style manual<a class="headerlink" href="#6-gap-analysis-vs-a-prusa-style-manual" title="Permanent link">¶</a></h2>
+<p>Baseline: the Prusa Core One+ kit manual — numbered steps, one photo per step, a per-step parts strip showing exact fasteners and counts, bold "what you should see" checks, chapter structure with time estimates, and everything he needs on one page.</p>
+<table>
+<thead>
+<tr>
+<th>Prusa property</th>
+<th>Best existing Voron/LDO equivalent</th>
+<th>Gap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Numbered steps</strong></td>
+<td>ldomotion.com guides ("Step 3 of 7 in this section"); the Voron startup wizard (progress bar, gated Next). Neither covers assembly</td>
+<td><strong>Missing for the entire mechanical build.</strong> The 2.4r2 manual has page numbers, not step numbers</td>
+</tr>
+<tr>
+<td><strong>One photo per step</strong></td>
+<td>LDO wiring guide: 39 images across ~16 sections; hi-res originals in <code>LDOVoron2/Images/WiringGuide/RevD</code> (19 build shots). LDO printed-parts guide: 20. KB3D Clicky-Clack: 34. LDO Nevermore: 37</td>
+<td><strong>Partly solved for electrical/filter/door; absent for mechanical.</strong> The manual's images are CAD renders, not photos — but they are actually <em>better</em> than photos for exploded fastener geometry. One render per manual page already exists</td>
+</tr>
+<tr>
+<td><strong>Per-step fastener list with counts</strong></td>
+<td>Manual draws callouts in the image (e.g. "M5×16 BHCS", "M3 T-Nut") but never tabulates them. LDO BOM gives whole-kit totals only</td>
+<td><strong>Missing.</strong> Derivable: per-chapter fastener sets are extractable from the PDF text layer (already done, §5.4); per-<em>step</em> counts require reading the renders</td>
+</tr>
+<tr>
+<td><strong>"What you should see" checks</strong></td>
+<td>Manual has a few: "CHECK FOR SQUARENESS", "CHECK YOUR WORK", "CHECK SHAFT POSITION", "CHECK FOR BELT", "VERIFY PLATE PLACEMENT", "CHECK POSITION". LDO has exactly one real one ("Checkpoint #1"). Voron startup wizard is entirely built from checks</td>
+<td><strong>Mostly missing.</strong> ~8 checks across 263 pages vs. Prusa's per-step cadence</td>
+</tr>
+<tr>
+<td><strong>Time estimates</strong></td>
+<td>None anywhere</td>
+<td><strong>Missing.</strong> §5.1 supplies them</td>
+</tr>
+<tr>
+<td><strong>Single document, no cross-referencing</strong></td>
+<td>It currently takes 4 documents open at once (manual PDF + build-notes wiki + wiring wiki + printed-parts wiki), plus a fifth for Rev D+</td>
+<td><strong>The core problem.</strong> This is exactly what the consolidation solves</td>
+</tr>
+<tr>
+<td><strong>Tools/consumables per chapter</strong></td>
+<td>Wiring guide has a 3-item tool list; nothing else</td>
+<td><strong>Missing.</strong> §7.3 supplies them</td>
+</tr>
+<tr>
+<td><strong>Warnings/safety inline</strong></td>
+<td>Manual has a good intro warning; LDO has the mains warning and Checkpoint #1</td>
+<td>Adequate, needs re-siting inline</td>
+</tr>
+<tr>
+<td><strong>Print-batch interleave</strong></td>
+<td>Nothing. Every source assumes parts already exist</td>
+<td><strong>Entirely missing</strong> — and it is the single biggest difference between a kit build and this build</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What already exists and must not be re-created:</strong> 263 exploded CAD renders (one per action) at print quality; 19 hi-res GPL-licensed Rev D wiring photos; a complete, current, page-indexed deviation list; a complete per-batch BOM with check columns; a gated startup wizard; a mature tuning guide; step-numbered photo guides for Leviathan firmware, Nevermore and the Clicky-Clack door. The gap is <strong>assembly, indexing, per-step fastener tables, checks and Rev D+ patching</strong> — not content creation.</p>
+<hr>
+<h2 id="7-proposal-the-consolidated-instruction-set">7. Proposal — the consolidated instruction set<a class="headerlink" href="#7-proposal-the-consolidated-instruction-set" title="Permanent link">¶</a></h2>
+<h3 id="71-recommended-shape-and-the-deciding-criterion">7.1 Recommended shape and the deciding criterion<a class="headerlink" href="#71-recommended-shape-and-the-deciding-criterion" title="Permanent link">¶</a></h3>
+<p><strong>Two production modes, chosen per chapter by whether a good visual already exists:</strong></p>
+<ul>
+<li><strong>Mode A — "index and embed" (mechanical chapters, P01–P07):</strong> do <strong>not</strong> re-draw or re-photograph. Render each manual page to PNG (<code>pdftoppm -r 200 -png -f N -l N</code>, verified working — 263 pages ≈ 60 MB), then write numbered steps <em>around</em> the render, adding the fastener table, the check, and the inline LDO deviation. Roughly 1.5–2.5 steps per manual page. This is ~4× faster than transcription and loses nothing, because the render <em>is</em> the best available illustration.</li>
+<li><strong>Mode B — "write it properly" (P00, P08–P14):</strong> these chapters have no single good source, or the good source is wrong for Rev D+. Write full steps, embed LDO's GPL images by raw URL, and photograph the gaps during the build.</li>
+</ul>
+<p>Deciding criterion: <em>does one existing image already show the exact action?</em> If yes → Mode A. If no, or if the image shows the wrong revision → Mode B.</p>
+<p><strong>Format: a static site generated from Markdown, plus a print-to-PDF path.</strong> Markdown because the content is 90% text + image reference and must be diffable and patchable when LDO updates a guide; a static site because the build happens at a bench with a tablet and a 350 MB PDF is miserable there; a PDF export because the shop tablet may not have Wi-Fi in the basement. Concretely: one <code>.md</code> per chapter, images in a sibling directory, built with any Markdown→HTML static generator, plus <code>weasyprint</code>/<code>prince</code>/browser-print for PDF. Not a wiki (no offline), not a bare PDF (no incremental patching).</p>
+<h3 id="72-chapter-outline-writing-spec">7.2 Chapter outline — writing spec<a class="headerlink" href="#72-chapter-outline-writing-spec" title="Permanent link">¶</a></h3>
+<p>Each row is a chapter file. <strong>Source</strong> = what the writer transcribes from, with exact page ranges / section anchors / URLs. <strong>Steps</strong> = expected numbered-step count. <strong>Mode</strong> per §7.1.</p>
+<hr>
+<p><strong>Ch 00 — Before you start: inventory, tools, jigs, rail prep</strong> · Mode B · ~25 steps · 2.5–4.0 h
+- <strong>Sources:</strong> LDO batch BOM for the kit serial (<a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">350_BOM/HOME</a> → the batch page); manual p.4–11 (Part Printing Guidelines, File Naming, Hardware Reference, Blind Joint Basics, Ball-End Driver); <a href="https://docs.ldomotors.com/guides/rail_grease_guide">LDO rail grease guide</a>; <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">LDO heat-set insert tool guide</a>; <a href="https://docs.ldomotors.com/guides/cable_chain_guide">LDO cable chain guide</a>; <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Printed Parts Guide Rev D</a>.
+- <strong>Printed parts:</strong> the five <code>STLs/Tools/*</code> jigs + <code>Test_Prints/Heatset_Practice</code> + <code>Voron_Design_Cube_v7</code>, all PLA on the Prusa.
+  - <strong>Update 2026-09-05:</strong> superseded. Batch <strong>B00</strong> prints in <strong>Prusament ASA Galaxy Black</strong>, not PLA — the cube is the ASA dimensional gate and the heat-set coupon must be the build material. And only the <strong>three</strong> jigs actually used are printed (<code>MGN9_rail_guide_x2</code>, <code>MGN12_rail_guide_x2</code>, <code>pulley_jig</code>); <code>bed_hole_marking_template_x1_Rev2</code> and <code>bottom_panel_template</code> are optional extras deferred per print plan §4.2. See <code>docs/manual/print/B00-calibration-and-jigs.md</code>.
+- <strong>Hardware consumed:</strong> none. Consumes IPA, grease, soldering iron + brass tip.
+- <strong>Rev D+ deviations to apply:</strong> substitute <code>usb_adapter_mount_partial_cover.stl</code> (V2 repo) for the V1 cover in the print list; add the Nitehawk-SB-V2 grounding images to the "questions to ask in <code>#ldo_motors</code>" box.
+- <strong>Also:</strong> the print-batch plan and a "verify with the Voron cube before committing to batch 1" gate.</p>
+<p><strong>Ch 01 — Frame</strong> · Mode A · ~22 steps · 2.5–4.0 h
+- <strong>Sources:</strong> manual <strong>p.12–21</strong> (SORT EXTRUSIONS, PREPARE 8 EXTRUSIONS, EXTRUSION REFERENCE, FRAME ASSEMBLY, BUILD ON A FLAT SURFACE, CHECK FOR SQUARENESS, POSITION BED EXTRUSIONS); LDO note <strong>p.19</strong>.
+- <strong>Printed parts:</strong> none.
+- <strong>Hardware:</strong> M5×16 BHCS, M5×10 BHCS, M5 roll-in T-nut, <strong>M5 precision spacer</strong> (not shim).
+- <strong>Rev D+ deviations:</strong> none. (Rev D deviation: precision spacer substitution, everywhere from here on.)
+- <strong>Checks to author:</strong> diagonal equality both faces; extrusion faces flush at every corner; frame sits on all four points on the reference surface with no rock.</p>
+<p><strong>Ch 02 — Z drives, Z idlers, Z rails, deck</strong> · Mode A · ~60 steps · 5.0–7.0 h
+- <strong>Sources:</strong> manual <strong>p.22–51</strong> (LINEAR RAIL BASICS, RAIL SAFETY, CENTRED RAIL INSTALLATION GUIDE, Z RAILS, Z DRIVE ×4, Z IDLER ×4, HEAT SET INSERTS, APPLY THREAD LOCKER, SET SCREWS, CLOSE THE BELT TENSIONER, DECK PANEL, DIN RAIL SLOTS); LDO notes <strong>p.29–30</strong>, <strong>p.39</strong>.
+- <strong>Printed parts:</strong> <code>Z_Drive/*</code> ×10, <code>Z_Idlers/*</code> ×3, <code>Panel_Mounting/deck_support_{3,4}mm_x8</code>.
+- <strong>Hardware:</strong> M3×8/×16/×40 SHCS, M3 nut, M3 T-nut, M5×10/×16/×30 BHCS, M5×40 SHCS, M5 nut, M5 precision spacer, M5 T-nut, 625 bearings ×12, 16T pulleys ×4, 80T pulleys ×4, 20T 9 mm idlers ×4, 5×60 mm shafts ×4, closed 2GT 6×188 loops ×4, M4×4 set screws (pre-threadlocked).
+- <strong>Rev D+ deviations:</strong> none. <strong>Deck thickness gate</strong> (§4.3) — measure, then choose the support.</p>
+<p><strong>Ch 03 — Build plate</strong> · Mode A · ~20 steps · 1.5–2.5 h
+- <strong>Sources:</strong> manual <strong>p.52–61</strong> (HEATED BED, MAGNET APPLICATION, HEATER APPLICATION, THERMAL FUSE, HEATER/THERMISTOR WIRES, BED AND SPACER THICKNESS, VERIFY PLATE PLACEMENT, WIRE PASSTHROUGH); LDO notes <strong>p.54, 55 (SKIP), 56 (SKIP), 57, 59</strong>; wiring guide <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater">§ Wiring the Bed Heater</a> for the bed harness breakout.
+- <strong>Printed parts:</strong> none (bed WAGO mount is LDO-supplied printed).
+- <strong>Hardware:</strong> M3×20 SHCS ×4 (<strong>not</strong> M3×16), M3 washers, thumb nuts, M4×6 BHCS (pre-fitted), M4 + serrated washer for bed PE.
+- <strong>Rev D+ deviations:</strong> none.
+- <strong>Checks:</strong> magnet fully rolled with no bubbles; bolt holes trimmed <em>before</em> bolting; bed sits with even gap on all four thumb nuts.</p>
+<p><strong>Ch 04 — A/B drives and idlers</strong> · Mode A · ~40 steps · 3.5–5.0 h
+- <strong>Sources:</strong> manual <strong>p.62–81</strong> (OVERVIEW, PREPARATION, A DRIVE, B DRIVE, A IDLER, B IDLER, ASSEMBLY AID, MOTOR ORIENTATION, APPLY THREAD LOCKER, UPSIDE DOWN ASSEMBLY, CHECK YOUR WORK).
+- <strong>Printed parts:</strong> <code>Gantry/AB_Drive_Units/{a,b}_drive_frame_{lower,upper}</code>, <code>Gantry/Front_Idlers/front_idler_{left,right}_{lower,upper}</code>.
+- <strong>Hardware:</strong> M3×30/×40 SHCS, M3 washer, M5×30 BHCS, M5×40 SHCS, M5 nut, M5 precision spacer, F695 bearings, 20T 9 mm pulleys ×4.
+- <strong>Rev D+ deviations:</strong> none.</p>
+<p><strong>Ch 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers</strong> · Mode A + inserted Mode B · ~55 steps · 5.0–7.0 h
+- <strong>Sources:</strong> manual <strong>p.82–107</strong> (PREPARATION, Y AXIS, T-NUT ORIENTATION, X AXIS, XY JOINTS left/right, CENTRED RAIL INSTALLATION GUIDE, X CARRIAGE prep, CABLE PATH, FLIP GANTRY, CHECK YOUR WORK); LDO note <strong>p.88</strong>; printed-parts guide (<code>[a]_endstop_pod_D2F_switch</code>, <code>[a]_xy_joint_cable_bridge_2hole</code>); <strong>Mode B insert:</strong> <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">extrusion_backers README</a> + <a href="https://youtu.be/BHUxiEEnyGg">Build It Basement Part 7.5</a> for backer technique.
+- <strong>Printed parts:</strong> <code>X_Axis/XY_Joints/xy_joint_{left,right}_{lower,upper}_MGN12</code>, <code>[a]_endstop_pod_D2F_switch</code>, <code>[a]_xy_joint_cable_bridge_2hole</code>, <code>X_Carriage/x_frame_V2TR_MGN12_{left,right}</code>, <code>probe_retainer_bracket</code>.
+- <strong>Hardware:</strong> M3×8/×16 SHCS, M3 T-nut, M5×10/×16/×30 BHCS, M5×40 SHCS, M5 nut/precision spacer/T-nut; <strong>backers:</strong> M3×8 FHCS (Y), M3×6 FHCS (X), ~30 T-nuts.
+- <strong>Rev D+ deviations:</strong> none (D2F endstop pod is a Rev C+ deviation).
+- <strong>Checks:</strong> backer on the face <em>opposite</em> the rail; XY joints not rotated; X carriage runs the full X travel with no bind.</p>
+<p><strong>Ch 06 — Z axis: gantry install, Z belts, and squaring the gantry</strong> · Mode A + Mode B tail · ~38 steps · 3.5–5.0 h
+- <strong>Sources:</strong> manual <strong>p.108–123</strong> (Z JOINTS, INSTALL REMAINING JOINTS, GANTRY INSTALL, A HELPING HAND, GANTRY ALIGNMENT, Z BEARING BLOCKS, Z BELT ROUTING, LOOSEN TOP BELT CLAMPS, PULL TIGHT AND SECURE BELT CLAMP, EXCESS BELT, REPEAT ×4, SQUARING THE GANTRY); LDO note <strong>p.114–116</strong> (rubber rail stoppers trick); <strong>Mode B tail:</strong> the full 16-step <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">V2 Gantry Squaring</a> procedure with its 10 images — <strong>note this procedure needs a working printer</strong> (<code>SET_IDLE_TIMEOUT</code>, <code>G28</code>, <code>QUAD_GANTRY_LEVEL</code>, <code>SET_STEPPER_ENABLE</code>), so the chapter ends with a "return here after Ch 13" pointer.
+- <strong>Printed parts:</strong> <code>Gantry/Z_Joints/z_joint_{lower,upper}_x4</code>, <code>[a]_z_belt_clip_{lower,upper}_x4</code>, <code>z_chain_{bottom_anchor,guide}</code>, <code>[a]_z_chain_retainer_bracket_x2</code>.
+- <strong>Hardware:</strong> M3×20/×30 SHCS, M5×30 BHCS, M5×40 SHCS, M5 nut; Gates 2GT 9 mm belt.
+- <strong>Rev D+ deviations:</strong> none.
+- <strong>Structural note for the writer:</strong> this is the one place where a purely linear manual breaks. Split into <strong>Ch 06a</strong> (install + belt, mechanical) and <strong>Ch 06b</strong> (squaring, requires firmware) and put 06b immediately after Ch 13.</p>
+<p><strong>Ch 07 — A/B belts and tensioning</strong> · Mode A · ~40 steps · 2.5–4.0 h
+- <strong>Sources:</strong> manual <strong>p.124–145</strong> (THE VORON BELT PATH, OVERVIEW A BELT / B BELT, BELTING IDLERS, EXTEND IDLER, CLAMP BELTS, PULL TIGHT, LEAVE LOOSE, PROBE WIRES, X CARRIAGE, CHECK YOUR WORK); <strong>tension target from</strong> <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">secondary_printer_tuning § Belt Tension</a> — 110 Hz over a 150 mm span, method and app list included.
+- <strong>Printed parts:</strong> <code>[a]_tensioner_{left,right}</code> (printed in Ch 04's batch), <code>[a]_cable_cover</code>.
+- <strong>Hardware:</strong> M3×8/×12/×30/×40 SHCS, M3 nut; Gates 2GT 6 mm belt (cut both to the same length by running one and matching).
+- <strong>Rev D+ deviations:</strong> none.
+- <strong>Check:</strong> both belts read within a few Hz of each other at 110 Hz after moving the gantry and returning.</p>
+<p><strong>Ch 08 — Toolhead: Stealthburner, Clockwork 2, Nitehawk-SB V2</strong> · Mode B · ~70 steps · 3.0–4.5 h
+- <strong>Sources:</strong> <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf">Stealthburner Assembly Manual</a> (73 pp; Mode A embedding for the mechanical pages) + manual p.146–147; LDO notes <strong>p.129–130, 146–147</strong>; <strong><a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb">LDO Wiring Guide § Wiring the Toolhead PCB</a></strong> (for the port assignments); <strong><a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">Nitehawk-SB V2 doc</a></strong> port/pin table and change list; <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/Images">Nitehawk-SB-V2 repo images</a> (<code>nhsbv2_pcb_pinout.jpg</code>, <code>sbv2_fan_adapter_pcb_pinout.jpg</code>, <code>grounding_scheme.jpg</code>, <code>toolboard_ground_routing.jpg</code>).
+- <strong>Printed parts:</strong> Stealthburner + Clockwork 2 sets; <code>cw2_captive_pcb_cover</code> (LDO chamber-thermistor variant); <code>usb_adapter_mount_partial_cover</code> (<strong>V2</strong>). LED diffuser and CW2 PCB spacer are supplied.
+- <strong>Hardware:</strong> M3×8 SHCS ×2 (toolboard to CW2), M3×10 FHCS ×2 (fan adapter), M3×6 captive screw (cable door), M3×10 SHCS ×3 (USB adapter stack), E0508 ferrules if fitting a Rapido.
+- <strong>Rev D+ deviations — all five of §4.1 land in this chapter:</strong> PH2.0 not XH2.5 on PROBE/TH0/Endstop; keyed reversed 2×10 header; no ADXL mount; V2 USB-adapter cover; grounding wire per the V2 images. Also: the endstop port is unused in a standard build; the probe port is 24 V only.
+- <strong>Checks:</strong> thermistor reads room temperature before the toolhead goes on; the 2×10 headers seat with the SB front snapped on and no gap.</p>
+<p><strong>Ch 09 — Electronics bay: DIN rails, wire ducts, board placement, endstops, Pi</strong> · Mode B · ~30 steps · 2.5–4.0 h
+- <strong>Sources:</strong> <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO Wiring Guide</a> §§ <em>Assembling the Nozzle Probe</em>, <em>Preparing the Inlet</em>, <em>Preparing the Power Supply Unit</em>, <em>Preparing the Mainboard</em>, <em>Installing the DIN Rails and Wire Ducts</em>, <em>General Placement</em>; <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">Leviathan V1.3 guide</a> § <em>Overview and Preparation</em> steps 1–4 (wiring diagram, pin assignment, <strong>voltage-selection jumper removal</strong>, Raspberry Pi mounting + HAT adapter); LDO notes <strong>p.150, 152, 156, 158–163, 169–172</strong>; manual p.148–173 for the DIN-rail <em>technique</em> pages only (DIN RAIL MOUNTS — HOW TO, HOOK FIXED SIDE, PRESS FIT).
+- <strong>Images to embed:</strong> <code>Images/WiringGuide/RevD/S0_Din_Raill.jpg</code>, <code>S0General_Placement.jpg</code>, plus <code>Images/WiringGuide/z_stop_parts.jpg</code>, <code>z_stop_install_{1,2,3}.jpg</code>, <code>z_stop_final.jpg</code>.
+- <strong>Printed parts:</strong> <code>Electronics_Bay/wago_221-415_mount_3by5</code>. (Leviathan brackets, DIN clips, NH adapter mount, bed WAGO mount all LDO-supplied.)
+- <strong>Hardware:</strong> M2×10 self-tapping (DIN clips to brackets, nozzle probe), M3×8 SHCS (brackets to PCB), M3×25 SHCS ×2 (nozzle probe mount), M5×10 BHCS (bed WAGO mount), DIN end caps ×4, VHB tape.
+- <strong>Rev D+ deviations:</strong> the USB adapter PCB now has a grounding point exposed by the new cover — mount and ground it here.
+- <strong>Hard rule to author:</strong> remove <strong>all</strong> Leviathan voltage-selection jumpers before installing the board.</p>
+<p><strong>Ch 10 — Wiring: above-deck, below-deck, mains, Checkpoint #1</strong> · Mode B · ~75 steps · 5.0–7.0 h
+- <strong>Sources:</strong> the whole <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">LDO Wiring Guide</a> in its own order — <em>Insulating the Z Probe</em> → <em>Wiring the XY endstop</em> → <em>Routing the LED strips</em> → <em>Connecting Steppers</em> → <em>Connecting Inlet and WAGO</em> → <em>Connecting Wago and PSU</em> → <strong>Checkpoint #1</strong> → <em>Connecting 24V</em> → <em>Connecting Build Plate</em> → <em>Connecting the Gantry Cables</em> → <em>Connecting the Fans and the LED Strip</em> → <em>FFC/Ethernet/USB/Frame PE</em> → <em>Finish Line</em>; plus manual <strong>p.194–195</strong> (drag-chain slack) and the <a href="https://docs.ldomotors.com/guides/cable_chain_guide">LDO cable chain guide</a>; <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">XY endstop repin guide</a> if labels read "X Stop/Y Stop".
+- <strong>Images to embed (raw GitHub, GPL-3.0):</strong> <code>RevD/S1_mapping.jpg</code>, <code>S1_steppers.jpg</code>, <code>S2_inlet.jpg</code>, <code>S2_mapping.jpg</code>, <code>S3_mapping.jpg</code>, <code>S3_wago_PSU.jpg</code>, <code>S4_MB_PSU.jpg</code>, <code>S4_mapping.jpg</code>, <code>S5_bed.jpg</code>, <code>S5_mapping.jpg</code>, <code>S6_Endstop.jpg</code>, <code>S6_mapping.jpg</code>, <code>S7_fan.jpg</code>, <code>S7_mapping.jpg</code>, <code>VS8_Misc.jpg</code>, <code>VS8_mapping.jpg</code>, <code>VS9_Final.jpg</code>; plus <code>WiringGuide/led_route.svg</code>, <code>led_splitter_placement.jpg</code>, <code>led_extrusion_cover.jpg</code>, <code>psu_switch.jpg</code>, <code>z_motor_orientation{,2}.jpg</code>.
+- <strong>Printed parts:</strong> <code>Skirts/power_inlet_IECGS_1mm</code>, COB light-strip mounts.
+- <strong>Hardware:</strong> M3×8 SHCS + M3 hammerhead T-nuts (LED bars, splitter spacers), M5×10 BHCS, VE0508 ferrules, 100 zip ties, cable tags.
+- <strong>Stepper map to transcribe verbatim:</strong> A = rear <strong>right</strong> → <code>HV-STEPPER-1</code>; B = rear <strong>left</strong> → <code>HV-STEPPER-0</code>; Z0 front-left → <code>STEPPER-0</code>; Z1 rear-left → <code>STEPPER-1</code>; Z2 rear-right → <code>STEPPER-2</code>; Z3 front-right → <code>STEPPER-3</code>; <code>STEPPER-4</code> unused. Fans: PCB fan → <code>FAN2/PF7</code>, LED strip → <code>LED-Strip/PE6</code>, filter fan → <code>FAN3/PF9</code>.
+- <strong>Rev D+ deviations:</strong> the toolhead-side connector types (§4.1 ③); the umbilical must leave the secondary USB port accessible.
+- <strong>Hard gate:</strong> Checkpoint #1 (multimeter, unplugged) before any power-on, and before Ch 11 starts.</p>
+<p><strong>Ch 11 — Skirts, panels, Clicky-Clack door, Nevermore, spool holder</strong> · Mode A + two Mode B inserts · ~70 steps · 4.0–6.0 h
+- <strong>Sources:</strong> manual <strong>p.212–239</strong> (Skirts: APPLY FOAM TAPE, APPLY VHB TAPE, Z BELT COVERS, ELECTRONICS COOLING FAN, LCD HOOKUP, BOTTOM PANEL, BACK PANEL) and <strong>p.240–259</strong> (Panels: SIDE PANELS, TOP PANEL, MIND THE MAGNET POLARITY, APPLY 3MM FOAM TAPE, SPOOL HOLDER, EXHAUST); LDO notes <strong>p.214–216 &amp; 220–221</strong> (BTT 4.3" screen; mount STL in <a href="https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount"><code>LDOVoronTrident/STLs/BTT Pi TFT4.3 Mount</code></a>), <strong>p.234</strong> (alt Z-belt cover), <strong>p.250–253 &amp; 256 SKIP</strong>; <strong>Mode B insert 1:</strong> <a href="https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod">KB3D Clicky-Clacky Door guide</a> (34 images) with the plain acrylic panel instead of NanoNest; <strong>Mode B insert 2:</strong> <a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">LDO Nevermore V5 Duo — V2.4</a> (37 step images).
+- <strong>Printed parts:</strong> <code>Skirts/350/*</code> ×5, <code>Skirts/[a]_{belt_guard,fan_grill,fan_grill_retainer,keystone_blank}_*</code>, <code>keystone_panel</code>, <code>side_fan_support_x2</code>, <code>Panel_Mounting/{corner,midspan}_panel_clip_*</code>, <code>bottom_panel_{clip,hinge}</code>, <code>z_belt_cover_{a,b}</code> (or the LED-routing variant), Clicky-Clack set (<code>Handle</code>, <code>Handle-Hinge_{Top,Bottom}</code>, <code>Hinge-L-{Sleeve,Solid}</code> ×2 each, <code>Latch</code>, <code>Panel_Clip</code>), Nevermore Micro V5 Duo (3×6-magnet variant) + exhaust cover + stock exhaust grill, <code>Spool_Management/*</code>, optional <code>LDO Insert</code>, handlebar spacers, Z stoppers.
+- <strong>Hardware:</strong> M3×8/×12/×30/×40 SHCS, M3×6 BHCS, M3 T-nut, M5×10/×16 BHCS, M5 T-nut, M5×14 + M5 hammerhead (handlebars), 6×3 magnets ×16, 1 mm and 3 mm foam tape, VHB, super glue (door magnets), 5 mm dowels + split bushings (door hinges), heat-set insert (door latch).
+- <strong>Rev D+ deviations:</strong> none.
+- <strong>Colour note:</strong> the Clicky-Clack "Blue" option selects the <strong>door's aluminium extrusion frame</strong> colour (per the vendor page and a customer review) — i.e. it is visible trim, and blue matches the printer's blue frame rather than the orange/black printed-part accent. That resolves the open question in <code>CLAUDE.md</code>; no change needed unless he wants the door frame to read as accent rather than frame.</p>
+<p><strong>Ch 12 — Software: Pi, Klipper, firmware, printer.cfg</strong> · Mode B · ~30 steps · 2.0–3.0 h
+- <strong>Sources:</strong> <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup">LDO Wiring Guide § Software Setup</a> (Pi OS imaging, SSH, KIAUH order: Klipper → Moonraker → Fluidd/Mainsail → KlipperScreen, touchscreen rotation via <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide"><code>btt_43_rotate_guide</code></a>, firmware, USB IDs via <a href="https://docs.ldomotors.com/guides/klipper_id"><code>klipper_id</code></a>); <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">Leviathan V1.3 guide</a> §§ Katapult Bootloader, Klipper Firmware Installation, Firmware Testing; <a href="https://docs.vorondesign.com/build/software/">docs.vorondesign.com/build/software</a>.
+- <strong>Config file:</strong> <strong><a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg"><code>leviathan-printer-rev-d-sbv2.cfg</code></a></strong>.
+- <strong>Printed parts / hardware:</strong> none.
+- <strong>Rev D+ deviations — this chapter is where they concentrate:</strong> ① the config file; ② <code>stm32g0b1xx</code> not <code>rp2040</code> in the toolboard ID. Plus the 350 mm uncommenting checklist (§4.4 #15) and adding a <code>[bed_mesh]</code> section.
+- <strong>Checks:</strong> <code>ls /dev/serial/by-id/*</code> shows exactly two Klipper devices, one <code>stmf446xx</code> (Leviathan) and one <code>stm32g0b1xx</code> (Nitehawk V2); <code>STATUS</code> clean after <code>RESTART</code>.</p>
+<p><strong>Ch 13 — First power-up and initial startup</strong> · Mode B, transcribed from the wizard · ~35 steps · 2.5–4.0 h
+- <strong>Transcribe from:</strong> <a href="https://docs.vorondesign.com/build/startup/">docs.vorondesign.com/build/startup</a>, <strong>V2 path, probe = "Stock Inductive probe"</strong>, in the wizard's own page order: Verify Temperatures → Verify Heaters → Verify Fans → Motor Checks (<code>STEPPER_BUZZ</code> per motor) → XY Endstop Check → Homing Check → Bed Locating → 0,0 Point → Z Endstop → Probe Check (<code>PROBE_ACCURACY</code>) → PID Tuning → Quad Gantry Level → Z-offset → Finish. Each wizard page already carries a <code>&lt;details&gt;</code> troubleshooting block — transcribe those as the "if this happens" boxes.
+- <strong>Numbers to transcribe verbatim:</strong> <code>PID_CALIBRATE HEATER=heater_bed TARGET=100</code> (~10 min); <code>M106 S64</code> then <code>PID_CALIBRATE HEATER=extruder TARGET=245</code> (~5 min); QGL hot at bed 100 °C / hotend 150 °C, <code>PROBE_ACCURACY</code> σ &lt; 0.003 mm with no trend, 10–20 min to stabilise from cold; QGL <code>retry_tolerance: 0.0075</code>, <code>retries: 5</code>.
+- <strong>Rev D+ deviations:</strong> none beyond Ch 12's config.
+- <strong>Then:</strong> Ch 06b (gantry squaring) runs here, followed by a QGL re-run.</p>
+<p><strong>Ch 14 — Calibration and first prints</strong> · Mode B · ~25 steps · 2.5–4.0 h
+- <strong>Sources:</strong> startup guide "Finish Line" (e-steps: mark 120–150 mm, extrude 2×50 mm, <code>rotation_distance = old × actual/target</code>, target within 0.5%; CW2 = <code>gear_ratio 50:10</code>, <code>rotation_distance 22.6789511</code>); <a href="https://docs.vorondesign.com/build/slicer/first_print.html">docs.vorondesign.com/build/slicer/first_print.html</a>; <a href="https://ellis3dp.com/Print-Tuning-Guide/">Ellis' Print Tuning Guide</a> — First Layer Squish → Pressure Advance (Pattern Method) → Extrusion Multiplier → Cooling/Layer Times → Retraction; Klipper input shaper (ADXL is on the toolboard, <code>[resonance_tester]</code> already configured, <code>accel_per_hz: 100</code>).
+- <strong>Order to enforce:</strong> e-steps → first print (Voron cube) → input shaper → pressure advance → extrusion multiplier → first-layer squish refinement.
+- <strong>Rev D+ deviations:</strong> none.</p>
+<hr>
+<h3 id="73-tools-and-consumables-checklist-per-chapter">7.3 Tools and consumables checklist, per chapter<a class="headerlink" href="#73-tools-and-consumables-checklist-per-chapter" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Tools</th>
+<th>Consumables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>Digital caliper 150 mm; machinist square 150 mm DIN 875/2; flat reference (the stone counter, verified); temperature-controlled soldering iron + LDO brass M3 tip; flush cutters; 2 mm drill bit (supplied)</td>
+<td>IPA ≥90%; Super Lube 21030 (NLGI 0/1); nitrile gloves; lint-free cloth; masking tape + marker for labelling</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Ball-end hex 4 mm; machinist square; steel rule; flat reference; torque driver 0.5–3 N·m (optional)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Hex 1.5/2/2.5/3/4 mm; soldering iron + insert tip; caliper (deck thickness gate); printed <code>MGN9_rail_guide</code>, <code>pulley_jig</code></td>
+<td>Loctite 243 (blue) for non-pre-applied set screws; grease</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Hex 2.5/3 mm; PH2 screwdriver; plastic scraper or card (magnet application); sharp knife (trim magnet holes)</td>
+<td>IPA; the bed's protective film goes in the bin</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Hex 2/2.5/3/4 mm; printed assembly aid (from the manual); pulley jig</td>
+<td>Loctite 243</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Hex 2/2.5/3/4 mm; <strong>T10 Torx</strong> driver for backer FHCS (strongly preferred); rail guides; soldering iron (inserts)</td>
+<td>Loctite 243</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Hex 2.5/3/4 mm; two people for gantry install; rubber rail stoppers (LDO trick); long zip ties as backup</td>
+<td>—</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Hex 2/2.5 mm; flush cutters; phone with Spectroid (Android) / Sound Spectrum Analysis (iOS) / Gates Carbon Drive; 150 mm rule to set the span</td>
+<td>—</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Hex 1.5/2/2.5 mm; JST-PH crimp tool <strong>only if</strong> modifying pigtails; multimeter; soldering iron (fan voltage trace cut/bridge, if ever needed)</td>
+<td>Fibreglass tape (supplied, for the probe); E0508 ferrules if fitting a Rapido</td>
+</tr>
+<tr>
+<td>09</td>
+<td>2.5 mm flat screwdriver (supplied); PH2; hex 2/2.5/3 mm; multimeter</td>
+<td>VHB tape (supplied); DIN end caps</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Multimeter (<strong>mandatory</strong>); 2.5 mm flat screwdriver; PH2 (PSU + SSR); flush cutters; small pliers; label maker or the supplied cable tags</td>
+<td>Zip ties ×100; VE0508 ferrules; wire duct offcuts</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Hex 2/2.5/3/4 mm; small hammer (door hinge dowels + bushings); side cutters; soldering iron (door latch insert); scissors for foam tape</td>
+<td>1 mm and 3 mm foam tape; VHB; super glue (door magnets); 6×3 magnets ×16</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Laptop; SD card reader; USB-A→USB-C/micro cable for board flashing; network cable</td>
+<td>32 GB SD (supplied)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>—</td>
+<td>A spool of ASA in the dryer, warmed up</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Caliper; ruler; marker (e-steps)</td>
+<td>Test filament; Voron cube; Ellis' PA pattern</td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-image-and-asset-sourcing-with-licensing">7.4 Image and asset sourcing, with licensing<a class="headerlink" href="#74-image-and-asset-sourcing-with-licensing" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Location</th>
+<th>How to get one image per step</th>
+<th>Licence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Official manual page renders</td>
+<td><code>github.com/VoronDesign/Voron-2</code> branch <code>Voron2.4</code>, path <code>Manual/Assembly_Manual_2.4r2.pdf</code> (74,568,690 bytes, 263 pp, A4 landscape 841.89×595.276 pt, PDF 1.6, <code>ModDate</code> 2023-07-18). <strong>Pin to commit <code>de7e89de1908e525d6d10eda453298bd9cc83d3b</code></strong> — the same commit LDO's build notes reference</td>
+<td><code>pdftoppm -r 200 -png -f N -l N Assembly_Manual_2.4r2.pdf out/page</code> (verified working; ~240 KB/page at 150 dpi). For vector: <code>pdftocairo -svg -f N -l N</code></td>
+<td><strong>GPL-3.0</strong> (<code>VoronDesign/Voron-2/LICENSE</code>) — derivative docs must also be GPL-3.0</td>
+</tr>
+<tr>
+<td>Stealthburner manual renders</td>
+<td><code>VoronDesign/Voron-Stealthburner/Manual/Assembly_Manual_SB.pdf</code> (7,245,278 bytes, 73 pp, <code>ModDate</code> 2023-07-07). A high-contrast variant <code>Assembly_Manual_SB_High_Contrast_7-7-23.pdf</code> also exists</td>
+<td>same</td>
+<td><strong>GPL-3.0</strong></td>
+</tr>
+<tr>
+<td>LDO Rev D wiring photos (hi-res)</td>
+<td><code>raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/&lt;name&gt;.jpg</code> — verified HTTP 200. 19 build images (<code>S0…VS9</code>) at ~600–880 KB each + 6 UI screenshots</td>
+<td>Direct download; the wiring guide itself points here for hi-res</td>
+<td><strong>GPL-3.0</strong> (<code>MotorDynamicsLab/LDOVoron2/LICENSE</code>)</td>
+</tr>
+<tr>
+<td>LDO wiring/printed-parts wiki images (lower-res)</td>
+<td><code>https://docs.ldomotors.com/&lt;path&gt;</code> (e.g. <code>/vs1_steppers.jpg</code>, <code>/v2_wire_guide/bed_wago_mount.jpg</code>)</td>
+<td>Only for images with no GitHub original</td>
+<td>Wiki content licence "alr" (all rights reserved) per <code>siteConfig</code> — <strong>link, do not copy</strong></td>
+</tr>
+<tr>
+<td>Nitehawk-SB V2 pinouts + grounding</td>
+<td><code>github.com/MotorDynamicsLab/Nitehawk-SB-V2/Images/</code> (<code>nhsbv2_pcb_pinout.jpg</code>, <code>sbv2_fan_adapter_pcb_pinout.jpg</code>, <code>grounding_scheme.jpg</code>, <code>toolboard_ground_routing.jpg</code>, <code>usb_adapter_gnd.jpg</code>, <code>reset_boot_buttons.jpg</code>) + <code>Hardware/Nitehawk-SB_V2.0.0/</code> schematic PDF and interactive <code>ibom.html</code></td>
+<td>Direct download</td>
+<td><strong>No LICENSE file in the repo</strong> — link, do not redistribute; ask LDO in <code>#ldo_motors</code> if embedding matters</td>
+</tr>
+<tr>
+<td>Voron gantry-squaring images</td>
+<td><code>VoronDesign/Voron-Documentation/build/mechanical/images/v2_gantry_squaring/*.png</code> (10 images)</td>
+<td>Direct</td>
+<td><strong>GPL-3.0</strong></td>
+</tr>
+<tr>
+<td>Voron startup wizard images/GIFs</td>
+<td><code>VoronDesign/Voron-Documentation/build/startup/images/*</code></td>
+<td>Direct</td>
+<td><strong>GPL-3.0</strong></td>
+</tr>
+<tr>
+<td>KB3D Clicky-Clack images (34)</td>
+<td><code>wiki.kb-3d.com</code></td>
+<td><strong>Link only</strong></td>
+<td>Reseller wiki, no stated licence</td>
+</tr>
+<tr>
+<td>ldomotion.com step images</td>
+<td><code>ldomotion.com/guides/{voron-leviathan-v1-3, nevermore-v5-duo---v24}</code></td>
+<td><strong>Link only</strong></td>
+<td>No stated licence</td>
+</tr>
+<tr>
+<td>His own build photos</td>
+<td>—</td>
+<td>Shoot per §7.5</td>
+<td>His</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Licensing conclusion:</strong> because the manual, the Stealthburner manual, the Voron docs and the LDO kit repo are <strong>all GPL-3.0</strong>, a consolidated manual that embeds their images is a derivative work and must itself be GPL-3.0 with attribution — which is fine, and means it can be published back to the community. Assets from the LDO wiki, KB3D and ldomotion.com must be <strong>linked, not embedded</strong>.</p>
+<h3 id="75-what-to-photograph-during-his-own-build">7.5 What to photograph during his own build<a class="headerlink" href="#75-what-to-photograph-during-his-own-build" title="Permanent link">¶</a></h3>
+<p>Shoot these because no source has them for Rev D+ or for his exact configuration. One tripod position per phase, phone on a timer, 4:3, good side light.</p>
+<ol>
+<li><strong>Every LDO deviation.</strong> The precision spacer next to a shim; the second-hole rail mounting; the M3×20 bed screw; the deck-support thickness he actually used, next to the caliper reading.</li>
+<li><strong>The Nitehawk-SB V2 board, both faces</strong>, with the PH2.0 connectors seated — this literally does not exist in any guide.</li>
+<li><strong>The V2 fan-adapter header mating</strong> in the correct (keyed) orientation.</li>
+<li><strong>The USB-adapter grounding wire</strong> as installed, matching the V2 repo's <code>usb_adapter_gnd.jpg</code>.</li>
+<li><strong>The Ti backers on both axes</strong> before the XY joints are torqued, showing the face they are on relative to the rail.</li>
+<li><strong>The electronics bay at each Checkpoint</strong> — LDO's <code>mapping</code> images are diagrams; a real photo of <em>his</em> bay at each stage is worth more.</li>
+<li><strong>The gantry-squaring setup</strong>: dropped Z joints, released tensioners, the flush/hole checks from the Voron procedure.</li>
+<li><strong>Belt tension measurement</strong>: the 150 mm span marked, and the phone showing the peak at 110 Hz.</li>
+<li><strong>Heat-set insert results</strong>, good and bad, on the practice part — the best possible teaching image for a 13-year-old.</li>
+<li><strong>The finished cable runs</strong> before the ducts are covered (LDO's <code>VS9_Final.jpg</code> equivalent, but his).</li>
+</ol>
+<h3 id="76-effort-estimate-for-producing-the-manual">7.6 Effort estimate for producing the manual<a class="headerlink" href="#76-effort-estimate-for-producing-the-manual" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Work</th>
+<th>Hours</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tooling: page-render script, image fetch/cache, chapter scaffold, static-site + PDF build</td>
+<td>4–6</td>
+<td>One-off; scripted</td>
+</tr>
+<tr>
+<td>Ch 01–07 in Mode A (~275 steps over 156 manual pages)</td>
+<td>14–18</td>
+<td>~18 steps/h: write the step text + fastener row + check around an existing render</td>
+</tr>
+<tr>
+<td>Ch 08–11 in Mode B (~245 steps)</td>
+<td>16–22</td>
+<td>Slower — reconciling three sources per step, and Ch 08/10 carry all the Rev D+ patching</td>
+</tr>
+<tr>
+<td>Ch 00, 12, 13, 14 (~115 steps)</td>
+<td>8–11</td>
+<td>Ch 13 is mostly faithful transcription of the wizard</td>
+</tr>
+<tr>
+<td>Rev D+ deviation audit + cross-check pass (verify each patch against the board doc, the <code>-sbv2</code> config and the V2 repo)</td>
+<td>4–6</td>
+<td>Do this <strong>once at the end</strong>, as a single pass, against the config diff table in §4.1</td>
+</tr>
+<tr>
+<td>Photo capture during the build (his time)</td>
+<td>6–9</td>
+<td>≈ +12–15% on build hours</td>
+</tr>
+<tr>
+<td>Photo selection, crop, caption, placement</td>
+<td>4–6</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>56–78 h</strong></td>
+<td>≈ 640 steps</td>
+</tr>
+</tbody>
+</table>
+<p>That is more than the build itself, which is the honest headline. Three ways to make it tractable, in order of recommendation:</p>
+<ol>
+<li><strong>Write one chapter ahead of the bench.</strong> Ch 00–02 before the kit lands (they need nothing but the PDF and the wiki), then stay one phase ahead. Spreads the load and means the manual is written by someone who has just done the previous step.</li>
+<li><strong>Cut Mode A to a thin overlay for Ch 01, 03, 04.</strong> These three are the least error-prone chapters and the manual renders are unambiguous. A "page N + fastener row + check" line per page instead of full step prose drops ~8 h.</li>
+<li><strong>Do not write Ch 14.</strong> Ellis' guide is better than anything we would produce and is already the community standard; link it with an ordering wrapper. Saves ~3 h.</li>
+</ol>
+<p>Trimmed scope: <strong>~42–55 h</strong>, still producing a genuinely single-track, Prusa-shaped manual for the ~70% of the build where the existing sources actively fight each other.</p>
+<hr>
+<h2 id="8-machine-readable-phase-summary">8. Machine-readable phase summary<a class="headerlink" href="#8-machine-readable-phase-summary" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>phase_id,name,hours_handson_low,hours_handson_high,needs_part_groups,prereq_phases,no_parts_ok
+P00,Prep inventory rail-prep jigs,2.5,4.0,"Tools/MGN9_rail_guide;Tools/MGN12_rail_guide;Tools/pulley_jig;Tools/bed_hole_marking_template;Tools/bottom_panel_template;Test_Prints/Heatset_Practice;Test_Prints/Voron_Design_Cube_v7",,yes
+P01,Frame assembly and squaring,2.5,4.0,,P00,yes
+P02,Z drives Z idlers Z rails deck,5.0,7.0,"Z_Drive;Z_Idlers;Panel_Mounting/deck_support",P01,no
+P03,Build plate and bed,1.5,2.5,,P01,yes
+P04,A/B drives and idlers,3.5,5.0,"Gantry/AB_Drive_Units;Gantry/Front_Idlers",P01,no
+P05,Gantry X/Y XY-joints X-carriage Ti-backers,5.0,7.0,"Gantry/X_Axis/XY_Joints;Gantry/X_Axis/X_Carriage",P04,no
+P06,Z axis gantry-install Z-belts gantry-squaring,3.5,5.0,"Gantry/Z_Joints;Gantry/z_belt_clips;Gantry/z_chain",P02;P05,no
+P07,A/B belts and tensioning,2.5,4.0,"Gantry/Front_Idlers/tensioners;Gantry/AB_Drive_Units/cable_cover",P06,no
+P08,Toolhead Stealthburner CW2 Nitehawk-SB-V2,3.0,4.5,"Voron-Stealthburner/StealthBurner;Voron-Stealthburner/Clockwork2;Nitehawk-SB/cw2_captive_pcb_cover;Nitehawk-SB-V2/usb_adapter_mount_partial_cover",P05,no
+P09,Electronics bay DIN ducts boards endstops Pi,2.5,4.0,"Electronics_Bay/wago_221-415_mount_3by5",P02,partial
+P10,Wiring above-deck below-deck mains Checkpoint-1,5.0,7.0,"Skirts/power_inlet_IECGS_1mm;LDOVoron2/COB_light_strip_mount",P06;P08;P09,partial
+P11,Skirts panels ClickyClack-door Nevermore spool,4.0,6.0,"Skirts/350;Skirts/accents;Panel_Mounting;ClickyClack;Nevermore_V5_Duo;Spool_Management",P10,no
+P12,Software Pi Klipper firmware printer.cfg,2.0,3.0,,,yes
+P13,Initial startup checks PID QGL Z-offset,2.5,4.0,,P10;P12,no
+P14,Calibration e-steps input-shaper PA first-print,2.5,4.0,,P13,no
+</code></pre></div>
+<p>Totals: <strong>47.5–71.0 h</strong> hands-on, midpoint ≈ 59 h. Zero-printed-part work (<code>no_parts_ok = yes</code>): P00 + P01 + P03 + P12 = <strong>8.5–13.5 h ≈ 18–19%</strong> of the build. (Verified: the CSV sums match the §5.1 table.)</p>
+<hr>
+<h2 id="9-sources">9. Sources<a class="headerlink" href="#9-sources" title="Permanent link">¶</a></h2>
+<p><strong>Official Voron</strong>
+- <a href="https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf">github.com/VoronDesign/Voron-2 — <code>Manual/Assembly_Manual_2.4r2.pdf</code></a> · 263 pp, <code>ModDate</code> 2023-07-18, GPL-3.0 · pinned commit <a href="https://github.com/VoronDesign/Voron-2/blob/de7e89de1908e525d6d10eda453298bd9cc83d3b/Manual/Assembly_Manual_2.4r2.pdf"><code>de7e89d</code></a>
+- <a href="https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs">github.com/VoronDesign/Voron-2 — <code>STLs/</code></a> · 155 STLs, phase-organised
+- <a href="https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf">github.com/VoronDesign/Voron-Stealthburner — <code>Manual/Assembly_Manual_SB.pdf</code></a> · 73 pp, <code>ModDate</code> 2023-07-07
+- <a href="https://docs.vorondesign.com">docs.vorondesign.com</a> · <a href="https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html">V2 Gantry Squaring</a> · <a href="https://docs.vorondesign.com/build/startup/">Initial Startup</a> · <a href="https://docs.vorondesign.com/tuning/secondary_printer_tuning.html">Secondary Printer Tuning (belt tension, bed mesh)</a> · <a href="https://docs.vorondesign.com/build/software/">Software</a> · <a href="https://docs.vorondesign.com/build/slicer/first_print.html">First Print</a> · repo <a href="https://github.com/VoronDesign/Voron-Documentation">VoronDesign/Voron-Documentation</a> pushed 2026-08-29
+- <a href="https://github.com/VoronDesign/Voron-Documentation/blob/main/community/howto/simonthecat/I_wish_I_had_known.md">community/howto/simonthecat/I_wish_I_had_known.md</a>
+- <a href="https://discord.gg/voron">Voron Discord</a> · <a href="https://discord.com/channels/460117602945990666/710952853514223617"><code>#ldo_motors</code> channel</a> · <a href="https://forum.vorondesign.com">forum.vorondesign.com</a> · <a href="https://forum.vorondesign.com/threads/ldo-voron-rev-d-kits-are-now-live-at-fabreeko.1802/">Rev D launch thread, 2024-06-12</a></p>
+<p><strong>LDO</strong>
+- <a href="https://docs.ldomotors.com/en/voron/voron2">Kit index</a> · <a href="https://docs.ldomotors.com/voron/voron2/build-faq">Build Notes/FAQ (upd. 2026-02-10)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d">Wiring Guide Rev D (upd. 2026-07-14)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d">Printed Parts Guide Rev D (upd. 2025-07-14)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_c">Printed Parts Rev C</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_c">Wiring Rev C</a>
+- <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME">350 BOM index (upd. 2026-06-26)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D">350 Rev D BOM (upd. 2026-02-05)</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/300_BOM/HOME">300 BOM</a>
+- <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2">Nitehawk-SB V2 board doc (upd. 2026-07-10)</a> · <a href="https://docs.ldomotors.com/en/Toolboard/nitehawk-sb">Nitehawk-SB V1 board doc</a>
+- <a href="https://docs.ldomotors.com/guides/rail_grease_guide">Rail grease guide</a> · <a href="https://docs.ldomotors.com/guides/heatset_insert_tool_guide">Heat-set insert tool guide</a> · <a href="https://docs.ldomotors.com/guides/cable_chain_guide">Cable chain guide</a> · <a href="https://docs.ldomotors.com/guides/klipper_id">Klipper USB ID guide</a> · <a href="https://docs.ldomotors.com/en/guides/btt_43_rotate_guide">BTT 4.3 rotate guide</a> · <a href="https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide">XY endstop cable repin guide</a>
+- <a href="https://ldomotion.com/guides/voron-leviathan-v1-3">ldomotion.com — VORON Leviathan V1.3 guide</a> · <a href="https://ldomotion.com/guides/nevermore-v5-duo---v24">Nevermore V5 Duo — V2.4</a> · <a href="https://ldomotion.com/guides">guides index</a>
+- <a href="https://github.com/MotorDynamicsLab/LDOVoron2">github.com/MotorDynamicsLab/LDOVoron2</a> (GPL-3.0) — <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d.cfg"><code>leviathan-printer-rev-d.cfg</code></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg"><strong><code>leviathan-printer-rev-d-sbv2.cfg</code></strong></a> · <a href="https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/Images/WiringGuide/RevD"><code>Images/WiringGuide/RevD/</code></a>
+- <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB-V2">github.com/MotorDynamicsLab/Nitehawk-SB-V2</a> (no LICENSE) · <a href="https://github.com/MotorDynamicsLab/Nitehawk-SB">github.com/MotorDynamicsLab/Nitehawk-SB</a> · <a href="https://github.com/MotorDynamicsLab/Leviathan">github.com/MotorDynamicsLab/Leviathan</a> (GPL-3.0) · <a href="https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount">github.com/MotorDynamicsLab/LDOVoronTrident — BTT TFT4.3 mount</a></p>
+<p><strong>Vendor</strong>
+- <a href="https://www.fabreeko.com/products/ldo-voron-v2-4-kit">Fabreeko — Voron 2.4 R2 (Rev D+) Kit by LDO</a> · <a href="https://www.fabreeko.com/blogs/news/exciting-changes-in-the-new-ldo-voron-kits-rev-d">Fabreeko blog — Exciting Changes in the New LDO Voron Kits Rev D</a> · <a href="https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo">Clicky-Clack Door Kit by LDO</a> · <a href="https://www.fabreeko.com/products/acrylic-pannel-for-clicky-clacky-door">Acrylic panel for Clicky-Clack</a> · <a href="https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers">Ti extrusion backers</a> · <a href="https://discord.gg/NV8Y6bcerP">Fabreeko Discord</a></p>
+<p><strong>Community guides and mods</strong>
+- <a href="https://ellis3dp.com/Print-Tuning-Guide/">Ellis' Print Tuning Guide</a> · <a href="https://github.com/AndrewEllis93/Print-Tuning-Guide">repo</a> (last push 2025-03-14)
+- <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers">github.com/tanaes/whopping_Voron_mods — extrusion_backers</a> · <a href="https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door">clickyclacky_door</a>
+- <a href="https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod">KB3D wiki — LDO Clicky-Clacky Door Mod (upd. 2025-09-15)</a>
+- <a href="https://github.com/nevermore3d/Nevermore_Micro">github.com/nevermore3d/Nevermore_Micro</a> · <a href="https://github.com/jlas1/Klicky-Probe">github.com/jlas1/Klicky-Probe</a>
+- <a href="https://github.com/th33xitus/kiauh">github.com/th33xitus/kiauh</a> · <a href="https://docs-os.mainsail.xyz/">Mainsail docs</a> · <a href="https://docs.fluidd.xyz/">Fluidd docs</a>
+- <a href="https://mods.vorondesign.com/details/ewDI1Cntz7urtuq3Cm9wGQ">mods.vorondesign.com — Extrusion Backers</a></p>
+<p><strong>Video (with the revision each one actually built)</strong>
+- Steve Builds — <a href="https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY">LDO Voron 2.4 Kit Build</a>, 11 parts, <strong>Dec 2021–Jan 2022, Rev A/B</strong>
+- Nero3D / Canuck Creator — <a href="https://www.youtube.com/watch?v=ZHO-kFlY91c">Voron V2.4r2 LDOmotors kit Livestream build Part 1</a>, 3 h 49 m, <strong>2022-02-15, Rev A/B</strong>; also <a href="https://www.youtube.com/playlist?list=PL7zrGeKp_8CRMm8sMrxQ02QfZYhP7f0cQ">Voron V2.4 Build Livestream playlist</a>, <strong>2020, pre-r2</strong>
+- Minimal 3DP — <a href="https://www.youtube.com/playlist?list=PLXcVv43EZh9DzcPPF0IUVnpVdxQTQX8nE">Voron 2.4 R2 Build Guide</a>, 15 parts, <strong>Apr–Oct 2024, FormBot kit</strong>
+- Build It Basement — <a href="https://www.youtube.com/playlist?list=PLjlotZjUVD32oT7YpPE89dqFwjCkVNKQ9">ULTIMATE Voron 2.4R2 Build</a>, <strong>Dec 2022–Feb 2023</strong>, incl. <a href="https://youtu.be/BHUxiEEnyGg">Part 7.5 Titanium Backers</a> and <a href="https://youtu.be/eaWr10UDIC0">Part 8.5 Gantry Check and Square</a>
+- 123-3D — <a href="https://www.youtube.com/watch?v=IushU1_ikKw">Rev D Part 1</a> (2024-10-04) · <a href="https://www.youtube.com/watch?v=vpIDagUumgI">Part 2</a> · <a href="https://www.youtube.com/watch?v=0cuV6iROV1k">Part 3</a> · <a href="https://www.youtube.com/watch?v=QA0eMNXqI-E">Part 4</a> (2024-11-08) · <a href="https://www.youtube.com/watch?v=sNCyXx_2Um0">Rev D kit review</a> (2025-02-21) — <strong>the only Rev D series</strong>
+- Nathan Builds Robots — <a href="https://www.youtube.com/watch?v=hJPDsoD43dA">Help me build this printer! LDO Voron 2.4 Rev D Kit</a>, <strong>10 h 13 m, 2025-02-15, Rev D</strong>
+- Greg's Maker Corner — <a href="https://www.youtube.com/playlist?list=PLpQnpsv1trbQxzX1zIVISOJtE6Pnb-si6">Voron 2.4 Build Series</a>, <strong>2022, incl. titanium backers episode</strong>
+- Kapman's Basement Workshop — <a href="https://www.youtube.com/playlist?list=PL16WZCqkIMPh415mwyKJNhOl5i7Qo8pip">Voron 2.4 Build</a>, 15 parts, <strong>2021, Blurolls kit</strong>
+- Maple Leaf Makers — <a href="https://www.youtube.com/watch?v=4DbeedEe8nM">Voron LDO 2.4r2 Complete Build Guide Part 2</a>, <strong>2022, LDO Rev A/B</strong>
+- ModBotArmy — <a href="https://www.youtube.com/watch?v=-mHLoGsHp1E">LDO Voron 2.4 Rev C Build Part 1: Frame</a>, <strong>2023, Rev C</strong>
+- CNC Kitchen — <a href="https://youtu.be/nik-HCeOSB8">Should you build a VORON 2.4 in 2023? (LDO Kit Review)</a>, <strong>2022-09-24</strong></p>
+<p><strong>Rejected sources (documented so they are not re-evaluated)</strong>
+- <a href="https://voronldo.com/guides/voron-belt-tension/">voronldo.com belt tension guide</a> — unaffiliated, uncited, internally inconsistent, contradicts official numbers, domain-for-sale notice. <strong>Do not use.</strong>
+- <a href="https://voron.dozuki.com/">voron.dozuki.com</a> — last revision 2019-12-09, covers Voron 1.6/2.2/Afterburner. Obsolete.
+- <a href="https://canbus.esoterical.online">canbus.esoterical.online</a> / <a href="https://github.com/Esoterical/voron_canbus">Esoterical/voron_canbus</a> — excellent, but CAN-only; this kit is USB end-to-end. Not applicable.</p>
+<hr>
+<h2 id="10-corrections-to-claudemd-surfaced-by-this-survey">10. Corrections to <code>CLAUDE.md</code> surfaced by this survey<a class="headerlink" href="#10-corrections-to-claudemd-surfaced-by-this-survey" title="Permanent link">¶</a></h2>
+<p>Listed, not applied — <code>CLAUDE.md</code> is outside this task's scope.</p>
+<ol>
+<li><em>"Stock kit ships Klicky + Nevermore Micro V5 Duo parts instead"</em> — the kit ships an <strong>Omron inductive probe</strong> as the default (QGL only) plus an <strong>LDO nozzle-probe PCB</strong> for Z=0; Klicky parts are the <em>optional alternative</em>. The stock LDO config assumes the inductive probe.</li>
+<li><em>"LDO docs currently only cover Rev D, not D+ (electrical-only diff)"</em> — correct that no doc is labelled D+, but the diff is <strong>not</strong> purely electrical: it changes a printed part (<code>usb_adapter_mount_partial_cover</code>), the connector types on three toolhead ports, the fan-adapter header orientation, and the Klipper config file.</li>
+<li><em>"only ~15% of the build (by time) is possible before any printed parts exist"</em> — measured at <strong>18–19%</strong> (P00, P01, P03, P12).</li>
+<li>Print batch 2, <em>"feet + bed mounts — gates bed install"</em> — there are <strong>no printed feet and no printed bed mounts</strong> in the 2.4r2 STL set; feet are supplied rubber. The Build Plate phase needs zero printed parts and can run right after the frame.</li>
+<li><em>"Assembly docs … LDO supplements at docs.ldomotors.com … Klipper config"</em> — the config to use is <code>leviathan-printer-rev-d-**sbv2**.cfg</code>, which the LDO wiring guide does <strong>not</strong> link.</li>
+<li>Open item <em>"Clicky-Clack accent color — unresolved whether 'Blue' governs visible trim"</em> — <strong>it does</strong>: the colour option selects the door's aluminium extrusion frame, which is visible and matches the printer's blue frame.</li>
+<li>Open item <em>"5mm hex driver for M5 frame bolts"</em> — the frame fasteners are M5×16 / M5×10 <strong>BHCS</strong>, which take a <strong>3 mm</strong> hex; the largest fastener in the build is M5×40 SHCS at <strong>4 mm</strong>. The manual's own tools page (p.9) recommends only ball-end <strong>2.0 / 2.5 / 3.0 mm</strong> and notes 2.5 mm gets the most use; the kit supplies 1.5/2/2.5/3/4 mm. <strong>A 5 mm driver is not needed anywhere in this build.</strong> Spend the money on a good ball-end 2.5 mm instead. Verify against the actual kit on arrival.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../voron-print-plan/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../manual/15-troubleshooting/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 15 — Troubleshooting index">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 15 — Troubleshooting index
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/wakelock.js"></script>
+      
+        <script src="../javascripts/progress.js"></script>
+      
+        <script src="../javascripts/jumpbar.js"></script>
+      
+        <script src="../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

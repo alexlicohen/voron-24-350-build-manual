@@ -1,0 +1,3018 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/15-troubleshooting/">
+      
+      
+        <link rel="prev" href="../../voron-build-instructions-survey/">
+      
+      
+        <link rel="next" href="../16-glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 15 — Troubleshooting index - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-15-troubleshooting-index" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 15 — Troubleshooting index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#motion-homing-axes-steppers-endstops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion — homing, axes, steppers, endstops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-qgl-and-gantry-squaring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Z, QGL and gantry squaring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extrusion-and-hotend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extrusion and hotend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electronics-power-and-comms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electronics, power and comms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print quality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printing-the-parts-on-the-core-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Printing the parts on the Core One+
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanical-noise-binding-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanical — noise, binding, play
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-and-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software and config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-of-operations-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order-of-operations traps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-covered-here-where-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not covered here — where to ask
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#motion-homing-axes-steppers-endstops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion — homing, axes, steppers, endstops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#z-qgl-and-gantry-squaring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Z, QGL and gantry squaring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extrusion-and-hotend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extrusion and hotend
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#electronics-power-and-comms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electronics, power and comms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print quality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printing-the-parts-on-the-core-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Printing the parts on the Core One+
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanical-noise-binding-play" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanical — noise, binding, play
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-and-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software and config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order-of-operations-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order-of-operations traps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#not-covered-here-where-to-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not covered here — where to ask
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-15-troubleshooting-index">Chapter 15 — Troubleshooting index<a class="headerlink" href="#chapter-15-troubleshooting-index" title="Permanent link">¶</a></h1>
+<p>Every failure this manual already knows about, filed by <strong>symptom</strong> instead of by chapter. Nothing here is new advice: each row points at the step, checkpoint, warning callout or <em>Common mistakes</em> bullet that owns the fix, in Chapters 00–14 and the print chapters. Use it at the bench when what you have is <em>"the X carriage binds near one end"</em> rather than <em>"Chapter 05"</em>.</p>
+<p><strong>Time:</strong> none — this is a reference page, not a build chapter.</p>
+<p><strong>Prerequisites:</strong> none. Readable at any point in the build.</p>
+<p><strong>Tools:</strong> whatever the step you land on calls for. The multimeter rows all assume the machine is <strong>unplugged</strong> — see <a href="../00a-mains-safety/#step-00a4-test-the-meter-before-you-trust-it-and-again-after">Ch 00a Step 00a.4</a>.</p>
+<p><strong>Printed parts:</strong> none. <strong>Hardware:</strong> none.</p>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Find the symptom, then go to the step. Do not fix it from this page.</strong> The rows are compressed to fit a table; the step has the orientation, the picture and the exact numbers.</li>
+<li><strong>This index does not invent fixes.</strong> If your symptom is not here, it is not a symptom this manual has an answer for — go to <a href="#not-covered-here-where-to-ask">Not covered here</a> and ask, with the four pieces of information listed there.</li>
+<li><strong>Anything smelling, smoking or tripping a breaker is not a troubleshooting problem.</strong> Cut power at the wall and go to <a href="../00a-mains-safety/#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites">Ch 00a Step 00a.12</a>.</li>
+<li><strong>Ch 13's own <a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">What if</a> table is the primary source for first-start faults</strong> and is more detailed than the rows here. This page indexes it; it does not replace it.</li>
+<li>Order matters more than any single fix: PID → soak → probe accuracy → QGL → square → Z=0 → mesh. A symptom that appears out of that order is usually the order, not the part (<a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a>).</li>
+</ul>
+<hr>
+<h2 id="motion-homing-axes-steppers-endstops">Motion — homing, axes, steppers, endstops<a class="headerlink" href="#motion-homing-axes-steppers-endstops" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>STEPPER_BUZZ</code> does nothing on one motor</td>
+<td><code>enable_pin</code> / <code>step_pin</code>, or no driver power</td>
+<td>check the pins, then the HV / 24 V rail</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a>, <a href="../10-wiring/#step-1025-psu-leviathan-hv-stepper-supply">10.25</a></td>
+</tr>
+<tr>
+<td><code>STEPPER_BUZZ</code> buzzes but does not travel 1 mm</td>
+<td>stepper coil pairs transposed in the connector</td>
+<td>re-pin so each coil is a pair — power off first</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a></td>
+</tr>
+<tr>
+<td>A motor runs the wrong way</td>
+<td><code>dir_pin</code> polarity</td>
+<td>add or remove <code>!</code> on that stepper, <code>RESTART</code>, re-buzz</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a></td>
+</tr>
+<tr>
+<td>The wrong motor answers a buzz</td>
+<td>motors on the wrong ports</td>
+<td>power <strong>off</strong>, move the connector, power on. Never hot-swap a stepper</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a>, <a href="../10-wiring/#step-1040-tag-every-stepper-cable-before-you-plug-anything-in">10.40</a></td>
+</tr>
+<tr>
+<td><code>G28 X</code> drives the gantry <em>down</em> first</td>
+<td>Z stepper directions reversed</td>
+<td>fix the Z <code>dir_pin</code>s before touching A or B</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a></td>
+</tr>
+<tr>
+<td>X and Y both move but the toolhead travels diagonally</td>
+<td>A and B swapped, or one inverted</td>
+<td>upper block on the V2 chart → invert a <code>dir_pin</code>; lower (orange) block → physically swap A and B</td>
+<td><a href="../13-initial-startup/#step-1316-correct-any-wrong-motor-or-wrong-direction">13.16</a></td>
+</tr>
+<tr>
+<td>Homing overshoots into the frame</td>
+<td><code>position_endstop</code> / <code>position_max</code> still at the 250 default</td>
+<td>prove the 350 edits are live</td>
+<td><a href="../13-initial-startup/#step-135-prove-the-350-mm-config-edits-are-live">13.5</a>, <a href="../12-software/#step-1224-350-mm-stepper_x-and-stepper_y">12.24</a></td>
+</tr>
+<tr>
+<td>An endstop reads <code>TRIGGERED</code> untouched</td>
+<td>wiring, not polarity — stock Voron endstops are N.C. to ground</td>
+<td>fix the wiring; do <strong>not</strong> add a <code>!</code> to silence it</td>
+<td><a href="../13-initial-startup/#step-1317-query_endstops-with-everything-released">13.17</a>, <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a></td>
+</tr>
+<tr>
+<td>X or Y endstop never triggers, cable is labelled <em>X Stop / Y Stop</em></td>
+<td>LDO batch shipped with the wrong labels; needs re-pinning</td>
+<td>read the labels, then re-pin</td>
+<td><a href="../10-wiring/#step-1031-read-the-xy-endstop-cable-labels">10.31</a>, <a href="../10-wiring/#step-1032-repin-the-xy-endstop-cable-only-if-labelled-x-stop-y-stop">10.32</a></td>
+</tr>
+<tr>
+<td>The toolhead cannot reach an endstop</td>
+<td>rubber rail stopper still on the rail, or the gantry is racked</td>
+<td>pull the stoppers, then square the gantry</td>
+<td><a href="../13-initial-startup/#step-131-clear-the-machine-and-stage-the-bench">13.1</a>, <a href="../06-z-axis-and-gantry-squaring/#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints">Ch 06b</a></td>
+</tr>
+<tr>
+<td><code>G28</code> → <code>Move out of range: -10.000 -10.000 …</code></td>
+<td><code>[safe_z_home] home_xy_position</code> still the placeholder</td>
+<td>measure the Z endstop coordinate and write it in</td>
+<td><a href="../13-initial-startup/#step-1326-record-the-z-endstop-coordinate-into-safe_z_home">13.26</a>, <a href="../12-software/#step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable">12.33</a></td>
+</tr>
+<tr>
+<td>0,0 does not land at the front-left corner of the plate</td>
+<td>endstop coordinates not defined against the plate</td>
+<td>re-run the 0,0 definition</td>
+<td><a href="../13-initial-startup/#step-1325-define-the-00-point">13.25</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a> · <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a> · <a href="../10-wiring/#section-5-leviathan-connections">Ch 10 Section 5</a> · <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></p>
+<hr>
+<h2 id="z-qgl-and-gantry-squaring">Z, QGL and gantry squaring<a class="headerlink" href="#z-qgl-and-gantry-squaring" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>QGL does not converge</strong> — <code>Probed points range</code> stalls or grows</td>
+<td>gantry racking</td>
+<td>square the gantry in Ch 06b, re-tension A/B to 110 Hz, re-QGL</td>
+<td><a href="../13-initial-startup/#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab">13.34</a>, <a href="../06-z-axis-and-gantry-squaring/#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints">06b.14</a></td>
+</tr>
+<tr>
+<td>QGL: <em>"Probed points range is increasing. Possibly Z motor numbering is wrong"</em></td>
+<td>Z motors on the wrong drivers</td>
+<td>recheck the map: Z0 front-left → <code>STEPPER-0</code>, Z1 rear-left → <code>-1</code>, Z2 rear-right → <code>-2</code>, Z3 front-right → <code>-3</code></td>
+<td><a href="../13-initial-startup/#step-1333-quad_gantry_level">13.33</a>, <a href="../10-wiring/#step-1043-z0z3-stepper-0-to-stepper-3">10.43</a></td>
+</tr>
+<tr>
+<td>QGL: <em>"required adjustment … is greater than max_adjust"</em></td>
+<td>gantry too far out of level to correct in software</td>
+<td><code>M84</code>, level by hand against the frame, <code>G28</code>, retry</td>
+<td><a href="../13-initial-startup/#step-1333-quad_gantry_level">13.33</a></td>
+</tr>
+<tr>
+<td>QGL "out of bounds" / cannot reach a probe point</td>
+<td>gantry far from level, or wrong <code>gantry_corners</code></td>
+<td><code>FIRMWARE_RESTART</code>, hand-level, <code>G28</code>; confirm the 350 corners <code>-60,-10 / 410,420</code></td>
+<td><a href="../13-initial-startup/#step-1333-quad_gantry_level">13.33</a>, <a href="../12-software/#step-1226-350-mm-quad_gantry_level">12.26</a></td>
+</tr>
+<tr>
+<td>QGL passes but printed parts come out skewed</td>
+<td>QGL levels in Z only — it says nothing about the X extrusion being square to Y</td>
+<td>de-rack the gantry; QGL cannot detect racking</td>
+<td><a href="../06-z-axis-and-gantry-squaring/#common-mistakes-06b">Ch 06b Common mistakes</a></td>
+</tr>
+<tr>
+<td><code>PROBE_ACCURACY</code> σ high but stable</td>
+<td>probe mount, cable strain, or <code>[probe] speed</code> too fast</td>
+<td>check the retainer bracket is tight; try a lower <code>speed</code></td>
+<td><a href="../13-initial-startup/#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream">13.32</a>, <a href="../07-ab-belts/#step-0735-fit-the-probe-and-its-retainer-bracket">07.35</a></td>
+</tr>
+<tr>
+<td><code>PROBE_ACCURACY</code> values trending one way</td>
+<td>frame still expanding, or Z pulley grub screws / uneven Z belts</td>
+<td>soak longer; then check all four Z belts and the pulley set screws</td>
+<td><a href="../14-calibration/#step-143-verify-thermal-stability-then-re-qgl">14.3</a>, <a href="../14-calibration/#step-145-set-the-four-z-belts-to-140-hz-over-150-mm">14.5</a></td>
+</tr>
+<tr>
+<td><code>Probe samples exceed samples_tolerance</code></td>
+<td>the same causes — <code>samples_tolerance: 0.006</code> is tight by design</td>
+<td>fix the cause; do not widen the tolerance</td>
+<td><a href="../13-initial-startup/#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream">13.32</a></td>
+</tr>
+<tr>
+<td><code>QUERY_PROBE</code> stuck <code>open</code> or stuck <code>TRIGGERED</code></td>
+<td>ground / signal / 24 V, wrong <code>[probe] pin</code>, or a voltage-select jumper</td>
+<td>check wiring first, then <code>pin: !nhk:PC15</code></td>
+<td><a href="../13-initial-startup/#step-1321-query_probe-on-the-inductive-probe">13.21</a>, <a href="../12-software/#step-1229-probe-omron-active-klicky-written-but-commented">12.29</a></td>
+</tr>
+<tr>
+<td>Probe triggers too early (large gap at trigger)</td>
+<td>probe too high in the retainer, or tape on the sensing face</td>
+<td>lower it so it triggers ~2 mm above the plate; tape front and sides only</td>
+<td><a href="../07-ab-belts/#step-0736-set-the-probe-height">07.36</a>, <a href="../10-wiring/#step-1030-insulate-the-inductive-probe">10.30</a></td>
+</tr>
+<tr>
+<td>Probe triggers too late, or grazes the plate</td>
+<td>probe mounted too low</td>
+<td>raise it in the bracket; it must clear the plate and the clips at every mesh point</td>
+<td><a href="../07-ab-belts/#step-0736-set-the-probe-height">07.36</a></td>
+</tr>
+<tr>
+<td>Z drops out of level between prints</td>
+<td>Z pulley set screws loose or off the flat</td>
+<td>threadlock, one screw on the flat, proper hex driver</td>
+<td><a href="../02-z-drives/#step-0220-threadlock-the-80t-pulley-set-screws-and-check-your-work">02.20</a>, <a href="../02-z-drives/#common-mistakes">Ch 02 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Every Z dimension is silently wrong</td>
+<td>a 20T pulley fitted to a Z motor instead of a 16T</td>
+<td>count teeth — <code>gear_ratio: 80:16</code> is baked into the config</td>
+<td><a href="../02-z-drives/#step-0227-fit-the-16t-pulley-to-a-z-motor-at-107-mm">02.27</a>, <a href="../02-z-drives/#common-mistakes">Ch 02 Common mistakes</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a> · <a href="../06-z-axis-and-gantry-squaring/#common-mistakes-06b">Ch 06b Common mistakes</a> · <a href="../02-z-drives/#common-mistakes">Ch 02 Common mistakes</a> · <a href="../14-calibration/#step-143-verify-thermal-stability-then-re-qgl">Ch 14 Step 14.3</a></p>
+<hr>
+<h2 id="extrusion-and-hotend">Extrusion and hotend<a class="headerlink" href="#extrusion-and-hotend" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Molten plastic leaks at the heatsink on the first hot print</td>
+<td>the Revo strain relief was not bent clear, so the nozzle never hand-tightened fully</td>
+<td>bend the strain relief, re-seat the nozzle</td>
+<td><a href="../08-toolhead/#step-0829-route-the-wires-and-bend-the-strain-relief-so-the-nozzle-can-seat-fully">08.29</a>, <a href="../08-toolhead/#common-mistakes">Ch 08 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Extruder will not grip or tension filament</td>
+<td>the tension arm's M3×25 hinge pin was torqued instead of left as a hinge</td>
+<td>back it off — it is a hinge, not a fastener</td>
+<td><a href="../08-toolhead/#step-0819-hang-the-tension-arm-and-leave-it-loose">08.19</a>, <a href="../08-toolhead/#step-0821-set-the-tension-and-the-anti-squish-stop">08.21</a></td>
+</tr>
+<tr>
+<td>CW2 main body cracked while tightening the motor plate</td>
+<td>the M3×25 pair over-tightened</td>
+<td>the manual's own advice is to bin the part and reprint</td>
+<td><a href="../08-toolhead/#step-0817-close-the-extruder-with-the-motor-plate">08.17</a>, <a href="../08-toolhead/#common-mistakes">Ch 08 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Extruded length does not match the commanded 100 mm</td>
+<td><code>rotation_distance</code> not set for this extruder</td>
+<td>run the 100 mm extrusion check</td>
+<td><a href="../14-calibration/#step-147-rotation-distance-check-100-mm-extrusion">14.7</a>, <a href="../13-initial-startup/#step-1340-set-the-extruder-rotation-distance-ch-14-procedure">13.40</a></td>
+</tr>
+<tr>
+<td>Hotend heats when you command the bed, or vice versa</td>
+<td>thermistor pair or heater pair swapped</td>
+<td>swap at the board — power off first</td>
+<td><a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a></td>
+</tr>
+<tr>
+<td>Thermistor reads a wild or jumping value</td>
+<td>crimp, or a PH2.0 housing half-seated / in the wrong header</td>
+<td>re-seat and check continuity — Rev D+ uses <strong>PH2.0</strong>, not the guide's XH2.5</td>
+<td><a href="../10-wiring/#step-1055-connector-types-on-the-v2-toolboard">10.55</a>, <a href="../10-wiring/#step-1076-thermistors-at-room-temperature">10.76</a></td>
+</tr>
+<tr>
+<td>A temperature climbs with nothing commanded</td>
+<td>heater energised through a wiring fault</td>
+<td>cut power at the switch and go back to Ch 10 — do not watch it</td>
+<td><a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a>, <a href="../00a-mains-safety/#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites">00a.12</a></td>
+</tr>
+<tr>
+<td>Bed does not heat, SSR LED <strong>on</strong></td>
+<td>fault on the mains side of the SSR</td>
+<td>check LOAD 1 / LOAD 2 and the bed L and N</td>
+<td><a href="../10-wiring/#step-1014-bed-live-ssr-load-1">10.14</a>, <a href="../10-wiring/#step-1078-ssr-polarity-and-isolation-one-last-time">10.78</a></td>
+</tr>
+<tr>
+<td>Bed does not heat, SSR LED <strong>off</strong></td>
+<td>DC control polarity reversed</td>
+<td>Leviathan <strong>+</strong> → SSR <code>INPUT 3</code>, <strong>−</strong> → <code>INPUT 4</code></td>
+<td><a href="../10-wiring/#step-1027-leviathan-heatbed-ssr-input">10.27</a>, <a href="../13-initial-startup/#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr">13.8</a></td>
+</tr>
+<tr>
+<td>PID tune of the hotend trips the temperature limit mid-run</td>
+<td>tuning at 260 °C against <code>max_temp: 270</code></td>
+<td>tune at 245 °C, or raise <code>max_temp</code> to 290 first</td>
+<td><a href="../13-initial-startup/#step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25">13.30</a>, <a href="../14-calibration/#common-mistakes">Ch 14 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Bed takes a long time to reach 110 °C</td>
+<td><code>[heater_bed] max_power</code> is deliberately limited to protect the 355 mm cast plate</td>
+<td>wait — do not raise it</td>
+<td><a href="../14-calibration/#common-mistakes">Ch 14 Common mistakes</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../08-toolhead/#common-mistakes">Ch 08 Common mistakes</a> · <a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a> · <a href="../14-calibration/#common-mistakes">Ch 14 Common mistakes</a> · <a href="../10-wiring/#section-8-pre-power-on-meter-sweep">Ch 10 Section 8</a></p>
+<hr>
+<h2 id="electronics-power-and-comms">Electronics, power and comms<a class="headerlink" href="#electronics-power-and-comms" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nothing powers on at all</td>
+<td>inlet miswired, or the machine is unplugged as designed</td>
+<td>re-run the inlet continuity pattern, then Checkpoint #1</td>
+<td><a href="../10-wiring/#step-105-verify-the-pre-wired-inlet-before-you-trust-it">10.5</a>, <a href="../10-wiring/#step-1023-first-power-on-then-off-again">10.23</a></td>
+</tr>
+<tr>
+<td>PSU destroyed on first switch-on</td>
+<td>115/230 V selector set for the wrong mains</td>
+<td>there is no fix after the fact — the selector is checked twice for this reason</td>
+<td><a href="../10-wiring/#step-102-set-the-psu-input-voltage-selector">10.2</a>, <a href="../10-wiring/#step-1022-re-check-the-voltage-selector">10.22</a></td>
+</tr>
+<tr>
+<td>A 24 V node beeps continuously against its ground</td>
+<td>reversed ferrule or a stray strand</td>
+<td>find it before power-on; every node must read finite and rising, never 0 Ω</td>
+<td><a href="../10-wiring/#step-1074-24-v-rails">10.74</a>, <a href="../10-wiring/#step-1029-meter-the-24-v-rail-for-shorts">10.29</a></td>
+</tr>
+<tr>
+<td>A PE row fails the bonding sweep</td>
+<td>missing PE lead, or anodising under a washer</td>
+<td>scrape the anodising; re-land the lead</td>
+<td><a href="../10-wiring/#step-1077-protective-earth-bonding">10.77</a>, <a href="../10-wiring/#step-1016-frame-pe">10.16</a></td>
+</tr>
+<tr>
+<td>SSR reads short LOAD 1 → LOAD 2 with nothing energised</td>
+<td>the relay is dead; the bed would be permanently live</td>
+<td>replace it — do not power the machine</td>
+<td><a href="../10-wiring/#step-1021-the-ssr-is-open-when-unpowered">10.21</a>, <a href="../10-wiring/#step-1078-ssr-polarity-and-isolation-one-last-time">10.78</a></td>
+</tr>
+<tr>
+<td>Controller or attached components destroyed after power-on</td>
+<td>a Leviathan voltage-selection jumper left in, or set to 5 V</td>
+<td>exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe/Fan0/Fan1 bare</td>
+<td><a href="../09-electronics-bay/#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan">09.19</a>, <a href="../10-wiring/#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v">10.28</a></td>
+</tr>
+<tr>
+<td>A fan never starts</td>
+<td>wrong port, wrong voltage jumper, or the keyed 2×5 toolhead header seated backwards</td>
+<td>check the port against the config; the header is keyed — if it will not drop in, it is backwards</td>
+<td><a href="../10-wiring/#step-1056-the-fan-adapter-header-is-keyed-and-reversed">10.56</a>, <a href="../13-initial-startup/#step-1311-bay-fan-and-filter-fan">13.11</a></td>
+</tr>
+<tr>
+<td>Only one MCU enumerates, or none</td>
+<td>firmware, serial path, or a USB cable</td>
+<td>read both serial IDs and confirm which is which</td>
+<td><a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">12.11</a>, <a href="../12-software/#step-1220-re-read-and-record-both-serial-paths">12.20</a></td>
+</tr>
+<tr>
+<td>The toolboard enumerates as <code>rp2040</code></td>
+<td>you have a Nitehawk-SB <strong>V1</strong>, not a V2 — or the wrong firmware</td>
+<td>Rev D+ must read <code>stm32g0b1xx</code>; the Rev D guide's <code>rp2040</code> line is wrong for this kit</td>
+<td><a href="../00-before-you-start/#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2">00.5</a>, <a href="../12-software/#step-1212-read-the-two-serial-ids-and-work-out-which-is-which">12.12</a></td>
+</tr>
+<tr>
+<td>A connector destroyed itself going in</td>
+<td>a PH2.0 housing forced into the wrong V2 header, or the fan adapter pressed in backwards</td>
+<td>if it needs force, it is wrong — read the silkscreen every time</td>
+<td><a href="../10-wiring/#step-1055-connector-types-on-the-v2-toolboard">10.55</a>, <a href="../08-toolhead/#common-mistakes">Ch 08 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A driver dies after a connector change</td>
+<td>a stepper or the Micro-Fit umbilical moved with the power on</td>
+<td>power down for every connector change — back-EMF kills drivers</td>
+<td><a href="../10-wiring/">Ch 10 Read first</a>, <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Umbilical or chain cable fails weeks after the build</td>
+<td>cables pulled tight in the drag chains</td>
+<td>loose in the chain, zip-tied at both ends of every chain</td>
+<td><a href="../10-wiring/#step-1065-lay-the-harness-into-the-chains">10.65</a>, <a href="../10-wiring/#step-1066-zip-tie-both-ends-of-every-chain">10.66</a></td>
+</tr>
+<tr>
+<td>The ESD ground path is missing or broken</td>
+<td>the V1 USB-adapter cover was fitted, hiding the grounding point</td>
+<td>fit <code>usb_adapter_mount_partial_cover</code> and the supplied grounding cable</td>
+<td><a href="../10-wiring/#step-1057-the-usb-adapter-cover-is-the-partial-cover">10.57</a>, <a href="../10-wiring/#step-1058-fit-the-esd-grounding-path">10.58</a></td>
+</tr>
+<tr>
+<td>A short across the 24 V fan rail takes the controller with it</td>
+<td>the Nevermore bridge PCB was not metered before power</td>
+<td>meter the bridge PCB; the splicer must sit on its printed spacer</td>
+<td><a href="../11-skirts-panels-door/#step-1133-solder-the-fans-to-the-bridge-pcb">11.33</a>, <a href="../11-skirts-panels-door/#common-mistakes">Ch 11 Common mistakes</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../10-wiring/#checkpoint-10">Ch 10 Checkpoint 10</a> and <a href="../10-wiring/#common-mistakes">Common mistakes</a> · <a href="../09-electronics-bay/#common-mistakes">Ch 09 Common mistakes</a> · <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a> · <a href="../11-skirts-panels-door/#common-mistakes">Ch 11 Common mistakes</a></p>
+<hr>
+<h2 id="print-quality">Print quality<a class="headerlink" href="#print-quality" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First layer right at the front, wrong at the back</td>
+<td>meshed before QGL, or the mesh was taken cold</td>
+<td><code>G28</code> → <code>QUAD_GANTRY_LEVEL</code> → <code>G28</code> → <code>BED_MESH_CALIBRATE</code>, hot</td>
+<td><a href="../13-initial-startup/#step-1339-bed_mesh_calibrate">13.39</a>, <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a></td>
+</tr>
+<tr>
+<td>First layer featureless and glassy, or gappy and ridged</td>
+<td>squish set wrong, or extrusion multiplier moved since it was set</td>
+<td>re-run the live-Z procedure and commit with <code>Z_OFFSET_APPLY_ENDSTOP</code></td>
+<td><a href="../13-initial-startup/#step-1342-print-it-and-set-the-first-layer-squish">13.42</a>, <a href="../14-calibration/#step-1421-re-check-first-layer-squish-because-em-moved">14.21</a></td>
+</tr>
+<tr>
+<td>The Z offset reverts after every restart</td>
+<td>babystepping was never committed</td>
+<td><code>Z_OFFSET_APPLY_ENDSTOP</code> then <code>SAVE_CONFIG</code></td>
+<td><a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Every first layer slightly under-squished</td>
+<td>the extra <code>TESTZ Z=-0.1</code> was skipped when calibrating Z=0 hot</td>
+<td>redo <code>Z_ENDSTOP_CALIBRATE</code> with the correction</td>
+<td><a href="../13-initial-startup/#step-1336-z_endstop_calibrate-and-the-paper-test">13.36</a></td>
+</tr>
+<tr>
+<td>Cube is 0.1–0.3 mm oversize in X and Y</td>
+<td>ASA shrinkage and bulging, not an axis error</td>
+<td>fix with extrusion multiplier — never with negative XY size compensation</td>
+<td><a href="../14-calibration/#step-1411-caliper-the-cube-against-the-prusa-printed-one">14.11</a>, <a href="../14-calibration/#step-1419-extrusion-multiplier-flow-the-2-pass">14.19</a></td>
+</tr>
+<tr>
+<td>Cube's first layer is wider than its mid-height</td>
+<td>elephant-foot compensation wrong</td>
+<td>adjust in 0.05 mm steps</td>
+<td><a href="../14-calibration/#step-1411-caliper-the-cube-against-the-prusa-printed-one">14.11</a></td>
+</tr>
+<tr>
+<td>A persistent X − Y size difference on the same cube</td>
+<td>gantry-square problem</td>
+<td>Ch 06b</td>
+<td><a href="../14-calibration/#step-1411-caliper-the-cube-against-the-prusa-printed-one">14.11</a>, <a href="../06-z-axis-and-gantry-squaring/#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints">Ch 06b</a></td>
+</tr>
+<tr>
+<td>Cube corner delaminates along a layer line</td>
+<td>chamber too cold, or part fan too high</td>
+<td>set the chamber target and soak</td>
+<td><a href="../14-calibration/#step-148-set-the-chamber-target-and-understand-the-soak">14.8</a>, <a href="../14-calibration/#step-1411-caliper-the-cube-against-the-prusa-printed-one">14.11</a></td>
+</tr>
+<tr>
+<td>Top surfaces have gaps and valleys, or pellets and ridging</td>
+<td>extrusion multiplier low / high</td>
+<td>run the 2 % pass, then the 0.5 % refinement</td>
+<td><a href="../14-calibration/#step-1419-extrusion-multiplier-flow-the-2-pass">14.19</a>, <a href="../14-calibration/#step-1420-the-05-refinement-pass">14.20</a></td>
+</tr>
+<tr>
+<td>Ringing / ghosting after corners, even with input shaping saved</td>
+<td><code>max_accel</code> left at the stock <code>10000</code> — <code>SAVE_CONFIG</code> does not touch it</td>
+<td>set <code>max_accel</code> at or below the lower per-axis suggestion, with margin</td>
+<td><a href="../14-calibration/#step-1415-save-the-shaper-and-set-the-real-max_accel">14.15</a></td>
+</tr>
+<tr>
+<td>Fine vertical ripple 0.5–2 mm apart on flat faces (VFA)</td>
+<td>belt-tooth engagement ripple — cosmetic, not ringing</td>
+<td>not a tuning fault; input shaping does not fix it</td>
+<td><a href="../print/00-slicer-setup/#gen-2-belt-upgrade-pause-rule">print/00-slicer-setup.md</a></td>
+</tr>
+<tr>
+<td>Mesh and Z offset are wrong for every print</td>
+<td>probed on a cold frame — the bed reaches temperature in minutes, the frame takes 30–45</td>
+<td>heat soak before probing</td>
+<td><a href="../13-initial-startup/#step-1331-heat-soak-bed-100-c-hotend-150-c">13.31</a>, <a href="../14-calibration/#common-mistakes">Ch 14 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Shaper graph shows two or more widely separated peaks</td>
+<td>usually mechanical — a loose backer, an under-tensioned belt, a rail bolt in an end hole</td>
+<td>fix the machine before shaping over it; below 25 Hz on either axis is a build fault</td>
+<td><a href="../14-calibration/#step-1414-read-the-graphs">14.14</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../14-calibration/#part-d-chamber-and-the-first-real-print">Ch 14 Parts D–F</a> and <a href="../14-calibration/#common-mistakes">Common mistakes</a> · <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a> · <a href="../print/00-slicer-setup/">print/00-slicer-setup.md</a></p>
+<hr>
+<h2 id="printing-the-parts-on-the-core-one">Printing the parts on the Core One+<a class="headerlink" href="#printing-the-parts-on-the-core-one" title="Permanent link">¶</a></h2>
+<p>Weeks 1–2, before the Voron exists. The fix is always in <code>print/00-slicer-setup.md</code>'s "if out of spec" columns or a B00/B01 step — never a hand-edited override.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PrusaSlicer shows a bare <code>Prusament ASA @COREONE HF0.4</code>, no "(modified)" on the print preset, or B00-P1 estimates far from 3 h 58 m</td>
+<td>the project's configuration did not load — wizard not run, HF nozzle variant not installed</td>
+<td>run the Configuration Wizard with the 0.4 HF nozzle ticked, reopen the project</td>
+<td><a href="../print/B00-calibration-and-jigs/#step-b000-one-time-prusaslicer-setup">B00.0</a>, <a href="../print/00-slicer-setup/#one-time-prusaslicer-setup-before-the-first-project">00-slicer-setup — one-time setup</a></td>
+</tr>
+<tr>
+<td>Cube 0.1–0.3 mm oversize in X and Y</td>
+<td>shrinkage compensation or XY compensation not zero, or flow high</td>
+<td>confirm 0 % / 0, then extrusion multiplier down in 1 % steps — never negative XY compensation</td>
+<td><a href="../print/00-slicer-setup/#gate-a-no-kit-needed-the-cube">Gate A</a>, <a href="../print/B00-calibration-and-jigs/#step-b005-inspect-gate-a-the-cube-no-kit-needed">B00.5</a></td>
+</tr>
+<tr>
+<td>Cube Z off, or the first layer wider than mid-height</td>
+<td>squish (Live Adjust Z) or elephant-foot compensation</td>
+<td>Z: fix the sheet/glue/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps</td>
+<td><a href="../print/B00-calibration-and-jigs/#step-b004-print">B00.4</a>, <a href="../print/00-slicer-setup/#gate-a-no-kit-needed-the-cube">Gate A</a></td>
+</tr>
+<tr>
+<td>First layer glassy and featureless, or gappy and ridged, on the Core One+</td>
+<td>the loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated</td>
+<td>fix the cause; a Live Adjust Z nudge is per-print and not saved</td>
+<td><a href="../print/B00-calibration-and-jigs/#step-b004-print">B00.4</a>, <a href="../print/00-slicer-setup/#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade">00-slicer-setup — calibration item 3</a></td>
+</tr>
+<tr>
+<td>Cube corner delaminates at the snap test</td>
+<td>chamber too cold or part fan too high</td>
+<td>drop min/max fan to 0 / 15 %, keep the 40 °C chamber gate</td>
+<td><a href="../print/00-slicer-setup/#gate-a-no-kit-needed-the-cube">Gate A</a></td>
+</tr>
+<tr>
+<td>A long flat part lifts at the ends partway through</td>
+<td>glue film missing or old, chamber started cold, or a reprint without its brim</td>
+<td>sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting</td>
+<td><a href="../print/00-slicer-setup/#print-sheet">Print sheet</a>, <a href="../print/00-slicer-setup/#orientation-brim">Orientation &amp; brim</a></td>
+</tr>
+<tr>
+<td>The preview shows a brim on flat grills or clips that should have none</td>
+<td>the global brim was set by hand</td>
+<td>clear Print Settings → Skirt and brim; brims live per object in the committed projects</td>
+<td><a href="../print/00-slicer-setup/#orientation-brim">Orientation &amp; brim</a>, <a href="../print/B02-accent-parts-orange/#step-b024-load-plate-b02-p2">B02.4</a></td>
+</tr>
+<tr>
+<td>625-2RS or F695 bore too tight or too loose</td>
+<td>flow, or shrinkage compensation not zero — the seats are drawn for 100 %</td>
+<td>tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation</td>
+<td><a href="../print/00-slicer-setup/#gate-b-kit-day-bore-rail-inserts">Gate B</a>, <a href="../print/B01-z-drive-assemblies/#step-b017-inspect">B01.7</a>, <a href="../print/B03-ab-drive-units-and-front-idlers/#step-b034-inspect">B03.4</a></td>
+</tr>
+<tr>
+<td>Heat-set boss bulges or the insert sits crooked</td>
+<td>iron too hot or pushed too fast — technique, not the slicer</td>
+<td>practise on the coupon until two in a row are flush</td>
+<td><a href="../print/00-slicer-setup/#gate-b-kit-day-bore-rail-inserts">Gate B</a>, <a href="../00-before-you-start/#step-0013-fit-the-brass-tip-and-set-the-tongue-flush">00.13</a></td>
+</tr>
+<tr>
+<td>The spool runs out mid-plate</td>
+<td>predicted once, on B09-P2</td>
+<td>let the runout sensor pause, load the next spool, resume — never plan one on a bearing-seat plate</td>
+<td><a href="../print/#spool-ledger">Spool ledger</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../print/00-slicer-setup/#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade">print/00-slicer-setup.md — Calibration sequence</a> · <a href="../print/B00-calibration-and-jigs/#common-mistakes">B00 Common mistakes</a> · <a href="../print/B01-z-drive-assemblies/#common-mistakes">B01 Common mistakes</a> · <a href="https://help.prusa3d.com/article/live-adjust-z_112427">Prusa KB — Live Adjust Z</a></p>
+<hr>
+<h2 id="mechanical-noise-binding-play">Mechanical — noise, binding, play<a class="headerlink" href="#mechanical-noise-binding-play" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A tight spot near one end of X travel</td>
+<td>a rail is not centred on its extrusion</td>
+<td>re-centre and re-tighten from the middle outward</td>
+<td><a href="../05-gantry/#step-0544-run-the-x-axis-end-to-end">05.44</a>, <a href="../05-gantry/#step-0533-centre-and-fit-the-mgn12-rail">05.33</a></td>
+</tr>
+<tr>
+<td>Stiffness that grows steadily toward one end</td>
+<td>the gantry is racked</td>
+<td>square it in Ch 06b. Do <strong>not</strong> loosen rails to make it feel better</td>
+<td><a href="../05-gantry/#step-0544-run-the-x-axis-end-to-end">05.44</a>, <a href="../06-z-axis-and-gantry-squaring/#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints">06b.14</a></td>
+</tr>
+<tr>
+<td>A Z carriage has a tight spot the whole length</td>
+<td>rail screws tightened from one end, bowing the rail</td>
+<td>back them off and re-tighten centre-outward</td>
+<td><a href="../02-z-drives/#step-0207-tighten-from-the-centre-outward">02.07</a>, <a href="../02-z-drives/#common-mistakes">Ch 02 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A carriage is notchy or gritty and gets worse</td>
+<td>the rail was installed dry, or grease was left on the rail surface</td>
+<td>flip-and-pack needs the <em>back</em> of the rail — it comes off, or it wears out</td>
+<td><a href="../00-before-you-start/#step-0019-flip-and-pack">00.19</a>, <a href="../00-before-you-start/#common-mistakes">Ch 00 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Grease has gone milky and lost film strength</td>
+<td>packed before the IPA fully evaporated</td>
+<td>strip, dry properly, re-pack</td>
+<td><a href="../00-before-you-start/#step-0018-degrease-ipa-soak-then-dry-completely">00.18</a>, <a href="../00-before-you-start/#common-mistakes">Ch 00 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Belt noise that tension changes do not fix</td>
+<td>crushed idler pockets from over-tightened 20T idler bolts</td>
+<td>those bolts only locate the idler — they thread into plastic</td>
+<td><a href="../05-gantry/#common-mistakes">Ch 05 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A belt runs clean at one end of travel and rubs at the other</td>
+<td>a half-twist somewhere in a long run</td>
+<td>sight down each straight run; teeth must face the same way at both ends</td>
+<td><a href="../07-ab-belts/#step-0729-belt-rub-inspection-at-every-idler-stack">07.29</a>, <a href="../07-ab-belts/#common-mistakes">Ch 07 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A belt shreds against a flange</td>
+<td>a bearing pair fitted flange-to-flange or flange-in</td>
+<td>open the stack; the plain faces must meet</td>
+<td><a href="../04-ab-drives/#step-047-a-idler-build-the-bearing-stack">04.07</a>, <a href="../04-ab-drives/#common-mistakes">Ch 04 Common mistakes</a></td>
+</tr>
+<tr>
+<td>The A and B belts rub against each other</td>
+<td>pulleys at the same height, or the B pulley fitted hub-down</td>
+<td>A = 16.5 mm hub down, B = 6.5 mm hub up, re-checked with the jig</td>
+<td><a href="../04-ab-drives/#step-0424-a-drive-set-the-pulley-on-the-a-motor-at-165-mm">04.24</a>, <a href="../04-ab-drives/#step-0433-b-drive-set-the-pulley-on-the-b-motor-at-65-mm-flipped">04.33</a></td>
+</tr>
+<tr>
+<td>A and B tension will not converge</td>
+<td>unequal belt lengths, unequal tail protrusion, or a belt rubbing</td>
+<td>cut both together; equalise the tails; inspect every idler</td>
+<td><a href="../07-ab-belts/#step-0733-move-the-gantry-return-and-re-check">07.33</a>, <a href="../07-ab-belts/#step-078-cut-both-belts-to-the-same-length">07.08</a></td>
+</tr>
+<tr>
+<td>Belt frequency reads far too high and will not come down</td>
+<td>you are reading a harmonic, not the fundamental</td>
+<td>take the <strong>lowest</strong> peak, three plucks, in a quiet room, over a measured 150 mm span</td>
+<td><a href="../07-ab-belts/#step-0731-read-both-belts-with-the-phone">07.31</a>, <a href="../07-ab-belts/#step-0730-set-the-150-mm-measuring-span">07.30</a></td>
+</tr>
+<tr>
+<td>The plate tacos on the first heat to 110 °C</td>
+<td>all four bed bolts were tightened; the plate must float on three</td>
+<td>one bolt only — the plate is meant to expand</td>
+<td><a href="../03-build-plate/#step-0317-tighten-one-bolt-only">03.17</a>, <a href="../03-build-plate/#common-mistakes">Ch 03 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A bed bolt strips its T-nut on first tighten</td>
+<td>the manual's M3×16 barely engages through a 10 mm plate plus spacer</td>
+<td>use the M3×20</td>
+<td><a href="../03-build-plate/#common-mistakes">Ch 03 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A drive-frame post strips and the frame will not hold</td>
+<td>M5×30 BHCS torqued into plastic</td>
+<td>stop at closed-and-snug; a stripped post means a reprint</td>
+<td><a href="../04-ab-drives/#common-mistakes">Ch 04 Common mistakes</a></td>
+</tr>
+<tr>
+<td>A skirt or COB mount is bowed and will not sit flat</td>
+<td>warped print, caught after assembly instead of at the flat-reference check</td>
+<td>check parts against the flat reference as they come off the plate</td>
+<td><a href="../print/B07-electronics-bay-and-lighting/">print/B07</a>, <a href="../print/B08-skirts-and-front-modules/">print/B08</a></td>
+</tr>
+<tr>
+<td>A side panel is scored by the gantry</td>
+<td>1 mm foam tape used on the sides instead of 3 mm</td>
+<td>1 mm on back and top, 3 mm on the sides — the 3 mm is a standoff</td>
+<td><a href="../11-skirts-panels-door/#step-1156-foam-tape-the-side-panels">11.56</a>, <a href="../11-skirts-panels-door/#common-mistakes">Ch 11 Common mistakes</a></td>
+</tr>
+<tr>
+<td>The Clicky-Clack door racks, or the latch will not catch</td>
+<td>loose M5×45 dowel fit, or the door is hung wrong at the hinges</td>
+<td>re-hang at the hinges — the latch is almost never the problem</td>
+<td><a href="../11-skirts-panels-door/#step-1162-hang-the-door-hinges">11.62</a>, <a href="../11-skirts-panels-door/#common-mistakes">Ch 11 Common mistakes</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../05-gantry/#step-0544-run-the-x-axis-end-to-end">Ch 05 Step 05.44</a> · <a href="../00-before-you-start/#common-mistakes">Ch 00</a>, <a href="../02-z-drives/#common-mistakes">Ch 02</a>, <a href="../03-build-plate/#common-mistakes">Ch 03</a>, <a href="../04-ab-drives/#common-mistakes">Ch 04</a>, <a href="../05-gantry/#common-mistakes">Ch 05</a>, <a href="../07-ab-belts/#common-mistakes">Ch 07</a>, <a href="../11-skirts-panels-door/#common-mistakes">Ch 11</a> Common mistakes</p>
+<hr>
+<h2 id="software-and-config">Software and config<a class="headerlink" href="#software-and-config" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Every <code>nhk:</code> pin behaves wrongly at once</td>
+<td><code>leviathan-printer-rev-d.cfg</code> loaded instead of the <code>-sbv2</code> file</td>
+<td>grep for <code>nhk:PB8</code> before uploading; Rev D+ needs the <code>-sbv2</code> config</td>
+<td><a href="../12-software/#step-1221-download-the-correct-config-file">12.21</a>, <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></td>
+</tr>
+<tr>
+<td><code>mcu 'nhk': Unable to open serial port</code></td>
+<td>serial path not pasted, or the board is not flashed</td>
+<td>re-read both paths and paste them</td>
+<td><a href="../12-software/#step-1223-paste-the-two-serial-paths">12.23</a>, <a href="../13-initial-startup/#step-134-connect-klipper-and-confirm-both-mcus">13.4</a></td>
+</tr>
+<tr>
+<td>Katapult is gone and the board will not flash</td>
+<td>bootloader offset omitted in <code>make menuconfig</code></td>
+<td>recover over DFU with the board buttons, then re-flash with the right offset</td>
+<td><a href="../12-software/#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu">12.16</a>, <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></td>
+</tr>
+<tr>
+<td><code>menuconfig</code> settings do not match the board</td>
+<td>following the V1.3 Leviathan guide on a V1.2 board (or the reverse)</td>
+<td>read the silkscreen and the serial ID <em>before</em> menuconfig</td>
+<td><a href="../12-software/#step-1213-identify-your-leviathan-revision-before-you-build-anything">12.13</a>, <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Both boards flashed twice, for no reason</td>
+<td>MCU firmware built before the Update Manager ran</td>
+<td>update the host first, then flash</td>
+<td><a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></td>
+</tr>
+<tr>
+<td><code>Unknown command:"BED_MESH_CLEAR"</code> at the end of a print</td>
+<td>no <code>[bed_mesh]</code> section</td>
+<td>add it — a warning, not a failure, but you have no mesh</td>
+<td><a href="../12-software/#step-1234-add-a-bed_mesh-section">12.34</a>, <a href="../13-initial-startup/#step-1338-confirm-the-bed_mesh-section-from-ch-12">13.38</a></td>
+</tr>
+<tr>
+<td>The whole mesh is offset by a constant</td>
+<td><code>[bed_mesh]</code> added without <code>zero_reference_position</code></td>
+<td>the Omron's <code>z_offset</code> is 0 by design; pin the reference to bed centre</td>
+<td><a href="../12-software/#step-1234-add-a-bed_mesh-section">12.34</a>, <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a></td>
+</tr>
+<tr>
+<td>The nozzle drives into the plate on <code>G28</code></td>
+<td><code>home_xy_position</code> filled in with a guess</td>
+<td><code>-10,-10</code> failing is the interlock working — measure the real coordinate</td>
+<td><a href="../12-software/#step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable">12.33</a>, <a href="../13-initial-startup/#step-1326-record-the-z-endstop-coordinate-into-safe_z_home">13.26</a></td>
+</tr>
+<tr>
+<td>Interface reports X/Y travel of 250, not 350</td>
+<td>the 350 mm config edits are not live</td>
+<td>check the running instance, not the file on disk</td>
+<td><a href="../13-initial-startup/#step-135-prove-the-350-mm-config-edits-are-live">13.5</a></td>
+</tr>
+<tr>
+<td>The chamber thermistor reads nothing</td>
+<td>plugged into a Leviathan <code>TH</code> port</td>
+<td>Rev D+ reads it as <code>nhk:PB2</code> — it belongs on the toolboard's <code>CT</code> port</td>
+<td><a href="../10-wiring/#step-1039-chamber-thermistor-if-your-batch-includes-one">10.39</a>, <a href="../10-wiring/#common-mistakes">Ch 10 Common mistakes</a></td>
+</tr>
+<tr>
+<td>The probe reads nothing on the Leviathan <code>Z-PROBE</code> header</td>
+<td>on a Nitehawk build the probe lives on the toolboard's <code>PROBE</code> port</td>
+<td>the stock config's comment says otherwise and the comment is wrong</td>
+<td><a href="../10-wiring/#common-mistakes">Ch 10 Common mistakes</a>, <a href="../12-software/#step-1229-probe-omron-active-klicky-written-but-commented">12.29</a></td>
+</tr>
+<tr>
+<td>The filter fan cannot be commanded from a macro or the slicer</td>
+<td>LDO's stock config declares FAN3 as a <code>[heater_fan]</code> slaved to the bed</td>
+<td>this manual replaces it with <code>fan_generic</code></td>
+<td><a href="../12-software/#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans">12.32</a>, <a href="../11-skirts-panels-door/#step-1141-note-the-filter-fan-config-for-ch-12">11.41</a></td>
+</tr>
+<tr>
+<td>Homing is lost after every <code>SAVE_CONFIG</code></td>
+<td><code>SAVE_CONFIG</code> restarts Klipper</td>
+<td>re-<code>G32</code> after each one</td>
+<td><a href="../14-calibration/">Ch 14 Read first</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: <a href="../12-software/#common-mistakes">Ch 12 Common mistakes</a> and <a href="../12-software/#checkpoint-12">Checkpoint 12</a> · <a href="../13-initial-startup/#step-134-connect-klipper-and-confirm-both-mcus">Ch 13 Step 13.4</a> · <a href="../10-wiring/#common-mistakes">Ch 10 Common mistakes</a></p>
+<hr>
+<h2 id="order-of-operations-traps">Order-of-operations traps<a class="headerlink" href="#order-of-operations-traps" title="Permanent link">¶</a></h2>
+<p>These have no symptom until they are expensive. They are in the chapters' <em>Common mistakes</em> lists because you cannot debug your way out of them — you can only avoid them.</p>
+<table>
+<thead>
+<tr>
+<th>Trap</th>
+<th>What it costs</th>
+<th>Owned by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fitting a rail before greasing it</td>
+<td>the rail comes off again, or runs dry for the life of the machine</td>
+<td><a href="../00-before-you-start/#step-0019-flip-and-pack">00.19</a>, <a href="../02-z-drives/#step-0205-confirm-the-four-z-rails-are-already-cleaned-and-greased">02.05</a></td>
+</tr>
+<tr>
+<td>Missing a heat-set insert before a part is closed</td>
+<td>six M3×40 out and the shaft assembly lifted (Z drive); a gantry teardown (XY joint)</td>
+<td><a href="../00-before-you-start/#step-0016-plan-the-153-inserts">00.16</a>, <a href="../02-z-drives/#step-0204-seat-the-heat-set-inserts-in-the-z-drive-parts">02.04</a>, <a href="../08-toolhead/#step-083-inserts-clockwork-2-main-body">08.03</a></td>
+</tr>
+<tr>
+<td>Fitting the titanium backers after the gantry is built</td>
+<td>~3 h teardown — their T-nut slots are capped by the drive and idler frames</td>
+<td><a href="../05-gantry/#step-0516-unpack-and-identify-the-titanium-backers">05.16</a>, <a href="../05-gantry/#common-mistakes">Ch 05 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Using a rail's end hole</td>
+<td>the rail comes off and goes back on — the end holes are where the p.89–90 / p.102 T-nuts live</td>
+<td><a href="../00-before-you-start/#step-0022-understand-the-rail-jigs-before-you-need-them">00.22</a>, <a href="../05-gantry/#step-0533-centre-and-fit-the-mgn12-rail">05.33</a></td>
+</tr>
+<tr>
+<td>Skipping the reserved T-nuts at p.90</td>
+<td>Ch 06's Z joints and Ch 10's chain hardware have nowhere to bolt to</td>
+<td><a href="../05-gantry/#step-0513-second-y-axis-then-load-the-end-m5-t-nuts">05.13</a>, <a href="../05-gantry/#common-mistakes">Ch 05 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Skipping the deck supports until Ch 11</td>
+<td>the frame has to come partly apart — the deck cannot be lifted once the gantry and electronics are in</td>
+<td><a href="../02-z-drives/#step-0214-fit-the-deck-support-clips">02.14</a>, <a href="../02-z-drives/#common-mistakes">Ch 02 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Resolving the deck thickness from the documents</td>
+<td>LDO's guide says 4 mm and LDO's BOM says 3 mm — only the caliper settles it, and B01 needs the answer</td>
+<td><a href="../00-before-you-start/#step-004-inventory-carton-2-and-caliper-the-deck-panel">00.4</a>, <a href="../02-z-drives/#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness">02.12</a></td>
+</tr>
+<tr>
+<td>Torquing the frame corner by corner as you go</td>
+<td>whatever error was there is locked in; the mallet cannot fix it afterwards</td>
+<td><a href="../01-frame/#step-0112-square-the-bottom-square-and-lock-it">01.12</a>, <a href="../01-frame/#common-mistakes">Ch 01 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Treating Ch 07's belt tension as final</td>
+<td>Ch 06b releases A/B tension completely as its first move</td>
+<td><a href="../07-ab-belts/#step-0733-move-the-gantry-return-and-re-check">07.33</a>, <a href="../06-z-axis-and-gantry-squaring/#step-06b6-release-the-ab-belt-tension-completely">06b.6</a></td>
+</tr>
+<tr>
+<td>Setting Z offset or bed mesh before squaring the gantry</td>
+<td>everything measured before Ch 06b is scrap</td>
+<td><a href="../13-initial-startup/#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab">13.34</a>, <a href="../13-initial-startup/#common-mistakes">Ch 13 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Closing the bay or fitting panels before Checkpoint #1</td>
+<td>an unverified mains bay behind a bottom panel, and an hour to undo</td>
+<td><a href="../10-wiring/#step-1071-leave-the-duct-covers-off">10.71</a>, <a href="../11-skirts-panels-door/#common-mistakes">Ch 11 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Running <code>SHAPER_CALIBRATE</code> before the first good print or final belt tension</td>
+<td>the result is stale before you use it; the same applies to pressure advance</td>
+<td><a href="../14-calibration/#step-1413-run-shaper_calibrate">14.13</a>, <a href="../14-calibration/#common-mistakes">Ch 14 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Building Klicky because the parts are on the bench</td>
+<td>the kit's config, wiring and cable are all for the inductive probe</td>
+<td><a href="../08-toolhead/#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set">08.54</a>, <a href="../print/B06-toolhead-sb-cw2-klicky/#step-b064-inspect">B06.4</a>, <a href="../08-toolhead/#common-mistakes">Ch 08 Common mistakes</a></td>
+</tr>
+<tr>
+<td>Starting B01 or B03–B06 on Gate A alone</td>
+<td>58.5 h and 763 g of bearing-seat and shaft-bore parts printed against an unverified bore fit</td>
+<td><a href="../print/B00-calibration-and-jigs/#step-b007-gate-b-on-kit-day-bore-rail-inserts">B00.7</a>, <a href="../print/00-slicer-setup/#gate-b-kit-day-bore-rail-inserts">Gate B</a></td>
+</tr>
+<tr>
+<td>Nudging Live Adjust Z on every plate instead of fixing the sheet</td>
+<td>the Core One+ does not save the nudge; the first plate you forget lifts at hour 2</td>
+<td><a href="../print/B00-calibration-and-jigs/#step-b004-print">B00.4</a></td>
+</tr>
+</tbody>
+</table>
+<p class="src">Source: the <code>Common mistakes</code> sections of <a href="../00-before-you-start/#common-mistakes">Ch 00</a>, <a href="../01-frame/#common-mistakes">01</a>, <a href="../02-z-drives/#common-mistakes">02</a>, <a href="../04-ab-drives/#common-mistakes">04</a>, <a href="../05-gantry/#common-mistakes">05</a>, <a href="../07-ab-belts/#common-mistakes">07</a>, <a href="../08-toolhead/#common-mistakes">08</a>, <a href="../11-skirts-panels-door/#common-mistakes">11</a>, <a href="../13-initial-startup/#common-mistakes">13</a>, <a href="../14-calibration/#common-mistakes">14</a>, <a href="../print/B00-calibration-and-jigs/#common-mistakes">B00</a></p>
+<hr>
+<h2 id="not-covered-here-where-to-ask">Not covered here — where to ask<a class="headerlink" href="#not-covered-here-where-to-ask" title="Permanent link">¶</a></h2>
+<p>If your symptom is not in the tables above, this manual does not have an answer for it and you should ask rather than improvise. The three lifelines were joined in <a href="../00-before-you-start/#step-0031-join-the-three-lifelines-now">Step 00.31</a>; this is what each one is for.</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Use it for</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fabreeko Discord</strong></td>
+<td>missing, wrong or damaged parts; anything vendor-specific; your batch sheet</td>
+<td><a href="https://discord.gg/NV8Y6bcerP">discord.gg/NV8Y6bcerP</a></td>
+</tr>
+<tr>
+<td><strong>Voron Discord</strong>, <code>#voron_2_questions</code></td>
+<td>general 2.4 build and tuning questions. The server also runs a general help channel — check its channel list; Step 00.31 names only <code>#voron_2_questions</code></td>
+<td><a href="https://discord.gg/voron">discord.gg/voron</a></td>
+</tr>
+<tr>
+<td><strong><code>#ldo_motors</code></strong> (inside the Voron Discord)</td>
+<td>anything Rev D / Rev D+ specific, and the channel LDO's Build Notes direct corrections to</td>
+<td><a href="https://discord.com/channels/460117602945990666/710952853514223617">channel link</a></td>
+</tr>
+<tr>
+<td><strong>Klipper Discourse</strong></td>
+<td>Klipper itself — config, firmware, macros, shutdowns</td>
+<td><a href="https://community.klipper3d.org">community.klipper3d.org</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Put all five of these in the question</strong>, or you will spend a day getting asked for them:</p>
+<ol>
+<li><strong>Kit identity</strong> — the serial from carton 1, formatted <code>V2-YYMMDD####</code>, and that it is an <strong>LDO Voron 2.4 R2 Rev D+, 350 mm</strong> with a <strong>Nitehawk-SB V2</strong> toolboard. Rev D+ is why half the published answers will not apply to you.</li>
+<li><strong>Where you are</strong> — the chapter and step number from this manual, plus the corresponding official manual page or LDO guide section from that step's <code>Source:</code> line. That turns "it binds" into a place on a drawing.</li>
+<li><strong>The config file name you actually loaded</strong> — <code>leviathan-printer-rev-d-sbv2.cfg</code>, not <code>leviathan-printer-rev-d.cfg</code>. Say which, because it is the single most common wrong assumption in a Rev D+ thread.</li>
+<li><strong><code>klippy.log</code></strong>, complete and unmodified. Klipper's own instruction: <em>"Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information."</em> It lives at <code>~/printer_data/logs/klippy.log</code>; zip it before attaching.</li>
+<li><strong>A photo</strong> of the assembly you are asking about — and for anything mechanical, one photo of the <em>working</em> side too.</li>
+</ol>
+<p class="src">Source: <a href="../00-before-you-start/#step-0031-join-the-three-lifelines-now">Ch 00 Step 00.31</a> · <a href="../00-before-you-start/#step-002-find-the-kit-serial-and-open-your-batch-bom-page">Ch 00 Step 00.2</a> · <a href="https://www.klipper3d.org/Contact.html">Klipper — Contact</a> · <a href="../12-software/#step-1221-download-the-correct-config-file">Ch 12 Step 12.21</a></p>
+<hr>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><a href="../16-glossary/"><strong>Ch 16 — Glossary</strong></a>: every term this manual assumes you already know, with the chapter where each one first matters.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../voron-build-instructions-survey/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 16 — Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chapter 16 — Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

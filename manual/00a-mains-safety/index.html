@@ -1,0 +1,2395 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/00a-mains-safety/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 00a — Mains safety: read before Chapter 09 - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-00a-mains-safety-read-before-chapter-09" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 00a — Mains safety: read before Chapter 09
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#before-the-kit-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before the kit arrives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Before the kit arrives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-00a1-decide-who-is-doing-the-mains-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.1 — Decide who is doing the mains work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.2 — Write the "who is in the room" rule and post it on the wall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a3-buy-a-meter-that-is-rated-for-the-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.3 — Buy a meter that is rated for the job
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a4-test-the-meter-before-you-trust-it-and-again-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.4 — Test the meter before you trust it, and again after
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.5 — Put the printer on an RCD/GFCI outlet you can reach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-earth-chain-the-fuse-and-the-terminals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The earth chain, the fuse and the terminals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The earth chain, the fuse and the terminals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-00a6-learn-the-protective-earth-chain-in-this-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.6 — Learn the protective-earth chain in this build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.7 — The SSR is marked "earth the mounting rail" and this build does not
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a8-ferrules-and-the-no-whisker-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.8 — Ferrules and the no-whisker rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a9-strain-relief-nothing-may-pull-on-a-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.9 — Strain relief: nothing may pull on a terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a10-the-fuse-in-the-inlet-and-what-it-does-not-protect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.10 — The fuse in the inlet, and what it does not protect
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-rituals-and-the-bad-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The two rituals, and the bad day
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The two rituals, and the bad day">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.11 — Know the two power-on rituals before either one arrives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 00a.12 — Decide now what you do when it smokes, trips or bites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkpoint-00a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoint 00a
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-00a-mains-safety-read-before-chapter-09">Chapter 00a — Mains safety: read before Chapter 09<a class="headerlink" href="#chapter-00a-mains-safety-read-before-chapter-09" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">One page per step</p>
+<p>Read this chapter <a class="step-pages-link" href="../steps/00a-mains-safety/">one step per page</a> — big pictures, prev/next, and the same tick marks. This page is the whole chapter in one scroll.</p>
+</div>
+<p>Everything you must decide, buy and agree <em>before</em> the electronics bay exists: who is allowed to do the mains work, who is allowed in the room, what meter you need, where the protective earth runs in this machine, and what to do when it goes wrong. Nothing is built here — this chapter exists so that Ch 09 and Ch 10 never stop to ask a question that should already have an answer.</p>
+<p><strong>What you're building in this chapter:</strong> no hardware — four decisions and one purchase, each of which has to exist before a part goes in. <strong>A named person</strong> for the mains connections, and a written rule about who is in the room while they are made. <strong>A multimeter with a category rating</strong>, proved on a live outlet, because Ch 10's Checkpoint #1 is seven measurements and a meter that has quietly died reads every one of them as safe. <strong>An RCD/GFCI outlet with a labelled breaker</strong>, so the circuit can be killed from outside the room. And <strong>a mental map of the parts you will meet in Ch 09–10</strong>: the combined AC inlet (socket, switch and fuse in one body), the WAGO lever blocks that fan mains out to three destinations, the Meanwell PSU that makes the machine's 24 V, the solid-state relay that switches mains to the bed heater, and the protective-earth chain that ties the frame, the plate and the PSU back to the wall socket's earth pin.</p>
+<p><strong>Time:</strong> 0.75–1.0 h hands-on, first build — reading, one shopping decision, one outlet check. No kit parts are touched.</p>
+<p><strong>Sessions:</strong> 2 × ~30 min</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li><strong>Ch 00 — Before you start</strong>, at least through <a href="../00-before-you-start/#step-008-settle-the-tool-list-owned-vs-buy">Step 00.8</a> (the tool table, where the multimeter is a "Buy if not owned" row) and <a href="../00-before-you-start/#step-0030-start-the-measurement-log">Step 00.30</a> (the measurement log and your daughter's assigned jobs). This chapter turns both of those into rules.</li>
+<li><strong>Print batches: none.</strong> Nothing here is printed, mounted or wired.</li>
+<li>Read this <strong>before Ch 09</strong>, not before Ch 10. Ch 09 already puts the inlet, the PSU and the SSR into the machine; by the time you open Ch 10 the decisions below are already spent.</li>
+</ul>
+<p><strong>Tools</strong></p>
+<ul>
+<li>Digital multimeter — see <a href="#step-00a3-buy-a-meter-that-is-rated-for-the-job">Step 00a.3</a> for the minimum spec. This is the one tool in the build with a safety rating, not just a tolerance.</li>
+<li>The multimeter's own test leads, rated at or above the meter's category</li>
+<li>A known-live wall outlet you can reach (for the meter self-test)</li>
+</ul>
+<p><strong>Consumables:</strong> none.</p>
+<p><strong>Printed parts:</strong> none. No print batch gates this chapter.</p>
+<p><strong>Hardware</strong></p>
+<table>
+<thead>
+<tr>
+<th>Fastener / part</th>
+<th>Qty</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>— nothing is consumed in this chapter —</td>
+<td>0</td>
+<td>every mains part stays in its box until <a href="../09-electronics-bay/">Ch 09</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Read first</strong></p>
+<ul>
+<li><strong>Mains is the only irreversible hazard in this build.</strong> Every other safety fact in this manual is stated at the step that needs it. This one cannot be, because the decisions — who wires it, what meter, which outlet — are made weeks earlier. <a href="https://docs.vorondesign.com/build/electrical/">src</a></li>
+<li><strong>There is no step in this manual where a 13-year-old touches mains wiring.</strong> <a href="#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall">Step 00a.2</a> names the exact stretches she is not present for, and what she does instead.</li>
+<li><strong>The meter is not optional and it is not a formality.</strong> Ch 10's Checkpoint #1 is seven meter measurements on an unplugged machine, and it is the hard gate before the bay closes (survey §5.2 W8).</li>
+<li><strong>If your local rules say a certified person must make the mains connections, that is the whole of Ch 10 Section 1.</strong> Decide it now, not with the printer on its back and the WAGOs half-populated.</li>
+<li><strong>Nothing in this chapter overrides a step.</strong> Where this chapter and a step disagree, the step wins and the disagreement is a bug — log it in the corrections table in <a href="../00-index/">00-index.md</a>.</li>
+<li>Mirrored images in this chapter are LDO Motors' (LDOVoron2 wiring guide, docs.ldomotors.com), used with attribution; see <code>assets/remote/00a-mains-safety/SOURCES.txt</code>. Each step keeps the original URL on its <code>Source:</code> line.</li>
+</ul>
+<hr>
+<h2 id="before-the-kit-arrives">Before the kit arrives<a class="headerlink" href="#before-the-kit-arrives" title="Permanent link">¶</a></h2>
+<h3 id="step-00a1-decide-who-is-doing-the-mains-work">Step 00a.1 — Decide who is doing the mains work<a class="headerlink" href="#step-00a1-decide-who-is-doing-the-mains-work" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: a decision about one stretch of the build. The conductors that carry wall voltage are the C14 inlet, the WAGO lever blocks, the PSU's AC terminal block, the solid-state relay, and the bed heater's live lead. Everything else runs on 24 V.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Read your local rules for who may make mains connections in a dwelling. If the answer is not you, write that down today: build the machine, mount every part, and hand over at <a href="../10-wiring/#step-104-fit-the-ac-inlet-into-the-printed-plug-panel">10.4</a>.</p>
+<p>The one region that can kill you is <strong>Ch 10 Section 1, <a href="../10-wiring/#step-101-empty-the-bay-and-set-the-end-state">10.1</a>–<a href="../10-wiring/#step-1016-frame-pe">10.16</a></strong>: the C14 inlet, the three-way WAGO bus, the Meanwell LRS-200-24's AC terminal block, the Omron SSR's LOAD pair, and the bed heater's live lead. The Voron community's standard advice is <em>"install the parts and then find a qualified electrician to do the connecting up."</em> Ch 10's own <strong>Read first</strong> says the same and names the same stopping line. Writing the decision down changes nothing else in the build order.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>One line in the build log naming who lands the mains conductors, dated before the kit ships.</p>
+</div>
+<p class="src">Source: <a href="../10-wiring/">Ch 10 — Read first</a> · <a href="https://forum.vorondesign.com/threads/mains-wiring-safety.1998/">Voron forum — Mains Wiring Safety</a> · <a href="https://docs.vorondesign.com/build/electrical/">Voron docs — Electrical Wiring</a></p>
+<hr>
+<h3 id="step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall">Step 00a.2 — Write the "who is in the room" rule and post it on the wall<a class="headerlink" href="#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: a written rule for the two people building this printer. It names the step ranges where only one person is at the machine, and what the other does instead, so the rule is decided in daylight rather than at the bench.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Write the mains carve-out to your daughter's measurement-log job, post it where you both see it, and say it out loud once before Ch 09.</p>
+<p><a href="../00-before-you-start/#step-0030-start-the-measurement-log">Step 00.30</a> gives her the measurement log — <em>"the diagonals in Ch 01 are hers to read out"</em> — and that assignment has no carve-out for mains. The rule, in these words:</p>
+<ul>
+<li>She does not strip, land, tighten or unplug any conductor that is or has been connected to the wall.</li>
+<li>She is not in the room while the mains conductors are being worked on, or while the machine is plugged in with the bay open — <strong>Ch 10 Section 1 (<a href="../10-wiring/#step-101-empty-the-bay-and-set-the-end-state">10.1</a>–<a href="../10-wiring/#step-1016-frame-pe">10.16</a>)</strong>, the whole of <strong>Checkpoint #1 (<a href="../10-wiring/#step-1017-de-energise-and-set-up">10.17</a>–<a href="../10-wiring/#step-1023-first-power-on-then-off-again">10.23</a>)</strong>, and the firmware gate at <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">12.11</a>. Those are adult-only.</li>
+<li>She is not beside the machine at any power-on — <a href="../10-wiring/#step-1023-first-power-on-then-off-again">10.23</a>, <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">12.11</a> and <a href="../13-initial-startup/#step-133-power-on-again-hand-on-the-switch">13.3</a>. One adult, standing to the side, hand on the switch — nobody else within reach of the machine.</li>
+<li>What she <em>does</em> own on those days: the meter — but only with the printer <strong>unplugged</strong>. In the post-power sweeps at <a href="../10-wiring/#step-1074-24-v-rails">10.74</a>–<a href="../10-wiring/#step-1078-ssr-polarity-and-isolation-one-last-time">10.78</a>, once <a href="../10-wiring/#step-1073-confirm-dead">10.73</a> has read 0 V and the cord is out of the room, she reads out the meter values while you hold the probes. Reading numbers out loud is a real job: it is how you catch a row you skipped.</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>The rule is written, posted, and has been read aloud. Neither of you has to reconstruct it at 22:00 with the printer on its back.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p>This rule is not about competence. It is about there being only one pair of hands near a live conductor, and about that pair belonging to the person who can also reach the breaker.</p>
+</div>
+<p class="src">Source: <a href="../00-before-you-start/#step-0030-start-the-measurement-log">Ch 00 Step 00.30</a> · <a href="../10-wiring/#section-1-mains-inlet-switch-psu-ssr-bed-heater">Ch 10 Sections 1–2</a> · <a href="../10-wiring/#section-8-pre-power-on-meter-sweep">Ch 10 Section 8</a> · <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">Ch 12 Step 12.11</a> · <a href="../13-initial-startup/#step-133-power-on-again-hand-on-the-switch">Ch 13 Step 13.3</a></p>
+<hr>
+<h3 id="step-00a3-buy-a-meter-that-is-rated-for-the-job">Step 00a.3 — Buy a meter that is rated for the job<a class="headerlink" href="#step-00a3-buy-a-meter-that-is-rated-for-the-job" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: the meter you will buy. A digital multimeter measures continuity, resistance, DC volts and AC volts. The <strong><a href="../16-glossary/#c">CAT rating</a></strong> on its face says how large a surge it can survive where you use it, which is not what voltage it can display.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Buy a meter with <strong>CAT III 600 V</strong> printed on its face, and leads rated at least the same category. CAT III leaves margin if you ever probe at a panel.</p>
+<p>A meter's <strong>CAT rating</strong> says what size transient it can survive where you are using it, not what voltage it can display; a meter with no category rating, or the wrong one, can fail violently. Fluke's definitions: <strong>CAT II</strong> is <em>"Single-phase receptacle-connected loads such as appliances and portable tools"</em>; <strong>CAT III</strong> is <em>"3-phase distribution including single-phase commercial lighting and equipment in fixed locations such as switchgear and polyphase motors."</em> This printer is a receptacle-connected appliance, so CAT II is the category; CAT III is simply the common rating on decent meters. The four functions in the table are the ones Ch 10's Checkpoint #1 asks for.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Why this build needs it</th>
+<th>Used at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continuity / beeper</td>
+<td>every Checkpoint #1 measurement</td>
+<td><a href="../10-wiring/#step-1017-de-energise-and-set-up">10.17</a>–<a href="../10-wiring/#step-1021-the-ssr-is-open-when-unpowered">10.21</a></td>
+</tr>
+<tr>
+<td>Resistance (Ω)</td>
+<td>bed heater, thermistors, PE bonding, 24 V shorts</td>
+<td><a href="../10-wiring/#step-1013-measure-the-bed-heater-before-you-connect-it">10.13</a>, <a href="../10-wiring/#step-1074-24-v-rails">10.74</a>, <a href="../10-wiring/#step-1076-thermistors-at-room-temperature">10.76</a>, <a href="../10-wiring/#step-1077-protective-earth-bonding">10.77</a></td>
+</tr>
+<tr>
+<td>DC volts</td>
+<td>confirm dead — 0 V across the PSU's +V/−V, held ten seconds, before the DC side is touched; never a live reading</td>
+<td><a href="../10-wiring/#step-1024-psu-leviathan-board-supply">10.24</a>, <a href="../10-wiring/#step-1073-confirm-dead">10.73</a></td>
+</tr>
+<tr>
+<td>AC volts, 600 V range</td>
+<td>the meter self-test in <a href="#step-00a4-test-the-meter-before-you-trust-it-and-again-after">00a.4</a>; never used inside the machine</td>
+<td>this chapter only</td>
+</tr>
+</tbody>
+</table>
+<p>Two details worth getting right. <strong>Resistance range:</strong> Ch 10's tool list asks for "at least 2 MΩ", but <a href="../10-wiring/#step-1013-measure-the-bed-heater-before-you-connect-it">10.13</a> wants to see the bed heater read <em>"well above 10 MΩ"</em> to earth, and <a href="../10-wiring/#step-1076-thermistors-at-room-temperature">10.76</a> reads thermistors up to 162 kΩ. A 2 MΩ meter answers the pass/fail (anything higher shows <code>OL</code>, which is the pass), but a meter that ranges to 20 MΩ or more turns a pass into a number you can write in the log. <strong>Leads:</strong> they carry their own CAT rating and it is the <em>lower</em> of meter and lead that governs. Do not put unrated leads on a rated meter.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Meter on the bench with a printed category rating, leads rated to at least that category, fresh battery, and all four functions tried once.</p>
+</div>
+<p class="src">Source: <a href="https://www.fluke.com/en-us/learn/blog/safety/iec-category-ratings-use-the-right-tools-for-the-job">Fluke — IEC category ratings</a> · <a href="../00-before-you-start/#step-008-settle-the-tool-list-owned-vs-buy">Ch 00 Step 00.8</a> · <a href="../10-wiring/">Ch 10 — Tools</a></p>
+<hr>
+<h3 id="step-00a4-test-the-meter-before-you-trust-it-and-again-after">Step 00a.4 — Test the meter before you trust it, and again after<a class="headerlink" href="#step-00a4-test-the-meter-before-you-trust-it-and-again-after" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The meter, its two test leads, and a wall outlet you know is live. <strong><a href="../16-glossary/#l">Live–dead–live</a></strong> means proving the meter works immediately before and immediately after the measurement that matters. A dead meter reads no voltage on a live conductor.</p>
+<p><strong>Parts:</strong> multimeter, a known-live wall outlet.</p>
+<p><strong>Do:</strong> Prove the meter <strong>live–dead–live</strong> before you trust any dead reading, and short the probes to check continuity, leads and battery.</p>
+<p>A meter that has quietly died reads "no voltage" on a live conductor, which is the most dangerous reading in electrical work. A flat battery or a broken lead does it. Prove the meter on a known-live source, take your measurement, then prove it again on the same source: if it failed in between, you find out before you act on the reading. Do it in this order the first time you use the meter, and every time you are about to touch something you have declared dead:</p>
+<ol>
+<li><strong>Live</strong> — AC volts on a wall outlet you know is on. It should read your nominal mains voltage.</li>
+<li><strong>Dead</strong> — the measurement you actually care about.</li>
+<li><strong>Live</strong> — back to the same outlet. Same reading as step 1.</li>
+</ol>
+<p>Then the bench self-tests you will use constantly: on continuity, short the two probes tip to tip — it must beep and read near 0 Ω; wiggle each lead at both ends while it beeps — a dropout is a broken lead. Confirm the battery symbol is not showing. If the meter has a fused current jack, check the fuse now rather than discovering it during a measurement.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Live–dead–live done once end to end. Probes shorted → beep, near 0 Ω, no dropout when the leads are wiggled. No low-battery symbol.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><a href="../10-wiring/#step-1017-de-energise-and-set-up">Step 10.17</a> opens Checkpoint #1 by shorting the probes for exactly this reason. That is the short version of this step; this is the long one, and it is the one to use before you conclude anything is dead.</p>
+</div>
+<p class="src">Source: <a href="https://www.70econsultants.com/live-dead-live-test-comprehensive-guide-rozel/">NFPA 70E live–dead–live practice</a> · <a href="../10-wiring/#step-1017-de-energise-and-set-up">Ch 10 Step 10.17</a></p>
+<hr>
+<h3 id="step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach">Step 00a.5 — Put the printer on an RCD/GFCI outlet you can reach<a class="headerlink" href="#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> The wall outlet the printer will live on, and the breaker that feeds it. An <strong><a href="../16-glossary/#g">RCD</a></strong>, a GFCI receptacle or GFCI breaker in a US house, compares the current on live with the current on neutral and cuts the supply when they differ.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong></p>
+<ol>
+<li>Press <strong>TEST</strong>, confirm power cuts, then <strong>RESET</strong>. Repeat monthly.</li>
+<li>Label the breaker that feeds it, so the circuit can be killed from outside the room.</li>
+<li>Do not share the circuit with a space heater or microwave.</li>
+</ol>
+<p>A residual-current device compares live and neutral current and cuts the supply when they differ, which is what happens when current is leaving through a person or through the frame. RepRap's safety page is blunt about it: <em>"If not compulsory in your country, a 20mA resident current device (RCD) shall be installed on your electrical installation."</em> In a US house that is a <strong>GFCI receptacle or a GFCI breaker</strong>, and monthly TEST/RESET is for the life of the printer: a GFCI that does not trip on its own test button is a dead GFCI. The PSU alone draws about <strong>4 A at 115 VAC</strong>, and the AC bed heater is a much larger load again — the Omron SSR that switches it is rated <strong>10 A</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Outlet trips on TEST and resets. Breaker identified and labelled. You can reach that breaker without passing the machine.</p>
+</div>
+<p class="src">Source: <a href="https://reprap.org/wiki/Safety">RepRap — Safety</a> · <a href="https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF">Mean Well LRS-200 spec sheet</a> · <a href="../09-electronics-bay/#step-0917-fit-the-ssr-to-its-metal-din-bracket">Ch 09 Step 09.17</a></p>
+<hr>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~30 min since the last one</p>
+<p>this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</p>
+</div>
+<hr>
+<h2 id="the-earth-chain-the-fuse-and-the-terminals">The earth chain, the fuse and the terminals<a class="headerlink" href="#the-earth-chain-the-fuse-and-the-terminals" title="Permanent link">¶</a></h2>
+<h3 id="step-00a6-learn-the-protective-earth-chain-in-this-build">Step 00a.6 — Learn the protective-earth chain in this build<a class="headerlink" href="#step-00a6-learn-the-protective-earth-chain-in-this-build" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00a-mains-safety/VS9_Final.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D — the finished electronics bay, every earth branch in one frame" src="../assets/remote/00a-mains-safety/VS9_Final.jpg"></a>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/diagrams/05-mains-and-pe-chain.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="Mains path and the protective-earth chain" src="../assets/diagrams/05-mains-and-pe-chain.svg"></a></p>
+<p><strong>What you're looking at:</strong> LDO's photo of the finished bay. Every branch of the <strong><a href="../16-glossary/#p">protective earth</a></strong> chain is in this one frame: the inlet, the yellow/green WAGO block, the PSU's earth screw, the ring terminal on a frame extrusion, and the lead to the build plate.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Learn the five protective-earth branches in the table below, and where each is verified, before you meet them in Ch 09 and Ch 10.</p>
+<p>Protective earth (PE) is the conductor that makes the machine safe to <em>touch</em>: if a live conductor ever reaches the frame, the bed or a motor can, PE gives that current a path with far less resistance than you, and the fault current trips the breaker or the RCD. The diagram lays out the whole mains path end to end alongside all five PE branches, and which pole the fuse and rocker switch each sit in. Voron's electrical page is explicit that this is not optional on an AC-bed machine — <em>"If using an AC powered bed, be sure to ground the bed regardless of if the assembly manual specifies it or not"</em>, and <em>"Grounding the frame is recommended."</em> RepRap adds the constraint people get wrong: <em>"Earth shall be connected to a valid earth, never on plumbing."</em></p>
+<table>
+<thead>
+<tr>
+<th>Branch</th>
+<th>Runs from → to</th>
+<th>Made at</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supply</td>
+<td>wall socket earth → C14 <strong>E</strong> pin, through the C13 cord. Never switched, never fused</td>
+<td><a href="../10-wiring/#step-105-verify-the-pre-wired-inlet-before-you-trust-it">10.5</a></td>
+</tr>
+<tr>
+<td>Bus</td>
+<td>C14 <strong>E</strong> → the yellow <strong>PE</strong> WAGO (one of three 5-way blocks)</td>
+<td><a href="../10-wiring/#step-107-populate-and-label-the-wago-bus">10.7</a>, <a href="../10-wiring/#step-108-inlet-wago-bus">10.8</a></td>
+</tr>
+<tr>
+<td>PSU</td>
+<td>PE WAGO → the Meanwell's <strong>⏚</strong> terminal — the <strong>innermost</strong> of its three AC screws, next to −V. Order from the outer end is <strong>L, N, ⏚</strong> (LRS-200 datasheet: 1 AC/L, 2 AC/N, 3 FG)</td>
+<td><a href="../10-wiring/#step-109-wago-bus-psu">10.9</a></td>
+</tr>
+<tr>
+<td>Frame</td>
+<td>PE WAGO → a frame extrusion, ring terminal sandwiched between two M5 locking washers on <strong>bare</strong> metal</td>
+<td><a href="../10-wiring/#step-1016-frame-pe">10.16</a></td>
+</tr>
+<tr>
+<td>Bed</td>
+<td>build plate → PE WAGO, ring terminal on the plate's own <strong>M4×6 BHCS + serrated washer</strong></td>
+<td><a href="../03-build-plate/#step-036-verify-the-pe-screw-and-identify-the-three-cables">03.6</a>, <a href="../10-wiring/#step-1012-bed-harness-into-the-bed-wago-breakout">10.12</a>, <a href="../10-wiring/#step-1015-bed-neutral-and-bed-pe-the-wago-bus">10.15</a></td>
+</tr>
+</tbody>
+</table>
+<p>A sixth path is not protective earth but shares the same bus at the far end: the <strong>ESD ground</strong> from the extruder motor body to the toolboard, fitted at <a href="../10-wiring/#step-1058-fit-the-esd-grounding-path">10.58</a>. It is why the extruder can appears in the earth-bonding table.</p>
+<p>The whole chain is proved in one sweep at <a href="../10-wiring/#step-1077-protective-earth-bonding">10.77</a>: from the C14 earth pin, the PE WAGO and PSU ⏚ read <strong>&lt; 1 Ω</strong>, and the frame, bare plate aluminium and extruder motor body read <strong>a few Ω or less</strong> — while the bed heater's L and N, and the <strong>+24 V</strong> side of the rail, read <code>OL</code>. The rail's <strong>−V / GND</strong> side reads a few Ω on purpose — that is the ESD bond from <a href="../10-wiring/#step-1058-fit-the-esd-grounding-path">10.58</a>, and <a href="../10-wiring/#step-1074-24-v-rails">10.74</a> and 10.77 both expect it; do not go hunting a reversed ferrule for it.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can draw the five branches from memory and say where each is verified.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Caution</p>
+<p><strong>Rev D+ / LDO:</strong> the bed's PE screw is <strong>already fitted to the plate</strong> and is an <strong>M4×6 BHCS</strong>, not the M3×6 the official manual asks you to supply. Verify it is tight at <a href="../03-build-plate/#step-036-verify-the-pe-screw-and-identify-the-three-cables">Step 03.6</a>; do not remove it and refit it. Its serrated washer is what bites through the surface to make the bond. <a href="https://docs.ldomotors.com/voron/voron2/build-faq">src</a></p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/electrical/">Voron docs — Electrical Wiring</a> · <a href="https://reprap.org/wiki/Safety">RepRap — Safety</a> · <a href="https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF">Mean Well LRS-200 spec sheet — terminal pin assignment</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe">LDO wiring guide § Frame PE</a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg">image: LDO <code>VS9_Final.jpg</code></a> · <a href="../10-wiring/#step-1077-protective-earth-bonding">Ch 10 Step 10.77</a></p>
+<hr>
+<h3 id="step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not">Step 00a.7 — The SSR is marked "earth the mounting rail" and this build does not<a class="headerlink" href="#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00a-mains-safety/SSR_Close_Up.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — the SSR on its bracket; the body reads EARTH THE MOUNTING RAIL (Rev C photo: 20 A G3NB-220B-1, DIN terminal bus)" src="../assets/remote/00a-mains-safety/SSR_Close_Up.jpg"></a></p>
+<p><strong>What you're looking at:</strong> The <strong>solid-state relay</strong> on its bracket, with the wording on its body legible: <em>1 LOAD 2</em>, <em>3 + INPUT 4 −</em>, and <em>EARTH THE MOUNTING RAIL</em>. An <strong><a href="../16-glossary/#s">SSR</a></strong> is a semiconductor switch with no moving contacts; here it switches mains to the bed heater.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Before Ch 09, settle who decides whether the SSR's <em>EARTH THE MOUNTING RAIL</em> marking must be honoured on this build. LDO's build does not run a PE conductor to the DIN rail.</p>
+<p>The photo is from LDO's Rev C guide, so the relay in it is the 20 A G3NB-220B-1 and the bus behind it is DIN terminal blocks; your Rev D kit ships the 10 A G3NB-210B-1 and WAGO 221 blocks, and carries the same marking. <a href="../10-wiring/#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it">10.10</a> records the marking as you read it off the body. Understand the gap before you are standing in front of it:</p>
+<ul>
+<li>The SSR is an <strong>Omron G3NB-210B-1</strong> — 24–220 VAC 10 A on the <strong>1 / 2 LOAD</strong> pair, 5–24 VDC on the <strong>3 + / 4 − INPUT</strong> pair (<a href="../09-electronics-bay/#step-0917-fit-the-ssr-to-its-metal-din-bracket">09.17</a>). It bolts to a stamped metal bracket which clips to a DIN rail, and that rail bolts to a frame extrusion at <a href="../09-electronics-bay/#step-095-fit-the-two-din-rails-running-left-to-right">09.5</a>.</li>
+<li>So the rail <em>is</em> bonded to the frame, and the frame <em>is</em> earthed at <a href="../10-wiring/#step-1016-frame-pe">10.16</a> — but through anodised aluminium and steel screws, incidentally. Ch 10.16 tells you to scrape the anodising under the frame PE washer precisely because anodising is an insulator. An incidental bond through two more anodised interfaces is not the same thing as a PE conductor, and it is not a compliance argument.</li>
+<li>Ch 10 states the consequence plainly: if your local rules require an earthed rail, <strong>that is a mains change</strong> and it belongs to whoever signs off your mains work — not to a decision you make at the bench.</li>
+</ul>
+<p>Two more facts from Omron's own datasheet that change how you handle this part. The standard G3NB <strong>has no terminal cover</strong> — Omron's note is that <em>"If you need a terminal cover, please use the G3NA-240B or similar product"</em> — so four mains-carrying screw terminals sit exposed in your bay until Ch 11 closes it. And the relay's internal snubber leaks: <em>"A leakage current flows through a snubber circuit in the G3NB even when there is no power input. Therefore, always turn OFF the power to the input or load and check that it is safe before replacing or wiring the G3NB."</em></p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can state what the marking asks for, what this build does, and who decides whether that is acceptable where you live.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Omron's caution for this relay</p>
+<p><em>"Be sure to conduct wiring with the power supply turned OFF"</em> and <em>"Do not touch the G3NB's main circuit terminals immediately after the power is turned OFF."</em> Ch 10 already sequences it that way: every mains connection is made with the cord in another room, and <a href="../10-wiring/#step-1073-confirm-dead">10.73</a> measures 0 V for ten seconds first.</p>
+</div>
+<p class="src">Source: <a href="https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf">Omron — Solid State Relays G3NB datasheet (J164-E1)</a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/SSR_Close_Up.jpg">image: LDO <code>SSR_Close_Up.jpg</code></a> · <a href="../10-wiring/#step-1010-read-the-ssr-terminal-numbers-before-you-wire-it">Ch 10 Step 10.10</a> · <a href="../09-electronics-bay/#step-0917-fit-the-ssr-to-its-metal-din-bracket">Ch 09 Step 09.17</a></p>
+<hr>
+<h3 id="step-00a8-ferrules-and-the-no-whisker-rule">Step 00a.8 — Ferrules and the no-whisker rule<a class="headerlink" href="#step-00a8-ferrules-and-the-no-whisker-rule" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00a-mains-safety/S3_wago_PSU.jpg" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO Rev D — ferrules in the PSU's screw terminals, WAGO 221 levers below" src="../assets/remote/00a-mains-safety/S3_wago_PSU.jpg"></a></p>
+<p><strong>What you're looking at:</strong> Two kinds of mains terminal. The PSU's three <strong>screw terminals</strong> each take a stranded core crimped into a red <strong><a href="../16-glossary/#f">ferrule</a></strong>, a sleeve that turns loose strands into one tube the screw can clamp. The orange <strong>WAGO 221</strong> lever blocks need no ferrule.</p>
+<p><strong>Parts:</strong> none — the kit supplies the ferrules.</p>
+<p><strong>Do:</strong> Learn which terminal takes which. Screw terminals get a crimped <strong>VE0508</strong> ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with <strong>no copper visible outside any port</strong>.</p>
+<p>Two kinds of terminal carry mains in this machine and they want opposite things. <strong>Screw terminals</strong> — the Meanwell's L/N/⏚ block, L, N, ⏚ from the outer end, and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. The kit ships <strong>VE0508</strong> ferrules for exactly this, five of them counted in Ch 09's hardware table and used in Ch 10. <strong>WAGO 221 lever terminals</strong> — the three 5-way N / L / PE blocks — clamp the core themselves; the failure there is not splaying but <em>escaping</em>, and <a href="../10-wiring/#step-108-inlet-wago-bus">10.8</a> gives the test: tug each core hard, and confirm <strong>no copper is visible outside any port</strong>. A whisker of exposed strand next to a live terminal is the failure mode.</p>
+<p>On conductor size, Voron's electrical page sets the floor: <em>"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."</em> Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>Ferrules found in the kit before Ch 10 starts, and you know which terminals take one, which take bare core, and the pull-and-look test.</p>
+</div>
+<p class="src">Source: <a href="https://docs.vorondesign.com/build/electrical/">Voron docs — Electrical Wiring</a> · <a href="https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg">image: LDO <code>S3_wago_PSU.jpg</code></a> · <a href="../09-electronics-bay/">Ch 09 — Hardware</a> · <a href="../10-wiring/#step-108-inlet-wago-bus">Ch 10 Step 10.8</a>, <a href="../10-wiring/#step-109-wago-bus-psu">Step 10.9</a></p>
+<hr>
+<h3 id="step-00a9-strain-relief-nothing-may-pull-on-a-terminal">Step 00a.9 — Strain relief: nothing may pull on a terminal<a class="headerlink" href="#step-00a9-strain-relief-nothing-may-pull-on-a-terminal" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: a routing rule. Everything here keeps load off a termination: the wire ducts that carry the mains run below deck, the anchor at the deck opening, and the zip ties at both ends of every drag chain.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Route the mains run <strong>inside a wire duct</strong>, strain-relieve the deck opening, and zip-tie every drag chain at both ends, so the duct or the chain takes the pull, never a terminal.</p>
+<p>A terminal is a connection, not an anchor. RepRap's rule is the one to hold: <em>"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."</em> In this build that means the mains run goes inside a wire duct, not across open deck (<a href="../10-wiring/#step-108-inlet-wago-bus">10.8</a>), the deck opening is strain-relieved (<a href="../10-wiring/#step-1069-strain-relieve-the-deck-opening">10.69</a>), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion (<a href="../10-wiring/#step-1066-zip-tie-both-ends-of-every-chain">10.66</a>). Ch 10's own warning is that cables pulled tight <em>"will survive assembly and fail in three months"</em>.</p>
+<p>The same page sets the end state for the whole electronics bay: <em>"All connections of mains (110/230V) shall be physically protected and you shall not be capable to access them even if you try."</em> That is what the bottom panel and the skirts in <strong>Ch 11 Part A</strong> are for, and the duct covers once Ch 13 has driven every motor, heater and fan (<a href="../10-wiring/#step-1071-leave-the-duct-covers-off">Step 10.71</a>). Closing the machine is a safety step, not a cosmetic one — which is exactly why Ch 11 is not allowed to start until Checkpoint #1 has passed.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can name the three places this manual anchors a cable near its termination, and why Ch 11 makes the mains inaccessible.</p>
+</div>
+<p class="src">Source: <a href="https://reprap.org/wiki/Safety">RepRap — Safety</a> · <a href="../10-wiring/#step-1069-strain-relieve-the-deck-opening">Ch 10 Step 10.69</a> · <a href="../11-skirts-panels-door/">Ch 11 — Read first</a></p>
+<hr>
+<h3 id="step-00a10-the-fuse-in-the-inlet-and-what-it-does-not-protect">Step 00a.10 — The fuse in the inlet, and what it does not protect<a class="headerlink" href="#step-00a10-the-fuse-in-the-inlet-and-what-it-does-not-protect" title="Permanent link">¶</a></h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../assets/remote/00a-mains-safety/inlet_layout.png" data-desc-position="bottom"><img decoding="async" loading="lazy" alt="LDO — combined AC inlet: C14 socket, double-pole rocker, fuse drawer" src="../assets/remote/00a-mains-safety/inlet_layout.png"></a></p>
+<p><strong>What you're looking at:</strong> LDO's diagram of the combined AC inlet: one moulded body carrying the C14 socket where the cord plugs in, the illuminated double-pole rocker switch, and a pull-out fuse drawer. <strong><a href="../16-glossary/#i">C14</a></strong> is the male inlet on the machine, C13 the socket on the cord.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Learn the inlet's three properties, because <a href="../10-wiring/#step-105-verify-the-pre-wired-inlet-before-you-trust-it">10.5</a> asks you to prove all three with the meter. Keep the fuse at the rating supplied and never fit a larger one.</p>
+<p>The kit's AC inlet is a <strong>single module</strong> — C14 socket, illuminated rocker switch and fuse drawer in one body — not the official manual's separate filtered inlet plus rocker (<a href="../09-electronics-bay/#step-0911-fit-the-combined-iec-inlet-module">09.11</a>, <a href="../10-wiring/#step-104-fit-the-ac-inlet-into-the-printed-plug-panel">10.4</a>). The three properties:</p>
+<ul>
+<li><strong>The fuse is in series with Live only.</strong> Pull it and the L path opens even with the rocker on.</li>
+<li><strong>The rocker switches both L and N.</strong> RepRap's requirement — <em>"You always shall be capable to unpower totally the printer, so the printer power switch shall be on the mains"</em> — is met by this module, and only because both poles are switched.</li>
+<li><strong>The Earth spade is neither switched nor fused.</strong> It goes straight through. That is correct and it is what makes PE a protective conductor rather than a circuit.</li>
+</ul>
+<p>What the fuse is for: Omron's datasheet for your SSR says <em>"The G3NB may rupture if a short-circuit is applied to it. To protect against short-circuit accidents, install a protective device, such as a quick-burning fuse, on the power supply line."</em> The inlet fuse is that device. What it is <strong>not</strong> for: it does not protect a person. A fault current small enough to kill will not blow a mains fuse — that is the RCD's job (<a href="#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach">00a.5</a>) and the PE chain's (<a href="#step-00a6-learn-the-protective-earth-chain-in-this-build">00a.6</a>). Never fit a larger fuse to stop nuisance blowing; a fuse that keeps blowing is reporting a fault. LDO does not publish the fitted value, so read it off the drawer.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can find the fuse drawer with the machine upright, and its rating is written in the build log (verify on bench).</p>
+</div>
+<p class="src">Source: <a href="https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf">Omron — G3NB datasheet (J164-E1)</a> · <a href="https://reprap.org/wiki/Safety">RepRap — Safety</a> · <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet">LDO wiring guide § Preparing the inlet</a> · <a href="https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png">image: LDO <code>inlet_layout.png</code></a></p>
+<hr>
+<h2 id="the-two-rituals-and-the-bad-day">The two rituals, and the bad day<a class="headerlink" href="#the-two-rituals-and-the-bad-day" title="Permanent link">¶</a></h2>
+<h3 id="step-00a11-know-the-two-power-on-rituals-before-either-one-arrives">Step 00a.11 — Know the two power-on rituals before either one arrives<a class="headerlink" href="#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: two scripted sequences, read now so neither is improvised. Checkpoint #1 is meter measurements on a completely unplugged machine followed by one deliberate plug-in. The hand-on-the-switch ritual is a ten-second listen with the chamber cleared.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Read both rituals end to end now. Before the bay closes, the machine is energised at exactly two steps, <a href="../10-wiring/#step-1023-first-power-on-then-off-again">10.23</a> and <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">12.11</a>. The third powered moment, <a href="../13-initial-startup/#step-133-power-on-again-hand-on-the-switch">13.3</a>, follows Ch 11 Part A.</p>
+<p><strong>Ritual 1 — Checkpoint #1, <a href="../10-wiring/#step-1017-de-energise-and-set-up">10.17</a>–<a href="../10-wiring/#step-1023-first-power-on-then-off-again">10.23</a>.</strong> Meter first, cord out of the room: colour groups shorted, L / N / PE mutually isolated, the switch actually switching, the SSR open when unpowered, the voltage selector re-read. Only then one deliberate plug-in — rocker off, cord to inlet, then to wall, step back, then rocker on — one hand on the switch, the other behind your back, <strong>no meter</strong>: looking for the rocker to illuminate and the PSU LED to light green, and ten seconds of look, listen and smell. Nothing is measured live — the PSU's +V/−V screws share an uncovered block with live L and N; its 24 V is proved by the boards' LEDs at 12.11, and the only DC-volts readings in the build are the confirm-dead 0 V at 10.24 and 10.73. Then off, unplug, and the cord goes back out of the room. LDO's framing of the whole section: <em>"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."</em></p>
+<p><strong>Ritual 2 — hand on the switch, first at <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">12.11</a>, again at <a href="../13-initial-startup/#step-133-power-on-again-hand-on-the-switch">13.3</a>.</strong> 12.11 is the first time the Leviathan, the Pi and the toolboard are energised — it is the first real power-on, and the ritual belongs there, not only in Ch 13. Clear the chamber and have a fire extinguisher within arm's reach (what <a href="../13-initial-startup/#step-131-clear-the-machine-and-stage-the-bench">Step 13.1</a> formalises). Then: stand to the <strong>side</strong> of the machine, hand on the inlet rocker, switch on, and keep your hand there for a full ten seconds while you listen and smell — PSU LED green, Pi and toolboard LEDs lit, no click-cycling, buzz or smell. Anything wrong — switch off immediately. 13.3 repeats it on the closed machine before the first motion.</p>
+<p>Between Checkpoint #1 and Ch 11 the bay is open <strong>by design</strong> — <a href="../10-wiring/#step-1071-leave-the-duct-covers-off">10.71</a> leaves the duct covers off on purpose. So the rule is: the machine is energised with the bay open <strong>only</strong> at 10.23 and 12.11, and only with hands out of the bay. If you want to look at something, power off, look, power on. Voron's page states the general form: <em>"Never plug or unplug any device while the printer is powered"</em>, and <em>"Always double check to make sure your printer is unplugged and the capacitors in the power supplies have discharged before touching any wire or terminal"</em> — which is what <a href="../10-wiring/#step-1073-confirm-dead">10.73</a> measures, 0 V held for ten seconds.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>You can recite both rituals and name the two steps where this machine may be live with the bay open, 10.23 and 12.11.</p>
+</div>
+<p class="src">Source: <a href="https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1">LDO wiring guide § Checkpoint 1</a> · <a href="https://docs.vorondesign.com/build/electrical/">Voron docs — Electrical Wiring</a> · <a href="../12-software/#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate">Ch 12 Step 12.11</a> · <a href="../13-initial-startup/#step-133-power-on-again-hand-on-the-switch">Ch 13 Step 13.3</a> · <a href="../00-index/">00-index — build order</a></p>
+<hr>
+<h3 id="step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites">Step 00a.12 — Decide now what you do when it smokes, trips or bites<a class="headerlink" href="#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites" title="Permanent link">¶</a></h3>
+<p>(no image — see text)</p>
+<p><strong>What you're looking at:</strong> No parts: five agreed responses. Each row's <em>Do this first</em> removes energy from the machine; the <em>Then</em> column points at the existing step that owns the diagnosis, so nothing here is improvised.</p>
+<p><strong>Parts:</strong> none.</p>
+<p><strong>Do:</strong> Agree these five responses before you need one. Every fix below is the branch an existing step already owns; none of them is improvised here.</p>
+<table>
+<thead>
+<tr>
+<th>What happens</th>
+<th>Do this first</th>
+<th>Then</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Breaker or RCD trips the moment you switch on</td>
+<td>Switch off at the <strong>wall</strong>, unplug, leave it off</td>
+<td>RCD tripping is an L-or-N-to-earth fault; a breaker is L-to-N. Redo <a href="../10-wiring/#step-1018-colour-groups-are-shorted">10.18</a>–<a href="../10-wiring/#step-1019-l-n-and-pe-are-isolated-from-each-other">10.19</a></td>
+</tr>
+<tr>
+<td>Smoke, a hot smell, buzzing or click-cycling</td>
+<td>Switch off at the <strong>wall</strong>, not the rocker, and unplug</td>
+<td>Do not open the bay until <a href="../10-wiring/#step-1073-confirm-dead">10.73</a> reads 0 V held ten seconds. Suspect a strand outside a terminal, or the PSU selector (<a href="../10-wiring/#step-102-set-the-psu-input-voltage-selector">10.2</a>, <a href="../10-wiring/#step-1022-re-check-the-voltage-selector">10.22</a>)</td>
+</tr>
+<tr>
+<td>A temperature climbs with nothing commanded</td>
+<td>Cut power at the switch</td>
+<td>Ch 13's what-if table calls this a heater energised through a wiring fault — back to Ch 10, do not <em>"just watch it"</em></td>
+</tr>
+<tr>
+<td>SSR reads short <strong>LOAD 1 → LOAD 2</strong> unpowered</td>
+<td>Do not energise the machine</td>
+<td>A solid-state relay that reads short is dead and the bed would be permanently live. Replace it (<a href="../10-wiring/#step-1021-the-ssr-is-open-when-unpowered">10.21</a>, <a href="../10-wiring/#step-1078-ssr-polarity-and-isolation-one-last-time">10.78</a>)</td>
+</tr>
+<tr>
+<td>Someone is shocked or stuck to the machine</td>
+<td><strong>Do not touch them.</strong> Kill the circuit at the breaker you labelled in <a href="#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach">00a.5</a></td>
+<td>Then emergency services. Any shock, however small, ends the session — the machine stays unplugged until the PE sweep at <a href="../10-wiring/#step-1077-protective-earth-bonding">10.77</a> has been redone</td>
+</tr>
+</tbody>
+</table>
+<p>Two standing rules on top of the table. <strong>Never re-energise a circuit that tripped without finding out why</strong> — a second trip is not new information and it is not a test. And keep the extinguisher from <a href="../13-initial-startup/#step-131-clear-the-machine-and-stage-the-bench">Step 13.1</a> permanently by the machine, not just on startup day: RepRap's position on unattended printing is that <em>"No printer shall remain unattended"</em>, and this one runs multi-hour ASA prints in a hot chamber. No Voron or LDO source specifies an extinguisher class — buy one rated for electrical fires and read its label once <strong>(verify on bench)</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Check</p>
+<p>All five responses agreed out loud, the breaker labelled, and the extinguisher in reach of the machine rather than in a cupboard.</p>
+</div>
+<p class="src">Source: <a href="https://reprap.org/wiki/Safety">RepRap — Safety</a> · <a href="../13-initial-startup/#what-if-first-start-failures-and-what-they-actually-mean">Ch 13 — What if</a> · <a href="../10-wiring/#step-1019-l-n-and-pe-are-isolated-from-each-other">Ch 10 Steps 10.19</a>, <a href="../10-wiring/#step-1021-the-ssr-is-open-when-unpowered">10.21</a>, <a href="../10-wiring/#step-1073-confirm-dead">10.73</a></p>
+<hr>
+<div class="admonition info">
+<p class="admonition-title">Good stopping point · ~25 min since the last one</p>
+<p>the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</p>
+</div>
+<hr>
+<h2 id="checkpoint-00a">Checkpoint 00a<a class="headerlink" href="#checkpoint-00a" title="Permanent link">¶</a></h2>
+<p>Do not open Ch 09 until every line is ticked.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 and Ch 13 Step 13.3; she reads the meter only on the unplugged sweeps 10.74–10.78.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> Both power-on rituals read end to end; the two steps where the machine may be live with the bay open (10.23, 12.11) are known, and the hand-on-the-switch ritual is understood to apply at 12.11 as well as 13.3.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox"><span class="task-list-indicator"></span></label> The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.</li>
+</ul>
+<h2 id="common-mistakes">Common mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Reading this chapter after Ch 09.</strong> By then the inlet, PSU and SSR are already mounted and the only decisions left are the ones you should have made first. Ch 09 is where the mains parts enter the machine; Ch 10 is only where they get connected.</li>
+<li><strong>Buying a meter on price and range instead of on category.</strong> Display range tells you what it can show; the CAT rating tells you what it can survive. An unrated meter on a receptacle circuit is the wrong tool, not a cheap one.</li>
+<li><strong>Trusting a "no voltage" reading from a meter you have not just proved.</strong> A flat battery, a broken lead or a blown internal fuse all read as <em>dead</em>. Live–dead–live costs fifteen seconds.</li>
+<li><strong>Treating the frame PE bond as automatic.</strong> Anodising is an insulator. Ch 10 Step 10.16 says to scrape it under the washer for a reason, and the same logic is why the DIN rail's incidental bond is not a substitute for an earthed rail.</li>
+<li><strong>Enlarging the inlet fuse because it blew.</strong> The fuse is reporting a short. Fitting a bigger one removes the report and leaves the short.</li>
+<li><strong>Letting the "who is in the room" rule become implicit.</strong> An unwritten rule gets bent at 22:00 by whoever is holding the probes. Write it, post it, say it once.</li>
+</ul>
+<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">¶</a></h2>
+<p><a href="../09-electronics-bay/"><strong>Ch 09 — Electronics bay</strong></a>: mount the DIN rails, ducts, PSU, SSR, Leviathan, Pi and mains inlet — everything placed, nothing wired. Then <a href="../10-wiring/">Ch 10</a>, where the decisions above get spent.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

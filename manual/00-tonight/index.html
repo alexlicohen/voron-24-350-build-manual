@@ -1,0 +1,2957 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/00-tonight/">
+      
+      
+        <link rel="prev" href="../00-index/">
+      
+      
+        <link rel="next" href="../../voron-print-plan/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Tonight - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tonight" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tonight
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (orange), "the orange day"
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#tonights-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tonight's planner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kit-not-here-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kit not here yet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#by-timeline-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By timeline row
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="By timeline row">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-print-b00-calibration-jigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 · Print — B00 — Calibration &amp; jigs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-print-b02-accent-parts-the-orange-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 · Print — B02 — Accent parts, the orange day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build-ch-00a-mains-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 · Build — Ch 00a — Mains safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-print-b07-electronics-bay-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 · Print — B07 — Electronics bay + lighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-both-gen-2-belt-upgrade-pause-on-the-core-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 · Both — Gen 2 belt-upgrade pause on the Core One+
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-print-b08-skirts-and-front-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 · Print — B08 — Skirts and front modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-print-b09-panels-filtration-spool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 · Print — B09 — Panels, filtration, spool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-print-b10-clicky-clack-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 · Print — B10 — Clicky-Clack door
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-build-ch-00-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 · Build — Ch 00 — Before you start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-print-b01-z-drive-assemblies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Print — B01 — Z drive assemblies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-build-ch-12-part-1-image-the-pi-install-klippermoonrakermainsail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-build-ch-01-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12 · Build — Ch 01 — Frame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-print-b03-ab-drive-units-front-idlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13 · Print — B03 — A/B drive units + front idlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-build-ch-02-z-drives-z-idlers-z-rails-deck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14 · Build — Ch 02 — Z drives, Z idlers, Z rails, deck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-print-b04-xy-joints-x-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15 · Print — B04 — XY joints + X carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-build-ch-03-build-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16 · Build — Ch 03 — Build plate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-print-b05-z-joints-z-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17 · Print — B05 — Z joints + Z chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-build-ch-04-ab-drives-and-front-idlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18 · Build — Ch 04 — A/B drives and front idlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-print-b06-toolhead-sb-cw2-klicky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19 · Print — B06 — Toolhead: SB, CW2, Klicky
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-build-ch-05-gantry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20 · Build — Ch 05 — Gantry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-build-ch-06-part-a-z-axis-hang-the-gantry-z-belts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21 · Build — Ch 06 Part A — Z axis: hang the gantry, Z belts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-build-ch-07-ab-belts-provisional-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22 · Build — Ch 07 — A/B belts, provisional tension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-build-ch-08-toolhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23 · Build — Ch 08 — Toolhead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-build-ch-09-electronics-bay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24 · Build — Ch 09 — Electronics bay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-build-ch-10-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25 · Build — Ch 10 — Wiring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-build-ch-12-part-2-flash-both-mcus-printercfg-for-a-350-rev-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26 · Build — Ch 12 Part 2 — flash both MCUs, printer.cfg for a 350 Rev D+
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-build-ch-11-part-a-skirts-bay-fans-bottom-panel-z-belt-covers-nevermore-spool-door-hinges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27 · Build — Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-build-ch-13-initial-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28 · Build — Ch 13 — Initial startup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-build-ch-06b-gantry-squaring-cold-and-provisional-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29 · Build — Ch 06b — Gantry squaring, cold, and provisional tension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-build-ch-11-part-b-back-side-and-top-panels-clicky-clack-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 · Build — Ch 11 Part B — back, side and top panels, Clicky-Clack door
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-build-ch-14-calibration-and-tuning-hot-soak-final-tension-re-check-then-tune" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31 · Build — Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#tonights-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tonight's planner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kit-not-here-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kit not here yet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#by-timeline-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        By timeline row
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="By timeline row">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-print-b00-calibration-jigs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 · Print — B00 — Calibration &amp; jigs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-print-b02-accent-parts-the-orange-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 · Print — B02 — Accent parts, the orange day
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build-ch-00a-mains-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 · Build — Ch 00a — Mains safety
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-print-b07-electronics-bay-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 · Print — B07 — Electronics bay + lighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-both-gen-2-belt-upgrade-pause-on-the-core-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 · Both — Gen 2 belt-upgrade pause on the Core One+
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-print-b08-skirts-and-front-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 · Print — B08 — Skirts and front modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-print-b09-panels-filtration-spool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 · Print — B09 — Panels, filtration, spool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-print-b10-clicky-clack-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 · Print — B10 — Clicky-Clack door
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-build-ch-00-before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 · Build — Ch 00 — Before you start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-print-b01-z-drive-assemblies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Print — B01 — Z drive assemblies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-build-ch-12-part-1-image-the-pi-install-klippermoonrakermainsail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-build-ch-01-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12 · Build — Ch 01 — Frame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-print-b03-ab-drive-units-front-idlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13 · Print — B03 — A/B drive units + front idlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-build-ch-02-z-drives-z-idlers-z-rails-deck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14 · Build — Ch 02 — Z drives, Z idlers, Z rails, deck
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-print-b04-xy-joints-x-carriage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15 · Print — B04 — XY joints + X carriage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-build-ch-03-build-plate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16 · Build — Ch 03 — Build plate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-print-b05-z-joints-z-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17 · Print — B05 — Z joints + Z chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-build-ch-04-ab-drives-and-front-idlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18 · Build — Ch 04 — A/B drives and front idlers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-print-b06-toolhead-sb-cw2-klicky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19 · Print — B06 — Toolhead: SB, CW2, Klicky
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-build-ch-05-gantry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20 · Build — Ch 05 — Gantry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-build-ch-06-part-a-z-axis-hang-the-gantry-z-belts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21 · Build — Ch 06 Part A — Z axis: hang the gantry, Z belts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-build-ch-07-ab-belts-provisional-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22 · Build — Ch 07 — A/B belts, provisional tension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-build-ch-08-toolhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23 · Build — Ch 08 — Toolhead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-build-ch-09-electronics-bay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        24 · Build — Ch 09 — Electronics bay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-build-ch-10-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        25 · Build — Ch 10 — Wiring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-build-ch-12-part-2-flash-both-mcus-printercfg-for-a-350-rev-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        26 · Build — Ch 12 Part 2 — flash both MCUs, printer.cfg for a 350 Rev D+
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-build-ch-11-part-a-skirts-bay-fans-bottom-panel-z-belt-covers-nevermore-spool-door-hinges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        27 · Build — Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-build-ch-13-initial-startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        28 · Build — Ch 13 — Initial startup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-build-ch-06b-gantry-squaring-cold-and-provisional-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        29 · Build — Ch 06b — Gantry squaring, cold, and provisional tension
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30-build-ch-11-part-b-back-side-and-top-panels-clicky-clack-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30 · Build — Ch 11 Part B — back, side and top panels, Clicky-Clack door
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#31-build-ch-14-calibration-and-tuning-hot-soak-final-tension-re-check-then-tune" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        31 · Build — Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tonight">Tonight<a class="headerlink" href="#tonight" title="Permanent link">¶</a></h1>
+<p><em>Generated by <code>scripts/build_tonight.py</code> on every build — do not hand-edit. Order is the index timeline; checked-off state is overlaid client-side from your browser's saved progress.</em></p>
+<p><strong>Total remaining (estimate):</strong> ~59.4 h hands-on across 16 build chapters; 157.1 h of printing across 22 plates (~5 min hands-on per plate start, the rest unattended).</p>
+<h2 id="tonights-planner">Tonight's planner<a class="headerlink" href="#tonights-planner" title="Permanent link">¶</a></h2>
+<p>Timeline order. One plate start per plan (one printer): a plate start is ~5 min hands-on — open the project, confirm the estimate, start it, watch the first layer — and then the printer runs unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.</p>
+<p><strong>If you have 30 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+  <small>~20 min hands-on planned</small></p>
+<p><strong>If you have 60 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.1" href="../steps/00a-mains-safety/00a-1/">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</a>
+  <small>~50 min hands-on planned</small></p>
+<p><strong>If you have 90 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.1" href="../steps/00a-mains-safety/00a-1/">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.6" href="../steps/00a-mains-safety/00a-6/">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</a>
+- Ch 10 — Wiring — <a class="tonight-seg" data-first-step="10.1" href="../steps/10-wiring/10-1/">Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. <strong>No mains wiring started.</strong> Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated.</a>
+  <small>~90 min hands-on planned</small></p>
+<h2 id="kit-not-here-yet">Kit not here yet<a class="headerlink" href="#kit-not-here-yet" title="Permanent link">¶</a></h2>
+<p>The same planner over the timeline rows without the <strong>KIT</strong> marker, plus the individual <code>(pre-kit)</code> stopping points inside rows that do need the kit — the Core One+ batches and every piece of bench work that needs no Voron part.</p>
+<p><strong>If you have 30 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+  <small>~20 min hands-on planned</small></p>
+<p><strong>If you have 60 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.1" href="../steps/00a-mains-safety/00a-1/">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</a>
+  <small>~50 min hands-on planned</small></p>
+<p><strong>If you have 90 min:</strong>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a>
+- B00 — Calibration &amp; jigs — <a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.1" href="../steps/00a-mains-safety/00a-1/">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</a>
+- Ch 00a — Mains safety — <a class="tonight-seg" data-first-step="00a.6" href="../steps/00a-mains-safety/00a-6/">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</a>
+  <small>~75 min hands-on planned</small></p>
+<hr>
+<h2 id="by-timeline-row">By timeline row<a class="headerlink" href="#by-timeline-row" title="Permanent link">¶</a></h2>
+<h3 id="1-print-b00-calibration-jigs">1 · Print — B00 — Calibration &amp; jigs<a class="headerlink" href="#1-print-b00-calibration-jigs" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B00.0" href="../steps/b00-calibration-and-jigs/b00-0/">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</a></li>
+<li><a class="tonight-seg" data-first-step="B00.2" href="../steps/b00-calibration-and-jigs/b00-2/">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B00.5" href="../steps/b00-calibration-and-jigs/b00-5/">Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (<code>Heatset_Practice</code>, one <code>MGN12_rail_guide</code>, <code>z_drive_retainer_a</code>) are not tested yet — do not bin them with the jigs.</a></li>
+<li><a class="tonight-seg" data-first-step="B00.6" href="../steps/b00-calibration-and-jigs/b00-6/">Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 waits for the kit, so this is the end of B00 until kit day.</a></li>
+<li><a class="tonight-seg" data-first-step="B00.7" href="../steps/b00-calibration-and-jigs/b00-7/">Step B00.7 · ~15 min · leave-state: Gate B is measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and the rail guide back in 00-jigs before the inventory starts.</a></li>
+</ul>
+<h3 id="2-print-b02-accent-parts-the-orange-day">2 · Print — B02 — Accent parts, the orange day<a class="headerlink" href="#2-print-b02-accent-parts-the-orange-day" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B02.2" href="../steps/b02-accent-parts-orange/b02-2/">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.0 h unattended · leave-state: plate B02-P1 running, 7.0 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B02.4" href="../steps/b02-accent-parts-orange/b02-4/">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B02.6" href="../steps/b02-accent-parts-orange/b02-6/">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B02.8" href="../steps/b02-accent-parts-orange/b02-8/">Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the orange spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.</a></li>
+</ul>
+<h3 id="3-build-ch-00a-mains-safety">3 · Build — Ch 00a — Mains safety<a class="headerlink" href="#3-build-ch-00a-mains-safety" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="00a.1" href="../steps/00a-mains-safety/00a-1/">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</a></li>
+<li><a class="tonight-seg" data-first-step="00a.6" href="../steps/00a-mains-safety/00a-6/">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</a></li>
+</ul>
+<h3 id="4-print-b07-electronics-bay-lighting">4 · Print — B07 — Electronics bay + lighting<a class="headerlink" href="#4-print-b07-electronics-bay-lighting" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B07.2" href="../steps/b07-electronics-bay-and-lighting/b07-2/">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.9 h unattended · leave-state: plate B07-P1 running, 7.9 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B07.4" href="../steps/b07-electronics-bay-and-lighting/b07-4/">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B07.6" href="../steps/b07-electronics-bay-and-lighting/b07-6/">Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled.</a></li>
+</ul>
+<h3 id="5-both-gen-2-belt-upgrade-pause-on-the-core-one">5 · Both — Gen 2 belt-upgrade pause on the Core One+<a class="headerlink" href="#5-both-gen-2-belt-upgrade-pause-on-the-core-one" title="Permanent link">¶</a></h3>
+<ul>
+<li>wall-clock pause — see the timeline row for its gate</li>
+</ul>
+<h3 id="6-print-b08-skirts-and-front-modules">6 · Print — B08 — Skirts and front modules<a class="headerlink" href="#6-print-b08-skirts-and-front-modules" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B08.2" href="../steps/b08-skirts-and-front-modules/b08-2/">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B08.4" href="../steps/b08-skirts-and-front-modules/b08-4/">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 8.4 h unattended · leave-state: plate B08-P2 running, 8.4 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B08.6" href="../steps/b08-skirts-and-front-modules/b08-6/">Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 9.5 h unattended · leave-state: plate B08-P3 running, 9.5 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B08.8" href="../steps/b08-skirts-and-front-modules/b08-8/">Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 5.0 h unattended · leave-state: plate B08-P4 running, 5.0 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B08.10" href="../steps/b08-skirts-and-front-modules/b08-10/">Step B08.10 · ~20 min · leave-state: every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted.</a></li>
+</ul>
+<h3 id="7-print-b09-panels-filtration-spool">7 · Print — B09 — Panels, filtration, spool<a class="headerlink" href="#7-print-b09-panels-filtration-spool" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B09.2" href="../steps/b09-panels-filtration-spool/b09-2/">Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B09-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B09.4" href="../steps/b09-panels-filtration-spool/b09-4/">Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 4.9 h unattended · leave-state: plate B09-P2 running, 4.9 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B09.6" href="../steps/b09-panels-filtration-spool/b09-6/">Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P3 running, 3.9 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B09.8" href="../steps/b09-panels-filtration-spool/b09-8/">Start plate B09-P4 (Step B09.8) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B09-P4 running, 4.2 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B09.10" href="../steps/b09-panels-filtration-spool/b09-10/">Start plate B09-P5 (Step B09.10) · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B09-P5 running, 4.3 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B09.12" href="../steps/b09-panels-filtration-spool/b09-12/">Step B09.12 · ~10 min · leave-state: Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.</a></li>
+</ul>
+<h3 id="8-print-b10-clicky-clack-door">8 · Print — B10 — Clicky-Clack door<a class="headerlink" href="#8-print-b10-clicky-clack-door" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B10.2" href="../steps/b10-clicky-clack-door/b10-2/">Start plate B10-P1 (Step B10.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B10.5" href="../steps/b10-clicky-clack-door/b10-5/">Step B10.5 · ~10 min · leave-state: brims off, parts bagged; the bushing and pin tests wait for the kit.</a></li>
+</ul>
+<h3 id="9-build-ch-00-before-you-start">9 · Build — Ch 00 — Before you start<a class="headerlink" href="#9-build-ch-00-before-you-start" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="00.1" href="../steps/00-before-you-start/00-1/">Step 00.1 → Step 00.6 · ~40 min · leave-state: both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench.</a></li>
+<li><a class="tonight-seg" data-first-step="00.7" href="../steps/00-before-you-start/00-7/">Step 00.7 → Step 00.12 · ~30 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Leave the fastener bags closed; do not decant anything into a tray yet.</a></li>
+<li><a class="tonight-seg" data-first-step="00.13" href="../steps/00-before-you-start/00-13/">Step 00.13 → Step 00.16 · ~30 min · leave-state: the iron is set up with the brass tip, the working temperature is written on tape, and the seven practice inserts (one per coupon pocket) are done. Unplug the iron and let it cool before you walk away; leave the remaining 146 inserts bagged.</a></li>
+<li><a class="tonight-seg" data-first-step="00.17" href="../steps/00-before-you-start/00-17/">Step 00.17 → Step 00.18 · ~30 min · leave-state: all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.</a></li>
+<li><a class="tonight-seg" data-first-step="00.19" href="../steps/00-before-you-start/00-19/">Step 00.19 → Step 00.22 · ~40 min · leave-state: all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.</a></li>
+<li><a class="tonight-seg" data-first-step="00.23" href="../steps/00-before-you-start/00-23/">Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</a></li>
+<li><a class="tonight-seg" data-first-step="00.30" href="../steps/00-before-you-start/00-30/">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.</a></li>
+</ul>
+<h3 id="10-print-b01-z-drive-assemblies">10 · Print — B01 — Z drive assemblies<a class="headerlink" href="#10-print-b01-z-drive-assemblies" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B01.2" href="../steps/b01-z-drive-assemblies/b01-2/">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 15.2 h unattended · leave-state: plate B01-P1 running, 15.2 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B01.5" href="../steps/b01-z-drive-assemblies/b01-5/">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B01.7" href="../steps/b01-z-drive-assemblies/b01-7/">Step B01.7 · ~15 min · leave-state: every bearing seat tested and the bearings pulled back out; nothing pressed for keeps yet. Do not seat inserts — Ch 02 Step 02.04 does that with the parts sorted.</a></li>
+<li><a class="tonight-seg" data-first-step="B01.8" href="../steps/b01-z-drive-assemblies/b01-8/">Step B01.8 · ~10 min · leave-state: both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.</a></li>
+</ul>
+<h3 id="11-build-ch-12-part-1-image-the-pi-install-klippermoonrakermainsail">11 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail<a class="headerlink" href="#11-build-ch-12-part-1-image-the-pi-install-klippermoonrakermainsail" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="12.1" href="../steps/12-software/12-1/">Step 12.1 → Step 12.6 · ~25 min · leave-state: MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on <code>voron.local</code>, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.</a></li>
+<li><a class="tonight-seg" data-first-step="12.7" href="../steps/12-software/12-7/">Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.</a></li>
+</ul>
+<h3 id="12-build-ch-01-frame">12 · Build — Ch 01 — Frame<a class="headerlink" href="#12-build-ch-01-frame" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="01.1" href="../steps/01-frame/01-1/">Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.</a></li>
+<li><a class="tonight-seg" data-first-step="01.6" href="../steps/01-frame/01-6/">Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.</a></li>
+<li><a class="tonight-seg" data-first-step="01.16" href="../steps/01-frame/01-16/">Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline and their four M5×10 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.</a></li>
+<li><a class="tonight-seg" data-first-step="01.20" href="../steps/01-frame/01-20/">Step 01.20 → Step 01.22 · ~25 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.</a></li>
+</ul>
+<h3 id="13-print-b03-ab-drive-units-front-idlers">13 · Print — B03 — A/B drive units + front idlers<a class="headerlink" href="#13-print-b03-ab-drive-units-front-idlers" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B03.2" href="../steps/b03-ab-drive-units-and-front-idlers/b03-2/">Start plate B03-P1 (Step B03.2) · ~5 min hands-on, then 8.5 h unattended · leave-state: plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B03.4" href="../steps/b03-ab-drive-units-and-front-idlers/b03-4/">Step B03.4 · ~10 min · leave-state: bearing seats tested and the bearings pulled back out, halves dry-fitted and separated again. Nothing pressed for keeps.</a></li>
+</ul>
+<h3 id="14-build-ch-02-z-drives-z-idlers-z-rails-deck">14 · Build — Ch 02 — Z drives, Z idlers, Z rails, deck<a class="headerlink" href="#14-build-ch-02-z-drives-z-idlers-z-rails-deck" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="02.01" href="../steps/02-z-drives/02-01/">Step 02.01 → Step 02.04 · ~40 min · leave-state: printed parts sorted into <code>a</code> and <code>b</code> piles and inspected, the iron temperature confirmed on the coupon, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.</a></li>
+<li><a class="tonight-seg" data-first-step="02.05" href="../steps/02-z-drives/02-05/">Step 02.05 → Step 02.08 · ~25 min · leave-state: the first Z rail is centred, tightened centre-outward, verified smooth over full travel, and its carriage is taped. A rail is a self-contained unit; stop only with one finished, never with half its screws started.</a></li>
+<li><a class="tonight-seg" data-first-step="02.09" href="../steps/02-z-drives/02-09/">Step 02.09 → Step 02.10 · ~35 min · leave-state: all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.</a></li>
+<li><a class="tonight-seg" data-first-step="02.11" href="../steps/02-z-drives/02-11/">Step 02.11 → Step 02.16 · ~30 min · leave-state: the printer is inverted and stable, the deck panel is in with its notch to the back and captured by eight support clips of the measured thickness, the four M5 T-nuts sit under the deck holes, and the FRONT tape is on. Leave the deck unbolted: those four bolts belong to Ch 09 Step 09.5.</a></li>
+<li><a class="tonight-seg" data-first-step="02.17" href="../steps/02-z-drives/02-17/">Step 02.17 → Step 02.21 · ~35 min · leave-state: four complete shaft assemblies: 20T pulleys at 33 mm, bearing and precision-spacer stacks built, 80T pulleys threadlocked, and the 188 mm belt loops hung on. The bearings are only slid onto the shaft here, so nothing is mid-assembly. Do not start Step 02.22 until you can close a drive in one sitting.</a></li>
+<li><a class="tonight-seg" data-first-step="02.22" href="../steps/02-z-drives/02-22/">Step 02.22 → Step 02.26 · ~35 min · leave-state: all four drives closed: shafts seated, retainers down on six M3×40 each, orange baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed.</a></li>
+<li><a class="tonight-seg" data-first-step="02.27" href="../steps/02-z-drives/02-27/">Step 02.27 → Step 02.28 · ~25 min · leave-state: four Z motors carry their 16T pulleys at 10.7 mm and are bolted to their <code>a</code>/<code>b</code> mounts with the cable exits matched. Get every remaining 16T pulley off the bench before you walk away, and leave the motor cables labelled.</a></li>
+<li><a class="tonight-seg" data-first-step="02.29" href="../steps/02-z-drives/02-29/">Step 02.29 → Step 02.37 · ~30 min · leave-state: the Z0 corner is complete: drive body on its two M5×40, motor slid in, cam closed, both M5×10 tight, rubber foot on, and the p.46 section check passed. One corner is a self-contained unit and this is the natural stop.</a></li>
+<li><a class="tonight-seg" data-first-step="02.38" href="../steps/02-z-drives/02-38/">Step 02.38 → Step 02.40 · ~20 min · leave-state: four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet.</a></li>
+<li><a class="tonight-seg" data-first-step="02.41" href="../steps/02-z-drives/02-41/">Step 02.41 → Step 02.44 · ~25 min · leave-state: all four Z idlers mounted, each aligned with the drive below it, all eight M5×30 tight, printer back upright on its feet. Work through Checkpoint 02 before the gantry starts hiding this.</a></li>
+</ul>
+<h3 id="15-print-b04-xy-joints-x-carriage">15 · Print — B04 — XY joints + X carriage<a class="headerlink" href="#15-print-b04-xy-joints-x-carriage" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B04.2" href="../steps/b04-xy-joints-and-x-carriage/b04-2/">Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.6 h unattended · leave-state: plate B04-P1 running, 8.6 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B04.5" href="../steps/b04-xy-joints-and-x-carriage/b04-5/">Step B04.5 · ~10 min · leave-state: carriage pattern and shaft bores dry-fitted and taken apart again; no inserts set (Ch 05 does that).</a></li>
+</ul>
+<h3 id="16-build-ch-03-build-plate">16 · Build — Ch 03 — Build plate<a class="headerlink" href="#16-build-ch-03-build-plate" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="03.1" href="../steps/03-build-plate/03-1/">Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination.</a></li>
+<li><a class="tonight-seg" data-first-step="03.7" href="../steps/03-build-plate/03-7/">Step 03.7 → Step 03.10 · ~30 min · leave-state: the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it.</a></li>
+<li><a class="tonight-seg" data-first-step="03.11" href="../steps/03-build-plate/03-11/">Step 03.11 → Step 03.17 · ~35 min · leave-state: the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables fed through the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.</a></li>
+<li><a class="tonight-seg" data-first-step="03.18" href="../steps/03-build-plate/03-18/">Step 03.18 → Step 03.20 · ~20 min · leave-state: the four-corner gap check is done, the bed harness is dressed loose below deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.</a></li>
+</ul>
+<h3 id="17-print-b05-z-joints-z-chain">17 · Print — B05 — Z joints + Z chain<a class="headerlink" href="#17-print-b05-z-joints-z-chain" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B05.2" href="../steps/b05-z-joints-and-z-chain/b05-2/">Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.4 h unattended · leave-state: plate B05-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B05.4" href="../steps/b05-z-joints-and-z-chain/b05-4/">Step B05.4 · ~10 min · leave-state: shafts and joints dry-fitted and apart again; nothing pressed.</a></li>
+</ul>
+<h3 id="18-build-ch-04-ab-drives-and-front-idlers">18 · Build — Ch 04 — A/B drives and front idlers<a class="headerlink" href="#18-build-ch-04-ab-drives-and-front-idlers" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="04.1" href="../steps/04-ab-drives/04-1/">Step 04.1 → Step 04.5 · ~30 min · leave-state: the bench is split into four labelled kits, every part carries its destination in marker, the two inserts are in <code>a_drive_frame_upper</code>, one is in each tension arm and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet.</a></li>
+<li><a class="tonight-seg" data-first-step="04.6" href="../steps/04-ab-drives/04-6/">Step 04.6 → Step 04.12 · ~40 min · leave-state: the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported.</a></li>
+<li><a class="tonight-seg" data-first-step="04.13" href="../steps/04-ab-drives/04-13/">Step 04.13 → Step 04.19 · ~35 min · leave-state: the B (front left) idler is complete and checked against p.72, and the two idlers sit side by side with visibly different bearing heights. Both are in their trays. Nothing is open.</a></li>
+<li><a class="tonight-seg" data-first-step="04.20" href="../steps/04-ab-drives/04-20/">Step 04.20 → Step 04.28 · ~50 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled <strong>A — REAR RIGHT</strong>. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.</a></li>
+<li><a class="tonight-seg" data-first-step="04.29" href="../steps/04-ab-drives/04-29/">Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled <strong>B — REAR LEFT</strong>, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.</a></li>
+<li><a class="tonight-seg" data-first-step="04.38" href="../steps/04-ab-drives/04-38/">Step 04.38 · ~15 min · leave-state: all four assemblies bagged and labelled with their destinations, and nothing left over on the bench. Work through Checkpoint 04 before Ch 05.</a></li>
+</ul>
+<h3 id="19-print-b06-toolhead-sb-cw2-klicky">19 · Print — B06 — Toolhead: SB, CW2, Klicky<a class="headerlink" href="#19-print-b06-toolhead-sb-cw2-klicky" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="B06.2" href="../steps/b06-toolhead-sb-cw2-klicky/b06-2/">Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 12.2 h unattended · leave-state: plate B06-P1 running, 12.2 h unattended — door shut; come back for the next step when it ends</a></li>
+<li><a class="tonight-seg" data-first-step="B06.4" href="../steps/b06-toolhead-sb-cw2-klicky/b06-4/">Step B06.4 · ~10 min · leave-state: hotend dry-fitted and removed, Klicky bag closed. Nothing pressed, no magnets.</a></li>
+</ul>
+<h3 id="20-build-ch-05-gantry">20 · Build — Ch 05 — Gantry<a class="headerlink" href="#20-build-ch-05-gantry" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="05.1" href="../steps/05-gantry/05-1/">Step 05.1 → Step 05.4 · ~25 min · leave-state: bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off.</a></li>
+<li><a class="tonight-seg" data-first-step="05.5" href="../steps/05-gantry/05-5/">Step 05.5 → Step 05.9 · ~30 min · leave-state: XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.</a></li>
+<li><a class="tonight-seg" data-first-step="05.10" href="../steps/05-gantry/05-10/">Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away.</a></li>
+<li><a class="tonight-seg" data-first-step="05.13" href="../steps/05-gantry/05-13/">Step 05.13 → Step 05.15 · ~30 min · leave-state: both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.</a></li>
+<li><a class="tonight-seg" data-first-step="05.16" href="../steps/05-gantry/05-16/">Step 05.16 → Step 05.18 · ~35 min · leave-state: both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop.</a></li>
+<li><a class="tonight-seg" data-first-step="05.19" href="../steps/05-gantry/05-19/">Step 05.19 → Step 05.24 · ~40 min · leave-state: front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go).</a></li>
+<li><a class="tonight-seg" data-first-step="05.25" href="../steps/05-gantry/05-25/">Step 05.25 → Step 05.29 · ~25 min · leave-state: right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it.</a></li>
+<li><a class="tonight-seg" data-first-step="05.30" href="../steps/05-gantry/05-30/">Step 05.30 → Step 05.31 · ~20 min · leave-state: both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet.</a></li>
+<li><a class="tonight-seg" data-first-step="05.32" href="../steps/05-gantry/05-32/">Step 05.32 → Step 05.35 · ~35 min · leave-state: MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.</a></li>
+<li><a class="tonight-seg" data-first-step="05.36" href="../steps/05-gantry/05-36/">Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone.</a></li>
+<li><a class="tonight-seg" data-first-step="05.41" href="../steps/05-gantry/05-41/">Step 05.41 → Step 05.44 · ~30 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.</a></li>
+<li><a class="tonight-seg" data-first-step="05.45" href="../steps/05-gantry/05-45/">Step 05.45 → Step 05.48 · ~25 min · leave-state: gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.</a></li>
+</ul>
+<h3 id="21-build-ch-06-part-a-z-axis-hang-the-gantry-z-belts">21 · Build — Ch 06 Part A — Z axis: hang the gantry, Z belts<a class="headerlink" href="#21-build-ch-06-part-a-z-axis-hang-the-gantry-z-belts" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="06.1" href="../steps/06-z-axis-and-gantry-squaring/06-1/">Step 06.1 → Step 06.4 · ~30 min · leave-state: M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job.</a></li>
+<li><a class="tonight-seg" data-first-step="06.5" href="../steps/06-z-axis-and-gantry-squaring/06-5/">Step 06.5 → Step 06.8 · ~40 min · leave-state: all four belt ends clipped into their XY joints with the Z bearing blocks and top clips on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on.</a></li>
+<li><a class="tonight-seg" data-first-step="06.9" href="../steps/06-z-axis-and-gantry-squaring/06-9/">Step 06.9 → Step 06.10 · ~25 min · leave-state: four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move.</a></li>
+<li><a class="tonight-seg" data-first-step="06.11" href="../steps/06-z-axis-and-gantry-squaring/06-11/">Step 06.11 → Step 06.15 · ~45 min · leave-state: gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone.</a></li>
+<li><a class="tonight-seg" data-first-step="06.16" href="../steps/06-z-axis-and-gantry-squaring/06-16/">Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers extended, top clamps loosened, and the <strong>first</strong> Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.</a></li>
+<li><a class="tonight-seg" data-first-step="06.22" href="../steps/06-z-axis-and-gantry-squaring/06-22/">Step 06.22 · ~30 min · leave-state: all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's).</a></li>
+<li><a class="tonight-seg" data-first-step="06.23" href="../steps/06-z-axis-and-gantry-squaring/06-23/">Step 06.23 → Step 06.25 · ~35 min · leave-state: gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off.</a></li>
+<li><a class="tonight-seg" data-first-step="06.26" href="../steps/06-z-axis-and-gantry-squaring/06-26/">Step 06.26 · ~15 min · leave-state: Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34.</a></li>
+</ul>
+<h3 id="22-build-ch-07-ab-belts-provisional-tension">22 · Build — Ch 07 — A/B belts, provisional tension<a class="headerlink" href="#22-build-ch-07-ab-belts-provisional-tension" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="07.1" href="../steps/07-ab-belts/07-1/">Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it.</a></li>
+<li><a class="tonight-seg" data-first-step="07.6" href="../steps/07-ab-belts/07-6/">Step 07.6 → Step 07.8 · ~30 min · leave-state: heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them; the next segment is the one that cannot be broken.</a></li>
+<li><a class="tonight-seg" data-first-step="07.9" href="../steps/07-ab-belts/07-9/">Step 07.9 → Step 07.28 · ~80 min · leave-state: the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends.</a></li>
+<li><a class="tonight-seg" data-first-step="07.29" href="../steps/07-ab-belts/07-29/">Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.</a></li>
+<li><a class="tonight-seg" data-first-step="07.34" href="../steps/07-ab-belts/07-34/">Step 07.34 → Step 07.39 · ~30 min · leave-state: inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry.</a></li>
+</ul>
+<h3 id="23-build-ch-08-toolhead">23 · Build — Ch 08 — Toolhead<a class="headerlink" href="#23-build-ch-08-toolhead" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="08.1" href="../steps/08-toolhead/08-1/">Step 08.1 → Step 08.8 · ~35 min · leave-state: all 16 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.</a></li>
+<li><a class="tonight-seg" data-first-step="08.9" href="../steps/08-toolhead/08-9/">Step 08.9 → Step 08.18 · ~30 min · leave-state: the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load.</a></li>
+<li><a class="tonight-seg" data-first-step="08.19" href="../steps/08-toolhead/08-19/">Step 08.19 → Step 08.26 · ~25 min · leave-state: Clockwork 2 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor and cable bridge fitted. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away.</a></li>
+<li><a class="tonight-seg" data-first-step="08.27" href="../steps/08-toolhead/08-27/">Step 08.27 → Step 08.32 · ~20 min · leave-state: the tool cartridge is closed around the Revo, the four M3×8 studs are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle; both undo the hand-tight seat you just set.</a></li>
+<li><a class="tonight-seg" data-first-step="08.33" href="../steps/08-toolhead/08-33/">Step 08.33 → Step 08.36 · ~25 min · leave-state: the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 100 and 120 mm pigtails are cut to fit the printed channels and kinking them loses that length.</a></li>
+<li><a class="tonight-seg" data-first-step="08.37" href="../steps/08-toolhead/08-37/">Step 08.37 → Step 08.42 · ~20 min · leave-state: the Stealthburner body is fully populated: three LEDs seated, diffusers pushed forward, both fans in, every wire exiting on the right. Rest it face-down on a soft cloth. Do not put weight on the diffuser faces or spin the impellers with anything but a finger.</a></li>
+<li><a class="tonight-seg" data-first-step="08.43" href="../steps/08-toolhead/08-43/">Step 08.43 → Step 08.46 · ~20 min · leave-state: the Nitehawk-SB V2 and the fan adapter are mounted, both fan-voltage selectors are verified at 24 V, and the three PH2.0 fan and LED plugs are in. Do not mate the board-to-board header yet — that happens with the Stealthburner body at Step 08.62 — and do not cut or bridge a voltage-selector pad.</a></li>
+<li><a class="tonight-seg" data-first-step="08.47" href="../steps/08-toolhead/08-47/">Step 08.47 → Step 08.53 · ~25 min · leave-state: every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to "just check" — Checkpoint 08 and Ch 13 do that, in that order.</a></li>
+<li><a class="tonight-seg" data-first-step="08.54" href="../steps/08-toolhead/08-54/">Step 08.54 → Step 08.56 · ~10 min · leave-state: the probe decision is recorded, the inductive probe is confirmed on the carriage from Ch 07, and the nozzle-probe bag is still closed for Ch 09. The Klicky bag stays closed. Do not open either bag to "get ahead": the nozzle probe is built at its mounting location in Ch 09.</a></li>
+<li><a class="tonight-seg" data-first-step="08.57" href="../steps/08-toolhead/08-57/">Step 08.57 → Step 08.65 · ~35 min · leave-state: the toolhead is on the carriage, the body is on with the board-to-board header mated, the umbilical is parked on the chain anchor with one loose tie and its free end is coiled and labelled. This is the end of the hands-on work in this chapter. Do not apply power: Checkpoint 08 below is a cold bench test and it is the last cheap chance to find a toolhead fault.</a></li>
+</ul>
+<h3 id="24-build-ch-09-electronics-bay">24 · Build — Ch 09 — Electronics bay<a class="headerlink" href="#24-build-ch-09-electronics-bay" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="09.1" href="../steps/09-electronics-bay/09-1/">Step 09.1 → Step 09.7 · ~25 min · leave-state: printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and all five wire ducts cut and stuck. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.</a></li>
+<li><a class="tonight-seg" data-first-step="09.8" href="../steps/09-electronics-bay/09-8/">Step 09.8 → Step 09.13 · ~30 min · leave-state: Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. <strong>Nothing is terminated and the C13 cord stays in its bag</strong> — do not connect anything to the inlet.</a></li>
+<li><a class="tonight-seg" data-first-step="09.14" href="../steps/09-electronics-bay/09-14/">Step 09.14 → Step 09.18 · ~30 min · leave-state: PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged.</a></li>
+<li><a class="tonight-seg" data-first-step="09.19" href="../steps/09-electronics-bay/09-19/">Step 09.19 → Step 09.24 · ~30 min · leave-state: every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.</a></li>
+<li><a class="tonight-seg" data-first-step="09.25" href="../steps/09-electronics-bay/09-25/">Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted in the bed extrusion's side slot; the printer is still on its head. Nothing plugged in.</a></li>
+<li><a class="tonight-seg" data-first-step="09.31" href="../steps/09-electronics-bay/09-31/">Step 09.31 → Step 09.34 · ~25 min · leave-state: XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted under the deck. All three bed cables reach with slack; none of them terminated.</a></li>
+<li><a class="tonight-seg" data-first-step="09.35" href="../steps/09-electronics-bay/09-35/">Step 09.35 → Step 09.36 · ~15 min · leave-state: bay fully populated, tagged and checked against LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. <strong>Do not start Ch 10 in a leftover ten minutes</strong>: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.</a></li>
+</ul>
+<h3 id="25-build-ch-10-wiring">25 · Build — Ch 10 — Wiring<a class="headerlink" href="#25-build-ch-10-wiring" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="10.1" href="../steps/10-wiring/10-1/">Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. <strong>No mains wiring started.</strong> Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated.</a></li>
+<li><a class="tonight-seg" data-first-step="10.5" href="../steps/10-wiring/10-5/">Step 10.5 → Step 10.9 · ~30 min · leave-state: inlet verified, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run fully terminated at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever.</a></li>
+<li><a class="tonight-seg" data-first-step="10.10" href="../steps/10-wiring/10-10/">Step 10.10 → Step 10.16 · ~30 min · leave-state: every mains connection made and pull-tested: SSR LOAD 1/2, bed L/N/PE, frame PE. Cord still out of the room and the DC side untouched. Next segment is LDO's Checkpoint #1 — start it only when you have an uninterrupted 25 minutes.</a></li>
+<li><a class="tonight-seg" data-first-step="10.17" href="../steps/10-wiring/10-17/">Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. <strong>Cord unplugged and back out of the room.</strong> Everything from here is done dead.</a></li>
+<li><a class="tonight-seg" data-first-step="10.24" href="../steps/10-wiring/10-24/">Step 10.24 → Step 10.29 · ~25 min · leave-state: 24 V distribution complete: board supply, HV stepper supply, USB-adapter feed, HEATBED→SSR control pair, Fan2/Fan3 jumpers at 24 V, and every rail metered with no short. Nothing above deck touched yet.</a></li>
+<li><a class="tonight-seg" data-first-step="10.30" href="../steps/10-wiring/10-30/">Step 10.30 → Step 10.34 · ~25 min · leave-state: probe taped, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the deck opening. Both cables are loose on the gantry, not yet in a chain.</a></li>
+<li><a class="tonight-seg" data-first-step="10.35" href="../steps/10-wiring/10-35/">Step 10.35 → Step 10.39 · ~35 min · leave-state: eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed and <strong>every occupied extrusion slot covered</strong>. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.</a></li>
+<li><a class="tonight-seg" data-first-step="10.40" href="../steps/10-wiring/10-40/">Step 10.40 → Step 10.46 · ~30 min · leave-state: six steppers tagged and plugged on their mapped ports, <code>STEPPER-4</code> empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. No chain work started.</a></li>
+<li><a class="tonight-seg" data-first-step="10.47" href="../steps/10-wiring/10-47/">Step 10.47 → Step 10.53 · ~40 min · leave-state: bay fans, filter fan and LED strip on their Leviathan ports, the touchscreen module built (Ch 11 Steps 11.5–11.6, done from 10.50) with its DSI ribbon latched at both ends and taped to the front extrusion, Ethernet and both USB links made. The umbilical is still unconnected at both ends.</a></li>
+<li><a class="tonight-seg" data-first-step="10.54" href="../steps/10-wiring/10-54/">Step 10.54 → Step 10.58 · ~25 min · leave-state: the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover), both ESD grounding cables confirmed and the bay cable landed on the frame, each half continuity-checked (the end-to-end reading waits for 10.67). Toolhead is closed and the umbilical is still loose.</a></li>
+<li><a class="tonight-seg" data-first-step="10.59" href="../steps/10-wiring/10-59/">Step 10.59 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. <strong>Chains are empty and latched.</strong> Do not part-fill a chain and walk away — the next segment fills all three in one go.</a></li>
+<li><a class="tonight-seg" data-first-step="10.65" href="../steps/10-wiring/10-65/">Step 10.65 → Step 10.67 · ~25 min · leave-state: every cable laid into its chain, all six chain ends zip-tied, every latch clicked shut, umbilical Micro-Fit seated in the USB adapter. Gantry moves through full X, Y and Z travel by hand.</a></li>
+<li><a class="tonight-seg" data-first-step="10.68" href="../steps/10-wiring/10-68/">Step 10.68 → Step 10.72 · ~20 min · leave-state: below-deck runs dressed into the ducts with mains and signal separated, deck opening strain-relieved, every cable tagged, <strong>duct covers still off</strong>, bay walked against LDO's photo. Do not fit the covers or any skirt.</a></li>
+<li><a class="tonight-seg" data-first-step="10.73" href="../steps/10-wiring/10-73/">Step 10.73 → Step 10.79 · ~20 min · leave-state: the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23.</a></li>
+</ul>
+<h3 id="26-build-ch-12-part-2-flash-both-mcus-printercfg-for-a-350-rev-d">26 · Build — Ch 12 Part 2 — flash both MCUs, <code>printer.cfg</code> for a 350 Rev D+<a class="headerlink" href="#26-build-ch-12-part-2-flash-both-mcus-printercfg-for-a-350-rev-d" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="12.11" href="../steps/12-software/12-11/">Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on <code>/dev/serial/by-id/</code>, both IDs are written down, and you have read the Leviathan's own silkscreen. <strong>Nothing has been flashed yet.</strong> Do not start a firmware build you cannot finish and flash in the same sitting.</a></li>
+<li><a class="tonight-seg" data-first-step="12.14" href="../steps/12-software/12-14/">Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between <code>make</code> and the flash: <code>out/</code> is shared between the two boards, so a built binary that never reaches its board is rebuilt from <code>config.leviathan</code> before you go on — one <code>make</code>, but do it before touching the toolboard.</a></li>
+<li><a class="tonight-seg" data-first-step="12.17" href="../steps/12-software/12-17/">Step 12.17 → Step 12.20 · ~20 min · leave-state: both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.</a></li>
+<li><a class="tonight-seg" data-first-step="12.21" href="../steps/12-software/12-21/">Step 12.21 → Step 12.23 · ~15 min · leave-state: <code>printer.cfg</code> is the <code>-sbv2</code> file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.</a></li>
+<li><a class="tonight-seg" data-first-step="12.24" href="../steps/12-software/12-24/">Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. <code>SAVE &amp; RESTART</code> completes cleanly.</a></li>
+<li><a class="tonight-seg" data-first-step="12.29" href="../steps/12-software/12-29/">Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.</a></li>
+<li><a class="tonight-seg" data-first-step="12.33" href="../steps/12-software/12-33/">Step 12.33 → Step 12.37 · ~20 min · leave-state: <code>[bed_mesh]</code>, <code>[input_shaper]</code>, <code>[exclude_object]</code> and the new <code>PRINT_START</code> skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.</a></li>
+</ul>
+<h3 id="27-build-ch-11-part-a-skirts-bay-fans-bottom-panel-z-belt-covers-nevermore-spool-door-hinges">27 · Build — Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges<a class="headerlink" href="#27-build-ch-11-part-a-skirts-bay-fans-bottom-panel-z-belt-covers-nevermore-spool-door-hinges" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="11.1" href="../steps/11-skirts-panels-door/11-1/">Step 11.1 → Step 11.4 · ~20 min · leave-state: every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.</a></li>
+<li><a class="tonight-seg" data-first-step="11.5" href="../steps/11-skirts-panels-door/11-5/">Step 11.5 → Step 11.8 · ~10 min · leave-state: the touchscreen module (built at 10.50) is bolted into the front of the ring, snug, and its FFC run checked end to end, latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts.</a></li>
+<li><a class="tonight-seg" data-first-step="11.9" href="../steps/11-skirts-panels-door/11-9/">Step 11.9 → Step 11.12 · ~15 min · leave-state: three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one blanked, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.</a></li>
+<li><a class="tonight-seg" data-first-step="11.13" href="../steps/11-skirts-panels-door/11-13/">Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs mounted, both bay fans trapped in the right-hand run, the left run blanked. The ring is complete all the way round; no run is half-fastened.</a></li>
+<li><a class="tonight-seg" data-first-step="11.18" href="../steps/11-skirts-panels-door/11-18/">Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. <strong>Leave the VHB to cure undisturbed</strong> — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.</a></li>
+<li><a class="tonight-seg" data-first-step="11.22" href="../steps/11-skirts-panels-door/11-22/">Step 11.22 → Step 11.25 · ~15 min · leave-state: all four Z belt covers on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one.</a></li>
+<li><a class="tonight-seg" data-first-step="11.26" href="../steps/11-skirts-panels-door/11-26/">Step 11.26 → Step 11.29 · ~15 min · leave-state: Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off with the leads tinned. Nothing is glued and nothing is soldered to the bridge PCB yet.</a></li>
+<li><a class="tonight-seg" data-first-step="11.30" href="../steps/11-skirts-panels-door/11-30/">Step 11.30 → Step 11.33 · ~20 min · leave-state: both fans seated in the plenum, leads trimmed to length and soldered to the bridge PCB, and the pair metered for a short. The plenum is open and unglued.</a></li>
+<li><a class="tonight-seg" data-first-step="11.34" href="../steps/11-skirts-panels-door/11-34/">Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued <strong>in matching polarity</strong>, both lids closed, cartridge filled. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.</a></li>
+<li><a class="tonight-seg" data-first-step="11.38" href="../steps/11-skirts-panels-door/11-38/">Step 11.38 → Step 11.43 · ~15 min · leave-state: Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is <code>[fan_generic nevermore]</code> on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it is there before you close this session.</a></li>
+<li><a class="tonight-seg" data-first-step="11.44" href="../steps/11-skirts-panels-door/11-44/">Step 11.44 → Step 11.47 · ~20 min · leave-state: the door frame is squared and blind-jointed, the rubber retainer strip is in, and both hinges are dowelled and bushed. The acrylic is not yet trapped and nothing is glued.</a></li>
+<li><a class="tonight-seg" data-first-step="11.48" href="../steps/11-skirts-panels-door/11-48/">Step 11.48 → Step 11.51 · ~20 min · leave-state: <strong>end of Part A.</strong> Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.</a></li>
+</ul>
+<h3 id="28-build-ch-13-initial-startup">28 · Build — Ch 13 — Initial startup<a class="headerlink" href="#28-build-ch-13-initial-startup" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="13.1" href="../steps/13-initial-startup/13-1/">Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. <strong>The cord is out of the inlet.</strong> The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.</a></li>
+<li><a class="tonight-seg" data-first-step="13.3" href="../steps/13-initial-startup/13-3/">Step 13.3 → Step 13.12 · ~40 min · leave-state: the machine has been powered, Klipper reports <code>Ready</code> with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.</a></li>
+<li><a class="tonight-seg" data-first-step="13.13" href="../steps/13-initial-startup/13-13/">Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed <strong>at the connector, not in the config</strong>. The machine still has not homed.</a></li>
+<li><a class="tonight-seg" data-first-step="13.17" href="../steps/13-initial-startup/13-17/">Step 13.17 → Step 13.21 · ~20 min · leave-state: all three endstops and the inductive probe respond correctly to <code>QUERY_ENDSTOPS</code> / <code>QUERY_PROBE</code>, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.</a></li>
+<li><a class="tonight-seg" data-first-step="13.22" href="../steps/13-initial-startup/13-22/">Step 13.22 → Step 13.27 · ~30 min · leave-state: <strong>homing works.</strong> X, Y and Z home, the bed is located, 0,0 is defined and the <code>[safe_z_home]</code> coordinate is written into <code>printer.cfg</code>, and a full <code>G28</code> completes without a crash. Klipper came back clean after the edits (commit them: <code>cd ~/printer_data/config &amp;&amp; git add -A &amp;&amp; git commit -m "13.26 safe_z_home"</code>). This is the biggest milestone in the chapter — a good place to stop.</a></li>
+<li><a class="tonight-seg" data-first-step="13.28" href="../steps/13-initial-startup/13-28/">Step 13.28 → Step 13.31 · ~20 min · leave-state: cold <code>PROBE_ACCURACY</code> is in range, both PID tunes are saved, and the machine is holding its heat soak at bed 100 °C / hotend 150 °C. The soak is a genuine wait state: leave it soaking, but do not leave the room with the heaters on.</a></li>
+<li><a class="tonight-seg" data-first-step="13.32" href="../steps/13-initial-startup/13-32/">Step 13.32 → Step 13.33 · ~15 min · leave-state: hot <code>PROBE_ACCURACY</code> passed and <strong>QGL converges</strong>. Heaters can go off; <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code> puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or <code>SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0</code> / <code>…stepper_y…</code> (never <code>M84</code>) and re-home first.</a></li>
+<li><a class="tonight-seg" data-first-step="13.34" href="../steps/13-initial-startup/13-34/">Step 13.34 · ~10 min · leave-state: you are handed off to <strong>Ch 06b</strong>: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.</a></li>
+<li><a class="tonight-seg" data-first-step="13.35" href="../steps/13-initial-startup/13-35/">Step 13.35 → Step 13.37 · ~20 min · leave-state: re-heated, re-QGL'd after squaring, <code>Z_ENDSTOP_CALIBRATE</code> done at the paper-drag height, and Z=0 sanity-checked at the bed centre. <code>SAVE_CONFIG</code> run and committed. The machine now knows where the bed is.</a></li>
+<li><a class="tonight-seg" data-first-step="13.38" href="../steps/13-initial-startup/13-38/">Step 13.38 → Step 13.39 · ~15 min · leave-state: <code>[bed_mesh]</code> confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, <code>SET_IDLE_TIMEOUT TIMEOUT=1800</code> sent to put the timeout back.</a></li>
+<li><a class="tonight-seg" data-first-step="13.40" href="../steps/13-initial-startup/13-40/">Step 13.40 → Step 13.43 · ~30 min · leave-state: extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B.</a></li>
+</ul>
+<h3 id="29-build-ch-06b-gantry-squaring-cold-and-provisional-tension">29 · Build — Ch 06b — Gantry squaring, cold, and provisional tension<a class="headerlink" href="#29-build-ch-06b-gantry-squaring-cold-and-provisional-tension" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="06b.1" href="../steps/06-z-axis-and-gantry-squaring/06b-1/">Step 06b.1 → Step 06b.16 · ~60 min · leave-state: gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, <code>RESTART</code> run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).</a></li>
+</ul>
+<h3 id="30-build-ch-11-part-b-back-side-and-top-panels-clicky-clack-door">30 · Build — Ch 11 Part B — back, side and top panels, Clicky-Clack door<a class="headerlink" href="#30-build-ch-11-part-b-back-side-and-top-panels-clicky-clack-door" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="11.52" href="../steps/11-skirts-panels-door/11-52/">Step 11.52 → Step 11.55 · ~25 min · leave-state: back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.</a></li>
+<li><a class="tonight-seg" data-first-step="11.56" href="../steps/11-skirts-panels-door/11-56/">Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all sixteen M3×12 in. Both sides are fully on.</a></li>
+<li><a class="tonight-seg" data-first-step="11.59" href="../steps/11-skirts-panels-door/11-59/">Step 11.59 → Step 11.61 · ~15 min · leave-state: top panel on its eight clips, handlebars bolted through their spacers, and the stock front doors confirmed not-installed. The machine is closed on five faces; the front is still open.</a></li>
+<li><a class="tonight-seg" data-first-step="11.62" href="../steps/11-skirts-panels-door/11-62/">Step 11.62 → Step 11.64 · ~25 min · leave-state: door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.</a></li>
+<li><a class="tonight-seg" data-first-step="11.65" href="../steps/11-skirts-panels-door/11-65/">Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11.</a></li>
+</ul>
+<h3 id="31-build-ch-14-calibration-and-tuning-hot-soak-final-tension-re-check-then-tune">31 · Build — Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune<a class="headerlink" href="#31-build-ch-14-calibration-and-tuning-hot-soak-final-tension-re-check-then-tune" title="Permanent link">¶</a></h3>
+<ul>
+<li><a class="tonight-seg" data-first-step="14.1" href="../steps/14-calibration/14-1/">Step 14.1 → Step 14.3 · ~25 min · leave-state: config pre-flighted against the <code>-sbv2</code> file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.</a></li>
+<li><a class="tonight-seg" data-first-step="14.4" href="../steps/14-calibration/14-4/">Step 14.4 · ~20 min · leave-state: <strong>A and B are both at final tension and equal.</strong> Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised — Step 14.6's <code>RESTART</code> clears it.</a></li>
+<li><a class="tonight-seg" data-first-step="14.5" href="../steps/14-calibration/14-5/">Step 14.5 → Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into <code>[extruder]</code>, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.</a></li>
+<li><a class="tonight-seg" data-first-step="14.8" href="../steps/14-calibration/14-8/">Step 14.8 → Step 14.9 · ~15 min · leave-state: chamber behaviour measured and written down, and <code>PRINT_START</code>'s Ch 12 TODO closed with the real purge line. <code>CHAMBER</code> is still set from a measured number, not a guess. Config restarts clean.</a></li>
+<li><a class="tonight-seg" data-first-step="14.10" href="../steps/14-calibration/14-10/">Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; dimensional error is fixed later, at 14.19–14.20.</a></li>
+<li><a class="tonight-seg" data-first-step="14.12" href="../steps/14-calibration/14-12/">Step 14.12 · ~15 min · leave-state: accelerometer answers, noise is in the 1–100 band, and the 350 mm <code>[resonance_tester]</code> probe point is confirmed live. Nothing has been shaped yet.</a></li>
+<li><a class="tonight-seg" data-first-step="14.13" href="../steps/14-calibration/14-13/">Step 14.13 → Step 14.15 · ~25 min · leave-state: <code>SHAPER_CALIBRATE</code> run, graphs read, <code>[input_shaper]</code> saved and <code>max_accel</code> brought down from the 10000 placeholder. <strong>Never stop between running the calibration and saving it</strong>; the CSVs live in <code>/tmp</code> and a reboot loses them.</a></li>
+<li><a class="tonight-seg" data-first-step="14.16" href="../steps/14-calibration/14-16/">Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and <code>max_z_velocity</code> / <code>max_z_accel</code> are back at <strong>15 and 350</strong>. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.</a></li>
+<li><a class="tonight-seg" data-first-step="14.17" href="../steps/14-calibration/14-17/">Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA <strong>filament</strong> profile. One calibration item closed; extrusion multiplier is the next.</a></li>
+<li><a class="tonight-seg" data-first-step="14.19" href="../steps/14-calibration/14-19/">Step 14.19 → Step 14.20 · ~25 min · leave-state: both extrusion-multiplier passes done and the final EM written into the filament profile. The cube has been re-calipered against 14.11.</a></li>
+<li><a class="tonight-seg" data-first-step="14.21" href="../steps/14-calibration/14-21/">Step 14.21 · ~10 min · leave-state: first-layer squish re-set after the EM change and saved with <code>Z_OFFSET_APPLY_ENDSTOP</code> + <code>SAVE_CONFIG</code>. The essentials loop is closed.</a></li>
+<li><a class="tonight-seg" data-first-step="14.22" href="../steps/14-calibration/14-22/">Step 14.22 → Step 14.23 · ~15 min · leave-state: mesh variance recorded, <code>printer.cfg</code> backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../00-index/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manual index">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Manual index
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../voron-print-plan/" class="md-footer__link md-footer__link--next" aria-label="Next: Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
