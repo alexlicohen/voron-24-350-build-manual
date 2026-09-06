@@ -397,7 +397,7 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 **Parts:** none.
 
-**Do:** Send `M84` to de-energise the motors, push the toolhead to the middle of the build volume by hand, and set the gantry's height by hand too: about a **third of the way up its travel** — nozzle roughly 100 mm above the plate, and well over 100 mm below the top stop. Slow hand moves with the drivers disabled are fine; do not shove it. The reason: every `G28 X` or `G28 Y` sent before Z is homed lifts the gantry another 10 mm from wherever it is (`[safe_z_home] z_hop: 10` — it cannot know where Z is, so it assumes "here"), and there are five of them between Step 13.22 and the full `G28` at Step 13.27. Parked at the top, the four Z motors stall into the frame on the first one; parked on the bed, a reversed Z direction drives the nozzle into the plate instead. Then send `QUERY_ENDSTOPS`.
+**Do:** Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0` (X/Y motors only — never `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), which also releases the four Z motors and lets the gantry drop) to de-energise the X/Y motors, push the toolhead to the middle of the build volume by hand, and set the gantry's height by hand too: about a **third of the way up its travel** — nozzle roughly 100 mm above the plate, and well over 100 mm below the top stop. Slow hand moves with the drivers disabled are fine; do not shove it. The reason: every `G28 X` or `G28 Y` sent before Z is homed lifts the gantry another 10 mm from wherever it is (`[safe_z_home] z_hop: 10` — it cannot know where Z is, so it assumes "here"), and there are five of them between Step 13.22 and the full `G28` at Step 13.27. Parked at the top, the four Z motors stall into the frame on the first one; parked on the bed, a reversed Z direction drives the nozzle into the plate instead. Then send `QUERY_ENDSTOPS`.
 
 ```
 Send: QUERY_ENDSTOPS
@@ -550,7 +550,7 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 **Parts:** none — repositioning parts already fitted in Ch 09.
 
-**Do:** `G28 X Y` (`M112` ready; each of these homes lifts the gantry another 10 mm until Z is homed at Step 13.27 — if it is getting near the top, `M84` and push it down by hand first), then jog the toolhead left along the rear of the machine until the nozzle is in line with the nozzle probe. Loosen the probe's two M3×25 SHCS and slide the whole probe along the extrusion until the shaft is centred **directly under the nozzle**. Re-tighten. Then check the bed: there must be a 2–3 mm gap between the back edge of the build plate and the probe shaft.
+**Do:** `G28 X Y` (`M112` ready; each of these homes lifts the gantry another 10 mm until Z is homed at Step 13.27 — if it is getting near the top, `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and push it down by hand first), then jog the toolhead left along the rear of the machine until the nozzle is in line with the nozzle probe. Loosen the probe's two M3×25 SHCS and slide the whole probe along the extrusion until the shaft is centred **directly under the nozzle**. Re-tighten. Then check the bed: there must be a 2–3 mm gap between the back edge of the build plate and the probe shaft.
 
 **Check:** Looking straight down, the nozzle tip is over the middle of the probe shaft, and the plate does not touch the shaft anywhere across its travel. If the bed fouls the shaft, loosen the bed and shift it forward — this is your last chance to do it easily. [src](https://docs.vorondesign.com/build/startup/)
 
@@ -566,7 +566,7 @@ Source: [LDO wiring photo z_stop_install_3.jpg](https://raw.githubusercontent.co
 
 **Parts:** none.
 
-**Do:** Send `M84`, then push the toolhead by hand to the front-left corner. If it binds before the nozzle gets near the corner, stop — that is racking or a mechanical fault, not a config problem. Then, `M112` ready, `G28 X Y` and jog to X0 Y0 using the interface, watching for skipping as it approaches the corner.
+**Do:** Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0` (X/Y motors only — never `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), which also releases the four Z motors and lets the gantry drop), then push the toolhead by hand to the front-left corner. If it binds before the nozzle gets near the corner, stop — that is racking or a mechanical fault, not a config problem. Then, `M112` ready, `G28 X Y` and jog to X0 Y0 using the interface, watching for skipping as it approaches the corner.
 
 **Check:** The nozzle sits over the plate, within about 5 mm of the front-left corner, with no skipping on the way. To correct, change `position_endstop` **and** `position_max` together, on the affected axis only:
 - nozzle too far **into** the bed → **increase** both (e.g. +2 mm on `[stepper_x]` moves 0,0 2 mm left)
@@ -770,7 +770,7 @@ Recv: // Retries: 2/5 Probed points range: 0.005250 tolerance: 0.007500
 
 Source: [Voron startup wizard § Quad gantry level](https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level) · [Voron startup wizard § Common QGL problems](https://docs.vorondesign.com/build/startup/startup.html#common-qgl-problems) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level) · [Video: Part 9 @2:49:11](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10151s)
 
-Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off. Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `M84` and re-home first.
+Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off. Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.
 
 ---
 
@@ -974,7 +974,7 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 
 **Parts:** `Voron_Design_Cube_v7.stl`; ASA; the laptop with PrusaSlicer.
 
-**Do:** *Printer profile.* In PrusaSlicer's **Printer Settings**, with `Prusa CORE One HF0.4 nozzle` selected, **Save as… `Voron 2.4 350`** — a copy, so the Prusament ASA and STRUCTURAL presets from 00-slicer-setup stay compatible with it — and change on the copy: **General → Bed shape** rectangular **350 × 350**, origin **0, 0**; **Max print height 330**; **G-code flavor: Klipper**. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value for now and tune it at Ch 14 Step 14.23 `(verify on bench)`. **Custom G-code → Start G-code**, replacing everything Prusa put there:
+**Do:** *Printer profile.* In PrusaSlicer's **Printer Settings**, with `Prusa CORE One HF0.4 nozzle` selected, **Save as… `Voron 2.4 350`** — a copy, so the Prusament ASA and STRUCTURAL presets from 00-slicer-setup stay compatible with it — and change on the copy: **General → Bed shape** rectangular **350 × 350**, origin **0, 0**; **Max print height 330**; **G-code flavor: Klipper**. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value for now and tune it at Ch 14 Step 14.23 `(verify on bench)`. **Custom G-code → Start G-code**, replacing everything Prusa put there: In the printer profile\'s Custom G-code page, **untick "Emit temperature commands automatically"** — otherwise PrusaSlicer prepends `M104`/`M190` before `PRINT_START`, the hotend heats before homing and Z homes on the nozzle-probe pin through hot ooze (Fable re-read G7-G2).
 
 ```
 PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0
@@ -1064,7 +1064,7 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 | **QGL does not converge** — `Probed points range` stalls or grows | **Gantry racking** | Step 13.34 → Ch 06b (cold squaring, provisional A/B tension), then Step 13.35 re-QGL |
 | A move will not stop when you send `RESTART` | `RESTART` queues behind the running move; only `M112` is pulled out of the queue mid-move | Send `M112` (or Mainsail's red Emergency Stop), then `FIRMWARE_RESTART` |
 | QGL: `Retries aborting: Probed points range is increasing. Possibly Z motor numbering is wrong` | Z motors on the wrong drivers | Recheck the Z map: Z0 front-left → `STEPPER-0`, Z1 rear-left → `-1`, Z2 rear-right → `-2`, Z3 front-right → `-3` |
-| QGL: `Aborting quad_gantry_level required adjustment … is greater than max_adjust` | Gantry too far out of level to correct in software | `M84`, level the gantry by hand against the frame, `G28`, retry |
+| QGL: `Aborting quad_gantry_level required adjustment … is greater than max_adjust` | Gantry too far out of level to correct in software | `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), level the gantry by hand against the frame, `G28`, retry |
 | QGL "out of bounds" / cannot reach the probe point | Gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART`, hand-level, `G28`, retry; confirm the 350 corners `-60,-10 / 410,420` |
 | `Unknown command:"BED_MESH_CLEAR"` at the end of a print | No `[bed_mesh]` section | Step 13.38. It is a warning, not a failure — but you have no mesh |
 | First layer is right at the front and wrong at the back (or similar) | Meshed before QGL, or mesh taken cold | Re-run: `G28` → `QUAD_GANTRY_LEVEL` → `G28` → `BED_MESH_CALIBRATE`, hot |
