@@ -11,7 +11,7 @@ Produces:
                                overview), then a one-page bin map listing every
                                bin. QR codes are generated with segno (SVG, no
                                external service).
-  docs/print/plate-plans.md — all 27 plate sorting diagrams on one page,
+  docs/print/plate-plans.md — every plate sorting diagram on one page,
                                grouped by batch in print order, each with its
                                colour/parts/hours/grams (from slicer/estimates.csv)
                                and bins (from slicer/bins.py), linking to that
