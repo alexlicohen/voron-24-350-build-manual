@@ -652,6 +652,15 @@ steps:
 # are drawn in the accent orange, everything from earlier chapters in neutral
 # grey.  `resolve:` is checked by --check-ids exactly as for steps.
 #
+# Every key here is read.  `title` and `subtitle` are drawn into the image;
+# `caption` and `note_350` are the figure caption build_steps.py prints under
+# the image on both the overview and the Checkpoint page, so a caveat belongs
+# in one of those and nowhere else.  `context:` (a list of earlier chapter
+# numbers) and `frame: null` are the two bench chapters - see the note above
+# Ch 04.  The end state each entry claims must be the one its chapter's own
+# Checkpoint claims: a render of parts already fitted, in a chapter that ends
+# with them bagged on the bench, is a bug.
+#
 # Parts of the CAD that this build does not fit are in no chapter and so appear
 # in no render: the seven alternative controller boards (this build uses the
 # LDO Leviathan, absent from the CAD), the Voron Pi bracket and the 5 V PSU
@@ -734,12 +743,20 @@ chapters:
       resolve: "Bed Components:1/"
       ids: [1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174,
             1175, 1176]
+# Ch 04 and Ch 05 end with a subassembly on the bench: the machine itself is
+# exactly as Ch 03 left it (04: "All four assemblies are built on the bench and
+# bagged; none of them touches the printer until Ch 05"; Checkpoint 05: "Gantry
+# is upside down ... turned back at Ch 06 Step 06.11").  So they drop the
+# machine frame box and draw the subassembly alone, held in the positions its
+# parts take on the machine.
 - chapter: "04"
   out: ch-04-after
-  title: "End of Chapter 04 - A/B drives and front idlers"
-  subtitle: "Orange: added in this chapter. Grey: already built."
-  caption: "The two rear drive units with their motors and the two front idler stacks, all four bolted to the top of the frame."
-  note_350: null
+  frame: null            # auto-frame the assemblies, not the machine
+  context: []            # nothing behind them - they are not on the printer yet
+  title: "End of Chapter 04 - the four bench assemblies"
+  subtitle: "Orange: everything Chapter 04 builds. Held in the positions they will take, but still on the bench - nothing bolts to the printer until Chapter 05."
+  caption: "The two rear drive units, with their motors and pulleys, and the two front idler stacks - held apart in the positions they take on the gantry: A drive rear right, B drive rear left, an idler at each front corner. The machine is untouched this chapter; Checkpoint 04 leaves all four bagged and labelled, and they bolt to the Y extrusions in Chapter 05."
+  note_350: "Only the gaps between them grow on a 350 - the four assemblies are the same parts at either size."
   select:
     - label: "A and B drive units"  # 58 parts
       resolve: "Gantry:1/A/B Drives:1/(?!.*(Chain Retainer Bracket|Cable Cover|Z Belt Clamp))"
@@ -752,10 +769,12 @@ chapters:
             346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356]
 - chapter: "05"
   out: ch-05-after
-  title: "End of Chapter 05 - the gantry, in place"
-  subtitle: "Orange: added in this chapter. Grey: already built. The CAD has no titanium backers - they are a mod."
-  caption: "Both Y extrusions, the X extrusion, the two XY joints with the cable bridge, and the X carriage frame."
-  note_350: "CAD gantry is the 250: 350 mm Y extrusions and a 330 mm X extrusion. Yours are longer. The gantry is also shown in the machine; Chapter 05 builds it inverted on the bench and Chapter 06 lifts it in."
+  frame: null            # auto-frame the gantry, not the machine
+  context: ["04"]        # grey = Ch 04's four assemblies, now bolted into it
+  title: "End of Chapter 05 - the gantry, on the bench"
+  subtitle: "Orange: added in this chapter. Grey: Chapter 04's drives and idlers, now bolted into it. The CAD has no titanium backers - they are a mod."
+  caption: "The whole gantry as one unit, off the machine: both Y extrusions, the X extrusion, both XY joints with the cable bridge, and the X carriage, with Chapter 04's drive units and idlers closing its four corners. Shown the right way up for comparison with Chapter 06 - Checkpoint 05 leaves it upside down on the bench, and Step 06.11 is where it is turned over and hung on the Z joints."
+  note_350: "CAD gantry is the 250: 350 mm Y extrusions and a 330 mm X extrusion. Yours are longer. The titanium backers are not in the CAD."
   select:
     - label: "the two Y extrusions"  # 63 parts
       resolve: "Gantry:1/Gantry Extrusions:1/"
@@ -780,8 +799,8 @@ chapters:
 - chapter: "06"
   out: ch-06-after
   title: "End of Chapter 06 - gantry on the Z joints, Z belts run"
-  subtitle: "Orange: added in this chapter. Grey: already built."
-  caption: "The four Z joints bolted together around the carriages and the four Z belts closed from drive to idler."
+  subtitle: "Orange: added in this chapter. Grey: already built - including the gantry, which arrives here from the bench."
+  caption: "The gantry is in the machine at last, hanging on the four Z joints - you built it over Chapters 04 and 05, so it is grey here. New this chapter: the Z joints themselves, closed around the carriages, and the four Z belts run from drive to idler."
   note_350: "CAD Z belts are cut for the 250. Chapter 06 gives the 350 length."
   select:
     - label: "the four Z joints"  # 45 parts

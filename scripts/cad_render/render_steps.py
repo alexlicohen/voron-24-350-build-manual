@@ -75,6 +75,12 @@ def reset_boxes(scene):
 # colour and every earlier chapter's parts in a neutral one, so the sequence
 # reads as progress.  One fixed camera and one fixed frame box for all of them
 # (chapter_defaults), or the pairs would not line up.
+#
+# Two chapters end with a subassembly on the bench and the machine untouched
+# (Ch 04's drives and idlers, Ch 05's gantry).  Those entries set `context:` to
+# the chapters that are physically part of that subassembly - `[]` for Ch 04 -
+# and `frame: null` to drop the machine frame box and auto-frame the parts, so
+# the image says what the chapter's own Checkpoint says.
 
 CH_ACCENT = (0.87, 0.36, 0.10)              # PALETTE[0], the selection colour
 CH_CONTEXT = (0.62, 0.65, 0.68)             # solid neutral (cf. render.GHOST_RGB)
@@ -85,11 +91,27 @@ CH_TINTS = {"glass": (0.96, 0.80, 0.62)}
 
 
 def chapter_sets(chapters):
-    """[(entry, ids it adds, ids from every earlier chapter)] in file order."""
-    out, prior = [], []
+    """[(entry, ids it adds, ids drawn as already-built)] in file order.
+
+    The already-built set defaults to every earlier chapter - the cumulative
+    machine.  An entry may override it with `context:`, a list of earlier
+    chapter numbers (possibly empty), for a chapter that ends with a
+    subassembly on the bench rather than a changed machine.
+    """
+    out, prior, by_ch = [], [], {}
     for e in chapters:
         ids = [i for s in e.get("select", []) for i in s["ids"]]
-        out.append((e, ids, list(prior)))
+        if "context" in e:
+            ctx = []
+            for c in e["context"] or []:
+                if c not in by_ch:
+                    raise SystemExit(f"chapter {e['chapter']}: context names "
+                                     f"chapter {c!r}, which is not an earlier entry")
+                ctx += by_ch[c]
+        else:
+            ctx = list(prior)
+        out.append((e, ids, ctx))
+        by_ch[e["chapter"]] = ids
         prior += ids
     return out
 
@@ -117,6 +139,8 @@ def render_chapters(scene, doc, out_dir, want, dry_run):
               f"({len(new)} new, {len(prior)} earlier)", flush=True)
         if dry_run:
             continue
+        # `frame: null` on an entry: no machine box, so mode "a" frames the
+        # selection itself - the bench subassembly chapters.
         frame = entry_opt(e, d, "frame")
         R.render(
             scene, sel, png, "a",
@@ -129,7 +153,7 @@ def render_chapters(scene, doc, out_dir, want, dry_run):
             subtitle=entry_opt(e, d, "subtitle"),
             note=entry_opt(e, d, "note"),
             colours=colours,
-            frame=np.array([float(x) for x in frame.split(",")]),
+            frame=(np.array([float(x) for x in frame.split(",")]) if frame else None),
         )
         n += 1
     print(f"\n{n} chapter image(s) in {time.time()-t0:.1f}s", flush=True)

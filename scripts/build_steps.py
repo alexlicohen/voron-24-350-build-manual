@@ -68,9 +68,16 @@ _PRIMARY_IMG_DIRS = ("assets/manual-pages/", "assets/sb-pages/")
 # Cumulative "state at the end of this chapter" CAD renders, built by
 # scripts/cad_render/render_steps.py --chapters into docs/manual/assets/cad/.
 # Only chapters that have one get the before/after figure; the rest (wiring,
-# software, startup, calibration) simply do not show one.
+# software, startup, calibration) simply do not show one.  The words under each
+# figure are the `caption` and `note_350` of that chapter's entry in
+# assets/cad/steps.yml, so the manifest that decides what the picture shows also
+# says what it means; nothing in it is written twice.
 _CH_NUM_RE = re.compile(r"^(\d+[a-z]?)-")
 CHAPTER_SHOTS: dict[str, tuple[str | None, str]] = {}   # stem -> (before, after)
+CHAPTER_CAPTIONS: dict[str, tuple[str, str]] = {}   # "04" -> (title, caption + caveat)
+CAD_YML = MANUAL / "assets/cad/steps.yml"
+# Fallback when a render exists but steps.yml has no entry for it.
+_CAD_PROVENANCE = "Voron 2.4r2 CAD, which is the 250 machine; yours is the 350."
 
 # Populated by on_pre_build; read by on_page_markdown.
 STEP_URLS: dict[str, str] = {}          # "04.2" -> "manual/steps/04-ab-drives/04-2.md"
@@ -776,16 +783,32 @@ def render_page(chapter: Chapter, page: Page, idx: int,
         # The chapter's own Checkpoint, not Ch 06's second one (06b).
         if page.kind == "checkpoint" and chapter.stem in CHAPTER_SHOTS \
                 and m and page.slug == "checkpoint-%s" % m.group(1):
+            shot = CHAPTER_SHOTS[chapter.stem][1]
             out += ['<figure class="chapter-progress chapter-progress--single" markdown="1">',
-                    "", _shot_img(CHAPTER_SHOTS[chapter.stem][1], src_dir, dest_dir), "",
-                    "<figcaption>What you should have now. Voron 2.4r2 CAD, which is the "
-                    "250 machine; yours is the 350.</figcaption>", "", "</figure>", ""]
+                    "", _shot_img(shot, src_dir, dest_dir), "",
+                    "<figcaption>What you should have now — %s</figcaption>"
+                    % html.escape(_shot_caption(shot)), "", "</figure>", ""]
         out += ['<div class="step-text step-text--wide" markdown="1">', ""]
         out += page.body
         out += ["", "</div>"]
 
     out += [""] + _nav_bar(prev_ref, next_ref) + [""]
     return "\n".join(out).rstrip() + "\n"
+
+
+def _load_chapter_captions() -> None:
+    """`title`, `caption` and `note_350` per chapter from assets/cad/steps.yml."""
+    CHAPTER_CAPTIONS.clear()
+    if not CAD_YML.exists():
+        return
+    import yaml
+    doc = yaml.safe_load(CAD_YML.read_text(encoding="utf-8")) or {}
+    for e in doc.get("chapters") or []:
+        if not e.get("out"):
+            continue
+        text = " ".join(x for x in (e.get("caption"), e.get("note_350")) if x)
+        if text:
+            CHAPTER_CAPTIONS[str(e["chapter"])] = (e.get("title") or "", text)
 
 
 def _chapter_shot(chapter: Chapter) -> str | None:
@@ -802,8 +825,25 @@ def _shot_num(rel: str) -> str:
 
 
 def _shot_img(rel: str, src_dir: Path, dest_dir: Path) -> str:
-    return ("![Voron 2.4r2 CAD — the machine at the end of Chapter %s](%s)"
-            % (_shot_num(rel), _rel(src_dir, dest_dir, rel)))
+    title = CHAPTER_CAPTIONS.get(_shot_num(rel), ("", ""))[0]
+    what = title or "the machine at the end of Chapter %s" % _shot_num(rel)
+    return "![Voron 2.4r2 CAD — %s](%s)" % (what, _rel(src_dir, dest_dir, rel))
+
+
+def _shot_caption(rel: str) -> str:
+    """What the after-image shows, from steps.yml — including its 350 caveat."""
+    return CHAPTER_CAPTIONS.get(_shot_num(rel), ("", _CAD_PROVENANCE))[1]
+
+
+def _shot_label(rel: str, side: str) -> str:
+    """Side label: `After — end of Ch 05: the gantry, on the bench`.
+
+    The tail comes from the render's own title, so a chapter that ends with a
+    subassembly on the bench is not read as a changed machine.
+    """
+    num = _shot_num(rel)
+    tail = CHAPTER_CAPTIONS.get(num, ("", ""))[0].split(" - ", 1)
+    return "%s — end of Ch %s%s" % (side, num, (": " + tail[1]) if len(tail) > 1 else "")
 
 
 def _progress_figure(chapter: Chapter, src_dir: Path, dest_dir: Path) -> list[str]:
@@ -813,20 +853,18 @@ def _progress_figure(chapter: Chapter, src_dir: Path, dest_dir: Path) -> list[st
     before, after = CHAPTER_SHOTS[chapter.stem]
     out = ['<figure class="chapter-progress" markdown="1">', ""]
     if before:
-        for rel, side in ((before, "Before — end of Ch %s" % _shot_num(before)),
-                          (after, "After — end of Ch %s" % _shot_num(after))):
+        for rel, side in ((before, _shot_label(before, "Before")),
+                          (after, _shot_label(after, "After"))):
             out += ['<div class="chapter-progress__shot" markdown="1">', "",
                     _shot_img(rel, src_dir, dest_dir), "",
                     '<span class="chapter-progress__cap">%s</span>' % html.escape(side),
                     "", "</div>", ""]
-        cap = ("What this chapter builds — the machine as you leave Chapter %s (left) and "
-               "as you leave this one (right). New parts are orange."
-               % _shot_num(before))
+        lead = "What this chapter builds — orange is new, grey is what you already built."
     else:
         out += [_shot_img(after, src_dir, dest_dir), ""]
-        cap = "What this chapter builds — everything orange is new."
-    out += ["<figcaption>%s Voron 2.4r2 CAD, which is the 250 machine; yours is the 350."
-            "</figcaption>" % cap, "", "</figure>", ""]
+        lead = "What this chapter builds — everything orange is new."
+    out += ["<figcaption>%s %s</figcaption>" % (lead, html.escape(_shot_caption(after))),
+            "", "</figure>", ""]
     return out
 
 
@@ -917,6 +955,7 @@ def build() -> dict:
         if chapter:
             chapters.append(chapter)
 
+    _load_chapter_captions()
     CHAPTER_SHOTS.clear()
     before: str | None = None
     for chapter in chapters:

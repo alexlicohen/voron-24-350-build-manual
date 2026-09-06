@@ -168,6 +168,12 @@ image under "What you should have now". Chapters the CAD cannot show — 10 (wir
 12–14 (software, startup, calibration) — have no PNG and get no figure, and Ch 06's second
 Checkpoint (06b) does not repeat Ch 06's.
 
+The words under both figures are the entry's own `caption` and `note_350`, so a render's
+caveats are on the page rather than buried in the manifest, and each render has to show the
+end state its chapter's Checkpoint describes — Ch 04 and Ch 05 end with a subassembly on the
+bench and the machine untouched, so those two entries carry `frame: null` and `context:` and
+show the assemblies alone.
+
 **Navigation.** `docs/.nav.yml` owns the whole nav — five tabs (Home / Build / Print / Plan /
 Reference), with the sidebar showing only the active tab's pages. Build and Print list chapter and
 batch overviews only; add a row there when a chapter is added (`steps/.nav.yml` carries
