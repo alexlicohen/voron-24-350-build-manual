@@ -872,8 +872,8 @@ def d04_z_drive() -> Doc:
            fill=ORANGE)
     d.path(f"M {mx + 150} {my + 414} L {mx + 190} {my + 414}", stroke=ORANGE, sw=2.4,
            marker="arwo")
-    d.text(mx + 196, my + 410, "closing the cam drives the drive", size=11.5, fill=MUTED)
-    d.text(mx + 196, my + 426, "body away from the motor", size=11.5, fill=MUTED)
+    d.text(mx + 196, my + 410, "closing the cam pushes the motor", size=11.5, fill=MUTED)
+    d.text(mx + 196, my + 426, "away from the fixed drive body", size=11.5, fill=MUTED)
 
     # ---------- right panel: the shaft stack ----------
     rx0, ry0, rw, rh = 866, top + 16, 304, 484
@@ -1851,8 +1851,8 @@ DIAGRAMS = [
             "around the Z drive's 20T pulley, up the outside, over the Z idler, back down "
             "to the Z joint where both ends clamp.",
             "Inside the drive: the motor's 16T at 10.7 mm, the 188 mm closed loop, the 80T "
-            "on the 5 x 60 shaft, and the orange cam tensioner that drives the body away "
-            "from the motor.",
+            "on the 5 x 60 shaft, and the orange cam tensioner that pushes the motor away "
+            "from the fixed drive body (the body is held by its two M5x40).",
             "The shaft stack in the order Step 02.19 gives it, with the 33 mm of shaft past "
             "the 20T pulley.",
         ],

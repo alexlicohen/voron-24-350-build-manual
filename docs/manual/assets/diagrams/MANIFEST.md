@@ -90,7 +90,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 **What it shows**
 
 - One corner in side elevation: the Z belt down the inside of the upright, around the Z drive's 20T pulley, up the outside, over the Z idler, back down to the Z joint where both ends clamp.
-- Inside the drive: the motor's 16T at 10.7 mm, the 188 mm closed loop, the 80T on the 5 x 60 shaft, and the orange cam tensioner that drives the body away from the motor.
+- Inside the drive: the motor's 16T at 10.7 mm, the 188 mm closed loop, the 80T on the 5 x 60 shaft, and the orange cam tensioner that pushes the motor away from the fixed drive body (the body is held by its two M5x40).
 - The shaft stack in the order Step 02.19 gives it, with the 33 mm of shaft past the 20T pulley.
 
 **Insert at**
