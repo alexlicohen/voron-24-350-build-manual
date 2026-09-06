@@ -500,7 +500,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:** 7 greased rails; masking tape; marker; a bin.
 
-**Do:** Label each rail on its tape: **X** for the single MGN12H, **Y1/Y2** for two MGN9H, **Z0/Z1/Z2/Z3** for the remaining four MGN9H (the six MGN9H are identical — the labels only stop you re-counting). Leave both end stops on: they come off only when the rail is bolted down, in Ch 02 (Z0–Z3) or Ch 05 (X, Y1, Y2). Add one strip of tape across the carriage so it cannot creep in the bag, then bag each rail individually and put them all in one bin. They do not come out again until Ch 02 (the four Z rails) and Ch 05 (X and Y).
+**Do:** Label each rail on its tape: **X** for the single MGN12H, **Y1/Y2** for two MGN9H, **Z0/Z1/Z2/Z3** for the remaining four MGN9H (the six MGN9H are identical — the labels only stop you re-counting). Leave both end stops on: they come off at the install step (Ch 02 Step 02.06 for the Z rails, Ch 05 Steps 05.11/05.33 for the Y and X rails), with the rail lying flat, just before the guide slides on, in Ch 02 (Z0–Z3) or Ch 05 (X, Y1, Y2). Add one strip of tape across the carriage so it cannot creep in the bag, then bag each rail individually and put them all in one bin. They do not come out again until Ch 02 (the four Z rails) and Ch 05 (X and Y).
 
 **Check:** Seven labelled, bagged rails; end stops and carriage tape intact on all seven; bin stored flat and away from foot traffic.
 

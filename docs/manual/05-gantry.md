@@ -276,7 +276,7 @@ Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** MGN9H 400 mm rail ×1, `MGN9_rail_guide_x2` jig ×2, M3×8 SHCS ×~10 (one per marked hole).
 
-**Do:** Tape the carriage to the middle of the rail before you pick it up. Sit the rail on the extrusion, slide a printed MGN9 guide onto each end and let them centre it side to side. Start the first screw in the **second hole from the end**, not the end hole, and work along.
+**Do:** Tape the carriage to the middle of the rail before you pick it up. Sit the rail on the extrusion, slide a printed MGN9 guide onto each end and let them centre it side to side. Start the first screw in the **second hole from the end**, not the end hole, and work along. **Rail end-stop bands:** with the rail lying flat on the bench, peel off the two tape/zip-tie bands from Ch 00 Step 00.17 only now — never with the rail on edge or the carriage near an end — then slide the guide on.
 
 ⚠ **Rev D+ / LDO:** *"Do not use the holes on the ends of the rails, use the second ones from the ends."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq) — the manual only requires this on 300 mm builds; LDO requires it on every build, because the end holes sit over the M5/M3 nuts of Step 05.14, which share the rail's slot.
 
@@ -659,7 +659,7 @@ Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** MGN12H 400 mm rail ×1, `MGN12_rail_guide_x2` jig ×2, M3×8 SHCS ×~8 (one per marked hole).
 
-**Do:** *"Temporarily secure the carriage with a piece of sticky tape to prevent it from sliding off the rail"* before you handle it. Sit the rail on the D extrusion, centre it with an MGN12 guide at each end, and start the first screw in the **second hole from the end**. Run them all down finger-tight, re-check the jigs, then tighten centre-outwards in two passes.
+**Do:** *"Temporarily secure the carriage with a piece of sticky tape to prevent it from sliding off the rail"* before you handle it. Sit the rail on the D extrusion, centre it with an MGN12 guide at each end, and start the first screw in the **second hole from the end**. Run them all down finger-tight, re-check the jigs, then tighten centre-outwards in two passes. **Rail end-stop bands:** with the rail lying flat on the bench, peel off the two tape/zip-tie bands from Ch 00 Step 00.17 only now — never with the rail on edge or the carriage near an end — then slide the guide on.
 
 ⚠ **Rev D+ / LDO:** second hole in from each end here too, not the end hole. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
