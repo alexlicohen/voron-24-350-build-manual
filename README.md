@@ -1,5 +1,7 @@
 # Voron 2.4 R2 (LDO Rev D+, 350 mm) — build manual
 
+**Live site:** <https://alexlicohen.github.io/voron-24-350-build-manual/> — one page per step, built from `docs/` on every push to `main`.
+
 A Prusa-style, single-track build manual for an LDO Voron 2.4 R2 Rev D+ 350 kit, with every printed part produced on a Prusa Core One+. Numbered steps, fasteners per step, "what you should see" checks, and print batches interleaved with assembly so the printer never idles and no chapter waits on a part.
 
 - `docs/manual/00-index.md` — start here: the interleaved print/build timeline, critical path, corrections log.
