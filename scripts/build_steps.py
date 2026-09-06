@@ -42,6 +42,15 @@ _NOIMAGE_RE = re.compile(r"^\*?\(no image[^\n]*\)\*?\s*$", re.IGNORECASE)
 _PARTS_RE = re.compile(r"^\*\*Parts:\*\*\s*(.*)$")
 _PAUSE_RE = re.compile(r"^>?\s*Pause:\s")
 _SOURCE_RE = re.compile(r"^>?\s*Source:\s")
+# House markers the step layout reorders around (callouts.py renders them).
+_DO_RE = re.compile(r"^\*{0,2}Do:\*{0,2}(?:\s|$)")
+_CHECK_RE = re.compile(r"^\*{0,2}Check:\*{0,2}(?:\s|$)")
+_TIP_RE = re.compile(r"^\*{0,2}Tip:\*{0,2}(?:\s|$)")
+_WARN_RE = re.compile(r"^⚠")
+_DESC_RE = re.compile(r"^\*{0,2}What you're looking at:\*{0,2}\s*(.*)$")
+_LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
+_TABLE_ROW_RE = re.compile(r"^\s*\|")
+_BQ_PREFIX_RE = re.compile(r"^>\s?")
 _TIME_RE = re.compile(r"^\*\*Time:\*\*\s*(.+)$")
 _SESSIONS_RE = re.compile(r"^\*\*Sessions:\*\*\s*(.+)$")
 _HR_RE = re.compile(r"^(?:-{3,}|\*{3,}|_{3,})\s*$")
@@ -337,7 +346,64 @@ def _split_top_level(text: str, sep: str) -> list[str]:
     return [p for p in out if p]
 
 
-def _parts_block(line: str) -> list[str]:
+# stl stem -> part render, longest stem first so `Handle-Hinge_Top` wins over `Handle`.
+_PART_THUMBS: list[tuple[re.Pattern, Path]] = []
+_CODE_SPAN_RE = re.compile(r"`([^`]+)`")
+
+
+def _load_part_thumbs() -> None:
+    import csv
+
+    _PART_THUMBS.clear()
+    manifest = MANUAL / "assets" / "parts" / "MANIFEST.csv"
+    if not manifest.exists():
+        return
+    rows: list[tuple[str, Path]] = []
+    seen: set[str] = set()
+    with manifest.open(encoding="utf-8", newline="") as fh:
+        for row in csv.DictReader(fh):
+            stl, png = (row.get("stl") or "").strip(), (row.get("png") or "").strip()
+            if not stl or not png:
+                continue
+            path = REPO / png
+            if not path.exists():
+                continue
+            # Chapters name a part as the Voron repo does (`z_drive_main_a`);
+            # the manifest keeps the LDO filename's `[a]_` colour prefix, its
+            # `_x2` / `-2X` multiplicity suffix and any `(contributed_by_…)`
+            # tail. Register every spelling in between.
+            keys = {Path(stl).stem}
+            keys |= {re.sub(r"\([^()]*\)$", "", k) for k in keys}
+            keys |= {re.sub(r"(?:[-_][xX]\d+|-\d+[xX])$", "", k) for k in keys}
+            keys |= {re.sub(r"^\[[a-z]\]_", "", k) for k in keys}
+            for key in sorted(keys, key=len, reverse=True):
+                if key and key not in seen:
+                    seen.add(key)
+                    rows.append((key, path))
+    rows.sort(key=lambda r: -len(r[0]))
+    _PART_THUMBS.extend(
+        (re.compile(r"(?<![0-9A-Za-z_])%s(?![0-9A-Za-z_])" % re.escape(stem)), png)
+        for stem, png in rows
+    )
+
+
+def _thumb_for(item: str, dest_dir: Path) -> str | None:
+    """Part render for a Parts item that names an STL in backticks."""
+    spans = _CODE_SPAN_RE.findall(item)
+    if not spans:
+        return None
+    import os
+
+    # Spans in item order: the thumb depicts the part the bullet leads with,
+    # not whichever named part happens to have the longest filename.
+    for s in spans:
+        for pattern, png in _PART_THUMBS:
+            if pattern.search(s):
+                return os.path.relpath(str(png), str(dest_dir)).replace("\\", "/")
+    return None
+
+
+def _parts_block(line: str, dest_dir: Path) -> list[str]:
     body = _PARTS_RE.match(line).group(1).strip()
     plain = _plain(body).strip().rstrip(".").lower()
     if not body or plain in {"none", "—", "-", "n/a"}:
@@ -349,61 +415,216 @@ def _parts_block(line: str) -> list[str]:
     if not items:
         return ["**Parts:** " + body]
     out = ['<div class="step-parts" markdown="1">', "", "**Parts:**", ""]
-    out += ["- " + i for i in items]
+    for item in items:
+        thumb = _thumb_for(item, dest_dir)
+        out.append("- " + (("![](%s){ .step-parts__thumb } " % thumb) if thumb else "") + item)
     out += ["", "</div>"]
     return out
 
 
-def _continuation(lines: list[str], i: int) -> int:
-    """End index (exclusive) of a callout-style line's logical body."""
+def _logical(line: str) -> str:
+    """The line with one optional `> ` blockquote marker off (as callouts.py)."""
+    return _BQ_PREFIX_RE.sub("", line, count=1)
+
+
+def _marker(line: str) -> str | None:
+    """Which house marker this line opens, if any."""
+    if _IMAGE_LINE_RE.match(line):
+        return "image"
+    if _NOIMAGE_RE.match(line.strip()):
+        return "noimage"
+    if _PAUSE_RE.match(line):
+        return "pause"
+    if _SOURCE_RE.match(line):
+        return "source"
+    s = _logical(line)
+    if _PARTS_RE.match(s):
+        return "parts"
+    if _DO_RE.match(s):
+        return "do"
+    if _CHECK_RE.match(s):
+        return "check"
+    if _TIP_RE.match(s):
+        return "tip"
+    if _WARN_RE.match(s):
+        return "warn"
+    if _DESC_RE.match(s):
+        return "desc"
+    return None
+
+
+def _is_boundary(line: str) -> bool:
+    """True where a marker's logical body must stop (callouts.py's own rule)."""
+    s = _logical(line)
+    if _HEADING_RE.match(s) or _HR_RE.match(s) or _FENCE_RE.match(s):
+        return True
+    return _marker(line) is not None
+
+
+def _run(lines: list[str], i: int) -> int:
+    """End index (exclusive) of a marker line's logical body."""
     j = i + 1
-    while j < len(lines):
-        s = lines[j]
-        if not s.strip() or _HEADING_RE.match(s) or _HR_RE.match(s):
-            break
-        if _PAUSE_RE.match(s) or _SOURCE_RE.match(s) or s.startswith("⚠") or _IMAGE_LINE_RE.match(s):
-            break
+    while j < len(lines) and lines[j].strip() and not _is_boundary(lines[j]):
         j += 1
     return j
 
 
+def _absorb_lead(lines: list[str], end: int) -> int:
+    """Pull a list or code block sitting directly under a Do line into the Do.
+
+    The house form for a multi-action step is a numbered list of ≤3
+    imperatives, and a command a Do line ends by introducing has to stay with
+    it — both are part of the lead, not loose body text.
+    """
+    while True:
+        k = end
+        while k < len(lines) and not lines[k].strip():
+            k += 1
+        if k >= len(lines) or k - end > 1:
+            return end
+        fence = _FENCE_RE.match(lines[k])
+        if fence:
+            token = fence.group(1)[0] * 3
+            j = k + 1
+            while j < len(lines) and not lines[j].strip().startswith(token):
+                j += 1
+            end = min(j + 1, len(lines))
+            continue
+        if not _LIST_ITEM_RE.match(lines[k]):
+            return end
+        last = k
+        while k < len(lines):
+            if not lines[k].strip():
+                nxt = k + 1
+                while nxt < len(lines) and not lines[nxt].strip():
+                    nxt += 1
+                if (nxt < len(lines) and not _is_boundary(lines[nxt])
+                        and (_LIST_ITEM_RE.match(lines[nxt]) or lines[nxt].startswith("  "))):
+                    k = nxt
+                    continue
+                break
+            if _is_boundary(lines[k]):
+                break
+            k += 1
+            last = k
+        end = last
+
+
+@dataclass
+class _Seg:
+    kind: str
+    lines: list[str]
+
+
+def _segments(lines: list[str]) -> list[_Seg]:
+    """Split a step body into marker/prose/block segments, in source order."""
+    segs: list[_Seg] = []
+    i, n = 0, len(lines)
+    tail = False
+    while i < n:
+        line = lines[i]
+        if not line.strip():
+            i += 1
+            continue
+        s = _logical(line)
+        if tail:
+            # Common mistakes / Next ride on the chapter's last page; from the
+            # first heading down everything stays visible, in source order.
+            segs.append(_Seg("block", [line]))
+            i += 1
+            continue
+        fence = _FENCE_RE.match(line)
+        if fence:
+            token = fence.group(1)[0] * 3
+            j = i + 1
+            while j < n and not lines[j].strip().startswith(token):
+                j += 1
+            j = min(j + 1, n)
+            segs.append(_Seg("block", lines[i:j]))
+            i = j
+            continue
+        if _HEADING_RE.match(s):
+            tail = True
+            segs.append(_Seg("block", [line]))
+            i += 1
+            continue
+        if _HR_RE.match(s):
+            i += 1
+            continue
+        kind = _marker(line)
+        if kind == "image":
+            segs.append(_Seg("image", [line.strip()]))
+            i += 1
+            continue
+        if kind == "noimage":
+            segs.append(_Seg("noimage", [line.strip().strip("*")]))
+            i += 1
+            continue
+        if kind:
+            j = _run(lines, i)
+            if kind == "do":
+                j = _absorb_lead(lines, j)
+            segs.append(_Seg(kind, lines[i:j]))
+            i = j
+            continue
+        if _TABLE_ROW_RE.match(s) or _LIST_ITEM_RE.match(line) or line.lstrip().startswith(("<", ">")):
+            kind = "block"
+        else:
+            kind = "prose"
+        j = _run(lines, i)
+        segs.append(_Seg(kind, lines[i:j]))
+        i = j
+
+    # A paragraph that introduces or reads out a table/list/code block belongs
+    # with it, so it stays visible instead of being collapsed away from what it
+    # explains. Judged on the original kinds, so promotion never cascades.
+    kinds = [s.kind for s in segs]
+    for n, seg in enumerate(segs):
+        if seg.kind != "prose":
+            continue
+        if (n and kinds[n - 1] == "block") or (n + 1 < len(kinds) and kinds[n + 1] == "block"):
+            seg.kind = "block"
+    return segs
+
+
+def _describe(seg: _Seg) -> list[str]:
+    """Prose for the collapsed block; the description keeps its text, not its label."""
+    if seg.kind != "desc":
+        return list(seg.lines)
+    head = _DESC_RE.match(_logical(seg.lines[0]))
+    return [head.group(1).strip()] + list(seg.lines[1:])
+
+
 def layout_step(page: Page, chapter: Chapter) -> list[str]:
-    """Reorder a step body into images / text / pause / source."""
-    lines = page.body
-    images: list[str] = []
-    noimage: list[str] = []
-    rest: list[str] = []
+    """Action-first step page: Do, Parts, Check, the collapsed description,
+    then ⚠/Tip, Pause and Source (CONVENTIONS.md § "Action-first steps")."""
+    dest_dir = STEPS / chapter.slug
+    segs = _segments(page.body)
+
+    images = [s.lines[0] for s in segs if s.kind == "image"]
+    noimage = [s.lines[0] for s in segs if s.kind == "noimage"]
+    do: list[str] = []
+    parts: list[str] = []
+    check: list[str] = []
+    desc: list[str] = []
+    other: list[str] = []
     pause: list[str] = []
     source: list[str] = []
-
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        im = _IMAGE_LINE_RE.match(line)
-        if im:
-            images.append(line.strip())
-            i += 1
-            continue
-        if _NOIMAGE_RE.match(line.strip()):
-            noimage.append(line.strip().strip("*"))
-            i += 1
-            continue
-        if _PAUSE_RE.match(line):
-            j = _continuation(lines, i)
-            pause += lines[i:j]
-            i = j
-            continue
-        if _SOURCE_RE.match(line):
-            j = _continuation(lines, i)
-            source += lines[i:j]
-            i = j
-            continue
-        if _PARTS_RE.match(line):
-            rest += _parts_block(line)
-            i += 1
-            continue
-        rest.append(line)
-        i += 1
+    for seg in segs:
+        if seg.kind == "do":
+            do += seg.lines + [""]
+        elif seg.kind == "parts":
+            parts += _parts_block(" ".join(l.strip() for l in seg.lines), dest_dir) + [""]
+        elif seg.kind == "check":
+            check += seg.lines + [""]
+        elif seg.kind in ("desc", "prose"):
+            desc += _describe(seg) + [""]
+        elif seg.kind in ("warn", "tip", "block"):
+            other += seg.lines + [""]
+        elif seg.kind == "pause":
+            pause += seg.lines + [""]
+        elif seg.kind == "source":
+            source += seg.lines + [""]
 
     def key(img: str) -> int:
         src = _IMAGE_LINE_RE.match(img).group("src")
@@ -434,11 +655,22 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     out += ["</div>", ""]
 
     out += ['<div class="step-text" markdown="1">', ""]
-    out += _strip_edges(rest)
+    if do:
+        out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
+    if parts:
+        out += _strip_edges(parts) + [""]
+    if check:
+        out += _strip_edges(check) + [""]
+    if desc:
+        out += ['??? note "What you\'re looking at"', ""]
+        out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
+        out += [""]
+    if other:
+        out += _strip_edges(other) + [""]
     if pause:
-        out += [""] + _strip_edges(pause)
+        out += _strip_edges(pause) + [""]
     if source:
-        out += [""] + _strip_edges(source)
+        out += _strip_edges(source)
     out += ["", "</div>", "", "</div>"]
     return out
 
@@ -612,6 +844,7 @@ def _write(path: Path, text: str) -> bool:
 
 
 def build() -> dict:
+    _load_part_thumbs()
     chapters: list[Chapter] = []
     for path in _chapter_files():
         chapter = parse_chapter(path)

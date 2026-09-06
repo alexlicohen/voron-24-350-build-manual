@@ -39,6 +39,22 @@
     page-break-inside: avoid;
   }
 
+  /* Collapsed <details> (e.g. step pages' "What you're looking at") must be
+   * readable on paper — nothing to click there. Force every details block
+   * open regardless of its `open` attribute. Chromium ≥131 / WebKit ≥18.4 put
+   * the closed body behind `::details-content { content-visibility: hidden }`,
+   * where the child-display rule alone is a no-op (measured, Chrome 152); the
+   * display rules stay for engines without the pseudo-element. */
+  .md-typeset details:not([open])::details-content {
+    content-visibility: visible !important;
+  }
+  .md-typeset details:not([open]) {
+    display: block;
+  }
+  .md-typeset details:not([open]) > *:not(summary) {
+    display: block !important;
+  }
+
   .md-typeset h1,
   .md-typeset h2,
   .md-typeset h3 {

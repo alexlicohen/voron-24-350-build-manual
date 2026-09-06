@@ -19,6 +19,9 @@ chapters by `scripts/build_steps.py` and carries no independent content.
      printed.
   4. Any Markdown table wider than 7 columns (per R5 F1/F2/F6, iPad-portrait
      readability).
+  5. Step word budgets (CONVENTIONS.md § "Action-first steps and word
+     budgets") — opt-in: `--budgets` adds it to the run above, `--budgets-only`
+     runs it alone and needs no `site/` (`--json` for one finding per line).
 
 Exits non-zero (and prints every finding) if any check fails. This only
 reports — it does not edit chapter content.
@@ -193,6 +196,211 @@ def check_table_width():
     return findings
 
 
+# --------------------------------------------------------------------------
+# 5. step word budgets (docs/manual/CONVENTIONS.md § "Action-first steps and
+#    word budgets"). Opt-in for now: `--budgets` adds it to the default run,
+#    `--budgets-only` runs just this check (no `site/` needed) and feeds the
+#    rewrite workers with `--json`.
+#    TODO: a later task flips budgets on by default once the rewrite pass lands.
+# --------------------------------------------------------------------------
+
+_BUDGETS = {"Do": 40, "Check": 25, "description": 45, "Tip": 30, "⚠": 60}
+_XREF_LIMIT = 1
+_CANONICAL_PARENS = ("(verify on bench)", "(not specified — snug)")
+
+_B_STEP_HEAD_RE = re.compile(r"^#{2,3}\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b")
+_B_ANY_HEAD_RE = re.compile(r"^#{1,6}\s")
+_B_FENCE_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
+_B_BQ_RE = re.compile(r"^>\s?")
+_B_IMAGE_RE = re.compile(r"^!\[[^\]]*\]\([^)]*\)(?:\s*\{[^}]*\})?\s*$")
+_B_HR_RE = re.compile(r"^(?:-{3,}|\*{3,}|_{3,})\s*$")
+_B_LIST_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
+_B_XREF_RE = re.compile(r"\bSteps?\s+[A-Za-z]?\d+[A-Za-z]?\.\d+\b")
+_B_PAREN_RE = re.compile(r"\([^)]*\)")
+# Field name -> the marker that opens it. Order matters: first match wins.
+_B_MARKERS = (
+    ("Do", re.compile(r"^\*{0,2}Do:\*{0,2}(?:\s|$)")),
+    ("Check", re.compile(r"^\*{0,2}Check:\*{0,2}(?:\s|$)")),
+    ("Tip", re.compile(r"^\*{0,2}Tip:\*{0,2}(?:\s|$)")),
+    ("⚠", re.compile(r"^⚠")),
+    ("description", re.compile(r"^\*{0,2}What you're looking at:\*{0,2}")),
+    ("Parts", re.compile(r"^\*\*Parts:\*\*")),
+    ("Pause", re.compile(r"^Pause:\s")),
+    ("Source", re.compile(r"^Source:\s")),
+)
+_B_LABEL_RE = re.compile(
+    r"^\s*(?:>\s?)?(?:⚠\s*)?(?:\*{0,2}(?:Do|Check|Tip|What you're looking at):\*{0,2})?\s*"
+)
+
+
+def _b_logical(line):
+    return _B_BQ_RE.sub("", line, count=1)
+
+
+def _b_marker(line):
+    if _B_IMAGE_RE.match(line.strip()):
+        return "image"
+    s = _b_logical(line)
+    for name, rx in _B_MARKERS:
+        if rx.match(s):
+            return name
+    return None
+
+
+def _b_boundary(line):
+    s = _b_logical(line)
+    if _B_ANY_HEAD_RE.match(s) or _B_HR_RE.match(s) or _B_FENCE_RE.match(s):
+        return True
+    return _b_marker(line) is not None
+
+
+def _b_run(lines, i):
+    """End index (exclusive) of a marker line's logical body — the same
+    run-to-a-blank-line rule hooks/callouts.py and build_steps.py use."""
+    j = i + 1
+    while j < len(lines) and lines[j].strip() and not _b_boundary(lines[j]):
+        j += 1
+    return j
+
+
+def _b_absorb_list(lines, end):
+    """A list directly under a Do line is part of the Do (the house form for a
+    multi-action step is a numbered list of <= 3 imperatives)."""
+    k = end
+    while k < len(lines) and not lines[k].strip():
+        k += 1
+    if k >= len(lines) or k - end > 1 or not _B_LIST_RE.match(lines[k]):
+        return end
+    last = k
+    while k < len(lines):
+        if not lines[k].strip():
+            nxt = k + 1
+            while nxt < len(lines) and not lines[nxt].strip():
+                nxt += 1
+            if (nxt < len(lines) and not _b_boundary(lines[nxt])
+                    and (_B_LIST_RE.match(lines[nxt]) or lines[nxt].startswith("  "))):
+                k = nxt
+                continue
+            break
+        if _b_boundary(lines[k]):
+            break
+        k += 1
+        last = k
+    return last
+
+
+def _b_text(lines):
+    """Countable text: no fenced code, no image lines, no inline code spans,
+    no link URLs (the link text stays), no marker label."""
+    kept, fence = [], None
+    for line in lines:
+        m = _B_FENCE_RE.match(line)
+        if m:
+            token = m.group(1)[0] * 3
+            fence = None if fence and line.strip().startswith(fence) else (fence or token)
+            continue
+        if fence is not None or _B_IMAGE_RE.match(line.strip()):
+            continue
+        kept.append(_b_logical(line))
+    text = "\n".join(kept)
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)      # inline images
+    text = re.sub(r"`[^`]*`", " ", text)                    # inline code spans
+    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)    # link text, URL dropped
+    return _B_LABEL_RE.sub("", text, count=1)
+
+
+def _b_checkable(text):
+    """Text for the em-dash / parenthetical rules: the two canonical markers
+    are allowed, so they are removed before either rule looks at it."""
+    for canon in _CANONICAL_PARENS:
+        text = text.replace(canon, " ")
+    return text
+
+
+def _b_step_blocks(path):
+    """(step_id, heading line no, body lines, body start line no) per step."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    fence, heads = None, []
+    for n, line in enumerate(lines):
+        m = _B_FENCE_RE.match(line)
+        if m:
+            token = m.group(1)[0] * 3
+            fence = None if fence and line.strip().startswith(fence) else (fence or token)
+            continue
+        if fence is not None:
+            continue
+        if _B_ANY_HEAD_RE.match(line) and re.match(r"^#{2,3}\s", line):
+            heads.append(n)
+    out = []
+    for idx, n in enumerate(heads):
+        m = _B_STEP_HEAD_RE.match(lines[n])
+        if not m:
+            continue
+        end = heads[idx + 1] if idx + 1 < len(heads) else len(lines)
+        out.append((m.group(1), n + 1, lines[n + 1:end], n + 2))
+    return out
+
+
+def check_step_budgets():
+    findings = []
+    files = [f for f in sorted(MANUAL.glob("*.md")) if f.name not in _GENERATED_OR_META]
+    if PRINT.exists():
+        files += [f for f in sorted(PRINT.glob("*.md")) if f.name not in _GENERATED_OR_META]
+
+    for path in files:
+        rel = path.relative_to(REPO)
+        for step_id, head_no, body, body_start in _b_step_blocks(path):
+            def add(line_no, field, kind, words=None, limit=None):
+                findings.append({"file": str(rel), "line": line_no, "step": step_id,
+                                 "field": field, "words": words, "limit": limit,
+                                 "kind": kind})
+
+            xrefs, i = 0, 0
+            while i < len(body):
+                line = body[i]
+                if not line.strip():
+                    i += 1
+                    continue
+                field = _b_marker(line)
+                if field is None or field == "image":
+                    xrefs += len(_B_XREF_RE.findall(line))
+                    i += 1
+                    continue
+                end = _b_run(body, i)
+                if field == "Do":
+                    end = _b_absorb_list(body, end)
+                run = body[i:end]
+                line_no = body_start + i
+                if field not in ("Pause", "Source"):
+                    xrefs += sum(len(_B_XREF_RE.findall(l)) for l in run)
+                if field in _BUDGETS:
+                    text = _b_text(run)
+                    words = len(text.split())
+                    limit = _BUDGETS[field]
+                    if words > limit:
+                        add(line_no, field, "words", words, limit)
+                    if field in ("Do", "Check", "description"):
+                        checkable = _b_checkable(text)
+                        if "—" in checkable:
+                            add(line_no, field, "em-dash")
+                        if _B_PAREN_RE.search(checkable):
+                            add(line_no, field, "parenthetical")
+                i = end
+            if xrefs > _XREF_LIMIT:
+                add(head_no, "cross-reference", "cross-reference", xrefs, _XREF_LIMIT)
+    return findings
+
+
+def _budget_line(f):
+    if f["kind"] == "words":
+        detail = "%s %d/%d words" % (f["field"], f["words"], f["limit"])
+    elif f["kind"] == "cross-reference":
+        detail = "%d cross-references" % f["words"]
+    else:
+        detail = "%s in %s" % (f["kind"], f["field"])
+    return "%s:%d  Step %s  %s" % (f["file"], f["line"], f["step"], detail)
+
+
 def check_missing_source():
     """WARN-only (R6 B improvements): every `### Step` in an assembly chapter
     should end with a `Source:` line (docs/manual/CONVENTIONS.md, "Source
@@ -219,13 +427,46 @@ def check_missing_source():
     return findings
 
 
-def main():
+def _run_budgets_only(as_json):
+    findings = check_step_budgets()
+    steps = {(f["file"], f["step"]) for f in findings}
+    summary = "%d steps over budget in %d files" % (
+        len(steps), len({f for f, _ in steps}))
+    try:
+        if as_json:
+            import json
+
+            for f in findings:
+                print(json.dumps(f, ensure_ascii=False))
+        else:
+            # Unindented, so `path:line` stays at column 0 for editors and grep.
+            for f in findings:
+                print(_budget_line(f))
+        # With --json the summary goes to stderr so stdout stays JSON lines.
+        print(summary, file=sys.stderr if as_json else sys.stdout)
+    except BrokenPipeError:
+        # `… | head` closed the pipe: say nothing, and keep the interpreter
+        # from re-raising on its final flush.
+        import os
+
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+    return 1 if findings else 0
+
+
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if "--budgets-only" in argv:
+        return _run_budgets_only("--json" in argv)
+
     checks = [
         ("Raw callout markers outside admonitions", check_raw_callouts),
         ("Unresolved Step NN.M references", check_step_refs),
         ("STL printed in no batch", check_stl_coverage),
         ("Tables wider than 7 columns", check_table_width),
     ]
+    if "--budgets" in argv:
+        checks.append(("Steps over word budget",
+                       lambda: [_budget_line(f) for f in check_step_budgets()]))
 
     total = 0
     for name, fn in checks:

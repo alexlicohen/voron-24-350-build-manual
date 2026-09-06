@@ -58,6 +58,41 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 - Keep Prusa's tone: concrete, calm, no history, no marketing. Never guess a part's function — the manual/LDO/Voron docs state it; cite in Source.
 - Chapter intro (after the scope line): a 3–6 sentence plain-language paragraph "What you're building in this chapter" with the sub-assembly names the steps will use.
 
+## Action-first steps and word budgets (added 2026-09-06)
+
+Prusa's help-site steps run 30–60 words. Ours averaged 237. The fix is the action first and
+hard budgets, not more structure.
+
+**Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): **Do:** →
+**Parts:** → **Check:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` → `Pause:` →
+`Source:`. Images stay hoisted to the figure column. Write a step in house order as before; the
+generator moves it.
+
+**Budgets** (words, excluding images, code, inline `code` spans and link URLs):
+
+| Field | Budget |
+|---|---|
+| **Do:** (plus its list/continuation lines) | 40 |
+| **Check:** | 25 |
+| **What you're looking at:** | 45 |
+| `Tip:` | 30 |
+| `⚠` callout, each | 60 |
+
+Also, in Do / Check / description: **no em-dash** (`—`), and **no parenthetical** except the two
+canonical markers `(verify on bench)` and `(not specified — snug)`. At most **one** `Step NN.M`
+cross-reference per step outside the `Source:` and `Pause:` lines — the rest belong in `Source:`.
+
+**Multi-action steps**: a numbered list of ≤ 3 imperatives under the Do line (it renders as part
+of the lead). **Never split or renumber a step to fit a budget** — step ids are keys in progress
+storage, the Tonight view, `assets/parts/MANIFEST.csv`, `cad/steps.yml` and every cross-reference.
+
+**Cut why-clauses, don't move them.** The manual-page image shows what the Source link explains;
+the collapsed block is orientation only, not a place to park the words the Do line lost. A
+why-clause survives only where the action is wrong without it.
+
+Lint: `python3 scripts/lint_manual.py --budgets` (adds it to the default run) or
+`--budgets-only` (this check alone, no `mkdocs build` needed; `--json` for one finding per line).
+
 ## Bench photos (added 2026-09-05, evening)
 Alex's own photos, taken at the bench and filed by `scripts/ingest_photos.py` — not mirrored
 third-party material (that's `assets/remote/`, above). Workflow: photograph a step on the iPad,
@@ -112,12 +147,16 @@ generator only formalises it.
 - Headings inside fenced code (Ch 12's `printer.cfg`) are ignored.
 
 **What the generator does to a step block.** Images are hoisted to the top with the manual-page
-render first and the part renders and diagrams after; `Pause:` moves ahead of `Source:`, which
-goes last; `**Parts:**` becomes a compact list (split on `;`, then `·`). Everything else keeps
-source order, so Description → Parts → Do → Check → `⚠`/`Tip:` → `Pause:` → `Source:` falls out of the
-house style on its own. `(no image — …)` renders as a neutral placeholder. Every relative link
-is re-resolved for the new depth; `chapter.md#step-…` retargets that step's page and a bare
-`chapter.md` retargets that chapter's overview.
+render first and the part renders and diagrams after. The text column is then re-ordered
+action-first — **Do:** → **Parts:** → **Check:** → the collapsed `What you're looking at` block →
+`⚠`/`Tip:` → `Pause:` → `Source:` — regardless of where those lines sit in the chapter (see
+"Action-first steps and word budgets"). A list or code block directly under a Do line rides with
+it; a table, code block or blockquote and the paragraph beside it stay visible; every other loose
+paragraph joins the collapsed block. `**Parts:**` becomes a compact list (split on `;`, then `·`),
+each item carrying the part render from `assets/parts/MANIFEST.csv` when it names an STL in
+backticks. `(no image — …)` renders as a neutral placeholder. Every relative link is re-resolved
+for the new depth; `chapter.md#step-…` retargets that step's page and a bare `chapter.md`
+retargets that chapter's overview.
 
 **Navigation.** The sidebar lists chapter overviews only (`docs/manual/.nav.yml` — add a row when
 a chapter is added; `steps/.nav.yml` carries `hide: true`). Step pages are built and searchable

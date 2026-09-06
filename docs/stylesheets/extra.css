@@ -311,6 +311,22 @@ body.step-is-done .md-typeset .step-done-label {
   color: var(--md-accent-bg-color);
 }
 
+/* Plate plans: one card per plate, reusing the .step-grid rhythm at 2 columns. */
+.md-typeset .plate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: .75rem;
+  margin: 0 0 1.2rem;
+}
+.md-typeset .plate-card {
+  padding: .5rem .6rem .6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .35rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .plate-card img { border-radius: .2rem; }
+.md-typeset .plate-card p { margin: .4rem 0 0; font-size: .8rem; }
+
 /* Tonight: a segment is a link to the first step page of that segment. */
 .md-typeset a.tonight-seg { color: inherit; }
 .md-typeset .step-figure__note {
@@ -318,4 +334,44 @@ body.step-is-done .md-typeset .step-done-label {
   margin: .2rem 0 0;
   font-size: .75rem;
   color: var(--md-default-fg-color--light);
+}
+
+/* Action-first step pages (2026-09-06): the Do line leads, the description
+   collapses under it. See docs/manual/CONVENTIONS.md § "Action-first steps
+   and word budgets". Colours are theme variables, so slate follows. */
+.md-typeset .step-do { margin: 0 0 .9rem; }
+.md-typeset .step-do > p { font-size: 1.05rem; line-height: 1.5; margin: 0 0 .4rem; }
+.md-typeset .step-do > p:last-child,
+.md-typeset .step-do > ol:last-child,
+.md-typeset .step-do > ul:last-child { margin-bottom: 0; }
+.md-typeset .step-do > p:first-child > strong:first-child { color: var(--md-accent-fg-color); }
+.md-typeset .step-do ol,
+.md-typeset .step-do ul { margin: .3rem 0 .4rem; padding-left: 1.2rem; font-size: 1.05rem; }
+.md-typeset .step-do li { margin: 0 0 .25rem; line-height: 1.5; }
+
+/* Part render beside the Parts item that names its STL. */
+.md-typeset img.step-parts__thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: .4rem;
+  border-radius: .2rem;
+  background: var(--md-code-bg-color);
+}
+
+/* "What you're looking at" — orientation only, muted and folded away. */
+.md-typeset .step-text > details { margin: 0 0 .9rem; font-size: .74rem; }
+.md-typeset .step-text > details,
+.md-typeset .step-text > details > summary {
+  border-color: var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-text > details > summary {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  background-color: var(--md-default-fg-color--lightest);
+}
+.md-typeset .step-text > details > summary::before {
+  background-color: var(--md-default-fg-color--light);
 }
