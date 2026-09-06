@@ -67,9 +67,11 @@ chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joi
 
 ## Step B02.1 — Filament prep
 
-**Do:** Change spool to Prusament ASA Prusa Orange (on the printer: Unload, then Load Filament → ASA). Purge
-fully — this is the one accent session in the whole build, so a clean colour change matters more here than
-anywhere else. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:**
+
+1. On the printer, Unload, then Load Filament → ASA, and mount the Prusament ASA Prusa Orange spool.
+2. Purge fully: this is the build's one accent session.
+3. Prepare the sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Purge line is clean orange with no black streaking.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -80,11 +82,13 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
-**Do:** Open `slicer/plates/B02-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. The filament box reads `Prusament ASA @COREONE HF0.4 - Voron orange` — the accent preset, same overrides. On the plate, **5 files, 7 objects**: `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a` ×2,
-`[a]_z_drive_baseplate_b` ×2. No rotation, no brim. Leave the SB main body's built-in supports in place — do not
-suppress them in slicer.
-**Parts:** the five files above — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
-**Check:** SB main body oriented as shipped (supports visible in preview); no brim outline anywhere on the plate.
+**Do:**
+
+1. Open `slicer/plates/B02-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: filament box `Prusament ASA @COREONE HF0.4 - Voron orange`, **5 files, 7 objects**, no rotation, no brim.
+3. Leave the SB main body's built-in supports; never suppress them.
+**Parts:** `[a]_stealthburner_main_body` · `[a]_faceplate` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` ×2 · `[a]_z_drive_baseplate_b` ×2 — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
+**Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
@@ -103,13 +107,13 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
-**Do:** Open `slicer/plates/B02-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **8 files, 13 objects**: `Handle`, `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2,
-`[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2, `[a]_tensioner_left`, `[a]_tensioner_right`. **5 mm brim on
-`Handle` — already in the project** (60 mm tall, tippy). Do not add one by hand, and never touch the global
-brim setting: it would brim every flat grill and guard on the plate.
-**Parts:** the eight files above — 7.3 h, 93 g (PrusaSlicer 2.9.6 estimate).
-**Check:** The preview shows the brim outline on `Handle` only — none on the flat fan grills, retainers,
-belt guards or tensioners.
+**Do:**
+
+1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: **8 files, 13 objects**, the **5 mm brim on `Handle` already in the project**.
+3. Never add a brim by hand or touch the global brim setting.
+**Parts:** `Handle` · `[a]_fan_grill_a` ×2 · `[a]_fan_grill_b` ×2 · `[a]_fan_grill_retainer` ×2 · `[a]_belt_guard_a` ×2 · `[a]_belt_guard_b` ×2 · `[a]_tensioner_left` · `[a]_tensioner_right` — 7.3 h, 93 g (PrusaSlicer 2.9.6 estimate).
+**Check:** The preview shows the brim outline on `Handle` only, none on the flat fan grills, retainers, belt guards or tensioners.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
@@ -128,14 +132,12 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
 
-**Do:** Open `slicer/plates/B02-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, the remaining accent parts, **16 files, 29 objects**: `[a]_belt_tensioner_a` ×2, `[a]_belt_tensioner_b` ×2,
-`[a]_z_tensioner_9mm` ×4, `[a]_z_chain_retainer_bracket` ×2, `[a]_endstop_pod_D2F_switch`,
-`[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_lower` ×4,
-`[a]_z_belt_clip_upper` ×4, `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`,
-`[a]_pcb_spacer`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`. No brim. **Check `XY_cable_chain_bridge-Igus-3mm_backer`
-in preview** — it's a community remix that may arrive standing 44 mm tall; lay it flat to match the stock
-bridge if so.
-**Parts:** the 16 files above (29 small accent parts) — 7.6 h, 96 g (PrusaSlicer 2.9.6 estimate).
+**Do:**
+
+1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: **16 files, 29 objects**, no brim.
+3. In preview, if `XY_cable_chain_bridge-Igus-3mm_backer` stands 44 mm tall, lay it flat to match the stock bridge.
+**Parts:** the remaining accent parts, `[a]_belt_tensioner_a` ×2 · `[a]_belt_tensioner_b` ×2 · `[a]_z_tensioner_9mm` ×4 · `[a]_z_chain_retainer_bracket` ×2 · `[a]_endstop_pod_D2F_switch` · `[a]_xy_joint_cable_bridge_2hole` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_z_belt_clip_lower` ×4 · `[a]_z_belt_clip_upper` ×4 · `[a]_guidler_a` · `[a]_guidler_b` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_pcb_spacer` · `[a]_keystone_blank_insert` ×2 · `ldo_bestagon_insert` — 7.6 h, 96 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Cable-chain bridge sitting flat, not standing, before slicing.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
@@ -143,8 +145,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B02.7 — Print plate B02-P3
 
 **Do:** Print with standing overrides.
-**Check:** No warp on the small parts; SB accent pieces (guidler, latch, latch shuttle) print crisp — these
-have fine features that go under close fitment tolerances later.
+**Check:** No warp on the small parts, and the guidler, latch and latch shuttle print crisp.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
@@ -152,8 +153,10 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B02.8 — Inspect
 
-**Do:** Check the SB main body's built-in supports snapped out clean and the LED pockets are crisp (final
-guidler/latch fit test happens at B06, not now). Snap the `Handle` brim off and check the base for scarring.
+**Do:**
+
+1. Check the SB main body's built-in supports snapped out clean and the LED pockets are crisp. The guidler and latch fit test happens at B06.
+2. Snap the `Handle` brim off and check the base for scarring.
 **Check:** No support remnants inside the SB body's cable channels or LED pockets; `Handle` base clean.
 
 Pause: ~10 min since the last pause — supports out, brim off, nothing pressed or glued. Leave the orange spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.
@@ -162,7 +165,10 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B02.9 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Write the bin id on the inside face of every `_a` / `_b` part as it comes off the plate (`_a` = Z0 and Z2, `_b` = Z1 and Z3; the four `[a]_z_tensioner_9mm` are identical, one per corner). `Handle` goes to **11-door** now and waits there for B10's black parts. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05 — hence **10-chains**; the `[a]_pcb_spacer` is a spare (the kit supplies one printed).
+**Do:**
+
+1. Sort each plate off its diagram: the number on a part is its legend number, the colour its bin.
+2. Write the bin id on the inside face of every `_a` / `_b` part as it comes off the plate.
 
 **B02-P1**
 
@@ -201,6 +207,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
 
 **Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
+
+Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). `_a` parts go to Z0 and Z2, `_b` to Z1 and Z3. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

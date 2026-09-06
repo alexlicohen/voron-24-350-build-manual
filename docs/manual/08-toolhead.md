@@ -115,13 +115,17 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 ![Stealthburner manual p.37](assets/sb-pages/sb-p037.png)
 
-**What you're looking at:** [Stealthburner](16-glossary.md#s) is the Voron toolhead: a printed shroud carrying two fans and three LEDs, wrapped around a removable **tool cartridge** that holds the hotend. The two black printhead halves in front of you are that cartridge, and the code moulded into them says which hotend they fit — **E-RV** is E3D Revo Voron. The `_rear_cw2` half is the variant for [Clockwork 2](16-glossary.md#c), the extruder — and its circled corner is **solid**. The CW1/other-extruder variants are the ones with that corner cut open for their wire routing (SB p.37).
+**What you're looking at:** [Stealthburner](16-glossary.md#s) is the toolhead: a shroud carrying two fans and three LEDs around a removable **tool cartridge** that holds the hotend. The two printhead halves are that cartridge; their moulded code says which hotend they fit. CW1 variants have the circled corner cut open.
 
 **Parts:** all B02 and B06 toolhead prints; the two `revo_voron` printhead halves.
 
-**Do:** Lay the parts out in build order. Find the hotend code embossed on both printhead halves and read it — it must say **E-RV** (E3D Revo Voron). Confirm the rear half is the `_rear_cw2` variant: the corner SB p.37 circles is **solid**. A rear half with a notch cut out of that corner is the CW1/other-extruder variant — wrong for this build. Set the Klicky bag aside; you are not building it (Step 08.54).
+**Do:**
 
-**Check:** `E-RV` on both halves, and the circled corner of the rear half is closed. If you printed a different printhead folder, stop and reprint — no other mount fits the Revo.
+1. Lay the parts out in build order; bag the Klicky set aside.
+2. Read the code on both printhead halves: it must say **E-RV**, E3D Revo Voron.
+3. Confirm the rear half is the `_rear_cw2` variant, circled corner **solid**.
+
+**Check:** `E-RV` on both halves, and the circled corner of the rear half is closed. A different printhead folder means reprinting.
 
 Tip: the `revo_voron` folder is the settled choice for this kit; the SB printhead README maps "E3D Revo Voron → E-RV". [src](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md)
 
@@ -134,11 +138,11 @@ Source: [SB manual p.37](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.45](assets/sb-pages/sb-p045.png)
 ![Stealthburner main body render](assets/parts/%5Ba%5D_stealthburner_main_body.png)
 
-**What you're looking at:** The orange body is the Stealthburner shroud itself — the part that carries the LEDs, the air ducts and both fans, and the part everyone recognises the printer by. It prints with sacrificial support inside it. The thin webs across the fan cavities are the exception: they are designed to snap as a fan is pushed in, and that snap is what holds the fan captive afterwards.
+**What you're looking at:** The orange body is the Stealthburner shroud itself, carrying the LEDs, air ducts and both fans. It prints with sacrificial support inside. The webs across the fan cavities are the exception: they snap as a fan is pushed in and that snap retains it.
 
 **Parts:** `[a]_stealthburner_main_body` ×1.
 
-**Do:** The orange main body prints with a handful of built-in supports — SB p.45 highlights the three to remove. **Snap** them out with flush cutters — pry and break them, do not carve. Leave the supports inside the fan cavities alone: SB p.52 says those are designed to break when the fans go in, and breaking them early loses the fans' clip retention.
+**Do:** **Snap** the three built-in supports SB p.45 highlights out of the orange main body, using flush cutters: pry and break, do not carve. Leave the fan-cavity supports alone; SB p.52 says those break when the fans go in.
 
 **Check:** The LED pockets, diffuser channels and the two mounting bores are clear. The fan cavities still have their thin support webs in place.
 
@@ -153,17 +157,21 @@ Source: [SB manual p.45](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.13](assets/sb-pages/sb-p013.png)
 ![Clockwork 2 main body render](assets/parts/main_body.png)
 
-**What you're looking at:** [Clockwork 2](16-glossary.md#c) is the extruder — the geared drive that grips filament and pushes it into the hotend — and `main_body` is its larger half, holding the drive gear, one bearing and the filament path. A [heat-set insert](16-glossary.md#h) is a knurled brass sleeve melted into the plastic so a steel screw threads into metal instead of into the print. Every one goes in now, because the gear train that follows buries them.
+**What you're looking at:** [Clockwork 2](16-glossary.md#c) is the extruder, the geared drive that grips filament and pushes it down. `main_body` is its larger half: drive gear, one bearing, filament path. A [heat-set insert](16-glossary.md#h) is a knurled brass sleeve melted into plastic so a screw threads into metal.
 
 **Parts:** `main_body.stl`, heat-set inserts M3×5×4 ×4.
 
-**Do:** Fit the brass M3 tip and start at the **low end of your iron's range for ASA**, adjusting on the practice coupon from Ch 00 Step 00.14 — LDO publishes no figure, so the working temperature is the one written on the tape on your iron's base. Set the iron there and adjust the tongue so it bottoms flush with the insert. SB p.11 highlights **three** locations on the main body — one in the foot, one in each side face (p.12 is the motor plate). SB p.13 adds a **fourth** for the toolhead PCB; you are fitting a Nitehawk, so that one is required. Press each in square, then let the part cool before you touch it.
+**Do:**
+
+1. Fit the brass M3 tip and bring the iron to your ASA setting.
+2. Press in the three inserts SB p.11 highlights: foot, both side faces.
+3. Add the p.13 fourth, for the toolhead PCB. Press each one square.
 
 **Check:** All four sit below the surface, none is cocked, and an M3 screw starts by hand in each. Count: 4 `(verify on bench — the manual highlights locations, not counts)`.
 
 ⚠ Rev D+ / LDO: the p.13 "OPTION: TOOLHEAD PCB" inserts are not optional here. The Nitehawk-SB V2 bolts to the CW2 sides with two M3×8 into these inserts. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
-Tip: the p.13 insert on the main body sits next to a tall wall — the manual warns it is easy to touch that wall with the iron. Approach it from directly above.
+Tip: set the iron from the ASA figure on your Ch 00 Step 00.14 coupon, tongue bottoming flush. The p.13 insert sits beside a tall wall: approach from directly above.
 
 Source: [SB manual p.11](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=11) · [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=12) · [SB manual p.13](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=13)
 
@@ -175,13 +183,13 @@ Source: [SB manual p.11](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.13](assets/sb-pages/sb-p013.png)
 ![Clockwork 2 motor plate render](assets/parts/motor_plate.png)
 
-**What you're looking at:** The motor plate is the other half: the thin (8.2 mm) plate with the large central bore that closes the extruder and carries the pancake stepper. Its inserts have to finish **below** the surface — one standing proud stops the motor sitting flat, and the motor's seating is what sets the gear mesh.
+**What you're looking at:** The motor plate is the other half: the thin 8.2 mm plate with the large central bore that closes the extruder and carries the pancake stepper. Its inserts have to finish **below** the surface, because one standing proud stops the motor sitting flat.
 
 **Parts:** `motor_plate.stl`, heat-set inserts M3×5×4 ×4.
 
-**Do:** The motor plate is the thin (8.2 mm) part with the large central bore. SB p.12 highlights **three** locations on it and calls out two of them explicitly: the top insert and the bottom insert must both sit **below** the surface. Mind the cutout beside the bottom one and keep the insert straight. SB p.13 adds the **fourth**, for the toolhead PCB.
+**Do:** SB p.12 highlights **three** locations. The top and bottom inserts must both sit **below** the surface; mind the cutout beside the bottom one and keep it straight. SB p.13 adds the **fourth**, for the toolhead PCB.
 
-**Check:** Lay a steel rule across each insert — no insert stands proud. Count: 4 `(verify on bench)`.
+**Check:** Lay a steel rule across each insert: no insert stands proud. Count: 4 `(verify on bench)`.
 
 Source: [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=12) · [SB manual p.13](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=13)
 
@@ -195,11 +203,11 @@ Source: [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Guidler arm render](assets/parts/%5Ba%5D_guidler_a.png)
 
-**What you're looking at:** The latch, the latch shuttle and the guidler arm are the extruder's three small orange parts: the guidler arm swings the idler wheel against the drive gear to grip the filament, the shuttle is the hooked block the thumbscrew threads into on top of the arm, and the latch hooks over the shuttle to hold the arm closed. Their inserts finish **flush**, not sunk — sunk, and the latch can no longer reach the shuttle it has to catch.
+**What you're looking at:** The latch, the latch shuttle and the guidler arm are the extruder's three orange parts: the arm swings the idler against the drive gear to grip filament, the shuttle takes the thumbscrew, and the latch hooks over the shuttle to hold the arm closed.
 
 **Parts:** `[a]_latch` ×1, `[a]_latch_shuttle` ×1, `[a]_guidler_a` ×1, heat-set inserts M3×5×4 ×3.
 
-**Do:** These three accent parts (each carries the Voron heart on SB p.15) take one insert each: the shuttle's enters its end face, the latch's and the guidler arm's their side bosses. Unlike the body inserts, these must finish **flush or only slightly below** the surface — the p.15 "flush" callout is drawn on the latch cross-section `(verify on bench which part it belongs to)` — sunk too deep and the latch will not close on the shuttle.
+**Do:** Each of the three accent parts takes one insert: the shuttle's in its end face, the latch's and the guidler arm's in their side bosses. All three finish **flush or only slightly below**, never sunk `(verify on bench which part SB p.15's flush callout belongs to)`.
 
 **Check:** A straightedge across the insert face rocks on the plastic, not on the brass. Count: 3 `(verify on bench)`.
 
@@ -211,13 +219,13 @@ Source: [SB manual p.15](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.14](assets/sb-pages/sb-p014.png)
 
-**What you're looking at:** The chain anchor is the printed block on the back of the extruder that the toolhead [drag chain](16-glossary.md#d)'s end plate bolts to — it is what makes the chain pull on plastic rather than on the toolboard's connectors. Two hole patterns exist; this kit's chain is the IGUS-style two-hole, so two inserts go along the top face and one in the front tab.
+**What you're looking at:** The chain anchor is the block on the back of the extruder that the toolhead [drag chain](16-glossary.md#d)'s end plate bolts to, so the chain pulls on plastic and not on the toolboard's connectors. Two hole patterns exist; this kit's is the IGUS two-hole.
 
 **Parts:** CW2 Chain Anchor Tilted (LDO, supplied printed), heat-set inserts M3×5×4 ×3.
 
-**Do:** SB p.14 shows two anchor variants. Your kit ships **Igus-pattern 2-hole** drag chain, so use the two-hole row: **two** inserts along the top face plus **one** in the front tab that bolts to the extruder. Ignore the three-hole generic pattern entirely.
+**Do:** SB p.14 shows two anchor variants. Your kit ships **Igus-pattern 2-hole** drag chain, so use the two-hole row: **two** inserts along the top face plus **one** in the front tab that bolts to the extruder. Ignore the three-hole pattern.
 
-**Check:** Offer a chain end plate to the anchor — its two screw holes line up over your two inserts. Count: 3 `(verify on bench)`.
+**Check:** Offer a chain end plate to the anchor: its two screw holes line up over your two inserts. Count: 3 `(verify on bench)`.
 
 ⚠ Rev D+ / LDO: do not print or use `Clockwork2/chain_anchor_2hole.stl`. LDO supplies the **tilted** anchor printed, and the print plan lists the Voron file as deliberately not printed. Always take `_2hole`, never `_3hole`, anywhere in this build. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -229,11 +237,11 @@ Source: [SB manual p.14](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.38](assets/sb-pages/sb-p038.png)
 
-**What you're looking at:** The rear printhead half is the back of the tool cartridge — the part the hotend actually sits in. Two of the four holes SB p.38 highlights are the mount for an [ADXL345](16-glossary.md#a) accelerometer PCB; the [Nitehawk-SB V2](16-glossary.md#n) toolboard has one built into it, so those two stay bare plastic.
+**What you're looking at:** The rear printhead half is the back of the tool cartridge, where the hotend sits. Two of the four holes SB p.38 highlights mount an [ADXL345](16-glossary.md#a) accelerometer; the [Nitehawk-SB V2](16-glossary.md#n) has one on board, so those two stay bare.
 
 **Parts:** `stealthburner_printhead_revo_voron_rear_cw2` ×1, heat-set inserts M3×5×4 ×2.
 
-**Do:** SB p.38 highlights four locations on the rear printhead. Fit only the **two on the top face**. The **two inside the circled region are the ADXL PCB mount** — leave those holes empty.
+**Do:** SB p.38 highlights four locations on the rear printhead. Fit only the **two on the top face**. The **two inside the circled region are the ADXL PCB mount**: leave those holes empty.
 
 **Check:** Two inserts on the top face; the circled pair are bare plastic. Count: 2 `(verify on bench)`.
 
@@ -249,11 +257,11 @@ Source: [SB manual p.38](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Voron manual p.130](assets/manual-pages/manual-p130.png)
 ![Stealthburner manual p.59 — carriage part prep: heat-set inserts and M3 hex nuts](assets/sb-pages/sb-p059.png)
 
-**What you're looking at:** The [X carriage](16-glossary.md#x) is the pair of printed halves clamped to the MGN12 carriage and to both belts in Ch 05/07 — the whole toolhead hangs off it. Nothing is fitted here: this is the verification that every insert, nut and belt clamp is already in, because a toolhead bolted over a missing insert comes off again.
+**What you're looking at:** The [X carriage](16-glossary.md#x) is the pair of halves clamped to the MGN12 carriage and to both belts in Ch 05/07; the whole toolhead hangs off it. Nothing is fitted here. This is the check that every insert, nut and belt clamp is already in.
 
 **Parts:** X carriage (already on the gantry from Ch 05/07).
 
-**Do:** Before the toolhead exists, verify the carriage. Manual p.129 shows the carriage prep: its heat-set inserts and M3 nuts must already be fitted, and SB p.59 shows the same parts from the toolhead side. Check that both belt clamps are closed and the belts terminated.
+**Do:** Verify the carriage before the toolhead exists. Manual p.129 and SB p.59 show the prep: the heat-set inserts and M3 nuts must already be fitted. Check both belt clamps are closed and the belts terminated.
 
 **Check:** Every carriage insert and nut present; carriage slides the full X travel by hand with no bind; both belts clamped.
 
@@ -271,11 +279,11 @@ Pause: ~35 min since the last pause — all 16 heat-set inserts are in and cool,
 
 ![Stealthburner manual p.17](assets/sb-pages/sb-p017.png)
 
-**What you're looking at:** A Bondtech dual-drive extruder grips filament between **two** geared wheels rather than one wheel and a plain bearing. This is the second of those: the BMG idler gear, running on a bearing sleeve on its own shaft, with its toothed face towards the filament. The light grease film is what keeps that bearing free for the life of the machine.
+**What you're looking at:** A Bondtech dual-drive extruder grips filament between **two** geared wheels, not one wheel and a plain bearing. This is the second: the BMG idler gear, running on a bearing sleeve on its own shaft, toothed face towards the filament.
 
 **Parts:** BMG idler gear, idler shaft, bearing sleeve (from the Bondtech IDGA set).
 
-**Do:** Slide the idler assembly together on its shaft. Wipe a light grease film onto the bearing surfaces — the Voron sourcing guide calls for a "light grease"; the Super Lube you used on the rails is fine. Note the orientation shown: the toothed face goes towards the filament path.
+**Do:** Slide the idler assembly together on its shaft. Wipe a light grease film onto the bearing surfaces; the Super Lube from the rails is the "light grease" the Voron sourcing guide asks for. Toothed face towards the filament path.
 
 **Check:** The idler spins freely with no gritty feel and no axial slop.
 
@@ -287,11 +295,11 @@ Source: [SB manual p.17](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.16](assets/sb-pages/sb-p016.png)
 
-**What you're looking at:** The guidler is the swinging arm that carries the idler — two orange halves joined by a single M3×16 (p.16); the idler assembly then slides into the joined arm on its own shaft (p.17). Snug rather than torqued, because the bolt only closes the halves, and plastic crushed under it distorts the arm.
+**What you're looking at:** The guidler is the swinging arm that carries the idler: two orange halves joined by a single M3×16 on p.16, with the idler assembly sliding into the joined arm on its own shaft on p.17.
 
 **Parts:** `[a]_guidler_a` ×1, `[a]_guidler_b` ×1, M3×16 SHCS ×1, the idler assembly from 08.9.
 
-**Do:** Join the two guidler halves with one M3×16 SHCS (p.16), then slide the greased idler assembly from 08.9 into the joined arm from the side, in the orientation p.17 circles — toothed face toward the filament path. Snug — this bolt only closes the halves; the idler turns on its own shaft.
+**Do:** Join the two guidler halves with one M3×16 SHCS, p.16. Slide the greased idler assembly from 08.9 into the arm from the side, in the orientation p.17 circles: toothed face toward the filament path. Snug only.
 
 **Check:** The idler spins freely in the closed arm. The two halves meet with no gap.
 
@@ -303,13 +311,15 @@ Source: [SB manual p.16](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.18](assets/sb-pages/sb-p018.png)
 
-**What you're looking at:** The thumbscrew, spring and washer are the extruder's grip adjustment, and the latch shuttle is what they thread into: the thumbscrew passes through the guidler's top boss and screws into the shuttle sitting on top of the arm, so winding it in compresses the spring and pushes the guidler arm — and so the idler — harder onto the filament. The latch (Step 08.20) hooks over that shuttle. The spring's rate is what sets that grip curve, which is why a substitute spring of the wrong size prints differently rather than just feeling different.
+**What you're looking at:** The thumbscrew, spring and washer are the extruder's grip adjustment; the latch shuttle is what they thread into. Winding the thumbscrew in compresses the spring and pushes the guidler arm, and so the idler, harder onto the filament.
 
 **Parts:** `[a]_latch_shuttle` ×1 (insert from 08.5), Thumb Screw Kit — thumbscrew ×1, spring ×1, washer ×1.
 
-**Do:** Seat the latch shuttle on top of the guidler's boss with its hook facing the latch side (p.18, right-hand drawing). Slide the spring then the washer onto the thumbscrew shaft in that order, pass the thumbscrew through the boss and thread it into the shuttle's insert.
+**Do:** Seat the latch shuttle on top of the guidler's boss, hook facing the latch side, p.18 right. Slide the spring then the washer onto the thumbscrew, pass it through the boss and thread it into the shuttle's insert.
 
-**Check:** The shuttle is captive and can be drawn against the spring by hand. The spring measures roughly 12 mm long, 6 mm OD, 1 mm wire. A different spring changes the tension characteristic and prints badly — if yours is visibly different, source the Bondtech part before continuing.
+**Check:** The shuttle is captive and draws against the spring by hand. The spring measures roughly 12 mm long, 6 mm OD, 1 mm wire.
+
+Tip: a substitute spring of the wrong size changes the tension curve and prints badly; source the Bondtech part before continuing.
 
 Source: [SB manual p.18](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=18)
 
@@ -319,11 +329,11 @@ Source: [SB manual p.18](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.19](assets/sb-pages/sb-p019.png)
 
-**What you're looking at:** An MR85 is a small ball bearing (5 mm bore, 8 mm outside); two of them carry the extruder's drive shaft, one in each printed half. Pressing on the **inner** ring drives the load through the balls and dents the races — always press only on the outer ring.
+**What you're looking at:** An MR85 is a small ball bearing, 5 mm bore and 8 mm outside; two of them carry the extruder's drive shaft, one in each printed half. Pressing on the **inner** ring drives load through the balls and dents the races.
 
 **Parts:** `motor_plate.stl`, MR85 bearing ×1 (of 2).
 
-**Do:** Press the MR85 fully into its plastic pocket with even pressure on the **outer** ring only — never push on the inner ring. If it needs real force the part is over-extruded; back off and check the print rather than hammering it.
+**Do:** Press the MR85 fully into its plastic pocket, even pressure on the **outer** ring only. Never push on the inner ring. If it needs real force the part is over-extruded: check the print rather than hammering it.
 
 **Check:** The bearing face is flush with the pocket floor and spins freely.
 
@@ -335,11 +345,11 @@ Source: [SB manual p.19](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.19](assets/sb-pages/sb-p019.png)
 
-**What you're looking at:** The drive shaft carries the filament drive gear and the 50 T gear that the motor's pinion turns. The bearings must be a **slide** fit on it, not a press fit, so the gear train can find its own centre between the two halves; a bearing forced on is a bearing already damaged.
+**What you're looking at:** The drive shaft carries the filament drive gear and the 50 T gear the motor's pinion turns. The bearings must be a **slide** fit on it, not a press fit, so the gear train can find its own centre.
 
 **Parts:** Bondtech drive shaft, both MR85 bearings, fine sandpaper (supplied).
 
-**Do:** The bearings must **slip on and off the shaft by hand** so the gear can self-centre. Pressing a bearing onto the shaft destroys it. If either is tight, lightly sand the shaft — a few passes, then re-test.
+**Do:** The bearings must **slip on and off the shaft by hand** so the gear can self-centre. Pressing a bearing onto the shaft destroys it. If either is tight, lightly sand the shaft: a few passes, then re-test.
 
 **Check:** Each bearing slides on and off with fingertip force and no rocking.
 
@@ -351,7 +361,7 @@ Source: [SB manual p.19](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.20](assets/sb-pages/sb-p020.png)
 
-**What you're looking at:** The second MR85, this time in the main body, plus one countersunk screw to retain it. Threadlocker rather than more torque: the screw goes into printed plastic, and vibration — not slackness — is what would otherwise back it out.
+**What you're looking at:** The second MR85, this time in the main body, plus one countersunk screw to retain it. Threadlocker rather than more torque: the screw goes into printed plastic, and vibration, not slackness, is what would otherwise back it out.
 
 **Parts:** `main_body.stl`, MR85 bearing ×1, M3×6 FHCS ×1, threadlocker.
 
@@ -367,13 +377,17 @@ Source: [SB manual p.20](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.21](assets/sb-pages/sb-p021.png)
 
-**What you're looking at:** The filament drive gear is the toothed wheel that actually pushes the filament, and 15.6 mm is where along the shaft its teeth line up with the filament path. Its set screw must land on the **flat machined into the shaft**, not on the round: on the round it creeps, and a drive gear that has crept reads later as random under-extrusion.
+**What you're looking at:** The filament drive gear is the toothed wheel that pushes the filament; 15.6 mm is where its teeth line up with the filament path. Its set screw must land on the **flat machined into the shaft**, not the round, or it creeps.
 
 **Parts:** Bondtech filament drive gear, 50T gear, drive shaft, caliper, threadlocker.
 
-**Do:** Read SB p.21–24 end to end before you open the threadlocker — the position is set across three pages and you want to be moving when the glue is wet. Slide the drive gear onto the shaft so its **set screw seats against the notch machined in the shaft**, set the initial spacing to **15.6 mm** as dimensioned on p.21, apply threadlocker, and tighten the set screw carefully. The set-screw head strips easily.
+**Do:**
 
-**Check:** Caliper reads 15.6 mm at the dimensioned face. The set screw is on the notch, not on the round of the shaft. Final position is corrected in Step 08.18.
+1. Read SB p.21–24 first.
+2. Slide the drive gear on, **set screw on the shaft's machined notch**, to the **15.6 mm** p.21 dimension.
+3. Apply threadlocker and tighten the set screw carefully; its head strips easily.
+
+**Check:** Caliper reads 15.6 mm at the dimensioned face, and the set screw is on the notch, not the round. Step 08.18 corrects it.
 
 Source: [SB manual p.21](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=21)
 
@@ -383,7 +397,7 @@ Source: [SB manual p.21](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.22](assets/sb-pages/sb-p022.png)
 
-**What you're looking at:** Shaft, drive gear and 50 T gear go into the main body as one assembly, the shaft picking up the bearing you fitted at Step 08.14. Everything should turn on bearing drag alone — a gear touching plastic here wears a groove and adds a load the extruder never loses.
+**What you're looking at:** Shaft, drive gear and 50 T gear go into the main body as one assembly, the shaft picking up the bearing from 08.14. Everything turns on bearing drag alone; a gear touching plastic wears a groove and adds permanent load.
 
 **Parts:** drive assembly from 08.15, `main_body.stl`.
 
@@ -403,7 +417,7 @@ Source: [SB manual p.22](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Parts:** `motor_plate.stl` (from 08.12), M3×25 SHCS ×2.
 
-**Do:** Bring the motor plate onto the main body so the shaft picks up its second MR85, then fit two M3×25 SHCS. Tighten until the parts meet and stop. The manual's wording is deliberate: tighten too far and the plastic bends and cracks — at which point you back off two turns, bin the part and reprint.
+**Do:** Bring the motor plate onto the main body so the shaft picks up its second MR85, then fit two M3×25 SHCS. Tighten until the parts meet, then stop. Tightened past that, the plastic bends and cracks.
 
 **Check:** No visible gap at the parting line and no stress whitening at either bolt boss. The shaft still turns freely.
 
@@ -415,11 +429,15 @@ Source: [SB manual p.23](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.24](assets/sb-pages/sb-p024.png)
 
-**What you're looking at:** A live check with real filament, because the 15.6 mm figure is only a starting point. The filament must land on the drive gear's **toothed band**, not on the smooth shoulder either side — a gear a millimetre out grips only intermittently, which reads as under-extrusion you will chase in the slicer.
+**What you're looking at:** A live check with real filament, because the 15.6 mm figure is only a starting point. The filament must land on the drive gear's **toothed band**, not on the smooth shoulder either side; a gear a millimetre out grips only intermittently.
 
 **Parts:** a 100 mm offcut of 1.75 mm filament.
 
-**Do:** Push the filament down the extruder's filament path. It must land on the **toothed** section of the drive gear, not on the shoulder either side. If it is off, loosen the set screw, nudge the gear, re-check, re-tighten. Then confirm the shaft's end face does not stand proud of the printed part — the drive shaft must not touch the motor housing when the stepper goes on. Sand the shaft face if it does.
+**Do:**
+
+1. Push filament down the path: it must land on the gear's **toothed** section, not the shoulder.
+2. If off, loosen the set screw, nudge the gear, re-check, re-tighten.
+3. Sand the shaft end face if it stands proud.
 
 **Check:** Filament centres on the gear teeth; the shaft end sits at or below the plastic surface when fully seated.
 
@@ -449,11 +467,11 @@ Source: [SB manual p.25](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.26](assets/sb-pages/sb-p026.png)
 
-**What you're looking at:** The latch is the orange lever that hooks over the latch shuttle (08.11) to hold the guidler arm closed against spring pressure, so filament can be loaded one-handed. It also has to pivot, so it too is snug rather than tight.
+**What you're looking at:** The latch is the orange lever that hooks over the latch shuttle from 08.11 to hold the guidler arm closed against spring pressure, so filament can be loaded one-handed. It also has to pivot, so it too is snug rather than tight.
 
 **Parts:** `[a]_latch` ×1 (insert fitted in 08.5), M3×25 SHCS ×1.
 
-**Do:** Drop the latch over its post and secure with one M3×25 SHCS. Snug — the latch must still pivot.
+**Do:** Drop the latch over its post and secure with one M3×25 SHCS. Snug: the latch must still pivot.
 
 **Check:** The latch swings over and hooks the shuttle, holding the guidler closed, and releases cleanly when lifted.
 
@@ -465,11 +483,11 @@ Source: [SB manual p.26](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.27](assets/sb-pages/sb-p027.png)
 
-**What you're looking at:** Two independent adjustments meet here. The thumbscrew sets **how hard** the idler presses; the CW2 anti-squish stop sets the **minimum** gap, so the two gears can never be driven into each other. Shallow tooth marks on the filament are correct — a flattened track means the filament is being deformed instead of gripped.
+**What you're looking at:** Two independent adjustments meet here. The thumbscrew sets **how hard** the idler presses; the CW2 anti-squish stop sets the **minimum** gap, so the gears can never be driven into each other. Shallow tooth marks are correct, a flattened track is not.
 
 **Parts:** the assembled extruder, 1.75 mm filament offcut.
 
-**Do:** Clockwise on the thumbscrew increases grip. Set it to just enough that the filament cannot be pulled back through by hand. Then set the CW2 anti-squish adjustment — the stop that fixes the **minimum** distance between drive gear and idler — so the gears mesh without binding and soft filament is not crushed.
+**Do:** Clockwise on the thumbscrew increases grip. Set it just tight enough that the filament cannot be pulled back through by hand. Then set the CW2 anti-squish stop, the **minimum** drive-gear-to-idler distance, so the gears mesh without binding.
 
 **Check:** With filament loaded, the arm closes without the gears grinding against each other, and the filament shows shallow tooth marks rather than a flattened track.
 
@@ -485,7 +503,7 @@ Source: [SB manual p.27](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Parts:** LDO-36STH20-1004AHG(VRN) NEMA14 pancake stepper ×1, M3×30 SHCS ×1.
 
-**Do:** Present the stepper to the motor plate with its pinion entering the 50T gear chamber and its cable exiting where the CW2 body routes it. Start the M3×30 SHCS in the upper mounting position. Leave it loose — mesh is set two steps from now.
+**Do:** Present the stepper to the motor plate, pinion entering the 50T gear chamber, cable exiting where the CW2 body routes it. Start the M3×30 SHCS in the upper mounting position and leave it loose.
 
 **Check:** The motor sits flat against the plate with the pinion engaged, not bottomed.
 
@@ -497,7 +515,7 @@ Source: [SB manual p.28](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.29](assets/sb-pages/sb-p029.png)
 
-**What you're looking at:** The second motor bolt is reached from the front of the extruder through an access hole. This is the bolt that gets forgotten — and a motor held by one bolt slowly rotates in its slots under load until the mesh is gone.
+**What you're looking at:** The second motor bolt is reached from the front of the extruder through an access hole. This is the bolt that gets forgotten, and a motor held by one bolt slowly rotates in its slots under load until the mesh is gone.
 
 **Parts:** M3×8 SHCS ×1, M3 washer ×1.
 
@@ -513,11 +531,11 @@ Source: [SB manual p.29](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.30](assets/sb-pages/sb-p030.png)
 
-**What you're looking at:** Gear mesh is how deeply the pinion and the 50 T teeth overlap. Too shallow and the teeth skip under load; preloaded together and the drivetrain binds and whines. What you want is full tooth overlap with a faint, just-perceptible backlash, then the motor locked there — M3×30 first, then the M3×8.
+**What you're looking at:** Gear mesh is how deeply the pinion and the 50 T teeth overlap. Too shallow and the teeth skip under load; preloaded and the drivetrain binds and whines. You want full tooth overlap with a faint backlash, then the motor locked there.
 
 **Parts:** the extruder assembly.
 
-**Do:** Slide the motor until the pinion and the 50T gear teeth fully overlap with a **very small** gap between the tooth faces. You want a faint play, not a preload. Turn the drive shaft by hand while you adjust. When it feels right, tighten the M3×30 first, then the M3×8 — the manual's most-missed step is forgetting the second bolt.
+**Do:** Slide the motor until the pinion and the 50T teeth fully overlap with a **very small** gap between the tooth faces. Turn the drive shaft by hand as you adjust. Then tighten the M3×30 first, the M3×8 second.
 
 **Check:** Rotating the drive gear by hand gives a barely perceptible backlash and no tight spot anywhere through a full turn. Both bolts tight.
 
@@ -549,7 +567,7 @@ Source: [SB manual p.31](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Parts:** M3×8 SHCS ×1.
 
-**Do:** Drive the M3×8 SHCS into the cable-bridge position on the side of the extruder — the second fixing that ties the anchor and the cable path to the body.
+**Do:** Drive the M3×8 SHCS into the cable-bridge position on the side of the extruder: the second fixing that ties the anchor and the cable path to the body.
 
 **Check:** The anchor no longer twists when you push it sideways.
 
@@ -565,11 +583,15 @@ Pause: ~25 min since the last pause — Clockwork 2 is a complete, self-supporti
 
 ![Stealthburner manual p.39](assets/sb-pages/sb-p039.png)
 
-**What you're looking at:** The [Revo HF](16-glossary.md#r) is E3D's quick-change hotend, in three pieces: the **heatsink** (the finned top the filament enters through, kept cold by the 4010 fan), the **HeaterCore** (heater and thermistor in one module) and a **nozzle** that screws in **by hand** — no tools, ever. A retaining spring holds the HeaterCore captive, and turning it clockwise disengages that spring, which is why the cables are aimed by rotating it anti-clockwise only.
+**What you're looking at:** The [Revo HF](16-glossary.md#r) is E3D's quick-change hotend in three pieces: the **heatsink**, the finned top the filament enters; the **HeaterCore**, heater and thermistor in one module; and a **nozzle** that screws in by hand. A retaining spring holds the HeaterCore captive.
 
 **Parts:** Revo Voron heatsink ×1, retaining spring ×1, Revo HeaterCore ×1, Revo nozzle ×1.
 
-**Do:** Fit the spring into the groove on the **bottom** of the heatsink. Push the HeaterCore onto the heatsink-and-spring assembly. Then screw the nozzle into the heatsink — **finger-tight only**, no tools; it should slide freely through the HeaterCore as it goes. To point the HeaterCore's cables where you want them, rotate it **anti-clockwise only**: turning it clockwise disengages the spring.
+**Do:**
+
+1. Fit the spring into the groove on the heatsink's **bottom** and push the HeaterCore on.
+2. Screw the nozzle in **finger-tight only**, no tools.
+3. Aim the cables by rotating the HeaterCore **anti-clockwise only**; clockwise disengages the spring.
 
 **Check:** Nozzle fully home and hand-tight. HeaterCore captive under spring load. Cables pointing to the rear.
 
@@ -582,7 +604,7 @@ Source: [SB manual p.39](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.39](assets/sb-pages/sb-p039.png)
 ![Stealthburner manual p.40](assets/sb-pages/sb-p040.png)
 
-**What you're looking at:** The rear printhead half is the pocket the hotend lives in. The heatsink's groove locates on a moulded rib, and that rib is what stops the hotend rotating when you hand-tighten the nozzle or change it later. SB p.40 draws the hotend already sitting in this half — it goes in *before* the wires are routed, so the strain relief gets bent once, against the real wall it has to clear.
+**What you're looking at:** The rear printhead half is the pocket the hotend lives in. The heatsink's groove locates on a moulded rib that stops the hotend rotating when you hand-tighten the nozzle. SB p.40 draws the hotend in this half: it goes in before the wires are routed.
 
 **Parts:** `stealthburner_printhead_revo_voron_rear_cw2` (inserts from 08.7), Revo assembly.
 
@@ -598,13 +620,16 @@ Source: [SB manual p.39](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.40](assets/sb-pages/sb-p040.png)
 
-**What you're looking at:** The strain relief is the stainless sleeve where the HeaterCore's wires leave the module. Bending it clear is not tidiness: with it in the way the nozzle cannot go the last part-turn home, and a nozzle not fully seated leaks molten plastic up into the printhead on the first hot print. With the hotend in its half you bend it once, against the wall it has to clear — bending blind means re-bending, and a crimped wire exit fatigues.
+**What you're looking at:** The strain relief is the stainless sleeve where the HeaterCore's wires leave the module. With it in the way the nozzle cannot go the last part-turn home, and a nozzle not fully seated leaks molten plastic into the printhead on the first hot print.
 
 **Parts:** Revo assembly in the rear half (from 08.28).
 
-**Do:** Route the hotend wires up the side of the rear half as SB p.40 shows — the routing is the same for every hotend type. Then carefully bend the HeaterCore's stainless strain relief so it clears the printed part. Hold the HeaterCore firmly while you bend so you do not put load on the nozzle. This is not cosmetic: **the nozzle cannot be fully hand-tightened into the heatsink unless the strain relief is bent out of the way.**
+**Do:**
 
-**Check:** With the rear half in your hand the relief clears its wall, the nozzle still turns the last part-turn home by hand, and the wires exit rearwards without touching the nozzle.
+1. Route the hotend wires up the side of the rear half as SB p.40 shows.
+2. Bend the HeaterCore's stainless strain relief clear of the printed part, holding the HeaterCore firmly so no load goes on the nozzle.
+
+**Check:** The relief clears its wall, the nozzle still turns the last part-turn home by hand, and the wires exit rearwards clear of the nozzle.
 
 Source: [SB manual p.40](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=40)
 
@@ -614,7 +639,7 @@ Source: [SB manual p.40](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.41](assets/sb-pages/sb-p041.png)
 
-**What you're looking at:** Front half on, two bolts, and the **tool cartridge** now exists as an object: hotend, both printhead halves and (next) the PTFE, as one unit that later slides up into the toolhead. Zero play matters because any movement here is movement of the nozzle relative to the bed.
+**What you're looking at:** Front half on, two bolts, and the **tool cartridge** now exists as an object: hotend, both printhead halves and, next, the PTFE, as one unit that later slides up into the toolhead. Any movement here is movement of the nozzle.
 
 **Parts:** `stealthburner_printhead_revo_voron_front` ×1, M3×16 SHCS ×2.
 
@@ -634,7 +659,7 @@ Source: [SB manual p.41](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Parts:** M3×8 SHCS ×4.
 
-**Do:** Drive four M3×8 SHCS into the top face of the tool cartridge. These are the studs the cartridge later hangs on when it slides up into the toolhead (Step 08.61) — do not overtighten and do not leave them proud.
+**Do:** Drive four M3×8 SHCS into the top face of the tool cartridge. Do not overtighten and do not leave them proud.
 
 **Check:** Four bolts, all seated to the same depth.
 
@@ -646,13 +671,13 @@ Source: [SB manual p.42](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.43](assets/sb-pages/sb-p043.png)
 
-**What you're looking at:** The PTFE tube is the low-friction liner that guides filament from the extruder's outlet down into the hotend. 11 mm of stickout is the Clockwork 2 figure: it is the length that closes the gap between the two, so the filament is guided the whole way and cannot buckle sideways under extrusion pressure.
+**What you're looking at:** The PTFE tube is the low-friction liner that guides filament from the extruder's outlet down into the hotend. 11 mm of stickout is the Clockwork 2 figure: the length that closes the gap between the two, so the filament cannot buckle under extrusion pressure.
 
 **Parts:** PTFE 4 mm OD / 2 mm ID (10 cm piece), caliper, flush cutters.
 
-**Do:** Push the PTFE down into the tool cartridge until it bottoms on the heatsink, then cut it so exactly **11 mm** stands above the surface of the printed part. Cut square — a diagonal cut leaves a filament-catching step. The 11 mm figure is specific to Clockwork 2.
+**Do:** Push the PTFE down into the tool cartridge until it bottoms on the heatsink, then cut it so exactly **11 mm** stands above the printed part. Cut square: a diagonal cut leaves a filament-catching step.
 
-**Check:** Caliper across the stickout reads 11 mm. Push 1.75 mm filament through — it enters the hotend with no catch.
+**Check:** Caliper across the stickout reads 11 mm. Push 1.75 mm filament through: it enters the hotend with no catch.
 
 Source: [SB manual p.43](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=43) · [Video: Part 5 @2:06:01](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7561s) (differs: builds Afterburner + Clockwork 1; this kit is Stealthburner + Clockwork 2 + Revo HF)
 
@@ -664,15 +689,18 @@ Pause: ~20 min since the last pause — the tool cartridge is closed around the 
 
 ![Nitehawk-SB V2 board pinout (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) is the **toolboard** — a small PCB that rides on the toolhead and collects the heater, thermistor, both fans, the LEDs, the probe and the extruder motor onto one thin USB-plus-24 V umbilical instead of a loom of eight cables. On it, `HE0` is a screw terminal for the heater and `TH0` a 2-pin [JST-PH2.0](16-glossary.md#j) socket for the thermistor. A [ferrule](16-glossary.md#f) is a metal sleeve crimped over stranded wire so it clamps in a screw terminal without splaying.
+**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) is the **toolboard**: a PCB on the toolhead collecting heater, thermistor, fans, LEDs, probe and motor onto one USB-plus-24 V umbilical. `HE0` is the heater screw terminal, `TH0` the 2-pin [JST-PH2.0](16-glossary.md#j) socket. A [ferrule](16-glossary.md#f) stops stranded wire splaying in a screw terminal.
 
 **Parts:** Revo heater and thermistor leads, E0508 ferrules ×2, JST-PH2.0 2-pin housing + crimps (only if re-terminating).
 
-**Do:** The Revo HF arrives with integrated heater and thermistor terminated in Molex Micro-Fit 3.0 2-pin. The Nitehawk V2 wants **E0508 ferrules** in the `HE0` screw terminal for the heater (polarity does not matter) and a **JST-PH2.0 2-pin** plug on `TH0` for the thermistor. Open the Toolhead PCB Cables bag first: if LDO's pre-terminated hotend cables mate with the Revo's Micro-Fit connectors, use them as-is and crimp nothing. If they do not, cut the Revo pigtails to length and fit ferrules and a PH2.0 housing yourself. `(verify on bench — depends on what LDO packed for the Revo option)`
+**Do:**
+
+1. Open the Toolhead PCB Cables bag. If LDO's cables mate the Revo's Molex Micro-Fit 3.0 2-pin, use them as-is.
+2. Otherwise cut the Revo pigtails and fit **E0508 ferrules** for `HE0`, a **JST-PH2.0 2-pin** housing for `TH0`. `(verify on bench — depends on what LDO packed for the Revo option)`
 
 **Check:** Heater leads end in two crimped E0508 ferrules with no stray strands. Thermistor lead ends in a 2-pin PH2.0 housing that drops into `TH0` without force.
 
-⚠ Rev D+ / LDO: the Rev D wiring guide still says *"the connector type to use is JST-XH2.5 two pin"* for the hotend thermistor. On the V2 board `TH0`, `PROBE` and the XY endstop are **JST-PH2.0**. An XH2.5 housing will not fit, and the smaller PH2.0 body is easy to force into the wrong header — check the silkscreen before every insertion. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
+⚠ Rev D+ / LDO: the Rev D wiring guide says *"the connector type to use is JST-XH2.5 two pin"* for the thermistor. On the V2 board `TH0`, `PROBE` and the XY endstop are **JST-PH2.0**. An XH2.5 housing will not fit, and the PH2.0 body is easy to force into the wrong header — check the silkscreen before every insertion. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
 Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg)
 
@@ -682,13 +710,13 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Stealthburner manual p.55](assets/sb-pages/sb-p055.png)
 
-**What you're looking at:** The 5015 is the **part-cooling blower**: a centrifugal fan that throws air sideways out of a nozzle rather than straight through, which is what lets it feed the printhead's narrow ducts. Its moulded mounting ears belong to a different machine — Stealthburner grips the bare housing, so the ears come off flush.
+**What you're looking at:** The 5015 is the **part-cooling blower**: a centrifugal fan that throws air sideways out of a nozzle rather than straight through, which lets it feed the printhead's narrow ducts. Its moulded mounting ears belong to a different machine; Stealthburner grips the bare housing.
 
 **Parts:** 50×50×15 centrifugal fan (24 V) ×1, flush cutters, small flat file.
 
-**Do:** Remove the front cover of the 5015. Clip the stock mounting ears off flush and file the remains down until the housing sides are flat. A trimming jig STL ships in the Stealthburner release if you want one — it is not in the repo's `STLs/` tree, only in the release archive.
+**Do:** Remove the front cover of the 5015. Clip the stock mounting ears off flush and file the remains until the housing sides are flat. A trimming jig STL ships in the Stealthburner release archive, not in the repo's `STLs/` tree.
 
-**Check:** No ear stands proud of the housing wall. Test-fit the fan into the SB main body pocket — it drops in without spreading the printed walls.
+**Check:** No ear stands proud of the housing wall. The fan drops into the SB main body pocket without spreading the printed walls.
 
 Source: [SB manual p.55](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=55) · [Video: Part 6 @0:20:10](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1210s)
 
@@ -700,13 +728,16 @@ Source: [SB manual p.55](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.47](assets/sb-pages/sb-p047.png)
 
-**What you're looking at:** The logo LED and its three-part sandwich. From the outside in: the **opaque black mask** (three windows) is the face you see; the **clear PETG diffuser** sits behind it, its three prongs poking forward through the mask's windows; the carrier with the LED sits behind both. Swap the order and the prongs face the LED and nothing fits.
+**What you're looking at:** The logo LED and its three-part sandwich, from the outside in: the **opaque mask** with three windows is the face you see; the **clear PETG diffuser** behind it pokes three prongs forward through those windows; the carrier holds the LED behind both.
 
 **Parts:** `[o]_stealthburner_LED_carrier` ×1, `[o]_stealthburner_LED_diffuser_mask` ×1, `[c]_stealthburner_LED_diffuser` ×1 (supplied, clear PETG), logo LED (chain index 1).
 
-**Do:** Seat the logo LED in the carrier with its wires exiting upwards. Then stack, from the outside in: mask (opaque, three windows) → diffuser (three prongs forward through the windows, flat base behind) → LED carrier with the LED — SB p.47's right-hand drawing is the assembled result. The mask blocks light bleed so the logo reads crisply; the diffuser spreads it.
+**Do:**
 
-**Check:** Three translucent bars sit flush in the black face with no light path around them; the diffuser's flat base is behind the mask, not in front of it. Nothing rattles.
+1. Seat the logo LED in the carrier, wires exiting upwards.
+2. Stack from the outside in: opaque mask, then diffuser with its prongs forward and flat base behind, then the LED carrier. SB p.47 right draws the result.
+
+**Check:** Three translucent bars sit flush in the black face, the diffuser's flat base behind the mask and not in front. Nothing rattles.
 
 Source: [SB manual p.47](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=47)
 
@@ -716,13 +747,16 @@ Source: [SB manual p.47](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.46](assets/sb-pages/sb-p046.png)
 
-**What you're looking at:** These are addressable LEDs wired as a chain: data goes **in** to the first, **out** of it and in to the second, and so on, so each LED's position in the chain is its address. Logo is index 1, right toolhead LED is 2, left is 3 — the order the Klipper config's `chain_count: 3` and every LED macro assume.
+**What you're looking at:** These are addressable LEDs wired as a chain: data goes **in** to the first and **out** to the next, so each LED's position is its address. Logo is index 1, right toolhead LED 2, left 3, the order `chain_count: 3` and every LED macro assume.
 
 **Parts:** logo LED (index 1), toolhead LED right (index 2), toolhead LED left (index 3); 3-core 0.16 mm² (AWG26–30) — 120 mm controller→logo, 100 mm between each LED.
 
-**Do:** Many Rev D kits ship this chain pre-soldered in the toolhead cable bag — check first and skip this step if so. If you are soldering it: connect **OUT of one LED to IN of the next**, in the order logo (1) → right (2) → left (3). Both the IN and the OUT wires of every LED must **exit in the same direction**, or the pigtails will not lie in the printed channels.
+**Do:**
 
-**Check:** Continuity from the connector's DIN through each LED's DIN/DOUT pair in chain order; 5 V and GND common along the chain; no 5 V–GND short at the connector.
+1. Check the toolhead cable bag: many Rev D kits ship this chain pre-soldered.
+2. Otherwise solder **OUT to IN** along the chain, logo 1, right 2, left 3, every LED's wires exiting the same way.
+
+**Check:** Continuity from the connector's DIN through each LED's DIN/DOUT pair in chain order; 5 V and GND common; no 5 V–GND short.
 
 ⚠ Rev D+ / LDO: the config declares `chain_count: 3` and `color_order: GRBW`. A colour-order mismatch shows up as wrong colours, never as a failure — if the LEDs light in the wrong colours in Ch 13, change `color_order`, do not rewire. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -736,11 +770,11 @@ Pause: ~25 min since the last pause — the hotend leads are terminated, the 501
 
 ![Stealthburner manual p.48](assets/sb-pages/sb-p048.png)
 
-**What you're looking at:** The two toolhead LEDs sit in the top corners of the body and light the print area from above — they are what you actually watch a first layer by. The two pockets are mirror images. SB p.48 names them from behind: its "TOOLHEAD LED RIGHT" (index 2) is the toolhead's own right — the pocket on **your left** when you face the printer. Either way round only changes which pocket is index 2 in the config.
+**What you're looking at:** The two toolhead LEDs sit in the top corners of the body and light the print area from above. SB p.48 names them from behind: index 2 is the toolhead's own right, the pocket on **your left** when you face the printer.
 
 **Parts:** toolhead LED left (index 3), toolhead LED right (index 2), `[a]_stealthburner_main_body`.
 
-**Do:** Push each toolhead LED into its pocket in the top corners of the main body, from the outside inwards, wires trailing outboard. Use the SB manual's convention: p.48 is drawn from behind, so its "RIGHT" pocket (index 2) is the toolhead's own right and its "LEFT" pocket (index 3) the toolhead's own left.
+**Do:** Push each toolhead LED into its pocket in the top corners of the main body, from the outside inwards, wires trailing outboard. p.48 is drawn from behind: its **RIGHT** pocket is index 2, its **LEFT** pocket index 3.
 
 **Check:** Both LEDs bottom in their pockets and face down into the print area.
 
@@ -753,11 +787,11 @@ Source: [SB manual p.48](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.49](assets/sb-pages/sb-p049.png)
 ![Stealthburner manual p.50](assets/sb-pages/sb-p050.png)
 
-**What you're looking at:** The diffusers are the translucent panels that give Stealthburner its lit face — the mask-and-diffuser sandwich and the LED carrier you stacked at 08.35, which the SB manual feeds into the body in two pieces. Pushed fully forward they sit flush with the front of the body; left back, they leave a shadow line and a gap that collects dust.
+**What you're looking at:** The diffusers are the translucent panels you stacked at 08.35: the mask-and-diffuser sandwich and the LED carrier, which the SB manual feeds into the body in two pieces. Pushed fully forward they sit flush with the front; left back, they leave a shadow line.
 
 **Parts:** the logo LED assembly from 08.35 (mask + diffuser, and the LED carrier).
 
-**Do:** Drop the mask-and-diffuser into the top slot and push it **towards the front** of the body until it fills the front window (p.49); drop the carrier with the LED in behind it (p.50). `(verify on bench which of p.49/p.50 is the mask+diffuser and which the carrier)`
+**Do:** Drop the mask-and-diffuser into the top slot and push it **towards the front** until it fills the front window, p.49. Drop the carrier with the LED in behind it, p.50. `(verify on bench which of p.49/p.50 is the mask+diffuser and which the carrier)`
 
 **Check:** Diffuser faces sit flush with the front of the body; no gap behind them.
 
@@ -785,13 +819,13 @@ Source: [SB manual p.51](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.53](assets/sb-pages/sb-p053.png)
 
-**What you're looking at:** The 4010 axial fan is the **hotend** fan: it blows through the heatsink's fins to keep the cold side of the hotend cold, so filament only softens in the melt zone. Direction is absolute — the moulded arrow must point *into* the heatsink. As it seats, the fan snaps the body's support webs, and that is exactly what retains it.
+**What you're looking at:** The 4010 axial fan is the **hotend** fan: it blows through the heatsink's fins to keep the cold side of the hotend cold. Direction is absolute: the moulded arrow must point *into* the heatsink. As it seats, the fan snaps the body's support webs.
 
 **Parts:** 40×40×10 axial fan, 24 V ×1.
 
-**Do:** Rotate the fan so its **wires exit at the top** and its airflow pushes **inwards** — into the heatsink, not out of it. Read the moulded arrow on the fan frame to confirm. Insert it at a slight angle and clip it into place; it will snap the body's built-in support webs as it seats, which is intended.
+**Do:** Rotate the fan so its **wires exit at the top** and its airflow pushes **inwards**, into the heatsink. Confirm against the moulded arrow on the frame. Clip it in at a slight angle; it snaps the body's support webs.
 
-**Check:** Wires at top, airflow arrow pointing into the body. Spin the impeller with a finger — free, no rub.
+**Check:** Wires at top, airflow arrow pointing into the body. Spin the impeller with a finger: free, no rub.
 
 Source: [SB manual p.53](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=53)
 
@@ -801,7 +835,7 @@ Source: [SB manual p.53](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.54](assets/sb-pages/sb-p054.png)
 
-**What you're looking at:** The fan wires join the LED harness in the same right-hand channel — one bundle, one exit, and nothing trapped under the fan frame where it would be pinched every time the body is closed.
+**What you're looking at:** The fan wires join the LED harness in the same right-hand channel: one bundle, one exit, and nothing trapped under the fan frame.
 
 **Parts:** hotend fan wires.
 
@@ -817,11 +851,11 @@ Source: [SB manual p.54](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.56](assets/sb-pages/sb-p056.png)
 
-**What you're looking at:** The trimmed 5015 goes in the **upper** cavity, above the hotend fan you clipped in two steps ago. Which fan is which matters beyond tidiness: the config drives them on different pins, and Ch 13's fan verification is precisely the test of whether top and bottom got swapped.
+**What you're looking at:** The trimmed 5015 goes in the **upper** cavity, above the hotend fan. Which fan is which matters: the config drives them on different pins, and Ch 13's fan verification tests whether top and bottom got swapped.
 
 **Parts:** trimmed 5015 from 08.34, M3×6 FHCS ×2.
 
-**Do:** Drop the trimmed blower into the **upper** cavity, above the hotend fan you clipped in at Step 08.40, so its outlet feeds the ducts, and fix it with two M3×6 FHCS. Blower wires exit right, like everything else. Remember the split — part cooling is the **top** fan, the hotend fan the **bottom** one — because Ch 13 *Verify Fans* confirms exactly that, electrically.
+**Do:** Drop the trimmed blower into the **upper** cavity, above the hotend fan, outlet feeding the ducts, and fix it with two M3×6 FHCS. Blower wires exit right. Part cooling is the **top** fan, the hotend fan the **bottom**.
 
 **Check:** The blower is square in the upper cavity with the 4010 below it, the impeller spins freely, and the outlet aims down through the duct.
 
@@ -837,13 +871,18 @@ Pause: ~20 min since the last pause — the Stealthburner body is fully populate
 
 ![LDO Nitehawk-SB V2 toolboard and the SBurnerFanAdapter V2.0 (© LDO Motors)](assets/remote/08-toolhead/nitehawk-sb_title_img.jpg)
 
-**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) toolboard is the larger board on the right of this photo; the small triangular board beside it is the Stealthburner Fan Adapter, which you fit at Step 08.44. The two mate through a keyed board-to-board header when the orange body closes at Step 08.62. The printed spacer sets the standoff so nothing on the board's underside is pressed against plastic.
+**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) toolboard is the larger board in this photo; the triangular board beside it is the Stealthburner Fan Adapter, fitted next. The two mate through a keyed board-to-board header when the orange body closes. The printed spacer sets the standoff.
 
 **Parts:** Nitehawk-SB V2 ×1, CW2 PCB Spacer ×1 (supplied printed), M3×8 SHCS ×2.
 
-**Do:** Sit the PCB spacer against the side of the CW2, then the toolboard on top of it, and fix with two M3×8 SHCS into the inserts you fitted in 08.3–08.4. As the board goes on, trap the **supplied short ground cable's ring lug under the head of the lower of the two M3×8** — LDO's `toolboard_ground_routing.jpg` (Step 08.53) shows it there, at the board's bottom corner nearest the motor `(verify on bench — the photo, not LDO's prose, is the source)`. Its motor end waits for Step 08.53. Handle the board by its edges. Do not force a screw — if a screw will not start, an insert is cocked.
+**Do:**
 
-**Check:** The board is parallel to the CW2 side with the spacer taking up the gap; no component is pressed against plastic; the 10-pin board-to-board header faces forward, towards where the SB body will go. The ground lug is under a screw head, not just resting on one, and its tail hangs free.
+1. Sit the PCB spacer against the CW2 side, the toolboard on top, two M3×8 SHCS.
+2. Trap the **supplied ground cable's ring lug under the lower M3×8 head**, at the bottom corner nearest the motor `(verify on bench — the photo, not LDO's prose, is the source)`.
+
+**Check:** The board sits parallel on its spacer, the 10-pin header faces forward, and the ground lug is under a screw head, tail free.
+
+Tip: handle the board by its edges. A screw that will not start means a cocked insert. The ground wire's motor end waits for Step 08.53.
 
 Source: [LDO wiring guide § Wiring the Toolhead PCB](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
@@ -853,11 +892,11 @@ Source: [LDO wiring guide § Wiring the Toolhead PCB](https://docs.ldomotors.com
 
 ![Stealthburner Fan Adapter V2.0 pinout (© LDO Motors)](assets/remote/08-toolhead/sbv2_fan_adapter_pcb_pinout.jpg)
 
-**What you're looking at:** The fan adapter is the little PCB that collects both fans and the LED chain on the *body* side and hands them to the toolboard through a single board-to-board header — so the orange body can be lifted off with three plugs still made up, instead of six loose wires. It bolts to the back of the 5015.
+**What you're looking at:** The fan adapter is the PCB that collects both fans and the LED chain on the *body* side and hands them to the toolboard through a single board-to-board header, so the orange body lifts off with three plugs still made up.
 
 **Parts:** Stealthburner Fan Adapter PCB (SBurnerFanAdapter_V2.0) ×1, M3×10 FHCS ×2.
 
-**Do:** The adapter mounts to the **rear of the Stealthburner main body, directly onto the back of the 5015 fan**, with two M3×10 FHCS through the PCB's two end holes. Which fan holes those share with the two M3×6 FHCS from Step 08.42, and whether those M3×6 come back out to be replaced by the longer screw, LDO does not draw — `(verify on bench; no LDO photo of the mounted adapter has been found)`.
+**Do:** Mount the adapter to the **rear of the Stealthburner main body, onto the back of the 5015 fan**, with two M3×10 FHCS through its end holes. Whether these share or replace the M3×6 FHCS from 08.42 is undrawn `(verify on bench; no LDO photo of the mounted adapter has been found)`.
 
 **Check:** Board flat against the fan; its P1 header points at the toolboard's header when the body is offered up.
 
@@ -869,13 +908,13 @@ Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-
 
 ![Stealthburner Fan Adapter V2.0 pinout — the V_HEF and V_PCF selectors (© LDO Motors)](assets/remote/08-toolhead/sbv2_fan_adapter_pcb_pinout.jpg)
 
-**What you're looking at:** The two three-pad groups are **solder jumpers**: whichever outer pad is joined to the middle pad chooses 24 V or 5 V for that fan port. From the factory that join is a hair-thin PCB trace between `24V` and the middle pad — LDO's own photo shows it — not a solder blob; only a 5 V conversion cuts that trace and bridges the other side with solder. Both fans in this kit are 24 V and 24 V is the factory default, so this is a verification and never a modification — a 5 V fan on a 24 V port dies instantly, and the mistake is unrecoverable.
+**What you're looking at:** The two three-pad groups are **solder jumpers**: each chooses 24 V or 5 V for its fan port, by which outer pad joins the middle. From the factory that join is a hair-thin PCB trace, not a solder blob. Both fans are 24 V.
 
 **Parts:** fan adapter PCB, magnifier.
 
-**Do:** The adapter carries two three-pad selectors silkscreened `24V  V_HEF  5V` and `24V  V_PCF  5V`. Each selects the supply for that fan port. Both of your fans are **24 V** (a 24 V 4010 axial and a 24 V 5015 centrifugal per the Rev D 350 BOM), so both selectors must be on the **24 V** side. LDO's procedure for a 5 V fan is *"cut the trace between 24V and HEF, solder a bridge between HEF and 5V"* — you are doing neither. Do not cut anything.
+**Do:** Confirm both selectors, silkscreened `24V  V_HEF  5V` and `24V  V_PCF  5V`, are on the **24 V** side. Both your fans are 24 V per the Rev D 350 BOM. LDO's 5 V conversion cuts the trace and solders a bridge: do neither. Cut nothing.
 
-**Check:** Both selectors continuous from the middle pad to the `24V` pad, open to the `5V` pad — by meter, since the factory trace is too thin to see without the magnifier. No solder blob anywhere means the default is intact, not that the selector is unset. `(verify on bench — factory default is 24 V)`
+**Check:** By meter: both selectors continuous from the middle pad to `24V`, open to `5V`. The factory trace is too thin to see. `(verify on bench — factory default is 24 V)`
 
 Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg)
 
@@ -885,7 +924,7 @@ Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-
 
 ![Stealthburner Fan Adapter V2.0 pinout — ports P2, P3 and P4 (© LDO Motors)](assets/remote/08-toolhead/sbv2_fan_adapter_pcb_pinout.jpg)
 
-**What you're looking at:** Three JST-PH2.0 3-pin plugs, one per port; the middle pin on each fan port is the tacho line that lets Klipper report the fan's real RPM. The classic error is swapping P2 and P4 — both fans then run, but the machine cools the hotend when it means to cool the print.
+**What you're looking at:** Three JST-PH2.0 3-pin plugs, one per port; the middle pin on each fan port is the tacho line, reporting real RPM to Klipper. The classic error is swapping P2 and P4: both fans run, but the machine cools the hotend instead of the print.
 
 **Parts:** hotend fan lead, 5015 lead, LED chain lead.
 
@@ -899,9 +938,9 @@ Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-
 
 If you ever re-crimp a fan lead, take the polarity from the silkscreen next to the port, not from the fan's wire colours.
 
-**Check:** All three plugs fully home, latch engaged, no wire in tension. P2 goes to the axial, P4 to the blower — swapping them is the classic error.
+**Check:** All three plugs fully home, latch engaged, no wire in tension. P2 to the axial, P4 to the blower.
 
-⚠ Source conflict — wire by function, fix in software: LDO's board graphic `nhsbv2_pcb_pinout.jpg` labels the Fan/RGB header `PA15 → HEF` and `PD0 → PCF`. The fan adapter's own silkscreen and the Rev D+ Klipper config say the opposite — the config drives `[fan]` (part cooling) on `nhk:PA15` with tacho `nhk:PD2`, and `[heater_fan hotend_fan]` on `nhk:PD0` with tacho `nhk:PD1`, and the adapter silk reads `PCF PA15` / `HEF PD0`. Two of the three sources agree, so wire the fans by **port function** (P2 axial, P4 blower) as above and leave it. If Ch 13's *Verify Fans* shows the wrong fan spinning, swap the `pin:` values between `[fan]` and `[heater_fan hotend_fan]` in `printer.cfg` — **do not re-crimp connectors**. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+⚠ Conflict: LDO's graphic `nhsbv2_pcb_pinout.jpg` labels the Fan/RGB header `PA15 → HEF` and `PD0 → PCF`; the adapter silkscreen and the Rev D+ Klipper config say the opposite, `[fan]` on `nhk:PA15` tacho `nhk:PD2`, `[heater_fan hotend_fan]` on `nhk:PD0` tacho `nhk:PD1`. Two of three agree, so wire by **port function**, P2 axial and P4 blower. If Ch 13's *Verify Fans* spins the wrong fan, swap the `pin:` values in `printer.cfg`. **Do not re-crimp connectors.** [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg)
 
@@ -913,7 +952,7 @@ Pause: ~20 min since the last pause — the Nitehawk-SB V2 and the fan adapter a
 
 ![Nitehawk-SB V2 board pinout — HE0 screw terminal (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** `HE0` is the heater output — by far the highest-current thing on this board, which is why it is a screw terminal and not a plug. A cartridge heater is a plain resistor, so polarity is irrelevant; what matters is that no stray strand escapes the ferrule and bridges the two terminals.
+**What you're looking at:** `HE0` is the heater output, the highest-current thing on this board, hence a screw terminal and not a plug. A cartridge heater is a plain resistor, so polarity is irrelevant; what matters is that no stray strand escapes the ferrule and bridges the terminals.
 
 **Parts:** Revo heater leads with E0508 ferrules (from 08.33).
 
@@ -929,11 +968,14 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Nitehawk-SB V2 board pinout — TH0 (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** `TH0` reads the hotend thermistor — an NTC resistor whose resistance **falls** as it heats. Klipper computes temperature from that resistance, so an open lead looks like a hotend that never warms and a shorted one like a hotend on fire. That is why the ~100 kΩ is worth measuring before the plug goes in.
+**What you're looking at:** `TH0` reads the hotend thermistor, an NTC resistor whose resistance **falls** as it heats. Klipper computes temperature from that resistance, so an open lead looks like a hotend that never warms and a shorted one like a hotend on fire.
 
 **Parts:** thermistor lead with JST-PH2.0 2-pin plug.
 
-**Do:** First measure resistance across the thermistor pigtail: a Semitec 104NT-4-R025H42G reads about **100 kΩ at 25 °C**; anything near 0 Ω or open is a broken lead. Then plug it into `TH0` — a **2-pin JST-PH2.0** immediately left of the heater terminal, signal on `PB12`. It is not polarised electrically, but the housing only goes one way.
+**Do:**
+
+1. Measure across the thermistor pigtail: a Semitec 104NT-4-R025H42G reads **100 kΩ at 25 °C**. Near 0 Ω or open is a broken lead.
+2. Plug it into `TH0`, the **2-pin JST-PH2.0** left of the heater terminal, signal `PB12`.
 
 **Check:** Housing fully seated, and the ~100 kΩ reading was taken before it went in. `(verify on bench)`
 
@@ -951,7 +993,7 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 **Do:** The `E MOTOR` port is a **JST-XH2.5 4-pin on the reverse side of the board**, pin order `B2 B1 A1 A2`. Plug the stepper in. This one connector did **not** change to PH2.0.
 
-**Check:** Plug fully home in the rear header. Never plug or unplug a stepper with the printer powered — back-EMF kills drivers.
+**Check:** Plug fully home in the rear header. Never plug or unplug a stepper with the printer powered: back-EMF kills drivers.
 
 Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg)
 
@@ -961,11 +1003,11 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Nitehawk-SB V2 board pinout — PROBE (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** `PROBE` is the 3-pin port for the [inductive probe](16-glossary.md#i) you fitted in Ch 07 — the sensor the machine uses for [QGL](16-glossary.md#q) and the bed mesh. Its third pin carries a live **24 V**, which is why any probe expecting 5 V there has to have that pin left out of the housing.
+**What you're looking at:** `PROBE` is the 3-pin port for the [inductive probe](16-glossary.md#i), the sensor the machine uses for [QGL](16-glossary.md#q) and the bed mesh. Its third pin carries a live **24 V**, so any probe expecting 5 V there must have that pin left out of the housing.
 
 **Parts:** Omron inductive probe lead (pre-terminated, from the Toolhead PCB Cables bag).
 
-**Do:** Plug the probe into `PROBE` — **JST-PH2.0 3-pin**, `GND / SIG (PC15) / 24V`. The kit's Z probe ships in the toolhead cable bag already terminated for this port.
+**Do:** Plug the probe into `PROBE`: **JST-PH2.0 3-pin**, `GND / SIG (PC15) / 24V`. The kit's Z probe ships in the toolhead cable bag already terminated for this port.
 
 **Check:** Plug seated, and you can trace GND / SIG / 24V against the silkscreen.
 
@@ -979,11 +1021,11 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Nitehawk-SB V2 board pinout — CT (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** `CT` takes the chamber thermistor, which measures the air inside the enclosure rather than any heater. LDO's printed cover does two jobs: it closes the board, and it holds that thermistor's bead out in the chamber air away from the hotend, so it reads the chamber and not the toolhead's own waste heat.
+**What you're looking at:** `CT` takes the chamber thermistor, which measures the air inside the enclosure rather than any heater. LDO's cover closes the board and holds that thermistor's bead in the chamber air away from the hotend, so it reads the chamber and not the toolhead's waste heat.
 
 **Parts:** `cw2_captive_pcb_cover.stl` ×1, M3×6 captive screw ×1, chamber thermistor lead.
 
-**Do:** Plug the external chamber thermistor into `CT` — **JST-PH2.0 2-pin**, signal on `PB2`. Then fit LDO's `cw2_captive_pcb_cover` over the board: it carries the holder that positions the chamber thermistor outside the toolhead, and it closes with a single **M3×6 captive screw**. Open the filament latch first if the bolt pocket is obscured.
+**Do:** Plug the external chamber thermistor into `CT`, **JST-PH2.0 2-pin**, signal `PB2`. Fit LDO's `cw2_captive_pcb_cover` over the board and close it with the **M3×6 captive screw**. Open the filament latch if the bolt pocket is obscured.
 
 **Check:** Cover closed with the captive screw, thermistor bead sitting in its external holder and not touching plastic or the hotend.
 
@@ -998,7 +1040,7 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 ![Nitehawk-SB V2 — BOOT0, RESET and the ACT LED (© LDO Motors)](assets/remote/08-toolhead/reset_boot_buttons.jpg)
 ![Harness map — every cable to its port](assets/diagrams/06-harness-map.svg)
 
-**What you're looking at:** An audit of what stays empty. `XY ENDSTOP` is unused because this kit's XY switch PCB wires back to the mainboard, not to the toolhead. The **USB expansion** header and the `BOOT0` / `RESET` buttons must stay reachable: the buttons put the board into firmware-flashing mode in Ch 12, and that spare USB port is the whole reason this kit is called Rev D**+**. The diagram's toolhead half shows every Nitehawk-SB V2 port with its connector type and pin, including the empty `XY ENDSTOP` and `I2C` headers this table lists.
+**What you're looking at:** `XY ENDSTOP` and `I2C` stay empty. The **USB expansion** header and the `BOOT0` / `RESET` buttons must stay reachable: the buttons flash firmware in Ch 12, and that spare USB port is the "+" in Rev D**+**. The harness map shows every port and pin.
 
 **Parts:** none.
 
@@ -1025,16 +1067,14 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Toolboard ground routing (© LDO Motors)](assets/remote/08-toolhead/toolboard_ground_routing.jpg)
 
-**What you're looking at:** One short ring-lugged wire, and the reason it exists is static. LDO's ESD scheme makes one continuous path — extruder motor body → toolboard ground → umbilical → USB adapter → frame → earth — so a discharge has somewhere to go other than through the microcontroller. Use the **supplied** cable: LDO warns that a larger ring lug can short against the PCB. Its board end went under a toolboard screw at Step 08.43; this step lands the motor end.
+**What you're looking at:** One short ring-lugged wire, and the reason it exists is static. LDO's ESD scheme makes one continuous path: extruder motor body, toolboard ground, umbilical, USB adapter, frame, earth. Its board end went under a toolboard screw at 08.43. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening)
 
-**Parts:** the **supplied** short grounding cable (board end already under a toolboard M3×8 from Step 08.43), short M3 screw for the motor end `(verify on bench — supplied with the cable; length not published)`.
+**Parts:** the **supplied** short grounding cable (board end already under a toolboard M3×8 from 08.43), short M3 screw for the motor end `(verify on bench — supplied with the cable; length not published)`.
 
-**Do:** LDO's "ESD Hardening" section documents this as one continuous discharge path — *extruder motor
-body → toolboard ground → umbilical → USB adapter → frame → earth*. Land the motor-end ring lug on a short screw into one of
-the NEMA14's two **free face holes** — the two the motor bolts of 08.22–08.23 do not use; LDO's routing photo uses the
-lower one nearest the chain anchor — and bend the lug at an angle so it clears the anchor (photo, right). Snug only:
-the screw goes into the motor's own threaded face. The frame-side leg of the same path (USB adapter's exposed mounting
-point → frame) is fitted in Ch 09/10, Step 10.58. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening)
+**Do:**
+
+1. Land the motor-end ring lug on a short screw into one of the NEMA14's two **free face holes**.
+2. LDO's photo uses the lower one, nearest the chain anchor; bend the lug clear of it. Snug only.
 
 **Check:** Continuity from the toolboard `GND` pad to the motor can; both lugs are under a screw head; the wire cannot reach any moving part.
 
@@ -1057,13 +1097,18 @@ Pause: ~25 min since the last pause — every toolboard-side connector is made, 
 
 (no image — decision step; the probe itself was fitted in Ch 07 Steps 07.34–07.37)
 
-**What you're looking at:** A decision, not an operation. [Klicky](16-glossary.md#k) is a magnetically docked microswitch probe: the toolhead picks it up from a dock, probes with it, and puts it back. This build uses the [inductive probe](16-glossary.md#i) instead — already fitted in Ch 07, already terminated, and the one the kit's Klipper config is written for — while Z zero comes from the [nozzle probe](16-glossary.md#n) built in Ch 09 (Steps 09.27–09.29).
+**What you're looking at:** [Klicky](16-glossary.md#k) is a magnetically docked microswitch probe: the toolhead picks it up from a dock, probes with it, and puts it back. This build uses the [inductive probe](16-glossary.md#i) instead, fitted in Ch 07, with Z zero from the [nozzle probe](16-glossary.md#n) built in Ch 09.
 
 **Parts:** none — this is a decision step.
 
-**Do:** Your kit contains **both** an Omron-style inductive probe and a full Klicky Probe Kit, and you printed the Klicky parts in B06-P2. **The inductive probe is the one to build, and Ch 07 Steps 07.34–07.37 already fitted it to the X carriage.** Three sources agree: LDO's wiring guide wires the inductive probe to `PROBE` as the default; the Rev D+ Klipper config's `[probe]` block is written for it (`pin: nhk:PC15`, `x_offset: 0`, `y_offset: 25.0`, comment *"This probe is not used for Z height, only Quad Gantry Leveling"*) and contains no Klicky attach/dock macros; and the probe ships **pre-terminated** in the Toolhead PCB Cables bag while Klicky needs a cable you make yourself. Z height comes from the LDO nozzle probe, not from either of these.
+**Do:**
+
+1. Build nothing here. The kit ships both probes, and **Ch 07 already fitted the inductive one**.
+2. Bag the Klicky parts from B06-P2, unbuilt. Z height comes from the LDO nozzle probe, not from either.
 
 **Check:** The inductive probe is on the carriage from Ch 07 and the Klicky bag is closed.
+
+⚠ Rev D+ / LDO: three sources agree on the inductive probe. LDO's wiring guide wires it to `PROBE` as the default; the Rev D+ Klipper config's `[probe]` block is written for it (`pin: nhk:PC15`, `x_offset: 0`, `y_offset: 25.0`, *"not used for Z height, only Quad Gantry Leveling"*) with no Klicky macros; and it ships pre-terminated while Klicky needs a cable you make. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 > **Alternative — Klicky probe (do not build now)**
 >
@@ -1086,13 +1131,13 @@ Source: decision step — see Ch 07 Steps 07.34–07.37 · [Video: More Extras! 
 
 ![Voron manual p.144](assets/manual-pages/manual-p144.png)
 
-**What you're looking at:** A confirmation pass over Ch 07's work rather than new assembly. The thing most worth re-checking is the tape: over-taping, especially anywhere near the bottom sensing face, is the usual reason an inductive probe will not trigger in Ch 13 — and it is easy to blame the board instead.
+**What you're looking at:** A confirmation pass over Ch 07's work rather than new assembly. The thing most worth re-checking is the tape: over-taping, especially near the bottom sensing face, is the usual reason an inductive probe will not trigger in Ch 13.
 
 **Parts:** none — confirmation only.
 
-**Do:** The probe was insulated, seated in `probe_retainer_bracket`, set to ~6 mm below the plastic and its lead trimmed to ~150 mm in **Ch 07 Steps 07.34–07.37**; nothing more happens to it here. Confirm the two M3×30 SHCS are tight, the fibreglass tape is intact, and the lead is lying in the carriage's moulded channel ready for Ch 10.
+**Do:** The probe was seated in `probe_retainer_bracket`, set and its lead trimmed to ~150 mm in **Ch 07 Steps 07.34–07.37**. Confirm the two M3×30 SHCS are tight, the tape intact, and the lead lying in the carriage's channel for Ch 10.
 
-**Check:** The probe does not move under firm finger pressure, sits 6 mm ±1 mm below the plastic, is taped on the **front and sides only** with the back and bottom bare, and its lead is captive in the channel.
+**Check:** The probe does not move under finger pressure, sits 6 mm ±1 mm below the plastic, is taped **front and sides only**, lead captive.
 
 ⚠ Rev D+ / LDO: if the tape is torn, re-wrap front and sides only — never the back or the bottom sensing face. Over-taping is the usual cause of a probe that will not trigger in Ch 13; remove a strip at a time before you suspect the board. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -1106,7 +1151,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![LDO's kit layout: collar and shaft already in the body, PCB and screws loose (© LDO Motors)](assets/remote/08-toolhead/z_stop_install_1.jpg)
 
-**What you're looking at:** The LDO [nozzle probe](16-glossary.md#n) is this kit's **Z endstop**, and it works differently from a bed probe: it is a sprung shaft on a microswitch, mounted on the *frame*, that the nozzle itself is driven down onto. That makes Z zero a measurement of the real nozzle tip, so changing a nozzle does not invalidate it. It is a frame part, not a toolhead part, so it is built once, at its mounting location, in **Ch 09 Steps 09.27–09.29** and bolted on at Step 09.30.
+**What you're looking at:** The LDO [nozzle probe](16-glossary.md#n) is this kit's **Z endstop**: a sprung shaft on a microswitch, mounted on the *frame*, that the nozzle is driven down onto. Z zero is a measurement of the real nozzle tip, so changing a nozzle does not invalidate it.
 
 **Parts:** none here — the printed body (LDO-supplied, collar pre-pressed), the Z Endstop PCB, the shaft, two M2×10 self-tapping screws and the set screw are counted in Ch 09's hardware table.
 
@@ -1114,7 +1159,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** The nozzle-probe bag is still sealed and labelled for Ch 09.
 
-**Boundary:** Ch 09 Steps 09.27–09.29 own the assembly and Step 09.30 the mounting (**2× M3×25 SHCS** into the bed extrusion's side slot); Ch 10 lands the cable. If LDO changes the assembly, correct Ch 09 and keep this pointer.
+**Boundary:** Ch 09 Steps 09.27–09.29 own the assembly and 09.30 the mounting (**2× M3×25 SHCS** into the bed extrusion's side slot); Ch 10 lands the cable. If LDO changes the assembly, correct Ch 09 and keep this pointer.
 
 ⚠ Rev D+ / LDO: LDO's nozzle probe replaces the official Voron endstop and uses LDO's own printed part — `nozzle_probe.stl` and `nozzle_probe_ldo.stl` are both on the do-not-print list because the part is supplied. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1130,15 +1175,15 @@ Pause: ~10 min since the last pause — the probe decision is recorded, the indu
 
 ![Voron manual p.146](assets/manual-pages/manual-p146.png)
 
-**What you're looking at:** The hand-off page. Everything from Step 08.1 to here came out of the Stealthburner manual, because the printer manual carries no toolhead content of its own — p.146 points you there and p.147 expects you back.
+**What you're looking at:** The hand-off page. Everything from Step 08.1 to here came out of the Stealthburner manual, because the printer manual carries no toolhead content of its own: p.146 points you there and p.147 expects you back.
 
 **Parts:** none.
 
-**Do:** Manual p.146–147 is where the printer manual hands you to the Stealthburner manual and expects you back. You are back. From here the assembled toolhead goes onto a gantry that is already belted, so support the carriage with one hand while you work — do not let the toolhead's weight hang on a half-started bolt.
+**Do:** Manual p.146–147 hands you to the Stealthburner manual and expects you back. You are back. The toolhead goes onto a belted gantry, so support the carriage with one hand and never let the toolhead hang on a half-started bolt.
 
 **Check:** Gantry parked mid-travel, carriage accessible from front and both sides, nothing else on the bed to drop a screwdriver onto.
 
-⚠ Rev D+ / LDO: LDO's Build Notes mark p.146–147 as "Stealthburner + CW2 per the SB manual" — the printer manual contains no toolhead steps at all, only this pointer. Everything from Step 08.1 to here came from the Stealthburner manual and LDO's own guides, which is why this chapter is written out rather than transcribed. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ Rev D+ / LDO: LDO's Build Notes mark p.146–147 as "Stealthburner + CW2 per the SB manual" — the printer manual contains no toolhead steps at all, only this pointer. Everything in this chapter came from the Stealthburner manual and LDO's own guides, which is why it is written out rather than transcribed. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.146](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=146)
 
@@ -1164,13 +1209,13 @@ Source: [SB manual p.64](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.65](assets/sb-pages/sb-p065.png)
 
-**What you're looking at:** The second bolt again comes from the front, through the access hole. With both in, extruder and carriage are one rigid body — which is what stops the toolhead rotating under belt acceleration and printing a smeared corner.
+**What you're looking at:** The second bolt again comes from the front, through the access hole. With both in, extruder and carriage are one rigid body, which stops the toolhead rotating under belt acceleration and printing a smeared corner.
 
 **Parts:** M3×8 SHCS ×1.
 
 **Do:** The second bolt is reached from the **front** of the extruder through the access hole. Drive it, then tighten both to snug.
 
-**Check:** Push and pull the extruder — no movement relative to the carriage. Both bolts tight.
+**Check:** Push and pull the extruder: no movement relative to the carriage. Both bolts tight.
 
 Source: [SB manual p.65](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=65)
 
@@ -1180,11 +1225,11 @@ Source: [SB manual p.65](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Nitehawk-SB V2 board pinout — the XT30(2+2) toolhead cable (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** The [umbilical](16-glossary.md#u) is the single cable carrying USB data and 24 V to the toolhead, on an XT30(2+2) connector — two large power pins and two small signal pins in one shell. LDO's guide holds this connection until the extruder is on the carriage, because the connector sits behind the board.
+**What you're looking at:** The [umbilical](16-glossary.md#u) is the single cable carrying USB data and 24 V to the toolhead, on an XT30 connector: two large power pins and two small signal pins in one shell. LDO's guide holds this connection until the extruder is on the carriage.
 
 **Parts:** toolhead cable (combined USB + 24 V), XT30(2+2).
 
-**Do:** Now that the extruder is on the carriage, plug the toolhead cable into its **XT30(2+2)** connector — `D+ / D− / GND / 24V`. The wiring guide explicitly says to leave this until after the CW2 is mounted, because the connector is behind the board. Do not plug the other end into anything yet; the USB adapter is wired in Ch 10.
+**Do:** With the extruder on the carriage, plug the toolhead cable into its **XT30** connector, `D+ / D− / GND / 24V`. Do not plug the other end into anything yet; the USB adapter is wired in Ch 10.
 
 **Check:** Connector fully home and audibly seated. The free end is coiled and labelled, not dangling into the bed area.
 
@@ -1196,7 +1241,7 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Stealthburner manual p.66](assets/sb-pages/sb-p066.png)
 
-**What you're looking at:** The tool cartridge slides up from below and its four stud heads drop into keyholes in the Clockwork 2 — that is what makes the hotend a swappable unit rather than something bolted in. As it rises, the PTFE picks up the extruder's filament path.
+**What you're looking at:** The tool cartridge slides up from below and its four stud heads drop into keyholes in the Clockwork 2, which makes the hotend a swappable unit rather than something bolted in. As it rises, the PTFE picks up the extruder's filament path.
 
 **Parts:** tool cartridge from 08.32 (hotend, PTFE, four M3×8 studs).
 
@@ -1213,15 +1258,18 @@ Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.67](assets/sb-pages/sb-p067.png)
 ![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The last mechanical act: the orange body closes onto the front of the toolhead and, as it does, the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so every older photo of this joint is wrong for this board — resistance means it is backwards, never that it needs more force. The diagram's keyed-header panel shows the same 2×5 header and row order, at the point where the board-to-board joint is actually mated.
+**What you're looking at:** The last act: the orange body closes onto the toolhead and the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so resistance means it is backwards, never that it needs more force.
 
 **Parts:** `[a]_stealthburner_main_body` with LEDs, both fans and the fan adapter, M3×25 SHCS ×2, M3×50 SHCS ×2.
 
-**Do:** Bring the orange body onto the front of the toolhead. As it closes, the fan adapter's header must mate with the toolboard's header. **It is keyed: if it does not drop in, it is the wrong way round — do not press harder.** With the header seated and the body sitting flush, fit **two M3×25 SHCS** in the upper pair of holes and **two M3×50 SHCS** in the lower pair, through the blower area.
+**Do:**
 
-**Check:** No gap anywhere along the body-to-cartridge parting line. All four bolts snug. The header is fully seated — a partly seated header is the single most common cause of dead toolhead fans and LEDs.
+1. Close the orange body onto the front of the toolhead, mating the fan adapter's header with the toolboard's. **Keyed: resistance means backwards.**
+2. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** lower through the blower area.
 
-⚠ Rev D+ / LDO: LDO's Rev D guide calls this a "2×4 header". On the V2 board it is a **10-pin, 2×5** interface, and both the **gender and the keying changed** from V1, so every Rev D photo of this joint is wrong for your hardware. Row order on the toolboard side is tacho / tacho, the two fan drives, `RGB (PD3)` and 5 V, `GND` and NC, NC and 24 V — see Step 08.46 for the fan-pin source conflict. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
+**Check:** No gap along the body-to-cartridge parting line, all four bolts snug, and the header fully seated.
+
+⚠ Rev D+ / LDO: LDO's Rev D guide calls it a "2×4 header". On the V2 board it is **10-pin, 2×5**, and both the **gender and the keying changed** from V1. Toolboard row order: tacho / tacho, the two fan drives, `RGB (PD3)` and 5 V, `GND` and NC, NC and 24 V. See Step 08.46 for the fan-pin conflict. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
 Source: [SB manual p.67](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=67) · [Video: Part 5 @3:12:08](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11528s) (differs: builds Afterburner + Clockwork 1; this kit is Stealthburner + Clockwork 2 + Revo HF · no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical)
 
@@ -1231,13 +1279,13 @@ Source: [SB manual p.67](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Umbilical zip-tied to the cable chain, with a service loop (© LDO Motors)](assets/remote/08-toolhead/cable_chain_ties.jpg)
 
-**What you're looking at:** A **service loop** is deliberate slack: enough spare cable between the anchor and the chain that the umbilical is never in tension at either end of X travel. Wires held taut inside a moving drag chain work-harden and break — usually months later, always inside the sheath where you cannot see it. The X drag chain is not on the machine yet — Ch 10 Step 10.59 fits it and Step 10.66 ties every chain end — so here the cable only gets parked.
+**What you're looking at:** A **service loop** is deliberate slack: enough spare cable between the anchor and the chain that the umbilical is never in tension at either end of X travel. Wires held taut inside a moving drag chain work-harden and break.
 
 **Parts:** toolhead cable, zip tie 3×150 mm ×1 (left loose).
 
-**Do:** Lay the toolhead cable back over the chain anchor you fitted in 08.25 and put **one loose zip tie** through the anchor's tab — loose enough that the cable still slides, so Ch 10 can set the final slack. Coil the free end and label it. The service loop and the chain-link ties are **Ch 10 Steps 10.59 and 10.66**, once the X chain exists.
+**Do:** Lay the cable over the chain anchor from 08.25. Put **one loose zip tie** through its tab, loose enough that the cable still slides. Coil and label the free end. Chain ties are **Ch 10 Steps 10.59 and 10.66**.
 
-**Check:** The cable leaves the toolhead over the anchor, not over a fan or a belt; the coil hangs clear of the bed; nothing pulls on the XT30 connector.
+**Check:** The cable leaves over the anchor, not over a fan or belt; the coil hangs clear of the bed; nothing pulls the XT30.
 
 ⚠ Rev D+ / LDO: taut wires inside a drag chain fatigue and break — it is LDO's most repeated warning, and manual p.194–195 says the same. The cable must be **pulled through the chain before the chain ends are mounted** in Ch 10; doing it after means taking the chain apart (survey §5.2 W7).
 
@@ -1249,13 +1297,13 @@ Source: [`cable_chain_ties.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB
 
 ![USB adapter grounding point left exposed by the V2 partial cover (© LDO Motors)](assets/remote/08-toolhead/usb_adapter_gnd.jpg)
 
-**What you're looking at:** The [USB adapter PCB](16-glossary.md#u) is the frame-side end of the umbilical: 24 V goes in, and the toolhead cable comes out as a plain USB connection to the Pi. The V2 **partial** cover deliberately leaves one mounting screw exposed so a ring lug can be bolted to it — that exposed screw is the frame end of the grounding path from Step 08.53.
+**What you're looking at:** The [USB adapter PCB](16-glossary.md#u) is the frame-side end of the umbilical: 24 V goes in, and the toolhead cable comes out as a USB connection to the Pi. The V2 **partial** cover leaves one screw exposed so a ring lug can bolt to it.
 
 **Parts:** USB Adapter PCB ×1, NH Adapter Mount base (supplied printed) ×1, `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2 repo**) ×1, M3×10 SHCS ×3.
 
-**Do:** Stack the USB adapter into its supplied mount base and close it with the **V2 partial cover**, not the full cover from the V1 `usb_adapter_mount.stl`. The V2 cover deliberately leaves one mounting point exposed so a ring lug can be bolted there — that is the frame-side leg of the grounding scheme in Step 08.53. Bag the assembly for Ch 09.
+**Do:** Stack the USB adapter into its mount base and close it with the **V2 partial cover**, not the full V1 `usb_adapter_mount.stl` cover. It exposes the point for the Step 08.53 ground lug. Bag the assembly for Ch 09.
 
-**Check:** One mounting screw head is exposed and reachable through the cover. The board's `24V IN` terminal and its Micro-Fit 3.0 socket (the 4-pin umbilical socket) are both accessible.
+**Check:** One mounting screw head is exposed and reachable through the cover. The board's `24V IN` terminal and its 4-pin Micro-Fit 3.0 umbilical socket are both accessible.
 
 ⚠ Rev D+ / LDO: the Nitehawk-SB-V2 repo's `STLs/` folder contains exactly one file, `usb_adapter_mount_partial_cover.stl`, and it is the cover this kit needs (print plan §0, correction #1). B07 also prints the V1 `Nitehawk-SB/STLs/usb_adapter_mount.stl` — for a spare **base** only. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs)
 
@@ -1267,13 +1315,13 @@ Source: [`usb_adapter_gnd.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ![Voron manual p.147](assets/manual-pages/manual-p147.png)
 
-**What you're looking at:** The return page. The toolhead is mechanically complete and every connector on the toolhead side is made; everything below the deck — the USB adapter, the 24 V feed, the Z endstop and the drag-chain runs — is Ch 09 and Ch 10.
+**What you're looking at:** The return page. The toolhead is mechanically complete and every connector on the toolhead side is made. Everything below the deck is Ch 09 and Ch 10: the USB adapter, the 24 V feed, the Z endstop and the drag-chain runs.
 
 **Parts:** none.
 
-**Do:** Manual p.147 is the "return here to proceed" page. The toolhead is mechanically complete and every toolhead-side connector is made. Everything below the deck — the USB adapter, the 24 V feed, the Z endstop and the drag-chain runs — is Ch 09 and Ch 10.
+**Do:** Manual p.147 is the "return here to proceed" page. The toolhead is mechanically complete and every toolhead-side connector is made. Everything below the deck is Ch 09 and Ch 10.
 
-**Check:** Nothing on the toolhead is loose, nothing is left unplugged that you meant to plug in, and the free end of the umbilical is coiled and labelled.
+**Check:** Nothing on the toolhead is loose, nothing is left unplugged, and the umbilical's free end is coiled and labelled.
 
 Source: [Voron manual p.147](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=147)
 

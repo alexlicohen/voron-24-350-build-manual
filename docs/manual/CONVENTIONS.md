@@ -40,7 +40,7 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 - No emoji except the `⚠` callout marker.
 
 ## Lint
-`scripts/lint_manual.py` runs in CI, after `mkdocs build --strict`. Four checks: raw `⚠` / `**Check:**` / `Tip:` text outside an admonition or `<code>`/`<pre>` block; `Step NN.M` references with no matching heading; STL filenames in an assembly-chapter table with no matching print-batch table row (exempt: a row containing `not printed`, `kit-supplied`, or `SKIP`, case-insensitive); Markdown tables wider than 7 columns (exempt: tables under a heading whose text contains "Machine-readable").
+`scripts/lint_manual.py` runs in CI, after `mkdocs build --strict`. Five checks (the fifth, step word budgets, is in § Action-first steps; `--budgets-only` runs it alone, `--no-budgets` skips it): raw `⚠` / `**Check:**` / `Tip:` text outside an admonition or `<code>`/`<pre>` block; `Step NN.M` references with no matching heading; STL filenames in an assembly-chapter table with no matching print-batch table row (exempt: a row containing `not printed`, `kit-supplied`, or `SKIP`, case-insensitive); Markdown tables wider than 7 columns (exempt: tables under a heading whose text contains "Machine-readable").
 
 ## Print-batch chapters (added 2026-09-05)
 - Live in `docs/manual/print/`: `00-slicer-setup.md` then `B00-calibration-and-jigs.md` … `B10-clicky-clack-door.md` (batch ids from `docs/voron-print-plan.md`). Assembly chapters stay in `docs/manual/NN-*.md`; `00-index.md` holds the interleaved timeline that says which batch to start before which assembly chapter.
@@ -158,9 +158,11 @@ backticks. `(no image — …)` renders as a neutral placeholder. Every relative
 for the new depth; `chapter.md#step-…` retargets that step's page and a bare `chapter.md`
 retargets that chapter's overview.
 
-**Navigation.** The sidebar lists chapter overviews only (`docs/manual/.nav.yml` — add a row when
-a chapter is added; `steps/.nav.yml` carries `hide: true`). Step pages are built and searchable
-but out of nav, and prev/next comes from the generated markup, never from nav order. Each overview
+**Navigation.** `docs/.nav.yml` owns the whole nav — five tabs (Home / Build / Print / Plan /
+Reference), with the sidebar showing only the active tab's pages. Build and Print list chapter and
+batch overviews only; add a row there when a chapter is added (`steps/.nav.yml` carries
+`hide: true`). Step pages are built and searchable but out of nav, and prev/next comes from the
+generated markup, never from nav order. Each overview
 links to the long chapter page ("Read the whole chapter on one page") and every long chapter page
 gets a banner back to its overview.
 

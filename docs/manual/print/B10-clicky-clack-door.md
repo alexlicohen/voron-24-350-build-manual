@@ -51,7 +51,7 @@ Fabreeko before it ships **(unverified)**.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥76 g remaining (the ledger has this plate on spool #2 after B09). The orange
+**Do:** Galaxy Black, confirm ≥76 g remaining; the ledger has this plate on spool #2 after B09. The orange
 `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge.
 
@@ -63,11 +63,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
-**Do:** Open `slicer/plates/B10-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2,
-`Latch`, `Panel_Clip` — 6 files, 8 objects. **5 mm brim on the four `Hinge-L-*` and on `Latch` — already in the
-project**; `Handle-Hinge_*` and `Panel_Clip` have none. Mirror the four `Hinge-L-*` objects now **only** if the
-door must open the other way (Read first) — in **2.9.6**; the 3.0 preview has no mirror tool.
-**Parts:** the six black parts above — 5.7 h, 76 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.6** only if the door must open the other way; the 3.0 preview has no mirror tool.
+**Parts:** `Handle-Hinge_Bottom`, no brim · `Handle-Hinge_Top`, no brim · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 76 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The preview shows the brim outline on the four hinge parts and `Latch`, and on nothing else;
 swing decision made before slicing, not after.
 
@@ -83,7 +80,7 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 ## Step B10.4 — Print
 
 **Do:** Print with standing overrides.
-**Check:** The four hinge-sleeve/solid parts print upright and stable through their full 55–58 mm height —
+**Check:** The four hinge-sleeve/solid parts print upright and stable through their full 55–58 mm height;
 watch the first 10 mm for any brim lift.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
@@ -92,9 +89,11 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B10.5 — Inspect
 
-**Do:** Now: snap the five brims off and check the bases for scarring. **On kit day**, with the Clicky-Clack
-hardware: tap a split bushing into each hinge sleeve — should seat without splitting the part. Test-fit an
-M5×45 dowel pin into a `Hinge-L-solid` half — should be a very tight hammer fit with ~20 mm proud.
+**Do:**
+
+1. Snap the five brims off; check the bases for scarring.
+2. On kit day, tap a split bushing into each hinge sleeve.
+3. Test-fit an M5×45 dowel pin into a `Hinge-L-solid` half: very tight hammer fit, ~20 mm proud.
 **Check:** Brims off clean. Kit day: no splitting on the sleeve press; pin fit is tight, not loose, with the
 correct proud length.
 
@@ -104,7 +103,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B10.6 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). All six black parts join the orange `Handle` (from B02) in **11-door** — the complete Clicky-Clack set, replacing the stock two-door assembly.
+**Do:** Sort off the plate diagram: part number, fill colour and printed bin id all name the bin. Print labels from the [bin-labels sheet](../../print/bin-labels.md); bins listed in [README § Bins](README.md#bins). The six black parts join the orange `Handle` in **11-door**.
 
 **B10-P1**
 
@@ -112,7 +111,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **11-door** — Clicky-Clack door | `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` |
 
-**Check:** All seven Clicky-Clack parts (6 black + 1 orange) in 11-door.
+**Check:** All seven Clicky-Clack parts in **11-door**: 6 black plus the orange `Handle` from B02.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

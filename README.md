@@ -55,7 +55,7 @@ Found a step that doesn't match your kit? See [`CONTRIBUTING.md`](CONTRIBUTING.m
 
 ## CI and deploy
 
-`.github/workflows/check.yml` runs on every PR: `mkdocs build --strict` (with `validation.links.anchors: warn`, so a broken cross-reference anchor now fails the build, not just a missing file), the `hooks/callouts.py` self-test, and `scripts/lint_manual.py` (truncated callouts, dangling `Step NN.M` references, STLs printed in no batch, tables over 7 columns). `.github/workflows/deploy.yml` runs on push to `main`: same strict build, then `mkdocs gh-deploy --force` — chosen over `actions/deploy-pages` because `gh-pages` already exists as a classic branch-based Pages source and this keeps that config unchanged.
+`.github/workflows/check.yml` runs on every PR: `mkdocs build --strict` (with `validation.links.anchors: warn`, so a broken cross-reference anchor now fails the build, not just a missing file), the `hooks/callouts.py` self-test, and `scripts/lint_manual.py` (truncated callouts, dangling `Step NN.M` references, STLs printed in no batch, tables over 7 columns, and the per-step word budgets from `docs/manual/CONVENTIONS.md`). `.github/workflows/deploy.yml` runs on push to `main`: same strict build, then `mkdocs gh-deploy --force` — chosen over `actions/deploy-pages` because `gh-pages` already exists as a classic branch-based Pages source and this keeps that config unchanged.
 
 ## Attribution and licences
 

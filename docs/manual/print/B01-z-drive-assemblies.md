@@ -51,11 +51,13 @@ On kit day you can caliper the panel before B01-P2 starts and print the right cl
 
 ## Step B01.1 — Filament prep
 
-**Do:** Confirm Galaxy Black spool loaded, dried within the last 2 weeks or fresh. This batch alone is
-301 g — weigh the active spool before starting B01-P1.
-**Check:** B01-P1 needs **≥ 201 g** on the spool at start (the ledger in [README](README.md#spool-ledger) has
-it on spool #2 with ~550 g — fine). If reprints have pushed the active spool under ~230 g, start B01-P1 on
-a fresh one and re-derive the ledger from your weighings — a resume seam on a bearing-seat part is not worth it.
+**Do:**
+
+1. Confirm the Galaxy Black spool is loaded and dried within the last 2 weeks, or fresh.
+2. Weigh the active spool before starting B01-P1. This batch alone is 301 g.
+**Check:** B01-P1 needs **≥ 201 g** on the spool at start; the [README ledger](README.md#spool-ledger) has spool #2 at ~550 g.
+
+Tip: If reprints have pushed the active spool under ~230 g, start B01-P1 on a fresh one and re-derive the ledger from your weighings.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -65,25 +67,26 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B01.8.*
 
-**Do:** Open `slicer/plates/B01-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **5 files, 7 objects**: `z_drive_main_a` ×2, `z_drive_main_b` ×2, `z_drive_retainer_a` ×1, `z_drive_retainer_b` ×2,
-`0.20mm STRUCTURAL @COREONE 0.4 (modified)` with the standing overrides. No brim on this plate (nothing here is on
-the tall/narrow or long-flat lists) — the preview shows no brim outline. Do not rotate any part.
-**Parts:** the five files above — 15.2 h, 201 g (PrusaSlicer 2.9.6 estimate).
+**Do:**
+
+1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: profile `0.20mm STRUCTURAL @COREONE 0.4 (modified)`, **5 files, 7 objects**, no brim outline.
+3. Do not rotate any part.
+**Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 15.2 h, 201 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Estimated plate time is **15 h 13 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B01.3 — Pre-print checks
 
-**Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) (glue film renewed — this
-plate carries the biggest flat bottoms in the build), spool confirmed dry, chamber preheating.
+**Do:** Prepare the sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) with the glue film renewed, confirm the spool is dry, and start the chamber preheating.
 **Check:** Chamber reads ≥40 °C before purge.
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B01.4 — Print plate B01-P1
 
-**Do:** Start in the morning or at the start of a full workday — this is the 15.2 h plate.
+**Do:** Start in the morning or at the start of a full workday: this is the 15.2 h plate.
 **Check:** First layer clean; no corner lift on the `z_drive_main` bodies partway through.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -94,14 +97,14 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B01.8.*
 
-**Do:** Open `slicer/plates/B01-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate, **5 files, 16 objects**: `z_motor_mount_a` ×2, `z_motor_mount_b` ×2, `z_tensioner_bracket_a` ×2, `z_tensioner_bracket_b` ×2,
-`deck_support_3mm` ×8. No brim in the project. `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect —
-**only if a motor mount lifts on this print**, add a 5 mm brim to those four objects by hand for the reprint
-(right-click the object → Add settings → Skirt and brim → Brim width; never the global setting, per
-[00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
-**Parts:** the five files above — 7.6 h, 100 g (PrusaSlicer 2.9.6 estimate).
-**Check:** All 8 deck-support clips accounted for on the plate, and the deck panel calipered (Ch 00 Step 00.4)
-so you know these are the right thickness before they print.
+**Do:**
+
+1. Open `slicer/plates/B01-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: **5 files, 16 objects**, no brim.
+**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 — 7.6 h, 100 g (PrusaSlicer 2.9.6 estimate).
+**Check:** All 8 deck-support clips are on the plate, and the deck panel is already calipered so these print at the right thickness.
+
+⚠ `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect. **Only if a motor mount lifts on this print**, add a 5 mm brim to those four objects by hand for the reprint: right-click the object → Add settings → Skirt and brim → Brim width. Never the global setting, per [00-slicer-setup](00-slicer-setup.md#orientation-brim).
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -114,9 +117,10 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B01.7 — Inspect
 
-**Do:** With calipers and thumb pressure: press a 625-2RS bearing (16 mm OD) into every `z_drive_main` and
-`z_drive_retainer` bearing seat — should seat with thumb pressure, no rocking. Check M3 heat-set bosses on
-the motor mounts sit flush with no bulge.
+**Do:**
+
+1. Press a 625-2RS bearing, 16 mm OD, into every `z_drive_main` and `z_drive_retainer` bearing seat by thumb: it should seat with no rocking.
+2. Check the M3 heat-set bosses on the motor mounts sit flush with no bulge.
 **Check:** All bearing seats pass; any that don't → reprint that part, don't proceed with a known-bad Z drive.
 
 Pause: ~15 min since the last pause — every bearing seat tested and the bearings pulled back out; nothing pressed for keeps yet. Do not seat inserts — Ch 02 Step 02.04 does that with the parts sorted.
@@ -125,7 +129,10 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B01.8 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). The parts come as mirrored pairs and each bin is one corner: the `_a` set splits between **02-Z0** and **02-Z2**, the `_b` set between **02-Z1** and **02-Z3** (Ch 02's corner map, Step 02.02: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right). Write the bin id on the inside face of each part as it comes off the plate — Ch 02 Step 02.01 asks for it. Z0's `z_drive_retainer_a` is the Gate B coupon from B00; the orange baseplates and belt tensioners from B02 are already in these four bins. Deck supports go to **02-deck** with a note "3 mm clips — confirm against the calipered panel (Step 02.12)".
+**Do:**
+
+1. Sort each plate off its diagram: the number on a part is its legend number, the colour its bin.
+2. Write the bin id on the inside face of every `_a` / `_b` part as it comes off the plate.
 
 **B01-P1**
 
@@ -147,6 +154,10 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-deck** — Deck panel clips | `deck_support_3mm` ×8 |
 
 **Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids written on the parts; 02-deck holds 8 clips.
+
+⚠ 02-Z0's `z_drive_retainer_a` is the Gate B coupon printed on B00, so it is not on these plates. The orange baseplates and belt tensioners from B02 are already in these four bins.
+
+Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). Mark the 02-deck bin "3 mm clips, confirm against the calipered panel".
 
 Pause: ~10 min since the last pause — both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.
 

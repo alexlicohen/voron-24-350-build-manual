@@ -32,8 +32,7 @@ hall-effect XY endstops, which this kit does not use.
 
 ## Step B05.1 — Filament prep
 
-**Do:** Galaxy Black. Per the ledger this plate starts a fresh spool (#3): spool #2's last ~13 g is not worth a
-resume seam on a Z joint — keep it for a clip reprint. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Galaxy Black, fresh spool #3. Per the ledger, spool #2's last ~13 g is not worth a resume seam on a Z joint, so keep it for a clip reprint. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥78 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -44,10 +43,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B05.5.*
 
-**Do:** Open `slicer/plates/B05-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all fourteen parts: `z_joint_lower_x4` ×4, `z_joint_upper_x4` ×4, `z_chain_bottom_anchor`,
-`z_chain_guide`, `z_rail_stop_x4` ×4. No rotation, no brim in the project. Confirm you are **not** including
-`z_joint_upper_hall_effect.stl`.
-**Parts:** the fourteen pieces above — 6.4 h, 78 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B05-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation, no brim. Do **not** include `z_joint_upper_hall_effect.stl`.
+**Parts:** the fourteen pieces above — 6.4 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4.
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
@@ -63,8 +60,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B05.4 — Inspect
 
-**Do:** With calipers, confirm the 8 mm Z shaft slides (not presses) through each `z_joint_lower`. Check
-each `z_joint_upper` sits square against a test extrusion face.
+**Do:** With calipers, confirm the 8 mm Z shaft slides through each `z_joint_lower` without pressing. Check each `z_joint_upper` sits square against a test extrusion face.
 **Check:** Shaft slides freely; joint sits flush and square.
 
 Pause: ~10 min since the last pause — shafts and joints dry-fitted and apart again; nothing pressed.
@@ -73,7 +69,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B05.5 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **06-Z-joints** already holds B02's eight orange belt clips. The chain anchor and guide go to **10-chains** with B02's retainer bracket — they are fitted in Ch 10, not Ch 06.
+**Do:** Sort off the plate diagram: part number matches the legend, fill colour is the bin, bin id is printed on the part. Bins: [README § Bins](README.md#bins); labels: [bin-labels sheet](../../print/bin-labels.md). The chain anchor and guide go to **10-chains**, not 06-Z-joints.
 
 **B05-P1**
 
@@ -82,7 +78,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **06-Z-joints** — Z joints, belt clips, rail stops | `z_joint_lower` ×4, `z_joint_upper` ×4, `z_rail_stop` ×4 |
 | **10-chains** — Z cable chain anchor, guide, retainer | `z_chain_bottom_anchor`, `z_chain_guide` |
 
-**Check:** 4 joint pairs and 4 rail stops in 06-Z-joints; anchor and guide in 10-chains.
+**Check:** 4 joint pairs and 4 rail stops in 06-Z-joints with B02's eight belt clips; anchor and guide in 10-chains.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

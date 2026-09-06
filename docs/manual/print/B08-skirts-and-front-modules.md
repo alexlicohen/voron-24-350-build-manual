@@ -58,10 +58,9 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
 
 ## Step B08.1 — Filament prep
 
-**Do:** Galaxy Black. In the pre-kit order this batch runs on spool #1 after B07 (~522 g at the start, ~123 g
-at the end), so no runout is expected here; the first predicted runout is B09-P2. Sheet per
-[00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) — renew the glue film, these are the biggest
-flat bottoms in the build.
+**Do:** Galaxy Black, spool #1 after B07: ~522 g at the start, ~123 g at the end, so no runout here. The
+first predicted runout is B09-P2. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
+renewing the glue film.
 **Check:** Spool weighed and written in the ledger before starting the 6.3 h P1 plate.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -72,21 +71,19 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `rear_center_skirt_350`, `side_fan_support` ×1 — 3 mm brim on both, already in the project.
-In the project the **rear skirt is turned 90° about Z so its 182 mm axis runs front-to-back (along Y)**,
-standing beside an unturned `side_fan_support` (180 mm along Y as shipped); side by side in the shipped
-orientations the pair needs 254 mm of X and will not fit the 250 × 220 bed. Turning about Z does not change
-which face is on the bed, so it is allowed (see [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
-**Parts:** the two items above — 6.3 h, 99 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Both parts flat on their shipped faces, both long axes running front-to-back, brim outline showing
-on both in the preview, and the plate matches the image above.
+**Do:** Open `slicer/plates/B08-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm the rear skirt is turned 90° about Z, its 182 mm axis running front-to-back along
+Y, beside an unturned `side_fan_support`.
+**Parts:** `rear_center_skirt_350` · `side_fan_support` ×1 — 6.3 h, 99 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Check:** Both parts flat on their shipped faces, long axes front-to-back, brim outline on both in the
+preview, plate matching the image above.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §5.1 — orientation and brim](../../voron-print-plan.md#51-orientation-and-brim)
 
 ## Step B08.3 — Print plate B08-P1
 
 **Do:** Print with standing overrides.
-**Check:** Watch the ends of `rear_center_skirt_350` for the first hour — 182 mm is the worst warp candidate in the set.
+**Check:** Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate in the set.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
@@ -98,8 +95,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_fan_support` ×1, `front_skirt_a_350`. 3 mm brim on both, already in the project.
-**Parts:** the two items above — 5.0 h, 67 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B08-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides are
+already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `side_fan_support` ×1 · `front_skirt_a_350` — 5.0 h, 67 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -119,8 +117,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `front_skirt_b_350`, `side_skirt_a_350` ×1. 3 mm brim on both, already in the project.
-**Parts:** the two items above — 5.5 h, 71 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B08-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides are
+already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `front_skirt_b_350` · `side_skirt_a_350` ×1 — 5.5 h, 71 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -140,8 +139,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P4.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_skirt_a_350` ×1, `side_skirt_b_350` ×1. 3 mm brim on both, already in the project.
-**Parts:** the two items above — 5.1 h, 66 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B08-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides are
+already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `side_skirt_a_350` ×1 · `side_skirt_b_350` ×1 — 5.1 h, 66 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -161,8 +161,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P5.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `side_skirt_b_350` ×1, `keystone_panel`. 3 mm brim on both, already in the project.
-**Parts:** the two items above — 5.0 h, 70 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B08-P5.3mf` with **File → Open Project**. The arrangement, brims and overrides are
+already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `side_skirt_b_350` ×1 · `keystone_panel` — 5.0 h, 70 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -182,9 +183,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B08.15.*
 
-**Do:** Open `slicer/plates/B08-P6.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `mount.stl` alone — no brim in the project (44.8 mm tall on a 117 × 67 footprint, on neither
-brim list). `power_inlet_IECGS_1mm` moved to B07 (Ch 09, not the skirts chapter) — see B07.6.
-**Parts:** `mount.stl` — 2.3 h, 26 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B08-P6.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm `mount.stl` sits alone with no brim. `power_inlet_IECGS_1mm` moved to B07 for Ch 09, see B07.6.
+**Parts:** `mount.stl` alone, 44.8 mm tall on a 117 × 67 footprint, no brim in the project and on neither brim list — 2.3 h, 26 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Confirm `mount.stl`, not `mount_thick.stl`, unless the button-access swap was chosen.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
@@ -202,7 +203,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Lay every skirt segment from all six plates on the flat granite reference; check each for rocking.
 Dry-fit the full ring: front `front_skirt_a` + TFT `mount` + `front_skirt_b`; rear `rear_center_skirt` +
-`power_inlet` (from B07) + `keystone_panel`; each side `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
+`power_inlet` from B07 + `keystone_panel`; each side `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
 **Check:** No rocking on any segment. Ring dry-fits with consistent gaps at every joint.
 
 Pause: ~20 min since the last pause — every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted.
@@ -211,7 +212,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B08.15 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Every plate in this batch feeds **11-skirts**, where B02's `[a]_faceplate`, keystone blank inserts and bestagon insert already are; B02's grills, retainers and belt guards sit beside it in 11-fans. Stack the segments by ring position (front / rear / left / right) so the ring assembles in order. The power inlet stays in 09-bay and is borrowed for the dry-fit.
+**Do:** Sort off each plate diagram; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). Every plate here feeds **11-skirts**, joining B02's `[a]_faceplate` and inserts. Stack by ring position: front, rear, left, right.
 
 **B08-P1**
 
@@ -249,7 +250,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **11-skirts** — Skirt ring, keystone panel, TFT mount | `mount` |
 
-**Check:** All ten structural segments plus the TFT mount in 11-skirts, stacked by ring position.
+**Check:** All ten structural segments plus the TFT mount in 11-skirts, stacked by ring position; B02's grills, retainers and belt guards wait in 11-fans.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

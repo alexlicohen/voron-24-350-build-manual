@@ -35,7 +35,7 @@ chapter; in the pre-kit order it is already on the shelf).
 
 ## Step B03.1 — Filament prep
 
-**Do:** Galaxy Black, confirm spool remaining ≥119 g for both plates (the ledger has B03 on spool #2 after B01).
+**Do:** Galaxy Black. Confirm spool remaining ≥119 g for both plates; the ledger has B03 on spool #2 after B01.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Purge clean black.
 
@@ -47,9 +47,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.7.*
 
-**Do:** Open `slicer/plates/B03-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper`.
-No rotation, no brim in the project.
-**Parts:** the four items above — 4.4 h, 60 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B03-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it. No rotation, no brim in the project.
+**Parts:** 4 objects — 4.4 h, 60 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper`.
 **Check:** Parts sit flat as shipped; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -69,8 +68,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.7.*
 
-**Do:** Open `slicer/plates/B03-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper`. No rotation, no brim in the project.
-**Parts:** the four items above — 4.1 h, 59 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B03-P2.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it. No rotation, no brim in the project.
+**Parts:** 4 objects — 4.1 h, 59 g (PrusaSlicer 2.9.6 estimate); `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper`.
 **Check:** Parts sit flat as shipped; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
@@ -86,8 +85,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B03.6 — Inspect
 
-**Do:** With calipers, check the F695 bearing seat diameter (13 mm OD, flanged) in each drive frame half. Dry-fit the lower and
-upper halves of each drive unit together — they must close flat with no gap.
+**Do:** With calipers, check the F695 bearing seat diameter in each drive frame half: 13 mm OD, flanged. Dry-fit the lower and
+upper halves of each drive unit together; they must close flat with no gap.
 **Check:** No gap when the two halves are clamped together; bearing seats accept an F695-2RS bearing snugly, no rocking.
 
 Pause: ~10 min since the last pause — bearing seats tested and the bearings pulled back out, halves dry-fitted and separated again. Nothing pressed for keeps.
@@ -96,7 +95,11 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B03.7 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). A is the right-hand side (`a_drive_frame`, `front_idler_right_*`), B the left — Ch 04 Step 04.2 fixes which is which. The orange `[a]_tensioner_right` / `[a]_tensioner_left` from B02 are already in these two bins.
+**Do:**
+
+1. Sort each plate off its diagram: number matches the legend, fill colour is the bin, bin id is on the part.
+2. Label bins from the [bin-labels sheet](../../print/bin-labels.md).
+3. A is the right-hand side, B the left.
 
 **B03-P1**
 
@@ -111,6 +114,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **04-B** — B drive unit + B (left) front idler | `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` |
 
 **Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one orange tensioner.
+
+Tip: the orange `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

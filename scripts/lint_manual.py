@@ -198,10 +198,9 @@ def check_table_width():
 
 # --------------------------------------------------------------------------
 # 5. step word budgets (docs/manual/CONVENTIONS.md § "Action-first steps and
-#    word budgets"). Opt-in for now: `--budgets` adds it to the default run,
-#    `--budgets-only` runs just this check (no `site/` needed) and feeds the
-#    rewrite workers with `--json`.
-#    TODO: a later task flips budgets on by default once the rewrite pass lands.
+#    word budgets"). On by default since the 2026-09-06 rewrite pass;
+#    `--no-budgets` drops it, `--budgets-only` runs just this check (no `site/`
+#    needed) and prints one JSON finding per line with `--json`.
 # --------------------------------------------------------------------------
 
 _BUDGETS = {"Do": 40, "Check": 25, "description": 45, "Tip": 30, "⚠": 60}
@@ -464,7 +463,7 @@ def main(argv=None):
         ("STL printed in no batch", check_stl_coverage),
         ("Tables wider than 7 columns", check_table_width),
     ]
-    if "--budgets" in argv:
+    if "--no-budgets" not in argv:
         checks.append(("Steps over word budget",
                        lambda: [_budget_line(f) for f in check_step_budgets()]))
 

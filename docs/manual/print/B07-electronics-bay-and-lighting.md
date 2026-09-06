@@ -49,11 +49,9 @@ supplied printed).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Back to Galaxy Black after the orange day (Unload, Load Filament → ASA, purge until no orange shows).
-Confirm ≥226 g remaining across the three plates: in the pre-kit order this batch runs on spool #1 straight
-after B00 (~748 g), so no [runout](../16-glossary.md#r) is expected here. If one does land, let it happen
-mid-plate — the Core One+ runout sensor pauses and resumes cleanly. Sheet per
-[00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Swap the orange spool for Galaxy Black: Unload, Load Filament → ASA, purge until no orange shows.
+Confirm ≥226 g for three plates; spool #1 holds ~748 g after B00, so no [runout](../16-glossary.md#r) here.
+Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge with no orange streak; spool weight written in the ledger.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -64,11 +62,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
-**Do:** Open `slicer/plates/B07-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `wago_221-415_mount_3by5`, `lrs_200_psu_bracket_x2` ×2, `PSU_stabilizer_50mm`,
-`usb_adapter_mount`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), `pcb_din_clip_x3` ×3,
-`handlebar_spacer_x4` ×4 — 7 files, 13 objects. **3 mm brim on `wago_221-415_mount_3by5` — already in the
-project** (it is on the long-flat list); nothing else on the plate has one.
-**Parts:** the seven files above — 5.6 h, 67 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `wago_221-415_mount_3by5` · `lrs_200_psu_bracket_x2` ×2 · `PSU_stabilizer_50mm` · `usb_adapter_mount` · `usb_adapter_mount_partial_cover` ×1 (ground-lug mount, est.) · `pcb_din_clip_x3` ×3 · `handlebar_spacer_x4` ×4 · 7 files, 13 objects — 5.6 h, 67 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `wago_221-415_mount_3by5` only (the long-flat list), already in the project.
 **Check:** No face re-orientation, all flat as shipped; the preview shows the brim outline on the Wago mount only.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
@@ -88,21 +84,17 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
-**Do:** Open `slicer/plates/B07-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `cob_light_strip_mount_100mm` ×6 and `cob_light_strip_mount_50mm` ×2 — eight mounts total,
-each a 2-piece assembly. **3 mm brim on the six 100 mm mounts — already in the project** (they're on the
-long-flat brim list in [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)); the two 50 mm mounts
-have none. The power inlet does **not** go on this plate:
-with the mandated 3 mm brims the eight mounts plus the 118 × 66.8 mm inlet fill 84 % of the 250 × 220 bed
-and cannot be placed, so the inlet has its own plate B07-P3.
-**Parts:** the eight COB mounts — 8.1 h, 124 g (PrusaSlicer 2.9.6 estimate).
-**Check:** The preview shows the brim outline on the six 100 mm mounts and not on the two 50 mm ones; eight mounts on the plate and nothing else.
+**Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `cob_light_strip_mount_100mm` ×6 · `cob_light_strip_mount_50mm` ×2, eight mounts total, each a 2-piece assembly — 8.1 h, 124 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the six 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the two 50 mm mounts. The power inlet gets its own plate B07-P3.
+**Check:** Brim outline on the six 100 mm mounts only; eight mounts on the plate and nothing else.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
 
 ## Step B07.5 — Print plate B07-P2
 
 **Do:** Print with standing overrides.
-**Check:** Watch for end-lift on the 100 mm mounts partway through — this is the batch's known warp risk.
+**Check:** Watch for end-lift on the 100 mm mounts partway through: this is the batch's known warp risk.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
@@ -114,9 +106,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.8.*
 
-**Do:** Open `slicer/plates/B07-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `power_inlet_IECGS_1mm` ×1 alone. **3 mm brim — already in the project** — it is 118 × 66.8 mm of
-flat ASA and lifts at the corners. Print with standing overrides.
-**Parts:** `power_inlet_IECGS_1mm` — 2.3 h, 35 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B07-P3.3mf` with **File → Open Project**. The arrangement, brim and overrides
+are already in it. Print with standing overrides.
+**Parts:** `power_inlet_IECGS_1mm` ×1 alone on the plate — 2.3 h, 35 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim, already in the project: 118 × 66.8 mm of flat ASA that lifts at the corners.
 **Check:** Brim outline shows in the preview; first layer clean across the full 118 mm; no corner lift.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
@@ -125,9 +117,10 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B07.7 — Inspect
 
-**Do:** Lay each COB mount pair on a flat reference (granite counter); check the two halves close flush
-(the 2× M3×6 FHCS and the inserts come with the kit — dry-fit the halves by hand). Check the Wago mount's
-heat-set bosses are crisp and round; they get their inserts in Ch 09.
+**Do:**
+
+1. Lay each COB mount pair on the granite reference and dry-fit the two halves by hand.
+2. Check the Wago mount's heat-set bosses are crisp and round.
 **Check:** No rocking on the flat reference; halves close flush; bosses undamaged.
 
 Pause: ~15 min since the last pause — every mount checked on the reference, brims snapped off, nothing assembled.
@@ -136,7 +129,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B07.8 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **09-bay** takes the whole bay, including the `power_inlet_IECGS_1mm` off B07-P3 — it is consumed in Ch 09 (Steps 09.10–09.12) and only borrowed for the skirt-ring dry-fit at B08.14 / Ch 11 Step 11.1. The `pcb_din_clip` ×3 are spares (the kit supplies 4; one is the Step 09.7 practice clip) — they stay in 09-bay. The spare `usb_adapter_mount` base (LDO supplies one printed) goes to **spare-alt**; the `handlebar_spacer` ×4 to **11-panels** (Ch 11 Step 11.60).
+**Do:** Sort off each plate diagram into the bins below; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). The inlet lives in **09-bay**, only borrowed for the skirt-ring dry-fit at Step 11.1.
 
 **B07-P1**
 
@@ -158,7 +151,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips | `power_inlet_IECGS_1mm` |
 
-**Check:** COB mounts counted (6× 100 mm + 2× 50 mm) in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
+**Check:** COB mounts counted, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

@@ -11,6 +11,12 @@ On every build this hook re-derives `docs/manual/steps/<chapter-slug>/`:
 
 Contract and layout rules: docs/manual/CONVENTIONS.md § "Step pages".
 
+Navigation: docs/.nav.yml owns the whole site nav (five tabs). Its Build and
+Print tabs list the generated chapter/batch `index.md` overviews by path; the
+step pages themselves stay out of the nav — `steps/.nav.yml`, written by
+`build()` below, carries `hide: true`. Prev/next and the breadcrumb are static
+markup emitted here, so step navigation never depends on nav order.
+
 The directory is gitignored and rebuilt by `mkdocs build`; never hand-edit it.
 Writes are content-compared so `mkdocs serve` does not loop on its own output.
 """
@@ -896,6 +902,8 @@ def build() -> dict:
             keep.add(out)
             written += _write(out, render_page(chapter, page, i, prev_ref, next_ref))
 
+    # Keep the whole generated tree out of the sidebar; the Build/Print tabs in
+    # docs/.nav.yml name the chapter overviews individually instead.
     nav = STEPS / ".nav.yml"
     keep.add(nav)
     written += _write(nav, "hide: true\n")

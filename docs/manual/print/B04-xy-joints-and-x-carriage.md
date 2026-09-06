@@ -37,7 +37,7 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥117 g remaining (the ledger has B04-P1 ending spool #2 at ~13 g — stage spool #3).
+**Do:** Galaxy Black, confirm ≥117 g remaining. The ledger ends spool #2 at ~13 g after B04-P1, so stage spool #3.
 **Check:** Clean purge.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -48,13 +48,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B04.6.*
 
-**Do:** Open `slicer/plates/B04-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: all seven parts together: `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`,
-`xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12`, `x_frame_V2TR_MGN12_left`,
-`x_frame_V2TR_MGN12_right`, `probe_retainer_bracket`. No rotation, no brim in the project — the preview shows no
-brim outline.
-**Parts:** all seven — 8.6 h, 117 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Confirm the files are `x_frame_V2TR_MGN12_left/right` (V2TR = the shared V2/Trident R2 carriage,
-so `TR` in the name is correct) — **not** the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
+**Do:** Open `slicer/plates/B04-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation, no brim: the preview shows no brim outline.
+**Parts:** all seven — 8.6 h, 117 g (PrusaSlicer 2.9.6 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket`.
+**Check:** The plate holds `x_frame_V2TR_MGN12_left/right`, not the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
@@ -68,7 +64,7 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 ## Step B04.4 — Print
 
 **Do:** Print with standing overrides.
-**Check:** First layer clean on both XY joint lowers — these are the largest parts on the plate.
+**Check:** First layer clean on both XY joint lowers, the largest parts on the plate.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
@@ -86,7 +82,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B04.6 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). **05-XY** also holds B02's `[a]_endstop_pod_D2F_switch` and both cable bridges. **07-X** (the X-carriage halves and probe bracket) is staged at Ch 05 Step 05.45 and fitted in Ch 07 — keep `probe_retainer_bracket` loose in it until the probe decision (Omron barrel diameter) is confirmed.
+**Do:** Sort off the plate diagram: part number matches the legend, fill colour is the bin, bin id is printed on the part. Bins: [README § Bins](README.md#bins); labels: [bin-labels sheet](../../print/bin-labels.md). Keep `probe_retainer_bracket` loose until the Omron barrel diameter is confirmed.
 
 **B04-P1**
 

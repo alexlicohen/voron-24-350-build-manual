@@ -61,11 +61,10 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥297 g remaining across all five plates. Spool #1 is predicted to run out
-during **B09-P2** (~60 g left when it starts; see the ledger in [README](README.md#spool-ledger)) — stage
-spool #2; the runout sensor pauses, you load, it resumes. Sheet per
+**Do:** Galaxy Black, confirm ≥297 g remaining across all five plates. Stage spool #2: #1 is predicted to
+run out during **B09-P2** with ~60 g left when it starts, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #2 within reach.
+**Check:** Clean purge; spool #2 within reach for the runout-sensor pause.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -75,9 +74,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
-**Do:** Open `slicer/plates/B09-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid`. Leave `V2_Duo_Plenum`'s
-built-in support in place. 3 mm brim on `V2_Duo_Plenum` — already in the project; the lids have none.
-**Parts:** the three items above — 4.5 h, 63 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B09-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Leave `V2_Duo_Plenum`'s built-in support in place.
+**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `V2_Duo_Plenum_LID`, no brim · `Regular_Cartridge_Lid`, no brim — 4.5 h, 63 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Plenum's built-in support visible in preview, not suppressed; brim outline on the plenum only.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
@@ -97,9 +96,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
-**Do:** Open `slicer/plates/B09-P2.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `Regular_Cartridge` (3mf) and `exhaust_cover`. Leave the cartridge's built-in support in
-place. 3 mm brim on both — already in the project.
-**Parts:** the two items above — 4.9 h, 67 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B09-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Leave the cartridge's built-in support in place.
+**Parts:** `Regular_Cartridge` (3mf), 3 mm brim · `exhaust_cover`, 3 mm brim — 4.9 h, 67 g (PrusaSlicer 2.9.6 estimate) · both brims already in the project.
 **Check:** Cartridge support intact in preview; brim outline shows on both.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro)
@@ -107,7 +106,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B09.5 — Print plate B09-P2
 
 **Do:** Print with standing overrides.
-**Check:** Cartridge magnet pockets (8× 6×3 mm) print crisp.
+**Check:** All eight 6×3 mm cartridge magnet pockets print crisp.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
@@ -119,10 +118,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
-**Do:** Open `slicer/plates/B09-P3.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `exhaust_filter_grill`, `spool_holder`, `bowden_retainer`, `z_belt_cover_a` ×2,
-`z_belt_cover_b` ×2 — 5 files, 7 objects. 3 mm brim on `exhaust_filter_grill` — already in the project;
-nothing else has one.
-**Parts:** the five files above — 3.9 h, 55 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B09-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `exhaust_filter_grill`, 3 mm brim already in the project · `spool_holder`, no brim · `bowden_retainer`, no brim · `z_belt_cover_a` ×2, no brim · `z_belt_cover_b` ×2, no brim · 5 files, 7 objects — 3.9 h, 55 g (PrusaSlicer 2.9.6 estimate).
 **Check:** No face re-orientation; brim outline on the grill only.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
@@ -142,9 +140,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
-**Do:** Open `slicer/plates/B09-P4.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7, `bottom_panel_hinge` ×2,
-`bottom_panel_clip` ×4. No brim in the project.
-**Parts:** the four files above (21 pieces) — 4.2 h, 56 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B09-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `corner_panel_clip_4mm` ×8 · `midspan_panel_clip_4mm` ×7 · `bottom_panel_hinge` ×2 · `bottom_panel_clip` ×4 · 4 files, 21 pieces — 4.2 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim in the project.
 **Check:** Counts match: 8 corner, 7 midspan, 2 hinge, 4 bottom clips; no brim outline anywhere.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
@@ -164,8 +162,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
-**Do:** Open `slicer/plates/B09-P5.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. On the plate: `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8. No brim in the project.
-**Parts:** the two files above (16 pieces) — 4.3 h, 56 g (PrusaSlicer 2.9.6 estimate).
+**Do:** Open `slicer/plates/B09-P5.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `corner_panel_clip_6mm` ×8 · `midspan_panel_clip_6mm` ×8 · 2 files, 16 pieces — 4.3 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim in the project.
 **Check:** Counts match: 8 corner, 8 midspan; no brim outline anywhere.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
@@ -181,12 +180,12 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B09.12 — Inspect
 
-**Do:** Now: check the Nevermore plenum lid slides in its groove and the cartridge snaps onto the plenum;
-snap the brims off. **On kit day, before Ch 11:** snap one 4 mm and one 6 mm clip onto a frame extrusion
-with a 3 mm panel offcut and the corresponding foam tape thickness — confirm the mapping in the Read-first
-note. Too loose → the panel rattles (wrong thickness); too tight → it will not seat.
-**Check:** Plenum lid slides freely; cartridge seats with a positive snap. Both clip thicknesses confirmed
-against real panel and tape stock before Ch 11 uses them.
+**Do:**
+
+1. Snap the brims off. Check the plenum lid slides and the cartridge snaps on.
+2. On kit day, test a 4 mm and a 6 mm clip on an extrusion, 3 mm panel offcut plus foam tape.
+**Check:** Plenum lid slides freely, cartridge snaps on positively, and each clip grips the panel-plus-tape
+stack without rattling or jamming.
 
 Pause: ~10 min since the last pause — Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.
 
@@ -194,7 +193,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B09.13 — Sort into bins
 
-**Do:** Sort each plate straight off its diagram (the image at the top of its Load step): the number on a part is the number in the legend, the fill colour is its bin, and the bin id is printed on the part. Bins are listed in [README § Bins](README.md#bins); print their labels from the [bin-labels sheet](../../print/bin-labels.md). Keep the 4 mm and 6 mm clips in their two bins with a note "test one on kit day before use" — a mixed bin costs a panel. **11-nevermore** holds the plenum, lid, cartridge and cartridge lid together with the exhaust cover and grill; **11-spool** the spool holder and bowden retainer.
+**Do:** Sort off each plate diagram; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). Keep the 4 mm and 6 mm clips in separate bins, each noted "test one on kit day before use".
 
 **B09-P1**
 
@@ -229,7 +228,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
 
-**Check:** 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+**Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
