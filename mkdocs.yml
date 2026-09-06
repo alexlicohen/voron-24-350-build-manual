@@ -6,11 +6,18 @@ theme:
   name: material
   custom_dir: overrides
   features:
-    - navigation.sections
+    # Five top-level tabs (Home / Build / Print / Plan / Reference, defined in
+    # docs/.nav.yml); the left sidebar then shows only the active tab's pages.
+    # Sticky keeps the tab row under the header when scrolling, so the tab you
+    # are in is always visible at the bench. navigation.sections is deliberately
+    # NOT set: with tabs on it only applies to a third nav level, which this
+    # site does not have.
+    - navigation.tabs
+    - navigation.tabs.sticky
     # navigation.indexes is deliberately OFF: it absorbs the first index.md
     # child of a nav section into the section label, which would swallow a
-    # generated chapter-overview page (docs/manual/.nav.yml). No page in this
-    # site relies on it.
+    # generated chapter-overview page (the Build and Print tabs are lists of
+    # steps/<chapter>/index.md pages). No page in this site relies on it.
     - navigation.footer
     - navigation.top
     - toc.follow

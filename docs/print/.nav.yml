@@ -1,4 +1,4 @@
-nav:
-  - plate-plans.md
-  - checklists.md
-  - bin-labels.md
+# No nav here on purpose — plate-plans.md, checklists.md and bin-labels.md are
+# listed at the end of the Print tab in docs/.nav.yml. `hide: true` keeps this
+# directory from ever surfacing as a second, duplicate section.
+hide: true

@@ -86,6 +86,35 @@
 h3.step-done { opacity: .6; text-decoration: line-through; }
 .progress-badge { font-size: .8rem; opacity: .75; margin-left: .3rem; white-space: nowrap; }
 
+/* Tabs on the iPad. Material hides .md-tabs below 76.234375em (1220px), which
+ * is wider than every iPad in landscape except the 12.9" (1024, 1080, 1180 CSS
+ * px) — the five-tab IA would be invisible on the bench device. Show the tab row
+ * from 48em (768px) so both iPad orientations get it; phones keep the hamburger
+ * drawer, where five drill-down rows are the better shape. Only the one Material
+ * rule `@media screen and (max-width:76.234375em){.md-tabs{display:none}}` is
+ * being overridden; the sidebar stays a drawer below 76.25em as before.
+ *
+ * --md-header-height is ours, not Material's (which never defines it, hence the
+ * 2.4rem fallback used by .jump-bar and .step-crumbs below). Wherever the sticky
+ * tab row is showing, the pinned area is header + tabs = 4.8rem — the same value
+ * Material uses for .md-sidebar when the header is lifted. */
+@media screen and (min-width: 48em) {
+  .md-tabs { display: block; }
+  :root { --md-header-height: 4.8rem; }
+}
+
+/* Pages deliberately kept out of the nav — the generated step pages and the
+ * whole-chapter NN-*.md pages — mark no tab active, and Material's lifted
+ * sidebar (`.md-nav--lifted` shows only the active tab's subtree) would then
+ * render an empty column beside them. Drop it and let the page use the width;
+ * those pages navigate by their own breadcrumb and prev/next bar. Scoped to
+ * >=76.25em because below that the same element is the hamburger drawer and
+ * must stay. `:has()` is Safari 15.4+/Chrome 105+; where it is missing the
+ * rule is skipped and the column is merely empty, as before. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary:not(:has(.md-nav__item--active)) { display: none; }
+}
+
 /* R6 B9 — sticky section jump bar. */
 .jump-bar {
   position: sticky;
@@ -185,7 +214,9 @@ h3.step-done { opacity: .6; text-decoration: line-through; }
     gap: 1.4rem;
     align-items: start;
   }
-  .md-typeset .step-figure { order: 2; position: sticky; top: 2.2rem; }
+  /* Clears the sticky header — plus the sticky tab row where it shows. */
+  .md-typeset .step-figure { order: 2; position: sticky;
+                             top: calc(var(--md-header-height, 2.4rem) + .6rem); }
   .md-typeset .step-text { order: 1; }
   .md-typeset img.step-figure__main { max-height: 56vh; }
 }
