@@ -31,17 +31,19 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 
 **Printed parts**
 
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
 
-| Looks like | STL | Qty | Colour |
-|---|---|---|---|
-| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` (Voron-2 `STLs/Skirts/`) | 1 | Black — heat-set, fitted with its IEC module and mounted in Ch 09 (09.10–09.12); nothing to build here |
-| ![](assets/parts/cob_light_strip_mount_100mm.png){ width=96 } | `cob_light_strip_mount_100mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 6 | Black |
-| ![](assets/parts/cob_light_strip_mount_50mm.png){ width=96 } | `cob_light_strip_mount_50mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 2 | Black |
-| ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `wago_221-415_mount_3by5.stl` (Voron-2 `STLs/Electronics_Bay/`) | 1 | Black — fitted in Ch 09, populated here |
-| ![](assets/parts/z_chain_guide.png){ width=96 } ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_guide` / `z_chain_bottom_anchor` (batch B05) | 1 / 1 | Black |
-| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Orange |
-|  | `2x3 Splitter Spacer` | 2 | LDO-supplied printed — do not print |
-| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 1 | Black — fitted in Ch 08/09, used here |
+
+| Looks like | STL | Bin | Qty | Colour |
+|---|---|---|---|---|
+| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` (Voron-2 `STLs/Skirts/`) | 09-bay | 1 | Black — heat-set, fitted with its IEC module and mounted in Ch 09 (09.10–09.12); nothing to build here |
+| ![](assets/parts/cob_light_strip_mount_100mm.png){ width=96 } | `cob_light_strip_mount_100mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 10-lights | 6 | Black |
+| ![](assets/parts/cob_light_strip_mount_50mm.png){ width=96 } | `cob_light_strip_mount_50mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 10-lights | 2 | Black |
+| ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `wago_221-415_mount_3by5.stl` (Voron-2 `STLs/Electronics_Bay/`) | 09-bay | 1 | Black — fitted in Ch 09, populated here |
+| ![](assets/parts/z_chain_guide.png){ width=96 } ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_guide` / `z_chain_bottom_anchor` (batch B05) | 10-chains | 1 / 1 | Black |
+| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 10-chains | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Orange |
+|  | `2x3 Splitter Spacer` | — | 2 | LDO-supplied printed — do not print |
+| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 09-bay | 1 | Black — fitted in Ch 08/09, used here |
 
 **Hardware** (chapter totals)
 

@@ -31,14 +31,16 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 **Printed parts**
 
-| Looks like | STL | Qty | Colour |
-|---|---|---|---|
-| ![](assets/parts/lrs_200_psu_bracket_x2.png){ width=96 } | `Electronics_Bay/lrs_200_psu_bracket_x2` | 2 | Black |
-| ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `Electronics_Bay/wago_221-415_mount_3by5` | 1 | Black |
-| ![](assets/parts/pcb_din_clip_x3.png){ width=96 } | `Electronics_Bay/pcb_din_clip_x3` | 1 file = 3 clips (spares — kit supplies 4) | Black |
-| ![](assets/parts/PSU_stabilizer_50mm.png){ width=96 } | `Electronics_Bay/PSU_stabilizer_50mm` | 1 — **fit only if needed**, see 09.16 | Black |
-| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `Nitehawk-SB-V2/usb_adapter_mount_partial_cover` | 1 | Black |
-| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `Skirts/power_inlet_IECGS_1mm` | 1 (batch B07-P3) | Black |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL | Bin | Qty | Colour |
+|---|---|---|---|---|
+| ![](assets/parts/lrs_200_psu_bracket_x2.png){ width=96 } | `Electronics_Bay/lrs_200_psu_bracket_x2` | 09-bay | 2 | Black |
+| ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `Electronics_Bay/wago_221-415_mount_3by5` | 09-bay | 1 | Black |
+| ![](assets/parts/pcb_din_clip_x3.png){ width=96 } | `Electronics_Bay/pcb_din_clip_x3` | 09-bay | 1 file = 3 clips (spares — kit supplies 4) | Black |
+| ![](assets/parts/PSU_stabilizer_50mm.png){ width=96 } | `Electronics_Bay/PSU_stabilizer_50mm` | 09-bay | 1 — **fit only if needed**, see 09.16 | Black |
+| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `Nitehawk-SB-V2/usb_adapter_mount_partial_cover` | 09-bay | 1 | Black |
+| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `Skirts/power_inlet_IECGS_1mm` | 09-bay | 1 (batch B07-P3) | Black |
 
 **Supplied printed by LDO — do not print these:** Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 

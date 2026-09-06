@@ -30,19 +30,21 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 
 **Printed parts**
 
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
 
-| Looks like | STL | Qty | Colour |
-|---|---|---|---|
-| ![](assets/parts/a_drive_frame_upper.png){ width=96 } | `a_drive_frame_upper.stl` | 1 | Black |
-| ![](assets/parts/a_drive_frame_lower.png){ width=96 } | `a_drive_frame_lower.stl` | 1 | Black |
-| ![](assets/parts/b_drive_frame_upper.png){ width=96 } | `b_drive_frame_upper.stl` | 1 | Black |
-| ![](assets/parts/b_drive_frame_lower.png){ width=96 } | `b_drive_frame_lower.stl` | 1 | Black |
-| ![](assets/parts/front_idler_right_lower.png){ width=96 } | `front_idler_right_lower.stl` | 1 | Black |
-| ![](assets/parts/front_idler_right_upper.png){ width=96 } | `front_idler_right_upper.stl` | 1 | Black |
-| ![](assets/parts/front_idler_left_lower.png){ width=96 } | `front_idler_left_lower.stl` | 1 | Black |
-| ![](assets/parts/front_idler_left_upper.png){ width=96 } | `front_idler_left_upper.stl` | 1 | Black |
-| ![](assets/parts/[a]_tensioner_right.png){ width=96 } | `[a]_tensioner_right.stl` | 1 | Orange |
-| ![](assets/parts/[a]_tensioner_left.png){ width=96 } | `[a]_tensioner_left.stl` | 1 | Orange |
+
+| Looks like | STL | Bin | Qty | Colour |
+|---|---|---|---|---|
+| ![](assets/parts/a_drive_frame_upper.png){ width=96 } | `a_drive_frame_upper.stl` | 04-A | 1 | Black |
+| ![](assets/parts/a_drive_frame_lower.png){ width=96 } | `a_drive_frame_lower.stl` | 04-A | 1 | Black |
+| ![](assets/parts/b_drive_frame_upper.png){ width=96 } | `b_drive_frame_upper.stl` | 04-B | 1 | Black |
+| ![](assets/parts/b_drive_frame_lower.png){ width=96 } | `b_drive_frame_lower.stl` | 04-B | 1 | Black |
+| ![](assets/parts/front_idler_right_lower.png){ width=96 } | `front_idler_right_lower.stl` | 04-A | 1 | Black |
+| ![](assets/parts/front_idler_right_upper.png){ width=96 } | `front_idler_right_upper.stl` | 04-A | 1 | Black |
+| ![](assets/parts/front_idler_left_lower.png){ width=96 } | `front_idler_left_lower.stl` | 04-B | 1 | Black |
+| ![](assets/parts/front_idler_left_upper.png){ width=96 } | `front_idler_left_upper.stl` | 04-B | 1 | Black |
+| ![](assets/parts/[a]_tensioner_right.png){ width=96 } | `[a]_tensioner_right.stl` | 04-A | 1 | Orange |
+| ![](assets/parts/[a]_tensioner_left.png){ width=96 } | `[a]_tensioner_left.stl` | 04-B | 1 | Orange |
 
 All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idlers/`. Two more parts sit in those same folders and are **not** used here: `[a]_cable_cover` (Ch 07) and `[a]_z_chain_retainer_bracket_x2` (Ch 06). Keep them bagged.
 

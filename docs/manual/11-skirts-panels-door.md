@@ -35,47 +35,49 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 
 **Printed parts** (chapter totals; batch ids from `docs/voron-print-plan.md`)
 
-| Looks like | STL | Qty | Colour | Batch |
-|---|---|---:|---|---|
-| ![](assets/parts/rear_center_skirt_350.png){ width=96 } | `rear_center_skirt_350.stl` | 1 | Black | B08 |
-| ![](assets/parts/front_skirt_a_350.png){ width=96 } | `front_skirt_a_350.stl` | 1 | Black | B08 |
-| ![](assets/parts/front_skirt_b_350.png){ width=96 } | `front_skirt_b_350.stl` | 1 | Black | B08 |
-| ![](assets/parts/side_skirt_a_350_x2.png){ width=96 } | `side_skirt_a_350_x2.stl` | 2 | Black | B08 |
-| ![](assets/parts/side_skirt_b_350_x2.png){ width=96 } | `side_skirt_b_350_x2.stl` | 2 | Black | B08 |
-| ![](assets/parts/side_fan_support_x2.png){ width=96 } | `side_fan_support_x2.STL` | 2 | Black | B08 |
-| ![](assets/parts/keystone_panel.png){ width=96 } | `keystone_panel.stl` | 1 | Black | B08 |
-| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` | 1 | Black | **B07-P3** *(fitted in Ch 09 Steps 09.10–09.12; listed here because it is a ring segment)* |
-| ![](assets/parts/mount.png){ width=96 } | `mount.stl` (BTT Pi TFT4.3 Mount) | 1 | Black | B08 |
-| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 1 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_belt_guard_a_x2.png){ width=96 } | `[a]_belt_guard_a_x2.stl` | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_belt_guard_b_x2.png){ width=96 } | `[a]_belt_guard_b_x2.stl` | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_a_x2.png){ width=96 } | `[a]_fan_grill_a_x2.stl` | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_b_x2.png){ width=96 } | `[a]_fan_grill_b_x2.stl` | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_retainer_x2.png){ width=96 } | `[a]_fan_grill_retainer_x2.stl` | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_keystone_blank_insert.png){ width=96 } | `[a]_keystone_blank_insert.stl` | 2 *(1 used, 1 spare)* | Orange | B02 |
-| ![](assets/parts/ldo_bestagon_insert.png){ width=96 } | `ldo_bestagon_insert.stl` | 1 *(optional trim)* | Orange | B02 |
-| ![](assets/parts/corner_panel_clip_4mm_x8.png){ width=96 } | `corner_panel_clip_4mm_x8.stl` | 8 | Black | B09 |
-| ![](assets/parts/midspan_panel_clip_4mm_x7.png){ width=96 } | `midspan_panel_clip_4mm_x7.stl` | 7 | Black | B09 |
-| ![](assets/parts/corner_panel_clip_6mm_x8.png){ width=96 } | `corner_panel_clip_6mm_x8.stl` | 8 | Black | B09 |
-| ![](assets/parts/midspan_panel_clip_6mm_x8.png){ width=96 } | `midspan_panel_clip_6mm_x8.stl` | 8 | Black | B09 |
-| ![](assets/parts/bottom_panel_clip_x4.png){ width=96 } | `bottom_panel_clip_x4.stl` | 4 | Black | B09 |
-| ![](assets/parts/bottom_panel_hinge_x2.png){ width=96 } | `bottom_panel_hinge_x2.stl` | 2 | Black | B09 |
-| ![](assets/parts/z_belt_cover_a_x2.png){ width=96 } | `z_belt_cover_a_x2.stl` | 2 | Black | B09 |
-| ![](assets/parts/z_belt_cover_b_x2.png){ width=96 } | `z_belt_cover_b_x2.stl` | 2 | Black | B09 |
-|  | `z_belt_cover_a_led.stl` (LDO) | 0 | Black | not printed — Ch 10 Step 10.38 routes the LED lead through the extrusion slot, not the Z-motor opening; see 11.22 for the rejected alternative |
-| ![](assets/parts/exhaust_cover.png){ width=96 } | `exhaust_cover.stl` (LDO) | 1 | Black | B09 |
-| ![](assets/parts/exhaust_filter_grill.png){ width=96 } | `exhaust_filter_grill.stl` (Voron) | 1 | Black | B09 |
-| ![](assets/parts/V2_Duo_Plenum.png){ width=96 } | `V2_Duo_Plenum.stl` | 1 | Black | B09 |
-| ![](assets/parts/V2_Duo_Plenum_LID.png){ width=96 } | `V2_Duo_Plenum_LID.stl` | 1 | Black | B09 |
-| ![](assets/parts/Regular_Cartridge%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge(contributed_by_Bucknova).3mf` | 1 | Black | B09 |
-| ![](assets/parts/Regular_Cartridge_Lid%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | 1 | Black | B09 |
-| ![](assets/parts/spool_holder.png){ width=96 } | `spool_holder.stl` | 1 | Black | B09 |
-| ![](assets/parts/bowden_retainer.png){ width=96 } | `bowden_retainer.stl` | 1 | Black | B09 |
-| ![](assets/parts/handlebar_spacer_x4.png){ width=96 } | `handlebar_spacer_x4.stl` (LDO) | 4 | Black | B07 |
-| ![](assets/parts/Handle-Hinge_Top.png){ width=96 } ![](assets/parts/Handle-Hinge_Bottom.png){ width=96 } | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 1 each | Black | B10 |
-| ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 2 each | Black | B10 |
-| ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 1 each | Black | B10 |
-| ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 1 | Orange | B02 |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL | Bin | Qty | Colour | Batch |
+|---|---|---|---:|---|---|
+| ![](assets/parts/rear_center_skirt_350.png){ width=96 } | `rear_center_skirt_350.stl` | 11-skirts | 1 | Black | B08 |
+| ![](assets/parts/front_skirt_a_350.png){ width=96 } | `front_skirt_a_350.stl` | 11-skirts | 1 | Black | B08 |
+| ![](assets/parts/front_skirt_b_350.png){ width=96 } | `front_skirt_b_350.stl` | 11-skirts | 1 | Black | B08 |
+| ![](assets/parts/side_skirt_a_350_x2.png){ width=96 } | `side_skirt_a_350_x2.stl` | 11-skirts | 2 | Black | B08 |
+| ![](assets/parts/side_skirt_b_350_x2.png){ width=96 } | `side_skirt_b_350_x2.stl` | 11-skirts | 2 | Black | B08 |
+| ![](assets/parts/side_fan_support_x2.png){ width=96 } | `side_fan_support_x2.STL` | 11-skirts | 2 | Black | B08 |
+| ![](assets/parts/keystone_panel.png){ width=96 } | `keystone_panel.stl` | 11-skirts | 1 | Black | B08 |
+| ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` | 09-bay | 1 | Black | **B07-P3** *(fitted in Ch 09 Steps 09.10–09.12; listed here because it is a ring segment)* |
+| ![](assets/parts/mount.png){ width=96 } | `mount.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Black | B08 |
+| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_belt_guard_a_x2.png){ width=96 } | `[a]_belt_guard_a_x2.stl` | 11-fans | 2 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_belt_guard_b_x2.png){ width=96 } | `[a]_belt_guard_b_x2.stl` | 11-fans | 2 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_a_x2.png){ width=96 } | `[a]_fan_grill_a_x2.stl` | 11-fans | 2 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_b_x2.png){ width=96 } | `[a]_fan_grill_b_x2.stl` | 11-fans | 2 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_retainer_x2.png){ width=96 } | `[a]_fan_grill_retainer_x2.stl` | 11-fans | 2 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_keystone_blank_insert.png){ width=96 } | `[a]_keystone_blank_insert.stl` | 11-skirts | 2 *(1 used, 1 spare)* | Orange | B02 |
+| ![](assets/parts/ldo_bestagon_insert.png){ width=96 } | `ldo_bestagon_insert.stl` | 11-skirts | 1 *(optional trim)* | Orange | B02 |
+| ![](assets/parts/corner_panel_clip_4mm_x8.png){ width=96 } | `corner_panel_clip_4mm_x8.stl` | 11-clips-4mm | 8 | Black | B09 |
+| ![](assets/parts/midspan_panel_clip_4mm_x7.png){ width=96 } | `midspan_panel_clip_4mm_x7.stl` | 11-clips-4mm | 7 | Black | B09 |
+| ![](assets/parts/corner_panel_clip_6mm_x8.png){ width=96 } | `corner_panel_clip_6mm_x8.stl` | 11-clips-6mm | 8 | Black | B09 |
+| ![](assets/parts/midspan_panel_clip_6mm_x8.png){ width=96 } | `midspan_panel_clip_6mm_x8.stl` | 11-clips-6mm | 8 | Black | B09 |
+| ![](assets/parts/bottom_panel_clip_x4.png){ width=96 } | `bottom_panel_clip_x4.stl` | 11-panels | 4 | Black | B09 |
+| ![](assets/parts/bottom_panel_hinge_x2.png){ width=96 } | `bottom_panel_hinge_x2.stl` | 11-panels | 2 | Black | B09 |
+| ![](assets/parts/z_belt_cover_a_x2.png){ width=96 } | `z_belt_cover_a_x2.stl` | 11-panels | 2 | Black | B09 |
+| ![](assets/parts/z_belt_cover_b_x2.png){ width=96 } | `z_belt_cover_b_x2.stl` | 11-panels | 2 | Black | B09 |
+|  | `z_belt_cover_a_led.stl` (LDO) | — | 0 | Black | not printed — Ch 10 Step 10.38 routes the LED lead through the extrusion slot, not the Z-motor opening; see 11.22 for the rejected alternative |
+| ![](assets/parts/exhaust_cover.png){ width=96 } | `exhaust_cover.stl` (LDO) | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/exhaust_filter_grill.png){ width=96 } | `exhaust_filter_grill.stl` (Voron) | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/V2_Duo_Plenum.png){ width=96 } | `V2_Duo_Plenum.stl` | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/V2_Duo_Plenum_LID.png){ width=96 } | `V2_Duo_Plenum_LID.stl` | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/Regular_Cartridge%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge(contributed_by_Bucknova).3mf` | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/Regular_Cartridge_Lid%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/spool_holder.png){ width=96 } | `spool_holder.stl` | 11-spool | 1 | Black | B09 |
+| ![](assets/parts/bowden_retainer.png){ width=96 } | `bowden_retainer.stl` | 11-spool | 1 | Black | B09 |
+| ![](assets/parts/handlebar_spacer_x4.png){ width=96 } | `handlebar_spacer_x4.stl` (LDO) | 11-panels | 4 | Black | B07 |
+| ![](assets/parts/Handle-Hinge_Top.png){ width=96 } ![](assets/parts/Handle-Hinge_Bottom.png){ width=96 } | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 11-door | 1 each | Black | B10 |
+| ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
+| ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
+| ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Orange | B02 |
 
 **Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7).
 

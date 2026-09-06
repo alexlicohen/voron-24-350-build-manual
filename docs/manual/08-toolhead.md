@@ -30,22 +30,24 @@ Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, tool
 
 **Printed parts**
 
-| Looks like | STL | Qty | Colour |
-|---|---|---|---|
-| ![](assets/parts/%5Ba%5D_stealthburner_main_body.png){ width=96 } | `[a]_stealthburner_main_body.stl` | 1 | Orange |
-| ![](assets/parts/stealthburner_printhead_revo_voron_front.png){ width=96 } | `stealthburner_printhead_revo_voron_front.stl` | 1 | Black |
-| ![](assets/parts/stealthburner_printhead_revo_voron_rear_cw2.png){ width=96 } | `stealthburner_printhead_revo_voron_rear_cw2.stl` | 1 | Black |
-| ![](assets/parts/%5Bo%5D_stealthburner_LED_carrier.png){ width=96 } | `[o]_stealthburner_LED_carrier.stl` | 1 | Black (opaque) |
-| ![](assets/parts/%5Bo%5D_stealthburner_LED_diffuser_mask.png){ width=96 } | `[o]_stealthburner_LED_diffuser_mask.stl` | 1 | Black (opaque) |
-| — | `[c]_stealthburner_LED_diffuser.stl` | 1 | **kit-supplied** in clear PETG — not printed here |
-| ![](assets/parts/main_body.png){ width=96 } | `main_body.stl` (Clockwork 2) | 1 | Black |
-| ![](assets/parts/motor_plate.png){ width=96 } | `motor_plate.stl` (Clockwork 2) | 1 | Black |
-| ![](assets/parts/%5Ba%5D_guidler_a.png){ width=96 } ![](assets/parts/%5Ba%5D_guidler_b.png){ width=96 } | `[a]_guidler_a.stl` / `[a]_guidler_b.stl` | 1 each | Orange |
-| ![](assets/parts/%5Ba%5D_latch.png){ width=96 } ![](assets/parts/%5Ba%5D_latch_shuttle.png){ width=96 } | `[a]_latch.stl` / `[a]_latch_shuttle.stl` | 1 each | Orange |
-| ![](assets/parts/%5Ba%5D_pcb_spacer.png){ width=96 } | `[a]_pcb_spacer.stl` (CW2) | 1 | **Supplied printed**; you printed a 0.3 g spare |
-| ![](assets/parts/cw2_captive_pcb_cover.png){ width=96 } | `cw2_captive_pcb_cover.stl` (Nitehawk-SB repo) | 1 | Black — replaces the stock `cable_door` |
-| — | CW2 Chain Anchor Tilted | 1 | **Supplied printed** — do **not** print `chain_anchor_2hole` |
-| — | Klicky set (`KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2` + holder, `Mount_*`, `Dock_mount_fixed_v2`) | 1 set | Black — **alternative path only**, bag it (Step 08.54) |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL | Bin | Qty | Colour |
+|---|---|---|---|---|
+| ![](assets/parts/%5Ba%5D_stealthburner_main_body.png){ width=96 } | `[a]_stealthburner_main_body.stl` | 08-SB | 1 | Orange |
+| ![](assets/parts/stealthburner_printhead_revo_voron_front.png){ width=96 } | `stealthburner_printhead_revo_voron_front.stl` | 08-SB | 1 | Black |
+| ![](assets/parts/stealthburner_printhead_revo_voron_rear_cw2.png){ width=96 } | `stealthburner_printhead_revo_voron_rear_cw2.stl` | 08-SB | 1 | Black |
+| ![](assets/parts/%5Bo%5D_stealthburner_LED_carrier.png){ width=96 } | `[o]_stealthburner_LED_carrier.stl` | 08-SB | 1 | Black (opaque) |
+| ![](assets/parts/%5Bo%5D_stealthburner_LED_diffuser_mask.png){ width=96 } | `[o]_stealthburner_LED_diffuser_mask.stl` | 08-SB | 1 | Black (opaque) |
+| — | `[c]_stealthburner_LED_diffuser.stl` | — | 1 | **kit-supplied** in clear PETG — not printed here |
+| ![](assets/parts/main_body.png){ width=96 } | `main_body.stl` (Clockwork 2) | 08-CW2 | 1 | Black |
+| ![](assets/parts/motor_plate.png){ width=96 } | `motor_plate.stl` (Clockwork 2) | 08-CW2 | 1 | Black |
+| ![](assets/parts/%5Ba%5D_guidler_a.png){ width=96 } ![](assets/parts/%5Ba%5D_guidler_b.png){ width=96 } | `[a]_guidler_a.stl` / `[a]_guidler_b.stl` | 08-CW2 | 1 each | Orange |
+| ![](assets/parts/%5Ba%5D_latch.png){ width=96 } ![](assets/parts/%5Ba%5D_latch_shuttle.png){ width=96 } | `[a]_latch.stl` / `[a]_latch_shuttle.stl` | 08-CW2 | 1 each | Orange |
+| ![](assets/parts/%5Ba%5D_pcb_spacer.png){ width=96 } | `[a]_pcb_spacer.stl` (CW2) | spare-alt | 1 | **Supplied printed**; you printed a 0.3 g spare |
+| ![](assets/parts/cw2_captive_pcb_cover.png){ width=96 } | `cw2_captive_pcb_cover.stl` (Nitehawk-SB repo) | 08-CW2 | 1 | Black — replaces the stock `cable_door` |
+| — | CW2 Chain Anchor Tilted | — | 1 | **Supplied printed** — do **not** print `chain_anchor_2hole` |
+| — | Klicky set (`KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2` + holder, `Mount_*`, `Dock_mount_fixed_v2`) | — | 1 set | Black — **alternative path only**, bag it (Step 08.54) |
 
 **Hardware** (chapter totals)
 

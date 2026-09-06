@@ -30,26 +30,28 @@ Builds the four Z drive units, the four Z idlers, the four Z linear rails and th
 
 **Printed parts** — all ASA. Black = main colour, Orange = accent (`[a]_` prefix).
 
-| Looks like | STL (Voron-2 `STLs/`, branch `Voron2.4`) | Qty | Colour |
-|---|---|---:|---|
-| ![](assets/parts/z_drive_main_a_x2.png){ width=96 } | `Z_Drive/z_drive_main_a_x2.stl` | 2 | Black |
-| ![](assets/parts/z_drive_main_b_x2.png){ width=96 } | `Z_Drive/z_drive_main_b_x2.stl` | 2 | Black |
-| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_a_x2.stl` | 2 | Black |
-| ![](assets/parts/z_drive_retainer_b_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_b_x2.stl` | 2 | Black |
-| ![](assets/parts/z_motor_mount_a_x2.png){ width=96 } | `Z_Drive/z_motor_mount_a_x2.stl` | 2 | Black |
-| ![](assets/parts/z_motor_mount_b_x2.png){ width=96 } | `Z_Drive/z_motor_mount_b_x2.stl` | 2 | Black |
-| ![](assets/parts/[a]_z_drive_baseplate_a_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 2 | Orange |
-| ![](assets/parts/[a]_z_drive_baseplate_b_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 2 | Orange |
-| ![](assets/parts/[a]_belt_tensioner_a_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 2 | Orange |
-| ![](assets/parts/[a]_belt_tensioner_b_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 2 | Orange |
-| ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 2 | Black |
-| ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 2 | Black |
-| ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 4 | Orange |
-| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
-| *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | 8 | Black — fallback if the panel measures 4 mm |
-| ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 2 | Black |
-| ![](assets/parts/pulley_jig.png){ width=96 } | `Tools/pulley_jig.stl` (jig, not consumed) | 1 | Black |
-| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 4 | Black — batch **B05**, which prints *after* this chapter in the timeline |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL (Voron-2 `STLs/`, branch `Voron2.4`) | Bin | Qty | Colour |
+|---|---|---|---:|---|
+| ![](assets/parts/z_drive_main_a_x2.png){ width=96 } | `Z_Drive/z_drive_main_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
+| ![](assets/parts/z_drive_main_b_x2.png){ width=96 } | `Z_Drive/z_drive_main_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
+| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
+| ![](assets/parts/z_drive_retainer_b_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
+| ![](assets/parts/z_motor_mount_a_x2.png){ width=96 } | `Z_Drive/z_motor_mount_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
+| ![](assets/parts/z_motor_mount_b_x2.png){ width=96 } | `Z_Drive/z_motor_mount_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
+| ![](assets/parts/[a]_z_drive_baseplate_a_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Orange |
+| ![](assets/parts/[a]_z_drive_baseplate_b_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Orange |
+| ![](assets/parts/[a]_belt_tensioner_a_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Orange |
+| ![](assets/parts/[a]_belt_tensioner_b_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Orange |
+| ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
+| ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
+| ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Orange |
+| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
+| *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | — | 8 | Black — fallback if the panel measures 4 mm |
+| ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 00-jigs | 2 | Black |
+| ![](assets/parts/pulley_jig.png){ width=96 } | `Tools/pulley_jig.stl` (jig, not consumed) | 00-jigs | 1 | Black |
+| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 06-Z-joints | 4 | Black — batch **B05**, which prints *after* this chapter in the timeline |
 
 The `_xN` suffix is the quantity you need, not the number of copies in the file — each STL contains one part. `_a` and `_b` are mirrored: two drives use the `a` set, two use the `b` set.
 

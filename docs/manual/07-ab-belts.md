@@ -24,14 +24,16 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **Printed parts**
 
-| Looks like | STL | Qty | Colour |
-|---|---|---:|---|
-| ![](assets/parts/x_frame_V2TR_MGN12_left.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_left` | 1 | Black |
-| ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_right` | 1 | Black |
-| ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `Gantry/X_Axis/X_Carriage/probe_retainer_bracket` | 1 | Black |
-| ![](assets/parts/%5Ba%5D_tensioner_left.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_left` | 1 | Orange — fitted in Ch 04, adjusted here |
-| ![](assets/parts/%5Ba%5D_tensioner_right.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_right` | 1 | Orange — fitted in Ch 04, adjusted here |
-| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 1 | Orange |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL | Bin | Qty | Colour |
+|---|---|---|---:|---|
+| ![](assets/parts/x_frame_V2TR_MGN12_left.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_left` | 07-X | 1 | Black |
+| ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_right` | 07-X | 1 | Black |
+| ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `Gantry/X_Axis/X_Carriage/probe_retainer_bracket` | 07-X | 1 | Black |
+| ![](assets/parts/%5Ba%5D_tensioner_left.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_left` | 04-B | 1 | Orange — fitted in Ch 04, adjusted here |
+| ![](assets/parts/%5Ba%5D_tensioner_right.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_right` | 04-A | 1 | Orange — fitted in Ch 04, adjusted here |
+| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 07-X | 1 | Orange |
 
 **Hardware** (chapter totals)
 

@@ -33,14 +33,16 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 **Printed parts** — batch **B00**, all Galaxy Black ASA on the Core One+
 
-| Looks like | STL | Repo path | Qty | Colour |
-|---|---|---|---:|---|
-| ![](assets/parts/Voron_Design_Cube_v7.png){ width=96 } | `Voron_Design_Cube_v7.stl` | Voron-2 `STLs/Test_Prints/` | 1 | Black |
-| ![](assets/parts/Heatset_Practice.png){ width=96 } | `Heatset_Practice.stl` | Voron-2 `STLs/Test_Prints/` | 1 | Black |
-| ![](assets/parts/MGN12_rail_guide_x2.png){ width=96 } | `MGN12_rail_guide_x2.stl` | Voron-2 `STLs/Tools/` | 2 | Black |
-| ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `MGN9_rail_guide_x2.stl` | Voron-2 `STLs/Tools/` | 2 | Black |
-| ![](assets/parts/pulley_jig.png){ width=96 } | `pulley_jig.stl` | Voron-2 `STLs/Tools/` | 1 | Black |
-| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `z_drive_retainer_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 1 | Black |
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
+
+| Looks like | STL | Bin | Repo path | Qty | Colour |
+|---|---|---|---|---:|---|
+| ![](assets/parts/Voron_Design_Cube_v7.png){ width=96 } | `Voron_Design_Cube_v7.stl` | 00-jigs | Voron-2 `STLs/Test_Prints/` | 1 | Black |
+| ![](assets/parts/Heatset_Practice.png){ width=96 } | `Heatset_Practice.stl` | 00-jigs | Voron-2 `STLs/Test_Prints/` | 1 | Black |
+| ![](assets/parts/MGN12_rail_guide_x2.png){ width=96 } | `MGN12_rail_guide_x2.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 2 | Black |
+| ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `MGN9_rail_guide_x2.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 2 | Black |
+| ![](assets/parts/pulley_jig.png){ width=96 } | `pulley_jig.stl` | 00-jigs | Voron-2 `STLs/Tools/` | 1 | Black |
+| ![](assets/parts/z_drive_retainer_a_x2.png){ width=96 } | `z_drive_retainer_a_x2.stl` | 02-Z0 · 02-Z2 | Voron-2 `STLs/Z_Drive/` | 1 | Black |
 
 `z_drive_retainer_a` is on the jig plate as the bearing press-fit coupon — Gate B's bore test, Step B00.7 — and it is a real part you will fit in Ch 02; nothing is wasted.
 
