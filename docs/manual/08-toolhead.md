@@ -87,7 +87,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **The kit ships both probes and you build the inductive one.** LDO's wiring guide, the Rev D+ Klipper config and survey §4.3 all assume the Omron inductive probe for QGL plus the LDO nozzle probe as the Z endstop. The Klicky parts are printed; bag them (Step 08.54).
 - **Skip the ADXL mount entirely.** The Nitehawk-SB has an ADXL345 on board. Do not fit the two extra inserts SB p.38 highlights, and do not print `ADXL345_Mounts/*`. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 - **The XY-endstop port on the toolboard is unused** in a standard build, and the PROBE port's third pin is 24 V — Klicky must not have it populated. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
-- **Bench-only work for a print-idle window** (the index's *while it prints* rows assume you use them): Steps 08.3–08.7 (inserts), 08.9–08.11 (idler, guidler, thumbscrew), 08.12–08.14 (bearings), 08.27 (Revo) and 08.33–08.36 (leads, 5015 ears, LED chain) need no printer. If plate B07-P3 is already off the Prusa, heat-set the inlet panel (Ch 09 Step 09.10) and the bed WAGO mount (Ch 09 Step 09.34) in the same iron session as 08.3–08.7 — those two steps then become a confirm.
+- **Bench-only work for a print-idle window** (the index's *while it prints* rows assume you use them): Steps 08.3–08.7 (inserts), 08.9–08.11 (idler, guidler, thumbscrew), 08.12–08.14 (bearings), 08.27 (Revo) and 08.33–08.36 (leads, 5015 ears, LED chain) need no printer. If plate B07-P1 is already off the Prusa, heat-set the inlet panel (Ch 09 Step 09.10) and the bed WAGO mount (Ch 09 Step 09.34) in the same iron session as 08.3–08.7 — those two steps then become a confirm.
 
 **Sources for this chapter**
 
@@ -1104,7 +1104,7 @@ Pause: ~25 min since the last pause — every toolboard-side connector is made, 
 **Do:**
 
 1. Build nothing here. The kit ships both probes, and **Ch 07 already fitted the inductive one**.
-2. Bag the Klicky parts from B06-P2, unbuilt. Z height comes from the LDO nozzle probe, not from either.
+2. Bag the Klicky parts from B06-P1, unbuilt. Z height comes from the LDO nozzle probe, not from either.
 
 **Check:** The inductive probe is on the carriage from Ch 07 and the Klicky bag is closed.
 

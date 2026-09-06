@@ -59,7 +59,7 @@ with the arrangement, the per-object brims and the full configuration already in
 
 | What | Where |
 |---|---|
-| One project per plate, 27 of them | `slicer/plates/B01-P1.3mf` … |
+| One project per plate, 22 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-orange.ini` |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
@@ -306,7 +306,7 @@ and firmware together — get it done and settled before 157.1 h of ASA.
 
 **If the upgrade kit arrives mid-run, pause at the end of Batch B07, before Batch B08.**
 
-1. B08 + B09 + B10 are 12 of the 27 plates and contain every surface anyone will ever look at — the
+1. B08 + B09 + B10 are 10 of the 22 plates and contain every surface anyone will ever look at — the
    150–182 mm skirts are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
 3. Clean boundary — no half-finished sub-assembly waits on it, and in the pre-kit order (B00 → B02 → B07 →
@@ -321,7 +321,7 @@ the single most-looked-at printed part on the machine and it's on B02-P1.
 2. Re-tension both belts and re-square the gantry, per [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changed with the pulleys; the
-   dimensional gate must be re-passed before printing 399 g of skirts (B08). Judge the cube's first layer as
+   dimensional gate must be re-passed before printing 398 g of skirts (B08). Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 
 **The same rule generalises:** *any* toolchain change — slicer version (2.9.6 → 3.0), profile bundle, belts,

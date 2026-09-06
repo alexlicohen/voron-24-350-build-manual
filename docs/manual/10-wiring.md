@@ -15,7 +15,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 07 — A/B belts.** Probe wires already dressed along the X extrusion (manual p.143).
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
 - **Ch 09 — Electronics bay.** DIN rails, wire ducts, Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
-- **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P3** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P6) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
+- **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
 
 **Tools**
 
@@ -256,6 +256,8 @@ Source: [LDO Rev D photo S2 inlet/WAGO mapping](https://raw.githubusercontent.co
 3. Route the run inside the wire duct, not across open deck.
 
 **Check:** Tug each core hard: none comes out, and no copper shows outside any WAGO port.
+
+Tip: The strip-length gauge is moulded on the side of every WAGO 221.
 
 Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S2_inlet.jpg) · [LDO wiring guide § Connecting inlet and WAGO](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-inlet-and-wago)
 
@@ -1132,7 +1134,7 @@ Source: [LDO Rev D photo S7 fan/LED mapping](https://raw.githubusercontent.com/M
 
 **What you're looking at:** The FFC is the flat flexible ribbon carrying the display signal, DSI, between the Raspberry Pi and the 4.3" touchscreen. It has no polarity key, so the bare metal contacts on one face are the only clue to which way round it goes.
 
-**Parts:** FFC ribbon cable ×1, 4.3" capacitive DSI display ×1 — plus, for the module built in this step, `mount.stl` (B08-P6), `[a]_faceplate` (B02), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2 and the screen's four M2.5×6 screws (all counted in Ch 11's tables).
+**Parts:** FFC ribbon cable ×1, 4.3" capacitive DSI display ×1 — plus, for the module built in this step, `mount.stl` (B08-P3), `[a]_faceplate` (B02), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2 and the screen's four M2.5×6 screws (all counted in Ch 11's tables).
 
 **Do:**
 
@@ -1580,8 +1582,23 @@ Source: [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/vo
 
 **Do:**
 
-1. Compare your bay to the photo, one cable at a time, in the order the chapter landed them.
+1. Compare your bay to the photo, one cable at a time, in the table's order.
 2. Any difference from the photo gets explained by a step in this chapter, or fixed.
+
+| # | walk this |
+|---|---|
+| 1 | inlet |
+| 2 | WAGO bus |
+| 3 | PSU |
+| 4 | SSR LOAD and INPUT pairs |
+| 5 | bed breakout |
+| 6 | the three 24 V feeds |
+| 7 | six steppers |
+| 8 | TH1 |
+| 9 | three endstop headers |
+| 10 | FAN2 / FAN3 / LED-Strip |
+| 11 | the Pi's three links |
+| 12 | the umbilical |
 
 **Check:** Every difference from the photo is one you can name and point to a step for. `STEPPER-4`, `TH0`, `Z-PROBE`, `FAN0` and `FAN1` stay empty.
 

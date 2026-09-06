@@ -401,7 +401,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] COB mounts checked flat on granite reference — no rocking
 - [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
-- [ ] `power_inlet_IECGS_1mm` off B07-P3 flat, brim snapped off cleanly, binned for Ch 09
+- [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
 - [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.9.0, re-tensioned, re-squared, cube re-printed and Gate A re-passed
 
 <div class="print-page-break"></div>

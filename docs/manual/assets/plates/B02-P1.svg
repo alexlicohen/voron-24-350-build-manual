@@ -23,7 +23,7 @@
 <path d="M746.0,525.5 832.5,525.0 833.5,526.0 835.5,526.0 841.0,531.5 841.0,533.5 842.0,534.5 842.0,671.5 841.0,672.5 841.0,674.5 835.5,680.0 833.5,681.0 691.5,681.0 687.5,679.0 684.0,675.5 683.0,673.5 683.0,665.5 686.5,661.0 688.5,660.0 705.5,660.0 706.5,659.0 709.5,659.0 714.0,655.5 718.0,647.5 718.0,641.5 717.0,640.5 717.0,638.5 715.0,634.5 712.5,632.0 706.5,629.0 689.5,629.0 688.5,628.0 686.5,628.0 683.0,623.5 683.0,585.5 684.0,584.5 685.0,576.5 686.0,575.5 687.0,570.5 689.0,567.5 689.0,565.5 691.0,563.5 693.0,558.5 696.0,555.5 699.0,550.5 707.5,542.0 708.5,542.0 715.5,536.0 722.5,533.0 726.5,530.0 729.5,530.0 734.5,527.0Z M821.5,538.0 819.0,540.5 819.0,546.5 821.5,549.0 827.5,549.0 830.0,545.5 830.0,541.5 826.5,538.0Z M749.5,587.0 747.5,588.0 744.0,592.5 744.0,598.5 745.0,600.5 750.5,605.0 755.5,605.0 756.5,604.0 758.5,604.0 762.0,599.5 762.0,591.5 757.5,587.0Z M733.5,658.0 731.0,660.5 731.0,665.5 735.5,669.0 738.5,669.0 740.5,668.0 742.0,666.5 742.0,660.5 739.5,658.0Z M821.5,658.0 819.0,660.5 819.0,666.5 822.5,669.0 825.5,669.0 829.0,666.5 830.0,664.5 830.0,661.5 827.5,658.0Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#5 [a]_z_drive_baseplate_b_x2.stl → 02-Z3</title></path>
 <text x="223.5" y="560.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
 <text x="223.5" y="571.0" font-size="12" fill="#ffffff" text-anchor="middle">08-SB</text>
-<rect x="278.5" y="236.5" width="56.0" height="32.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="278.5" y="236.5" width="56.0" height="32.0" rx="3.0" fill="#ffffff"/>
 <text x="306.5" y="255.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">1</text>
 <text x="306.5" y="265.5" font-size="12" fill="#1e1e20" text-anchor="middle">11-skirts</text>
 <text x="773.0" y="610.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 773.0 604.5)">5</text>
@@ -34,7 +34,7 @@
 <text x="427.5" y="595.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z2</text>
 <text x="596.5" y="586.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
 <text x="596.5" y="597.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z1</text>
-<rect x="647.5" y="805.0" width="36.0" height="31.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="647.5" y="805.0" width="36.0" height="31.0" rx="3.0" fill="#ffffff"/>
 <text x="665.5" y="823.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">7</text>
 <text x="665.5" y="834.0" font-size="12" fill="#1e1e20" text-anchor="middle">07-X</text>
 <text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>

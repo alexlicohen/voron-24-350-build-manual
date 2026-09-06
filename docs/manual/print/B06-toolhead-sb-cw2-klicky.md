@@ -1,12 +1,12 @@
 # Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
 
-The Stealthburner and Clockwork 2 black parts on P1, and the Klicky probe set on P2. The Klicky set is
+The Stealthburner and Clockwork 2 black parts and the Klicky probe set share one plate. The Klicky set is
 printed here and **bagged as the alternative probe** — this build fits the inductive probe, and Ch 08 Step
 08.54 is where the bag is set aside, unbuilt.
 
-**Time:** 12.2 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 12.2 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 8.0 / 4.2 h unattended) + ~15 min inspect and bin.
+**Sessions:** 1 plate start (~5 min hands-on, 12.2 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7, kit day — the hotend seat and the CW2 gear bores). B02 (SB
 main body, faceplate, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
@@ -58,7 +58,7 @@ Chain Anchor Tilted" printed).
 
 ## Step B06.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B05. Confirm ≥148 g remaining across both plates. Sheet per
+**Do:** Galaxy Black, spool #3 after B05. Confirm ≥148 g remaining for the plate. Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge.
 
@@ -68,55 +68,32 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 ![Plate B06-P1 — sorting diagram](../assets/plates/B06-P1.png)
 
-*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.7.*
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.5.*
 
 **Do:** Open `slicer/plates/B06-P1.3mf` with **File → Open Project**. Do not rebuild the arrangement.
 Confirm the loaded objects match the Parts list and that the printhead files came from the `revo_voron`
 folder.
-**Parts:** 7 files, 7 objects, no brim in the project — 8.0 h, 97 g (PrusaSlicer 2.9.6 estimate);
+**Parts:** 18 files, 19 objects, no brim in the project — 12.2 h, 148 g (PrusaSlicer 2.9.6 estimate);
 `stealthburner_printhead_revo_voron_front`; `stealthburner_printhead_revo_voron_rear_cw2`;
 `[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body` (CW2);
-`motor_plate` (CW2); `cw2_captive_pcb_cover`.
-**Check:** Printhead files confirmed from `revo_voron/`, not `dragon/` or another hotend folder; no brim outline in the preview.
+`motor_plate` (CW2); `cw2_captive_pcb_cover`; then the Klicky set — `KlickyProbe_v2` ×2;
+`Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`; `Probe_pressfit_holder`;
+`KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`; `Mount_magnet_holder`;
+`Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
+**Check:** Printhead files confirmed from `revo_voron/`; the dock is the *fixed* variant; no brim outline in the preview.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner printhead README](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md)
 
 ## Step B06.3 — Print plate B06-P1
 
 **Do:** Print with standing overrides.
-**Check:** LED carrier and diffuser mask pockets print crisp, the finest features on the plate.
+**Check:** LED carrier, diffuser mask and magnet-holder pockets print crisp, the finest features on the plate.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
-## Step B06.4 — Load plate B06-P2
-
-![Plate B06-P2 — sorting diagram](../assets/plates/B06-P2.png)
-
-*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.7.*
-
-**Do:** Open `slicer/plates/B06-P2.3mf` with **File → Open Project**. Do not rebuild the arrangement.
-Confirm the loaded objects match the Parts list.
-**Parts:** the full Klicky set, 11 files, 12 objects, no brim in the project — 4.2 h, 51 g (PrusaSlicer 2.9.6 estimate);
-`KlickyProbe_v2` ×2; `Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`;
-`Probe_pressfit_holder`; `KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`;
-`Mount_magnet_holder`; `Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`;
-`Dock_mount_fixed_v2`.
-**Check:** The project carries the *fixed* dock variant, not the sidemount one; no brim outline in the preview.
-
-Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
-
-## Step B06.5 — Print plate B06-P2
-
-**Do:** Print with standing overrides.
-**Check:** Magnet-holder pockets print crisp and centered.
-
-Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
-
-Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
-
-## Step B06.6 — Inspect
+## Step B06.4 — Inspect
 
 **Do:**
 
@@ -129,11 +106,11 @@ Pause: ~10 min since the last pause — hotend dry-fitted and removed, Klicky ba
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [Ch 08 Step 08.54 — bag the Klicky set](../08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
 
-## Step B06.7 — Sort into bins
+## Step B06.5 — Sort into bins
 
 **Do:**
 
-1. Sort each plate off its diagram: number to legend, colour to bin, bin id on the part.
+1. Sort the plate off its diagram: number to legend, colour to bin, bin id on the part.
 2. Print labels from the [bin-labels sheet](../../print/bin-labels.md).
 3. The Klicky bag goes into **spare-alt** closed.
 
@@ -143,11 +120,6 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **08-SB** — Stealthburner body, printhead, LEDs | `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` |
 | **08-CW2** — Clockwork 2 extruder + toolboard cover | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
-
-**B06-P2**
-
-| bin | parts off this plate |
-|---|---|
 | **spare-alt** — Spares / alternates (not fitted) | `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` |
 
 **Check:** All toolhead parts in 08-SB / 08-CW2; the Klicky bag closed in spare-alt.
@@ -166,4 +138,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Building Klicky because the parts are on the bench — the kit's config, wiring and pre-terminated cable are all for the inductive probe (Ch 08.54).
 
 ## Next
-Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual). Printing: this is the last kit-day batch — if B07–B10 printed before the kit, all 27 plates are done; if not, continue with [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md).
+Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual). Printing: this is the last kit-day batch — if B07–B10 printed before the kit, all 22 plates are done; if not, continue with [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md).

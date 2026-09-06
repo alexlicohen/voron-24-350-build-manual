@@ -28,7 +28,7 @@
 <path d="M461.0,317.5 473.0,317.5 473.0,334.5 475.5,335.0 477.0,336.5 477.0,355.5 475.5,357.0 473.0,357.5 472.5,375.0 461.5,375.0 461.0,369.5 460.0,367.5 456.5,365.0 448.5,364.0 445.0,360.5 443.0,356.5 443.0,335.5 445.0,331.5 447.5,329.0 449.5,328.0 457.5,327.0 461.0,322.5Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#7 z_rail_stop_x4.stl → 06-Z-joints</title></path>
 <path d="M462.0,248.5 473.0,248.5 473.0,266.5 475.5,267.0 477.0,268.5 477.0,287.5 475.5,289.0 473.0,289.5 472.5,307.0 461.5,307.0 461.0,301.5 460.0,299.5 457.5,297.0 449.5,296.0 446.0,293.5 443.0,288.5 443.0,267.5 444.0,266.5 444.0,264.5 448.5,260.0 450.5,260.0 451.5,259.0 456.5,259.0 461.0,254.5 461.0,249.5Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#4 z_rail_stop_x4.stl → 06-Z-joints</title></path>
 <path d="M496.0,180.5 507.0,180.5 507.0,197.5 509.5,198.0 512.0,200.5 512.0,217.5 510.5,220.0 507.0,220.5 506.5,239.0 496.5,239.0 495.0,237.5 495.0,232.5 490.5,228.0 485.5,228.0 481.5,226.0 479.0,223.5 478.0,219.5 477.0,218.5 477.0,199.5 478.0,198.5 478.0,196.5 484.5,191.0 488.5,191.0 489.5,190.0 491.5,190.0 495.0,186.5 495.0,181.5Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#2 z_rail_stop_x4.stl → 06-Z-joints</title></path>
-<rect x="411.5" y="716.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="411.5" y="716.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff"/>
 <text x="443.5" y="734.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">12</text>
 <text x="443.5" y="745.0" font-size="12" fill="#1e1e20" text-anchor="middle">10-chains</text>
 <text x="387.5" y="628.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 387.5 622.5)">10</text>
@@ -39,19 +39,19 @@
 <text x="402.5" y="385.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 402.5 381.5)">06-Z-joints</text>
 <text x="387.5" y="267.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 387.5 261.5)">3</text>
 <text x="402.5" y="265.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 402.5 261.5)">06-Z-joints</text>
-<rect x="462.5" y="598.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="462.5" y="598.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="471.5" y="638.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 471.5 632.5)">11</text>
 <text x="486.5" y="636.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 486.5 632.5)">06-Z-joints</text>
-<rect x="535.5" y="767.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="535.5" y="767.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="544.5" y="807.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 544.5 801.5)">14</text>
 <text x="559.5" y="805.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 559.5 801.5)">06-Z-joints</text>
-<rect x="462.5" y="396.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="462.5" y="396.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="471.5" y="436.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 471.5 430.5)">6</text>
 <text x="486.5" y="434.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 486.5 430.5)">06-Z-joints</text>
-<rect x="462.5" y="497.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="462.5" y="497.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="471.5" y="537.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 471.5 531.5)">9</text>
 <text x="486.5" y="535.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 486.5 531.5)">06-Z-joints</text>
-<rect x="380.5" y="141.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="380.5" y="141.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff"/>
 <text x="412.5" y="159.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">1</text>
 <text x="412.5" y="170.0" font-size="12" fill="#1e1e20" text-anchor="middle">10-chains</text>
 <line x1="492.5" y1="209.5" x2="492.5" y2="174.5" stroke="#333336" stroke-width="1.2"/>

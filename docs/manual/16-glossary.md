@@ -22,7 +22,7 @@ Every term this manual uses without stopping to explain it, with the chapter or 
 | `[o]_` | Prefix: **opaque** — the part must block light. Galaxy Black satisfies it | [print/00-slicer-setup — Colour key](print/00-slicer-setup.md#colour-key) |
 | `[c]_` | Prefix: **clear / translucent**. Do not print — LDO supplies the one such part (the SB LED diffuser) in clear PETG | [00.6](00-before-you-start.md#step-006-set-aside-the-ten-ldo-supplied-printed-parts) |
 | `_xN` | Filename suffix: the **quantity the machine needs**, regardless of how many bodies are in the file. `_x4` means four | [00.24](00-before-you-start.md#step-0024-file-naming-and-where-to-get-help-p56) |
-| `B00`–`B10` | Print-batch ids, always two digits. A plate inside a batch is `B07-P3` — two-digit batch, unpadded plate number | [00.11](00-before-you-start.md#step-0011-bin-the-workspace-by-chapter) |
+| `B00`–`B10` | Print-batch ids, always two digits. A plate inside a batch is `B08-P4` — two-digit batch, unpadded plate number | [00.11](00-before-you-start.md#step-0011-bin-the-workspace-by-chapter) |
 | `p.NN` | A page in the official Voron 2.4r2 Assembly Manual PDF, which has not changed since 2023-07-18 — the page numbers do not move | [00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11) |
 | `nhk:` | Klipper pin prefix for the **toolboard** MCU (`[mcu nhk]`). A `nhk:` pin is on the Nitehawk, not the Leviathan | [12.21](12-software.md#step-1221-download-the-correct-config-file) |
 | `!` (leading, on a pin) | Klipper's invert marker. On an endstop it is almost always the wrong fix — stock Voron endstops are normally-closed to ground | [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released) |
@@ -181,7 +181,7 @@ Source: [Ch 10 Step 10.55](10-wiring.md#step-1055-connector-types-on-the-v2-tool
 |---|---|---|
 | **Katapult** | The CAN/USB bootloader on both MCUs, letting you reflash without touching the boards. Building Klipper with the wrong bootloader **offset** erases it | [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) |
 | **KIAUH** | Klipper Installation And Update Helper — the script that installs Klipper, Moonraker, Mainsail and KlipperScreen on the Pi | [12.8](12-software.md#step-128-install-kiauh) |
-| **Klicky** | A dockable microswitch probe. Its parts are printed (B06-P2) and bagged on this build as the alternative probe, **not fitted** and no magnets pressed — the kit's config, wiring and cable are for the inductive probe | [B06.6](print/B06-toolhead-sb-cw2-klicky.md#step-b066-inspect); [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) |
+| **Klicky** | A dockable microswitch probe. Its parts are printed (B06-P1) and bagged on this build as the alternative probe, **not fitted** and no magnets pressed — the kit's config, wiring and cable are for the inductive probe | [B06.4](print/B06-toolhead-sb-cw2-klicky.md#step-b064-inspect); [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) |
 | **Klipper** | The firmware: a host process on the Raspberry Pi plus thin firmware on each MCU. Configuration lives in `printer.cfg` on the Pi, not on the boards | [12 — Software](12-software.md) |
 | **klippy.log** | Klipper's full log, at `~/printer_data/logs/klippy.log`. Attach it complete and unmodified to any question — a snippet is not useful | [15 — Where to ask](15-troubleshooting.md#not-covered-here-where-to-ask) |
 

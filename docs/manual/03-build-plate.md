@@ -246,6 +246,8 @@ Tip: measure the pad first (verify on bench): at 355 mm lay it edge-flush to the
 
 Tip: lift the first strip immediately if it lands crooked; past a few centimetres it will not reposition. Bubbles worked to an edge come out, ones in the middle do not.
 
+Tip: The liner side is the adhesive; the plain rubber face is the magnet. Keep the unlaid pad lifted so adhesive never touches ahead of the squeegee.
+
 ⚠ **Rev D+ / LDO:** the magnetic pad is a **separate line item** in the 350 Rev D BOM — it is not laminated at the factory, unlike the heater and fuse. If your plate did arrive with the magnet already on, skip to 03.10 and check whether the four bolt holes are already cut. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [magnet lamination demo](https://voron.link/rm6tpld)

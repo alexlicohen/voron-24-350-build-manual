@@ -651,6 +651,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Check:** Both guide sizes fitted, the MGN12 on the bare rail at Gate B and both on the extrusion at Step 00.20.
 
+
 ⚠ **Rev D+ / LDO:** two rail-mounting rules that override the manual's default from Ch 02 onward. First, do **not** use the end hole; use the **second hole in from each end**, per LDO Build Notes p.88. Second, tighten rail screws from the **centre outward** to pull the rail flush, leaving a ~3 mm gap between frame and rail bottom. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.25](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=25) · [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Voron-2 `STLs/Tools`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools)
@@ -675,6 +676,10 @@ Pause: ~40 min since the last pause — all seven rails greased, wiped back to b
 2. Ignore the Print It Forward box.
 
 **Check:** Nothing to do on the bench. If your slicer profile disagrees with this page, the profile is wrong.
+
+Tip: `_x4` means four, regardless of how many bodies are in the file.
+
+Tip: The infill spec makes parts stiff enough to hold a bearing and stable in a 60 °C chamber.
 
 Source: [Voron manual p.4](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=4) · [slicer setup](print/00-slicer-setup.md)
 

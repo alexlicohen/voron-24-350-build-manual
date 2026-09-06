@@ -132,4 +132,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Next
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
 this is the last pre-kit batch — on kit day run Gate B (Step B00.7), then [B01](B01-z-drive-assemblies.md)
-and B03–B06. If those already printed, all 27 plates are done.
+and B03–B06. If those already printed, all 22 plates are done.

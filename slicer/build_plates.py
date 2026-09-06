@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build one PrusaSlicer project per plate, slice it, and record the numbers.
 
-For each of the 27 plates in `plates.py`:
+For each of the 22 plates in `plates.py`:
   1. arrange the parts on the 250 x 220 bed (see geom.py - the CLI cannot),
   2. write the arranged meshes and merge them into `slicer/plates/<id>.3mf`,
   3. inject the print/filament/printer config and the per-object brim widths
@@ -11,7 +11,7 @@ For each of the 27 plates in `plates.py`:
   6. draw the plate preview into docs/manual/assets/plates/<id>.png,
   7. write slicer/estimates.csv.
 
-    python3 slicer/build_plates.py                # all 27: pack, write 3MFs, slice, record
+    python3 slicer/build_plates.py                # all 22: pack, write 3MFs, slice, record
     python3 slicer/build_plates.py B07-P2 B10-P1  # named plates only
     python3 slicer/build_plates.py --from-3mf     # NO packing: re-slice the committed 3MFs as
                                                   # they are (edited in the GUI or not), refresh

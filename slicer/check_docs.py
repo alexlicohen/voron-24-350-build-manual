@@ -153,7 +153,7 @@ def check_index_and_timeline(batch, th) -> list[str]:
 
     b08 = batch["B08"]["black"] + batch["B08"]["orange"]
     for name, pat in (("~157 h of ASA", rf"~{round(th)} h of ASA"),
-                      ("399 g of skirts", rf"\b{b08} g of skirts \(B08\)")):
+                      ("B08 skirt grams", rf"\b{b08} g of skirts \(B08\)")):
         if not re.search(pat, setup):
             bad.append(f"00-slicer-setup.md: expected /{pat}/ ({name})")
 
@@ -179,6 +179,24 @@ def check_index_and_timeline(batch, th) -> list[str]:
         if stale:
             bad.append(f"diagrams/MANIFEST.md entry 11 restates a figure the diagram now "
                        f"reads from 00-index.md: {stale} — drop it, don't update it")
+    return bad
+
+
+_PLATE_ID_RE = re.compile(r"\bB\d\d-P\d\b")
+
+
+def check_plate_ids(known: set[str]) -> list[str]:
+    bad: list[str] = []
+    for path in sorted(DOCS.rglob("*.md")):
+        if "manual/steps" in path.as_posix():
+            continue
+        text = path.read_text()
+        if path.name == "00-index.md":
+            text = text.split("\n## Corrections log")[0]
+        for n, line in enumerate(text.splitlines(), 1):
+            for pid in _PLATE_ID_RE.findall(line):
+                if pid not in known:
+                    bad.append(f"{path.relative_to(REPO)}:{n}: plate {pid} does not exist")
     return bad
 
 
@@ -268,6 +286,11 @@ def main() -> int:
 
     # 6. 00-index.md, 00-slicer-setup.md and diagram 11
     bad += check_index_and_timeline(batch, th)
+
+    # 7. every plate id named anywhere in docs/ exists (a merged/renumbered plate
+    #    leaves stale ids in prose that nothing else catches). The corrections log
+    #    in 00-index.md is history and exempt; generated step pages are skipped.
+    bad += check_plate_ids(set(plate))
 
     if bad:
         print(f"{len(bad)} mismatch(es):")

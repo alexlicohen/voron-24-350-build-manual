@@ -43,12 +43,12 @@
 <path d="M671.0,806.5 733.5,806.0 736.0,809.5 736.0,818.5 740.0,822.5 740.0,825.5 736.0,826.5 736.0,851.5 735.0,852.5 735.0,854.5 729.5,860.0 727.5,860.0 726.5,861.0 670.5,861.0 669.5,860.0 665.5,859.0 661.0,852.5 660.0,826.5 657.0,825.5 663.5,818.0 666.0,819.5 666.0,825.5 667.0,826.5 667.0,845.5 668.0,846.5 668.0,851.5 670.5,854.0 672.5,854.0 675.0,852.5 675.0,818.5 669.0,811.5 669.0,808.5Z M685.5,815.0 685.5,851.0 726.0,850.5 725.5,815.0Z" fill-rule="evenodd" fill="#5c6b73" stroke="#333b3f" stroke-width="1.0" stroke-linejoin="round"><title>#29 [a]_keystone_blank_insert.stl → 11-skirts</title></path>
 <path d="M633.0,128.5 694.5,128.0 698.0,131.5 698.0,140.5 702.0,144.5 702.0,147.5 698.0,148.5 698.0,173.5 697.0,174.5 696.0,178.5 693.5,181.0 689.5,183.0 631.5,183.0 627.5,181.0 624.0,177.5 624.0,175.5 623.0,174.5 622.0,148.5 619.0,147.5 625.5,141.0 628.0,142.5 628.0,147.5 629.0,148.5 629.0,167.5 630.0,168.5 630.0,174.5 631.5,176.0 635.5,176.0 637.0,174.5 637.0,140.5 631.0,134.5 631.0,130.5Z M647.5,138.0 647.5,173.0 688.0,172.5 687.5,138.0Z" fill-rule="evenodd" fill="#5c6b73" stroke="#333b3f" stroke-width="1.0" stroke-linejoin="round"><title>#8 [a]_keystone_blank_insert.stl → 11-skirts</title></path>
 <path d="M538.0,394.5 540.5,394.0 541.5,395.0 543.5,395.0 551.5,399.0 553.5,401.0 558.5,403.0 560.5,405.0 565.5,407.0 567.5,409.0 572.5,411.0 581.0,418.5 583.0,422.5 583.0,462.5 581.0,466.5 572.5,474.0 567.5,476.0 565.5,478.0 560.5,480.0 558.5,482.0 553.5,484.0 551.5,486.0 540.5,491.0 534.5,490.0 528.5,487.0 526.5,485.0 521.5,483.0 519.5,481.0 514.5,479.0 512.5,477.0 509.5,476.0 507.5,474.0 501.5,471.0 498.0,467.5 496.0,463.5 496.0,460.5 495.0,459.5 495.0,425.5 496.0,424.5 496.0,421.5 498.0,417.5 501.5,414.0 507.5,411.0 509.5,409.0 512.5,408.0 514.5,406.0 519.5,404.0 521.5,402.0 526.5,400.0 528.5,398.0 532.5,396.0Z" fill-rule="evenodd" fill="#5c6b73" stroke="#333b3f" stroke-width="1.0" stroke-linejoin="round"><title>#15 ldo_bestagon_insert.stl → 11-skirts</title></path>
-<rect x="257.0" y="419.5" width="31.0" height="44.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="257.0" y="419.5" width="31.0" height="44.0" rx="3.0" fill="#ffffff"/>
 <text x="266.0" y="447.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 266.0 441.5)">13</text>
 <text x="279.5" y="445.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 279.5 441.5)">05-XY</text>
 <text x="241.0" y="190.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 241.0 184.5)">2</text>
 <text x="254.5" y="188.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 254.5 184.5)">05-XY</text>
-<rect x="309.0" y="639.5" width="31.0" height="44.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="309.0" y="639.5" width="31.0" height="44.0" rx="3.0" fill="#ffffff"/>
 <text x="318.0" y="667.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 318.0 661.5)">21</text>
 <text x="331.5" y="665.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 331.5 661.5)">05-XY</text>
 <text x="420.5" y="769.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">25</text>
@@ -69,28 +69,28 @@
 <text x="567.5" y="601.5" font-size="12" fill="#ffffff" text-anchor="middle">06-Z-joints</text>
 <text x="539.5" y="445.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">15</text>
 <text x="539.5" y="455.5" font-size="12" fill="#ffffff" text-anchor="middle">11-skirts</text>
-<rect x="634.5" y="588.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="634.5" y="588.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="643.5" y="628.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 643.5 622.5)">24</text>
 <text x="658.5" y="626.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 658.5 622.5)">06-Z-joints</text>
-<rect x="621.5" y="220.5" width="68.0" height="34.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="621.5" y="220.5" width="68.0" height="34.0" rx="3.0" fill="#ffffff"/>
 <text x="655.5" y="239.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">7</text>
 <text x="655.5" y="249.5" font-size="12" fill="#1e1e20" text-anchor="middle">06-Z-joints</text>
-<rect x="612.5" y="448.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="612.5" y="448.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
 <text x="621.5" y="488.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 621.5 482.5)">17</text>
 <text x="636.5" y="486.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 636.5 482.5)">06-Z-joints</text>
-<rect x="580.5" y="321.5" width="68.0" height="34.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="580.5" y="321.5" width="68.0" height="34.0" rx="3.0" fill="#ffffff"/>
 <text x="614.5" y="340.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">11</text>
 <text x="614.5" y="350.5" font-size="12" fill="#1e1e20" text-anchor="middle">06-Z-joints</text>
-<rect x="438.0" y="264.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="438.0" y="264.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff"/>
 <text x="447.0" y="291.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 447.0 285.5)">4</text>
 <text x="460.5" y="289.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 460.5 285.5)">02-Z3</text>
-<rect x="466.0" y="561.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="466.0" y="561.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff"/>
 <text x="475.0" y="588.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 475.0 582.5)">19</text>
 <text x="488.5" y="586.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 488.5 582.5)">02-Z2</text>
-<rect x="555.0" y="711.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="555.0" y="711.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff"/>
 <text x="564.0" y="738.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 564.0 732.5)">23</text>
 <text x="577.5" y="736.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 577.5 732.5)">02-Z1</text>
-<rect x="429.0" y="402.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="429.0" y="402.5" width="31.0" height="42.0" rx="3.0" fill="#ffffff"/>
 <text x="438.0" y="429.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 438.0 423.5)">12</text>
 <text x="451.5" y="427.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 451.5 423.5)">02-Z0</text>
 <line x1="446.5" y1="667.5" x2="446.5" y2="637.0" stroke="#333336" stroke-width="1.2"/>
@@ -113,7 +113,7 @@
 <text x="718.5" y="705.0" font-size="12" fill="#1e1e20" text-anchor="middle">08-CW2</text>
 <rect x="708.5" y="728.5" width="24.0" height="16.0" rx="3.0" fill="#f28482"/>
 <text x="720.5" y="742.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">27</text>
-<rect x="637.5" y="139.5" width="56.0" height="32.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="637.5" y="139.5" width="56.0" height="32.0" rx="3.0" fill="#ffffff"/>
 <text x="665.5" y="158.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">8</text>
 <text x="665.5" y="168.5" font-size="12" fill="#1e1e20" text-anchor="middle">11-skirts</text>
 <line x1="702.5" y1="832.5" x2="702.5" y2="864.5" stroke="#333336" stroke-width="1.2"/>

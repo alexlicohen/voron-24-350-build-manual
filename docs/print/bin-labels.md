@@ -155,10 +155,10 @@ _Ch 04 · 04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33)_
 **Should contain:**
 
 - `[a]_tensioner_left` — B02-P2
-- `b_drive_frame_lower` — B03-P2
-- `b_drive_frame_upper` — B03-P2
-- `front_idler_left_lower` — B03-P2
-- `front_idler_left_upper` — B03-P2
+- `b_drive_frame_lower` — B03-P1
+- `b_drive_frame_upper` — B03-P1
+- `front_idler_left_lower` — B03-P1
+- `front_idler_left_upper` — B03-P1
 
 _5 pieces_
 
@@ -282,7 +282,7 @@ _Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 
 - `PSU_stabilizer_50mm` — B07-P1 — fit only if needed (09.16)
 - `usb_adapter_mount_partial_cover` — B07-P1
 - `pcb_din_clip` ×3 — B07-P1 — kit supplies 4 — one is the 09.7 practice clip, rest spares
-- `power_inlet_IECGS_1mm` — B07-P3 — ring segment: dry-fitted with the skirts at 11.1, mounted at 09.12
+- `power_inlet_IECGS_1mm` — B07-P1 — ring segment: dry-fitted with the skirts at 11.1, mounted at 09.12
 
 _9 pieces_
 
@@ -337,13 +337,13 @@ _Ch 11 · 11.1–11.17 (TFT 11.5–11.7, keystone 11.10, bestagon 11.19)_
 - `[a]_keystone_blank_insert` ×2 — B02-P3 — 1 used, 1 spare
 - `ldo_bestagon_insert` — B02-P3 — optional trim (11.19)
 - `rear_center_skirt_350` — B08-P1
-- `side_fan_support` ×2 — B08-P1, B08-P2
+- `side_fan_support` ×2 — B08-P1, B08-P3
 - `front_skirt_a_350` — B08-P2
-- `front_skirt_b_350` — B08-P3
-- `side_skirt_a_350` ×2 — B08-P3, B08-P4
-- `side_skirt_b_350` ×2 — B08-P4, B08-P5
-- `keystone_panel` — B08-P5
-- `mount` — B08-P6
+- `front_skirt_b_350` — B08-P2
+- `side_skirt_a_350` ×2 — B08-P2, B08-P3
+- `side_skirt_b_350` ×2 — B08-P3, B08-P4
+- `mount` — B08-P3
+- `keystone_panel` — B08-P4
 
 _15 pieces_
 
@@ -494,17 +494,17 @@ _— · not fitted (Klicky set bagged at 08.54)_
 **Should contain:**
 
 - `[a]_pcb_spacer` — B02-P3 — kit supplies one printed — this is the spare
-- `KlickyProbe_v2` ×2 — B06-P2 — Klicky — alternative probe only, bag closed (08.54)
-- `Probe_Dock_v2.1` — B06-P2
-- `Probe_magnet_holder` — B06-P2
-- `Probe_magnet_pressfit_helper` — B06-P2
-- `Probe_pressfit_holder` — B06-P2
-- `KlickyProbe_AB_mount_v2` — B06-P2
-- `KlickyProbe_AB_mount_v2_holder` — B06-P2
-- `Mount_magnet_holder` — B06-P2
-- `Mount_magnet_pressfit_helper` — B06-P2
-- `Mount_pressfit_holder_v2` — B06-P2
-- `Dock_mount_fixed_v2` — B06-P2
+- `KlickyProbe_v2` ×2 — B06-P1 — Klicky — alternative probe only, bag closed (08.54)
+- `Probe_Dock_v2.1` — B06-P1
+- `Probe_magnet_holder` — B06-P1
+- `Probe_magnet_pressfit_helper` — B06-P1
+- `Probe_pressfit_holder` — B06-P1
+- `KlickyProbe_AB_mount_v2` — B06-P1
+- `KlickyProbe_AB_mount_v2_holder` — B06-P1
+- `Mount_magnet_holder` — B06-P1
+- `Mount_magnet_pressfit_helper` — B06-P1
+- `Mount_pressfit_holder_v2` — B06-P1
+- `Dock_mount_fixed_v2` — B06-P1
 - `usb_adapter_mount` — B07-P1 — LDO supplies one printed — this is the spare (08.64)
 
 _14 pieces_

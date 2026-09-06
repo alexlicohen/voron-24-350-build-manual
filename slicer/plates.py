@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Single source of truth for what goes on each of the 27 plates.
+"""Single source of truth for what goes on each of the 22 plates.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
 packing lists) and §5.1 (orientation and brim). Every path here was verified to
@@ -132,16 +132,13 @@ PLATES: dict[str, dict] = {
             ("ldov2", "STLs/ldo_bestagon_insert.stl", 1),
         ]),
     "B03-P1": dict(
-        batch="B03", colour="black", note="The A side.",
+        batch="B03", colour="black",
+        note="Both sides on one plate: A parts left of the legend numbers, B parts right.",
         parts=[
             ("voron2", "STLs/Gantry/AB_Drive_Units/a_drive_frame_lower.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/a_drive_frame_upper.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_right_lower.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_right_upper.stl", 1),
-        ]),
-    "B03-P2": dict(
-        batch="B03", colour="black", note="The B side.",
-        parts=[
             ("voron2", "STLs/Gantry/AB_Drive_Units/b_drive_frame_lower.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/b_drive_frame_upper.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_left_lower.stl", 1),
@@ -168,7 +165,8 @@ PLATES: dict[str, dict] = {
             ("ldov2", "STLs/z_rail_stop_x4.stl", 4),
         ]),
     "B06-P1": dict(
-        batch="B06", colour="black", note="Stealthburner + Clockwork 2 black parts.",
+        batch="B06", colour="black",
+        note="Stealthburner + Clockwork 2 black parts and the whole Klicky set on one plate.",
         parts=[
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_front.stl", 1),
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_rear_cw2.stl", 1),
@@ -177,10 +175,6 @@ PLATES: dict[str, dict] = {
             ("sb", "STLs/Clockwork2/Direct_Drive/main_body.stl", 1),
             ("sb", "STLs/Clockwork2/Direct_Drive/motor_plate.stl", 1),
             ("nitehawk", "STLs/cw2_captive_pcb_cover.stl", 1),
-        ]),
-    "B06-P2": dict(
-        batch="B06", colour="black", note="The whole Klicky set.",
-        parts=[
             ("klicky", "Probes/KlickyProbe/STL/KlickyProbe_v2.stl", 2),
             ("klicky", "Probes/KlickyProbe/STL/Probe_Dock_v2.1.stl", 1),
             ("klicky", "Probes/KlickyProbe/STL/Probe_magnet_holder.stl", 1),
@@ -194,7 +188,8 @@ PLATES: dict[str, dict] = {
             ("klicky", "Printers/Voron/v1.8_v2.4_Legacy_Trident/v1.8_v2.4_Legacy_Trident_STL/Dock_mount_fixed_v2.stl", 1),
         ]),
     "B07-P1": dict(
-        batch="B07", colour="black", note="",
+        batch="B07", colour="black",
+        note="Bay hardware plus power_inlet_IECGS_1mm, 3 mm brim on the inlet and the WAGO mount.",
         parts=[
             ("voron2", "STLs/Electronics_Bay/wago_221-415_mount_3by5.stl", 1),
             ("voron2", "STLs/Electronics_Bay/lrs_200_psu_bracket_x2.stl", 2),
@@ -203,17 +198,13 @@ PLATES: dict[str, dict] = {
             ("nitehawk2", "STLs/usb_adapter_mount_partial_cover.stl", 1),
             ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 3),
             ("ldov2", "STLs/handlebar_spacer_x4.stl", 4),
+            ("voron2", "STLs/Skirts/power_inlet_IECGS_1mm.stl", 1),
         ]),
     "B07-P2": dict(
         batch="B07", colour="black", note="The eight COB light-strip mounts, brimmed.",
         parts=[
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_100mm.stl", 6),
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 2),
-        ]),
-    "B07-P3": dict(
-        batch="B07", colour="black", note="power_inlet_IECGS_1mm alone, 3 mm brim.",
-        parts=[
-            ("voron2", "STLs/Skirts/power_inlet_IECGS_1mm.stl", 1),
         ]),
     "B08-P1": dict(
         batch="B08", colour="black", note="",
@@ -222,33 +213,26 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Skirts/side_fan_support_x2.STL", 1),
         ]),
     "B08-P2": dict(
-        batch="B08", colour="black", note="",
+        batch="B08", colour="black", note="The whole front of the ring plus one side skirt.",
         parts=[
-            ("voron2", "STLs/Skirts/side_fan_support_x2.STL", 1),
             ("voron2", "STLs/Skirts/350/front_skirt_a_350.stl", 1),
-        ]),
-    "B08-P3": dict(
-        batch="B08", colour="black", note="",
-        parts=[
             ("voron2", "STLs/Skirts/350/front_skirt_b_350.stl", 1),
             ("voron2", "STLs/Skirts/350/side_skirt_a_350_x2.stl", 1),
+        ]),
+    "B08-P3": dict(
+        batch="B08", colour="black",
+        note="The TFT mount rides with the second fan support and two side skirts.",
+        parts=[
+            ("voron2", "STLs/Skirts/side_fan_support_x2.STL", 1),
+            ("voron2", "STLs/Skirts/350/side_skirt_a_350_x2.stl", 1),
+            ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
+            ("ldotri", "STLs/BTT Pi TFT4.3 Mount/mount.stl", 1),
         ]),
     "B08-P4": dict(
         batch="B08", colour="black", note="",
         parts=[
-            ("voron2", "STLs/Skirts/350/side_skirt_a_350_x2.stl", 1),
-            ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
-        ]),
-    "B08-P5": dict(
-        batch="B08", colour="black", note="",
-        parts=[
             ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
             ("voron2", "STLs/Skirts/keystone_panel.stl", 1),
-        ]),
-    "B08-P6": dict(
-        batch="B08", colour="black", note="TFT mount; power inlet moved to B07-P3.",
-        parts=[
-            ("ldotri", "STLs/BTT Pi TFT4.3 Mount/mount.stl", 1),
         ]),
     "B09-P1": dict(
         batch="B09", colour="black", note="V2_Duo_Plenum has a built-in support to push out.",
@@ -304,11 +288,11 @@ PLATES: dict[str, dict] = {
 MODEL_ESTIMATE: dict[str, tuple[float, int]] = {
     "B00-P1": (3.5, 57), "B01-P1": (12.7, 216), "B01-P2": (6.7, 108),
     "B02-P1": (5.9, 100), "B02-P2": (6.1, 102), "B02-P3": (6.5, 106),
-    "B03-P1": (3.9, 66), "B03-P2": (3.8, 64), "B04-P1": (7.3, 122),
-    "B05-P1": (5.2, 83), "B06-P1": (6.3, 106), "B06-P2": (3.5, 56),
-    "B07-P1": (3.6, 60), "B07-P2": (7.5, 127), "B07-P3": (2.1, 36),
-    "B08-P1": (6.1, 105), "B08-P2": (4.3, 74), "B08-P3": (4.6, 78),
-    "B08-P4": (4.3, 74), "B08-P5": (4.4, 76), "B08-P6": (1.8, 30),
+    "B03-P1": (7.7, 130), "B04-P1": (7.3, 122),
+    "B05-P1": (5.2, 83), "B06-P1": (9.8, 162),
+    "B07-P1": (5.7, 96), "B07-P2": (7.5, 127),
+    "B08-P1": (6.1, 105), "B08-P2": (7.0, 120), "B08-P3": (8.0, 136),
+    "B08-P4": (4.4, 76),
     "B09-P1": (4.1, 71), "B09-P2": (4.3, 73), "B09-P3": (3.5, 60),
     "B09-P4": (3.6, 59), "B09-P5": (3.6, 59), "B10-P1": (5.1, 80),
 }

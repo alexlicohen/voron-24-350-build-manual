@@ -29,7 +29,8 @@ Method
               180/270 are bit-reversals of those two.
   placement   five candidate layouts, the tightest wins. Measured like for like
               (`--compare --gap=3`, geom.pack's own clearance) that is tighter on
-              19 of the 27 plates, 47.0% -> 52.6% mean outline fill, and never more
+              19 of the 27 plates it was measured on (the pre-2026-09-06 set),
+              47.0% -> 52.6% mean outline fill, and never more
               than 1.7% looser on the rest - the conservative raster and the extra
               cell `_bbox_layouts` adds cost up to RES mm a side:
                 * largest-area-first and longest-side-first, each with a

@@ -19,3 +19,6 @@ docs/manual/assets/ldo/*
 # re-fetchable from the pinned commits in slicer/stl/MANIFEST.sha256
 slicer/stl/*
 !slicer/stl/MANIFEST.sha256
+
+# cadquery venv for scripts/cad_render (PILOT.md §2)
+venv-cq/

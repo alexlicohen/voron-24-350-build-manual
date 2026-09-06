@@ -31,7 +31,7 @@
 <text x="414.5" y="693.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 414.5 689.5)">11-door</text>
 <text x="400.0" y="441.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 400.0 435.5)">5</text>
 <text x="413.5" y="439.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 413.5 435.5)">11-door</text>
-<rect x="377.5" y="133.0" width="54.0" height="31.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<rect x="377.5" y="133.0" width="54.0" height="31.0" rx="3.0" fill="#ffffff"/>
 <text x="404.5" y="151.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">1</text>
 <text x="404.5" y="162.0" font-size="12" fill="#1e1e20" text-anchor="middle">11-door</text>
 <line x1="514.5" y1="302.5" x2="514.5" y2="335.0" stroke="#333336" stroke-width="1.2"/>

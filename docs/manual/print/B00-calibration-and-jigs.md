@@ -156,6 +156,13 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 **Check:** All three pass, so B01 starts now at Step B01.1 and B03–B06 follow.
 
+| coupon | passes when |
+|---|---|
+| 625-2RS bearing (16 mm OD) bore | thumb pressure seats it, **no rocking** |
+| heat-set inserts | **flush to 0.2 mm proud**, no boss bulge > 0.2 mm |
+| insert count | practice uses leave **146** of the kit's **153** |
+| `MGN12_rail_guide` | seats with **light finger pressure** |
+
 ⚠ A tight or loose bore is the profile: adjust extrusion multiplier per the Gate B table, re-run Gate A on a fresh cube, and re-print this retainer before B01. A bulging boss is technique, so practise rather than re-slice. The six MGN9 rails stay sealed until rail prep.
 
 Pause: ~15 min since the last pause — Gate B is measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and the rail guide back in 00-jigs before the inventory starts.
