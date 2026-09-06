@@ -71,6 +71,8 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 ## Understand the path before you cut anything
 
+⚠ Rev D+ / LDO: **Interim notice (2026-09-06):** a verification re-read found that Steps 07.17–07.22 describe the B belt in the reverse of the manual's traversal and are not threadable as written (review/2026-09-06/G4-ch06-07.md, G1). Until they are re-ordered, thread the B belt from manual **p.131 → p.136 → p.138** directly: its first turn is the LEFT XY joint, teeth-on its lower 20T; the right joint's plain stack takes the smooth back. The per-joint tooth facts in this chapter (A teeth-on at the right joint, B teeth-on at the left joint) are correct; the step order and two captions are not.
+
 ### Step 07.1 — Confirm the gate before you start
 
 ![Voron manual p.124](assets/manual-pages/manual-p124.png)
