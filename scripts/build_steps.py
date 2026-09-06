@@ -65,6 +65,13 @@ _LINK_RE = re.compile(r"\]\(\s*([^()\s]+?)\s*(\"[^\"]*\")?\)")
 # Images that are the step's primary illustration (a scanned manual page).
 _PRIMARY_IMG_DIRS = ("assets/manual-pages/", "assets/sb-pages/")
 
+# Cumulative "state at the end of this chapter" CAD renders, built by
+# scripts/cad_render/render_steps.py --chapters into docs/manual/assets/cad/.
+# Only chapters that have one get the before/after figure; the rest (wiring,
+# software, startup, calibration) simply do not show one.
+_CH_NUM_RE = re.compile(r"^(\d+[a-z]?)-")
+CHAPTER_SHOTS: dict[str, tuple[str | None, str]] = {}   # stem -> (before, after)
+
 # Populated by on_pre_build; read by on_page_markdown.
 STEP_URLS: dict[str, str] = {}          # "04.2" -> "manual/steps/04-ab-drives/04-2.md"
 ANCHOR_URLS: dict[tuple[str, str], str] = {}  # (chapter stem, anchor) -> step page src path
@@ -765,12 +772,62 @@ def render_page(chapter: Chapter, page: Page, idx: int,
     if page.kind == "step":
         out += layout_step(page, chapter)
     else:
+        m = _CH_NUM_RE.match(chapter.stem)
+        # The chapter's own Checkpoint, not Ch 06's second one (06b).
+        if page.kind == "checkpoint" and chapter.stem in CHAPTER_SHOTS \
+                and m and page.slug == "checkpoint-%s" % m.group(1):
+            out += ['<figure class="chapter-progress chapter-progress--single" markdown="1">',
+                    "", _shot_img(CHAPTER_SHOTS[chapter.stem][1], src_dir, dest_dir), "",
+                    "<figcaption>What you should have now. Voron 2.4r2 CAD, which is the "
+                    "250 machine; yours is the 350.</figcaption>", "", "</figure>", ""]
         out += ['<div class="step-text step-text--wide" markdown="1">', ""]
         out += page.body
         out += ["", "</div>"]
 
     out += [""] + _nav_bar(prev_ref, next_ref) + [""]
     return "\n".join(out).rstrip() + "\n"
+
+
+def _chapter_shot(chapter: Chapter) -> str | None:
+    """This chapter's end-state render, as a path relative to docs/manual."""
+    m = _CH_NUM_RE.match(chapter.stem)
+    if not m:
+        return None
+    rel = "assets/cad/ch-%s-after.png" % m.group(1)
+    return rel if (MANUAL / rel).exists() else None
+
+
+def _shot_num(rel: str) -> str:
+    return re.search(r"ch-([0-9a-z]+)-after", rel).group(1)
+
+
+def _shot_img(rel: str, src_dir: Path, dest_dir: Path) -> str:
+    return ("![Voron 2.4r2 CAD — the machine at the end of Chapter %s](%s)"
+            % (_shot_num(rel), _rel(src_dir, dest_dir, rel)))
+
+
+def _progress_figure(chapter: Chapter, src_dir: Path, dest_dir: Path) -> list[str]:
+    """The overview's "What this chapter builds" figure: the previous chapter's
+    end-state render beside this one's, or this one alone where there is no
+    earlier render."""
+    before, after = CHAPTER_SHOTS[chapter.stem]
+    out = ['<figure class="chapter-progress" markdown="1">', ""]
+    if before:
+        for rel, side in ((before, "Before — end of Ch %s" % _shot_num(before)),
+                          (after, "After — end of Ch %s" % _shot_num(after))):
+            out += ['<div class="chapter-progress__shot" markdown="1">', "",
+                    _shot_img(rel, src_dir, dest_dir), "",
+                    '<span class="chapter-progress__cap">%s</span>' % html.escape(side),
+                    "", "</div>", ""]
+        cap = ("What this chapter builds — the machine as you leave Chapter %s (left) and "
+               "as you leave this one (right). New parts are orange."
+               % _shot_num(before))
+    else:
+        out += [_shot_img(after, src_dir, dest_dir), ""]
+        cap = "What this chapter builds — everything orange is new."
+    out += ["<figcaption>%s Voron 2.4r2 CAD, which is the 250 machine; yours is the 350."
+            "</figcaption>" % cap, "", "</figure>", ""]
+    return out
 
 
 def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter | None) -> str:
@@ -797,6 +854,9 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
                      % (first_step.slug, chapter.slug))
     links.append("[Read the whole chapter on one page](%s)" % long_page)
     out += ['<p class="chapter-actions" markdown="span">%s</p>' % " · ".join(links), ""]
+
+    if chapter.stem in CHAPTER_SHOTS:
+        out += _progress_figure(chapter, src_dir, dest_dir)
 
     out += ['<div class="step-grid" data-chapter="%s" markdown="1">' % chapter.slug, ""]
     for page in chapter.pages:
@@ -856,6 +916,14 @@ def build() -> dict:
         chapter = parse_chapter(path)
         if chapter:
             chapters.append(chapter)
+
+    CHAPTER_SHOTS.clear()
+    before: str | None = None
+    for chapter in chapters:
+        shot = _chapter_shot(chapter)
+        if shot:
+            CHAPTER_SHOTS[chapter.stem] = (before, shot)
+            before = shot
 
     STEP_URLS.clear()
     ANCHOR_URLS.clear()

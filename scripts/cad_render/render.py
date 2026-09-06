@@ -314,13 +314,17 @@ def outline(idbuf, mask, strength=0.55):
 
 def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
            labels=True, title=None, subtitle=None, note=None, shift=None,
-           ghost_exclude=None, frame=None):
+           ghost_exclude=None, frame=None, colours=None):
+    """`colours`, if given, is one RGB triple per `sel` group, replacing the
+    PALETTE cycle. The chapter renders use it to say new-vs-already-built with
+    two colours instead of one colour per group."""
     t0 = time.time()
     hi_ids = [i for _, ids in sel for i in ids]
     hi_col = {}
     for k, (_, ids) in enumerate(sel):
+        col = colours[k] if colours else PALETTE[k % len(PALETTE)]
         for i in ids:
-            hi_col[i] = PALETTE[k % len(PALETTE)]
+            hi_col[i] = col
 
     M = basis(azim, elev)
     hb = np.array([scene.by_id[i]["bbox"] for i in hi_ids], float)

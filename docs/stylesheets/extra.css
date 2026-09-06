@@ -406,3 +406,51 @@ body.step-is-done .md-typeset .step-done-label {
 .md-typeset .step-text > details > summary::before {
   background-color: var(--md-default-fg-color--light);
 }
+
+/* Chapter progress (2026-09-06): the "What this chapter builds" before/after
+   pair on a chapter overview, and the same after-image on that chapter's
+   Checkpoint page. Images come from scripts/cad_render/render_steps.py
+   --chapters. Two-up from tablet width, stacked on a phone. */
+.md-typeset figure.chapter-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: .5rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1.2rem;
+  text-align: left;
+}
+.md-typeset .chapter-progress__shot { flex: 1 1 14rem; min-width: 0; }
+.md-typeset .chapter-progress p { margin: 0; }
+.md-typeset .chapter-progress img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .2rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .chapter-progress__cap {
+  display: block;
+  margin-top: .2rem;
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .chapter-progress > figcaption {
+  flex: 1 0 100%;
+  margin: .1rem 0 0;
+  font-size: .72rem;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--md-default-fg-color--light);
+}
+/* A figure with a single image (Ch 01's overview, every Checkpoint page): the
+   image is a direct child, full row, capped so it does not fill a desktop. */
+.md-typeset .chapter-progress > p { flex: 1 1 100%; }
+.md-typeset .chapter-progress > p img { max-width: 22rem; margin: 0 auto; }
+
+@media screen and (max-width: 44.98em) {
+  .md-typeset .chapter-progress__shot { flex: 1 1 100%; }
+}

@@ -66,6 +66,94 @@ def reset_boxes(scene):
     scene.boxes.clear()
 
 
+# --- chapter end-state renders ---------------------------------------------
+#
+# One cumulative "state at the end of this chapter" image per assembly chapter,
+# shown as the BEFORE/AFTER pair on the chapter overview and again on the
+# chapter's Checkpoint page (scripts/build_steps.py).  Each `chapters:` entry
+# lists only what THAT chapter adds; the render draws those in the accent
+# colour and every earlier chapter's parts in a neutral one, so the sequence
+# reads as progress.  One fixed camera and one fixed frame box for all of them
+# (chapter_defaults), or the pairs would not line up.
+
+CH_ACCENT = (0.87, 0.36, 0.10)              # PALETTE[0], the selection colour
+CH_CONTEXT = (0.62, 0.65, 0.68)             # solid neutral (cf. render.GHOST_RGB)
+# `tint:` on a chapter's select group: still "added in this chapter", but drawn
+# in a lighter shade of the accent. Ch 11's five acrylic sheets use it - at full
+# accent they are five orange slabs that swallow the whole machine.
+CH_TINTS = {"glass": (0.96, 0.80, 0.62)}
+
+
+def chapter_sets(chapters):
+    """[(entry, ids it adds, ids from every earlier chapter)] in file order."""
+    out, prior = [], []
+    for e in chapters:
+        ids = [i for s in e.get("select", []) for i in s["ids"]]
+        out.append((e, ids, list(prior)))
+        prior += ids
+    return out
+
+
+def render_chapters(scene, doc, out_dir, want, dry_run):
+    d = {**doc.get("defaults", {}), **doc.get("chapter_defaults", {})}
+    t0, n = time.time(), 0
+    for e, new, prior in chapter_sets(doc.get("chapters", [])):
+        if not e.get("out"):
+            continue                      # a chapter that rides into the next render
+        if want and e["chapter"] not in want and e["out"] not in want:
+            continue
+        tinted = [(g["tint"], g["ids"]) for g in e["select"] if g.get("tint")]
+        plain = [i for i in new if i not in {i for _, ids in tinted for i in ids}]
+        sel = [("added in this chapter", plain)]
+        colours = [CH_ACCENT]
+        for name, ids in tinted:
+            sel.append((f"added in this chapter ({name})", ids))
+            colours.append(CH_TINTS[name])
+        if prior:
+            sel.append(("already built", prior))
+            colours.append(CH_CONTEXT)
+        png = os.path.join(out_dir, e["out"] + ".png")
+        print(f"\n== chapter {e['chapter']}  -> {e['out']}  "
+              f"({len(new)} new, {len(prior)} earlier)", flush=True)
+        if dry_run:
+            continue
+        frame = entry_opt(e, d, "frame")
+        R.render(
+            scene, sel, png, "a",
+            float(entry_opt(e, d, "azim")), float(entry_opt(e, d, "elev")),
+            int(entry_opt(e, d, "width")), int(entry_opt(e, d, "height")),
+            int(entry_opt(e, d, "ss")), float(entry_opt(e, d, "context_scale")),
+            labels=False,                 # the legend is in the subtitle; leader
+                                          # lines into a whole machine say nothing
+            title=entry_opt(e, d, "title"),
+            subtitle=entry_opt(e, d, "subtitle"),
+            note=entry_opt(e, d, "note"),
+            colours=colours,
+            frame=np.array([float(x) for x in frame.split(",")]),
+        )
+        n += 1
+    print(f"\n{n} chapter image(s) in {time.time()-t0:.1f}s", flush=True)
+
+
+def check_ids(scene, entries):
+    """Re-resolve every `resolve:` regex and report drift from pinned `ids:`."""
+    bad = 0
+    for e in entries:
+        who = e.get("step") or ("ch " + e.get("chapter", "?"))
+        for s in e.get("select", []):
+            if "ids" not in s or "resolve" not in s:
+                continue
+            rx = re.compile(s["resolve"], re.I)
+            got = [r["id"] for r in scene.index if rx.search(r["path"])]
+            if got != list(s["ids"]):
+                bad += 1
+                print(f"DRIFT {who:8s} {s['label'][:44]!r}\n"
+                      f"      pinned  {list(s['ids'])}\n"
+                      f"      resolve {got}")
+    print(f"\n{'FAIL' if bad else 'OK'}: {bad} selection(s) drifted")
+    return 1 if bad else 0
+
+
 STEP_HEAD = re.compile(r"^### Step (\S+) — (.*)$", re.M)
 
 
@@ -206,16 +294,19 @@ def main():
                     help="regenerate MANIFEST.md from steps.yml and exit")
     ap.add_argument("--check-ids", action="store_true",
                     help="re-resolve every `resolve:` regex against the cache "
-                         "and report drift from the pinned `ids:`")
+                         "and report drift from the pinned `ids:` (steps and "
+                         "chapters both)")
+    ap.add_argument("--chapters", action="store_true",
+                    help="render the cumulative chapter end-state images from "
+                         "the `chapters:` list instead of the step images")
     a = ap.parse_args()
     if not a.cache and not a.manifest:
         sys.exit("set CACHE=<mesh cache dir> (built by step_extract.py)")
 
     doc = yaml.safe_load(open(a.yml))
     d = doc.get("defaults", {})
-    entries = doc["steps"]
-    if a.steps:
-        want = set(a.steps)
+    entries, want = doc["steps"], set(a.steps)
+    if want and not a.chapters:
         entries = [e for e in entries if e["step"] in want or e["out"] in want]
         if not entries:
             sys.exit(f"no entry matches {sorted(want)}")
@@ -228,20 +319,14 @@ def main():
     print(f"cache: {len(scene.index)} parts", flush=True)
 
     if a.check_ids:
-        bad = 0
-        for e in entries:
-            for s in e.get("select", []):
-                if "ids" not in s or "resolve" not in s:
-                    continue
-                rx = re.compile(s["resolve"], re.I)
-                got = [r["id"] for r in scene.index if rx.search(r["path"])]
-                if got != list(s["ids"]):
-                    bad += 1
-                    print(f"DRIFT {e['step']:8s} {s['label'][:44]!r}\n"
-                          f"      pinned  {list(s['ids'])}\n"
-                          f"      resolve {got}")
-        print(f"\n{'FAIL' if bad else 'OK'}: {bad} selection(s) drifted")
-        return 1 if bad else 0
+        return check_ids(scene, doc["steps"] + doc.get("chapters", []))
+
+    if a.chapters:
+        if want and not any(c["chapter"] in want or c.get("out") in want
+                            for c in doc.get("chapters", [])):
+            sys.exit(f"no chapter matches {sorted(want)}")
+        render_chapters(scene, doc, a.out, want, a.dry_run)
+        return 0
 
     t0, n = time.time(), 0
     for e in entries:

@@ -158,6 +158,16 @@ backticks. `(no image — …)` renders as a neutral placeholder. Every relative
 for the new depth; `chapter.md#step-…` retargets that step's page and a bare `chapter.md`
 retargets that chapter's overview.
 
+**Chapter progress figure.** Where `docs/manual/assets/cad/ch-NN-after.png` exists — one
+cumulative "state at the end of this chapter" CAD render per assembly chapter, built by
+`scripts/cad_render/render_steps.py --chapters` from the `chapters:` list in
+`assets/cad/steps.yml` — the chapter overview opens with a **"What this chapter builds"**
+figure (the previous rendered chapter's image on the left, this chapter's on the right, new
+parts orange and earlier parts grey), and the chapter's own Checkpoint page repeats that
+image under "What you should have now". Chapters the CAD cannot show — 10 (wiring) and
+12–14 (software, startup, calibration) — have no PNG and get no figure, and Ch 06's second
+Checkpoint (06b) does not repeat Ch 06's.
+
 **Navigation.** `docs/.nav.yml` owns the whole nav — five tabs (Home / Build / Print / Plan /
 Reference), with the sidebar showing only the active tab's pages. Build and Print list chapter and
 batch overviews only; add a row there when a chapter is added (`steps/.nav.yml` carries
