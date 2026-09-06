@@ -48,7 +48,7 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 — M3 thread, 5 mm OD × 4 mm long `(verify against the bag)` | 7 | practice coupon only (the coupon STL has 7 pockets), from the 153 supplied — 146 remain for the build |
+| Heat-set insert, brass, M3×5×4 — M3 thread, ~4 mm OD × 5 mm long — the STL pockets are 5.0 mm deep with a ~4 mm bore and the LDO tip tongue is 5.0 mm `(verify against the bag)` | 7 | practice coupon only (the coupon STL has 7 pockets), from the 153 supplied — 146 remain for the build |
 | — no other kit hardware is consumed in this chapter — | 0 | every rail, fastener and PCB goes back in its bag |
 
 **Read first**
@@ -379,13 +379,13 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 *(no image — see text)*
 
-**What you're looking at:** The three inserts you just set, in the practice coupon. A good one is flush with the surface, square to it, and has not made the plastic boss around it swell — a swollen boss means the part grew and will not fit its neighbour.
+**What you're looking at:** The seven inserts you just set, one per pocket of the practice coupon. A good one is flush with the surface, square to it, and has not made the plastic boss around it swell — a swollen boss means the part grew and will not fit its neighbour.
 
 **Parts:** the practice coupon from Step 00.14.
 
-**Do:** Judge each of your three against the gate from the print plan: the insert sits **flush to at most 0.2 mm proud**, and the boss around it has not bulged by more than **0.2 mm** — on the coupon, look for a raised ring around the hole (a "volcano"): that is the bulge. On real parts with a free-standing boss, caliper the boss OD before and after. Check squareness by eye from two directions; a tilted insert will not accept its screw straight. If one is tilted, the iron can nudge it — briefly. Use the trick LDO recommends: push the insert 90% of the way in with the iron, then finish the last 10% by pressing with a flat cold tool, which leaves the top face flat and square.
+**Do:** Judge each of your seven against the gate from the print plan: the insert sits **flush to at most 0.2 mm proud**, and the boss around it has not bulged by more than **0.2 mm** — on the coupon, look for a raised ring around the hole (a "volcano"): that is the bulge. On real parts with a free-standing boss, caliper the boss OD before and after. Check squareness by eye from two directions; a tilted insert will not accept its screw straight. If one is tilted, the iron can nudge it — briefly. Use the trick LDO recommends: push the insert 90% of the way in with the iron, then finish the last 10% by pressing with a flat cold tool, which leaves the top face flat and square.
 
-**Check:** Three inserts, flush, square, no bulged boss. A bulged boss is a technique fault (too hot, or pushed too fast), never a slicer fault. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · print plan §1.4
+**Check:** Seven inserts, flush, square, no bulged boss. A bulged boss is a technique fault (too hot, or pushed too fast), never a slicer fault. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · print plan §1.4
 
 Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [print plan](../voron-print-plan.md) · [Video: Part 1 @3:12:19](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11539s)
 
