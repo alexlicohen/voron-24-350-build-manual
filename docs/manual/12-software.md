@@ -10,7 +10,7 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 **Prerequisites:**
 
-- **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the bay powered on once successfully. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
+- **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at **Step 12.11**, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
 - The Pi-side half (Steps 12.1–12.10) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one").
 - **Printed parts: none.** No print batch gates this chapter.
 - Do **not** start Ch 13 until Checkpoint 12 below passes.
@@ -36,11 +36,11 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| — none — | 0 | Software only. The DSI ribbon and the Pi were fitted in Ch 09/Ch 11 |
+| — none — | 0 | Software only. The Pi was fitted in Ch 09, the DSI ribbon latched at both ends at Ch 10 Step 10.50, and the screen mounted with the front skirt in Ch 11 |
 
 **Read first**
 
-- **Use `leviathan-printer-rev-d-sbv2.cfg`, never `leviathan-printer-rev-d.cfg`.** The Rev D wiring guide links the wrong one. Every `nhk:` pin differs because the toolboard MCU changed family; loading the V1 config mis-drives the heater, thermistor, probe, both fans and the accelerometer at once (survey §4.1 ①).
+- **Use `leviathan-printer-rev-d-sbv2.cfg`, never `leviathan-printer-rev-d.cfg`.** The Rev D wiring guide links the wrong one. Every `nhk:` pin differs because the toolboard MCU changed family. Klipper checks every pin name against the board it is sent to, so the V1 file does not mis-drive anything — it refuses to start at Step 12.37 with `Pin 'gpio23' is not a valid pin name on mcu 'nhk'`. The one-line identity check is `grep -c gpio printer.cfg`: **0** on the V2 file, **20** on the V1 file (survey §4.1 ①).
 - **The toolboard is an STM32G0B1, not an RP2040.** The wiring guide's sentence *"The Nitehawk uses an RP2040 MCU"* is stale. Its USB ID will read `usb-Klipper_stm32g0b1xx_…`. Match on that string, not on `rp2040` (survey §4.1 ②).
 - **The stock config ships with every build-size option commented out and no `[bed_mesh]` at all.** Six separate places need the 350 mm lines uncommented, and the mesh section has to be written from scratch (survey §4.4 #15).
 - **Confirm which Leviathan you have before you run `make menuconfig`.** LDO shipped an **STM32F446** Leviathan (V1.1/V1.2) and later an **STM32H743** one (V1.3). Processor model, clock reference and bootloader offset all differ; the wrong combination produces firmware that will not run. Step 12.13 settles it from the board itself.
@@ -239,7 +239,7 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 
 **What you're looking at:** DSI is the Raspberry Pi's native display connection, the one the flat ribbon from Ch 11 plugs into, and `/sys/class/drm/` is where the Linux kernel reports the displays it can see. Rotation is set in the kernel command line because the current display driver ignores the older config-file setting LDO's guide describes.
 
-**Parts:** 4.3" DSI touchscreen ×1, Pi FFC ribbon ×1 — both already fitted in Ch 11.
+**Parts:** 4.3" DSI touchscreen ×1, Pi FFC ribbon ×1 — the ribbon was latched at both ends at Ch 10 Step 10.50, the screen mounted in Ch 11.
 
 **Do:** With the panel connected, confirm the kernel sees it:
 
@@ -247,7 +247,7 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 grep -H . /sys/class/drm/card*-*/status | grep :connected
 ```
 
-You should get a line containing `DSI-1`. If the panel is upside down for how it is mounted, rotate it in the kernel command line — `sudo nano /boot/firmware/cmdline.txt` — and append to the single existing line (no line breaks):
+You should get a line containing `DSI-1`. No `DSI-1` at all: power off and check the ribbon first (contacts toward the board at both ends, latches closed — Step 10.50), then confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; if it is and the panel is still absent, add a line `dtoverlay=vc4-kms-dsi-7inch` to that file and reboot. If the panel is upside down for how it is mounted, rotate it in the kernel command line — `sudo nano /boot/firmware/cmdline.txt` — and append to the single existing line (no line breaks):
 
 ```
 video=DSI-1:800x480@60,rotate=180
@@ -271,21 +271,21 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 (no image — see text)
 
-**What you're looking at:** An **MCU** is a microcontroller — a small processor board that turns Klipper's commands into actual pin signals. This machine has two: the [Leviathan](16-glossary.md#l) mainboard in the bay and the [Nitehawk-SB V2](16-glossary.md#n) toolboard on the printhead. `lsusb` lists what the Pi can see on USB, which is the first proof both are alive and talking.
+**What you're looking at:** An **MCU** is a microcontroller — a small processor board that turns Klipper's commands into actual pin signals. This machine has two: the [Leviathan](16-glossary.md#l) mainboard in the bay and the [Nitehawk-SB V2](16-glossary.md#n) toolboard on the printhead. `lsusb` lists what the Pi can see on USB, which is the first proof both are alive and talking. This is also the **first time those boards, the drivers and the heater outputs are energised** — Ch 10 Step 10.23 powered the PSU with its DC terminals empty — so it gets the same hand-on-switch drill as 10.23 and as [Ch 00a Step 00a.11](00a-mains-safety.md).
 
-**Parts:** none.
+**Parts:** none — C13 cord ×1, fire extinguisher within arm's reach.
 
-**Do:** **Stop here unless LDO Checkpoint #1 has passed** (Ch 10: multimeter, unplugged — continuity within each colour group, no continuity between L/N/PE, PSU 115/230 V selector confirmed). With that done, switch the inlet on. The PSU LED lights. Then, over SSH:
+**Do:** **Stop here unless LDO Checkpoint #1 has passed** (Ch 10: multimeter, unplugged — continuity within each colour group, no continuity between L/N/PE, PSU 115/230 V selector confirmed). Clear the chamber and the bay of tools and offcuts; hands out of the bay from here on. Two people: one on the switch, the other watching from the front with hands out of the machine. Plug the cord into the inlet, then the wall. Stand to the **side**, put your hand on the inlet rocker, switch on, and keep it there for a full ten seconds while you look, listen and smell. Then, over SSH:
 
 ```bash
 lsusb
 ```
 
-**Check:** `lsusb` lists two devices whose descriptors mention Klipper — the Leviathan and the Nitehawk-SB V2. The Nitehawk's onboard USB hub also appears as a separate hub device; that is normal on V2 and is the "+" feature.
+**Check:** In the ten seconds: the PSU's green LED lights; the Pi's red PWR LED lights and its green ACT LED flickers as it boots; the toolboard's **3V3** and **24V** LEDs are lit (Step 12.19 shows where they are — skip this if the toolhead cover hides them); no click-cycling, no buzz, no hot smell; a minute later no stepper is hot and nothing is warm to the touch. Anything on that list wrong: switch off and go back to Ch 10. Then `lsusb` shows two `ID 1d50:614e OpenMoko, Inc.` entries — the Leviathan and the Nitehawk-SB V2 (the text after the ID is `Klipper 3d-Printer Firmware` or the MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`) — plus the Nitehawk's onboard USB hub as a separate hub device, which is normal on V2 and is the "+" feature. Klipper has **no config yet** (Step 12.21), so no heater or motor can be commanded by software until then: anything warming up now is a wiring fault, not a setting.
 
-⚠ **Rev D+ / LDO:** the Nitehawk-SB V2 adds a **USB hub and a secondary USB port** that the V1 board does not have, so expect one more device in `lsusb` than any Rev D photo shows. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
+⚠ **Rev D+ / LDO:** the Nitehawk-SB V2 adds a **USB hub and a secondary USB port** that the V1 board does not have, so expect one more device in `lsusb` than any Rev D photo shows. The machine now stays powered, bay open, through the flashing steps — the one time this is allowed; if you want to touch anything in the bay, switch off first. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
-Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [Nitehawk-SB-V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497)
+Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Nitehawk-SB-V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497) · [Ch 10 Step 10.23](10-wiring.md#step-1023-first-power-on-then-off-again) · [Ch 00a Step 00a.11](00a-mains-safety.md)
 
 ---
 
@@ -356,44 +356,47 @@ Pause: ~15 min since the last pause — the bay has been powered once, both MCUs
 
 **Parts:** none.
 
-**Do:** Stop Klipper so it releases the serial ports, then configure:
+**Do:** Stop Klipper so it releases the serial ports, then configure. The `KCONFIG_CONFIG=` part keeps this board's settings in their own file (`~/klipper/config.leviathan`) instead of the shared `.config`, so the toolboard build in Step 12.17 cannot overwrite them and every future Klipper update is one `make` per board, not a menuconfig from memory:
 
 ```bash
 sudo systemctl stop klipper
 cd ~/klipper
-make menuconfig
+make KCONFIG_CONFIG=config.leviathan menuconfig
 ```
 
-Set, for an **F446 (V1.1/V1.2)** board:
+Set, for an **F446 (V1.1/V1.2)** board — the first line first, because `Clock Reference` only appears once it is ticked:
 
 ```
-Micro-controller Architecture: STMicroelectronics STM32
-Processor model:               STM32F446
-Bootloader offset:             32KiB bootloader
-Clock Reference:               12 MHz crystal
-Communication interface:       USB (on PA11/PA12)
+[*] Enable extra low-level configuration options
+    Micro-controller Architecture: STMicroelectronics STM32
+    Processor model:               STM32F446
+    Bootloader offset:             32KiB bootloader
+    Clock Reference:               12 MHz crystal
+    Communication interface:       USB (on PA11/PA12)
 ```
 
 or, for an **H743 (V1.3)** board:
 
 ```
-Micro-controller Architecture: STMicroelectronics STM32
-Processor model:               STM32H743
-Bootloader offset:             128KiB bootloader
-Clock Reference:               25 MHz crystal
-Communication interface:       USB (on PA11/PA12)
+[*] Enable extra low-level configuration options
+    Micro-controller Architecture: STMicroelectronics STM32
+    Processor model:               STM32H743
+    Bootloader offset:             128KiB bootloader
+    Clock Reference:               25 MHz crystal
+    Communication interface:       USB (on PA11/PA12)
 ```
 
 `Q` to quit, `Y` to save. Then:
 
 ```bash
-make clean
-make
+make KCONFIG_CONFIG=config.leviathan clean
+make KCONFIG_CONFIG=config.leviathan
+cp config.leviathan ~/printer_data/config/
 ```
 
-**Check:** the build ends with `Creating hex file out/klipper.bin`, and `out/klipper.bin` exists.
+**Check:** before you press `Q`, the screen shows `Clock Reference (12 MHz crystal)` (or `25 MHz`) — if that line is absent, the low-level tick at the top is missing and the build will default to 8 MHz. The build ends with `Creating hex file out/klipper.bin`, `out/klipper.bin` exists, and `config.leviathan` sits next to `printer.cfg` in Mainsail's file list.
 
-⚠ **Rev D+ / LDO:** the bootloader offset is the dangerous field. Building with **no** bootloader offset and flashing over Katapult will overwrite the bootloader, after which the board can only be recovered through DFU (Step 12.16). [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
+⚠ **Rev D+ / LDO:** the bootloader offset is the dangerous field. Building with **no** bootloader offset and flashing over Katapult will overwrite the bootloader, after which the board can only be recovered through DFU (Step 12.16). The clock field is the sneaky one: a build with the wrong clock or processor flashes cleanly (`Flash Success` at Step 12.15) and the board then never comes back as `usb-Klipper_…` — that is **not** a dead board and not a DFU job. Double-click SW1 to get `usb-katapult_…` back, fix menuconfig, rebuild, re-flash. [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [src](https://ldomotion.com/guides/voron-leviathan-v1-3) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/src/stm32/Kconfig#L351)
 
 Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) · [Klipper docs § Building and flashing the micro-controller](https://www.klipper3d.org/Installation.html#building-and-flashing-the-micro-controller)
 
@@ -413,7 +416,7 @@ Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan
 ls /dev/serial/by-id/*
 # expect a line containing:  usb-katapult_stm32f446xx_<id>-if00   (or stm32h743xx)
 
-virtualenv -p python3 ~/katapult-env
+virtualenv -p python3 ~/katapult-env      # "command not found"? use: python3 -m venv ~/katapult-env
 ~/katapult-env/bin/pip3 install pyserial greenlet cffi python-can aenum
 test -e ~/katapult && (cd ~/katapult && git pull) || (cd ~ && git clone https://github.com/Arksine/katapult)
 
@@ -422,7 +425,7 @@ test -e ~/katapult && (cd ~/katapult && git pull) || (cd ~ && git clone https://
   -f ~/klipper/out/klipper.bin
 ```
 
-**Check:** the tool ends with `Verification Complete: SHA = <id>` then `Flash Success`, the bootloader status LED goes out, and `ls /dev/serial/by-id/*` shows `usb-Klipper_stm32f446xx_<id>-if00` again (same `<id>` as before — the ID is the MCU's, not the firmware's). Restart Klipper with `sudo systemctl start klipper`.
+**Check:** the tool ends with `Verification Complete: SHA = <id>` then `Flash Success`, the bootloader status LED goes out, and `ls /dev/serial/by-id/*` shows `usb-Klipper_stm32f446xx_<id>-if00` again (same `<id>` as before — the ID is the MCU's, not the firmware's). `Flash Success` but no `usb-Klipper_…` line after 30 s: the menuconfig clock or processor was wrong (Step 12.14's ⚠) — Katapult is intact, double-click SW1 and go back to 12.14; do **not** go to 12.16. Restart Klipper with `sudo systemctl start klipper`.
 
 Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12)
 
@@ -436,10 +439,18 @@ Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan
 
 **Parts:** none.
 
-**Do:** Skip this step unless Step 12.15 found no `usb-katapult_…` device after a double-click of SW1. If you have to: disconnect every other USB device from the Pi, then press **SW2 and SW1 together, release SW1 first, then SW2**. Confirm with `lsusb` — you want `ID 0483:df11 STMicroelectronics STM Device in DFU Mode`. Then build Katapult with the same processor/clock/offset row from Step 12.13, plus `Communication interface: USB (on PA11/PA12)`, *Support bootloader entry on rapid double click of reset button*, *Enable Status LED*, `Status LED GPIO Pin: PE1`. Flash it:
+**Do:** Skip this step unless Step 12.15 found no `usb-katapult_…` device after a double-click of SW1. If you have to: disconnect every other USB device from the Pi, then press **SW2 and SW1 together, release SW1 first, then SW2**. Confirm with `lsusb` — you want `ID 0483:df11 STMicroelectronics STM Device in DFU Mode`. Then build Katapult:
 
 ```bash
-cd ~/katapult && make clean && make
+sudo apt install dfu-util
+cd ~/katapult
+make menuconfig
+```
+
+with the same processor/clock/offset row from Step 12.13 — `Micro-controller Architecture: STMicroelectronics STM32`, `Processor model`, `Build Katapult deployment application` left off, `Clock Reference` (tick *Enable extra low-level configuration options* first if the line is absent), `Application start offset` = the offset from 12.13, `Communication interface: USB (on PA11/PA12)`, *Support bootloader entry on rapid double click of reset button*, *Enable Status LED*, `Status LED GPIO Pin: PE1`. `Q`, `Y`, then flash it:
+
+```bash
+make clean && make
 sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000:mass-erase:force -D out/katapult.bin
 ```
 
@@ -451,7 +462,7 @@ Then go back to Step 12.14.
 
 Source: [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12)
 
-Pause: ~20 min since the last pause — the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: a built binary that never reaches the board is the one thing that makes you re-do the menuconfig from memory.
+Pause: ~20 min since the last pause — the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.
 
 ---
 
@@ -459,16 +470,16 @@ Pause: ~20 min since the last pause — the Leviathan is running your own Klippe
 
 ![Nitehawk-SB V2 `make menuconfig` settings](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
 
-**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard — the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry lights the board's ACT LED at startup, which becomes your at-a-glance sign that Klipper is running out on the toolhead.
+**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard — the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry drives the board's ACT LED pin low at MCU start-up, which LDO documents as the LED coming on; what it does once Klipper connects depends on `[output_pin pcb_led]` in the config **(verify on bench)** — see the ⚠ below.
 
 **Parts:** none.
 
-**Do:**
+**Do:** Same pattern as 12.14, with the toolboard's own settings file:
 
 ```bash
 sudo systemctl stop klipper
 cd ~/klipper
-make menuconfig
+make KCONFIG_CONFIG=config.nitehawk menuconfig
 ```
 
 Set exactly:
@@ -484,11 +495,17 @@ Set exactly:
     (!PC6) GPIO pins to set at micro-controller startup
 ```
 
-`Q`, `Y`, then `make clean && make`.
+`Q`, `Y`, then:
 
-**Check:** `~/klipper/out/klipper.bin` exists and is newer than the Leviathan build you just flashed. (You are reusing one build tree for two boards — flash immediately, do not batch the builds.)
+```bash
+make KCONFIG_CONFIG=config.nitehawk clean
+make KCONFIG_CONFIG=config.nitehawk
+cp config.nitehawk ~/printer_data/config/
+```
 
-⚠ **Rev D+ / LDO:** this is the deviation that defines Rev D+. The Nitehawk-SB **V1** is an RP2040 and takes an entirely different menuconfig; the **V2** is an STM32G0B1. Choosing RP2040 here produces a binary the board cannot run. The **8 KiB bootloader offset is mandatory** — build with no offset and the Katapult flash will erase the bootloader. `!PC6` lights the ACT LED at startup, which is your at-a-glance "Klipper is running" indicator on the toolhead. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [menuconfig screenshot](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
+**Check:** `~/klipper/out/klipper.bin` exists and is newer than the Leviathan build you just flashed, and the screen showed `Clock Reference (12 MHz crystal)` before you saved. (`out/` is one build tree for two boards — flash immediately, do not batch the builds.)
+
+⚠ **Rev D+ / LDO:** this is the deviation that defines Rev D+. The Nitehawk-SB **V1** is an RP2040 and takes an entirely different menuconfig; the **V2** is an STM32G0B1. Choosing RP2040 here produces a binary the board cannot run. The **8 KiB bootloader offset is mandatory** — build with no offset and the Katapult flash will erase the bootloader. The ACT LED: `!PC6` turns it on at MCU start-up per LDO's board doc, but the kit config's `[output_pin pcb_led] pin: !nhk:PC6` with its default `value: 0` may drive the pin the other way the moment Klipper connects, so the LED could go **dark** at `Ready` rather than lit — LDO's own board-level `nitehawk-sbv2.cfg` uses `pin: nhk:PC6` without the `!`. Treat the LED as "MCU has power and firmware", not as a Klipper-connected indicator, until you have watched it yourself at Ch 13 Step 13.4 **(verify on bench)**; if it goes dark at `Ready` and you want it lit, drop the `!` in `[output_pin pcb_led]`. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg) · [menuconfig screenshot](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
 
 Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#compiling-klipper-firmware) · [Nitehawk-SB-V2 `make_menuconfig.png`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/make_menuconfig.png)
 
@@ -507,11 +524,11 @@ Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotor
 ```bash
 cd ~/klipper
 sudo service klipper stop
-make flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32g0b1xx_<id>-if00
+make KCONFIG_CONFIG=config.nitehawk flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32g0b1xx_<id>-if00
 sudo service klipper start
 ```
 
-Use the `stm32g0b1xx` ID you recorded in Step 12.12.
+Use the `stm32g0b1xx` ID you recorded in Step 12.12. (Every future toolboard update is this same line after `make KCONFIG_CONFIG=config.nitehawk`; the Leviathan's is Step 12.15's `flashtool.py` after `make KCONFIG_CONFIG=config.leviathan`.)
 
 **Check:** the flash completes without error, and `ls /dev/serial/by-id/` still shows `usb-Klipper_stm32g0b1xx_<id>-if00`. If the board does not come back, reboot the printer before assuming anything is broken.
 
@@ -538,10 +555,18 @@ ls /dev/serial/by-id/
   -d /dev/serial/by-id/usb-katapult_stm32g0b1xx_<id>-if00
 ```
 
-If there is no `usb-katapult_…` line, Katapult itself is missing: hold **RESET and BOOT0** together, release **RESET** first then **BOOT0**, confirm `lsusb` shows `ID 0483:df11 … STM Device in DFU mode`, then build Katapult with `Processor model STM32G0B1 / Clock Reference 12 MHz crystal / Communication interface USB (on PA11/PA12) / Application start offset 8KiB offset / Support bootloader entry on rapid double click of reset button / Enable Status LED / Status LED GPIO Pin (PC6)` and:
+If there is no `usb-katapult_…` line, Katapult itself is missing: hold **RESET and BOOT0** together, release **RESET** first then **BOOT0**, confirm `lsusb` shows `ID 0483:df11 … STM Device in DFU mode`, then build Katapult:
 
 ```bash
 sudo apt install dfu-util
+cd ~/katapult
+make menuconfig
+```
+
+with `Micro-controller Architecture STMicroelectronics STM32 / Processor model STM32G0B1 / Clock Reference 12 MHz crystal (tick "Enable extra low-level configuration options" first if the line is absent) / Communication interface USB (on PA11/PA12) / Application start offset 8KiB offset / Support bootloader entry on rapid double click of reset button / Enable Status LED / Status LED GPIO Pin (PC6)` — the second screenshot above — then `Q`, `Y` and:
+
+```bash
+make clean && make
 sudo dfu-util -a 0 -s 0x08000000:leave -D ~/katapult/out/katapult.bin
 ```
 
@@ -589,9 +614,16 @@ Pause: ~20 min since the last pause — both boards flashed, both serial paths r
 
 **Parts:** none.
 
-**Do:** Download **[`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)** from LDO's kit repo.
+**Do:** Fetch **`leviathan-printer-rev-d-sbv2.cfg`** straight onto the Pi, as `printer.cfg`, from the pinned commit every Source line in this manual cites. A GitHub page is not the file — "Save as" on the `blob/` page gives you HTML — so use the raw URL over SSH:
 
-**Check:** Open it in a text editor and search for `nhk:PB8`. If you find it, you have the right file. If you find `gpio23` instead, you downloaded the Rev D file — delete it and start again.
+```bash
+wget -O ~/printer_data/config/printer.cfg \
+  https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
+grep -c 'nhk:PB8' ~/printer_data/config/printer.cfg
+grep -c gpio ~/printer_data/config/printer.cfg
+```
+
+**Check:** the first `grep` prints **1** and the second **0**. A `0` then `20` means you fetched the Rev D (RP2040) file — re-run the `wget` with the `-sbv2` name. The file now appears as `printer.cfg` in Mainsail's **Machine** page.
 
 ⚠ **Rev D+ / LDO:** the Rev D wiring guide's "pre-made configuration file" link points at `leviathan-printer-rev-d.cfg`, which is the **RP2040** toolboard config. Every `nhk:` pin in it is wrong for your board — extruder step/dir/enable, heater, thermistor, probe, both fans, PCB LED, neopixel, all four ADXL pins and the chamber thermistor. It also defines a `[temperature_sensor nh_temp]` on a pin that does not exist on the V2; do not add that section back (survey §4.1 ①, §4.3). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md)
 
@@ -599,7 +631,7 @@ Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent
 
 ---
 
-### Step 12.22 — Upload it as `printer.cfg` and add the Mainsail include
+### Step 12.22 — Add the Mainsail include at the top of `printer.cfg`
 
 (no image — see text)
 
@@ -607,7 +639,7 @@ Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent
 
 **Parts:** none.
 
-**Do:** In Mainsail, **Machine** → drag the file into the config panel (or use the upload button). Rename it to exactly **`printer.cfg`** — no other name is recognised. Open it in Mainsail's editor and add one line at the very top, above the header comments:
+**Do:** In Mainsail, **Machine** → open `printer.cfg` in the editor (Step 12.21 already put it there under the right name — no upload, no rename) and add one line at the very top, above the header comments:
 
 ```ini
 [include mainsail.cfg]
@@ -625,7 +657,7 @@ Source: [Mainsail `mainsail.cfg`](https://docs.mainsail.xyz/configuration/mainsa
 
 (no image — see text)
 
-**What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin elsewhere in the file that starts `nhk:` is resolved against the second one. Swap these two paths and the config still loads — it just drives the wrong board's pins.
+**What you're looking at:** `[mcu]` is the mainboard and `[mcu nhk]` is the toolboard; every pin elsewhere in the file that starts `nhk:` is resolved against the second one. Klipper checks each pin name against the board it is sent to, so swapping these two paths does not drive the wrong pins — it stops Klipper at Step 12.37 with a pin-name error, which is the interlock working.
 
 **Parts:** none.
 
@@ -649,7 +681,7 @@ restart_method: command
 
 **Check:** the two paths are different from each other, both start `/dev/serial/by-id/usb-Klipper_`, and both end `-if00`.
 
-⚠ **Rev D+ / LDO:** swapping these two is the single most common Rev D+ mistake, because the guide primes you to look for `rp2040` and there isn't one. `[mcu nhk]` gets the **`stm32g0b1xx`** path. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)
+⚠ **Rev D+ / LDO:** swapping these two is the single most common Rev D+ mistake, because the guide primes you to look for `rp2040` and there isn't one. `[mcu nhk]` gets the **`stm32g0b1xx`** path. How it shows up at Step 12.37: `Pin 'PG0' is not a valid pin name on mcu 'mcu'` means the two serial paths are swapped (the toolboard has no port G); `Pin 'gpio23' is not a valid pin name on mcu 'nhk'` means you loaded `leviathan-printer-rev-d.cfg`, not the `-sbv2` file. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L18-31) · [LDO wiring guide § Klipper configuration](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#klipper-configuration)
 
@@ -849,7 +881,18 @@ gcode:
     RESTORE_GCODE_STATE NAME=STATE_G32
 ```
 
-**Check:** `grep -n '^#position_max: 350\|^#points:\|^#probe_points:' printer.cfg` returns nothing for the 350 variants.
+**Check:** count the live lines — each command prints one number, and the 250/300 blocks (still commented) do not count:
+
+```bash
+cd ~/printer_data/config
+grep -c '^position_max: 350' printer.cfg        # 2  (stepper_x, stepper_y)
+grep -c '^position_max: 330' printer.cfg        # 1  (stepper_z)
+grep -c '^points:' printer.cfg                  # 1  (quad_gantry_level)
+grep -c '^probe_points:' printer.cfg            # 1  (resonance_tester)
+grep -c '^    G0 X175 Y175 Z30' printer.cfg     # 1  (G32)
+```
+
+Expect `2 / 1 / 1 / 1 / 1`. A `0` is a block still commented; a `2` where `1` is expected is a second size uncommented as well.
 
 **Naming note:** the config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block; homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]` — an incorrect one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -1261,7 +1304,7 @@ gcode:
     BED_MESH_CALIBRATE ADAPTIVE=1
 
     SET_DISPLAY_TEXT MSG="Hotend {extruder}C"
-    G0 X175 Y175 Z10 F3600                 ; <-- 350 only
+    G0 X5 Y5 Z10 F3600                     ; park at the purge-line start, so ooze lands there, not under the part
     M109 S{extruder}
 
     ##  TODO Ch 14: purge / prime line goes here, once the nozzle is calibrated.

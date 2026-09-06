@@ -2,7 +2,7 @@
 
 Inventories the kit against its own batch BOM, settles the tools and consumables, verifies the flat reference, teaches heat-set inserts, and cleans and greases all seven rails — so that Ch 01 can start the moment the frame extrusions come out of the box and no later chapter stops for a missing tool.
 
-**What you're building in this chapter:** nothing yet — this chapter builds the conditions for everything else. Four things come out of it. **A counted kit**: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. **A working bench**: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. **A heat-set technique**: the brass tip fitted to the soldering iron and an iron temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. **Seven prepared linear rails** — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them.
+**What you're building in this chapter:** nothing yet — this chapter builds the conditions for everything else. Four things come out of it. **A counted kit**: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. **A working bench**: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. **A heat-set technique**: the brass tip fitted to the soldering iron and an iron temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. **Seven prepared linear rails** — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them. Roughly half of this chapter happens weeks before the cartons arrive — the two headings *Before the kit ships* and *Kit day* below say which steps belong to which day; the step numbers stay in bench order.
 
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P00). Rail prep is roughly half of it.
 
@@ -10,8 +10,8 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 **Prerequisites:**
 
-- **Print batch B00 — Calibration & jigs** (`print/B00-calibration-and-jigs.md`). B00 is printable the day the Core One+ runs, months before the Voron kit lands. Its seven-item gate must pass before B01 starts; this chapter only needs the `Heatset_Practice` coupon and the two rail guides off that plate.
-- The kit itself, unopened. Fabreeko order **F6424626**, pre-order, ETA mid/late September 2026.
+- **Print batch B00 — Calibration & jigs** (`print/B00-calibration-and-jigs.md`). B00 is printable the day the Core One+ runs, months before the Voron kit lands. Five of its seven gate items (cube X/Y, cube Z, first-layer delta, snap test, coupon inserts) gate B01. The other two need kit parts and are **kit-day confirmations**: the guide on the real rail (Step 00.20) and the 625-2RS bearing in the `z_drive_retainer_a` bore (Ch 02) — if either fails, reprint the B01 retainers/housings before Ch 02; nothing else is affected. This chapter only needs the `Heatset_Practice` coupon and the two rail guides off that plate.
+- The kit itself, unopened — for the *Kit day* steps only. Fabreeko order **F6424626**, pre-order, ETA mid/late September 2026.
 - Nothing else. This chapter has no assembly prerequisites — it is the first thing you do.
 
 **Tools**
@@ -27,9 +27,9 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 - Flush cutters
 - 10 ml syringe with a blunt tip (grease delivery), or use the grease tube nozzle
 - 2 mm drill bit (supplied), 2.5 mm slot screwdriver (supplied)
-- Phone or camera on a tripod, for the build log
+- Clean towel, for drying the rails after the IPA soak
 
-**Consumables:** IPA ≥ 90% (enough to soak a 400 mm rail — a shallow tray or a length of 40 mm pipe capped at one end works); Super Lube 21030 synthetic grease; nitrile gloves; lint-free cloth; masking tape; permanent marker; a shallow tray for the IPA soak.
+**Consumables:** IPA ≥ 90% (enough to cover a 400 mm rail inside its own shipping bag, seven times over); Super Lube 21030 synthetic grease; nitrile gloves; lint-free cloth; masking tape (labels, and the rail end stops); permanent marker.
 
 **Printed parts** — batch **B00**, all Galaxy Black ASA on the Core One+
 
@@ -48,13 +48,13 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 | 3 | practice coupon only, from the 153 supplied — 150 remain for the build |
+| Heat-set insert, brass, M3×5×4 — M3 thread, 5 mm OD × 4 mm long `(verify against the bag)` | 3 | practice coupon only, from the 153 supplied — 150 remain for the build |
 | — no other kit hardware is consumed in this chapter — | 0 | every rail, fastener and PCB goes back in its bag |
 
 **Read first**
 
 - **The rails ship dry and must be cleaned and packed before they go on an extrusion.** The flip-and-pack method needs access to the *back* of the rail. Once a rail is bolted to a 2020 you cannot do this (survey §5.2 W9). [src](https://docs.ldomotors.com/guides/rail_grease_guide)
-- **A rail carriage will slide off its rail and spill its bearing balls, and dropping one ruins it.** Tape every carriage in place the moment you unbag a rail (manual p.24, p.26).
+- **A rail carriage will slide off its rail and spill its bearing balls, and dropping one ruins it.** Tape every carriage in place the moment you unbag a rail, and fit the two end-stop bands before the soak (Step 00.17; manual p.24, p.26).
 - **Heat-set inserts go in per print batch, before the part enters any assembly.** One missed insert in an XY joint costs a gantry teardown (survey §5.2 W3).
 - **Caliper the deck panel during inventory.** LDO's guides say 4 mm, LDO's own BOM says 3 mm. This decides which `deck_support_*` you print, and it is a Ch 02 step, not a Ch 11 one (survey §4.3).
 - **Post the two Discord questions on day one** (Step 00.32). Both have multi-day answer latency and both gate work in Ch 08–Ch 10.
@@ -80,6 +80,14 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ---
 
+## Before the kit ships
+
+Do these the week batch B00 prints, weeks before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.13–00.16** (heat-set practice on the B00 coupon), **00.23–00.29** (reading the manual's front matter) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+
+## Kit day
+
+The day the cartons land: **Steps 00.1–00.7** (unboxing, inventory, deck caliper, board check, LDO-supplied parts, kit tools), **00.12** (fastener bags stay closed), **00.17–00.22** (rail prep — the grease and IPA from Step 00.9 must already be on the bench) and **00.30** (the measurement log, which by now already holds the flat-reference gap from Step 00.10). Rail prep is the one kit-day job with a wait state — the IPA dry — so start it first.
+
 ## Unboxing and inventory
 
 ### Step 00.1 — Open the cartons without cutting into them
@@ -90,7 +98,7 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 **Parts:** the shipping cartons, 2.
 
-**Do:** Photograph all six faces of each carton before you open it — that is your damage evidence if anything inside is bent. Score only the tape, blade set shallow: carton 2 holds the acrylic and polycarbonate panels and the 355×355×10 mm build plate right under the flaps. Lift the build plate out flat, never on edge, so its weight cannot land on one corner and dent the ground face. Leave everything else in its box for now.
+**Do:** Look over all six faces of each carton before you open it and write any dent or puncture into the log — that is what a damage claim with Fabreeko starts from. Score only the tape, blade set shallow: carton 2 holds the acrylic and polycarbonate panels and the 355×355×10 mm build plate right under the flaps. Lift the build plate out flat, never on edge, so its weight cannot land on one corner and dent the ground face. Leave everything else in its box for now.
 
 **Check:** No crushed corners, no rattle from carton 2, no oil weeping through carton 1. Every panel still has its protective film on both faces — leave it on until Ch 11.
 
@@ -124,7 +132,7 @@ Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM
 
 **Parts:** carton 1 — boxes *Cable Kit 2.4-350*, *Motion*, *Electronics 1*, *Electronics 2*, *Fasteners, Tools & Misc*, *Belts, Chains & Fans*, *Linear Rail Kit*, *Frame Kit 2.4-350*, *Motor Kit*, plus loose *Other* items (C13 cord, PVC wire duct ×5, Revo HF hotend, DIN rails ×2, Leviathan mainboard, Meanwell LRS-200-24 PSU, extrusion slot cover ×9).
 
-**Do:** Work one box at a time against the BOM and tick `Check1`. Do not pour the fastener bags out — count the bag, tick it, close it. The counts that matter most because they are large and easy to be short on: **M3×8 SHCS ×283**, **M3 roll-in T-nut ×135**, **M5 roll-in T-nut ×80**, **M3 hammerhead ×75**, **M5 precision spacer ×46**, **heat-set insert M3×5×4 ×153**, zip ties ×100. Photograph each bag before it goes back in the box.
+**Do:** Work one box at a time against the BOM and tick `Check1`. Do not pour the fastener bags out — count the bag, tick it, close it. Count the rail bags without opening them — rails stay sealed until Step 00.17. Boards stay in their antistatic bags; count through the bag. The counts that matter most because they are large and easy to be short on: **M3×8 SHCS ×283**, **M3 roll-in T-nut ×135**, **M5 roll-in T-nut ×80**, **M3 hammerhead ×75**, **M5 precision spacer ×46**, **heat-set insert M3×5×4 ×153**, zip ties ×100.
 
 **Check:** Every BOM line ticked, or written down as short. Frame kit is 18 extrusions: 340E ×1, 430D ×1, 450C ×2, 470A ×10, 530B ×4. Motor kit is 7 motors: 1× 36STH20 (E), 2× 42STH48-2004MAH (A/B, 0.9°), 4× 42STH48-2004AC (Z, 1.8°). [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -146,7 +154,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Check:** Eight panels present, no cracks, no chips at the corners. You now have one number written down: the deck thickness.
 
-⚠ **Rev D+ / LDO:** LDO's Build Notes (p.29–30) and Printed Parts Guide both say the deck is **4 mm** → print `deck_support_4mm_x8`. LDO's own Rev D BOM lists the deck panel as **3 mm**. Your caliper reading resolves it. Print whichever support matches; both sets together are 16 small parts and minutes of print time, so if you are unsure, print both and fit the one that works. Do not resolve this from the documents. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · survey §4.3
+⚠ **Rev D+ / LDO:** LDO's Build Notes (p.29–30) and Printed Parts Guide both say the deck is **4 mm** → print `deck_support_4mm_x8`. LDO's own Rev D BOM lists the deck panel as **3 mm**. Your caliper reading resolves it. B01 prints `deck_support_3mm_x8` by default (the size-specific 350 BOM wins); if the caliper reads 4 mm, queue `deck_support_4mm_x8` as a 30-minute reprint before Ch 02. Do not resolve this from the documents. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · survey §4.3
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -160,7 +168,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Parts:** *Electronics 2* box — Nitehawk SB toolhead PCB ×1, Stealthburner fan adapter ×1, USB adapter PCB ×1.
 
-**Do:** Handle the board by its edges on an antistatic bag. Check four physical markers against the V2 board doc: (1) the **PROBE**, **TH0**, **CT** and **Endstop** connectors are JST-**PH 2.0 mm** pitch, visibly finer than the JST-XH 2.5 mm **MOTOR** connector next to them — the pitch difference is the tell; (2) a **secondary USB port** (JST-ZH 1.5 mm, 5-pin, labelled as the USB expansion port) is present; (3) the board-to-board header that mates with the fan adapter is **keyed**; (4) the MCU is marked STM32G0B1, not RP2040. Photograph both faces now — no published guide has these photos.
+**Do:** Handle the board by its edges on an antistatic bag. Check four physical markers against the V2 board doc: (1) the **PROBE**, **TH0**, **CT** and **Endstop** connectors are JST-**PH 2.0 mm** pitch, visibly finer than the JST-XH 2.5 mm **E Motor** connector on the **back** of the board — turn it over to compare; the pitch difference is the tell; (2) a **secondary USB port** (JST-ZH 1.5 mm, 5-pin, labelled as the USB expansion port) is present; (3) the board-to-board header that mates with the fan adapter is **keyed**; (4) the MCU is marked STM32G0B1, not RP2040.
 
 **Check:** All four markers present → Rev D+, Nitehawk-SB V2. Any one absent → you have a V1 board and a different config, wiring and connector set: stop and ask Fabreeko before you go further. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2)
 
@@ -178,7 +186,7 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 
 **Parts:** the *LDO Printed Parts* bag — Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, CW2 Chain Anchor Tilted ×1, 2×3 Splitter Spacer ×2, LDO Nozzle Probe ×1, Bed WAGO Mount ×1, Stealthburner LED Diffuser ×1 (clear PETG), CW2 PCB Spacer ×1.
 
-**Do:** Count them, photograph them together, and put them in their own labelled bin. These are the parts you must **not** print — the print plan already excludes them. The clear PETG LED diffuser in particular cannot be reproduced; you have no clear filament.
+**Do:** Count them and put them in their own labelled bin. These are the parts you must **not** print — the print plan already excludes them. The clear PETG LED diffuser in particular cannot be reproduced; you have no clear filament.
 
 **Check:** Ten part types accounted for, in one bin, labelled "LDO SUPPLIED — DO NOT PRINT".
 
@@ -196,7 +204,7 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 ![LDO brass M3 heat-set tip — dimensioned drawing](assets/remote/00-before-you-start/heatset_dim.png)
 
-**What you're looking at:** The kit's own tools. Five hex wrenches covering every fastener drive in the machine; a 2.5 mm slot driver; a 2 mm drill bit; a brass brush; and the brass **heat-set insert tip** — a threaded tip that screws into a soldering iron in place of its normal tip, with a thin tongue that carries heat into a brass insert so it melts its way into a printed boss ([glossary](16-glossary.md#h)). The drawing gives the tip's dimensions: the tongue is 2.4 mm across and 5.0 mm long, which is exactly one insert tall.
+**What you're looking at:** The kit's own tools. Five hex wrenches covering every fastener drive in the machine; a 2.5 mm slot driver; a 2 mm drill bit; a brass brush; and the brass **heat-set insert tip** — a threaded tip that screws into a soldering iron in place of its normal tip, with a thin tongue that carries heat into a brass insert so it melts its way into a printed boss ([glossary](16-glossary.md#h)). The drawing gives the tip's dimensions: the tongue is 2.4 mm across and 5.0 mm long.
 
 **Parts:** from *Fasteners, Tools & Misc* — hex wrenches 1.5 / 2 / 2.5 / 3 / 4 mm, 2.5 mm slot-head screwdriver, brass heat-set insert tool (M3), 2 mm drill bit, brass brush, aluminium handles ×2.
 
@@ -249,7 +257,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Parts:** none.
 
-**Do:** Order now, before the kit lands: **Super Lube 21030** synthetic grease (3 oz / 85 g tube — far more than seven carriages need; LDO publishes no quantity), IPA ≥ 90% in a volume you can pour into a soak tray, **Loctite 243** blue threadlocker (Ch 02/04/05), nitrile gloves, lint-free cloth, masking tape, permanent marker. Add a 50-pack of spare **M3×5×4 brass heat-set inserts** if you want slack against the 153 supplied.
+**Do:** Order now, before the kit lands: **Super Lube 21030** synthetic grease (3 oz / 85 g tube — far more than seven carriages need; LDO publishes no quantity), IPA ≥ 90% in a volume that fills a rail's own shipping bag seven times over (the bag is the soak tray, Step 00.18), **Loctite 243** blue threadlocker (Ch 02/04/05), nitrile gloves, lint-free cloth, masking tape, permanent marker. Add a 50-pack of spare **M3×5×4 brass heat-set inserts** if you want slack against the 153 supplied.
 
 **Check:** Grease and IPA are on the bench before you touch a rail. Rail prep is the one job in this chapter that cannot start without them.
 
@@ -269,9 +277,9 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:** straightedge ≥ 600 mm, feeler gauge set, marker or tape.
 
-**Do:** Clear and clean the stone counter. You need a clear patch of at least **600 × 600 mm** — the 350's frame uses 470 mm and 530 mm extrusions. Stand the straightedge on edge across the patch in five positions: left-to-right, front-to-back, both diagonals, and through the centre. At each position try to slide feeler leaves under the straightedge, starting from the thinnest, and record the largest leaf that goes under anywhere. Mask off the flattest sub-area with tape and use only that for Ch 01 — no published tolerance exists for this surface, and the real acceptance test comes in Ch 01, where the assembled frame must sit on all four points with no rock and both diagonals must match.
+**Do:** Clear and clean the stone counter. You need a clear patch of at least **600 × 600 mm** — the 350's frame uses 470 mm and 530 mm extrusions. Stand the straightedge on edge across the patch in five positions: left-to-right, front-to-back, both diagonals, and through the centre. At each position try to slide feeler leaves under the straightedge, starting from the thinnest, and record the largest leaf that goes under anywhere. Mask off the flattest sub-area with tape and use only that for Ch 01. Acceptance: a worst leaf of **≤ 0.1 mm** across the patch is finer than the extrusions themselves — proceed. A leaf of **≥ 0.3 mm**, or any rock of the straightedge, means choose another patch or another surface. **Twist** (one corner high) matters; a symmetric dish does not, because the frame's four corners stay coplanar on it. The real acceptance test comes in Ch 01, where the assembled frame must sit on all four points with no rock and both diagonals must match.
 
-**Check:** The straightedge does not rock in any of the five positions, and the worst gap is written down.
+**Check:** The straightedge does not rock in any of the five positions; the worst leaf is ≤ 0.1 mm and is written in the log — Step 01.1 re-checks against that number.
 
 Tip: between sessions, lay a clean towel or a sheet of foam over the masked area — grit trapped under an extrusion is the one thing that will make a flat surface lie to you.
 
@@ -333,8 +341,9 @@ Pause: ~30 min since the last pause — the tool and consumable decisions are ma
 
 ![LDO brass heat-set tip — the tool's components](assets/remote/00-before-you-start/heatsettoolcomponents.jpg)
 ![Tongue set flush with the far face of an insert](assets/remote/00-before-you-start/tongueflush.jpg)
+![LDO — fitting the brass tip: sleeve off, stock tip out, LDO tip in, sleeve on](assets/remote/00-before-you-start/insertinstall.jpg)
 
-**What you're looking at:** The LDO brass tip with its two knurled adjustment nuts, and the same tip set against an insert. The **tongue** is the thin protruding pin that goes inside the insert; the knurled nuts slide the tip in its holder to change how much tongue sticks out. Set correctly, the tongue heats the whole insert and stops flush with its far face instead of poking through into the plastic.
+**What you're looking at:** The LDO brass tip with its two knurled adjustment nuts, and the same tip set against an insert. The four-panel photo is the tip going into the iron: sleeve off, stock tip out, LDO tip in, sleeve on. The **tongue** is the thin protruding pin that goes inside the insert; the knurled nuts slide the tip in its holder to change how much tongue sticks out. Set correctly, the tongue heats the whole insert and stops flush with its far face instead of poking through into the plastic.
 
 **Parts:** LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 insert as the gauge.
 
@@ -351,13 +360,12 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 ### Step 00.14 — Find the iron temperature on the practice coupon
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png)
-![LDO — driving an insert into a printed boss](assets/remote/00-before-you-start/insertinstall.jpg)
 
-**What you're looking at:** Manual p.31 shows the general insert operation; the LDO photo shows the tongue driving an insert into a boss. The `Heatset_Practice` coupon is a printed block of seven insert pockets whose only job is to let you find the iron temperature before you spend an insert on a structural part.
+**What you're looking at:** Manual p.31 shows the general insert operation — the blue pills are inserts going into the bosses of real Z-drive parts. The `Heatset_Practice` coupon is a printed block of seven insert pockets whose only job is to let you find the iron temperature before you spend an insert on a structural part.
 
 **Parts:** `Heatset_Practice` coupon ×1 (batch B00), M3×5×4 inserts ×3.
 
-**Do:** LDO publishes no temperature. Set the iron so the plastic goes *very soft but not runny*: too low and you have to force the insert down, too high and the boss slumps. Start low and step up. Sit the narrow end of the insert in the hole by hand — every Voron boss is drawn for this — then bring the tongue down and push straight until the insert is flush. Do all three on the coupon, and let your daughter do them; this is the part of the build where practice is free.
+**Do:** LDO publishes no temperature. Set the iron so the plastic goes *very soft but not runny*: too low and you have to force the insert down, too high and the boss slumps. Start at the bottom of the iron's range and step up 10 °C at a time — never start where the iron was left after soldering; the manual's linked guide ([voron.link/m5ybt4d](https://voron.link/m5ybt4d), p.31) shows the technique. Sit the narrow end of the insert in the hole by hand — every Voron boss is drawn for this — then bring the tongue down and push straight until the insert is flush. Do all three on the coupon, and let your daughter do them; this is the part of the build where practice is free.
 
 **Check:** Iron does not linger in any hole longer than it takes to seat the insert. You have a working temperature written on tape stuck to the iron's base.
 
@@ -375,7 +383,7 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** the practice coupon from Step 00.14.
 
-**Do:** Judge each of your three against the gate from the print plan: the insert sits **flush to at most 0.2 mm proud**, and the boss around it has not bulged by more than **0.2 mm** — measure the boss outside diameter with the caliper before and after if you are unsure. Check squareness by eye from two directions; a tilted insert will not accept its screw straight. If one is tilted, the iron can nudge it — briefly. Use the trick LDO recommends: push the insert 90% of the way in with the iron, then finish the last 10% by pressing with a flat cold tool, which leaves the top face flat and square.
+**Do:** Judge each of your three against the gate from the print plan: the insert sits **flush to at most 0.2 mm proud**, and the boss around it has not bulged by more than **0.2 mm** — on the coupon, look for a raised ring around the hole (a "volcano"): that is the bulge. On real parts with a free-standing boss, caliper the boss OD before and after. Check squareness by eye from two directions; a tilted insert will not accept its screw straight. If one is tilted, the iron can nudge it — briefly. Use the trick LDO recommends: push the insert 90% of the way in with the iron, then finish the last 10% by pressing with a flat cold tool, which leaves the top face flat and square.
 
 **Check:** Three inserts, flush, square, no bulged boss. A bulged boss is a technique fault (too hot, or pushed too fast), never a slicer fault. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · print plan §1.4
 
@@ -423,9 +431,9 @@ Pause: ~30 min since the last pause — the iron is set up with the brass tip, t
 
 **Parts:** 1× `LDO-SLR12H-400Z1` stainless MGN12H (X axis), 6× `LDO-SLR9H-400Z0` stainless MGN9H (2× Y, 4× Z).
 
-**Do:** Open one rail at a time. Before anything else, tape each carriage to its rail with a strip of masking tape, or refit the plastic end stoppers if your rails shipped with them. The carriage is designed to slide freely, which includes sliding off the end and spilling its ball bearings. Never let a rail hang vertically with an untaped carriage, and never let one fall — a dent or nick anywhere on the raceway makes that rail misbehave for the life of the machine.
+**Do:** Work one rail at a time, over the bench — never over the floor. Slide the rail far enough out of its bag to reach the carriage and, before anything else, tape the carriage to the rail with a strip of masking tape. Then fit the two **end stops** that stay on for the whole of rail prep: a band of masking tape wrapped tightly round the rail about **15 mm from each end** (a small zip tie cinched round the rail does the same job and shrugs off the IPA), or the plastic end stoppers if your rails shipped with them. Once both stops are on, the carriage tape can come off — the stops now do its job: the carriage works between them for Steps 00.18–00.20 and can never reach the last hole. Slide the rail back into its bag and repeat for all seven. The carriage is designed to slide freely, which includes sliding off the end and spilling its ball bearings. Never let a rail hang vertically with an untaped, unstopped carriage, and never let one fall — a dent or nick anywhere on the raceway makes that rail misbehave for the life of the machine.
 
-**Check:** Seven rails on the bench, seven carriages taped, none dropped. Rails laid flat, not stacked on each other.
+**Check:** Seven rails, each back in its own bag with two end stops on and none dropped. Bags laid flat, not stacked on each other.
 
 Source: [Voron manual p.26](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=26) · [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24) · [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [Video: Part 1 @1:54:03](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6843s)
 
@@ -435,19 +443,19 @@ Source: [Voron manual p.26](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![LDO — rails soaking in IPA](assets/remote/00-before-you-start/soaking_rails3.jpg)
 
-**What you're looking at:** A rail standing in a tray of IPA. The rails ship coated in a shipping oil that stops corrosion in transit but is not a lubricant; the soak dissolves it out of the ball tracks so the grease you pack in next is not diluted by it.
+**What you're looking at:** A rail in its own shipping bag with one corner cut off and IPA poured in — LDO's method: the bag is the soak tray, so the rail stays contained and nothing else is needed. The rails ship coated in a shipping oil that stops corrosion in transit but is not a lubricant; the soak dissolves it out of the ball tracks so the grease you pack in next is not diluted by it.
 
-**Parts:** all 7 rails; IPA ≥ 90%; tray.
+**Parts:** one rail at a time, in its own bag with the end stops on; IPA ≥ 90%; nitrile gloves; a clean towel.
 
-**Do:** These ship with a shipping oil, not a lubricant, and it must come out before you pack grease in. Soak each rail in **IPA ≥ 90% for about 10 minutes**, working the carriage back and forth along the rail during the soak to flush debris out of the ball tracks. Then let every rail dry **completely** — the IPA must fully evaporate before grease goes in, or you will emulsify the two.
+**Do:** Gloves on, window open. These ship with a shipping oil, not a lubricant, and it must come out before you pack grease in. Cut one corner off the rail's own bag, pour in enough **IPA ≥ 90%** to cover the rail, fold the corner over and hold it closed. Work the carriage back and forth **between the end stops** for about **10 minutes** to flush the oil and debris out of the ball tracks. Drain the bag, lay the rail on the towel and give it **at least an hour** — overnight is better — before Step 00.19: the IPA must fully evaporate before grease goes in, or you will emulsify the two. Repeat for each rail.
 
-**Check:** No oil film left on the raceway; the carriage runs dry and slightly notchy (that is correct at this stage — it has no grease yet); no visible wet IPA anywhere. [src](https://docs.ldomotors.com/guides/rail_grease_guide)
+**Check:** No oil film left on the raceway; the carriage runs dry and slightly notchy (that is correct at this stage — it has no grease yet); no visible wet IPA anywhere; both end-stop bands still tight — IPA softens masking-tape adhesive, so re-wrap any band that has slipped before the grease goes in. [src](https://docs.ldomotors.com/guides/rail_grease_guide)
 
 Tip: the linked Nero 3D video is the reference demonstration of this whole procedure — manual p.24 QR, [voron.link/agu0nes](https://voron.link/agu0nes).
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=24) · [Nero 3D rail prep video](https://voron.link/agu0nes) · [Video: Part 1 @2:20:52](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8452s)
 
-Pause: ~30 min since the last pause — all seven rails are soaked, carriages taped, and laid out flat to dry. This is a genuine wait state: the IPA must evaporate completely before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.
+Pause: ~30 min since the last pause — all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.
 
 ---
 
@@ -460,9 +468,9 @@ Pause: ~30 min since the last pause — all seven rails are soaked, carriages ta
 
 **Parts:** dried rail; Super Lube 21030 in a syringe or its own nozzle.
 
-**Do:** This is LDO's flip-and-pack method: it needs no disassembly of the rail, but it needs access to the back of the rail, so it can only be done **before installation**. Flip the rail over so the carriage faces **downwards**. Slide the carriage until it sits over one of the rail's mounting holes, then force grease through that hole into the carriage. Keep going until grease **oozes out past the bearings at the sides of the carriage** — that is the signal the inside of the carriage is full.
+**Do:** This is LDO's flip-and-pack method: it needs no disassembly of the rail, but it needs access to the back of the rail, so it can only be done **before installation**. Flip the rail over so the carriage faces **downwards**. Slide the carriage until it sits over one of the rail's mounting holes, then force grease through that hole into the carriage. Keep going until grease **oozes out at both end caps of the carriage** (the black caps in the photo) — that is the signal the inside of the carriage is full.
 
-**Check:** Grease visible at both ends of the carriage. The carriage now runs smooth and silent along the rail with no notchiness.
+**Check:** Grease visible at both end caps of the carriage. The carriage now runs smooth and silent along the rail with no notchiness.
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)
 
@@ -474,11 +482,11 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **What you're looking at:** The greased rail and a cloth. Grease belongs inside the carriage; the polished outer faces of the rail are a running surface, and any film left there collects dust and hair and feeds it into the bearings.
 
-**Parts:** greased rail; lint-free cloth.
+**Parts:** greased rail; lint-free cloth; `MGN12_rail_guide_x2` and `MGN9_rail_guide_x2` (batch B00) and one C extrusion from the frame box, for the guide test.
 
-**Do:** Stroke the carriage the full length of the rail several times to distribute grease inside it, then wipe every trace of grease off the **outside** of the rail. The rule is: grease belongs inside the carriage and nowhere else. Grease left on the raceway collects dust and hair and carries it straight into the bearings.
+**Do:** Stroke the carriage stop to stop several times to distribute grease inside it, then wipe every trace of grease off the **outside** of the rail. The rule is: grease belongs inside the carriage and nowhere else. Grease left on the raceway collects dust and hair and carries it straight into the bearings. While the X rail (MGN12H) and the first MGN9H are out and clean, do the B00 rail-guide confirmation: clip the matching guide over the rail sitting on the spare C extrusion — the guide straddles rail and extrusion (manual p.25) and must locate on both with **light finger pressure**. Very tight means over-extrusion, loose means under-extrusion; either sends you back to the slicer and a reprint of the B01 retainers/housings before Ch 02 (Step 00.22).
 
-**Check:** The rail surface is visibly clean and dry; the carriage still slides smoothly and silently.
+**Check:** The rail surface is visibly clean and dry; the carriage still slides smoothly and silently. Both guide sizes locate on their real rails, on the extrusion, with light finger pressure — write the result in the log.
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [Video: Part 1 @1:58:46](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7126s)
 
@@ -492,9 +500,9 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:** 7 greased rails; masking tape; marker; a bin.
 
-**Do:** Label each rail on its tape: **X** for the single MGN12H, **Y1/Y2** for two MGN9H, **Z0/Z1/Z2/Z3** for the remaining four MGN9H. Re-check the carriage tape, then bag each rail individually and put them all in one bin. They do not come out again until Ch 02 (the four Z rails) and Ch 05 (X and Y).
+**Do:** Label each rail on its tape: **X** for the single MGN12H, **Y1/Y2** for two MGN9H, **Z0/Z1/Z2/Z3** for the remaining four MGN9H (the six MGN9H are identical — the labels only stop you re-counting). Leave both end stops on: they come off only when the rail is bolted down, in Ch 02 (Z0–Z3) or Ch 05 (X, Y1, Y2). Add one strip of tape across the carriage so it cannot creep in the bag, then bag each rail individually and put them all in one bin. They do not come out again until Ch 02 (the four Z rails) and Ch 05 (X and Y).
 
-**Check:** Seven labelled, bagged rails; carriage tape intact on all seven; bin stored flat and away from foot traffic.
+**Check:** Seven labelled, bagged rails; end stops and carriage tape intact on all seven; bin stored flat and away from foot traffic.
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @1:54:30](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s)
 
@@ -508,9 +516,9 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:** `MGN9_rail_guide_x2` ×2, `MGN12_rail_guide_x2` ×2, `pulley_jig` ×1 (all batch B00).
 
-**Do:** The rail guides are the green clips drawn on manual p.25. They clip over the extrusion and the rail and hold the rail centred on the 2020 while you start the screws — without them, a 400 mm rail wanders and you find out after it is bolted down. Slide a guide onto the real MGN12 rail now as your dimensional check: it should go on with **light finger pressure**. Very tight means over-extrusion; loose means under-extrusion, and either sends you back to the slicer before batch B01. The `pulley_jig` sets pulley stack height on the Z motors in Ch 02; keep it with the Z-drive bin.
+**Do:** The rail guides are the green clips drawn on manual p.25. They clip over the extrusion and the rail and hold the rail centred on the 2020 while you start the screws — without them, a 400 mm rail wanders and you find out after it is bolted down. You test-fitted both sizes on the real rails at Step 00.20; the rails stay bagged now. The `pulley_jig` sets pulley stack height on the Z motors in Ch 02; keep it with the Z-drive bin.
 
-**Check:** Both guide sizes fit their real rails with light finger pressure. This is one of the seven B00 gate items in `print/B00-calibration-and-jigs.md`; none of the other batches start until all seven pass.
+**Check:** Both guide sizes fitted their real rails with light finger pressure at Step 00.20. That is one of the two **kit-day confirmations** among the seven B00 gate items in `print/B00-calibration-and-jigs.md` (the other is the 625-2RS bearing in the `z_drive_retainer_a` bore, Ch 02); the five that need no kit part gated B01 weeks ago. If either kit-day item fails, reprint the B01 retainers/housings before Ch 02 — nothing else is affected.
 
 ⚠ **Rev D+ / LDO:** two rail-mounting rules that override the manual's default and matter from Ch 02 onward — (1) do **not** use the end hole of any rail; use the **second hole in from each end** (LDO Build Notes p.88); (2) tighten the rail screws from the **centre outward** so the rail pulls flush to the extrusion (manual p.24), leaving a ~3 mm gap between the frame and the bottom of the rail (manual p.25). [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -643,7 +651,7 @@ Pause: ~25 min since the last pause — you have read the manual's front matter 
 
 ---
 
-## Build log and lifelines
+## Measurement log and lifelines
 
 ### Step 00.30 — Start the measurement log
 
@@ -690,26 +698,26 @@ Source: [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-
 1. **In `#ldo_motors` — the Nitehawk-SB V2 grounding scheme.** The V2 repo ships `Images/grounding_scheme.jpg`, `Images/toolboard_ground_routing.jpg` and `Images/usb_adapter_gnd.jpg` with **no accompanying prose in any LDO document**, while the V2 change list claims "vastly improved ESD performance". Ask for the written procedure: what bonds to what, with what wire, and at which mounting point on `usb_adapter_mount_partial_cover`. Treat the grounding as a required build step in Ch 08/Ch 10, not an option. Gate: **Ch 10**.
 2. **On the Fabreeko Discord — Rev D+ printed parts.** LDO publishes Printed Parts Guides for Rev A/B, C and D only; `printed_part_guide_rev_d_plus` returns 404. The whole print plan runs on Fabreeko's statement that D+ is an electrical change. Ask them to confirm that **no STL changed between Rev D and Rev D+ apart from the USB-adapter cover**, and ask whether a D+ wiring guide has been posted. Gate: **batches B06 and B07**, which print the toolhead and electronics-bay parts.
 
-**Check:** Both questions posted, with your kit serial quoted. Note the date you asked in the build log; if either is unanswered by the time batch B06 is due, ask again rather than printing on an assumption.
+**Check:** Both questions posted, quoting the Fabreeko order number (**F6424626**) — neither needs the kit serial, so they go out at order time. Note the date you asked in the log; if either is unanswered by the time batch B06 is due, ask again rather than printing on an assumption.
 
 Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [survey](../voron-build-instructions-survey.md)
 
-Pause: ~20 min since the last pause — build log started, all three Discord channels joined and both gating questions posted with your kit serial. Work through Checkpoint 00 before you open Ch 01.
+Pause: ~20 min since the last pause — measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.
 
 ---
 
 ## Checkpoint 00
 
 - [ ] Both cartons inventoried against **your batch's** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
-- [ ] Deck panel thickness measured and written on its film. `deck_support_3mm_x8` or `_4mm_x8` chosen for batch B01.
-- [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. Both faces photographed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
+- [ ] Deck panel thickness measured and written down; if it reads 4 mm, `deck_support_4mm_x8` queued as a 30-min reprint before Ch 02.
+- [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to `usb_adapter_mount_partial_cover.stl`.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
-- [ ] Flat reference verified in five positions; worst feeler gap recorded; working area masked off and protected.
+- [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Three practice inserts set: flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
-- [ ] All 7 rails: carriages taped, soaked 10 min in IPA ≥ 90%, dried, flip-and-packed until grease oozed past the bearings, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, bagged.
-- [ ] Both rail guides fit their real rails with light finger pressure; the full seven-item B00 gate has passed.
+- [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
+- [ ] Both rail guides fit their real rails with light finger pressure (Step 00.20) — the B00 gate's first kit-day confirmation; the second (bearing in the retainer bore) is due in Ch 02.
 - [ ] Chapter bins labelled 00–14 and the batch-to-bin map posted on the wall.
 - [ ] Measurement log started: deck panel thickness and the inventory result written down (Step 00.30).
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
@@ -719,7 +727,7 @@ Pause: ~20 min since the last pause — build log started, all three Discord cha
 - **Installing a rail before greasing it.** Flip-and-pack needs the back of the rail. Once it is on an extrusion your only options are to take it off again or run it dry and wear it out (survey §5.2 W9).
 - **Leaving grease on the rail surface.** It looks well-lubricated and it is not — the film collects dust and hair and drags it into the carriage. Grease belongs inside the carriage only.
 - **Lubricating before the IPA has fully evaporated.** The residue emulsifies with the grease and you get a milky paste with none of the film strength. Give the rails longer to dry than you think they need.
-- **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, every time.
+- **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is bolted down.
 - **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 150 remaining inserts.
 - **Decanting the fastener bags on day one.** M3×8, M3×12 and M3×16 are indistinguishable in a mixed tray, and there are 283 of the first one.
 - **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it, and it has to be settled before batch B01 prints its deck supports.

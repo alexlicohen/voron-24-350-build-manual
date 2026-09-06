@@ -1,11 +1,16 @@
 # Batch B00 — Calibration & jigs
 
-One plate: the dimensional gate for the whole build, plus two rail-alignment jigs. Nothing else prints
-until this plate passes.
+One plate: the dimensional gate for the whole build, plus the rail-alignment jigs and the pulley jig. The
+gate is in two parts — **Gate A** (the cube, no kit needed) releases B02 and B07 the day this plate comes
+off, and the cosmetics B08–B10 once the Gen 2 belt upgrade is done; **Gate B** (bearing bore, rail fit,
+real inserts) runs the morning the kit lands and releases B01 and B03–B06.
 
 **Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
-**Prerequisites:** none — this is the first batch. Slicer set up per [00-slicer-setup.md](00-slicer-setup.md).
+**Sessions:** 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~15 min for Gate B on kit day.
+
+**Prerequisites:** none — this is the first batch. Slicer set up per [00-slicer-setup.md](00-slicer-setup.md)
+(Step B00.0 below walks the one-time wizard).
 
 **Printed parts**
 
@@ -19,19 +24,40 @@ until this plate passes.
 | `pulley_jig.stl` | Voron-2 `STLs/Tools/` | 1 | Black | 2.8 |
 | `z_drive_retainer_a_x2.stl` | Voron-2 `STLs/Z_Drive/` | 1 *(of the 2 needed — this is the bearing-fit coupon and a real part)* | Black | 19.5 |
 
-**Hardware:** none.
+**Hardware:** none printed here. Gate B (Step B00.7) needs three M3×5×4 [heat-set inserts](../16-glossary.md#h),
+one [625-2RS](../16-glossary.md#f) bearing and the MGN12 rail — all from the Voron kit, unless you order
+2× 625-2RS and 10× inserts with the filament so Gate B can run early.
 
 **Read first**
 
-- The seven-item gate in [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) — nothing proceeds until all seven pass.
+- The two-part gate in [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade).
+  **Gate A** (cube X/Y, Z, first-layer-vs-mid delta, corner snap) is Step B00.5 and releases B02, B07 and —
+  after the Gen 2 upgrade — B08–B10. **Gate B** (`Heatset_Practice` with real inserts, `MGN12_rail_guide` on
+  the real rail, `z_drive_retainer_a`'s 625-2RS bore) is Step B00.7, on kit day, and releases B01 and B03–B06.
 - Most commonly reprinted here: the cube, until the profile is right.
-- `z_drive_retainer_a` on this plate is deliberate — it's your bearing-press-fit coupon **and** one of the two you need for B01, so nothing is wasted.
+- `z_drive_retainer_a` on this plate is deliberate — it's your bearing-press-fit coupon **and** one of the two
+  you need for B01, so nothing is wasted.
+- First layer: the Core One+ has no first-layer wizard. The loadcell sets Z before every print; you judge the
+  result (Step B00.4) and nudge with Live Adjust Z only if you must.
+
+## Step B00.0 — One-time PrusaSlicer setup
+
+**Do:** In PrusaSlicer 2.9.6: **Configuration → Configuration Wizard → Prusa FFF → Prusa CORE One & CORE
+One+** → tick the **0.4 HF** nozzle (even if plain 0.4 is already ticked) → Filaments: **Prusament ASA** →
+Finish. Then **File → Open Project → `slicer/plates/B00-P1.3mf`**; if a dialog offers to install a printer
+profile, accept.
+**Check:** The three preset boxes on the Plater read `Prusa CORE One HF0.4 nozzle`,
+`0.20mm STRUCTURAL @COREONE 0.4 (modified)` and `Prusament ASA @COREONE HF0.4 - Voron black`. The
+"(modified)" and the " - Voron black" suffix are correct — they are the project's overrides on top of the
+system presets. Anything else means the project's configuration did not load; reopen it before slicing.
+
+Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [PrusaSlicer releases](https://github.com/prusa3d/PrusaSlicer/releases)
 
 ## Step B00.1 — Filament prep
 
-**Do:** Mount a fresh or recently-dried (≤2 weeks open) spool of Prusament ASA Galaxy Black. Load it in the
-Core One+, confirm the `Prusament ASA @COREONE HF0.4` filament profile is selected (HF — the machine has the
-high-flow nozzle).
+**Do:** Mount a fresh or recently-dried (≤2 weeks open) spool of Prusament ASA Galaxy Black. On the printer:
+**Load Filament → ASA** (the printer asks for a material type only — slicer preset names do not exist on
+it; the HF profile is chosen in the slicer, not here).
 **Check:** Purge is clean black, no PLA/PETG streaking from a prior print.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -41,11 +67,11 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 ![Plate B00-P1](../assets/plates/B00-P1.png)
 
 **Do:** Open `slicer/plates/B00-P1.3mf` (**File → Open Project**). The arrangement, the per-object brims and every override are already in the project — what follows is what it contains, so you can confirm it loaded right rather than rebuild it. It carries printer `Prusa CORE One HF0.4 nozzle`, print
-`0.20mm STRUCTURAL @COREONE 0.4` with the overrides from [00-slicer-setup.md](00-slicer-setup.md), and filament
-`Prusament ASA @COREONE HF0.4` with shrinkage compensation XY/Z zeroed. Confirm all six parts are on the bed: `Voron_Design_Cube_v7`, `Heatset_Practice`,
-`MGN12_rail_guide_x2` ×2, `MGN9_rail_guide_x2` ×2, `pulley_jig`, `z_drive_retainer_a_x2` ×1. Do not change which face any part sits on — all ship pre-oriented (rotating about Z to fit the plate is
+`0.20mm STRUCTURAL @COREONE 0.4 (modified)` — the overrides from [00-slicer-setup.md](00-slicer-setup.md) — and filament
+`Prusament ASA @COREONE HF0.4 - Voron black` with shrinkage compensation XY/Z zeroed. Confirm **6 files, 8 objects** on the bed: `Voron_Design_Cube_v7`, `Heatset_Practice`,
+`MGN12_rail_guide_x2` ×2, `MGN9_rail_guide_x2` ×2, `pulley_jig`, `z_drive_retainer_a_x2` ×1. No [brim](../16-glossary.md#b) on this plate. Do not change which face any part sits on — all ship pre-oriented (rotating about Z to fit the plate is
 fine).
-**Parts:** all six items above — 4.0 h, 52 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** all six files above — 4.0 h, 52 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The slicer reads **3 h 58 m / 51.7 g**. It is the same file these numbers came from, so anything
 else means the project did not load its own configuration — stop and check before printing.
 
@@ -53,63 +79,102 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B00.3 — Pre-print checks
 
-**Do:** Confirm chamber has reached 40 °C minimum before the print starts (this is the slicer's built-in
-gate on the ASA filament profile — don't override it). Confirm the smooth/satin sheet is installed, clean
-with IPA.
+**Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) — the decided sheet, a
+thin glue-stick film over the printed area, cleaned since the last print. Confirm the chamber reaches
+40 °C minimum before the print starts (this is the slicer's built-in gate on the ASA filament profile —
+don't override it).
 **Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges.
 
-Source: [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+⚠ ASA off-gasses styrene. Advanced Filtration Kit fitted, door shut for the whole print, room ventilated
+between plates. The bed (110 °C) and nozzle (265 °C) stay hot for ~20 min after the print ends — a helper
+handles cooled parts, not the printer.
+
+Tip: on the smooth or powder-coated PEI sheet Prusa prints ASA over a glue-stick layer so the part cannot pull the coating off; never acetone on the powder-coated sheet. [help.prusa3d.com/article/asa_1809](https://help.prusa3d.com/article/asa_1809)
+
+Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B00.4 — Print
 
-**Do:** Start the plate. Watch the first layer for at least the first 2–3 minutes — this is the abort
-window the 1-loop skirt buys you.
-**Check:** First layer is smooth, no gaps between beads, no ridging (Ellis' smooth-bottom method).
+**Do:** Start the plate. There is nothing to calibrate first: the Nextruder loadcell sets the first-layer Z
+automatically as part of mesh bed levelling. Watch the first layer for at least the first 2–3 minutes —
+this is the abort window the 1-loop [skirt](../16-glossary.md#s) buys you. If the beads are gappy or
+ridged, long-press the knob → **Live Adjust Z** and nudge; a nudge is not remembered for the next print,
+so if you needed one, find the cause (sheet seated? glue film even? nozzle fully seated?) before B02.
+**Check:** First layer is smooth, no gaps between beads, no ridging (Ellis' smooth-bottom method), with no
+Live Adjust Z nudge — or the cause of the nudge found and written in the log.
 
-Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) · [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
-## Step B00.5 — Inspect
+## Step B00.5 — Inspect: Gate A (the cube, no kit needed)
 
-**Do:** Once cool, remove the plate and run the full seven-item gate from
-[00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade):
+**Do:** Once cool, remove the plate and run **Gate A** from
+[00-slicer-setup.md](00-slicer-setup.md#gate-a-no-kit-needed-the-cube), calipers at mid-height:
 cube X/Y (30.00 mm ±0.15 mm), cube Z (30.00 mm ±0.10 mm), first-layer-vs-mid-height X delta (≤0.15 mm),
-cube corner snap (no delamination), `Heatset_Practice` insert flush ±0.2 mm proud with no boss bulge >0.2 mm,
-`MGN12_rail_guide` slides onto the real MGN12 rail with light finger pressure, `z_drive_retainer_a`'s
-625-2RS bore (16 mm OD) takes the bearing with thumb pressure and no rocking.
-**Check:** All seven pass. Any failure → adjust per the "if out of spec" column in
-[00-slicer-setup.md](00-slicer-setup.md), reprint this plate, do not proceed to B01.
+cube corner snap (no delamination). Write the four numbers in the log.
+**Check:** All four pass. Any failure → adjust per the "if out of spec" column in
+[00-slicer-setup.md](00-slicer-setup.md#gate-a-no-kit-needed-the-cube) — [extrusion multiplier](../16-glossary.md#e),
+never negative XY compensation — reprint this plate, and do not start B02 or B07 until it passes.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
+Pause: ~15 min since the last pause — Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate A](00-slicer-setup.md#gate-a-no-kit-needed-the-cube) · [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
 ## Step B00.6 — Label and bin
 
-**Do:** Bin the two rail guides and the pulley jig together, labelled "Z-drive tooling — Frame". Set the
-`z_drive_retainer_a` aside with the B01 parts (it's the coupon *and* the first of the two needed). The cube
-and `Heatset_Practice` are consumables — keep the cube as the reference coupon for later re-checks (e.g.
-after the Gen 2 upgrade).
-**Check:** Nothing from this plate is wasted — even the test coupons are either reused (rail guides,
-retainer) or kept as reference (cube).
+**Do:** Three bags. **"RAIL GUIDES — Ch 00 / 02 / 05"**: both `MGN9_rail_guide` and one `MGN12_rail_guide`
+(test-fitted at Ch 00 Step 00.22, used on the Z rails in Ch 02 and the Y/X rails in Ch 05).
+**"PULLEY JIG — Ch 02 / 04"**: `pulley_jig`. **"GATE B — open on kit day"**: `Heatset_Practice`, the
+other `MGN12_rail_guide`, and `z_drive_retainer_a` — the three Gate B coupons; the retainer joins B01's `a`
+bag after Gate B, and this coupon is also Ch 00's heat-set practice part. Keep the cube on the shelf as the
+reference coupon for later re-checks (after the Gen 2 upgrade, and Ch 14 Step 14.11).
+**Check:** Nothing from this plate is wasted — the jigs are reused, the retainer is a real part, the cube is
+the reference.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps)
+
+## Step B00.7 — Gate B, on kit day (bore, rail, inserts)
+
+**Do:** The morning the kit lands, before the inventory: open the GATE B bag and run
+[Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts). Press a 625-2RS (16 mm OD) into
+`z_drive_retainer_a`'s bore — thumb pressure, no rocking. Slide `MGN12_rail_guide` onto the real MGN12 rail —
+light finger pressure. Set three M3×5×4 inserts into `Heatset_Practice` with the kit's brass tip (Ch 00
+Steps 00.13–00.16 teach the technique on this same coupon) — flush to 0.2 mm proud, no boss bulge >0.2 mm.
+**Check:** All three pass → start B01 now (Step B01.1); B03–B06 follow. A tight or loose bore → adjust
+extrusion multiplier per the table, re-print the cube (Gate A again) and re-print this retainer before B01.
+A bulging boss is technique, not the profile — practise, don't re-slice.
+
+Pause: ~15 min since the last pause — Gate B is measured and written down; B01 and B03–B06 are released. Put the retainer with the B01 `a` parts and the rail guide back in its bag before the inventory starts.
+
+Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 ---
 
 ## Checkpoint B00
+
+**Gate A — before B02 and B07**
+
+- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` / ` - Voron black` presets and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
 - [ ] First-layer-vs-mid-height X delta ≤0.15 mm
 - [ ] Cube corner snap test: no delamination
-- [ ] `Heatset_Practice`: 3/3 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
-- [ ] `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
+- [ ] First layer passed without a Live Adjust Z nudge, or the cause of the nudge is fixed
+- [ ] Shrinkage compensation XY and Z confirmed at 0 % in the filament preset
+- [ ] Three bags labelled: RAIL GUIDES, PULLEY JIG, GATE B
+
+**Gate B — kit day, before B01 and B03–B06**
+
 - [ ] `z_drive_retainer_a` 625-2RS bore: bearing presses in by thumb, no rocking
-- [ ] Shrinkage compensation XY and Z confirmed at 0 % in the filament profile
-- [ ] `z_drive_retainer_a` set aside for B01
+- [ ] `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
+- [ ] `Heatset_Practice`: 3/3 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
+- [ ] `z_drive_retainer_a` moved to the B01 `a` bag
 
 ## Common mistakes
 - Skipping the chamber-preheat gate — ASA's first layer on a cold bed looks fine and then lifts at hour 2.
 - Reaching for negative XY compensation to fix an oversized cube — wrecks bearing fits everywhere else; use extrusion multiplier instead.
+- Hunting the printer's menus for a first-layer calibration wizard — the Core One+ has none; the loadcell does it, and Live Adjust Z is a per-print nudge that is not saved.
 - Rushing the `Heatset_Practice` coupon — technique (iron temp/speed) matters more than any slicer setting here.
-- Printing B01 before all seven checks pass "because it's close enough."
+- Starting B01 on Gate A alone "because the cube is fine" — the bore fit is the gate that protects 22.8 h of Z-drive bodies, and it needs the real bearing.
 
 ## Next
-Assembly: begin *Frame* squaring (no printed parts required — can start day the kit lands). Printing: [B01 — Z drive assemblies](B01-z-drive-assemblies.md).
+Printing, kit not here: [B02 — Accent parts (orange)](B02-accent-parts-orange.md), then B07, then (after the Gen 2 upgrade) B08–B10. Printing, kit day: Gate B (Step B00.7), then [B01 — Z drive assemblies](B01-z-drive-assemblies.md). Assembly: Ch 00 needs this plate's `Heatset_Practice` and rail guides; Ch 01 Frame needs no printed part.

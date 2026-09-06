@@ -71,9 +71,9 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 **Do:** [Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) gives your daughter the measurement log — *"the diagonals in Ch 01 are hers to read out"*. That assignment has no carve-out for mains, so write one, in these words:
 
 - She does not strip, land, tighten or unplug any conductor that is or has been connected to the wall.
-- She is not in the room while the mains conductors are being worked on — **Ch 10 Section 1 ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe))** and **Ch 10 Section 2 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))**.
-- She is not beside the machine at the two power-ons: [Step 10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch). One adult, standing to the side, hand on the switch — nobody else within reach of the machine.
-- What she *does* own on those days: she photographs the finished bay once the cord is out of the room ([Step 10.72](10-wiring.md#step-1072-photograph-the-bay)), and she reads out the meter values while you hold the probes. Reading numbers out loud is a real job — it is how you catch a row you skipped.
+- She is not in the room while the mains conductors are being worked on, or while the machine is plugged in with the bay open — **Ch 10 Section 1 ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe))**, the whole of **Checkpoint #1 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))**, and the firmware gate at [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate). Those are adult-only.
+- She is not beside the machine at any power-on — [Step 10.23](10-wiring.md#step-1023-first-power-on-then-off-again), [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) and [Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch). One adult, standing to the side, hand on the switch — nobody else within reach of the machine.
+- What she *does* own on those days: the meter — but only with the printer **unplugged**. In the post-power sweeps at [10.74](10-wiring.md#step-1074-24-v-rails)–[10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time), once [10.73](10-wiring.md#step-1073-confirm-dead) has read 0 V and the cord is out of the room, she reads out the meter values while you hold the probes. Reading numbers out loud is a real job — it is how you catch a row you skipped.
 
 Post it where you both see it. Say it out loud once, before Ch 09.
 
@@ -81,7 +81,7 @@ Post it where you both see it. Say it out loud once, before Ch 09.
 
 ⚠ This rule is not about competence. It is about there being only one pair of hands near a live conductor, and about that pair belonging to the person who can also reach the breaker.
 
-Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) · [Ch 10 Sections 1–2](10-wiring.md#section-1-mains-inlet-switch-psu-ssr-bed-heater) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch)
+Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) · [Ch 10 Sections 1–2](10-wiring.md#section-1-mains-inlet-switch-psu-ssr-bed-heater) · [Ch 10 Section 8](10-wiring.md#section-8-pre-power-on-meter-sweep) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch)
 
 ---
 
@@ -124,9 +124,9 @@ Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/
 2. **Dead** — the measurement you actually care about.
 3. **Live** — back to the same outlet. Same reading as step 1.
 
-Then the bench self-tests you will use constantly: on continuity, short the two probes tip to tip — it must beep and read near 0 Ω. Clip one probe to the other's tip along each lead in turn to prove neither lead is broken internally. Confirm the battery symbol is not showing. If the meter has a fused current jack, check the fuse now rather than discovering it during a measurement.
+Then the bench self-tests you will use constantly: on continuity, short the two probes tip to tip — it must beep and read near 0 Ω; wiggle each lead at both ends while it beeps — a dropout is a broken lead. Confirm the battery symbol is not showing. If the meter has a fused current jack, check the fuse now rather than discovering it during a measurement.
 
-**Check:** Live–dead–live done once end to end. Probes shorted → beep, near 0 Ω. Both leads continuous. No low-battery symbol.
+**Check:** Live–dead–live done once end to end. Probes shorted → beep, near 0 Ω, no dropout when the leads are wiggled. No low-battery symbol.
 
 ⚠ [Step 10.17](10-wiring.md#step-1017-de-energise-and-set-up) opens Checkpoint #1 by shorting the probes for exactly this reason. That is the short version of this step; this is the long one, and it is the one to use before you conclude anything is dead.
 
@@ -175,7 +175,7 @@ Pause: ~30 min since the last pause — this is the chapter's first segment. Dec
 |---|---|---|
 | Supply | wall socket earth → C14 **E** pin, through the C13 cord. Never switched, never fused | [10.5](10-wiring.md#step-105-verify-the-pre-wired-inlet-before-you-trust-it) |
 | Bus | C14 **E** → the yellow **PE** WAGO (one of three 5-way blocks) | [10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus), [10.8](10-wiring.md#step-108-inlet-wago-bus) |
-| PSU | PE WAGO → the Meanwell's **⏚** terminal, the outermost of its three AC screws (⏚, N, L) | [10.9](10-wiring.md#step-109-wago-bus-psu) |
+| PSU | PE WAGO → the Meanwell's **⏚** terminal — the **innermost** of its three AC screws, next to −V. Order from the outer end is **L, N, ⏚** (LRS-200 datasheet: 1 AC/L, 2 AC/N, 3 FG) | [10.9](10-wiring.md#step-109-wago-bus-psu) |
 | Frame | PE WAGO → a frame extrusion, ring terminal sandwiched between two M5 locking washers on **bare** metal | [10.16](10-wiring.md#step-1016-frame-pe) |
 | Bed | build plate → PE WAGO, ring terminal on the plate's own **M4×6 BHCS + serrated washer** | [03.6](03-build-plate.md#step-036-verify-the-pe-screw-and-identify-the-three-cables), [10.12](10-wiring.md#step-1012-bed-harness-into-the-bed-wago-breakout), [10.15](10-wiring.md#step-1015-bed-neutral-and-bed-pe-the-wago-bus) |
 
@@ -187,7 +187,7 @@ The whole chain is proved in one sweep at [Step 10.77](10-wiring.md#step-1077-pr
 
 ⚠ **Rev D+ / LDO:** the bed's PE screw is **already fitted to the plate** and is an **M4×6 BHCS**, not the M3×6 the official manual asks you to supply. Verify it is tight at [Step 03.6](03-build-plate.md#step-036-verify-the-pe-screw-and-identify-the-three-cables); do not remove it and refit it. Its serrated washer is what bites through the surface to make the bond. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [image: LDO `VS9_Final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg) · [Ch 10 Step 10.77](10-wiring.md#step-1077-protective-earth-bonding)
+Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [RepRap — Safety](https://reprap.org/wiki/Safety) · [Mean Well LRS-200 spec sheet — terminal pin assignment](https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [image: LDO `VS9_Final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg) · [Ch 10 Step 10.77](10-wiring.md#step-1077-protective-earth-bonding)
 
 ---
 
@@ -219,11 +219,11 @@ Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omro
 
 ![LDO Rev D — ferrules in the PSU's screw terminals, WAGO 221 levers below](assets/remote/00a-mains-safety/S3_wago_PSU.jpg)
 
-**What you're looking at:** The two kinds of mains terminal, side by side in LDO's Rev D bay. Above: the Meanwell PSU's three **screw terminals** (⏚, N, L), each taking a stranded core that has been crimped into a red **ferrule** — a metal sleeve that turns loose strands into one solid tube the screw can clamp ([glossary](16-glossary.md#f)). Below: the orange **WAGO 221** lever blocks, which clamp the core themselves and need no ferrule.
+**What you're looking at:** The two kinds of mains terminal, side by side in LDO's Rev D bay. Above: the Meanwell PSU's three **screw terminals** (L, N, ⏚ from the outer end), each taking a stranded core that has been crimped into a red **ferrule** — a metal sleeve that turns loose strands into one solid tube the screw can clamp ([glossary](16-glossary.md#f)). Below: the orange **WAGO 221** lever blocks, which clamp the core themselves and need no ferrule.
 
 **Parts:** none — the kit supplies the ferrules.
 
-**Do:** Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's ⏚/N/L block and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. Crimp a **ferrule** onto the core so the screw clamps a solid ferrule instead of loose strands. The kit ships **VE0508** ferrules for exactly this, counted in Ch 09 and used in Ch 10. **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — take bare stranded or ferruled core to the stop; the failure there is not splaying but *escaping*, and [Step 10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
+**Do:** Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's L/N/⏚ block and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. Crimp a **ferrule** onto the core so the screw clamps a solid ferrule instead of loose strands. The kit ships **VE0508** ferrules for exactly this, counted in Ch 09 and used in Ch 10. **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — take bare stranded or ferruled core to the stop; the failure there is not splaying but *escaping*, and [Step 10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
 
 On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."* Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.
 
@@ -279,21 +279,21 @@ Source: [Omron — G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/c
 
 (no image — see text)
 
-**What you're looking at:** No parts — two scripted sequences, read now so neither is improvised. Checkpoint #1 is a set of meter measurements on a completely unplugged machine followed by one deliberate plug-in; the first real power-on in Ch 13 is a ten-second hand-on-the-switch listen with the chamber cleared.
+**What you're looking at:** No parts — two scripted sequences, read now so neither is improvised. Checkpoint #1 is a set of meter measurements on a completely unplugged machine followed by one deliberate plug-in; the hand-on-the-switch ritual is a ten-second listen with the chamber cleared, first at the Ch 12 firmware gate — the first time the boards are energised — and again at the start of Ch 13.
 
 **Parts:** none.
 
-**Do:** This machine is deliberately powered on only three times before it is closed, and two of those are scripted rituals. Read both now so neither is improvised.
+**Do:** Before the bay is closed this machine is energised at exactly two steps, in this order — [10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) — and each is a scripted ritual. The third powered moment, [13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch), comes after Ch 11 Part A has closed the bay. Read all three now so none is improvised.
 
 **Ritual 1 — Checkpoint #1, [Ch 10 Steps 10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again).** Meter first, cord out of the room: colour groups shorted, L / N / PE mutually isolated, the switch actually switching, the SSR open when unpowered, the voltage selector re-read. Only then one deliberate plug-in — cord to inlet, then to wall, then rocker — hands clear of the terminal block, looking for the rocker to illuminate, the PSU LED to light green, **24 V ± 0.5 V** on the meter, and no noise or smell. Then off, unplug, and the cord goes back out of the room. LDO's framing of the whole section: *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."*
 
-**Ritual 2 — first real power-on, [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch).** [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) clears the chamber and puts a fire extinguisher within arm's reach. Then: stand to the **side** of the machine, hand on the inlet rocker, switch on, and keep your hand there for a full ten seconds while you listen and smell. Anything wrong — switch off immediately.
+**Ritual 2 — hand on the switch, first at [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), again at [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch).** 12.11 is the first time the Leviathan, the Pi and the toolboard are energised — it is the first real power-on, and the ritual belongs there, not only in Ch 13. Clear the chamber and have a fire extinguisher within arm's reach (what [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) formalises). Then: stand to the **side** of the machine, hand on the inlet rocker, switch on, and keep your hand there for a full ten seconds while you listen and smell — PSU LED green, Pi and toolboard LEDs lit, no click-cycling, buzz or smell. Anything wrong — switch off immediately. 13.3 repeats it on the closed machine before the first motion.
 
-The third powered moment is [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), the firmware gate. Between Checkpoint #1 and Ch 11 the bay is open **by design** — [Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) leaves the duct covers off on purpose. So the rule is: the machine is energised with the bay open **only** at those three steps, and only with hands out of the bay. If you want to look at something, power off, look, power on. Voron's page states the general form: *"Never plug or unplug any device while the printer is powered"*, and *"Always double check to make sure your printer is unplugged and the capacitors in the power supplies have discharged before touching any wire or terminal"* — which is what [Step 10.73](10-wiring.md#step-1073-confirm-dead) measures, 0 V held for ten seconds.
+Between Checkpoint #1 and Ch 11 the bay is open **by design** — [Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) leaves the duct covers off on purpose. So the rule is: the machine is energised with the bay open **only** at 10.23 and 12.11, and only with hands out of the bay. If you want to look at something, power off, look, power on. Voron's page states the general form: *"Never plug or unplug any device while the printer is powered"*, and *"Always double check to make sure your printer is unplugged and the capacitors in the power supplies have discharged before touching any wire or terminal"* — which is what [Step 10.73](10-wiring.md#step-1073-confirm-dead) measures, 0 V held for ten seconds.
 
-**Check:** You can recite both rituals in order, and you know the three step numbers at which this machine is allowed to be live with the bay open.
+**Check:** You can recite both rituals in order, you know the two step numbers at which this machine is allowed to be live with the bay open (10.23, 12.11), and you know the hand-on-the-switch ritual applies at 12.11 as well as 13.3.
 
-Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch)
+Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch) · [00-index — build order](00-index.md)
 
 ---
 
@@ -332,14 +332,14 @@ Pause: ~25 min since the last pause — the chapter is read and nothing is half-
 Do not open Ch 09 until every line is ticked.
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted, naming Ch 10 Steps 10.1–10.16, Steps 10.17–10.23, and Ch 13 Step 13.3.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 and Ch 13 Step 13.3; she reads the meter only on the unplugged sweeps 10.74–10.78.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
 - [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
 - [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
 - [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
-- [ ] Both power-on rituals read end to end, and the three steps where the machine may be live with the bay open are known.
+- [ ] Both power-on rituals read end to end; the two steps where the machine may be live with the bay open (10.23, 12.11) are known, and the hand-on-the-switch ritual is understood to apply at 12.11 as well as 13.3.
 - [ ] The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.
 
 ## Common mistakes
@@ -349,7 +349,7 @@ Do not open Ch 09 until every line is ticked.
 - **Trusting a "no voltage" reading from a meter you have not just proved.** A flat battery, a broken lead or a blown internal fuse all read as *dead*. Live–dead–live costs fifteen seconds.
 - **Treating the frame PE bond as automatic.** Anodising is an insulator. Ch 10 Step 10.16 says to scrape it under the washer for a reason, and the same logic is why the DIN rail's incidental bond is not a substitute for an earthed rail.
 - **Enlarging the inlet fuse because it blew.** The fuse is reporting a short. Fitting a bigger one removes the report and leaves the short.
-- **Letting the "who is in the room" rule become implicit.** An unwritten rule gets bent at 22:00 by whoever is holding the camera. Write it, post it, say it once.
+- **Letting the "who is in the room" rule become implicit.** An unwritten rule gets bent at 22:00 by whoever is holding the probes. Write it, post it, say it once.
 
 ## Next
 

@@ -4,6 +4,8 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 **What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck, and five slotted **wire ducts** loop around them to carry the harness Ch 10 will lay in. On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too.
 
+**Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge with the inlet cut-out and the rear Z motors) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.
+
 **Time:** 2.5–4.0 h hands-on, first build (survey §7.2).
 
 **Sessions:** 7 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes).
@@ -54,7 +56,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | M3×6 BHCS | 2 | 2×2 XH splicer PCB to the bed WAGO mount |
 | M3×10 FHCS | 2 | IEC inlet module into the printed panel **(verify on bench)** |
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
-| M3×30 SHCS | 2 | XY endstop pod to the gantry |
+| M3×30 SHCS | 2 | XY endstop pod to the gantry, the manual p.164 value — the two M3×16 Ch 05 Step 05.43 bagged with the pod are spares here `(verify against your Ch 05 bag)` |
 | M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
 | M2×10 self-tapping | 6+ | 4 DIN clips to Leviathan brackets, 2 Z endstop PCB, plus the USB adapter's DIN clip **(verify on bench)** — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
 | M3×5×4 heat-set insert | 2+ | 2 bed WAGO mount; inlet panel and mains WAGO mount **(verify on bench)** |
@@ -67,7 +69,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | LDO Leviathan mainboard | 1 | |
 | Raspberry Pi 4B + heatsink + standoffs + 3/4 HAT power adapter | 1 set | Pi is a reseller-optional line item |
 | XY endstop PCB / Z endstop PCB / USB adapter PCB / 2×2 XH splicer PCB | 1 each | |
-| GT2 20-tooth pulley + 5 mm shaft + M3 set screw | 1 each | nozzle probe |
+| GT2 20-tooth pulley (a plain collar) + 5 mm shaft + M3 set screw | 1 each | nozzle probe — LDO ships the collar pressed into the printed body `(verify on bench)` |
 
 **Read first**
 
@@ -76,6 +78,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 - **The manual pages p.148–172 describe a different machine** — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; every part that differs carries a `⚠` callout at its step. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - **Do not close the bay.** Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes. Fitting them now costs an hour of re-opening plus the safety check you skipped (survey §5.2 W8).
 - **Test-fit every roll-in T-nut.** Extrusion and T-nut tolerances on this kit are tight; a forced nut galls the slot. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+- **Bench-only work for a print-idle window** (the index's *while it prints* rows assume you use them): 09.10 and 09.34's inserts, 09.14–09.15 (PSU selector and brackets), 09.17 (SSR on its bracket), 09.19–09.23 (Leviathan brackets, jumpers, Pi, HAT adapter), 09.25 (USB-adapter clip) and 09.27–09.29 (nozzle probe) need no printer. If you did the two heat-set jobs in Ch 08's iron session, 09.10 and 09.34 start with a confirm.
 
 **Sources for this chapter:**
 
@@ -102,7 +105,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 **Do:** Look at the render. Two DIN rails run across the bay; boards clip onto one, power onto the other. That geometry is correct for your kit even though three of the four components pictured are wrong. Nothing here is fastened to the acrylic itself except the wire ducts.
 
-**Check:** You can name the two rails and say which components go on each before you start cutting.
+**Check:** The p.148 render and LDO's placement photo are side by side, and the parts on your bench are LDO's — Leviathan, LRS-200-24, Omron SSR — not the manual's Octopus, 5 V PSU and Pi bracket.
 
 Source: [Voron manual p.148](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=148) · [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [Video: Part 7 @0:05:02](https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=302s)
 
@@ -116,7 +119,7 @@ Source: [Voron manual p.148](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** none.
 
-**Do:** Compare the manual's overview against LDO's Rev D placement photo, [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg). Front rail: Leviathan with the Pi mounted on it, plus the USB adapter at the right-hand end. Rear rail: Omron SSR at the left, Meanwell LRS-200-24 to its right with its terminal block facing the SSR. Rear-left corner of the frame: mains WAGO block. Rear centre: the IEC inlet.
+**Do:** Compare the manual's overview against LDO's Rev D placement photo, [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg). Front rail: Leviathan with the Pi mounted on it, plus the USB adapter at the right-hand end. Rear rail: Omron SSR at the left, Meanwell LRS-200-24 to its right with its terminal block facing the SSR. Rear-left, in this order from the Z motor inward: the IEC inlet panel hard against the rear-left Z-motor mount, then the mains WAGO block to its right on the same extrusion.
 
 **Check:** You have that photo open on a phone or second screen. You will check the finished bay against it at 09.36.
 
@@ -134,9 +137,9 @@ Source: [Voron manual p.149](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** M3 T-nut ×2.
 
-**Do:** Take the flex plate off and put it away, lay a folded blanket on the bench, and turn the printer onto its top with two people — a 350 with a gantry and a 10 mm plate in it is heavy and top-corner-fragile. Support the gantry so it cannot slam down its Z travel. With the bay now facing up, drop two M3 roll-in T-nuts into the inner slot of the **rear lower extrusion**, roughly where the inlet panel will sit (rear centre-left), and leave them loose.
+**Do:** Take the flex plate off and put it away, lay a folded blanket on the bench, and turn the printer onto its top with two people — a 350 with a gantry and a 10 mm plate in it is heavy and top-corner-fragile. Before the flip, run the gantry to the top of its travel by hand and strap each side to the top frame (a velcro strap or a zip tie through each Z joint), or clamp the four Z belts — inverted, an unpowered gantry with a toolhead on it back-drives toward the top frame. With the bay now facing up, stand at the printer's rear (left and right as defined at the top of this chapter) and drop two M3 roll-in T-nuts into the inner slot of the **rear lower extrusion**, where the inlet panel will sit — hard against the rear-left Z-motor mount (p.167) — and leave them loose.
 
-**Check:** Printer sits stable and level on its top; no load on the gantry, motors or belts. Two M3 T-nuts free to slide in the rear extrusion slot.
+**Check:** Printer sits stable and level on its top; gantry strapped, no load on the motors or belts. Two M3 T-nuts free to slide in the rear extrusion slot.
 
 Source: [Voron manual p.166](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=166) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts)
 
@@ -164,15 +167,13 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.29](assets/manual-pages/manual-p029.png)
 
-**What you're looking at:** The two rails: 35 mm slotted steel top-hat, cut to length. Everything electronic in the bay clips onto one of these instead of being screwed down, so a board can be slid along or lifted off without touching the deck. LDO runs them left-to-right rather than the manual's front-to-back because the Leviathan, the PSU and the SSR are all laid out for that orientation.
+**What you're looking at:** The two rails: 35 mm slotted steel top-hat, cut to length. Everything electronic in the bay clips onto one of these instead of being screwed down, so a board can be slid along or lifted off without touching the deck. They run left to right across *both* bed extrusions, one screw into each — exactly as p.29 draws them and as LDO describes: *"These DIN rails run from left to right."*
 
 **Parts:** DIN rail ×2, DIN rail plastic end cap ×4, M5×10 BHCS ×4, the four M5 T-nuts staged in Ch 02 Step 02.11.
 
 **Do:** Slide the four M5 T-nuts staged in Ch 02 Step 02.11 along the two bed extrusions so that each rail crosses **both** extrusions and picks up one T-nut in each. Position one rail toward the front of the bay and one toward the rear, leaving room between them for a wire duct. Bolt through the rail slot and the deck panel into the T-nut with M5×10 BHCS, snug only. Push a plastic end cap onto each of the four rail ends.
 
 **Check:** Both rails parallel, running left–right, each held by two screws. Rails do not overhang the deck panel or foul the Z belts or the gantry's lowest travel. All four end caps on.
-
-⚠ **Rev D+ / LDO:** the manual runs the rails **front-to-back**, each rail bolted twice into the same extrusion. LDO runs them **left-to-right**: *"These DIN rails run from left to right."* Follow LDO — the Leviathan, the PSU and the SSR are all laid out for that orientation. Same four screws and T-nuts either way; just slide the T-nuts to suit. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts)
 
 ⚠ **Rev D+ / LDO:** neither the manual nor LDO publishes a **cut length** for a 350's rails — **(verify on bench)**. Cut both to the same length, keep them inside the deck panel, and use the manual's own escape hatch at p.29: if a rail slot does not land on a T-nut, shorten the rail by a few mm rather than moving the nut off the extrusion.
 
@@ -188,7 +189,7 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** PVC wire duct 20 W × 25 H ×5, VHB tape.
 
-**Do:** Cut three ducts to run left–right — one in front of the front rail, one between the two rails, one behind the rear rail — and two to run front-to-back down the left and right sides of the bay, joining the three. Dry-lay all five first. Wipe the deck with IPA, then VHB the ducts down. Put the rear duct **below the deck's wire opening**, not across it.
+**Do:** Cut three ducts to run left–right — one in front of the front rail, one between the two rails, one behind the rear rail — and two to run front-to-back down the left and right sides of the bay, joining the three. Dry-lay all five first. Wipe the deck with IPA, then VHB the ducts down. Put the rear duct **rearward of the deck's wire opening** — between it and the rear extrusion, as LDO's photo shows — never across it.
 
 **Check:** Five ducts, no duct crossing the wire opening, none fouling a DIN rail or the components you are about to clip on. Every duct still has its snap-on lid (they go on in Ch 10, after wiring).
 
@@ -212,7 +213,7 @@ Source: [LDO wiring guide § Installing the DIN rails and wire ducts](https://do
 
 Source: [Voron manual p.168](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=168) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [Video: Part 7 @0:28:22](https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1702s)
 
-Pause: ~25 min since the last pause — printer on its side or back, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and both wire ducts cut and stuck. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
+Pause: ~25 min since the last pause — printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and all five wire ducts cut and stuck. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
 
 ---
 
@@ -246,7 +247,7 @@ Source: [Voron manual p.150](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Skip both pages. There is no RS25-5 in the kit and no space allocated for one.
 
-**Check:** Your bay plan has exactly one power supply in it.
+**Check:** No RS-25-5 or any second supply in the kit boxes; the Leviathan's Pi power lead and the 3/4 HAT adapter are in the bag for 09.23.
 
 ⚠ **Rev D+ / LDO:** **SKIP manual p.152 and p.172** — *"The kit does not use a 5V PSU."* The Leviathan supplies the Pi's 5 V through the GPIO power adapter fitted at 09.23. This also removes manual p.190 later in the build. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -262,7 +263,7 @@ Source: [Voron manual p.152](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** `power_inlet_IECGS_1mm` ×1, M3×5×4 heat-set inserts **(verify on bench — count the bosses on your printed part)**.
 
-**Do:** Set the iron to your ASA insert temperature and press one insert into each boss on the back of the panel, square and flush with the surface. Let it cool completely before you touch anything to it.
+**Do:** If you heat-set this panel during Ch 08's insert pass (Ch 08 Read first), confirm the inserts and move on. Otherwise set the iron to your ASA insert temperature and press one insert into each boss on the back of the panel, square and flush with the surface. Let it cool completely before you touch anything to it.
 
 **Check:** Every insert flush or a hair below, none tilted, no bulged plastic around a boss.
 
@@ -274,9 +275,10 @@ Source: [Voron manual p.156](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 09.11 — Fit the combined IEC inlet module
 
-![LDO Rev D — inlet fitted](assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg)
+![LDO Rev D — inlet fitted, shown after Ch 10 has wired it; yours has bare spades (© LDO Motors)](assets/remote/09-electronics-bay/iec-inlet-module-fitted.jpg)
+![LDO inlet layout — L through the fuse to the rocker, N straight to the rocker, earth straight out (© LDO Motors)](assets/remote/00a-mains-safety/inlet_layout.png)
 
-**What you're looking at:** The **IEC inlet** is where mains enters the machine. This kit's is a single module combining the C14 socket the power cord plugs into, the on/off rocker and the fuse holder, where the manual's build used two separate parts. Everything about it is live the moment a cord is in, which is why nothing touches its spade terminals until Ch 10's checked sequence.
+**What you're looking at:** The **IEC inlet** is where mains enters the machine. This kit's is a single module combining the C14 socket the power cord plugs into, the on/off rocker and the fuse holder, where the manual's build used two separate parts. Everything about it is live the moment a cord is in, which is why nothing touches its spade terminals until Ch 10's checked sequence. LDO's photo shows the module already wired; yours has bare spades until Ch 10. The second image is LDO's map of the module's factory-internal wiring.
 
 **Parts:** AC inlet with integrated switch & fuse ×1, M3×10 FHCS ×2 **(verify on bench)**.
 
@@ -284,7 +286,7 @@ Source: [Voron manual p.156](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Module square in the panel, no rocking, fuse drawer accessible, switch rocks freely. Nothing wired.
 
-⚠ **Rev D+ / LDO:** the manual fits **two** parts here — a filtered inlet *and* a separate rocker switch. Your kit is **one module** containing inlet, switch and fuse. Ignore the manual's switch. Confirm the module's factory wiring against LDO's [inlet layout diagram](https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png): wired correctly, the live conductor is fused and the switch lights when on. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet)
+⚠ **Rev D+ / LDO:** the manual fits **two** parts here — a filtered inlet *and* a separate rocker switch. Your kit is **one module** containing inlet, switch and fuse. Ignore the manual's switch. Compare the module's factory wiring **by eye only** against LDO's inlet layout above: on the back of the module a short metal link runs from the socket's **L** spade into the fuse holder, the fuse's other spade feeds one pole of the rocker, the socket's **N** spade feeds the rocker's other pole, and the **E** spade goes straight out to nothing but the earth pin — L fused, N direct, PE never switched or fused. Nothing is plugged in and nothing lights up in this chapter; the rocker lights for the first time at Ch 10's first power-on, after Checkpoint #1. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet)
 
 Source: [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet) · image [`S2_inlet.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S2_inlet.jpg)
 
@@ -294,11 +296,11 @@ Source: [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/
 
 ![Voron manual p.167](assets/manual-pages/manual-p167.png)
 
-**What you're looking at:** The panel hooks over the rear extrusion's slot and bolts to the two T-nuts from Step 09.3. Position matters twice: clear of the Z motor mount, and inside the footprint where the rear skirt lands in Ch 11 — a panel that overhangs means a skirt that will not sit flat.
+**What you're looking at:** The panel hooks over the rear extrusion's slot and bolts to the two T-nuts from Step 09.3. Position matters twice: against the Z-motor mount so the rear skirt segments line up, and inside the footprint where the rear skirt lands in Ch 11 — a panel that overhangs means a skirt that will not sit flat.
 
 **Parts:** M3×8 SHCS ×2, the two M3 T-nuts pre-loaded at 09.3.
 
-**Do:** Slide the panel over the rear extrusion so its lip hooks the slot, line the two holes up with the T-nuts and drive M3×8 SHCS in. Position it rear-centre-left, clear of the Z motor mount, and leave enough room to the left for the WAGO block.
+**Do:** Slide the panel over the rear extrusion so its lip hooks the slot, line the two holes up with the T-nuts and drive M3×8 SHCS in. Slide the panel along the extrusion until it touches the rear-left Z-motor mount, as p.167 draws it — the panel is one of the three rear skirt segments, and Ch 11 builds the rear run outward from it. The WAGO block goes to its right, inboard.
 
 **Check:** Panel flat against the extrusion, no gap at the lip. Panel does not overhang where the rear skirt will land in Ch 11. Inlet reachable from outside.
 
@@ -314,7 +316,7 @@ Source: [Voron manual p.167](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** `wago_221-415_mount_3by5` ×1, WAGO 221-415 (5-way) ×3, M5×10 BHCS ×2, M5 T-nut ×2.
 
-**Do:** Snap the three 5-way WAGO 221-415 clamps into the printed mount, levers facing outward so you can reach them with the bay open. Slide two M5 T-nuts into the rear extrusion just left of the inlet panel, hook the mount over the slot and fasten with M5×10 BHCS.
+**Do:** Snap the three 5-way WAGO 221-415 clamps into the printed mount, levers facing outward so you can reach them with the bay open. Slide two M5 T-nuts into the rear extrusion's inner slot immediately to the **right** of the inlet panel — LDO's photo reads motor, inlet, WAGOs from the left — hook the mount over the slot and fasten with M5×10 BHCS.
 
 **Check:** All three clamps fully seated (no visible step between clamp and mount), every lever free to lift, mount solid on the extrusion and within reach of the inlet's flying leads.
 
@@ -330,13 +332,13 @@ Pause: ~30 min since the last pause — Pi bracket and 5 V PSU correctly skipped
 
 ### Step 09.14 — Set the PSU voltage selector to 115 V
 
-![LDO — PSU voltage selector switch](assets/remote/09-electronics-bay/psu-voltage-selector.jpg)
+![LDO — PSU voltage selector switch, shown at 230 V; yours must read 115 or 120 (© LDO Motors)](assets/remote/09-electronics-bay/psu-voltage-selector.jpg)
 
-**What you're looking at:** The **PSU** is the Meanwell LRS-200-24 — it turns mains into the 24 V that runs the motors, fans, boards and toolhead. It is not auto-ranging: a recessed slide switch selects 115 V or 230 V input, and leaving it at 115 V on 230 V mains destroys the supply the first time it is switched on. It is set now because a wire duct is about to hide the switch completely.
+**What you're looking at:** The **PSU** is the Meanwell LRS-200-24 — it turns mains into the 24 V that runs the motors, fans, boards and toolhead. It is not auto-ranging: a recessed slide switch selects 115 V or 230 V input, and leaving it at 115 V on 230 V mains destroys the supply the first time it is switched on. It is set now because a wire duct is about to hide the switch completely. LDO's photo shows the switch at 230 — yours must read 115 (or 120).
 
 **Parts:** Meanwell LRS-200-24 ×1.
 
-**Do:** Find the small recessed slide switch on the side of the PSU next to the yellow warning label. Push it to **115 V** for US mains with the 2.5 mm flat screwdriver. Photograph the switch position now, while it is still easy to see — once the PSU is on the rail with a duct in front of it, it is not.
+**Do:** Find the small recessed slide switch on the side of the PSU next to the yellow warning label. Push it to **115 V** for US mains with the 2.5 mm flat screwdriver. Look at it once more now, while it is still easy to see — once the PSU is on the rail with a duct in front of it, it is not; Ch 10 Step 10.2 re-checks it before power-on.
 
 **Check:** Selector reads 115 V (some units print 115, some 120 — either marking is the low-voltage position). Yellow label on the PSU says *"AC INPUT VOLTAGE CAN BE SELECTED BY SWITCH, CHECK INPUT VOLTAGE AVOIDING DAMAGE BEFORE POWER ON"* — you have just done that.
 
@@ -549,7 +551,7 @@ Pause: ~30 min since the last pause — every voltage-selection jumper off the L
 
 **Do:** Do not rebuild the stack — take it out of the bag and confirm the three M3×10 SHCS still hold base, PCB and cover together and that the cover is the **partial** one, whose cut-out leaves a mounting point exposed. Fit a DIN clip to the back of the base with the M2×10 self-tappers, then attach the supplied grounding cable's ring terminal to the exposed mounting point. Leave the free end of the ground lead loose.
 
-**Check:** PCB captive, Micro-Fit 3.0 socket and USB connector both accessible, cover on, and one mounting point still bare with the ground ring terminal on it.
+**Check:** PCB captive, Micro-Fit 3.0 socket (the 4-pin umbilical socket) and USB connector both accessible, cover on, and one mounting point still bare with the ground ring terminal on it.
 
 ⚠ **Rev D+ / LDO:** the stack takes **3× M3×10 SHCS** — LDO's Rev D Printed Parts Guide: *"Use 3 M3x10 SHCS screws to attach the base, adapter PCB, and cover together."* The M2×10 self-tappers are for the DIN clip only. If your bagged stack has the **V1** full cover on it, swap in [`usb_adapter_mount_partial_cover.stl`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/STLs/usb_adapter_mount_partial_cover.stl) now rather than omitting the ground (Ch 08 Step 08.64; survey §4.1 ⑤). [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -581,18 +583,18 @@ Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/vo
 
 ---
 
-### Step 09.27 — Press the 20-tooth pulley into the LDO nozzle probe
+### Step 09.27 — Confirm the collar in the LDO nozzle-probe body
 
 ![Voron manual p.158](assets/manual-pages/manual-p158.png) ·
 ![LDO — Z endstop parts](assets/remote/09-electronics-bay/nozzle-probe-parts.jpg)
 
-**What you're looking at:** The **[nozzle probe](16-glossary.md#n)** is this kit's Z endstop, and it is not a bed probe: it is a free-sliding 5 mm shaft in a printed body bolted to the *frame*, which the nozzle itself is driven down onto to find Z zero. The GT2 20-tooth pulley you press in here is not a belt pulley — it is simply the collar that will carry the set screw retaining that shaft.
+**What you're looking at:** The **[nozzle probe](16-glossary.md#n)** is this kit's Z endstop, and it is not a bed probe: it is a free-sliding 5 mm shaft in a printed body bolted to the *frame*, which the nozzle itself is driven down onto to find Z zero. What LDO's BOM calls a GT2 20-tooth pulley is simply the aluminium collar that carries the set screw retaining that shaft — and LDO's photo shows it already pressed into the printed body, shaft and set screw in place. This chapter builds the probe once; Ch 08 Step 08.56 is only a pointer here.
 
-**Parts:** LDO Nozzle Probe printed part ×1 (LDO-supplied), GT2 20-tooth pulley ×1.
+**Parts:** LDO Nozzle Probe printed part ×1 (LDO-supplied) with the collar (BOM: GT2 20-tooth pulley) pre-pressed `(verify on bench)`.
 
-**Do:** Press the pulley fully into its seat in the printed body — it is an interference fit, so use steady thumb or vice pressure, not a hammer. It must bottom out.
+**Do:** Confirm the collar is fully home in its seat in the printed body. If yours arrived loose, press it in — it is an interference fit, so use steady thumb or vice pressure, not a hammer — until it bottoms out.
 
-**Check:** Pulley flush and square in the body, no gap under the flange, printed part not split.
+**Check:** Collar flush and square in the body, no gap under its flange, printed part not split.
 
 ⚠ **Rev D+ / LDO:** use LDO's own printed part, not the Voron `nozzle_probe.stl` — it is supplied printed in the kit and the print plan deliberately never printed either version. Ignore the manual's "remove flange & set screws" and lever-removal instructions: those are for a bare microswitch build. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -625,11 +627,11 @@ Source: [Voron manual p.160](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The 5 mm shaft is the part the nozzle actually touches. The single set screw only has to stop it falling out of the body — any tighter and it clamps the shaft, and a shaft that will not drop back under its own weight gives a Z zero that drifts on every probe.
 
-**Parts:** 5 mm shaft ×1, M3 set screw ×1.
+**Parts:** 5 mm shaft ×1 (LDO ships it in the collar), M3 set screw ×1 (in the collar; LDO's BOM lists pre-applied threadlocker `(verify on bench)`).
 
-**Do:** Drop the 5 mm shaft down through the pulley bore so it rests on the switch plunger. Thread one set screw into the pulley's grub-screw hole until it just enters the shaft's notch — enough that the shaft cannot fall out, loose enough that it still slides up and down under its own weight.
+**Do:** Drop the 5 mm shaft down through the pulley bore so it rests on the switch plunger. Run the collar's one set screw in until it just stops the shaft falling out — enough to retain it, loose enough that the shaft still slides up and down under its own weight. p.159's notch is one *you can add* to the shaft; LDO's shaft in `z_stop_parts.jpg` shows none and LDO only says *do not overtighten* `(verify on bench)`. If there is no notch, stop the screw a whisker short of the shaft: LDO's test is that it drops under its own weight, not that it is captive upside down.
 
-**Check:** Lift the shaft and let go: it drops freely and clicks the switch. Turn the assembly upside down: the shaft does not fall out.
+**Check:** Lift the shaft and let go: it drops freely and clicks the switch. Turn the assembly upside down: a notched shaft stays put; an un-notched one may slide to the set screw — free movement is the requirement, so note which you have for Step 09.30.
 
 ⚠ **Rev D+ / LDO:** LDO: *"Remember to install one set screw into the pulley, but do not overtighten it… it should not be so tight as to impede the shaft from freely moving up and down."* Follow **only** the 5 mm shaft part of p.159 — the soldered-connector half of the page does not apply to the PCB version. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -637,24 +639,24 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ---
 
-### Step 09.30 — Turn the printer upright and mount the nozzle probe
+### Step 09.30 — Mount the nozzle probe on the bed extrusion
 
 ![Voron manual p.161](assets/manual-pages/manual-p161.png) ·
 ![LDO — Z endstop installed](assets/remote/09-electronics-bay/nozzle-probe-installed.jpg)
 
-**What you're looking at:** Printer back on its feet, and the probe hangs under the rear bed extrusion so the toolhead can drive the nozzle onto it just off the side of the plate. Roughly 1.5 mm of clearance to the bed, and the shaft must miss the build plate everywhere in Y — it is struck by the nozzle, never by the plate.
+**What you're looking at:** There is no rear bed extrusion — the two bed extrusions run front-to-back (p.28). The probe bolts to the **side slot** of one of them, at its rear end just past the plate, with the pin standing beside the plate's rear edge so the toolhead can drive the nozzle onto it. p.161's 1.5 is the horizontal gap between pin and plate edge — the pin is struck by the nozzle, never by the plate. The printer stays on its head: the slot is reachable through the open rear of the frame.
 
 **Parts:** nozzle probe assembly, M3×25 SHCS ×2, M3 T-nut ×2.
 
-**Do:** Before you flip: check that nothing in the bay is loose, no tool is lying on the deck, and the boards are latched. Turn the printer back onto its feet with two people. Slide two M3 T-nuts into the **rear bed extrusion**, hang the probe body under it and fasten with M3×25 SHCS. Slide it left/right so the shaft clears the build plate edge and sits under the gantry's path — roughly 1.5 mm of clearance to the bed, per the p.161 detail.
+**Do:** No flip. Reach in through the open rear of the inverted frame to the rear end of the bed extrusion on the Z-endstop side — p.161's overview draws it on the **right-hand** extrusion `(verify on bench: any spot beside the plate that the nozzle can reach works, and Ch 13 measures the real X/Y for` `home_xy_position)`. Slide two M3 T-nuts into that extrusion's **side slot** past the rear edge of the plate, hold the probe body flat against the extrusion's side with the pin pointing the same way as the plate's print surface (down, while the printer is inverted), and fasten with M3×25 SHCS, snug. Slide the body along the extrusion — front/back, not sideways — until the pin is about **1.5 mm** clear of the plate's rear edge, per the p.161 detail. If 09.29 showed your shaft is not captive upside down, lift it out for this step and drop it back in the next time the printer is upright, before Ch 13 Step 13.24 needs it.
 
-**Check:** Shaft does not touch the build plate anywhere in Y. Shaft still drops freely and clicks. Probe body square, screws snug, nothing fouling the bed's underside or its cables.
+**Check:** Sighting along the plate's rear edge, the pin clears it by ~1.5 mm and touches nothing. Push the pin toward the body: it clicks the switch and slides back out to its stop when you let go. Probe body square, screws snug, connector reachable for Ch 10.
 
 ⚠ **Rev D+ / LDO:** the manual calls for **M3×20 SHCS**. LDO's nozzle probe needs **M3×25 SHCS ×2** — the printed body is thicker. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
 
 Source: [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg)
 
-Pause: ~30 min since the last pause — USB adapter stack confirmed and clipped, nozzle probe assembled with its pulley, PCB and 5 mm shaft, and mounted with the printer upright again. Nothing plugged in.
+Pause: ~30 min since the last pause — USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted in the bed extrusion's side slot; the printer is still on its head. Nothing plugged in.
 
 ---
 
@@ -700,11 +702,11 @@ Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.164](assets/manual-pages/manual-p164.png)
 
-**What you're looking at:** The pod bolts under the right-hand XY joint on the two M3×30 that Ch 05 deliberately held back for it. Running the gantry through its full X and Y travel afterwards is the check that the pod only meets something at the two places it is meant to.
+**What you're looking at:** The pod bolts up into the right-hand XY joint on two **M3×30 SHCS** (manual p.164) — long enough to pass through the pod body. The two screws Ch 05 held back from that joint were **M3×16**, which cannot reach the joint through the pod. With the printer still inverted the joint's underside faces up, which is the easy direction. Running the gantry through its full X and Y travel afterwards is the check that the pod only meets something at the two places it is meant to.
 
-**Parts:** pod assembly, M3×30 SHCS ×2.
+**Parts:** pod assembly, M3×30 SHCS ×2 — the manual p.164 value; Ch 05 Step 05.43 bagged two **M3×16** with the pod, which are spares here `(verify against your Ch 05 bag)`.
 
-**Do:** Hold the pod under the **right-hand XY joint** and drive two M3×30 SHCS up through it into the joint. If Ch 05 already fitted the pod, this step is: drop the two screws, fit the PCB from 09.32, and put the screws back.
+**Do:** Hold the pod against the underside of the **right-hand XY joint** — facing up with the printer inverted — and drive two M3×30 SHCS through it into the joint's two free holes, the ones Ch 05 left empty. If Ch 05 already fitted the pod, this step is: drop the two screws, fit the PCB from 09.32, and put the screws back.
 
 **Check:** Pod solid with no rotation. Run the gantry through its full X and Y travel by hand — the pod must not foul the frame, a Z rail, the drag chain or the toolhead anywhere except where it is meant to be triggered.
 
@@ -720,7 +722,7 @@ Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** Bed WAGO Mount ×1 (LDO-supplied printed), M3×5×4 heat-set inserts ×2, 2×2 XH splicer PCB ×1, M3×6 BHCS ×2, WAGO 221-412 (2-way) ×2, M5×10 BHCS ×2, M5 T-nut ×2 **(verify on bench)**.
 
-**Do:** Heat-set two inserts into the **front** face of the printed mount and let them cool. Fasten the 2×2 XH splicer PCB to them with M3×6 BHCS. Snap the two 2-way WAGO 221-412 clamps directly into their slots. Mount the finished assembly under the deck near the bed cable drop with two M5×10 BHCS.
+**Do:** Heat-set two inserts into the **front** face of the printed mount and let them cool (or confirm them, if you did this in Ch 08's iron session). Fasten the 2×2 XH splicer PCB to them with M3×6 BHCS. Snap the two 2-way WAGO 221-412 clamps directly into their slots. Bolt the finished assembly by its two end holes to a vertical extrusion face beside the bed-cable drop: two M5 T-nuts in the side slot of the rear frame extrusion between the deck's wire opening and the rear-right Z-motor mount (the rear-left is taken by the inlet and the mains WAGOs), WAGO levers facing into the bay, two M5×10 BHCS `(verify on bench — LDO's § Wiring the bed heater does not draw the location; any face where all three bed cables reach with slack and nothing blocks the plate lifting off will do)`.
 
 **Check:** Inserts flush, splicer PCB solid, both WAGO levers free. The three bed cables from Ch 03 — Bed L, N and BED TH — reach the mount with slack, and the plate can still be lifted off the deck from above without disturbing it.
 
@@ -750,43 +752,40 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 
 ---
 
-### Step 09.36 — Photograph the bay and hand it to Ch 10
+### Step 09.36 — Check the bay against LDO's layout and hand it to Ch 10
 
 (no image — see text)
 
-**What you're looking at:** Nothing to photograph but your own bay. LDO's placement image is the Rev D reference and nothing published matches a Rev D+ bay exactly, so this photograph is the record you compare against once Ch 10 has filled the ducts and closed the lids.
+**What you're looking at:** A comparison pass, not a build step. LDO's placement image is the Rev D reference and nothing published matches a Rev D+ bay exactly, so you compare component by component, not pixel by pixel — and you tag everything now, while there is nothing in the way, because once Ch 10 has filled the ducts and closed the lids the tags are what you read.
 
 **Parts:** none.
 
-**Do:** Turn the printer back onto its top, light the bay from the side, and shoot it square-on. Compare your photo against LDO's [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg) component by component. Tag the boards and the WAGO blocks with the supplied cable tags now, while there is nothing in the way.
+**Do:** With the printer still on its head, light the bay from the side and compare it against LDO's [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg) component by component, standing at the rear as the chapter intro defines: SSR left of the PSU on the rear rail, Leviathan and Pi with the USB adapter at the right-hand end of the front rail, inlet and WAGOs at the rear-left. Tag the boards and the WAGO blocks with the supplied cable tags now, while there is nothing in the way.
 
 **Check:** Your bay matches LDO's layout in kind and roughly in position. Every component is latched or bolted, nothing is wired, no duct lids are on, and the deck's wire opening is clear.
-
-Tip: this photo is worth taking — LDO's placement images are the Rev D reference, but nothing exists for a Rev D+ bay with your exact parts (survey §7.5 #6).
 
 ---
 
 ## Checkpoint 09
 
 - [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] Five wire ducts VHB'd down; the rear duct is below the deck's wire opening, and the opening is clear.
-- [ ] Meanwell LRS-200-24 selector set to **115 V**, photographed, on the rear rail via its two printed brackets — and **no** support bracket fitted.
+- [ ] Five wire ducts VHB'd down; the rear duct runs rearward of the deck's wire opening, and the opening is clear.
+- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets — and **no** support bracket fitted.
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
-- [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion; three WAGO 221-415 clamps in the mains WAGO mount beside it.
-- [ ] Nozzle probe assembled — pulley pressed home, PCB on two M2×10, shaft free but captive — and mounted on **M3×25 SHCS**, clear of the plate.
+- [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
+- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin ~1.5 mm clear of the plate's rear edge.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted; the plate still lifts off the deck from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
 
 ## Common mistakes
 
-- **Running the DIN rails front-to-back because that is what p.29 draws.** Every LDO component position in this bay assumes left-to-right rails. Fixing it later means unbolting rails with the PSU and boards on them.
 - **Fitting the p.169 support bracket "because it's in the manual".** LDO explicitly skips it; the two printed brackets are the mount. Bolting an unneeded L-bracket to the frame just puts a screw where a cable wants to go.
 - **Leaving the Leviathan's voltage jumpers in.** The one mistake in this chapter that destroys hardware. They come out before the board is installed, not before it is wired.
-- **Setting the PSU selector after the bay is full.** Once the PSU is on the rail behind a wire duct the switch is nearly invisible. Set it and photograph it at 09.14.
+- **Setting the PSU selector after the bay is full.** Once the PSU is on the rail behind a wire duct the switch is nearly invisible. Set it at 09.14, before it goes on the rail.
 - **Fitting the V1 USB adapter cover.** It hides the grounding point that Rev D+ exists to expose, and the ESD path silently ends up broken.
 - **Closing the bay, or plugging the cord in "just to see the PSU light".** Both belong after Checkpoint #1 in Ch 10 (survey §5.2 W8).
 - **Over-driving M2 self-tapping screws into ASA.** Two turns too far strips the boss and the DIN clip or the Z endstop PCB never sits solid again.
@@ -797,5 +796,5 @@ Ch 10 — Wiring: above-deck, below-deck, mains and **Checkpoint #1** (LDO wirin
 
 Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [survey §7.5](../voron-build-instructions-survey.md)
 
-Pause: ~15 min since the last pause — bay fully populated and photographed, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
+Pause: ~15 min since the last pause — bay fully populated, tagged and checked against LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
 
