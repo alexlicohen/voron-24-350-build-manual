@@ -10,7 +10,7 @@ Everything you must decide, buy and agree *before* the electronics bay exists: w
 
 **Prerequisites:**
 
-- **Ch 00 — Before you start**, at least through [Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) (the tool table, where the multimeter is a "Buy if not owned" row) and [Step 00.30](00-before-you-start.md#step-0030-start-the-build-log) (the build log and your daughter's assigned jobs). This chapter turns both of those into rules.
+- **Ch 00 — Before you start**, at least through [Step 00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) (the tool table, where the multimeter is a "Buy if not owned" row) and [Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) (the measurement log and your daughter's assigned jobs). This chapter turns both of those into rules.
 - **Print batches: none.** Nothing here is printed, mounted or wired.
 - Read this **before Ch 09**, not before Ch 10. Ch 09 already puts the inlet, the PSU and the SSR into the machine; by the time you open Ch 10 the decisions below are already spent.
 
@@ -68,7 +68,7 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 
 **Parts:** none.
 
-**Do:** [Step 00.30](00-before-you-start.md#step-0030-start-the-build-log) gives your daughter the camera and the measurement log — *"the diagonals in Ch 01 are hers to read out"*. That assignment has no carve-out for mains, so write one, in these words:
+**Do:** [Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) gives your daughter the measurement log — *"the diagonals in Ch 01 are hers to read out"*. That assignment has no carve-out for mains, so write one, in these words:
 
 - She does not strip, land, tighten or unplug any conductor that is or has been connected to the wall.
 - She is not in the room while the mains conductors are being worked on — **Ch 10 Section 1 ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe))** and **Ch 10 Section 2 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))**.
@@ -81,7 +81,7 @@ Post it where you both see it. Say it out loud once, before Ch 09.
 
 ⚠ This rule is not about competence. It is about there being only one pair of hands near a live conductor, and about that pair belonging to the person who can also reach the breaker.
 
-Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-build-log) · [Ch 10 Sections 1–2](10-wiring.md#section-1-mains-inlet-switch-psu-ssr-bed-heater) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch)
+Source: [Ch 00 Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) · [Ch 10 Sections 1–2](10-wiring.md#section-1-mains-inlet-switch-psu-ssr-bed-heater) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-first-power-on-hand-on-the-switch)
 
 ---
 

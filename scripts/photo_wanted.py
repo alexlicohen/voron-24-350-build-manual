@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Print the bench-photo checklist: every step whose image line is still
-`(no image — see text)`, plus the ten specific shots Ch 00 Step 00.30 asks
+`(no image — see text)`, plus ten shots no published source has for a Rev D+
 for (which aren't tied to a single step heading).
 
 Not wired as an mkdocs hook — it's a checklist for Alex to carry, not build
@@ -64,8 +64,9 @@ def find_missing_steps():
 def render(missing):
     out = ["# Bench photos wanted", ""]
     out.append(
-        f"_{len(missing)} step(s) marked `(no image — see text)`, plus the ten shots "
-        "Ch 00 Step 00.30 calls for. File each with `scripts/ingest_photos.py`._"
+        f"_{len(missing)} step(s) marked `(no image — see text)`, plus ten shots no "
+        "published source has for a Rev D+. Optional: the manual asks for no photos "
+        "(Alex, 2026-09-06). File any you do take with `scripts/ingest_photos.py`._"
     )
     out.append("")
     out.append("## Steps with no image")
@@ -73,7 +74,7 @@ def render(missing):
     for rel, step_id, title in missing:
         out.append(f"- [ ] Step {step_id} — {title} (`{rel}`)")
     out.append("")
-    out.append("## Ch 00 Step 00.30 — the ten shots no published source has")
+    out.append("## Ten shots no published source has for a Rev D+ (optional)")
     out.append("")
     for shot in STEP_00_30_SHOTS:
         out.append(f"- [ ] {shot}")

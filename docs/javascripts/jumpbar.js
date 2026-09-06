@@ -17,6 +17,8 @@
 
     var content = document.querySelector('.md-content__inner');
     if (!content) return;
+    // Step pages carry their own slim `.step-crumbs` breadcrumb instead.
+    if (content.querySelector('.step-crumbs')) return;
 
     var sections = Array.prototype.filter.call(content.querySelectorAll('h2'), function (h) {
       return !!h.id;

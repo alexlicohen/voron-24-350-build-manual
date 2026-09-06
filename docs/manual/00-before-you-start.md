@@ -645,17 +645,17 @@ Pause: ~25 min since the last pause — you have read the manual's front matter 
 
 ## Build log and lifelines
 
-### Step 00.30 — Start the build log
+### Step 00.30 — Start the measurement log
 
 *(no image — see text)*
 
-**What you're looking at:** A camera on a tripod and a notebook. The log is the only record of the numbers this build cannot re-derive later — the deck thickness, the frame diagonals, the belt frequency — and the ten listed shots are the ones no published source has for a Rev D+ kit.
+**What you're looking at:** A notebook. A handful of numbers in this build cannot be re-derived later — the deck panel thickness, the frame diagonals, the belt frequency, the probe accuracy sigma — and each one gates a decision several chapters downstream.
 
-**Parts:** phone or camera, tripod, a notebook or a shared album.
+**Parts:** a notebook, or a shared note on the iPad.
 
-**Do:** Set one tripod position per work session and shoot 4:3 with good side light, so consecutive shots overlay and a change between sessions is obvious. Photograph at every chapter Checkpoint, and record the numbers you measure — deck thickness, frame diagonals at Ch 01, belt frequency at Ch 07, probe accuracy sigma at Ch 13. Beyond the checkpoints, shoot these ten because no published source has them for a Rev D+: every LDO deviation next to the part it replaces (precision spacer beside a shim, the second-hole rail mounting, the M3×20 bed screw, the deck support you chose next to the caliper reading); the Nitehawk-SB V2 both faces with PH2.0 connectors seated; the V2 fan-adapter header mated in its keyed orientation; the USB-adapter grounding wire as installed; the titanium backers on both axes before the XY joints are torqued; the electronics bay at each checkpoint; the gantry-squaring setup; the belt-tension measurement with the 150 mm span marked and the phone showing the peak; the good and bad heat-set inserts on the practice coupon; and the finished cable runs before the ducts are covered.
+**Do:** Start a log with one line per measurement: what you measured, the number, the date, and the step it came from. Four matter most: the deck panel thickness (Step 00.4 — it chooses which `deck_support_*` prints in batch B01), the frame diagonals (Ch 01), the belt frequency (Ch 07, and again in Ch 14), and `PROBE_ACCURACY` sigma (Ch 13). Log the date you post the two questions in Step 00.32 as well — both have days of answer latency and both gate later work.
 
-**Check:** The first entry exists before Ch 01 starts: cartons as they arrived, the inventory sheet with `Check1` ticked, and the three practice inserts. Your daughter owns the camera and the measurement log — the diagonals in Ch 01 are hers to read out.
+**Check:** The log exists before Ch 01 starts, with the deck thickness and the inventory result already written into it. Your daughter owns the measurement log — the diagonals in Ch 01 are hers to read out.
 
 Source: [survey](../voron-build-instructions-survey.md)
 
@@ -711,7 +711,7 @@ Pause: ~20 min since the last pause — build log started, all three Discord cha
 - [ ] All 7 rails: carriages taped, soaked 10 min in IPA ≥ 90%, dried, flip-and-packed until grease oozed past the bearings, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, bagged.
 - [ ] Both rail guides fit their real rails with light finger pressure; the full seven-item B00 gate has passed.
 - [ ] Chapter bins labelled 00–14 and the batch-to-bin map posted on the wall.
-- [ ] Build log started: carton photos, inventory sheet, practice coupon.
+- [ ] Measurement log started: deck panel thickness and the inventory result written down (Step 00.30).
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 
 ## Common mistakes

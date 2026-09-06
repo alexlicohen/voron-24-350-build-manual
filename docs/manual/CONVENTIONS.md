@@ -81,7 +81,49 @@ then run one command to file it.
   repo root (`pip install -r requirements-photos.txt` first; HEIC needs `pillow-heif`, an optional
   dependency — plain JPEG/PNG work without it).
 - **What's still missing:** `python3 scripts/photo_wanted.py` prints every step still showing
-  `(no image — see text)` plus the ten shots Ch 00 Step 00.30 asks for, as a checklist.
+  `(no image — see text)`, as a checklist. Optional tooling only — Alex's 2026-09-06 ruling is
+  that this is a manual to build from, not a record, so no step asks for a photo.
 
 ## Image licensing (updated 2026-09-05, evening)
 Alex's ruling: LDO documentation images and the Nitehawk-SB V2 / Leviathan / LDOVoron2 repo images MAY be mirrored into `docs/manual/assets/` for this non-commercial, attributed manual. Every mirrored image is listed in the folder's `SOURCES.txt` (file → URL → owner → date) and the README attribution names LDO Motors. Voron/Klipper (GPL-3.0) as before. Ellis' guide: still link-only (no licence). Keep the original URL in the step's Source line.
+
+## Step pages (added 2026-09-06 — Alex: "one page per step like Prusa's help site")
+
+`scripts/build_steps.py` runs as an mkdocs `on_pre_build` hook and regenerates
+`docs/manual/steps/` from the chapters on every build. **The chapters stay the single
+source; never hand-edit anything under `steps/`** (the directory is gitignored, rebuilt by
+CI's `mkdocs build`, and any file whose source step disappears is deleted on the next run).
+
+**What the parser needs from a chapter.** Everything below is already the house style; the
+generator only formalises it.
+
+- `# Chapter NN — Title` (or `# Batch BNN — Title`) as the one h1. Everything between it and
+  the first step becomes the chapter's **"Before you start"** page and the overview's Time /
+  Sessions line.
+- `### Step NN.M — title` opens a step and runs to the next `###`/`##`. A `##` step heading is
+  accepted too — that is how the print-batch chapters are written — so no chapter needed
+  editing for this. Step ids stay globally unique: they are the progress key and the page name
+  (`04.2` → `steps/04-ab-drives/04-2/`, `06b.14` → `06b-14`, `B03.1` → `b03-1`).
+- `## Checkpoint NN` becomes a page of its own that ends the chapter (or the part — Ch 06 has
+  two). `## Common mistakes` and `## Next` ride on the last page.
+- Any other `##` is a **section**: its title becomes the breadcrumb on the steps beneath it. If
+  it carries body text and no steps follow before the next section or the Checkpoint (Ch 11's
+  ⛔ stop gate, Ch 13's "What if"), it becomes its own page rather than being dropped.
+- Headings inside fenced code (Ch 12's `printer.cfg`) are ignored.
+
+**What the generator does to a step block.** Images are hoisted to the top with the manual-page
+render first and the part renders and diagrams after; `Pause:` moves ahead of `Source:`, which
+goes last; `**Parts:**` becomes a compact list (split on `;`, then `·`). Everything else keeps
+source order, so Description → Parts → Do → Check → `⚠`/`Tip:` → `Pause:` → `Source:` falls out of the
+house style on its own. `(no image — …)` renders as a neutral placeholder. Every relative link
+is re-resolved for the new depth; `chapter.md#step-…` retargets that step's page and a bare
+`chapter.md` retargets that chapter's overview.
+
+**Navigation.** The sidebar lists chapter overviews only (`docs/manual/.nav.yml` — add a row when
+a chapter is added; `steps/.nav.yml` carries `hide: true`). Step pages are built and searchable
+but out of nav, and prev/next comes from the generated markup, never from nav order. Each overview
+links to the long chapter page ("Read the whole chapter on one page") and every long chapter page
+gets a banner back to its overview.
+
+**Progress** is keyed `chapter-slug` + `step id`, so one tick is the same tick on the step page,
+the overview grid and the long chapter page.

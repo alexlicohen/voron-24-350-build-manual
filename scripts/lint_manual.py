@@ -11,6 +11,9 @@ Checks, each a separate class of defect invisible to `mkdocs build --strict`:
      `.admonition` block (hooks/callouts.py missed it).
   2. `Step NN.M` / `Step BNN.M` references with no matching heading anywhere
      in the manual (a renamed or deleted step, dangling cross-reference).
+
+Everything under `docs/manual/steps/` is skipped: it is generated from the
+chapters by `scripts/build_steps.py` and carries no independent content.
   3. STL filenames that appear in an assembly-chapter parts table but in no
      print-batch table (docs/manual/print/B*.md) — the part would never get
      printed.
@@ -91,6 +94,8 @@ def check_raw_callouts():
         findings.append(f"SKIPPED (raw-callout check): {SITE} not found — run `mkdocs build` first")
         return findings
     for html_file in sorted(SITE.rglob("*.html")):
+        if (SITE / "manual" / "steps") in html_file.parents:
+            continue  # generated from chapters; the chapter page is checked
         parser = _OutsideAdmonitionText()
         parser.feed(html_file.read_text(encoding="utf-8", errors="replace"))
         text = "".join(parser.outside_text)
@@ -101,8 +106,18 @@ def check_raw_callouts():
     return findings
 
 
+# docs/manual/steps/ is generated from the chapters by scripts/build_steps.py
+# on every build; the chapters are the source of truth, so every lint below
+# runs on them and skips the generated tree.
+GENERATED = MANUAL / "steps"
+
+
+def _is_generated(path):
+    return GENERATED in path.parents
+
+
 def _all_manual_files():
-    return sorted(MANUAL.rglob("*.md"))
+    return sorted(f for f in MANUAL.rglob("*.md") if not _is_generated(f))
 
 
 def check_step_refs():
@@ -158,7 +173,7 @@ _HEADING_RE = re.compile(r"^#{1,6}\s+(.*)$")
 
 def check_table_width():
     findings = []
-    for f in sorted(DOCS.rglob("*.md")):
+    for f in sorted(f for f in DOCS.rglob("*.md") if not _is_generated(f)):
         under_exempt_heading = False
         for line_no, line in enumerate(f.read_text(encoding="utf-8").splitlines(), start=1):
             heading_m = _HEADING_RE.match(line)

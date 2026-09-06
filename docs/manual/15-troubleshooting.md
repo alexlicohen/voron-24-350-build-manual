@@ -217,7 +217,7 @@ If your symptom is not in the tables above, this manual does not have an answer 
 2. **Where you are** — the chapter and step number from this manual, plus the corresponding official manual page or LDO guide section from that step's `Source:` line. That turns "it binds" into a place on a drawing.
 3. **The config file name you actually loaded** — `leviathan-printer-rev-d-sbv2.cfg`, not `leviathan-printer-rev-d.cfg`. Say which, because it is the single most common wrong assumption in a Rev D+ thread.
 4. **`klippy.log`**, complete and unmodified. Klipper's own instruction: *"Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information."* It lives at `~/printer_data/logs/klippy.log`; zip it before attaching.
-5. **A photo**, from the build log you started at [Step 00.30](00-before-you-start.md#step-0030-start-the-build-log) — and for anything mechanical, one photo of the *working* side too.
+5. **A photo** of the assembly you are asking about — and for anything mechanical, one photo of the *working* side too.
 
 Source: [Ch 00 Step 00.31](00-before-you-start.md#step-0031-join-the-three-lifelines-now) · [Ch 00 Step 00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page) · [Klipper — Contact](https://www.klipper3d.org/Contact.html) · [Ch 12 Step 12.21](12-software.md#step-1221-download-the-correct-config-file)
 

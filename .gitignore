@@ -4,6 +4,8 @@ site/
 .playwright-mcp/
 __pycache__/
 *.pyc
+# generated on every build by scripts/build_steps.py from the chapters
+docs/manual/steps/
 # private: order history with address/phone/card digits, and the raw chat transcript
 context/
 # re-downloadable (pinned URL in README); too large for a public repo
