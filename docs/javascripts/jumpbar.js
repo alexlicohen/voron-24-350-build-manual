@@ -31,7 +31,7 @@
       var a = document.createElement('a');
       a.className = 'jump-bar__chip';
       a.href = '#' + h.id;
-      a.textContent = (h.textContent || '').trim();
+      a.textContent = (h.textContent || '').replace(/[\u00b6#]+\s*$/, '').trim();
       bar.appendChild(a);
       return { link: a, target: h };
     });
