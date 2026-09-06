@@ -4,7 +4,7 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 
 **What you're building in this chapter.** Five sub-assemblies turn an open frame into an enclosure. The **skirt ring** is the band of twelve printed segments around the base that hides and closes the electronics bay; built into it are the orange belt guards over the Z drive belts at the four corners, the two 60 × 20 mm bay fans — both in the right-hand fan support, beside the PSU — the keystone panel carrying the network socket, the already-wired AC inlet segment from Ch 09, and the **BTT TFT4.3 touchscreen module** that fills the centre-front position. The **bottom panel** is a door: VHB-bonded to two rear hinges and four clips, it unclips and swings down so the bay stays reachable through Ch 13. Four **Z belt covers** clip over the belts at the frame corners. The **Nevermore Micro V5 Duo** is a recirculating carbon filter built from a printed plenum, two 5015 blowers and a magnetic cartridge, mounted inside the chamber on the bed extrusions. Then the **panels** — back and top on 1 mm foam and 4 mm clips, both sides on 3 mm foam and 6 mm clips, the thicker foam holding the gantry clear — and the **Clicky-Clack door**, a framed acrylic panel on lift-off hinges with a magnetic handle and latch. Everything from the back panel onward waits until Ch 13 has run the machine with every face open.
 
-**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before first power-up) and **1.0–2.0 h for Part B** (after Ch 13).
+**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13).
 
 **Sessions:** 17 × ~30 min (12 in Part A, 5 in Part B; every minute figure in this chapter is a first-build estimate derived from the Time split and the step count).
 
@@ -12,12 +12,13 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 
 - **Ch 10 — Wiring**, complete, including LDO **Checkpoint #1** (multimeter, unplugged). This is a hard gate: once the skirts and bottom panel go on, the bay is closed and re-opening costs an hour (survey §5.2 W8).
 - **Ch 10** must also have finished LED routing and the extrusion covers — a skirt over an unrouted LED wire means the skirt comes off again (survey §5.2 W5).
+- **Ch 12 Part 2 complete** — [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) to Checkpoint 12: the bay powered once, both MCUs flashed, `printer.cfg` in. It runs with the bay **open**, before this part closes it; the touchscreen module (11.5–11.6) was already built from Ch 10 Step 10.50 and its panel proved at 12.11.
 - **Print batch B08** — skirts and front modules (6 plates, 29.2 h).
 - **Print batch B09** — panels, filtration, spool (5 plates, 21.8 h).
 - **Print batch B10** — Clicky-Clack door (1 plate, 5.7 h) + `Handle.stl` from **B02**.
 - **Print batch B02** — the orange accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
 - **Print batch B07** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
-- **Part B additionally requires Ch 13 — First power-up and initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
+- **Part B additionally requires Ch 13 — Initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
 
 **Tools**
 
@@ -153,7 +154,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 
 **Read first**
 
-- **Do not start until Checkpoint #1 has passed.** The skirt ring and bottom panel close the electronics bay. Reopening it costs an hour plus the safety risk of having skipped the check (survey §5.2 W8).
+- **Do not start until Checkpoint #1 has passed and Ch 12 Part 2 is done.** The skirt ring and bottom panel close the electronics bay, and 12.11–12.37 need it open. Reopening it costs an hour plus the safety risk of having skipped the check (survey §5.2 W8).
 - **Only Part A happens now.** The back, side and top panels and the door go on in **Part B, after Ch 13** — the startup wizard's motor, endstop and probe checks and the Ch 06b gantry-squaring pass all need the machine open on every face.
 - **The Clicky-Clack replaces the entire stock front-door assembly**, not the front skirt. `front_skirt_a_350` + the TFT module + `front_skirt_b_350` still go on. Manual p.245–249 are dead pages.
 - **The BTT 4.3" DSI touchscreen replaces the mini12864 module.** Manual p.211, p.214–216 and p.220–221 are dead pages; the mount STL lives in the **Trident** repo, not the Voron-2 repo. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
@@ -178,7 +179,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 
 ## Part A — before first power-up
 
-Everything in Part A is done with the machine open. Work through it, then stop at the marker before 11.52. Two runs are off-machine and can be done any time after their batch has printed — the Nevermore (11.26–11.41, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) — for instance while Ch 12 flashes images.
+Everything in Part A is done with the machine open and, in the build order, **after Ch 12 Part 2**: the boards were powered for the first time at Step 12.11 with the bay open, so "first power-up" here means Ch 13 — the first time the machine moves and heats (13.3). Work through it, then stop at the marker before 11.52. Three runs are off-machine: the touchscreen module (11.5–11.6) is built **from Ch 10 Step 10.50**, before its ribbon is latched; the Nevermore (11.26–11.41, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) can be done any time after their batch has printed — for instance while Ch 12 flashes images.
 
 ### Step 11.1 — Dry-fit the whole skirt ring
 
@@ -265,7 +266,7 @@ Pause: ~20 min since the last pause — every skirt segment dry-fitted and check
 
 **Parts:** `mount.stl` ×1 (black), `[a]_faceplate.stl` ×1 (orange), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2.
 
-**Do:** Press one heat-set insert into each of the two faceplate bosses in the mount. Offer the orange faceplate up to the mount and drive an M3×8 SHCS into each side. Snug only — you will loosen these again to seat the screen.
+**Do:** You arrive here from [Ch 10 Step 10.50](10-wiring.md#step-1050-dsi-ribbon-raspberry-pi-touchscreen), which needs the module built before the ribbon is latched — do 11.5 and 11.6 on the bench now, then go back to 10.50. Press one heat-set insert into each of the two faceplate bosses in the mount. Offer the orange faceplate up to the mount and drive an M3×8 SHCS into each side. Snug only — you will loosen these again to seat the screen.
 
 **Check:** Faceplate sits flush all round with no gap at the top edge; the screen aperture is square to the mount's top rail.
 
@@ -281,11 +282,13 @@ Source: [LDO BTT Pi TFT4.3 mount README](https://github.com/MotorDynamicsLab/LDO
 
 **What you're looking at:** The BTT Pi TFT43 is a 4.3" capacitive display that talks to the Raspberry Pi over one flat ribbon carrying both power and video, so there is no second cable. The photo is the back of the board: the white socket on its edge is where the ribbon seats, and the four corner holes are what the M2.5×6 screws take.
 
-**Parts:** 4.3" capacitive DSI display ×1, M2.5×6 screws ×4 (supplied in the BTT packaging).
+**Parts:** 4.3" capacitive DSI display ×1, FFC ribbon cable ×1, M2.5×6 screws ×4 (supplied in the BTT packaging).
 
-**Do:** Peel the screen's protective film only from the *back*; leave the front film on until the build is finished. Seat the screen in the mount with the FFC connector at the bottom edge and its blue pull-tab facing the rear of the printer, and fasten the four M2.5×6 screws finger-tight plus a nudge — they thread into plastic. The ribbon is already latched at the screen end from Ch 10 Step 10.50 and free at the other; route that free end out through the mount's cable slot before you tighten anything.
+**Do:** Peel the screen's protective film only from the *back*; leave the front film on until the build is finished. Seat the ribbon's **screen end** first: lift the socket's latch, slide the ribbon in with the **metal contacts facing up, blue tab at the back**, and press the latch down — once. Then seat the screen in the mount with the FFC connector at the bottom edge and its blue pull-tab facing the rear of the printer, pass the ribbon's free end out through the mount's cable slot, and fasten the four M2.5×6 screws finger-tight plus a nudge — they thread into plastic. Fold a piece of tape over the free end's bare contacts and take the module back to Ch 10 Step 10.50, which latches the Pi end.
 
-**Check:** Screen sits square in the faceplate aperture with an even bezel gap; the FFC exits cleanly with no kink or fold at the connector.
+**Check:** Screen-end latch closed evenly, ribbon square in the socket, metal to metal; the screen sits square in the faceplate aperture with an even bezel gap; the FFC exits the slot cleanly with no kink or fold at the connector.
+
+⚠ **Rev D+ / LDO:** *"Incorrect orientation of the FFC cables can result in damage to your Raspberry Pi and/or touchscreen."* An FFC has no polarity key — the metal contacts are the only clue, and each end is latched exactly once in this build. [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
 Source: [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide) · [LDO wiring photo PITFT43_FFC.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/PITFT43_FFC.jpg)
 
@@ -297,9 +300,9 @@ Source: [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_
 
 **What you're looking at:** The finished touchscreen module now becomes a skirt segment in its own right, filling the centre-front gap between the two front skirts. Its top rail has to line up flush with theirs or the front of the machine reads as three separate parts.
 
-**Parts:** the TFT module from 11.6, M3×8 SHCS ×3, M3 roll-in T-nut ×3.
+**Parts:** the TFT module built at 10.50 (11.5–11.6) — taped to the front extrusion since Ch 10, ribbon latched at both ends and proved at 12.11 — M3×8 SHCS ×3, M3 roll-in T-nut ×3.
 
-**Do:** The BTT module occupies exactly the ring position the manual gives the mini12864 on p.220 — centre-front, between `front_skirt_a_350` and `front_skirt_b_350`. Roll three M3 T-nuts into the front extrusion slot, slide the module into place between the two front skirts so the top rails line up flush, and drive three M3×8 SHCS into the T-nuts. Leave them snug so you can slide the module for final alignment once both front skirts are on.
+**Do:** The BTT module occupies exactly the ring position the manual gives the mini12864 on p.220 — centre-front, between `front_skirt_a_350` and `front_skirt_b_350`. Free the module from its tape and keep the ribbon's service loop slack in your other hand — it is connected at both ends, so nothing may pull on it. Roll three M3 T-nuts into the front extrusion slot, slide the module into place between the two front skirts so the top rails line up flush, and drive three M3×8 SHCS into the T-nuts. Leave them snug so you can slide the module for final alignment once both front skirts are on.
 
 **Check:** The module's top rail is flush and continuous with both front skirt rails; the screen is level; the gaps to `front_skirt_a` and `front_skirt_b` are equal.
 
@@ -314,19 +317,19 @@ Source: [Voron manual p.220](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.221](assets/manual-pages/manual-p221.png)
 ![LDO photo of the FFC ribbon at the Raspberry Pi DSI connector](assets/remote/11-skirts-panels-door/RPI_DSI_FFC.jpg)
 
-**What you're looking at:** The FFC is the one cable between screen and Pi, and it is not keyed — the bare contacts on one face are the only clue to orientation, and getting it wrong can destroy either end. The manual page shown wires two ribbon cables to an EXP1/EXP2 header this machine does not have; the LDO photo beside it is the Pi-side connector you are actually using.
+**What you're looking at:** The FFC is the one cable between screen and Pi, and it is not keyed — the bare contacts on one face are the only clue to orientation, and getting it wrong can destroy either end. It was routed and latched at both ends at Ch 10 Step 10.50, and the panel was proved at Ch 12 Step 12.11; with the module now bolted into the ring, this step is the walk along that run. The manual page shown wires two ribbon cables to an EXP1/EXP2 header this machine does not have; the LDO photo beside it is the Pi-side connector — the tie-breaker 10.50 sent you here to look at.
 
-**Parts:** FFC ribbon cable ×1 (supplied).
+**Parts:** none — the FFC ribbon cable ×1 (supplied) is already in.
 
-**Do:** The manual's p.221 wires two flat ribbon cables to EXP1/EXP2 on the controller — ignore it entirely. The single FFC is already latched at the screen (Ch 10 Step 10.50) and carries **both data and power**, so there is no second cable. Pull the tape off its free end and take it down through the deck opening to the Raspberry Pi's **DISPLAY** connector. **Orientation is not reversible and getting it wrong can destroy the Pi or the screen.** On the Pi 4B the metal contacts face **forward** — toward the front of the printer, as the Pi sits on the Leviathan — with the blue tab to the rear; the `RPI_DSI_FFC.jpg` photo beside this step is the tie-breaker, so match it rather than the words (verify on bench). Lift the connector's latch, slide the ribbon fully home, and close the latch — once. Leave a gentle service loop — no tight radius at either end.
+**Do:** The manual's p.221 wires two flat ribbon cables to EXP1/EXP2 on the controller — ignore it entirely. The single FFC carries **both data and power**, so there is no second cable, and both of its ends were latched once at 10.50 (screen end at 11.6, Pi end at the Pi's **DISPLAY** connector, metal contacts facing **forward** with the blue tab to the rear — the `RPI_DSI_FFC.jpg` photo). Follow the ribbon from the module down through the deck opening to the Pi and confirm nothing has changed: both latches still closed, a gentle service loop at each end, no tight radius, and the run clear of the front skirts you just fitted. Do **not** open a latch to look — if 12.11 showed the panel, the ribbon is right. If 10.50 had to leave the Pi end taped because the mount was not printed, connect it now exactly as 10.50 describes; the panel then gets its first look at Ch 13 Step 13.3.
 
 **Check:** Both latches closed with the ribbon square and fully seated; no exposed contacts outside either connector; the ribbon is not pinched by the skirt or trapped against an extrusion edge.
 
-⚠ **Rev D+ / LDO:** this is the wiring guide's *"Connecting the FFC Cable, Ethernet Cable, USB Cable and Frame PE"* step. Ch 10 Step 10.50 deliberately seated the screen end only and left the Pi end unlatched, so that the one connector that can kill a Pi or a screen is latched exactly once at each end. Screen rotation is a **Ch 12** software step, not a wiring one — Step 12.10, which uses the `/boot/firmware/cmdline.txt` `video=DSI-1:…rotate=` method. Do **not** use `display_lcd_rotate`: that is the legacy fake-KMS path and does nothing on MainsailOS 3.x. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+⚠ **Rev D+ / LDO:** this is the wiring guide's *"Connecting the FFC Cable, Ethernet Cable, USB Cable and Frame PE"* step — done at 10.50 in this build, so that the one connector that can kill a Pi or a screen is latched exactly once at each end and the panel is proved with the bay still open. Screen rotation is a **Ch 12** software step, not a wiring one — Step 12.10 writes it into `/boot/firmware/cmdline.txt` (`video=DSI-1:…rotate=`) and 12.11 proves it. Do **not** use `display_lcd_rotate`: that is the legacy fake-KMS path and does nothing on MainsailOS 3.x. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
 Source: [Voron manual p.221](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=221) · [LDO wiring guide § Setting up the touch screen](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#setting-up-the-touch-screen) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide) · [LDO wiring photo RPI_DSI_FFC.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/RPI_DSI_FFC.jpg)
 
-Pause: ~20 min since the last pause — the touchscreen module is a finished sub-assembly: screen in its mount, faceplate on, FFC routed and latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts.
+Pause: ~10 min since the last pause — the touchscreen module (built at 10.50) is bolted into the front of the ring, snug, and its FFC run checked end to end, latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts.
 
 ---
 
@@ -371,7 +374,7 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.228](assets/manual-pages/manual-p228.png)
 ![Fan grills a and b, side by side](assets/parts/pair-fan_grill_x2.png)
 
-**What you're looking at:** Each `side_fan_support` has **two** fan openings, and this kit has two fans, two retainers and four grills — so **both fans go in one support**, the right-hand one (seen from the front, the PSU side, where LDO's finished-bay photos show them), and the left support's two openings get grills only. At each populated opening the stack is, from outside in: orange grill → the support wall → the retainer from 11.3, with the fan captured inside the retainer's frame. Grills `a` and `b` are mirrored — the pair render shows both. Both fans must blow the same way, or they cancel each other and the bay gets no airflow at all.
+**What you're looking at:** Each `side_fan_support` has **two** fan openings, and this kit has two fans, two retainers and four grills — so **both fans go in one support**, the right-hand one (seen from the front, the PSU side, where LDO's finished-bay photos show them), and the left support's two openings get grills only. At each populated opening the stack is, from outside in: orange grill → the support wall → the retainer from 11.3, with the fan captured inside the retainer's frame (verify on bench: the retainer's inserts must sit within ~8 mm of the grill face for an M3×8 to reach them, so it is the part directly behind the wall — p.225 and p.228 show the fan behind the wall but not where the retainer sits). Grills `a` and `b` are mirrored — the pair render shows both. Both fans must blow the same way, or they cancel each other and the bay gets no airflow at all.
 
 **Parts:** 60×60×20 mm 24 V fan ×2, `side_fan_support` ×2, `[a]_fan_grill_a` ×2 / `[a]_fan_grill_b` ×2 (orange), `[a]_fan_grill_retainer` ×2 (from 11.3), M3×8 SHCS ×4 per fan (8 total).
 
@@ -452,9 +455,9 @@ Source: [Voron manual p.222–224](https://github.com/VoronDesign/Voron-2/blob/d
 
 **What you're looking at:** Each side run is three segments: `side_skirt_a` at the front, the fan support in the middle, `side_skirt_b` at the rear. The two skirts go on first and stay loose, because the fan support has to drop into the gap they leave. Start with the **right-hand** side (seen from the front) — the side that takes the support with both fans in it.
 
-**Parts:** `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, the right-hand fan support from 11.11 (two fans), M3×8 SHCS ×2, M5×10 BHCS ×1.
+**Parts:** `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, M3×8 SHCS ×2 — the right-hand fan support from 11.11 (two fans) waits for 11.16.
 
-**Do:** On the right-hand side, fit `side_skirt_a` at the front end and `side_skirt_b` at the rear, leaving the fan-support gap between them. Drive the M3×8 SHCS into the pre-loaded M3 T-nuts (p.227, top) and the M5×10 BHCS into the M5 T-nut. Keep everything snug, not tight — the fan module has to drop into the remaining gap next.
+**Do:** On the right-hand side, fit `side_skirt_a` at the front end and `side_skirt_b` at the rear, leaving the fan-support gap between them. Drive the M3×8 SHCS into the pre-loaded M3 T-nuts (p.227, top). The M5 T-nut between them stays **empty** — it is the fan support's, at 11.16. Keep everything snug, not tight — the fan module has to drop into the remaining gap next.
 
 **Check:** Both side segments hang parallel to the extrusion with the top rails level with the front and rear runs; the gap left for the fan module matches the module's width.
 
@@ -541,7 +544,7 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 
 **Parts:** `bottom_panel_clip_x4` ×4, `bottom_panel_hinge_x2` ×2, 3M VHB tape ×6 pads.
 
-**Do:** Wipe the pad face of all six printed parts with IPA and let it flash off. Cut six VHB pads to match the flat pad on each part, press one onto each, and leave the release liner on. VHB reaches most of its strength in the first hour and is effectively permanent — get the pad centred on the pad face the first time.
+**Do:** Put the printer on its side, as in Ch 10 Step 10.1 — the next step bonds a 469 mm panel to six pads from below and then swings it, and on its feet there is no room for either. Wipe the pad face of all six printed parts with IPA and let it flash off. Cut six VHB pads to match the flat pad on each part, press one onto each, and leave the release liner on. VHB reaches most of its strength in the first hour and is effectively permanent — get the pad centred on the pad face the first time.
 
 **Check:** Six parts, six pads, each centred with no overhang onto a curved face, liners still on.
 
@@ -560,7 +563,7 @@ Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Screw all six parts to the bottom frame extrusions in the positions p.233 shows — the two **hinges on the rear** extrusion, the four **clips** around the front and sides — with one M3×8 SHCS each into a T-nut. Peel the protective film off both faces of the bottom panel. Pull the release liners, offer the panel up square with the hinge edge at the rear, and press it home onto the VHB pads with firm even pressure across each pad. Leave it closed while the VHB cures.
 
-**Check:** Panel square to the frame with equal margins; no rock; every pad bonded with no visible gap. Once the VHB has had its hour: release the front clips and swing the panel down on its hinges once — it must clear the skirt ring and every duct must still be reachable — then close it again. The bay is closed from below, but nothing is on the wrong side of it.
+**Check:** Panel square to the frame with equal margins; no rock; every pad bonded with no visible gap. Once the VHB has had its hour, and with the machine still on its side (or lifted onto blocks — the feet leave no room): release the front clips and swing the panel down on its hinges once — it must clear the skirt ring and every duct must still be reachable — then close it again. The bay is closed from below, but nothing is on the wrong side of it.
 
 ⚠ **Rev D+ / LDO:** the bottom panel is the **4 mm** acrylic, not the 3 mm deck panel. If you are holding a 469×469 panel and cannot tell which is which, caliper it — 3 mm is the deck (fitted back in Ch 02), 4 mm is this one. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -941,7 +944,7 @@ Source: [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Source: [Voron manual p.259](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=259) · [Video: Part 9 @3:11:11](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11471s)
 
-Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Note the `fan_generic filter` config for Ch 12 before you close this session.
+Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it is there before you close this session.
 
 ---
 
@@ -1035,7 +1038,7 @@ Source: [KB3D Clicky-Clack install guide § Hinge & Handle Assembly](https://wik
 
 (no image — see [KB3D guide § Hinge & Handle Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod))
 
-**What you're looking at:** The `Panel_Clip` is an unusual part: it is both the door's catch and the middle side-panel clip for that side of the machine, so fitting it here means one clip fewer at step 11.57. The heat-set gives the latch a metal thread for the screw joining them.
+**What you're looking at:** The `Panel_Clip` is an unusual part: it is both the door's catch and the middle side-panel clip for that side of the machine — one of the eight clips 11.57 fits is displaced by this part at 11.63. The heat-set gives the latch a metal thread for the screw joining them.
 
 **Parts:** `Latch`, M3×5×4 heat-set insert ×1, `Panel_Clip`, M3×8 BHCS ×1.
 
@@ -1077,7 +1080,7 @@ Source: [Clicky-Clack mod README § Assembly](https://github.com/tanaes/whopping
 
 Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly)
 
-Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 12.
+Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.
 
 ---
 
@@ -1085,7 +1088,7 @@ Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and han
 
 **Everything above is done with the machine open. Do not fit the back, side or top panels or hang the door yet.**
 
-Go now to **Ch 12** (software), then **Ch 13** (first power-up and initial startup) — which includes the Ch 06b gantry-squaring pass and a QGL re-run. All of it needs the machine reachable from every face: `STEPPER_BUZZ` per motor, the XY endstop and homing checks, bed locating and the 0,0 point, `PROBE_ACCURACY`, dropping the Z joints and releasing the A/B tensioners for squaring.
+Ch 12 Part 2 (12.11–12.37) is already done — the boards were flashed and configured with the bay open, before this part closed it. Go now to **Ch 13** (initial startup) — which includes the Ch 06b gantry-squaring pass and a QGL re-run. All of it needs the machine reachable from every face: `STEPPER_BUZZ` per motor, the XY endstop and homing checks, bed locating and the 0,0 point, `PROBE_ACCURACY`, dropping the Z joints and releasing the A/B tensioners for squaring.
 
 Come back here at **11.52** once Ch 13's Finish page is done. The rest of this chapter is about 1.0–2.0 h.
 
@@ -1224,7 +1227,7 @@ Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** Repeat 11.57 on the **left-hand** side, the hinge side — all eight clips fully tight here; nothing on this panel gets replaced.
 
-**Check:** Both panels on; the gantry clears both through full travel; 6 mm clip stock is now exhausted — 8 corner and 8 midspan, nothing left over.
+**Check:** Both panels on; the gantry clears both through full travel; 6 mm clip stock is now all fitted — 8 corner and 8 midspan; one midspan comes back off at 11.63 as a spare when the latch's `Panel_Clip` displaces it.
 
 Source: [Voron manual p.242](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=242)
 
@@ -1379,9 +1382,9 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 
 ## Checkpoint 11
 
-**Part A — before you go to Ch 12**
+**Part A — before Ch 13**
 
-- [ ] Checkpoint #1 passed **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
+- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
 - [ ] All twelve skirt segments checked for rock on the flat reference; the ring is closed with flush, tight joints all round, and no mini12864 parts exist anywhere on the machine.
 - [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
 - [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support blanked with the two spare grills.
@@ -1408,4 +1411,4 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 
 ## Next
 
-Ch 12 — Software: Pi image, Klipper/Moonraker/Fluidd/KlipperScreen, firmware and `printer.cfg` — using `leviathan-printer-rev-d-sbv2.cfg`, with LDO's Nevermore `[heater_fan exhaust_fan]` replaced by `[fan_generic nevermore]` on the Leviathan's `PF9`. Then Ch 13, then back here for Part B.
+**Ch 13 — Initial startup**, on the machine Ch 12 already configured (`leviathan-printer-rev-d-sbv2.cfg`, with LDO's Nevermore `[heater_fan exhaust_fan]` replaced by `[fan_generic nevermore]` on the Leviathan's `PF9`); then back here for Part B.

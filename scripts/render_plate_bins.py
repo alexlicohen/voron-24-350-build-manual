@@ -194,13 +194,25 @@ class Canvas:
         t = f"<title>{html.escape(title)}</title>" if title else ""
         self.svg.append(f"<path {' '.join(attrs)}>{t}</path>" if t else f"<path {' '.join(attrs)}/>")
 
-    def text(self, x, y, s, size, colour=TEXT, bold=False, anchor="lt"):
-        """anchor: PIL-style two letters (l/m/r + t/m/b). y is the top for 't', middle for 'm'."""
+    def text(self, x, y, s, size, colour=TEXT, bold=False, anchor="lt", rotate=0):
+        """anchor: PIL-style two letters (l/m/r + t/m/b). y is the top for 't', middle for 'm'.
+        rotate=90 draws the text reading bottom-to-top, centred on (x, y) (anchor forced to mm)."""
         f = font(size * S, bold)
-        self.d.text((x * S, y * S), s, font=f, fill=colour, anchor=anchor)
         ta = {"l": "start", "m": "middle", "r": "end"}[anchor[0]]
         dy = {"t": size * 0.92, "m": size * 0.36, "b": 0}[anchor[1]]
         weight = ' font-weight="bold"' if bold else ""
+        if rotate:
+            b = self.d.textbbox((0, 0), s, font=f)
+            tmp = Image.new("RGBA", (b[2] - b[0] + 4, b[3] - b[1] + 4), (0, 0, 0, 0))
+            ImageDraw.Draw(tmp).text((2 - b[0], 2 - b[1]), s, font=f, fill=colour)
+            tmp = tmp.rotate(90, expand=True)
+            self.img.paste(tmp, (int(round(x * S - tmp.width / 2)), int(round(y * S - tmp.height / 2))), tmp)
+            dy = size * 0.36
+            self.svg.append(f'<text x="{x:.1f}" y="{y + dy:.1f}" font-size="{size}" fill="{colour}" '
+                            f'text-anchor="middle"{weight} transform="rotate(-90 {x:.1f} {y:.1f})">'
+                            f"{html.escape(s)}</text>")
+            return
+        self.d.text((x * S, y * S), s, font=f, fill=colour, anchor=anchor)
         self.svg.append(f'<text x="{x:.1f}" y="{y + dy:.1f}" font-size="{size}" fill="{colour}" '
                         f'text-anchor="{ta}"{weight}>{html.escape(s)}</text>')
 
@@ -208,6 +220,14 @@ class Canvas:
         out = self.img.resize((self.w, self.h), Image.LANCZOS)
         out.save(png, "PNG", optimize=True)
         svg.write_text("\n".join(self.svg + ["</svg>"]) + "\n", encoding="utf-8")
+
+
+def _clip(s: str, size: int, max_w: float) -> str:
+    if text_size(s, size)[0] <= max_w:
+        return s
+    while s and text_size(s + "…", size)[0] > max_w:
+        s = s[:-1]
+    return s.rstrip(" ·") + "…"
 
 
 def _signed_area(lp):
@@ -276,7 +296,17 @@ class Silhouette:
             if r > 400:
                 break
         bb = last.getbbox() or (0, 0, self.w, self.h)
-        return ((bb[0] + bb[2]) / 2 + self.ox, (bb[1] + bb[3]) / 2 + self.oy), r
+        cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
+        # the residue can be disconnected (a two-piece STL): take a set pixel nearest its centre
+        best, bx, by = None, cx, cy
+        px = last.load()
+        for y in range(bb[1], bb[3]):
+            for x in range(bb[0], bb[2]):
+                if px[x, y]:
+                    d = (x + 0.5 - cx) ** 2 + (y + 0.5 - cy) ** 2
+                    if best is None or d < best:
+                        best, bx, by = d, x + 0.5, y + 0.5
+        return (bx + self.ox, by + self.oy), r
 
     def rect_inside(self, mask: Image.Image, x, y, w, h) -> bool:
         """True if the 1x rect (canvas px) lies entirely on set pixels of `mask`."""
@@ -533,7 +563,7 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
 
     # labels: occupancy = every part footprint + the area outside the bed (+ a small overhang)
     occ = Image.new("L", (OUT_W, OUT_H), 255)
-    ImageDraw.Draw(occ).rectangle([BED_OX - 12, BED_OY - 8, BED_OX + BED_W + 12, BED_OY + BED_H + 8], fill=0)
+    ImageDraw.Draw(occ).rectangle([BED_OX - 20, BED_OY - 18, BED_OX + BED_W + 20, BED_OY + BED_H + 6], fill=0)
     for p in parts:
         occ.paste(p.sil.mask, (p.sil.ox, p.sil.oy), p.sil.mask)
     occ_d = ImageDraw.Draw(occ)
@@ -547,35 +577,56 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
         bw, bh = text_size(bid, b_size)
         block_w, block_h = max(nw, bw) + 8, nh + bh + 8
         cx, cy = p.sil.pole
+        x0, y0, _z0, x1, y1, _z1 = p.obj.bbox()
+        tall = (y1 - y0) > 1.25 * (x1 - x0)
         placed = False
-        # 1. whole block inside solid material
-        if p.sil.rect_inside(p.sil.mask, cx - block_w / 2, cy - block_h / 2, block_w, block_h):
-            cv.text(cx, cy - block_h / 2 + 2, num, n_size, tcol, bold=True, anchor="mt")
-            cv.text(cx, cy + block_h / 2 - bh - 3, bid, b_size, tcol, anchor="mt")
-            placed = True
+
+        def block(mask, rot: bool) -> bool:
+            w, h = (block_h, block_w) if rot else (block_w, block_h)
+            return p.sil.rect_inside(mask, cx - w / 2 - 1, cy - h / 2 - 1, w + 2, h + 2)
+
+        def draw_block(rot: bool, on_pill: bool) -> None:
+            if on_pill:
+                w, h = (block_h, block_w) if rot else (block_w, block_h)
+                cv.rect(cx - w / 2 - 1, cy - h / 2 - 1, w + 2, h + 2, fill="#ffffff", opacity=0.84, rx=3)
+            c = TEXT if on_pill else tcol
+            if rot:
+                cv.text(cx - block_h / 2 + 2 + nh / 2, cy, num, n_size, c, bold=True, rotate=90)
+                cv.text(cx + block_h / 2 - 3 - bh / 2, cy, bid, b_size, c, rotate=90)
+            else:
+                cv.text(cx, cy - block_h / 2 + 2, num, n_size, c, bold=True, anchor="mt")
+                cv.text(cx, cy + block_h / 2 - bh - 3, bid, b_size, c, anchor="mt")
+
+        # 1. whole block inside solid material (upright, or turned on a tall narrow part)
+        for rot in ((False, True) if not tall else (True, False)):
+            if block(p.sil.mask, rot):
+                draw_block(rot, False)
+                placed = True
+                break
         # 2. inside the outer contour but over holes/ribs: same, on a translucent pill
-        elif p.sil.rect_inside(p.sil.filled, cx - block_w / 2 - 2, cy - block_h / 2 - 2,
-                               block_w + 4, block_h + 4):
-            cv.rect(cx - block_w / 2 - 1, cy - block_h / 2 - 1, block_w + 2, block_h + 2,
-                    fill="#ffffff", opacity=0.82, rx=3)
-            cv.text(cx, cy - block_h / 2 + 2, num, n_size, TEXT, bold=True, anchor="mt")
-            cv.text(cx, cy + block_h / 2 - bh - 3, bid, b_size, TEXT, anchor="mt")
-            placed = True
+        if not placed:
+            for rot in ((False, True) if not tall else (True, False)):
+                if block(p.sil.filled, rot):
+                    draw_block(rot, True)
+                    placed = True
+                    break
         # 3. number inside, bin beside with a leader
-        elif p.sil.rect_inside(p.sil.filled, cx - nw / 2 - 2, cy - nh / 2 - 2, nw + 4, nh + 4):
+        if not placed and p.sil.rect_inside(p.sil.filled, cx - nw / 2 - 2, cy - nh / 2 - 2, nw + 4, nh + 4):
+            _outside_label(cv, occ, occ_d, p, [bid], b_size, col, leader_from=(cx, cy), dot=False)
             on_solid = p.sil.rect_inside(p.sil.mask, cx - nw / 2 - 1, cy - nh / 2 - 1, nw + 2, nh + 2)
-            if not on_solid:
-                cv.rect(cx - nw / 2 - 2, cy - nh / 2 - 1, nw + 4, nh + 2, fill="#ffffff", opacity=0.82, rx=2)
+            # the number sits on a pill so the leader visibly ends at it and never strikes it through
+            cv.rect(cx - nw / 2 - 3, cy - nh / 2 - 2, nw + 6, nh + 4,
+                    fill=(col if on_solid else "#ffffff"), opacity=(1.0 if on_solid else 0.9), rx=3)
             cv.text(cx, cy, num, n_size, tcol if on_solid else TEXT, bold=True, anchor="mm")
-            _outside_label(cv, occ, occ_d, p, [bid], b_size, col, leader_from=(cx, cy))
             placed = True
+        # 4. everything beside the part
         if not placed:
             _outside_label(cv, occ, occ_d, p, [f"#{num}", bid], b_size, col, leader_from=(cx, cy),
                            first_bold=True)
 
     # legend
     lx, ly = LEGEND_X, BED_OY
-    used_bins = list(OrderedDict.fromkeys(p.bin for p in sorted(parts, key=lambda p: p.number)))
+    used_bins = sorted({p.bin for p in parts}, key=lambda b: (list(bins.BINS).index(b) if b in bins.BINS else 99, b))
     cv.text(lx, PAD + 4, "Bins on this plate", 13, MUTED, bold=True)
     chip_x = lx
     chip_y = PAD + 24
@@ -605,7 +656,7 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
         detail = (f"{b} · {meta['label'].replace('`', '')} · {meta['chapter']} · {bin_steps_short(b)}"
                   if meta else f"{b} · NOT IN slicer/bins.py")
         if two_line:
-            cv.text(lx + 18 + gutter, ly + 16, detail, 11, MUTED)
+            cv.text(lx + 18 + gutter, ly + 16, _clip(detail, 11, LEGEND_W - 18 - gutter), 11, MUTED)
         else:
             cv.text(lx + 18 + gutter + text_size(label, 13, True)[0] + 8, ly + 1, f"→ {b}", 11, MUTED)
         ly += row_h
@@ -627,37 +678,65 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
     return warnings
 
 
-def _outside_label(cv: Canvas, occ: Image.Image, occ_d, p: Part, lines: list[str], size: int,
-                   col: str, leader_from: tuple[float, float], first_bold: bool = False) -> None:
-    """Put a small labelled box in free space near the part and draw a leader to it."""
+def _outside_label(cv: Canvas, occ: Image.Image, occ_d, p: Part, lines: list[str],
+                   size: int, col: str, leader_from: tuple[float, float], first_bold: bool = False,
+                   dot: bool = True) -> None:
+    """Put a small labelled box in free space near the part and draw a leader to it. Candidate
+    positions spiral out from the part on a 6 px grid, nearest first; the first free box whose
+    leader crosses no other part wins, else the nearest free box, else overlap (never drop)."""
     sizes = [text_size(t, size + (3 if first_bold and i == 0 else 0), first_bold and i == 0)
              for i, t in enumerate(lines)]
     w = max(s[0] for s in sizes) + 10
     h = sum(s[1] for s in sizes) + 6 + 3 * (len(lines) - 1)
-    sx0, sy0 = p.sil.ox + p.sil.margin, p.sil.oy + p.sil.margin
-    sx1, sy1 = p.sil.ox + p.sil.w - p.sil.margin, p.sil.oy + p.sil.h - p.sil.margin
     cx, cy = leader_from
+    occ_px = occ.load()
+    own = p.sil.mask.load()
+
+    def own_pixel(x: float, y: float) -> bool:
+        lx, ly = int(x - p.sil.ox), int(y - p.sil.oy)
+        return 0 <= lx < p.sil.w and 0 <= ly < p.sil.h and own[lx, ly] > 0
+
+    def leader_clear(bx: float, by: float) -> bool:
+        n = max(2, int(math.hypot(bx - cx, by - cy) / 2.5))
+        for i in range(n + 1):
+            x = cx + (bx - cx) * i / n
+            y = cy + (by - cy) * i / n
+            if 0 <= x < OUT_W and 0 <= y < OUT_H and occ_px[int(x), int(y)] and not own_pixel(x, y):
+                return False
+        return True
+
+    pitch, radius = 6, 260
     cands = []
-    for gap in (5, 12, 22, 34, 50, 70, 95):
-        cands += [
-            (sx1 + gap, cy - h / 2), (sx0 - gap - w, cy - h / 2),
-            (cx - w / 2, sy0 - gap - h), (cx - w / 2, sy1 + gap),
-            (sx1 + gap, sy0 - gap - h), (sx0 - gap - w, sy0 - gap - h),
-            (sx1 + gap, sy1 + gap), (sx0 - gap - w, sy1 + gap),
-        ]
-    for x, y in cands:
-        ix0, iy0, ix1, iy1 = int(x) - 2, int(y) - 2, int(math.ceil(x + w)) + 2, int(math.ceil(y + h)) + 2
+    for gy in range(-radius, radius + 1, pitch):
+        for gx in range(-radius, radius + 1, pitch):
+            d2 = gx * gx + gy * gy
+            if d2 <= radius * radius:
+                cands.append((d2, cx + gx - w / 2, cy + gy - h / 2))
+    cands.sort()
+    chosen = None
+    for _d2, x, y in cands:
+        ix0, iy0 = int(x) - 2, int(y) - 2
+        ix1, iy1 = int(math.ceil(x + w)) + 2, int(math.ceil(y + h)) + 2
         if ix0 < 0 or iy0 < 0 or ix1 > OUT_W or iy1 > OUT_H:
             continue
-        if occ.crop((ix0, iy0, ix1, iy1)).getbbox() is None:
+        if occ.crop((ix0, iy0, ix1, iy1)).getbbox() is not None:
+            continue
+        bx = min(max(cx, x), x + w)
+        by = min(max(cy, y), y + h)
+        if leader_clear(bx, by):
+            chosen = (x, y)
             break
-    else:
-        x, y = sx1 + 5, cy - h / 2   # nothing free: overlap rather than drop the label
-    # leader from the box edge nearest the anchor
+        if chosen is None:
+            chosen = (x, y)
+    if chosen is None:
+        sx1 = p.sil.ox + p.sil.w - p.sil.margin
+        chosen = (sx1 + 5, cy - h / 2)
+    x, y = chosen
     bx = min(max(cx, x), x + w)
     by = min(max(cy, y), y + h)
     cv.line(cx, cy, bx, by, LEADER, 1.2)
-    cv.circle(cx, cy, 2.2, LEADER)
+    if dot:
+        cv.circle(cx, cy, 2.2, LEADER)
     cv.rect(x, y, w, h, fill="#ffffff", stroke=col, width=1.4, rx=3, opacity=0.94)
     ty = y + 3
     for i, (t, (tw, th)) in enumerate(zip(lines, sizes)):

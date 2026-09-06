@@ -15,7 +15,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 07 — A/B belts.** Probe wires already dressed along the X extrusion (manual p.143).
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
 - **Ch 09 — Electronics bay.** DIN rails, wire ducts, Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
-- **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P3** (moved out of B08 — index correction #11). No plate of B08 is needed before Ch 11.
+- **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P3** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P6) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
 
 **Tools**
 
@@ -279,7 +279,7 @@ Pause: ~30 min since the last pause — inlet verified, plug panel confirmed on 
 
 ⚠ Rev D+ / LDO: *"The SSR connection is **critical**, an incorrect connection can cause catastrophic damage."* Nothing else in this chapter carries that warning. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v)
 
-Note: **how LDO tags its cables.** Every pre-made lead in the kit is tagged with its *destination* — the tag at each end names where the *other* end of that cable goes. So *SSR to Wago* reads **TO SSR** at the WAGO end, *24V PSU to MB* reads **TO MB** at the PSU end and **24V** at the board end, *24V power* reads **TO TOOLHEAD** at the PSU end and **24V IN** at the adapter end. Read the tag as "this cable is going to …", then check the connector type and the red/black polarity at both ends. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v)
+Note: **how LDO tags its cables.** Every pre-made lead in the kit is tagged, and the two kinds of tag say different things. A **TO …** tag names the *far* end's destination: **TO SSR** sits at the WAGO end of *SSR to Wago*; **TO MB**, **TO MB HV** and **TO TOOLHEAD** sit at the PSU ends of the board supply, the HV stepper supply and *24V power*. The other end of each of those carries the *rail name* it lands on — **24V**, **HV**, **24V IN**, **SSR SIG** — not a destination. Read a TO tag as "this cable is going to …", a rail tag as "this is the … rail", then check the connector type and the red/black polarity at both ends. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v)
 
 Note: the SSR body is also marked *EARTH THE MOUNTING RAIL*. LDO's build does not run a separate PE to the DIN rail. If your local rules require an earthed rail, that is a mains change — have it specified by whoever signs off your mains work.
 
@@ -457,7 +457,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 | From the C14 **L** pin to … | Expected |
 |---|---|
-| both ends of the fuse (pull the drawer, probe each cap, refit it) | beeps |
+| the fuse — drawer **in**: it sits between the L pin and every row below, so those rows prove it in circuit (10.5 proved L pin → brown through it). To read it alone: drawer out, probe cap to cap — beeps; `OL` is a blown fuse — then refit the drawer before the next row | beeps |
 | every occupied port of the L WAGO | beeps |
 | PSU screw **1 L** | beeps |
 | SSR **LOAD 2** | beeps |
@@ -545,7 +545,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 (no image — see text)
 
-**What you're looking at:** The only moment in this chapter when mains is present. The rocker lamp and the PSU's own indicator LED are the two observations that say the mains half of the machine works; ten seconds of looking, listening and smelling is the whole test. Nothing is measured live — the PSU's +V/−V screws share an uncovered block with live N and L, and its 24 V is read at the next powered step, not here.
+**What you're looking at:** The only moment in this chapter when mains is present. The rocker lamp and the PSU's own indicator LED are the two observations that say the mains half of the machine works; ten seconds of looking, listening and smelling is the whole test. Nothing is measured live — the PSU's +V/−V screws share an uncovered block with live N and L, and its 24 V is proved by the boards' LEDs at [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), never by a meter on a live block.
 
 **Who is in the room ([00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall)):** one adult, standing to the side, hand on the switch. Nobody else within reach of the machine; she is out of the room.
 
@@ -1067,11 +1067,11 @@ Source: [LDO Rev D photo S7 fan/LED mapping](https://raw.githubusercontent.com/M
 
 **What you're looking at:** The FFC is the flat flexible ribbon that carries the display signal (DSI) between the Raspberry Pi and the 4.3" touchscreen. It has no polarity key, so the bare metal contacts on one face are the only clue to which way round it goes; the dark bar at each socket is the latch that clamps it.
 
-**Parts:** FFC ribbon cable ×1, 4.3" capacitive DSI display ×1.
+**Parts:** FFC ribbon cable ×1, 4.3" capacitive DSI display ×1 — plus, for the module built in this step, `mount.stl` (B08-P6), `[a]_faceplate` (B02), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2 and the screen's four M2.5×6 screws (all counted in Ch 11's tables).
 
-**Do:** Seat the **screen end only**. At the BTT Pi TFT43, lift the socket's latch, slide the ribbon in with the **metal contacts facing up, blue tab at the back**, and press the latch down. Route the free end down through the deck toward the Pi and leave it **unlatched** — fold a piece of tape over its bare contacts. The Pi end is done once, at Ch 11 Step 11.8, after the screen is in its mount: 11.6 has to pass the ribbon through the mount's cable slot first, and an FFC latched and unlatched twice is how a Pi or a screen gets killed. Tape the screen loosely to the frame — it gets mounted with the front skirt in Ch 11.
+**Do:** Build the touchscreen module first, off-machine — [Ch 11 Step 11.5](11-skirts-panels-door.md#step-115-heat-set-and-face-the-btt-tft43-mount) (heat-set the mount, fit the faceplate) and [Step 11.6](11-skirts-panels-door.md#step-116-fit-the-btt-pi-tft43-screen-into-the-mount) (seat the ribbon's **screen end**, contacts up and blue tab to the back, then screw the screen into the mount with the ribbon leaving through the mount's cable slot) — and come back here with the module in one hand and the ribbon's free end in the other. The module has to exist first because the ribbon passes through that slot with a free end; that is why both ends are latched in this one step and never again. Take the free end down through the deck opening to the Raspberry Pi's **DISPLAY** connector: lift the latch, slide the ribbon in with the **metal contacts facing forward** — toward the front of the printer, as the Pi sits on the Leviathan — and the blue tab to the rear, and close the latch once. `RPI_DSI_FFC.jpg` beside Ch 11 Step 11.8 is the tie-breaker; match the photo rather than the words *(verify on bench)*. Leave a gentle service loop at both ends — no tight radius. Tape the finished module to the front extrusion where the ring will take it; it is bolted in at Ch 11 Step 11.7, after Ch 12 Part 2 has proved the panel at 12.11.
 
-**Check:** Screen-end latch closed evenly, ribbon square in the slot, no fold or crease, metal to metal. The Pi end is free, taped, and reaches the Pi's **DISPLAY** connector with a gentle loop to spare.
+**Check:** Both latches closed evenly, ribbon square in each socket, no fold or crease, no bare contacts showing outside either connector. The module hangs on its tape with the ribbon slack, and the loop through the deck is not against an extrusion edge. If the mount is not printed yet, seat the **screen end only**, tape the Pi end's bare contacts, and connect it at 11.8 instead — the panel then gets its first look at Ch 13 Step 13.3, not at 12.11.
 
 ⚠ Rev D+ / LDO: *"Incorrect orientation of the FFC cables can result in damage to your Raspberry Pi and/or touchscreen."* An FFC has no polarity key — the metal contacts are the only clue. [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
@@ -1127,7 +1127,7 @@ Source: [LDO Rev D photo VS8 Ethernet/USB wired](https://raw.githubusercontent.c
 
 Source: [LDO Rev D photo VS8 mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS8_mapping.jpg) · [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable and frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
 
-Pause: ~30 min since the last pause — bay fans, filter fan and LED strip on their Leviathan ports, DSI ribbon latched at the screen end only (the Pi end waits, taped, for Ch 11 Step 11.8), Ethernet and both USB links made. The umbilical is still unconnected at both ends.
+Pause: ~40 min since the last pause — bay fans, filter fan and LED strip on their Leviathan ports, the touchscreen module built (Ch 11 Steps 11.5–11.6, done from 10.50) with its DSI ribbon latched at both ends and taped to the front extrusion, Ethernet and both USB links made. The umbilical is still unconnected at both ends.
 
 ---
 
@@ -1224,13 +1224,13 @@ Source: [Nitehawk-SB-V2 repo `usb_adapter_gnd.jpg`](https://github.com/MotorDyna
 
 Detail photos: [toolboard ground routing](assets/remote/10-wiring/nitehawk-sb-v2-toolboard-ground-routing.jpg) · [USB-adapter ground point](assets/remote/10-wiring/nitehawk-sb-v2-usb-adapter-gnd.jpg)
 
-**What you're looking at:** [ESD](16-glossary.md#e) — electrostatic discharge — is the static that filament and moving belts build up, and it is what kills toolboards. The two supplied cables build one continuous path from the extruder motor body, through the toolboard and umbilical, to the USB adapter and out to the earthed frame.
+**What you're looking at:** [ESD](16-glossary.md#e) — electrostatic discharge — is the static that filament and moving belts build up, and it is what kills toolboards. The two supplied cables build one continuous path from the extruder motor body, through the toolboard and umbilical, to the USB adapter and out to the earthed frame. Three of the four lugs are already under screws — the toolhead cable at both ends ([08.43](08-toolhead.md#step-0843-bolt-the-nitehawk-sb-v2-to-the-clockwork-2), [08.53](08-toolhead.md#step-0853-land-the-ground-wires-motor-end-on-the-extruder-motor)) and the bay cable at the USB adapter ([09.25](09-electronics-bay.md#step-0925-confirm-the-usb-adapter-stack-and-clip-it)); the only connection left to make is the bay cable's frame end.
 
-**Parts:** the two **supplied** grounding cables (one short, toolhead; one long, bay).
+**Parts:** the long **supplied** grounding cable's free end (its ring terminal is already on the USB adapter from 09.25), M3 screw + serrated washer + T-nut for the frame end *(LDO does not name the fastener — verify on bench)*, multimeter.
 
-**Do:** LDO's scheme creates one continuous discharge path — *extruder motor body → toolboard ground → umbilical → USB adapter → frame → earth*:
-1. Toolhead: run the short grounding cable from the **toolboard's grounding point** to the **extruder motor body**. Bend the connector at an angle on the motor end so it clears the cable-chain anchor.
-2. Bay: run the long grounding cable from the **USB adapter PCB's exposed mounting point** (step 10.57) to the **printer frame** — on bare metal, the same rule as 10.16: its ring terminal under a screw with a serrated washer into a T-nut, anodising scraped under the washer (LDO does not name the fastener — verify on bench).
+**Do:** LDO's scheme is one continuous discharge path — *extruder motor body → toolboard ground → umbilical → USB adapter → frame → earth* — and Ch 08 Step 08.53 is its source of record; nothing is re-fitted here:
+1. Toolhead — confirm, do not redo: the short cable's ring lug is under the lower toolboard M3×8 (08.43) and its other end is on the extruder motor body, bent at an angle clear of the chain anchor (08.53). Both lugs under a screw head, neither merely resting on one.
+2. Bay — confirm the long cable's ring terminal is on the USB adapter PCB's exposed mounting point (09.25, the partial cover of 10.57), then **land its free end on the printer frame**: on bare metal, the same rule as 10.16 — ring terminal under a screw with a serrated washer into a T-nut, anodising scraped under the washer.
 
 **Check:** Two halves, because the umbilical that joins them is not mated until 10.67. Meter on Ω. Toolhead: extruder motor body → toolboard ground lug, **< 2–3 Ω**. Bay: USB-adapter ground lug → C14 earth pin, **< 2–3 Ω** (probe the lug, not the anodised extrusion). The end-to-end reading — motor body to C14 E — is the first line of 10.67's Check and a row in 10.77; it cannot pass yet and you should not chase it.
 
@@ -1240,7 +1240,7 @@ Detail photos: [toolboard ground routing](assets/remote/10-wiring/nitehawk-sb-v2
 
 Source: [Nitehawk-SB-V2 repo `grounding_scheme.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/grounding_scheme.jpg) · [Nitehawk-SB-V2 repo `toolboard_ground_routing.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/toolboard_ground_routing.jpg) · [Nitehawk-SB V2 doc § ESD hardening](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening)
 
-Pause: ~25 min since the last pause — the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover) and both ESD grounding cables fitted, each half continuity-checked (the end-to-end reading waits for 10.67). Toolhead is closed and the umbilical is still loose.
+Pause: ~25 min since the last pause — the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover), both ESD grounding cables confirmed and the bay cable landed on the frame, each half continuity-checked (the end-to-end reading waits for 10.67). Toolhead is closed and the umbilical is still loose.
 
 ---
 
@@ -1322,7 +1322,7 @@ Source: [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** Z chain bottom anchor (batch B05) ×1, M5 roll-in T-nut ×1, M5×10 BHCS ×1.
 
-**Do:** Drop the M5 T-nut into the slot of the horizontal extrusion the chain runs alongside on its way to the gantry — dry-fit first: with both chain ends fixed (10.62 and 10.64) and the gantry at mid-travel, hold the anchor's channel over the chain where it lies against an extrusion, and confirm the chain runs straight through it at both extremes of Z travel (verify on bench — p.203 gives the fastener, not the extrusion). Then lay the chain into the channel, seat the anchor on the T-nut and drive the M5×10 BHCS through.
+**Do:** Do this **after 10.64** — the dry-fit needs the chain fixed at both ends, and 10.64 fixes the upper one. Two extrusions are candidates for the anchor: the frame's **rear-bottom** extrusion, where the chain rises from the bay through the deck slot (the one p.203's front-view thumbnail projects onto, and the one the part's name suggests), or the **gantry's rear beam**. The dry-fit decides: with both chain ends fixed (10.62 and 10.64) and the gantry at mid-travel, hold the anchor's channel over the chain where it lies against each candidate, and keep the one where the chain runs straight through the channel at both extremes of Z travel (verify on bench — p.203 gives the fastener, not the extrusion). Then drop the M5 T-nut into that extrusion's slot, lay the chain into the channel, seat the anchor on the T-nut and drive the M5×10 BHCS through.
 
 **Check:** Run the gantry through full Z. The chain slides through the anchor without snagging at either extreme, the loop stays open at the bottom of travel, and nothing is stretched at the top.
 
@@ -1673,8 +1673,8 @@ Do not start Ch 11 until every line is ticked.
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Duct covers **off**, skirts **off**, bottom panel **off**; DSI ribbon latched at the screen end only, Pi end taped and waiting for Ch 11 Step 11.8 (10.50)
-- [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11
+- [ ] Duct covers **off**, skirts **off**, bottom panel **off**; touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
 
 ## Common mistakes
 
@@ -1689,4 +1689,4 @@ Do not start Ch 11 until every line is ticked.
 
 ## Next
 
-**Ch 11 — Skirts, panels, Clicky-Clack door, Nevermore and spool holder**, which closes the bay you just wired. Klipper configuration and the two remaining Rev D+ deviations — the `-sbv2` config file and the `stm32g0b1xx` USB ID — are Ch 12.
+**Ch 12 Part 2 — Step 12.11 onward** (the power-on gate, flashing both MCUs, `printer.cfg`), done with the bay you just wired **still open**; it carries the two remaining Rev D+ deviations — the `-sbv2` config file and the `stm32g0b1xx` USB ID. Then **Ch 11 Part A**, which closes the bay.

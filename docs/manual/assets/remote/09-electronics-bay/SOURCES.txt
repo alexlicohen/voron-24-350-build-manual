@@ -44,13 +44,7 @@ nozzle-probe-parts.jpg
   date    : 2026-09-05
   sha256  : 33ff2efe934c155f736bdb183e4f3a3e6333d3aa7defeae76d3e27decad884db
 
-nozzle-probe-pcb-fitted.jpg
-  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_1.jpg
-  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_install_1.jpg
-  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
-  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
-  date    : 2026-09-05
-  sha256  : ff0a386464ca710feda91e68243dfd673530e69d297a6f5e3c0d6d17d9eee6f6
+
 
 nozzle-probe-installed.jpg
   cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg
@@ -91,3 +85,12 @@ rpi4_installed_V1.3.jpg
   licence : mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image licensing") — attributed, non-commercial
   date    : 2026-09-05
   used-at : Step 09.23 (Pi 4B on the Leviathan with its 3/4 HAT power lead)
+
+nozzle-probe-pcb-fitting.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_3.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_install_3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-06
+  sha256  : 3bb8cfea9c03a9d239a243d46cdc2246479122731a5751c8ec11934af8837e53
+  used-at : Step 09.28 (the Z endstop PCB actually going onto the printed body)

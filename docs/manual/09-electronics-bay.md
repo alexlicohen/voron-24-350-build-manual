@@ -4,7 +4,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 **What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck, and five slotted **wire ducts** loop around them to carry the harness Ch 10 will lay in. On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too.
 
-**Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge with the inlet cut-out and the rear Z motors) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.
+**Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge the deck notch points to — 09.4 — with the A/B motors hanging from the gantry's rear corners above it) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.
 
 **Time:** 2.5–4.0 h hands-on, first build (survey §7.2).
 
@@ -58,7 +58,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
 | M3×30 SHCS | 2 | XY endstop pod to the gantry (manual p.164) — bagged with the pod by Ch 05 Step 05.46 `(verify against the bag)` |
 | M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
-| M2×10 self-tapping | 6+ | 4 DIN clips to Leviathan brackets, 2 Z endstop PCB, plus the USB adapter's DIN clip **(verify on bench)** — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
+| M2×10 self-tapping | 8 (LDO's bag holds 24) | 4 DIN clips to Leviathan brackets (09.20), 2 the USB adapter's DIN clip (09.25), 2 Z endstop PCB (09.28) — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
 | M3×5×4 heat-set insert | 2+ | 2 bed WAGO mount; inlet panel and mains WAGO mount **(verify on bench)** |
 | Meanwell LRS-200-24 PSU | 1 | 115/230 V selector switch on the side |
 | Omron G3NB-210B-1 SSR + metal DIN mount bracket | 1 + 1 | bracket is off-the-shelf metal; there is no printed SSR mount |
@@ -137,7 +137,7 @@ Source: [Voron manual p.149](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** M3 T-nut ×2.
 
-**Do:** Take the flex plate off and put it away, lay a folded blanket on the bench, and turn the printer onto its top with two people — a 350 with a gantry and a 10 mm plate in it is heavy and top-corner-fragile. Before the flip, run the gantry to the top of its travel by hand and strap each side to the top frame (a velcro strap or a zip tie through each Z joint), or clamp the four Z belts — inverted, an unpowered gantry with a toolhead on it back-drives toward the top frame. With the bay now facing up, stand at the printer's rear (left and right as defined at the top of this chapter) and drop two M3 roll-in T-nuts into the inner slot of the **rear lower extrusion**, where the inlet panel will sit — hard against the rear-left Z-motor mount (p.167) — and leave them loose.
+**Do:** Take the flex plate off and put it away, lay a folded blanket on the bench, and turn the printer onto its top with two people — a 350 with a gantry and a 10 mm plate in it is heavy and top-corner-fragile. Before the flip, run the gantry to the top of its travel by hand and strap each side to the top frame (a velcro strap or a zip tie through each Z joint), or clamp the four Z belts — inverted, an unpowered gantry with a toolhead on it back-drives toward the top frame. With the bay now facing up, stand at the printer's rear (left and right as defined at the top of this chapter) and drop two M3 roll-in T-nuts into the **rear lower extrusion**'s slot that now faces up — the extrusion's underside when the printer is upright, exactly where p.166 draws them, and the slot p.167's M3×8 come up through the panel's flange into. That is where the inlet panel will sit — hard against the rear-left Z-motor mount (p.167) — so leave the nuts loose.
 
 **Check:** Printer sits stable and level on its top; gantry strapped, no load on the motors or belts. Two M3 T-nuts free to slide in the rear extrusion slot.
 
@@ -563,11 +563,10 @@ Source: [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
 
 ### Step 09.26 — Clip the USB adapter to the front rail
 
-(no image — see text; position matches the right-hand end of the front rail in [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg))
 ![CAD render — clip the USB adapter to the front rail](assets/cad/09-26-a.png)
 ![CAD render — clip the USB adapter to the front rail, in place](assets/cad/09-26-b.png)
 
-**What you're looking at:** No picture; the position is read off LDO's placement photo instead. Right-hand end of the front rail, umbilical socket pointing at the spot where the drag chain drops into the bay — that gives the toolhead cable the shortest, straightest run and means nothing pulls sideways on the connector as the gantry moves. The two DIN rails that run across the electronics bay — the front one is the one nearer the door, and the adapter clips onto its right-hand end.
+**What you're looking at:** The CAD renders show the position; LDO's placement photo (09.22) is the reference. Right-hand end of the front rail, umbilical socket pointing at the spot where the drag chain drops into the bay — that gives the toolhead cable the shortest, straightest run and means nothing pulls sideways on the connector as the gantry moves. The two DIN rails that run across the electronics bay — the front one is the one nearer the door, and the adapter clips onto its right-hand end.
 
 **Parts:** USB adapter assembly from 09.25.
 
@@ -575,7 +574,7 @@ Source: [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
 
 **Check:** Adapter latched and square. Umbilical socket points at the chain entry, not at a wire duct. Ground lead reaches a frame extrusion with slack.
 
-⚠ **Rev D+ / LDO:** this is the Rev D+ ESD path: extruder motor body → toolboard → umbilical → USB adapter → **frame/earth**. Skipping the frame end leaves the chain broken, and LDO ships this hardware with no written procedure — treat the repo images as the spec and ask in `#ldo_motors` if anything is ambiguous. (survey §4.1 ⑤)
+⚠ **Rev D+ / LDO:** this is the Rev D+ ESD path: extruder motor body → toolboard → umbilical → USB adapter → **frame/earth**. Skipping the frame end leaves the chain broken. LDO's procedure is the board doc § ESD Hardening (Ch 08 Step 08.53); ask in `#ldo_motors` only if your hardware differs. (survey §4.1 ⑤)
 
 Tip: The CAD bay layout is the 250 machine's; the rails are shorter than yours, but front/rear and left/right are the same.
 
@@ -605,7 +604,7 @@ Source: [Voron manual p.158](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 09.28 — Fit the Z endstop PCB
 
 ![Voron manual p.160](assets/manual-pages/manual-p160.png) ·
-![LDO — Z endstop assembled](assets/remote/09-electronics-bay/nozzle-probe-pcb-fitted.jpg)
+![LDO — PCB going on with two HA2×10 through the switch](assets/remote/09-electronics-bay/nozzle-probe-pcb-fitting.jpg)
 
 **What you're looking at:** The Z endstop PCB is a small board carrying a D2F microswitch and a plug, so nothing here has to be soldered. Its plunger ends up directly under the shaft's bore: the shaft drops onto the plunger, the switch clicks, and Klipper reads that click as Z zero.
 
@@ -617,7 +616,7 @@ Source: [Voron manual p.158](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ⚠ **Rev D+ / LDO:** p.160 is titled *"ALTERNATE Z ENDSTOP"* in the manual — for this kit it is the only path. LDO: *"Use the LDO Z endstop printed part and PCB."* Note it is **two** screws through the switch, not the four the manual's render shows. There is nothing to solder — the PCB carries a connector. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
 
-Source: [Voron manual p.160](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=160) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_install_1.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_1.jpg)
+Source: [Voron manual p.160](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=160) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_install_3.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_3.jpg)
 
 ---
 
@@ -642,13 +641,13 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 09.30 — Mount the nozzle probe on the bed extrusion
 
 ![Voron manual p.161](assets/manual-pages/manual-p161.png) ·
-![LDO — Z endstop installed](assets/remote/09-electronics-bay/nozzle-probe-installed.jpg)
+![LDO — finished probe (bench); mounting is p.161](assets/remote/09-electronics-bay/nozzle-probe-installed.jpg)
 
-**What you're looking at:** There is no rear bed extrusion — the two bed extrusions run front-to-back (p.28). The probe bolts to the **side slot** of one of them, at its rear end just past the plate, with the pin standing beside the plate's rear edge so the toolhead can drive the nozzle onto it. p.161's 1.5 is the horizontal gap between pin and plate edge — the pin is struck by the nozzle, never by the plate. The printer stays on its head: the slot is reachable through the open rear of the frame.
+**What you're looking at:** There is no rear bed extrusion — the two bed extrusions run front-to-back (p.28). The probe bolts to the **side slot** of one of them, at its rear end just past the plate, with the pin standing beside the plate's rear edge so the toolhead can drive the nozzle onto it. p.161's 1.5 is the horizontal gap between pin and plate edge — the pin is struck by the nozzle, never by the plate. The printer stays on its head, so the extrusion's side face is right in front of you in the open bay. The pin rises through the deck panel's rear notch (09.4) — that notch is the one alignment landmark you can see from down here, and it fixes the position to within a few mm.
 
 **Parts:** nozzle probe assembly, M3×25 SHCS ×2, M3 T-nut ×2.
 
-**Do:** No flip. Reach in through the open rear of the inverted frame to the rear end of the bed extrusion on the Z-endstop side — p.161's overview draws it on the **right-hand** extrusion `(verify on bench — any spot beside the plate that the nozzle can reach works; Ch 13 measures the real X/Y for home_xy_position)`. Slide two M3 T-nuts into that extrusion's **side slot** past the rear edge of the plate, hold the probe body flat against the extrusion's side with the pin pointing the same way as the plate's print surface (down, while the printer is inverted), and fasten with M3×25 SHCS, snug. Slide the body along the extrusion — front/back, not sideways — until the pin is about **1.5 mm** clear of the plate's rear edge, per the p.161 detail. If 09.29 showed your shaft is not captive upside down, lift it out for this step and drop it back in the next time the printer is upright, before Ch 13 Step 13.24 needs it.
+**Do:** No flip. Working in the open bay, the extrusion's side face is right in front of you: go to the rear end of the bed extrusion on the Z-endstop side — p.161's overview draws it on the **right-hand** extrusion `(verify on bench — any spot beside the plate that the nozzle can reach works; Ch 13 measures the real X/Y for home_xy_position)`. Slide two M3 T-nuts into that extrusion's **side slot** past the rear edge of the plate, hold the probe body flat against the extrusion's side with the pin pointing the same way as the plate's print surface (down, while the printer is inverted), and fasten with M3×25 SHCS, snug. The pin has to come up through the deck's rear notch (09.4) — that sets the position to within a few mm; from there slide the body along the extrusion — front/back, not sideways — to fine-tune the pin to about **1.5 mm** clear of the plate's rear edge, per the p.161 detail. If 09.29 showed your shaft is not captive upside down, lift it out for this step, bag and label it `probe shaft — refit before 13.24`, and drop it back in the next time the printer is upright.
 
 **Check:** Sighting along the plate's rear edge, the pin clears it by ~1.5 mm and touches nothing. Push the pin toward the body: it clicks the switch and slides back out to its stop when you let go. Probe body square, screws snug, connector reachable for Ch 10.
 
@@ -684,7 +683,7 @@ Source: [Voron manual p.162](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The XY endstop PCB carries both the X and the Y limit switches — the switches that tell the machine where each axis physically ends, which is what gives `G28` a repeatable origin to home to. It bolts into the orange pod printed for Ch 05, and that pod is what puts the switches in the toolhead's and the frame's path.
 
-**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (orange, batch B02; fitted to the gantry in Ch 05), XY endstop PCB ×1, M3×8 SHCS ×2.
+**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (orange, B02-P3; bagged with its 2× M3×30 at Ch 05 Step 05.46 — fitted here, at 09.33), XY endstop PCB ×1, M3×8 SHCS ×2.
 
 **Do:** Follow the **left-hand** option only. Seat the XY endstop board on the pod so both switches face the directions the toolhead and the frame will hit them, and fasten with two M3×8 SHCS.
 
@@ -706,7 +705,7 @@ Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** pod assembly, M3×30 SHCS ×2 — the manual p.164 value, bagged by Ch 05 (Step 05.46) `(verify against the bag)`.
 
-**Do:** Hold the pod against the underside of the **right-hand XY joint** — facing up with the printer inverted — and drive two M3×30 SHCS through it into the joint's two free holes, the ones Ch 05 left empty. If Ch 05 already fitted the pod, this step is: drop the two screws, fit the PCB from 09.32, and put the screws back.
+**Do:** Hold the pod against the underside of the **right-hand XY joint** — facing up with the printer inverted — and drive two M3×30 SHCS through it into the joint's two free holes, the ones Ch 05 left empty.
 
 **Check:** Pod solid with no rotation. Run the gantry through its full X and Y travel by hand — the pod must not foul the frame, a Z rail, the drag chain or the toolhead anywhere except where it is meant to be triggered.
 
@@ -776,7 +775,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
-- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin ~1.5 mm clear of the plate's rear edge.
+- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin rising through the deck's rear notch and ~1.5 mm clear of the plate's rear edge. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted; the plate still lifts off the deck from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.

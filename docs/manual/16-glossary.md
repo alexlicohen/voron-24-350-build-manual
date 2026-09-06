@@ -87,7 +87,7 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 |---|---|---|
 | **Deck panel** | The acrylic floor of the chamber, above the electronics bay. Its thickness (3 or 4 mm) is disputed between LDO's own documents — caliper it | [02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness) |
 | **DFU** | STM32's built-in USB bootloader mode, entered with the RESET/BOOT0 buttons. The recovery route when Katapult has been overwritten | [12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) |
-| **DIN rail** | The standard 35 mm steel mounting rail. This bay has two, running **left to right** per LDO — not front-to-back as the manual draws | [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) |
+| **DIN rail** | The standard 35 mm steel mounting rail. This bay has two, running **left to right** across both bed extrusions, as manual p.29 and LDO both draw them | [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) |
 | **Drag chain** | The articulated plastic chain carrying cables to a moving part. Three here: X, Y and Z. Cables inside must stay **loose** | [10.59](10-wiring.md#step-1059-fit-the-x-drag-chain) |
 | **Drying** | Heating filament to drive out absorbed moisture. ASA needs it only if the spool has been open a while or shows bubbling | [print/00-slicer-setup — Drying](print/00-slicer-setup.md#drying) |
 

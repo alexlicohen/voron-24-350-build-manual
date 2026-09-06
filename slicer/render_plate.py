@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Draw the top-down plate preview committed to docs/manual/assets/plates/.
+"""SUPERSEDED (2026-09-06) by scripts/render_plate_bins.py, which draws the diagrams from the
+committed 3MF (true silhouettes, numbered, coloured by sorting bin). Kept for reference only;
+build_plates.py no longer calls it.
+
+Draw the top-down plate preview committed to docs/manual/assets/plates/.
 
 PrusaSlicer 2.9.6's CLI emits no thumbnails - the `thumbnails` setting reaches
 the G-code config block but no image data is written, in either ASCII or binary

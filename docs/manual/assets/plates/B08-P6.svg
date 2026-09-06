@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif">
+<title>Plate B08-P6 — sorting diagram</title>
+<rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
+<text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B08-P6</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">1 parts  ·  2.3 h  ·  26 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
+<rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
+<line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="564.0" y1="90.0" x2="564.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="744.0" y1="90.0" x2="744.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="702.0" x2="924.0" y2="702.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="522.0" x2="924.0" y2="522.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="342.0" x2="924.0" y2="342.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
+<text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
+<path d="M353.0,275.5 592.5,275.0 595.0,277.5 595.0,343.5 592.5,346.0 379.0,346.5 379.0,625.5 592.5,626.0 595.0,628.5 595.0,694.5 592.5,697.0 353.0,696.5 353.0,626.5 356.0,625.5 356.0,555.5 353.0,554.5 353.0,522.5 356.0,521.5 356.0,451.5 353.0,450.5 353.0,417.5 356.0,416.5 356.0,346.5 353.0,345.5Z M412.5,281.0 409.0,283.5 409.0,288.5 412.0,294.5 427.5,295.0 428.0,297.5 441.5,315.0 464.5,315.0 465.5,314.0 469.5,313.0 473.0,309.5 475.0,304.5 477.0,302.5 479.0,297.5 481.0,295.5 483.0,290.5 485.0,288.5 485.0,284.5 484.0,282.5 481.5,281.0Z M506.5,281.0 505.5,282.0 501.5,283.0 498.0,287.5 496.0,292.5 494.0,294.5 492.0,299.5 490.0,301.5 488.0,306.5 486.0,308.5 482.0,316.5 482.0,318.5 483.5,320.0 541.5,320.0 542.5,319.0 547.5,319.0 554.5,314.0 558.5,312.0 560.5,312.0 562.0,310.5 562.0,306.5 560.0,302.5 558.0,300.5 551.0,286.5 547.5,283.0 543.5,282.0 542.5,281.0Z M483.5,652.0 482.0,653.5 482.0,656.5 484.0,660.5 486.0,662.5 487.0,665.5 489.0,667.5 494.0,677.5 496.0,679.5 498.0,684.5 501.5,689.0 505.5,690.0 506.5,691.0 542.5,691.0 543.5,690.0 545.5,690.0 551.0,685.5 554.0,678.5 556.0,676.5 557.0,673.5 559.0,671.5 562.0,665.5 562.0,661.5 560.5,660.0 558.5,660.0 554.5,658.0 547.5,653.0 542.5,653.0 541.5,652.0Z M440.5,658.0 437.0,663.5 434.0,666.5 434.0,667.5 431.0,670.5 431.0,671.5 428.0,674.5 427.5,677.0 412.0,677.5 409.0,683.5 409.0,688.5 410.5,690.0 412.5,691.0 481.5,691.0 484.0,689.5 485.0,687.5 485.0,683.5 483.0,681.5 481.0,676.5 479.0,674.5 473.0,662.5 469.5,659.0 467.5,658.0Z" fill-rule="evenodd" fill="#5c6b73" stroke="#333b3f" stroke-width="1.0" stroke-linejoin="round"><title>#1 mount.stl → 11-skirts</title></path>
+<rect x="456.5" y="282.5" width="32.0" height="56.0" rx="3.0" fill="#ffffff" fill-opacity="0.84"/>
+<text x="465.5" y="316.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 465.5 310.5)">1</text>
+<text x="479.5" y="314.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 479.5 310.5)">11-skirts</text>
+<text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
+<rect x="950.0" y="48.0" width="65.0" height="18.0" rx="4.0" fill="#5c6b73"/>
+<text x="982.5" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">11-skirts</text>
+<text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#5c6b73"/>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
+<text x="983.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">mount.stl</text>
+<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-skirts · Skirt ring, keystone panel, TFT mount · Ch 11 · 11.1–11.17</text>
+<text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
+<text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B08-P6.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
+</svg>

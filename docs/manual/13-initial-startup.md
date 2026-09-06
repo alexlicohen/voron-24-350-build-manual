@@ -544,9 +544,9 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 ### Step 13.24 — Bed locating: line up the Z endstop and set the bed gap
 
-![LDO nozzle probe, installation](assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg)
+![LDO — the probe body in the hand with its PCB screwed on; not the machine](assets/remote/13-initial-startup/ldo-nozzle-probe-installation.jpg)
 
-**What you're looking at:** The photo is the nozzle probe as LDO mounts it. Two things have to line up: the shaft directly under the nozzle when the toolhead is parked there, and 2–3 mm of clearance between that shaft and the back edge of the build plate across the plate's whole range.
+**What you're looking at:** The photo is LDO's bench shot of the probe body itself — the part you are about to reposition — not how it sits on the extrusion; p.161 is the only mounting picture. Two things have to line up: the shaft directly under the nozzle when the toolhead is parked there, and 2–3 mm of clearance between that shaft and the back edge of the build plate across the plate's whole range.
 
 **Parts:** none — repositioning parts already fitted in Ch 09.
 

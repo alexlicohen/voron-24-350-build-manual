@@ -52,7 +52,7 @@ BINS: dict[str, dict[str, str]] = {
     "11-nevermore": dict(label="Nevermore plenum + cartridge, exhaust cover + grill", chapter="Ch 11", steps="11.26–11.40, 11.54", colour="#00695c"),
     "11-spool": dict(label="Spool holder + bowden retainer", chapter="Ch 11", steps="11.42–11.43", colour="#78909c"),
     "11-door": dict(label="Clicky-Clack door", chapter="Ch 11", steps="11.44–11.50, 11.62–11.64", colour="#ff7043"),
-    "spare-alt": dict(label="Spares / alternates (not fitted)", chapter="—", steps="Klicky set bagged at 08.54; USB base and PCB spacer are kit-supplied", colour="#bdbdbd"),
+    "spare-alt": dict(label="Spares / alternates (not fitted)", chapter="—", steps="not fitted (Klicky set bagged at 08.54)", colour="#bdbdbd"),
 }
 
 # ------------------------------------------------------ STL -> bin assignment

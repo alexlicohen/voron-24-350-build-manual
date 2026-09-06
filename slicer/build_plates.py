@@ -11,10 +11,20 @@ For each of the 27 plates in `plates.py`:
   6. draw the plate preview into docs/manual/assets/plates/<id>.png,
   7. write slicer/estimates.csv.
 
-    python3 slicer/build_plates.py                # all 27
+    python3 slicer/build_plates.py                # all 27: pack, write 3MFs, slice, record
     python3 slicer/build_plates.py B07-P2 B10-P1  # named plates only
+    python3 slicer/build_plates.py --from-3mf     # NO packing: re-slice the committed 3MFs as
+                                                  # they are (edited in the GUI or not), refresh
+                                                  # estimates.csv and redraw the diagrams
 
-Needs Pillow for the previews (`pip install -r slicer/requirements.txt`).
+`--from-3mf` is the normal mode once the plates exist: the committed 3MF is the source of
+truth for the arrangement, so a plate re-arranged in PrusaSlicer and saved keeps its numbers
+honest by running this, never by re-packing. The default (packing) mode rewrites the 3MFs
+from `plates.py` and loses any hand arrangement.
+
+Step 6, the diagram, is scripts/render_plate_bins.py (outlines read back from the 3MF, every
+part numbered and coloured by its sorting bin); it runs after the CSV is written.
+Needs Pillow for the diagrams (`pip install -r slicer/requirements.txt`).
 """
 from __future__ import annotations
 
@@ -31,12 +41,14 @@ from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
 from plates import MODEL_ESTIMATE, PLATES, brim_for, local_path
+from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parent
 STL = ROOT / "stl"
 OUT_3MF = ROOT / "plates"
 OUT_PNG = REPO / "docs" / "manual" / "assets" / "plates"
+RENDERER = REPO / "scripts" / "render_plate_bins.py"
 PRUSA = "/Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"
 INI = {"black": ROOT / "voron-coreone-asa.ini",
        "orange": ROOT / "voron-accent-orange.ini"}
@@ -183,6 +195,49 @@ def read_footer(gcode: Path) -> tuple[float, float, str, dict[str, str]]:
     return parse_time(t.group(1)), float(g.group(1)), t.group(1), cfg
 
 
+REQUIRED_CFG = (("perimeters", "4"), ("bottom_solid_layers", "5"),
+                ("fill_density", "40%"), ("xy_size_compensation", "0"),
+                ("filament_shrinkage_compensation_xy", "0%"),
+                ("filament_shrinkage_compensation_z", "0%"),
+                ("seam_position", "rear"), ("support_material", "0"))
+
+
+def slice_project(plate_id: str, project: Path, tmp: Path) -> tuple[float, float, str]:
+    """Slice a 3MF with **no** `--load` (proving it carries its own config), check the
+    overrides took, return (hours, grams, raw time string)."""
+    gcode = tmp / f"{plate_id}.gcode"
+    run([PRUSA, "--dont-arrange", "--binary-gcode=0",
+         "--export-gcode", "-o", str(gcode), str(project)])
+    hours, grams, raw_time, cfg = read_footer(gcode)
+    for key, want in REQUIRED_CFG:
+        if cfg.get(key) != want:
+            raise SystemExit(f"{plate_id}: sliced with {key} = {cfg.get(key)!r}, "
+                             f"expected {want!r} - the 3MF config did not take")
+    return hours, grams, raw_time
+
+
+def build_from_3mf(plate_id: str) -> dict:
+    """Re-slice the committed project as it is: no packing, no rewriting."""
+    spec = PLATES[plate_id]
+    dst = OUT_3MF / f"{plate_id}.3mf"
+    if not dst.exists():
+        raise SystemExit(f"{plate_id}: {dst} does not exist - run without --from-3mf to create it")
+    plate = read_plate(dst)
+    tmp = Path(tempfile.mkdtemp(prefix=f"plate-{plate_id}-"))
+    try:
+        hours, grams, raw_time = slice_project(plate_id, dst, tmp)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    brims = sorted({o.brim for o in plate.objects if o.brim > 0})
+    prev_h, prev_g = MODEL_ESTIMATE[plate_id]
+    return dict(plate=plate_id, batch=spec["batch"], colour=spec["colour"],
+                parts=len(plate.objects), hours=hours, grams=grams,
+                raw_time=raw_time, prev_hours=prev_h, prev_grams=prev_g,
+                d_hours=hours - prev_h, d_grams=grams - prev_g,
+                brim=(max(brims) if brims else 0.0),
+                size_kb=round(dst.stat().st_size / 1024))
+
+
 # ----------------------------------------------------------------- driver
 
 def build(plate_id: str) -> dict:
@@ -241,32 +296,12 @@ def build(plate_id: str) -> dict:
              "--export-3mf", "-o", str(dst), *inputs])
         inject_3mf(dst, ini, per_object, names)
 
-        gcode = tmp / f"{plate_id}.gcode"
         # deliberately no --load: this proves the committed 3MF is self-sufficient
-        run([PRUSA, "--dont-arrange", "--binary-gcode=0",
-             "--export-gcode", "-o", str(gcode), str(dst)])
-        hours, grams, raw_time, cfg = read_footer(gcode)
+        hours, grams, raw_time = slice_project(plate_id, dst, tmp)
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 
-    for key, want in (("perimeters", "4"), ("bottom_solid_layers", "5"),
-                      ("fill_density", "40%"), ("xy_size_compensation", "0"),
-                      ("filament_shrinkage_compensation_xy", "0%"),
-                      ("filament_shrinkage_compensation_z", "0%"),
-                      ("seam_position", "rear"), ("support_material", "0")):
-        if cfg.get(key) != want:
-            raise SystemExit(f"{plate_id}: sliced with {key} = {cfg.get(key)!r}, "
-                             f"expected {want!r} - the 3MF config did not take")
-
     brims = sorted({p.brim for p in pieces if p.brim})
-    brim_note = ("brim: " + ", ".join(f"{b:g} mm on "
-                 f"{len([p for p in pieces if p.brim == b])} part(s)" for b in brims)
-                 ) if brims else "no brim on this plate"
-
-    from render_plate import render
-    render(plate_id, colour, pieces, hours, grams, brim_note,
-           OUT_PNG / f"{plate_id}.png")
-
     prev_h, prev_g = MODEL_ESTIMATE[plate_id]
     return dict(plate=plate_id, batch=spec["batch"], colour=colour,
                 parts=len(pieces), hours=hours, grams=grams,
@@ -277,10 +312,12 @@ def build(plate_id: str) -> dict:
 
 
 def main() -> int:
-    wanted = sys.argv[1:] or list(PLATES)
+    args = sys.argv[1:]
+    from_3mf = "--from-3mf" in args
+    wanted = [a for a in args if not a.startswith("--")] or list(PLATES)
     rows = []
     for pid in wanted:
-        r = build(pid)
+        r = build_from_3mf(pid) if from_3mf else build(pid)
         rows.append(r)
         print(f"{r['plate']:8s} {r['parts']:2d} parts  {r['raw_time']:>12s}  "
               f"{r['grams']:6.1f} g   (was {r['prev_hours']:.1f} h / {r['prev_grams']} g, "
@@ -308,6 +345,10 @@ def main() -> int:
                         f"{th - ph:+.2f}", f"{tg - pg:+.1f}", "", ""])
         print(f"\nTOTAL {th:.1f} h / {tg:.0f} g   (model said {ph:.1f} h / {pg} g)")
         print(f"wrote {csv_path}")
+
+    # the sorting diagrams read the 3MF (outlines) and estimates.csv (hours, grams)
+    run([sys.executable, str(RENDERER), *wanted])
+    print(f"drew {len(wanted)} diagram(s) -> {OUT_PNG}")
     return 0
 
 

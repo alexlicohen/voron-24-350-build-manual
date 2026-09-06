@@ -89,7 +89,7 @@ Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, tool
 
 **Sources for this chapter**
 
-- [Stealthburner assembly manual](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=11), pinned commit `1bccf05` — pp. 11–32, 37–56, 64–67. The spine of this chapter: 48 of the 65 steps.
+- [Stealthburner assembly manual](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=11), pinned commit `1bccf05` — pp. 11–32, 37–56, 59, 64–67. The spine of this chapter: 48 of the 65 steps.
 - [Voron 2.4r2 assembly manual](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129), pinned commit `de7e89d` — pp. 129–130 (carriage prep), 144 (probe), 146–147 (the hand-off to and from the SB manual).
 - LDO Rev D wiring guide — [§ Wiring the Toolhead PCB](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb) and [§ Assembling the Nozzle Probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d).
 - [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — which parts LDO supplies printed and which are on the do-not-print list.
@@ -245,6 +245,7 @@ Source: [SB manual p.38](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Voron manual p.129](assets/manual-pages/manual-p129.png)
 ![Voron manual p.130](assets/manual-pages/manual-p130.png)
+![Stealthburner manual p.59 — carriage part prep: heat-set inserts and M3 hex nuts](assets/sb-pages/sb-p059.png)
 
 **What you're looking at:** The [X carriage](16-glossary.md#x) is the pair of printed halves clamped to the MGN12 carriage and to both belts in Ch 05/07 — the whole toolhead hangs off it. Nothing is fitted here: this is the verification that every insert, nut and belt clamp is already in, because a toolhead bolted over a missing insert comes off again.
 
@@ -256,7 +257,7 @@ Source: [SB manual p.38](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ⚠ Rev D+ / LDO: LDO Build Notes flag p.129–130 specifically — verify you have the **Clockwork 2** carriage (`x_frame_V2TR_MGN12_left/right`), not an older MGN9 or CW1 variant, and follow the Stealthburner manual for the carriage detail. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=130)
+Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=130) · [SB manual p.59](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=59)
 
 Pause: ~35 min since the last pause — all 16 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.
 
@@ -750,11 +751,11 @@ Source: [SB manual p.48](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.49](assets/sb-pages/sb-p049.png)
 ![Stealthburner manual p.50](assets/sb-pages/sb-p050.png)
 
-**What you're looking at:** The diffusers are the translucent panels that give Stealthburner its lit face. Pushed fully forward they sit flush with the front of the body; left back, they leave a shadow line and a gap that collects dust.
+**What you're looking at:** The diffusers are the translucent panels that give Stealthburner its lit face — the mask-and-diffuser sandwich and the LED carrier you stacked at 08.35, which the SB manual feeds into the body in two pieces. Pushed fully forward they sit flush with the front of the body; left back, they leave a shadow line and a gap that collects dust.
 
-**Parts:** the printed diffuser parts.
+**Parts:** the logo LED assembly from 08.35 (mask + diffuser, and the LED carrier).
 
-**Do:** Drop the diffuser parts into their slots from above and push them **towards the front** of the body until they stop.
+**Do:** Drop the mask-and-diffuser into the top slot and push it **towards the front** of the body until it fills the front window (p.49); drop the carrier with the LED in behind it (p.50). `(verify on bench which of p.49/p.50 is the mask+diffuser and which the carrier)`
 
 **Check:** Diffuser faces sit flush with the front of the body; no gap behind them.
 
@@ -946,7 +947,7 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 **Parts:** pancake stepper lead.
 
-**Do:** The `E MOTOR` port is a **JST-XH2.5 4-pin on the reverse side of the board**, pin order `B02 B01 A1 A2`. Plug the stepper in. This one connector did **not** change to PH2.0.
+**Do:** The `E MOTOR` port is a **JST-XH2.5 4-pin on the reverse side of the board**, pin order `B2 B1 A1 A2`. Plug the stepper in. This one connector did **not** change to PH2.0.
 
 **Check:** Plug fully home in the rear header. Never plug or unplug a stepper with the printer powered — back-EMF kills drivers.
 
@@ -1101,7 +1102,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![LDO nozzle-probe parts (© LDO Motors)](assets/remote/08-toolhead/z_stop_parts.jpg)
 
-![LDO nozzle-probe PCB fitted to its printed part (© LDO Motors)](assets/remote/08-toolhead/z_stop_install_1.jpg)
+![LDO's kit layout: collar and shaft already in the body, PCB and screws loose (© LDO Motors)](assets/remote/08-toolhead/z_stop_install_1.jpg)
 
 **What you're looking at:** The LDO [nozzle probe](16-glossary.md#n) is this kit's **Z endstop**, and it works differently from a bed probe: it is a sprung shaft on a microswitch, mounted on the *frame*, that the nozzle itself is driven down onto. That makes Z zero a measurement of the real nozzle tip, so changing a nozzle does not invalidate it. It is a frame part, not a toolhead part, so it is built once, at its mounting location, in **Ch 09 Steps 09.27–09.29** and bolted on at Step 09.30.
 
