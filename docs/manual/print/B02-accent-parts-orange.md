@@ -154,7 +154,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | Bag label | Parts |
 |---|---|
-| **Ch 02 — Z drives (orange)** | `[a]_z_drive_baseplate_a` ×2, `_b` ×2, `[a]_belt_tensioner_a` ×2, `_b` ×2, `[a]_z_tensioner_9mm` ×4 — they join B01's `a` / `b` bags by letter on kit day |
+| **Ch 02 — Z drives (orange)** | `[a]_z_drive_baseplate_a` ×2, `_b` ×2, `[a]_belt_tensioner_a` ×2, `_b` ×2, `[a]_z_tensioner_9mm` ×4 — write the letter on the inside face of each `_a` / `_b` part as it comes off the plate (Ch 02's corner map: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right); they join B01's `a` / `b` bags by letter on kit day |
 | **Ch 04 — A/B drives (orange)** | `[a]_cable_cover`, `[a]_tensioner_left`, `[a]_tensioner_right` |
 | **Ch 05 — Gantry (orange)** | `[a]_endstop_pod_D2F_switch`, both cable bridges, `[a]_z_chain_retainer_bracket` ×2 |
 | **Ch 06 — Z axis (orange)** | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4 |
@@ -179,7 +179,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Suppressing the SB main body's built-in supports in slicer instead of leaving them as designed.
 - Slicing the Ti-backer cable bridge standing up because it didn't auto-lay-flat.
 - Setting a global brim to "make sure" `Handle` gets one — it already has one; the global setting brims every grill on the plate.
-- Mixing up which fan grill/belt guard pair (`a` vs `b`) goes to which side — label immediately after print.
+- Mixing up which `a` / `b` part goes to which corner or side — letter every `_a` / `_b` part as it comes off the plate, before anything is bagged.
 - Skipping the full purge on the orange colour change and getting black-streaked accent parts.
 
 ## Next

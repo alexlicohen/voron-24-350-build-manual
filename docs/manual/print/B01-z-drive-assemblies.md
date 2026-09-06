@@ -115,7 +115,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 the motor mounts sit flush with no bulge.
 **Check:** All bearing seats pass; any that don't → reprint that part, don't proceed with a known-bad Z drive.
 
-Pause: ~15 min since the last pause — every bearing seat tested and the bearings pulled back out; nothing pressed for keeps yet. Do not seat inserts — Ch 02 Step 02.03 does that with the parts sorted.
+Pause: ~15 min since the last pause — every bearing seat tested and the bearings pulled back out; nothing pressed for keeps yet. Do not seat inserts — Ch 02 Step 02.04 does that with the parts sorted.
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
@@ -124,8 +124,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Do:** Everything on this batch feeds **Z Drives and Idlers** (Ch 02). Bin as **two `a` bags and two `b`
 bags** — the sets are mirrored, not identical: each bag = one `z_drive_main_?` + one `z_drive_retainer_?` +
 one `z_motor_mount_?` + one `z_tensioner_bracket_?` of the same letter (the B00 retainer is one of the two
-`a` retainers). Write the letter on the inside face of each part now — Ch 02 Step 02.01 asks for it. The
-four orange baseplates and tensioners from B02 join their letter's bag. Deck supports go in a separate bag
+`a` retainers). **Write the letter on the inside face of each part as it comes off the plate** — Ch 02
+Step 02.01 asks for it, and Ch 02's corner map is `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left
+and Z3 front-right. The four orange baseplates and tensioners from B02 join their letter's bag. Deck supports go in a separate bag
 labelled "deck panel — 3 mm clips; confirm against the calipered panel".
 **Check:** Two `a` sets and two `b` sets, letters marked, plus 8 deck supports, labelled and boxed.
 

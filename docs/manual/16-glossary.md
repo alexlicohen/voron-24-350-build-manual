@@ -225,7 +225,7 @@ Source: [Ch 12 Step 12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh
 | **Nitehawk-SB V2** | The Rev D+ toolboard: STM32G0B1, integrated ADXL345, PH2.0 connectors, keyed fan-adapter header, secondary USB port. The "+" in Rev D+ | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
 | **Nozzle probe** | LDO's mechanical Z endstop — a pin the nozzle presses. This, not the inductive probe, sets Z=0 | [09.27](09-electronics-bay.md#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body) |
 
-Source: [Ch 11 Step 11.26](11-skirts-panels-door.md#step-1126-break-out-the-nevermore-printed-supports) · [Ch 00 Step 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) · [Ch 08 Step 08.56](08-toolhead.md#step-0856-assemble-the-ldo-nozzle-probe-z-endstop)
+Source: [Ch 11 Step 11.26](11-skirts-panels-door.md#step-1126-break-out-the-nevermore-printed-supports) · [Ch 00 Step 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) · [Ch 09 Step 09.27](09-electronics-bay.md#step-0927-confirm-the-collar-in-the-ldo-nozzle-probe-body)
 
 ---
 
