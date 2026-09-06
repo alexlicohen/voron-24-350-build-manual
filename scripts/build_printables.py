@@ -186,7 +186,7 @@ def build_bin_labels_markdown(chapters):
         number = meta["chapter"].replace("Ch ", "") if meta["chapter"].startswith("Ch ") else None
         url, slug = _chapter_overview_url(number) if number else (None, None)
         if url is None:
-            url, slug = f"{_SITE_URL}manual/print/README/#bins", "print-README-bins"
+            url, slug = f"{_SITE_URL}manual/print/#bins", "print-README-bins"
         qr_rel = _write_qr(f"bin-{bin_id}", url)
         lines += _label_block(bin_id, meta, contents.get(bin_id, {}), qr_rel)
         lines.append('<div class="print-page-break"></div>')
