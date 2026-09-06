@@ -57,7 +57,7 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 | M5×30 BHCS | 4 | 2 per drive, upper frame → lower frame (p.73, p.77) |
 | M5×40 SHCS | 2 | 1 per front idler — the idler **axle**: first the stack-building aid, then refitted from the top through the tension arm into its M5 nut and clamped firm (p.65–66, p.69–70) |
 | M3×30 SHCS | 6 | 3 per motor (p.76, p.80) |
-| M3×40 SHCS | 2 | 1 per front idler — the belt **tensioner** screw, through the frame's side wall into the arm's heat-set insert (p.67, p.71); set with the belt on in Ch 07 Step 07.5 |
+| M3×40 SHCS | 2 | 1 per front idler — the belt **tensioner** screw, through the frame's front wall into the arm's heat-set insert (p.67, p.71); set with the belt on in Ch 07 Step 07.5 |
 | M3 washer | 2 | under each M3×40 head (p.67, p.71) |
 | Heat-set insert, brass, M3×5×4 | 4 | 2 in `a_drive_frame_upper`, 1 in each tension arm (p.64) |
 | M5 hex nut | 2 | 1 in each tension arm foot (p.64) |
