@@ -200,6 +200,11 @@ def pack(pieces: list[Piece], bed: tuple[float, float] = (BED_X, BED_Y)
     """Place every piece on the bed. Sets `rot`, `x`, `y` (the piece's own
     bounding-box origin, brim excluded) and returns (fits, [what didn't fit]).
 
+    Superseded by nest.pack (slicer/nest.py), which packs the real outlines and fits
+    appreciably more per plate; `_maxrects` below is still used, as one of the layouts
+    nest.py considers. Everything else here - read_stl, bbox, convex_hull,
+    rotated_extent, Piece - is shared by both.
+
     Each piece is inflated by its own brim plus half the clearance, so two
     neighbours end up `brim_i + brim_j + CLEARANCE` apart and a 5 mm-brimmed
     part does not push every other part on the plate away from it.

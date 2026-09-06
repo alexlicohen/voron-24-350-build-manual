@@ -16,6 +16,9 @@ For each of the 27 plates in `plates.py`:
     python3 slicer/build_plates.py --from-3mf     # NO packing: re-slice the committed 3MFs as
                                                   # they are (edited in the GUI or not), refresh
                                                   # estimates.csv and redraw the diagrams
+    python3 slicer/build_plates.py --nest B01-P1  # pack with slicer/nest.py (outlines) instead
+    python3 slicer/build_plates.py --out /tmp/x   # write the 3MF, PNG and CSV under /tmp/x
+                                                  # instead of the committed trees
 
 `--from-3mf` is the normal mode once the plates exist: the committed 3MF is the source of
 truth for the arrangement, so a plate re-arranged in PrusaSlicer and saved keeps its numbers
@@ -48,10 +51,17 @@ REPO = ROOT.parent
 STL = ROOT / "stl"
 OUT_3MF = ROOT / "plates"
 OUT_PNG = REPO / "docs" / "manual" / "assets" / "plates"
+ESTIMATES = ROOT / "estimates.csv"
 RENDERER = REPO / "scripts" / "render_plate_bins.py"
 PRUSA = "/Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"
 INI = {"black": ROOT / "voron-coreone-asa.ini",
        "orange": ROOT / "voron-accent-orange.ini"}
+
+# "geom" packs bounding boxes (geom.py), "nest" packs the real outlines (nest.py) and
+# fits appreciably more on a plate. `--nest` sets it for one run; this one line is the
+# permanent switch. nest.pack replaces build()'s bounding-box overlap assertion with a
+# stricter outline check of its own, so that assertion is skipped when it is in use.
+PACKER = "geom"
 
 _hull_cache: dict[str, tuple[list[tuple[float, float]], tuple]] = {}
 
@@ -254,7 +264,10 @@ def build(plate_id: str) -> dict:
             nm = base if qty == 1 else f"{base}#{i + 1}"
             pieces.append(Piece(rel, nm, hull, brim_for(path), bb[2]))
 
-    fits, overflow = pack(pieces)
+    packer = pack
+    if PACKER == "nest":
+        from nest import pack as packer  # noqa: F811
+    fits, overflow = packer(pieces)
     if not fits:
         raise SystemExit(
             f"PLATE {plate_id} DOES NOT FIT on {BED_X:.0f} x {BED_Y:.0f} mm.\n"
@@ -262,15 +275,17 @@ def build(plate_id: str) -> dict:
             "\n  Nothing was written for this plate. Re-pack the plate in the plan "
             "(docs/voron-print-plan.md §3) rather than scaling anything down.")
 
-    # belt-and-braces: the packer works on bounding boxes, so overlap is a bug
-    for i, a in enumerate(pieces):
-        ax0, ay0 = a.x, a.y
-        aw, ah = a.size()
-        for b in pieces[i + 1:]:
-            bw, bh = b.size()
-            if (ax0 < b.x + bw and b.x < ax0 + aw
-                    and ay0 < b.y + bh and b.y < ay0 + ah):
-                raise SystemExit(f"{plate_id}: {a.name} overlaps {b.name}")
+    # belt-and-braces: geom.pack works on bounding boxes, so an overlap is a bug there.
+    # nest.pack interleaves them deliberately and has already checked the outlines.
+    if PACKER != "nest":
+        for i, a in enumerate(pieces):
+            ax0, ay0 = a.x, a.y
+            aw, ah = a.size()
+            for b in pieces[i + 1:]:
+                bw, bh = b.size()
+                if (ax0 < b.x + bw and b.x < ax0 + aw
+                        and ay0 < b.y + bh and b.y < ay0 + ah):
+                    raise SystemExit(f"{plate_id}: {a.name} overlaps {b.name}")
 
     tmp = Path(tempfile.mkdtemp(prefix=f"plate-{plate_id}-"))
     try:
@@ -312,7 +327,25 @@ def build(plate_id: str) -> dict:
 
 
 def main() -> int:
-    args = sys.argv[1:]
+    global OUT_3MF, OUT_PNG, ESTIMATES, PACKER
+    argv, out_dir, i = sys.argv[1:], None, 0
+    args: list[str] = []
+    while i < len(argv):
+        if argv[i] == "--out":
+            out_dir, i = Path(argv[i + 1]), i + 2
+            continue
+        if argv[i].startswith("--out="):
+            out_dir = Path(argv[i].split("=", 1)[1])
+        else:
+            args.append(argv[i])
+        i += 1
+    if out_dir:
+        OUT_3MF = out_dir / "plates"
+        OUT_PNG = out_dir / "assets" / "plates"
+        ESTIMATES = out_dir / "estimates.csv"
+        OUT_PNG.mkdir(parents=True, exist_ok=True)
+    if "--nest" in args:
+        PACKER = "nest"
     from_3mf = "--from-3mf" in args
     wanted = [a for a in args if not a.startswith("--")] or list(PLATES)
     rows = []
@@ -323,8 +356,8 @@ def main() -> int:
               f"{r['grams']:6.1f} g   (was {r['prev_hours']:.1f} h / {r['prev_grams']} g, "
               f"{r['d_hours']:+.1f} h {r['d_grams']:+.1f} g)   {r['size_kb']} KB")
 
-    if len(rows) == len(PLATES):
-        csv_path = ROOT / "estimates.csv"
+    if len(rows) == len(PLATES) or out_dir:
+        csv_path = ESTIMATES
         with csv_path.open("w", newline="") as fh:
             w = csv.writer(fh)
             w.writerow(["plate", "batch", "colour", "parts", "raw_time", "hours", "grams",
@@ -347,7 +380,11 @@ def main() -> int:
         print(f"wrote {csv_path}")
 
     # the sorting diagrams read the 3MF (outlines) and estimates.csv (hours, grams)
-    run([sys.executable, str(RENDERER), *wanted])
+    cmd = [sys.executable, str(RENDERER), *wanted]
+    if out_dir:
+        cmd += ["--out", str(OUT_PNG), "--plate-dir", str(OUT_3MF),
+                "--estimates", str(ESTIMATES)]
+    run(cmd)
     print(f"drew {len(wanted)} diagram(s) -> {OUT_PNG}")
     return 0
 

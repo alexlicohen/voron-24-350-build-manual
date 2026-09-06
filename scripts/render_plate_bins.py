@@ -674,7 +674,12 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
     else:
         note = "no brim on this plate — the preview should show none"
     cv.text(BED_OX, fy, note, 11, MUTED)
-    cv.text(BED_OX, fy + 15, f"outlines from slicer/plates/{plate_id}.3mf (the committed project) · "
+    src = PLATE_DIR / f"{plate_id}.3mf"
+    try:
+        src_txt = f"{src.relative_to(REPO)} (the committed project)"
+    except ValueError:            # --plate-dir pointed somewhere else (a trial build)
+        src_txt = str(src)
+    cv.text(BED_OX, fy + 15, f"outlines from {src_txt} · "
             "scripts/render_plate_bins.py · bins: slicer/bins.py", 11, MUTED)
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -790,13 +795,19 @@ def write_manifest() -> None:
 
 
 def main() -> int:
+    global PLATE_DIR, ESTIMATES
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("plates", nargs="*", help="plate ids (default: every slicer/plates/*.3mf)")
     ap.add_argument("--markdown", action="store_true", help="print per-plate bin tables and exit")
     ap.add_argument("--write-manifest", action="store_true", help="write the `bin` column into MANIFEST.csv")
     ap.add_argument("--check", action="store_true", help="only verify 3MF contents against the plan and bins")
     ap.add_argument("--out", type=Path, default=OUT_DIR)
+    ap.add_argument("--plate-dir", type=Path, default=PLATE_DIR,
+                    help="where the <id>.3mf projects live (default slicer/plates)")
+    ap.add_argument("--estimates", type=Path, default=ESTIMATES,
+                    help="estimates.csv to read hours and grams from")
     a = ap.parse_args()
+    PLATE_DIR, ESTIMATES = a.plate_dir, a.estimates
 
     problems = bins.check([p.rsplit("/", 1)[-1] for pl in PLATES.values() for _r, p, _q in pl["parts"]])
     for pr in problems:
