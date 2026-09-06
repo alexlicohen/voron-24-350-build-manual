@@ -461,9 +461,10 @@ Pause: ~30 min since the last pause — all four Z belts routed, clamped, trimme
 
 ### Step 06.23 — Even the four belts by hand
 
-(no image — see text)
+![CAD render — the bolt that tensions one Z belt](assets/cad/06-23-a.png)
+![CAD render — the four Z belts you are evening up](assets/cad/06-23-b.png)
 
-**What you're looking at:** No picture — this one is done by ear. Plucking a belt and listening is a rough tension reading, and the four Z belts need to be close to equal or the gantry will not sit flat and QGL will not repeat. The real number (140 Hz over a measured 150 mm span) needs the gantry moving under power, so it waits for Part B.
+**What you're looking at:** No picture — this one is done by ear. Plucking a belt and listening is a rough tension reading, and the four Z belts need to be close to equal or the gantry will not sit flat and QGL will not repeat. The real number (140 Hz over a measured 150 mm span) needs the gantry moving under power, so it waits for Part B. The Z idler at the top of one upright, seen from underneath — the small bolt standing proud below it is the tensioner, and turning it changes that corner's belt tension. The four Z belts that hang the gantry, one down each upright — each runs from its drive at the bottom, up over the idler at the top, and back to the gantry corner.
 
 **Parts:** none.
 
@@ -471,7 +472,9 @@ Pause: ~30 min since the last pause — all four Z belts routed, clamped, trimme
 
 **Check:** All four belts sound within a semitone or so of each other. Lift one corner of the gantry by hand — all four carriages move together and the gantry stays roughly level.
 
-Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=121) · [Voron docs § Secondary printer tuning — A/B and Z belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
+Tip: The CAD idler height is the 250 machine's. There is one of these at each of the four corners either way.
+
+Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=121) · [Voron docs § Secondary printer tuning — A/B and Z belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 
@@ -667,9 +670,9 @@ Source: [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/
 
 ### Step 06b.7 — Take the side panels off
 
-(no image — see text)
+![CAD render — both side panels come off](assets/cad/06b-07-b.png)
 
-**What you're looking at:** Panels off, purely for access: the Z joints and the XY joints are reached from outside the frame.
+**What you're looking at:** Panels off, purely for access: the Z joints and the XY joints are reached from outside the frame. The two side panels of the enclosure, and behind them the four Z joints in the corners and the two XY joints on the gantry — the parts every step in Part B has to reach.
 
 **Parts:** none.
 
@@ -677,7 +680,7 @@ Source: [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/
 
 **Check:** Clear access to all four Z joints and both XY joints.
 
-Source: [Voron docs § V2 Gantry Squaring, step 6](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
+Source: [Voron docs § V2 Gantry Squaring, step 6](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 
@@ -790,9 +793,10 @@ Source: [Voron docs § V2 Gantry Squaring, step 10](https://docs.vorondesign.com
 
 ### Step 06b.13 — Reinstall the lower Z joints, lightly
 
-(no image — see text)
+![CAD render — the four M5x40 back in, light](assets/cad/06b-13-a.png)
+![CAD render — the four M5x40 back in, light, in place](assets/cad/06b-13-b.png)
 
-**What you're looking at:** The four M5×40 go back in, light again. Light because the de-racking and the QGL runs that follow both need the joints free to articulate; they get their one and only full tighten hot, at Step 06b.18.
+**What you're looking at:** The four M5×40 go back in, light again. Light because the de-racking and the QGL runs that follow both need the joints free to articulate; they get their one and only full tighten hot, at Step 06b.18. A Z joint at one corner — the lower block rides the Z rail carriage, the upper block sits under the gantry corner, and one M5x40 joins the two; left light, the pair can still pivot.
 
 **Parts:** M5×40 SHCS ×4.
 
@@ -800,15 +804,17 @@ Source: [Voron docs § V2 Gantry Squaring, step 10](https://docs.vorondesign.com
 
 **Check:** All four in. Each joint still articulates when you push the gantry corner sideways.
 
-Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
+Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 
 ### Step 06b.14 — De-rack the gantry, then tighten the X/Y joints
 
 ![Racking, and how to measure it](assets/diagrams/09-gantry-racking.svg)
+![CAD render — which bolts you tighten while holding the beam back](assets/cad/06b-14-a.png)
+![CAD render — which bolts you tighten while holding the beam back, in place](assets/cad/06b-14-b.png)
 
-**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram instead of a rectangle — QGL passes happily on a racked gantry and the parts come out skewed. Pushing the X extrusion hard against both drive units squares it against the only reference the machine has, and tightening the joints while it is held there locks it in. The diagram's de-racking half shows which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B joints and front idlers — and the one joint not to over-loosen: an X/Y joint that also carries a Z belt clamp.
+**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram instead of a rectangle — QGL passes happily on a racked gantry and the parts come out skewed. Pushing the X extrusion hard against both drive units squares it against the only reference the machine has, and tightening the joints while it is held there locks it in. The diagram's de-racking half shows which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B joints and front idlers — and the one joint not to over-loosen: an X/Y joint that also carries a Z belt clamp. The XY joint clamped to the end of the X beam: two bolts come down from the top of the beam and one comes up from underneath, and those are the ones you tighten while the beam is held hard back against both drive units. This same image also serves Step 06b.12 ("retighten everything except the X/Y joints") — it identifies exactly the bolts that step tells you to leave.
 
 **Parts:** none.
 
@@ -822,7 +828,7 @@ Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com
 
     Loosen the X/Y joint bolts and repeat — the extrusion crept while they came up. If racking persists after two attempts, the community fallback is to loosen each A/B belt's anchor at the X carriage until the belt slides through under a firm pull, pull both belts to equal tension with pliers while feeling the tooth engagement, then re-anchor. Described in the Voron forum's de-racking thread. Re-measure the four points from 06b.11 afterwards and confirm the same-side pair still agrees within 0.5 mm.
 
-Source: [Voron docs § V2 Gantry Squaring, step 12](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Nero3D — de-racking video](https://www.youtube.com/watch?v=cOn6u9kXvy0) · [Voron forum — de-racking thread](https://forum.vorondesign.com/threads/de-racking-again.1342/)
+Source: [Voron docs § V2 Gantry Squaring, step 12](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Nero3D — de-racking video](https://www.youtube.com/watch?v=cOn6u9kXvy0) · [Voron forum — de-racking thread](https://forum.vorondesign.com/threads/de-racking-again.1342/) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 

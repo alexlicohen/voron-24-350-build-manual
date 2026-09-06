@@ -246,8 +246,10 @@ Pause: ~25 min since the last pause — the first Z rail is centred, tightened c
 ### Step 02.09 — Install the remaining three Z rails
 
 ![Voron manual p.27](assets/manual-pages/manual-p027.png)
+![CAD render — which face each Z rail is actually mounted on](assets/cad/02-09-a.png)
+![CAD render — which face each Z rail is actually mounted on, in place](assets/cad/02-09-b.png)
 
-**What you're looking at:** Manual p.27 — all four Z rails on their verticals. Read the graphic for the mounting face, not the pairing: in the official CAD every Z rail sits on a face whose normal points along ±Y, so the two left-hand rails face each other across the machine's depth and the two right-hand rails do the same. All four carriages therefore travel in the same two planes the gantry's Z joints need.
+**What you're looking at:** Manual p.27 — all four Z rails on their verticals. Read the graphic for the mounting face, not the pairing: in the official CAD every Z rail sits on a face whose normal points along ±Y, so the two left-hand rails face each other across the machine's depth and the two right-hand rails do the same. All four carriages therefore travel in the same two planes the gantry's Z joints need. The four Z rails seen from above: each rail sits on a face whose normal points along Y, so the left pair faces each other front-to-back and the right pair does the same — the two front rails are parallel, not opposed.
 
 **Parts:** MGN9H 400 mm rails ×3; M3×8 SHCS ×~30; M3 roll-in T-nut ×~30.
 
@@ -257,14 +259,17 @@ Pause: ~25 min since the last pause — the first Z rail is centred, tightened c
 
 ⚠ Manual p.27 says only *"make sure the rails face each other as shown in the graphic"* and leaves the pairing to the drawing. An earlier revision of this step read it as front-left facing front-**right**; the official CAD at the pinned commit `de7e89d` says otherwise — every Z rail's mounting face is normal to ±Y, with the two rear rails facing forward (rail at y ≈ 345.5–352 on verticals at y ≈ 352–372) and the two front rails facing rearward (rail at y ≈ −18 to −11.5 on verticals at y ≈ −38 to −18). Corrected 2026-09-05. [src](assets/cad/PILOT.md)
 
-Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=27) · [CAD-render pilot §8 — Z rail orientation](assets/cad/PILOT.md) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip)
+Tip: The CAD is the 250 mm machine — its rails are MGN9 300 mm on 430 mm verticals. Yours are MGN9H 400 mm on the 350 verticals; which face the rail is on does not change with size.
+
+Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=27) · [CAD-render pilot §8 — Z rail orientation](assets/cad/PILOT.md) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ### Step 02.10 — Optional: fit the LDO rail stops at the top of each Z rail
 
 ![Step 02.10 — LDO rail stop at the top of a Z rail (CAD render; the stop itself is LDO's part and is drawn as a labelled placeholder)](assets/cad/02-10-b.png)
 ![](assets/parts/z_rail_stop_x4.png){ width=96 }
+![CAD render — LDO rail stop at the top of a Z rail](assets/cad/02-10-a.png)
 
-**What you're looking at:** The CAD render shows the top of one Z rail with its carriage and the LDO **rail stop** — a small printed clip that caps the rail's top end so a carriage cannot run off it during the gantry install in Ch 06. The stop itself is not in the Voron CAD (it is LDO's part), so the renderer draws it as a labelled placeholder; the grey render beside it is the actual STL.
+**What you're looking at:** The CAD render shows the top of one Z rail with its carriage and the LDO **rail stop** — a small printed clip that caps the rail's top end so a carriage cannot run off it during the gantry install in Ch 06. The stop itself is not in the Voron CAD (it is LDO's part), so the renderer draws it as a labelled placeholder; the grey render beside it is the actual STL. The top of one Z rail where it stops short of the vertical extrusion's end — that free length is where the printed stop clips on, and the carriage below it is the thing the stop keeps captive.
 
 **Parts:** `z_rail_stop_x4.stl` ×4 (LDO repo, black) — printed in batch **B05**, which comes *after* this chapter in the timeline.
 
@@ -274,7 +279,9 @@ Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Tip: LDO also uses a rubber rail stopper under the Z joints as a gantry rest at manual p.114–116. That is Chapter 06 — do not confuse the two. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [CAD render — assets/cad/PILOT.md](assets/cad/PILOT.md) · [Video: Part 4 @1:27:15](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5235s)
+Tip: The CAD rail is MGN9 300 mm on a 430 mm vertical (250), leaving ~107 mm of bare extrusion above the rail. Your 400 mm rail on the 350 vertical leaves a different length — the stop clips to the rail end, not to a dimension.
+
+Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [CAD render — assets/cad/PILOT.md](assets/cad/PILOT.md) · [Video: Part 4 @1:27:15](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5235s) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~35 min since the last pause — all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.
 

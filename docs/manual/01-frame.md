@@ -297,9 +297,9 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.15 — Check the frame sits without rock
 
-*(no image — see text)*
+![CAD render — the frame on the reference surface](assets/cad/01-15-a.png)
 
-**What you're looking at:** The finished, torqued frame standing on the reference surface. All four bottom corners should touch it at once; a frame that rocks between two diagonal corners is twisted, and every axis bolted to it afterwards inherits that twist.
+**What you're looking at:** The finished, torqued frame standing on the reference surface. All four bottom corners should touch it at once; a frame that rocks between two diagonal corners is twisted, and every axis bolted to it afterwards inherits that twist. The finished frame standing on the stone - the four bottom corners are the only things that should touch it, and the four top corners are where you press to find a rock.
 
 **Parts:** none.
 
@@ -309,7 +309,9 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Torque note: the manual specifies **no** torque value for these M5 blind joints. Tighten firmly with the 4 mm hex. If you use the torque screwdriver, pick one setting and apply it identically to all 16 joints — consistency matters more here than any particular number. `(not specified — snug, then even)`
 
-Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15)
+Tip: The CAD is the 250 mm machine — its frame is 370 mm horizontals on 430 mm verticals. Yours is the 350 set; the contact geometry is the same.
+
+Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~65 min since the last pause — the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.
 

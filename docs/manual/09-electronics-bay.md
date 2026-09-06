@@ -562,8 +562,10 @@ Source: [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
 ### Step 09.26 — Clip the USB adapter to the front rail
 
 (no image — see text; position matches the right-hand end of the front rail in [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg))
+![CAD render — clip the USB adapter to the front rail](assets/cad/09-26-a.png)
+![CAD render — clip the USB adapter to the front rail, in place](assets/cad/09-26-b.png)
 
-**What you're looking at:** No picture; the position is read off LDO's placement photo instead. Right-hand end of the front rail, umbilical socket pointing at the spot where the drag chain drops into the bay — that gives the toolhead cable the shortest, straightest run and means nothing pulls sideways on the connector as the gantry moves.
+**What you're looking at:** No picture; the position is read off LDO's placement photo instead. Right-hand end of the front rail, umbilical socket pointing at the spot where the drag chain drops into the bay — that gives the toolhead cable the shortest, straightest run and means nothing pulls sideways on the connector as the gantry moves. The two DIN rails that run across the electronics bay — the front one is the one nearer the door, and the adapter clips onto its right-hand end.
 
 **Parts:** USB adapter assembly from 09.25.
 
@@ -573,7 +575,9 @@ Source: [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
 
 ⚠ **Rev D+ / LDO:** this is the Rev D+ ESD path: extruder motor body → toolboard → umbilical → USB adapter → **frame/earth**. Skipping the frame end leaves the chain broken, and LDO ships this hardware with no written procedure — treat the repo images as the spec and ask in `#ldo_motors` if anything is ambiguous. (survey §4.1 ⑤)
 
-Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · image [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg)
+Tip: The CAD bay layout is the 250 machine's; the rails are shorter than yours, but front/rear and left/right are the same.
+
+Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · image [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 

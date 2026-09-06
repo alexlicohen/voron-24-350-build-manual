@@ -528,9 +528,10 @@ Source: [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 07.30 — Set the 150 mm measuring span
 
-(no image — see text)
+![CAD render — the two centres the 150 mm is measured between](assets/cad/07-30-a.png)
+![CAD render — the two centres the 150 mm is measured between, in place](assets/cad/07-30-b.png)
 
-**What you're looking at:** No picture — this is a measurement, not an operation. A plucked belt's pitch depends on the length of the span, so a tension figure only means anything with its span stated: 150 mm centre-to-centre between the XY joint idler and the front idler is the span Voron's number is quoted for.
+**What you're looking at:** No picture — this is a measurement, not an operation. A plucked belt's pitch depends on the length of the span, so a tension figure only means anything with its span stated: 150 mm centre-to-centre between the XY joint idler and the front idler is the span Voron's number is quoted for. The two idlers a belt runs between on each side — one in the XY joint at the back of the Y beam, one in the front idler block — and the free length of belt between them that you pluck.
 
 **Parts:** none.
 
@@ -538,7 +539,9 @@ Source: [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** 150 mm on the left and 150 mm on the right, measured to the same features.
 
-Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Voron manual p.141](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141) · [Video: Part 6 @0:10:08](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=608s)
+Tip: The 150 mm is set by moving the gantry, and the CAD shows a parked 250 machine, not the measuring pose. Take which two centres from the picture, take the number from the rule.
+
+Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Voron manual p.141](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=141) · [Video: Part 6 @0:10:08](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=608s) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ### Step 07.31 — Read both belts with the phone
 
@@ -670,15 +673,18 @@ Source: [Voron manual p.145](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 07.39 — Fit the A/B drive cable cover
 
-(no image — see text)
+![CAD render — the A/B drive cable cover](assets/cad/07-39-a.png)
+![CAD render — the A/B drive cable cover, in place](assets/cad/07-39-b.png)
 
-**What you're looking at:** The `[a]_cable_cover` is the orange shroud that tidies the A/B motor leads where they leave a drive unit. The official manual has no page for it — it goes on now purely because the rear of the gantry is still open and easy to reach.
+**What you're looking at:** The `[a]_cable_cover` is the orange shroud that tidies the A/B motor leads where they leave a drive unit. The official manual has no page for it — it goes on now purely because the rear of the gantry is still open and easy to reach. The printed cable cover that clips over the cable exit on a drive unit, and the two belts running past it that it must never touch.
 
 **Parts:** `[a]_cable_cover` ×1.
 
 **Do:** Clip the accent cable cover onto the drive-unit cable exit now, while the rear of the gantry is still open and reachable. The official manual has no page for this part; if the A/B motor leads are not yet dressed, leave it off and fit it during the gantry cable routing in Ch 10 instead. ([`Gantry/AB_Drive_Units/[a]_cable_cover.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units), print batch B02)
 
 **Check:** The cover does not touch either belt at any point of travel — re-run the Step 07.29 rub inspection at that drive unit after fitting it.
+
+Source: CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 

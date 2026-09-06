@@ -78,6 +78,15 @@ same cache + same arguments ⇒ byte-identical PNG.
 - **Clipping the ghost layer to the framed box by triangle centroid left ragged slabs** where a
   coarsely tessellated acrylic panel crossed the boundary. Fixed by subdividing straddling
   triangles first (`clip_to_box`).
+- **Schematic boxes collided with the empty-pixel sentinel.** Boxes are given pseudo-ids
+  `-1, -2, …` while "no triangle here" in the part-id buffer was also `-1`, so the *first*
+  schematic box of every image was indistinguishable from the background: its callout anchored
+  on white space (`np.median` over background ∪ box) and its silhouette got no outline. Found at
+  Step 05.15, whose four stopper boxes made it obvious; it was present but easy to miss in the
+  pilot's own 02.10 / 05.18 / 09.26. Fixed by moving the sentinel to `-(1 << 30)`
+  (`render.py: NO_PART`). This changed six of the ten pilot PNGs — the four without schematic
+  boxes (05.45, 05.46) are still byte-identical to the pilot's originals, which is the check
+  that the fix touches only box handling.
 - FreeCAD / `freecadcmd`: not installed, not attempted — cadquery worked, so no cask install.
 
 ## 3. Part-name quality — good enough to drive selection by regex
@@ -220,20 +229,75 @@ image-less steps that the CAD can actually serve.
    commented exception (one in five here).
 6. Do **not** attempt chapter 10 or the software/startup/calibration chapters from CAD.
 
-## 8. Incidental finding — flagged, not fixed
+## 8. Confirmed finding — Step 02.09 states the wrong rail pairing
 
-Step 02.09 says the Z rails must face each other *"front-left faces front-right, rear-left faces
-rear-right"*. The CAD says otherwise: all four MGN9 Z rails are mounted on faces whose normal is
-±Y. The two rear verticals occupy y ∈ [352, 372] with their rails at y ∈ [345.5, 352] (facing
-**forward**); the two front verticals occupy y ∈ [−38, −18] with their rails at y ∈ [−18, −11.5]
-(facing **rearward**). So front-left faces **rear**-left, and the two front rails are parallel, not
-opposed. Manual p.27 only says "make sure the rails face each other as shown in the graphic" — the
-pairing claim is ours. Worth a look before Ch 02 is built; no chapter edits were made in this pilot.
+Step 02.09 says the Z rails must face each other *"front-left faces front-right, rear-left
+faces rear-right"*. **That pairing is wrong.** Measured from the cache (`index.json`, cache of
+2026-09-05, 1428 leaves, zip sha256 `36c6c58…`), all four MGN9 Z rails are mounted on faces whose
+normal is **±Y**; none is on an ±X face. Every rail body measures 9.0 × **6.5** × 300 mm with the
+6.5 mm (thickness) axis along Y.
+
+| corner | vertical (leaf id / instance) | vertical y | rail (leaf id) | rail y | rail faces |
+|---|---|---|---|---|---|
+| rear-left  | 1113 `HFSB5-2020-430-LCP-RCP (3)(Mirror):2` | 352 … 372 | 1112 | 345.5 … 352 | **−Y**, forward |
+| rear-right | 1075 `HFSB5-2020-430-LCP-RCP (3):1`         | 352 … 372 | 1074 | 345.5 … 352 | **−Y**, forward |
+| front-left | 1132 `HFSB5-2020-430-LCP-RCP (3):2`         | −38 … −18 | 1131 | −18 … −11.5 | **+Y**, rearward |
+| front-right| 1094 `HFSB5-2020-430-LCP-RCP (3)(Mirror):1` | −38 … −18 | 1093 | −18 … −11.5 | **+Y**, rearward |
+
+The four MGN9H Z carriages (leaves 453 / 465 / 477 / 490) are 20 × **8** × 40.7 mm, thin in Y —
+same conclusion from the other side of the joint.
+
+So the rails do face each other, as manual p.27 says — but **along Y, not across X**:
+front-left faces rear-left, front-right faces rear-right. The two front rails are parallel to
+each other, not opposed. The pairing sentence is the chapter's own addition; p.27 only says
+*"make sure the rails face each other as shown in the graphic"*.
+
+**Suggested correction** (chapter owner's call, no chapter edits made here): *"The rails must
+face each other along the machine's front-to-back axis — the two left-hand rails face each
+other, and so do the two right-hand rails. All four faces point in or out along Y; none faces
+across the machine."*
+
+Citation renders: `02-09-a.png` (plan view, all four rails and which face each is on) and
+`02-09-b.png` (in the frame; the two front rails are hidden behind their verticals from the
+front, which is itself the point). Both are in `steps.yml` with `insert: false` — **do not place
+them until the step's text is corrected**, or the image and the prose will contradict each other.
+
+Size does not affect this: the rail-to-vertical relationship is identical on a 350. Corroborating
+the same measurement in the other direction, the CAD's rail bottom sits at z = −35.5 against a
+bottom-extrusion top face at z = −38.1 — a 2.6 mm gap, which agrees with Step 02.06's "~3 mm".
+
+## 9. Scaled up — what §7 now looks like as built
+
+§7's pipeline is implemented. `docs/manual/assets/cad/steps.yml` holds 22 entries covering 18
+manual steps (33 PNGs, 4.1 MB); `scripts/cad_render/render_steps.py` loops over it in place of
+`pilot_steps.sh`, loading the mesh cache once for the whole run (33 images in ~6 min).
+Selections are pinned by leaf id per §3, with the regex that produced them kept alongside and
+re-checkable by `--check-ids`. `MANIFEST.md` is generated from the same file by `--manifest`,
+and reads each chapter to record what image line the step actually carries today.
+
+Coverage came out at the low end of §6's estimate, because the other passes filled many of the
+61 image-less steps with manual pages, parts renders and mirrored LDO images while this ran.
+What was left and CAD-servable was 18 steps. Ruled out and why:
+
+- **length is the content** — 07.8 (cut the belts): the only number that matters is a length,
+  and the CAD's is the 250's. A picture here would be actively misleading.
+- **motion is the content** (§6.2) — 05.4's roll-in test, 07.32/07.33 (tension and re-check),
+  06b.15.
+- **no geometry to show** — 01.22, 05.48, 09.35, 09.36, 10.72 (logs and photographs), 11.66
+  (whole-enclosure inspection), and every 06b software/heat-soak step.
+- **already illustrated by another pass** — 06b.9/06b.10/06b.11 picked up LDO/Voron images, so
+  the loosening steps did not need a render; 06b.12 is served by `06b-14-a.png`, which shows
+  exactly the bolts that step says to leave alone.
+- **chapter 10 entirely**, per §7.6.
+
 
 ---
 
-Files: `scripts/cad_render/{step_extract.py,render.py,find_parts.py,pilot_steps.sh}`,
-`docs/manual/assets/cad/{02-10,05-18,05-45,05-46,09-26}-{a,b}.png`, `SOURCES.txt`.
+Files: `scripts/cad_render/{step_extract.py,render.py,find_parts.py,render_steps.py,pilot_steps.sh}`,
+`docs/manual/assets/cad/{steps.yml,MANIFEST.md,SOURCES.txt}` and its 33 PNGs.
+`pilot_steps.sh` is kept as the five-image regression: it and `render_steps.py` produce
+`{02-10,05-18,05-45,05-46,09-26}-{a,b}.png` byte-for-byte identically to each other, which is how
+the manifest entries for those five were checked against the hand-written CLI they replace.
 
 Reproduce:
 
@@ -242,5 +306,7 @@ curl -sSLO https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Vor
 unzip -q Voron_2.4r2_Assembly_STEP.zip
 uv venv --python 3.12 venv-cq && uv pip install --python venv-cq/bin/python cadquery numpy pillow matplotlib
 venv-cq/bin/python scripts/cad_render/step_extract.py Voron_2.4r2_Assembly.step --out /tmp/voroncache
-CACHE=/tmp/voroncache PY=venv-cq/bin/python bash scripts/cad_render/pilot_steps.sh
+CACHE=/tmp/voroncache venv-cq/bin/python scripts/cad_render/render_steps.py             # all 33
+CACHE=/tmp/voroncache venv-cq/bin/python scripts/cad_render/render_steps.py --check-ids # id drift
+venv-cq/bin/python scripts/cad_render/render_steps.py --manifest                        # MANIFEST.md
 ```

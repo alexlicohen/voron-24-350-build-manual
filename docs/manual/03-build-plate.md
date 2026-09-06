@@ -370,9 +370,10 @@ Pause: ~35 min since the last pause — the plate is on its four thumb-nut space
 
 ### Step 03.18 — Verify the plate floats level
 
-(no image — see text)
+![CAD render — the four gaps that have to match](assets/cad/03-18-a.png)
+![CAD render — the four gaps that have to match, in place](assets/cad/03-18-b.png)
 
-**What you're looking at:** The four corners and a caliper. You are proving the plate is sitting on all four spacers and not on a tipped thumb nut or a half-rolled T-nut — a short corner here is a permanent tilt every bed mesh afterwards has to fight.
+**What you're looking at:** The four corners and a caliper. You are proving the plate is sitting on all four spacers and not on a tipped thumb nut or a half-rolled T-nut — a short corner here is a permanent tilt every bed mesh afterwards has to fight. The build plate riding on four bolts above the two bed extrusions that span the frame — the gap under each bolt is what you measure, and all four should be the same.
 
 **Parts:** caliper.
 
@@ -382,7 +383,9 @@ Pause: ~35 min since the last pause — the plate is on its four thumb-nut space
 
 Tip: do not try to level the plate to the gantry mechanically. Quad gantry level does that in software in Ch 13; this step only proves the plate floats evenly on its four spacers.
 
-Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59) · [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58)
+Tip: The CAD bed is the 10 in (254 mm) MIC6 plate on 370 mm bed extrusions (250). Yours is the 350 plate on the 350 frame — still four bolts, four gaps.
+
+Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59) · [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 

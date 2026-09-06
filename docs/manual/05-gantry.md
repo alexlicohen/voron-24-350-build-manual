@@ -151,9 +151,10 @@ Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 05.4 — Test-fit T-nuts and stage the fasteners
 
-(no image — see text)
+![CAD render — every T-nut this chapter will ever load](assets/cad/05-04-a.png)
+![CAD render — every T-nut this chapter will ever load, in place](assets/cad/05-04-b.png)
 
-**What you're looking at:** No picture — this is a dry run with the fasteners. A [roll-in T-nut](16-glossary.md#r) drops into an extrusion slot and rotates a quarter turn to lock, and almost every bolt in this chapter pulls against one. They can only be fed in through an open slot, and the drive and idler blocks cap those slots later in this chapter, so every nut goes in now or not at all.
+**What you're looking at:** No picture — this is a dry run with the fasteners. A [roll-in T-nut](16-glossary.md#r) drops into an extrusion slot and rotates a quarter turn to lock, and almost every bolt in this chapter pulls against one. They can only be fed in through an open slot, and the drive and idler blocks cap those slots later in this chapter, so every nut goes in now or not at all. The four gantry extrusions — E across the back, the two C side beams and the D cross beam — with every T-nut this chapter needs already in its slot, because the printed blocks cap those slots later on.
 
 **Parts:** M5 roll-in T-nut ×26, M3 roll-in T-nut ×27 (+ ~30 for the backers).
 
@@ -161,7 +162,9 @@ Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Every T-nut you will use rolls in without force. A forced roll-in nut galls the channel and the next one will not go in at all.
 
-Source: [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Voron manual p.85](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=85) · [Video: Part 4 @0:36:43](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2203s)
+Tip: The CAD extrusions are the 250 lengths (E 240, C 350, D 330 mm); yours are the 350 set. Which faces carry nuts, and how many, is what transfers.
+
+Source: [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Voron manual p.85](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=85) · [Video: Part 4 @0:36:43](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2203s) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~25 min since the last pause — bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off.
 
@@ -335,9 +338,10 @@ Source: [Voron manual p.90](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 05.15 — Stop the carriages running off
 
-(no image — see text)
+![CAD render — keep both Y carriages captive](assets/cad/05-15-a.png)
+![CAD render — keep both Y carriages captive, in place](assets/cad/05-15-b.png)
 
-**What you're looking at:** A linear-rail carriage keeps its ball bearings only while it is on the rail — run it off the end and they scatter, and the manual is blunt that a dropped carriage is likely ruined. A rubber stopper or a doubled tape flag near each end makes that impossible rather than merely unlikely.
+**What you're looking at:** A linear-rail carriage keeps its ball bearings only while it is on the rail — run it off the end and they scatter, and the manual is blunt that a dropped carriage is likely ruined. A rubber stopper or a doubled tape flag near each end makes that impossible rather than merely unlikely. The two Y rails on the undersides of the C extrusions, each carrying one carriage — the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings.
 
 **Parts:** rubber rail stoppers (LDO-supplied) or masking tape.
 
@@ -345,7 +349,9 @@ Source: [Voron manual p.90](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Each Y carriage is captive. *"Dropping the carriage likely irreparably damages it"* (manual p.88).
 
-Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+Tip: The CAD Y rails are MGN9 300 mm; yours are 400 mm (Step 05.10). The stoppers go near the ends wherever those ends are.
+
+Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.
 
@@ -353,9 +359,9 @@ Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/
 
 ### Step 05.16 — Unpack and identify the titanium backers
 
-(no image — see text)
+![CAD render — which backer is which, and which face it goes on](assets/cad/05-16-a.png)
 
-**What you're looking at:** The titanium [backers](16-glossary.md#b) are three flat drilled strips that bolt to the extrusion face **opposite** a linear rail. A steel rail screwed to an aluminium extrusion makes a bimetallic strip that bows as the chamber heats; a titanium strip on the far face pulls the other way and cancels most of that bow. Two matching long ones are the Y backers, the odd shorter one is the X backer.
+**What you're looking at:** The titanium [backers](16-glossary.md#b) are three flat drilled strips that bolt to the extrusion face **opposite** a linear rail. A steel rail screwed to an aluminium extrusion makes a bimetallic strip that bows as the chamber heats; a titanium strip on the far face pulls the other way and cancels most of that bow. Two matching long ones are the Y backers, the odd shorter one is the X backer. The three backers laid on the extrusions they belong to — the two matching long ones on top of the Y (C) beams, the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail.
 
 **Parts:** titanium backer set ×3 (2 long "Y", 1 shorter "X"), M3×8 FHCS ×~20, M3×6 FHCS ×~8, M3 roll-in T-nut ×~30.
 
@@ -363,7 +369,9 @@ Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/
 
 **Check:** 2 Y + 1 X backer, hole counts written down, and you have at least that many M3 T-nuts. The set does not include T-nuts.
 
-Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [Fabreeko backer set](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) · [West3D backer set](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack)
+Tip: Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by matched pair versus odd one, not by the lengths drawn here.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [Fabreeko backer set](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) · [West3D backer set](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 
@@ -387,9 +395,10 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 ### Step 05.18 — Fit the second Y backer
 
-(no image — see text)
+![CAD render — the backer goes on the face opposite the rail](assets/cad/05-18-a.png)
+![CAD render — both Y backers, mirrored, on the top faces](assets/cad/05-18-b.png)
 
-**What you're looking at:** The second Y extrusion, same treatment on its rail-opposite face. The check that matters is that the two finished assemblies read as mirrors — rails on the same side as each other, backers on the same side as each other, when the pair is stood up as the left and right of the machine.
+**What you're looking at:** The second Y extrusion, same treatment on its rail-opposite face. The check that matters is that the two finished assemblies read as mirrors — rails on the same side as each other, backers on the same side as each other, when the pair is stood up as the left and right of the machine. One Y extrusion seen from underneath, so the rail face and the backer face are both in frame — the backer always goes on the face directly opposite the rail. Both Y beams in place, mirrored about the machine's centreline — rails underneath on both, backers on top on both.
 
 **Parts:** Y backer ×1, M3×8 FHCS ×~10, M3 T-nut ×~10.
 
@@ -397,7 +406,9 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 **Check:** Both backers on the rail-opposite face, both flat. Their cable-chain pilot holes end up on the same side of the machine.
 
-Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
+Tip: The CAD C extrusion is 350 mm with a 300 mm rail (250 machine); yours is the 350-kit C with a 400 mm rail.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~35 min since the last pause — both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop.
 
@@ -677,9 +688,10 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 ### Step 05.35 — Check backer clearance for the cable chain
 
-(no image — see text)
+![CAD render — the chain's fixed end lands on the backer's face](assets/cad/05-35-a.png)
+![CAD render — which bridge, and the run it has to serve](assets/cad/05-35-b.png)
 
-**What you're looking at:** A dry fit; nothing gets fixed here. The backers carry pilot holes for the cable chain's end link, and the printed bridge has a flat foot that a 3 mm titanium strip may now hold off the extrusion. This is where you decide which of the two bridges from Step 05.3 you keep.
+**What you're looking at:** A dry fit; nothing gets fixed here. The backers carry pilot holes for the cable chain's end link, and the printed bridge has a flat foot that a 3 mm titanium strip may now hold off the extrusion. This is where you decide which of the two bridges from Step 05.3 you keep. The fixed end of the Y cable chain, lifted off the beam it bolts to — that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link may now sit 3 mm proud. The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front — and both bridge variants, of which this kit uses the 2-hole one.
 
 **Parts:** cable-chain end link (dry fit only).
 
@@ -687,7 +699,9 @@ Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whoppin
 
 **Check:** You know whether you will use `[a]_xy_joint_cable_bridge_2hole` or the raised `XY_cable_chain_bridge-Igus-3mm_backer`. "Igus" = the 2-hole pattern LDO ships. [src](https://docs.ldomotors.com/guides/cable_chain_guide)
 
-Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide)
+Tip: The CAD chain and extrusion are the 250 machine's; a 350 chain run is longer. What transfers is which face the end link lands on. The raised bridge variant the parts list names is a mod part and is not in the Voron CAD — only the stock 2-hole and 3-hole bridges are.
+
+Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~35 min since the last pause — MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.
 
@@ -846,8 +860,10 @@ Pause: ~30 min since the last pause — gantry flipped, X axis in and bolted to 
 ### Step 05.45 — Stage the X-carriage frame halves
 
 ![X carriage frame halves — left and right](assets/parts/pair-x_frame_V2TR_MGN12.png)
+![CAD render — stage the X-carriage frame halves](assets/cad/05-45-a.png)
+![CAD render — stage the X-carriage frame halves, in place](assets/cad/05-45-b.png)
 
-**What you're looking at:** The [X carriage](16-glossary.md#x) is the two-part printed frame that clamps onto the MGN12 carriage and becomes the mounting plate for the entire toolhead — extruder, hotend and toolboard all hang off it. These are the Clockwork-2 (R2) halves shown left and right in the render; older X-carriage parts look almost the same and will not fit.
+**What you're looking at:** The [X carriage](16-glossary.md#x) is the two-part printed frame that clamps onto the MGN12 carriage and becomes the mounting plate for the entire toolhead — extruder, hotend and toolboard all hang off it. These are the Clockwork-2 (R2) halves shown left and right in the render; older X-carriage parts look almost the same and will not fit. The two halves of the X carriage — handed, so they only nest one way — together with the probe retainer and the MGN12 carriage block whose bolt pattern they must match.
 
 **Parts:** `x_frame_V2TR_MGN12_left` ×1, `x_frame_V2TR_MGN12_right` ×1, `probe_retainer_bracket` ×1.
 
@@ -857,15 +873,16 @@ Pause: ~30 min since the last pause — gantry flipped, X axis in and bolted to 
 
 **Check:** Bolt pattern matches the MGN12 carriage; both halves and the probe retainer bagged and labelled for Ch 07.
 
-Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 5 @1:05:47](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3947s) (differs: substitutes Trident-repo parts still in beta at the time · MGN12 X was a mod then; it is stock on this kit)
+Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 5 @1:05:47](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3947s) (differs: substitutes Trident-repo parts still in beta at the time · MGN12 X was a mod then; it is stock on this kit) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 
 ### Step 05.46 — Bag what belongs to later chapters
 
-(no image — see text)
+![CAD render — the two Rev D+ variant choices, pulled apart](assets/cad/05-46-a.png)
+![CAD render — where the two parts you keep end up](assets/cad/05-46-b.png)
 
-**What you're looking at:** Housekeeping for later chapters. The [XY endstop pod](16-glossary.md#x) is the small orange box that carries the X and Y limit switches on the right XY joint; the tensioners are the sprung blocks that pull the A/B belts tight at the front idlers in Ch 07. None of it fits yet and all of it is easy to lose.
+**What you're looking at:** Housekeeping for later chapters. The [XY endstop pod](16-glossary.md#x) is the small orange box that carries the X and Y limit switches on the right XY joint; the tensioners are the sprung blocks that pull the A/B belts tight at the front idlers in Ch 07. None of it fits yet and all of it is easy to lose. The two either/or choices on the right XY joint, pulled apart so you can see both at once — print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit. Where the endstop pod and the cable bridge you kept eventually live — both on the right-hand XY joint, fitted in later chapters.
 
 **Parts:** `[a]_endstop_pod_D2F_switch` ×1, M3×16 SHCS ×2, `[a]_tensioner_left/right`, `[a]_cable_cover`, the unused cable bridge variant.
 
@@ -875,7 +892,7 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Two labelled bags; nothing loose on the bench that Ch 06 or Ch 07 will need.
 
-Source: [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Source: [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 ---
 

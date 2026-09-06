@@ -188,6 +188,12 @@ PALETTE = [(0.87, 0.36, 0.10), (0.13, 0.42, 0.71), (0.17, 0.55, 0.30),
            (0.10, 0.55, 0.60), (0.45, 0.32, 0.20)]
 GHOST_RGB = np.array([0.55, 0.58, 0.62])
 
+# "no triangle here" in the part-id buffer. It must not collide with a real part
+# id, and schematic boxes are numbered -1, -2, ... — using -1 for empty made the
+# first box of every image indistinguishable from the background, so its callout
+# anchored on white space and its silhouette got no outline.
+NO_PART = -(1 << 30)
+
 
 class Scene:
     def __init__(self, cache):
@@ -346,7 +352,7 @@ def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
     base = np.array([hi_col[o] for o in own])
     scr = project(V, M, centre, scale, Ws, Hs)
     rgb, mask, tid = compose(scr, T, shade(V, T, base), Ws, Hs)
-    idbuf = np.where(tid >= 0, own[np.clip(tid, 0, None)], -1)
+    idbuf = np.where(tid >= 0, own[np.clip(tid, 0, None)], NO_PART)
 
     img = np.ones((Hs, Ws, 3))
     if mode == "b":
@@ -368,7 +374,7 @@ def render(scene, sel, out_png, mode, azim, elev, W, H, ss, ctx_scale,
             sc = project(Vc, M, centre, scale, Ws, Hs)
             gcol = np.tile(GHOST_RGB, (len(Tc), 1))
             grgb, gmask, gtid = compose(sc, Tc, shade(Vc, Tc, gcol), Ws, Hs)
-            gid = np.where(gtid >= 0, ownc[np.clip(gtid, 0, None)], -1)
+            gid = np.where(gtid >= 0, ownc[np.clip(gtid, 0, None)], NO_PART)
             ge = outline(gid, gmask)
             grgb[ge] *= 0.45
             alpha = np.where(ge, 0.45, np.where(gmask, 0.20, 0.0))[:, :, None]
