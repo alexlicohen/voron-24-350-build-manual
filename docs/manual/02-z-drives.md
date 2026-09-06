@@ -122,11 +122,11 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D](https://
 ![`z_drive_retainer_a` (left) vs `_b` (right) — plan view, inserts down, cradles up](assets/parts/pair-z_drive_retainer_x2-top.png)
 ![`z_motor_mount_a` (left) vs `_b` (right) — plan view, stood on its print face](assets/parts/pair-z_motor_mount_x2-top.png)
 
-**What you're looking at:** Manual p.22 opens the Z section; on your bench it is the printed parts from three batches, in four groups: the two halves of each **Z drive** — the deep `z_drive_main` body (belt window in one face, two deep M5 wells in a side face, six counterbored holes in its flat face) and the shallow `z_drive_retainer` tray (six brass inserts in its flat face), which together clamp the shaft's three bearings and turn a motor's spin into the belt that lifts the gantry — the **motor mounts** (L-brackets that hold a stepper against the frame), the orange **baseplates and belt tensioners**, and the **Z idler** brackets for the top corners. Every one exists as an `_a` and a `_b` — mirror images, two corners each. The pair renders look straight down on each part as it sits on the bench, print face down: a mirror pair is obvious in plan, so put your part in the same orientation as the render and read which of the two it matches.
+**What you're looking at:** Manual p.22 opens the Z section; on your bench it is the printed parts from three batches, in four groups: the two halves of each **Z drive** — the deep `z_drive_main` body (six counterbored holes and a rectangular window in its flat face — that window is 80T clearance, not the belt exit — and two deep M5 wells in a side face) and the shallow `z_drive_retainer` tray (six brass inserts in its flat face, and the rectangular window the belt loop leaves through), which together clamp the shaft's three bearings and turn a motor's spin into the belt that lifts the gantry — the **motor mounts** (L-brackets that hold a stepper against the frame), the orange **baseplates and belt tensioners**, and the **Z idler** brackets for the top corners. Every one exists as an `_a` and a `_b` — mirror images, two corners each. The pair renders look straight down on each part as it sits on the bench, print face down: a mirror pair is obvious in plan, so put your part in the same orientation as the render and read which of the two it matches.
 
 **Parts:** all Chapter 02 printed parts from batches B00, B01 and B02.
 
-**Do:** Sort the drive parts into two mirrored piles — `*_a` and `*_b`, two drives each — using the renders and these bench tests. **Main:** print face down, cradles up, shaft line running left–right, rectangular belt window in the right half — the bitten-off corner and the side face with the two big 9 mm bolt wells are on the far side for `_a`, toward you for `_b`. **Retainer:** inserts down, cradles up, rectangular window on the right and trapezoid window on the left — the bite is near-left for `_a`, far-left for `_b` (flipped onto its main, the bites coincide). **Motor mount:** stood on its print face with the thick foot arm (two large counterbored holes) on your right running toward you — the thin motor plate is the far edge on `_a`, the near edge on `_b`. Write `a` or `b` on the inside face of every part with a marker (if the print chapter already lettered them, this pass only verifies). Set the four orange `[a]_z_tensioner_9mm` and the two mirrored `z_tensioner_bracket` pairs aside as the idler pile. Check every part for a corner that lifted off the plate or a delaminated layer at a bolt boss before you put any hardware into it.
+**Do:** Sort the drive parts into two mirrored piles — `*_a` and `*_b`, two drives each — using the renders and these bench tests. **Main:** print face down, cradles up, shaft line running left–right, rectangular window in the right half — the bitten-off corner and the side face with the two big 9 mm bolt wells are on the far side for `_a`, toward you for `_b`. **Retainer:** inserts down, cradles up, rectangular window on the right and trapezoid window on the left — the bite is near-left for `_a`, far-left for `_b` (flipped onto its main, the bites coincide). **Motor mount:** stood on its print face with the thick foot arm (two large counterbored holes) on your right running toward you — the thin motor plate is the far edge on `_a`, the near edge on `_b`. Write `a` or `b` on the inside face of every part with a marker (if the print chapter already lettered them, this pass only verifies). Set the four orange `[a]_z_tensioner_9mm` and the two mirrored `z_tensioner_bracket` pairs aside as the idler pile. Check every part for a corner that lifted off the plate or a delaminated layer at a bolt boss before you put any hardware into it.
 
 **Check:** Twelve black drive parts (4 main, 4 retainer, 4 motor mount — two `a` and two `b` of each), 8 orange drive accents, 4 idler brackets, 4 orange idler sliders, 8 deck clips. Nothing warped at a bearing seat or a bolt boss.
 
@@ -491,7 +491,7 @@ Source: [Voron manual p.35](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.36](assets/manual-pages/manual-p036.png)
 
-**What you're looking at:** Manual p.36 — `z_drive_main`, the deeper half (the blue part on the page), closing over the shaft. Its flat face carries six counterbored holes and no inserts; the belt window is in another face and the two deep M5 wells for the frame bolts are in its side. Its cradles clamp the same three bearings from the other side, and the six M3×40 run down through the main, across the joint and through the retainer, and bite the inserts in the retainer's outer face for the last few millimetres. `_a` and `_b` mains are mirror images: two of each, matched to the retainer they close.
+**What you're looking at:** Manual p.36 — `z_drive_main`, the deeper half (the blue part on the page), closing over the shaft. Its flat face carries six counterbored holes, no inserts, and a rectangular window that only clears the 80T rim — the belt does not leave through it; the loop leaves through the retainer's rectangular window. The two deep M5 wells for the frame bolts are in its side. Its cradles clamp the same three bearings from the other side, and the six M3×40 run down through the main, across the joint and through the retainer, and bite the inserts in the retainer's outer face for the last few millimetres. `_a` and `_b` mains are mirror images: two of each, matched to the retainer they close.
 
 **Parts:** `z_drive_main_a` or `_b` ×1 (side inserts fitted, Step 02.04); M3×40 SHCS ×6.
 
@@ -506,13 +506,13 @@ Source: [Voron manual p.36](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.37](assets/manual-pages/manual-p037.png)
 ![`[a]_z_drive_baseplate_a` (left) vs `_b` (right) — plan view, counterbored face up](assets/parts/pair-z_drive_baseplate_x2-top.png)
 
-**What you're looking at:** Manual p.37 — the orange `[a]_z_drive_baseplate`, the accent-coloured foot of the drive, with an M5 hex nut dropped into a pocket in it. That captive nut is the thread the rubber foot's M5×16 screws into at Step 02.36 — no nut, no foot. The Voron heart embossed on the part is the manual's marker for an accent-colour piece. `_a` and `_b` are mirrors — counterbored face up, C-notch opening to your left: the notch is far-left on `_a`, near-left on `_b` — so match the baseplate to the letter you wrote on its drive.
+**What you're looking at:** Manual p.37 — the orange `[a]_z_drive_baseplate`, the accent-coloured foot of the drive, with an M5 hex nut dropped into a pocket in it. The pocket is on the plate's **plain** face — the one that goes against the drive — so p.37 shows the plate pocket-up before it is flipped onto the drive; the three M3×8 counterbores are on the other face. That captive nut is the thread the rubber foot's M5×16 screws into at Step 02.36 — no nut, no foot. The Voron heart embossed on the part is the manual's marker for an accent-colour piece. `_a` and `_b` are mirrors — counterbored face up, C-notch opening to your left: the notch is far-left on `_a`, near-left on `_b` — so match the baseplate to the letter you wrote on its drive.
 
 **Parts:** `[a]_z_drive_baseplate_a` or `_b` ×1 (orange); M5 hexnut ×1; M3×8 SHCS ×3.
 
-**Do:** Drop the M5 hexnut into its pocket in the orange baseplate — the Voron heart on the part is the manual's accent-part marker, so this is the piece that ends up in your accent colour. Fit the baseplate across the drive's foot face — the face with the two deep M5 wells and the three side inserts, two in the main and one in the retainer — with the C-notch clearing one of the wells, and secure it with three M3×8 SHCS into those inserts.
+**Do:** Turn the baseplate plain-face up (no counterbores) — the hex pocket is on this side. Drop the M5 hexnut in, then straight away flip the plate pocket-down onto the drive's foot face — the face with the two deep M5 wells and the three side inserts, two in the main and one in the retainer — so the nut is trapped between the plate and the drive; it is only captive once the plate is screwed down, so do not turn the plate over with the nut loose in it. Line the C-notch up over one of the wells and secure the plate with three M3×8 SHCS, driven in from the counterbored face you now see, into those inserts. (The Voron heart on the part is the manual's accent-part marker — this is the piece in your accent colour.)
 
-**Check:** M5 nut fully seated in its pocket and not able to spin. Three M3×8 in, plate flat against the drive body with no rock.
+**Check:** Nut trapped behind the plate and not able to spin; plate flat against the drive body with no rock; three M3×8 heads sunk in their counterbores.
 
 Source: [Voron manual p.37](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=37)
 
@@ -520,11 +520,11 @@ Source: [Voron manual p.37](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.37](assets/manual-pages/manual-p037.png)
 
-**What you're looking at:** Manual p.37 — the assembled drive with the belt loop visible inside it. The loop has to hang out of the belt window far enough to hook over the motor's 16T when the motor is slid in beside the bolted-down drive at Step 02.32, so this is the last chance to see it before then.
+**What you're looking at:** Manual p.37 — the assembled drive with the belt loop visible inside it. The loop leaves the housing through the **retainer's** rectangular window — the face with the six insert heads, the face that will look at the motor — and has to hang out of it far enough to hook over the motor's 16T when the motor is slid in beside the bolted-down drive at Step 02.32, so this is the last chance to see it before then.
 
 **Parts:** none.
 
-**Do:** Look into the drive through the openings. The closed 188 mm loop must be inside the part, around the 80T pulley, with enough slack hanging to reach the motor pulley.
+**Do:** Look into the drive through the retainer's window. The closed 188 mm loop must be inside the part, around the 80T pulley, with enough slack hanging out of that window to reach the motor pulley.
 
 **Check:** Belt visible inside the drive and free to move. Repeat Steps 02.22–02.26 for the other three drives before moving on — two `a` and two `b`.
 
@@ -575,9 +575,9 @@ Pause: ~25 min since the last pause — four Z motors carry their 16T pulleys at
 
 **Parts:** one complete `_a` drive + one `_a` motor/mount assembly.
 
-**Do:** Z0 is the first drive to go on the printer. With the printer upside down, find the corner the graphic highlights — front-left, reading "front" off the FRONT tape from Step 02.16 — and lay an `_a` drive and an `_a` motor assembly beside it (map: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right). Dry-fit before any bolt goes in: set the drive in the corner baseplate-up and hold the motor assembly beside it as p.41–42 show. The hand is right when the drive's belt window faces along the extrusion the motor sits on, the motor's foot lies flat on that extrusion, and the 16T lines up with the 80T through the window. If it only works with the `_b` parts, the map is reversed for your parts — swap every `_a` for `_b` for the rest of the chapter and write that in the build log.
+**Do:** Z0 is the first drive to go on the printer. With the printer upside down, find the corner the graphic highlights — front-left, reading "front" off the FRONT tape from Step 02.16 — and lay an `_a` drive and an `_a` motor assembly beside it (map: `_a` = Z0 front-left and Z2 rear-right, `_b` = Z1 rear-left and Z3 front-right). Dry-fit before any bolt goes in: set the drive in the corner baseplate-up and hold the motor assembly beside it as p.41–42 show. The hand is right when the drive's retainer face (six insert heads showing) looks along the extrusion the motor sits on and its counterbore face is outboard over the side rail, the motor's foot lies flat on that extrusion, and the 16T lines up with the 80T through the retainer's window. If it only works with the `_b` parts, the map is reversed for your parts — swap every `_a` for `_b` for the rest of the chapter and write that in the build log.
 
-**Check:** An `_a` drive and `_a` motor dry-fitted at front-left as p.41–42 show: belt window toward the motor's extrusion, baseplate up, 16T in line with the 80T.
+**Check:** An `_a` drive and `_a` motor dry-fitted at front-left as p.41–42 show: retainer face (six insert heads showing) toward the motor's extrusion, counterbore face outboard over the side rail, baseplate up, 16T in line with the 80T.
 
 Source: [Voron manual p.40](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=40) · [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=41) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) (corner map)
 
@@ -585,43 +585,41 @@ Source: [Voron manual p.40](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.41](assets/manual-pages/manual-p041.png)
 
-**What you're looking at:** Manual p.41 — four M5 roll-in T-nuts loaded into the two bottom extrusions meeting at this corner. They are the threads for everything that bolts down here: two for the drive body's M5×40, one for the motor foot's M5×10, one for the cam's M5×10.
+**What you're looking at:** Manual p.41 — four M5 roll-in T-nuts loaded into the two bottom extrusions meeting at this corner. They are the threads for everything that bolts down here: two for the drive body's M5×40, two for the motor foot's M5×10 — the drive-end one of those also pins the cam.
 
 **Parts:** M5 roll-in T-nut ×4 (or the four you pre-loaded at Step 02.11).
 
-**Do:** Slide four M5 T-nuts into the two bottom extrusions meeting at this corner, two in each: the pair in the extrusion the drive body sits on take the drive's two M5×40; the pair in the extrusion the motor sits on take the motor foot's M5×10 and the cam's M5×10 (p.41). Test-fit them first: LDO warns the extrusion and roll-in T-nut tolerances are tight and vary by extrusion face.
+**Do:** Slide four M5 T-nuts into the two bottom extrusions meeting at this corner, two in each. At every corner the two M5×40 go into the **side** rail (the one running front-to-back) and the motor with its two M5×10 lies along the **front or rear** rail — Z0/Z3 on the front rail, Z1/Z2 on the rear (CAD) — so the pair in the side rail take the drive's M5×40 and the pair in the front rail take the motor foot's two M5×10, 25 mm apart, foot hole to foot hole (p.41). Test-fit them first: LDO warns the extrusion and roll-in T-nut tolerances are tight and vary by extrusion face.
 
 **Check:** Four T-nuts in, two per extrusion, all free to slide, none jammed or dropped inside the extrusion.
 
-Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=41) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
+Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=41) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) (which rail takes which bolts)
 
 ### Step 02.31 — Bolt the drive body down with two M5×40
 
 ![Voron manual p.41](assets/manual-pages/manual-p041.png)
 
-**What you're looking at:** Manual p.41 — the finished drive landing in the corner on two long M5×40 screws that run down the body's two 35 mm wells into the T-nuts; the orange baseplate disc is what you see on top. The drive is the fixed half of the pair — the motor is the part the cam moves at Step 02.34.
+**What you're looking at:** Manual p.41 — the finished drive landing in the corner on two long M5×40 screws that run down the body's two 35 mm wells into the T-nuts; the orange baseplate disc is what you see on top. The drive is the fixed half of the pair — its two bolts go fully tight now; the motor is the part the cam moves at Step 02.34.
 
 **Parts:** M5×40 SHCS ×2; the completed `_a` drive.
 
-**Do:** Set the finished drive into the corner, baseplate up (the printer is inverted, so the foot face points at the ceiling), belt window toward the extrusion the motor will sit on. Drop the two M5×40 SHCS down the two deep wells in the drive body — one well is inside the baseplate's C-notch, the other beside the baseplate — and run them into the T-nuts. Snug so the body sits hard in the corner; final tightening is Step 02.35.
+**Do:** Set the finished drive into the corner, baseplate up (the printer is inverted, so the foot face points at the ceiling), the retainer face (six insert heads showing) toward the extrusion the motor will sit on and the counterbore face outboard over the side rail. Drop the two M5×40 SHCS down the two deep wells in the drive body — one well is inside the baseplate's C-notch, the other beside the baseplate — and run them into the side-rail T-nuts. Pull the body hard into the corner, square to both extrusions, and **tighten both M5×40 fully now** — the drive is the fixed half the cam pushes off at Step 02.34. The manual's DON'T TIGHTEN on p.42–43 is about the two M5×10 in the motor foot; those are the only bolts at this corner that stay loose.
 
-**Check:** Body against both extrusions; the 188 mm loop hanging out of the belt window over the motor's extrusion.
+**Check:** Body hard against both extrusions, both M5×40 tight; the 188 mm loop hanging out of the retainer's window over the motor's extrusion.
 
 Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=41)
 
 ### Step 02.32 — Slide the motor assembly in at an angle
 
 ![Voron manual p.42](assets/manual-pages/manual-p042.png)
-⚠ Rev D+ / LDO: **Interim notice (2026-09-06):** a verification re-read found that Steps 02.32–02.33 place the motor-foot M5×10 and the cam wrongly (review/2026-09-06/G2-ch02-03.md, G1). Per manual p.42–45 and the CAD: the single M5×10 goes in the foot hole **farthest from the drive**; the cam's lobe slides into the 4 mm pocket under the **drive end** of the foot and pivots on the drive-end screw, bearing on the drive body. Follow p.42–45 for these two steps until they are rewritten; the rest of the Z-drive sequence stands.
 
-
-**What you're looking at:** Manual p.42 — the motor and its mount (blue on the page) sliding in beside the drive at an angle, with the hanging belt loop hooked over the 16T on the way in. That angled entry is the only path that gets the loop onto both pulleys with the drive already bolted down.
+**What you're looking at:** Manual p.42 — the motor and its mount (blue on the page) sliding in beside the drive at an angle, with the hanging belt loop hooked over the 16T on the way in; that angled entry is the only path that gets the loop onto both pulleys with the drive already bolted down. The right-hand picture is the first M5×10 going into the foot hole **farthest from the drive** — the thick, 9 mm end of the foot, under the motor — while the counterbore at the drive end stays empty. The drive end of the foot is undercut by a 4 mm pocket, and its hole is the tensioner's pivot (Step 02.33).
 
 **Parts:** M5×10 BHCS ×1; the `_a` motor/mount assembly.
 
-**Do:** Hold the motor/mount at an angle, hook the hanging loop over the 16T, and slide the mount's foot down onto the extrusion beside the drive (p.42). Fit one M5×10 BHCS through the foot hole nearest the drive into its T-nut. **Leave it loose** — the manual says so explicitly, and the cam has to move the motor.
+**Do:** Hold the motor/mount at an angle, hook the hanging loop over the 16T, and slide the mount's foot down onto the extrusion beside the drive, foot end toward the drive body (p.42); the loop is still slack, and the cam takes that up at Step 02.34. Fit one M5×10 BHCS down through the foot hole farthest from the drive body — the motor end — into its T-nut. Leave the drive-end hole empty: it is the tensioner's pivot. **Leave the screw loose** (p.42 DON'T TIGHTEN) — the cam has to move the motor along the extrusion.
 
-**Check:** Belt loop engaged on both the 16T motor pulley and the 80T drive pulley, sitting squarely in both tooth bands. Motor foot flat on the extrusion, bolt started but loose.
+**Check:** Belt loop engaged on both the 16T motor pulley and the 80T drive pulley, sitting squarely in both tooth bands. Motor foot flat on the extrusion, motor-end screw started but loose, drive-end foot hole still empty.
 
 Source: [Voron manual p.42](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=42)
 
@@ -630,13 +628,13 @@ Source: [Voron manual p.42](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.43](assets/manual-pages/manual-p043.png)
 ![`[a]_belt_tensioner_a` (left) vs `_b` (right) — plan view, flat face down](assets/parts/pair-belt_tensioner_x2-top.png)
 
-**What you're looking at:** Manual p.43 — the orange `[a]_belt_tensioner`, a cam that pivots on a single M5 bolt. It is a lever, not a bracket: rotating it pushes the motor foot away from the drive body and takes up the slack in the 188 mm loop, so its bolt stays loose until the cam has done its work. The `_a` and `_b` cams are mirrors — flat face down, round lobe on your left: the upright tab is at the far-right on `_a`, near-right on `_b`. The wrong hand will swing *away* from the motor instead of into it.
+**What you're looking at:** Manual p.43 — the orange `[a]_belt_tensioner`, a cam whose thin round lobe lies in a pocket cut into the underside of the motor foot's drive end, between foot and extrusion; the second M5×10 goes down through the foot and the lobe into the T-nut and is the cam's pivot. The lobe is eccentric and bears on the drive body, so swinging the tab pushes the motor foot away from the drive and takes up the slack in the 188 mm loop — which is why both foot screws stay loose until the cam has done its work. The `_a` and `_b` cams are mirrors — flat face down, round lobe on your left: the upright tab is at the far-right on `_a`, near-right on `_b`. The wrong hand will swing *away* from the motor instead of into it.
 
 **Parts:** `[a]_belt_tensioner_a` or `_b` ×1 (orange); M5×10 BHCS ×1.
 
-**Do:** Lay the orange tensioner cam flat on the extrusion at the far end of the motor foot — the end away from the drive — in the open position shown, and fit one M5×10 BHCS through its pivot hole into the last T-nut. **Leave this bolt loose too** — it is a pivot at this point, not a fastener.
+**Do:** Slide the cam's lobe, flat print face against the extrusion, into the pocket under the drive end of the motor foot — a 4 mm slot open toward the drive and toward the foot's outer edge — until the cam's hole lines up with the foot's empty drive-end hole; the tab stands up beside the foot's outer edge, sticking out sideways from the rail (open position, p.43 left). Fit the second M5×10 BHCS down through the foot's drive-end hole and the cam's pivot hole into the last T-nut (p.43 right). **Leave it loose** (p.43 DON'T TIGHTEN) — it is a pivot at this point, not a fastener.
 
-**Check:** Cam free to rotate about the bolt; motor still free to slide along the extrusion.
+**Check:** Tab free to swing about the screw; motor still free to slide along the extrusion; both M5×10 in the foot loose.
 
 Source: [Voron manual p.43](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=43) · [Video: Part 2 @1:18:50](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4730s)
 
@@ -644,25 +642,25 @@ Source: [Voron manual p.43](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.44](assets/manual-pages/manual-p044.png)
 
-**What you're looking at:** Manual p.44 — the cam being rotated closed. Closing it is what tensions the belt; the arrow on the page is the direction that pushes the motor foot away from the drive body.
+**What you're looking at:** Manual p.44 — the cam being rotated closed. Closing it is what tensions the belt; the arrow on the page is the direction that pushes the motor foot away from the drive body. The tab swings from sticking out sideways to lying flat along the foot's outer edge, pointing at the motor, where it drops into the notch cut in that edge.
 
 **Parts:** none.
 
-**Do:** Rotate the cam closed, in the direction of the arrow (p.44). It pushes the motor foot away from the drive body and tensions the 188 mm loop.
+**Do:** Swing the tab toward the motor, in the direction of the p.44 arrow, until it lies flat along the foot's outer edge and seats in the notch there. The lobe pushes off the drive body and moves the motor foot ~2–3 mm away from it, tensioning the 188 mm loop; the drive body itself must not move — it is bolted tight (Step 02.31).
 
-**Check:** Cam fully closed and sitting flat against the extrusion. Belt loop now taut — you should be able to spin the 80T pulley by turning the motor shaft by hand, with no slip and no belt skip.
+**Check:** Tab lying flat along the foot, seated in the notch. Belt loop now taut — you should be able to spin the 80T pulley by turning the motor shaft by hand, with no slip and no belt skip.
 
-Source: [Voron manual p.44](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=44)
+Source: [Voron manual p.44](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=44) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) (cam throw)
 
 ### Step 02.35 — Tighten the M5 bolts
 
 ![Voron manual p.45](assets/manual-pages/manual-p045.png)
 
-**What you're looking at:** Manual p.45 — the two M5×10 at this corner, motor foot and cam. They are tightened only now, with the cam closed, so the motor position the cam set is what gets locked in.
+**What you're looking at:** Manual p.45 — the two M5×10 in the motor foot: the motor-end one from Step 02.32 and the drive-end one through the cam from Step 02.33. They are tightened only now, with the cam closed, so the motor position the cam set is what gets locked in; the drive's two M5×40 went tight at Step 02.31 and only get checked here.
 
 **Parts:** none — the four M5 bolts already fitted.
 
-**Do:** Only now, with the cam closed, tighten the two M5×10 (motor foot, cam), then re-check the two M5×40 in the drive body are tight.
+**Do:** Only now, with the cam closed, tighten the two M5×10 in the motor foot — the drive-end one clamps the cam as well — then confirm the two M5×40 in the drive body have not moved.
 
 **Check:** All four bolts tight. Nothing has moved. The belt is still correctly seated in both pulleys.
 
@@ -686,7 +684,7 @@ Source: [Voron manual p.45](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.46](assets/manual-pages/manual-p046.png)
 
-**What you're looking at:** Manual p.46 — a section through the finished corner. Closing the cam pushes the motor away from the drive body, and the reaction shoves the body; if it was not seated square against both extrusions it moves, and the section is how you tell.
+**What you're looking at:** Manual p.46 — a section through the finished corner. Closing the cam pushes the motor away from the drive body, and the reaction shoves the body; if it was not seated square against both extrusions when its M5×40 went tight it moves, and the section is how you tell.
 
 **Parts:** none.
 
@@ -706,7 +704,7 @@ Pause: ~30 min since the last pause — the Z0 corner is complete: drive body on
 
 **Parts:** the remaining three drives, motors, mounts, tensioners, feet and their hardware.
 
-**Do:** Repeat Steps 02.29–02.37 at the diagonally opposite corner (Z2, rear-right) with the other `_a` set, then at the two remaining corners (Z1 rear-left, Z3 front-right) with the **`_b`** parts — diagonal corners share a hand, neighbours are mirrors. Label each motor's cable Z0/Z1/Z2/Z3 by its physical corner as you go.
+**Do:** Repeat Steps 02.29–02.37 at the diagonally opposite corner (Z2, rear-right) with the other `_a` set, then at the two remaining corners (Z1 rear-left, Z3 front-right) with the **`_b`** parts — diagonal corners share a hand, neighbours are mirrors. At every corner the drive's M5×40 go into the side rail and the motor lies along the front or rear rail (Z0/Z3 front, Z1/Z2 rear). Label each motor's cable Z0/Z1/Z2/Z3 by its physical corner as you go.
 
 **Check:** Four drives on, four feet on, four belts tensioned, four cams closed, four cables labelled. Confirm the deck is still captured by its eight clips, then turn the frame back upright onto its rubber feet and confirm it does not rock.
 
@@ -719,7 +717,7 @@ Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 
 ![Voron manual p.48](assets/manual-pages/manual-p048.png)
 ![`z_tensioner_bracket_a` (left) vs `_b` (right) — plan view, print face down](assets/parts/pair-z_tensioner_bracket_x2-top.png)
 
-**What you're looking at:** Manual p.48 — the **Z idler**, the assembly that sits at the top corner directly above a drive and turns the long Z belt back down again. `z_tensioner_bracket` is the printed cage that bolts to the frame; the orange `[a]_z_tensioner_9mm` slides inside it on a screw, and that screw is what you turn to tension the Z belt in Ch 06 (final tension in Ch 14). The bracket comes in mirrored `_a` / `_b` hands — in plan, print face down with the two oval slots running left–right as in the render, the side tab is on the left for `_a` and on the right for `_b`; turning the part half a turn swaps that, so match the whole outline to the render, not the tab alone. The idler takes the same hand as the drive below it (`_a` at Z0/Z2, `_b` at Z1/Z3). The orange slider is the same part in all four.
+**What you're looking at:** Manual p.48 — the **Z idler**, the assembly that sits at the top corner directly above a drive and turns the long Z belt back down again. `z_tensioner_bracket` is the printed cage that bolts to the frame; the orange `[a]_z_tensioner_9mm` slides inside it on a screw, and that screw is what you turn to tension the Z belt in Ch 06 (final tension in Ch 14). The bracket comes in mirrored `_a` / `_b` hands — in plan, print face down, the open side of the slider channel toward you and the two oval slots running left–right as in the render: tab on the left = `_a`, on the right = `_b`. The idler takes the same hand as the drive below it (`_a` at Z0/Z2, `_b` at Z1/Z3). The orange slider is the same part in all four.
 
 **Parts:** `z_tensioner_bracket_a` or `_b` ×1; `[a]_z_tensioner_9mm` ×1 (orange); M3×16 SHCS ×1; M3 hexnut ×1.
 
@@ -749,13 +747,13 @@ Pause: ~20 min since the last pause — four idler cages assembled with their ca
 
 ![Voron manual p.49](assets/manual-pages/manual-p049.png)
 
-**What you're looking at:** Manual p.49 — two M5 T-nuts in the vertical extrusion at a top corner, positioned for the idler bracket's two mounting holes.
+**What you're looking at:** Manual p.49 — two M5 T-nuts in the vertical extrusion at a top corner, on the vertical's inner side face, positioned for the idler bracket's two mounting holes.
 
 **Parts:** M5 roll-in T-nut ×2.
 
-**Do:** Slide two M5 T-nuts into the vertical extrusion at the top corner directly above a Z drive, positioned where the idler bracket's two mounting holes will land.
+**Do:** Slide two M5 T-nuts into the vertical extrusion at the top corner directly above a Z drive — into the slot on the vertical's inner **side** face, the face looking across the machine at the opposite vertical, not the face the Z rail is on — right at the top where the top rail meets it, positioned where the idler bracket's two mounting holes will land (p.49).
 
-**Check:** Two T-nuts in the correct extrusion face, free to slide.
+**Check:** Two T-nuts in the side face, under the top rail, free to slide.
 
 Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=49)
 
@@ -781,7 +779,7 @@ Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** the remaining three idlers; M5×30 BHCS ×6; M5 roll-in T-nut ×6.
 
-**Do:** Repeat Steps 02.41–02.42 at the diagonally opposite corner (Z2) with the other `_a` bracket, then at Z1 and Z3 with the `_b` brackets — the same map as the drives: each idler takes the hand of the drive below it.
+**Do:** Repeat Steps 02.41–02.42 at the diagonally opposite corner (Z2) with the other `_a` bracket, then at Z1 and Z3 with the `_b` brackets — the same map as the drives: each idler takes the hand of the drive below it and goes on the vertical's inner side face, the same side of the corner as the drive's side-rail bolts.
 
 **Check:** Four idlers fitted, each one aligned with the drive beneath it, all pressed into their corners, all eight M5×30 tight.
 
@@ -795,7 +793,7 @@ Source: [Voron manual p.50](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** none — p.51 is a filler page in the manual and carries no assembly step.
 
-**Do:** Use it as the marker that the Z chapter is done. Turn the printer upright, work through Checkpoint 02, and make sure the measured deck thickness is in your build log.
+**Do:** Use it as the marker that the Z chapter is done. The printer has been upright since Step 02.38. Work through Checkpoint 02 and make sure the measured deck thickness is in your build log.
 
 **Check:** Checkpoint 02 fully ticked.
 
@@ -832,7 +830,8 @@ Pause: ~25 min since the last pause — all four Z idlers mounted, each aligned 
 - **Set screws finger-tight or off the flat.** They loosen under Z load, the belt slips, and the gantry drops out of level. Threadlocker on all of them, one on the flat, tightened with a proper hex driver (p.32, §5.2 W12).
 - **Closing a drive with the halves upside down.** Screws started from above into the retainer's visible brass inserts thread only into that insert, clamp nothing, and pull the insert out of its boss. The M3×40 heads sink into the main's counterbores; the retainer's inserts are at the bottom of the stack (Step 02.24).
 - **The wrong hand at a corner.** It bolts on fine and shows up in Ch 06 when the 20T is not under its idler. Diagonals share a hand (Step 02.02); dry-fit the first unit (Step 02.29).
-- **M5×40 through the motor foot.** The foot's holes are 9 mm deep M5×10 holes; a 40 mm screw bottoms in the slot and jacks the T-nut. The long screws go down the drive body's wells (Step 02.31); the motor gets one M5×10 and is left loose for the cam.
+- **M5×40 through the motor foot.** The foot's holes are 9 mm deep M5×10 holes; a 40 mm screw bottoms in the slot and jacks the T-nut. The long screws go down the drive body's wells (Step 02.31); the motor foot takes the two M5×10, both left loose until the cam is closed (Steps 02.32–02.33).
+- **Cam at the wrong end of the foot.** The tensioner lives under the drive end of the motor foot, on the drive-end screw; at the motor end it has nothing to push against and the loop never comes taut (p.43, Step 02.33).
 - **Bolting the deck down here.** The four M5×10 go in with the DIN rails in Ch 09 Step 09.5. Fitting them now means undoing them again — and it double-counts the same four bolts in two chapters' hardware totals.
 
 ## Next

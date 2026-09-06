@@ -11,7 +11,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 **Prerequisites:**
 
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
-- **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**).
+- **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17) — they come off at Steps 05.11 / 05.33.
 - **Print batches: B04** (XY joints + X carriage, plate B04-P1, 7.3 h, black) and **B02-P3** (the orange accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 is itself gated on B00 + B02 + B03.
 - **Titanium backer set** (Fabreeko/LDO, 350 size) unpacked and counted.
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
@@ -248,7 +248,7 @@ Source: [Voron manual p.86](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.87](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=87)
 
-Pause: ~30 min since the last pause — XY bridge bolted to both drive units, bridge bolts tight. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.
+Pause: ~30 min since the last pause — XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.
 
 ---
 
@@ -310,7 +310,7 @@ Pause: ~30 min since the last pause — first Y rail centred, all its M3×8 scre
 
 **What you're looking at:** The second Y axis is a mirror of the first, not a copy: built side by side, both rails must end up facing the same way when the pair is stood as the left and right sides of the machine. The M5 T-nuts going into the four extrusion ends go in the face **opposite the rail** — the top face in the machine, where the backer goes at Step 05.17 — and are for the front idler's and the drive frame's top flanges, which seal that slot the moment they are fitted.
 
-**Parts:** C extrusion ×1, MGN9H rail ×1, M3 T-nut ×8, M3×8 SHCS ×8; then M5 T-nut ×8.
+**Parts:** C extrusion ×1, MGN9H rail ×1, M3 T-nut ×~10, M3×8 SHCS ×~10 — count the holes as at Step 05.10; then M5 T-nut ×8.
 
 **Do:** Repeat Steps 05.10–05.12 on the second C extrusion — it is a mirror, not a copy, so build it lying next to the first with both rails facing the same way. Then slide **two M5 T-nuts into each end of each C extrusion** (eight in total), into the slot on the face **opposite the rail** — the top face in the machine, the one the backer goes on at Step 05.17 — in the orientation the highlight shows (p.89 draws the rail underneath and the nuts on top). They are for the idler's and the drive frame's top flanges (Steps 05.19, 05.23).
 
@@ -341,7 +341,7 @@ Source: [Voron manual p.90](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![CAD render — keep both Y carriages captive](assets/cad/05-15-a.png)
 ![CAD render — keep both Y carriages captive, in place](assets/cad/05-15-b.png)
 
-**What you're looking at:** A linear-rail carriage keeps its ball bearings only while it is on the rail — run it off the end and they scatter, and the manual is blunt that a dropped carriage is likely ruined. A rubber stopper or a doubled tape flag near each end makes that impossible rather than merely unlikely. The two Y rails on the undersides of the C extrusions, each carrying one carriage — the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings.
+**What you're looking at:** A linear-rail carriage keeps its ball bearings only while it is on the rail — run it off the end and they scatter, and the manual is blunt that a dropped carriage is likely ruined. A rubber stopper or a doubled tape flag near each end makes that impossible rather than merely unlikely. The two Y rails on the undersides of the C extrusions, each carrying one carriage — the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings. The Ch 00 bands came off at Step 05.11; the stoppers do their job from here on.
 
 **Parts:** rubber rail stoppers (LDO-supplied) or masking tape.
 
@@ -422,7 +422,7 @@ Pause: ~35 min since the last pause — both titanium Y backers screwed down fla
 
 **Parts:** front idler assembly ×1, M5×16 BHCS ×2.
 
-**Do:** Slide the idler onto the **front** end of the first C extrusion. Use the idler that has **two M5 holes in the top** when it is oriented as the page draws it — that is what tells the left idler from the right. Push it home, then drive two M5×16 BHCS down through its top flange into the M5 T-nuts from Step 05.13.
+**Do:** Start with the **A idler** — the one labelled FRONT RIGHT in Ch 04, with the tall 21.6 mm lower frame: the C extrusion it goes on becomes the right-hand Y axis, the one that meets the A drive at Step 05.22. Slide it onto the **front** end of the first C extrusion. Use the idler that has **two M5 holes in the top** when it is oriented as the page draws it — that is what tells the left idler from the right. Push it home, then drive two M5×16 BHCS down through its top flange into the M5 T-nuts from Step 05.13.
 
 **Check:** Two M5 holes on top, both bolts biting into T-nuts, idler pulled up tight against the extrusion.
 
@@ -454,7 +454,7 @@ Source: [Voron manual p.92](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** front idler assembly ×1, M5×16 BHCS ×2.
 
-**Do:** Same on the second Y assembly with the opposite-hand idler. Push flush, two M5×16 BHCS into the top-slot T-nuts, snug.
+**Do:** Same on the second Y assembly with the **B idler** (FRONT LEFT, the short 11.6 mm lower frame) — this one becomes the left-hand Y axis. Push flush, two M5×16 BHCS into the top-slot T-nuts, snug.
 
 **Check:** Both Y assemblies now have an idler at the front, both flush, both notches pointing away from the idler body.
 
@@ -466,13 +466,13 @@ Source: [Voron manual p.93](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.94](assets/manual-pages/manual-p094.png)
 
-**What you're looking at:** Now the two sides meet the rear beam. The A drive takes the right-hand side and the B drive the left, so the belt planes you set in Ch 04 line up with the corners those belts actually run to. What you end up with is a U — open at the front until the X beam goes in at Step 05.42.
+**What you're looking at:** Now the two sides meet the rear beam. The A drive takes the right-hand side — the Y axis carrying the A idler — and the B drive the left, so the belt planes you set in Ch 04 line up with the corners those belts actually run to. What you end up with is a U — open at the front until the X beam goes in at Step 05.42.
 
 **Parts:** the two Y assemblies, the bridge + drives assembly.
 
-**Do:** Bring the rear end of each C extrusion into its drive frame — the assembly with the A drive takes the right-hand Y axis, the B drive the left. Push each in until the printed frame is flush with the extrusion end. Work on a flat bench so the four corners stay in one plane.
+**Do:** Bring the rear end of each C extrusion into its drive frame — the Y axis carrying the **A (front-right) idler** goes into the A drive, the B-idler axis into the B drive — read the Ch 04 labels on both. Crossed, the 16.5 mm and 6.5 mm belt planes swap sides at the front and the belts cannot be threaded in Ch 07. Push each in until the printed frame is flush with the extrusion end. Work on a flat bench so the four corners stay in one plane.
 
-**Check:** A U-shaped gantry: bridge across the back, two Y axes running forward, idlers at the front. Both rails face the same way; both backers face the same way.
+**Check:** A U-shaped gantry: bridge across the back, two Y axes running forward, idlers at the front. A idler and A drive on the same beam, B with B. Both rails face the same way; both backers face the same way.
 
 Source: [Voron manual p.94](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=94) · [Video: Part 4 @0:34:56](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2096s)
 
@@ -778,13 +778,13 @@ Source: [Voron manual p.104](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.105](assets/manual-pages/manual-p105.png)
 
-**What you're looking at:** The finished X axis, checked against the drawing. What you are sighting for is that both belt corners sit at the same height: a 20 T idler or an F695 stack a millimetre out of plane feeds the belt into the drive pulley at an angle and chews its edge.
+**What you're looking at:** The finished X axis, checked against the drawing. What you are sighting for is that each belt's two corners sit at the same height: a 20 T idler or an F695 stack a millimetre out of plane feeds the belt into the drive pulley at an angle and chews its edge.
 
 **Parts:** none.
 
-**Do:** Compare your X assembly with the page. Sight along the extrusion at each end: the 20T idler and the F695 stack must be in the same plane as their opposite numbers, so a belt can run straight between them. Spin all four.
+**Do:** Compare your X assembly with the page. p.105 circles the four corners: on the **left** joint the F695 stack is the upper corner and the 20T idler the lower; on the **right** joint the 20T is upper and the F695 lower. Each belt crosses the beam between a 20T on one end and an F695 stack on the other, so it is those pairs that must share a plane — sight along the extrusion: left 20T level with right F695 (lower plane), left F695 level with right 20T (upper plane). Spin all four.
 
-**Check:** Idler and bearing-stack heights match end to end; nothing binds; the MGN12 carriage still slides freely and is still taped.
+**Check:** The two lower corners (left 20T, right F695) at one height and the two upper corners (left F695, right 20T) at the other; nothing binds; the MGN12 carriage still slides freely and is still taped.
 
 Source: [Voron manual p.105](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=105)
 
@@ -883,7 +883,7 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the two Rev D+ variant choices, pulled apart](assets/cad/05-46-a.png)
 ![CAD render — where the two parts you keep end up](assets/cad/05-46-b.png)
 
-**What you're looking at:** Housekeeping for later chapters. The [XY endstop pod](16-glossary.md#x) is the small orange box that carries the X and Y limit switches on the right XY joint; the orange tensioner arms are already inside the front idlers since Ch 04, so nothing of theirs is loose. None of the rest fits yet and all of it is easy to lose. The two either/or choices on the right XY joint, pulled apart so you can see both at once — print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit. Where the endstop pod and the cable bridge you kept eventually live — both on the right-hand XY joint, fitted in later chapters.
+**What you're looking at:** Housekeeping for later chapters. The [XY endstop pod](16-glossary.md#x) is the small orange box that carries the X and Y limit switches on the right XY joint; the orange tensioner arms are already inside the front idlers since Ch 04, so nothing of theirs is loose. None of the rest fits yet and all of it is easy to lose. The two either/or choices on the right XY joint, pulled apart so you can see both at once — print the D2F endstop pod and keep the 2-hole cable bridge; the hall-effect pod and the 3-hole bridge are not used in this kit. Where the endstop pod and the cable bridge you kept eventually live — both on the right-hand XY joint — the pod is fitted in Ch 09 Step 09.33.
 
 **Parts:** `[a]_endstop_pod_D2F_switch` ×1, M3×30 SHCS ×2 (p.164 — verify against the bag), the 2 spare M3×16 from Step 05.43, `[a]_cable_cover`, the unused cable bridge variant.
 

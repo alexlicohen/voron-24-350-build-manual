@@ -1099,6 +1099,8 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 
 ![Voron manual p.238](assets/manual-pages/manual-p238.png)
 ![Voron manual p.239](assets/manual-pages/manual-p239.png)
+**Before the first panel goes on:** snap the wire-duct covers on (they were left off at [Ch 10 Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) so the bay stayed reachable with a meter). Ch 13 has now driven every motor, heater and fan at least once, so nothing else needs the ducts open.
+
 
 **What you're looking at:** The back panel is 3 mm black acrylic. The 1 mm foam tape on its inner perimeter is a noise damper between acrylic and aluminium, not a gasket — which is why it is thinner than the 3 mm used on the sides, where the tape is a physical standoff.
 

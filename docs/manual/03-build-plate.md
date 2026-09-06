@@ -357,7 +357,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** the four M3×20 SHCS already fitted.
 
-**Do:** Pick one corner — the rear-left is convenient because it is away from the wire exit — and tighten that bolt fully. **Leave the other three slightly loose.** They locate the plate; they must not clamp it. Torque is **not specified** by the manual: snug the one bolt by hand feel with a short hex key, no torque driver.
+**Do:** Pick one corner (the manual names none — any works; a front corner keeps the tightened bolt away from the cable exit at the back) and tighten that bolt fully. **Leave the other three slightly loose.** They locate the plate; they must not clamp it. Torque is **not specified** by the manual: snug the one bolt by hand feel with a short hex key, no torque driver.
 
 **Check:** One bolt tight. The other three can be turned with a fingertip on the hex key. Push the plate laterally at a free corner — it should give slightly and return, neither slide freely nor feel locked solid.
 

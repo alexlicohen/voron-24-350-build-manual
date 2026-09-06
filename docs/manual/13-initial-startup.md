@@ -18,7 +18,7 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 
 **Tools**
 
-- Laptop or tablet on the same network, with the Mainsail console open, and a second window with **`M112`** already typed and unsent — that is your software emergency stop. Mainsail's red **Emergency Stop** button in the top bar and the touchscreen's E-stop send the same thing. `RESTART` is **not** a stop: Klipper only pulls `M112` out of the queue while a move is executing; every other command, `RESTART` included, waits its turn behind the move you are trying to stop. After an `M112`, `FIRMWARE_RESTART` brings Klipper back.
+- Laptop or tablet on the same network, with the Mainsail console open, and a second window with **`M112`** already typed and unsent — that is your software emergency stop. Mainsail's red **Emergency Stop** button in the top bar and the touchscreen's E-stop send the same thing. `RESTART` is **not** a stop: a console command normally queues behind the move that is running. Type `M112` and **nothing else on the line** — Mainsail turns exactly that into the same emergency-stop call as its red button (and KlipperScreen's E-stop), which bypasses the command queue; `RESTART`, or `M112` with a comment or a second command on the line, waits its turn behind the move. After an `M112`, `FIRMWARE_RESTART` brings Klipper back.
 - A sheet of ordinary printer paper (~0.1 mm) for the Z=0 paper test
 - Digital caliper, steel rule and masking tape (rotation distance, Step 13.40)
 - 2 mm and 2.5 mm hex keys (Z endstop position, probe height)
@@ -47,7 +47,7 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 - **Never unplug or re-plug a stepper with the power on.** Every "swap the A and B connectors" instruction in this chapter means: power down, swap, power up. (survey §4.4 #10)
 - **The stock LDO config ships every build-size option commented out and `[safe_z_home] home_xy_position` set to the placeholder `-10,-10`.** A full `G28` will refuse to run until you replace it with a real coordinate — that is Step 13.26, not a fault. (survey §4.4 #15)
 - **If Ch 12 loaded `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`, stop now.** Every `nhk:` pin differs. Klipper refuses the V1 file on this toolboard (`Pin 'gpio23' is not a valid pin name on mcu 'nhk'`), so you will not mis-drive anything — but you will not get past Step 13.4 either. The check is not the serial ID (you pasted that yourself, and it is right in both files); it is `grep -c gpio ~/printer_data/config/printer.cfg` over SSH: **0** is the V2 file, **20** is the V1 file. (survey §4.1 ①, §5.2 W13)
-- **`M112` is the stop. `RESTART` is not.** Have `M112` typed and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.
+- **`M112` is the stop. `RESTART` is not.** Have `M112` typed — alone on the line — and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.
 
 **Sources for this chapter:**
 
@@ -64,7 +64,7 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 
 ---
 
-## Part A — First power-on
+## Part A — Power-on and connect
 
 ### Step 13.1 — Clear the machine and stage the bench
 
@@ -102,7 +102,7 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 ---
 
-### Step 13.3 — First power-on, hand on the switch
+### Step 13.3 — Power on again, hand on the switch
 
 ![LDO PSU switch](assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg)
 
@@ -397,7 +397,7 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 **Parts:** none.
 
-**Do:** Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0` (X/Y motors only — never `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), which also releases the four Z motors and lets the gantry drop) to de-energise the X/Y motors, push the toolhead to the middle of the build volume by hand, and set the gantry's height by hand too: about a **third of the way up its travel** — nozzle roughly 100 mm above the plate, and well over 100 mm below the top stop. Slow hand moves with the drivers disabled are fine; do not shove it. The reason: every `G28 X` or `G28 Y` sent before Z is homed lifts the gantry another 10 mm from wherever it is (`[safe_z_home] z_hop: 10` — it cannot know where Z is, so it assumes "here"), and there are five of them between Step 13.22 and the full `G28` at Step 13.27. Parked at the top, the four Z motors stall into the frame on the first one; parked on the bed, a reversed Z direction drives the nozzle into the plate instead. Then send `QUERY_ENDSTOPS`.
+**Do:** This is one of the two places in the manual where `M84` is the right command (the other is Step 13.24): the gantry has to be moved in Z by hand, so all seven motors must be off. Put a hand under the gantry **before** you send `M84` — the Z motors are the only thing holding it and it sinks the moment they let go. Everywhere else, disable only `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding. Then push the toolhead to the middle of the build volume by hand, and set the gantry's height by hand too: about a **third of the way up its travel** — nozzle roughly 100 mm above the plate, and well over 100 mm below the top stop. Slow hand moves with the drivers disabled are fine; do not shove it. The reason: every `G28 X` or `G28 Y` sent before Z is homed lifts the gantry another 10 mm from wherever it is (`[safe_z_home] z_hop: 10` — it cannot know where Z is, so it assumes "here"), and there are five of them between Step 13.22 and the full `G28` at Step 13.27. Parked at the top, the four Z motors stall into the frame on the first one; parked on the bed, a reversed Z direction drives the nozzle into the plate instead. Then send `QUERY_ENDSTOPS`.
 
 ```
 Send: QUERY_ENDSTOPS
@@ -511,15 +511,15 @@ Pause: ~20 min since the last pause — all three endstops and the inductive pro
 
 ![Mainsail control panel](assets/remote/13-initial-startup/voron-startup-mainsail-controls.png)
 
-**What you're looking at:** The screenshot is the interface's jog and homing panel. Homing X means driving toward the endstop until it trips, backing off 5 mm and touching again slowly; the small lift before all that is `z_hop`, which keeps the nozzle off the bed while the toolhead crosses it. The stop you test first is `M112`: it is the one command Klipper pulls out of the queue *while a move is running* — `RESTART` would wait behind the move until it finished, which is no use at all.
+**What you're looking at:** The screenshot is the interface's jog and homing panel. Homing X means driving toward the endstop until it trips, backing off 5 mm and touching again slowly; the small lift before all that is `z_hop`, which keeps the nozzle off the bed while the toolhead crosses it. The stop you test first is `M112`, typed alone on the line: Mainsail sends that as its emergency-stop call rather than as G-code, so it goes round the command queue *while a move is running* — `RESTART`, or anything else typed after the move started, would wait behind the move until it finished, which is no use at all.
 
 **Parts:** none.
 
-**Do:** Two people: one owns the stop, the other watches from the front with hands out of the machine. First *test* the stop: send `M112` from the console and confirm Klipper shuts down (`Klipper state: Shutdown`); press Mainsail's red **Emergency Stop** button and the touchscreen E-stop once each too, so everyone knows all three do the same thing; `FIRMWARE_RESTART` after each to bring it back. Now put `M112` typed and unsent in a second console window, and confirm the gantry is still where Step 13.17 left it — a third of the way up, nowhere near the top. Send `G28 X`.
+**Do:** Two people: one owns the stop, the other watches from the front with hands out of the machine. First *test* the stop: send `M112` from the console (nothing else on the line) and confirm Klipper shuts down (`Klipper state: Shutdown`); press Mainsail's red **Emergency Stop** button and the touchscreen E-stop once each too, so everyone knows all three do the same thing; `FIRMWARE_RESTART` after each to bring it back. Now put `M112` typed and unsent in a second console window, and confirm the gantry is still where Step 13.17 left it — a third of the way up, nowhere near the top. Send `G28 X`.
 
 **Check:** The toolhead lifts 10 mm (that is `[safe_z_home] z_hop: 10`), then travels to the **right** until it hits the X endstop, backs off 5 mm and re-touches. Any other direction: send `M112`, `FIRMWARE_RESTART`, note what happened, and still go on to test Y before changing anything — you need both results to read the chart. [src](https://docs.vorondesign.com/build/startup/)
 
-Source: [Voron docs image mainsail_controls.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_controls.png) · [Voron startup wizard § XY homing check](https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check) · [Klipper docs § M112](https://www.klipper3d.org/G-Codes.html#g-code-commands) · [Klipper `gcode.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/gcode.py) (M112 is scanned out of the pending input while a command runs)
+Source: [Voron docs image mainsail_controls.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_controls.png) · [Voron startup wizard § XY homing check](https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check) · [Klipper docs § M112](https://www.klipper3d.org/G-Codes.html#g-code-commands) · [Mainsail `src/store/printer/actions.ts`](https://github.com/mainsail-crew/mainsail/blob/develop/src/store/printer/actions.ts) (`sendGcode`: a line that is exactly `M112`, trimmed and case-insensitive, is sent as `printer.emergency_stop`; anything else goes to `printer.gcode.script` and queues) · [Klipper `webhooks.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/webhooks.py) (the `emergency_stop` endpoint calls `invoke_shutdown` directly, without the G-code mutex)
 
 ---
 
@@ -550,7 +550,7 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 **Parts:** none — repositioning parts already fitted in Ch 09.
 
-**Do:** `G28 X Y` (`M112` ready; each of these homes lifts the gantry another 10 mm until Z is homed at Step 13.27 — if it is getting near the top, `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and push it down by hand first), then jog the toolhead left along the rear of the machine until the nozzle is in line with the nozzle probe. Loosen the probe's two M3×25 SHCS and slide the whole probe along the extrusion until the shaft is centred **directly under the nozzle**. Re-tighten. Then check the bed: there must be a 2–3 mm gap between the back edge of the build plate and the probe shaft.
+**Do:** `G28 X Y` (`M112` ready; each of these homes lifts the gantry another 10 mm until Z is homed at Step 13.27 — if it is getting near the top, `M84` with a hand under the gantry — it sinks when the Z motors release; Step 13.17's rule — and lower it by hand first), then jog the toolhead left along the rear of the machine until the nozzle is in line with the nozzle probe. Loosen the probe's two M3×25 SHCS and slide the whole probe along the extrusion until the shaft is centred **directly under the nozzle**. Re-tighten. Then check the bed: there must be a 2–3 mm gap between the back edge of the build plate and the probe shaft.
 
 **Check:** Looking straight down, the nozzle tip is over the middle of the probe shaft, and the plate does not touch the shaft anywhere across its travel. If the bed fouls the shaft, loosen the bed and shift it forward — this is your last chance to do it easily. [src](https://docs.vorondesign.com/build/startup/)
 
@@ -566,7 +566,7 @@ Source: [LDO wiring photo z_stop_install_3.jpg](https://raw.githubusercontent.co
 
 **Parts:** none.
 
-**Do:** Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0` (X/Y motors only — never `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), which also releases the four Z motors and lets the gantry drop), then push the toolhead by hand to the front-left corner. If it binds before the nozzle gets near the corner, stop — that is racking or a mechanical fault, not a config problem. Then, `M112` ready, `G28 X Y` and jog to X0 Y0 using the interface, watching for skipping as it approaches the corner.
+**Do:** Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0` (X/Y motors only — never `M84`, which also releases the four Z motors and lets the gantry drop), then push the toolhead by hand to the front-left corner. If it binds before the nozzle gets near the corner, stop — that is racking or a mechanical fault, not a config problem. Then, `M112` ready, `G28 X Y` and jog to X0 Y0 using the interface, watching for skipping as it approaches the corner.
 
 **Check:** The nozzle sits over the plate, within about 5 mm of the front-left corner, with no skipping on the way. To correct, change `position_endstop` **and** `position_max` together, on the affected axis only:
 - nozzle too far **into** the bed → **increase** both (e.g. +2 mm on `[stepper_x]` moves 0,0 2 mm left)
@@ -713,11 +713,11 @@ Source: [Voron startup wizard § PID tune hotend](https://docs.vorondesign.com/b
 
 **Parts:** none.
 
-**Do:** `G28`. Set the bed to 100 °C and the hotend to 150 °C. The panels are not on yet (Ch 11 Part B comes after this chapter), so the chamber will not get warm and you do not need it to: this soak is for the bed, the gantry extrusions above it and the toolhead, and its gate at Step 13.32 is probe repeatability, not a chamber number. The full closed-chamber soak is Ch 14 Step 14.6. Wait 10–20 minutes from cold.
+**Do:** `SET_IDLE_TIMEOUT TIMEOUT=7200` first — the LDO config ships `[idle_timeout] timeout: 1800`, and Klipper's idle timeout turns the heaters **and the Z motors** off 30 minutes after the last move (its default idle script is `TURN_OFF_HEATERS` then `M84`; a heater holding a target does not count as activity), which is exactly what a static soak looks like. `RESTART`, `FIRMWARE_RESTART` and every `SAVE_CONFIG` put it back to 1800. Then `G28`. Set the bed to 100 °C and the hotend to 150 °C. The panels are not on yet (Ch 11 Part B comes after this chapter), so the chamber will not get warm and you do not need it to: this soak is for the bed, the gantry extrusions above it and the toolhead, and its gate at Step 13.32 is probe repeatability, not a chamber number. The full closed-chamber soak is Ch 14 Step 14.6. Wait 10–20 minutes from cold.
 
 **Check:** The bed is holding 100 °C without hunting and the hotend 150 °C. `chamber_temp` will only rise a few degrees with the machine open — that is expected. 150 °C on the hotend is below `min_extrude_temp: 170` on purpose — hot enough to expand the toolhead realistically, cold enough that nothing oozes onto the plate. [src](https://docs.vorondesign.com/build/startup/)
 
-Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber)
+Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456)
 
 Pause: ~20 min since the last pause — cold `PROBE_ACCURACY` is in range, both PID tunes are saved, and the machine is holding its heat soak at bed 100 °C / hotend 150 °C. The soak is a genuine wait state: leave it soaking, but do not leave the room with the heaters on.
 
@@ -770,7 +770,7 @@ Recv: // Retries: 2/5 Probed points range: 0.005250 tolerance: 0.007500
 
 Source: [Voron startup wizard § Quad gantry level](https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level) · [Voron startup wizard § Common QGL problems](https://docs.vorondesign.com/build/startup/startup.html#common-qgl-problems) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level) · [Video: Part 9 @2:49:11](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10151s)
 
-Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off. Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.
+Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.
 
 ---
 
@@ -778,11 +778,11 @@ Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL co
 
 ![Fully release A/B tension before squaring](assets/remote/13-initial-startup/voron-gantry-squaring-ab-tension-release.png)
 
-**What you're looking at:** The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring physically undoes belt tension, which is why Ch 07's tensioning was only provisional, why Ch 06b puts back only a working tension, and why final tension belongs to Ch 14 — after the panels are on and the machine has soaked closed.
+**What you're looking at:** The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring physically undoes belt tension, which is why Ch 07's tensioning was only provisional, why Ch 06b puts back only a working tension, and why final tension belongs to Ch 14 — after the panels are on, right before Ch 14's closed-chamber soak.
 
 **Parts:** none — Ch 06b and Ch 07 hardware only.
 
-**Do:** Leave this chapter here and run [**Ch 06b — Gantry squaring**](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring), which needs exactly what you now have: a printer that homes and QGLs. It starts by raising the idle timeout (`SET_IDLE_TIMEOUT TIMEOUT=99999`), homing, QGL-ing, disabling *only* the A/B motors (`SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0`, same for `stepper_y`), **fully releasing A/B belt tension** and dropping the lower Z joints; it ends, cold, with the gantry square and the A/B belts back at a **provisional** tension so the machine can print. The closed-chamber soak, the hot re-square check, the hot Z-joint lock and the **final** belt tensions (A/B 110 Hz and Z 140 Hz over 150 mm) are [**Ch 14 Steps 14.4–14.6**](14-calibration.md#part-b-belts-final-tension), which run after Ch 11 Part B has closed the chamber. Ch 14 owns those numbers; nothing in this chapter or Ch 06b is the final word on tension.
+**Do:** Leave this chapter here and run [**Ch 06b — Gantry squaring**](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring), which needs exactly what you now have: a printer that homes and QGLs. It starts by raising the idle timeout (`SET_IDLE_TIMEOUT TIMEOUT=99999`), homing, QGL-ing, disabling *only* the A/B motors (`SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0`, same for `stepper_y`), **fully releasing A/B belt tension** and dropping the lower Z joints; it ends, cold, with the gantry square and the A/B belts back at a **provisional** tension so the machine can print. The **final** belt tensions (A/B 110 Hz at 14.4, Z 140 Hz at 14.5, both over 150 mm, cold with the door open) and then the closed-chamber soak, the hot re-square check and the hot Z-joint lock (14.6) are [**Ch 14 Steps 14.4–14.6**](14-calibration.md#part-b-belts-final-tension), which run after Ch 11 Part B has closed the chamber. Ch 14 owns those numbers; nothing in this chapter or Ch 06b is the final word on tension.
 
 **Check:** Do not skip this even if Step 13.33 converged — a QGL that converges on a racked gantry is a levelled parallelogram. Squaring undoes belt tension by design, which is why Ch 07's tensioning is only *provisional* until now (survey §5.2 W1). Come back here when Ch 06b's checkpoint is ticked and the A/B belts are back at its provisional tension. [src](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -800,7 +800,7 @@ Pause: ~10 min since the last pause — you are handed off to **Ch 06b**: A/B te
 
 **Parts:** none.
 
-**Do:** Machine still open (no panels yet), bed to 100 °C, hotend to 150 °C, soak for the time you recorded in Step 13.32. Then `G28`, `PROBE_ACCURACY` (σ < 0.003 mm), `QUAD_GANTRY_LEVEL`. Stay hot: Steps 13.36–13.39 are done in this same session.
+**Do:** Machine still open (no panels yet). Ch 06b's `RESTART` put the idle timeout back to 1800 s, so raise it again — `SET_IDLE_TIMEOUT TIMEOUT=7200` (Step 13.31 says why) — then bed to 100 °C, hotend to 150 °C, soak for the time you recorded in Step 13.32. Then `G28`, `PROBE_ACCURACY` (σ < 0.003 mm), `QUAD_GANTRY_LEVEL`. Stay hot: Steps 13.36–13.39 are done in this same session.
 
 **Check:** QGL now converges in fewer passes and with a smaller starting range than it did in Step 13.33. If it does not, the squaring did not take — go back to Ch 06b. Only when this passes is the machine's geometry final, and only then are the Z offset and the bed mesh worth measuring.
 
@@ -907,7 +907,7 @@ Tip: this mesh is a hot mesh at 100 °C. It is not valid for a 60 °C PLA bed �
 
 Source: [Voron startup wizard § Bed leveling](https://docs.vorondesign.com/build/startup/startup.html#bed-leveling) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate) · [Klipper docs § Bed Mesh](https://www.klipper3d.org/Bed_Mesh.html)
 
-Pause: ~15 min since the last pause — `[bed_mesh]` confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off.
+Pause: ~15 min since the last pause — `[bed_mesh]` confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, `SET_IDLE_TIMEOUT TIMEOUT=1800` sent to put the timeout back.
 
 ---
 
@@ -1061,10 +1061,11 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 | `PROBE_ACCURACY` σ high but stable | Probe mount, cable strain, or `[probe] speed` too fast | Check the bracket is tight; try a lower `speed` |
 | `PROBE_ACCURACY` values trending one way | Thermal, or mechanical: Z pulley grub screws, uneven Z belts | Soak longer; then check all four Z belts and the pulley set screws |
 | `Probe samples exceed samples_tolerance` | Same causes; `samples_tolerance: 0.006` is tight by design | Fix the cause, do not widen the tolerance |
+| Bed and hotend switched themselves off mid-soak, motors released (gantry may have dropped) | `[idle_timeout] timeout: 1800` in the LDO config — 30 min without a move runs `TURN_OFF_HEATERS` + `M84`; not a fault | `SET_IDLE_TIMEOUT TIMEOUT=7200` before every soak (Steps 13.31, 13.35, Ch 14 Steps 14.3, 14.8); re-heat, `G28`, repeat the soak |
 | **QGL does not converge** — `Probed points range` stalls or grows | **Gantry racking** | Step 13.34 → Ch 06b (cold squaring, provisional A/B tension), then Step 13.35 re-QGL |
-| A move will not stop when you send `RESTART` | `RESTART` queues behind the running move; only `M112` is pulled out of the queue mid-move | Send `M112` (or Mainsail's red Emergency Stop), then `FIRMWARE_RESTART` |
+| A move will not stop when you send `RESTART` | `RESTART` queues behind the running move; only a line that is exactly `M112` goes round it — Mainsail sends that as its emergency-stop call | Send `M112` alone on the line (or Mainsail's red Emergency Stop), then `FIRMWARE_RESTART` |
 | QGL: `Retries aborting: Probed points range is increasing. Possibly Z motor numbering is wrong` | Z motors on the wrong drivers | Recheck the Z map: Z0 front-left → `STEPPER-0`, Z1 rear-left → `-1`, Z2 rear-right → `-2`, Z3 front-right → `-3` |
-| QGL: `Aborting quad_gantry_level required adjustment … is greater than max_adjust` | Gantry too far out of level to correct in software | `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`), level the gantry by hand against the frame, `G28`, retry |
+| QGL: `Aborting quad_gantry_level required adjustment … is greater than max_adjust` | Gantry too far out of level to correct in software | `M84` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`, retry |
 | QGL "out of bounds" / cannot reach the probe point | Gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART`, hand-level, `G28`, retry; confirm the 350 corners `-60,-10 / 410,420` |
 | `Unknown command:"BED_MESH_CLEAR"` at the end of a print | No `[bed_mesh]` section | Step 13.38. It is a warning, not a failure — but you have no mesh |
 | First layer is right at the front and wrong at the back (or similar) | Meshed before QGL, or mesh taken cold | Re-run: `G28` → `QUAD_GANTRY_LEVEL` → `G28` → `BED_MESH_CALIBRATE`, hot |
@@ -1078,7 +1079,7 @@ Tick every line before you start Ch 14.
 - [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
 - [ ] `STATUS` returns `Klipper state: Ready`, and both MCUs are present — `stm32f446xx` (or `stm32h743xx` on a V1.3 board) and `stm32g0b1xx`.
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0 — the `-sbv2` config.
-- [ ] `M112` tested once (Step 13.22) and typed-and-unsent before every first move; everyone in the room knows it is the stop and `RESTART` is not.
+- [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
 - [ ] Extruder, bed and chamber (three sensors) all report room temperature at rest and none of them drifts upward untouched.
 - [ ] Both heaters heat and cool on command; the SSR LED tracks the bed, the toolboard HE0 LED tracks the hotend.
 - [ ] All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
@@ -1102,7 +1103,7 @@ Tick every line before you start Ch 14.
 - **Setting the Z offset and the bed mesh before squaring the gantry.** Ch 06b fully releases A/B tension and drops the Z joints — everything measured before it is scrap. Square first, re-tension, re-QGL, *then* Z=0 and mesh.
 - **Adding a `!` to an endstop pin to make a `TRIGGERED` reading go away.** Every stock Voron endstop is normally-closed to ground. If it needs inverting, you almost certainly have a wiring fault that will fail intermittently later.
 - **Moving a stepper connector with the power on.** Back-EMF from a spinning or hot-swapped motor kills drivers, and you will not find out until the next homing move. Power down for every connector change. (survey §4.4 #10)
-- **Using `RESTART` as an emergency stop.** It waits its turn behind the move you are trying to stop. `M112` (or the red button) is the only command Klipper pulls out of the queue mid-move; `FIRMWARE_RESTART` afterwards.
+- **Using `RESTART` as an emergency stop.** It waits its turn behind the move you are trying to stop. `M112` typed alone on the line (or the red button) is sent as Mainsail's emergency-stop call and goes round the queue; `M112 ; stop`, or `M112` after another command on the line, is just a queued command. `FIRMWARE_RESTART` afterwards.
 - **"Correcting" the paper test for temperature.** The paper test leaves the nozzle one paper-thickness (~0.1 mm) high by design, hot or cold; Step 13.42's babystepping closes that gap on the real first layer. An extra `TESTZ Z=-0.1` puts Z=0 on the PEI and makes 13.37's check fail by construction.
 - **`SAVE_CONFIG` during the first print.** It restarts Klipper and kills the print at layer one. Babystep, note the total, let the cube finish, then `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`.
 - **Trusting babystepping.** The Z Offset slider is discarded on restart unless you commit it with `Z_OFFSET_APPLY_ENDSTOP` followed by `SAVE_CONFIG`.

@@ -152,7 +152,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:** Each tension arm has one through-bore that steps from 3.5 mm to 4.7 mm. Press the insert into the **4.7 mm end** — the wider opening. The 3.5 mm section is the M3×40's clearance and must stay clear.
 
-**Check:** Push an M3×40 SHCS through the small end by hand — it should pass freely down the 3.5 mm bore and pick up thread only when it reaches the insert. If it binds early, the insert went in the wrong end or sits crooked.
+**Check:** Bench test from the far (plain, 3.5 mm) end: push an M3×40 SHCS in by hand — it passes freely down the 3.5 mm bore and picks up thread only when it reaches the insert. If it binds early, the insert went in the wrong end or sits crooked. In the idler it goes in the other way, from the frame's front wall into the insert (Step 04.11).
 
 Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=64) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -265,13 +265,13 @@ Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.67](assets/manual-pages/manual-p067.png)
 
-**What you're looking at:** Manual p.67 — the M3×40 that enters horizontally through the idler frame's side wall, a washer under its head, and threads into the heat-set insert in the tension arm's back wall. This is the belt **tensioner**: winding it in draws the arm, and the bearing stack riding on its axle, toward the wall; Ch 07 Step 07.5 sets it with the belt on. It does not clamp the frame halves together.
+**What you're looking at:** Manual p.67 — the M3×40 that enters horizontally through the idler frame's front wall — the face away from the extrusion — a washer under its head, and threads into the heat-set insert in the tension arm's back wall. This is the belt **tensioner**: winding it in draws the arm, and the bearing stack riding on its axle, toward the wall; Ch 07 Step 07.5 sets it with the belt on. It does not clamp the frame halves together.
 
 **Parts:** 1× M3 washer; 1× M3×40 SHCS.
 
-**Do:** Put the M3 washer under the head of the M3×40 SHCS, enter it horizontally through the frame's side wall and thread it into the heat-set insert in the arm's back wall. This is the belt tensioner — turning it in pulls the arm toward the wall. Run it in only until the arm is drawn up to the wall and the screw goes snug, no further; Ch 07 Step 07.5 backs it out to set tension.
+**Do:** Put the M3 washer under the head of the M3×40 SHCS, enter it horizontally through the frame's front wall (the face away from the extrusion) and thread it into the heat-set insert in the arm's back wall. This is the belt tensioner — turning it in pulls the arm toward the wall. Run it in only until the arm is drawn up to the wall and the screw goes snug, no further; Ch 07 Step 07.5 backs it out to set tension.
 
-**Check:** Snug, not torqued (the manual specifies no value); the arm sits against the wall with no preload beyond that. The washer is captive under the head and the head sits flat on the frame's side face.
+**Check:** Snug, not torqued (the manual specifies no value); the arm sits against the wall with no preload beyond that. The washer is captive under the head and the head sits flat on the frame's front face.
 
 Source: [Voron manual p.67](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=67) · [Video: Part 3 @1:07:00](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4020s)
 
@@ -382,11 +382,11 @@ Source: [Voron manual p.70](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.71](assets/manual-pages/manual-p071.png)
 
-**What you're looking at:** Manual p.71 — the M3×40 tensioner and its washer through the B idler frame's side wall into the arm's insert, mirror of Step 04.11.
+**What you're looking at:** Manual p.71 — the M3×40 tensioner and its washer through the B idler frame's front wall into the arm's insert, mirror of Step 04.11.
 
 **Parts:** 1× M3 washer; 1× M3×40 SHCS.
 
-**Do:** Washer under the head, in through the frame's side wall into the arm's heat-set insert, until the arm is drawn up to the wall and the screw is snug — no further; Ch 07 Step 07.5 sets it.
+**Do:** Washer under the head, in through the frame's front wall (the face away from the extrusion) into the arm's heat-set insert, until the arm is drawn up to the wall and the screw is snug — no further; Ch 07 Step 07.5 sets it.
 
 **Check:** Snug, not torqued (not specified — snug). Head flat, washer captive.
 
@@ -402,7 +402,7 @@ Source: [Voron manual p.71](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** none.
 
-**Do:** Match the five circled features on p.72 — ribbed face, M5×40 head in the top boss, exposed bearing pair, M3×40 head with washer, and the slot in the lower frame. Set it in the **B IDLER** tray.
+**Do:** Match the five circled features on p.72 — ribbed face, M5×40 head in the top boss, exposed bearing pair, M3×40 head with washer, and the bolt hole in the lower frame's foot flange (the slot next to it is not circled). Set it in the **B IDLER** tray.
 
 **Check:** All five match, bearings free. Hold the two idlers side by side: their bearing pairs must sit at visibly different heights. If they look the same, you built two of the same hand.
 
@@ -487,15 +487,15 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.75](assets/manual-pages/manual-p075.png)
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
-![`pulley_jig` — a 3.2 mm plate that stands on its long edge; the B step is 6.5 mm and the A step 16.5 mm above that edge](assets/parts/pulley_jig.png)
+![`pulley_jig` — a 47 × 32 × 3.2 mm plate, rendered from a low angle so it reads as a block; the gauges are the undersides of the two end tabs, A top-right and B on the left edge](assets/parts/pulley_jig.png)
 
-**What you're looking at:** Manual p.75 — the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height is what puts the belt in the same plane as the A idler's bearing channel; the jig's step marked **A** repeats it without a caliper. The diagram's elevation panel shows the A motor hub-down, teeth up, at 16.5 mm measured motor face to the underside of the teeth, next to the B motor's mirrored elevation for comparison.
+**What you're looking at:** Manual p.75 — the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height is what puts the belt in the same plane as the A idler's bearing channel; the underside of the jig's tab marked **A** repeats it without a caliper. The jig itself is a flat 3.2 mm plate, 47 mm long and 32 mm tall, with N, A, B and E moulded into one face — nothing like the block the render suggests: the A tab is the 5.5 mm ear at its top-right corner, the B tab the ear halfway up its left edge, and the half-round pocket and slot at the bottom centre play no part in setting a pulley. The diagram's elevation panel shows the A motor hub-down, teeth up, at 16.5 mm measured motor face to the underside of the teeth, next to the B motor's mirrored elevation for comparison.
 
 **Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; printed `pulley_jig.stl`.
 
-**Do:** Slide the pulley onto the shaft **hub first — teeth up**. Stand the jig **on its long edge** on the motor's face, letters upright, its half-round notch around the raised boss at the shaft — it is a 3.2 mm plate and gauges nothing lying flat. Push the pulley down the shaft until the underside of its toothed section rests on the step marked **A** — 16.5 mm above the motor face (p.75). Ignore the jig's other steps. Without the jig, set 16.5 mm with a caliper.
+**Do:** Slide the pulley onto the shaft **hub first — teeth up**. Hold the jig upright on the motor's face **beside** the pulley, letters facing you and upright, its long bottom edge flat on the face and the tab marked **A** (top-right corner) pointing at the pulley — the plate stands next to the pulley, never over the boss. The two small feet at the bottom centre hang down past the edge of the motor face, as p.75 draws them; the plate stands on the longer edge either side of them, and stood on the feet instead every height reads 3 mm high. The gauge is the **underside of the A tab**: on the STL it is 16.6 mm above that bottom edge, the manual's 16.5 mm (p.75). Slide the pulley down until the underside of its toothed section is level with the tab's underside — the tab just meets the top of the hub. The pulley does not sit *on* the tab: a flange resting on the tab's top is at 23.4 mm, 7 mm too high. Without the jig, set 16.5 mm with a caliper.
 
-**Check:** Caliper it even with the jig: 16.5 mm from the motor face to the underside of the teeth. Teeth up, hub down. Compare against p.75's elevation before you lock anything.
+**Check:** Caliper it even with the jig: 16.5 mm from the motor face to the underside of the teeth. If you read ~23 mm the pulley is sitting on top of the tab; if you read ~19.5 mm the jig was stood on its feet. Teeth up, hub down. Compare against p.75's elevation before you lock anything.
 
 ⚠ Rev D+ / LDO: the two A/B motors are **0.9°** (`LDO-42STH48-2004MAH(VRN)`); the four Z motors are 1.8° and look identical. Read the label: **-2004MAH** = A/B (0.9°), **-2004AC** = Z (1.8°). Take an A/B motor, not a spare Z motor. This is why the LDO config carries `full_steps_per_rotation: 400` in `[stepper_x]` and `[stepper_y]` — you will set it in Ch 12, and it is the only place in the build the difference shows up. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -511,7 +511,7 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** 2× set screw (in the pulley); Loctite 243.
 
-**Do:** Back both set screws out, put a drop of Loctite 243 on each, and refit. Rotate the shaft so the first set screw lands on the machined flat, if the shaft has one; tighten that one first, then the second. Recheck the height with the jig — set screws pull a pulley sideways as they bite.
+**Do:** Back both set screws out, put a drop of Loctite 243 on each, and refit. Rotate the shaft so the first set screw lands on the machined flat, if the shaft has one; tighten that one first, then the second. Recheck the height with the jig (tab underside level with the underside of the teeth) and then the caliper — set screws pull a pulley sideways as they bite.
 
 **Check:** The pulley will not twist or slide on the shaft under firm hand pressure, and it still reads 16.5 mm. If the set screws already carry a dry blue patch, that is pre-applied threadlocker — do not add more.
 
@@ -642,15 +642,15 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.79](assets/manual-pages/manual-p079.png)
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
-![`pulley_jig` on its long edge — the B step, 6.5 mm](assets/parts/pulley_jig.png)
+![`pulley_jig` — the B tab is the ear on the left edge; its underside is the 6.5 mm gauge](assets/parts/pulley_jig.png)
 
 **What you're looking at:** Manual p.79 — the B motor's pulley, fitted **the other way up** from the A drive's. The two pulley heights (16.5 mm on A, 6.5 mm on B) are what separate the two belt planes; set them the same and the two belts try to occupy one plane and rub. The diagram's elevation panel shows the B motor hub-up, teeth low, at 6.5 mm measured motor face to the underside of the teeth, next to the A motor's elevation for comparison.
 
 **Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; `pulley_jig.stl`.
 
-**Do:** Slide the pulley onto the shaft **the other way up from the A drive — teeth first, hub up**, so the shaft end pokes through the top of the hub. Stand the jig on its long edge on the motor face as in Step 04.24, notch around the boss, and push the pulley down until the underside of its toothed section rests on the step marked **B** — 6.5 mm from the motor face to the underside of the teeth (p.79).
+**Do:** Slide the pulley onto the shaft **the other way up from the A drive — teeth first, hub up**, so the shaft end pokes through the top of the hub. Hold the jig upright on the motor face as in Step 04.24, but on the other side of the pulley, letters still upright, so the tab marked **B** on its left edge points at the pulley and the feet hang past the edge of the face. Push the pulley down until the underside of its toothed section is level with the **underside of the B tab** — 6.6 mm above the plate's bottom edge on the STL, the manual's 6.5 mm from the motor face to the underside of the teeth (p.79). A flange sitting on top of the tab is at 13.4 mm — wrong.
 
-**Check:** Caliper it: 6.5 mm from the motor face to the underside of the teeth, hub **up**. Stand the two motors side by side — the A pulley sits high with its teeth on top, the B pulley sits low with its hub on top. If both look the same, one is wrong.
+**Check:** Caliper it: 6.5 mm from the motor face to the underside of the teeth, hub **up**. ~13 mm means the pulley is sitting on top of the tab. Stand the two motors side by side — the A pulley sits high with its teeth on top, the B pulley sits low with its hub on top. If both look the same, one is wrong.
 
 Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=79) · [Video: Part 3 @1:12:46](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4366s)
 
@@ -664,7 +664,7 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** 2× set screw (in the pulley); Loctite 243.
 
-**Do:** Loctite 243 on both set screws, first one onto the shaft flat if there is one, then the second. Re-measure with the jig after tightening.
+**Do:** Loctite 243 on both set screws, first one onto the shaft flat if there is one, then the second. Re-measure with the jig and then the caliper after tightening.
 
 **Check:** No slip under hand pressure; still 6.5 mm.
 
@@ -761,8 +761,8 @@ Pause: ~15 min since the last pause — all four assemblies bagged and labelled 
 - **A bearing pair fitted flange-to-flange (or flange-in).** The belt then rides on a flange edge instead of the bearing races and shreds. Fix: open the stack, turn the two bearings so their plain faces meet. Check by sighting the stack edge-on — a flange in the middle is always wrong.
 - **Four bearings on the near post, two on the far post.** The frames will not close square, or they close and pinch a bearing. Fix: the four-bearing stack always goes on the post farther from the motor bore — right on p.74, left on p.78.
 - **Fitting a 9 mm 20T pulley on an A/B motor.** It looks like the right pulley but it is a Z-drive part, and it will not sit in the 6 mm belt plane that a flange-out F695 pair forms. The kit ships exactly two 6 mm 20T pulleys and four 9 mm ones — count them before you start, and keep the 9 mm four with the Ch 02 Z bin.
-- **Both pulleys set to the same height, or the B pulley fitted hub-down.** The A and B belts then try to share one plane and rub. This is not fixable at belting time. Fix: A = 16.5 mm hub down, B = 6.5 mm hub up, both re-checked with the jig standing on its edge after the set screws are tight.
-- **Leaving the idler M5×40 loose because "it is the tensioner".** It is the axle; the M3×40 through the frame's side wall is the tensioner (Ch 07 Step 07.5). Left loose, the stack rattles and the bearings tilt on the shank, found in Ch 07 as bad belt tracking. Fix: run it down firm into the arm's M5 nut.
+- **Both pulleys set to the same height, or the B pulley fitted hub-down.** The A and B belts then try to share one plane and rub. This is not fixable at belting time. Fix: A = 16.5 mm hub down, B = 6.5 mm hub up, both re-checked after the set screws are tight — the jig's tab underside level with the underside of the teeth, then the caliper.
+- **Leaving the idler M5×40 loose because "it is the tensioner".** It is the axle; the M3×40 through the frame's front wall is the tensioner (Ch 07 Step 07.5). Left loose, the stack rattles and the bearings tilt on the shank, found in Ch 07 as bad belt tracking. Fix: run it down firm into the arm's M5 nut.
 - **Motor cable exits pointing outboard.** The cables will not reach the drag chain and the drive has to come apart with the gantry in the machine. Fix: check before the three M3×30 go in — the exits face each other.
 - **M5×30 BHCS torqued down.** They thread into plastic (p.74, p.78) and strip permanently; a stripped post means reprinting a drive frame. Fix: stop at closed-and-snug.
 - **A parts and B parts swapped.** The A frames have a cutout and `a_drive_frame_upper` has two heat-set inserts; the B frames have neither. On the idlers, the tall lower frame is the A (right) idler.

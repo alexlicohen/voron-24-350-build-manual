@@ -406,7 +406,7 @@ steps:
   title: "Step 05.46 - where the two parts you keep end up"
   subtitle_b: "Right XY joint; rest of the gantry ghosted at 20%."
   select:
-    - label: "[a]_endstop_pod_D2F_switch (bag for Ch 06)"
+    - label: "[a]_endstop_pod_D2F_switch (bag for Ch 09, Step 09.33)"
       resolve: 'XY Joint - Right:1/D2F Microswitch Pod'
       ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
     - label: "xy_joint_cable_bridge_2hole"
