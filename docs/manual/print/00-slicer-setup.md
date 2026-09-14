@@ -20,9 +20,9 @@ file exist and they are not the same file:
   inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
   reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
 - `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
-  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.8` today.
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed).
 
-They differ on one key that reaches these plates: 2.5.8's CORE One `start_gcode` bumps the firmware
+They differ on one key that reaches these plates: 2.5.8+'s CORE One `start_gcode` bumps the firmware
 check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be
 resolved against the live bundle. Our plates carry neither version verbatim — every one of them ships the
 **cold-probe start G-code** instead (below), and that is what makes the Plater's **printer** box read

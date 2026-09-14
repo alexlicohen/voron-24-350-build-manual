@@ -792,8 +792,8 @@ sources:
   kind: prusa
   title: PrusaSlicer-settings-prusa-fff
   first_seen: '2026-09-05'
-  last_verified: '2026-09-05'
-  sha: f7068ea1d7380bb1be7595946bee151931c061e1
+  last_verified: '2026-09-14'
+  sha: 46064d500118cfe605986beafd1b72bbdb1f6fb8
 - id: prusa3d-prusaslicer-releases
   url: https://github.com/prusa3d/PrusaSlicer/releases
   kind: prusa
