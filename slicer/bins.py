@@ -224,7 +224,7 @@ NOTES: dict[str, str] = {
     "KlickyProbe_v2.stl": "Klicky — alternative probe only, bag closed (08.54)",
     "cw2_captive_pcb_cover.stl": "replaces the stock `cable_door` (08.51)",
     "handlebar_spacer_x4.stl": "handlebars go on last (11.60)",
-    "Handle.stl": "orange — joins the black door parts from B10",
+    "Handle.stl": "blue — joins the black door parts from B10",
 }
 
 

@@ -5,8 +5,9 @@
 **Sessions:** 5 plate starts (~5 min hands-on each, 3.9–4.9 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
-**Prerequisites:** **Gate A** (re-passed after the Gen 2 upgrade, as for B08) and B08 — the pre-kit order runs
-B08 → B09 → B10 back to back. No bearing seat here, so Gate B is not needed.
+**Prerequisites:** **Gate A on GT1.5** (as for B08 — re-passed on a fresh cube only if the Gen 2 upgrade
+slipped to the contingency pause) and B08: the run ends B08 → B09 → B10 back to back. No bearing seat here,
+so Gate B is not needed.
 
 **Printed parts**
 
@@ -61,10 +62,9 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥297 g remaining across all five plates. Stage spool #2: #1 is predicted to
-run out during **B09-P2** with ~60 g left when it starts, per the [ledger](README.md#spool-ledger). Sheet per
+**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 27 g left, so the build's one predicted runout lands inside that plate; **P2** to **P5** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #2 within reach for the runout-sensor pause.
+**Check:** Clean purge; spool #3 unsealed and within reach for the runout-sensor pause.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -229,6 +229,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
 
 **Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+
+
+Pause: ~15 min since the last pause — all five plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

@@ -1,17 +1,19 @@
 # Batch B08 — Skirts and front modules
 
-**These are the parts people see.** Print them after the Gen 2 belt upgrade (see
-[00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) — the four plates in this batch carry
-the 150–182 mm skirt segments, large flat vertical faces, exactly where GT1.5's reduced VFA shows.
+**These are the parts people see.** They must go down on [GT1.5](../16-glossary.md#g), not GT2 — the four
+plates in this batch carry the 150–182 mm skirt segments, large flat vertical faces, exactly where GT1.5's
+reduced [VFA](../16-glossary.md#v) shows. In
+the baseline plan the Gen 2 upgrade was done before B00, so that is already true; on the contingency path it
+is the pause after B07 (see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)).
 
 **Time:** 29.2 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 4 plate starts (~5 min hands-on each, 5.0–9.5 h unattended) + ~20 min inspect and bin.
 
-**Prerequisites:** **Gate A re-passed on a fresh cube after the Gen 2 belt upgrade** (Step B00.5; no bearing
-seat here, so Gate B is not needed — this prints before the kit). B02 (accent belt guards, fan grills,
-faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same skirt ring and are already printed in the pre-kit
-order; the dry-fit at B08.10 wants the inlet to hand.
+**Prerequisites:** **Gate A on GT1.5** (Step B00.5; no bearing seat here, so Gate B is not needed). If the
+Gen 2 upgrade happened at the contingency pause rather than before B00, re-pass Gate A on a fresh cube
+first. B02 (accent belt guards, fan grills, faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same skirt
+ring and are already on the shelf; the dry-fit at B08.10 wants the inlet to hand.
 
 The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
 inlet — sharing a 67–72 × 20 mm cross-section. On the 350: front = `front_skirt_a` + TFT mount + `front_skirt_b`; rear = `rear_center_skirt`
@@ -58,10 +60,9 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
 
 ## Step B08.1 — Filament prep
 
-**Do:** Galaxy Black, spool #1 after B07: ~522 g at the start, ~124 g at the end, so no runout here. The
-first predicted runout is B09-P2. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
+**Do:** Galaxy Black, spool #2 after B07: 426 g at the start of P1, 27 g after P4, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
 renewing the glue film.
-**Check:** Spool weighed and written in the ledger before starting the 6.3 h P1 plate.
+**Check:** Spool #2 has ≥399 g for the four plates before the 6.3 h P1 plate starts.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -85,7 +86,9 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate in the set.
 
-Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+Tip: look at the first layer, the corners after an hour, and again at bedtime. A lifted corner is a stop, not a wait.
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes. Meanwhile: read the chapter this batch feeds, sort the previous plate, label bins.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -195,6 +198,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_skirt_b_350`, `keystone_panel` |
 
 **Check:** All ten structural segments plus the TFT mount in 11-skirts, stacked by ring position; B02's grills, retainers and belt guards wait in 11-fans.
+
+
+Pause: ~15 min since the last pause — every skirt segment in 11-skirts, stacked by ring position, brims off and ids written. The ring is apart, nothing bolted.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

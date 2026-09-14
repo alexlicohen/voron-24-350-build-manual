@@ -210,7 +210,7 @@ image-less steps that the CAD can actually serve.
    Voron CAD has generic electronics (Meanwell, SSR, Pi, DIN rails, WAGO mount) and **none** of the
    LDO Rev D+ hardware — no Leviathan, no Nitehawk-SB, no LDO rail stops, no USB/ESD adapter, no
    titanium backers. Those need schematic boxes (supported) or a different source.
-4. **No colours in the STEP**, so the renders cannot show the black/orange filament split the
+4. **No colours in the STEP**, so the renders cannot show the black/blue filament split the
    manual's printed-parts tables use. Colour would have to come from a per-part mapping we author.
 5. **Regex fragility** against Fusion instance suffixes — mitigated by pinning ids in a manifest.
 

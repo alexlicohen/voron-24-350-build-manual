@@ -7,7 +7,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00 — Before you start
 
 - [ ] Both cartons inventoried against **your batch's** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
-- [ ] Deck panel thickness measured and written down before B01-P2 started; B01-P2 carries the matching `deck_support_*` (3 mm as committed, or the 8 g `deck_support_4mm_x8` per the B01 deck note).
+- [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to `usb_adapter_mount_partial_cover.stl`.
@@ -15,7 +15,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
-- [ ] Gate B passed at Step B00.7 (625-2RS bore, MGN12 guide on the bare rail, seven coupon inserts) and B01 is on the Prusa; both guide sizes then fitted rail-plus-extrusion with light finger pressure (Step 00.20).
+- [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 25 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)) and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
@@ -318,7 +318,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Gate A — before B02 and B07**
 
-- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` / ` - Voron black` presets and 3 h 58 m / 51.7 g
+- [ ] Gen 2 belt upgrade done (index row 1), or the 2026-10-15 contingency consciously taken
+- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
 - [ ] First-layer-vs-mid-height X delta ≤0.15 mm
@@ -326,12 +327,13 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] First layer passed without a Live Adjust Z nudge, or the cause of the nudge is fixed
 - [ ] Shrinkage compensation XY and Z confirmed at 0 % in the filament preset
 - [ ] Bins 00-jigs and 02-Z0 labelled; the three Gate B coupons in a closed bag at the front of 00-jigs
-**Gate B — kit day, before B01 and B03–B06**
+**Gate B — before B01 and B03–B06**
 
-- [ ] `z_drive_retainer_a` 625-2RS bore: bearing presses in by thumb, no rocking
-- [ ] `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
-- [ ] `Heatset_Practice`: 7/7 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm
+- [ ] `z_drive_retainer_a` 625-2RS pocket calipers 16.30 mm ±0.15
+- [ ] `Heatset_Practice`: 7/7 KADRICK M3×H5 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm; all 153 kit inserts untouched
 - [ ] `z_drive_retainer_a` moved to bin 02-Z0
+- [ ] *(kit day)* a real 625-2RS presses into that pocket by thumb, no rocking
+- [ ] *(kit day)* `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
 
 <div class="print-page-break"></div>
 
@@ -341,26 +343,27 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] 625-2RS bearing press-fit into all `z_drive_main_a/b` seats — thumb pressure, no rocking
 - [ ] 625-2RS bearing press-fit into all `z_drive_retainer_a/b` seats — thumb pressure, no rocking
 - [ ] M3 heat-set bosses on motor mounts: flush, no bulge
-- [ ] Deck panel measured; correct deck-support thickness confirmed or reprinted
+- [ ] *(kit day)* Deck panel measured; correct deck-support thickness confirmed or `deck_support_4mm_x8` reprinted
 - [ ] No corner lift or delamination on any `z_drive_main` body
 - [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
 
 <div class="print-page-break"></div>
 
-## Checkpoint B02 — Accent parts (orange), "the orange day"
+## Checkpoint B02 — Accent parts (blue)
 
 - [ ] SB main body built-in supports removed clean; LED pockets crisp
 - [ ] Cable-chain bridge fit decision made (stock 2-hole vs Ti-backer remix) once Ti backers are in hand
 - [ ] `Handle` brim removed cleanly, no visible scarring
 - [ ] All 29 small accent parts present and in their bins (B02.9), ids written on the `_a` / `_b` parts
-- [ ] Orange spool re-sealed/dry-stored — no more orange prints in the build
+- [ ] Blue spool re-sealed/dry-stored — no more blue prints in the build
 
 <div class="print-page-break"></div>
 
 ## Checkpoint B03 — A/B drive units + front idlers
 
 - [ ] Gate B passed before B03-P1 started
-- [ ] F695-2RS (13 mm OD) bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
+- [ ] F695 flange seats in `a/b_drive_frame_lower/upper` caliper 15.00 mm ±0.15
+- [ ] *(kit day)* a real F695-2RS sits in each seat with no rocking
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
 - [ ] A-side parts in 04-A, B-side parts in 04-B
@@ -370,9 +373,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B04 — XY joints + X carriage
 
 - [ ] Gate B passed before B04-P1 started
-- [ ] MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
-- [ ] XY joint bores accept shafts without reaming
-- [ ] Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
+- [ ] Printed M3 holes in both XY joints and both carriage halves caliper 3.40 mm ±0.10
+- [ ] *(kit day)* MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
+- [ ] *(kit day)* Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
 - [ ] Confirmed X-carriage is `x_frame_V2TR_MGN12_left/right` (V2TR/Clockwork-2), not the superseded MGN9 carriage
 
 <div class="print-page-break"></div>
@@ -380,7 +383,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B05 — Z joints + Z chain
 
 - [ ] Gate B passed before B05-P1 started
-- [ ] 8 mm Z shaft slides freely through every `z_joint_lower` — no press-fit
+- [ ] Every `z_joint_lower`'s four M3 holes caliper 3.40 mm ±0.10 on a 15.0 × 16.0 mm pattern
+- [ ] *(kit day)* lower and upper joints fit a real Z carriage and extrusion end
 - [ ] Every `z_joint_upper` sits square on a test extrusion
 - [ ] Confirmed zero copies of `z_joint_upper_hall_effect.stl` were printed
 - [ ] `z_rail_stop_x4` fitted or bagged for fitting
@@ -389,8 +393,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
 
-- [ ] Gate B passed before B06-P1 started
-- [ ] Revo Voron heatsink sits flat in the printhead front, ready for 4× M3×8
+- [ ] Gate B (bore + inserts) passed before B06-P1 started
+- [ ] Hotend seat in `stealthburner_printhead_revo_voron_front` calipers 20.0 mm ±0.15
+- [ ] *(kit day)* Revo Voron heatsink sits flat in that seat, ready for 4× M3×8
 - [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged in spare-alt, labelled "alternative probe only — Ch 08.54", no magnets pressed
 
 <div class="print-page-break"></div>
@@ -402,7 +407,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
 - [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
-- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.9.0, re-tensioned, re-squared, cube re-printed and Gate A re-passed
+- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.8.1, re-tensioned, re-squared, cube re-printed and Gate A re-passed
 
 <div class="print-page-break"></div>
 
@@ -431,5 +436,4 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Split bushings tap into hinge sleeves without splitting the part
 - [ ] M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
 - [ ] Door swing decided from where the machine will live (as designed: hinges left, opens from the right); hinge files mirrored only if it must open the other way
-- [ ] Orange `Handle` (B02) reunited with the black hardware for assembly
-- [ ] Clicky-Clack "Blue" trim question resolved with Fabreeko before/at install
+- [ ] Blue `Handle` (B02) reunited with the black hardware for assembly

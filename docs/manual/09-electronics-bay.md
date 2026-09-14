@@ -80,7 +80,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **The manual pages p.148–172 describe a different machine** — a BTT Octopus, a mini12864, a 5 V PSU and a separate Pi bracket. Use them for the DIN-rail technique and the mounting geometry only; every part that differs carries a `⚠` callout at its step. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - **Do not close the bay.** Skirts and the bottom panel go on in Ch 11, only after Checkpoint #1 passes. Fitting them now costs an hour of re-opening plus the safety check you skipped (survey §5.2 W8).
 - **Test-fit every roll-in T-nut.** Extrusion and T-nut tolerances on this kit are tight; a forced nut galls the slot. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
-- **Bench-only work for a print-idle window** (the index's *while it prints* rows assume you use them): 09.10 and 09.34's inserts, 09.14–09.15 (PSU selector and brackets), 09.17 (SSR on its bracket), 09.19–09.23 (Leviathan brackets, jumpers, Pi, HAT adapter), 09.25 (USB-adapter clip) and 09.27–09.29 (nozzle probe) need no printer. If you did the two heat-set jobs in Ch 08's iron session, 09.10 and 09.34 start with a confirm.
+- **Bench-only work, good for a short session**: 09.10 and 09.34's inserts, 09.14–09.15 (PSU selector and brackets), 09.17 (SSR on its bracket), 09.19–09.23 (Leviathan brackets, jumpers, Pi, HAT adapter), 09.25 (USB-adapter clip) and 09.27–09.29 (nozzle probe) need no printer. If you did the two heat-set jobs in Ch 08's iron session, 09.10 and 09.34 start with a confirm.
 
 **Sources for this chapter:**
 
@@ -728,9 +728,9 @@ Source: [Voron manual p.162](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.163](assets/manual-pages/manual-p163.png)
 
-**What you're looking at:** The XY endstop PCB carries both the X and Y limit switches, which tell the machine where each axis physically ends and give `G28` a repeatable origin. It bolts into the orange pod printed for Ch 05, which puts the switches in the toolhead's path.
+**What you're looking at:** The XY endstop PCB carries both the X and Y limit switches, which tell the machine where each axis physically ends and give `G28` a repeatable origin. It bolts into the blue pod printed for Ch 05, which puts the switches in the toolhead's path.
 
-**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (orange, B02-P3; bagged with its 2× M3×30 at Ch 05 Step 05.46 — fitted here, at 09.33), XY endstop PCB ×1, M3×8 SHCS ×2.
+**Parts:** `[a]_endstop_pod_D2F_switch` ×1 (blue, B02-P3; bagged with its 2× M3×30 at Ch 05 Step 05.46 — fitted here, at 09.33), XY endstop PCB ×1, M3×8 SHCS ×2.
 
 **Do:** Follow the **left-hand** option only. Seat the XY endstop board on the pod so both switches face the directions the toolhead and the frame will hit them, and fasten with two M3×8 SHCS.
 

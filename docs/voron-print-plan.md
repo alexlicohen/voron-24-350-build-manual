@@ -3,8 +3,8 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 22 plates · **157.1 h** print time · **1813 g Galaxy Black + 279 g Prusa Orange** ·
-against 2400 g black + 800 g orange on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
+**Totals at a glance:** 22 plates · **157.0 h** print time · **1813 g Galaxy Black + 279 g ASA Blue** ·
+against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 
 ---
@@ -83,7 +83,7 @@ and the [Stealthburner STL README](https://github.com/VoronDesign/Voron-Stealthb
 | Prefix | Meaning | Our filament |
 |---|---|---|
 | *(none)* | Primary colour | **Prusament ASA Galaxy Black** |
-| `[a]_` | Accent colour | **Prusament ASA Prusa Orange** |
+| `[a]_` | Accent colour | **Prusament ASA Blue** |
 | `[o]_` | Opaque — must block light | Galaxy Black (perfect) |
 | `[c]_` | Clear / translucent | **Do not print** — LDO supplies the SB LED diffuser in clear PETG |
 | `_x#` suffix | **Quantity required to build the machine** | e.g. `z_joint_lower_x4.stl` → print 4 copies of the file |
@@ -168,9 +168,10 @@ material where wet filament actually costs you strength.
 
 ### 1.4 Calibration sequence — run this before Batch 1, and again after the Gen 2 upgrade
 
-1. **Install the Advanced Filtration Kit first.** You're about to run ~157 h of ASA in an enclosure.
-   Do it while the back panel is already off (Ch. 7 of the Core One build), not later.
-2. **Firmware ≥ 6.9.0** on the Core One+ (needed for GT1.5 belts later; harmless now).
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so there is nothing to install here. You're
+   about to run ~157 h of ASA in an enclosure: on the first ASA plate confirm the blower runs and the bypass
+   flaps seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
+2. **Firmware ≥ 6.8.1** on the Core One+ (6.9.x is INDX-only until the INDX kit is fitted).
 3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
    Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling
    ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)). Judge B00-P1's
@@ -191,18 +192,21 @@ material where wet filament actually costs you strength.
    | Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
    | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
 
-   **Gate B — kit day (bore, rail, inserts):**
+   **Gate B — inserts and a caliper now, on what is already on the bench; bearing and rail on kit day:**
 
-   | Coupon | Nominal | Accept | If out of spec |
-   |---|---|---|---|
-   | `Heatset_Practice` | 7 × M3×5×4 inserts — all seven pockets (146 of the kit's 153 remain) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all seven before touching a real part. |
-   | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
-   | `z_drive_retainer_a` 625-2RS bore (on the same plate) | 16.00 mm bearing (625-2RS; F695 is the A/B-drive bearing, not the Z drive) | bearing presses in with thumb pressure, no rocking | **This is the real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
+   | When | Coupon | Nominal | Accept | If out of spec |
+   |---|---|---|---|---|
+   | now | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit, all seven pockets (all 153 kit inserts stay for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all seven before touching a real part. |
+   | now | `z_drive_retainer_a` 625-2RS pocket (on the same plate) | **16.30 mm**, measured off the STL | caliper reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise EM 1 %. Under → reduce EM 1 %. Reprint the retainer and the cube, re-pass Gate A. |
+   | kit day | the same pocket, on a real 625-2RS (16 mm OD; F695 is the A/B-drive bearing, not the Z drive) | — | bearing presses in with thumb pressure, no rocking | **The press fit the caliper stood in for.** |
+   | kit day | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-6. **Gate A passed → B02 and B07** print now; **B08 → B09 → B10** once the Gen 2 belt upgrade is done and
-   a fresh cube re-passes Gate A. **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A
-   alone — that is 58.5 h and 763 g of bearing-seat and shaft-bore parts against an unverified fit. Two
-   625-2RS and ten inserts ordered with the filament let Gate B run before the kit lands.
+6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the machine is already on
+   GT1.5 — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
+   58.5 h and 763 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
+   Gate B forward: its insert row runs on the KADRICK inserts already on the bench and its bore row is a
+   caliper, so both run in the same week as Gate A. The **bearing press** and the **MGN12 rail row** wait
+   for the kit, and the rail row gates nothing but a 20-minute reprint of the `MGN12_rail_guide` jig.
 
 **Quality gate before every later batch:** look at the *last* plate you pulled off. If any part shows
 (a) a lifted corner, (b) a delaminated layer, or (c) a bore/boss that failed a test fit — fix that before
@@ -213,7 +217,8 @@ starting the next plate, don't print 100 g on top of a known problem.
 ## 2. Which parts gate the frame and Z-drive steps
 
 **Frame** (Assembly Manual ch. *Frame*, p.12–21): **no printed part is required.** The frame is extrusion,
-corner brackets and hardware. You can square the frame the day the kit lands.
+corner brackets and hardware. You can square the frame the day the kit lands — and by then every plate in
+the build is already printed and binned.
 
 **Z rails** (p.24–27, inside ch. *Z Drives and Idlers*): the only printed items are the optional-but-worth-it
 alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both are on plate **B00-P1**.
@@ -227,11 +232,13 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 + B02-P3** ≈ 34 h of printing.
 Everything else can be printed while you build.
 
-**What prints before the kit.** Gate A (§1.4) releases the batches with no bearing seat, rail fit or shaft
-bore: **B00 → B02 → B07**, then — after the Gen 2 belt upgrade and a fresh cube — **B08 → B09 → B10**:
-98.6 h of the 157.1. Gate B (kit day) releases **B01, B03, B04, B05, B06**: 58.5 h, printed under Ch 00–05.
-So on kit day the frame (no printed part) and Ch 00 start at once, B01 prints under them, and Ch 02 waits
-on B01-P2 for half a day at most.
+**What prints before the kit: all of it.** Fabreeko's kit is not expected before late November 2026 (§8),
+and with Gate B's caliper and insert rows run early on what is already on the bench (§1.4) nothing is left
+to gate a batch.
+The order is therefore the plain numeric one — the Gen 2 belt upgrade, then **B00 → B01 → B02 → … → B10**,
+157.0 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. On kit day the frame (no printed part) and
+Ch 00 start at once with every bin full, and no assembly chapter ever waits on a plate. The only print job
+the build may still owe is the `deck_support_4mm` reprint, if the deck panel calipers 4 mm (§6).
 
 **Tall parts (> 150 mm in Z): none.** The tallest part in the whole set is the Clicky-Clack `Handle` at
 **60.0 mm**. Orientation rules that do matter are in §5.
@@ -295,12 +302,12 @@ measures 4 mm when it arrives, reprint `deck_support_4mm_x8` — 8 g, 30 minutes
 
 ---
 
-### Batch B02 — **The orange day** (every accent part in the build) · **3 plates · 21.9 h · 279 g orange**
+### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.9 h · 279 g blue**
 **Unlocks:** the accent half of *Z Drives and Idlers*, *A/B Drives and Idlers*, *Gantry*, *Stealthburner*,
 *Skirts* and the Clicky-Clack door.
 
-All 49 accent parts are printed in one continuous orange session so the accent spool is mounted exactly
-once. **Two colour changes in the whole build: black → orange here, orange → black after.**
+All 49 accent parts are printed in one continuous blue session so the accent spool is mounted exactly
+once. **Two colour changes in the whole build: black → blue here, blue → black after.**
 Everything is printed before the kit arrives anyway, so nothing waits on this.
 
 | STL | Repo path | Qty | g ea | h ea |
@@ -410,7 +417,7 @@ The LDO `z_rail_stop` is optional but stops a Z carriage from falling off the to
 
 ---
 
-### Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · **1 plate · 12.2 h · 148 g black**
+### Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · **1 plate · 12.1 h · 148 g black**
 **Unlocks:** *Stealthburner* (p.146–147, then the separate Stealthburner manual). Also requires
 `probe_retainer_bracket.stl` from B04.
 
@@ -435,7 +442,7 @@ The LDO `z_rail_stop` is optional but stops a Z carriage from falling off the to
 | `Mount_pressfit_holder_v2.stl` | Klicky (same folder) | 1 | Black | 6.6 | 0.42 |
 | `Dock_mount_fixed_v2.stl` | Klicky (same folder) | 1 | Black | 22.7 | 1.36 |
 
-- **Plate B06-P1** (12.2 h, 148 g): the Stealthburner + Clockwork 2 black parts *and* the whole Klicky set,
+- **Plate B06-P1** (12.1 h, 148 g): the Stealthburner + Clockwork 2 black parts *and* the whole Klicky set,
   19 objects. Merged 2026-09-06 from two plates to cut a swap.
 
 Notes:
@@ -585,7 +592,7 @@ with the stock exhaust grill to seal the back panel"* — that is `exhaust_cover
 
 ---
 
-### Batch B10 — Clicky-Clack door · **1 plate · 5.7 h · 76 g black** (+ the orange `Handle` from B02)
+### Batch B10 — Clicky-Clack door · **1 plate · 5.7 h · 76 g black** (+ the blue `Handle` from B02)
 **Unlocks:** front door install, replacing the stock two-door assembly entirely.
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -596,7 +603,7 @@ with the stock exhaust grill to seal the back panel"* — that is `exhaust_cover
 | `Hinge-L-solid-2X.stl` | whopping\_Voron\_mods `clickyclacky_door/STLs/` | **2** | Black | 9.2 | 0.61 |
 | `Latch.stl` | whopping\_Voron\_mods `clickyclacky_door/STLs/` | 1 | Black | 8.4 | 0.57 |
 | `Panel_Clip.stl` | whopping\_Voron\_mods `clickyclacky_door/STLs/` | 1 | Black | 0.9 | 0.06 |
-| `Handle.stl` | *(printed in B02, orange)* | 1 | Orange | 33.7 | 2.03 |
+| `Handle.stl` | *(printed in B02, blue)* | 1 | Blue | 33.7 | 2.03 |
 
 **Plate B10-P1** — all six black parts. 5.7 h, 76 g.
 
@@ -608,10 +615,9 @@ Notes:
 - **Because you're fitting Clicky-Clack, do not print** `door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`
   (Voron), nor LDO's `LDO Door/` set. That also means you lose the LDO kit-number nameplate — if you want it,
   print `LDO Door/handle_b_nameplate.stl` and glue it somewhere else.
-- **Open question from your notes:** the Clicky-Clack kit was ordered in "Blue". Fabreeko's page doesn't say what
-  the colour option governs; it is almost certainly the anodised door-frame extrusions, i.e. **visible blue trim
-  around the front opening** — which matches the blue LDO frame but sits next to an orange/black scheme.
-  Worth one message to Fabreeko before it ships. **(unverified)**
+- **Resolved (survey, 2026-09-05):** the Clicky-Clack "Blue" option is the door's **aluminium frame** colour,
+  matching the blue LDO frame — visible trim around the front opening, sitting with the blue accent parts and
+  the black body.
 
 ---
 
@@ -632,7 +638,7 @@ extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams us
 1.07 g/cm³ ASA density.
 
 **What replaced what.** The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
-wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.1 h / 2092 g** —
+wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.0 h / 2092 g** —
 **+17 % time, −7 % filament**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
 override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
 layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
@@ -646,18 +652,18 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 157.1 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 157.0 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
 
-PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g orange; slicing gives 127 g and 29 g
+PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g blue; slicing gives 127 g and 29 g
 less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
 |---|---:|---:|---:|---:|
 | **Galaxy Black** | **1813 g** | 2400 g (3 × 800 g) | **587 g** | **32 %** |
-| **Prusa Orange** | **279 g** | 800 g (1 × 800 g) | **521 g** | **187 %** |
+| **ASA Blue** | **279 g** | 800 g (1 × 800 g) | **521 g** | **187 %** |
 | Total | 2092 g | 3200 g | 1108 g | — |
 
 **Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates. Typical
@@ -675,12 +681,14 @@ first-build reprint rate is 10–15 %, so you should land fine — but:
 Cumulative black consumed after each batch: B00 **52** · B01 **353** · B03 **472** · B04 **589** · B05 **667** ·
 B06 **815** · B07 **1041** · B08 **1440** · B09 **1737** · B10 **1813 g**.
 
-With 800 g spools, spool #1 runs out inside **B06**, on the merged **B06-P1**, which starts with only ~133 g
-left; spool #2 runs out inside **B09**, during **B09-P3** (~31 g left at its start). The Core One+ runout
-sensor pauses and resumes, so a mid-plate swap on B09-P3 (panel clips, nothing dimension-critical) is fine.
-B06-P1 is not: it carries the hotend seat and the Clockwork 2 bores, so start it on a fresh spool — which is
-what the ledger does, on spool #3. Same rule for B01-P1 (the 15.2 h, 201 g plate): a resume seam on a Z-drive
-body is not worth the risk. Record what is *actually* consumed in the spool ledger in
+With 800 g spools and the numeric print order, spool **#1** carries B00 through **B05-P1** and ends with
+~133 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
+hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P4** with ~27 g left, and
+**spool #3 takes over mid-plate inside B09-P1** — Nevermore plenum, plenum lid and cartridge lid, nothing
+dimension-critical, so the Core One+ runout sensor pausing and resuming there is fine. #3 finishes the build
+with ~454 g spare. Same fresh-spool rule as B06 applies to B01-P1 (the 15.2 h, 201 g plate): a resume seam on
+a Z-drive body is not worth the risk, so it wants ≥201 g on the spool at the start — it has 748 g. Record
+what is *actually* consumed in the spool ledger in
 [`manual/print/README.md`](manual/print/README.md#spool-ledger); the prediction above is only as good as the
 first few weighings.
 
@@ -727,9 +735,9 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | **B00** | The seven-item gate in §1.4. Nothing proceeds until all pass. | the cube, until the profile is right |
 | **B01** | 625-2RS (16 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check the 4 mm/3 mm deck-support call. | `z_drive_main_*` — largest single parts, most exposed to warp at the corners |
 | **B02** | Guidler and latch must move freely against the CW2 body once it exists (B06) — test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp. | `[a]_stealthburner_main_body` (most-photographed part in the build) |
-| **B03** | **F695-2RS (13 mm OD, flanged)** bearing/spacer stacks must drop into the drive-frame and front-idler bores without reaming, and the two halves of each drive unit must close flat with no gap. (625-2RS is the Z-drive bearing — B01, not this batch.) | `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine |
+| **B03** | The F695 flange seats caliper **15.00 mm** now; on kit day the real **F695-2RS** (13 mm OD, flanged) bearing/spacer stacks must drop into them without reaming. Either way the two halves of each drive unit must close flat with no gap. (625-2RS is the Z-drive bearing — B01, not this batch.) | `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine |
 | **B04** | Test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before you commit heat-sets. XY joint bores must accept the shafts without reaming. | `xy_joint_*_lower_MGN12` |
-| **B05** | Z joints: the 8 mm shaft should slide, not press. `z_joint_upper` must sit square on the extrusion. | `z_joint_lower_x4` |
+| **B05** | Z joints: `z_joint_lower`'s four M3 holes caliper 3.4 mm on a 15 × 16 mm pattern; `z_joint_upper` must sit square on the extrusion. | `z_joint_lower_x4` |
 | **B06** | Revo Voron hotend must sit flat in the printhead front with 4× M3×8. Klicky: magnets pressed **below** the plastic surface, polarity consistent, and the probe must attach/detach cleanly from the AB mount. | `KlickyProbe_v2` (that's why you print two) |
 | **B07** | Wago mount heat-sets; COB mount halves must close flush on their 2× M3×6 FHCS. | `cob_light_strip_mount_100mm` (warps at the ends — check flatness on glass) |
 | **B08** | **Lay every skirt segment on a flat reference (your granite counter) and check for rocking.** A bowed skirt is the most visible defect on a finished Voron. Also dry-fit the ring: front + TFT mount + front, rear + inlet + keystone, sides + fan supports. | `rear_center_skirt_350` (182 mm — the worst warp candidate in the set) |
@@ -797,24 +805,36 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 
 ## 8. Where to do the Core One+ Gen 2 belt upgrade
 
-**Baseline plan (unchanged):** finish the Core One+ kit through Ch. 9 (self-test + first print), then apply the
-Gen 1 → Gen 2 upgrade, re-tension and re-square, *then* start batch B00. The GT1.5 conversion changes belts,
-pulleys, steps/mm and firmware together — you want it done and settled before 157 h of ASA.
+**Where things stand (2026-09-14).** The Core One+ is built and commissioned — commissioning closed
+2026-09-13 on **Gen 1 (GT2) belts**, bed flat to ±0.1 mm on printed Z-stop correction caps. The
+Gen 1 → Gen 2 upgrade kit (Prusa order 1787919456) is backordered but expected well before November. The LDO
+Voron kit is not: realistic delivery is **late November to late December 2026 (Fabreeko tracking page
+2026-09-14: batch still in manufacture; watch for the status to flip to shipped, which starts a ~5-week
+clock)**.
 
-**If the upgrade kit arrives mid-run, pause at the end of Batch B07, before Batch B08.** Reasons:
+**Baseline: Gen 2 before B00.** Two months of printing sit between now and the kit, so there is no reason to
+lay 157.0 h of ASA down on GT2 belts and then change the machine under the parts. As soon as the upgrade kit
+lands: apply it, re-tension, re-square, re-run the self-test and input shaper, re-pass Gate A on a fresh
+cube — then start B00. The conversion changes belts, pulleys, steps/mm and firmware together, so settling it
+once, up front, puts every plate in the build on GT1.5.
+
+**Contingency: if the upgrade kit has not arrived by 2026-10-15**, start B00 on the existing GT2 belts rather
+than hold the print run, and take the mid-run pause below.
+
+**Pause at the end of Batch B07, before Batch B08** — that is where a mid-run upgrade belongs. Reasons:
 
 1. B08 + B09 + B10 are 10 of the 22 plates and contain **every surface anyone will ever look at** — the 150–182 mm
    skirts are large flat vertical faces, which is exactly where GT1.5's reduced VFA shows.
 2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
-3. It's a clean boundary — no half-finished sub-assembly waits on it, and in the pre-kit print order
-   (B00 → B02 → B07 → B08) it is exactly where the cosmetic run begins.
+3. It's a clean boundary — no half-finished sub-assembly waits on it, and in the numeric print order
+   (… → B06 → B07 → B08) it is exactly where the cosmetic run begins.
 
-**Second-best boundary:** if the kit arrives *before* B02 starts, do it then — the Stealthburner main body is the
-single most-looked-at printed part on the machine and it's on B02-P1.
+**Second-best boundary:** if the upgrade kit arrives *before* B02 starts, do it then — the Stealthburner main
+body is the single most-looked-at printed part on the machine and it's on B02-P1.
 
 **After the upgrade, before restarting prints:**
 
-1. Firmware **≥ 6.9.0** (adds GT1.5 belt support and Gen 2 expansion joints).
+1. Firmware **≥ 6.8.1** (carries GT1.5 belt support and the Gen 2 expansion joints).
 2. Re-tension both belts and re-square the gantry, per
    [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
@@ -835,35 +855,35 @@ detail with the previous model figure beside each one is in `slicer/estimates.cs
 actually be completed (B00 is the calibration gate for everything; B02 carries the accent parts that most
 mechanical chapters need).
 
-| batch_id | name | plates | hours | g_black | g_orange | unlocks_chapter | hard_prereq_batches |
+| batch_id | name | plates | hours | g_black | g_blue | unlocks_chapter | hard_prereq_batches |
 |---|---|---:|---:|---:|---:|---|---|
 | B00 | Calibration & jigs | 1 | 4.0 | 52 | 0 | Frame | — |
 | B01 | Z drive assemblies | 2 | 22.8 | 301 | 0 | Z Drives and Idlers | B00;B02 |
-| B02 | Accent parts (orange) | 3 | 21.9 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
+| B02 | Accent parts (blue) | 3 | 21.9 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
 | B03 | A/B drive units + front idlers | 1 | 8.5 | 119 | 0 | A/B Drives and Idlers | B00;B02 |
 | B04 | XY joints + X carriage | 1 | 8.6 | 117 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.4 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
-| B06 | Toolhead (SB + CW2 + Klicky) | 1 | 12.2 | 148 | 0 | Stealthburner | B00;B02;B04 |
+| B06 | Toolhead (SB + CW2 + Klicky) | 1 | 12.1 | 148 | 0 | Stealthburner | B00;B02;B04 |
 | B07 | Electronics bay + lighting | 2 | 16.0 | 226 | 0 | Electronics; Controller; Wiring | B00 |
 | B08 | Skirts + front modules | 4 | 29.2 | 399 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 21.8 | 297 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 76 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **22** | **157.1** | **1813** | **279** | | |
+| **TOTAL** | | **22** | **157.0** | **1813** | **279** | | |
 
 ```csv
-batch_id,name,plates,hours,g_black,g_orange,unlocks_chapter,hard_prereq_batches
+batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
 B00,Calibration & jigs,1,4.0,52,0,Frame,
 B01,Z drive assemblies,2,22.8,301,0,Z Drives and Idlers,B00;B02
-B02,Accent parts (orange),3,21.9,0,279,Multiple (accent),B00
+B02,Accent parts (blue),3,21.9,0,279,Multiple (accent),B00
 B03,A/B drive units + front idlers,1,8.5,119,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.6,117,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.4,78,0,Z Axis;A/B Belts,B00;B02;B04
-B06,Toolhead (SB + CW2 + Klicky),1,12.2,148,0,Stealthburner,B00;B02;B04
+B06,Toolhead (SB + CW2 + Klicky),1,12.1,148,0,Stealthburner,B00;B02;B04
 B07,Electronics bay + lighting,2,16.0,226,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,4,29.2,398,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,21.8,297,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,76,0,Panels (front door),B00;B02;B09
-TOTAL,,22,157.1,1813,279,,
+TOTAL,,22,157.0,1813,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -873,13 +893,13 @@ plate_id,batch_id,hours,grams,colour
 B00-P1,B00,4.0,52,black
 B01-P1,B01,15.2,201,black
 B01-P2,B01,7.6,100,black
-B02-P1,B02,7.0,90,orange
-B02-P2,B02,7.3,93,orange
-B02-P3,B02,7.6,96,orange
+B02-P1,B02,7.0,90,blue
+B02-P2,B02,7.3,93,blue
+B02-P3,B02,7.6,96,blue
 B03-P1,B03,8.5,119,black
 B04-P1,B04,8.6,117,black
 B05-P1,B05,6.4,78,black
-B06-P1,B06,12.2,148,black
+B06-P1,B06,12.1,148,black
 B07-P1,B07,7.9,102,black
 B07-P2,B07,8.1,124,black
 B08-P1,B08,6.3,99,black

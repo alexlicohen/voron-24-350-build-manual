@@ -23,9 +23,10 @@ file exist and they are not the same file:
   actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.8` today.
 
 They differ on one key that reaches these plates: 2.5.8's CORE One `start_gcode` bumps the firmware
-check from `M115 U6.5.3+12780` to `U6.8.1+16182`. That, plus the `thumbnails` override below, is why
-the Plater's **printer** box reads "(modified)" — see the table under *One-time PrusaSlicer setup*.
-Nothing mechanical differs; a re-derive should be resolved against the live bundle.
+check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be
+resolved against the live bundle. Our plates carry neither version verbatim — every one of them ships the
+**cold-probe start G-code** instead (below), and that is what makes the Plater's **printer** box read
+"(modified)".
 
 The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wherever one exists:
 
@@ -60,7 +61,8 @@ with the arrangement, the per-object brims and the full configuration already in
 | What | Where |
 |---|---|
 | One project per plate, 22 of them | `slicer/plates/B01-P1.3mf` … |
-| Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-orange.ini` |
+| Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/sync_start_gcode.py` keeps the inis and the 22 projects in step) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -68,6 +70,12 @@ with the arrangement, the per-object brims and the full configuration already in
 Open `slicer/plates/<plate>.3mf` in PrusaSlicer (**File → Open Project**) and slice. The project
 carries its own print/filament/printer configuration, so it does not matter which presets you had
 selected. Re-derive everything with `python3 slicer/fetch_stls.py && python3 slicer/build_plates.py`.
+
+⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 22 projects and both `.ini`
+bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
+at 0 °C through homing and the whole mesh, and the `G29 P9` nozzle wipe is removed because a cold tip
+cannot be wiped. Clean the tip by hand while it is hot, after each print. Opening a project therefore shows
+the Printer box as `Prusa CORE One HF0.4 nozzle (modified)` — that modification *is* the cold start.
 
 ### One-time PrusaSlicer setup — before the first project
 
@@ -82,15 +90,21 @@ selected. Re-derive everything with `python3 slicer/fetch_stls.py && python3 sli
 
    | Box | What it shows | Why |
    |---|---|---|
-   | Printer | `Prusa CORE One HF0.4 nozzle` — normally with **(modified)** | the project adds one printer key, `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview); and if your vendor bundle has auto-updated past 2.4.14 its `start_gcode` firmware check differs too. Both are expected |
+   | Printer | `Prusa CORE One HF0.4 nozzle` — **always with (modified)** | the project replaces `start_gcode` with the cold-probe block and adds one printer key, `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview). Both are expected; the "(modified)" is the cold start and must stay |
    | Print | `0.20mm STRUCTURAL @COREONE 0.4 (modified)` | the project's overrides sit on the system preset |
-   | Filament | `Prusament ASA @COREONE HF0.4 - Voron black` (` - Voron orange` on the three B02 plates) | the project's renamed filament preset, shrinkage zeroed |
+   | Filament | `Prusament ASA @COREONE HF0.4 - Voron black` (` - Voron blue` on the three B02 plates) | the project's renamed filament preset, shrinkage zeroed |
 
-   "(modified)" on the printer box is **not** a fault and is not the signal to look for. The two
-   signals that the project did not load are a **print** box without "(modified)" and a **filament**
-   box reading the bare `Prusament ASA @COREONE HF0.4` — either of those, or an estimate that does not
+   "(modified)" on the printer box is **not** a fault and is not the signal to look for — it is the
+   cold-probe start G-code, and a printer box *without* it means the project did not load. The other two
+   signals that it did not load are a **print** box without "(modified)" and a **filament**
+   box reading the bare `Prusament ASA @COREONE HF0.4` — any of those, or an estimate that does not
    match the Load step's numbers, means do not slice; reopen the project. A printer box naming a
    different printer entirely (not just "(modified)") is the wizard problem in step 1.
+
+   You do not need to select the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart` before opening a
+   plate: the preset and the project hold the identical block, and the project's own copy wins. Selecting
+   it changes nothing, and never "reset to system value" on the printer box — that throws the cold start
+   away.
 
 The times and weights in every batch chapter are **PrusaSlicer 2.9.6 estimates** from these
 projects, not a throughput model. Treat the first plate as the calibration of the *printer*, not of
@@ -154,10 +168,12 @@ material where wet filament actually costs strength. (Prusa ASA KB; drying decis
 
 ## Print sheet
 
-Decide this once, before B00-P1, and write the decision on the sheet's edge tape; every batch's pre-print
-step then says "sheet per 00-slicer-setup" and nothing more.
+Decided, and written on the sheet's edge tape; every batch's pre-print step then says "sheet per
+00-slicer-setup" and nothing more.
 
-- **Which sheet:** the smooth PEI sheet or the satin/textured (powder-coated) PEI sheet — both work for ASA.
+- **Which sheet:** the smooth/satin PEI sheet that shipped with the Core One+. The textured sheets are for
+  PLA/PETG and were bought for that; ASA adheres poorly to textured and the smooth sheet needs no glue to
+  hold it — the glue below is a release layer, not an adhesion aid.
 - **Glue stick on either.** ASA bonds to PEI hard enough that a big flat part (the 66 mm Z-drive bodies,
   the 182 mm rear skirt) can pull the coating off a smooth sheet; the glue is a *separation* layer, not an
   adhesion aid. Thin, even film over the printed area, re-applied every 2–3 plates.
@@ -168,14 +184,22 @@ Tip: Prusa's own ASA article is the source for the sheet, the glue stick and the
 
 ## Calibration sequence — run before B00, and again after the Gen 2 upgrade
 
-The dimensional gate is in **two parts**, because three of its coupons need parts that only arrive with
-the Voron kit: the [625-2RS](../16-glossary.md#f) bearing, the MGN12 rail and the M3×5×4
-[heat-set inserts](../16-glossary.md#h). **Gate A** needs only the cube and runs the day the plate comes
-off; **Gate B** runs the morning the kit lands. Each gate releases its own set of batches (table below).
+The dimensional gate is in **two parts**. **Gate A** needs only the cube. **Gate B** tests the fits, and
+the parts it would fit against — the [625-2RS](../16-glossary.md#f) bearing and the MGN12 rail — come in
+the Voron kit. Nothing is bought to bring them forward: what runs early is the *dimensional* half of Gate
+B, a caliper on the printed bores and seven real inserts out of the KADRICK kit already on the bench. The
+bearing press and the rail slide are signed off on kit day, and the rail row gates nothing but a 20-minute
+reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of batches (table below).
 
-1. **Install the Advanced Filtration Kit first.** ~157 h of ASA is about to run in an enclosure. Do it
-   while the back panel is already off (Core One+ Ch.7), not later.
-2. **Firmware ≥ 6.9.0** on the Core One+ (needed for GT1.5 belts later; harmless now).
+**Printer status, 2026-09-14.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps.
+Belt tuning was never formally closed; it gets redone at the Gen 2 belt swap, and that swap is now the
+**first** job in the plan, before B00 — so run this whole sequence *after* the machine is on GT1.5.
+
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~157 h of ASA is
+   about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
+   seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
+2. **Firmware ≥ 6.8.1** on the Core One+ — the current non-INDX build, and it already carries GT1.5 belt
+   support and the Settings → Hardware → Edition selector used by the Gen 2 upgrade.
 3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
    Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling. Judge
    B00-P1's first layer by Ellis' smooth-bottom rule: no gaps between beads, no ridging. If it needs a
@@ -196,33 +220,50 @@ off; **Gate B** runs the morning the kit lands. Each gate releases its own set o
 | Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
 | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
 
-**Gate A passed →** print **B02** (orange — no press fits) and **B07** (bay parts — no bearing seats)
-now, then, once the Gen 2 belt upgrade is done and the cube re-passes Gate A, the cosmetics
-**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 58.5 h and 763 g of
-bearing-seat and shaft-bore parts printed against an unverified fit.
+**Corner snap:** grip one corner in pliers and bend it off. A pass tears *across* the layers and leaves a
+rough, fibrous face; a fail peels cleanly *along* one layer line and leaves a flat shiny face `(verify on
+bench)`.
 
-### Gate B — kit day (bore, rail, inserts)
+**Where the two numbers live.** Extrusion multiplier: **Filament Settings → Filament**. Shrinkage
+compensation: **Filament Settings → Advanced**. Both belong to the filament preset *inside each project*,
+so a change made here does not travel: re-enter it in every later project as you open it, and write the
+value on the sheet-edge tape so you know what it should be.
+
+**Gate A passed →** every batch with no press fit is released: **B02**, **B07**, and the cosmetics
+**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 58.5 h and 763 g of
+bearing-seat and shaft-bore parts printed against an unverified fit — run Gate B first, the same week.
+
+### Gate B — bore and inserts now, rail on kit day
 
 | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|
-| `Heatset_Practice` | 7 × M3×5×4 inserts — all seven pockets, from the kit's 153 (146 remain for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
-| `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
-| `z_drive_retainer_a` 625-2RS bore (same plate) | 625-2RS bearing, 16 mm OD | bearing presses in with thumb pressure, no rocking | **The real press-fit gate.** Loose → check shrinkage compensation is 0 %. Tight → reduce EM 1 %, do not enlarge with compensation. |
+| When | Coupon | Nominal | Accept | If out of spec |
+|---|---|---|---|---|
+| **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
+| **now** | `z_drive_retainer_a` 625-2RS pocket (same plate) | **16.30 mm**, measured off the STL; the concentric lip below it is 14.30 mm | caliper across the pocket reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise [extrusion multiplier](../16-glossary.md#e) 1 %. Under → reduce EM 1 %. Never fix it with XY compensation. |
+| **kit day** | the same pocket, on a real 625-2RS (16 mm OD) | — | bearing presses in with thumb pressure, no rocking | this is the press fit the caliper is standing in for; a fail here reprints the retainer and the cube, and re-passes Gate A |
+| **kit day** | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-**Gate B passed →** start **B01**, then **B03–B06**. Gate B is Step B00.7; it takes about 15 minutes
-and unblocks 22.8 h of printing, so run it before Ch 00's inventory, not after. If Gate B moves the
+The inserts are set with the **X-Tronic iron's stock conical tip** — the LDO brass M3 tip lands with the
+kit and is used from Ch 00 onwards. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
+inserts stay for the build**.
+
+**Gate B passed →** start **B01**, then **B03–B06**. Gate B is Step B00.7; its two early rows take about
+15 minutes and unblock 58.5 h of printing, so run them in the same week as Gate A. If Gate B moves the
 extrusion multiplier, re-print the cube and re-pass Gate A before B01.
 
-Two 625-2RS bearings and ten M3×5×4 inserts (seven for the coupon) cost a few dollars: order them with the filament and Gate B
-can run in the same week as Gate A, with the parts otherwise sitting idle until the kit lands.
+If the bore is still loose with shrinkage compensation already at 0 % and XY compensation at 0, **raise the
+extrusion multiplier 1 %, reprint the retainer and the cube, and re-pass Gate A** before B01 starts. There
+is no other lever: negative XY compensation buys this one bore at the cost of every other fit in the
+machine.
 
 6. **Which gate releases which batch:**
 
 | Batch | Gate | Why |
 |---|---|---|
 | B02, B07 | **A** | no bearing seats, no rail fit; their heat-set bosses get inserts on kit day |
-| B08, B09, B10 | **A**, re-passed on a fresh cube after the Gen 2 belt upgrade | cosmetic; the skirts are where GT1.5's reduced VFA shows |
-| B01, B03, B04, B05, B06 | **B** | 625-2RS / F695 seats, MGN12 carriage pattern, 8 mm shaft bores |
+| B08, B09, B10 | **A** | cosmetic; the skirts are where GT1.5's reduced VFA shows, so they are printed after the Gen 2 upgrade — which in the baseline plan is already done before B00 |
+| B01, B03, B04, B05, B06 | **B** (bore + inserts, run early) | 625-2RS pockets, F695 flange seats, MGN12 carriage pattern, Z-joint bolt pattern |
 
 **Quality gate before every later batch:** look at the *last* plate pulled off. If any part shows
 (a) a lifted corner, (b) a delaminated layer, or (c) a bore/boss that failed a test fit — fix that before
@@ -282,7 +323,7 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | Prefix | Meaning | Our filament |
 |---|---|---|
 | *(none)* | Primary colour | **Prusament ASA Galaxy Black** |
-| `[a]_` | Accent colour | **Prusament ASA Prusa Orange** |
+| `[a]_` | Accent colour | **Prusament ASA Blue** |
 | `[o]_` | Opaque — must block light | Galaxy Black (perfect) |
 | `[c]_` | Clear / translucent | **Do not print** — LDO supplies the SB LED diffuser in clear PETG |
 | `_x#` suffix | **Quantity required to build the machine** | e.g. `z_joint_lower_x4.stl` → print 4 copies of the file |
@@ -294,30 +335,44 @@ contain more than one body: `[a]_stealthburner_main_body` (7 — built-in suppor
 `usb_adapter_mount_partial_cover` (2 — Nitehawk-SB V2).
 Clicky-Clack's `Hinge-L-sleeve-2X` / `-solid-2X` contain **one** body each — "2X" means print two.
 
-Three non-Voron parts carry no `[a]_` prefix but are printed **Orange** by choice: `Handle.stl`
+Three non-Voron parts carry no `[a]_` prefix but are printed **Blue** by choice: `Handle.stl`
 (Clicky-Clack), `ldo_bestagon_insert.stl`, and `XY_cable_chain_bridge-Igus-3mm_backer.stl` (a remix of the
 accent `[a]_xy_joint_cable_bridge_2hole`).
 
-## Gen 2 belt-upgrade pause rule
+## Gen 2 belt upgrade — the first job (contingency pause below)
 
-**Baseline plan:** finish the Core One+ kit through Ch.9 (self-test + first print), apply the Gen 1→Gen 2
-upgrade, re-tension and re-square, *then* start B00. The GT1.5 conversion changes belts, pulleys, steps/mm
-and firmware together — get it done and settled before 157.1 h of ASA.
+**Where things stand (2026-09-14).** The Core One+ is built and commissioned — commissioning closed
+2026-09-13 on **Gen 1 (GT2) belts**, bed flat to ±0.1 mm on printed Z-stop correction caps. The Gen 1→Gen 2
+upgrade kit (Prusa order 1787919456) is backordered but expected well before November. The LDO Voron kit is
+not: Fabreeko's tracking page still shows the V2.4/Trident batch in manufacture, so realistic delivery is
+**late November to late December 2026 (Fabreeko tracking page 2026-09-14: batch still in manufacture; watch
+for the status to flip to shipped, which starts a ~5-week clock)**.
 
-**If the upgrade kit arrives mid-run, pause at the end of Batch B07, before Batch B08.**
+**Baseline: Gen 2 first.** With two months of printing ahead of the kit there is no reason to lay 157.0 h of
+ASA down on GT2 belts and then change the machine under the parts. Apply it the day the **Gen 1→Gen 2 kit
+(Prusa order 1787919456)** arrives — not the Voron kit: firmware ≥ 6.8.1, Settings → Hardware → Edition →
+**Gen 2**, belts per the Prusa guide, re-tension, re-square, self-test, input shaper — then B00, whose cube
+is Gate A. The tick list is on its own page, [Gen 2 first](B00-calibration-and-jigs.md#gen-2-first). The
+GT1.5 conversion changes belts, pulleys, steps/mm and firmware together, so it is settled once, up front,
+and every plate in the build is GT1.5.
+
+**Contingency: if the upgrade kit has not arrived by 2026-10-15**, start B00 on the existing GT2 belts
+rather than hold the run, and take the mid-run pause below.
+
+**Pause at the end of Batch B07, before Batch B08** — where a mid-run upgrade lands.
 
 1. B08 + B09 + B10 are 10 of the 22 plates and contain every surface anyone will ever look at — the
    150–182 mm skirts are large flat vertical faces, exactly where GT1.5's reduced VFA shows.
 2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
-3. Clean boundary — no half-finished sub-assembly waits on it, and in the pre-kit order (B00 → B02 → B07 →
+3. Clean boundary — no half-finished sub-assembly waits on it, and in the numeric order (… → B06 → B07 →
    B08) it is exactly where the cosmetic run begins.
 
-**Second-best boundary:** if the kit arrives before B02 starts, do it then — the Stealthburner main body is
-the single most-looked-at printed part on the machine and it's on B02-P1.
+**Second-best boundary:** if the upgrade kit arrives before B02 starts, do it then — the Stealthburner main
+body is the single most-looked-at printed part on the machine and it's on B02-P1.
 
 **After the upgrade, before restarting prints:**
 
-1. Firmware ≥ 6.9.0 (adds GT1.5 belt support and Gen 2 expansion joints).
+1. Firmware ≥ 6.8.1 (carries GT1.5 belt support and the Gen 2 expansion joints).
 2. Re-tension both belts and re-square the gantry, per [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changed with the pulleys; the

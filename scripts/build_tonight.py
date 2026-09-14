@@ -24,7 +24,7 @@ one plate start per bucket (one printer), and once a plate is started the
 rest of that batch waits for it. A hands-on segment that does not fit is
 skipped together with the rest of its row (a chapter's segments are
 sequential), so a 30-minute bucket never offers a 40-minute segment; a bucket
-that fits nothing says so. "Kit not here yet" runs the same planner over the
+that fits nothing says so. "Before the kit" runs the same planner over the
 rows that carry no **KIT** marker, plus any `Pause: ~NN min since the last pause
 (pre-kit) — …` segment inside a row that does carry one (Ch 00's reading, log
 and Discord steps are real bench work weeks before the kit ships).
@@ -59,6 +59,11 @@ OUT = MANUAL / "00-tonight.md"
 
 PLATE_START_MIN = 5  # open the project, confirm the estimate, start, watch the first layer
 
+# The Voron kit is not here yet (expected late Nov - late Dec 2026), so "Before
+# the kit" is the section that gets read and it renders first. Flip this to True
+# on kit day and the two planner sections swap back.
+KIT_ARRIVED = False
+
 _CHAPTER_TITLE_RE = re.compile(
     r"^#\s*(?:Chapter|Batch)\s+([A-Za-z]?\d+[a-z]?)\s*—\s*(.+?)\s*$", re.MULTILINE
 )
@@ -69,7 +74,7 @@ _STEP_HEADING_RE = re.compile(
 )
 _SECTION_RE = re.compile(r"^#{2,3}\s+(.+?)\s*$", re.MULTILINE)  # any h2/h3: a row's anchor may be a Part or a Step
 # `(pre-kit)` after "since the last pause" marks a segment that needs no Voron
-# part, so the "Kit not here yet" planner can offer it even though its timeline
+# part, so the "Before the kit" planner can offer it even though its timeline
 # row is **KIT** (Ch 00's reading, log and Discord steps).
 _PAUSE_RE = re.compile(
     r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?\s*—\s*(.+?)\s*$",
@@ -243,11 +248,19 @@ def _assign(rows, chapters):
 # planner
 # --------------------------------------------------------------------------
 
-def _plan_for_budget(rows, budget):
+def _plan_for_budget(rows, budget, stop_at_kit=False):
     """Greedy pack in timeline order. One plate start per plan; a segment
-    that does not fit takes the rest of its row with it (sequential work)."""
+    that does not fit takes the rest of its row with it (sequential work).
+
+    With `stop_at_kit`, packing stops at the first row marked **KIT**: the
+    rows are in timeline order, so nothing past that row can be started
+    before the cartons land, and a bucket that ran on past it would offer
+    (say) mains wiring tonight.
+    """
     picked, total, plate_started = [], 0, False
     for row in rows:
+        if stop_at_kit and row["kit"]:
+            break
         for seg in row["segments"]:
             if seg["kind"] == "print":
                 if plate_started or total + seg["minutes"] > budget:
@@ -299,10 +312,26 @@ def _segment_span(seg):
     return f'<span data-first-step="{seg["first_step"]}">{_segment_text(seg)}</span>'
 
 
-def _planner(lines, rows):
+def _gate_row(rows):
+    """A wall-clock row (`Both`) with no stopping points that sits ahead of
+    every row carrying segments - the Gen 2 belt upgrade. Nothing below it
+    should be planned before it is done, but it has no segments to plan, so
+    the planner names it instead of silently stepping over it."""
+    for row in rows:
+        if row["segments"]:
+            return None
+        if row["kind"] == "Both":
+            return row
+    return None
+
+
+def _planner(lines, rows, stop_at_kit=False, gate=None):
     for label, budget in (("30 min", 30), ("60 min", 60), ("90 min", 90)):
-        picked, total = _plan_for_budget(rows, budget)
+        picked, total = _plan_for_budget(rows, budget, stop_at_kit)
         lines.append(f"**If you have {label}:**")
+        if gate is not None:
+            lines.append(f"- **first, and not tonight:** {_row_label(gate)} — "
+                         f"a whole-day job, and every row below waits on it")
         if not picked:
             row, seg = _next_segment(rows)
             if seg is None:
@@ -336,22 +365,9 @@ def build_tonight_markdown():
         f"{len(build_chapters)} build chapters; {total_print:.1f} h of printing across "
         f"{n_plates} plates (~{PLATE_START_MIN} min hands-on per plate start, the rest unattended).",
         "",
-        "## Tonight's planner",
-        "",
-        "Timeline order. One plate start per plan (one printer): a plate start is "
-        f"~{PLATE_START_MIN} min hands-on — open the project, confirm the estimate, start it, watch the "
-        "first layer — and then the printer runs unattended for the hours shown, so the rest of a "
-        "30-minute bucket can go on bench work.",
-        "",
     ]
 
-    if not any(r["segments"] for r in rows):
-        lines.append(
-            "_No stopping points marked yet anywhere in the manual — chapters are still "
-            "being written. Check back once `Pause:` lines land._"
-        )
-    else:
-        _planner(lines, rows)
+    gate = _gate_row(rows)
 
     # a row without **KIT**, or the (pre-kit) segments of a row that has it
     pre_kit = []
@@ -360,17 +376,46 @@ def build_tonight_markdown():
                 else [s for s in r["segments"] if s.get("pre_kit")])
         if segs:
             pre_kit.append(dict(r, segments=segs))
-    lines += ["## Kit not here yet", ""]
-    if pre_kit:
-        lines += [
-            "The same planner over the timeline rows without the **KIT** marker, plus the "
-            "individual `(pre-kit)` stopping points inside rows that do need the kit — the "
-            "Core One+ batches and every piece of bench work that needs no Voron part.",
+
+    def emit_before_the_kit():
+        lines.append("## Before the kit")
+        lines.append("")
+        if pre_kit:
+            lines.extend([
+                "The same planner over the timeline rows without the **KIT** marker, plus the "
+                "individual `(pre-kit)` stopping points inside rows that do need the kit — the "
+                "Core One+ batches and every piece of bench work that needs no Voron part.",
+                "",
+            ])
+            _planner(lines, pre_kit, gate=gate)
+        else:
+            lines.extend(["_Every timeline row needs the kit._", ""])
+
+    def emit_tonight():
+        lines.append("## Tonight's planner")
+        lines.append("")
+        lines.extend([
+            "Timeline order, stopping at the first **KIT** row. One plate start per plan "
+            f"(one printer): a plate start is ~{PLATE_START_MIN} min hands-on — open the project, "
+            "confirm the estimate, start it, watch the first layer — and then the printer runs "
+            "unattended for the hours shown, so the rest of a 30-minute bucket can go on bench work.",
             "",
-        ]
-        _planner(lines, pre_kit)
-    else:
-        lines += ["_Every timeline row needs the kit._", ""]
+        ])
+        if not any(r["segments"] for r in rows):
+            lines.append(
+                "_No stopping points marked yet anywhere in the manual — chapters are still "
+                "being written. Check back once `Pause:` lines land._"
+            )
+            lines.append("")
+        else:
+            _planner(lines, rows, stop_at_kit=not KIT_ARRIVED, gate=gate)
+
+    # Until kit day the pre-kit plan is the one that gets read, so it goes first.
+    # Before kit day the two plans are identical (every pre-kit row is also the
+    # stop-at-kit plan), so only one is emitted until KIT_ARRIVED flips.
+    for emit in ((emit_tonight, emit_before_the_kit) if KIT_ARRIVED
+                 else (emit_before_the_kit,)):
+        emit()
 
     lines += ["---", "", "## By timeline row", ""]
 

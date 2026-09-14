@@ -11,7 +11,7 @@ Builds the 2020 frame — bottom square, four verticals, top square — plus the
 **Prerequisites:**
 
 - **Ch 00** — inventory, extrusions counted, tools to hand.
-- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Batch **B01-P1** went on the Prusa the morning the kit landed, after Gate B (Step B00.7) — it prints under Ch 00 and this chapter, and Ch 02 waits only on B01-P2.
+- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Nothing is printing underneath it either: all 22 plates, B00 through B10, came off the Prusa before the cartons arrived, so Ch 02 starts the moment this chapter closes.
 
 **Tools**
 
@@ -52,7 +52,7 @@ C, D and E extrusions are sorted here but **not used** in this chapter — they 
 - Extrusion and roll-in T-nut tolerances are tight in this kit. LDO: *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly to identify the sides of the extrusions that fits the best or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - Every **"M5 shim"** in the official manual is a **brass M5 precision spacer** in this kit — here and for the rest of the build.
 - **Titanium extrusion backers are NOT installed in this chapter.** They go onto the gantry's X and Y extrusions during **Ch 05**, on the face opposite the rail. Leave them bagged; fitting them to frame extrusions now would be wrong and fitting them after the gantry is assembled costs a teardown (survey §4.4 #3, §5.2 W2). This is the only place this note appears.
-- Nothing here is printed. Build it the day the kit lands, while batch **B01** prints.
+- Nothing here is printed. Build it the day the kit lands — the printer is idle and every bin is already full.
 
 **Sources for this chapter:**
 
@@ -531,4 +531,4 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3**. B00 and B02 printed before the kit; B01 has been running since Gate B on kit-day morning, so Ch 02 waits only on B01-P2 (22.8 h in all, print plan §2).
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3**, all of which printed months before the kit and are sitting in bins 02-Z0 … 02-deck. Nothing waits (print plan §2).

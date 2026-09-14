@@ -14,7 +14,7 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 4. **Prerequisites:** chapters and print batches that must be done (name batches by their `batch_id` from the print plan; if the print plan isn't available yet, list the STL filenames and write `batch: TBD`). Canonical form: batches are `B00`–`B10` (always two digits); plates are `B00-P1` (two-digit batch, plate number as printed — no padding on the plate digit).
 5. **Tools** (bullets), **Printed parts** (table: STL, qty, color), **Hardware** (table: fastener/part, qty) — chapter totals, pulled from the official manual pages and the LDO batch BOM notes.
 6. **Read first:** 2–5 bullets of the pitfalls for this chapter (from survey §4).
-7. Colour cells use exactly `Black` or `Orange` (add `(opaque)` where the STL is `[o]_`); the filament identity lives once, in print plan §1.2.
+7. Colour cells use exactly `Black` or `Blue` (add `(opaque)` where the STL is `[o]_`); the filament identity lives once, in print plan §1.2.
 
 ## Steps
 - `### Step NN.M — short imperative title`

@@ -61,6 +61,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 | ini key | Flattened preset value | Set to | Why | Doc line |
 |---|---|---|---|---|
 | `thumbnails` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG`  | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG` | stock CORE One list plus a 640x480 PNG, so a G-code export from the GUI carries a doc-sized preview. The CLI writes no thumbnail data at all (see the last section), so the committed plate previews are drawn by slicer/render_plate.py instead. | added for R6 P4 |
+| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`)* | the stock CORE One start heats the nozzle to 170 C for homing and MBL and runs `G29 P9` to wipe it; on this machine that loads the loadcell with a hot, oozing tip and raises 'bed not aligned' prompts mid-probe. This block probes cold - `M104 S0` held through G28, chamber soak and MBL, `G29 P9` dropped (wipe the tip by hand while hot), heat to `first_layer_temperature` only for the purge line. It also carries `M115 U6.8.1+16182`, the firmware this was verified on, in place of the preset's 6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`. | printer preset `Prusa CORE One HF0.4 nozzle - coldstart` |
 
 ## Kept at the preset value on purpose
 
@@ -95,7 +96,7 @@ These are named in the override table as *keep*, so they are asserted here rathe
 
 ## Accent bundle
 
-`slicer/voron-accent-orange.ini` differs from `slicer/voron-coreone-asa.ini` in **3 keys only**: `filament_colour`, `filament_notes`, `filament_settings_id`. Same print, filament and printer physics; colour and label only. Used for the three B02 plates.
+`slicer/voron-accent-blue.ini` differs from `slicer/voron-coreone-asa.ini` in **3 keys only**: `filament_colour`, `filament_notes`, `filament_settings_id`. Same print, filament and printer physics; colour and label only. Used for the three B02 plates. Renamed from `voron-accent-orange.ini` on 2026-09-14 when the accent spool changed from Prusa Orange to blue; the three B02 plate 3MFs carry the new `filament_settings_id` / `filament_colour` via `sync_start_gcode.py`.
 
 ## What the 2.9.6 CLI could not do, and what was done instead
 
@@ -113,4 +114,22 @@ project straight from the CLI would open with whatever presets the reader happen
 selected. `build_plates.py` injects the config, and then slices each plate **with no
 `--load` at all**, so the committed 3MF is proved self-sufficient before its numbers are
 recorded.
+
+## Keeping the committed 3MFs in step with this file
+
+That self-sufficiency cuts both ways: opening a plate project **overrides the reader's
+selected presets** with the config baked into it. So a key added here does not reach the
+22 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are
+and never re-injects the config, and a full re-pack would throw away the GUI arrangement
+that is the QC authority.
+
+`python3 slicer/sync_start_gcode.py` closes that gap: it rewrites the single
+`; key = value` line inside each plate's `Metadata/Slic3r_PE.config` and copies every
+other zip member through byte for byte, so no object transform moves. Run it after
+changing a printer- or filament-level key here, then `build_plates.py --from-3mf` and
+`check_docs.py`. (`--check` reports without writing; `--key` picks a different key.)
+
+It matters most for `start_gcode`: the plates were written with the stock CORE One start,
+which would push the hot-probe sequence back over the `coldstart` printer preset every
+time a project was opened.
 

@@ -4,9 +4,10 @@
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.5 h unattended) + ~15 min inspect and bin.
 
-**Prerequisites:** **Gate B passed** (Step B00.7, kit day — these are F695 bearing seats). B02 printed
-(accent `[a]_cable_cover`, `[a]_z_chain_retainer_bracket`, `[a]_tensioner_left/right` feed this same assembly
-chapter; in the pre-kit order it is already on the shelf).
+**Prerequisites:** **Gate B passed** (Step B00.7 — these are F695 flange seats; the caliper and insert rows
+run early, on what is already on the bench). B02 is not a print prerequisite: its accent `[a]_cable_cover`,
+`[a]_z_chain_retainer_bracket` and `[a]_tensioner_left/right` printed one batch earlier, at B02, and are
+already in 04-A / 04-B.
 
 **Printed parts**
 
@@ -26,18 +27,18 @@ chapter; in the pre-kit order it is already on the shelf).
 
 **Read first**
 
-- Checkpoint after B03: **F695-2RS (13 mm OD, flanged)** bearing/spacer stacks drop into the drive-frame and
-  front-idler bores without reaming — and the two halves of each drive unit must close flat with no gap.
-  (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
+- Checkpoint after B03: the **F695 flange seats** caliper 15.00 mm now, and the two halves of each drive
+  unit must close flat with no gap. On kit day the real **F695-2RS** (13 mm OD, flanged) bearing/spacer
+  stacks must drop into those seats without reaming. (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
 - Most commonly reprinted here: `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine.
 - A and B share one plate (merged 2026-09-06, one swap instead of two), so a failed plate costs both drive
   units. Watch the first layer before you walk away from an 8.5 h print.
 
 ## Step B03.1 — Filament prep
 
-**Do:** Galaxy Black. Confirm spool remaining ≥119 g for the plate; the ledger has B03 on spool #2 after B01.
-Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Purge clean black.
+**Do:** Swap the accent spool for Galaxy Black: Unload, Load Filament → ASA, purge until no blue shows.
+The ledger has B03 on spool #1 with 447 g, leaving 328 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Check:** Purge clean black, no blue streak.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -64,13 +65,16 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B03.4 — Inspect
 
-**Do:** With calipers, check the F695 bearing seat diameter in each drive frame half: 13 mm OD, flanged. Dry-fit the lower and
-upper halves of each drive unit together; they must close flat with no gap.
-**Check:** No gap when the two halves are clamped together; bearing seats accept an F695-2RS bearing snugly, no rocking.
+**Do:**
 
-Pause: ~10 min since the last pause — bearing seats tested and the bearings pulled back out, halves dry-fitted and separated again. Nothing pressed for keeps.
+1. Now: caliper each drive frame half's F695 flange seat, a 15.00 mm pocket 4.00 mm deep.
+2. Now: dry-fit each drive unit's two halves, which must close flat.
+3. Kit day: drop a real F695-2RS in, no rocking.
+**Check:** Every seat reads 15.00 mm ±0.15 and both halves close with no visible gap.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-kit-day-bore-rail-inserts) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
+Pause: ~10 min since the last pause — seats calipered, halves dry-fitted and separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B03.5 — Sort into bins
 
@@ -87,9 +91,11 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **04-A** — A drive unit + A (right) front idler | `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper` |
 | **04-B** — B drive unit + B (left) front idler | `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` |
 
-**Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one orange tensioner.
+**Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one blue tensioner.
 
-Tip: the orange `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins.
+Tip: the blue `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins.
+
+Pause: ~10 min since the last pause — both bins sorted and labelled, A-side and B-side parts kept apart. Nothing is pressed or bolted; Ch 04 builds from the bins.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -97,7 +103,8 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Checkpoint B03
 - [ ] Gate B passed before B03-P1 started
-- [ ] F695-2RS (13 mm OD) bearing seats in `a/b_drive_frame_lower/upper` accept the bearing with no rocking
+- [ ] F695 flange seats in `a/b_drive_frame_lower/upper` caliper 15.00 mm ±0.15
+- [ ] *(kit day)* a real F695-2RS sits in each seat with no rocking
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
 - [ ] A-side parts in 04-A, B-side parts in 04-B

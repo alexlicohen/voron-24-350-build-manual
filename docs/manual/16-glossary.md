@@ -18,7 +18,7 @@ Every term this manual uses without stopping to explain it, with the chapter or 
 
 | Term | What it means | First matters at |
 |---|---|---|
-| `[a]_` | STL filename prefix: print in the **accent** colour — Prusa Orange on this build. Every `[a]_` part is collected into batch B02 | [00.24](00-before-you-start.md#step-0024-file-naming-and-where-to-get-help-p56) |
+| `[a]_` | STL filename prefix: print in the **accent** colour — ASA Blue on this build. Every `[a]_` part is collected into batch B02 | [00.24](00-before-you-start.md#step-0024-file-naming-and-where-to-get-help-p56) |
 | `[o]_` | Prefix: **opaque** — the part must block light. Galaxy Black satisfies it | [print/00-slicer-setup — Colour key](print/00-slicer-setup.md#colour-key) |
 | `[c]_` | Prefix: **clear / translucent**. Do not print — LDO supplies the one such part (the SB LED diffuser) in clear PETG | [00.6](00-before-you-start.md#step-006-set-aside-the-ten-ldo-supplied-printed-parts) |
 | `_xN` | Filename suffix: the **quantity the machine needs**, regardless of how many bodies are in the file. `_x4` means four | [00.24](00-before-you-start.md#step-0024-file-naming-and-where-to-get-help-p56) |
@@ -129,7 +129,8 @@ Source: [Ch 00 Steps 00.19](00-before-you-start.md#step-0019-flip-and-pack), [00
 |---|---|---|
 | **G28** | Klipper's home-all command. On this machine it needs a reachable `safe_z_home` position, which is deliberately left invalid until you measure it | [13.27](13-initial-startup.md#step-1327-full-g28) |
 | **G32** | The Voron macro that homes, runs QGL and re-homes. Re-run it after every `SAVE_CONFIG`, which restarts Klipper and loses homing | [12.27](12-software.md#step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position) |
-| **Gate A / Gate B** | The two halves of the B00 print gate. **Gate A** — the cube alone, no kit needed — releases B02, B07 and (after the Gen 2 belt upgrade) B08–B10. **Gate B** — 625-2RS bore, MGN12 rail, real heat-set inserts, so kit day — releases B01 and B03–B06 | [print/00-slicer-setup — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) |
+| **Gate A / Gate B** | The two halves of the B00 print gate. **Gate A** — the cube alone, no kit needed — releases B02, B07 and the cosmetics B08–B10. **Gate B** — a caliper across the printed 625-2RS pocket and seven real heat-set inserts now, the bearing press and the MGN12 rail row on kit day — releases B01 and B03–B06 | [print/00-slicer-setup — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) |
+| **GT1.5 / GT2** | Belt tooth pitch in mm. Gen 2 swaps the Core One's 2 mm GT2 belts and pulleys for 1.5 mm GT1.5, which raises the tooth-engagement ripple frequency and shrinks **VFA**. Pulleys, steps/mm and firmware all change together | [print/00-slicer-setup — Gen 2 first](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) |
 | **Gantry** | The X extrusion, its two XY joints and the X carriage, carried on the two Y axes. Everything above the deck that moves in XY | [05 — Gantry](05-gantry.md) |
 | **GFCI / RCD** | Residual-current device — cuts the supply when live and neutral currents differ, which is what happens when current leaves through a person | [00a.5](00a-mains-safety.md#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach) |
 
@@ -334,12 +335,12 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 | Term | What it is | First matters at |
 |---|---|---|
 | **VE0508** | The ferrule size the kit supplies for its mains screw terminals — 0.5 mm², 8 mm barrel | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
-| **VFA (vertical fine artifacts)** | Fine periodic vertical ripple, 0.5–2 mm apart, from belt-tooth engagement. Cosmetic only, and **not** the same thing as ringing | [print/00-slicer-setup — Gen 2 pause rule](print/00-slicer-setup.md#gen-2-belt-upgrade-pause-rule) |
+| **VFA (vertical fine artifacts)** | Fine periodic vertical ripple, 0.5–2 mm apart, from belt-tooth engagement. Cosmetic only, and **not** the same thing as ringing | [print/00-slicer-setup — Gen 2 pause rule](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) |
 | **Volumetric flow (mm³/s)** | Plastic through the nozzle per second — speed × width × layer height. These plates peak at 8 mm³/s against the HF profile's 26 mm³/s ceiling, so the high-flow nozzle changes temperature, not speed | [print/00-slicer-setup — Base profiles](print/00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) |
 | **Voron 2.4r2 Assembly Manual** | The official PDF this manual transcribes, unchanged since 2023-07-18. Cited throughout as `p.NN` | [00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11) |
 | **Voron Stealthburner manual** | The separate official PDF for the toolhead, referenced by page through Ch 08 | [08 — Toolhead](08-toolhead.md) |
 
-Source: [Ch 00a Step 00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) · [print/00-slicer-setup.md](print/00-slicer-setup.md#gen-2-belt-upgrade-pause-rule) · [Ch 00 Step 00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11)
+Source: [Ch 00a Step 00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) · [print/00-slicer-setup.md](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) · [Ch 00 Step 00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11)
 
 ---
 

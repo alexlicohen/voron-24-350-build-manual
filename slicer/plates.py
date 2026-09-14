@@ -88,7 +88,7 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Panel_Mounting/deck_support_3mm_x8.stl", 8),
         ]),
     "B02-P1": dict(
-        batch="B02", colour="orange",
+        batch="B02", colour="blue",
         note="SB main body has built-in supports - snap them out, do not cut.",
         parts=[
             ("sb", "STLs/Stealthburner/[a]_stealthburner_main_body.stl", 1),
@@ -98,7 +98,7 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Z_Drive/[a]_z_drive_baseplate_b_x2.stl", 2),
         ]),
     "B02-P2": dict(
-        batch="B02", colour="orange",
+        batch="B02", colour="blue",
         note="Handle is 60 mm tall on a 68x19 footprint - 5 mm brim.",
         parts=[
             ("whopping", "clickyclacky_door/STLs/Handle.stl", 1),
@@ -111,7 +111,7 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Gantry/Front_Idlers/[a]_tensioner_right.stl", 1),
         ]),
     "B02-P3": dict(
-        batch="B02", colour="orange",
+        batch="B02", colour="blue",
         note="The 29 small accent parts.",
         parts=[
             ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_a_x2.stl", 2),

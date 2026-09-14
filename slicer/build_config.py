@@ -17,6 +17,16 @@ from resolve_preset import load_bundle, resolve
 ROOT = Path(__file__).resolve().parent
 DOC = "docs/manual/print/00-slicer-setup.md"
 
+# Alex's cold-probe start G-code, vendored from
+# ~/projects/core-one-mods/reference/coreone-cold-start.gcode (verified 2026-09-14) so
+# this repo builds without that one. Single-line `\n` escaping is what `--load` reads
+# and what PrusaSlicer itself writes.
+COLD_START = ROOT / "coreone-cold-start.gcode"
+
+
+def cold_start_gcode() -> str:
+    return COLD_START.read_text().rstrip("\n").replace("\n", "\\n")
+
 BASE_PRINT = "0.20mm STRUCTURAL @COREONE 0.4"
 BASE_FILAMENT = "Prusament ASA @COREONE HF0.4"
 BASE_PRINTER = "Prusa CORE One HF0.4 nozzle"
@@ -83,7 +93,24 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "doc-sized preview. The CLI writes no thumbnail data at all (see the last section), so "
      "the committed plate previews are drawn by slicer/render_plate.py instead.",
      "added for R6 P4"),
+    # --- Start G-code (cold-probe / loadcell workaround, 2026-09-14) ---
+    ("start_gcode", cold_start_gcode(), "printer",
+     "the stock CORE One start heats the nozzle to 170 C for homing and MBL and runs "
+     "`G29 P9` to wipe it; on this machine that loads the loadcell with a hot, oozing tip "
+     "and raises 'bed not aligned' prompts mid-probe. This block probes cold - `M104 S0` "
+     "held through G28, chamber soak and MBL, `G29 P9` dropped (wipe the tip by hand while "
+     "hot), heat to `first_layer_temperature` only for the purge line. It also carries "
+     "`M115 U6.8.1+16182`, the firmware this was verified on, in place of the preset's "
+     "6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`.",
+     "printer preset `Prusa CORE One HF0.4 nozzle - coldstart`"),
 ]
+
+# Values too long to sit in a markdown cell: what OVERRIDES.md prints instead of
+# the raw before/after strings. Keyed by ini key -> (flattened preset, set to).
+MD_CELLS = {
+    "start_gcode": ("*(the stock CORE One start block)*",
+                    "*(the block in `slicer/coreone-cold-start.gcode`)*"),
+}
 
 HEADER = """\
 # PrusaSlicer 2.9.6 configuration for the LDO Voron 2.4 R2 (350) print run.
@@ -138,7 +165,7 @@ def write_ini(path: Path, cfg: dict[str, str], name: str, version: str) -> None:
     path.write_text(head + "\n" + body + "\n")
 
 
-def write_overrides_md(black: dict[str, str], orange: dict[str, str], version: str) -> None:
+def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: str) -> None:
     sections = load_bundle()
     base = {}
     base.update(resolve(sections, "print", BASE_PRINT))
@@ -148,10 +175,15 @@ def write_overrides_md(black: dict[str, str], orange: dict[str, str], version: s
     rows = {"print": [], "filament": [], "printer": []}
     for key, value, sec, why, src in OVERRIDES:
         before = base.get(key, "*(PrusaSlicer built-in default)*")
-        if len(before) > 60:
-            before = before[:57] + "..."
+        if key in MD_CELLS:                       # multi-line values: name them, do not print them
+            was, now = MD_CELLS[key]
+            rows[sec].append(f"| `{key}` | {was} | {now} | {why} | {src} |")
+            continue
+        if len(before) > 120:
+            before = before[:117] + "..."
+        shown = value if len(value) <= 120 else value[:117] + "..."
         changed = "" if str(before) == value else " "
-        rows[sec].append(f"| `{key}` | `{before}`{changed} | `{value}` | {why} | {src} |")
+        rows[sec].append(f"| `{key}` | `{before}`{changed} | `{shown}` | {why} | {src} |")
 
     out = [
         "# Override map",
@@ -235,11 +267,13 @@ def write_overrides_md(black: dict[str, str], orange: dict[str, str], version: s
         "",
         "## Accent bundle",
         "",
-        "`slicer/voron-accent-orange.ini` differs from `slicer/voron-coreone-asa.ini` in "
-        f"**{len([k for k in black if black[k] != orange.get(k)])} keys only**: "
-        + ", ".join(f"`{k}`" for k in sorted(black) if black[k] != orange.get(k))
+        "`slicer/voron-accent-blue.ini` differs from `slicer/voron-coreone-asa.ini` in "
+        f"**{len([k for k in black if black[k] != accent.get(k)])} keys only**: "
+        + ", ".join(f"`{k}`" for k in sorted(black) if black[k] != accent.get(k))
         + ". Same print, filament and printer physics; colour and label only. Used for the three "
-        "B02 plates.",
+        "B02 plates. Renamed from `voron-accent-orange.ini` on 2026-09-14 when the accent spool "
+        "changed from Prusa Orange to blue; the three B02 plate 3MFs carry the new "
+        "`filament_settings_id` / `filament_colour` via `sync_start_gcode.py`.",
         "",
         "## What the 2.9.6 CLI could not do, and what was done instead",
         "",
@@ -263,15 +297,36 @@ def write_overrides_md(black: dict[str, str], orange: dict[str, str], version: s
         "plate pays for it. |",
         "| **No thumbnails.** | The `thumbnails` value reaches the G-code config block, but no "
         "image data is written in either ASCII or binary G-code - rasterisation lives in the GUI. | "
-        "`slicer/render_plate.py` draws the preview from the same arrangement that goes into the "
-        "3MF, and adds a numbered part index and the brim outline, which a screenshot would not "
-        "have carried. |",
+        "`scripts/render_plate_bins.py` draws the diagram by reading the committed 3MF back (every "
+        "object's mesh projected through its `<item transform>`, per-object brim from "
+        "`Slic3r_PE_model.config`), and adds what a screenshot would not carry: a number on every "
+        "part, its sorting bin (colour + id, from `slicer/bins.py`) and the brim ring. Re-arranging "
+        "a plate in the GUI and saving it is therefore safe \u2014 `build_plates.py --from-3mf` "
+        "re-slices and redraws from the file. |",
         "",
         "One more: `--export-3mf` writes model geometry only - no `Metadata/Slic3r_PE.config` - so a",
         "project straight from the CLI would open with whatever presets the reader happens to have",
         "selected. `build_plates.py` injects the config, and then slices each plate **with no",
         "`--load` at all**, so the committed 3MF is proved self-sufficient before its numbers are",
         "recorded.",
+        "",
+        "## Keeping the committed 3MFs in step with this file",
+        "",
+        "That self-sufficiency cuts both ways: opening a plate project **overrides the reader's",
+        "selected presets** with the config baked into it. So a key added here does not reach the",
+        "22 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are",
+        "and never re-injects the config, and a full re-pack would throw away the GUI arrangement",
+        "that is the QC authority.",
+        "",
+        "`python3 slicer/sync_start_gcode.py` closes that gap: it rewrites the single",
+        "`; key = value` line inside each plate's `Metadata/Slic3r_PE.config` and copies every",
+        "other zip member through byte for byte, so no object transform moves. Run it after",
+        "changing a printer- or filament-level key here, then `build_plates.py --from-3mf` and",
+        "`check_docs.py`. (`--check` reports without writing; `--key` picks a different key.)",
+        "",
+        "It matters most for `start_gcode`: the plates were written with the stock CORE One start,",
+        "which would push the hot-probe sequence back over the `coldstart` printer preset every",
+        "time a project was opened.",
         "",
     ]
     (ROOT / "OVERRIDES.md").write_text("\n".join(out) + "\n")
@@ -281,15 +336,15 @@ def main() -> None:
     version = bundle_version(load_bundle())
     black = build("black", "voron-coreone-asa", "#1D1D1F",
                   "Prusament ASA Galaxy Black - primary colour for every batch except B02.")
-    orange = build("orange", "voron-accent-orange", "#FF6A13",
-                   "Prusament ASA Prusa Orange - accent colour, B02 plates only "
-                   "(plus Handle.stl, ldo_bestagon_insert.stl and the Igus cable bridge).")
+    blue = build("blue", "voron-accent-blue", "#1F4E9C",
+                 "Prusament ASA blue - accent colour, B02 plates only "
+                 "(plus Handle.stl, ldo_bestagon_insert.stl and the Igus cable bridge).")
     write_ini(ROOT / "voron-coreone-asa.ini", black, "voron-coreone-asa", version)
-    write_ini(ROOT / "voron-accent-orange.ini", orange, "voron-accent-orange", version)
-    write_overrides_md(black, orange, version)
-    diff = [k for k in black if black[k] != orange.get(k)]
+    write_ini(ROOT / "voron-accent-blue.ini", blue, "voron-accent-blue", version)
+    write_overrides_md(black, blue, version)
+    diff = [k for k in black if black[k] != blue.get(k)]
     print(f"wrote voron-coreone-asa.ini ({len(black)} keys), "
-          f"voron-accent-orange.ini (differs in {len(diff)}: {', '.join(sorted(diff))}), "
+          f"voron-accent-blue.ini (differs in {len(diff)}: {', '.join(sorted(diff))}), "
           f"OVERRIDES.md")
 
 

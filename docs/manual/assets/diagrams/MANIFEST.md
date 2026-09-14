@@ -239,7 +239,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 - Every row of 00-index.md's timeline in execution order on two lanes — print batches B00–B10 on the Core One+, assembly chapters (including Ch 00a, the two-part Ch 06/06b, Ch 11 A/B and Ch 12 1/2) on the bench — with each row's duration and KIT / 2P marker.
 - One orange rail per print batch through the middle channel, forking to every chapter whose `needs:` list names that batch.
-- The Gen 2 belt-upgrade pause as a full-width band at its contingency position in the pre-kit block, between B07 and B08.
+- The Gen 2 belt upgrade as a full-width band at row 1, before B00, and again as the demoted contingency pause after the print rows.
 - The critical-path strip: print hours (per batch and total) from docs/manual/print/README.md, the rest from 00-index.md § Critical path.
 
 **Insert at**

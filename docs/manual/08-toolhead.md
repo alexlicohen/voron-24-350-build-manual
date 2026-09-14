@@ -2,7 +2,7 @@
 
 Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, toolboard — and hangs it on the X carriage with every connector made, so Ch 10 only has to pull one umbilical through the chain.
 
-**What you're building in this chapter.** The toolhead — the part that actually prints — in four named assemblies. **[Clockwork 2](16-glossary.md#c)** is the extruder: a slim stepper turning two geared wheels that grip the filament between them and push it down. The **tool cartridge** is the removable block holding the **[Revo HF](16-glossary.md#r)** hotend — heatsink, HeaterCore and a nozzle you change by hand — plus the PTFE tube that feeds it. **[Stealthburner](16-glossary.md#s)** is the orange shroud that wraps the front, carrying two fans (one blowing through the hotend's heatsink to keep its cold side cold, one blowing cooling air at the print) and three addressable LEDs behind a diffuser. The **[Nitehawk-SB V2](16-glossary.md#n)** is the toolboard: a small PCB riding on the toolhead that collects the heater, thermistor, fans, LEDs, probe and extruder motor onto a single USB-plus-24 V umbilical instead of a loom. All four are built on the bench and only then hung on the X carriage, with every toolhead-side connector already made.
+**What you're building in this chapter.** The toolhead — the part that actually prints — in four named assemblies. **[Clockwork 2](16-glossary.md#c)** is the extruder: a slim stepper turning two geared wheels that grip the filament between them and push it down. The **tool cartridge** is the removable block holding the **[Revo HF](16-glossary.md#r)** hotend — heatsink, HeaterCore and a nozzle you change by hand — plus the PTFE tube that feeds it. **[Stealthburner](16-glossary.md#s)** is the blue shroud that wraps the front, carrying two fans (one blowing through the hotend's heatsink to keep its cold side cold, one blowing cooling air at the print) and three addressable LEDs behind a diffuser. The **[Nitehawk-SB V2](16-glossary.md#n)** is the toolboard: a small PCB riding on the toolhead that collects the heater, thermistor, fans, LEDs, probe and extruder motor onto a single USB-plus-24 V umbilical instead of a loom. All four are built on the bench and only then hung on the X carriage, with every toolhead-side connector already made.
 
 **Time:** 3.0–4.5 h hands-on, first build (survey §7.2).
 
@@ -12,7 +12,7 @@ Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, tool
 
 - **Ch 05 — Gantry.** X carriage halves (`x_frame_V2TR_MGN12_left/right`) built, heat-set inserts and M3 nuts already in them, carriage running the full X travel with no bind.
 - **Ch 07 — A/B belts.** Belts clamped into the carriage and tensioned. The carriage must be finished before anything hangs off it.
-- **Print batches: B02** (the orange accent parts: `[a]_stealthburner_main_body`, `[a]_guidler_a/b`, `[a]_latch`, `[a]_latch_shuttle`, spare `[a]_pcb_spacer`), **B06** (Stealthburner `revo_voron` printheads, Clockwork 2 black parts, `cw2_captive_pcb_cover`, the Klicky set), and **B04** for the carriage. Batch ids from `docs/voron-print-plan.md`.
+- **Print batches: B02** (the blue accent parts: `[a]_stealthburner_main_body`, `[a]_guidler_a/b`, `[a]_latch`, `[a]_latch_shuttle`, spare `[a]_pcb_spacer`), **B06** (Stealthburner `revo_voron` printheads, Clockwork 2 black parts, `cw2_captive_pcb_cover`, the Klicky set), and **B04** for the carriage. Batch ids from `docs/voron-print-plan.md`.
 - **LDO-supplied printed parts, no print needed:** CW2 Chain Anchor Tilted ×1, CW2 PCB Spacer ×1, Stealthburner LED Diffuser ×1 (clear PETG), LDO Nozzle Probe ×1, NH Adapter Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 **Tools**
@@ -34,7 +34,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Looks like | STL | Bin | Qty | Colour |
 |---|---|---|---|---|
-| ![](assets/parts/%5Ba%5D_stealthburner_main_body.png){ width=96 } | `[a]_stealthburner_main_body.stl` | 08-SB | 1 | Orange |
+| ![](assets/parts/%5Ba%5D_stealthburner_main_body.png){ width=96 } | `[a]_stealthburner_main_body.stl` | 08-SB | 1 | Blue |
 | ![](assets/parts/stealthburner_printhead_revo_voron_front.png){ width=96 } | `stealthburner_printhead_revo_voron_front.stl` | 08-SB | 1 | Black |
 | ![](assets/parts/stealthburner_printhead_revo_voron_rear_cw2.png){ width=96 } | `stealthburner_printhead_revo_voron_rear_cw2.stl` | 08-SB | 1 | Black |
 | ![](assets/parts/%5Bo%5D_stealthburner_LED_carrier.png){ width=96 } | `[o]_stealthburner_LED_carrier.stl` | 08-SB | 1 | Black (opaque) |
@@ -42,8 +42,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | — | `[c]_stealthburner_LED_diffuser.stl` | — | 1 | **kit-supplied** in clear PETG — not printed here |
 | ![](assets/parts/main_body.png){ width=96 } | `main_body.stl` (Clockwork 2) | 08-CW2 | 1 | Black |
 | ![](assets/parts/motor_plate.png){ width=96 } | `motor_plate.stl` (Clockwork 2) | 08-CW2 | 1 | Black |
-| ![](assets/parts/%5Ba%5D_guidler_a.png){ width=96 } ![](assets/parts/%5Ba%5D_guidler_b.png){ width=96 } | `[a]_guidler_a.stl` / `[a]_guidler_b.stl` | 08-CW2 | 1 each | Orange |
-| ![](assets/parts/%5Ba%5D_latch.png){ width=96 } ![](assets/parts/%5Ba%5D_latch_shuttle.png){ width=96 } | `[a]_latch.stl` / `[a]_latch_shuttle.stl` | 08-CW2 | 1 each | Orange |
+| ![](assets/parts/%5Ba%5D_guidler_a.png){ width=96 } ![](assets/parts/%5Ba%5D_guidler_b.png){ width=96 } | `[a]_guidler_a.stl` / `[a]_guidler_b.stl` | 08-CW2 | 1 each | Blue |
+| ![](assets/parts/%5Ba%5D_latch.png){ width=96 } ![](assets/parts/%5Ba%5D_latch_shuttle.png){ width=96 } | `[a]_latch.stl` / `[a]_latch_shuttle.stl` | 08-CW2 | 1 each | Blue |
 | ![](assets/parts/%5Ba%5D_pcb_spacer.png){ width=96 } | `[a]_pcb_spacer.stl` (CW2) | spare-alt | 1 | **Supplied printed**; you printed a 0.3 g spare |
 | ![](assets/parts/cw2_captive_pcb_cover.png){ width=96 } | `cw2_captive_pcb_cover.stl` (Nitehawk-SB repo) | 08-CW2 | 1 | Black — replaces the stock `cable_door` |
 | — | CW2 Chain Anchor Tilted | — | 1 | **Supplied printed** — do **not** print `chain_anchor_2hole` |
@@ -87,7 +87,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **The kit ships both probes and you build the inductive one.** LDO's wiring guide, the Rev D+ Klipper config and survey §4.3 all assume the Omron inductive probe for QGL plus the LDO nozzle probe as the Z endstop. The Klicky parts are printed; bag them (Step 08.54).
 - **Skip the ADXL mount entirely.** The Nitehawk-SB has an ADXL345 on board. Do not fit the two extra inserts SB p.38 highlights, and do not print `ADXL345_Mounts/*`. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 - **The XY-endstop port on the toolboard is unused** in a standard build, and the PROBE port's third pin is 24 V — Klicky must not have it populated. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
-- **Bench-only work for a print-idle window** (the index's *while it prints* rows assume you use them): Steps 08.3–08.7 (inserts), 08.9–08.11 (idler, guidler, thumbscrew), 08.12–08.14 (bearings), 08.27 (Revo) and 08.33–08.36 (leads, 5015 ears, LED chain) need no printer. If plate B07-P1 is already off the Prusa, heat-set the inlet panel (Ch 09 Step 09.10) and the bed WAGO mount (Ch 09 Step 09.34) in the same iron session as 08.3–08.7 — those two steps then become a confirm.
+- **Bench-only work, good for a short session**: Steps 08.3–08.7 (inserts), 08.9–08.11 (idler, guidler, thumbscrew), 08.12–08.14 (bearings), 08.27 (Revo) and 08.33–08.36 (leads, 5015 ears, LED chain) need no printer. Plate B07-P1 came off the Prusa months ago, so heat-set the inlet panel (Ch 09 Step 09.10) and the bed WAGO mount (Ch 09 Step 09.34) in the same iron session as 08.3–08.7 — those two steps then become a confirm.
 
 **Sources for this chapter**
 
@@ -138,11 +138,11 @@ Source: [SB manual p.37](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.45](assets/sb-pages/sb-p045.png)
 ![Stealthburner main body render](assets/parts/%5Ba%5D_stealthburner_main_body.png)
 
-**What you're looking at:** The orange body is the Stealthburner shroud itself, carrying the LEDs, air ducts and both fans. It prints with sacrificial support inside. The webs across the fan cavities are the exception: they snap as a fan is pushed in and that snap retains it.
+**What you're looking at:** The blue body is the Stealthburner shroud itself, carrying the LEDs, air ducts and both fans. It prints with sacrificial support inside. The webs across the fan cavities are the exception: they snap as a fan is pushed in and that snap retains it.
 
 **Parts:** `[a]_stealthburner_main_body` ×1.
 
-**Do:** **Snap** the three built-in supports SB p.45 highlights out of the orange main body, using flush cutters: pry and break, do not carve. Leave the fan-cavity supports alone; SB p.52 says those break when the fans go in.
+**Do:** **Snap** the three built-in supports SB p.45 highlights out of the blue main body, using flush cutters: pry and break, do not carve. Leave the fan-cavity supports alone; SB p.52 says those break when the fans go in.
 
 **Check:** The LED pockets, diffuser channels and the two mounting bores are clear. The fan cavities still have their thin support webs in place.
 
@@ -203,7 +203,7 @@ Source: [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Guidler arm render](assets/parts/%5Ba%5D_guidler_a.png)
 
-**What you're looking at:** The latch, the latch shuttle and the guidler arm are the extruder's three orange parts: the arm swings the idler against the drive gear to grip filament, the shuttle takes the thumbscrew, and the latch hooks over the shuttle to hold the arm closed.
+**What you're looking at:** The latch, the latch shuttle and the guidler arm are the extruder's three blue parts: the arm swings the idler against the drive gear to grip filament, the shuttle takes the thumbscrew, and the latch hooks over the shuttle to hold the arm closed.
 
 **Parts:** `[a]_latch` ×1, `[a]_latch_shuttle` ×1, `[a]_guidler_a` ×1, heat-set inserts M3×5×4 ×3.
 
@@ -295,7 +295,7 @@ Source: [SB manual p.17](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.16](assets/sb-pages/sb-p016.png)
 
-**What you're looking at:** The guidler is the swinging arm that carries the idler: two orange halves joined by a single M3×16 on p.16, with the idler assembly sliding into the joined arm on its own shaft on p.17.
+**What you're looking at:** The guidler is the swinging arm that carries the idler: two blue halves joined by a single M3×16 on p.16, with the idler assembly sliding into the joined arm on its own shaft on p.17.
 
 **Parts:** `[a]_guidler_a` ×1, `[a]_guidler_b` ×1, M3×16 SHCS ×1, the idler assembly from 08.9.
 
@@ -467,7 +467,7 @@ Source: [SB manual p.25](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.26](assets/sb-pages/sb-p026.png)
 
-**What you're looking at:** The latch is the orange lever that hooks over the latch shuttle from 08.11 to hold the guidler arm closed against spring pressure, so filament can be loaded one-handed. It also has to pivot, so it too is snug rather than tight.
+**What you're looking at:** The latch is the blue lever that hooks over the latch shuttle from 08.11 to hold the guidler arm closed against spring pressure, so filament can be loaded one-handed. It also has to pivot, so it too is snug rather than tight.
 
 **Parts:** `[a]_latch` ×1 (insert fitted in 08.5), M3×25 SHCS ×1.
 
@@ -871,7 +871,7 @@ Pause: ~20 min since the last pause — the Stealthburner body is fully populate
 
 ![LDO Nitehawk-SB V2 toolboard and the SBurnerFanAdapter V2.0 (© LDO Motors)](assets/remote/08-toolhead/nitehawk-sb_title_img.jpg)
 
-**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) toolboard is the larger board in this photo; the triangular board beside it is the Stealthburner Fan Adapter, fitted next. The two mate through a keyed board-to-board header when the orange body closes. The printed spacer sets the standoff.
+**What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) toolboard is the larger board in this photo; the triangular board beside it is the Stealthburner Fan Adapter, fitted next. The two mate through a keyed board-to-board header when the blue body closes. The printed spacer sets the standoff.
 
 **Parts:** Nitehawk-SB V2 ×1, CW2 PCB Spacer ×1 (supplied printed), M3×8 SHCS ×2.
 
@@ -892,7 +892,7 @@ Source: [LDO wiring guide § Wiring the Toolhead PCB](https://docs.ldomotors.com
 
 ![Stealthburner Fan Adapter V2.0 pinout (© LDO Motors)](assets/remote/08-toolhead/sbv2_fan_adapter_pcb_pinout.jpg)
 
-**What you're looking at:** The fan adapter is the PCB that collects both fans and the LED chain on the *body* side and hands them to the toolboard through a single board-to-board header, so the orange body lifts off with three plugs still made up.
+**What you're looking at:** The fan adapter is the PCB that collects both fans and the LED chain on the *body* side and hands them to the toolboard through a single board-to-board header, so the blue body lifts off with three plugs still made up.
 
 **Parts:** Stealthburner Fan Adapter PCB (SBurnerFanAdapter_V2.0) ×1, M3×10 FHCS ×2.
 
@@ -1258,13 +1258,13 @@ Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob
 ![Stealthburner manual p.67](assets/sb-pages/sb-p067.png)
 ![Rev D+ vs Rev D — connector differences](assets/diagrams/08-rev-d-plus-connectors.svg)
 
-**What you're looking at:** The last act: the orange body closes onto the toolhead and the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so resistance means it is backwards, never that it needs more force.
+**What you're looking at:** The last act: the blue body closes onto the toolhead and the fan adapter's header mates with the toolboard's. That header is keyed **and** its gender was reversed from V1, so resistance means it is backwards, never that it needs more force.
 
 **Parts:** `[a]_stealthburner_main_body` with LEDs, both fans and the fan adapter, M3×25 SHCS ×2, M3×50 SHCS ×2.
 
 **Do:**
 
-1. Close the orange body onto the front of the toolhead, mating the fan adapter's header with the toolboard's. **Keyed: resistance means backwards.**
+1. Close the blue body onto the front of the toolhead, mating the fan adapter's header with the toolboard's. **Keyed: resistance means backwards.**
 2. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** lower through the blower area.
 
 **Check:** No gap along the body-to-cartridge parting line, all four bolts snug, and the header fully seated.

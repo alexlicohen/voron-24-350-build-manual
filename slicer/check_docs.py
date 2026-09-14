@@ -49,12 +49,16 @@ def load():
              for r in rows}
     batch = collections.OrderedDict()
     for pid, (h, g, b, c) in plate.items():
-        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "black": 0, "orange": 0})
+        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "black": 0, "blue": 0})
         d["plates"] += 1
         d["h"] = round(d["h"] + h, 1)
         d[c] += g
     return plate, batch
 
+
+# Display name of the accent spool in the docs. The exact Prusament blue colour name
+# is not known yet (spool unread); change this one line when it is, and re-run.
+ACCENT = "ASA Blue"
 
 CHAPTER = {
     "B00": "B00-calibration-and-jigs", "B01": "B01-z-drive-assemblies",
@@ -151,7 +155,7 @@ def check_index_and_timeline(batch, th) -> list[str]:
             bad.append(f"11-build-timeline.svg: no '{d['h']} h print' text for {bid} — "
                        f"re-run `python3 scripts/draw_diagrams.py --only 11`")
 
-    b08 = batch["B08"]["black"] + batch["B08"]["orange"]
+    b08 = batch["B08"]["black"] + batch["B08"]["blue"]
     for name, pat in (("~157 h of ASA", rf"~{round(th)} h of ASA"),
                       ("B08 skirt grams", rf"\b{b08} g of skirts \(B08\)")):
         if not re.search(pat, setup):
@@ -250,20 +254,20 @@ def main() -> int:
     # 3. totals, everywhere they are stated
     th = round(sum(d["h"] for d in batch.values()), 1)
     tb = sum(d["black"] for d in batch.values())
-    to = sum(d["orange"] for d in batch.values())
+    to = sum(d["blue"] for d in batch.values())
     n = sum(d["plates"] for d in batch.values())
     wanted = [
         ("plan header", plan, rf"{n} plates · \*\*{th} h\*\* print time · "
-                              rf"\*\*{tb} g Galaxy Black \+ {to} g Prusa Orange\*\*"),
+                              rf"\*\*{tb} g Galaxy Black \+ {to} g {ACCENT}\*\*"),
         ("plan §4.2 black", plan, rf"\| \*\*Galaxy Black\*\* \| \*\*{tb} g\*\*"),
-        ("plan §4.2 orange", plan, rf"\| \*\*Prusa Orange\*\* \| \*\*{to} g\*\*"),
+        ("plan §4.2 accent", plan, rf"\| \*\*{ACCENT}\*\* \| \*\*{to} g\*\*"),
         ("plan §9 table total", plan,
          rf"\| \*\*TOTAL\*\* \| \| \*\*{n}\*\* \| \*\*{th}\*\* \| \*\*{tb}\*\* \| \*\*{to}\*\* \|"),
         ("plan §9 csv total", plan, rf"TOTAL,,{n},{th},{tb},{to},,"),
         ("print README total", readme,
          rf"\| \*\*TOTAL\*\* \| \*\*{n}\*\* \| \*\*{th}\*\* \| \*\*{tb}\*\* \| \*\*{to}\*\* \|"),
         ("print README intro", readme,
-         rf"{n} plates, \*\*{th} h\*\*, \*\*{tb} g Galaxy Black \+ {to} g Prusa Orange\*\*"),
+         rf"{n} plates, \*\*{th} h\*\*, \*\*{tb} g Galaxy Black \+ {to} g {ACCENT}\*\*"),
         ("root README", (REPO / "README.md").read_text(), rf"\*\*{th} h / {tb + to} g\*\*"),
     ]
     for name, text, pat in wanted:
@@ -273,13 +277,13 @@ def main() -> int:
     # 4. per-batch rows in the plan §9 table and print/README
     for bid, d in batch.items():
         if not re.search(rf"\| {bid} \|[^|]*\| {d['plates']} \| {d['h']} \| "
-                         rf"{d['black']} \| {d['orange']} \|", plan):
+                         rf"{d['black']} \| {d['blue']} \|", plan):
             bad.append(f"plan §9 table: {bid} row does not match "
-                       f"{d['plates']}/{d['h']}/{d['black']}/{d['orange']}")
+                       f"{d['plates']}/{d['h']}/{d['black']}/{d['blue']}")
         if not re.search(rf"\| \[{bid}\][^|]*\| {d['plates']} \| {d['h']} \| "
-                         rf"{d['black']} \| {d['orange']} \|", readme):
+                         rf"{d['black']} \| {d['blue']} \|", readme):
             bad.append(f"print/README: {bid} row does not match "
-                       f"{d['plates']}/{d['h']}/{d['black']}/{d['orange']}")
+                       f"{d['plates']}/{d['h']}/{d['black']}/{d['blue']}")
 
     # 5. bins: scheme vs chapters, README and manifest
     bad += check_bins(readme)
@@ -298,7 +302,7 @@ def main() -> int:
             print(f"  {b}")
         return 1
     print(f"OK — {len(plate)} plates, {len(batch)} batches, {th} h, "
-          f"{tb} g black + {to} g orange, consistent across the chapters, "
+          f"{tb} g black + {to} g {ACCENT.lower()}, consistent across the chapters, "
           f"the plan (§3/§4/§9), print/README.md and README.md; "
           f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and "
           f"MANIFEST.csv; 00-index.md's timeline rows and batch table, 00-slicer-setup's "

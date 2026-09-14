@@ -2,7 +2,7 @@
 
 Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor-carrying drive units and two front idlers with their tension arms. Unlocks Ch 05 (gantry), which bolts all four onto the Y extrusions.
 
-**What you're building in this chapter:** the four corners the printer's two long belts run around. In **CoreXY**, two motors sit fixed at the back of the machine and pull two crossed belts; drive both the same way and the toolhead moves in X, drive them opposite ways and it moves in Y — nothing heavy has to move with the toolhead, which is why the machine can be fast ([glossary](16-glossary.md#c)). **A** is the rear-right corner and **B** the rear-left. Each is a **drive unit**: a printed frame in two halves, holding stacks of small flanged bearings on two standing bolts, with a stepper motor bolted underneath and a toothed pulley on its shaft. At the front, each belt turns around a **front idler** — the same printed sandwich of bearings, with no motor, plus an orange **tension arm** that carries the bearing stack on its own axle bolt and that a small screw draws forward to take up belt slack in Ch 07. The two belts run at two different heights so they never touch, and almost everything in this chapter exists to set those two heights exactly: the pulley height on each motor, the bearing-stack heights on each post, and the deliberately different heights of the two idler frames. All four assemblies are built on the bench and bagged; none of them touches the printer until Ch 05.
+**What you're building in this chapter:** the four corners the printer's two long belts run around. In **CoreXY**, two motors sit fixed at the back of the machine and pull two crossed belts; drive both the same way and the toolhead moves in X, drive them opposite ways and it moves in Y — nothing heavy has to move with the toolhead, which is why the machine can be fast ([glossary](16-glossary.md#c)). **A** is the rear-right corner and **B** the rear-left. Each is a **drive unit**: a printed frame in two halves, holding stacks of small flanged bearings on two standing bolts, with a stepper motor bolted underneath and a toothed pulley on its shaft. At the front, each belt turns around a **front idler** — the same printed sandwich of bearings, with no motor, plus an blue **tension arm** that carries the bearing stack on its own axle bolt and that a small screw draws forward to take up belt slack in Ch 07. The two belts run at two different heights so they never touch, and almost everything in this chapter exists to set those two heights exactly: the pulley height on each motor, the bearing-stack heights on each post, and the deliberately different heights of the two idler frames. All four assemblies are built on the bench and bagged; none of them touches the printer until Ch 05.
 
 **Time:** 3.5–5.0 h hands-on, first build ([survey §5.1 P04](../voron-build-instructions-survey.md)).
 
@@ -12,7 +12,7 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
 - **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 8.5 h, 119 g black ([print plan](../voron-print-plan.md)). B03's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
-- **Print batch B02** — *the orange day*, plate **B02-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
+- **Print batch B02** — *the accent day*, plate **B02-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
 - **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 
 **Tools**
@@ -43,8 +43,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/front_idler_right_upper.png){ width=96 } | `front_idler_right_upper.stl` | 04-A | 1 | Black |
 | ![](assets/parts/front_idler_left_lower.png){ width=96 } | `front_idler_left_lower.stl` | 04-B | 1 | Black |
 | ![](assets/parts/front_idler_left_upper.png){ width=96 } | `front_idler_left_upper.stl` | 04-B | 1 | Black |
-| ![](assets/parts/[a]_tensioner_right.png){ width=96 } | `[a]_tensioner_right.stl` | 04-A | 1 | Orange |
-| ![](assets/parts/[a]_tensioner_left.png){ width=96 } | `[a]_tensioner_left.stl` | 04-B | 1 | Orange |
+| ![](assets/parts/[a]_tensioner_right.png){ width=96 } | `[a]_tensioner_right.stl` | 04-A | 1 | Blue |
+| ![](assets/parts/[a]_tensioner_left.png){ width=96 } | `[a]_tensioner_left.stl` | 04-B | 1 | Blue |
 
 All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idlers/`. Two more parts sit in those same folders and are **not** used here: `[a]_cable_cover` (Ch 07) and `[a]_z_chain_retainer_bracket_x2` (Ch 06). Keep them bagged.
 
@@ -159,7 +159,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.64](assets/manual-pages/manual-p064.png)
 
-**What you're looking at:** Manual p.64 and the two orange **tension arms**: levers carrying each front idler's bearing stack, drawn forward to tension a belt. Each is a C: top boss counterbored for the M5×40 head, foot with the M5 nut pocket, back wall with one stepped bore.
+**What you're looking at:** Manual p.64 and the two blue **tension arms**: levers carrying each front idler's bearing stack, drawn forward to tension a belt. Each is a C: top boss counterbored for the M5×40 head, foot with the M5 nut pocket, back wall with one stepped bore.
 
 **Parts:** 2× M3×5×4 brass heat-set insert; `[a]_tensioner_left`, `[a]_tensioner_right`.
 
@@ -246,7 +246,7 @@ Source: [Voron manual p.65](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Voron manual p.66](assets/manual-pages/manual-p066.png)
 ![`[a]_tensioner_left` vs `[a]_tensioner_right` — mirrors, same camera](assets/parts/pair-tensioner.png)
 
-**What you're looking at:** Manual p.66 and the pair render: the orange `[a]_tensioner_right` sliding into the channel between the two idler frames. The two arms are mirrors of each other, the same C handed the other way. The wrong hand will not lie flat in the channel.
+**What you're looking at:** Manual p.66 and the pair render: the blue `[a]_tensioner_right` sliding into the channel between the two idler frames. The two arms are mirrors of each other, the same C handed the other way. The wrong hand will not lie flat in the channel.
 
 **Parts:** `[a]_tensioner_right` (with its insert and M5 nut already fitted).
 

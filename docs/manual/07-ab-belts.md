@@ -31,9 +31,9 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/x_frame_V2TR_MGN12_left.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_left` | 07-X | 1 | Black |
 | ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `Gantry/X_Axis/X_Carriage/x_frame_V2TR_MGN12_right` | 07-X | 1 | Black |
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `Gantry/X_Axis/X_Carriage/probe_retainer_bracket` | 07-X | 1 | Black |
-| ![](assets/parts/%5Ba%5D_tensioner_left.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_left` | 04-B | 1 | Orange — fitted in Ch 04, adjusted here |
-| ![](assets/parts/%5Ba%5D_tensioner_right.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_right` | 04-A | 1 | Orange — fitted in Ch 04, adjusted here |
-| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 07-X | 1 | Orange |
+| ![](assets/parts/%5Ba%5D_tensioner_left.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_left` | 04-B | 1 | Blue — fitted in Ch 04, adjusted here |
+| ![](assets/parts/%5Ba%5D_tensioner_right.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_right` | 04-A | 1 | Blue — fitted in Ch 04, adjusted here |
+| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 07-X | 1 | Blue |
 
 **Hardware** (chapter totals)
 
@@ -143,7 +143,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.128](assets/manual-pages/manual-p128.png)
 ![Front-idler tensioners — the handed left/right pair](assets/parts/pair-tensioner.png)
 
-**What you're looking at:** The front-idler tensioners are the two orange parts at the front; each carries an M3×40 whose job is belt tension. Winding it **in** pulls the idler forward and tightens that belt, backing it **out** releases it. A handed pair: 45×25 mm and 25×45 mm.
+**What you're looking at:** The front-idler tensioners are the two blue parts at the front; each carries an M3×40 whose job is belt tension. Winding it **in** pulls the idler forward and tightens that belt, backing it **out** releases it. A handed pair: 45×25 mm and 25×45 mm.
 
 **Parts:** the two M3×40 SHCS + M3 washers already in the front idlers (Ch 04, p.67 and p.71).
 
@@ -720,7 +720,7 @@ Source: [Voron manual p.145](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the A/B drive cable cover](assets/cad/07-39-a.png)
 ![CAD render — the A/B drive cable cover, in place](assets/cad/07-39-b.png)
 
-**What you're looking at:** The `[a]_cable_cover` is the orange shroud that clips over a drive unit's cable exit and tidies the A/B motor leads. The two belts run past it, so it must never touch them. It goes on now while the rear of the gantry is still open.
+**What you're looking at:** The `[a]_cable_cover` is the blue shroud that clips over a drive unit's cable exit and tidies the A/B motor leads. The two belts run past it, so it must never touch them. It goes on now while the rear of the gantry is still open.
 
 **Parts:** `[a]_cable_cover` ×1.
 

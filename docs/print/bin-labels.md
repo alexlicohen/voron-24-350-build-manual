@@ -471,7 +471,7 @@ _Ch 11 · 11.44–11.50, 11.62–11.64_
 
 **Should contain:**
 
-- `Handle` — B02-P2 — orange — joins the black door parts from B10
+- `Handle` — B02-P2 — blue — joins the black door parts from B10
 - `Handle-Hinge_Bottom` — B10-P1
 - `Handle-Hinge_Top` — B10-P1
 - `Hinge-L-sleeve-2X` ×2 — B10-P1

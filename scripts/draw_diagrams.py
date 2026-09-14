@@ -1764,8 +1764,7 @@ def _index_facts() -> dict[str, str]:
 
     return {
         "hands_on": grab(r"^\| Hands-on time \| \*\*([\d.]+) h\*\*"),
-        "pre_kit_days": grab(r"Pre-kit: \*\*~(\d+) printer-days"),
-        "kit_days": grab(r"Kit day onward: ~(\d+) printer-days"),
+        "print_days": grab(r"^\| Printing, elapsed \| \*\*~(\d+) printer-days", "?"),
         "build_weeks": grab(r"^\| Building, elapsed \| \*\*~([\d.]+) weeks"),
         "build_rate": grab(r"^\| Building, elapsed \|.*at (\d+ h/week)"),
         "after_kit": grab(r"^\| \*\*\(b\) After the kit arrives\*\* \| \*\*≈ ([^*]+)\*\*"),
@@ -1856,8 +1855,7 @@ def d11_timeline() -> Doc:
     # print total from print/README.md; the rest from 00-index.md § Critical path.
     facts = [(f"{total_print:.1f} h", f"print, {len(rows)} rows / 11 batches (sliced)"),
              (f"{facts_src['hands_on']} h", "hands-on"),
-             (f"~{facts_src['pre_kit_days']} + ~{facts_src['kit_days']} printer-days",
-              "printing: pre-kit, then kit day on"),
+             (f"~{facts_src['print_days']} printer-days", "printing, all before kit day"),
              (f"~{facts_src['build_weeks']} weeks", f"building, at {facts_src['build_rate']}"),
              (f"≈ {facts_src['after_kit']}", "after the kit arrives")]
     x = 84
@@ -1866,12 +1864,12 @@ def d11_timeline() -> Doc:
         d.text(x, fy + 48, b, size=11.5, fill=MUTED)
         x += 216
 
-    pause_row = next((r["n"] for r in rows if r["kind"] == "G"), None)
+    pause_row = next((r["n"] for r in reversed(rows) if r["kind"] == "G"), None)
     footer(d, "The vertical axis is execution order, not calendar time — the manual's "
               "timeline is dependency-ordered. Each orange rail leaves a print batch and "
               "forks to every chapter whose needs list names it; chapters also depend on "
-              f"the chapters above them. Row {pause_row} is the contingency pause if the "
-              "Gen 2 belt-upgrade kit turns up mid-run.")
+              f"the chapters above them. Row 1 is the Gen 2 belt upgrade, taken before any "
+              f"plate; row {pause_row} is the contingency pause if that kit slips and lands mid-run.")
     return d
 
 
@@ -2159,8 +2157,8 @@ DIAGRAMS = [
             "duration and KIT / 2P marker.",
             "One orange rail per print batch through the middle channel, forking to every "
             "chapter whose `needs:` list names that batch.",
-            "The Gen 2 belt-upgrade pause as a full-width band at its contingency position "
-            "in the pre-kit block, between B07 and B08.",
+            "The Gen 2 belt upgrade as a full-width band at row 1, before B00, and again as the "
+            "demoted contingency pause after the print rows.",
             "The critical-path strip: print hours (per batch and total) from "
             "docs/manual/print/README.md, the rest from 00-index.md § Critical path.",
         ],

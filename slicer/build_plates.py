@@ -55,7 +55,7 @@ ESTIMATES = ROOT / "estimates.csv"
 RENDERER = REPO / "scripts" / "render_plate_bins.py"
 PRUSA = "/Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"
 INI = {"black": ROOT / "voron-coreone-asa.ini",
-       "orange": ROOT / "voron-accent-orange.ini"}
+       "blue": ROOT / "voron-accent-blue.ini"}
 
 # "geom" packs bounding boxes (geom.py), "nest" packs the real outlines (nest.py) and
 # fits appreciably more on a plate. `--nest` sets it for one run; this one line is the

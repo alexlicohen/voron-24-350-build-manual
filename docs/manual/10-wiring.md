@@ -41,7 +41,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/cob_light_strip_mount_50mm.png){ width=96 } | `cob_light_strip_mount_50mm.stl` (LDOVoron2 `STLs/COB Light Strip/`) | 10-lights | 2 | Black |
 | ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `wago_221-415_mount_3by5.stl` (Voron-2 `STLs/Electronics_Bay/`) | 09-bay | 1 | Black — fitted in Ch 09, populated here |
 | ![](assets/parts/z_chain_guide.png){ width=96 } ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_guide` / `z_chain_bottom_anchor` (batch B05) | 10-chains | 1 / 1 | Black |
-| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 10-chains | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Orange |
+| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 10-chains | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Blue |
 |  | `2x3 Splitter Spacer` | — | 2 | LDO-supplied printed — do not print |
 | ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 09-bay | 1 | Black — fitted in Ch 08/09, used here |
 
@@ -1347,7 +1347,7 @@ Source: [Voron manual p.197](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. T-nut into the **right** Y extrusion, chain fixed end onto it, moving end onto the **right** XY joint's cable bridge, the orange arch from Step 05.38.
+1. T-nut into the **right** Y extrusion, chain fixed end onto it, moving end onto the **right** XY joint's cable bridge, the blue arch from Step 05.38.
 2. Secure the bundle to the chain's strain relief with **small** zip ties.
 
 **Check:** Run the gantry front to back over full Y travel: the chain articulates freely and the loop stays clear of the bed extrusions.
@@ -1419,7 +1419,7 @@ Source: [Voron manual p.203](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.204](assets/manual-pages/manual-p204.png)
 
-**What you're looking at:** The orange `[a]_z_chain_retainer_bracket` bolts to the A drive at the top of the loop and carries the chain's moving end up and down with the gantry. The manual page also fixes the wire path: behind the Z belt and over the drive.
+**What you're looking at:** The blue `[a]_z_chain_retainer_bracket` bolts to the A drive at the top of the loop and carries the chain's moving end up and down with the gantry. The manual page also fixes the wire path: behind the Z belt and over the drive.
 
 **Parts:** `[a]_z_chain_retainer_bracket` ×1 (batch **B02**, plate B02-P3; B02 prints 2 and Ch 06 Step 06.26 bags both — the second is a spare **(verify on bench)**) with its M3×5×4 inserts already melted in at 10.35 (p.204 carries the heat-set icon; count the bosses on your part), M3×12 SHCS ×2, M3×10 FHCS ×2, zip ties ×2.
 

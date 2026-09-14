@@ -13,7 +13,7 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 - **Ch 02 — Z drives, Z idlers, Z rails, deck.** Four Z drives built and bolted in, four Z idlers at the tops of the uprights, four MGN9 Z rails on the uprights with their carriages on, 16T/20T pulley stack verified, set screws threadlocked (survey §5.2 W12). The deck panel is in.
 - **Ch 05 — Gantry.** Complete gantry: X and Y extrusions, XY joints, X carriage, titanium backers already fitted (survey §5.2 W2 — backers after this point means a teardown). Left off the printer, as the manual leaves it at p.106–107.
 - **Print batch B05** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 6.4 h.
-- **Print batch B02** — the single orange accent session, which carries the four Z belt clips (both halves) and the Z chain retainer brackets.
+- **Print batch B02** — the single blue accent session, which carries the four Z belt clips (both halves) and the Z chain retainer brackets.
 - Heat-set inserts already done for every part in both batches (survey §5.2 W3).
 
 **Tools**
@@ -36,11 +36,11 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 |---|---|---|---|---:|---|---|
 | ![](assets/parts/z_joint_lower_x4.png){ width=96 } | `z_joint_lower_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | B05 |
 | ![](assets/parts/z_joint_upper_x4.png){ width=96 } | `z_joint_upper_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | B05 |
-| ![](assets/parts/%5Ba%5D_z_belt_clip_lower_x4.png){ width=96 } | `[a]_z_belt_clip_lower_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/` | 4 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png){ width=96 } | `[a]_z_belt_clip_upper_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/` | 4 | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_z_belt_clip_lower_x4.png){ width=96 } | `[a]_z_belt_clip_lower_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/` | 4 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png){ width=96 } | `[a]_z_belt_clip_upper_x4.stl` | 06-Z-joints | Voron-2 `STLs/Gantry/` | 4 | Blue | B02 |
 | ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_bottom_anchor.stl` | 10-chains | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.201–203) |
 | ![](assets/parts/z_chain_guide.png){ width=96 } | `z_chain_guide.stl` | 10-chains | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.201–203) |
-| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2.stl` | 10-chains | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Orange | B02 — **fitted in Ch 10** (manual p.204) |
+| ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2.stl` | 10-chains | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Blue | B02 — **fitted in Ch 10** (manual p.204) |
 | ![](assets/parts/z_rail_stop_x4.png){ width=96 } | `z_rail_stop_x4.stl` | 06-Z-joints | LDOVoron2 `STLs/` | 4 | Black | B05 — optional rail-end safety stop |
 | — | `z_joint_upper_hall_effect.stl` | — | Voron-2 `STLs/Gantry/Z_Joints/` | **0** | — | **SKIP** per LDO — no hall-effect endstops in this kit, not printed |
 
@@ -184,9 +184,9 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Lower Z belt clip — the shorter of the two, fitted now](assets/parts/%5Ba%5D_z_belt_clip_lower_x4.png)
 ![Upper Z belt clip — the longer of the two, fitted empty and loaded at Step 06.20](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png)
 
-**What you're looking at:** The two orange belt clips are the second look-alike pair, both ribbed pads that squeeze belt against plastic. The **lower** clip goes on now, ribbed face down onto this first belt end. The **upper** is the longer, at ~28 mm against ~25 mm.
+**What you're looking at:** The two blue belt clips are the second look-alike pair, both ribbed pads that squeeze belt against plastic. The **lower** clip goes on now, ribbed face down onto this first belt end. The **upper** is the longer, at ~28 mm against ~25 mm.
 
-**Parts:** `[a]_z_belt_clip_lower_x4` ×1 (orange).
+**Parts:** `[a]_z_belt_clip_lower_x4` ×1 (blue).
 
 **Do:** Drop the lower belt clip onto the belt, **indented face down onto the belt**. Line up the clip's small hole with the joint's M3 hole and its large hole with the M5 hole.
 
@@ -202,7 +202,7 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The Z bearing block tops the sandwich, and two screws run down through top clip, block, lower clip and into the XY joint, holding the stack and *both* belt clamps. The cutout faces the upright, away from the build volume.
 
-**Parts:** `z_joint_upper_x4` ×1 (with its M5 nut), `[a]_z_belt_clip_upper_x4` ×1 (orange), M3×30 SHCS ×1, M5×30 BHCS ×1.
+**Parts:** `z_joint_upper_x4` ×1 (with its M5 nut), `[a]_z_belt_clip_upper_x4` ×1 (blue), M3×30 SHCS ×1, M5×30 BHCS ×1.
 
 **Do:**
 
@@ -378,7 +378,7 @@ Pause: ~45 min since the last pause — gantry lifted into the frame and bolted 
 
 **Do:**
 
-1. The tensioner is the M3×16 under the orange slider, 2.5 mm key from below.
+1. The tensioner is the M3×16 under the blue slider, 2.5 mm key from below.
 2. Loosen it anticlockwise from below, out to the maximum before it comes undone.
 3. Tighten back **4 turns**. Repeat on all four idlers.
 
@@ -563,7 +563,7 @@ Pause: ~35 min since the last pause — gantry squared against the A/B drives, X
 
 ![Voron manual p.123](assets/manual-pages/manual-p123.png)
 
-**What you're looking at:** A closing page. The Z [drag chain](16-glossary.md#d) is the plastic link chain that carries cables from the fixed frame up to the moving gantry; its two black frame mounts and two orange retainer brackets are printed here and fitted in Ch 10.
+**What you're looking at:** A closing page. The Z [drag chain](16-glossary.md#d) is the plastic link chain that carries cables from the fixed frame up to the moving gantry; its two black frame mounts and two blue retainer brackets are printed here and fitted in Ch 10.
 
 **Parts:** `z_chain_bottom_anchor` ×1, `z_chain_guide` ×1, `[a]_z_chain_retainer_bracket_x2` ×2, the 10×15 mm R28 drag chain.
 
@@ -670,7 +670,7 @@ Source: [Voron docs § V2 Gantry Squaring, step 2](https://docs.vorondesign.com/
 2. Pluck that span; adjust the tensioner until the lowest peak reads **≈140 Hz**.
 3. Re-check all four after a move, then `QUAD_GANTRY_LEVEL`.
 
-Added step, not in the official squaring procedure: do it only after the idle timeout is raised and the machine is homed, so the Z motors hold the gantry throughout. Measure the span from the idler axle down to the clip. The tensioner head sits under the orange slider and takes a 2.5 mm key from below; clockwise as you look up at the head is tighter (verify on bench — the note rises). Voron's *"fixed side"* is this end of the belt, the one fixed at the joint (verify on bench). Uneven Z belts are a named cause of a high-σ, non-repeatable QGL, and squaring with mismatched Z belts wastes the session (survey §4.3). This is the working setting QGL squares from; [Ch 14 Step 14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) sets it for the last time, cold, before the closed-chamber soak. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
+Added step, not in the official squaring procedure: do it only after the idle timeout is raised and the machine is homed, so the Z motors hold the gantry throughout. Measure the span from the idler axle down to the clip. The tensioner head sits under the blue slider and takes a 2.5 mm key from below; clockwise as you look up at the head is tighter (verify on bench — the note rises). Voron's *"fixed side"* is this end of the belt, the one fixed at the joint (verify on bench). Uneven Z belts are a named cause of a high-σ, non-repeatable QGL, and squaring with mismatched Z belts wastes the session (survey §4.3). This is the working setting QGL squares from; [Ch 14 Step 14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) sets it for the last time, cold, before the closed-chamber soak. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
 
 **Check:** All four Z belts read 140 Hz ±5 Hz, and they still do after the gantry has moved and come back; QGL converges again afterwards.
 

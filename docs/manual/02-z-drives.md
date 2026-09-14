@@ -2,7 +2,7 @@
 
 Builds the four Z drive units, the four Z idlers, the four Z linear rails and the deck panel. When this chapter closes, the frame has a floor, feet, and every part of the Z motion system except the belts and the Z joints — the gantry has somewhere to hang from.
 
-**What you're building in this chapter:** the machinery that raises and lowers the gantry, one corner at a time. A **Z drive** is the gearbox in a bottom corner: a printed housing holding three bearings and a shaft, with a big 80-tooth pulley the motor drives through a short closed belt and a 20-tooth pulley the long Z belt runs over — 80:16 of reduction, which is what makes Z fine enough to print with. The housing is two printed halves: a shallow **retainer** tray the shaft and its bearings drop into, and the deeper **main** body that closes over them on six long screws and carries the two M5×40 that bolt the drive to the frame. An orange **baseplate** bolts across the drive's foot face and holds the nut the rubber foot screws into, and an orange cam **tensioner** pushes the motor along its extrusion to pull the short belt tight. Directly above each drive, at the top corner, a **Z idler** carries a free-spinning pulley that turns the long belt back down again; its orange slider is the adjuster you tension that belt with in Ch 06 (final tension is set in Ch 14). Between them run the four **Z linear rails** on the vertical extrusions, the tracks the gantry's corners actually ride on. Last comes the **deck panel**, the acrylic floor that divides the electronics bay underneath from the print chamber above — it goes in now because once the gantry and the wiring are in, it cannot be lifted out again. Four corners, all identical in function, built from mirrored `_a` and `_b` printed parts — diagonal corners share a hand (the map is at Step 02.02).
+**What you're building in this chapter:** the machinery that raises and lowers the gantry, one corner at a time. A **Z drive** is the gearbox in a bottom corner: a printed housing holding three bearings and a shaft, with a big 80-tooth pulley the motor drives through a short closed belt and a 20-tooth pulley the long Z belt runs over — 80:16 of reduction, which is what makes Z fine enough to print with. The housing is two printed halves: a shallow **retainer** tray the shaft and its bearings drop into, and the deeper **main** body that closes over them on six long screws and carries the two M5×40 that bolt the drive to the frame. An blue **baseplate** bolts across the drive's foot face and holds the nut the rubber foot screws into, and an blue cam **tensioner** pushes the motor along its extrusion to pull the short belt tight. Directly above each drive, at the top corner, a **Z idler** carries a free-spinning pulley that turns the long belt back down again; its blue slider is the adjuster you tension that belt with in Ch 06 (final tension is set in Ch 14). Between them run the four **Z linear rails** on the vertical extrusions, the tracks the gantry's corners actually ride on. Last comes the **deck panel**, the acrylic floor that divides the electronics bay underneath from the print chamber above — it goes in now because once the gantry and the wiring are in, it cannot be lifted out again. Four corners, all identical in function, built from mirrored `_a` and `_b` printed parts — diagonal corners share a hand (the map is at Step 02.02).
 
 **Time:** 4.25–6.25 h hands-on, first build (survey §7.2, less the ~45 min of rail cleaning and greasing, which is done once for all seven rails in Ch 00 Steps 00.18–00.21).
 
@@ -13,8 +13,8 @@ Builds the four Z drive units, the four Z idlers, the four Z linear rails and th
 - Chapter 01 complete: frame assembled, squared, bed extrusions positioned **65 mm each side of the printer centreline (130 mm clear gap between their inner faces, 150 mm centre-to-centre)** per Ch 01 Step 01.19, and the squareness re-checked after the final torque pass.
 - Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`, `pulley_jig`.
 - Print batch **B01** (Z drive assemblies) — drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports.
-- Print batch **B02** (Accent parts, orange) plates P1 and P3 — the five `[a]_` parts below.
-- Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — do them while B01-P1 is still printing if you like, and label the motor cables then.
+- Print batch **B02** (Accent parts, blue) plates P1 and P3 — the five `[a]_` parts below.
+- Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf long before kit day, so do them the moment the Motor Kit box is open, and label the motor cables then. then.
 - **Chapter 00** complete: all seven rails cleaned, flip-and-packed with grease, wiped and labelled (Steps 00.18–00.21). The four marked Z0–Z3 are used here.
 - Kit boxes open: Motion, Linear Rail Kit, Motor Kit, the M3/M5 fastener bags.
 
@@ -28,7 +28,7 @@ Builds the four Z drive units, the four Z idlers, the four Z linear rails and th
 
 **Consumables:** Loctite 243 for any set screw that did *not* arrive with threadlocker pre-applied. (IPA, grease, soak tray, syringe and cloth were the Ch 00 rail-prep kit — nothing here needs them unless a rail was missed.)
 
-**Printed parts** — all ASA. Black = main colour, Orange = accent (`[a]_` prefix).
+**Printed parts** — all ASA. Black = main colour, Blue = accent (`[a]_` prefix).
 
 Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start.
 
@@ -40,13 +40,13 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_drive_retainer_b_x2.png){ width=96 } | `Z_Drive/z_drive_retainer_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
 | ![](assets/parts/z_motor_mount_a_x2.png){ width=96 } | `Z_Drive/z_motor_mount_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
 | ![](assets/parts/z_motor_mount_b_x2.png){ width=96 } | `Z_Drive/z_motor_mount_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
-| ![](assets/parts/[a]_z_drive_baseplate_a_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Orange |
-| ![](assets/parts/[a]_z_drive_baseplate_b_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Orange |
-| ![](assets/parts/[a]_belt_tensioner_a_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Orange |
-| ![](assets/parts/[a]_belt_tensioner_b_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Orange |
+| ![](assets/parts/[a]_z_drive_baseplate_a_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Blue |
+| ![](assets/parts/[a]_z_drive_baseplate_b_x2.png){ width=96 } | `Z_Drive/[a]_z_drive_baseplate_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Blue |
+| ![](assets/parts/[a]_belt_tensioner_a_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Blue |
+| ![](assets/parts/[a]_belt_tensioner_b_x2.png){ width=96 } | `Z_Drive/[a]_belt_tensioner_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Blue |
 | ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
 | ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
-| ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Orange |
+| ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Blue |
 | ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
 | *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | — | 8 | Black — fallback if the panel measures 4 mm |
 | ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 00-jigs | 2 | Black |
@@ -124,7 +124,7 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D](https://
 ![`z_drive_retainer_a` (left) vs `_b` (right) — plan view, inserts down, cradles up](assets/parts/pair-z_drive_retainer_x2-top.png)
 ![`z_motor_mount_a` (left) vs `_b` (right) — plan view, stood on its print face](assets/parts/pair-z_motor_mount_x2-top.png)
 
-**What you're looking at:** The printed parts from three batches: the deep `z_drive_main` body and shallow `z_drive_retainer` tray that clamp each drive's bearings, the motor mount L-brackets, the orange baseplates and belt tensioners, and the Z idler brackets. Every one exists as a mirrored `_a` and `_b`.
+**What you're looking at:** The printed parts from three batches: the deep `z_drive_main` body and shallow `z_drive_retainer` tray that clamp each drive's bearings, the motor mount L-brackets, the blue baseplates and belt tensioners, and the Z idler brackets. Every one exists as a mirrored `_a` and `_b`.
 
 **Parts:** all Chapter 02 printed parts from batches B00, B01 and B02.
 
@@ -134,7 +134,7 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D](https://
 2. Write `a` or `b` on the inside face of every part.
 3. Reject any part with a lifted corner or a delaminated bolt boss.
 
-**Check:** 12 black parts: 4 main, 4 retainer, 4 motor mount, two of each hand; 8 orange accents, 4 idler brackets, 4 sliders, 8 deck clips.
+**Check:** 12 black parts: 4 main, 4 retainer, 4 motor mount, two of each hand; 8 blue accents, 4 idler brackets, 4 sliders, 8 deck clips.
 
 Tip: Cradles up: the `z_drive_main` cut corner and its two 9 mm bolt wells sit far from you on `_a`, near on `_b`. The retainer cut corner is near-left on `_a`.
 
@@ -568,14 +568,14 @@ Tip: If the shaft binds, a bearing is trapped crooked: back the screws off and r
 
 Source: [Voron manual p.36](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=36) · [Video: Part 1 @3:29:31](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12571s)
 
-### Step 02.25 — Fit the orange baseplate and its captive M5 nut
+### Step 02.25 — Fit the blue baseplate and its captive M5 nut
 
 ![Voron manual p.37](assets/manual-pages/manual-p037.png)
 ![`[a]_z_drive_baseplate_a` (left) vs `_b` (right) — plan view, counterbored face up](assets/parts/pair-z_drive_baseplate_x2-top.png)
 
-**What you're looking at:** Manual p.37: the orange `[a]_z_drive_baseplate`, with an M5 hex nut dropped into a pocket on its **plain** face, the face that goes against the drive. That captive nut is the thread the rubber foot's M5×16 screws into.
+**What you're looking at:** Manual p.37: the blue `[a]_z_drive_baseplate`, with an M5 hex nut dropped into a pocket on its **plain** face, the face that goes against the drive. That captive nut is the thread the rubber foot's M5×16 screws into.
 
-**Parts:** `[a]_z_drive_baseplate_a` or `_b` ×1 (orange); M5 hexnut ×1; M3×8 SHCS ×3.
+**Parts:** `[a]_z_drive_baseplate_a` or `_b` ×1 (blue); M5 hexnut ×1; M3×8 SHCS ×3.
 
 **Do:**
 
@@ -603,7 +603,7 @@ Source: [Voron manual p.37](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.37](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=37)
 
-Pause: ~35 min since the last pause — all four drives closed: shafts seated, retainers down on six M3×40 each, orange baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed.
+Pause: ~35 min since the last pause — all four drives closed: shafts seated, retainers down on six M3×40 each, blue baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed.
 
 ### Step 02.27 — Fit the 16T pulley to a Z motor at 10.7 mm
 
@@ -724,14 +724,14 @@ Source: [Voron manual p.41](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.42](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=42)
 
-### Step 02.33 — Fit the orange belt tensioner, still loose
+### Step 02.33 — Fit the blue belt tensioner, still loose
 
 ![Voron manual p.43](assets/manual-pages/manual-p043.png)
 ![`[a]_belt_tensioner_a` (left) vs `_b` (right) — plan view, flat face down](assets/parts/pair-belt_tensioner_x2-top.png)
 
-**What you're looking at:** Manual p.43: the orange `[a]_belt_tensioner`, a cam whose lobe lies in a pocket under the drive end of the motor foot. The lobe is eccentric: swinging the tab from upright to flat pushes the motor foot away and takes up the belt slack.
+**What you're looking at:** Manual p.43: the blue `[a]_belt_tensioner`, a cam whose lobe lies in a pocket under the drive end of the motor foot. The lobe is eccentric: swinging the tab from upright to flat pushes the motor foot away and takes up the belt slack.
 
-**Parts:** `[a]_belt_tensioner_a` or `_b` ×1 (orange); M5×10 BHCS ×1.
+**Parts:** `[a]_belt_tensioner_a` or `_b` ×1 (blue); M5×10 BHCS ×1.
 
 **Do:**
 
@@ -776,7 +776,7 @@ Source: [Voron manual p.45](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.45](assets/manual-pages/manual-p045.png)
 
-**What you're looking at:** Manual p.45: one of the printer's four rubber feet, bolted to the corner while the machine is still upside down and the underside is reachable. Its M5×16 threads into the nut captive in the orange baseplate.
+**What you're looking at:** Manual p.45: one of the printer's four rubber feet, bolted to the corner while the machine is still upside down and the underside is reachable. Its M5×16 threads into the nut captive in the blue baseplate.
 
 **Parts:** Rubber foot 38×19 mm ×1; M5×16 BHCS ×1.
 
@@ -826,11 +826,11 @@ Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 
 ![Voron manual p.48](assets/manual-pages/manual-p048.png)
 ![`z_tensioner_bracket_a` (left) vs `_b` (right) — plan view, print face down](assets/parts/pair-z_tensioner_bracket_x2-top.png)
 
-**What you're looking at:** Manual p.48: the **Z idler**, the assembly at the top corner that turns the long Z belt back down. `z_tensioner_bracket` is the printed cage that bolts to the frame; the orange `[a]_z_tensioner_9mm` slides inside it on the screw you tension the Z belt with in Ch 06.
+**What you're looking at:** Manual p.48: the **Z idler**, the assembly at the top corner that turns the long Z belt back down. `z_tensioner_bracket` is the printed cage that bolts to the frame; the blue `[a]_z_tensioner_9mm` slides inside it on the screw you tension the Z belt with in Ch 06.
 
-**Parts:** `z_tensioner_bracket_a` or `_b` ×1; `[a]_z_tensioner_9mm` ×1 (orange); M3×16 SHCS ×1; M3 hexnut ×1.
+**Parts:** `z_tensioner_bracket_a` or `_b` ×1; `[a]_z_tensioner_9mm` ×1 (blue); M3×16 SHCS ×1; M3 hexnut ×1.
 
-**Do:** Drop the M3 hexnut into the bracket's pocket. Slide the orange tensioner in and run the M3×16 SHCS up through it into the nut. Leave it a couple of turns short of tight.
+**Do:** Drop the M3 hexnut into the bracket's pocket. Slide the blue tensioner in and run the M3×16 SHCS up through it into the nut. Leave it a couple of turns short of tight.
 
 **Check:** Nut captive, screw engaged, tensioner sliding smoothly in the bracket with no side play.
 
@@ -842,7 +842,7 @@ Source: [Voron manual p.48](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.48](assets/manual-pages/manual-p048.png)
 
-**What you're looking at:** Manual p.48: a 20T **idler** dropped into the fork of the orange tensioner on an M5×30 screw used as its axle. An idler is a pulley that redirects a belt without driving it. See the [glossary](16-glossary.md#i). It has to spin freely and stay in plane.
+**What you're looking at:** Manual p.48: a 20T **idler** dropped into the fork of the blue tensioner on an M5×30 screw used as its axle. An idler is a pulley that redirects a belt without driving it. See the [glossary](16-glossary.md#i). It has to spin freely and stay in plane.
 
 **Parts:** GT2 20T 9 mm idler ×1; M5×30 BHCS ×1.
 

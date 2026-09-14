@@ -1,12 +1,13 @@
 # Batch B10 — Clicky-Clack door
 
-**Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the orange `Handle` printed back in B02.
+**Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the blue `Handle` printed back in B02.
 
 **Sessions:** 1 plate start (~5 min hands-on, 5.7 h unattended) + ~10 min inspect and bin, plus the bushing and
 pin test on kit day.
 
-**Prerequisites:** **Gate A** (re-passed after the Gen 2 upgrade, as for B08) and B09 — the last pre-kit
-batch. B02's orange `Handle` joins these parts at B10.6. No bearing seat here, so Gate B is not needed.
+**Prerequisites:** **Gate A on GT1.5** (as for B08 — re-passed on a fresh cube only if the Gen 2 upgrade
+slipped to the contingency pause) and B09. This is the last batch of the run. B02's blue `Handle` joins
+these parts at B10.6. No bearing seat here, so Gate B is not needed.
 
 **Printed parts**
 
@@ -19,7 +20,7 @@ batch. B02's orange `Handle` joins these parts at B10.6. No bearing seat here, s
 | `Hinge-L-solid-2X.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 2 | Black | 9.2 | 11-door |
 | `Latch.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 8.4 | 11-door |
 | `Panel_Clip.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Black | 0.9 | 11-door |
-| `Handle.stl` | *(printed in B02, orange)* | 1 | Orange | 33.7 |  |
+| `Handle.stl` | *(printed in B02, blue)* | 1 | Blue | 33.7 | 11-door, from B02 |
 
 The "2X" in the filenames means print two copies; each file contains one body. Cross-check against the
 mod's BOM: 6 split bushings and 4 M5×45 dowel pins = 2 door hinges + 2 handle hinges.
@@ -28,10 +29,9 @@ mod's BOM: 6 split bushings and 4 M5×45 dowel pins = 2 door hinges + 2 handle h
 `latch_x2` (Voron), nor LDO's `LDO Door/` set. That also means losing the LDO kit-number nameplate — if you
 want it, print `LDO Door/handle_b_nameplate.stl` and glue it elsewhere.
 
-⚠ **Open question:** the Clicky-Clack kit was ordered in "Blue" — Fabreeko's page doesn't state what the
-colour option governs. Almost certainly the anodised door-frame extrusions (visible blue trim around the
-front opening, matching the blue LDO frame but sitting next to the orange/black scheme). Confirm with
-Fabreeko before it ships **(unverified)**.
+The Clicky-Clack "Blue" option is the door's aluminium frame colour, matching the blue LDO frame
+(survey) — visible trim around the front opening, and it sits with the blue accent parts and the black body
+rather than against them.
 
 **Hardware:** none.
 
@@ -51,9 +51,9 @@ Fabreeko before it ships **(unverified)**.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥76 g remaining; the ledger has this plate on spool #2 after B09. The orange
-`Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge.
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 530 g on it here and 454 g after, the last plate of
+the run. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Check:** Clean purge; ≥76 g on spool #3.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -103,7 +103,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B10.6 — Sort into bins
 
-**Do:** Sort off the plate diagram: part number, fill colour and printed bin id all name the bin. Print labels from the [bin-labels sheet](../../print/bin-labels.md); bins listed in [README § Bins](README.md#bins). The six black parts join the orange `Handle` in **11-door**.
+**Do:** Sort off the plate diagram: part number, fill colour and printed bin id all name the bin. Print labels from the [bin-labels sheet](../../print/bin-labels.md); bins listed in [README § Bins](README.md#bins). The six black parts join the blue `Handle` in **11-door**.
 
 **B10-P1**
 
@@ -111,7 +111,10 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **11-door** — Clicky-Clack door | `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` |
 
-**Check:** All seven Clicky-Clack parts in **11-door**: 6 black plus the orange `Handle` from B02.
+**Check:** All seven Clicky-Clack parts in **11-door**: 6 black plus the blue `Handle` from B02.
+
+
+Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every bin is now full and the printer is free; the bushing and pin tests wait for the kit.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -121,8 +124,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Split bushings tap into hinge sleeves without splitting the part
 - [ ] M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
 - [ ] Door swing decided from where the machine will live (as designed: hinges left, opens from the right); hinge files mirrored only if it must open the other way
-- [ ] Orange `Handle` (B02) reunited with the black hardware for assembly
-- [ ] Clicky-Clack "Blue" trim question resolved with Fabreeko before/at install
+- [ ] Blue `Handle` (B02) reunited with the black hardware for assembly
 
 ## Common mistakes
 - Mirroring the `Hinge-L-*` parts "to be safe" — as designed the hinges are on the left; mirror only if the machine's left side will be against a wall.
@@ -131,5 +133,5 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
-this is the last pre-kit batch — on kit day run Gate B (Step B00.7), then [B01](B01-z-drive-assemblies.md)
-and B03–B06. If those already printed, all 22 plates are done.
+nothing — this is the last plate of the run. All 22 are done and binned, weeks before the cartons land; the
+only job left for the printer is a `deck_support_4mm` reprint if the deck panel calipers 4 mm.

@@ -207,7 +207,7 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 
 ⚠ Evenness across the four matters more than hitting 140 exactly: the Voron QGL troubleshooting text points at uneven Z belts when `PROBE_ACCURACY` σ is high. This is the final setting; [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz) was the working value. (survey §4.3)
 
-Tip: the tensioner head is under the orange slider: 2.5 mm key from below, clockwise as you look up at the head is tighter (verify on bench). The note rises.
+Tip: the tensioner head is under the blue slider: 2.5 mm key from below, clockwise as you look up at the head is tighter (verify on bench). The note rises.
 
 Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz)
 

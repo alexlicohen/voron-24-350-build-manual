@@ -2,7 +2,7 @@
 
 Closes the machine: the skirt ring and its front touchscreen module, the electronics-bay fans, the bottom panel, the Z belt covers, the Nevermore Micro V5 Duo, the spool holder — then, **after Ch 13 has proved the machine moves and heats**, the back, side and top panels and the Clicky-Clack door.
 
-**What you're building in this chapter.** Five sub-assemblies turn an open frame into an enclosure. The **skirt ring** is the band of twelve printed segments around the base that hides and closes the electronics bay; built into it are the orange belt guards over the Z drive belts at the four corners, the two 60 × 20 mm bay fans — both in the right-hand fan support, beside the PSU — the keystone panel carrying the network socket, the already-wired AC inlet segment from Ch 09, and the **BTT TFT4.3 touchscreen module** that fills the centre-front position. The **bottom panel** is a door: VHB-bonded to two rear hinges and four clips, it unclips and swings down so the bay stays reachable through Ch 13. Four **Z belt covers** clip over the belts at the frame corners. The **Nevermore Micro V5 Duo** is a recirculating carbon filter built from a printed plenum, two 5015 blowers and a magnetic cartridge, mounted inside the chamber on the bed extrusions. Then the **panels** — back and top on 1 mm foam and 4 mm clips, both sides on 3 mm foam and 6 mm clips, the thicker foam holding the gantry clear — and the **Clicky-Clack door**, a framed acrylic panel on lift-off hinges with a magnetic handle and latch. Everything from the back panel onward waits until Ch 13 has run the machine with every face open.
+**What you're building in this chapter.** Five sub-assemblies turn an open frame into an enclosure. The **skirt ring** is the band of twelve printed segments around the base that hides and closes the electronics bay; built into it are the blue belt guards over the Z drive belts at the four corners, the two 60 × 20 mm bay fans — both in the right-hand fan support, beside the PSU — the keystone panel carrying the network socket, the already-wired AC inlet segment from Ch 09, and the **BTT TFT4.3 touchscreen module** that fills the centre-front position. The **bottom panel** is a door: VHB-bonded to two rear hinges and four clips, it unclips and swings down so the bay stays reachable through Ch 13. Four **Z belt covers** clip over the belts at the frame corners. The **Nevermore Micro V5 Duo** is a recirculating carbon filter built from a printed plenum, two 5015 blowers and a magnetic cartridge, mounted inside the chamber on the bed extrusions. Then the **panels** — back and top on 1 mm foam and 4 mm clips, both sides on 3 mm foam and 6 mm clips, the thicker foam holding the gantry clear — and the **Clicky-Clack door**, a framed acrylic panel on lift-off hinges with a magnetic handle and latch. Everything from the back panel onward waits until Ch 13 has run the machine with every face open.
 
 **Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13).
 
@@ -16,7 +16,7 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 - **Print batch B08** — skirts and front modules (6 plates, 29.2 h).
 - **Print batch B09** — panels, filtration, spool (5 plates, 21.8 h).
 - **Print batch B10** — Clicky-Clack door (1 plate, 5.7 h) + `Handle.stl` from **B02**.
-- **Print batch B02** — the orange accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
+- **Print batch B02** — the blue accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
 - **Print batch B07** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
 - **Part B additionally requires Ch 13 — Initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
 
@@ -48,14 +48,14 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/keystone_panel.png){ width=96 } | `keystone_panel.stl` | 11-skirts | 1 | Black | B08 |
 | ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` | 09-bay | 1 | Black | **B07-P1** *(fitted in Ch 09 Steps 09.10–09.12; listed here because it is a ring segment)* |
 | ![](assets/parts/mount.png){ width=96 } | `mount.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Black | B08 |
-| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_belt_guard_a_x2.png){ width=96 } | `[a]_belt_guard_a_x2.stl` | 11-fans | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_belt_guard_b_x2.png){ width=96 } | `[a]_belt_guard_b_x2.stl` | 11-fans | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_a_x2.png){ width=96 } | `[a]_fan_grill_a_x2.stl` | 11-fans | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_b_x2.png){ width=96 } | `[a]_fan_grill_b_x2.stl` | 11-fans | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_fan_grill_retainer_x2.png){ width=96 } | `[a]_fan_grill_retainer_x2.stl` | 11-fans | 2 | Orange | B02 |
-| ![](assets/parts/%5Ba%5D_keystone_blank_insert.png){ width=96 } | `[a]_keystone_blank_insert.stl` | 11-skirts | 2 *(1 used, 1 spare)* | Orange | B02 |
-| ![](assets/parts/ldo_bestagon_insert.png){ width=96 } | `ldo_bestagon_insert.stl` | 11-skirts | 1 *(optional trim)* | Orange | B02 |
+| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_belt_guard_a_x2.png){ width=96 } | `[a]_belt_guard_a_x2.stl` | 11-fans | 2 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_belt_guard_b_x2.png){ width=96 } | `[a]_belt_guard_b_x2.stl` | 11-fans | 2 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_a_x2.png){ width=96 } | `[a]_fan_grill_a_x2.stl` | 11-fans | 2 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_b_x2.png){ width=96 } | `[a]_fan_grill_b_x2.stl` | 11-fans | 2 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_fan_grill_retainer_x2.png){ width=96 } | `[a]_fan_grill_retainer_x2.stl` | 11-fans | 2 | Blue | B02 |
+| ![](assets/parts/%5Ba%5D_keystone_blank_insert.png){ width=96 } | `[a]_keystone_blank_insert.stl` | 11-skirts | 2 *(1 used, 1 spare)* | Blue | B02 |
+| ![](assets/parts/ldo_bestagon_insert.png){ width=96 } | `ldo_bestagon_insert.stl` | 11-skirts | 1 *(optional trim)* | Blue | B02 |
 | ![](assets/parts/corner_panel_clip_4mm_x8.png){ width=96 } | `corner_panel_clip_4mm_x8.stl` | 11-clips-4mm | 8 | Black | B09 |
 | ![](assets/parts/midspan_panel_clip_4mm_x7.png){ width=96 } | `midspan_panel_clip_4mm_x7.stl` | 11-clips-4mm | 7 | Black | B09 |
 | ![](assets/parts/corner_panel_clip_6mm_x8.png){ width=96 } | `corner_panel_clip_6mm_x8.stl` | 11-clips-6mm | 8 | Black | B09 |
@@ -77,7 +77,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/Handle-Hinge_Top.png){ width=96 } ![](assets/parts/Handle-Hinge_Bottom.png){ width=96 } | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
-| ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Orange | B02 |
+| ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Blue | B02 |
 
 **Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7).
 
@@ -267,14 +267,14 @@ Pause: ~20 min since the last pause — every skirt segment dry-fitted and check
 
 (no image — see [mount README](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount))
 
-**What you're looking at:** `mount.stl` is the black printed carrier that holds the BTT Pi TFT4.3 touchscreen and fills the centre-front ring position. `[a]_faceplate.stl` is the orange bezel that trims the screen aperture. You build it at [Ch 10 Step 10.50](10-wiring.md#step-1050-dsi-ribbon-raspberry-pi-touchscreen), before the ribbon is latched.
+**What you're looking at:** `mount.stl` is the black printed carrier that holds the BTT Pi TFT4.3 touchscreen and fills the centre-front ring position. `[a]_faceplate.stl` is the blue bezel that trims the screen aperture. You build it at [Ch 10 Step 10.50](10-wiring.md#step-1050-dsi-ribbon-raspberry-pi-touchscreen), before the ribbon is latched.
 
-**Parts:** `mount.stl` ×1 (black), `[a]_faceplate.stl` ×1 (orange), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2.
+**Parts:** `mount.stl` ×1 (black), `[a]_faceplate.stl` ×1 (blue), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2.
 
 **Do:**
 
 1. Press one heat-set insert into each of the two faceplate bosses in the mount.
-2. Offer the orange faceplate up to the mount and drive an M3×8 SHCS into each side, snug only.
+2. Offer the blue faceplate up to the mount and drive an M3×8 SHCS into each side, snug only.
 
 **Check:** Faceplate sits flush all round with no gap at the top edge; the screen aperture is square to the mount's top rail.
 
@@ -361,9 +361,9 @@ Pause: ~10 min since the last pause — the touchscreen module (built at 10.50) 
 ![Voron manual p.217](assets/manual-pages/manual-p217.png)
 ![Belt guards a and b, side by side](assets/parts/pair-belt_guard_x2.png)
 
-**What you're looking at:** A belt guard is the orange ring that closes the circular cut-out in a skirt segment over an idler pulley, so nothing can reach a moving belt from outside. Guards `a` and `b` are mirror images, and the pair render shows both.
+**What you're looking at:** A belt guard is the blue ring that closes the circular cut-out in a skirt segment over an idler pulley, so nothing can reach a moving belt from outside. Guards `a` and `b` are mirror images, and the pair render shows both.
 
-**Parts:** `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 (orange), M3×8 SHCS ×1 per guard (p.222 shows one; *verify on bench*).
+**Parts:** `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 (blue), M3×8 SHCS ×1 per guard (p.222 shows one; *verify on bench*).
 
 **Do:**
 
@@ -380,11 +380,11 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.217](assets/manual-pages/manual-p217.png)
 
-**What you're looking at:** The keystone panel is the rear skirt segment with two rectangular cut-outs for snap-in network modules. The CAT6 keystone is the RJ45 socket that Ch 10's Ethernet run plugs into from the inside; the orange blank fills the second slot.
+**What you're looking at:** The keystone panel is the rear skirt segment with two rectangular cut-outs for snap-in network modules. The CAT6 keystone is the RJ45 socket that Ch 10's Ethernet run plugs into from the inside; the blue blank fills the second slot.
 
-**Parts:** `keystone_panel` ×1, Keystone CAT6 insert ×1 (supplied), `[a]_keystone_blank_insert` ×1 (orange; the second is a spare).
+**Parts:** `keystone_panel` ×1, Keystone CAT6 insert ×1 (supplied), `[a]_keystone_blank_insert` ×1 (blue; the second is a spare).
 
-**Do:** Snap the CAT6 keystone into whichever of the two slots suits your cable run to the Pi's Ethernet port, and the orange blank into the other. Both clip in from the inside face, no fasteners.
+**Do:** Snap the CAT6 keystone into whichever of the two slots suits your cable run to the Pi's Ethernet port, and the blue blank into the other. Both clip in from the inside face, no fasteners.
 
 **Check:** Both slots filled, both inserts flush with the outside face, neither rattling. The RJ45 opening faces out.
 
@@ -402,7 +402,7 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** Each `side_fan_support` has **two** fan openings. This kit has two fans, two retainers and four grills, so both fans go in the right-hand support, the PSU side seen from the front, and the left support gets grills only. Grills `a` and `b` are mirrored.
 
-**Parts:** 60×60×20 mm 24 V fan ×2 · `side_fan_support` ×2 · `[a]_fan_grill_a` ×2 and `[a]_fan_grill_b` ×2, orange · `[a]_fan_grill_retainer` ×2, from 11.3 · M3×8 SHCS ×4 per fan, 8 total · stack at each populated opening, from outside in: orange grill, support wall, then the retainer directly behind the wall with the fan captured in its frame and its leads toward the bay. The screws never pass through the fan, so the retainer's inserts must sit within ~8 mm of the grill face for an M3×8 to reach them *(verify on bench)*.
+**Parts:** 60×60×20 mm 24 V fan ×2 · `side_fan_support` ×2 · `[a]_fan_grill_a` ×2 and `[a]_fan_grill_b` ×2, blue · `[a]_fan_grill_retainer` ×2, from 11.3 · M3×8 SHCS ×4 per fan, 8 total · stack at each populated opening, from outside in: blue grill, support wall, then the retainer directly behind the wall with the fan captured in its frame and its leads toward the bay. The screws never pass through the fan, so the retainer's inserts must sit within ~8 mm of the grill face for an M3×8 to reach them *(verify on bench)*.
 
 **Do:**
 
@@ -575,9 +575,9 @@ Source: [Voron manual p.228](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 (no image — see [LDO STLs README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs))
 
-**What you're looking at:** The bestagon insert is a purely cosmetic orange plug that snaps into one of the hexagonal openings in a skirt segment. Nothing depends on it.
+**What you're looking at:** The bestagon insert is a purely cosmetic blue plug that snaps into one of the hexagonal openings in a skirt segment. Nothing depends on it.
 
-**Parts:** `ldo_bestagon_insert` ×1 (orange), or as many as you printed.
+**Parts:** `ldo_bestagon_insert` ×1 (blue), or as many as you printed.
 
 **Do:** Push the insert into one of the skirt hexagons from the outside until it snaps. Pick a hexagon on the front-left or front-right skirt where it reads without competing with the touchscreen.
 
@@ -1111,7 +1111,7 @@ Pause: ~20 min since the last pause — the door frame is squared and blind-join
 
 **What you're looking at:** The handle, the latch, and the two handle hinges all carry 6 × 3 mm magnets: the handle pulls to the latch, the hinges pull to the handle. Every pair has to attract, so each magnet is tested before any glue goes in.
 
-**Parts:** `Handle` (orange), `Latch`, `Handle-Hinge_Top`, `Handle-Hinge_Bottom`, 6×3 mm magnets ×12, super glue.
+**Parts:** `Handle` (blue), `Latch`, `Handle-Hinge_Top`, `Handle-Hinge_Bottom`, 6×3 mm magnets ×12, super glue.
 
 **Do:**
 

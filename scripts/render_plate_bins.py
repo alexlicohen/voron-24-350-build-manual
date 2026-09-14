@@ -529,7 +529,7 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
     for p in parts:
         p.sil = Silhouette(p.obj, p.obj.brim)
 
-    colour_name = "Prusa Orange" if PLATES.get(plate_id, {}).get("colour") == "orange" else "Galaxy Black"
+    colour_name = "ASA Blue" if PLATES.get(plate_id, {}).get("colour") == "blue" else "Galaxy Black"
     hours, grams = estimates.get(plate_id, (float("nan"), float("nan")))
     cv = Canvas(OUT_W, OUT_H, f"Plate {plate_id} — sorting diagram")
 

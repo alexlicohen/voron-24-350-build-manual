@@ -45,7 +45,7 @@ import numpy as np  # noqa: E402
 # --------------------------------------------------------------------- colours
 
 COLOUR_PRIMARY = "#6a6a6a"   # mid-grey — no prefix
-COLOUR_ACCENT = "#e8792b"    # orange — [a]_
+COLOUR_ACCENT = "#1F4E9C"    # blue — [a]_
 COLOUR_OPAQUE = "#9a9a9a"    # light grey — [o]_
 COLOUR_CLEAR = "#bfe3f0"     # light blue — [c]_ (none actually printed)
 BACKGROUND = "#ffffff"

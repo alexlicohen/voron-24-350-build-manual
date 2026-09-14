@@ -41,9 +41,9 @@ BED_EDGE = (150, 150, 148)
 GRID = (216, 216, 214)
 TEXT = (30, 30, 32)
 MUTED = (110, 110, 115)
-FILL = {"black": (62, 64, 70), "orange": (232, 116, 28)}
-EDGE = {"black": (28, 29, 33), "orange": (150, 68, 8)}
-BRIM = {"black": (150, 152, 158), "orange": (245, 186, 132)}
+FILL = {"black": (62, 64, 70), "blue": (31, 78, 156)}
+EDGE = {"black": (28, 29, 33), "blue": (18, 46, 96)}
+BRIM = {"black": (150, 152, 158), "blue": (166, 190, 230)}
 
 
 def _offset(poly, dist):
@@ -118,7 +118,7 @@ def render(plate_id: str, colour: str, pieces, hours: float, grams: float,
     d.text((PAD, PAD - 4), f"Plate {plate_id}", font=f_title, fill=TEXT)
     d.text((PAD, PAD + 26),
            f"{len(pieces)} parts  ·  {hours:.1f} h  ·  {grams:.0f} g  ·  "
-           f"{'Galaxy Black' if colour == 'black' else 'Prusa Orange'} ASA  ·  bed 250 × 220 mm",
+           f"{'Galaxy Black' if colour == 'black' else 'ASA Blue'} ASA  ·  bed 250 × 220 mm",
            font=f_sub, fill=MUTED)
 
     ox, oy = PAD, PAD + head_h
@@ -161,7 +161,7 @@ def render(plate_id: str, colour: str, pieces, hours: float, grams: float,
         label = str(numbers[i])
         tb = d.textbbox((0, 0), label, font=f_num)
         d.text((cx - tb[2] / 2, cy - tb[3] / 2), label, font=f_num,
-               fill=(255, 255, 255) if colour == "black" else (40, 20, 0))
+               fill=(255, 255, 255) if colour == "black" else (255, 255, 255))
 
     # legend: one row per distinct part, listing the numbers it was given
     lx = ox + bed_w + 22

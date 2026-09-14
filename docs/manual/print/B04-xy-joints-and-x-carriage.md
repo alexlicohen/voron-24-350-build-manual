@@ -4,9 +4,10 @@
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.6 h unattended) + ~15 min inspect and bin.
 
-**Prerequisites:** **Gate B passed** (Step B00.7, kit day — XY joint bores and the MGN12 carriage pattern).
-B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge) feeds the same assembly chapter and is already printed
-in the pre-kit order. B03 is not a print prerequisite — the two batches only meet at Ch 04/05.
+**Prerequisites:** **Gate B passed** (Step B00.7 — the printed bores and the insert bosses; the caliper and
+insert rows run early, on what is already on the bench). B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge)
+feeds the same assembly chapter and printed two batches ago. B03 is not a print prerequisite — the two
+batches only meet at Ch 04/05.
 
 **Printed parts**
 
@@ -29,16 +30,16 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 **Read first**
 
-- Checkpoint after B04: test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before
-  committing heat-sets. XY joint bores must accept the shafts without reaming.
+- Checkpoint after B04: caliper the printed M3 holes now; the real MGN12 carriage screw pattern is tested
+  against `x_frame_V2TR_MGN12_*` on kit day, before any heat-set goes in.
 - Most commonly reprinted here: `xy_joint_*_lower_MGN12`.
 - `x_frame_V2TR_MGN12_*` are the R2/Clockwork-2 carriage halves — LDO Build Notes p.129-130 warn
   specifically about using the wrong X-carriage variant here.
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, confirm ≥117 g remaining. The ledger ends spool #2 at ~13 g after B04-P1, so stage spool #3.
-**Check:** Clean purge.
+**Do:** Galaxy Black, spool #1 after B03. The ledger has 328 g on it at the start of this plate and 211 g after, so no spool change here.
+**Check:** Clean purge; ≥117 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -72,11 +73,14 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 ## Step B04.5 — Inspect
 
-**Do:** With calipers, dry-fit the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_left/right`
-before committing any heat-set inserts. Check XY joint bores accept the X-axis shafts without reaming.
-**Check:** Screw pattern lines up; shafts slide into the joint bores without forcing.
+**Do:**
 
-Pause: ~10 min since the last pause — carriage pattern and shaft bores dry-fitted and taken apart again; no inserts set (Ch 05 does that).
+1. Now: caliper each `xy_joint_*_MGN12` half's four M3 holes, 3.40 mm, 15.0 × 16.0 mm apart.
+2. Now: caliper the carriage halves' M3 holes, 3.40 mm.
+3. Kit day: offer the real MGN12 carriage up before any heat-set.
+**Check:** Every M3 hole reads 3.40 mm ±0.10 and the two carriage halves close with no gap.
+
+Pause: ~10 min since the last pause — holes calipered and the halves separated again; no inserts set, and the real carriage is a kit-day row (Ch 05 sets the inserts).
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -93,22 +97,25 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Check:** 05-XY: four joint halves plus the pod and bridges; 07-X: two frame halves and the bracket.
 
+
+Pause: ~10 min since the last pause — the plate sorted into 05-XY and 07-X, bin ids on the parts. `probe_retainer_bracket` stays loose until the Omron barrel is measured; no inserts set.
+
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
 ## Checkpoint B04
 - [ ] Gate B passed before B04-P1 started
-- [ ] MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
-- [ ] XY joint bores accept shafts without reaming
-- [ ] Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
+- [ ] Printed M3 holes in both XY joints and both carriage halves caliper 3.40 mm ±0.10
+- [ ] *(kit day)* MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
+- [ ] *(kit day)* Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
 - [ ] Confirmed X-carriage is `x_frame_V2TR_MGN12_left/right` (V2TR/Clockwork-2), not the superseded MGN9 carriage
 
 ## Common mistakes
 - Grabbing a superseded MGN9 X-carriage file by mistake — LDO Build Notes flag this explicitly. `V2TR` is the
   right file: it is the carriage shared by the V2 and the Trident.
-- Committing heat-set inserts into the carriage before dry-fitting the screw pattern.
-- Reaming an XY joint bore instead of checking the shaft or reprinting.
+- Committing heat-set inserts into the carriage before the real carriage has been offered up on kit day.
+- Reaming a printed hole instead of calipering it and fixing the profile.
 
 ## Next
 Assembly: *Gantry* (p.82–107). Printing: [B05 — Z joints + Z chain](B05-z-joints-and-z-chain.md).

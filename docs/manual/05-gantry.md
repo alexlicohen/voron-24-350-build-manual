@@ -12,7 +12,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
 - **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17) — they come off at Steps 05.11 / 05.33.
-- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.6 h, black) and **B02-P3** (the orange accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
+- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.6 h, black) and **B02-P3** (the blue accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
 - **Titanium backer set** (Fabreeko/LDO, 350 size) unpacked and counted.
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
 
@@ -35,12 +35,12 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/xy_joint_left_upper_MGN12.png){ width=96 } | `xy_joint_left_upper_MGN12.stl` | 05-XY | 1 | Black |
 | ![](assets/parts/xy_joint_right_lower_MGN12.png){ width=96 } | `xy_joint_right_lower_MGN12.stl` | 05-XY | 1 | Black |
 | ![](assets/parts/xy_joint_right_upper_MGN12.png){ width=96 } | `xy_joint_right_upper_MGN12.stl` | 05-XY | 1 | Black |
-| ![](assets/parts/%5Ba%5D_xy_joint_cable_bridge_2hole.png){ width=96 } | `[a]_xy_joint_cable_bridge_2hole.stl` | 05-XY | 1 | Orange |
-| ![](assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png){ width=96 } | `XY_cable_chain_bridge-Igus-3mm_backer.stl` | 05-XY | 1 (alternate — fit whichever clears the backer) | Orange |
+| ![](assets/parts/%5Ba%5D_xy_joint_cable_bridge_2hole.png){ width=96 } | `[a]_xy_joint_cable_bridge_2hole.stl` | 05-XY | 1 | Blue |
+| ![](assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png){ width=96 } | `XY_cable_chain_bridge-Igus-3mm_backer.stl` | 05-XY | 1 (alternate — fit whichever clears the backer) | Blue |
 | ![](assets/parts/x_frame_V2TR_MGN12_left.png){ width=96 } | `x_frame_V2TR_MGN12_left.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07* |
 | ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `x_frame_V2TR_MGN12_right.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07* |
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `probe_retainer_bracket.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07/08* |
-| ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Orange — *staged here, fitted at endstop wiring* |
+| ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Blue — *staged here, fitted at endstop wiring* |
 
 Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3hole.stl`, or any `xy_joint_*_MGN9` — wrong variants for this kit ([print plan §7](../voron-print-plan.md)).
 
@@ -135,9 +135,9 @@ Source: [Voron manual p.83](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.84](assets/manual-pages/manual-p084.png)
 
-**What you're looking at:** The cable bridge is the orange arch on top of the right XY joint, lifting the toolhead's [drag chain](16-glossary.md#d) clear of the belts. The two versions differ in the end-link hole pattern: three for generic chains, two for the IGUS chains this kit ships.
+**What you're looking at:** The cable bridge is the blue arch on top of the right XY joint, lifting the toolhead's [drag chain](16-glossary.md#d) clear of the belts. The two versions differ in the end-link hole pattern: three for generic chains, two for the IGUS chains this kit ships.
 
-**Parts:** `[a]_xy_joint_cable_bridge_2hole.stl` ×1 (orange).
+**Parts:** `[a]_xy_joint_cable_bridge_2hole.stl` ×1 (blue).
 
 **Do:** You printed only the 2-hole bridge, on plate B02-P3. Confirm it is the 2-hole one: two holes on the raised pad. Set it beside the raised alternate.
 
@@ -907,7 +907,7 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the two Rev D+ variant choices, pulled apart](assets/cad/05-46-a.png)
 ![CAD render — where the two parts you keep end up](assets/cad/05-46-b.png)
 
-**What you're looking at:** The [XY endstop pod](16-glossary.md#x) is the orange box carrying the X and Y limit switches on the right XY joint. The renders show both either/or choices pulled apart: the D2F pod and 2-hole bridge are kept, the hall-effect pod and 3-hole bridge are not.
+**What you're looking at:** The [XY endstop pod](16-glossary.md#x) is the blue box carrying the X and Y limit switches on the right XY joint. The renders show both either/or choices pulled apart: the D2F pod and 2-hole bridge are kept, the hall-effect pod and 3-hole bridge are not.
 
 **Parts:** `[a]_endstop_pod_D2F_switch` ×1, M3×30 SHCS ×2 (p.164 — verify against the bag), the 2 spare M3×16 kept back earlier, `[a]_cable_cover`, the unused cable bridge variant.
 

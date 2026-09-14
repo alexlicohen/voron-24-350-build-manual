@@ -4,13 +4,14 @@
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 7.9 / 8.1 h unattended) + ~15 min inspect and bin.
 
-**Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit, so this is
-the second pre-kit batch, after B02. It does not depend on B01–B06 (the electronics bay is independent of
-the mechanical gantry); its heat-set bosses get their inserts on kit day.
+**Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
+depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
+their inserts on kit day, in Ch 09.
 
-⚠ **Gen 2 belt-upgrade pause point:** if the Gen 1→Gen 2 upgrade kit arrives mid-run, finish this batch,
-then pause before starting B08. Re-run the calibration-cube gate
-(see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule)) before resuming.
+⚠ **Gen 2 belt-upgrade pause point — contingency only.** The baseline is the upgrade *before* B00. If it
+slipped and the Gen 1→Gen 2 kit turns up mid-run, finish this batch, then pause before starting B08 and
+re-run the calibration-cube gate (see
+[00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)) before resuming.
 
 **Printed parts**
 
@@ -44,15 +45,15 @@ supplied printed).
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
   with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (127 g on P2 alone).
-- **Gen 2 upgrade pause point:** if the upgrade kit is on hand, apply it now, before B08's skirts print. See
-  [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-pause-rule) for the full re-calibration sequence.
+- **Contingency only: Gen 2 upgrade pause point.** The baseline upgrade happened before B00. If it slipped
+  and the kit is only on hand now, apply it here, before B08's skirts print. See
+  [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) for the full re-calibration sequence.
 
 ## Step B07.1 — Filament prep
 
-**Do:** Swap the orange spool for Galaxy Black: Unload, Load Filament → ASA, purge until no orange shows.
-Confirm ≥226 g for two plates; spool #1 holds ~748 g after B00, so no [runout](../16-glossary.md#r) here.
+**Do:** Galaxy Black, spool #2 after B06. The ledger has 652 g on it here, 550 g after P1 and 426 g after P2, so no [runout](../16-glossary.md#r) in this batch.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge with no orange streak; spool weight written in the ledger.
+**Check:** Clean purge; ≥226 g on spool #2 for the two plates.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -132,6 +133,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Check:** COB mounts counted, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
 
+
+Pause: ~10 min since the last pause — both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.
+
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
@@ -142,14 +146,14 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
 - [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
-- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.9.0, re-tensioned,
+- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.8.1, re-tensioned,
       re-squared, cube re-printed and Gate A re-passed
 
 ## Common mistakes
 - Printing `raspberrypi_bracket` or `rs25_psu_bracket` out of habit from other Voron builds — this kit needs neither.
 - Skipping the flat-reference check on COB mounts and only discovering warp at final assembly.
-- Missing the Gen 2 pause window and printing B08's skirts on GT2 belts when the upgrade kit was already on hand.
+- Missing the Gen 2 pause window and printing B08's skirts on GT2 belts when the upgrade kit was already on hand — only a risk on the contingency path, where B00 started on Gen 1.
 
 ## Next
-Assembly: *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211). Printing: **pause for
-the Gen 2 belt upgrade if the kit has arrived** (re-print the cube, re-pass Gate A), then [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).
+Assembly: *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211) — on kit day, out of
+bins 09-bay, 10-lights and 11-panels. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md), unless you are on the contingency path and still owe the Gen 2 upgrade — then pause here, re-print the cube and re-pass Gate A first.
