@@ -1,5 +1,10 @@
 # Batch B05 — Z joints + Z chain
 
+```mascot
+pose: print
+caption: Z joints and chain links. Small parts, a lot of them, all alike.
+```
+
 **Time:** 6.4 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
 **Sessions:** 1 plate start (~5 min hands-on, 6.4 h unattended) + ~10 min inspect and bin.

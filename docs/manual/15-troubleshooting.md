@@ -2,6 +2,11 @@
 
 Every failure this manual already knows about, filed by **symptom** instead of by chapter. Nothing here is new advice: each row points at the step, checkpoint, warning callout or *Common mistakes* bullet that owns the fix, in Chapters 00–14 and the print chapters. Use it at the bench when what you have is *"the X carriage binds near one end"* rather than *"Chapter 05"*.
 
+```mascot
+pose: fail
+caption: Something is wrong and a step already knows about it. Start from the symptom.
+```
+
 **Time:** none — this is a reference page, not a build chapter.
 
 **Prerequisites:** none. Readable at any point in the build.

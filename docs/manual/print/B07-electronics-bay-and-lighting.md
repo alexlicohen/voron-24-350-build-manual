@@ -1,5 +1,10 @@
 # Batch B07 — Electronics bay + lighting
 
+```mascot
+pose: print
+caption: The bay parts. Nothing here has a bearing seat, so Gate A is enough.
+```
+
 **Time:** 16.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 7.9 / 8.1 h unattended) + ~15 min inspect and bin.

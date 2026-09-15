@@ -1,5 +1,10 @@
 # Batch B04 — XY joints + X carriage
 
+```mascot
+pose: print
+caption: Joints and a carriage. Everything on this plate has a bore that has to fit.
+```
+
 **Time:** 8.6 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.6 h unattended) + ~15 min inspect and bin.

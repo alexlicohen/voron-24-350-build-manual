@@ -4,6 +4,11 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 **What you're building in this chapter:** nothing yet — this chapter builds the conditions for everything else. Four things come out of it. **A counted kit**: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. **A working bench**: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. **A heat-set technique**: the brass tip fitted to the soldering iron and an iron temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. **Seven prepared linear rails** — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them. Roughly half of this chapter happens months before the cartons arrive — the two headings *Before the kit ships* and *Kit day* below say which steps belong to which day; the step numbers stay in bench order.
 
+```mascot
+pose: kitday
+caption: The cartons are here. Today is counting and sorting, not building.
+```
+
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P00). Rail prep is roughly half of it.
 
 **Sessions:** 7 × ~30 min — the `Pause:` lines below break the chapter into 7 segments; every minute figure is a first-build estimate.
@@ -89,6 +94,11 @@ Do these the week batch B00 prints and passes Gate A, months before the cartons 
 ## Kit day
 
 The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed months ago), then **00.2–00.7** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts, kit tools), **00.12** (fastener bags stay closed) and **00.17–00.22** (rail prep — the grease and IPA from Step 00.9 must already be on the bench). Nothing goes on the Prusa: all 22 plates are printed and in their bins. The log from Step 00.30 gets the deck thickness and the inventory result today — and if the deck panel calipers 4 mm rather than 3 mm, the `deck_support_4mm` reprint is the one plate the build still owes (8 g, 30 min). Rail prep is the one kit-day job with a wait state — the IPA dry — so start it as soon as the inventory is done.
+
+```mascot
+pose: carry
+caption: One bin per chapter as you unpack. Sorting now is an hour you get back later.
+```
 
 ## Unboxing and inventory
 

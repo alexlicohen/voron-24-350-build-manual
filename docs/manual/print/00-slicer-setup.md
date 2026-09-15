@@ -3,6 +3,11 @@
 One-time setup for every print batch (`B00`–`B10`). Read this chapter before B00; batch chapters link
 back here and list only their own deviations (brim, orientation, accent colour).
 
+```mascot
+pose: check
+caption: Set the profile once, carefully. Every plate in the run inherits these numbers.
+```
+
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha11**
 (published 2026-09-01) is an early preview.
 ([releases](https://github.com/prusa3d/PrusaSlicer/releases))

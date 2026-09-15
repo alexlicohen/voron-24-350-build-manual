@@ -115,6 +115,23 @@
     var badge = el('span', 'gate-calc__badge');
     badge.hidden = true;
     head.appendChild(badge);
+    /* The verdict bird. Its two URLs come from data- attributes the hook set
+     * page-relative, so nothing here knows where the art lives; it stays
+     * hidden until there is a verdict to stand beside. */
+    var bird = document.createElement('img');
+    bird.className = 'mascot-panel gate-calc__mascot';
+    bird.width = 96;
+    bird.height = 96;
+    bird.decoding = 'async';
+    bird.hidden = true;
+    head.appendChild(bird);
+    function showBird(which) {
+      var src = root.getAttribute('data-mascot-' + which);
+      if (!src) { bird.hidden = true; return; }
+      bird.src = src;
+      bird.alt = root.getAttribute('data-mascot-' + which + '-alt') || '';
+      bird.hidden = false;
+    }
     var derived = el('span', 'gate-calc__derived');
     derived.hidden = true;
     head.appendChild(derived);
@@ -213,13 +230,16 @@
         badge.className = 'gate-calc__badge gate-calc__badge--pass';
         root.classList.add('gate-calc--pass');
         note.textContent = spec.pass;
+        showBird('pass');
       } else if (result.verdict === 'fail') {
         badge.textContent = 'FAIL';
         badge.className = 'gate-calc__badge gate-calc__badge--fail';
         root.classList.add('gate-calc--fail');
         note.textContent = '';
+        showBird('fail');
       } else {
         note.textContent = announce ? 'Fill in every row, then press Check.' : '';
+        bird.hidden = true;
       }
       var failed = {};
       result.fails.forEach(function (f) { failed[f.row.key] = f.advice; });

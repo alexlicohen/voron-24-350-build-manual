@@ -31,6 +31,12 @@ from pathlib import Path
 from markdown.extensions.toc import slugify
 
 REPO = Path(__file__).resolve().parent.parent
+
+import sys  # noqa: E402
+
+sys.path.insert(0, str(REPO / "hooks"))
+import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset paths)
+
 DOCS = REPO / "docs"
 MANUAL = DOCS / "manual"
 PRINT = MANUAL / "print"
@@ -750,8 +756,9 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     if check:
         out += _strip_edges(check) + [""]
     for job in helper:
-        out += ['<p class="step-helper" markdown="span">'
-                '<span class="step-helper__label">Helper</span> %s</p>' % job, ""]
+        out += ['<p class="step-helper" markdown="span">%s'
+                '<span class="step-helper__label">Helper</span> %s</p>'
+                % (mascot.badge_html("helper", "helper"), job), ""]
     if desc:
         out += ['??? note "What you\'re looking at"', ""]
         out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
@@ -951,7 +958,8 @@ def gather_admonition(segment: Segment) -> list[str]:
     """The collapsed block that opens a segment's first step page."""
     if not segment.items():
         return []
-    out = ['??? note "%s"' % segment.title, ""]
+    out = ['??? note "%s %s"' % (mascot.badge_html("gather", "gather"),
+                                 segment.title), ""]
     for label, items in (("Hardware", segment.hardware), ("Printed parts", segment.printed)):
         if not items:
             continue
@@ -1090,9 +1098,9 @@ def helper_list_line(chapter: Chapter) -> list[str]:
     if not pages:
         return []
     ids = ", ".join("[%s](%s.md)" % (p.step_id, p.slug) for p in pages)
-    return ["", '<p class="step-helper-list" markdown="span">'
+    return ["", '<p class="step-helper-list" markdown="span">%s'
             '<span class="step-helper__label">Helper steps:</span> %d · %s</p>'
-            % (len(pages), ids)]
+            % (mascot.badge_html("helper", "helper"), len(pages), ids)]
 
 
 def _load_chapter_captions() -> None:

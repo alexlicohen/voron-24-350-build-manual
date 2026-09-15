@@ -4,6 +4,11 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 
 **What you're building in this chapter.** The gantry is the entire moving upper half of the printer — a rectangle of aluminium extrusion that later hangs on four belts and slides up and down, with the toolhead riding inside it. Its back edge is the **XY bridge**, the cross-beam that carries the A and B motors you built in Ch 04. Two side extrusions, the **Y axes**, run forward from that bridge; each has a linear rail along one face and a **front idler** block at its front end that turns its belt back. Spanning the two sides is the **X beam**, capped at each end by an **XY joint** — the printed blocks that ride on the Y carriages and turn each belt around from its Y run to its X run. Bolted to the face opposite every rail are the **titanium backers**, flat strips that stop a steel rail bowing its aluminium extrusion as the chamber heats. Nothing in this chapter gets belts or squaring: both belong to Ch 06/07, and both would undo work done here.
 
+```mascot
+pose: hexkey
+caption: The gantry is built on the bench, not in the frame. Take the room you need.
+```
+
 **Time:** 5.0–7.0 h hands-on, first build, two people ([survey §5.1 P05 / §7.2](../voron-build-instructions-survey.md)).
 
 **Sessions:** 12 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes).

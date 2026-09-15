@@ -5,6 +5,11 @@ exactly once. The accent is **Prusament ASA Blue**, matching the blue LDO frame 
 door over the black body. **Two colour changes in the whole build: black → blue here, blue → black after.**
 Nothing here has a press fit, so it needs Gate A only. Like every batch, it prints before the kit arrives.
 
+```mascot
+pose: print
+caption: Every accent part in one session, so the blue spool goes on exactly once.
+```
+
 **Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.3 / 7.6 h unattended) + ~20 min inspect and bin.

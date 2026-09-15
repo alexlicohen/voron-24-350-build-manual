@@ -1,5 +1,10 @@
 # Batch B10 — Clicky-Clack door
 
+```mascot
+pose: print
+caption: The last plate of the run. Print this one and the printing is done.
+```
+
 **Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the blue `Handle` printed back in B02.
 
 **Sessions:** 1 plate start (~5 min hands-on, 5.7 h unattended) + ~10 min inspect and bin, plus the bushing and

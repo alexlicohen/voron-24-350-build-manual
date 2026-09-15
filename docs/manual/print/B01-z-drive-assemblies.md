@@ -3,6 +3,11 @@
 Every Z-drive part with a bearing seat, so it waits for Gate B (the 625-2RS bore test) — which now runs
 early, on a caliper across the printed pocket, so this batch prints second, straight after B00.
 
+```mascot
+pose: print
+caption: The first real parts. These have bearing seats, so they wait for Gate B.
+```
+
 **Time:** 22.8 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 15.2 h and 7.6 h unattended) + ~15 min inspect + ~10 min sort into bins.
@@ -182,6 +187,11 @@ Four plates in this build run past eight hours and one runs past fifteen. None o
 all of them want three looks: the **first layer**, the **corners after an hour**, and once more **at
 bedtime**. A lifted corner is a stop, not a wait — abort, clear the sheet, renew the glue film and restart,
 rather than letting the plate print another six hours on top of it.
+
+```mascot
+pose: pause
+caption: Fifteen hours is a night and a morning. Watch the first layer, then leave it alone.
+```
 
 The rest of the time the printer is working for you and the bench is free. In order of value: read the
 assembly chapter the running batch feeds, sort and label the *previous* plate into its bins, and print or

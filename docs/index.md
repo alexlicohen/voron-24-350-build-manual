@@ -1,8 +1,17 @@
+<div class="mascot-hero-wrap" data-mascot-wave="@mascot/mascot-base-front.svg">
+<img class='mascot-hero off-glb' src='@mascot/mascot-base-front.svg' alt='The raven, facing the reader' width='200' height='200' loading='eager' decoding='async'>
+</div>
+
 # Voron 2.4 350 — Build Manual
 
 **Where things stand (14 Sept 2026):** the Core One+ is running, all the ASA is on the shelf, and two kits are in transit: the Gen 2 belt kit for the Prusa (due first) and the Voron kit itself (late November to late December). Every plate prints before the Voron kit lands.
 
 ## How to begin
+
+```mascot
+pose: kitday
+caption: Cartons open, bins already labelled, every plate printed.
+```
 
 1. **Now, before the Gen 2 kit arrives.** Read [slicer setup](manual/print/00-slicer-setup.md). Do the pre-kit steps of [Ch 00](manual/steps/00-before-you-start/index.md): what the kit supplies, tools, consumables, the flat reference and the bins (Steps 00.7–00.12); the Voron manual's front matter, the measurement log and the Discord questions (Steps 00.23–00.32). Do [Ch 00a — Mains safety](manual/steps/00a-mains-safety/index.md). Print the [bin labels](print/bin-labels.md).
 2. **The day the Gen 2 kit lands.** [Gen 2 first](manual/steps/b00-calibration-and-jigs/note-gen-2-first.md): the belt upgrade, one day. Then [B00](manual/steps/b00-calibration-and-jigs/index.md) and Gate A, then the insert practice (Steps 00.13–00.16).
@@ -13,7 +22,9 @@
 
 Open [Tonight](manual/00-tonight.md), pick the 30, 60 or 90-minute plan, tap its first step, work to the `Pause:` line, tick each step done. **Resume** on any chapter overview jumps to your first unticked step.
 
-<div class="build-progress" data-build-progress="assets/build-progress.json">
+<div class="build-progress" data-build-progress="assets/build-progress.json"
+     data-mascot-empty="@mascot/mascot-print.svg"
+     data-mascot-empty-alt="The raven watching a first layer">
   <img class="build-progress__img" alt="" hidden>
   <p class="build-progress__caption">Tick a chapter's steps and this shows the machine as it stands at the end of it.</p>
   <p class="build-progress__counts"></p>

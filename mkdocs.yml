@@ -74,9 +74,11 @@ plugins:
   - glightbox
 
 hooks:
-  # First: it owns the ```gate-calc and ```tap-tree fences, so their bodies never
-  # reach the callout converter (which does not track fences).
+  # First two: they own the ```gate-calc / ```tap-tree and ```mascot fences, so
+  # their bodies never reach the callout converter (which does not track fences).
+  # mascot.py also resolves the `@mascot/` asset sentinel in on_page_content.
   - hooks/gatecalc.py
+  - hooks/mascot.py
   - hooks/callouts.py
   - scripts/build_steps.py
   - scripts/build_tonight.py

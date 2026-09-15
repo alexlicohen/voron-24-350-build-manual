@@ -6,6 +6,11 @@ comes off; **Gate B** releases B01 and B03–B06 and runs in the same week, on a
 bore and seven M3×H5 inserts out of the KADRICK kit already on the bench `(verify on bench)`. Gate B's
 **bearing press** and its **MGN12 rail row** wait for the kit; nothing is bought to bring them forward.
 
+```mascot
+pose: gather
+caption: Jigs and a gate cube. Nothing else prints until this plate measures right.
+```
+
 **Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
 **Sessions:** ~15 min one-time slicer and filament setup, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.

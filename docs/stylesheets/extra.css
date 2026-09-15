@@ -864,3 +864,122 @@ body.step-is-done .md-typeset .step-done-label {
   background: var(--md-accent-fg-color); color: var(--md-accent-bg-color);
 }
 .md-typeset .step-helper-list { font-size: .85rem; color: var(--md-default-fg-color--light); }
+
+/* ==========================================================================
+ * The raven (docs/manual/assets/mascot/STYLE.md)
+ *
+ * Sizing lives here and nowhere else: no inline width/height styling, no CSS
+ * filters, no re-colouring. The files are square 512s, so every <img> carries
+ * matching width/height attributes and nothing shifts as they load. All of them
+ * reference the SVG (never the preview PNG) through <img>, which still runs the
+ * animations inside the file.
+ * ========================================================================== */
+
+/* Inline badge — an admonition TITLE row, a generated Helper line, a heading.
+ * Never inside a budgeted Do / Check / Tip / ⚠ text run. */
+.md-typeset img.mascot-badge {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 .3rem 0 0;
+  vertical-align: middle;
+  flex: 0 0 auto;
+}
+
+/* Where a badge is present it *replaces* Material's pictogram rather than
+ * standing beside it. Browsers without :has() simply show both — redundant,
+ * never broken. */
+.md-typeset .admonition-title:has(> img.mascot-badge),
+.md-typeset summary:has(> img.mascot-badge) { padding-left: .6rem; }
+.md-typeset .admonition-title:has(> img.mascot-badge)::before,
+.md-typeset summary:has(> img.mascot-badge)::before { display: none; }
+
+/* Panel — the gate verdicts, the plate-board header, the printable sheets. */
+.md-typeset img.mascot-panel {
+  display: block;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+}
+
+/* Scene — a captioned figure; floats beside the text on a wide screen and
+ * stacks on a phone. 220 px is the ceiling STYLE.md's detail survives. */
+.md-typeset .mascot-scene {
+  max-width: 220px;
+  margin: .6rem auto 1rem;
+  text-align: center;
+}
+.md-typeset .mascot-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.md-typeset .mascot-scene figcaption {
+  margin: .3rem 0 0;
+  font-size: .8rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color--light);
+}
+
+@media screen and (min-width: 45em) {
+  .md-typeset .mascot-scene--right { float: right; clear: right; margin: .2rem 0 .9rem 1.2rem; }
+  .md-typeset .mascot-scene--left  { float: left;  clear: left;  margin: .2rem 1.2rem .9rem 0; }
+  /* A float must not run past the section it illustrates, nor out of the step
+   * text column (which is already its own formatting context in the two-column
+   * step layout, but not in the stacked one). */
+  .md-typeset .mascot-scene ~ h2,
+  .md-typeset .mascot-scene ~ h3,
+  .md-typeset .mascot-scene ~ hr,
+  .md-typeset .mascot-scene ~ .step-nav,
+  .md-typeset .mascot-scene ~ .chapter-nav { clear: both; }
+  .md-typeset .step-text:has(> .mascot-scene),
+  .md-typeset .step-do:has(> .mascot-scene) { display: flow-root; }
+}
+
+/* Home: the front-view bird beside the title. boards.js swaps the <img> for the
+ * same file inlined with `.wave` so it says hello once; until then, and without
+ * JS, the <img> stands and idles. */
+.md-typeset .mascot-hero-wrap {
+  float: right;
+  margin: 0 0 .6rem 1.2rem;
+  line-height: 0;
+}
+.md-typeset .mascot-hero-wrap > svg,
+.md-typeset img.mascot-hero {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+.md-typeset .mascot-hero-wrap + h1 { clear: none; }
+@media screen and (max-width: 44.99em) {
+  .md-typeset .mascot-hero-wrap { float: none; margin: 0 auto .4rem; width: 128px; }
+  .md-typeset .mascot-hero-wrap > svg,
+  .md-typeset img.mascot-hero { width: 128px; }
+}
+
+/* Gate verdicts — nothing until the calculator has one. */
+.gate-calc__head img.gate-calc__mascot { margin-left: auto; }
+
+/* Home's growing printer, before anything is ticked. */
+.md-typeset img.build-progress__img--mascot { width: 140px; height: auto; max-height: none; }
+
+/* Plate board: the bird in the sticky header, a badge on the next plate. */
+.plate-board__head { display: flex; align-items: center; gap: .6rem; }
+/* 72, not the panel's 96: this header is `position: sticky`, and a 96 px bird
+ * eats a sixth of an iPad's viewport on every scroll. */
+.plate-board__head img.plate-board__mascot { width: 72px; height: 72px; }
+.plate-tile__head img.plate-tile__mascot { width: 28px; height: 28px; margin-right: .2rem; }
+
+/* Print: the bird never costs ink. print.css hides every image by default, but
+ * the sheets that matter (bin labels, plate plans) are printed with
+ * `.print-images` on so their QR codes and plate diagrams survive — and that
+ * rule would bring the raven back with them. !important, because print.css may
+ * load after this file. */
+@media print {
+  .md-typeset img.mascot-badge,
+  .md-typeset img.mascot-panel,
+  .md-typeset img.mascot-hero,
+  .md-typeset .mascot-scene,
+  .md-typeset .mascot-hero-wrap { display: none !important; }
+}

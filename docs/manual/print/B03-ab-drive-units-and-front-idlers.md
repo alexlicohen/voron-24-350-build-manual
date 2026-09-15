@@ -1,5 +1,10 @@
 # Batch B03 — A/B drive units + front idlers
 
+```mascot
+pose: print
+caption: The corners the belts turn on. Flange seats again, so Gate B comes first.
+```
+
 **Time:** 8.5 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.5 h unattended) + ~15 min inspect and bin.

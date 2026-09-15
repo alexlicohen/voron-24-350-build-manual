@@ -4,6 +4,11 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 **What you're building in this chapter.** Two belt loops and the printed carriage that clamps them. In [CoreXY](16-glossary.md#c) neither motor owns an axis: the rear-**right** motor drives the **A** belt, the rear-**left** drives the **B** belt, and the toolhead moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one long loop that starts and ends at the [X carriage](16-glossary.md#x), and on a Voron the two loops sit at **different heights and never cross** — each stays in its own horizontal plane the whole way round. Where a belt has to be *driven* it wraps a toothed motor pulley teeth-first; everywhere it is merely turned, it runs **smooth-side-on** over a plain bearing stack — except at the XY joints, where each belt meets one toothed 20T idler and one plain F695 pair: A rides the left joint's upper plain stack and the right joint's upper toothed idler; B rides the left joint's lower toothed idler and the right joint's lower plain stack (p.105, p.135, p.136, p.138). Whether a face is teeth-on is fixed by which joint and which height — never twist a belt to change it. The A belt is the **upper** of the two planes, B the lower. Both belts start in the **left** carriage half and leave it heading left, so A's first turn is on the left joint's plain stack and B's first turn is on the left joint's toothed idler. Both loops are the same length by design, so two belts cut identical arrive at identical tension — and no amount of tensioner adjustment can undo a length error, which is why they are cut together and their protruding tails measured against each other at the carriage. The chapter finishes by fitting the inductive probe that later levels the gantry and maps the bed.
 
+```mascot
+pose: caliper
+caption: Belt tension is measured, not guessed. The same reading on A and on B.
+```
+
 **Time:** 2.5–4.0 h hands-on, first build ([survey §5.1 P07 / §7.2 Ch 07](../voron-build-instructions-survey.md)).
 
 **Sessions:** 5 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes — note that segment 3, threading both belts, cannot be broken and needs ~80 min in one sitting — there is a soft stop after Step 07.16 if you must).

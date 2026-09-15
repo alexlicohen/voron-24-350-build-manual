@@ -4,6 +4,11 @@ The Stealthburner and Clockwork 2 black parts and the Klicky probe set share one
 printed here and **bagged as the alternative probe** — this build fits the inductive probe, and Ch 08 Step
 08.54 is where the bag is set aside, unbuilt.
 
+```mascot
+pose: pause
+caption: Twelve hours for the toolhead. Start it in the evening, inspect it in the morning.
+```
+
 **Time:** 12.1 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 1 plate start (~5 min hands-on, 12.1 h unattended) + ~15 min inspect and bin.

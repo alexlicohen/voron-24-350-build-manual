@@ -4,6 +4,11 @@ Everything you must decide, buy and agree *before* the electronics bay exists: w
 
 **What you're building in this chapter:** no hardware — four decisions and one purchase, each of which has to exist before a part goes in. **A named person** for the mains connections, and a written rule about who is in the room while they are made. **A multimeter with a category rating**, proved on a live outlet, because Ch 10's Checkpoint #1 is seven measurements and a meter that has quietly died reads every one of them as safe. **An RCD/GFCI outlet with a labelled breaker**, so the circuit can be killed from outside the room. And **a mental map of the parts you will meet in Ch 09–10**: the combined AC inlet (socket, switch and fuse in one body), the WAGO lever blocks that fan mains out to three destinations, the Meanwell PSU that makes the machine's 24 V, the solid-state relay that switches mains to the bed heater, and the protective-earth chain that ties the frame, the plate and the PSU back to the wall socket's earth pin.
 
+```mascot
+pose: warn
+caption: Mains can kill. Unplug at the wall and prove it dead before you touch anything.
+```
+
 **Time:** 0.75–1.0 h hands-on, first build — reading, one shopping decision, one outlet check. No kit parts are touched.
 
 **Sessions:** 2 × ~30 min

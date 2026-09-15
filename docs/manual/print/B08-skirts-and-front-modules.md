@@ -6,6 +6,11 @@ reduced [VFA](../16-glossary.md#v) shows. In
 the baseline plan the Gen 2 upgrade was done before B00, so that is already true; on the contingency path it
 is the pause after B07 (see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)).
 
+```mascot
+pose: pause
+caption: The parts people see. Four plates and a long quiet weekend of printing.
+```
+
 **Time:** 29.2 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 4 plate starts (~5 min hands-on each, 5.0–9.5 h unattended) + ~20 min inspect and bin.

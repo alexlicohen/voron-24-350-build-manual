@@ -7,6 +7,11 @@ Written to be followed with a 13-year-old: one plate = one job.
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 
+```mascot
+pose: base-3q
+caption: One plate is one job. That is the whole plan, in order.
+```
+
 ---
 
 ## 0. What kit you actually have (established facts, with sources)

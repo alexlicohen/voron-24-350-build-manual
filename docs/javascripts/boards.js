@@ -11,6 +11,12 @@
  *
  * Step ticks come from progress.js's stores (`voron-progress:ch:<slug>`), read
  * with the same safeGet/parse guards; plate ticks live under `plate-board:<id>`.
+ *
+ * The raven rides along in three places, each of them a `data-mascot-*` URL the
+ * build hook wrote page-relative (hooks/mascot.py), so no path is typed here:
+ * Home's hero waves once on load, Home's growing-printer block shows the
+ * watching-a-first-layer bird while nothing is ticked, and the plate board gets
+ * the same bird in its header plus a small badge on the *next* plate.
  */
 (function () {
   var PROGRESS_PREFIX = 'voron-progress:ch:';
@@ -37,6 +43,34 @@
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) { if (data) then(data); })
       .catch(function () { /* offline or missing — leave the static fallback */ });
+  }
+
+  /* ------------------------------------------------------ Home: the hero wave */
+
+  /* `.wave` is a class on the SVG's own root, and an <img> gives no access to
+   * the document inside it — so fetch the same URL (already in cache from the
+   * <img>), add the class, and swap the inline SVG in. On a failed fetch or
+   * without JS the <img> simply stays, idle-animating as it always does. */
+  function mountHeroWave() {
+    var wrap = document.querySelector('.mascot-hero-wrap[data-mascot-wave]');
+    if (!wrap || wrap.dataset.waved) return;
+    wrap.dataset.waved = '1';
+    var img = wrap.querySelector('img.mascot-hero');
+    if (!img || typeof fetch !== 'function' || typeof DOMParser === 'undefined') return;
+    fetch(wrap.getAttribute('data-mascot-wave'), { credentials: 'same-origin' })
+      .then(function (r) { return r.ok ? r.text() : null; })
+      .then(function (text) {
+        if (!text) return;
+        var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+        var svg = doc.documentElement;
+        if (!svg || String(svg.nodeName).toLowerCase() !== 'svg') return;
+        svg = document.importNode(svg, true);
+        svg.setAttribute('class', (svg.getAttribute('class') || '') + ' wave mascot-hero');
+        svg.setAttribute('width', img.getAttribute('width') || '200');
+        svg.setAttribute('height', img.getAttribute('height') || '200');
+        wrap.replaceChild(svg, img);
+      })
+      .catch(function () { /* keep the <img> */ });
   }
 
   /* --------------------------------------------------- Home: what you've built */
@@ -68,6 +102,7 @@
         if (img) {
           img.src = best.image;
           img.alt = 'The machine after Chapter ' + best.number + ' — ' + best.title;
+          img.classList.remove('build-progress__img--mascot');
           img.hidden = false;
         }
         if (caption) {
@@ -75,9 +110,17 @@
         }
       } else {
         var start = data.start || null;
+        var empty = root.getAttribute('data-mascot-empty');
         if (img && start && start.image) {
           img.src = start.image;
           img.alt = start.title || 'The machine before the first chapter';
+          img.hidden = false;
+        } else if (img && empty) {
+          /* Nothing ticked: the bird watching a first layer stands in for the
+           * machine that does not exist yet. */
+          img.src = empty;
+          img.alt = root.getAttribute('data-mascot-empty-alt') || '';
+          img.classList.add('build-progress__img--mascot');
           img.hidden = false;
         } else if (img) {
           img.hidden = true;
@@ -111,9 +154,35 @@
       root.textContent = '';
 
       var head = el('div', 'plate-board__head');
+      var panelSrc = root.getAttribute('data-mascot-panel');
+      if (panelSrc) {
+        var panel = document.createElement('img');
+        panel.className = 'mascot-panel plate-board__mascot';
+        panel.src = panelSrc;
+        panel.alt = root.getAttribute('data-mascot-panel-alt') || '';
+        panel.width = 96;
+        panel.height = 96;
+        panel.loading = 'lazy';
+        panel.decoding = 'async';
+        head.appendChild(panel);
+      }
       var summary = el('p', 'plate-board__summary');
       head.appendChild(summary);
       root.appendChild(head);
+
+      /* One badge node, moved onto whichever tile is currently next. */
+      var nextSrc = root.getAttribute('data-mascot-next');
+      var nextBadge = null;
+      if (nextSrc) {
+        nextBadge = document.createElement('img');
+        nextBadge.className = 'mascot-badge plate-tile__mascot';
+        nextBadge.src = nextSrc;
+        nextBadge.alt = 'next';
+        nextBadge.width = 30;
+        nextBadge.height = 30;
+        nextBadge.loading = 'lazy';
+        nextBadge.decoding = 'async';
+      }
 
       var grid = el('div', 'plate-board__grid');
       root.appendChild(grid);
@@ -138,6 +207,10 @@
         var nextIdx = -1;
         for (var i = 0; i < plates.length; i++) {
           if (!plateState(plates[i].id).printed) { nextIdx = i; break; }
+        }
+        if (nextBadge) {
+          if (nextIdx < 0) { if (nextBadge.parentNode) nextBadge.parentNode.removeChild(nextBadge); }
+          else { tiles[nextIdx].head.insertBefore(nextBadge, tiles[nextIdx].head.firstChild); }
         }
         tiles.forEach(function (t, i) {
           t.node.classList.toggle('plate-tile--next', i === nextIdx);
@@ -193,7 +266,7 @@
         node.appendChild(body);
         grid.appendChild(node);
 
-        var entry = { node: node, printed: printedBtn, sorted: sortedBtn };
+        var entry = { node: node, head: title, printed: printedBtn, sorted: sortedBtn };
         tiles.push(entry);
 
         printedBtn.addEventListener('click', function () {
@@ -215,6 +288,7 @@
   }
 
   function mount() {
+    mountHeroWave();
     mountBuildProgress();
     mountPlateBoard();
   }

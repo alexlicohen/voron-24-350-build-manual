@@ -70,8 +70,13 @@ empty widget.
 import html
 import json
 import re
+import sys
+from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset paths)
 
 _FENCE_RE = re.compile(r"^(\s{0,3})(`{3,}|~{3,})\s*([A-Za-z0-9_-]*)\s*$")
 
@@ -237,8 +242,15 @@ def _gate_calc_html(body, where):
         out["derive"] = _normalise_derive(spec["derive"], out["inputs"], where)
 
     payload = html.escape(json.dumps(out, ensure_ascii=False, separators=(",", ":")), quote=True)
+    # The two verdict birds ride as page-relative asset paths (hooks/mascot.py
+    # resolves the `@mascot/` sentinel per page), so gatecalc.js stays
+    # spec-agnostic: it reads an attribute and never knows where the art lives.
     return (
-        f'<div class="gate-calc" data-gate-calc="{payload}">'
+        f'<div class="gate-calc" data-gate-calc="{payload}"'
+        f' data-mascot-pass="{mascot.asset("pass")}"'
+        f' data-mascot-fail="{mascot.asset("fail")}"'
+        f' data-mascot-pass-alt="{html.escape(mascot.title_of("pass"), quote=True)}"'
+        f' data-mascot-fail-alt="{html.escape(mascot.title_of("fail"), quote=True)}">'
         f'<p class="gate-calc__nojs">{html.escape(out["title"])} — '
         f"the calculator needs JavaScript; the limits are in the table on this page.</p></div>"
     )

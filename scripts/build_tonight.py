@@ -40,8 +40,12 @@ hand-edit docs/manual/00-tonight.md.
 """
 
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "hooks"))
+import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset paths)
 
 try:  # mkdocs' own slug rule, so anchors in the index match chapter headings
     from markdown.extensions.toc import slugify as _md_slugify
@@ -457,7 +461,7 @@ def build_tonight_markdown():
             pre_kit.append(dict(r, segments=segs))
 
     def emit_before_the_kit():
-        lines.append("## Before the kit")
+        lines.append("## %s Before the kit" % mascot.badge_html("pause", "pause"))
         lines.append("")
         if pre_kit:
             lines.extend([
@@ -493,7 +497,7 @@ def build_tonight_markdown():
         """Every segment with a `**Helper:**` step, in timeline order, under the
         same before-the-kit filter the buckets above ran with."""
         source = rows if KIT_ARRIVED else pre_kit
-        lines.append("## With a helper")
+        lines.append("## %s With a helper" % mascot.badge_html("helper", "helper"))
         lines.append("")
         lines.extend([
             "Segments that carry a job a helper can own, in timeline order. The adult keeps "

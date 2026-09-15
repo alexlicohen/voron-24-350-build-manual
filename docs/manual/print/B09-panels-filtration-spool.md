@@ -1,5 +1,10 @@
 # Batch B09 — Panels, filtration, spool
 
+```mascot
+pose: print
+caption: Panels, filtration and the spool holder. Five short plates, back to back.
+```
+
 **Time:** 21.8 h (5 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 5 plate starts (~5 min hands-on each, 3.9–4.9 h unattended) + ~15 min inspect and bin, plus the

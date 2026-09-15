@@ -23,6 +23,16 @@ body so nothing after the first line is silently dropped.
 """
 
 import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset paths)
+
+# STYLE.md § "Humour rule": the neutral badges punctuate a callout's TITLE row,
+# never its body, so no badge ever lands inside a budgeted Do/Check/Tip/⚠ run.
+# `warning` is deliberately absent — ⚠ boxes carry no bird.
+_BADGE = {"success": "check", "tip": "tip", "info": "pause"}
 
 _BLOCKQUOTE_PREFIX_RE = re.compile(r"^>\s?")
 
@@ -77,6 +87,11 @@ def _is_block_boundary(logical_line):
 def _admonition(kind, title, body_lines):
     first = body_lines[0].strip()
     indented = ["    " + first] + ["    " + ln for ln in body_lines[1:]]
+    pose = _BADGE.get(kind)
+    if pose:
+        # A Tip has no written title; Material prints "Tip" for it, so spell
+        # that out here to have somewhere to hang the badge.
+        title = "%s %s" % (mascot.badge_html(pose, pose), title or kind.capitalize())
     header = f'!!! {kind} "{title}"' if title else f"!!! {kind}"
     return header + "\n" + "\n".join(indented)
 
@@ -239,11 +254,36 @@ if __name__ == "__main__":
         print("FAIL: untitled warning with a URL was split into title/body incorrectly:", url_case[:160])
         fail = True
     pause_case = on_page_markdown(fixtures["Pause line"], None, None, None)
-    if '!!! info "Good stopping point · ~25 min since the last one"' not in pause_case or "since the last pause" in pause_case:
+    if "Good stopping point · ~25 min since the last one" not in pause_case \
+            or not pause_case.startswith("!!! info") or "since the last pause" in pause_case:
         print("FAIL: Pause line did not render as the expected info admonition")
         fail = True
     if "Pause:" in pause_case:
         print("FAIL: raw 'Pause:' marker leaked unconverted")
+        fail = True
+
+    # Mascot badges (hooks/mascot.py): Check / Tip / Pause carry one in the
+    # TITLE row, ⚠ carries none — assets/mascot/STYLE.md § "Humour rule".
+    print("--- mascot badges ---")
+    for name, pose in (("Ch 08 ESD box — hard-wrapped warning body, no blank line", "check"),
+                       ("plain Tip", "tip"),
+                       ("Pause line", "pause")):
+        rendered = on_page_markdown(fixtures[name], None, None, None)
+        want = "mascot-%s.svg" % pose
+        print(f"  {name[:40]:42s} {want}")
+        if want not in rendered:
+            print(f"FAIL: no {want} badge in {name!r}")
+            fail = True
+        title = rendered.split("\n", 1)[0]
+        if "<img" in rendered and "<img" not in title and pose != "check":
+            print(f"FAIL: badge landed in the body, not the title row, in {name!r}")
+            fail = True
+    warn_case = on_page_markdown(fixtures["untitled warning"], None, None, None)
+    if "mascot-" in warn_case:
+        print("FAIL: a ⚠ box carries a mascot badge")
+        fail = True
+    if '"' in re.search(r"<img[^>]*>", on_page_markdown(fixtures["plain Tip"], None, None, None)).group(0):
+        print("FAIL: a double quote inside an admonition title breaks its parse")
         fail = True
 
     # on_page_content: lazy-load / async-decode injection, idempotent on already-attributed tags.

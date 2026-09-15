@@ -4,6 +4,11 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 
 **What you're building in this chapter.** Four systems, in this order. The **mains side** — the C14 inlet with its integrated switch and fuse, a three-block WAGO bus for Live, Neutral and earth, the 24 V PSU, and the solid-state relay that lets firmware switch a mains bed heater — goes in first and is then proved with a meter before anything is plugged in. The **24 V side** fans out from the PSU to the Leviathan mainboard, to its separate high-voltage stepper supply, and to the USB adapter PCB that feeds the toolhead. The **signal side** is everything the machine senses and lights with: six motor cables on their mapped driver sockets, the XY endstop pod on the gantry, the mechanical nozzle probe that sets Z=0, the bed thermistor, two COB light strips and their junction PCB, the bay and filter fans, and the Pi's screen, network and USB links. Finally the three **drag chains** — X, Y and Z — are mounted and filled, so every cable can follow the moving gantry for years without fatiguing. The chapter ends unplugged, open and metered, with LDO's Checkpoint #1 behind you.
 
+```mascot
+pose: cable
+caption: Label both ends of every harness. A connector you can name is a fault you can find.
+```
+
 **Time:** 5.0–7.0 h hands-on, first build (survey §5.1, §7.2).
 
 **Sessions:** 14 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).

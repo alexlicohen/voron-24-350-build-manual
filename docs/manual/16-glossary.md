@@ -31,6 +31,7 @@ Every term this manual uses without stopping to explain it, with the chapter or 
 | `(verify on bench)` | This manual's marker for a count, torque or dimension **no source publishes**. Measure it yourself; never invent it | [CONVENTIONS](CONVENTIONS.md) |
 | `Source:` | The line closing every step, linking the exact page or guide section that step was transcribed from | [CONVENTIONS](CONVENTIONS.md) |
 | `Pause:` | A safe stopping point, with the minutes since the last one and the state you leave the machine in | [CONVENTIONS](CONVENTIONS.md) |
+| **The raven** | The manual's mascot, *voron* being Russian for raven. As a 30 px badge it marks a **Check**, a **Tip**, a `Pause:`, a *Gather* block or a `**Helper:**` line; larger, it is a captioned aside, a gate's PASS/FAIL verdict, or the bird on Home. It never appears on a `⚠` box, and never on mains, iron, blade or hot-chamber work | [CONVENTIONS — Interactive fences](CONVENTIONS.md#interactive-fences) |
 
 Source: [Ch 00 Step 00.24](00-before-you-start.md#step-0024-file-naming-and-where-to-get-help-p56) · [print/00-slicer-setup — Colour key](print/00-slicer-setup.md#colour-key) · [docs/manual/CONVENTIONS.md](CONVENTIONS.md)
 

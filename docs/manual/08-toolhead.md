@@ -4,6 +4,11 @@ Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, tool
 
 **What you're building in this chapter.** The toolhead — the part that actually prints — in four named assemblies. **[Clockwork 2](16-glossary.md#c)** is the extruder: a slim stepper turning two geared wheels that grip the filament between them and push it down. The **tool cartridge** is the removable block holding the **[Revo HF](16-glossary.md#r)** hotend — heatsink, HeaterCore and a nozzle you change by hand — plus the PTFE tube that feeds it. **[Stealthburner](16-glossary.md#s)** is the blue shroud that wraps the front, carrying two fans (one blowing through the hotend's heatsink to keep its cold side cold, one blowing cooling air at the print) and three addressable LEDs behind a diffuser. The **[Nitehawk-SB V2](16-glossary.md#n)** is the toolboard: a small PCB riding on the toolhead that collects the heater, thermistor, fans, LEDs, probe and extruder motor onto a single USB-plus-24 V umbilical instead of a loom. All four are built on the bench and only then hung on the X carriage, with every toolhead-side connector already made.
 
+```mascot
+pose: hexkey
+caption: Small fasteners, tight spaces. Build the toolhead on the bench where you can see it.
+```
+
 **Time:** 3.0–4.5 h hands-on, first build (survey §7.2).
 
 **Sessions:** 10 × ~30 min — every minute figure in this chapter, here and in the Pause lines, is a first-build estimate.

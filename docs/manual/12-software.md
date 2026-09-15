@@ -4,6 +4,11 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 **What you're building in this chapter.** The printer's software comes in layers, and keeping them apart makes everything below easier. **Klipper** is the firmware, and it is split in two: a *host* process on the Raspberry Pi that does all the planning and arithmetic, and a thin *MCU* firmware on each microcontroller — the Leviathan mainboard in the bay and the Nitehawk-SB V2 toolboard on the printhead — that does nothing but execute precisely timed pin changes. **Moonraker** is the API service sitting in front of Klipper so other programs can talk to it, and **Mainsail** (in a browser) and **KlipperScreen** (on the front panel) are two such programs — two windows onto the same machine. You will image the Pi with MainsailOS, which ships all of that pre-installed; compile and flash both MCU firmwares from the exact host version; and then write **`printer.cfg`**, the single text file that tells Klipper what this machine is — its pins, its 350 mm dimensions, its heaters, probe, fans and macros. Nothing moves and nothing heats until Ch 13.
 
+```mascot
+pose: screen
+caption: Nothing moves in this chapter. The machine is only learning what shape it is.
+```
+
 **Time:** 2.0–3.0 h hands-on, first build (survey §7.2). Add ~30 min if you have to reinstall Katapult on either board.
 
 **Sessions:** 9 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).

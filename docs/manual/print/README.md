@@ -7,6 +7,11 @@ not a throughput model. Method and what these figures replaced:
 previous figure beside each one, and the exact unrounded values, are in `slicer/estimates.csv`;
 `python3 slicer/check_docs.py` re-checks every number on this page against it.
 
+```mascot
+pose: print
+caption: Twenty two plates, start to finish, all of them down before the Voron kit lands.
+```
+
 **Print order.** The Voron kit is not expected before **late November 2026**, so the whole run goes down
 first, in numeric batch order: the Gen 2 belt upgrade, then **B00 → B01 → B02 → … → B10** — all 157.0 h,
 finished before the cartons land. **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
