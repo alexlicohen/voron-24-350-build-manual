@@ -68,6 +68,8 @@ are already in it. Confirm it loaded as described rather than rebuilding it.
 **Parts:** `wago_221-415_mount_3by5` · `lrs_200_psu_bracket_x2` ×2 · `PSU_stabilizer_50mm` · `usb_adapter_mount` · `usb_adapter_mount_partial_cover` ×1 (ground-lug mount, est.) · `pcb_din_clip_x3` ×3 · `handlebar_spacer_x4` ×4 · `power_inlet_IECGS_1mm` · 8 files, 14 objects — 7.9 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `wago_221-415_mount_3by5` and `power_inlet_IECGS_1mm` (the long-flat list), already in the project.
 **Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the Wago mount and the inlet.
 
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B07.3 — Print plate B07-P1
@@ -89,6 +91,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 are already in it. Confirm it loaded as described rather than rebuilding it.
 **Parts:** `cob_light_strip_mount_100mm` ×6 · `cob_light_strip_mount_50mm` ×2, eight mounts total, each a 2-piece assembly — 8.1 h, 124 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the six 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the two 50 mm mounts.
 **Check:** Brim outline on the six 100 mm mounts only; eight mounts on the plate and nothing else.
+
+**Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
 
@@ -132,6 +136,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 |
 
 **Check:** COB mounts counted, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
+
+**Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
 Pause: ~10 min since the last pause — both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.

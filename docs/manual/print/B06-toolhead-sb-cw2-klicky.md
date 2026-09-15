@@ -83,6 +83,8 @@ folder.
 `Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
 **Check:** Printhead files confirmed from `revo_voron/`; the dock is the *fixed* variant; no brim outline in the preview.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner printhead README](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md)
 
 ## Step B06.3 — Print plate B06-P1
@@ -124,6 +126,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **spare-alt** — Spares / alternates (not fitted) | `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` |
 
 **Check:** All toolhead parts in 08-SB / 08-CW2; the Klicky bag closed in spare-alt.
+
+**Helper:** Writes the bin id and the date on the inside face of each part.
 
 
 Pause: ~10 min since the last pause — toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.

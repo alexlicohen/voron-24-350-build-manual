@@ -100,6 +100,8 @@ Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Drop an M3×20 SHCS into a corner hole from the top; the head sinks into the bore. From the other side it stands proud.
 
+**Helper:** Points to the magnet side and the heater side and names each one.
+
 Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=53)
 
 ---
@@ -222,6 +224,8 @@ Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:** Wipe the whole top face with IPA and let it flash off completely, so no solvent is trapped under the adhesive. Wear gloves from here on.
 
 **Check:** Surface dry, no lint, no residue in the counterbores.
+
+**Helper:** Holds the plate flat on the towel and checks afterwards for missed patches.
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54)
 
@@ -389,6 +393,8 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Run a finger round the perimeter.
 
 **Check:** 38 mm at both front corners, left and right gaps equal, nothing touching a vertical extrusion or a Z rail. No tolerance is specified.
+
+**Helper:** Reads the rule at each corner and calls the number back to you.
 
 Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60)
 

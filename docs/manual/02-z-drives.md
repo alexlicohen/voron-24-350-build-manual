@@ -136,6 +136,8 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D](https://
 
 **Check:** 12 black parts: 4 main, 4 retainer, 4 motor mount, two of each hand; 8 blue accents, 4 idler brackets, 4 sliders, 8 deck clips.
 
+**Helper:** Sorts the printed parts into the a and b piles and counts them.
+
 Tip: Cradles up: the `z_drive_main` cut corner and its two 9 mm bolt wells sit far from you on `_a`, near on `_b`. The retainer cut corner is near-left on `_a`.
 
 Tip: reprint rather than force a warped `z_drive_main` — it holds the shaft alignment for the whole Z axis. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
@@ -156,6 +158,8 @@ Source: [Voron manual p.22](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. **`_a` builds Z0 and Z2, `_b` builds Z1 and Z3**; each idler takes the hand of the drive below.
 
 **Check:** You can point at each of the four corners and say its Z number and its hand without looking.
+
+**Helper:** Writes Z0 to Z3 on four tape flags and sticks one per corner.
 
 ⚠ **Rev D+ / LDO:** this naming is what the kit's wiring and Klipper config assume — Z0→`STEPPER-0`, Z1→`STEPPER-1`, Z2→`STEPPER-2`, Z3→`STEPPER-3` on the Leviathan. Label each motor's cable with a kit cable tag as you fit it in this chapter and you save an hour in Chapter 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
@@ -356,6 +360,8 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Three readings agree within 0.1 mm, the number is in your build log, and eight clips of the matching thickness are on the bench.
 
+**Helper:** Reads the caliper display aloud three times so you can pick the clip.
+
 ⚠ **Rev D+ / LDO:** LDO's build note for p.29–30 says the LDO deck panel is **4 mm nominal — use `deck_support_4mm`**, but the Rev D 350 BOM lists it as *469×469×**3 mm***. The size-specific 350 BOM wins, so B01 prints the **3 mm** set. Measure, fit whichever matches, reprint the other if you have to. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
@@ -463,6 +469,8 @@ Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:** Check the pulley position against the printed `pulley_jig`, then build the other three shaft/pulley pairs the same way.
 
 **Check:** Four shafts, four 20T pulleys, all at the same protrusion, all with a set screw on the flat, all eight set screws tight.
+
+**Helper:** Drops each shaft into the jig and says whether the pulley sits flush.
 
 Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=32) · [Voron-2 `STLs/Tools`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools)
 
@@ -909,6 +917,8 @@ Source: [Voron manual p.50](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:** Use it as the marker that the Z chapter is done. The printer has been upright since Step 02.38. Work through Checkpoint 02 and make sure the measured deck thickness is in your build log.
 
 **Check:** Checkpoint 02 fully ticked.
+
+**Helper:** Ticks the checkpoint list while you point at each item on the machine.
 
 Source: [Voron manual p.51](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=51)
 

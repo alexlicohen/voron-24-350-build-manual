@@ -6,7 +6,7 @@ Takes a machine that homes, probes, levels, is squared cold and has printed its 
 
 **Time:** 2.5–4.0 h hands-on (survey §7.2), spread over ~8–10 h wall-clock. Most of the wall-clock is the 1½–2 h closed-chamber soak at Step 14.6, the shorter soaks (~30 min each) and four test prints.
 
-**Sessions:** 13 × ~30 min hands-on (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
+**Sessions:** 14 × ~30 min hands-on (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
 
 **Prerequisites:**
 
@@ -202,6 +202,71 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 2. Pluck it, read the lowest peak, adjust to **≈140 Hz**. All four, then re-check after jogging down and back up.
 
 **Check:** All four Z belts within a few Hz of each other at ~140 Hz, and four numbers in the tuning log.
+
+```gate-calc
+id: tune-belts
+title: Belt tension — six belts, each over a measured 150 mm span
+inputs:
+  - key: a
+    label: A belt (Hz)
+    nominal: 110
+    tol: 5
+    hint: about 110 Hz over a measured 150 mm span
+    low: Slack. Take up the A front idler tensioner screw a little at a time, re-pluck, then re-check B, because the two tensions pull against each other.
+    high: Tight. Back the A tensioner off. 110 Hz is deliberately at the low end of the range, roughly 2 lb, so a high reading stretches the belt rather than helping it.
+    why: A and B carry every X and Y move, and Ch 06b's squaring procedure began by fully releasing them, so whatever tension was set before this step is already gone.
+  - key: b
+    label: B belt (Hz)
+    nominal: 110
+    tol: 5
+    hint: about 110 Hz, and within a few Hz of A
+    low: Slack. Take up the B tensioner, then re-check A and go back and forth until the two read the same.
+    high: Tight. Back the B tensioner off, then re-check A. One reading 110 and the other 95 is a squaring problem, so go back to Ch 06b rather than compensating with tension.
+    why: A and B are one calibration item, and a pair that will not come out equal is the gantry saying it is not square, not a belt asking for more tension.
+  - key: zfl
+    label: Z belt, front left (Hz)
+    nominal: 140
+    tol: 5
+    hint: about 140 Hz, top belt clip to that corner's Z idler centre
+    low: Slack. Tighten at that upright's Z idler tensioner bolt only, never at the belt clamps down on the XY joints.
+    high: Tight. Back that upright's Z idler tensioner bolt off, then jog the gantry down and back up and re-read all four.
+    why: The four Z belts lift the gantry together, and one odd belt shows up as scatter in PROBE_ACCURACY rather than as anything you can see.
+  - key: zfr
+    label: Z belt, front right (Hz)
+    nominal: 140
+    tol: 5
+    hint: about 140 Hz, and even with the other three
+    low: Slack. Tighten at that upright's Z idler tensioner bolt, then re-read the other three; evening them up matters more than hitting 140 exactly.
+    high: Tight. Back that bolt off, then re-read the other three; evening them up matters more than hitting 140 exactly.
+    why: Voron's QGL troubleshooting points at uneven Z belts when PROBE_ACCURACY scatter is high, so evenness across the four is what this row is really reading.
+  - key: zrl
+    label: Z belt, rear left (Hz)
+    nominal: 140
+    tol: 5
+    hint: about 140 Hz, reached from the rear of the machine
+    low: Slack. Tighten at that upright's Z idler tensioner bolt, then re-check the front pair, which move with it.
+    high: Tight. Back that bolt off, then re-check the front pair, which move with it.
+    why: This is the final setting rather than the working value Ch 06b left, so whatever you leave here is what every QGL and every bed mesh from now on is built on.
+  - key: zrr
+    label: Z belt, rear right (Hz)
+    nominal: 140
+    tol: 5
+    hint: about 140 Hz, reached from the rear of the machine
+    low: Slack. Tighten at that upright's Z idler tensioner bolt only. A loosened belt clamp means re-threading the belt.
+    high: Tight. Back that upright's Z idler tensioner bolt off. Never reach for the clamps at the XY joints to let tension out.
+    why: The adjuster is the idler tensioner bolt at the top of the upright, because the clamps down at the XY joints hold both belt ends and let the belt go if you loosen them.
+  - key: span
+    label: Every span measured at 150 mm with the rule, not eyeballed
+    kind: yesno
+    no: A frequency means nothing without its span, and the same belt over a 200 mm span reads far lower. Measure each span with the rule and read all six again.
+    why: Eyeballing the span is the single most common way to finish this step with belts 30 % out and blame the printer for what follows.
+  - key: recheck
+    label: All six read again after moving the gantry and returning
+    kind: yesno
+    no: Move the X extrusion back a few centimetres and forward again, jog Z down and back up, then re-read all six. A tension read once can belong to where the gantry was parked.
+    why: The next step tightens the Z joints hot and freezes whatever geometry these six belts are holding, so a reading that does not survive a move is not the one to freeze.
+pass: All six belts are at final tension over measured spans. Write the six numbers in the tuning log, then soak the closed chamber and lock the Z joints hot.
+```
 
 ⚠ Adjust at the Z idler tensioner bolt only, never the belt clamps down at the XY joints: those hold both belt ends and let a belt go if loosened.
 
@@ -622,6 +687,59 @@ Or set `[extruder] pressure_advance:` if you only ever print ASA on this machine
 
 **Check:** One corner is visibly the sharpest, and the value you saved is in the **0.02–0.05** band.
 
+```gate-calc
+id: tune-pa
+title: Pressure advance — the value the pattern picked
+inputs:
+  - key: start
+    label: Sweep starting value
+    min: 0
+    max: 0.1
+    hint: the tool's starting value, 0 on the first pass
+    low: Pressure advance does not go below 0. Set the tool's starting value to 0 and generate the pattern again.
+    high: Above the 0 to 0.10 sweep this chapter prints. A direct drive Clockwork 2 with a Revo HF sits at the bottom of Klipper's typical band, so re-read the pattern before chasing a value up here.
+    why: The starting value and the increment are what turn a line number into a number you can save, and they change between the first pass and the refinement run.
+  - key: stepv
+    label: Increment per line
+    min: 0.001
+    max: 0.005
+    hint: 0.005 on the first pass, 0.001 to 0.002 to refine
+    low: Finer than 0.001 and neighbouring lines are not tellable apart by eye. Regenerate at 0.001 or coarser.
+    high: Coarser than the 0.005 the first pass uses, so the window can fall between two lines. Regenerate at 0.005 or finer.
+    why: The refinement run re-prints around the winner at 0.001 to 0.002, so this number is not a constant and has to be read off the pattern you are actually holding.
+  - key: line
+    label: Lines above the starting value, counting the first line as 0
+    min: 0
+    max: 20
+    hint: 0 to 20 across a 0 to 0.10 sweep at 0.005
+    low: The count starts at 0 on the first line. If the sharpest corner is below the start, widen the range and re-run rather than guessing.
+    high: Beyond the last line of a 0 to 0.10 sweep at 0.005. Widen the range and re-run rather than guessing.
+    why: Counting the lines is the whole measurement, and a line miscounted by one is a pressure advance wrong by a full step of the sweep.
+  - key: saved
+    label: Value you are writing into the ASA filament profile
+    min: 0.02
+    max: 0.05
+    hint: the 0.02 to 0.05 band, copied off the badge above
+    low: Below the 0.02 to 0.05 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
+    high: Above the 0.02 to 0.05 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
+    why: This is the number that leaves the bench, and it belongs to the filament rather than the machine, so it goes in the ASA filament profile where every later ASA print picks it up.
+  - key: corner
+    label: One corner is visibly the sharpest, with no gap and no bulge
+    kind: yesno
+    no: If no value gives a clean corner, or gapping and bulging show at once, stop tuning. Ellis reads that as extruder trouble. Turn the extruder gear back by hand cold and feel for a dead zone.
+    why: Pressure advance can only be read off a pattern that has a winner, and a pattern with no winner at any value is telling you about the extruder instead.
+  - key: accel
+    label: Pattern printed with the acceleration control option set to your external perimeter acceleration
+    kind: yesno
+    no: Left at the machine maximum the pattern rings and the result is worthless. Regenerate it with the acceleration control option set, and print it again.
+    why: Ringing and pressure advance leave similar marks at a corner, so a pattern printed at full acceleration measures the frame instead of the nozzle.
+derive:
+  expr: start + stepv * line
+  label: Pressure advance
+  digits: 3
+pass: The pattern picked cleanly. Save the badge value with SET_PRESSURE_ADVANCE in the ASA filament custom G-code, and write it in the tuning log.
+```
+
 Tip: there is rarely a perfect value. Ellis leans **higher**: if the sharpest corner has a tiny bit of gapping, still take it. Direct drive is that sensitive.
 
 ⚠ If you cannot get a clean corner at *any* value, or you see gapping and bulging simultaneously, stop tuning — Ellis: *"you likely have extruder issues."* Check the CW2 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.
@@ -653,6 +771,36 @@ Pause: ~20 min since the last pause — the PA pattern is printed, read and the 
 2. Slice at top-layer line width 100 %, infill 30 %+, top solid infill speed ~60 mm/s, normal fan.
 
 **Check:** Judged on the **centre** of each top surface, one cube has no gaps between the top lines and no ridging.
+
+```gate-calc
+id: tune-em
+title: Extrusion multiplier — the 2 % pass
+inputs:
+  - key: pick
+    label: Lowest flow % whose centre top surface is clean (%)
+    min: 92
+    max: 98
+    hint: the lowest of 92, 94, 96, 98 with no gaps and no ridging
+    low: Below the 92 to 98 window Prusament ASA should land in. Re-check the rotation distance and the pressure advance you just saved before trusting a number this low.
+    high: Above the 92 to 98 window Prusament ASA should land in. Print the row again one or two steps higher and read it the same way before accepting it.
+    why: This one number scales every wall and every top surface the machine will print, and an oversize cube from the caliper step is fixed here rather than with XY compensation, which would wreck every bearing fit.
+  - key: clean
+    label: One cube in the row has no gaps between the top lines and no ridging
+    kind: yesno
+    no: Nothing in the row is clean, so the error is upstream of flow. Re-check the extruder and the pressure advance before sweeping wider or finer.
+    why: The point of a four cube sweep is that one of them is right, and when none is, a finer sweep will not find what a mis-set extruder or pressure advance is hiding.
+  - key: centre
+    label: Judged on the centre of each top surface, not near the edges
+    kind: yesno
+    no: The edges always look over-extruded and prove nothing. Read the centre of each top surface toward a light and pick again.
+    why: A cube read at its edges always argues for less plastic, so reading it there moves the multiplier the wrong way and throws away the cube that was actually right.
+  - key: slice
+    label: Sliced at top layer line width 100 %, infill 30 % or more, top solid infill about 60 mm/s, normal fan
+    kind: yesno
+    no: Re-slice the row with those settings and print it again. A thin top layer or sparse infill reads as gaps at any flow.
+    why: Those settings are what make the top surface a measurement of flow rather than a test of the infill holding it up.
+pass: Take this multiplier into the 0.5 % refinement pass next, then write the final number into the ASA filament profile, not the print profile.
+```
 
 ⚠ Too low leaves visible gaps and valleys between the top lines when held toward a light; too high leaves pellets, ridging and a rough raised surface. Most filaments land in the 92–98 % window, and Prusament ASA should.
 
@@ -688,6 +836,29 @@ Pause: ~25 min since the last pause — both extrusion-multiplier passes done an
 
 **Check:** Bottom surface is smooth, lines still individually visible, no gaps.
 
+```gate-calc
+id: tune-squish
+title: First layer, re-checked after the multiplier moved
+inputs:
+  - key: fl
+    label: First layer vs mid height X difference (mm)
+    max: 0.15
+    hint: within 0.15 mm of mid height, the same figure Gate A used
+    high: Bigger than the 0.15 mm the cube comparison allows. Elephant foot compensation is wrong, so adjust it in 0.05 mm steps and print the coupon again rather than moving the multiplier back.
+    why: The same 0.15 mm rule Gate A used on the Prusa has to hold on the Voron too, and a fat first layer is a compensation setting rather than the flow number you just spent two passes finding.
+  - key: smooth
+    label: Bottom surface smooth, lines still individually visible, no gaps
+    kind: yesno
+    no: Repeat the live Z procedure from Ch 13 until the lines are individually visible with no gaps between them, then save it.
+    why: Changing the extrusion multiplier changed how much plastic the first layer puts down, so the squish committed in Ch 13 is now slightly off by construction.
+  - key: saved
+    label: Saved with Z_OFFSET_APPLY_ENDSTOP and then SAVE_CONFIG
+    kind: yesno
+    no: A live Z nudge that is not applied and saved is gone at the next restart. Run both, then re-home, because SAVE_CONFIG restarts Klipper.
+    why: This is the last change this chapter makes to the Z offset, and every print after it inherits whatever is in the auto generated block at the bottom of the config.
+pass: The essentials loop is closed. Extruder, first layer, pressure advance, extrusion multiplier, first layer again.
+```
+
 Tip: this closes the essentials loop. Ellis' order is extruder, surface prep, first layer, pressure advance, extrusion multiplier; the multiplier feeding back into first layer is expected.
 
 Source: [Ellis' Print Tuning Guide — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [Klipper docs § Z_OFFSET_APPLY_ENDSTOP](https://www.klipper3d.org/G-Codes.html#z_offset_apply_endstop)
@@ -713,6 +884,34 @@ Pause: ~10 min since the last pause — first-layer squish re-set after the extr
 3. Back up: `cd ~/printer_data/config && git add -A && git commit -m "Ch 14 done: belts, shaper, max_accel, Z offset"`, and copy the directory off the Pi.
 
 **Check:** The heightmap sits centred around Z0, the variance is in the tuning log, and the config directory is copied off the Pi.
+
+```gate-calc
+id: tune-mesh
+title: Bed mesh variance, and the backup
+inputs:
+  - key: variance
+    label: Heightmap Variance (mm)
+    max: 0.05
+    hint: under 0.05 mm a mesh is optional, over it the mesh is not
+    high: Not a fault, a decision. Over about 0.05 mm keep generating a mesh for every print, and read the number again after a full soak, because variance changes with chamber temperature as the gantry extrusions bend.
+    why: The Variance figure is the real reading and the colours are stretched to fill the scale, so a 0.03 mm bed looks alarming on the heightmap and a sound one gets chased for nothing.
+  - key: zref
+    label: The config carries zero_reference_position 175,175
+    kind: yesno
+    no: A V2 on the stock Z endstop must have it, or the mesh floats away from Z0. Set it, restart, and mesh again.
+    why: Without it the mesh is measured against nothing in particular, so a perfectly good bed map is applied at the wrong height on every print.
+  - key: centred
+    label: The heightmap sits centred around Z0
+    kind: yesno
+    no: A map that sits off Z0 is the zero reference position, not the bed. Fix that first, then mesh again.
+    why: A map centred somewhere other than Z0 means the mesh and the Z offset disagree, and the first layer pays for it everywhere the two differ.
+  - key: backup
+    label: Config committed and the whole directory copied off the Pi
+    kind: yesno
+    no: Commit printer.cfg with its auto save block, moonraker.conf, config.leviathan and config.nitehawk, then copy the directory off the Pi.
+    why: Everything this chapter measured lives in that directory, and an SD card failure without a copy means running the whole chapter again from cold.
+pass: Mesh variance is in the tuning log and the config is off the Pi. Everything after this is print tuning, at Ellis' pace.
+```
 
 ⚠ A V2 on the stock Z endstop **must** have `zero_reference_position: 175,175`, or the mesh floats away from Z0. Under ~0.05 mm total variance a mesh is optional, but keep generating one per print: the variance changes with chamber temperature as the gantry extrusions bend.
 
@@ -750,6 +949,32 @@ Beyond that, his **Advanced Tuning** section covers [Maximum Volumetric Flow Rat
 Source: [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) — link only, nothing from it is copied or mirrored
 
 Pause: ~15 min since the last pause — mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.
+
+### Step 14.24 — Claim the serial number and print the nameplate
+
+![Nameplate render, V2.1234 sample](assets/nameplate/nameplate.png)
+
+**What you're looking at:** Voron serials are issued by the community, not a vendor: mods on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the Voron's second print, after the cube.
+
+**Parts:** phone or camera, paper and a pen, the accent ASA spool from B02, M3×8 SHCS ×2, M3 roll-in T-nut ×2.
+
+**Do:**
+
+1. Film the printer printing, bay closed, with a handwritten sheet showing your Reddit username and date.
+2. Post it to r/voroncorexy as a serial request.
+3. Print it in accent ASA and bolt it to the front top rail: `venv-cq/bin/python scripts/nameplate.py --serial V2.xxxx --names "Alex & Helper" --date 2026-12-20`
+
+**Check:** A serial like `V2.1234` arrives, and the plate is on the front top rail, clear of the closed door *(verify on bench)*.
+
+**Helper:** Reads the serial back from the post and checks every character on the printed plate.
+
+⚠ The request goes on the subreddit, and the machine has to be finished: cables managed above the deck plate, electronics separated from the chamber, bay covered. Your Reddit username and the date must be handwritten and in shot. Discord username is optional now, and its old 4-digit tag is no longer required.
+
+Tip: the subreddit's nameplate bot posts a generic serial plate when your serial lands. This one is ours: front top rail, two M3 T-nuts, blue accent. [src](https://github.com/rdmullett/voron_serial_plate)
+
+Pause: ~20 min since the last pause — the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges.
+
+Source: [Voron docs — About § Serial Numbers](https://docs.vorondesign.com/about.html#serial-numbers) · [TeamFDM FAQ — serial requirements](https://www.teamfdm.com/forums/topic/14-what-are-the-requirements-to-get-a-serial-for-my-printer/) · [Ch 11 Steps 11.12–11.13, 11.62](11-skirts-panels-door.md#step-1113-mount-the-front-skirt-segments) for what the skirt ring and the door hinges already occupy · `scripts/nameplate.py`
 
 ---
 

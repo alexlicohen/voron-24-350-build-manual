@@ -454,3 +454,413 @@ body.step-is-done .md-typeset .step-done-label {
 @media screen and (max-width: 44.98em) {
   .md-typeset .chapter-progress__shot { flex: 1 1 100%; }
 }
+
+/* ===========================================================================
+ * R7 — the three bench widgets. All colours come from Material's palette
+ * variables, so light/dark follow the theme toggle; every tap target is 44 px.
+ * =========================================================================== */
+
+/* --------------------------------------------------------- gate calculators */
+
+.md-typeset .gate-calc {
+  margin: 1.2rem 0;
+  padding: .8rem .9rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-left: .3rem solid var(--md-default-fg-color--lighter);
+  border-radius: .4rem;
+  background: var(--md-code-bg-color);
+}
+.md-typeset .gate-calc--pass { border-left-color: #2e7d32; }
+.md-typeset .gate-calc--fail { border-left-color: #c62828; }
+
+.gate-calc__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: .6rem;
+}
+.gate-calc__title { font-weight: 700; font-size: .95rem; }
+.gate-calc__badge {
+  padding: .1rem .5rem;
+  border-radius: .2rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #fff;
+}
+.gate-calc__badge--pass { background: #2e7d32; }
+.gate-calc__badge--fail { background: #c62828; }
+
+/* The `derive:` value (14.18's PA), beside the badge rather than in a row. */
+.gate-calc__derived {
+  padding: .1rem .5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .2rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+/* Flex, not grid, so the control drops under the label in the narrow text
+ * column of a generated step page and sits beside it on the chapter page. */
+.gate-calc__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem .8rem;
+  padding: .45rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.gate-calc__labels { flex: 1 1 11rem; min-width: 0; display: flex; flex-direction: column; }
+.gate-calc__label { font-size: .88rem; }
+.gate-calc__hint { font-size: .75rem; color: var(--md-default-fg-color--light); }
+.gate-calc__input {
+  width: 6.5rem;
+  min-height: 44px;
+  padding: .3rem .5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 1rem;
+  text-align: right;
+}
+.gate-calc__yesno { display: flex; gap: .3rem; }
+.gate-calc__yn {
+  min-width: 56px;
+  min-height: 44px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+.gate-calc__yn[aria-pressed="true"] {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+}
+/* Per-row `why?` disclosure. Material @extends .admonition onto every bare
+ * <details> and .admonition-title onto its <summary>, so the box, the icon and
+ * the chevron all have to be unset here to leave a plain one-line toggle. */
+.md-typeset .gate-calc__why {
+  flex: 1 1 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: inherit;
+}
+.md-typeset .gate-calc__why > summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;                 /* same tap target as the inputs and buttons */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--md-default-fg-color--light);
+  font-size: .78rem;
+  font-weight: 400;
+  text-decoration: underline dotted;
+  text-underline-offset: .2rem;
+  cursor: pointer;
+  list-style: none;
+}
+.md-typeset .gate-calc__why > summary::before,
+.md-typeset .gate-calc__why > summary::after { content: none; display: none; }
+.md-typeset .gate-calc__why > summary::-webkit-details-marker { display: none; }
+.md-typeset .gate-calc__why[open] > summary { color: var(--md-default-fg-color); }
+.md-typeset .gate-calc__why-text {
+  margin: 0 0 .5rem;
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .gate-calc__advice {
+  flex: 1 1 100%;
+  margin: .2rem 0 0;
+  font-size: .8rem;
+  color: var(--md-default-fg-color);
+}
+.gate-calc__row--fail .gate-calc__label { font-weight: 700; }
+.gate-calc__row--fail .gate-calc__input { border-color: #c62828; }
+.gate-calc__row:not(.gate-calc__row--fail) .gate-calc__advice { display: none; }
+
+.gate-calc__actions {
+  display: flex;
+  gap: .5rem;
+  margin-top: .7rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.gate-calc__check, .gate-calc__clear {
+  min-height: 44px;
+  padding: .3rem 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+.gate-calc__check {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+}
+.md-typeset .gate-calc__note,
+.md-typeset .gate-calc__nojs {
+  margin: .6rem 0 0;
+  font-size: .82rem;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .gate-calc__note:empty { display: none; }
+
+/* ----------------------------------------------- troubleshooting tap-through */
+
+.md-typeset .tap-tree {
+  margin: 1.2rem 0 1.6rem;
+  padding: .8rem .9rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .4rem;
+  background: var(--md-code-bg-color);
+}
+/* The rendered list stays in the DOM (search indexes it, and it is the no-JS
+ * fallback); taptree.js hides it only once the cards are up. The selector has
+ * to out-specify Material's own `.md-typeset ul:not([hidden])`, which is (0,2,1). */
+.md-typeset .tap-tree ul.tap-tree__source,
+.md-typeset .tap-tree ol.tap-tree__source { display: none; }
+
+.tap-tree__crumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin-bottom: .7rem;
+  font-size: .8rem;
+}
+.tap-tree__crumb {
+  min-height: 34px;
+  padding: .15rem .45rem;
+  border: 0;
+  border-radius: .25rem;
+  background: transparent;
+  color: var(--md-typeset-a-color);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.tap-tree__crumb:last-of-type { color: var(--md-default-fg-color); font-weight: 700; }
+.tap-tree__sep { color: var(--md-default-fg-color--light); }
+.tap-tree__back {
+  min-height: 34px;
+  margin-left: auto;
+  padding: .15rem .7rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .25rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.tap-tree__cards { display: flex; flex-direction: column; gap: .4rem; }
+.tap-card {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  width: 100%;
+  min-height: 48px;
+  padding: .55rem .8rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .35rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: .92rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+.tap-card:hover, .tap-card:focus { border-color: var(--md-primary-fg-color); }
+.tap-card__label { flex: 1; }
+.tap-card__more { color: var(--md-default-fg-color--light); font-size: 1.2rem; }
+
+.md-typeset .tap-tree__leaf {
+  margin-top: .3rem;
+  padding: .7rem .9rem;
+  border-left: .25rem solid var(--md-primary-fg-color);
+  border-radius: .25rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .tap-tree__leaf > :first-child { margin-top: 0; }
+.md-typeset .tap-tree__leaf > :last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------- Home: the printer that grows */
+
+.md-typeset .build-progress {
+  margin: 1rem 0 1.4rem;
+  padding: .8rem .9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .4rem;
+  background: var(--md-code-bg-color);
+}
+.md-typeset .build-progress__img {
+  display: block;
+  max-width: 100%;
+  max-height: 260px;
+  margin: 0 auto .5rem;
+  border-radius: .3rem;
+}
+.md-typeset .build-progress__caption {
+  margin: 0;
+  font-size: .88rem;
+  font-weight: 700;
+  text-align: center;
+}
+.md-typeset .build-progress__counts {
+  margin: .25rem 0 0;
+  font-size: .8rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
+.md-typeset .build-progress__counts:empty { display: none; }
+
+/* ------------------------------------------------------------- plate board */
+
+.plate-board__head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: .5rem 0 .6rem;
+  background: var(--md-default-bg-color);
+}
+.md-typeset .plate-board__summary {
+  margin: 0;
+  font-size: .9rem;
+  font-weight: 700;
+}
+.plate-board__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: .7rem;
+}
+.plate-tile {
+  display: flex;
+  gap: .6rem;
+  padding: .55rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .4rem;
+  background: var(--md-default-bg-color);
+}
+.plate-tile--next { border-color: var(--md-primary-fg-color); border-width: 2px; }
+.plate-tile--next .plate-tile__id::after {
+  content: " next";
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+}
+.plate-tile--printed { opacity: .62; }
+.plate-tile__thumb { flex: 0 0 72px; }
+.md-typeset .plate-tile__thumb img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: .25rem;
+  background: #fff;
+}
+.plate-tile__body { flex: 1; min-width: 0; }
+.plate-tile__head { display: flex; align-items: center; gap: .4rem; }
+.plate-tile__id { font-weight: 700; font-size: .9rem; }
+.plate-swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 50%;
+}
+.plate-swatch--black { background: #2b2b2b; }
+.plate-swatch--blue  { background: #2f6fd0; }
+.plate-tile__slot {
+  margin-left: auto;
+  padding: .05rem .4rem;
+  border-radius: .2rem;
+  background: var(--md-code-bg-color);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.plate-tile__slot--overnight { color: var(--md-primary-fg-color); font-weight: 700; }
+.md-typeset .plate-tile__batch { display: block; font-size: .8rem; }
+.md-typeset .plate-tile__meta,
+.md-typeset .plate-tile__note {
+  margin: .15rem 0 0;
+  font-size: .76rem;
+  color: var(--md-default-fg-color--light);
+}
+.plate-tile__toggles { display: flex; gap: .35rem; margin-top: .4rem; }
+.plate-tile__toggle {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .3rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.plate-tile__toggle[aria-pressed="true"] {
+  background: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 700;
+}
+
+/* Helper track (with a helper) — 2026-09-14 */
+.md-typeset .step-helper {
+  margin: .4rem 0 .6rem;
+  padding: .35rem .6rem;
+  border-left: 3px solid var(--md-accent-fg-color);
+  background: var(--md-code-bg-color);
+  border-radius: .15rem;
+  font-size: .85rem;
+}
+.md-typeset .step-helper__label {
+  font-weight: 700;
+  margin-right: .35rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .7rem;
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .step-helper-badge {
+  display: inline-block;
+  margin-left: .5rem;
+  padding: 0 .45rem;
+  border-radius: .6rem;
+  font-size: .68rem;
+  font-weight: 600;
+  line-height: 1.5;
+  background: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+  vertical-align: middle;
+}
+.md-typeset .step-card--helper { outline: 2px solid var(--md-accent-fg-color); outline-offset: -2px; }
+.md-typeset .step-card__helper {
+  position: absolute; top: .3rem; left: .3rem;
+  padding: 0 .35rem; border-radius: .5rem;
+  font-size: .62rem; font-weight: 600;
+  background: var(--md-accent-fg-color); color: var(--md-accent-bg-color);
+}
+.md-typeset .step-helper-list { font-size: .85rem; color: var(--md-default-fg-color--light); }

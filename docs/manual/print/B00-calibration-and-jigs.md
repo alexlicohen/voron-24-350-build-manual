@@ -155,6 +155,44 @@ Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#cal
 
 **Check:** All four pass; any failure means adjusting [extrusion multiplier](../16-glossary.md#e), never negative XY compensation, then reprinting this plate before B02 or B07.
 
+```gate-calc
+id: gate-a
+title: Gate A — the 30 mm cube
+inputs:
+  - key: x
+    label: Cube X, at mid height (mm)
+    nominal: 30.00
+    tol: 0.15
+    low: Under. Confirm shrinkage compensation is 0 % and XY compensation is 0, then raise the extrusion multiplier in 1 % steps and reprint the plate. Never dial in positive XY compensation.
+    high: Over. Confirm shrinkage compensation is 0 % and XY compensation is 0, then reduce the extrusion multiplier in 1 % steps and reprint the plate. Never dial in negative XY compensation, it wrecks every bearing fit.
+    why: Every bearing bore and screw hole in the machine inherits this number, and the only lever that fixes it is extrusion multiplier, because negative XY compensation buys the cube back and wrecks every fit behind it.
+  - key: y
+    label: Cube Y, at mid height (mm)
+    nominal: 30.00
+    tol: 0.15
+    low: Under, same lever as X. Shrinkage and XY compensation at zero first, then extrusion multiplier up 1 %. A persistent X to Y difference on one cube is a gantry-square problem, not flow.
+    high: Over, same lever as X. Shrinkage and XY compensation at zero first, then extrusion multiplier down 1 %. A persistent X to Y difference on one cube is a gantry-square problem, not flow.
+    why: Y on its own says little, but Y against X separates a flow error, which moves both, from a squareness error on the Prusa, which moves one.
+  - key: z
+    label: Cube Z (mm)
+    nominal: 30.00
+    tol: 0.10
+    low: Under means the first layer is over-squished. Nudge Live Adjust Z up on the next print, then fix the cause, a sheet not seated, debris under it, an uneven glue film or a nozzle not fully seated.
+    high: Over means the first layer is under-squished. Nudge Live Adjust Z down on the next print, then fix the cause rather than nudging every plate, because the Core One+ does not save the nudge.
+    why: Z is the first layer's report card, and the Core One+ has no first-layer wizard and does not remember a Live Adjust Z nudge, so an out-of-range Z is a cause to find before the next plate rather than a number to dial in.
+  - key: fl
+    label: First layer vs mid height, X difference (mm)
+    max: 0.15
+    high: Elephant-foot compensation is wrong. Adjust it in 0.05 mm steps and reprint. This is a first-layer artefact, so leave the extrusion multiplier alone.
+    why: The first layer is always squashed, so measuring it against mid height is what separates a wrong elephant-foot compensation from a flow error and keeps you from moving the multiplier for something it did not cause.
+  - key: snap
+    label: Corner snap tears across the layers, not along one
+    kind: yesno
+    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 40 °C chamber gate, and reprint before any structural plate.
+    why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
+pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B in the same week before B01 and B03 to B06.
+```
+
 The 30 mm cube is a ruler for the printer. X and Y say whether walls come out the size the CAD drew, which
 every bearing bore in the machine depends on; Z says whether the first layer is squished right; the corner
 snap says whether the layers weld. Every later plate inherits these four numbers.
@@ -205,6 +243,37 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 | insert count | now | the practice seven come out of the KADRICK kit; all **153** kit inserts stay for the build |
 | the same pocket, on a real 625-2RS | kit day, out of carton 1 | thumb pressure seats it, **no rocking** |
 | `MGN12_rail_guide` | kit day, out of carton 1 | seats with **light finger pressure** |
+
+```gate-calc
+id: gate-b
+title: Gate B — bore, inserts, and the kit-day rows
+inputs:
+  - key: bore
+    label: 625-2RS pocket across the retainer (mm)
+    nominal: 16.30
+    tol: 0.15
+    low: Under. Confirm shrinkage compensation is 0 % and XY compensation is 0, then reduce the extrusion multiplier 1 %, reprint the retainer and the cube, and re-pass Gate A before B01.
+    high: Over. Confirm shrinkage compensation is 0 % and XY compensation is 0, then raise the extrusion multiplier 1 %, reprint the retainer and the cube, and re-pass Gate A before B01. Never fix a bore with XY compensation.
+    why: This pocket is the seat every Z drive presses a 625-2RS into, and it is the gate protecting the 22 h of Z-drive bodies that print against the same profile.
+  - key: inserts
+    label: All seven inserts flush to 0.2 mm proud, no boss bulging over 0.2 mm
+    kind: yesno
+    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Practise on the spare pockets until two in a row land flush, and do not re-slice anything.
+    why: The kit's 153 inserts go into real parts from Ch 00 onwards, so seven flush, un-bulged ones on a coupon are how you learn the iron before a chapter part sees it.
+  - key: bearing
+    label: Kit day. A real 625-2RS seats by thumb with no rocking
+    kind: yesno
+    optional: true
+    no: Reprint the retainer and the cube against the corrected multiplier, then re-pass Gate A. This row waits for carton 1, so leave it blank until the kit lands.
+    why: This is the press fit the caliper has been standing in for all along, so it either confirms months of printing or sends the retainer and the cube back through Gate A.
+  - key: rail
+    label: Kit day. MGN12_rail_guide slides on with light finger pressure
+    kind: yesno
+    optional: true
+    no: Very tight means over-extrusion, loose means under-extrusion. This row gates nothing but a 20 minute reprint of the guide, so leave it blank until the kit lands.
+    why: The guide is a 3 g jig rather than a machine part, so this row gates nothing but a 20 minute reprint and is the cheapest confirmation the profile is still right on kit day.
+pass: Gate B passed on the rows you can run today. B01 and B03 to B06 are released. The two kit-day rows sign off out of carton 1.
+```
 
 ⚠ A pocket outside 16.30 mm ±0.15 is the profile, not the part. Confirm shrinkage compensation is 0 %, then move extrusion multiplier 1 %, reprint the retainer and the cube, re-pass Gate A, and only then start B01. A bulging boss is technique, so practise rather than re-slice. The six MGN9 rails stay sealed until rail prep.
 

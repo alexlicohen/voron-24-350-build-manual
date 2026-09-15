@@ -54,6 +54,9 @@ _CHECK_RE = re.compile(r"^\*{0,2}Check:\*{0,2}(?:\s|$)")
 _TIP_RE = re.compile(r"^\*{0,2}Tip:\*{0,2}(?:\s|$)")
 _WARN_RE = re.compile(r"^⚠")
 _DESC_RE = re.compile(r"^\*{0,2}What you're looking at:\*{0,2}\s*(.*)$")
+# A helper (child) job for this step: rendered right after Check, and counted on
+# the overview, the chapter start page and the Tonight view.
+_HELPER_RE = re.compile(r"^\*{0,2}Helper:\*{0,2}\s*(.*)$")
 _LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
 _TABLE_ROW_RE = re.compile(r"^\s*\|")
 _BQ_PREFIX_RE = re.compile(r"^>\s?")
@@ -507,6 +510,8 @@ def _marker(line: str) -> str | None:
         return "warn"
     if _DESC_RE.match(s):
         return "desc"
+    if _HELPER_RE.match(s):
+        return "helper"
     return None
 
 
@@ -652,9 +657,27 @@ def _describe(seg: _Seg) -> list[str]:
     return [head.group(1).strip()] + list(seg.lines[1:])
 
 
+def _helper_text(lines: list[str]) -> str:
+    """The job in a `**Helper:**` run, label stripped, wrapped onto one line."""
+    m = _HELPER_RE.match(_logical(lines[0]))
+    parts = [m.group(1).strip()] + [_logical(l).strip() for l in lines[1:]]
+    return " ".join(p for p in parts if p).strip()
+
+
+def helper_jobs(body: list[str]) -> list[str]:
+    """Every helper job in a step body, in source order (usually one)."""
+    return [_helper_text(seg.lines) for seg in _segments(body) if seg.kind == "helper"]
+
+
+def helper_steps(chapter: Chapter) -> list[Page]:
+    return [p for p in chapter.pages
+            if p.kind == "step" and p.step_id and helper_jobs(p.body)]
+
+
 def layout_step(page: Page, chapter: Chapter) -> list[str]:
-    """Action-first step page: Do, Parts, Check, the collapsed description,
-    then ⚠/Tip, Pause and Source (CONVENTIONS.md § "Action-first steps")."""
+    """Action-first step page: Do, Parts, Check, the helper's job, the collapsed
+    description, then ⚠/Tip, Pause and Source (CONVENTIONS.md § "Action-first
+    steps" and § "Helper steps")."""
     dest_dir = STEPS / chapter.slug
     segs = _segments(page.body)
 
@@ -663,6 +686,7 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     do: list[str] = []
     parts: list[str] = []
     check: list[str] = []
+    helper: list[str] = []
     desc: list[str] = []
     other: list[str] = []
     pause: list[str] = []
@@ -674,6 +698,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             parts += _parts_block(" ".join(l.strip() for l in seg.lines), dest_dir) + [""]
         elif seg.kind == "check":
             check += seg.lines + [""]
+        elif seg.kind == "helper":
+            helper.append(_helper_text(seg.lines))
         elif seg.kind in ("desc", "prose"):
             desc += _describe(seg) + [""]
         elif seg.kind in ("warn", "tip", "block"):
@@ -723,6 +749,9 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         out += _strip_edges(parts) + [""]
     if check:
         out += _strip_edges(check) + [""]
+    for job in helper:
+        out += ['<p class="step-helper" markdown="span">'
+                '<span class="step-helper__label">Helper</span> %s</p>' % job, ""]
     if desc:
         out += ['??? note "What you\'re looking at"', ""]
         out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
@@ -1007,6 +1036,10 @@ def render_page(chapter: Chapter, page: Page, idx: int,
     else:
         counter = short_counter = "Note"
 
+    badge = ''
+    if page.kind == "step" and helper_jobs(page.body):
+        badge = ' <span class="step-helper-badge">with a helper</span>'
+
     out = [
         _front_matter(_plain(page.title)),
         '<div class="step-crumbs" data-chapter="%s"%s data-index="%s" data-total="%d" markdown="span">'
@@ -1023,9 +1056,9 @@ def render_page(chapter: Chapter, page: Page, idx: int,
         "",
         "# %s" % page.title,
         "",
-        '<p class="step-counter" markdown="span">%s · [%s](index.md)'
+        '<p class="step-counter" markdown="span">%s%s · [%s](index.md)'
         '<span class="step-counter__done"></span></p>'
-        % (counter, html.escape(chapter.title)),
+        % (counter, badge, html.escape(chapter.title)),
         "",
     ]
 
@@ -1043,10 +1076,23 @@ def render_page(chapter: Chapter, page: Page, idx: int,
                     % html.escape(_shot_caption(shot)), "", "</figure>", ""]
         out += ['<div class="step-text step-text--wide" markdown="1">', ""]
         out += page.body
+        if page.kind == "front":
+            out += helper_list_line(chapter)
         out += ["", "</div>"]
 
     out += [""] + _nav_bar(prev_ref, next_ref) + [""]
     return "\n".join(out).rstrip() + "\n"
+
+
+def helper_list_line(chapter: Chapter) -> list[str]:
+    """`Helper steps: N` plus the ids, for the chapter's start page."""
+    pages = helper_steps(chapter)
+    if not pages:
+        return []
+    ids = ", ".join("[%s](%s.md)" % (p.step_id, p.slug) for p in pages)
+    return ["", '<p class="step-helper-list" markdown="span">'
+            '<span class="step-helper__label">Helper steps:</span> %d · %s</p>'
+            % (len(pages), ids)]
 
 
 def _load_chapter_captions() -> None:
@@ -1151,11 +1197,12 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
 
     out += ['<div class="step-grid" data-chapter="%s" markdown="1">' % chapter.slug, ""]
     for page in chapter.pages:
+        helper = page.kind == "step" and bool(helper_jobs(page.body))
         if page.kind == "step":
             label = "Step %s" % page.step_id
             title = _plain(_STEP_HEAD_RE.match(page.title).group(2))
             data = ' data-step="%s"' % page.step_id
-            mod = ""
+            mod = " .step-card--helper" if helper else ""
         elif page.kind == "front":
             label, title, data, mod = "Start", "Before you start", "", " .step-card--meta"
         elif page.kind == "checkpoint":
@@ -1178,6 +1225,8 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
             inner += '<span class="step-card__thumb step-card__thumb--none"></span>'
         inner += '<span class="step-card__id">%s</span>' % html.escape(label)
         inner += '<span class="step-card__title">%s</span>' % html.escape(title)
+        if helper:
+            inner += '<span class="step-card__helper" title="With a helper">with a helper</span>'
         inner += '<span class="step-card__tick"></span>'
         out += ["[%s](%s.md){ .step-card%s%s }" % (inner, page.slug, mod, data), ""]
     out += ["</div>", ""]

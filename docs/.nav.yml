@@ -59,6 +59,7 @@ nav:
       - manual/steps/b10-clicky-clack-door/index.md
       - manual/print/README.md
       - print/plate-plans.md
+      - print/plate-board.md
       - print/checklists.md
       - print/bin-labels.md
 

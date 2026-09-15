@@ -48,6 +48,12 @@ extra_javascript:
   - javascripts/progress.js
   - javascripts/jumpbar.js
   - javascripts/stepnav.js
+  # R7: the three bench widgets. gatecalc/taptree fill in what hooks/gatecalc.py
+  # rendered; boards.js draws Home's progress figure and the plate board from the
+  # JSON scripts/build_printables.py writes into docs/assets/.
+  - javascripts/gatecalc.js
+  - javascripts/taptree.js
+  - javascripts/boards.js
 
 markdown_extensions:
   - admonition
@@ -68,6 +74,9 @@ plugins:
   - glightbox
 
 hooks:
+  # First: it owns the ```gate-calc and ```tap-tree fences, so their bodies never
+  # reach the callout converter (which does not track fences).
+  - hooks/gatecalc.py
   - hooks/callouts.py
   - scripts/build_steps.py
   - scripts/build_tonight.py

@@ -64,8 +64,8 @@ Prusa's help-site steps run 30–60 words. Ours averaged 237. The fix is the act
 hard budgets, not more structure.
 
 **Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): **Do:** →
-**Parts:** → **Check:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` → `Pause:` →
-`Source:`. Images stay hoisted to the figure column. Write a step in house order as before; the
+**Parts:** → **Check:** → **Helper:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
+`Pause:` → `Source:`. Images stay hoisted to the figure column. Write a step in house order as before; the
 generator moves it.
 
 **Budgets** (words, excluding images, code, inline `code` spans and link URLs):
@@ -77,8 +77,9 @@ generator moves it.
 | **What you're looking at:** | 45 |
 | `Tip:` | 30 |
 | `⚠` callout, each | 60 |
+| **Helper:** | 20 |
 
-Also, in Do / Check / description: **no em-dash** (`—`), and **no parenthetical** except the two
+Also, in Do / Check / description / Helper: **no em-dash** (`—`), and **no parenthetical** except the two
 canonical markers `(verify on bench)` and `(not specified — snug)`. At most **one** `Step NN.M`
 cross-reference per step outside the `Source:` and `Pause:` lines — the rest belong in `Source:`.
 
@@ -92,6 +93,39 @@ why-clause survives only where the action is wrong without it.
 
 Lint: `python3 scripts/lint_manual.py --budgets` (adds it to the default run) or
 `--budgets-only` (this check alone, no `mkdocs build` needed; `--json` for one finding per line).
+
+## Helper steps (added 2026-09-14)
+
+Alex builds this machine with his daughter. A step she can genuinely own carries one extra
+field so the manual says so at the bench instead of leaving it to be worked out mid-step.
+
+**Field.** `**Helper:** <what the helper does>` — one line, placed **after `**Check:**` and
+before any `⚠` / `Tip:` / `Pause:` / `Source:` line**, with a blank line either side (without
+it the line is swallowed into the Check admonition on the long chapter page).
+
+**Budget.** ≤ 20 words, third person present ("Reads each bin label aloud and checks the count
+against the diagram."), naming the job rather than the virtue. No em-dash, no parenthetical —
+the same two rules Do / Check / the description follow. One Helper line per step.
+
+**Safety rule — where it must never appear.** Only on steps whose helper job is sorting,
+labelling, counting, reading a number or a screen back, holding a part steady, cleaning a panel
+or pressing a button. **Never** on a step that involves mains (Ch 00a, Ch 09's inlet / WAGO /
+PSU / SSR steps, Ch 10's mains-side wiring and power-on checks), the soldering iron or heat-set
+inserts (00.13–00.16, 02.03–02.04, 08.3–08.7 and every other insert step), a blade or cutter, or
+a hot chamber, bed, nozzle or freshly-pulled plate. If the safe part of a step is only a fraction
+of it, leave the step untagged rather than splitting it: **steps are never split or renumbered.**
+
+**What the build does with it.** `scripts/build_steps.py` renders the job as a
+`<p class="step-helper">` line directly under Check, adds a `with a helper` badge
+(`.step-helper-badge`) beside the step counter, marks the step's tile on the chapter overview
+(`.step-card--helper` / `.step-card__helper`), and puts a `Helper steps: N` line
+(`.step-helper-list`) on the chapter's start page. `scripts/build_tonight.py` adds a
+`## With a helper` section listing every segment that carries one, and suffixes each planner
+bucket line with `· helper: <job>`.
+
+**Lint.** `scripts/lint_manual.py` check 5 enforces the budget, the position (it must follow
+Check) and the em-dash / parenthetical rules; `--json` reports them as `words`, `em-dash`,
+`parenthetical` and `helper-position` findings.
 
 ## Bench photos (added 2026-09-05, evening)
 Alex's own photos, taken at the bench and filed by `scripts/ingest_photos.py` — not mirrored
@@ -148,8 +182,8 @@ generator only formalises it.
 
 **What the generator does to a step block.** Images are hoisted to the top with the manual-page
 render first and the part renders and diagrams after. The text column is then re-ordered
-action-first — **Do:** → **Parts:** → **Check:** → the collapsed `What you're looking at` block →
-`⚠`/`Tip:` → `Pause:` → `Source:` — regardless of where those lines sit in the chapter (see
+action-first — **Do:** → **Parts:** → **Check:** → **Helper:** → the collapsed
+`What you're looking at` block → `⚠`/`Tip:` → `Pause:` → `Source:` — regardless of where those lines sit in the chapter (see
 "Action-first steps and word budgets"). A list or code block directly under a Do line rides with
 it; a table, code block or blockquote and the paragraph beside it stay visible; every other loose
 paragraph joins the collapsed block. `**Parts:**` becomes a compact list (split on `;`, then `·`),
@@ -209,3 +243,7 @@ gets a banner back to its overview.
 
 **Progress** is keyed `chapter-slug` + `step id`, so one tick is the same tick on the step page,
 the overview grid and the long chapter page.
+
+## Interactive fences
+
+**Gate calculators and tap-through trees (added 2026-09-14).** `hooks/gatecalc.py` runs on `on_page_markdown` for every page, so both fences work in a chapter *and* in the step page `build_steps.py` copies it into. A ` ```gate-calc ` fence is YAML: `id:` (the `gate-calc:<id>` storage key, shared by every page that carries the same fence), `title:`, `pass:`, and an `inputs:` list. Each input needs `key:` and `label:`, plus exactly one shape — `nominal:` + `tol:` for a band, `min:` / `max:` for a one-sided limit, or `kind: yesno` for a toggle. A number row carries `low:` and/or `high:` advice; a yes/no row carries `no:` (or `yes:`) — whichever is present is the *failing* side. `optional: true` lets a row stay blank without holding up the verdict, but it still fails the gate if answered and failing (that is how B00.7's two kit-day rows work). `hint:` overrides the generated "30 ±0.15" / "≤ 0.15" line. `why:` is one sentence on what that row protects ("Every bearing bore in the build inherits this number"), rendered as a collapsed `why?` toggle under the row and never part of the verdict. A fence-level `derive:` (`expr:` over the fence's own number keys, with `label:` and `digits:`) shows one computed number beside the badge — Step 14.18's pressure advance is `start + stepv * line` — and the hook whitelists the expression to those keys, digits and `+ - * / ( ) .` so the JS can evaluate it. The hook emits the normalised spec as JSON in a `data-gate-calc` attribute, so `gatecalc.js` knows nothing about any particular gate; bad YAML, a missing key or a shapeless row fails the build with the page name. Put the fence after the step's **Check:** field, blank-line separated; lint check 5 skips fenced content, so it costs no word budget. A ` ```tap-tree ` fence holds a plain nested markdown list, 4 spaces per level — level 1 the phase, level 2 the symptom, level 3 what you see, and a blank-line-separated indented paragraph under an item as its leaf (one sentence plus the same step links the index already gives). The hook only wraps it in `<div class="tap-tree" markdown="1">`, so Python-Markdown renders an ordinary list and mkdocs rewrites and validates every relative link; `taptree.js` then turns it into cards and hides the list, and with JS off the list is the fallback. Never put `⚠` / `Tip:` / `Check:` / `Source:` / `Pause:` text in a leaf — it renders outside an admonition and lint check 1 flags it.

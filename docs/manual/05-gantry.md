@@ -127,6 +127,8 @@ Source: [Voron manual p.82](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** You can point at the A drive, the B idler and the right XY joint without hesitating.
 
+**Helper:** Points to each gantry part as you name it and repeats the name back.
+
 Source: [Voron manual p.83](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=83)
 
 ---
@@ -167,6 +169,8 @@ Source: [Voron manual p.84](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Count the fasteners out into labelled trays per the hardware table above.
 
 **Check:** Every T-nut you will use rolls in without force; a forced nut galls the channel.
+
+**Helper:** Counts the T-nuts and bolts into their piles and checks them against the list.
 
 Tip: The CAD extrusions are the 250 lengths (E 240, C 350, D 330 mm); yours are the 350 set. Which faces carry nuts, and how many, is what transfers.
 
@@ -378,6 +382,8 @@ Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/
 **Do:** Sort the three backers: the two matching long pieces are the **Y** backers, the odd shorter one is the **X** backer. Check they are drilled and countersunk, and count the holes in each.
 
 **Check:** 2 Y + 1 X backer, hole counts written down, and you have at least that many M3 T-nuts. The set does not include T-nuts.
+
+**Helper:** Sorts the backers by length and lays each one beside the rail it matches.
 
 Tip: Backer lengths in the picture follow the 250 CAD. Sort by matched pair versus odd one, not by drawn length. A slightly bowed backer straightens as you clamp it down.
 
@@ -876,6 +882,8 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Full travel both directions, no notch, no rising resistance, both Y carriages moving together. Racking is normal and is corrected in Ch 06.
 
+**Helper:** Slides the X carriage slowly end to end and reports any rough spot.
+
 Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
 
 Pause: ~30 min since the last pause — gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.
@@ -961,6 +969,8 @@ Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 | M3×30 SHCS bagged for the endstop pod (p.164) | 2 | | |
 
 **Check:** Numbers written down, not "looked fine". You will want the Y-to-Y spacings when the gantry is squared in Ch 06.
+
+**Helper:** Writes each gantry measurement into the log as you call it out.
 
 Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=107) · [survey §7.5](../voron-build-instructions-survey.md)
 

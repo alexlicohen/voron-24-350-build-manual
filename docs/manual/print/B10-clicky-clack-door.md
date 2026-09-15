@@ -68,6 +68,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Check:** The preview shows the brim outline on the four hinge parts and `Latch`, and on nothing else;
 swing decision made before slicing, not after.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
 ## Step B10.3 — Pre-print checks
@@ -112,6 +114,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **11-door** — Clicky-Clack door | `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` |
 
 **Check:** All seven Clicky-Clack parts in **11-door**: 6 black plus the blue `Handle` from B02.
+
+**Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
 Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every bin is now full and the printer is free; the bushing and pin tests wait for the kit.

@@ -13,6 +13,12 @@
 
 Open [Tonight](manual/00-tonight.md), pick the 30, 60 or 90-minute plan, tap its first step, work to the `Pause:` line, tick each step done. **Resume** on any chapter overview jumps to your first unticked step.
 
+<div class="build-progress" data-build-progress="assets/build-progress.json">
+  <img class="build-progress__img" alt="" hidden>
+  <p class="build-progress__caption">Tick a chapter's steps and this shows the machine as it stands at the end of it.</p>
+  <p class="build-progress__counts"></p>
+</div>
+
 This site consolidates the Voron 2.4 R2 Rev D+ 350 build into one Prusa-style manual. Five tabs across the top (behind ☰ on a phone), and the sidebar only ever shows the tab you are in: **Build** — the 16 assembly chapters, in build order; **Print** — [slicer setup](manual/print/00-slicer-setup.md), the 11 print batches, and the [plate plans](print/plate-plans.md), [checklists](print/checklists.md) and [bin labels](print/bin-labels.md); **Plan** — the [manual index](manual/00-index.md), the [Tonight](manual/00-tonight.md) planner, the [print plan](voron-print-plan.md) (batch order and dependencies) and the [instruction survey](voron-build-instructions-survey.md) (source docs and known deviations); **Reference** — [troubleshooting](manual/15-troubleshooting.md) and [glossary](manual/16-glossary.md).
 
 !!! tip "Bench mode"

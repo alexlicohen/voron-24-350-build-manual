@@ -17,11 +17,26 @@ Produces:
                                and bins (from slicer/bins.py), linking to that
                                plate's Load step in the batch chapter.
 
-All three files are regenerated on every build — never hand-edit them. QR SVGs
+  docs/assets/build-progress.json — every assembly chapter with its step ids and
+                               its cumulative CAD render, for the "what you have
+                               built so far" block on Home (docs/javascripts/boards.js).
+
+  docs/assets/plate-board.json — the 22 plates in run order with hours, grams,
+                               colour, slot, spool and predicted remaining, for
+                               the plate board (docs/print/plate-board.md). Hours
+                               and grams come from slicer/estimates.csv; slot,
+                               spool and remaining are parsed out of
+                               docs/manual/print/README.md's hand-written
+                               "Run schedule" and "Spool ledger" tables and
+                               cross-checked against the CSV — a table that stops
+                               parsing, or disagrees, fails the build.
+
+All five files are regenerated on every build — never hand-edit them. QR SVGs
 are written to docs/print/assets/qr/.
 """
 
 import csv
+import json
 import os
 import sys
 import re
@@ -43,7 +58,15 @@ DOCS = REPO / "docs"
 MANUAL = DOCS / "manual"
 PRINT_DIR = DOCS / "print"
 QR_DIR = PRINT_DIR / "assets" / "qr"
+DATA_DIR = DOCS / "assets"
+CAD_DIR = MANUAL / "assets" / "cad"
+PLATE_DIAGRAMS = MANUAL / "assets" / "plates"
 ESTIMATES = REPO / "slicer" / "estimates.csv"
+README = MANUAL / "print" / "README.md"
+
+# A plate of this many hours or more starts in the evening and runs overnight
+# (docs/manual/print/README.md "Run schedule"). Parsed rows are checked against it.
+OVERNIGHT_H = 7.0
 
 # Print order (docs/manual/print/README.md "Print order" — Gate A batches, then Gate B batches).
 _BATCH_PRINT_ORDER = ["B00", "B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10"]
@@ -410,6 +433,192 @@ def build_plate_plans_markdown():
     return "\n".join(lines).rstrip() + "\n"
 
 
+
+# ---------------------------------------------------------------------------
+# JSON for the two client-side boards (R7). Both are read at runtime by
+# docs/javascripts/boards.js; neither carries a hand-maintained list.
+# ---------------------------------------------------------------------------
+
+_STEP_HEAD_RE = re.compile(r"^#{2,3}\s*Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\b")
+_FENCE_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
+
+
+def _step_ids(text):
+    """Every step id in a chapter, in source order, ignoring fenced code
+    (Ch 12's printer.cfg carries `## Step`-looking lines)."""
+    ids, fence = [], None
+    for line in text.splitlines():
+        m = _FENCE_RE.match(line)
+        if m:
+            token = m.group(1)[0] * 3
+            fence = None if fence and line.strip().startswith(fence) else (fence or token)
+            continue
+        if fence is not None:
+            continue
+        sm = _STEP_HEAD_RE.match(line)
+        if sm:
+            ids.append(sm.group(1))
+    return ids
+
+
+def build_progress_json():
+    """Assembly chapters in build order: the progress key (`slug`, the same one
+    progress.js uses), the step ids that have to be ticked for the chapter to
+    count as finished, and the cumulative render to show once they are.
+
+    Paths are relative to the site root, which is where docs/index.md sits."""
+    chapters = []
+    for path in _chapter_files():
+        text = path.read_text(encoding="utf-8")
+        number, title = _parse_header(text)
+        if number is None:
+            continue
+        steps = _step_ids(text)
+        if not steps:                      # Ch 15 / Ch 16 are reference pages
+            continue
+        render = CAD_DIR / f"ch-{number}-after.png"
+        chapters.append({
+            "number": number,
+            "slug": path.stem.lower(),     # scripts/build_steps.py's chapter slug
+            "title": title,
+            "steps": steps,
+            "image": (f"manual/assets/cad/{render.name}" if render.exists() else None),
+        })
+    if not chapters:
+        raise SystemExit("build_printables.py: no assembly chapter carried a step heading")
+    data = {"chapters": chapters}
+    start = CAD_DIR / "ch-00-after.png"
+    if start.exists():
+        data["start"] = {"image": f"manual/assets/cad/{start.name}",
+                         "title": "Before the first chapter"}
+    return data
+
+
+_SECTION_RE = re.compile(r"^##\s+(.+?)\s*$", re.MULTILINE)
+# | 1 | B00-P1 | 4.0 | black | day | #1 |
+_RUN_ROW_RE = re.compile(
+    r"^\|\s*(\d+)\s*\|\s*(B\d\d-P\d)\s*\|\s*([\d.]+)\s*\|\s*([A-Za-z]+)\s*\|"
+    r"\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*$",
+    re.MULTILINE,
+)
+# | B00-P1 | 52 | | #1 | 748 |
+_LEDGER_ROW_RE = re.compile(
+    r"^\|\s*(B\d\d-P\d)\s*\|\s*(\d+)\s*\|[^|]*\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*$",
+    re.MULTILINE,
+)
+_SPOOL_HEAD_RE = re.compile(r"[#A]\d+")
+
+
+def _readme_section(text, heading):
+    """The body under a `## <heading>` up to the next `##`."""
+    spans = [(m.start(), m.end(), m.group(1)) for m in _SECTION_RE.finditer(text)]
+    for i, (start, end, title) in enumerate(spans):
+        if title.strip().lower() == heading.lower():
+            stop = spans[i + 1][0] if i + 1 < len(spans) else len(text)
+            return text[end:stop]
+    raise SystemExit(
+        f"build_printables.py: {README.name} has no '## {heading}' section — "
+        "the plate board reads its slot/spool/remaining columns from it"
+    )
+
+
+def _fail(problems):
+    raise SystemExit(
+        "build_printables.py: docs/manual/print/README.md no longer agrees with "
+        "slicer/estimates.csv — " + "; ".join(problems)
+    )
+
+
+def build_plate_board_json():
+    """The 22 plates in run order for docs/print/plate-board.md.
+
+    Hours, grams and colour are the CSV's (rounded the same additive way as every
+    other page); slot, spool and predicted remaining come from README.md's two
+    hand-written tables. Everything that can be cross-checked is, because those
+    tables are edited by hand after a re-slice and a silent drift is exactly what
+    the board would hide."""
+    estimates = _load_estimates()
+    batches = _batch_files()
+    text = README.read_text(encoding="utf-8")
+
+    run = {}
+    for m in _RUN_ROW_RE.finditer(_readme_section(text, "Run schedule")):
+        order, pid, hours, colour, slot, spool = m.groups()
+        run[pid] = {"order": int(order), "hours": float(hours), "colour": colour,
+                    "slot": slot, "spool": spool}
+    ledger = {}
+    for m in _LEDGER_ROW_RE.finditer(_readme_section(text, "Spool ledger")):
+        pid, grams, spool, remaining = m.groups()
+        ledger[pid] = {"grams": int(grams), "spool": spool.replace("*", "").strip(),
+                       "remaining": int(remaining)}
+
+    problems = []
+    if set(run) != set(estimates):
+        problems.append(f"run schedule parsed {sorted(set(run) ^ set(estimates))} "
+                        "differently from the CSV")
+    if set(ledger) != set(estimates):
+        problems.append(f"spool ledger parsed {sorted(set(ledger) ^ set(estimates))} "
+                        "differently from the CSV")
+    if problems:
+        _fail(problems)
+    if sorted(r["order"] for r in run.values()) != list(range(1, len(run) + 1)):
+        problems.append("the run schedule's # column is not 1..N")
+
+    plates = []
+    for pid in sorted(run, key=lambda p: run[p]["order"]):
+        colour, _parts, hours, grams = estimates[pid]
+        row, led = run[pid], ledger[pid]
+        if row["hours"] != hours:
+            problems.append(f"{pid}: run schedule says {row['hours']} h, CSV says {hours}")
+        if row["colour"] != colour:
+            problems.append(f"{pid}: run schedule says {row['colour']}, CSV says {colour}")
+        if led["grams"] != grams:
+            problems.append(f"{pid}: ledger says {led['grams']} g, CSV says {grams}")
+        slot = "overnight" if hours >= OVERNIGHT_H else "day"
+        if not row["slot"].lower().startswith(slot):
+            problems.append(f"{pid}: {hours} h is a {slot} plate, the run schedule "
+                            f"calls it {row['slot']!r}")
+        heads = [_SPOOL_HEAD_RE.search(s) for s in (row["spool"], led["spool"])]
+        if not all(heads) or heads[0].group(0) != heads[1].group(0):
+            problems.append(f"{pid}: run schedule spool {row['spool']!r} and ledger "
+                            f"spool {led['spool']!r} are not the same spool")
+        note = row["slot"][len(slot):].strip(" ()") if len(row["slot"]) > len(slot) else ""
+        batch = pid[:3]
+        if batch not in batches:
+            problems.append(f"{pid}: no batch chapter for {batch}")
+            continue
+        path, title, _batch_text = batches[batch]
+        diagram = PLATE_DIAGRAMS / f"{pid}.png"
+        if not diagram.exists():
+            problems.append(f"{pid}: no sorting diagram at {diagram.relative_to(DOCS)}")
+        plates.append({
+            "id": pid,
+            "batch": batch,
+            "batch_title": title,
+            "hours": hours,
+            "grams": grams,
+            "colour": colour,
+            "slot": slot,
+            "note": note,
+            "spool": row["spool"],
+            "remaining": led["remaining"],
+            # Relative to docs/print/plate-board.md's page URL (…/print/plate-board/).
+            "diagram": f"../../manual/assets/plates/{pid}.png",
+            "chapter": f"../../manual/steps/{path.stem.lower()}/",
+        })
+    if problems:
+        _fail(problems)
+
+    return {
+        "plates": plates,
+        "totals": {
+            "plates": len(plates),
+            "hours": round(sum(p["hours"] for p in plates), 1),
+            "overnight": sum(1 for p in plates if p["slot"] == "overnight"),
+        },
+    }
+
+
 def _load_chapters():
     """Assembly chapters then print batches, each in file order — which is
     chapter order (00, 00a, 01 … 14) and print order (B00 … B10)."""
@@ -436,6 +645,12 @@ def on_pre_build(config, **kwargs):
     (PRINT_DIR / "plate-plans.md").write_text(
         build_plate_plans_markdown(), encoding="utf-8"
     )
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    for name, payload in (("build-progress.json", build_progress_json()),
+                          ("plate-board.json", build_plate_board_json())):
+        (DATA_DIR / name).write_text(
+            json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+        )
 
 
 if __name__ == "__main__":
@@ -445,3 +660,11 @@ if __name__ == "__main__":
     print(build_bin_labels_markdown(chapters)[:2000])
     print("---")
     print(build_plate_plans_markdown()[:2000])
+    print("---")
+    progress = build_progress_json()
+    print(f"build-progress.json: {len(progress['chapters'])} chapters, "
+          f"{sum(len(c['steps']) for c in progress['chapters'])} steps, "
+          f"{sum(1 for c in progress['chapters'] if c['image'])} renders")
+    board = build_plate_board_json()
+    print(f"plate-board.json: {board['totals']}")
+    print(json.dumps(board["plates"][:2], indent=1))

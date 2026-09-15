@@ -29,6 +29,11 @@ rows that carry no **KIT** marker, plus any `Pause: ~NN min since the last pause
 (pre-kit) — …` segment inside a row that does carry one (Ch 00's reading, log
 and Discord steps are real bench work weeks before the kit ships).
 
+A `## With a helper` section after the planner lists every segment that holds a
+`**Helper:**` step (CONVENTIONS.md § "Helper steps") with its jobs, under the
+same before-the-kit filter the buckets ran with; each bucket line carrying one
+gets a `· helper: <job>` suffix.
+
 Each segment carries `data-first-step` so scripts/build_steps.py can link it
 to its first step page. This file is regenerated on every build — never
 hand-edit docs/manual/00-tonight.md.
@@ -80,6 +85,9 @@ _PAUSE_RE = re.compile(
     r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?\s*—\s*(.+?)\s*$",
     re.MULTILINE,
 )
+# `**Helper:** <job>` — the helper (child) task in a step, per
+# docs/manual/CONVENTIONS.md § "Helper steps".
+_HELPER_RE = re.compile(r"^\*{0,2}Helper:\*{0,2}\s*(.+?)\s*$", re.MULTILINE)
 _LOAD_TITLE_RE = re.compile(r"^Load(?: and print)? plate (B\d\d-P\d)")
 _PRINT_TITLE_RE = re.compile(r"^Print\b")
 _PARTS_TIME_RE = re.compile(
@@ -136,6 +144,17 @@ def _midpoint_hours(time_line):
     return (lo + hi) / 2.0
 
 
+def _helper_jobs(text, steps):
+    """step id -> its `**Helper:**` jobs, in source order."""
+    jobs = {}
+    bounds = [pos for pos, _sid, _t, _e in steps] + [len(text)]
+    for i, (pos, sid, _t, _e) in enumerate(steps):
+        found = [m.group(1) for m in _HELPER_RE.finditer(text, pos, bounds[i + 1])]
+        if found:
+            jobs.setdefault(sid, []).extend(found)
+    return jobs
+
+
 def _parse_chapter(path):
     text = path.read_text(encoding="utf-8")
     is_print = path.parent == PRINT
@@ -147,6 +166,7 @@ def _parse_chapter(path):
 
     steps = [(m.start(), m.group(1), m.group(2), m.end()) for m in _STEP_HEADING_RE.finditer(text)]
     sections = [(m.start(), _slug(m.group(1))) for m in _SECTION_RE.finditer(text)]
+    helpers = _helper_jobs(text, steps)
     segments = []
     print_hours = 0.0
 
@@ -169,6 +189,7 @@ def _parse_chapter(path):
                 "grams": grams,
                 "leave_state": (f"plate {lm.group(1)} running, {hours_txt} unattended — "
                                 f"door shut; come back for the next step when it ends"),
+                "helpers": [(sid, job) for job in helpers.get(sid, [])],
             })
 
     # hands-on segments: pause-delimited, starting after the previous
@@ -194,6 +215,9 @@ def _parse_chapter(path):
             "kind": "build", "pos": first[0], "first_step": first[1], "last_step": last,
             "minutes": int(pm.group(1)), "leave_state": pm.group(3),
             "pre_kit": bool(pm.group(2)),
+            "helpers": [(sid, job)
+                        for pos, sid, _t, _e in steps if first[0] <= pos <= ppos
+                        for job in helpers.get(sid, [])],
         })
         boundary = ppos
 
@@ -340,6 +364,15 @@ def _segment_span(seg):
     return f'<span data-first-step="{seg["first_step"]}">{_segment_text(seg)}</span>'
 
 
+def _helper_suffix(seg):
+    """`· helper: <job>` for a bucket line, or "" when nobody can help here."""
+    jobs = seg.get("helpers") or []
+    if not jobs:
+        return ""
+    more = f" (+{len(jobs) - 1} more)" if len(jobs) > 1 else ""
+    return f" · helper: {jobs[0][1]}{more}"
+
+
 def _gate_row(rows):
     """A wall-clock row (`Both`) with no stopping points that sits ahead of
     every row carrying segments - the Gen 2 belt upgrade. Nothing below it
@@ -380,12 +413,13 @@ def _planner(lines, rows, stop_at_kit=False, gate=None, bench_first=False):
             bench = [(row, seg) for row, seg in picked if row["kind"] != "Print"]
             prints = [(row, seg) for row, seg in picked if row["kind"] == "Print"]
             for row, seg in bench:
-                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}")
+                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}{_helper_suffix(seg)}")
             for row, seg in prints:
-                lines.append(f"- {_row_label(row)} — after the upgrade: {_segment_span(seg)}")
+                lines.append(f"- {_row_label(row)} — after the upgrade: "
+                             f"{_segment_span(seg)}{_helper_suffix(seg)}")
         else:
             for row, seg in picked:
-                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}")
+                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}{_helper_suffix(seg)}")
         lines.append(f"  <small>~{total} min hands-on planned</small>")
         lines.append("")
 
@@ -455,12 +489,39 @@ def build_tonight_markdown():
         else:
             _planner(lines, rows, stop_at_kit=not KIT_ARRIVED, gate=gate)
 
+    def emit_with_a_helper():
+        """Every segment with a `**Helper:**` step, in timeline order, under the
+        same before-the-kit filter the buckets above ran with."""
+        source = rows if KIT_ARRIVED else pre_kit
+        lines.append("## With a helper")
+        lines.append("")
+        lines.extend([
+            "Segments that carry a job a helper can own, in timeline order. The adult keeps "
+            "the iron, the blade, mains work and anything hot; the helper's job is named in "
+            "the step itself.",
+            "",
+        ])
+        found = False
+        for row in source:
+            for seg in row["segments"]:
+                if not seg.get("helpers"):
+                    continue
+                found = True
+                lines.append(f"- **{_row_label(row)}** — {_segment_span(seg)}")
+                for sid, job in seg["helpers"]:
+                    lines.append(f"    - Step {sid} — {job}")
+        if not found:
+            lines.append("- no helper jobs marked on this timeline yet")
+        lines.append("")
+
     # Until kit day the pre-kit plan is the one that gets read, so it goes first.
     # Before kit day the two plans are identical (every pre-kit row is also the
     # stop-at-kit plan), so only one is emitted until KIT_ARRIVED flips.
     for emit in ((emit_tonight, emit_before_the_kit) if KIT_ARRIVED
                  else (emit_before_the_kit,)):
         emit()
+
+    emit_with_a_helper()
 
     lines += ["---", "", "## By timeline row", ""]
 

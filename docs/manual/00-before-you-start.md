@@ -394,6 +394,8 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** 25 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
+**Helper:** Writes the chapter number on each bin label and sticks it on square.
+
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
 ---
@@ -412,6 +414,8 @@ Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instruct
 2. Decant only what one chapter calls for, and tip the remainder back into its bag at the end of the session.
 
 **Check:** Every fastener bag still closed and legible. One small tray, empty, staged for Ch 01.
+
+**Helper:** Reads each bag's size aloud while you tick it off the fastener list.
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
@@ -633,6 +637,8 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 3. Tape each carriage, bag each rail, and store them in one bin.
 
 **Check:** Seven labelled, bagged rails; end stops and carriage tape intact on all seven; bin stored flat and away from foot traffic.
+
+**Helper:** Writes the seven rail labels Z0 to Z3, X and Y, and checks each bag.
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @1:54:30](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s)
 
@@ -856,6 +862,8 @@ Pause: ~25 min since the last pause (pre-kit) — you have read the manual's fro
 | `PROBE_ACCURACY` sigma | Ch 13 |
 
 **Check:** The log exists the week B00 prints, holding the flat-reference gap; the deck thickness and inventory result join on kit day.
+
+**Helper:** Rules the log columns and writes in each number you call out.
 
 Source: [survey](../voron-build-instructions-survey.md)
 

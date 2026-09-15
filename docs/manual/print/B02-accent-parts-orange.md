@@ -91,6 +91,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Parts:** `[a]_stealthburner_main_body` · `[a]_faceplate` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` ×2 · `[a]_z_drive_baseplate_b` ×2 — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
 **Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
 ## Step B02.3 — Print plate B02-P1
@@ -116,6 +118,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Parts:** `Handle` · `[a]_fan_grill_a` ×2 · `[a]_fan_grill_b` ×2 · `[a]_fan_grill_retainer` ×2 · `[a]_belt_guard_a` ×2 · `[a]_belt_guard_b` ×2 · `[a]_tensioner_left` · `[a]_tensioner_right` — 7.3 h, 93 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The preview shows the brim outline on `Handle` only, none on the flat fan grills, retainers, belt guards or tensioners.
 
+**Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B02.5 — Print plate B02-P2
@@ -140,6 +144,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 3. In preview, if `XY_cable_chain_bridge-Igus-3mm_backer` stands 44 mm tall, lay it flat to match the stock bridge.
 **Parts:** the remaining accent parts, `[a]_belt_tensioner_a` ×2 · `[a]_belt_tensioner_b` ×2 · `[a]_z_tensioner_9mm` ×4 · `[a]_z_chain_retainer_bracket` ×2 · `[a]_endstop_pod_D2F_switch` · `[a]_xy_joint_cable_bridge_2hole` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_z_belt_clip_lower` ×4 · `[a]_z_belt_clip_upper` ×4 · `[a]_guidler_a` · `[a]_guidler_b` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_pcb_spacer` · `[a]_keystone_blank_insert` ×2 · `ldo_bestagon_insert` — 7.6 h, 96 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Cable-chain bridge sitting flat, not standing, before slicing.
+
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
@@ -208,6 +214,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
 
 **Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
+
+**Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 
 Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). `_a` parts go to Z0 and Z2, `_b` to Z1 and Z3. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05.
 

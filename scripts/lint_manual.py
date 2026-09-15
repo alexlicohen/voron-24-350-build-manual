@@ -20,7 +20,7 @@ chapters by `scripts/build_steps.py` and carries no independent content.
   4. Any Markdown table wider than 7 columns (per R5 F1/F2/F6, iPad-portrait
      readability).
   5. Step word budgets (CONVENTIONS.md § "Action-first steps and word
-     budgets") — opt-in: `--budgets` adds it to the run above, `--budgets-only`
+     budgets", plus the `**Helper:**` rules of § "Helper steps") — opt-in: `--budgets` adds it to the run above, `--budgets-only`
      runs it alone and needs no `site/` (`--json` for one finding per line).
 
 Exits non-zero (and prints every finding) if any check fails. This only
@@ -203,7 +203,7 @@ def check_table_width():
 #    needed) and prints one JSON finding per line with `--json`.
 # --------------------------------------------------------------------------
 
-_BUDGETS = {"Do": 40, "Check": 25, "description": 45, "Tip": 30, "⚠": 60}
+_BUDGETS = {"Do": 40, "Check": 25, "description": 45, "Tip": 30, "⚠": 60, "Helper": 20}
 _XREF_LIMIT = 1
 _CANONICAL_PARENS = ("(verify on bench)", "(not specified — snug)")
 
@@ -223,12 +223,14 @@ _B_MARKERS = (
     ("Tip", re.compile(r"^\*{0,2}Tip:\*{0,2}(?:\s|$)")),
     ("⚠", re.compile(r"^⚠")),
     ("description", re.compile(r"^\*{0,2}What you're looking at:\*{0,2}")),
+    ("Helper", re.compile(r"^\*{0,2}Helper:\*{0,2}(?:\s|$)")),
     ("Parts", re.compile(r"^\*\*Parts:\*\*")),
     ("Pause", re.compile(r"^Pause:\s")),
     ("Source", re.compile(r"^Source:\s")),
 )
 _B_LABEL_RE = re.compile(
-    r"^\s*(?:>\s?)?(?:⚠\s*)?(?:\*{0,2}(?:Do|Check|Tip|What you're looking at):\*{0,2})?\s*"
+    r"^\s*(?:>\s?)?(?:⚠\s*)?"
+    r"(?:\*{0,2}(?:Do|Check|Tip|Helper|What you're looking at):\*{0,2})?\s*"
 )
 
 
@@ -354,7 +356,7 @@ def check_step_budgets():
                                  "field": field, "words": words, "limit": limit,
                                  "kind": kind})
 
-            xrefs, i = 0, 0
+            xrefs, i, prev_field = 0, 0, None
             while i < len(body):
                 line = body[i]
                 if not line.strip():
@@ -372,13 +374,16 @@ def check_step_budgets():
                 line_no = body_start + i
                 if field not in ("Pause", "Source"):
                     xrefs += sum(len(_B_XREF_RE.findall(l)) for l in run)
+                if field == "Helper" and prev_field != "Check":
+                    add(line_no, "Helper", "helper-position")
+                prev_field = field
                 if field in _BUDGETS:
                     text = _b_text(run)
                     words = len(text.split())
                     limit = _BUDGETS[field]
                     if words > limit:
                         add(line_no, field, "words", words, limit)
-                    if field in ("Do", "Check", "description"):
+                    if field in ("Do", "Check", "description", "Helper"):
                         checkable = _b_checkable(text)
                         if "—" in checkable:
                             add(line_no, field, "em-dash")
@@ -395,6 +400,8 @@ def _budget_line(f):
         detail = "%s %d/%d words" % (f["field"], f["words"], f["limit"])
     elif f["kind"] == "cross-reference":
         detail = "%d cross-references" % f["words"]
+    elif f["kind"] == "helper-position":
+        detail = "Helper: does not follow Check:"
     else:
         detail = "%s in %s" % (f["kind"], f["field"])
     return "%s:%d  Step %s  %s" % (f["file"], f["line"], f["step"], detail)

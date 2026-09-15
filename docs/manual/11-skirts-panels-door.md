@@ -198,6 +198,8 @@ Everything in Part A is done with the machine open and, in the build order, **af
 
 **Check:** Twelve segments, none rocking, the ring closing with front and rear runs equal and the two sides equal.
 
+**Helper:** Holds each skirt segment in place while you check the joints line up.
+
 Tip: the built-in supports in the skirt front covers snap out; don't cut them. p.222–224 are drawn from the rear, so they mirror this layout. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 Source: [Voron manual p.210](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=210) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [Video: Part 5 @4:18:21](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15501s)
@@ -1120,6 +1122,8 @@ Pause: ~20 min since the last pause — the door frame is squared and blind-join
 
 **Check:** Handle and latch pull together firmly and click; both handle hinges pull to the handle; nothing standing proud of a pocket.
 
+**Helper:** Sorts the magnets into two polarity piles before you glue any of them in.
+
 Tip: put a magnet on the end of a steel tool and use that to press each one into its pocket. [src](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod)
 
 Source: [KB3D Clicky-Clack install guide § Hinge & Handle Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#hinge-handle-assembly)
@@ -1174,6 +1178,8 @@ Source: [Clicky-Clack mod README § Assembly](https://github.com/tanaes/whopping
 
 **Check:** Continuous, unbroken seal on all four sides of the opening, no overlaps standing proud, no gaps at the corners.
 
+**Helper:** Peels the foam tape backing a hand's length ahead as you press it down.
+
 Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly)
 
 Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.
@@ -1208,6 +1214,8 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 **Do:** Peel the protective film from both faces. Run **1 mm** foam tape around the perimeter of the face that meets the frame, on the contact areas only. Butt the corners; do not overlap.
 
 **Check:** Continuous 1 mm tape on all four edges of the inner face; no tape where a clip has to sit; film off both faces.
+
+**Helper:** Holds the back panel steady and peels the tape backing ahead of you.
 
 ⚠ Back and top panels get **1 mm** foam. Side panels get **3 mm**. Mixing them up either lets the gantry rub a side panel or leaves the back panel proud of its clips.
 
@@ -1297,6 +1305,8 @@ Pause: ~25 min since the last pause — back panel foam-taped, its seven clips o
 
 **Check:** 3 mm tape on both panels, all four edges, corners butted. Never substitute the 1 mm tape here.
 
+**Helper:** Cleans both side panels with the cloth, then peels the tape backing ahead.
+
 Tip: the manual's reason: *"The 3mm foam tape is used on the side panels to prevent the gantry from rubbing on the panels."*
 
 Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=241) · [Video: Part 9 @3:17:55](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11875s)
@@ -1358,6 +1368,8 @@ Pause: ~25 min since the last pause — both side panels foam-taped, clipped and
 2. Load eight clips, fit four corners and four midspans as p.243 shows, drop the panel on and tighten.
 
 **Check:** Panel flat with even margins, foam compressed evenly, the machine closed on five faces. All 4 mm clips used: 8 corner, 7 midspan.
+
+**Helper:** Wipes the top panel clean and holds one edge while you seat it.
 
 Source: [Voron manual p.243](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=243) · [Voron manual p.244](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=244)
 
@@ -1504,6 +1516,8 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 3. Confirm the touchscreen, AC switch, keystone and spool arm are clear.
 
 **Check:** No daylight at any panel seam or around the door, no contact in full XY or Z travel, the door latching with one push.
+
+**Helper:** Runs a finger round every panel seam and calls out any gap found.
 
 Tip: trim and press the optional 6 mm slot cover into any empty extrusion slots you want to hide.
 

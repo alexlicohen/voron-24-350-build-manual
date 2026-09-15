@@ -47,6 +47,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Parts:** the fourteen pieces above — 6.4 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4.
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
 
+**Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B05.3 — Print
@@ -83,6 +85,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **10-chains** — Z cable chain anchor, guide, retainer | `z_chain_bottom_anchor`, `z_chain_guide` |
 
 **Check:** 4 joint pairs and 4 rail stops in 06-Z-joints with B02's eight belt clips; anchor and guide in 10-chains.
+
+**Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 
 
 Pause: ~10 min since the last pause — joints in 06-Z-joints, anchor and guide in 10-chains, bin ids written. Nothing is pressed and the rail stops stay bagged.

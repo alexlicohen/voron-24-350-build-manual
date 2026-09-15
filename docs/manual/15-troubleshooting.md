@@ -20,6 +20,348 @@ Every failure this manual already knows about, filed by **symptom** instead of b
 
 ---
 
+## Start here — tap through to the step
+
+Four taps, worst case: the phase you are in, the symptom, what you actually see, then the step that owns the fix. Everything below is drawn from the symptom tables further down this page — the same fixes, the same links, one question at a time. If the tree runs out before your symptom does, use the tables.
+
+```tap-tree
+- Printing a plate on the Core One+
+    - The cube misses Gate A
+        - X and Y read 0.10 to 0.30 mm over
+
+            Shrinkage compensation or XY compensation is not zero, or flow is high. Confirm 0 % and 0, then bring the extrusion multiplier down in 1 % steps. Never negative XY compensation. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) · [B00.5](print/B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed)
+
+        - Z is off, or the first layer is wider than mid height
+
+            Squish or elephant-foot compensation. For Z, fix the sheet, the glue film or the nozzle seat rather than saving a nudge, because the Core One+ keeps none. For the first layer, elephant foot in 0.05 mm steps. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+
+        - A corner peels along one layer line at the snap test
+
+            The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 40 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+
+    - A bore or a boss fails Gate B
+        - A 625-2RS or F695 seat is tight or loose
+
+            Flow, or shrinkage compensation that is not zero — the seats are drawn for 100 %. Tight means extrusion multiplier down 1 % and reprint; loose means confirm 0 % shrinkage. Never enlarge a bore with compensation. [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect) · [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect)
+
+        - A heat-set boss bulges, or the insert sits crooked
+
+            The iron is too hot or pushed too fast. This is technique, not the slicer: practise on the coupon until two in a row come out flush. [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush)
+
+    - Something went wrong on the bed
+        - A long flat part lifted at the ends partway through
+
+            Missing or old glue film, a chamber that started cold, or a reprint without its brim. Sheet per the print-sheet section, hold the chamber gate, and put the brim on that object only. [Print sheet](print/00-slicer-setup.md#print-sheet) · [Orientation & brim](print/00-slicer-setup.md#orientation-brim)
+
+        - The first layer is glassy and featureless, or gappy and ridged
+
+            The loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade)
+
+        - A brim appeared on flat grills or clips that should have none
+
+            The global brim was set by hand. Clear Print Settings, Skirt and brim; brims live per object inside the committed projects. [Orientation & brim](print/00-slicer-setup.md#orientation-brim) · [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2)
+
+    - The slicer or the spool
+        - The preset reads bare, or B00-P1 estimates far from 3 h 58 m
+
+            The project's configuration did not load: the wizard was not run, or the 0.4 HF nozzle variant is not installed. Run the Configuration Wizard with HF ticked, then reopen the project. [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup) · [one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project)
+
+        - The spool ran out mid-plate
+
+            One runout is predicted, on a plate with no bearing seat. Let the runout sensor pause, load the next spool and resume; never plan one on a bearing-seat plate. [Spool ledger](print/README.md#spool-ledger)
+
+- Frame and motion, with nothing powered
+    - A carriage or the toolhead binds
+        - A tight spot near one end of X travel
+
+            A rail is not centred on its extrusion. Re-centre it and re-tighten from the middle outward. [05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · [05.33](05-gantry.md#step-0533-centre-and-fit-the-mgn12-rail)
+
+        - Stiffness that grows steadily toward one end
+
+            The gantry is racked. Square it in Ch 06b, and do not loosen rails to make it feel better. [05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints)
+
+        - A Z carriage is tight the whole length
+
+            The rail screws were tightened from one end, bowing the rail. Back them off and re-tighten centre outward. [02.07](02-z-drives.md#step-0207-tighten-from-the-centre-outward)
+
+        - A carriage is notchy or gritty and getting worse
+
+            The rail went on dry, or grease was left on the rail surface. Flip and pack needs the back of the rail. [00.19](00-before-you-start.md#step-0019-flip-and-pack) · [00.18](00-before-you-start.md#step-0018-degrease-ipa-soak-then-dry-completely)
+
+    - A belt is noisy, rubbing, or will not tension
+        - A belt runs clean at one end of travel and rubs at the other
+
+            A half twist somewhere in a long run. Sight down each straight run; the teeth must face the same way at both ends. [07.29](07-ab-belts.md#step-0729-belt-rub-inspection-at-every-idler-stack)
+
+        - A belt shreds against a flange
+
+            A bearing pair is fitted flange to flange or flange in. Open the stack: the plain faces must meet. [04.07](04-ab-drives.md#step-047-a-idler-build-the-bearing-stack)
+
+        - The A and B belts rub against each other
+
+            The pulleys are at the same height, or the B pulley is hub down. A is 16.5 mm hub down, B is 6.5 mm hub up, both re-checked with the jig. [04.24](04-ab-drives.md#step-0424-a-drive-set-the-pulley-on-the-a-motor-at-165-mm) · [04.33](04-ab-drives.md#step-0433-b-drive-set-the-pulley-on-the-b-motor-at-65-mm-flipped)
+
+        - A and B tension will not converge
+
+            Unequal belt lengths, unequal tail protrusion, or a belt rubbing. Cut both together, equalise the tails, inspect every idler. [07.33](07-ab-belts.md#step-0733-move-the-gantry-return-and-re-check) · [07.08](07-ab-belts.md#step-078-cut-both-belts-to-the-same-length)
+
+        - The frequency reads far too high and will not come down
+
+            You are reading a harmonic, not the fundamental. Take the lowest peak, three plucks, in a quiet room, over a measured 150 mm span. [07.31](07-ab-belts.md#step-0731-read-both-belts-with-the-phone) · [07.30](07-ab-belts.md#step-0730-set-the-150-mm-measuring-span)
+
+        - Belt noise that tension changes do not fix
+
+            Crushed idler pockets from over-tightened 20T idler bolts. Those bolts only locate the idler and they thread into plastic. [Ch 05 Common mistakes](05-gantry.md#common-mistakes)
+
+    - The bed, or a part that will not sit right
+        - The plate tacos on the first heat to 110 °C
+
+            All four bed bolts were tightened; the plate has to float on three. One bolt only, because the plate is meant to expand. [03.17](03-build-plate.md#step-0317-tighten-one-bolt-only)
+
+        - A bed bolt strips its T-nut on the first tighten
+
+            The manual's M3×16 barely engages through a 10 mm plate plus spacer. Use the M3×20. [Ch 03 Common mistakes](03-build-plate.md#common-mistakes)
+
+        - A drive-frame post strips and will not hold
+
+            An M5×30 BHCS was torqued into plastic. Stop at closed and snug; a stripped post means a reprint. [Ch 04 Common mistakes](04-ab-drives.md#common-mistakes)
+
+        - A skirt or COB mount is bowed and will not sit flat
+
+            A warped print, caught after assembly instead of at the flat-reference check. Check parts against the flat reference as they come off the plate. [print/B07](print/B07-electronics-bay-and-lighting.md) · [print/B08](print/B08-skirts-and-front-modules.md)
+
+    - The panels and the door
+        - A side panel is scored by the gantry
+
+            1 mm foam tape was used on the sides. 1 mm goes on back and top, 3 mm on the sides, where it works as a standoff. [11.56](11-skirts-panels-door.md#step-1156-foam-tape-the-side-panels)
+
+        - The Clicky-Clack door racks, or the latch will not catch
+
+            A loose M5×45 dowel fit, or the door is hung wrong at the hinges. Re-hang at the hinges: the latch is almost never the problem. [11.62](11-skirts-panels-door.md#step-1162-hang-the-door-hinges)
+
+- Electronics and startup
+    - Nothing powers on, or something was destroyed
+        - Nothing powers on at all
+
+            The inlet is miswired, or the machine is unplugged as designed. Re-run the inlet continuity pattern, then Checkpoint #1. [10.5](10-wiring.md#step-105-verify-the-pre-wired-inlet-before-you-trust-it) · [10.23](10-wiring.md#step-1023-first-power-on-then-off-again)
+
+        - The PSU was destroyed on first switch-on
+
+            The 115/230 V selector was set for the wrong mains. There is no fix after the fact, which is why the selector is checked twice. [10.2](10-wiring.md#step-102-set-the-psu-input-voltage-selector) · [10.22](10-wiring.md#step-1022-re-check-the-voltage-selector)
+
+        - A controller or attached component died after power-on
+
+            A Leviathan voltage-selection jumper was left in, or set to 5 V. Exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe, Fan0 and Fan1 bare. [09.19](09-electronics-bay.md#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan) · [10.28](10-wiring.md#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v)
+
+        - A driver died after a connector change
+
+            A stepper or the Micro-Fit umbilical was moved with the power on. Power down for every connector change, because back-EMF kills drivers. [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes)
+
+    - The meter sweep fails before power-on
+        - A 24 V node beeps continuously against its ground
+
+            A reversed ferrule or a stray strand. Find it before power-on: every node must read finite and rising, never 0 Ω. [10.74](10-wiring.md#step-1074-24-v-rails) · [10.29](10-wiring.md#step-1029-meter-the-24-v-rail-for-shorts)
+
+        - A protective-earth row fails the bonding sweep
+
+            A missing PE lead, or anodising under a washer. Scrape the anodising and re-land the lead. [10.77](10-wiring.md#step-1077-protective-earth-bonding) · [10.16](10-wiring.md#step-1016-frame-pe)
+
+        - The SSR reads short across LOAD 1 and LOAD 2 with nothing energised
+
+            The relay is dead and the bed would be permanently live. Replace it, and do not power the machine. [10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered) · [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)
+
+    - A motor or an endstop misbehaves
+        - STEPPER_BUZZ does nothing on one motor
+
+            The enable or step pin, or no driver power. Check the pins, then the HV 24 V rail. [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction) · [10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply)
+
+        - It buzzes but does not travel 1 mm
+
+            The stepper coil pairs are transposed in the connector. Re-pin so each coil is a pair, power off first. [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction)
+
+        - A motor runs the wrong way, or the wrong motor answers
+
+            Wrong way is dir_pin polarity: add or remove the exclamation mark, RESTART, re-buzz. Wrong motor means the motors are on the wrong ports: power off, move the connector, power on. Never hot-swap a stepper. [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction) · [10.40](10-wiring.md#step-1040-tag-every-stepper-cable-before-you-plug-anything-in)
+
+        - X and Y both move but the toolhead travels diagonally
+
+            A and B are swapped, or one is inverted. Upper block on the V2 chart means invert a dir_pin; lower orange block means physically swap A and B. [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction)
+
+        - An endstop reads TRIGGERED untouched
+
+            Wiring, not polarity: stock Voron endstops are normally closed to ground. Fix the wiring, and do not add an exclamation mark to silence it. [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released)
+
+        - Homing overshoots into the frame
+
+            position_endstop or position_max is still at the 250 default. Prove the 350 edits are live on the running instance. [13.5](13-initial-startup.md#step-135-prove-the-350-mm-config-edits-are-live) · [12.24](12-software.md#step-1224-350-mm-stepper_x-and-stepper_y)
+
+        - The toolhead cannot reach an endstop
+
+            A rubber rail stopper is still on the rail, or the gantry is racked. Pull the stoppers, then square the gantry. [13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints)
+
+    - Klipper will not start, or every pin is wrong at once
+        - Every nhk pin behaves wrongly at once
+
+            The Rev D config was loaded instead of the sbv2 file. Grep for nhk:PB8 before uploading; Rev D+ needs the sbv2 config. [12.21](12-software.md#step-1221-download-the-correct-config-file)
+
+        - Unable to open serial port
+
+            The serial path was not pasted, or the board is not flashed. Re-read both paths and paste them. [12.23](12-software.md#step-1223-paste-the-two-serial-paths) · [13.4](13-initial-startup.md#step-134-connect-klipper-and-confirm-both-mcus)
+
+        - Only one MCU enumerates, or none
+
+            Read both serial IDs and confirm which is which before anything else. [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [12.20](12-software.md#step-1220-re-read-and-record-both-serial-paths)
+
+        - The toolboard enumerates as rp2040
+
+            That is a Nitehawk-SB V1, or the wrong firmware. Rev D+ must read stm32g0b1xx; the Rev D guide's rp2040 line is wrong for this kit. [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) · [12.12](12-software.md#step-1212-read-the-two-serial-ids-and-work-out-which-is-which)
+
+        - The nozzle drives into the plate on G28
+
+            home_xy_position was filled in with a guess. The placeholder failing is the interlock working: measure the real coordinate. [12.33](12-software.md#step-1233-z-endstop-leave-safe_z_home-deliberately-unreachable) · [13.26](13-initial-startup.md#step-1326-record-the-z-endstop-coordinate-into-safe_z_home)
+
+    - Heaters, fans and thermistors
+        - A temperature climbs with nothing commanded
+
+            A heater is energised through a wiring fault. Cut power at the switch and go back to Ch 10. Do not stand and watch it. [00a.12](00a-mains-safety.md#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites)
+
+        - The bed does not heat and the SSR LED is on
+
+            The fault is on the mains side of the SSR. Check LOAD 1 and LOAD 2, and the bed L and N. [10.14](10-wiring.md#step-1014-bed-live-ssr-load-1) · [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)
+
+        - The bed does not heat and the SSR LED is off
+
+            DC control polarity is reversed. Leviathan plus goes to SSR INPUT 3, minus to INPUT 4. [10.27](10-wiring.md#step-1027-leviathan-heatbed-ssr-input) · [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr)
+
+        - A thermistor reads a wild or jumping value
+
+            A crimp, or a PH2.0 housing half seated or in the wrong header. Re-seat and check continuity: Rev D+ uses PH2.0, not the guide's XH2.5. [10.55](10-wiring.md#step-1055-connector-types-on-the-v2-toolboard) · [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature)
+
+        - The chamber thermistor reads nothing
+
+            It is plugged into a Leviathan TH port. Rev D+ reads it as nhk:PB2, on the toolboard's CT port. [10.39](10-wiring.md#step-1039-chamber-thermistor-if-your-batch-includes-one)
+
+        - A fan never starts
+
+            Wrong port, wrong voltage jumper, or the keyed 2×5 toolhead header seated backwards. The header is keyed: if it will not drop in, it is backwards. [10.56](10-wiring.md#step-1056-the-fan-adapter-header-is-keyed-and-reversed) · [13.11](13-initial-startup.md#step-1311-bay-fan-and-filter-fan)
+
+- Calibration and the first print
+    - QGL will not converge
+        - Probed points range stalls or grows
+
+            The gantry is racked. Square it in Ch 06b, re-tension A and B to 110 Hz, then re-run QGL. [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints)
+
+        - Possibly Z motor numbering is wrong
+
+            The Z motors are on the wrong drivers. Recheck the map: Z0 front-left to STEPPER-0, Z1 rear-left to -1, Z2 rear-right to -2, Z3 front-right to -3. [13.33](13-initial-startup.md#step-1333-quad_gantry_level) · [10.43](10-wiring.md#step-1043-z0z3-stepper-0-to-stepper-3)
+
+        - Required adjustment is greater than max_adjust
+
+            The gantry is too far out of level to correct in software. M84, level by hand against the frame, G28, retry. [13.33](13-initial-startup.md#step-1333-quad_gantry_level)
+
+        - Out of bounds, or a probe point cannot be reached
+
+            The gantry is far from level, or gantry_corners is wrong. FIRMWARE_RESTART, hand-level, G28, and confirm the 350 corners. [13.33](13-initial-startup.md#step-1333-quad_gantry_level) · [12.26](12-software.md#step-1226-350-mm-quad_gantry_level)
+
+        - QGL passes but printed parts come out skewed
+
+            QGL levels in Z only and says nothing about the X extrusion being square to Y. De-rack the gantry; QGL cannot detect racking. [Ch 06b Common mistakes](06-z-axis-and-gantry-squaring.md#common-mistakes-06b)
+
+    - The probe is unreliable
+        - PROBE_ACCURACY deviation is high but stable
+
+            The probe mount, cable strain, or a probe speed that is too fast. Check the retainer bracket is tight, then try a lower speed. [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream) · [07.35](07-ab-belts.md#step-0735-fit-the-probe-and-its-retainer-bracket)
+
+        - The values trend one way
+
+            The frame is still expanding, or the Z pulley grub screws and belts are uneven. Soak longer, then check all four Z belts and the pulley set screws. [14.3](14-calibration.md#step-143-verify-thermal-stability-then-re-qgl) · [14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm)
+
+        - QUERY_PROBE is stuck open or stuck TRIGGERED
+
+            Ground, signal or 24 V, a wrong probe pin, or a voltage-select jumper. Check the wiring first. [13.21](13-initial-startup.md#step-1321-query_probe-on-the-inductive-probe) · [12.29](12-software.md#step-1229-probe-omron-active-klicky-written-but-commented)
+
+        - It triggers too early, or grazes the plate
+
+            Too early means the probe sits too high in the retainer, or there is tape on the sensing face. Too late means it is mounted too low. Set it to trigger about 2 mm above the plate. [07.36](07-ab-belts.md#step-0736-set-the-probe-height) · [10.30](10-wiring.md#step-1030-insulate-the-inductive-probe)
+
+        - Z drops out of level between prints
+
+            The Z pulley set screws are loose or off the flat. Threadlock, one screw on the flat, a proper hex driver. [02.20](02-z-drives.md#step-0220-threadlock-the-80t-pulley-set-screws-and-check-your-work)
+
+    - The first layer is wrong
+        - Right at the front, wrong at the back
+
+            The mesh was taken before QGL, or taken cold. G28, QUAD_GANTRY_LEVEL, G28, BED_MESH_CALIBRATE, hot. [13.39](13-initial-startup.md#step-1339-bed_mesh_calibrate)
+
+        - Featureless and glassy, or gappy and ridged
+
+            Squish is set wrong, or the extrusion multiplier moved since it was set. Re-run the live-Z procedure and commit it with Z_OFFSET_APPLY_ENDSTOP. [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) · [14.21](14-calibration.md#step-1421-re-check-first-layer-squish-because-the-multiplier-moved)
+
+        - The Z offset reverts after every restart
+
+            Babystepping was never committed. Z_OFFSET_APPLY_ENDSTOP, then SAVE_CONFIG. [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes)
+
+        - Every first layer is slightly under-squished
+
+            The extra TESTZ Z=-0.1 was skipped when calibrating Z zero. Redo Z_ENDSTOP_CALIBRATE with the correction. [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test)
+
+        - The whole mesh is offset by a constant
+
+            bed_mesh was added without zero_reference_position. The Omron's z_offset is 0 by design, so pin the reference to bed centre. [12.34](12-software.md#step-1234-add-a-bed_mesh-section)
+
+    - The printed part is wrong
+        - The cube is 0.1 to 0.3 mm oversize in X and Y
+
+            ASA shrinkage and bulging, not an axis error. Fix it with the extrusion multiplier, never with negative XY size compensation. [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) · [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass)
+
+        - A persistent X to Y size difference on the same cube
+
+            A gantry-square problem. Go back to Ch 06b. [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints)
+
+        - Top surfaces have gaps and valleys, or pellets and ridging
+
+            The extrusion multiplier is low or high. Run the 2 % pass, then the 0.5 % refinement. [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) · [14.20](14-calibration.md#step-1420-the-05-refinement-pass)
+
+        - Ringing after corners, even with input shaping saved
+
+            max_accel was left at the stock 10000, and SAVE_CONFIG does not touch it. Set it at or below the lower per-axis suggestion, with margin. [14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel)
+
+        - Fine vertical ripple 0.5 to 2 mm apart on flat faces
+
+            Belt-tooth engagement ripple, cosmetic and not ringing. It is not a tuning fault and input shaping does not fix it. [Gen 2 belts](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)
+
+        - A cube corner delaminates along a layer line
+
+            The chamber is too cold, or the part fan is too high. Set the chamber target and soak. [14.8](14-calibration.md#step-148-set-the-chamber-target-and-understand-the-soak) · [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one)
+
+        - The shaper graph shows two or more widely separated peaks
+
+            Usually mechanical: a loose backer, an under-tensioned belt, or a rail bolt in an end hole. Fix the machine before shaping over it; below 25 Hz on either axis is a build fault. [14.14](14-calibration.md#step-1414-read-the-graphs)
+
+    - The extruder or the hotend
+        - Molten plastic leaks at the heatsink on the first hot print
+
+            The Revo strain relief was not bent clear, so the nozzle never hand-tightened fully. Bend the strain relief and re-seat the nozzle. [08.29](08-toolhead.md#step-0829-route-the-wires-and-bend-the-strain-relief-so-the-nozzle-can-seat-fully)
+
+        - The extruder will not grip or tension filament
+
+            The tension arm's M3×25 hinge pin was torqued instead of left as a hinge. Back it off: it is a hinge, not a fastener. [08.19](08-toolhead.md#step-0819-hang-the-tension-arm-and-leave-it-loose) · [08.21](08-toolhead.md#step-0821-set-the-tension-and-the-anti-squish-stop)
+
+        - Extruded length does not match the commanded 100 mm
+
+            rotation_distance is not set for this extruder. Run the 100 mm extrusion check. [14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion) · [13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure)
+
+        - PID tune of the hotend trips the temperature limit mid-run
+
+            You are tuning at 260 °C against a max_temp of 270. Tune at 245 °C, or raise max_temp to 290 first. [13.30](13-initial-startup.md#step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25)
+
+        - The bed takes a long time to reach 110 °C
+
+            heater_bed max_power is deliberately limited to protect the 355 mm cast plate. Wait, and do not raise it. [Ch 14 Common mistakes](14-calibration.md#common-mistakes)
+```
+
+---
+
 ## Motion — homing, axes, steppers, endstops
 
 | Symptom | Likely cause | Fix | Owned by |

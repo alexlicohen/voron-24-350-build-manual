@@ -52,6 +52,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Parts:** 8 objects — 8.5 h, 119 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper`; `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper`.
 **Check:** Parts sit flat as shipped; no brim outline in the preview.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B03.3 — Print plate B03-P1
@@ -92,6 +94,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **04-B** — B drive unit + B (left) front idler | `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` |
 
 **Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one blue tensioner.
+
+**Helper:** Writes the bin id and the date on the inside face of each part.
 
 Tip: the blue `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins. Print bin labels from the [bin-labels sheet](../../print/bin-labels.md).
 

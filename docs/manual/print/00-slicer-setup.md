@@ -220,6 +220,8 @@ Belt tuning was never formally closed; it gets redone at the Gen 2 belt swap, an
 | Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
 | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
 
+The four rows are also a calculator at [Step B00.5](B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed): type the measurements in, press Check, and it keeps the verdict and shows the advice from this table for whichever row failed.
+
 **Corner snap:** grip one corner in pliers and bend it off. A pass tears *across* the layers and leaves a
 rough, fibrous face; a fail peels cleanly *along* one layer line and leaves a flat shiny face `(verify on
 bench)`.
@@ -247,6 +249,8 @@ bearing-seat and shaft-bore parts printed against an unverified fit — run Gate
 The inserts are set with the **X-Tronic iron's stock conical tip** — the LDO brass M3 tip lands with the
 kit and is used from Ch 00 onwards. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
 inserts stay for the build**.
+
+The same calculator covers Gate B at [Step B00.7](B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), with the two kit-day rows marked optional so they can stay blank until carton 1 is open.
 
 **Gate B passed →** start **B01**, then **B03–B06**. Gate B is Step B00.7; its two early rows take about
 15 minutes and unblock 58.5 h of printing, so run them in the same week as Gate A. If Gate B moves the

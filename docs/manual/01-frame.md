@@ -104,6 +104,8 @@ Source: [Voron manual p.12](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** 10 A, 4 B, 2 C, 1 D, 1 E. Only the four B extrusions have small round **access holes** near each end.
 
+**Helper:** Sorts the extrusions into piles by length and counts each pile aloud.
+
 Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=13)
 
 ---
@@ -184,6 +186,8 @@ Pause: ~40 min since the last pause — extrusions sorted and labelled A–E, al
 
 **Check:** All four extrusions lie dead flat with no gap under any of them. The four corner voids are square and roughly 20 × 20 mm.
 
+**Helper:** Holds two extrusions together at the corner while you start the bolts.
+
 Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15) · [Video: Part 1 @0:53:47](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3227s)
 
 ---
@@ -239,6 +243,8 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 3. Put the machinist square in each of the four inside corners.
 
 **Check:** All four inside corners read 90° against the square with no light. All four extrusions still touch the stone along their whole length.
+
+**Helper:** Reads each diagonal measurement aloud and says which one is longer.
 
 Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=16)
 
@@ -333,6 +339,8 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. A face that will not come square means a joint not fully home: back it off, reseat it, re-tighten.
 
 **Check:** Each face's two diagonals equal and every corner reads 90°. A 350 pair lands near **735 mm**, from 510 × 530 outside.
+
+**Helper:** Holds the square flat against each upright and calls out any gap.
 
 Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Video: Part 1 @1:13:15](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4395s)
 
@@ -498,6 +506,8 @@ Source: [whopping_Voron_mods — `extrusion_backers`](https://github.com/tanaes/
 | Torque setting used, if any | one value, all 16 | | |
 
 **Check:** Table filled, both diagonal pairs written down as numbers rather than "looked fine".
+
+**Helper:** Writes the four diagonals and the final torque into the frame log.
 
 Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [survey](../voron-build-instructions-survey.md)
 

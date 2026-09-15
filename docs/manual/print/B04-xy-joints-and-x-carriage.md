@@ -53,6 +53,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Parts:** all seven — 8.6 h, 117 g (PrusaSlicer 2.9.6 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket`.
 **Check:** The plate holds `x_frame_V2TR_MGN12_left/right`, not the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
 
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
 ## Step B04.3 — Pre-print checks
@@ -96,6 +98,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **07-X** — X carriage halves, probe bracket, cable cover | `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` |
 
 **Check:** 05-XY: four joint halves plus the pod and bridges; 07-X: two frame halves and the bracket.
+
+**Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
 Pause: ~10 min since the last pause — the plate sorted into 05-XY and 07-X, bin ids on the parts. `probe_retainer_bracket` stays loose until the Omron barrel is measured; no inserts set.

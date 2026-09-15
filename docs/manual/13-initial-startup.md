@@ -203,6 +203,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 **Check:** Extruder, bed and chamber all read within a couple of degrees of room temperature, and **none of them is climbing**.
 
+**Helper:** Reads the three temperatures off the Mainsail screen and calls them out.
+
 ⚠ A temperature rising with nothing commanded means a heater is energised through a wiring fault: cut power at the switch.
 
 ⚠ Rev D+ / LDO: the hotend and chamber thermistors land on the **Nitehawk V2** through **JST-PH2.0** connectors, not the XH2.5 the Rev D wiring guide names. A spare pigtail crimped to XH2.5 will not fit, and a PH2.0 housing can be forced into the wrong header. (survey §4.1 ③)
@@ -325,6 +327,8 @@ Source: [Voron startup wizard § Controller fan](https://docs.vorondesign.com/bu
 
 **Check:** The chamber COB strips come on and all three Stealthburner LEDs light.
 
+**Helper:** Presses the light buttons in Mainsail and says which lamps came on.
+
 Tip: the strips are `[output_pin caselight]` on `PE6`. Colours that come out wrong rather than absent mean `color_order` only; the LDO config's `chain_count: 3`, `color_order: GRBW` is correct for the supplied LEDs. (survey §4.4 #12)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L384-410) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip) · [Klipper docs § neopixel](https://www.klipper3d.org/Config_Reference.html#neopixel)
@@ -354,6 +358,8 @@ Send: STEPPER_BUZZ STEPPER=stepper_z3
 ```
 
 **Check:** Exactly one motor responds per command, it moves cleanly forward, pause, back, pause, and it lifts the corner named below **first**.
+
+**Helper:** Watches each Z corner and calls out which one just moved.
 
 | Command | Motor | Corner that must rise first |
 |---|---|---|
@@ -456,6 +462,8 @@ Recv: // x:open y:open z:open
 ```
 
 **Check:** All three read `open`. A `TRIGGERED` reading with nothing pressing it is a wiring fault, not a missing `!`.
+
+**Helper:** Reads the endstop states off the screen and calls each one back.
 
 ⚠ `M84` releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This and Step 13.24 are the only places `M84` is right; elsewhere disable just `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding.
 
@@ -736,6 +744,8 @@ Recv: // probe accuracy results: maximum 2.080000, minimum 2.075000, range 0.005
 ```
 
 **Check:** Standard deviation **< 0.003 mm**, and the ten values are not marching steadily one way.
+
+**Helper:** Reads the range and the standard deviation off the screen and writes them down.
 
 Tip: values that trend are mechanical: Z pulley grub screws, Z belt tensions. Random scatter is usually probe mounting or cable. The hot test at Step 13.32 is the QGL gate.
 

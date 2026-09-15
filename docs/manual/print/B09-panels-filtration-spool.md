@@ -79,6 +79,8 @@ are already in it. Leave `V2_Duo_Plenum`'s built-in support in place.
 **Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `V2_Duo_Plenum_LID`, no brim · `Regular_Cartridge_Lid`, no brim — 4.5 h, 63 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Plenum's built-in support visible in preview, not suppressed; brim outline on the plenum only.
 
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
 ## Step B09.3 — Print plate B09-P1
@@ -100,6 +102,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 are already in it. Leave the cartridge's built-in support in place.
 **Parts:** `Regular_Cartridge` (3mf), 3 mm brim · `exhaust_cover`, 3 mm brim — 4.9 h, 67 g (PrusaSlicer 2.9.6 estimate) · both brims already in the project.
 **Check:** Cartridge support intact in preview; brim outline shows on both.
+
+**Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro)
 
@@ -123,6 +127,8 @@ are already in it. Confirm it loaded as described rather than rebuilding it.
 **Parts:** `exhaust_filter_grill`, 3 mm brim already in the project · `spool_holder`, no brim · `bowden_retainer`, no brim · `z_belt_cover_a` ×2, no brim · `z_belt_cover_b` ×2, no brim · 5 files, 7 objects — 3.9 h, 55 g (PrusaSlicer 2.9.6 estimate).
 **Check:** No face re-orientation; brim outline on the grill only.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ## Step B09.7 — Print plate B09-P3
@@ -145,6 +151,8 @@ are already in it. Confirm it loaded as described rather than rebuilding it.
 **Parts:** `corner_panel_clip_4mm` ×8 · `midspan_panel_clip_4mm` ×7 · `bottom_panel_hinge` ×2 · `bottom_panel_clip` ×4 · 4 files, 21 pieces — 4.2 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim in the project.
 **Check:** Counts match: 8 corner, 7 midspan, 2 hinge, 4 bottom clips; no brim outline anywhere.
 
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
 ## Step B09.9 — Print plate B09-P4
@@ -166,6 +174,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 are already in it. Confirm it loaded as described rather than rebuilding it.
 **Parts:** `corner_panel_clip_6mm` ×8 · `midspan_panel_clip_6mm` ×8 · 2 files, 16 pieces — 4.3 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim in the project.
 **Check:** Counts match: 8 corner, 8 midspan; no brim outline anywhere.
+
+**Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
 
@@ -229,6 +239,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
 
 **Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+
+**Helper:** Writes the bin id and the date on the inside face of each part.
 
 Tip: mark both clip bins "test one on kit day before use" — the 4 mm and 6 mm clips look alike off the plate.
 

@@ -103,6 +103,8 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 
 **Check:** Ten printed parts placed, none left over. An eleventh is `[a]_cable_cover` or `[a]_z_chain_retainer_bracket`; bag those for Ch 07 and Ch 06.
 
+**Helper:** Counts the bearings and spacers into four labelled trays, one per assembly.
+
 Source: [Voron manual p.62](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=62) · [Voron-2 `STLs/Gantry/AB_Drive_Units`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Gantry/AB_Drive_Units) · [Voron-2 `STLs/Gantry/Front_Idlers`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Gantry/Front_Idlers)
 
 ---
@@ -536,6 +538,8 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Caliper 16.5 mm, motor face to teeth underside, hub down. ~23 mm means pulley on tab, ~19.5 mm jig on feet.
 
+**Helper:** Reads the caliper aloud while you slide the pulley along the shaft.
+
 Tip: the jig stands on its long bottom edge either side of the two feet, never on the feet; stood on the feet every height reads 3 mm high.
 
 ⚠ Jig misuse: the plate stands beside the pulley, never over the boss. Its two feet hang past the motor face; stood on the feet every height reads 3 mm high. Without the jig, set 16.5 mm with a caliper.
@@ -714,6 +718,8 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Caliper 6.5 mm, motor face to teeth underside, hub **up**. ~13 mm means pulley on tab. Side by side, A high, B low.
 
+**Helper:** Reads the caliper aloud and says whether the pulley is the flipped one.
+
 Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=79) · [Video: Part 3 @1:12:46](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4366s)
 
 ---
@@ -795,6 +801,8 @@ Pause: ~45 min since the last pause — the B drive is finished and labelled **B
 **Do:** Bag each assembly separately with its destination written on the bag: **A drive: rear right**, **B drive: rear left**, **A idler: front right**, **B idler: front left**.
 
 **Check:** Four bags, four labels, no loose bearings or spacers left on the bench. Leftovers mean a stack is short.
+
+**Helper:** Writes A and B on the two bags and seals the leftover fasteners.
 
 Source: [Voron manual p.81](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=81)
 

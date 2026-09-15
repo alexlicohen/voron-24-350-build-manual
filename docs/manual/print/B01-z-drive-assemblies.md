@@ -76,6 +76,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 15.2 h, 201 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Estimated plate time is **15 h 13 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B01.3 — Pre-print checks
@@ -108,6 +110,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 2. Confirm: **5 files, 16 objects**, no brim.
 **Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 — 7.6 h, 100 g (PrusaSlicer 2.9.6 estimate).
 **Check:** All 8 clips on the plate, 3 mm per the BOM; the kit-day caliper decides a 4 mm reprint.
+
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
 ⚠ `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect. **Only if a motor mount lifts on this print**, add a 5 mm brim to those four objects by hand for the reprint: right-click the object → Add settings → Skirt and brim → Brim width. Never the global setting, per [00-slicer-setup](00-slicer-setup.md#orientation-brim).
 
@@ -159,6 +163,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-deck** — Deck panel clips | `deck_support_3mm` ×8 |
 
 **Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids written on the parts; 02-deck holds 8 clips.
+
+**Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 ⚠ 02-Z0's `z_drive_retainer_a` is the Gate B coupon printed on B00, so it is not on these plates. B02's blue baseplates and tensioners join these bins next batch.
 
