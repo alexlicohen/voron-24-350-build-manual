@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: The corners the belts turn on. Flange seats again, so Gate B comes first.
+caption: The corners the belts turn on. Flange seats again, which means Gate B votes first.
 ```
 
 **Time:** 8.5 h (1 plate) — PrusaSlicer 2.9.6 estimates.

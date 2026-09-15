@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: Panels, filtration and the spool holder. Five short plates, back to back.
+caption: Panels, filtration and a spool holder. Five short plates, back to back, and none of them dramatic.
 ```
 
 **Time:** 21.8 h (5 plates) — PrusaSlicer 2.9.6 estimates.

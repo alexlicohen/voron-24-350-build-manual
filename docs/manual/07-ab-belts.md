@@ -6,7 +6,7 @@ Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish
 
 ```mascot
 pose: caliper
-caption: Belt tension is measured, not guessed. The same reading on A and on B.
+caption: Belts that sound the same are not the same. Measure both. Ears are cheerful liars.
 ```
 
 **Time:** 2.5–4.0 h hands-on, first build ([survey §5.1 P07 / §7.2 Ch 07](../voron-build-instructions-survey.md)).

@@ -6,7 +6,7 @@ Inventories the kit against its own batch BOM, settles the tools and consumables
 
 ```mascot
 pose: kitday
-caption: The cartons are here. Today is counting and sorting, not building.
+caption: Kit day is a counting day. The printer inside the box is currently a rumour.
 ```
 
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P00). Rail prep is roughly half of it.
@@ -97,7 +97,7 @@ The day the cartons land, in this order: **Step 00.1** (open the cartons), then 
 
 ```mascot
 pose: carry
-caption: One bin per chapter as you unpack. Sorting now is an hour you get back later.
+caption: One bin per chapter now. The alternative is meeting every screw again at midnight, individually.
 ```
 
 ## Unboxing and inventory

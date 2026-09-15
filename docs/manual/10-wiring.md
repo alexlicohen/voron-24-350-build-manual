@@ -6,7 +6,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 
 ```mascot
 pose: cable
-caption: Label both ends of every harness. A connector you can name is a fault you can find.
+caption: Label both ends of every harness. An anonymous connector is a fault that gets to hide.
 ```
 
 **Time:** 5.0–7.0 h hands-on, first build (survey §5.1, §7.2).

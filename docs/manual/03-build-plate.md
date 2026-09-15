@@ -6,7 +6,7 @@ Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so
 
 ```mascot
 pose: check
-caption: The bed is your datum. Flat and clean now beats chasing a wave later.
+caption: The bed is your datum. A wave you ignore today will introduce itself in every print.
 ```
 
 **Time:** 1.5–2.5 h hands-on, first build (survey §7.2).

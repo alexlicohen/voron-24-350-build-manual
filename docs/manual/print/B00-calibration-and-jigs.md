@@ -8,7 +8,7 @@ bore and seven M3×H5 inserts out of the KADRICK kit already on the bench `(veri
 
 ```mascot
 pose: gather
-caption: Jigs and a gate cube. Nothing else prints until this plate measures right.
+caption: Jigs and one gate cube. The cube decides whether anything else prints. Hope is not a dimension.
 ```
 
 **Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.

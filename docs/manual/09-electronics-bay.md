@@ -6,7 +6,7 @@ Fits out the space under the deck panel: two DIN rails and five wire ducts, the 
 
 ```mascot
 pose: point
-caption: Everything in the bay gets a place before anything gets a wire. Mount first.
+caption: Mount everything before wiring anything. A board you move later takes six connectors with it.
 ```
 
 **Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge the deck notch points to — 09.4 — with the A/B motors hanging from the gantry's rear corners above it) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.

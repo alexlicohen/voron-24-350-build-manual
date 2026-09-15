@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: Z joints and chain links. Small parts, a lot of them, all alike.
+caption: Z joints and chain links. Small, numerous, identical. Count them now, not halfway through the chain.
 ```
 
 **Time:** 6.4 h (1 plate) — PrusaSlicer 2.9.6 estimate.

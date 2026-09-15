@@ -6,7 +6,7 @@ Builds the four Z drive units, the four Z idlers, the four Z linear rails and th
 
 ```mascot
 pose: point
-caption: Z drive parts come in mirrored pairs. Read the letter on each one before bolting.
+caption: The mirrored pair will happily go on the wrong sides. Read the letter cast into each.
 ```
 
 **Time:** 4.25–6.25 h hands-on, first build (survey §7.2, less the ~45 min of rail cleaning and greasing, which is done once for all seven rails in Ch 00 Steps 00.18–00.21).

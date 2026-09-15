@@ -4,7 +4,7 @@ Every failure this manual already knows about, filed by **symptom** instead of b
 
 ```mascot
 pose: fail
-caption: Something is wrong and a step already knows about it. Start from the symptom.
+caption: Something is wrong and a step here already expected it. Start at the symptom. Panic scales poorly.
 ```
 
 **Time:** none — this is a reference page, not a build chapter.

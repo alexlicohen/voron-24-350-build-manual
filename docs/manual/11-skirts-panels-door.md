@@ -6,7 +6,7 @@ Closes the machine: the skirt ring and its front touchscreen module, the electro
 
 ```mascot
 pose: helper
-caption: Panels, clips and a door. A good chapter for two pairs of hands.
+caption: Panels and a door, with four hands. Every printer looks finished the moment the door arrives.
 ```
 
 **Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13).

@@ -6,7 +6,7 @@ Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor
 
 ```mascot
 pose: point
-caption: Two drive units, two front idlers, all handed. Lay them out left and right first.
+caption: Two drive units, two idlers, all handed. Lay them out left and right. Chapter seven notices.
 ```
 
 **Time:** 3.5–5.0 h hands-on, first build ([survey §5.1 P04](../voron-build-instructions-survey.md)).

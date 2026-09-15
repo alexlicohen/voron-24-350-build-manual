@@ -6,7 +6,7 @@ Turns the wired machine on for the first time and proves every subsystem in the 
 
 ```mascot
 pose: screen
-caption: First power on. Prove one subsystem at a time, in the order the wizard gives.
+caption: First power on. Prove one subsystem at a time, so there is only ever one suspect.
 ```
 
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end.

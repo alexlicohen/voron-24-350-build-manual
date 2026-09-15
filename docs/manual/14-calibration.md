@@ -6,7 +6,7 @@ Takes a machine that homes, probes, levels, is squared cold and has printed its 
 
 ```mascot
 pose: pass
-caption: This is where the machine stops being a kit and starts being a printer.
+caption: Here the kit becomes a printer. I brought a caliper, because feelings are not evidence.
 ```
 
 **Time:** 2.5–4.0 h hands-on (survey §7.2), spread over ~8–10 h wall-clock. Most of the wall-clock is the 1½–2 h closed-chamber soak at Step 14.6, the shorter soaks (~30 min each) and four test prints.

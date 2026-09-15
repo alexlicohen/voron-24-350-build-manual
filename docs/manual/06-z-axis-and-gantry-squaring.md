@@ -6,7 +6,7 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 
 ```mascot
 pose: caliper
-caption: Four corners parked at the same height. This is the measurement the prints remember.
+caption: Four corners agreeing on one height. Prints remember this number. They remember nothing else you did.
 ```
 
 **Time:** 3.5–5.0 h hands-on for Part A, first build (survey §7.2). Part B adds ~1 h hands-on, cold (the heat soak and hot lock-in now live in Ch 14).

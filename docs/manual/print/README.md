@@ -9,7 +9,7 @@ previous figure beside each one, and the exact unrounded values, are in `slicer/
 
 ```mascot
 pose: print
-caption: Twenty two plates, start to finish, all of them down before the Voron kit lands.
+caption: Twenty two plates, start to finish. The printer works while the kit is still in transit.
 ```
 
 **Print order.** The Voron kit is not expected before **late November 2026**, so the whole run goes down

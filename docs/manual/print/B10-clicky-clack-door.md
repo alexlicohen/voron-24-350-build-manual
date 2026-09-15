@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: The last plate of the run. Print this one and the printing is done.
+caption: The last plate of the run. Every printer looks finished until it has a door.
 ```
 
 **Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the blue `Handle` printed back in B02.

@@ -9,7 +9,7 @@ projects in `slicer/plates/` (§4.1); they replace a throughput model that read 
 
 ```mascot
 pose: base-3q
-caption: One plate is one job. That is the whole plan, in order.
+caption: One plate is one job. That is the entire plan, and it took surprisingly long to arrange.
 ```
 
 ---

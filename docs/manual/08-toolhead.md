@@ -6,7 +6,7 @@ Builds the complete toolhead on the bench — extruder, hotend, fans, LEDs, tool
 
 ```mascot
 pose: hexkey
-caption: Small fasteners, tight spaces. Build the toolhead on the bench where you can see it.
+caption: Small fasteners, tight spaces. Build over a tray, because carpet eats M3 screws and denies it.
 ```
 
 **Time:** 3.0–4.5 h hands-on, first build (survey §7.2).

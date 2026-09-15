@@ -6,7 +6,7 @@ Images the Raspberry Pi, flashes Klipper onto both MCUs, and installs a `printer
 
 ```mascot
 pose: screen
-caption: Nothing moves in this chapter. The machine is only learning what shape it is.
+caption: Nothing moves this chapter. The machine is reading its own manual, slowly, and will not be rushed.
 ```
 
 **Time:** 2.0–3.0 h hands-on, first build (survey §7.2). Add ~30 min if you have to reinstall Katapult on either board.

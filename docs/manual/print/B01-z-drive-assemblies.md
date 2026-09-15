@@ -5,7 +5,7 @@ early, on a caliper across the printed pocket, so this batch prints second, stra
 
 ```mascot
 pose: print
-caption: The first real parts. These have bearing seats, so they wait for Gate B.
+caption: The first real parts. They hold bearings, so Gate B has opinions and it goes first.
 ```
 
 **Time:** 22.8 h (2 plates) — PrusaSlicer 2.9.6 estimates.
@@ -190,7 +190,7 @@ rather than letting the plate print another six hours on top of it.
 
 ```mascot
 pose: pause
-caption: Fifteen hours is a night and a morning. Watch the first layer, then leave it alone.
+caption: Fifteen hours. Watch the first layer, then walk away. I will supervise from the spool.
 ```
 
 The rest of the time the printer is working for you and the bench is free. In order of value: read the

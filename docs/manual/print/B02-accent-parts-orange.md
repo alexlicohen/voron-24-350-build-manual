@@ -7,7 +7,7 @@ Nothing here has a press fit, so it needs Gate A only. Like every batch, it prin
 
 ```mascot
 pose: print
-caption: Every accent part in one session, so the blue spool goes on exactly once.
+caption: Every accent part in one session. The blue spool goes on once, which is once enough.
 ```
 
 **Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.

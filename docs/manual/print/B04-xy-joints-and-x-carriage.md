@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: Joints and a carriage. Everything on this plate has a bore that has to fit.
+caption: Joints and a carriage. Every part here has a bore, and every bore has strong opinions.
 ```
 
 **Time:** 8.6 h (1 plate) — PrusaSlicer 2.9.6 estimate.

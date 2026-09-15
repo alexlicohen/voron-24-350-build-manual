@@ -6,7 +6,7 @@ Builds the complete gantry on the bench — XY bridge, both Y axes with their MG
 
 ```mascot
 pose: hexkey
-caption: The gantry is built on the bench, not in the frame. Take the room you need.
+caption: Build the gantry on the bench, not in the frame. Clear the whole table, including that pile.
 ```
 
 **Time:** 5.0–7.0 h hands-on, first build, two people ([survey §5.1 P05 / §7.2](../voron-build-instructions-survey.md)).

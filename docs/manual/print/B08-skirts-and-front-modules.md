@@ -8,7 +8,7 @@ is the pause after B07 (see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-u
 
 ```mascot
 pose: pause
-caption: The parts people see. Four plates and a long quiet weekend of printing.
+caption: The parts visitors will comment on. Four plates and one long, quiet, entirely uneventful weekend.
 ```
 
 **Time:** 29.2 h (4 plates) — PrusaSlicer 2.9.6 estimates.

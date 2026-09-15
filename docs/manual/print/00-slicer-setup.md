@@ -5,7 +5,7 @@ back here and list only their own deviations (brim, orientation, accent colour).
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Every plate in the run inherits these numbers.
+caption: Set the profile once, carefully. Twenty two plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha11**

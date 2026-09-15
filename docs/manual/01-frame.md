@@ -6,7 +6,7 @@ Builds the 2020 frame — bottom square, four verticals, top square — plus the
 
 ```mascot
 pose: hexkey
-caption: Square the frame once, properly. Every axis above it inherits this measurement.
+caption: Square the frame once, properly. Everything above copies this frame, including its mistakes, forever.
 ```
 
 **Time:** 2.5–4.0 h hands-on, first build, two people ([survey §5.1 P01 / §7.2](../voron-build-instructions-survey.md)).

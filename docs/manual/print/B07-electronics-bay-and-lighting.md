@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: The bay parts. Nothing here has a bearing seat, so Gate A is enough.
+caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
 **Time:** 16.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
