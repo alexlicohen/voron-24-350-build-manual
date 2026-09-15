@@ -1,0 +1,11 @@
+# Mirrored step images for docs/manual/07-ab-belts.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, the URL as cited in the
+# chapter, the pinned-commit URL actually downloaded, the owner, and the licence.
+
+belt-tension-spectrum-peak.jpg
+  cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/main/tuning/images/sound-spectrum-belt.jpg
+  fetched : https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/sound-spectrum-belt.jpg
+  owner   : VoronDesign (github.com/VoronDesign/Voron-Documentation)
+  licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
+  date    : 2026-09-05
+  sha256  : 273244b826ed4d347201aee0bf4de8d8a8f1dce904e8d65d61b95774615ed62a

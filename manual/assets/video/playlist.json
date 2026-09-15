@@ -1,0 +1,1202 @@
+{
+ "_note": "Raw yt-dlp metadata, pruned to the fields video_map.py reads (formats/thumbnails/heatmap/live-chat dropped). Regenerate: python3 scripts/video_map.py --refresh",
+ "playlist": {
+  "id": "PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY",
+  "title": "LDO Voron 2.4 Kit Build",
+  "channel": "Steve Builds",
+  "uploader": "Steve Builds",
+  "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+  "webpage_url": "https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY",
+  "playlist_count": 11
+ },
+ "videos": [
+  {
+   "id": "feTxcc0LIWM",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 1)",
+   "duration": 14196,
+   "upload_date": "20211219",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=feTxcc0LIWM",
+   "description": "Beginning the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 124,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 124,
+     "title": "Overview",
+     "end_time": 731
+    },
+    {
+     "start_time": 731,
+     "title": "Fasteners Tools and Miscellaneous",
+     "end_time": 1181
+    },
+    {
+     "start_time": 1181,
+     "title": "Heatsink for the Pi",
+     "end_time": 1946
+    },
+    {
+     "start_time": 1946,
+     "title": "Resources",
+     "end_time": 2141
+    },
+    {
+     "start_time": 2141,
+     "title": "Electronics Compartment Plug Panel",
+     "end_time": 2194
+    },
+    {
+     "start_time": 2194,
+     "title": "Breakout Pcb Mount",
+     "end_time": 2207
+    },
+    {
+     "start_time": 2207,
+     "title": "Led Splitter Spacer",
+     "end_time": 2360
+    },
+    {
+     "start_time": 2360,
+     "title": "Sourcing Guide",
+     "end_time": 2702
+    },
+    {
+     "start_time": 2702,
+     "title": "Build Plate",
+     "end_time": 3002
+    },
+    {
+     "start_time": 3002,
+     "title": "The Assembly Manual",
+     "end_time": 3063
+    },
+    {
+     "start_time": 3063,
+     "title": "Assembly Manual",
+     "end_time": 3282
+    },
+    {
+     "start_time": 3282,
+     "title": "Ldo Extrusions",
+     "end_time": 3346
+    },
+    {
+     "start_time": 3346,
+     "title": "Assembling a Frame",
+     "end_time": 4452
+    },
+    {
+     "start_time": 4452,
+     "title": "Rear Extrusion",
+     "end_time": 5287
+    },
+    {
+     "start_time": 5287,
+     "title": "T-Nut Positions",
+     "end_time": 6021
+    },
+    {
+     "start_time": 6021,
+     "title": "Concentric Cable Twisting",
+     "end_time": 6351
+    },
+    {
+     "start_time": 6351,
+     "title": "Bottom Panel Clips",
+     "end_time": 7513
+    },
+    {
+     "start_time": 7513,
+     "title": "Fastener Sorting",
+     "end_time": 8635
+    },
+    {
+     "start_time": 8635,
+     "title": "How Often Do You Re-Grease Your Rails",
+     "end_time": 9172
+    },
+    {
+     "start_time": 9172,
+     "title": "Printed Parts",
+     "end_time": 11071
+    },
+    {
+     "start_time": 11071,
+     "title": "Beard Oil",
+     "end_time": 11314
+    },
+    {
+     "start_time": 11314,
+     "title": "Assemble the Z Drives",
+     "end_time": 11505
+    },
+    {
+     "start_time": 11505,
+     "title": "Heat Set Inserts",
+     "end_time": 13591
+    },
+    {
+     "start_time": 13591,
+     "title": "Xy Tensioners",
+     "end_time": 14196
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 38761,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "2U0YahE8w_0",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 2)",
+   "duration": 6272,
+   "upload_date": "20211221",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=2U0YahE8w_0",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.\n\nIn this part we:\nInstalled the deck panel and DIN rails.\nFinished assembling the Z drive units and installed them on the frame.",
+   "chapters": null,
+   "license": null,
+   "availability": "public",
+   "view_count": 13502,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "ii14-2COjuA",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 3)",
+   "duration": 6994,
+   "upload_date": "20211222",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=ii14-2COjuA",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 192,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 192,
+     "title": "Final Product",
+     "end_time": 2153
+    },
+    {
+     "start_time": 2153,
+     "title": "Custom Pcb",
+     "end_time": 3249
+    },
+    {
+     "start_time": 3249,
+     "title": "Pros and Cons of the Stealth Burner versus Afterburner",
+     "end_time": 3394
+    },
+    {
+     "start_time": 3394,
+     "title": "Gantry",
+     "end_time": 3540
+    },
+    {
+     "start_time": 3540,
+     "title": "Bearings",
+     "end_time": 3656
+    },
+    {
+     "start_time": 3656,
+     "title": "The Front Idlers",
+     "end_time": 3929
+    },
+    {
+     "start_time": 3929,
+     "title": "Bearing Stacks",
+     "end_time": 4683
+    },
+    {
+     "start_time": 4683,
+     "title": "B Drive",
+     "end_time": 4763
+    },
+    {
+     "start_time": 4763,
+     "title": "Build the Gantry",
+     "end_time": 5790
+    },
+    {
+     "start_time": 5790,
+     "title": "Reinstallation",
+     "end_time": 6209
+    },
+    {
+     "start_time": 6209,
+     "title": "Cable Chain",
+     "end_time": 6312
+    },
+    {
+     "start_time": 6312,
+     "title": "Cable Bridge",
+     "end_time": 6994
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 11541,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "ViB5Ulc9zDI",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 4)",
+   "duration": 6984,
+   "upload_date": "20211223",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=ViB5Ulc9zDI",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.\n\nI decided to go ahead with this stream, just an hour earlier than normal.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 453,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 453,
+     "title": "How Do You Level a Bed on a Kingroom 3d Printer",
+     "end_time": 761
+    },
+    {
+     "start_time": 761,
+     "title": "Z-Belt Clamps",
+     "end_time": 1838
+    },
+    {
+     "start_time": 1838,
+     "title": "How Do You Sign Up for Joel's Holiday Giveaway",
+     "end_time": 2089
+    },
+    {
+     "start_time": 2089,
+     "title": "Flush Install the Front Rails to the Extrusions",
+     "end_time": 3352
+    },
+    {
+     "start_time": 3352,
+     "title": "Z Joints",
+     "end_time": 5241
+    },
+    {
+     "start_time": 5241,
+     "title": "Rail Stops",
+     "end_time": 6230
+    },
+    {
+     "start_time": 6230,
+     "title": "Cable Chain Mount",
+     "end_time": 6984
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 13842,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "hTKCBrk36R0",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 5)",
+   "duration": 19876,
+   "upload_date": "20211226",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=hTKCBrk36R0",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 160,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 160,
+     "title": "Updates",
+     "end_time": 785
+    },
+    {
+     "start_time": 785,
+     "title": "Official Release Date for the Ldo 2 4 V2 Kit",
+     "end_time": 995
+    },
+    {
+     "start_time": 995,
+     "title": "Worldwide Distributor List",
+     "end_time": 1169
+    },
+    {
+     "start_time": 1169,
+     "title": "Color Scheme",
+     "end_time": 3796
+    },
+    {
+     "start_time": 3796,
+     "title": "Check Your Z Belt Routing",
+     "end_time": 4361
+    },
+    {
+     "start_time": 4361,
+     "title": "Pulley Alignment Jig",
+     "end_time": 4768
+    },
+    {
+     "start_time": 4768,
+     "title": "Xy Joints",
+     "end_time": 4827
+    },
+    {
+     "start_time": 4827,
+     "title": "Front Idlers",
+     "end_time": 5580
+    },
+    {
+     "start_time": 5580,
+     "title": "Extruder Stepper",
+     "end_time": 6323
+    },
+    {
+     "start_time": 6323,
+     "title": "Idler Bearings",
+     "end_time": 6764
+    },
+    {
+     "start_time": 6764,
+     "title": "Custom Tensioner Thumb Screw",
+     "end_time": 7212
+    },
+    {
+     "start_time": 7212,
+     "title": "Assemble the the Hot End",
+     "end_time": 8531
+    },
+    {
+     "start_time": 8531,
+     "title": "Fan",
+     "end_time": 10027
+    },
+    {
+     "start_time": 10027,
+     "title": "Din Rails Covers",
+     "end_time": 11232
+    },
+    {
+     "start_time": 11232,
+     "title": "Assembling the Afterburner",
+     "end_time": 11826
+    },
+    {
+     "start_time": 11826,
+     "title": "Hot End Fan",
+     "end_time": 13101
+    },
+    {
+     "start_time": 13101,
+     "title": "Wire Cover",
+     "end_time": 19876
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 19979,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "8pWoYkY1DiA",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 6)",
+   "duration": 6606,
+   "upload_date": "20211228",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=8pWoYkY1DiA",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 70,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 70,
+     "title": "Tensioning the Belts",
+     "end_time": 1117
+    },
+    {
+     "start_time": 1117,
+     "title": "What's Your Go-To Print When You Need To Get a Print Done Fast",
+     "end_time": 1204
+    },
+    {
+     "start_time": 1204,
+     "title": "Parts",
+     "end_time": 1215
+    },
+    {
+     "start_time": 1215,
+     "title": "Comparison Parts",
+     "end_time": 1448
+    },
+    {
+     "start_time": 1448,
+     "title": "Wiring",
+     "end_time": 1477
+    },
+    {
+     "start_time": 1477,
+     "title": "Main Wiring Harness",
+     "end_time": 1513
+    },
+    {
+     "start_time": 1513,
+     "title": "Wiring Harness",
+     "end_time": 1544
+    },
+    {
+     "start_time": 1544,
+     "title": "Xy Chains",
+     "end_time": 2825
+    },
+    {
+     "start_time": 2825,
+     "title": "How To Find Your Max Print Speed off the Acceleration Test",
+     "end_time": 4092
+    },
+    {
+     "start_time": 4092,
+     "title": "What I Think about the Kit So Far",
+     "end_time": 4341
+    },
+    {
+     "start_time": 4341,
+     "title": "Stepper Wires",
+     "end_time": 5445
+    },
+    {
+     "start_time": 5445,
+     "title": "End Stops on the Z Rails",
+     "end_time": 6141
+    },
+    {
+     "start_time": 6141,
+     "title": "Rear Deck Accent Parts",
+     "end_time": 6392
+    },
+    {
+     "start_time": 6392,
+     "title": "Plans for this Week",
+     "end_time": 6606
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 12885,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "eHo0k2wQsJw",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 7)",
+   "duration": 6944,
+   "upload_date": "20211230",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=eHo0k2wQsJw",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 216,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 216,
+     "title": "Update",
+     "end_time": 308
+    },
+    {
+     "start_time": 308,
+     "title": "Electronics Bay",
+     "end_time": 516
+    },
+    {
+     "start_time": 516,
+     "title": "Led Wiring",
+     "end_time": 540
+    },
+    {
+     "start_time": 540,
+     "title": "Wiring of the Power Outlet",
+     "end_time": 1467
+    },
+    {
+     "start_time": 1467,
+     "title": "Mounts",
+     "end_time": 1729
+    },
+    {
+     "start_time": 1729,
+     "title": "Wiring",
+     "end_time": 1866
+    },
+    {
+     "start_time": 1866,
+     "title": "Guitar Amplifiers Base Plates",
+     "end_time": 1916
+    },
+    {
+     "start_time": 1916,
+     "title": "Final Layout",
+     "end_time": 2154
+    },
+    {
+     "start_time": 2154,
+     "title": "Electronics Bay Companion Board for the Main Wiring Harness",
+     "end_time": 3896
+    },
+    {
+     "start_time": 3896,
+     "title": "Electronics Compartment",
+     "end_time": 4240
+    },
+    {
+     "start_time": 4240,
+     "title": "Raspberry Pi Heatsink",
+     "end_time": 4503
+    },
+    {
+     "start_time": 4503,
+     "title": "What's Your Primary Focus for Voron Design",
+     "end_time": 4728
+    },
+    {
+     "start_time": 4728,
+     "title": "Is It Less Expensive To Source Everything versus Buying a Kit",
+     "end_time": 4951
+    },
+    {
+     "start_time": 4951,
+     "title": "Cooling Fan for the Camera Internals",
+     "end_time": 6944
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 12867,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "Q3Q1szaFfSE",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 8)",
+   "duration": 10264,
+   "upload_date": "20220102",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=Q3Q1szaFfSE",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 203,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 203,
+     "title": "Update on When the Kit Will Launch",
+     "end_time": 1168
+    },
+    {
+     "start_time": 1168,
+     "title": "Does the Audio Kit Include All the Parts Needed for Input Shaper",
+     "end_time": 1211
+    },
+    {
+     "start_time": 1211,
+     "title": "Do You Put Your Abs Parts off the Build Plate As Soon as They Finish or Do You Wait until the Build",
+     "end_time": 1862
+    },
+    {
+     "start_time": 1862,
+     "title": "24 Volt Power Supply",
+     "end_time": 2514
+    },
+    {
+     "start_time": 2514,
+     "title": "Power Supplies",
+     "end_time": 3186
+    },
+    {
+     "start_time": 3186,
+     "title": "Bed Wiring",
+     "end_time": 5403
+    },
+    {
+     "start_time": 5403,
+     "title": "Ssr Wiring",
+     "end_time": 5681
+    },
+    {
+     "start_time": 5681,
+     "title": "Tool Head Breakout Cables",
+     "end_time": 5777
+    },
+    {
+     "start_time": 5777,
+     "title": "Is ldo Planning on Selling those Breakout Boards Individually",
+     "end_time": 5842
+    },
+    {
+     "start_time": 5842,
+     "title": "Ground Wire",
+     "end_time": 6225
+    },
+    {
+     "start_time": 6225,
+     "title": "Probes",
+     "end_time": 6236
+    },
+    {
+     "start_time": 6236,
+     "title": "Z Probe",
+     "end_time": 6815
+    },
+    {
+     "start_time": 6815,
+     "title": "Filter Fan",
+     "end_time": 6861
+    },
+    {
+     "start_time": 6861,
+     "title": "Raspberry Pi Power",
+     "end_time": 8968
+    },
+    {
+     "start_time": 8968,
+     "title": "Set Up for Wi-Fi",
+     "end_time": 9200
+    },
+    {
+     "start_time": 9200,
+     "title": "Sd Card",
+     "end_time": 10264
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 16976,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "dmNwxUm4oik",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Part 9)",
+   "duration": 24760,
+   "upload_date": "20220110",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=dmNwxUm4oik",
+   "description": "Continuing the build of the upcoming LDO Voron 2.4 kit with the goal of providing feedback to LDO.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 297,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 297,
+     "title": "Install the Leds",
+     "end_time": 310
+    },
+    {
+     "start_time": 310,
+     "title": "Leds Installed",
+     "end_time": 436
+    },
+    {
+     "start_time": 436,
+     "title": "Breakout Board",
+     "end_time": 518
+    },
+    {
+     "start_time": 518,
+     "title": "Routing the Led Strips",
+     "end_time": 1052
+    },
+    {
+     "start_time": 1052,
+     "title": "Revamping My Home Network",
+     "end_time": 2719
+    },
+    {
+     "start_time": 2719,
+     "title": "Led Strip",
+     "end_time": 2876
+    },
+    {
+     "start_time": 2876,
+     "title": "Cable Trunking",
+     "end_time": 3320
+    },
+    {
+     "start_time": 3320,
+     "title": "When Did You Get into 3d Printing",
+     "end_time": 3643
+    },
+    {
+     "start_time": 3643,
+     "title": "Set Up the Firmware for the Octopus",
+     "end_time": 3913
+    },
+    {
+     "start_time": 3913,
+     "title": "Install Winscp",
+     "end_time": 4948
+    },
+    {
+     "start_time": 4948,
+     "title": "Z Settings",
+     "end_time": 5152
+    },
+    {
+     "start_time": 5152,
+     "title": "Euclid Probe",
+     "end_time": 5738
+    },
+    {
+     "start_time": 5738,
+     "title": "The Timber Chamber Temperature Sensor",
+     "end_time": 5785
+    },
+    {
+     "start_time": 5785,
+     "title": "What Is the Best Placement for the Chamber Temp Sensor Not on the Pcb",
+     "end_time": 5973
+    },
+    {
+     "start_time": 5973,
+     "title": "Stepper Buzz",
+     "end_time": 6646
+    },
+    {
+     "start_time": 6646,
+     "title": "Pid Calibrate",
+     "end_time": 6669
+    },
+    {
+     "start_time": 6669,
+     "title": "Abs Printing",
+     "end_time": 9312
+    },
+    {
+     "start_time": 9312,
+     "title": "Do You Recommend To Install Motor Vibration Shockers and Heat Dissipators to the X and Y Motors",
+     "end_time": 9674
+    },
+    {
+     "start_time": 9674,
+     "title": "Printer Config",
+     "end_time": 10429
+    },
+    {
+     "start_time": 10429,
+     "title": "Rear Panel",
+     "end_time": 10467
+    },
+    {
+     "start_time": 10467,
+     "title": "Back Panel",
+     "end_time": 11095
+    },
+    {
+     "start_time": 11095,
+     "title": "Spool Holder",
+     "end_time": 11732
+    },
+    {
+     "start_time": 11732,
+     "title": "Top Panel",
+     "end_time": 11799
+    },
+    {
+     "start_time": 11799,
+     "title": "Trident Gantry",
+     "end_time": 12096
+    },
+    {
+     "start_time": 12096,
+     "title": "Side Panels",
+     "end_time": 13840
+    },
+    {
+     "start_time": 13840,
+     "title": "Panel Clips",
+     "end_time": 14193
+    },
+    {
+     "start_time": 14193,
+     "title": "Any Updates on the 3d Printed Buggy",
+     "end_time": 15491
+    },
+    {
+     "start_time": 15491,
+     "title": "Door Hinges",
+     "end_time": 24760
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 25998,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "0aPi1rBwDC0",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (Extras!)",
+   "duration": 15658,
+   "upload_date": "20220116",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=0aPi1rBwDC0",
+   "description": "Now that the build is complete we're going to install some of the extra stuff the kit came with.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 397,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 397,
+     "title": "How To Run the Wire for the Rear Exhaust Fan and the Logitech C920",
+     "end_time": 489
+    },
+    {
+     "start_time": 489,
+     "title": "Handles",
+     "end_time": 511
+    },
+    {
+     "start_time": 511,
+     "title": "Die-Cast Aluminum Handles",
+     "end_time": 780
+    },
+    {
+     "start_time": 780,
+     "title": "Bottom Panel",
+     "end_time": 845
+    },
+    {
+     "start_time": 845,
+     "title": "Firmware Settings",
+     "end_time": 1250
+    },
+    {
+     "start_time": 1250,
+     "title": "Update the Mcu",
+     "end_time": 1281
+    },
+    {
+     "start_time": 1281,
+     "title": "Updating the the Mcu",
+     "end_time": 2381
+    },
+    {
+     "start_time": 2381,
+     "title": "Input Shaper Toolkit",
+     "end_time": 2730
+    },
+    {
+     "start_time": 2730,
+     "title": "Build the Micro Controller Code",
+     "end_time": 2903
+    },
+    {
+     "start_time": 2903,
+     "title": "Printer Config",
+     "end_time": 3108
+    },
+    {
+     "start_time": 3108,
+     "title": "Raspberry Pi Sample Config",
+     "end_time": 3930
+    },
+    {
+     "start_time": 3930,
+     "title": "Adxl Sensor",
+     "end_time": 4013
+    },
+    {
+     "start_time": 4013,
+     "title": "Connect the Ribbon Cable",
+     "end_time": 4559
+    },
+    {
+     "start_time": 4559,
+     "title": "Measure the Axis Noise",
+     "end_time": 4606
+    },
+    {
+     "start_time": 4606,
+     "title": "Measurements",
+     "end_time": 5115
+    },
+    {
+     "start_time": 5115,
+     "title": "Software Installation",
+     "end_time": 5293
+    },
+    {
+     "start_time": 5293,
+     "title": "How Do I Install Pip 3",
+     "end_time": 5838
+    },
+    {
+     "start_time": 5838,
+     "title": "Filament Stash",
+     "end_time": 7484
+    },
+    {
+     "start_time": 7484,
+     "title": "Filter Parts",
+     "end_time": 7553
+    },
+    {
+     "start_time": 7553,
+     "title": "Documentation",
+     "end_time": 9982
+    },
+    {
+     "start_time": 9982,
+     "title": "Wiring",
+     "end_time": 10935
+    },
+    {
+     "start_time": 10935,
+     "title": "Magnets",
+     "end_time": 11305
+    },
+    {
+     "start_time": 11305,
+     "title": "Custom Brackets",
+     "end_time": 12335
+    },
+    {
+     "start_time": 12335,
+     "title": "Recommended Intervals",
+     "end_time": 15658
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 12611,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  },
+  {
+   "id": "D_44fDp9xt8",
+   "title": "LDO Voron 2.4 Kit Hangout and Build (More Extras!)",
+   "duration": 15580,
+   "upload_date": "20220123",
+   "channel": "Steve Builds",
+   "channel_id": "UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "channel_url": "https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw",
+   "uploader": "Steve Builds",
+   "webpage_url": "https://www.youtube.com/watch?v=D_44fDp9xt8",
+   "description": "Final build in the series (for now).  Finishing up the extras that came with the kit (Klicky parts) and also installing a Stealthburner fan setup.",
+   "chapters": [
+    {
+     "start_time": 0,
+     "end_time": 176,
+     "title": "<Untitled Chapter 1>"
+    },
+    {
+     "start_time": 176,
+     "title": "Camera Setup",
+     "end_time": 1547
+    },
+    {
+     "start_time": 1547,
+     "title": "Assemble the Probe",
+     "end_time": 1916
+    },
+    {
+     "start_time": 1916,
+     "title": "Assembly Guide",
+     "end_time": 2581
+    },
+    {
+     "start_time": 2581,
+     "title": "Continuity Testing",
+     "end_time": 2769
+    },
+    {
+     "start_time": 2769,
+     "title": "Led Harness",
+     "end_time": 3151
+    },
+    {
+     "start_time": 3151,
+     "title": "Garage Door Installation",
+     "end_time": 4831
+    },
+    {
+     "start_time": 4831,
+     "title": "Front Cover",
+     "end_time": 5671
+    },
+    {
+     "start_time": 5671,
+     "title": "Thoughts on Kinematic Bed Kits",
+     "end_time": 7160
+    },
+    {
+     "start_time": 7160,
+     "title": "Wiring",
+     "end_time": 8500
+    },
+    {
+     "start_time": 8500,
+     "title": "Installing the Wires",
+     "end_time": 11429
+    },
+    {
+     "start_time": 11429,
+     "title": "Clipper Configuration",
+     "end_time": 12030
+    },
+    {
+     "start_time": 12030,
+     "title": "Firmware Restart",
+     "end_time": 12294
+    },
+    {
+     "start_time": 12294,
+     "title": "Variable Dock Location",
+     "end_time": 13445
+    },
+    {
+     "start_time": 13445,
+     "title": "Z Calibration",
+     "end_time": 13656
+    },
+    {
+     "start_time": 13656,
+     "title": "Easy Calibration",
+     "end_time": 13929
+    },
+    {
+     "start_time": 13929,
+     "title": "Color Z Calibration",
+     "end_time": 14340
+    },
+    {
+     "start_time": 14340,
+     "title": "Install Instructions",
+     "end_time": 14947
+    },
+    {
+     "start_time": 14947,
+     "title": "Z Calibrate",
+     "end_time": 15404
+    },
+    {
+     "start_time": 15404,
+     "title": "Workbench",
+     "end_time": 15580
+    }
+   ],
+   "license": null,
+   "availability": "public",
+   "view_count": 14840,
+   "subtitles": [
+    "live_chat"
+   ],
+   "automatic_captions_en": [
+    "en-orig",
+    "en"
+   ]
+  }
+ ]
+}
