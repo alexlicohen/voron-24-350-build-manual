@@ -39,6 +39,9 @@ the kit's own 153 inserts stay untouched.
   B08–B10. **Gate B** (`Heatset_Practice` with real inserts and a caliper across `z_drive_retainer_a`'s
   625-2RS pocket now; the bearing press and `MGN12_rail_guide` on a real rail on kit day) is Step B00.7 and
   releases B01 and B03–B06.
+- **A failed gate means reprints, and a reprint is marked**: the new plate id with an **R** after it and
+  the changed extrusion multiplier, on a hidden face, per [README § Bins](README.md#bins). Gate A and Gate B
+  are the two places this build expects to reprint, so it is where the habit starts.
 - Most commonly reprinted here: the cube, until the profile is right.
 - `z_drive_retainer_a` on this plate is deliberate — it's your bearing-press-fit coupon **and** one of the two
   you need for B01, so nothing is wasted.
@@ -58,7 +61,7 @@ earlier.
 - [ ] GT1.5 belts fitted and tuned (Control → Calibrations & Tests → Belt Tuning)
 - [ ] Gantry re-squared
 - [ ] Self-test passed
-- [ ] Input shaper calibration passed
+- [ ] Input shaper: the Edition switch loads the Gen 2 defaults; no calibration without the optional accelerometer
 - [ ] Printer box reads `Prusa CORE One HF0.4 nozzle (modified)` after opening a plate
 
 Then Step B00.0. If the upgrade kit has still not arrived by **2026-10-15**, take the contingency instead:
@@ -167,8 +170,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Do:**
 
 1. Sort every part into its bin off the diagram above.
-2. Bag the three **Gate B coupons** at the front of 00-jigs: `GATE B — bore and inserts now, rail on kit day`.
-3. After Gate B the retainer moves to **02-Z0**; the cube stays as the reference coupon.
+2. Mark plate id and date on a hidden face.
+3. Bag the three **Gate B coupons** at the front of 00-jigs: `GATE B — bore and inserts now, rail on kit day`.
 
 **B00-P1** — bin labels print from the [bin-labels sheet](../../print/bin-labels.md).
 
@@ -178,6 +181,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_drive_retainer_a` |
 
 **Check:** Bins 00-jigs and 02-Z0 are labelled, every part off this plate is in one of them, and the Gate B bag is closed.
+
+Tip: after Gate B the retainer moves to **02-Z0**; the cube stays as the reference coupon.
 
 Pause: ~10 min since the last pause — plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.
 

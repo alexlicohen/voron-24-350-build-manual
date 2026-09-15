@@ -193,7 +193,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B09.13 — Sort into bins
 
-**Do:** Sort off each plate diagram; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). Keep the 4 mm and 6 mm clips in separate bins, each noted "test one on kit day before use".
+**Do:** Sort off each plate diagram; the printed bin id names the bin. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). Keep the 4 mm and 6 mm clips in separate bins.
 
 **B09-P1**
 
@@ -229,6 +229,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
 
 **Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+
+Tip: mark both clip bins "test one on kit day before use" — the 4 mm and 6 mm clips look alike off the plate.
 
 
 Pause: ~15 min since the last pause — all five plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.

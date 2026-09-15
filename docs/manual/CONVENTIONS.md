@@ -158,6 +158,31 @@ backticks. `(no image — …)` renders as a neutral placeholder. Every relative
 for the new depth; `chapter.md#step-…` retargets that step's page and a bare `chapter.md`
 retargets that chapter's overview.
 
+**Gather for this segment** (added 2026-09-14, after Prusa's kit guide, which spends ~39 % of
+its steps on staging parts). **Generated — never hand-write a gather list in a chapter.** A
+*segment* is the run of steps from the step after a `Pause:` line (or the chapter's first step)
+through the next step that carries one; the trailing run after the last `Pause:` is a segment too.
+For each segment the generator sums every `**Parts:**` item across its steps and renders it twice:
+
+- on the segment's **first step page**, as a collapsed `??? note` titled
+  `Gather for this segment — steps 02.05–02.08 (~25 min)`, placed after the **Do:** block and
+  before that step's own **Parts:** list — hardware first, then printed parts, one item per line
+  with the summed count;
+- on the **chapter overview**, as one line per segment under the step grid ("Gather per session"),
+  so a session can be laid out before it starts.
+
+Minutes come from the closing `Pause:` line and are omitted where it carries none. Counts are read
+from `×N` / `N×` / `xN` / `(N)`; an item with no count counts as 1 and prints without a quantity; a
+`×` inside a dimension (`M3×8`, `Ø4.7 × 5 mm`) or inside a `code span` (`z_rail_stop_x4`) is never a
+count. Items merge case- and whitespace-insensitively, so the same fastener named twice in a
+segment shows one summed line. An item is a *printed part* when it names an STL in backticks that
+`assets/parts/MANIFEST.csv` knows, and then carries `— from bin NN` from that manifest's `bin`
+column (a bin id written into the Parts text is honoured too). A Parts item the count parser cannot
+read is listed **verbatim** rather than dropped, and named in the build log
+(`mkdocs build` INFO, or the `warn:` lines from `python3 scripts/build_steps.py`) so the chapter can
+be tightened. A segment with nothing to gather gets no block on the step page and a
+"nothing to lay out" line on the overview.
+
 **Chapter progress figure.** Where `docs/manual/assets/cad/ch-NN-after.png` exists — one
 cumulative "state at the end of this chapter" CAD render per assembly chapter, built by
 `scripts/cad_render/render_steps.py --chapters` from the `chapters:` list in

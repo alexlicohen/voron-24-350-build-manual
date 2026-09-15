@@ -169,7 +169,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Do:**
 
 1. Sort each plate off its diagram: the number on a part is its legend number, the colour its bin.
-2. Write the bin id on the inside face of every `_a` / `_b` part as it comes off the plate.
+2. Write bin id, plate id and date on the inside face of every `_a` / `_b` part.
 
 **B02-P1**
 

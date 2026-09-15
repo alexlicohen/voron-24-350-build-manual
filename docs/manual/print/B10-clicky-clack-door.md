@@ -103,7 +103,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B10.6 — Sort into bins
 
-**Do:** Sort off the plate diagram: part number, fill colour and printed bin id all name the bin. Print labels from the [bin-labels sheet](../../print/bin-labels.md); bins listed in [README § Bins](README.md#bins). The six black parts join the blue `Handle` in **11-door**.
+**Do:** Sort off the plate diagram: number to legend, colour to bin, bin id on the part. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). The six black parts join the blue `Handle` in **11-door**.
 
 **B10-P1**
 

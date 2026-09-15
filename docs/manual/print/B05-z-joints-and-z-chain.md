@@ -73,7 +73,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B05.5 — Sort into bins
 
-**Do:** Sort off the plate diagram: part number matches the legend, fill colour is the bin, bin id is printed on the part. Bins: [README § Bins](README.md#bins); labels: [bin-labels sheet](../../print/bin-labels.md). The chain anchor and guide go to **10-chains**, not 06-Z-joints.
+**Do:** Sort off the plate diagram: number to legend, colour to bin, bin id on the part. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). The chain anchor and guide go to **10-chains**, not 06-Z-joints.
 
 **B05-P1**
 

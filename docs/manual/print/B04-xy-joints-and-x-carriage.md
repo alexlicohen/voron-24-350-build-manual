@@ -86,7 +86,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B04.6 — Sort into bins
 
-**Do:** Sort off the plate diagram: part number matches the legend, fill colour is the bin, bin id is printed on the part. Bins: [README § Bins](README.md#bins); labels: [bin-labels sheet](../../print/bin-labels.md). Keep `probe_retainer_bracket` loose until the Omron barrel diameter is confirmed.
+**Do:** Sort off the plate diagram: number to legend, colour to bin, bin id on the part. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). Keep `probe_retainer_bracket` loose until the Omron barrel diameter is confirmed.
 
 **B04-P1**
 

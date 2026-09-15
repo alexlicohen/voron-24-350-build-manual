@@ -27,6 +27,7 @@ Every term this manual uses without stopping to explain it, with the chapter or 
 | `nhk:` | Klipper pin prefix for the **toolboard** MCU (`[mcu nhk]`). A `nhk:` pin is on the Nitehawk, not the Leviathan | [12.21](12-software.md#step-1221-download-the-correct-config-file) |
 | `!` (leading, on a pin) | Klipper's invert marker. On an endstop it is almost always the wrong fix — stock Voron endstops are normally-closed to ground | [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released) |
 | `OL` | Multimeter display for **open / over-range** — no measurable path. The expected reading for L-to-PE, bed-to-plate and any 24 V node to earth | [10.13](10-wiring.md#step-1013-measure-the-bed-heater-before-you-connect-it) |
+| **Plate mark** | The plate id and the date, written in paint marker on a non-visible face of every part as it is sorted. A reprint adds `R` and the extrusion multiplier if it changed | [print/README § Bins](print/README.md#bins) |
 | `(verify on bench)` | This manual's marker for a count, torque or dimension **no source publishes**. Measure it yourself; never invent it | [CONVENTIONS](CONVENTIONS.md) |
 | `Source:` | The line closing every step, linking the exact page or guide section that step was transcribed from | [CONVENTIONS](CONVENTIONS.md) |
 | `Pause:` | A safe stopping point, with the minutes since the last one and the state you leave the machine in | [CONVENTIONS](CONVENTIONS.md) |
@@ -90,6 +91,7 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 | **DIN rail** | The standard 35 mm steel mounting rail. This bay has two, running **left to right** across both bed extrusions, as manual p.29 and LDO both draw them | [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) |
 | **Drag chain** | The articulated plastic chain carrying cables to a moving part. Three here: X, Y and Z. Cables inside must stay **loose** | [10.59](10-wiring.md#step-1059-fit-the-x-drag-chain) |
 | **Drying** | Heating filament to drive out absorbed moisture. ASA needs it only if the spool has been open a while or shows bubbling | [print/00-slicer-setup — Drying](print/00-slicer-setup.md#drying) |
+| **DSI ribbon** | Display Serial Interface — the flat cable from the Raspberry Pi to the touchscreen. The Pi's own display port, not USB, and it latches at both ends | [10 — Wiring](10-wiring.md) |
 
 Source: [Ch 02 Step 02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness) · [Ch 12 Step 12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) · [Ch 09 Step 09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) · [Ch 10 Step 10.59](10-wiring.md#step-1059-fit-the-x-drag-chain)
 
@@ -102,7 +104,7 @@ Source: [Ch 02 Step 02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-c
 | **Elephant foot** | The first layer coming out wider than the rest, from squish plus heat. Corrected with the slicer's compensation, in 0.05 mm steps — first on the Core One+ (Gate A's first-layer-vs-mid-height check), again on the Voron | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides); [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
 | **E-RV** | The hotend code embossed on both Stealthburner printhead halves for **E3D Revo Voron**. Read it before you build — it decides which printhead folder you slice | [08.1](08-toolhead.md#step-081-sort-the-printed-parts-and-confirm-the-hotend-code) |
 | **ESD ground** | The Rev D+ bonding path from the extruder motor body to the toolboard, exposed by the V2 partial USB-adapter cover | [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path) |
-| **Extrusion multiplier (EM) / flow** | The slicer's scaling of how much plastic is extruded. The correct lever for an oversize part — **not** XY size compensation | [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
+| **Extrusion multiplier / flow** | The slicer's scaling of how much plastic is extruded. The correct lever for an oversize part — **not** XY size compensation | [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
 
 Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) · [Ch 08 Step 08.1](08-toolhead.md#step-081-sort-the-printed-parts-and-confirm-the-hotend-code) · [Ch 10 Step 10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path)
 
@@ -115,6 +117,7 @@ Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against
 | **F695** | Flanged bearing, 5 × 13 × 4 mm — A/B drives, front idlers, XY joints. Twenty in the kit | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **625-2RS** | Plain bearing, 5 × 16 × 5 mm — **Z drives only**. Same 5 mm bore as an F695, so sorting by bore does not work | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **Ferrule** | A crimped metal sleeve on a stranded wire end so a **screw** terminal clamps a solid tube instead of loose strands. The kit ships VE0508 | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
+| **FFC** | Flat Flexible Cable — a thin ribbon with bare contacts at each end, held by a latch in each socket. Half-latched is the usual failure | [10 — Wiring](10-wiring.md) |
 | **FHCS** | Flat Head Cap Screw — countersunk cone head, flat top. The titanium backers use them, and they cam out easily in a countersink | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Flex plate** | The removable spring-steel print surface that sits on the magnetic pad. Smooth/satin side for ASA on this build | [03.20](03-build-plate.md#step-0320-fit-the-flex-plate-then-cover-the-bed) |
 | **Flip-and-pack** | LDO's rail-greasing method: carriage down, grease forced through a mounting hole until it oozes past the bearings. Needs the **back** of the rail, so it only works before installation | [00.19](00-before-you-start.md#step-0019-flip-and-pack) |
@@ -159,6 +162,7 @@ Source: [Ch 00 Steps 00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-a
 | **Idler** | A toothed or plain pulley that redirects a belt without driving it. F695 stacks in the A/B path, 20T idlers at the XY joints, extendable idlers on Z | [04.7](04-ab-drives.md#step-047-a-idler-build-the-bearing-stack) |
 | **Inductive probe** | The Omron sensor that detects the metal bed for QGL only. It never sets Z=0 — the nozzle probe does | [07.35](07-ab-belts.md#step-0735-fit-the-probe-and-its-retainer-bracket) |
 | **Input shaper** | Klipper's anti-ringing filter, fitted to the machine's measured resonance. Saving it does **not** set `max_accel`; that is a separate, mandatory edit | [14.13](14-calibration.md#step-1413-run-shaper_calibrate) |
+| **IPA** | Isopropyl alcohol — the degreaser used before grease, tape or a first layer. ≥ 90 % for the rail soak | [00 — Before you start](00-before-you-start.md) |
 
 Source: [Ch 09 Step 09.11](09-electronics-bay.md#step-0911-fit-the-combined-iec-inlet-module) · [Ch 07 Step 07.35](07-ab-belts.md#step-0735-fit-the-probe-and-its-retainer-bracket) · [Ch 14 Steps 14.13](14-calibration.md#step-1413-run-shaper_calibrate), [14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel)
 
@@ -251,6 +255,7 @@ Source: [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-me
 | **Precision spacer** | The brass M5 1 mm spacer the kit supplies wherever the manual says *M5 shim*. A controlled thickness, not a washer — 46 in the kit | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **Pressure advance** | Klipper's compensation for filament pressure lag in the nozzle, tuned from a printed pattern. Shifts when input shaping is switched on, so it comes after | [14.17](14-calibration.md#step-1417-generate-and-print-the-ellis-pa-pattern) |
 | **`PROBE_ACCURACY`** | Klipper's repeatability test for the probe. σ < 0.003 mm hot, with no trend, is the gate on QGL and everything downstream | [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream) |
+| **PTFE** | Polytetrafluoroethylene, the slippery white plastic. Here it is the tube cut to length inside the Revo, and the one lubricant a linear rail must never get | [02 — Z drives](02-z-drives.md) |
 | **Purge line** | The line of filament the printer lays along the front edge before every print to prime the nozzle. On a colour change it is where you look for the old colour still streaking | [B02.1](print/B02-accent-parts-orange.md#step-b021-filament-prep) |
 | **Pulley (16T / 20T / 80T)** | GT2 toothed pulleys. 16T on the Z motors, 20T everywhere else, 80T on the Z drive shafts — 16T and 20T look nearly identical and are not interchangeable | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 
@@ -336,6 +341,7 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 |---|---|---|
 | **VE0508** | The ferrule size the kit supplies for its mains screw terminals — 0.5 mm², 8 mm barrel | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
 | **VFA (vertical fine artifacts)** | Fine periodic vertical ripple, 0.5–2 mm apart, from belt-tooth engagement. Cosmetic only, and **not** the same thing as ringing | [print/00-slicer-setup — Gen 2 pause rule](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) |
+| **VHB** | Very High Bond — 3M's double-sided acrylic foam tape, supplied for the wire ducts and the bottom panel. Wants a degreased surface and an undisturbed cure | [09 — Electronics bay](09-electronics-bay.md) |
 | **Volumetric flow (mm³/s)** | Plastic through the nozzle per second — speed × width × layer height. These plates peak at 8 mm³/s against the HF profile's 26 mm³/s ceiling, so the high-flow nozzle changes temperature, not speed | [print/00-slicer-setup — Base profiles](print/00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) |
 | **Voron 2.4r2 Assembly Manual** | The official PDF this manual transcribes, unchanged since 2023-07-18. Cited throughout as `p.NN` | [00.29](00-before-you-start.md#step-0029-how-to-read-an-exploded-view-and-the-page-number-contract-p11) |
 | **Voron Stealthburner manual** | The separate official PDF for the toolhead, referenced by page through Ch 08 | [08 — Toolhead](08-toolhead.md) |
@@ -361,6 +367,7 @@ Source: [Ch 10 Steps 10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus
 | Term | What it is | First matters at |
 |---|---|---|
 | **X carriage** | The printed halves that clamp the MGN12 carriage, capture both belt ends, and carry the toolhead. The `V2TR` file is the correct one — it is shared with the Trident | [05.45](05-gantry.md#step-0545-stage-the-x-carriage-frame-halves) |
+| **XT30** | The keyed two-pin power connector. The toolhead uses the `XT30(2+2)` variant, carrying 24 V and the USB pair in one plug | [08 — Toolhead](08-toolhead.md) |
 | **XY endstop pod** | The small PCB carrying the X and Y switches, mounted on the gantry. Some LDO batches ship its cable mislabelled *X Stop / Y Stop* and it needs re-pinning | [10.31](10-wiring.md#step-1031-read-the-xy-endstop-cable-labels) |
 | **XY joint** | The printed block at each end of the X extrusion that ties it to a Y carriage and turns both belts. Left deliberately loose until the gantry is squared | [05.25](05-gantry.md#step-0525-seat-the-m5-nuts-in-both-xy-joints) |
 

@@ -121,6 +121,8 @@ class Chapter:
     sessions: str | None
     pages: list[Page] = field(default_factory=list)
     n_steps: int = 0
+    segments: list["Segment"] = field(default_factory=list)
+    gather: dict[str, list[str]] = field(default_factory=dict)
 
 
 def _split_blocks(text: str) -> list[Block]:
@@ -368,6 +370,9 @@ def _split_top_level(text: str, sep: str) -> list[str]:
 
 # stl stem -> part render, longest stem first so `Handle-Hinge_Top` wins over `Handle`.
 _PART_THUMBS: list[tuple[re.Pattern, Path]] = []
+# Same keys, mapped to the manifest's `bin` column, so the gather block can say
+# which bin a printed part is waiting in.
+_PART_BINS: list[tuple[re.Pattern, str]] = []
 _CODE_SPAN_RE = re.compile(r"`([^`]+)`")
 
 
@@ -375,19 +380,21 @@ def _load_part_thumbs() -> None:
     import csv
 
     _PART_THUMBS.clear()
+    _PART_BINS.clear()
     manifest = MANUAL / "assets" / "parts" / "MANIFEST.csv"
     if not manifest.exists():
         return
     rows: list[tuple[str, Path]] = []
+    bins: list[tuple[str, str]] = []
     seen: set[str] = set()
+    seen_bin: set[str] = set()
     with manifest.open(encoding="utf-8", newline="") as fh:
         for row in csv.DictReader(fh):
-            stl, png = (row.get("stl") or "").strip(), (row.get("png") or "").strip()
-            if not stl or not png:
+            stl = (row.get("stl") or "").strip()
+            png = (row.get("png") or "").strip()
+            if not stl:
                 continue
-            path = REPO / png
-            if not path.exists():
-                continue
+            path = REPO / png if png else None
             # Chapters name a part as the Voron repo does (`z_drive_main_a`);
             # the manifest keeps the LDO filename's `[a]_` colour prefix, its
             # `_x2` / `-2X` multiplicity suffix and any `(contributed_by_…)`
@@ -396,14 +403,23 @@ def _load_part_thumbs() -> None:
             keys |= {re.sub(r"\([^()]*\)$", "", k) for k in keys}
             keys |= {re.sub(r"(?:[-_][xX]\d+|-\d+[xX])$", "", k) for k in keys}
             keys |= {re.sub(r"^\[[a-z]\]_", "", k) for k in keys}
-            for key in sorted(keys, key=len, reverse=True):
-                if key and key not in seen:
+            ordered = sorted((k for k in keys if k), key=len, reverse=True)
+            for key in ordered:
+                if path is not None and path.exists() and key not in seen:
                     seen.add(key)
                     rows.append((key, path))
+                if key not in seen_bin:
+                    seen_bin.add(key)
+                    bins.append((key, (row.get("bin") or "").strip()))
     rows.sort(key=lambda r: -len(r[0]))
+    bins.sort(key=lambda r: -len(r[0]))
     _PART_THUMBS.extend(
         (re.compile(r"(?<![0-9A-Za-z_])%s(?![0-9A-Za-z_])" % re.escape(stem)), png)
         for stem, png in rows
+    )
+    _PART_BINS.extend(
+        (re.compile(r"(?<![0-9A-Za-z_])%s(?![0-9A-Za-z_])" % re.escape(stem)), bin_id)
+        for stem, bin_id in bins
     )
 
 
@@ -421,6 +437,27 @@ def _thumb_for(item: str, dest_dir: Path) -> str | None:
             if pattern.search(s):
                 return os.path.relpath(str(png), str(dest_dir)).replace("\\", "/")
     return None
+
+
+def _parts_items(line: str) -> list[str]:
+    """The items of a `**Parts:**` line, or [] when it lists nothing.
+
+    House separators are `;` then `·`; a comma list counts only when *every*
+    chunk carries its own count, so `door panels (PC clear, 241×503) ×2` stays
+    one item while `build plate ×1, magnetic pad ×1` becomes two.
+    """
+    body = _PARTS_RE.match(line).group(1).strip()
+    plain = _plain(body).strip().rstrip(".").lower()
+    if not body or plain in {"none", "—", "-", "n/a"}:
+        return []
+    items = _split_top_level(body, ";")
+    if len(items) == 1:
+        items = _split_top_level(body, "·")
+    if len(items) == 1:
+        commas = _split_top_level(body, ",")
+        if len(commas) > 1 and all(_count_of(c)[0] is not None for c in commas):
+            items = commas
+    return [i.strip().rstrip(".").strip() for i in items if i.strip()]
 
 
 def _parts_block(line: str, dest_dir: Path) -> list[str]:
@@ -677,6 +714,11 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     out += ['<div class="step-text" markdown="1">', ""]
     if do:
         out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
+    gather = chapter.gather.get(page.step_id or "")
+    if gather:
+        # Parts items may carry chapter-relative links; re-base them as the
+        # rest of the page's links already were.
+        out += rewrite_links(gather, chapter.path.parent, dest_dir, chapter.stem) + [""]
     if parts:
         out += _strip_edges(parts) + [""]
     if check:
@@ -692,6 +734,217 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     if source:
         out += _strip_edges(source)
     out += ["", "</div>", "", "</div>"]
+    return out
+
+
+# --------------------------------------------------------------------------
+# "Gather for this segment" — staging list per bench session
+# --------------------------------------------------------------------------
+#
+# A *segment* is the run of steps from the step after a `Pause:` line (or the
+# chapter's first step) through the next step that carries one.  Prusa's kit
+# guide spends ~39 % of its steps on staging parts; we get the same effect for
+# free by summing each segment's `**Parts:**` lines.  Nothing here is
+# hand-maintained: the chapters stay the single source.
+
+# Count forms, searched on the item with its `code spans` masked out so that
+# `z_rail_stop_x4` and `M3×8` are never read as quantities.
+_CNT_PREFIX_RE = re.compile(r"^\s*(\d+)\s*[×xX](?=\s)")
+# A suffix count is `… ×4`, never the `×` of a dimension: reject one whose left
+# neighbour is a digit (`Ø4.7 × 5 mm`) or whose number carries a unit.
+_CNT_SUFFIX_RE = re.compile(
+    r"(?<=\s)[×xX]\s*(\d+)(?![0-9A-Za-z])"
+    r"(?!\s*(?:mm|cm|µm|m\b|kg|g\b|h\b|min\b|°))"
+)
+_CNT_PAREN_RE = re.compile(r"(?<=\s)\((\d+)\)")
+_NONE_ITEM_RE = re.compile(r"^\s*none\b", re.IGNORECASE)
+_BIN_IN_TEXT_RE = re.compile(r"\bbins?\s+`?([0-9]{2}-[A-Za-z0-9-]+)`?")
+_PAUSE_MIN_RE = re.compile(r"^>?\s*Pause:\s*~?\s*(\d+)\s*min", re.IGNORECASE)
+_CODE_MASK_RE = re.compile("\x00(\\d+)\x00")
+
+# An item with no count that runs this long is prose, not a part; it is still
+# listed verbatim, but the build log names it so a chapter can be tightened.
+_UNPARSED_WORDS = 8
+
+PARSE_WARNINGS: list[str] = []
+
+
+def _mask_code(text: str) -> tuple[str, list[str]]:
+    spans: list[str] = []
+
+    def repl(m: re.Match) -> str:
+        spans.append(m.group(0))
+        return "\x00%d\x00" % (len(spans) - 1)
+
+    return _CODE_SPAN_RE.sub(repl, text), spans
+
+
+def _unmask_code(text: str, spans: list[str]) -> str:
+    return _CODE_MASK_RE.sub(lambda m: spans[int(m.group(1))], text)
+
+
+def _count_of(item: str) -> tuple[int | None, str]:
+    """(count, item without its count token). No count token -> (None, item)."""
+    masked, spans = _mask_code(item)
+    for rx in (_CNT_PREFIX_RE, _CNT_SUFFIX_RE, _CNT_PAREN_RE):
+        m = rx.search(masked)
+        if m and rx is _CNT_SUFFIX_RE and masked[:m.start()].rstrip()[-1:].isdigit():
+            m = None
+        if m:
+            rest = (masked[:m.start()] + " " + masked[m.end():])
+            rest = re.sub(r"\s+", " ", rest)
+            rest = re.sub(r"\s+([,;.)\]])", r"\1", rest)   # ` ,` left where the count was
+            rest = re.sub(r"([(\[])\s+", r"\1", rest)
+            rest = rest.strip(" ,;·").strip()
+            return int(m.group(1)), _unmask_code(rest, spans).strip()
+    return None, item.strip()
+
+
+def _printed_info(item: str) -> tuple[bool, list[str]]:
+    """(is a printed part, bins it lives in) for one Parts item."""
+    spans = _CODE_SPAN_RE.findall(item)
+    printed, bins = False, []
+    for span in spans:
+        if span.lower().endswith(".stl"):
+            printed = True
+        for pattern, bin_id in _PART_BINS:
+            if pattern.search(span):
+                printed = True
+                for one in bin_id.split(";"):
+                    one = one.strip()
+                    if one and one not in bins:
+                        bins.append(one)
+                break
+    for one in _BIN_IN_TEXT_RE.findall(item):
+        if one not in bins:
+            bins.append(one)
+    return printed, bins
+
+
+def _merge_key(name: str) -> str:
+    return re.sub(r"\s+", " ", _plain(name)).strip().strip(".,;").casefold()
+
+
+@dataclass
+class _Item:
+    display: str
+    count: int
+    explicit: bool = False      # a count was written in the chapter
+    bins: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Segment:
+    ids: list[str]                       # step ids, in order
+    minutes: int | None                  # from the closing Pause line
+    hardware: list[_Item] = field(default_factory=list)
+    printed: list[_Item] = field(default_factory=list)
+
+    @property
+    def first(self) -> str:
+        return self.ids[0]
+
+    @property
+    def label(self) -> str:
+        if len(self.ids) == 1:
+            return "step %s" % self.ids[0]
+        return "steps %s–%s" % (self.ids[0], self.ids[-1])
+
+    @property
+    def title(self) -> str:
+        mins = " (~%d min)" % self.minutes if self.minutes else ""
+        return "Gather for this segment — %s%s" % (self.label, mins)
+
+    def items(self) -> list[_Item]:
+        return self.hardware + self.printed
+
+
+def _collect(items: list[_Item], item: str, where: str) -> None:
+    if _NONE_ITEM_RE.match(_plain(item)):
+        return
+    count, name = _count_of(item)
+    if count is None and len(_plain(name).split()) > _UNPARSED_WORDS:
+        PARSE_WARNINGS.append("%s: unparsed Parts item, listed verbatim: %s" % (where, name))
+    key = _merge_key(name)
+    if not key:
+        return
+    printed, bins = _printed_info(name)
+    for existing in items:
+        if _merge_key(existing.display) == key:
+            existing.count += count if count is not None else 1
+            existing.explicit = existing.explicit or count is not None
+            for b in bins:
+                if b not in existing.bins:
+                    existing.bins.append(b)
+            return
+    items.append(_Item(display=name, count=count if count is not None else 1,
+                       explicit=count is not None, bins=list(bins)))
+
+
+def build_segments(chapter: Chapter) -> list[Segment]:
+    """Split the chapter's steps into Pause-delimited segments and sum their
+    Parts lines. Hardware keeps source order, printed parts follow."""
+    segments: list[Segment] = []
+    current: Segment | None = None
+    for page in chapter.pages:
+        if page.kind != "step" or not page.step_id:
+            continue
+        if current is None:
+            current = Segment(ids=[], minutes=None)
+        current.ids.append(page.step_id)
+        closing = None
+        for seg in _segments(page.body):
+            if seg.kind == "parts":
+                line = " ".join(l.strip() for l in seg.lines)
+                where = "%s Step %s" % (chapter.stem, page.step_id)
+                for item in _parts_items(line):
+                    printed, _ = _printed_info(item)
+                    _collect(current.printed if printed else current.hardware, item, where)
+            elif seg.kind == "pause":
+                closing = seg.lines[0]
+        if closing is not None:
+            m = _PAUSE_MIN_RE.match(closing)
+            current.minutes = int(m.group(1)) if m else None
+            segments.append(current)
+            current = None
+    if current is not None:
+        segments.append(current)
+    return segments
+
+
+def _item_line(item: _Item) -> str:
+    bins = ", ".join(item.bins)
+    count = " ×%d" % item.count if (item.explicit or item.count > 1) else ""
+    return "%s%s%s" % (item.display, count, (" — from bin %s" % bins) if bins else "")
+
+
+def gather_admonition(segment: Segment) -> list[str]:
+    """The collapsed block that opens a segment's first step page."""
+    if not segment.items():
+        return []
+    out = ['??? note "%s"' % segment.title, ""]
+    for label, items in (("Hardware", segment.hardware), ("Printed parts", segment.printed)):
+        if not items:
+            continue
+        out += ["    **%s**" % label, ""]
+        out += ["    - " + _item_line(i) for i in items]
+        out += [""]
+    return out[:-1] if out[-1] == "" else out
+
+
+def gather_overview(chapter: Chapter) -> list[str]:
+    """One line per segment for the chapter overview, under the step grid."""
+    if not chapter.segments:
+        return []
+    out = ['<div class="chapter-gather" markdown="1">', "",
+           "**Gather per session** — what to lay out before each bench segment.", ""]
+    for segment in chapter.segments:
+        mins = " · ~%d min" % segment.minutes if segment.minutes else ""
+        items = segment.items()
+        body = " · ".join(_item_line(i) for i in items) if items else "nothing to lay out"
+        label = segment.label[0].upper() + segment.label[1:]   # step ids keep their case
+        out.append("- **%s**%s — %s" % (label, mins, body))
+    out += ["", "</div>", ""]
     return out
 
 
@@ -929,6 +1182,8 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
         out += ["[%s](%s.md){ .step-card%s%s }" % (inner, page.slug, mod, data), ""]
     out += ["</div>", ""]
 
+    out += rewrite_links(gather_overview(chapter), src_dir, dest_dir, chapter.stem)
+
     nav = []
     if prev_ch:
         nav.append("[← %s](../%s/index.md)" % (html.escape(prev_ch.short), prev_ch.slug))
@@ -954,6 +1209,15 @@ def build() -> dict:
         chapter = parse_chapter(path)
         if chapter:
             chapters.append(chapter)
+
+    PARSE_WARNINGS.clear()
+    for chapter in chapters:
+        chapter.segments = build_segments(chapter)
+        chapter.gather = {}
+        for segment in chapter.segments:
+            block = gather_admonition(segment)
+            if block:
+                chapter.gather[segment.first] = block
 
     _load_chapter_captions()
     CHAPTER_SHOTS.clear()
@@ -1026,7 +1290,9 @@ def build() -> dict:
                 d.rmdir()
 
     return {"chapters": len(chapters), "pages": len(keep) - 1, "written": written,
-            "steps": sum(c.n_steps for c in chapters)}
+            "steps": sum(c.n_steps for c in chapters),
+            "segments": sum(len(c.segments) for c in chapters),
+            "unparsed_parts": len(PARSE_WARNINGS)}
 
 
 # --------------------------------------------------------------------------
@@ -1041,7 +1307,16 @@ _TONIGHT_SPAN_RE = re.compile(r'<span data-first-step="([^"]+)">(.*?)</span>')
 
 
 def on_pre_build(config, **kwargs):
-    build()
+    import logging
+
+    stats = build()
+    log = logging.getLogger("mkdocs.hooks.build_steps")
+    for warning in PARSE_WARNINGS:
+        log.info("build_steps: %s", warning)
+    if PARSE_WARNINGS:
+        log.info("build_steps: %d Parts item(s) listed verbatim in gather blocks",
+                 len(PARSE_WARNINGS))
+    log.info("build_steps: %(segments)d gather segment(s) across %(chapters)d chapters", stats)
 
 
 def on_page_markdown(markdown, page, config, files, **kwargs):
@@ -1106,3 +1381,5 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
 
 if __name__ == "__main__":
     print(build())
+    for warning in PARSE_WARNINGS:
+        print("  warn:", warning)

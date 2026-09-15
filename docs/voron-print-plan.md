@@ -197,7 +197,7 @@ material where wet filament actually costs you strength.
    | When | Coupon | Nominal | Accept | If out of spec |
    |---|---|---|---|---|
    | now | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit, all seven pockets (all 153 kit inserts stay for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the daughter's practice part — do all seven before touching a real part. |
-   | now | `z_drive_retainer_a` 625-2RS pocket (on the same plate) | **16.30 mm**, measured off the STL | caliper reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise EM 1 %. Under → reduce EM 1 %. Reprint the retainer and the cube, re-pass Gate A. |
+   | now | `z_drive_retainer_a` 625-2RS pocket (on the same plate) | **16.30 mm**, measured off the STL | caliper reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise extrusion multiplier 1 %. Under → reduce it 1 %. Reprint the retainer and the cube, re-pass Gate A. |
    | kit day | the same pocket, on a real 625-2RS (16 mm OD; F695 is the A/B-drive bearing, not the Z drive) | — | bearing presses in with thumb pressure, no rocking | **The press fit the caliper stood in for.** |
    | kit day | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 

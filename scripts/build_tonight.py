@@ -248,7 +248,7 @@ def _assign(rows, chapters):
 # planner
 # --------------------------------------------------------------------------
 
-def _plan_for_budget(rows, budget, stop_at_kit=False):
+def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
     """Greedy pack in timeline order. One plate start per plan; a segment
     that does not fit takes the rest of its row with it (sequential work).
 
@@ -256,8 +256,36 @@ def _plan_for_budget(rows, budget, stop_at_kit=False):
     rows are in timeline order, so nothing past that row can be started
     before the cartons land, and a bucket that ran on past it would offer
     (say) mains wiring tonight.
+
+    With `bench_first` (the Before-the-kit planner while the Gen 2 upgrade
+    row is still open), bench segments are packed before any print segment,
+    so a short bucket offers the pre-kit reading and bench work instead of a
+    plate start that waits on the upgrade.
     """
     picked, total, plate_started = [], 0, False
+    if bench_first:
+        # Pass 1: bench rows (Build rows and the (pre-kit) segments of KIT
+        # rows) in timeline order. Print rows and the whole-day Both row wait.
+        for row in rows:
+            if stop_at_kit and row["kit"]:
+                break
+            if row["kind"] in ("Print", "Both"):
+                continue
+            for seg in row["segments"]:
+                if total + seg["minutes"] > budget:
+                    break
+                picked.append((row, seg))
+                total += seg["minutes"]
+        # Pass 2: the print rows, exactly as the plain packer treats them,
+        # with whatever budget is left.
+        # Print rows are sequential (B01 waits on B00's gate), so only the
+        # first print row is eligible for the remaining budget.
+        first_print = next((r for r in rows if r["kind"] == "Print"), None)
+        if first_print is not None and budget - total >= PLATE_START_MIN:
+            rest, extra = _plan_for_budget([first_print], budget - total, stop_at_kit)
+            picked.extend(rest)
+            total += extra
+        return picked, total
     for row in rows:
         if stop_at_kit and row["kit"]:
             break
@@ -325,13 +353,22 @@ def _gate_row(rows):
     return None
 
 
-def _planner(lines, rows, stop_at_kit=False, gate=None):
+def _planner(lines, rows, stop_at_kit=False, gate=None, bench_first=False):
+    """`bench_first`: reorder each bucket's picked items — bench items (kind
+    != Print) before print items — and label print items as waiting on the
+    gate. Used only by the Before-the-kit section; the timeline-order packing
+    itself (`_plan_for_budget`) is unchanged either way."""
     for label, budget in (("30 min", 30), ("60 min", 60), ("90 min", 90)):
-        picked, total = _plan_for_budget(rows, budget, stop_at_kit)
+        picked, total = _plan_for_budget(rows, budget, stop_at_kit, bench_first=bench_first)
         lines.append(f"**If you have {label}:**")
         if gate is not None:
-            lines.append(f"- **first, and not tonight:** {_row_label(gate)} — "
-                         f"a whole-day job, and every row below waits on it")
+            if bench_first:
+                lines.append(f"- **First, when the Gen 2 kit lands (not tonight):** "
+                             f"{_row_label(gate)} — a whole-day job. The print rows "
+                             f"below wait on it; the bench items do not.")
+            else:
+                lines.append(f"- **first, and not tonight:** {_row_label(gate)} — "
+                             f"a whole-day job, and every row below waits on it")
         if not picked:
             row, seg = _next_segment(rows)
             if seg is None:
@@ -339,8 +376,16 @@ def _planner(lines, rows, stop_at_kit=False, gate=None):
             else:
                 lines.append(f"- nothing fits in {label} — the next segment is "
                              f"{_row_label(row)} — {_segment_text(seg)}")
-        for row, seg in picked:
-            lines.append(f"- {_row_label(row)} — {_segment_span(seg)}")
+        elif bench_first:
+            bench = [(row, seg) for row, seg in picked if row["kind"] != "Print"]
+            prints = [(row, seg) for row, seg in picked if row["kind"] == "Print"]
+            for row, seg in bench:
+                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}")
+            for row, seg in prints:
+                lines.append(f"- {_row_label(row)} — after the upgrade: {_segment_span(seg)}")
+        else:
+            for row, seg in picked:
+                lines.append(f"- {_row_label(row)} — {_segment_span(seg)}")
         lines.append(f"  <small>~{total} min hands-on planned</small>")
         lines.append("")
 
@@ -387,7 +432,7 @@ def build_tonight_markdown():
                 "Core One+ batches and every piece of bench work that needs no Voron part.",
                 "",
             ])
-            _planner(lines, pre_kit, gate=gate)
+            _planner(lines, pre_kit, gate=gate, bench_first=True)
         else:
             lines.extend(["_Every timeline row needs the kit._", ""])
 

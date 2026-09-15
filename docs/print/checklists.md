@@ -307,7 +307,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `max_z_velocity: 15` / `max_z_accel: 350` restored if Z shaping was attempted
 - [ ] Pressure advance set per-filament for ASA and recorded
 - [ ] Extrusion multiplier set in the ASA filament profile and recorded
-- [ ] First-layer squish re-checked *after* the EM change and saved with `Z_OFFSET_APPLY_ENDSTOP`
+- [ ] First-layer squish re-checked *after* the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP`
 - [ ] Every fastener the shaper run could have loosened re-checked
 - [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
 - [ ] Tuning log filled in, with initials

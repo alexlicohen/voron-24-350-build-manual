@@ -80,8 +80,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Do:**
 
-1. Sort the plate off its diagram: number matches the legend, fill colour is the bin, bin id is on the part.
-2. Label bins from the [bin-labels sheet](../../print/bin-labels.md).
+1. Sort the plate off its diagram: number to legend, colour to bin, bin id on the part.
+2. Mark plate id and date on a hidden face.
 3. A is the right-hand side, B the left.
 
 **B03-P1**
@@ -93,7 +93,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one blue tensioner.
 
-Tip: the blue `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins.
+Tip: the blue `[a]_tensioner_right` and `[a]_tensioner_left` from B02 are already in these two bins. Print bin labels from the [bin-labels sheet](../../print/bin-labels.md).
 
 Pause: ~10 min since the last pause — both bins sorted and labelled, A-side and B-side parts kept apart. Nothing is pressed or bolted; Ch 04 builds from the bins.
 

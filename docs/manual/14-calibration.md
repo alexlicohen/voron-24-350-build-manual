@@ -649,7 +649,7 @@ Pause: ~20 min since the last pause — the PA pattern is printed, read and the 
 
 **Do:**
 
-1. Print Ellis' **30 × 30 × 3 mm** test cubes in a row at EM **92, 94, 96, 98 %**.
+1. Print Ellis' **30 × 30 × 3 mm** test cubes in a row at **92, 94, 96, 98 %** flow.
 2. Slice at top-layer line width 100 %, infill 30 %+, top solid infill speed ~60 mm/s, normal fan.
 
 **Check:** Judged on the **centre** of each top surface, one cube has no gaps between the top lines and no ridging.
@@ -674,9 +674,9 @@ Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.co
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
 
-Pause: ~25 min since the last pause — both extrusion-multiplier passes done and the final EM written into the filament profile. The cube has been re-calipered against 14.11.
+Pause: ~25 min since the last pause — both extrusion-multiplier passes done and the final number written into the filament profile. The cube has been re-calipered against 14.11.
 
-### Step 14.21 — Re-check first-layer squish, because EM moved
+### Step 14.21 — Re-check first-layer squish, because the multiplier moved
 
 (no image — see text)
 
@@ -688,11 +688,11 @@ Pause: ~25 min since the last pause — both extrusion-multiplier passes done an
 
 **Check:** Bottom surface is smooth, lines still individually visible, no gaps.
 
-Tip: this closes the essentials loop. Ellis' order is extruder → surface prep → first layer → PA → EM, and EM feeding back into first layer is expected.
+Tip: this closes the essentials loop. Ellis' order is extruder, surface prep, first layer, pressure advance, extrusion multiplier; the multiplier feeding back into first layer is expected.
 
 Source: [Ellis' Print Tuning Guide — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [Klipper docs § Z_OFFSET_APPLY_ENDSTOP](https://www.klipper3d.org/G-Codes.html#z_offset_apply_endstop)
 
-Pause: ~10 min since the last pause — first-layer squish re-set after the EM change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.
+Pause: ~10 min since the last pause — first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.
 
 ---
 
@@ -798,7 +798,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - [ ] `max_z_velocity: 15` / `max_z_accel: 350` restored if Z shaping was attempted
 - [ ] Pressure advance set per-filament for ASA and recorded
 - [ ] Extrusion multiplier set in the ASA filament profile and recorded
-- [ ] First-layer squish re-checked *after* the EM change and saved with `Z_OFFSET_APPLY_ENDSTOP`
+- [ ] First-layer squish re-checked *after* the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP`
 - [ ] Every fastener the shaper run could have loosened re-checked
 - [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
 - [ ] Tuning log filled in, with initials

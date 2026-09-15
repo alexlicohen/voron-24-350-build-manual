@@ -240,7 +240,7 @@ bearing-seat and shaft-bore parts printed against an unverified fit — run Gate
 | When | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|---|
 | **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
-| **now** | `z_drive_retainer_a` 625-2RS pocket (same plate) | **16.30 mm**, measured off the STL; the concentric lip below it is 14.30 mm | caliper across the pocket reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise [extrusion multiplier](../16-glossary.md#e) 1 %. Under → reduce EM 1 %. Never fix it with XY compensation. |
+| **now** | `z_drive_retainer_a` 625-2RS pocket (same plate) | **16.30 mm**, measured off the STL; the concentric lip below it is 14.30 mm | caliper across the pocket reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise [extrusion multiplier](../16-glossary.md#e) 1 %. Under → reduce it 1 %. Never fix it with XY compensation. |
 | **kit day** | the same pocket, on a real 625-2RS (16 mm OD) | — | bearing presses in with thumb pressure, no rocking | this is the press fit the caliper is standing in for; a fail here reprints the retainer and the cube, and re-passes Gate A |
 | **kit day** | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 

@@ -171,7 +171,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B08.11 — Sort into bins
 
-**Do:** Sort off each plate diagram; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). Every plate here feeds **11-skirts**, joining B02's `[a]_faceplate` and inserts. Stack by ring position: front, rear, left, right.
+**Do:** Sort off each plate diagram; the printed bin id names the bin. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). Every plate feeds **11-skirts** beside B02's `[a]_faceplate` and inserts. Stack by ring position: front, rear, left, right.
 
 **B08-P1**
 

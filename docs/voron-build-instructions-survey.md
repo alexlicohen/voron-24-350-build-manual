@@ -299,7 +299,7 @@ Printed-part groups map to the Voron STL tree (`github.com/VoronDesign/Voron-2/t
 | **P11 Skirts, panels, doors (Clicky-Clack), Nevermore, spool holder** | 4.0–6.0 | `Skirts/350/*` (5), `Skirts/[a]_*` grills/guards/keystone, `Panel_Mounting/*` clips + `z_belt_cover_{a,b}`, Clicky-Clack set (tanaes), Nevermore Micro V5 Duo 3×6-magnet set, `Spool_Management/*` | P10 | ❌ |
 | **P12 Software: Pi image, Klipper/Moonraker/Fluidd/KlipperScreen, firmware, printer.cfg** | 2.0–3.0 | **none** | (hardware from P09/P10 for final wiring, but the whole flash+install can be bench-done on day one) | ✅ |
 | **P13 Initial startup: verify temps/heaters/fans/motors/endstops, bed locating, 0,0, Z endstop, probe check, PID, QGL, Z offset** | 2.5–4.0 | **none** | P10, P12 | ❌ (needs the machine) |
-| **P14 Tuning: e-steps, first print, input shaper, pressure advance, EM, first-layer** | 2.5–4.0 | **none** | P13 | ❌ |
+| **P14 Tuning: e-steps, first print, input shaper, pressure advance, extrusion multiplier, first-layer** | 2.5–4.0 | **none** | P13 | ❌ |
 | **Totals** | **47.5–71.0** (mid ≈ 59) | | | |
 
 Reality check on the total: the low end (47.5 h) sits inside the community 40–60 h first-build envelope; the mid-point (≈59 h) sits at its top edge and the high end runs past it. That is the honest expectation for a first Voron built alongside a 13-year-old from a written procedure — the second pair of hands genuinely helps at gantry install and belt routing, but explaining every step costs more than it saves. Unattended print time is separate (~100 h).

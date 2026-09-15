@@ -111,8 +111,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Do:**
 
-1. Sort the plate off its diagram: number to legend, colour to bin, bin id on the part.
-2. Print labels from the [bin-labels sheet](../../print/bin-labels.md).
+1. Sort the plate off its diagram: number to legend, colour to bin.
+2. Mark plate id and date on a hidden face, then print labels from the [bin-labels sheet](../../print/bin-labels.md).
 3. The Klicky bag goes into **spare-alt** closed.
 
 **B06-P1**

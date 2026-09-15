@@ -79,7 +79,14 @@ Every printed part has **one bin** — the assembly chapter that fits it, split 
 part-heavy (the four Z corners, the A and B drive sides, the 4 mm and 6 mm panel clips). The bin id is what
 you write on the part and on the box; the plate diagram at the top of every Load step shows each part
 numbered and filled in its bin's colour with the id on it, and each batch's *Sort into bins* step lists
-bin → parts per plate. The scheme lives in `slicer/bins.py` (the diagrams, the `bin` column in
+bin → parts per plate.
+
+**Mark the plate too.** As a plate is sorted, write its plate id and the date beside the bin id, on a
+face that will not show once the part is fitted, with a fine paint marker — `B03-P1 2026-09-20`. A
+reprinted part gets the new plate id with an **R** after it, plus the extrusion multiplier if that changed
+— `B03-P1R 94.5%`. The [run schedule](#run-schedule) and the [spool ledger](#spool-ledger) are the lookup:
+plate id → date, spool and slicer settings, so a part that fits badly next year can be traced to the run
+that made it, and one bad run can be reprinted without guessing which parts came off it. The scheme lives in `slicer/bins.py` (the diagrams, the `bin` column in
 `docs/manual/assets/parts/MANIFEST.csv`, the [bin labels](../../print/bin-labels.md) and the bin map are all
 generated from it); `python3 slicer/check_docs.py` cross-checks this table, the batch chapters and the
 manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front-left) and Z2 (rear-right),

@@ -115,7 +115,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B07.7 — Sort into bins
 
-**Do:** Sort off each plate diagram into the bins below; the bin id is printed on every part. Labels: [bin-labels sheet](../../print/bin-labels.md). Bins: [README § Bins](README.md#bins). The inlet lives in **09-bay**, only borrowed for the skirt-ring dry-fit at Step 11.1.
+**Do:** Sort off each plate diagram; the printed bin id names the bin. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). The inlet lives in **09-bay**, only borrowed for the skirt-ring dry-fit at Step 11.1.
 
 **B07-P1**
 
