@@ -11,6 +11,8 @@ Durable context: `PROJECT_MEMORY.md` at the repo root (publication: local-only â
 git-ignored, so it never ships with the manual). Operational facts, states, decisions and design
 rationale only.
 
+Check: `python3 scripts/lint_manual.py && python3 slicer/check_docs.py` (both must exit 0).
+
 ## Standing rules
 - Check a transcribed step against the manual page image, the STL or the CAD â€” never against a
   reviewer's summary or a reviewer's replacement text.
