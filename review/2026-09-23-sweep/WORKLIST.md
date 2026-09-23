@@ -1,0 +1,74 @@
+# Sweep fix work list (from the 2026-09-23 sweep)
+
+Source: `G1`–`G8` in this folder (each finding has its evidence and a fix); rubric `RUBRIC.md`; report https://claude.ai/artifact/384d2dncFFbqaMYWxE2GDN.
+Parsed list of all 243 rows: re-run the parser in the session notes, or just `grep '^| '` the G files.
+
+**Rules for every wave:**
+- Check each change against the page image, STL, CAD or LDO photo, never against a finding's text (AGENTS.md standing rule).
+- Never split or renumber steps.
+- Gate: `python3 scripts/lint_manual.py && python3 slicer/check_docs.py` plus `.venv/bin/mkdocs build --strict`.
+- Check at the iPad viewport (1024×768).
+- Mains and Ch 10 are the danger zone, so they go to the deep tier.
+- Briefs must forbid reverting Alex's uncommitted files (IMG_3298/3299.jpeg, any GUI-saved 3MF).
+
+## Wave 1: blockers and safety (deep tier)
+- [ ] **Z-belt upper clips** (G3-01, G3-02, G4 B1, B2, M1):
+  - fit `[a]_z_belt_clip_upper_x4` in Ch 05 under the idler/drive top M5×16 pair (Voron p.91/93/95);
+  - Ch 06: 06.7 stack = lower clip only; 06.17/06.20 clamp the 2nd belt end with the top M5×16;
+  - 06b.9/06b.10 and Checkpoint 06b to match p.117/120.
+- [ ] **Bed WAGO breakout** above the deck on the left bed extrusion (G5-01); fix 09.34, Ch 03, Checkpoint 09 and the 10.12/10.14 wording.
+- [ ] **Dead-machine step at the top of Ch 11 Part A** (G6-01): off, unplug, cord in view, PSU LED out. Fix the Part A breadcrumb "before first power-up".
+- [ ] **Chamber Filtration = Adv. Filtration** check in B00.3 and every B01–B10 pre-print step, plus a "set it back" line at the end of B11 (G8-01).
+- [ ] **Safety majors:**
+  - G6-03: the L↔N meter pass criterion;
+  - G6-04: safety text collapsed inside "What you're looking at";
+  - G1-09: the 00a.11 rituals collapsed;
+  - G1-10: the print plan hands the iron to the helper;
+  - G7-03: `M84` in Ch 15 with no hold-the-gantry warning;
+  - the raven Check badge renders on mains and iron steps (G5 note, systemic: `hooks/callouts.py` / `hooks/mascot.py`).
+
+## Wave 2: regressions from today and stale numbers (builder tier, mechanical)
+- [ ] 10.80 fin between −V and FG, using the chapter's own terminal numbering (G6-02).
+- [ ] 09.6 dry-lay the DC loop and VHB it at 09.36 (G5-02).
+- [ ] 09.16: position from the clearance targets (G5-05).
+- [ ] B11.9 A/B lead check: move it to after the motors are mounted, or measure a proxy (G8-10).
+- [ ] B11.11 recipe: rename only the changed piece, round to the 12 mm tine step, flip base-down (G8-09).
+- [ ] B11.8: 26 pieces (G8-08).
+- [ ] Hot first-layer check after B00.0, with a project file for the five squares (G8-05).
+- [ ] v3 images for 10.8–10.16 and the frame PE lug (G6-05, G6-06).
+- [ ] Cross-page numbers:
+  - inserts 146 → 153 (G1-03);
+  - bins 25 → 26 (G1-04);
+  - the stale 00.6 B07 ⚠ (G1-05);
+  - `TESTZ Z=-0.1` removed from Ch 15/16 (G7-01, G7-02);
+  - the Heatset_Practice coupon double use (G1-01, G2-04, G8-11);
+  - non-HF presets in print plan §1.3 (G8-07);
+  - the bare `build_plates.py` line in 00-slicer-setup (G8-06);
+  - B01.7 kit-day rows and B01 Next → B02 (G8-03, G8-04);
+  - the Gate B table's double header (G8-02).
+- [ ] Wayfinding:
+  - Checkpoint 10 Next → 12.11 (G6-07);
+  - Checkpoint 06 → 06b;
+  - Home "Build tab in chapter order" (G1-08);
+  - the Tonight claim of a progress overlay, which is false (G1-06/07).
+
+## Wave 3: remaining accuracy majors (deep tier)
+- [ ] G2-01 Z-idler T-nuts go in the top rail's inner slot; G2-02 tighten the 01.16 M5×16.
+- [ ] G3-03 the belt-offcut check; G3-04 pulley planes; G3-05 the rail-hole rule; G3-07 the M3×16 count.
+- [ ] G4 M3 07.7 stop screws in the plain hole; M4 Omron is a rectangular block; M5 don't cut the pre-terminated probe lead; M6 the belt-cut advice; M7 double taping.
+- [ ] G5-03 probe above the deck; G5-04 Leviathan brackets per p.155.
+- [ ] G7-04 `SET_IDLE_TIMEOUT` not `RESTART`; G7-05 the MainsailOS numpy/matplotlib check; G7-06 EM vs shrinkage (Ellis).
+- [ ] G6-08 the DC lid instruction out of the collapsed block; G6-09 11.37 cartridge fill.
+
+## Wave 4: systemic, closer to Prusa (plan first; decide scope with Alex)
+- [ ] **Parts lines use `;` separators and totals per segment, and give the bag source,** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.
+- [ ] **Step images cropped to the relevant manual panel;** screenshots for the Ch 12–14 software steps (76/104 without an image) and Ch 11 (29/66).
+- [ ] **Helper lines** in Ch 06–10 and 12 wherever two hands or a phone are needed (gantry lift, belt readings).
+- [ ] **A reward at every Checkpoint:** Revali's `pass` pose, "you built X", and a real treat. Alex to pick the treat.
+- [ ] **The Tonight progress overlay** as promised, or remove the claim.
+
+## Wave 5: minor and polish (176 items), batched per chapter from the G files
+
+## Gated / needs Alex
+- B11 GUI QC (B00.8); the PETG V0 spool; kit-day bench values (every `(verify on bench)`); the Ch 10.80 lid order (lids on before the 10.73–10.79 sweep) was accepted by the orchestrator: confirm.
+- Decide whether `build_plates.py --from-3mf` with no ids is safe. AGENTS.md says to run a FULL `--from-3mf` after a GUI re-save; B00.8 says never run it without ids. Read `main()` and make both say the same thing.
