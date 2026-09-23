@@ -6,6 +6,11 @@ same scheme as the machine. Heavy hooked bill with bristles over the nostrils, s
 hackles, a wedge tail, scaled feet, one big dark eye — and a slight upturn at the hinge of the bill,
 so it is a friendly bird rather than a stern one.
 
+He carries a little of his namesake's lineage — the Rito Champion — in two cues every pose
+inherits: a **Champion's scarf** in the manual's accent blue, the printer-frame blue, tied at the
+back with its tails streaming behind him (his updraft, in cloth), and a pair of **braided nape
+feathers** tied with the same blue. A homage in the house style, not a copy: no emblem, no bow.
+
 Twenty files in **three views**. Profile when the bird is looking at something; three-quarter when
 it is doing something and wants you to see it; front when it is addressing you directly. Every file
 animates gently on its own and goes completely static under `prefers-reduced-motion: reduce`.
@@ -19,8 +24,10 @@ constructions, layer names, palette, the humour rule and where each pose is prop
 
 ## The badge
 
-Three-quarter head and shoulders, simplified: both eyes, one catchlight, the blue crown. This is the
-**only** file that may be used small; the detailed poses below mush at that size.
+Three-quarter head and shoulders, simplified: both eyes, one catchlight, the blue crown, the scarf
+band as a single blue stroke under the chin and one plain braid. No scarf tails — they would be
+sub-pixel here. This is the **only** file that may be used small; the detailed poses below mush at
+that size.
 
 ![Badge, 48 px](manual/assets/mascot/preview/mascot-badge-48.png)
 ![Badge, light](manual/assets/mascot/preview/mascot-badge-light.png){ width="256" }
@@ -57,8 +64,9 @@ Staging the parts for a run of steps: the generated **Gather for this segment** 
 
 ### Pause — asleep on a spool
 
-Nightcap with a tassel and pom-pom hanging down the back, clear of the bill. Stopping for the
-night: `Pause:` boxes, the Tonight planner, and plates that run overnight.
+Nightcap with a tassel and pom-pom hanging down the back, clear of the bill. Asleep there is no
+updraft, so the scarf tails droop instead of streaming. Stopping for the night: `Pause:` boxes, the
+Tonight planner, and plates that run overnight.
 
 ![Pause, light](manual/assets/mascot/preview/mascot-pause-light.png){ width="256" }
 ![Pause, dark](manual/assets/mascot/preview/mascot-pause-dark.png){ width="256" }
@@ -116,7 +124,8 @@ A shortcut worth knowing: `Tip:` boxes, at most one per chapter.
 ### Helper — the raven and the fledgling
 
 Steps that want two pairs of hands: the **Helper** field and the "With a helper" section. The
-fledgling is its own build — bigger head, stubby bill still gaping, short tail, stubby legs.
+fledgling is its own build — bigger head, stubby bill still gaping, short tail, stubby legs, and no
+scarf or braids: it is not the champion.
 
 ![Helper, light](manual/assets/mascot/preview/mascot-helper-light.png){ width="256" }
 ![Helper, dark](manual/assets/mascot/preview/mascot-helper-dark.png){ width="256" }
@@ -163,8 +172,9 @@ loose coil by the feet. Low voltage only: never mains, never a stripped conducto
 ## Front — the bird addressing you
 
 Chest and both shoulders square to the reader, bill pointing at you — with about ten degrees of
-turn in it, so it reads as a bird looking at you rather than a symmetrical blob. Reserved: a front
-view is the bird speaking to you, so it is used where the page is telling you something directly.
+turn in it, so it reads as a bird looking at you rather than a symmetrical blob. Head-on the scarf
+tails cannot stream behind, so they hang from the knot beside the bill. Reserved: a front view is
+the bird speaking to you, so it is used where the page is telling you something directly.
 
 ### Base, front
 

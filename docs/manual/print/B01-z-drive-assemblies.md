@@ -190,7 +190,7 @@ rather than letting the plate print another six hours on top of it.
 
 ```mascot
 pose: pause
-caption: Fifteen hours. Watch the first layer, then walk away. I will supervise from the spool.
+caption: Fifteen hours. Watch the first layer, then walk away. A champion can supervise from a spool.
 ```
 
 The rest of the time the printer is working for you and the bench is free. In order of value: read the

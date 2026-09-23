@@ -31,6 +31,12 @@ STEEL = "#B6BDC6"
 AMBER = "#D98324"
 AMBERF = "#FBEBD3"
 GREEN = "#2E7D32"
+# Revali's Champion scarf and the braid ties: the manual's accent blue (the
+# printer's frame), with a lit fold and a shadow crease. Nothing else is blue
+# at this value, so the scarf is the one place the character meets the build.
+SCARF = "#1F4E9C"
+SCARF_LIT = "#3A6DC4"
+SCARF_DK = "#163B7A"
 EDGE = "#2B3341"   # separation stroke that reads on black
 EDGE2 = "#3C465A"  # brighter separation for the dark tail/primary mass
 
@@ -381,7 +387,8 @@ def eyelid(c=None, r=20.0, sw=1.0, fill=K1):
 
 
 def head_art(brow=False, bill=None, sw=1.0):
-    el = []
+    # braids first: their roots sit under the skull, so they hang from it
+    el = braids_profile()[0]
     el.append(path(SKULL, K1))
     # nape + crown in the light charcoal, then sheen
     el.append(path("M300 176C296 142 316 114 350 110C374 108 390 121 395 138"
@@ -433,6 +440,215 @@ def eye_group(closed=False, r=20.0, c=None, hi=1.0):
     return el, True
 
 
+# ---------------------------------------------------------------- Revali cues
+# The daughter named the bird Revali, after the Rito Champion. Two cues carry
+# the lineage and every adult pose inherits them: the Champion's blue scarf,
+# tied at the back with its tails streaming behind (the self-made updraft, in
+# cloth), and a pair of braided nape feathers tied with the same blue. The
+# anatomy underneath is unchanged. The fledgling gets neither - it is not the
+# champion.
+
+
+def flow(p0, p1, bulge=0.0, wave=0.0, n=7):
+    """Points along p0 -> p1 bowed sideways by `bulge` with one S `wave`: the
+    line a strip of cloth takes in moving air. Positive is to the left of
+    travel (screen up, for a tail streaming back from a right-facing bird)."""
+    ang = math.degrees(math.atan2(p1[1] - p0[1], p1[0] - p0[0]))
+    pts = []
+    for i in range(n):
+        t = i / (n - 1)
+        off = bulge * math.sin(math.pi * t) + wave * math.sin(2 * math.pi * t)
+        pts.append(polar(lerp2(p0, p1, t), ang - 90, off))
+    return pts
+
+
+def tail(p0, p1, w0, w1, bulge=0.0, wave=0.0, lit=1):
+    """One scarf tail: a flowing strip tapering from w0 at the knot to w1."""
+    pts = flow(p0, p1, bulge, wave)
+    n = len(pts)
+    ws = [lerp(w0, w1, (i / (n - 1)) ** 1.3) for i in range(n)]
+    ws[-1] = w1 * 0.55
+    return ribbon(pts, ws, lit)
+
+
+def ribbon(pts, widths, lit=1):
+    """A strip of cloth along a polyline: base fill, a dark edge, and a lit
+    stripe along one side (`lit` picks the side). Returns (art, halo_d)."""
+    base = taper(pts, widths)
+    off = []
+    n = len(pts)
+    for i, p in enumerate(pts):
+        a, b = pts[max(i - 1, 0)], pts[min(i + 1, n - 1)]
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        ln = math.hypot(dx, dy) or 1.0
+        off.append((p[0] - dy / ln * widths[i] * 0.22 * lit,
+                    p[1] + dx / ln * widths[i] * 0.22 * lit))
+    art = [path(base, SCARF, SCARF_DK, 1.6, None, 'stroke-linejoin="round"'),
+           path(taper(off, [w * 0.4 for w in widths]), SCARF_LIT, None, None,
+                "0.9")]
+    return art, base
+
+
+def scarf_band(top, bottom, fold, crease):
+    """The loop round the neck: base, a lit upper fold, one shadow crease."""
+    return [path(top + bottom, SCARF, SCARF_DK, 1.6,
+                 extra='stroke-linejoin="round"'),
+            path(fold, SCARF_LIT, None, None, "0.9"),
+            path(crease, None, SCARF_DK, 2.0, "0.7", 'stroke-linecap="round"')]
+
+
+def braid(p0, p1, w=11.0, n=4, simple=False):
+    """A plait of nape feathers from p0 (under the skull) to p1: a tapered
+    strand with chevrons for the weave, a scarf-blue tie near the end and a
+    loose tuft past it. `simple` drops the weave for the badge, where it would
+    be sub-pixel. Returns (art, halo paths)."""
+    ang = math.degrees(math.atan2(p1[1] - p0[1], p1[0] - p0[0]))
+    mid = polar(lerp2(p0, p1, 0.5), ang + 90, w * 0.3)
+    body = taper([p0, mid, p1], [w, w * 0.94, w * 0.66])
+    art = [path(body, K2, "#46536C", 1.8, None, 'stroke-linejoin="round"')]
+    if not simple:
+        for i in range(n):
+            t = 0.28 + i * (0.5 / (n - 1))
+            q = lerp2(p0, p1, t)
+            hw = w * lerp(1.0, 0.66, t) * 0.42
+            v = polar(q, ang, w * 0.4)
+            art.append(path(f"M{pt(polar(q, ang + 90, hw))}L{pt(v)}"
+                            f"L{pt(polar(q, ang - 90, hw))}", None, "#46536C",
+                            2.0, "0.85",
+                            'stroke-linecap="round" stroke-linejoin="round"'))
+    q = lerp2(p0, p1, 0.86)
+    hw = w * 0.7 * 0.5 + 1.2
+    art.append(path(taper([polar(q, ang + 90, hw), polar(q, ang - 90, hw)],
+                          [5.5, 5.5]), SCARF))
+    tuft = [feather(polar(q, ang, 4), ang + da, w * 1.35, w * 0.27, 0, 0.0)
+            for da in (-24, 0, 24)]
+    for k, d in enumerate(tuft):
+        art.append(path(d, K3 if k % 2 else K2, EDGE, 1.4))
+    return art, [body] + tuft
+
+
+# -- profile -------------------------------------------------------------
+# The band sits on the side of the neck between the skull and the wing's
+# shoulder; the wing coverts overlap its back end. The tails leave a small
+# knot at the back of the neck, below the braid tips, and stream back over
+# the mantle. Asleep (`pause`), there is no updraft: they droop, short, and
+# stay clear of the nightcap's tassel.
+SCARF_PROFILE = dict(
+    top="M288 206C306 212 330 216 352 222",
+    bottom="L352 246C330 244 306 242 286 238Z",
+    fold="M288 206C306 212 330 216 352 222L352 231C330 226 306 222 287 218Z",
+    crease="M289 230C308 232 330 236 352 240")
+SCARF_TAILS_PROFILE = [((290, 222), (194, 190), 19, 7, 10, 6),
+                       ((290, 228), (210, 226), 15, 6, 2, -6)]
+SCARF_TAILS_ASLEEP = [((290, 223), (236, 226), 16, 6, -3, 0),
+                      ((290, 228), (240, 238), 13, 5, -4, 0)]
+SCARF_KNOT_PROFILE = (289, 226)
+BRAIDS_PROFILE = [((306, 150), (272, 208), 11.0), ((300, 166), (262, 200), 9.5)]
+
+
+def knot(c, r=8.5):
+    return [circle(c, r, SCARF_DK), circle((c[0] - 2, c[1] - 2), r * 0.5,
+                                           SCARF_LIT)]
+
+
+def scarf_profile(asleep=False):
+    """(band, tails, halo) - band goes under the wing, tails over it."""
+    band = scarf_band(**SCARF_PROFILE)
+    tails, halo = [], []
+    for p0, p1, w0, w1, bulge, wave in (SCARF_TAILS_ASLEEP if asleep
+                                        else SCARF_TAILS_PROFILE):
+        a, d = tail(p0, p1, w0, w1, bulge, wave, 1)
+        tails += a
+        halo.append(d)
+    return band, knot(SCARF_KNOT_PROFILE) + tails, halo
+
+
+def braids_profile():
+    art, halo = [], []
+    for p0, p1, w in BRAIDS_PROFILE:
+        a, h = braid(p0, p1, w)
+        art += a
+        halo += h
+    return art, halo
+
+
+# -- three-quarter ---------------------------------------------------------
+# The band wraps the base of the neck over the ruff, whose points spill out
+# below it; the tails leave from the far shoulder, where the back of the neck
+# is in this view. The braids hang beside the far cheek.
+SCARF_3Q = dict(
+    top="M206 212C240 232 300 236 332 214",
+    bottom="L334 236C300 258 240 254 204 238Z",
+    fold="M206 212C240 232 300 236 332 214L333 223C300 244 240 240 205 222Z",
+    crease="M208 229C242 246 296 248 331 229")
+SCARF_TAILS_3Q = [((207, 231), (130, 196), 15, 6, 9, 5),
+                  ((207, 235), (134, 224), 12, 5, 3, -5)]
+SCARF_KNOT_3Q = (208, 232)
+BRAIDS_3Q = [((212, 118), (186, 206), 10.5), ((208, 140), (192, 220), 9.0)]
+
+
+def scarf_3q(tails=True):
+    band = scarf_band(**SCARF_3Q)
+    tl, halo = [], []
+    if tails:
+        for p0, p1, w0, w1, bulge, wave in SCARF_TAILS_3Q:
+            a, d = tail(p0, p1, w0, w1, bulge, wave, 1)
+            tl += a
+            halo.append(d)
+        tl = knot(SCARF_KNOT_3Q) + tl
+    return band, tl, halo
+
+
+def braids_3q(simple=False):
+    art, halo = [], []
+    specs = BRAIDS_3Q[:1] if simple else BRAIDS_3Q
+    for p0, p1, w in specs:
+        a, h = braid(p0, p1, w + (3 if simple else 0), simple=simple)
+        art += a
+        halo += h
+    return art, halo
+
+
+# -- front -----------------------------------------------------------------
+# Seen head-on the tails cannot stream behind, so they hang from a knot at
+# the side of the bill, short, over the breast. Braid tips show either side
+# of the neck.
+SCARF_FRONT = dict(
+    top="M182 210C220 240 292 240 332 206",
+    bottom="L334 230C292 266 220 266 184 236Z",
+    fold="M182 210C220 240 292 240 332 206L333 216C292 250 220 250 183 220Z",
+    crease="M186 228C222 254 290 254 332 224")
+SCARF_TAILS_FRONT = [((296, 250), (288, 334), 14, 6, 6, 4),
+                     ((304, 252), (322, 322), 12, 5, -5, 3)]
+SCARF_KNOT_FRONT = (299, 247)
+BRAIDS_FRONT = [((188, 150), (172, 226), 10.0), ((326, 148), (340, 222), 9.0)]
+
+
+def scarf_front():
+    band = scarf_band(**SCARF_FRONT)
+    tails, halo = [], []
+    for p0, p1, w0, w1, bulge, wave in SCARF_TAILS_FRONT:
+        a, d = tail(p0, p1, w0, w1, bulge, wave, -1)
+        tails += a
+        halo.append(d)
+    return band, tails + knot(SCARF_KNOT_FRONT, 9), halo
+
+
+def braids_front():
+    art, halo = [], []
+    for p0, p1, w in BRAIDS_FRONT:
+        a, h = braid(p0, p1, w)
+        art += a
+        halo += h
+    return art, halo
+
+
+def thin_halo(paths, extra=""):
+    return g("halo", paths,
+             f'fill="{HALO}" stroke="{HALO}" stroke-width="{f(HALO_W_THIN)}" '
+             'stroke-linejoin="round" stroke-linecap="round"' + extra)
+
+
 # ---------------------------------------------------------------- halo pass
 def rotg(children, deg, cx=300.0, cy=200.0, sc=1.0):
     """Wrap in a rotation, optionally scaled about the same pivot.
@@ -450,7 +666,7 @@ def rotg(children, deg, cx=300.0, cy=200.0, sc=1.0):
 
 
 def halo_shapes(lift=False, extra=(), legs_el=None, bill=None, tilt=0.0,
-                near_folded=True, far_folded=False):
+                near_folded=True, far_folded=False, asleep=False):
     if legs_el is None:
         fl, nl = leg_shapes(lift)
         legs_el = fl + nl
@@ -466,9 +682,10 @@ def halo_shapes(lift=False, extra=(), legs_el=None, bill=None, tilt=0.0,
     wide = g("halo", el,
              f'fill="{HALO}" stroke="{HALO}" stroke-width="{f(HALO_W)}" '
              'stroke-linejoin="round" stroke-linecap="round"')
-    thin = g("halo", legs_el,
-             f'fill="{HALO}" stroke="{HALO}" stroke-width="{f(HALO_W_THIN)}" '
-             'stroke-linejoin="round" stroke-linecap="round"')
+    # Scarf tails and braids take the thin rim, like the legs: at their width
+    # the body rim would turn them into pale sausages.
+    thin = thin_halo(legs_el + [path(d) for d in scarf_profile(asleep)[2]]
+                     + rotg([path(d) for d in braids_profile()[1]], tilt))
     return thin + wide
 
 
@@ -661,7 +878,8 @@ def bird(lift=False, closed=False, brow=False, halo_extra=(), behind=(),
     fk, fp = wing_state(far, (286, 240))
     el = [anchor(),
           halo_shapes(lift, halo_extra, far_leg + near_leg, bill, tilt,
-                      near_folded=(nk == FOLDED), far_folded=(fk == FOLDED))]
+                      near_folded=(nk == FOLDED), far_folded=(fk == FOLDED),
+                      asleep=closed)]
     if fk == "spread":
         el.append(spread_wing(fp[0], fp[1], origin=fp[3], droop=fp[2]))
     elif fk == FOLDED:
@@ -672,8 +890,11 @@ def bird(lift=False, closed=False, brow=False, halo_extra=(), behind=(),
     el.append(g("m-leg-lift", [anchor()] + near_leg) if lift
               else g("", near_leg))
     el += body_art()
+    band, tails, _ = scarf_profile(asleep=closed)
+    el += band                     # under the wing's shoulder coverts
     if nk == FOLDED:
         el.append(g("m-wing", [anchor()] + wing_layers() + list(wing_extra)))
+    el += tails                    # over the mantle, streaming back
     el += hackles()
     el.append(g("m-head", [anchor()] + rotg(
         head_art(brow, bill) + [g("m-eye", [anchor()] + eye)] + eyelid(),
@@ -766,9 +987,10 @@ def legs_3q(lift=False, juv=False):
     return far, near
 
 
-def head_3q(brow=False, juv=False):
+def head_3q(brow=False, juv=False, simple=False):
     bill = BILL_3Q_JUV if juv else BILL_3Q
-    el = [path(SKULL_3Q, K1)]
+    el = [] if juv else braids_3q(simple)[0]
+    el.append(path(SKULL_3Q, K1))
     el.append(path("M202 142C202 104 230 80 270 78C312 76 338 100 341 140"
                    "C310 110 238 112 208 138C205 141 203 142 202 142Z", K3))
     el.append(path("M209 128C214 102 238 86 270 84C302 82 328 96 336 120"
@@ -897,8 +1119,12 @@ def bird_3q(closed=False, brow=False, tilt=4.0, near=FOLDED, far=FOLDED,
     sil += rotg([path(SKULL_3Q), path(bill3q)], tilt, sc=hsc)
     sil += [path(d) for d in hackle_3q_paths(juv)]
     sil += [path(d) for d in halo_extra]
+    band, tails, cue_halo = ([], [], []) if juv else scarf_3q()
+    cue_halo = [path(d) for d in cue_halo]
+    if not juv:
+        cue_halo += rotg([path(d) for d in braids_3q()[1]], tilt, sc=hsc)
     el = [anchor(),
-          g("halo", far_leg + near_leg,
+          g("halo", far_leg + near_leg + cue_halo,
             f'fill="{HALO}" stroke="{HALO}" stroke-width="5" '
             'stroke-linejoin="round" stroke-linecap="round"'),
           g("halo", sil,
@@ -918,6 +1144,7 @@ def bird_3q(closed=False, brow=False, tilt=4.0, near=FOLDED, far=FOLDED,
         el.append(g("m-wing", [anchor()] + wing_el))
     for i, d in enumerate(hackle_3q_paths(juv)):
         el.append(path(d, "#3B465C" if i % 2 else K2, EDGE, 2.4))
+    el += band + tails             # over the ruff; its points spill out below
     ek = 1.2 if juv else 1.0
     el.append(g("m-head", [anchor()] + rotg(
         head_3q(brow, juv) + [g("m-eye", [anchor()] + eyes_3q(closed, ek))]
@@ -957,7 +1184,8 @@ def hackle_fr_paths():
 
 
 def head_front(brow=False):
-    el = [path(SKULL_FR, K1)]
+    el = braids_front()[0]
+    el.append(path(SKULL_FR, K1))
     el.append(path("M176 140C176 98 212 76 259 76C304 76 337 100 337 142"
                    "C302 108 212 108 176 140Z", K3))
     el.append(path("M184 130C188 98 222 82 259 82C296 82 326 98 330 130"
@@ -1081,8 +1309,10 @@ def bird_front(closed=False, brow=False, left=FOLDED, right=FOLDED,
     if rk == FOLDED:
         sil.append(path(WING_FR_ENV[1]))
     sil += [path(d) for d in hackle_fr_paths()] + [path(d) for d in halo_extra]
+    band, tails, cue_halo = scarf_front()
+    cue_halo = [path(d) for d in cue_halo + braids_front()[1]]
     el = [anchor(),
-          g("halo", legs_el,
+          g("halo", legs_el + cue_halo,
             f'fill="{HALO}" stroke="{HALO}" stroke-width="5" '
             'stroke-linejoin="round" stroke-linecap="round"'),
           g("halo", sil,
@@ -1108,6 +1338,7 @@ def bird_front(closed=False, brow=False, left=FOLDED, right=FOLDED,
         el.append(g("m-wing", [anchor()] + wing_el))
     for i, d in enumerate(hackle_fr_paths()):
         el.append(path(d, "#3B465C" if i % 2 else K2, EDGE, 2.4))
+    el += band + tails
     el.append(g("m-head", [anchor()] + head_front(brow)
                 + [g("m-eye", [anchor()] + eyes_front(closed))]
                 + eyelid(EYE_FR_L, 20.0) + eyelid(EYE_FR_R, 17.0)))
@@ -1534,15 +1765,15 @@ def bob(origin, dy=7, rot=1.6, dur="3.6s", cls="m-prop"):
 
 
 def pose_base():
-    return svg("The manual's raven, standing",
-               "A black raven with a blue-violet wing sheen, standing and "
-               "facing right", bird(tilt=4))
+    return svg("Revali, the manual's raven, standing",
+               "Revali, a black raven with a blue-violet wing sheen and a blue "
+               "scarf, standing and facing right", bird(tilt=4))
 
 
 def pose_gather():
     t = g("m-prop", [anchor()] + tray(322, 292, 158, 44))
-    return svg("The raven with a tray of screws",
-               "The raven holding out a parts tray of screws in one wing",
+    return svg("Revali with a tray of screws",
+               "Revali holding out a parts tray of screws in one wing",
                bird(tilt=4, near=SP(30, 166), far=FOLDED, front=[t]),
                bob("401px 314px", 5, 1.2))
 
@@ -1557,8 +1788,8 @@ def pose_pause():
     css = (".mascot .m-zz{animation:mascot-drift 4.6s ease-in-out infinite}"
            "@keyframes mascot-drift{0%{transform:translate(0,0);opacity:.3}"
            "28%{opacity:1}100%{transform:translate(18px,-30px);opacity:0}}")
-    return svg("The raven asleep on a spool",
-               "The raven asleep in a nightcap, perched on a filament spool",
+    return svg("Revali asleep on a spool",
+               "Revali asleep in a nightcap, perched on a filament spool",
                g("", spool(214, 392, 88) + [b, marks]), css)
 
 
@@ -1569,8 +1800,8 @@ def pose_check():
     # over the eye: wing at 14 deg / span 173 puts its tip at the grip.
     m = g("m-prop", [anchor()] + magnifier(492, 176, 50, 96, grip=102))
     b = g("", [bird(tilt=5, near=SP(14, 173), far=FOLDED), m])
-    return svg("The raven checking with a magnifier",
-               "The raven holding a magnifier by its handle, looking through "
+    return svg("Revali checking with a magnifier",
+               "Revali holding a magnifier by its handle, looking through "
                "the lens",
                place([b], -26, 6, 0.84),
                bob("492px 176px", 5, -1.2))
@@ -1580,8 +1811,8 @@ def pose_warn():
     b = bird_front(brow=True, halo_extra=[HARDHAT_FR_HALO],
                    left=SP(186, 172), right=SP(-6, 172),
                    front=hardhat_front())
-    return svg("The raven in a hard hat",
-               "The raven facing the reader in a hard hat, wings spread level",
+    return svg("Revali in a hard hat",
+               "Revali facing the reader in a hard hat, wings spread level",
                b, VIEW_CSS["front"])
 
 
@@ -1598,8 +1829,8 @@ def pose_pass():
            "animation:mascot-pop 3.2s ease-in-out -.6s infinite}"
            "@keyframes mascot-pop{0%,100%{transform:scale(1)}"
            "46%{transform:scale(1.12)}}")
-    return svg("The raven passing a gate",
-               "The raven cheering toward the reader, caliper up, green tick",
+    return svg("Revali passing a gate",
+               "Revali cheering toward the reader, caliper up, green tick",
                b, css)
 
 
@@ -1607,8 +1838,8 @@ def pose_fail():
     ar = g("m-prop", [anchor()] + arrow_reprint(96, 122, 36))
     b = bird_3q(tilt=-5, near=SP(34, 150, 12), far=SP(146, 144, 12),
                 front=spool(430, 404, 52))
-    return svg("The raven shrugging at a failed gate",
-               "The raven turned toward the reader, both wings low in a shrug",
+    return svg("Revali shrugging at a failed gate",
+               "Revali turned toward the reader, both wings low in a shrug",
                g("", [b, ar]), VIEW_CSS["3q"] +
                ".mascot .m-prop{transform-origin:132px 150px;"
                "animation:mascot-turn 6.4s ease-in-out -1s infinite}"
@@ -1624,7 +1855,7 @@ def pose_helper():
            "animation:mascot-hop 4.4s ease-in-out -1.4s infinite}"
            "@keyframes mascot-hop{0%,62%,100%{transform:translateY(0)}"
            "74%{transform:translateY(-15px)}86%{transform:translateY(0)}}")
-    return svg("The raven and a fledgling",
+    return svg("Revali and a fledgling",
                "An adult raven and a fledgling, both looking at the reader",
                g("", [adult, chick]), VIEW_CSS["3q"] + css)
 
@@ -1635,8 +1866,8 @@ def pose_print():
            "animation:mascot-lay 5s ease-in-out -1s infinite}"
            "@keyframes mascot-lay{0%{transform:scaleX(.04)}"
            "72%,100%{transform:scaleX(1)}}")
-    return svg("The raven watching a first layer",
-               "The raven perched on the printer, watching the first layer go "
+    return svg("Revali watching a first layer",
+               "Revali perched on the printer, watching the first layer go "
                "down", g("", printer(106, 272, 300, 200) + [b]), css)
 
 
@@ -1648,8 +1879,8 @@ def pose_kitday():
            "animation:mascot-flap 5.4s ease-in-out -2s infinite}"
            "@keyframes mascot-flap{0%,100%{transform:rotate(0)}"
            "50%{transform:rotate(-1.4deg)}}")
-    return svg("The raven out of the carton",
-               "The raven peeking out of an opened carton at the reader",
+    return svg("Revali out of the carton",
+               "Revali peeking out of an opened carton at the reader",
                g("", [b, g("m-flap", [anchor()] + carton(90, 344, 332, 132))]),
                VIEW_CSS["front"] + css)
 
@@ -1661,8 +1892,8 @@ def pose_tip():
            "animation:mascot-flicker 4.8s ease-in-out -1.2s infinite}"
            "@keyframes mascot-flicker{0%,44%,100%{opacity:1}"
            "50%{opacity:.6}56%{opacity:1}62%{opacity:.78}68%{opacity:1}}")
-    return svg("The raven with an idea",
-               "The raven looking at the reader, one wing up beside a lit bulb",
+    return svg("Revali with an idea",
+               "Revali looking at the reader, one wing up beside a lit bulb",
                b, css)
 
 
@@ -1694,10 +1925,14 @@ def pose_badge():
         el.append(path(d, "url(#sheen)", None, None, "0.85"))
     for i, d in enumerate(hk):
         el.append(path(d, "#47546E" if i % 2 else K2, EDGE, 3.0))
+    # The scarf band survives 30 px as one blue stroke under the chin; the
+    # tails would not, so the badge has none. One braid, weave dropped.
+    el += scarf_3q(tails=False)[0]
     el.append(g("m-head", [anchor()] + rotg(
-        head_3q() + [g("m-eye", [anchor()] + eyes_3q(k=1.18))]
+        head_3q(simple=True) + [g("m-eye", [anchor()] + eyes_3q(k=1.18))]
         + eyelid(EYE_3Q_FAR, 13.0) + eyelid(EYE_3Q_NEAR, 22.4), 4)))
-    return svg("The raven badge", "A small head-and-shoulders raven badge",
+    return svg("Revali, the badge",
+               "A small head-and-shoulders badge of Revali the raven",
                place([g("m-body", el)], -300, -108, 1.98), VIEW_CSS["3q"])
 
 
@@ -1710,13 +1945,13 @@ HARDHAT_HALO = ("M278 116C282 74 314 48 352 50C392 52 414 80 416 112"
                 "C275 128 272 121 278 116Z")
 
 def pose_base_3q():
-    return svg("The raven, three-quarter", "The raven turned toward the reader",
+    return svg("Revali, three-quarter", "Revali turned toward the reader",
                bird_3q(), VIEW_CSS["3q"])
 
 
 def pose_base_front():
-    return svg("The raven, facing the reader",
-               "The raven facing the reader, both wings folded",
+    return svg("Revali, facing the reader",
+               "Revali facing the reader, both wings folded",
                bird_front(), VIEW_CSS["front"])
 
 
@@ -1725,8 +1960,8 @@ def pose_hexkey():
             + bolt(453, 296) + [g("m-prop", [anchor()] + hexkey(453, 296,
                                                                 -150, 92, 40))])
     b = bird_3q(tilt=3, near=SP(30, 126), far=FOLDED)
-    return svg("The raven turning a hex key",
-               "The raven driving a hex key into an extrusion corner",
+    return svg("Revali turning a hex key",
+               "Revali driving a hex key into an extrusion corner",
                place([g("", [b] + prop)], -34, 6, 0.93),
                VIEW_CSS["3q"] +
                ".mascot .m-prop{transform-origin:453px 296px;"
@@ -1739,8 +1974,8 @@ def pose_caliper():
     cal = g("m-prop", [anchor()] + caliper(258, 236, -6))
     b = place([bird_3q(tilt=2, near=SP(36, 142), far=FOLDED)],
               -86, -6, 0.92)
-    return svg("The raven reading a caliper",
-               "The raven holding a caliper up with the display toward the reader",
+    return svg("Revali reading a caliper",
+               "Revali holding a caliper up with the display toward the reader",
                g("", [b, cal]), VIEW_CSS["3q"] + bob("346px 262px", 5, -1.2))
 
 
@@ -1748,7 +1983,7 @@ def pose_point():
     b = place([bird_3q(tilt=3, near=SP(18, 146), far=FOLDED)],
               -96, 6, 0.9)
     ch = g("m-prop", [anchor()] + chevrons(404, 266, 3, 1.0))
-    return svg("The raven pointing", "The raven pointing a wingtip to the right",
+    return svg("Revali pointing", "Revali pointing a wingtip to the right",
                g("", [b, ch]), VIEW_CSS["3q"] +
                ".mascot .m-prop{transform-origin:430px 266px;"
                "animation:mascot-nudge 2.8s ease-in-out -.6s infinite}"
@@ -1763,8 +1998,8 @@ def pose_carry():
     # behind and only the forearms show above the rim.
     b = g("", [bird_3q(tilt=3, near=SP(78, 132, 8), far=SP(108, 140, 8))]
           + [g("m-prop", [anchor()] + bin_box(164, 372, 196, 108))])
-    return svg("The raven carrying a bin",
-               "The raven carrying a labelled parts bin in both wings",
+    return svg("Revali carrying a bin",
+               "Revali carrying a labelled parts bin in both wings",
                place([b], 0, -26, 0.9),
                VIEW_CSS["3q"] + bob("262px 426px", 5, 0.9))
 
@@ -1776,8 +2011,8 @@ def pose_cable():
                       (376, 462), (344, 470)], (322, 470))
     plug = g("m-prop", [anchor()] + connector(486, 288, -8, tail=False))
     b = g("", [bird_3q(tilt=3, near=SP(30, 150), far=FOLDED)] + lead + [plug])
-    return svg("The raven plugging in a cable",
-               "The raven holding a keyed low voltage plug, its lead coiled "
+    return svg("Revali plugging in a cable",
+               "Revali holding a keyed low voltage plug, its lead coiled "
                "on the floor",
                place([b], -84, -8, 0.88),
                VIEW_CSS["3q"] + bob("486px 288px", 4, -1.2))
@@ -1785,8 +2020,8 @@ def pose_cable():
 
 def pose_screen():
     b = place([bird(tilt=1)], -84, 12, 0.86)
-    return svg("The raven watching a console",
-               "The raven watching a console with a progress bar",
+    return svg("Revali watching a console",
+               "Revali watching a console with a progress bar",
                g("", screen(306, 210) + [b]),
                ".mascot .m-layer{transform-origin:332px 306px;"
                "animation:mascot-lay 5.6s ease-in-out -1s infinite}"
