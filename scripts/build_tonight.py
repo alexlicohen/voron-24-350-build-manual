@@ -208,6 +208,21 @@ def _parse_chapter(path):
                 if pos < ppos and (_LOAD_TITLE_RE.match(stitle) or _PRINT_TITLE_RE.match(stitle)):
                     boundary = max(boundary, pos + 1)
         first = next(((pos, sid) for pos, sid, _t, _e in steps if pos >= boundary and pos <= ppos), None)
+        if first is None:
+            # No step heading opens strictly after `boundary`: it sits inside a step that is
+            # already open (a step with more than one `Pause:` line, e.g. B00.8's four review
+            # sessions). Reuse that step instead of dropping the segment - but not a plate
+            # load/start step: its trailing pause is already covered by the print segment.
+            containing = None
+            for pos, sid, stitle, _e in steps:
+                if pos <= boundary:
+                    containing = (pos, sid, stitle)
+                else:
+                    break
+            if (containing is not None and containing[0] <= ppos
+                    and not _LOAD_TITLE_RE.match(containing[2])
+                    and not _PRINT_TITLE_RE.match(containing[2])):
+                first = containing[:2]
         last = None
         for pos, sid, _t, _e in steps:
             if pos <= ppos:

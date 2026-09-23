@@ -13,10 +13,10 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 
 **Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
-**Sessions:** ~15 min one-time slicer and filament setup, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
+**Sessions:** ~15 min one-time slicer and filament setup, then Step B00.8's plate review (~25+20+35+20 min, four sessions, done with a helper) before B00-P1 starts, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
 
 **Prerequisites:** the pre-B00 checks (index row 1) passed — see **Before B00: belt and hot-bed checks**, below. Slicer set up per
-[00-slicer-setup.md](00-slicer-setup.md) (Step B00.0 below walks the one-time wizard).
+[00-slicer-setup.md](00-slicer-setup.md) (Step B00.0 below walks the one-time wizard). **Step B00.8** — reviewing all 27 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -97,6 +97,65 @@ included) before B00, then re-run both checks.
 
 Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [PrusaSlicer releases](https://github.com/prusa3d/PrusaSlicer/releases)
 
+Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.
+
+## Step B00.8 — Review every plate in PrusaSlicer, together
+
+Appended id, out of numeric order — same precedent as [Step 10.80](../10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids).
+It sits here, before any plate prints, because it is a once-through review of the whole run, not a
+step inside B00's own plate. Do it before B00-P1 starts.
+
+**Do:**
+
+1. Open each of the 27 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
+2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
+3. Tick it off, then open the next plate.
+
+The 3MFs are `slicer/plates/<id>.3mf` — the 22 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
+plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
+box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
+so nothing here gets hand-typed.
+
+**Check:** All 27 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+
+**Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+
+**What to look at on each plate:**
+
+- A flat face sits on the sheet, and nothing overhangs the bed edge.
+- No supports anywhere. The 2.9 print-stability warnings on drive frames, Stealthburner and Klicky
+  parts are by design — see them and move on.
+- Spacing looks even; nothing touching or crossing.
+- The three accent plates (B02-P1–P3) are on the blue preset, everything else on black.
+- B11's five plates are on the PETG V0 preset and the **textured** sheet, not smooth/satin.
+- B11-P4 and B11-P5 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
+  them now for arrangement and settings anyway; reprint only if kit day changes a duct length.
+
+**If an arrangement needs changing:**
+
+1. In PrusaSlicer, open the Arrange popup: 6 mm spacing, rotations on, Center, Accurate, then
+   **Arrange Current Bed**. Save the 3MF. [src](https://help.prusa3d.com/article/auto-arrange-tool_1770)
+2. Rebuild only the plates you touched:
+   `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]` — name every re-saved
+   plate. **Never run `--from-3mf` with no plate ids**: with no ids it re-slices all 27, not the
+   ones you changed.
+3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
+   [print/README](README.md#spool-ledger) by hand.
+
+B11's five plates carry `qc="pending"` in `slicer/plates.py` — nobody has flipped that flag yet. It
+is not this step's job to flip it; finishing B11's review here is what clears it, done by Alex or on
+his word to Claude.
+
+Pause: ~25 min since the last pause — B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change.
+
+Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.
+
+Pause: ~35 min since the last pause — B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.
+
+Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked; `qc="pending"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed.
+
+Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger)
+
 ## Step B00.1 — Filament prep
 
 **Do:**
@@ -105,7 +164,7 @@ Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-t
 2. On the printer, **Load Filament → ASA**; it asks for a material type only, and the HF profile lives in the slicer.
 **Check:** Purge is clean black, no PLA/PETG streaking from a prior print.
 
-Pause: ~15 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.
+Pause: ~10 min since the last pause — ASA loaded and purged clean, B00-P1 still open in PrusaSlicer. Nothing printing.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 

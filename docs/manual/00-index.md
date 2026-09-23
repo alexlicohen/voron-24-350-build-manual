@@ -26,10 +26,10 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *While it prints:* Nothing prints yet. Dry the first black spool, read [00-slicer-setup](print/00-slicer-setup.md), confirm the sheet and glue
     - *Gate:* Tick list on its own page: [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — belt pluck check (targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart) and a hot first-layer check at ASA bed temperature (five 30×30×0.2 mm squares, 0.17–0.23 mm each, spread ≤0.05 mm). Both pass → B00 on GT2. Either fails → do the Gen 2 upgrade now, then re-run both `(verify on bench)`
     - *Sessions:* —
-- **2 · Print** — [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) · 4.0 h print · needs: the pre-B00 checks passed (row 1)
+- **2 · Print** — [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) · 4.0 h print · needs: the pre-B00 checks passed (row 1); Step B00.8 (review every plate, together) done before B00-P1 starts
     - *While it prints:* Print the [bin labels](../print/bin-labels.md) (25 bins, [scheme](print/README.md#bins)) and label ~25 containers or bags
     - *Gate:* **Gate A** (Step B00.5, cube only): X/Y ±0.15 mm, Z ±0.10 mm, first-layer-vs-mid delta ≤ 0.15 mm, corner snap. **Gate B** (Step B00.7) runs the same week on a caliper across the printed bore and seven KADRICK inserts; its bearing press and MGN12 rail check wait for the kit
-    - *Sessions:* 1 plate start
+    - *Sessions:* Step B00.8's plate review (4 sessions, with a helper), then 1 plate start
 - **3 · Build** — [Ch 00a — Mains safety](00a-mains-safety.md) · 0.75–1.0 · needs: Ch 00 Steps 00.8 and 00.30 as reading (the tool table and the log) — no kit part is touched
     - *While it prints:* B00, then B01
     - *Gate:* Checkpoint 00a: mains-work owner and room rule written down, meter tested live and dead, "what to do when it smokes/trips/bites" decided

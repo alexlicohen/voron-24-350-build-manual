@@ -30,6 +30,14 @@ The same planner over the timeline rows without the **KIT** marker, plus the ind
 
 Segments that carry a job a helper can own, in timeline order. The adult keeps the iron, the blade, mains work and anything hot; the helper's job is named in the step itself.
 
+- **B00 — Calibration & jigs** — <span data-first-step="B00.8">Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change.</span>
+    - Step B00.8 — Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- **B00 — Calibration & jigs** — <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.</span>
+    - Step B00.8 — Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- **B00 — Calibration & jigs** — <span data-first-step="B00.8">Step B00.8 · ~35 min · leave-state: B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.</span>
+    - Step B00.8 — Drives the layer slider on each plate and reads the time and grams aloud for the tally.
+- **B00 — Calibration & jigs** — <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; `qc="pending"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed.</span>
+    - Step B00.8 — Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 15.2 h unattended · leave-state: plate B01-P1 running, 15.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B01.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
@@ -108,7 +116,12 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - wall-clock pause — see the timeline row for its gate
 
 ### 2 · Print — B00 — Calibration & jigs
-- <span data-first-step="B00.0">Step B00.0 → Step B00.1 · ~15 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black", ASA loaded and purged clean. Nothing printing.</span>
+- <span data-first-step="B00.0">Step B00.0 · ~10 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.</span>
+- <span data-first-step="B00.8">Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change.</span>
+- <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.</span>
+- <span data-first-step="B00.8">Step B00.8 · ~35 min · leave-state: B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.</span>
+- <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; `qc="pending"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed.</span>
+- <span data-first-step="B00.1">Step B00.1 · ~10 min · leave-state: ASA loaded and purged clean, B00-P1 still open in PrusaSlicer. Nothing printing.</span>
 - <span data-first-step="B00.2">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B00.5">Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.</span>
 - <span data-first-step="B00.6">Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.</span>
