@@ -14,7 +14,7 @@ Three jobs, all of them here so no other file has to know where the art lives:
 
        <figure class="mascot-scene mascot-scene--right">
          <img class="mascot-scene__img" src="<page-relative>/mascot-hexkey.svg"
-              alt="The raven turning a hex key" width="220" height="220">
+              alt="Revali turning a hex key" width="220" height="220">
          <figcaption>One corner square. Three to go.</figcaption>
        </figure>
 
@@ -96,12 +96,12 @@ def poses() -> dict[str, str]:
             head = path.read_text(encoding="utf-8")[:4096]
             m = _TITLE_RE.search(head)
             _POSES[path.stem[len("mascot-"):]] = (m.group(1).strip() if m
-                                                  else "The manual's raven")
+                                                  else "Revali, the manual's raven")
     return _POSES
 
 
 def title_of(pose: str) -> str:
-    return poses().get(pose, "The manual's raven")
+    return poses().get(pose, "Revali, the manual's raven")
 
 
 # --------------------------------------------------------------------------
@@ -295,8 +295,11 @@ if __name__ == "__main__":
                  "print", "carry", "kitday", "base-front", "badge", "warn"):
         check(f"pose {pose!r} exists", pose in found)
     check("titles are read from the SVG",
-          found.get("hexkey") == "The raven turning a hex key",
+          found.get("hexkey") == "Revali turning a hex key",
           repr(found.get("hexkey")))
+    check("every title names Revali",
+          all(t.startswith("Revali") for t in found.values()),
+          repr(sorted(t for t in found.values() if not t.startswith("Revali"))))
 
     # ---- the fence, happy path -------------------------------------------
     good = ("```mascot\n"
@@ -309,7 +312,7 @@ if __name__ == "__main__":
     check("figure emitted", '<figure class="mascot-scene mascot-scene--right">' in out)
     check("references the SVG, not the preview PNG",
           '@mascot/mascot-hexkey.svg' in out and ".png" not in out)
-    check("alt comes from the SVG <title>", "alt='The raven turning a hex key'" in out)
+    check("alt comes from the SVG <title>", "alt='Revali turning a hex key'" in out)
     check("caption rendered", "<figcaption>One corner square. Three to go.</figcaption>" in out)
     check("size attributes present (no layout shift)", "width='220' height='220'" in out)
     check("img attributes are single-quoted (admonition titles use \")",
@@ -401,7 +404,7 @@ if __name__ == "__main__":
     print("\n--- panel ---")
     print(" ", panel_html("pass"))
     check("panel is ~96 px", "width='96' height='96'" in panel_html("pass"))
-    check("panel alt from title", "alt='The raven passing a gate'" in panel_html("pass"))
+    check("panel alt from title", "alt='Revali passing a gate'" in panel_html("pass"))
 
     # Everything a page emits must resolve to one of a handful of URLs.
     page_html = (badge_html("check", "check") + badge_html("tip", "tip")

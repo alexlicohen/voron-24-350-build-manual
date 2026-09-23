@@ -1,5 +1,5 @@
 <div class="mascot-hero-wrap" data-mascot-wave="@mascot/mascot-base-front.svg">
-<img class='mascot-hero off-glb' src='@mascot/mascot-base-front.svg' alt='The raven, facing the reader' width='200' height='200' loading='eager' decoding='async'>
+<img class='mascot-hero off-glb' src='@mascot/mascot-base-front.svg' alt='Revali, facing the reader' width='200' height='200' loading='eager' decoding='async'>
 </div>
 
 # Voron 2.4 350 — Build Manual
@@ -10,7 +10,7 @@
 
 ```mascot
 pose: kitday
-caption: Cartons open, bins already labelled, every plate printed.
+caption: Cartons open, bins labelled, every plate printed. I planned it this way. Naturally.
 ```
 
 1. **Now.** Read [slicer setup](manual/print/00-slicer-setup.md). Do the pre-kit steps of [Ch 00](manual/steps/00-before-you-start/index.md): what the kit supplies, tools, consumables, the flat reference and the bins (Steps 00.7–00.12); the Voron manual's front matter, the measurement log and the Discord questions (Steps 00.23–00.32). Do [Ch 00a — Mains safety](manual/steps/00a-mains-safety/index.md). Print the [bin labels](print/bin-labels.md).
@@ -24,7 +24,7 @@ Open [Tonight](manual/00-tonight.md), pick the 30, 60 or 90-minute plan, tap its
 
 <div class="build-progress" data-build-progress="assets/build-progress.json"
      data-mascot-empty="@mascot/mascot-print.svg"
-     data-mascot-empty-alt="The raven watching a first layer">
+     data-mascot-empty-alt="Revali watching a first layer">
   <img class="build-progress__img" alt="" hidden>
   <p class="build-progress__caption">Tick a chapter's steps and this shows the machine as it stands at the end of it.</p>
   <p class="build-progress__counts"></p>

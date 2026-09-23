@@ -8,7 +8,7 @@ only. GT1.5 lands with the INDX + Gen 2 rebuild, after kit day.
 
 ```mascot
 pose: pause
-caption: The parts visitors will comment on. Four plates and one long, quiet, entirely uneventful weekend.
+caption: The parts visitors will comment on. Four plates, one quiet weekend, and my updraft stays switched off.
 ```
 
 **Time:** 29.2 h (4 plates) — PrusaSlicer 2.9.6 estimates.

@@ -181,6 +181,44 @@ The bird is friendly, not stern. Four pieces, all in `head_art` / `eyelid`:
 | 0 | warn (serious), pause (asleep), the front view (no tilt hook — it sways instead) |
 | −5 down | fail (rueful) |
 
+### The Champion's cues — Revali
+
+The bird is named **Revali**, after the Rito Champion in *Breath of the Wild*. Two cues carry the
+lineage, drawn into the shared constructions so every adult pose inherits them; the anatomy under
+them (feather rows, bristles, hackles, wedge tail) is untouched, and it is a homage, not a copy — no
+emblem, no bow, no arrows, nothing traced.
+
+| Cue | Construction | Where it lives |
+|---|---|---|
+| **Champion's scarf** | `scarf_band()` — the loop round the neck, base `SCARF` with a lit upper fold and one shadow crease; `tail()` — two strips from a `knot()`, each a `flow()` polyline (a bow plus one S-wave) tapered by `ribbon()` | `SCARF_PROFILE` / `SCARF_3Q` / `SCARF_FRONT` and their `*_TAILS` tables |
+| **Braided nape feathers** | `braid()` — a tapered `K2` strand rimmed `#46536C`, four chevrons for the weave, a `SCARF` tie at 86 % and a three-feather tuft past it | `BRAIDS_PROFILE` / `BRAIDS_3Q` / `BRAIDS_FRONT`, drawn first in each `head_*()` so the skull hides the roots |
+
+Per view:
+
+- **Profile.** The band sits on the side of the neck and goes down **before** the wing, so the
+  shoulder coverts overlap its back end; the tails go down **after** the wing and stream back over
+  the mantle, rising, with the knot at the back of the neck under the braid tips. Asleep
+  (`closed=True`, the `pause` pose) there is no updraft: `SCARF_TAILS_ASLEEP` droops them, short,
+  clear of the nightcap's tassel.
+- **Three-quarter.** The band wraps the base of the neck **over** the ruff, whose points spill out
+  below it (the band is kept narrow for that reason). The knot and tails leave from the far
+  shoulder, where the back of the neck is in this view. Braids hang beside the far cheek. The
+  fledgling (`juv=True`) gets neither cue — it is not the champion.
+- **Front.** Head-on the tails cannot stream behind, so they hang from a knot beside the bill,
+  short, over the breast; braid tips show either side of the neck. `warn` keeps them: a scarf is
+  not a gag prop, and the stop-sign silhouette is unchanged.
+- **Badge.** The band only, as one blue stroke under the chin, and a single braid with the weave
+  dropped (`braid(simple=True)`). The tails would be sub-pixel at 30 px, so the badge has none.
+
+The tails are the one nod to Revali's Gale — his self-made updraft — in cloth rather than in
+swirl lines. They take the **thin** halo (6), like the legs and the spread-wing fans: at their width
+the body rim would turn them into pale sausages. Braid halos rotate with the head (`rotg`) so the
+rim stays on the art under `tilt`.
+
+**Voice.** Captions may lean toward Revali's self-assured, slightly smug register — proud of his
+own work, never at the reader's expense, and still dry and ≤ 18 words. The humour rule below is
+unchanged: he is never funny on `⚠`, and FAIL stays sympathetic.
+
 ### Halo
 
 The bird has no dark outline. A `halo` pass draws the outer silhouette shapes (torso, skull, bill,
@@ -240,20 +278,21 @@ keep positioning on an outer group and animation on an inner one.
 | Gape flange | `#6B7689` | the fledgling's pale gape, nothing else |
 | Amber | `#D98324` / `#FBEBD3` | hard hat and the reprint arrow. **Warn and fail only.** |
 | Green | `#2E7D32` | the PASS tick, nothing else |
+| Scarf | `#1F4E9C` base / `#3A6DC4` lit fold / `#163B7A` crease, knot, edge | Revali's Champion scarf and the braid ties, nothing else. The base is the manual's accent blue — the printer's frame — so the character and the build share one colour. Flat, no gradient. Contrast: base 8.0:1 on white, 2.2:1 on the body and on slate — the lit fold (3.6:1 on the body) and the halo rim are what carry it on the dark theme; checked at 30 px on both |
 
 No other colour, no second gradient, no filters, no raster, no fonts, no scripts. Props carry
 finish but stay flat: hex drives on the screw heads, a tick scale on the caliper beam, a bevel ring
 and a knurled grip on the magnifier, and **brand-neutral** labels on the bin and carton — bars and
 blocks, never lettering, since the files carry no fonts.
 
-Per-file budget is **80 KB**; the set currently peaks at 56 KB (`helper`, which holds two birds).
+Per-file budget is **80 KB**; the set currently peaks at 61 KB (`helper`, which holds two birds).
 
 ## Sizing
 
 | Size | Use | Rule |
 |---|---|---|
 | ≥ 160 px | page illustration | the detailed poses in all three views; feather rows and props resolve here |
-| 40–48 px | inline badge | `mascot-badge.svg` **only** — head and shoulders, three hackle scallops, one big eye |
+| 30–48 px | inline badge | `mascot-badge.svg` **only** — head and shoulders, three hackle scallops, one big eye, the scarf band as one blue stroke |
 
 The detailed poses do not survive 48 px: the feather rows mush and the props become grey specks.
 That is what the badge file is for. Keep the square viewBox; scale with `width`/`height`, never
@@ -331,6 +370,6 @@ through `<img>`, which is how a Markdown image line loads it.
 python3 scripts/gen_mascot.py docs/manual/assets/mascot --preview
 ```
 
-Rewrites all twelve SVGs and re-renders the preview PNGs (512 px light and dark, plus the badge at
+Rewrites all twenty SVGs and re-renders the preview PNGs (512 px light and dark, plus the badge at
 48 px) with `rsvg-convert`. `#1e2129` is Material's slate page colour. Check a new pose at 48 px on
 both backgrounds before committing it; that is the size that fails first.

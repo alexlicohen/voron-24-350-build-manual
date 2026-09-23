@@ -1,0 +1,25 @@
+# Revali — Astra proposal
+
+- Two visual cues: plain frame-blue scarf, short swept feather plait.
+- The scarf ties the bird to the printer; three broad feather crossings suggest the lineage without copying a costume.
+- All three shared constructors inherit both cues, including the fledgling. Headwear naturally covers the crest.
+- Existing feather rows, nasal bristles, throat hackles, wedge tail and build-tool props remain.
+- Scarf sits behind the hackles; crest joins the existing head art and matching tilted halo.
+- At 30/48 px the badge drops braid crossings for two swept lobes. The scarf remains a broad blue band.
+- Rejected: weapons, symbols, costume embroidery, extra gradients, wind effects, angry eyebrows and a full-body recolour.
+- Palette added: SCARF #1F4E9C shadow; SCARF_L #568AD1 light. Both values are used on both themes.
+- Crest reuses K2 #222A38, K3 #30394B and BLUE #2A6FB5; halo remains #EDF0F4.
+- Contrast: lit cloth/body 4.94:1; lit cloth/slate 4.56:1; shadow/white 7.99:1; halo/slate 14.08:1.
+- Four caption changes, all within 18 words; safety caption unchanged:
+- Ch 00: “Kit day is a counting day. The printer inside the box is currently a rumour.” → “Kit day is a counting day. I expected a printer. Apparently there is some assembly.”
+- Ch 01: “Square the frame once, properly. Everything above copies this frame, including its mistakes, forever.” → “Square the frame carefully. My standards are high. The gantry will be higher.”
+- Ch 07: “Belts that sound the same are not the same. Measure both. Ears are cheerful liars.” → “Measure both belts. I have excellent hearing and still brought a caliper.”
+- Ch 14: “Here the kit becomes a printer. I brought a caliper, because feelings are not evidence.” → “I expected excellent results. Naturally, I brought a caliper to confirm them.”
+- SVG titles use Revali; hook alt-text assertions updated. Names section and orchestrator-owned files untouched.
+- Canon uncertainty: exact braid count and scarf construction were not checked; these are original shapes based only on the brief's cues.
+- Regenerate: `python3 scripts/gen_mascot.py docs/manual/assets/mascot --preview --contact-sheet`.
+- Contact sheet: `revali-contact-sheet.png`; 20 poses × 2 themes, then native 30/48 px badges × 2 themes.
+- Visual review: all 45 PNG previews represented in the sheet or its equivalent badge swatches; individual anatomy and badges inspected.
+- Gates: wing tally passed; largest SVG 57.8 KB; lint 0 findings; docs consistent; mascot self-tests passed; strict build passed in 6.03 s.
+- Browser QA limitation: Computer Use denied Chrome and Safari access, so first-open 1024×768 browser verification remains outstanding.
+- Strict build also regenerates two tracked print pages with named alt text; those incidental diffs were removed to keep the requested scope.

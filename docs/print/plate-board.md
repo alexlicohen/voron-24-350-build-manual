@@ -6,7 +6,7 @@ Ticks are per device, in this browser, and separate from the step ticks in the B
 
 <div class="plate-board" data-plate-board="../../assets/plate-board.json"
      data-mascot-panel="@mascot/mascot-print.svg"
-     data-mascot-panel-alt="The raven watching a first layer"
+     data-mascot-panel-alt="Revali watching a first layer"
      data-mascot-next="@mascot/mascot-badge.svg" markdown="1">
 
 The board needs JavaScript. Without it, the same 22 plates and their bins are on the [plate plans](plate-plans.md) page, and the run schedule and spool ledger are in [print/README](../manual/print/README.md).

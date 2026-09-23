@@ -6,7 +6,7 @@ printed here and **bagged as the alternative probe** — this build fits the ind
 
 ```mascot
 pose: pause
-caption: Twelve hours for the toolhead. Start it after dinner, inspect it at breakfast. I will be asleep.
+caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakfast. Even champions need their sleep.
 ```
 
 **Time:** 12.1 h (1 plate) — PrusaSlicer 2.9.6 estimates.
