@@ -90,7 +90,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Prepare the sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) with the glue film renewed, confirm the spool is dry, and start the chamber preheating.
 **Check:** Chamber reads ≥40 °C before purge.
 
-Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B01.4 — Print plate B01-P1
 

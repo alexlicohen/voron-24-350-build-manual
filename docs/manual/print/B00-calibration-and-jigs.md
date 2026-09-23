@@ -15,9 +15,8 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 
 **Sessions:** ~15 min one-time slicer and filament setup, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
 
-**Prerequisites:** the Gen 2 belt upgrade (index row 1) done, or the 2026-10-15 contingency taken — see
-**Gen 2 first**, below. Slicer set up per [00-slicer-setup.md](00-slicer-setup.md) (Step B00.0 below walks
-the one-time wizard).
+**Prerequisites:** the pre-B00 checks (index row 1) passed — see **Before B00: belt and hot-bed checks**, below. Slicer set up per
+[00-slicer-setup.md](00-slicer-setup.md) (Step B00.0 below walks the one-time wizard).
 
 **Printed parts**
 
@@ -39,7 +38,7 @@ the kit's own 153 inserts stay untouched.
 
 **Read first**
 
-- The two-part gate in [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade).
+- The two-part gate in [00-slicer-setup.md](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change).
   **Gate A** (cube X/Y, Z, first-layer-vs-mid delta, corner snap) is Step B00.5 and releases B02, B07 and
   B08–B10. **Gate B** (`Heatset_Practice` with real inserts and a caliper across `z_drive_retainer_a`'s
   625-2RS pocket now; the bearing press and `MGN12_rail_guide` on a real rail on kit day) is Step B00.7 and
@@ -53,25 +52,32 @@ the kit's own 153 inserts stay untouched.
 - First layer: the Core One+ has no first-layer wizard. The loadcell sets Z before every print; you judge the
   result (Step B00.4) and nudge with Live Adjust Z only if you must.
 
-## Gen 2 first
+## Before B00: belt and hot-bed checks
 
-Before any plate: fit the Gen 1→Gen 2 kit (Prusa order 1787919456) per
-[the Prusa guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435). It changes belts,
-pulleys, steps/mm and firmware together, so it is done once, up front, and every one of the 22 plates is
-printed on GT1.5. The Voron kit is not what you are waiting for here — the upgrade kit arrives months
-earlier.
+The Gen 2 belt upgrade (GT1.5 belts, heatbed expansion joints, nozzle wiper — Prusa order 1787919456,
+shipped) is **deferred to the INDX 8-tool conversion this winter**; Prusa documents the combined install
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)). The whole 157.0 h run prints on the current **Gen 1 GT2** belts. Before any plate,
+run these two checks instead — belt tuning was never formally closed, and the bed has only been proved flat
+at 60 °C, not at ASA temperature.
 
-- [ ] Firmware **≥ 6.8.1** (printer menu → Info)
-- [ ] **Settings → Hardware → Edition = Gen 2**
-- [ ] GT1.5 belts fitted and tuned (Control → Calibrations & Tests → Belt Tuning)
-- [ ] Gantry re-squared
-- [ ] Self-test passed
-- [ ] Input shaper: the Edition switch loads the Gen 2 defaults; no calibration without the optional accelerometer
-- [ ] Printer box reads `Prusa CORE One HF0.4 nozzle (modified)` after opening a plate
+**1. Belt pluck check** `(verify on bench)`
 
-Then Step B00.0. If the upgrade kit has still not arrived by **2026-10-15**, take the contingency instead:
-start B00 on the Gen 1 belts and take the mid-run pause after B07, per
-[00-slicer-setup](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below).
+- [ ] Motors disabled, head parked front, X centred
+- [ ] Pluck mid-belt with belt.connect.prusa3d.com or the Prusa app
+- [ ] Upper belt ≈96 Hz (≤98 Hz), lower belt ≈92 Hz (≥92 Hz), ≤8 Hz apart
+- [ ] Out of range: Control → Calibrations & Tests → Belt Tuning (fw ≥ 6.8.1), tensioner screws half a turn, both evenly and alternately — left = upper, right = lower
+
+**2. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
+
+- [ ] Slice five 30×30×0.2 mm squares — four corners plus centre of the usable bed — in Galaxy Black ASA on the B00 project's printer/filament presets (bed **110 °C**, as in `B00-P1.3mf`), with the vendored cold start G-code
+- [ ] No "bed not aligned" / Z-alignment prompt during the print
+- [ ] Every square calipers 0.17–0.23 mm
+- [ ] Spread across all five squares ≤ 0.05 mm
+
+Both pass → Step B00.0, B00 prints on GT2. Either fails → do the Gen 2 upgrade now (expansion joints
+included) before B00, then re-run both checks.
+
+- [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
 
 ## Steps
 
@@ -134,7 +140,7 @@ handles cooled parts, not the printer.
 
 Tip: on the smooth or powder-coated PEI sheet Prusa prints ASA over a glue-stick layer so the part cannot pull the coating off; never acetone on the powder-coated sheet. [help.prusa3d.com/article/asa_1809](https://help.prusa3d.com/article/asa_1809)
 
-Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B00.4 — Print
 
@@ -148,7 +154,7 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 
 Tip: expect 15–25 minutes of chamber heating before the purge (verify on bench). The 4.0 h estimate does not include it.
 
-Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) · [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) · [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B00.5 — Inspect: Gate A (the cube, no kit needed)
 
@@ -288,7 +294,7 @@ with it. Flush, un-bulged inserts mean the iron is right before any real part se
 
 Pause: ~15 min since the last pause — Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.
 
-Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-batch-1-and-again-after-the-gen-2-upgrade) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-batch-1-and-again-after-any-toolchain-change) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 ---
 
@@ -296,7 +302,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 
 **Gate A — before B02 and B07**
 
-- [ ] Gen 2 belt upgrade done (index row 1), or the 2026-10-15 contingency consciously taken
+- [ ] Pre-B00 checks passed (index row 1): belt pluck check, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm

@@ -171,7 +171,7 @@ popping. Keep the active spool in one USS Drybox during the run. Voron parts are
 material where wet filament actually costs you strength.
 (Sources: [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); your own drying decision in `CLAUDE.md`.)
 
-### 1.4 Calibration sequence — run this before Batch 1, and again after the Gen 2 upgrade
+### 1.4 Calibration sequence — run this before Batch 1, and again after any toolchain change
 
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so there is nothing to install here. You're
    about to run ~157 h of ASA in an enclosure: on the first ASA plate confirm the blower runs and the bypass
@@ -206,8 +206,8 @@ material where wet filament actually costs you strength.
    | kit day | the same pocket, on a real 625-2RS (16 mm OD; F695 is the A/B-drive bearing, not the Z drive) | — | bearing presses in with thumb pressure, no rocking | **The press fit the caliper stood in for.** |
    | kit day | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the machine is already on
-   GT1.5 — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
+6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the whole run prints on the
+   current Gen 1 GT2 belts — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
    58.5 h and 763 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
    Gate B forward: its insert row runs on the KADRICK inserts already on the bench and its bore row is a
    caliper, so both run in the same week as Gate A. The **bearing press** and the **MGN12 rail row** wait
@@ -240,8 +240,8 @@ Everything else can be printed while you build.
 **What prints before the kit: all of it.** Fabreeko's kit is not expected before late November 2026 (§8),
 and with Gate B's caliper and insert rows run early on what is already on the bench (§1.4) nothing is left
 to gate a batch.
-The order is therefore the plain numeric one — the Gen 2 belt upgrade, then **B00 → B01 → B02 → … → B10**,
-157.0 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. On kit day the frame (no printed part) and
+The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
+**B00 → B01 → B02 → … → B10**, 157.0 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. On kit day the frame (no printed part) and
 Ch 00 start at once with every bin full, and no assembly chapter ever waits on a plate. The only print job
 the build may still owe is the `deck_support_4mm` reprint, if the deck panel calipers 4 mm (§6).
 
@@ -532,7 +532,8 @@ Every one of these is 117–182 mm on its long axis and 67–72 mm deep. Packed 
 per plate; packed on the real outlines (`slicer/nest.py`, 6 mm between silhouettes plus each part's brim) the
 C-shaped segments interleave and the set fits on four plates instead of six — the 2026-09-06 consolidation.
 `power_inlet_IECGS_1mm` is not here: it moved to B07 (Ch 09, not the skirts chapter).
-**These are the parts people see.** Print them after the Gen 2 belt upgrade if you have it (§8).
+**These are the parts people see.** They print on the current Gen 1 GT2 belts, in numeric order like every
+other batch — the Gen 2 belt upgrade is deferred to the INDX rebuild this winter (§8).
 
 Notes:
 - `mount.stl` vs `mount_thick.stl`: `mount.stl` is 30 g / 44.8 mm tall; `mount_thick.stl` is 74 g / 67.8 mm and
@@ -810,44 +811,45 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 
 ## 8. Where to do the Core One+ Gen 2 belt upgrade
 
-**Where things stand (2026-09-14).** The Core One+ is built and commissioned — commissioning closed
+**Where things stand (2026-09-23).** The Core One+ is built and commissioned — commissioning closed
 2026-09-13 on **Gen 1 (GT2) belts**, bed flat to ±0.1 mm on printed Z-stop correction caps. The
-Gen 1 → Gen 2 upgrade kit (Prusa order 1787919456) is backordered but expected well before November. The LDO
-Voron kit is not: realistic delivery is **late November to late December 2026 (Fabreeko tracking page
-2026-09-14: batch still in manufacture; watch for the status to flip to shipped, which starts a ~5-week
-clock)**.
+Gen 1 → Gen 2 upgrade kit (Prusa order 1787919456) has shipped. The LDO Voron kit has not: realistic
+delivery is **late November to late December 2026**.
 
-**Baseline: Gen 2 before B00.** Two months of printing sit between now and the kit, so there is no reason to
-lay 157.0 h of ASA down on GT2 belts and then change the machine under the parts. As soon as the upgrade kit
-lands: apply it, re-tension, re-square, re-run the self-test and input shaper, re-pass Gate A on a fresh
-cube — then start B00. The conversion changes belts, pulleys, steps/mm and firmware together, so settling it
-once, up front, puts every plate in the build on GT1.5.
+**Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
+before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
+(<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
+whole 157.0 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause below is
+retired, because nothing changes the machine under the parts.
 
-**Contingency: if the upgrade kit has not arrived by 2026-10-15**, start B00 on the existing GT2 belts rather
-than hold the print run, and take the mid-run pause below.
+**Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
+(loadcell/heater noise, PETG infill strands); a heatbed swap now risks the closed bed calibration and forces
+a belt retune, XY-homing recal and a start-G-code re-sync of all 22 committed `.3mf` projects; GT1.5's only
+benefit (less VFA) is cosmetic, and Galaxy Black's metallic fleck already hides it; one teardown, with INDX,
+beats two.
 
-**Pause at the end of Batch B07, before Batch B08** — that is where a mid-run upgrade belongs. Reasons:
+**Two checks replace the upgrade, before B00** — full tick list at
+[00-slicer-setup § Gen 2 belt upgrade](manual/print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild)
+and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks), both `(verify on bench)`:
 
-1. B08 + B09 + B10 are 10 of the 22 plates and contain **every surface anyone will ever look at** — the 150–182 mm
-   skirts are large flat vertical faces, which is exactly where GT1.5's reduced VFA shows.
-2. B00–B07 are structural parts inside the machine; VFA there is cosmetically irrelevant.
-3. It's a clean boundary — no half-finished sub-assembly waits on it, and in the numeric print order
-   (… → B06 → B07 → B08) it is exactly where the cosmetic run begins.
+1. **Belt pluck check** — belt tuning was never formally closed. Targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz
+   apart; out of range, retension via Control → Calibrations & Tests → Belt Tuning.
+2. **Hot first-layer check, at ASA bed temperature** — the bed has only been verified flat at 60 °C. Five
+   30×30×0.2 mm squares, corners + centre, in Galaxy Black ASA; pass at 0.17–0.23 mm each, spread ≤0.05 mm.
 
-**Second-best boundary:** if the upgrade kit arrives *before* B02 starts, do it then — the Stealthburner main
-body is the single most-looked-at printed part on the machine and it's on B02-P1.
+Either check failing means doing the Gen 2 upgrade now, before B00, after all — then re-running both checks.
 
-**After the upgrade, before restarting prints:**
+**After the eventual INDX + Gen 2 rebuild, before restarting prints:**
 
 1. Firmware **≥ 6.8.1** (carries GT1.5 belt support and the Gen 2 expansion joints).
-2. Re-tension both belts and re-square the gantry, per
-   [help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435).
+2. Re-tension both belts and re-square the gantry, per the combined INDX + Gen 2 guide.
 3. Re-run the self-test and input shaper calibration.
-4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** (§1.4) — steps/mm changed with the pulleys, so the
-   dimensional gate has to be re-passed before you print 399 g of skirts. Judge its first layer per §1.4
-   step 3; the loadcell re-zeroes on its own and there is no wizard to redo.
+4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** (§1.4) — steps/mm changes with the pulleys, so the
+   dimensional gate has to be re-passed before printing on the rebuilt machine. Judge its first layer per
+   §1.4 step 3; the loadcell re-zeroes on its own and there is no wizard to redo.
 
-Do **not** try to interleave the upgrade with a running plate; the Nextruder and bed have to come apart.
+Do **not** try to interleave a belt/tool upgrade with a running plate; the Nextruder and bed have to come apart.
 
 ---
 

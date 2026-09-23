@@ -10,9 +10,8 @@ caption: The last plate of the run. Every printer looks finished until it has a 
 **Sessions:** 1 plate start (~5 min hands-on, 5.7 h unattended) + ~10 min inspect and bin, plus the bushing and
 pin test on kit day.
 
-**Prerequisites:** **Gate A on GT1.5** (as for B08 — re-passed on a fresh cube only if the Gen 2 upgrade
-slipped to the contingency pause) and B09. This is the last batch of the run. B02's blue `Handle` joins
-these parts at B10.6. No bearing seat here, so Gate B is not needed.
+**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B09. This is the last batch of the
+run. B02's blue `Handle` joins these parts at B10.6. No bearing seat here, so Gate B is not needed.
 
 **Printed parts**
 
@@ -82,7 +81,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
 **Check:** Chamber ≥40 °C.
 
-Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
+Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
 ## Step B10.4 — Print
 
@@ -106,7 +105,7 @@ correct proud length.
 
 Pause: ~10 min since the last pause — brims off, parts bagged; the bushing and pin tests wait for the kit.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Clicky-Clack door README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
 ## Step B10.6 — Sort into bins
 

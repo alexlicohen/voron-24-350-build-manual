@@ -13,8 +13,8 @@ caption: Twenty two plates, start to finish. The printer works while the kit is 
 ```
 
 **Print order.** The Voron kit is not expected before **late November 2026**, so the whole run goes down
-first, in numeric batch order: the Gen 2 belt upgrade, then **B00 → B01 → B02 → … → B10** — all 157.0 h,
-finished before the cartons land. **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
+first, in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
+— all 157.0 h, finished before the cartons land. **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
 bearing press and the MGN12 rail check wait for the kit, and the rail check gates nothing but a reprint of
@@ -32,7 +32,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.4 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 1 | 12.1 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
 | [B07](B07-electronics-bay-and-lighting.md) | 2 | 16.0 | 226 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
-| [B08](B08-skirts-and-front-modules.md) | 4 | 29.2 | 399 | 0 | Ch 11 Part A Skirts | Gate A — already on GT1.5; re-passed on a fresh cube only if the upgrade slipped to the mid-run pause |
+| [B08](B08-skirts-and-front-modules.md) | 4 | 29.2 | 399 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 5 | 21.8 | 297 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 76 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
 | **TOTAL** | **22** | **157.0** | **1813** | **279** | | |

@@ -318,7 +318,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Gate A — before B02 and B07**
 
-- [ ] Gen 2 belt upgrade done (index row 1), or the 2026-10-15 contingency consciously taken
+- [ ] Pre-B00 checks passed (index row 1): belt pluck check, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
@@ -407,7 +407,6 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
 - [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
-- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.8.1, re-tensioned, re-squared, cube re-printed and Gate A re-passed
 
 <div class="print-page-break"></div>
 

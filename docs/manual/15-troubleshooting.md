@@ -60,7 +60,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - The first layer is glassy and featureless, or gappy and ridged
 
-            The loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade)
+            The loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
 
         - A brim appeared on flat grills or clips that should have none
 
@@ -333,7 +333,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Fine vertical ripple 0.5 to 2 mm apart on flat faces
 
-            Belt-tooth engagement ripple, cosmetic and not ringing. It is not a tuning fault and input shaping does not fix it. [Gen 2 belts](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)
+            Belt-tooth engagement ripple, cosmetic and not ringing. It is not a tuning fault and input shaping does not fix it. [Gen 2 belts](print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild)
 
         - A cube corner delaminates along a layer line
 
@@ -467,7 +467,7 @@ Source: [Ch 10 Checkpoint 10](10-wiring.md#checkpoint-10) and [Common mistakes](
 | Cube corner delaminates along a layer line | chamber too cold, or part fan too high | set the chamber target and soak | [14.8](14-calibration.md#step-148-set-the-chamber-target-and-understand-the-soak), [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
 | Top surfaces have gaps and valleys, or pellets and ridging | extrusion multiplier low / high | run the 2 % pass, then the 0.5 % refinement | [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass), [14.20](14-calibration.md#step-1420-the-05-refinement-pass) |
 | Ringing / ghosting after corners, even with input shaping saved | `max_accel` left at the stock `10000` — `SAVE_CONFIG` does not touch it | set `max_accel` at or below the lower per-axis suggestion, with margin | [14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel) |
-| Fine vertical ripple 0.5–2 mm apart on flat faces (VFA) | belt-tooth engagement ripple — cosmetic, not ringing | not a tuning fault; input shaping does not fix it | [print/00-slicer-setup.md](print/00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) |
+| Fine vertical ripple 0.5–2 mm apart on flat faces (VFA) | belt-tooth engagement ripple — cosmetic, not ringing | not a tuning fault; input shaping does not fix it | [print/00-slicer-setup.md](print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild) |
 | Mesh and Z offset are wrong for every print | probed on a cold frame — the bed reaches temperature in minutes, the frame takes 30–45 | heat soak before probing | [13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c), [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
 | Shaper graph shows two or more widely separated peaks | usually mechanical — a loose backer, an under-tensioned belt, a rail bolt in an end hole | fix the machine before shaping over it; below 25 Hz on either axis is a build fault | [14.14](14-calibration.md#step-1414-read-the-graphs) |
 
@@ -484,7 +484,7 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 | PrusaSlicer shows a bare `Prusament ASA @COREONE HF0.4`, no "(modified)" on the print preset, or B00-P1 estimates far from 3 h 58 m | the project's configuration did not load — wizard not run, HF nozzle variant not installed | run the Configuration Wizard with the 0.4 HF nozzle ticked, reopen the project | [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup), [00-slicer-setup — one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) |
 | Cube 0.1–0.3 mm oversize in X and Y | shrinkage compensation or XY compensation not zero, or flow high | confirm 0 % / 0, then extrusion multiplier down in 1 % steps — never negative XY compensation | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube), [B00.5](print/B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed) |
 | Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/glue/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
-| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) |
+| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
 | Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 40 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
 | A long flat part lifts at the ends partway through | glue film missing or old, chamber started cold, or a reprint without its brim | sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting | [Print sheet](print/00-slicer-setup.md#print-sheet), [Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 | The preview shows a brim on flat grills or clips that should have none | the global brim was set by hand | clear Print Settings → Skirt and brim; brims live per object in the committed projects | [Orientation & brim](print/00-slicer-setup.md#orientation-brim), [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2) |
@@ -492,7 +492,7 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 | Heat-set boss bulges or the insert sits crooked | iron too hot or pushed too fast — technique, not the slicer | practise on the coupon until two in a row are flush | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush) |
 | The spool runs out mid-plate | predicted once, on B09-P2 | let the runout sensor pause, load the next spool, resume — never plan one on a bearing-seat plate | [Spool ledger](print/README.md#spool-ledger) |
 
-Source: [print/00-slicer-setup.md — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [B00 Common mistakes](print/B00-calibration-and-jigs.md#common-mistakes) · [B01 Common mistakes](print/B01-z-drive-assemblies.md#common-mistakes) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)
+Source: [print/00-slicer-setup.md — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [B00 Common mistakes](print/B00-calibration-and-jigs.md#common-mistakes) · [B01 Common mistakes](print/B01-z-drive-assemblies.md#common-mistakes) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)
 
 ---
 

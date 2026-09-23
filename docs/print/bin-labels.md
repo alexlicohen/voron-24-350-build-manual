@@ -12,7 +12,7 @@ _Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at
 
 **Should contain:**
 
-- `Voron_Design_Cube_v7` — B00-P1 — reference coupon — keep for the Gen 2 re-check and 14.11
+- `Voron_Design_Cube_v7` — B00-P1 — reference coupon — keep for re-passing Gate A at the INDX + Gen 2 rebuild and 14.11
 - `Heatset_Practice` — B00-P1 — Gate B coupon (7 inserts, Step B00.7)
 - `MGN12_rail_guide` ×2 — B00-P1 — one is the Gate B coupon (Step B00.7)
 - `MGN9_rail_guide` ×2 — B00-P1

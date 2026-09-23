@@ -1,10 +1,10 @@
 # Batch B08 — Skirts and front modules
 
-**These are the parts people see.** They must go down on [GT1.5](../16-glossary.md#g), not GT2 — the four
-plates in this batch carry the 150–182 mm skirt segments, large flat vertical faces, exactly where GT1.5's
-reduced [VFA](../16-glossary.md#v) shows. In
-the baseline plan the Gen 2 upgrade was done before B00, so that is already true; on the contingency path it
-is the pause after B07 (see [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)).
+**These are the parts people see.** They print on [GT2](../16-glossary.md#g), the current Gen 1 belts — the
+four plates in this batch carry the 150–182 mm skirt segments, large flat vertical faces, exactly where
+[VFA](../16-glossary.md#v) shows most. The Gen 2 belt upgrade is deferred to the INDX rebuild this winter, so
+the whole run including B08 stays on GT2; Galaxy Black's metallic fleck hides the ripple, and it is cosmetic
+only. GT1.5 lands with the INDX + Gen 2 rebuild, after kit day.
 
 ```mascot
 pose: pause
@@ -15,10 +15,9 @@ caption: The parts visitors will comment on. Four plates and one long, quiet, en
 
 **Sessions:** 4 plate starts (~5 min hands-on each, 5.0–9.5 h unattended) + ~20 min inspect and bin.
 
-**Prerequisites:** **Gate A on GT1.5** (Step B00.5; no bearing seat here, so Gate B is not needed). If the
-Gen 2 upgrade happened at the contingency pause rather than before B00, re-pass Gate A on a fresh cube
-first. B02 (accent belt guards, fan grills, faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same skirt
-ring and are already on the shelf; the dry-fit at B08.10 wants the inlet to hand.
+**Prerequisites:** **Gate A** (Step B00.5; no bearing seat here, so Gate B is not needed), on the current
+GT2 belts. B02 (accent belt guards, fan grills, faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same
+skirt ring and are already on the shelf; the dry-fit at B08.10 wants the inlet to hand.
 
 The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
 inlet — sharing a 67–72 × 20 mm cross-section. On the 350: front = `front_skirt_a` + TFT mount + `front_skirt_b`; rear = `rear_center_skirt`
@@ -180,7 +179,7 @@ Dry-fit the full ring: front `front_skirt_a` + TFT `mount` + `front_skirt_b`; re
 
 Pause: ~20 min since the last pause — every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — Warping](https://help.prusa3d.com/article/warping_2011)
 
 ## Step B08.11 — Sort into bins
 

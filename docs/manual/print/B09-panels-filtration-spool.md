@@ -10,9 +10,8 @@ caption: Panels, filtration and a spool holder. Five short plates, back to back,
 **Sessions:** 5 plate starts (~5 min hands-on each, 3.9–4.9 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
-**Prerequisites:** **Gate A on GT1.5** (as for B08 — re-passed on a fresh cube only if the Gen 2 upgrade
-slipped to the contingency pause) and B08: the run ends B08 → B09 → B10 back to back. No bearing seat here,
-so Gate B is not needed.
+**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10
+back to back. No bearing seat here, so Gate B is not needed.
 
 **Printed parts**
 
@@ -204,7 +203,7 @@ stack without rattling or jamming.
 
 Pause: ~10 min since the last pause — Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
 ## Step B09.13 — Sort into bins
 

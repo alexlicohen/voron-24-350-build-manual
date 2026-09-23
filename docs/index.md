@@ -4,7 +4,7 @@
 
 # Voron 2.4 350 — Build Manual
 
-**Where things stand (14 Sept 2026):** the Core One+ is running, all the ASA is on the shelf, and two kits are in transit: the Gen 2 belt kit for the Prusa (due first) and the Voron kit itself (late November to late December). Every plate prints before the Voron kit lands.
+**Where things stand (23 Sept 2026):** the Core One+ is running, all the ASA is on the shelf, and the Voron kit is in transit (late November to late December). The Gen 2 belt kit shipped but installs later, together with the INDX conversion this winter — the whole print run goes down on the current Gen 1 belts. Every plate prints before the Voron kit lands.
 
 ## How to begin
 
@@ -13,8 +13,8 @@ pose: kitday
 caption: Cartons open, bins already labelled, every plate printed.
 ```
 
-1. **Now, before the Gen 2 kit arrives.** Read [slicer setup](manual/print/00-slicer-setup.md). Do the pre-kit steps of [Ch 00](manual/steps/00-before-you-start/index.md): what the kit supplies, tools, consumables, the flat reference and the bins (Steps 00.7–00.12); the Voron manual's front matter, the measurement log and the Discord questions (Steps 00.23–00.32). Do [Ch 00a — Mains safety](manual/steps/00a-mains-safety/index.md). Print the [bin labels](print/bin-labels.md).
-2. **The day the Gen 2 kit lands.** [Gen 2 first](manual/steps/b00-calibration-and-jigs/note-gen-2-first.md): the belt upgrade, one day. Then [B00](manual/steps/b00-calibration-and-jigs/index.md) and Gate A, then the insert practice (Steps 00.13–00.16).
+1. **Now.** Read [slicer setup](manual/print/00-slicer-setup.md). Do the pre-kit steps of [Ch 00](manual/steps/00-before-you-start/index.md): what the kit supplies, tools, consumables, the flat reference and the bins (Steps 00.7–00.12); the Voron manual's front matter, the measurement log and the Discord questions (Steps 00.23–00.32). Do [Ch 00a — Mains safety](manual/steps/00a-mains-safety/index.md). Print the [bin labels](print/bin-labels.md).
+2. **Pre-B00 checks, on the current Gen 1 belts.** [Pre-B00 checks](manual/steps/b00-calibration-and-jigs/note-before-b00-belt-and-hot-bed-checks.md): a belt pluck check and a hot first-layer check, about an hour. Then [B00](manual/steps/b00-calibration-and-jigs/index.md) and Gate A, then the insert practice (Steps 00.13–00.16).
 3. **Then every plate, B01 → B10,** in the [manual index](manual/00-index.md) timeline order. Sort each plate into its bins as it comes off the bed.
 4. **The day the Voron cartons land.** [Ch 00 — Before you start](manual/steps/00-before-you-start/index.md) from Step 00.1, then the **Build** tab in chapter order. Nothing waits on a plate.
 

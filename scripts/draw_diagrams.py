@@ -1729,7 +1729,7 @@ def timeline_rows() -> list[dict]:
         lm = _TL_LINK_RE.search(rest)
         if lm:
             label, tail = lm.group(1), rest[lm.end():]
-        else:                                   # the Gen 2 pause row carries no link
+        else:                                   # the pre-B00 checks row carries no link
             bm = re.search(r"\*\*(.+?)\*\*", rest)
             label = bm.group(1) if bm else rest.split(" · ")[0]
             tail = rest[bm.end():] if bm else rest
@@ -1796,7 +1796,7 @@ def d11_timeline() -> Doc:
     d.line(BL, top - 16, BR, top - 16, stroke=BLUE, sw=2)
 
     # geometry first: the rails are drawn under the row boxes so the full-width
-    # Gen 2 band sits on top of them rather than being crossed by them.
+    # gate band sits on top of them rather than being crossed by them.
     pos = {}
     for i, row in enumerate(rows):
         y = top + i * ROW_H
@@ -1864,12 +1864,11 @@ def d11_timeline() -> Doc:
         d.text(x, fy + 48, b, size=11.5, fill=MUTED)
         x += 216
 
-    pause_row = next((r["n"] for r in reversed(rows) if r["kind"] == "G"), None)
     footer(d, "The vertical axis is execution order, not calendar time — the manual's "
               "timeline is dependency-ordered. Each orange rail leaves a print batch and "
               "forks to every chapter whose needs list names it; chapters also depend on "
-              f"the chapters above them. Row 1 is the Gen 2 belt upgrade, taken before any "
-              f"plate; row {pause_row} is the contingency pause if that kit slips and lands mid-run.")
+              "the chapters above them. Row 1 is the pre-B00 checks, on the current Gen 1 "
+              "belts — the Gen 2 belt upgrade is deferred to the INDX rebuild this winter.")
     return d
 
 
@@ -2157,8 +2156,9 @@ DIAGRAMS = [
             "duration and KIT / 2P marker.",
             "One orange rail per print batch through the middle channel, forking to every "
             "chapter whose `needs:` list names that batch.",
-            "The Gen 2 belt upgrade as a full-width band at row 1, before B00, and again as the "
-            "demoted contingency pause after the print rows.",
+            "Row 1's pre-B00 checks (belt pluck, hot first layer, on the current Gen 1 belts) "
+            "as a full-width band before B00. The Gen 2 belt upgrade itself is deferred to the "
+            "INDX rebuild this winter and no longer has a row.",
             "The critical-path strip: print hours (per batch and total) from "
             "docs/manual/print/README.md, the rest from 00-index.md § Critical path.",
         ],

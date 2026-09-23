@@ -17,7 +17,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 - **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at **Step 12.11**, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
 - The Pi-side half (Steps 12.1–12.10) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one").
-- **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Steps 12.11–12.37 (index rows 25–27). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
+- **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Steps 12.11–12.37 (index rows 24–26). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
 - **Printed parts: none.** No print batch gates this chapter.
 - Do **not** start Ch 13 until Checkpoint 12 below passes.
 

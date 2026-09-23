@@ -13,11 +13,6 @@ caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rar
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
 their inserts on kit day, in Ch 09.
 
-⚠ **Gen 2 belt-upgrade pause point — contingency only.** The baseline is the upgrade *before* B00. If it
-slipped and the Gen 1→Gen 2 kit turns up mid-run, finish this batch, then pause before starting B08 and
-re-run the calibration-cube gate (see
-[00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below)) before resuming.
-
 **Printed parts**
 
 
@@ -50,9 +45,6 @@ supplied printed).
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
   with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (127 g on P2 alone).
-- **Contingency only: Gen 2 upgrade pause point.** The baseline upgrade happened before B00. If it slipped
-  and the kit is only on hand now, apply it here, before B08's skirts print. See
-  [00-slicer-setup.md](00-slicer-setup.md#gen-2-belt-upgrade-the-first-job-contingency-pause-below) for the full re-calibration sequence.
 
 ## Step B07.1 — Filament prep
 
@@ -120,7 +112,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 Pause: ~15 min since the last pause — every mount checked on the reference, brims snapped off, nothing assembled.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-the-gen-2-upgrade) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip)
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [LDO COB light-strip README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip)
 
 ## Step B07.7 — Sort into bins
 
@@ -157,14 +149,11 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
 - [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
-- [ ] **If the Gen 2 upgrade kit is in hand: applied now, before starting B08** — firmware ≥6.8.1, re-tensioned,
-      re-squared, cube re-printed and Gate A re-passed
 
 ## Common mistakes
 - Printing `raspberrypi_bracket` or `rs25_psu_bracket` out of habit from other Voron builds — this kit needs neither.
 - Skipping the flat-reference check on COB mounts and only discovering warp at final assembly.
-- Missing the Gen 2 pause window and printing B08's skirts on GT2 belts when the upgrade kit was already on hand — only a risk on the contingency path, where B00 started on Gen 1.
 
 ## Next
 Assembly: *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211) — on kit day, out of
-bins 09-bay, 10-lights and 11-panels. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md), unless you are on the contingency path and still owe the Gen 2 upgrade — then pause here, re-print the cube and re-pass Gate A first.
+bins 09-bay, 10-lights and 11-panels. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).

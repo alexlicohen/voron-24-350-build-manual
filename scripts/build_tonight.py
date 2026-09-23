@@ -285,10 +285,10 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
     before the cartons land, and a bucket that ran on past it would offer
     (say) mains wiring tonight.
 
-    With `bench_first` (the Before-the-kit planner while the Gen 2 upgrade
-    row is still open), bench segments are packed before any print segment,
-    so a short bucket offers the pre-kit reading and bench work instead of a
-    plate start that waits on the upgrade.
+    With `bench_first` (the Before-the-kit planner while row 1's pre-B00
+    checks are still open), bench segments are packed before any print
+    segment, so a short bucket offers the pre-kit reading and bench work
+    instead of a plate start that waits on the checks.
     """
     picked, total, plate_started = [], 0, False
     if bench_first:
@@ -379,7 +379,7 @@ def _helper_suffix(seg):
 
 def _gate_row(rows):
     """A wall-clock row (`Both`) with no stopping points that sits ahead of
-    every row carrying segments - the Gen 2 belt upgrade. Nothing below it
+    every row carrying segments - row 1's pre-B00 checks. Nothing below it
     should be planned before it is done, but it has no segments to plan, so
     the planner names it instead of silently stepping over it."""
     for row in rows:
@@ -400,12 +400,12 @@ def _planner(lines, rows, stop_at_kit=False, gate=None, bench_first=False):
         lines.append(f"**If you have {label}:**")
         if gate is not None:
             if bench_first:
-                lines.append(f"- **First, when the Gen 2 kit lands (not tonight):** "
-                             f"{_row_label(gate)} — a whole-day job. The print rows "
-                             f"below wait on it; the bench items do not.")
+                lines.append(f"- **First, before B00 (not tonight):** "
+                             f"{_row_label(gate)}. The print rows below wait on it; "
+                             f"the bench items do not.")
             else:
                 lines.append(f"- **first, and not tonight:** {_row_label(gate)} — "
-                             f"a whole-day job, and every row below waits on it")
+                             f"every row below waits on it")
         if not picked:
             row, seg = _next_segment(rows)
             if seg is None:
@@ -419,7 +419,7 @@ def _planner(lines, rows, stop_at_kit=False, gate=None, bench_first=False):
             for row, seg in bench:
                 lines.append(f"- {_row_label(row)} — {_segment_span(seg)}{_helper_suffix(seg)}")
             for row, seg in prints:
-                lines.append(f"- {_row_label(row)} — after the upgrade: "
+                lines.append(f"- {_row_label(row)} — after the checks: "
                              f"{_segment_span(seg)}{_helper_suffix(seg)}")
         else:
             for row, seg in picked:

@@ -213,16 +213,14 @@ Reference the **SVG** in a page, not the preview PNG — the previews exist only
 with `width`; use `mascot-badge.svg` below 160 px and nothing else. One mascot per page. There is
 deliberately **no pose for mains, soldering iron, blade or hot chamber**: those steps get no mascot.
 
-## Three names to choose from
+## The name: Revali
 
-No name is baked into any file, so picking one costs nothing but a caption.
+Chosen 2026-09-23 by the builder's daughter, after **Revali**, the Rito Champion in *The Legend of
+Zelda: Breath of the Wild*: a proud, blue-feathered archer who makes his own updraft. The name is a fan
+homage, with no connection to Nintendo. The bird stays an original raven drawn in the house style.
 
-- **Nevermore** — Poe's raven, and the name of the Voron filter mod. Two in-jokes for one word; the
-  risk is that the manual already uses *Nevermore* for the filter, so the bird would be sharing.
-- **Hex** — one syllable, hardware, easy to shout across a garage. Fits under a 48 px badge, and now
-  there is a pose of the bird turning one.
-- **Galaxy** — after the Galaxy Black ASA the whole machine is printed in; the blue sheen on the
-  wing is the metallic fleck. *Gal* for short.
+The shortlist it beat: **Nevermore** (Poe's raven, but the manual already uses the word for the
+filter), **Hex** (one syllable, hardware) and **Galaxy** (after the Galaxy Black ASA).
 
 ## If a pose is wrong
 

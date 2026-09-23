@@ -205,7 +205,7 @@ PLATE_ASSIGN: dict[tuple[str, str], list[str]] = {
 
 # Per-part notes that belong on the label / sort table (not on the diagram).
 NOTES: dict[str, str] = {
-    "Voron_Design_Cube_v7.stl": "reference coupon — keep for the Gen 2 re-check and 14.11",
+    "Voron_Design_Cube_v7.stl": "reference coupon — keep for re-passing Gate A at the INDX + Gen 2 rebuild and 14.11",
     "Heatset_Practice.stl": "Gate B coupon (7 inserts, Step B00.7)",
     "MGN12_rail_guide_x2.stl": "one is the Gate B coupon (Step B00.7)",
     "z_drive_retainer_a_x2.stl": "B00 copy is the Gate B bore coupon",
