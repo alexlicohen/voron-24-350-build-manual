@@ -7,6 +7,10 @@ not a throughput model. Method and what these figures replaced:
 previous figure beside each one, and the exact unrounded values, are in `slicer/estimates.csv`;
 `python3 slicer/check_docs.py` re-checks every number on this page against it.
 
+**B11**, the PETG V0 bay ducting, is a separate batch outside this run: 5 plates, 25.0 h, 348 g of Jet Black
+PETG V0 on its own spool. None of its numbers are in the run's totals; it has its own table, run schedule
+and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
+
 ```mascot
 pose: print
 caption: Twenty two plates, start to finish. The printer works while the kit is still in transit.
@@ -98,7 +102,7 @@ manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
-25 bins, 218 printed pieces:
+26 bins, 271 printed pieces: 218 from the ASA run and 53 from B11.
 
 | bin | label | chapter · steps | parts (qty) | from batches |
 |---|---|---|---|---|
@@ -115,9 +119,10 @@ each of its two corners, a `_x4` file one in each corner.
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` | B02, B06 |
-| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
+| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | Ch 09 · 09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm`; from B11, 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B07, B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
+| **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | `V2L_STRIP_FIN` | B11 |
 | **11-skirts** | Skirt ring, keystone panel, TFT mount | Ch 11 · 11.1–11.17 (TFT 11.5–11.7, keystone 11.10, bestagon 11.19) | `[a]_faceplate`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`, `rear_center_skirt_350`, `side_fan_support` ×2, `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×2, `side_skirt_b_350` ×2, `keystone_panel`, `mount` | B02, B08 |
 | **11-fans** | Fan grills, retainers, belt guards | Ch 11 · 11.3, 11.9, 11.11, 11.16 | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 | B02 |
 | **11-panels** | Bottom-panel clips/hinges, Z belt covers, handlebar spacers | Ch 11 · 11.20–11.25, 11.60 | `handlebar_spacer` ×4, `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 | B07, B09 |
@@ -192,3 +197,46 @@ Two rules that override the ledger:
 | B10-P1 | 76 | | #3 | 454 |
 | **TOTAL black** | **1813** | | 3 × 800 g | **587 g margin** (454 on #3 + 133 on #1) |
 | **TOTAL blue** | **279** | | 1 × 800 g | **521 g margin** |
+
+## B11 — bay ducting (PETG V0)
+
+[B11](B11-bay-ducting.md) replaces LDO's five PVC wire ducts with two printed conduits, layout v3. It is
+**outside the ASA run**: Prusament PETG V0 Jet Black on the textured sheet, sliced with
+`slicer/bay-ducts-petg.ini`, not to Voron spec. Every hour and gram is a PrusaSlicer 2.9.6 estimate from
+the committed projects, whose arrangements are still provisional until GUI QC. `check_docs.py` checks
+this table, the run schedule and the ledger below against `slicer/estimates.csv`.
+
+| group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
+|---|---:|---:|---:|---|---|
+| [B11](B11-bay-ducting.md) before kit | 3 | 11.9 | 173 | Ch 09 ducts; Ch 10 strip fin | none; the coupon, B11-P1, prints first |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day A/B go/no-go; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
+| **B11 total** | **5** | **25.0** | **348** | | |
+
+**Filament:** 348 g needed from one 1 kg spool, **V1**, not yet bought → **652 g margin** if B11-P5 prints.
+
+## B11 run schedule
+
+Print whenever the Core One+ is free: all five are day plates. P1 to P3 need nothing measured; P4 and P5 wait
+for the kit-day measurements. The # column carries on from the run schedule above.
+
+| # | plate | hours | colour | slot | spool |
+|---:|---|---:|---|---|---|
+| 23 | B11-P1 | 0.4 | petg | day (the coupon, first) | V1 |
+| 24 | B11-P2 | 6.9 | petg | day | V1 |
+| 25 | B11-P3 | 4.6 | petg | day | V1 |
+| 26 | B11-P4 | 6.3 | petg | day (after kit-day measurements) | V1 |
+| 27 | B11-P5 | 6.8 | petg | day (only if gap ≥ 25 mm) | V1 |
+
+## B11 spool ledger
+
+Spool **V1** is one 1 kg Prusament PETG V0 Jet Black spool, not yet bought; weigh it the same way as the ASA
+spools. Nothing else in the build prints from it.
+
+| plate | slicer g | actual g (weigh) | spool # | remaining |
+|---|---:|---:|---|---:|
+| B11-P1 | 4 | | V1 | 996 |
+| B11-P2 | 96 | | V1 | 900 |
+| B11-P3 | 73 | | V1 | 827 |
+| B11-P4 | 82 | | V1 | 745 |
+| B11-P5 | 93 | | V1 | 652 |
+| **TOTAL PETG V0** | **348** | | 1 × 1000 g | **652 g margin** |

@@ -1801,7 +1801,10 @@ def d11_timeline() -> Doc:
     for i, row in enumerate(rows):
         y = top + i * ROW_H
         row["y"] = y
-        row["dur"] = (f"{hours[row['label'][:3]]:.1f} h print" if row["kind"] == "P"
+        # A run batch's hours come from print/README's batch table; B11 (outside the run, two
+        # rows) has no row there, so its duration is the "N h print" its index row states.
+        row["dur"] = ((f"{hours[row['label'][:3]]:.1f} h print" if row["label"][:3] in hours
+                       else row["seg"]) if row["kind"] == "P"
                       else _row_duration(row["kind"], row["seg"], row["marker"]))
         x0, x1 = (PL, BR) if row["kind"] == "G" else \
                  ((PL, PR) if row["kind"] == "P" else (BL, BR))

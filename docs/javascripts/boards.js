@@ -239,7 +239,8 @@
         var title = el('div', 'plate-tile__head');
         title.appendChild(el('span', 'plate-tile__id', plate.id));
         var swatch = el('span', 'plate-swatch plate-swatch--' + plate.colour);
-        swatch.title = plate.colour === 'blue' ? 'accent blue' : 'Galaxy Black';
+        swatch.title = plate.colour === 'blue' ? 'accent blue' :
+          plate.colour === 'petg' ? 'Jet Black PETG V0 (B11)' : 'Galaxy Black';
         title.appendChild(swatch);
         title.appendChild(el('span', 'plate-tile__slot plate-tile__slot--' + plate.slot,
           plate.slot === 'overnight' ? 'overnight' : 'day'));

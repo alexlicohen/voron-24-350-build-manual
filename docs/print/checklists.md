@@ -436,3 +436,15 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
 - [ ] Door swing decided from where the machine will live (as designed: hinges left, opens from the right); hinge files mirrored only if it must open the other way
 - [ ] Blue `Handle` (B02) reunited with the black hardware for assembly
+
+<div class="print-page-break"></div>
+
+## Checkpoint B11 — Bay ducting (PETG V0)
+
+- [ ] Coupon lid snaps home and holds, tested before B11-P5
+- [ ] A/B lead go/no-go decided on kit day; extensions or layout v1 settled if either was short
+- [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
+- [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
+- [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
+- [ ] Smooth sheet back on the printer for any ASA plate
+- [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves

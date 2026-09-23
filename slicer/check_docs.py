@@ -10,6 +10,10 @@ chapters' Printed-parts `Bin` column and *Sort into bins* steps, print/README.md
 
     python3 slicer/check_docs.py        # exits non-zero on any mismatch
 
+B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the 22-plate ASA
+run: every run total above excludes it, and § 8 checks B11's own numbers the same way (batch
+page, print/README's B11 tables, plan §3 header and §9 B11 CSV, 00-index.md's two B11 rows).
+
 Rounding is **additive**: plate values are rounded half-up for display, a batch
 is the sum of its displayed plates, and the total is the sum of the displayed
 batches. Every number in the manual is therefore the sum of the numbers under
@@ -28,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 import bins  # noqa: E402
-from plates import PLATES  # noqa: E402
+from plates import PLATES, run_of  # noqa: E402
 REPO = ROOT.parent
 DOCS = REPO / "docs"
 PRINT = DOCS / "manual" / "print"
@@ -44,12 +48,12 @@ def r0(x) -> int:
 
 def load():
     rows = [r for r in csv.DictReader((ROOT / "estimates.csv").open())
-            if r["plate"] != "TOTAL"]
+            if not r["plate"].startswith("TOTAL")]
     plate = {r["plate"]: (r1(r["hours"]), r0(r["grams"]), r["batch"], r["colour"])
              for r in rows}
     batch = collections.OrderedDict()
     for pid, (h, g, b, c) in plate.items():
-        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "black": 0, "blue": 0})
+        d = batch.setdefault(b, {"plates": 0, "h": 0.0, "black": 0, "blue": 0, "petg": 0})
         d["plates"] += 1
         d["h"] = round(d["h"] + h, 1)
         d[c] += g
@@ -67,7 +71,10 @@ CHAPTER = {
     "B06": "B06-toolhead-sb-cw2-klicky", "B07": "B07-electronics-bay-and-lighting",
     "B08": "B08-skirts-and-front-modules", "B09": "B09-panels-filtration-spool",
     "B10": "B10-clicky-clack-door",
+    "B11": "B11-bay-ducting",
 }
+# Batches outside the ASA run (slicer/plates.py run="bay"): no run total includes them.
+SEPARATE = {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) != "asa"}
 
 
 def _batch_bins() -> dict[str, dict[str, set[str]]]:
@@ -144,6 +151,8 @@ def check_index_and_timeline(batch, th) -> list[str]:
     manifest = (DIAGRAMS / "MANIFEST.md").read_text()
 
     for bid, d in batch.items():
+        if bid in SEPARATE:
+            continue
         if not re.search(rf"^- \*\*\d+ · Print\*\* — \[{bid} —[^\]]*\]\([^)]*\) · "
                          rf"{d['h']} h print\b", index, re.M):
             bad.append(f"00-index.md: timeline row for {bid} does not read {d['h']} h print")
@@ -162,7 +171,8 @@ def check_index_and_timeline(batch, th) -> list[str]:
             bad.append(f"00-slicer-setup.md: expected /{pat}/ ({name})")
 
     n_rows = len(re.findall(r"^- \*\*\d+ · (?:Print|Build|Both)\*\* — ", index, re.M))
-    strip = f"print, {n_rows} rows / {len(batch)} batches (sliced)"
+    n_asa = len([b for b in batch if b not in SEPARATE])
+    strip = f"print, {n_rows} rows / {n_asa} batches (sliced)"
     if strip not in svg:
         bad.append(f"11-build-timeline.svg: facts strip does not say {strip!r} — "
                    f"the index has {n_rows} timeline rows; re-run scripts/draw_diagrams.py")
@@ -183,6 +193,82 @@ def check_index_and_timeline(batch, th) -> list[str]:
         if stale:
             bad.append(f"diagrams/MANIFEST.md entry 11 restates a figure the diagram now "
                        f"reads from 00-index.md: {stale} — drop it, don't update it")
+    return bad
+
+
+def b11_groups(plate) -> collections.OrderedDict:
+    """group -> {"plates", "h", "g"} for B11, additive like every other figure."""
+    out = collections.OrderedDict()
+    for pid, spec in PLATES.items():
+        if spec["batch"] != "B11":
+            continue
+        d = out.setdefault(spec["group"], {"plates": 0, "h": 0.0, "g": 0, "ids": []})
+        d["plates"] += 1
+        d["h"] = round(d["h"] + plate[pid][0], 1)
+        d["g"] += plate[pid][1]
+        d["ids"].append(pid)
+    return out
+
+
+def check_b11(plate, plan: str, readme: str) -> list[str]:
+    """B11 is added up on its own; every place that states a B11 figure must agree."""
+    bad: list[str] = []
+    grp = b11_groups(plate)
+    pre, post = grp["before-kit"], grp["after-kit"]
+    n = pre["plates"] + post["plates"]
+    h = round(pre["h"] + post["h"], 1)
+    g = pre["g"] + post["g"]
+    page = (PRINT / f"{CHAPTER['B11']}.md").read_text()
+    index = (DOCS / "manual" / "00-index.md").read_text()
+    wanted = [
+        ("B11 page Time line (before kit)", page, rf"\*\*Time:\*\* {h} h \({n} plates\).*?"
+         rf"{pre['h']} h before kit.*?{post['h']} h after the kit-day measurements"),
+        ("B11 page ledger total", page, rf"\b{g} g\b"),
+        ("print/README B11 before-kit row", readme,
+         rf"^\| \[B11\]\([^)]*\) before kit \| {pre['plates']} \| {pre['h']} \| {pre['g']} \|"),
+        ("print/README B11 after-kit row", readme,
+         rf"^\| \[B11\]\([^)]*\) after the kit-day measurements \| {post['plates']} \| "
+         rf"{post['h']} \| {post['g']} \|"),
+        ("print/README B11 total row", readme,
+         rf"^\| \*\*B11 total\*\* \| \*\*{n}\*\* \| \*\*{h}\*\* \| \*\*{g}\*\* \|"),
+        ("print/README B11 ledger total", readme,
+         rf"^\| \*\*TOTAL PETG V0\*\* \| \*\*{g}\*\* \|"),
+        ("plan §3 B11 header", plan,
+         rf"^### Batch B11 — [^\n]*· \*\*{n} plates · {h} h · {g} g Jet Black PETG V0\*\*"),
+        ("plan §9 B11 csv total", plan, rf"^TOTAL B11,B11,all,{h},{g},petg$"),
+        ("00-index B11 before-kit row", index,
+         rf"^- \*\*\d+ · Print\*\* — \[B11 — [^\]]*\]\([^)]*#before-kit\) · {pre['h']} h print\b"),
+        ("00-index B11 after-kit row", index,
+         rf"^- \*\*\d+ · Print\*\* — \[B11 — [^\]]*\]\([^)]*#after-the-kit-day-measurements\) "
+         rf"\*\*KIT\*\* · {post['h']} h print\b"),
+        ("00-index B11 batch-table row", index,
+         rf"^\| \[B11 —[^\]]*\]\([^)]*\) \|[^|]*\| {n} · {h} \|"),
+    ]
+    for name, text, pat in wanted:
+        if not re.search(pat, text, re.M | re.S):
+            bad.append(f"B11 — {name}: expected /{pat}/ — not found")
+    svg = (DOCS / "manual" / "assets" / "diagrams" / "11-build-timeline.svg").read_text()
+    for gname, d in (("before kit", pre), ("after kit", post)):
+        if f">{d['h']} h print<" not in svg:
+            bad.append(f"11-build-timeline.svg: no '{d['h']} h print' text for B11 {gname} — "
+                       f"re-run `python3 scripts/draw_diagrams.py --only 11`")
+    # plan §9 B11 per-plate block
+    blk = re.search(r"```csv\nplate_id,batch_id,group,hours,grams,colour\n(.*?)```", plan, re.S)
+    if not blk:
+        bad.append("plan §9: B11 per-plate CSV block not found")
+    else:
+        seen = set()
+        for line in blk.group(1).strip().splitlines():
+            if line.startswith("TOTAL"):
+                continue
+            pid, _b, group, ph, pg, _c = line.split(",")
+            seen.add(pid)
+            if (float(ph), int(pg)) != plate[pid][:2] or group != PLATES[pid]["group"]:
+                bad.append(f"plan §9 B11 CSV: {pid} says {group} {ph} h / {pg} g, csv says "
+                           f"{PLATES[pid]['group']} {plate[pid][0]} h / {plate[pid][1]} g")
+        want_ids = set(pre["ids"]) | set(post["ids"])
+        if seen != want_ids:
+            bad.append(f"plan §9 B11 CSV lists {sorted(seen)}, plates.py has {sorted(want_ids)}")
     return bad
 
 
@@ -240,7 +326,7 @@ def main() -> int:
     if missing:
         bad.append(f"no Load step found for: {', '.join(sorted(missing))}")
 
-    # 2. plan §9 per-plate CSV
+    # 2. plan §9 per-plate CSV (the ASA run; B11 has its own block, § 8)
     blk = re.search(r"```csv\nplate_id,batch_id,hours,grams,colour\n(.*?)```", plan, re.S)
     if not blk:
         bad.append("plan §9: per-plate CSV block not found")
@@ -251,11 +337,12 @@ def main() -> int:
                 bad.append(f"plan §9 CSV: {pid} says {h} h / {g} g, csv says "
                            f"{plate[pid][0]} h / {plate[pid][1]} g")
 
-    # 3. totals, everywhere they are stated
-    th = round(sum(d["h"] for d in batch.values()), 1)
-    tb = sum(d["black"] for d in batch.values())
-    to = sum(d["blue"] for d in batch.values())
-    n = sum(d["plates"] for d in batch.values())
+    # 3. totals, everywhere they are stated - the ASA run only (B11 is § 8)
+    run = {b: d for b, d in batch.items() if b not in SEPARATE}
+    th = round(sum(d["h"] for d in run.values()), 1)
+    tb = sum(d["black"] for d in run.values())
+    to = sum(d["blue"] for d in run.values())
+    n = sum(d["plates"] for d in run.values())
     wanted = [
         ("plan header", plan, rf"{n} plates · \*\*{th} h\*\* print time · "
                               rf"\*\*{tb} g Galaxy Black \+ {to} g {ACCENT}\*\*"),
@@ -275,7 +362,7 @@ def main() -> int:
             bad.append(f"{name}: expected /{pat}/ — not found")
 
     # 4. per-batch rows in the plan §9 table and print/README
-    for bid, d in batch.items():
+    for bid, d in run.items():
         if not re.search(rf"\| {bid} \|[^|]*\| {d['plates']} \| {d['h']} \| "
                          rf"{d['black']} \| {d['blue']} \|", plan):
             bad.append(f"plan §9 table: {bid} row does not match "
@@ -291,6 +378,10 @@ def main() -> int:
     # 6. 00-index.md, 00-slicer-setup.md and diagram 11
     bad += check_index_and_timeline(batch, th)
 
+    # 8. B11, the bay ducting: its own totals, stated consistently everywhere
+    if "B11" in batch:
+        bad += check_b11(plate, plan, readme)
+
     # 7. every plate id named anywhere in docs/ exists (a merged/renumbered plate
     #    leaves stale ids in prose that nothing else catches). The corrections log
     #    in 00-index.md is history and exempt; generated step pages are skipped.
@@ -301,12 +392,15 @@ def main() -> int:
         for b in bad:
             print(f"  {b}")
         return 1
-    print(f"OK — {len(plate)} plates, {len(batch)} batches, {th} h, "
+    print(f"OK — {n} plates, {len(run)} batches, {th} h, "
           f"{tb} g black + {to} g {ACCENT.lower()}, consistent across the chapters, "
           f"the plan (§3/§4/§9), print/README.md and README.md; "
           f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and "
           f"MANIFEST.csv; 00-index.md's timeline rows and batch table, 00-slicer-setup's "
-          f"totals and diagram 11's hours all agree")
+          f"totals and diagram 11's hours all agree; "
+          + (f"B11 {batch['B11']['plates']} plates, {batch['B11']['h']} h, {batch['B11']['petg']} g "
+             f"PETG V0 on its own, consistent across its page, print/README, the plan and the index"
+             if "B11" in batch else ""))
     return 0
 
 

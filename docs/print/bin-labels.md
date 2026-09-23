@@ -273,9 +273,9 @@ _7 pieces_
 
 ### 09-bay
 
-**Electronics bay: inlet, WAGO, PSU, USB, DIN clips**
+**Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts**
 
-_Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)_
+_Ch 09 · 09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)_
 
 **Should contain:**
 
@@ -285,8 +285,39 @@ _Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 
 - `usb_adapter_mount_partial_cover` — B07-P1
 - `pcb_din_clip` ×3 — B07-P1 — kit supplies 4 — one is the 09.7 practice clip, rest spares
 - `power_inlet_IECGS_1mm` — B07-P1 — ring segment: dry-fitted with the skirts at 11.1, mounted at 09.12
+- `V3L_COUPON_22N_DUCT` — B11-P1 — B11 lid-snap test coupon; keep it with the ducts
+- `V3L_COUPON_22N_DUCT_COVER` — B11-P1
+- `CMD_V3_1H_154mm_DUCT` ×2 — B11-P2
+- `CMD_V2_6B_154mm_DUCT_COVER` ×2 — B11-P2
+- `CMD_V3_1H_90DEG` ×2 — B11-P2
+- `CMD_V2_6B_90DEG_COVER` ×2 — B11-P2
+- `V2L_90DEG_MIRROR` — B11-P2
+- `V2L_90DEG_COVER_MIRROR` — B11-P2
+- `V3L_WIRE_BOX_PORT` — B11-P3
+- `CMD_V2_6B_WIRE_BOX_COVER` — B11-P3 — plain lid; the WARNING lid waits for INDX
+- `V3L_90DEG_R15` ×2 — B11-P3
+- `V3L_90DEG_R15_COVER` ×2 — B11-P3
+- `CMD_V3_1H_T_SHORT` — B11-P3
+- `CMD_V2_6B_T_SHORT_COVER` — B11-P3
+- `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 — B11-P3 — Jet Black; orange ASA is an option with no plate
+- `CMD_Remix-V3_DUCT-2B_45deg` ×2 — B11-P3
+- `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 — B11-P3
+- `V2L_58mm_DUCT` ×3 — B11-P4
+- `V2L_58mm_DUCT_COVER` ×3 — B11-P4
+- `V2L_130mm_DUCT` — B11-P4
+- `V2L_130mm_DUCT_COVER` — B11-P4
+- `V2L_70mm_DUCT` — B11-P4
+- `V2L_70mm_DUCT_COVER` — B11-P4
+- `V3L_10mm_DUCT` ×3 — B11-P4 — 3 copies: DC rear-upper run, SSR run right end, stub into the box port
+- `V3L_10mm_DUCT_COVER` ×3 — B11-P4
+- `V3L_34mm_DUCT_HOLE` — B11-P4
+- `V3L_34mm_DUCT_COVER` — B11-P4
+- `V3L_154N_DUCT` ×2 — B11-P5 — fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm
+- `V3L_154N_DUCT_COVER` ×2 — B11-P5
+- `V3L_T_REG_N` ×2 — B11-P5 — fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm
+- `V3L_T_REG_N_COVER` ×2 — B11-P5
 
-_9 pieces_
+_61 pieces_
 
 ![QR link to the chapter overview](assets/qr/bin-09-bay.svg)
 
@@ -324,6 +355,22 @@ _Ch 10 · 10.35–10.36_
 _8 pieces_
 
 ![QR link to the chapter overview](assets/qr/bin-10-lights.svg)
+
+<div class="print-page-break"></div>
+
+### 10-wiring
+
+**Bay wiring: AC strip fin (B11)**
+
+_Ch 10 · 10.80, appended with the B11 bay ducting_
+
+**Should contain:**
+
+- `V2L_STRIP_FIN` — B11-P3 — divider between PSU −V and FG, fitted as Ch 10 closes the AC lids
+
+_1 piece_
+
+![QR link to the chapter overview](assets/qr/bin-10-wiring.svg)
 
 <div class="print-page-break"></div>
 
@@ -534,9 +581,10 @@ _All bins on one page — which chapter opens each one, and what should be insid
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | 4 | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | 5 | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | 7 | B02, B06 |
-| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | 9 | B07 |
+| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | Ch 09 · 09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | 61 | B07, B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | 4 | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | 8 | B07 |
+| **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | 1 | B11 |
 | **11-skirts** | Skirt ring, keystone panel, TFT mount | Ch 11 · 11.1–11.17 (TFT 11.5–11.7, keystone 11.10, bestagon 11.19) | 15 | B02, B08 |
 | **11-fans** | Fan grills, retainers, belt guards | Ch 11 · 11.3, 11.9, 11.11, 11.16 | 10 | B02 |
 | **11-panels** | Bottom-panel clips/hinges, Z belt covers, handlebar spacers | Ch 11 · 11.20–11.25, 11.60 | 14 | B07, B09 |

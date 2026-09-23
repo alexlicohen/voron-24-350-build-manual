@@ -6,6 +6,7 @@ Written to be followed with a 13-year-old: one plate = one job.
 **Totals at a glance:** 22 plates · **157.0 h** print time · **1813 g Galaxy Black + 279 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
+**Plus B11**, the bay ducting, outside those totals: 5 plates · 25.0 h · 348 g Jet Black PETG V0 (§3, §9).
 
 ```mascot
 pose: base-3q
@@ -627,6 +628,39 @@ Notes:
 
 ---
 
+### Batch B11 — Bay ducting (PETG V0, outside the ASA run) · **5 plates · 25.0 h · 348 g Jet Black PETG V0**
+**Unlocks:** *Electronics* (p.148–173): Ch 09 fits two printed conduits in place of LDO's five PVC wire ducts;
+Ch 10 fits the strip fin. Layout v3, adopted 2026-09-23 — design record
+`review/2026-09-23-bay-mods/layout-v3/layout-v3.md`. Page: [`manual/print/B11-bay-ducting.md`](manual/print/B11-bay-ducting.md).
+
+**Not in any run total above or below.** Prusament PETG V0 Jet Black on the textured sheet, sliced with
+`slicer/bay-ducts-petg.ini` (3 perimeters, 4/4 solid, 20 % grid, no supports: ducts carry no load, so not
+Voron spec). STLs: MyStoopidStuff's remix of RyanDam's Cable Management Duct (Printables 502306, GPL-3.0),
+stock pieces fetched into `slicer/stl/bayducts/mss/502306/`, remixes for the Rev D+ bay committed in
+`slicer/stl/bayducts/remix/`. The parts table with per-copy grams is on the batch page; per plate:
+
+- **Plate B11-P1** (0.4 h, 4 g) — before kit, printed first and alone: `V3L_COUPON_22N_DUCT` + cover, the
+  lid-snap test for the narrowed middle run.
+- **Plate B11-P2** (6.9 h, 96 g) — before kit: DC front run (`CMD_V3_1H_154mm_DUCT` ×2 + covers) and the
+  three 90° corners (`CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, + covers).
+- **Plate B11-P3** (4.6 h, 73 g) — before kit: the AC conduit (`V3L_WIRE_BOX_PORT` + plain lid,
+  `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, endcaps ×2, + covers), `V2L_STRIP_FIN`, and the DC S-jog
+  (`CMD_Remix-V3_DUCT-2B_45deg` ×2 + lids).
+- **Plate B11-P4** (6.3 h, 82 g) — after the kit-day measurements: the custom lengths, `V2L_58mm_DUCT` ×3,
+  `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `V3L_10mm_DUCT` ×3, `V3L_34mm_DUCT_HOLE`, + covers.
+- **Plate B11-P5** (6.8 h, 93 g) — after the kit-day measurements, **only if** the Leviathan-to-PSU gap is
+  ≥ 25 mm and the coupon passed: `V3L_154N_DUCT` ×2 and `V3L_T_REG_N` ×2, + covers. Otherwise the fallback,
+  stock `CMD_V3_1H_T_REG` + one `CMD_V3_1H_82mm_DUCT`, with LDO's PVC middle duct kept.
+
+Notes:
+- Before kit, 3 plates, 11.9 h, 173 g; after the kit-day measurements, 2 plates, 13.1 h, 175 g.
+- Kit-day go/no-go: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Short leads mean two
+  4-pin JST-XH extensions (a purchase) or layout v1.
+- All five arrangements are provisional (`nest.py`), GUI QC pending.
+- Options, no plate: orange-ASA endcaps; MSS's WARNING lid (Printables 505838) waits for the INDX.
+
+---
+
 ## 4. Totals, margin, spool changes
 
 ### 4.1 How these numbers were produced
@@ -919,6 +953,19 @@ B09-P3,B09,3.9,55,black
 B09-P4,B09,4.2,56,black
 B09-P5,B09,4.3,56,black
 B10-P1,B10,5.7,76,black
+```
+
+B11, the bay ducting, is outside the run and every total above. Its plates, by group
+(`slicer/check_docs.py` checks this block):
+
+```csv
+plate_id,batch_id,group,hours,grams,colour
+B11-P1,B11,before-kit,0.4,4,petg
+B11-P2,B11,before-kit,6.9,96,petg
+B11-P3,B11,before-kit,4.6,73,petg
+B11-P4,B11,after-kit,6.3,82,petg
+B11-P5,B11,after-kit,6.8,93,petg
+TOTAL B11,B11,all,25.0,348,petg
 ```
 
 ---

@@ -19,6 +19,10 @@ docs/manual/assets/ldo/*
 # re-fetchable from the pinned commits in slicer/stl/MANIFEST.sha256
 slicer/stl/*
 !slicer/stl/MANIFEST.sha256
+# ...except B11's bay-ducting remixes, which nobody else hosts (slicer/stl/bayducts/README.md);
+# the stock MSS pieces beside them are re-fetchable from Printables like everything else
+!slicer/stl/bayducts/
+slicer/stl/bayducts/mss/
 
 # cadquery venv for scripts/cad_render (PILOT.md §2)
 venv-cq/

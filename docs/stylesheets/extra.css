@@ -791,6 +791,8 @@ body.step-is-done .md-typeset .step-done-label {
 }
 .plate-swatch--black { background: #2b2b2b; }
 .plate-swatch--blue  { background: #2f6fd0; }
+/* B11, Jet Black PETG V0: a ring so it reads apart from Galaxy Black ASA at tile size */
+.plate-swatch--petg  { background: #1a1a1a; box-shadow: inset 0 0 0 2px #e0a100; }
 .plate-tile__slot {
   margin-left: auto;
   padding: .05rem .4rem;

@@ -432,7 +432,7 @@ def load_estimates() -> dict[str, tuple[float, float]]:
     if not ESTIMATES.exists():
         return out
     for r in csv.DictReader(ESTIMATES.open()):
-        if r["plate"] != "TOTAL":
+        if not r["plate"].startswith("TOTAL"):
             out[r["plate"]] = (float(r["hours"]), float(r["grams"]))
     return out
 
@@ -529,14 +529,17 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
     for p in parts:
         p.sil = Silhouette(p.obj, p.obj.brim)
 
-    colour_name = "ASA Blue" if PLATES.get(plate_id, {}).get("colour") == "blue" else "Galaxy Black"
+    colour = PLATES.get(plate_id, {}).get("colour")
+    material = {"blue": "ASA Blue ASA", "petg": "Jet Black PETG V0"}.get(colour, "Galaxy Black ASA")
     hours, grams = estimates.get(plate_id, (float("nan"), float("nan")))
     cv = Canvas(OUT_W, OUT_H, f"Plate {plate_id} — sorting diagram")
 
     # header
     cv.text(PAD, PAD - 2, f"Plate {plate_id}", 26, TEXT, bold=True)
     hg = (f"{hours:.1f} h  ·  {grams:.0f} g" if hours == hours else "not sliced yet")
-    cv.text(PAD, PAD + 32, f"{len(parts)} parts  ·  {hg}  ·  {colour_name} ASA  ·  bed 250 × 220 mm  ·  "
+    if PLATES.get(plate_id, {}).get("qc") == "pending":
+        hg += "  ·  arrangement provisional (GUI QC pending)"
+    cv.text(PAD, PAD + 32, f"{len(parts)} parts  ·  {hg}  ·  {material}  ·  bed 250 × 220 mm  ·  "
             f"PrusaSlicer 2.9.6 estimate", 14, MUTED)
 
     # bed

@@ -61,6 +61,8 @@ except ImportError:  # pragma: no cover - standalone fallback
         return re.sub(r"[-\s]+", "-", text)
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "slicer"))
+from plates import PLATES, run_of  # noqa: E402  (slicer/plates.py — which run a plate belongs to)
 MANUAL = REPO / "docs" / "manual"
 PRINT = MANUAL / "print"
 INDEX = MANUAL / "00-index.md"
@@ -435,8 +437,18 @@ def build_tonight_markdown():
     build_chapters = [c for c in chapters.values() if not c["is_print"] and c["hours"] is not None]
     total_hours = sum(c["hours"] for c in build_chapters)
     print_chapters = [c for c in chapters.values() if c["is_print"]]
-    total_print = sum(c["print_hours"] or 0 for c in print_chapters)
-    n_plates = sum(1 for c in print_chapters for s in c["segments"] if s["kind"] == "print")
+    # The ASA run's plates, and separately those of a batch outside it (B11, slicer/plates.py
+    # run != "asa"), so the run's 157.0 h / 22 plates reads the same here as everywhere else.
+    plate_segs = [s for c in print_chapters for s in c["segments"] if s["kind"] == "print"]
+    outside = [s for s in plate_segs if s["plate"] in PLATES and run_of(s["plate"]) != "asa"]
+    run_segs = [s for s in plate_segs if s not in outside]
+    total_print = sum(s["print_hours"] or 0 for s in run_segs)
+    n_plates = len(run_segs)
+    extra_print = ""
+    if outside:
+        batches = sorted({s["plate"][:3] for s in outside})
+        extra_print = (f", plus {sum(s['print_hours'] or 0 for s in outside):.1f} h across "
+                       f"{len(outside)} plates of {', '.join(batches)}, outside the run")
 
     lines = [
         "# Tonight",
@@ -446,7 +458,7 @@ def build_tonight_markdown():
         "",
         f"**Total remaining (estimate):** ~{total_hours:.1f} h hands-on across "
         f"{len(build_chapters)} build chapters; {total_print:.1f} h of printing across "
-        f"{n_plates} plates (~{PLATE_START_MIN} min hands-on per plate start, the rest unattended).",
+        f"{n_plates} plates{extra_print} (~{PLATE_START_MIN} min hands-on per plate start, the rest unattended).",
         "",
     ]
 

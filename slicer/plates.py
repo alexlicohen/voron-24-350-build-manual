@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-"""Single source of truth for what goes on each of the 22 plates.
+"""Single source of truth for what goes on each plate: the 22 plates of the ASA run
+(B00-B10) and the separate PETG V0 bay-ducting batch B11.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
 packing lists) and §5.1 (orientation and brim). Every path here was verified to
 exist in the pinned repo tree — see `slicer/stl/MANIFEST.sha256`.
+
+A plate's `run` is "asa" unless it says otherwise. Every total the manual prints
+for "the run" (22 plates, 157.0 h) is over the "asa" plates only; B11 ("bay") is
+added up on its own (slicer/check_docs.py § B11).
 """
 from __future__ import annotations
 
@@ -18,6 +23,56 @@ REPOS: dict[str, tuple[str, str, str]] = {
     "klicky": ("jlas1/Klicky-Probe", "main", "ab86f91d47ac7353a0a7c7e0de26542dca00f63e"),
     "nevermore": ("nevermore3d/Nevermore_Micro", "master", "8740b34fcc88e64afff74115f2c7c7002059f229"),
     "whopping": ("tanaes/whopping_Voron_mods", "main", "62268ed817878e54d6a1186882060aa8368d4f0f"),
+}
+
+# B11 bay ducting (layout v3, adopted 2026-09-23). One source folder, slicer/stl/bayducts/,
+# holding two kinds of file (slicer/stl/bayducts/README.md has the licence and credit):
+#   mss/502306/<file>  MyStoopidStuff's stock pieces, downloaded from Printables by file id
+#                      (fetch_stls.py). A re-upload gets a new file id, so the id is the pin
+#                      and MANIFEST.sha256 the proof. Gitignored like every other fetched STL.
+#   remix/<file>       the layout-v2/v3 remixes for the Rev D+ bay. Nobody else hosts them,
+#                      so they are committed; fetch_stls.py only hashes them.
+# (repo, path) -> (Printables print id, file id)
+PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
+    ("bayducts", "mss/502306/CMD_V3_1H_154mm_DUCT.stl"): ("502306", "5252452"),
+    ("bayducts", "mss/502306/CMD_V2_6B_154mm_DUCT_COVER.stl"): ("502306", "4285489"),
+    ("bayducts", "mss/502306/CMD_V3_1H_90DEG.stl"): ("502306", "5252443"),
+    ("bayducts", "mss/502306/CMD_V2_6B_90DEG_COVER.stl"): ("502306", "4285520"),
+    ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl"): ("502306", "5570632"),
+    ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl"): ("502306", "5570629"),
+    ("bayducts", "mss/502306/CMD_V2_6B_WIRE_BOX_COVER.stl"): ("502306", "4285499"),
+    ("bayducts", "mss/502306/CMD_V3_1H_T_SHORT.stl"): ("502306", "5252445"),
+    ("bayducts", "mss/502306/CMD_V2_6B_T_SHORT_COVER.stl"): ("502306", "4285575"),
+    ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-1M_ENDCAP.stl"): ("502306", "5290452"),
+    # Not on a plate: the fallback middle joints (Leviathan->PSU gap < 25 mm) and the
+    # parents review/2026-09-23-bay-mods/layout-v3/work/remix_v3.py cuts custom lengths from.
+    ("bayducts", "mss/502306/CMD_V3_1H_T_REG.stl"): ("502306", "5252450"),
+    ("bayducts", "mss/502306/CMD_V2_6B_T_REG_COVER.stl"): ("502306", "4285522"),
+    ("bayducts", "mss/502306/CMD_V3_1H_82mm_DUCT.stl"): ("502306", "5252446"),
+    ("bayducts", "mss/502306/CMD_V2_6B_82mm_DUCT_COVER.stl"): ("502306", "4285519"),
+    ("bayducts", "mss/502306/CMD_V3_1H_142mm_DUCT.stl"): ("502306", "5252451"),
+    ("bayducts", "mss/502306/CMD_V2_6B_142mm_DUCT_COVER.stl"): ("502306", "4285495"),
+    ("bayducts", "mss/502306/CMD_V3_1H_WIRE_BOX.stl"): ("502306", "5252449"),
+}
+# Committed sources: (repo, path prefix). fetch_stls.py hashes them and never downloads.
+TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"),)
+
+# Print orientation for files that are not drawn print-ready (MSS keeps the parent's
+# frame: duct, box and curve bodies sit base-UP, lids base-down). build_plates.source_stl
+# writes a rotated copy under slicer/stl/.oriented/ and packs that; the vendored file stays
+# byte-identical to its source. flip = 180 deg about X and ec = +90 deg about Y are the modes
+# review/.../layout-v3/work/slice_v3.py sliced with; side = -90 deg about X puts the fin's
+# plate face down (1375 mm2 on the bed; slice_v3's +90 stood it on a 95 mm2 edge).
+ORIENT: dict[str, str] = {
+    **{n: "flip" for n in (
+        "CMD_V3_1H_154mm_DUCT.stl", "CMD_V3_1H_90DEG.stl", "CMD_V3_1H_T_SHORT.stl",
+        "CMD_V3_1H_T_REG.stl", "CMD_V3_1H_82mm_DUCT.stl", "CMD_V3_1H_142mm_DUCT.stl",
+        "V2L_90DEG_MIRROR.stl", "V2L_58mm_DUCT.stl", "V2L_130mm_DUCT.stl",
+        "V2L_70mm_DUCT.stl", "V3L_154N_DUCT.stl", "V3L_T_REG_N.stl",
+        "V3L_COUPON_22N_DUCT.stl", "V3L_10mm_DUCT.stl", "V3L_34mm_DUCT_HOLE.stl",
+        "V3L_90DEG_R15.stl", "V3L_WIRE_BOX_PORT.stl")},
+    "CMD_Remix-V3_DUCT-1M_ENDCAP.stl": "ec",
+    "V2L_STRIP_FIN.stl": "side",
 }
 
 # Per-part brim, from 00-slicer-setup.md § "Orientation & brim".
@@ -281,6 +336,68 @@ PLATES: dict[str, dict] = {
             ("whopping", "clickyclacky_door/STLs/Latch.stl", 1),
             ("whopping", "clickyclacky_door/STLs/Panel_Clip.stl", 1),
         ]),
+    # ---- B11: bay ducting, layout v3 (PETG V0, outside the ASA run) ----------------------
+    # group "before-kit": needs no bench measurement. group "after-kit": custom lengths and
+    # the narrowed middle run, printed once the kit-day measurements are in (B11 page).
+    # qc="pending": packed by nest.py, not yet opened, arranged and re-saved in the GUI.
+    # Once Alex has done that, delete the key and run build_plates.py --from-3mf B11-Pn.
+    "B11-P1": dict(
+        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        note="Test coupon: prints first, alone. The lid must snap and hold before P5 is printed.",
+        parts=[
+            ("bayducts", "remix/V3L_COUPON_22N_DUCT.stl", 1),
+            ("bayducts", "remix/V3L_COUPON_22N_DUCT_COVER.stl", 1),
+        ]),
+    "B11-P2": dict(
+        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        note="DC conduit: the two stock 154s and the three 90 deg corners.",
+        parts=[
+            ("bayducts", "mss/502306/CMD_V3_1H_154mm_DUCT.stl", 2),
+            ("bayducts", "mss/502306/CMD_V2_6B_154mm_DUCT_COVER.stl", 2),
+            ("bayducts", "mss/502306/CMD_V3_1H_90DEG.stl", 2),
+            ("bayducts", "mss/502306/CMD_V2_6B_90DEG_COVER.stl", 2),
+            ("bayducts", "remix/V2L_90DEG_MIRROR.stl", 1),
+            ("bayducts", "remix/V2L_90DEG_COVER_MIRROR.stl", 1),
+        ]),
+    "B11-P3": dict(
+        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        note="AC conduit (wire box, R15 curves, SSR T, endcaps, strip fin) plus the DC S-jog.",
+        parts=[
+            ("bayducts", "remix/V3L_WIRE_BOX_PORT.stl", 1),
+            ("bayducts", "mss/502306/CMD_V2_6B_WIRE_BOX_COVER.stl", 1),
+            ("bayducts", "remix/V3L_90DEG_R15.stl", 2),
+            ("bayducts", "remix/V3L_90DEG_R15_COVER.stl", 2),
+            ("bayducts", "mss/502306/CMD_V3_1H_T_SHORT.stl", 1),
+            ("bayducts", "mss/502306/CMD_V2_6B_T_SHORT_COVER.stl", 1),
+            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-1M_ENDCAP.stl", 2),
+            ("bayducts", "remix/V2L_STRIP_FIN.stl", 1),
+            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl", 2),
+            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl", 2),
+        ]),
+    "B11-P4": dict(
+        batch="B11", colour="petg", run="bay", group="after-kit", qc="pending",
+        note="Custom lengths: regenerate any piece whose bench gap differs before slicing.",
+        parts=[
+            ("bayducts", "remix/V2L_58mm_DUCT.stl", 3),
+            ("bayducts", "remix/V2L_58mm_DUCT_COVER.stl", 3),
+            ("bayducts", "remix/V2L_130mm_DUCT.stl", 1),
+            ("bayducts", "remix/V2L_130mm_DUCT_COVER.stl", 1),
+            ("bayducts", "remix/V2L_70mm_DUCT.stl", 1),
+            ("bayducts", "remix/V2L_70mm_DUCT_COVER.stl", 1),
+            ("bayducts", "remix/V3L_10mm_DUCT.stl", 3),
+            ("bayducts", "remix/V3L_10mm_DUCT_COVER.stl", 3),
+            ("bayducts", "remix/V3L_34mm_DUCT_HOLE.stl", 1),
+            ("bayducts", "remix/V3L_34mm_DUCT_COVER.stl", 1),
+        ]),
+    "B11-P5": dict(
+        batch="B11", colour="petg", run="bay", group="after-kit", qc="pending",
+        note="Narrowed middle run: only if the Leviathan-to-PSU gap is 25 mm or more.",
+        parts=[
+            ("bayducts", "remix/V3L_154N_DUCT.stl", 2),
+            ("bayducts", "remix/V3L_154N_DUCT_COVER.stl", 2),
+            ("bayducts", "remix/V3L_T_REG_N.stl", 2),
+            ("bayducts", "remix/V3L_T_REG_N_COVER.stl", 2),
+        ]),
 }
 
 # Previous throughput-model estimates from docs/voron-print-plan.md §9, kept so
@@ -299,12 +416,20 @@ MODEL_ESTIMATE: dict[str, tuple[float, int]] = {
 
 
 def all_sources() -> list[tuple[str, str]]:
-    """Every (repo_key, path) referenced by any plate, deduplicated."""
+    """Every (repo_key, path) referenced by any plate, plus the Printables files kept
+    for B11's fallback and regeneration path, deduplicated."""
     seen: dict[tuple[str, str], None] = {}
     for plate in PLATES.values():
         for repo, path, _qty in plate["parts"]:
             seen[(repo, path)] = None
+    for key in PRINTABLES:
+        seen[key] = None
     return sorted(seen)
+
+
+def run_of(plate_id: str) -> str:
+    """"asa" for the 22-plate run, "bay" for B11."""
+    return PLATES[plate_id].get("run", "asa")
 
 
 def local_path(repo: str, path: str) -> str:

@@ -133,3 +133,31 @@ It matters most for `start_gcode`: the plates were written with the stock CORE O
 which would push the hot-probe sequence back over the `coldstart` printer preset every
 time a project was opened.
 
+## Bay-duct bundle (B11)
+
+`slicer/bay-ducts-petg.ini` prints batch B11 ([`docs/manual/print/B11-bay-ducting.md`](../docs/manual/print/B11-bay-ducting.md)): the PETG V0
+bay ducts, which carry no load and are **not printed to Voron spec**. Print and printer
+presets are the ASA bundles' (`0.20mm STRUCTURAL @COREONE 0.4`, `Prusa CORE One HF0.4 nozzle`); the filament base is
+`Prusament PETG V0 @COREONE HF0.4`. The print preset's modest speeds keep internal infill at 120 mm/s, under
+the PETG preset's own 200 mm/s infill cap and below the speeds the 2026-09-22 PETG sweep
+suspects of lifting strands. Every key that differs from those flattened presets:
+
+| ini key | Flattened preset value | Set to | Why |
+|---|---|---|---|
+| `layer_height` | `0.2` | `0.2` | 0.20 mm layers (already the base value) |
+| `perimeters` | `2` | `3` | 3 walls: stiff enough for a snap lid, no load to carry |
+| `top_solid_layers` | `5` | `4` | 4 top layers |
+| `bottom_solid_layers` | `4` | `4` | 4 bottom layers |
+| `fill_density` | `15%` | `20%` | 20 % infill |
+| `fill_pattern` | `grid` | `grid` | grid, not gyroid: gyroid infill curls with PETG on this printer (PETG sweep 2026-09-22) |
+| `support_material` | `1` | `0` | no supports: every piece prints flat on its base |
+| `support_material_auto` | `0` | `0` | same |
+| `start_filament_gcode` | *(preset block)* | *(preset block)* + `M106 P3 S160` | the preset's start block plus `M106 P3 S160` - lifts the AFS bypass flaps for PETG |
+| `end_filament_gcode` | *(preset block)* | *(preset block)* + `M106 P3 R` | the preset's end block plus `M106 P3 R` |
+| `thumbnails` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG` | same as the ASA bundles |
+| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`)* | the vendored cold-probe start, same as the ASA bundles |
+
+Kept at the preset value: nozzle 230 C, bed 85/90 C, chamber 35 C, fan 30-60 %,
+`filament_max_volumetric_speed` 16, `extrusion_multiplier` 1.04, seam aligned, no skirt,
+no brim. Colour `#1A1A1A` (Jet Black) and the notes line are labels only.
+

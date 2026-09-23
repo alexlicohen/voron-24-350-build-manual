@@ -4,7 +4,8 @@
 #
 #   Home       the landing page
 #   Build      the 16 chapter overviews, in build order
-#   Print      slicer setup, the 11 batch overviews, then the print-shop pages
+#   Print      slicer setup, the 11 batch overviews of the ASA run and B11 (bay ducting,
+#              PETG V0, outside the run), then the print-shop pages
 #   Plan       manual index, Tonight planner, print plan, instruction survey
 #   Reference  troubleshooting, glossary
 #
@@ -57,6 +58,7 @@ nav:
       - manual/steps/b08-skirts-and-front-modules/index.md
       - manual/steps/b09-panels-filtration-spool/index.md
       - manual/steps/b10-clicky-clack-door/index.md
+      - manual/steps/b11-bay-ducting/index.md
       - manual/print/README.md
       - print/plate-plans.md
       - print/plate-board.md

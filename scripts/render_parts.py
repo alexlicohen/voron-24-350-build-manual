@@ -15,6 +15,9 @@ it goes straight to the matplotlib fallback the brief calls acceptable.
 Usage:
     python3 scripts/render_parts.py            # render everything, write MANIFEST.csv
     python3 scripts/render_parts.py --limit 5  # smoke test
+    python3 scripts/render_parts.py --batch B11  # one batch only: its PNGs and sheet, its rows
+                                                 # merged into MANIFEST.csv (every other row and
+                                                 # the `bin` column kept as they are)
 
 Idempotent: re-running overwrites the same PNGs/CSV; nothing is appended.
 """
@@ -35,6 +38,7 @@ OUT_DIR = REPO_ROOT / "docs" / "manual" / "assets" / "parts"
 sys.path.insert(0, str(SLICER_DIR))
 import plates  # noqa: E402  (slicer/plates.py — PLATES, REPOS)
 import geom  # noqa: E402  (slicer/geom.py — read_stl, bbox; stdlib only)
+from build_plates import source_stl  # noqa: E402  (print-oriented copy for plates.ORIENT files)
 
 import matplotlib  # noqa: E402
 matplotlib.use("Agg")
@@ -84,6 +88,8 @@ def unique_parts() -> list[dict]:
                 continue
             basename = relpath.rsplit("/", 1)[-1]
             src = STL_DIR / repo / relpath
+            if basename in plates.ORIENT:      # render it the way it lies on the plate
+                src = STL_DIR / source_stl(repo, relpath)
             if src.suffix.lower() == ".3mf":
                 # geom.read_stl only understands STL; the fetch step already
                 # pulled down a sibling .stl for every 3MF-only part.
@@ -345,9 +351,13 @@ def render_sheet_png(batch: str, batch_parts: list[dict], out_path: Path) -> Non
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=None, help="render only the first N parts (smoke test)")
+    ap.add_argument("--batch", action="append", default=None,
+                    help="render only this batch (repeatable); merge its rows into MANIFEST.csv")
     args = ap.parse_args()
 
     parts = unique_parts()
+    if args.batch:
+        parts = [p for p in parts if p["batch"] in set(args.batch)]
     if args.limit:
         parts = parts[: args.limit]
     pairs = find_pairs(parts)
@@ -386,6 +396,8 @@ def main() -> int:
 
     manifest_path = OUT_DIR / "MANIFEST.csv"
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    if args.batch:
+        return _merge_manifest(manifest_path, parts, sheet_for, pair_png_for, failed)
     with manifest_path.open("w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["stl", "batch", "colour", "png", "sheet", "pair_png", "bbox_mm", "volume_cm3"])
@@ -410,6 +422,40 @@ def main() -> int:
         print(f"Failed ({len(failed)}):")
         for name, reason in failed:
             print(f"  {name}: {reason}")
+    return 1 if failed else 0
+
+
+def _merge_manifest(path: Path, parts, sheet_for, pair_png_for, failed) -> int:
+    """--batch: replace or add this batch's rows, keep every other row and column."""
+    rows = list(csv.DictReader(path.open(encoding="utf-8"))) if path.exists() else []
+    fields = list(rows[0].keys()) if rows else ["stl", "batch", "colour", "png", "sheet",
+                                                "pair_png", "bbox_mm", "volume_cm3"]
+    new = {}
+    for part in parts:
+        if "png" not in part:
+            continue
+        dims = part.get("bbox_mm", (0, 0, 0))
+        new[part["basename"]] = {
+            "stl": part["basename"], "batch": part["batch"], "colour": part["category"],
+            "png": part["png"], "sheet": sheet_for.get(part["basename"], ""),
+            "pair_png": pair_png_for.get(part["basename"], ""),
+            "bbox_mm": f"{dims[0]:.1f},{dims[1]:.1f},{dims[2]:.1f}",
+            "volume_cm3": f"{part.get('volume_cm3', 0):.2f}",
+        }
+    out = []
+    for r in rows:
+        if r["stl"] in new:
+            r.update(new.pop(r["stl"]))
+        out.append(r)
+    for r in new.values():
+        out.append({k: r.get(k, "") for k in fields})
+    with path.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        w.writerows(out)
+    print(f"Rendered {len(parts) - len(failed)}/{len(parts)} parts; merged into {path}.")
+    for name, reason in failed:
+        print(f"  {name}: {reason}")
     return 1 if failed else 0
 
 
