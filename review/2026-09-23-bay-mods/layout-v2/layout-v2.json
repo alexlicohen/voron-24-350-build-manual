@@ -1,0 +1,457 @@
+{
+ "runs": [
+  {
+   "id": "DC",
+   "kind": "dc",
+   "call": "switch",
+   "what": "One DC conduit: left, front, right and rear-right runs joined by three 90\u00b0 corners (FL mirrored, FR, RR), two T_REG junctions and a 45\u00b0 S-jog up to the rear notch. Open ends only at Z1 (rear-left) and the notch.",
+   "carries": "Z0-Z3, A, B, umbilical, XY endstop, LED, nozzle probe, bed TH, filter fan (these three rerouted via the notch), PCB fan, Ethernet, Pi USB, HV",
+   "note": "Pieces: 90DEG x2 + mirrored 90DEG, T_REG x2, 154 x2, custom 58 x3 / 130 / 70 / 22, 45deg x2. Apparent mm, +/-6 % absolute.",
+   "segments": [
+    {
+     "type": "straight",
+     "x": [
+      -156.4,
+      -139.6
+     ],
+     "y": [
+      -159.2,
+      -134.8
+     ]
+    },
+    {
+     "type": "arc",
+     "cx": -156.4,
+     "cy": -125.0,
+     "r_inner": 9.8,
+     "r_outer": 34.2,
+     "a0": 180,
+     "a1": 270
+    },
+    {
+     "type": "straight",
+     "x": [
+      -190.6,
+      -166.2
+     ],
+     "y": [
+      -125.0,
+      -105.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -138.6,
+      15.4
+     ],
+     "y": [
+      -159.2,
+      -134.8
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      15.4,
+      170.4
+     ],
+     "y": [
+      -159.2,
+      -134.8
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      170.4,
+      187.2
+     ],
+     "y": [
+      -159.2,
+      -134.8
+     ]
+    },
+    {
+     "type": "arc",
+     "cx": 187.2,
+     "cy": -125.0,
+     "r_inner": 9.8,
+     "r_outer": 34.2,
+     "a0": 270,
+     "a1": 360
+    },
+    {
+     "type": "straight",
+     "x": [
+      197.0,
+      221.4
+     ],
+     "y": [
+      -125.0,
+      -105.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -190.6,
+      -166.2
+     ],
+     "y": [
+      -105.0,
+      -47.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -190.6,
+      -166.2
+     ],
+     "y": [
+      -47.0,
+      37.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -166.2,
+      -138.6
+     ],
+     "y": [
+      -17.2,
+      7.2
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -190.6,
+      -166.2
+     ],
+     "y": [
+      37.0,
+      167.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      197.0,
+      221.4
+     ],
+     "y": [
+      -105.0,
+      -47.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      197.0,
+      221.4
+     ],
+     "y": [
+      -47.0,
+      37.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      169.4,
+      197.0
+     ],
+     "y": [
+      -17.2,
+      7.2
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      197.0,
+      221.4
+     ],
+     "y": [
+      37.0,
+      123.8
+     ]
+    },
+    {
+     "type": "arc",
+     "cx": 187.2,
+     "cy": 123.8,
+     "r_inner": 9.8,
+     "r_outer": 34.2,
+     "a0": 0,
+     "a1": 90
+    },
+    {
+     "type": "straight",
+     "x": [
+      167.2,
+      187.2
+     ],
+     "y": [
+      133.6,
+      158.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      109.2,
+      167.2
+     ],
+     "y": [
+      133.6,
+      158.0
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      88.2,
+      109.2
+     ],
+     "y": [
+      133.6,
+      158.0
+     ]
+    },
+    {
+     "type": "arc",
+     "cx": 88.2,
+     "cy": 166.2,
+     "r_inner": 8.2,
+     "r_outer": 32.6,
+     "a0": 225,
+     "a1": 270
+    },
+    {
+     "type": "poly",
+     "pts": [
+      [
+       65.1,
+       143.2
+      ],
+      [
+       52.8,
+       155.5
+      ],
+      [
+       70.1,
+       172.7
+      ],
+      [
+       82.4,
+       160.4
+      ]
+     ]
+    },
+    {
+     "type": "poly",
+     "pts": [
+      [
+       52.8,
+       155.5
+      ],
+      [
+       40.5,
+       167.8
+      ],
+      [
+       57.8,
+       185.0
+      ],
+      [
+       70.1,
+       172.7
+      ]
+     ]
+    },
+    {
+     "type": "arc",
+     "cx": 34.7,
+     "cy": 162.0,
+     "r_inner": 8.2,
+     "r_outer": 32.6,
+     "a0": 45,
+     "a1": 90
+    },
+    {
+     "type": "straight",
+     "x": [
+      13.7,
+      34.7
+     ],
+     "y": [
+      170.2,
+      194.6
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -8.3,
+      13.7
+     ],
+     "y": [
+      170.2,
+      194.6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "MID",
+   "kind": "dc",
+   "call": "cond",
+   "what": "Middle run between the rails, T_REG stem to T_REG stem (2 x 154).",
+   "carries": "all six stepper leads to the Leviathan's rear-edge headers; PSU 24 V feeds, HV, SSR signal",
+   "note": "Needs the front DIN rail 7 mm toward the door (gap board-edge to PSU >= 32 mm). Fallback: replace each T_REG with an 82 straight and keep LDO's PVC middle duct.",
+   "segments": [
+    {
+     "type": "straight",
+     "x": [
+      -138.6,
+      15.4
+     ],
+     "y": [
+      -17.2,
+      7.2
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      15.4,
+      169.4
+     ],
+     "y": [
+      -17.2,
+      7.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "AC",
+   "kind": "ac",
+   "call": "ac",
+   "what": "One AC conduit: V2L_AC_HUB (stretched MSS wire box) against the WAGO bus + a 58 mm hole run over the bed-lead deck hole + endcap; strip fin at the PSU.",
+   "carries": "inlet->WAGO, WAGO->PSU L/N/FG, WAGO L->SSR LOAD2, SSR LOAD1->bed L, bed N and PE->WAGO, frame PE",
+   "note": "Hub front wall 2 mm behind the SSR, rear wall 0.8 mm in front of the WAGO; PSU AC leads enter the hub's open right end; the fin sits between terminal 6 (-V) and 7 (FG).",
+   "segments": [
+    {
+     "type": "straight",
+     "x": [
+      -125.4,
+      -30
+     ],
+     "y": [
+      104,
+      201.2
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -30,
+      28
+     ],
+     "y": [
+      133.8,
+      158.2
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      28,
+      35.8
+     ],
+     "y": [
+      134.2,
+      157.8
+     ]
+    },
+    {
+     "type": "straight",
+     "x": [
+      -50,
+      -25.5
+     ],
+     "y": [
+      90,
+      92.4
+     ]
+    }
+   ]
+  }
+ ],
+ "components_moved": [
+  {
+   "name": "Front DIN rail with Leviathan+Pi and USB adapter",
+   "dx": 0,
+   "dy": -7
+  },
+  {
+   "name": "PSU (DIN clips on the rear rail)",
+   "dx": -4,
+   "dy": 0
+  },
+  {
+   "name": "Frame PE ring lug on the rear extrusion (LDO x~+105 -> x~-20)",
+   "dx": -125,
+   "dy": 0
+  }
+ ],
+ "crossings": [
+  {
+   "at": [
+    14.7,
+    146
+   ],
+   "how": "Bed deck hole becomes AC-only: bed TH, nozzle probe and filter fan re-routed above deck to the Z-chain notch; bed L/N/PE rise straight into the AC hole run, which covers the hole."
+  },
+  {
+   "at": [
+    -15,
+    91.2
+   ],
+   "how": "PSU terminal strip: printed fin between terminal 6 (-V, y 86.7) and 7 (FG, y 95.8); DC leads leave forward to the middle run, AC leads rearward into the hub."
+  },
+  {
+   "at": [
+    -86,
+    70
+   ],
+   "how": "SSR: INPUT 3/4 (DC) at its front end, LOAD 1/2 (AC) at its rear end; the SSR body is the barrier, the hub's front wall is 2 mm behind it."
+  },
+  {
+   "at": [
+    40,
+    165
+   ],
+   "how": "AC hole run/endcap vs DC S-jog and rear-upper run: parallel, 10-11 mm apart, no crossing."
+  },
+  {
+   "at": [
+    6,
+    200
+   ],
+   "how": "Rear notch: DC only (Z chain: umbilical, XY endstop, A, B; LED; rerouted TH/probe/fan) straight into the DC rear-upper run."
+  },
+  {
+   "at": [
+    -25,
+    212
+   ],
+   "how": "Frame PE leaves the hub's rear wall to a lug on the rear extrusion at x~-20, behind the hub, >= 10 mm from the DC run's open end."
+  }
+ ]
+}

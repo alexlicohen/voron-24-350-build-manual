@@ -70,7 +70,7 @@ Figure: `fit-overlay-duct-layout.jpg`. Positions are apparent mm; confirm on the
 
 - **Split at the rear notch.** The gap of about 12 mm at x 0…+12 sits under the harness drop. Bed L/N/PE turn left into AC, and everything else turns right. All mains then lives in the rear-left quadrant.
   - This is stricter than LDO's own bay, which mixes the mains with the Z-motor cables in one rear duct. It satisfies Ch 10.68's "mains group in its own duct run".
-- **Middle run.** The cleanest fix is a rail move, not a STEP edit. Slide the **front** DIN rail about 5 mm toward the door: its T-nuts ride in the front-to-back bed extrusions, and Ch 09.5 does not fix the spacing.
+- **Middle run.** The cleanest fix is a rail move, not a STEP edit. Slide the **front** DIN rail about 5 mm toward the door: its T-nuts ride in the front-to-back bed extrusions, and Ch 09.5 does not fix the spacing. **Corrected 2026-09-23:** the spacing IS fixed, by the deck panel's four holes (Voron manual p.29); the rail cannot move toward the door without modifying the kit's acrylic deck.
   - That opens the gap to about 30 mm and still leaves ~22 mm between the front duct and the Leviathan header row.
   - Narrowing the CMD profile to 20 mm is a redesign of the bulged wall, not a simple edit. The STEP is a flat multi-body export with no history.
   - If you do not want to move the rail, keep the PVC middle duct.
