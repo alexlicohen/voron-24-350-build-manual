@@ -12,20 +12,23 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Briefs must forbid reverting Alex's uncommitted files (IMG_3298/3299.jpeg, any GUI-saved 3MF).
 
 ## Wave 1: blockers and safety (deep tier)
-- [ ] **Z-belt upper clips** (G3-01, G3-02, G4 B1, B2, M1):
+- [x] **Z-belt upper clips** (G3-01, G3-02, G4 B1, B2, M1):
   - fit `[a]_z_belt_clip_upper_x4` in Ch 05 under the idler/drive top M5×16 pair (Voron p.91/93/95);
   - Ch 06: 06.7 stack = lower clip only; 06.17/06.20 clamp the 2nd belt end with the top M5×16;
   - 06b.9/06b.10 and Checkpoint 06b to match p.117/120.
-- [ ] **Bed WAGO breakout** above the deck on the left bed extrusion (G5-01); fix 09.34, Ch 03, Checkpoint 09 and the 10.12/10.14 wording.
-- [ ] **Dead-machine step at the top of Ch 11 Part A** (G6-01): off, unplug, cord in view, PSU LED out. Fix the Part A breadcrumb "before first power-up".
-- [ ] **Chamber Filtration = Adv. Filtration** check in B00.3 and every B01–B10 pre-print step, plus a "set it back" line at the end of B11 (G8-01).
-- [ ] **Safety majors:**
+- [x] **Bed WAGO breakout** above the deck on the left bed extrusion (G5-01); fix 09.34, Ch 03, Checkpoint 09 and the 10.12/10.14 wording.
+- [x] **Dead-machine step at the top of Ch 11 Part A** (G6-01): off, unplug, cord in view, PSU LED out. Fix the Part A breadcrumb "before first power-up".
+- [x] **Chamber Filtration = Adv. Filtration** check in B00.3 and every B01–B10 pre-print step, plus a "set it back" line at the end of B11 (G8-01).
+- [x] **Safety majors:**
   - G6-03: the L↔N meter pass criterion;
   - G6-04: safety text collapsed inside "What you're looking at";
   - G1-09: the 00a.11 rituals collapsed;
   - G1-10: the print plan hands the iron to the helper;
   - G7-03: `M84` in Ch 15 with no hold-the-gantry warning;
   - the raven Check badge renders on mains and iron steps (G5 note, systemic: `hooks/callouts.py` / `hooks/mascot.py`).
+
+- Wave 1 done 2026-09-23 (claude, uncommitted): new step 11.67 (dead machine, first in Part A; Checkpoint 12 Next button → 11.67 via `build_steps.py` `## Next` lead link); L↔N pass ≥100 kΩ or OL `(verify on bench)`; badges suppressed via `hooks/mascot.py` NO_MASCOT_STEPS (single classifier, also used by gatecalc); 00a.5/8/9/11 rules visible; Ch 13/15 motor-release rows warn to hold the gantry.
+- Wave 1 leftovers for Alex/bench: 09.34 mount reach with the plate fitted (3 mm ball-end from the rear?) and its exact position; 11.67 says "cord out of the room" (worklist said "in view"); blower-audible check in B00.3 not added (start time unverified); 13.22/13.25 Tip/13.26 FIRMWARE_RESTART with the gantry lifted 10 mm (no hands under, left alone).
 
 ## Wave 2: regressions from today and stale numbers (builder tier, mechanical)
 - [ ] 10.80 fin between −V and FG, using the chapter's own terminal numbering (G6-02).

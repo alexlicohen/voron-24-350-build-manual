@@ -1429,6 +1429,7 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 - [ ] `STATUS` is clean after `RESTART`, both MCUs connected, three sensors reading room temperature.
 - [ ] KlipperScreen is running and the DSI panel shows the right way up.
 - [ ] Nothing has been homed, heated or jogged.
+- [ ] The machine is still live with the bay open: nobody reaches into the bay until [Step 11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) has shut it down, unplugged it and read 0 V.
 
 ## Common mistakes
 
@@ -1443,4 +1444,4 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 
 ## Next
 
-**Ch 11 Part A** — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool holder and the door sub-assembly — closes the bay this chapter powered. Then **Ch 13 — Initial startup**: work the Voron startup wizard in its own order (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), which closes the `safe_z_home` TODO from Step 12.33.
+**Ch 11 Part A**, starting at [Step 11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead): shut down, unplug and prove the machine dead first. Then skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool holder and the door sub-assembly close the bay this chapter powered. Then **Ch 13 — Initial startup**: work the Voron startup wizard in its own order (temperatures → heaters → fans → `STEPPER_BUZZ` → XY endstop → homing → bed locating → 0,0 → Z endstop → probe → PID → QGL → Z-offset), which closes the `safe_z_home` TODO from Step 12.33.

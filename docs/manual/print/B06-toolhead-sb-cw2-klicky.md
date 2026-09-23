@@ -95,7 +95,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B06.3 — Print plate B06-P1
 
 **Do:** Print with standing overrides.
-**Check:** LED carrier, diffuser mask and magnet-holder pockets print crisp, the finest features on the plate.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. LED carrier, diffuser mask and magnet-holder pockets print crisp, the finest features on the plate.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

@@ -85,7 +85,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
 - [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.
 - [ ] Straightedge check done before the magnet went on — no gap you could slide paper under.
-- [ ] Three bed cables hanging free below the deck with slack, unterminated, nothing pinched or tied.
+- [ ] Three bed leads loose **above** the deck with slack, none through it, unterminated, nothing pinched or tied.
 - [ ] Flex plate test-fitted, removed, and the bed covered for the rest of the build.
 
 <div class="print-page-break"></div>
@@ -116,7 +116,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every carriage retained by a stopper or tape; none dropped
 - [ ] At each of the four C-extrusion ends: 2× M5 in the top (backer) slot, 1× M5 + 1× M3 in the rail slot beyond the rail end
 - [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out
-- [ ] Both front idlers and both rear drive joints flush with the extrusion ends, notches pointing away from the assembly
+- [ ] Both front idlers and both rear drive joints flush with the extrusion ends, each with a blue upper Z-belt clip under its two M5×16, clip notch pointing away from the idler or drive assembly
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
 - [ ] Cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
@@ -134,9 +134,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Four `z_joint_lower` on the Z carriages, four M3×20 SHCS each, all four bolted flat
 - [ ] Four M5×40 SHCS in, **all still light** — they are torqued hot in Ch 14, not now and not in Part B
 - [ ] Four Z belts routed drive → idler → clamp, teeth engaged on every pulley, none twisted
-- [ ] Both belt ends clamped at every corner (lower clip and top clip), tails folded and zip-tied
+- [ ] Both belt ends clamped at every corner: the first under the lower clip and bearing block, the second under the upper clip's two M5×16; tails folded and zip-tied
 - [ ] Four belts pluck to roughly the same note; nothing rubs anywhere in ±30 mm of Z travel
-- [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); belt-clamp pair and rail screws untouched
+- [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); Z belt-clamp bolts and rail screws untouched
 - [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
 - [ ] Z-chain parts bagged and labelled for Ch 10; chain latches tested, end link modified
 
@@ -148,7 +148,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Four Z belts measured at **140 Hz** over a 150 mm span (Step 06b.3), all four within ±5 Hz — set finally at Ch 14 Step 14.5 (cold, same session as 14.4)
 - [ ] Only `stepper_x` and `stepper_y` were disabled; Z motors held the gantry throughout
 - [ ] A/B belts were fully slack before any adjustment was made
-- [ ] At every XY joint only the three joint-to-beam bolts (Steps 05.38–05.39) were loosened; the M3×30 / M5×30 Z belt-clamp pair was never touched
+- [ ] At every XY joint only the three joint-to-beam bolts (Steps 05.38–05.39) were loosened; at the A/B drives and front idlers both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were retightened at 06b.12
 - [ ] Both A/B joints checked for rotation against the good/bad reference images
 - [ ] At all four Z joints, the M5×40 starts by hand with the joint raised — no coaxing
 - [ ] **Four-point gantry-to-frame gap recorded**: same-side front/rear within 0.5 mm, left/right within 1 mm
@@ -204,7 +204,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin rising through the deck's rear notch and ~1.5 mm clear of the plate's rear edge. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
-- [ ] Bed WAGO breakout built and mounted; the plate still lifts off the deck from above.
+- [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
 
 <div class="print-page-break"></div>
@@ -263,6 +263,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `STATUS` is clean after `RESTART`, both MCUs connected, three sensors reading room temperature.
 - [ ] KlipperScreen is running and the DSI panel shows the right way up.
 - [ ] Nothing has been homed, heated or jogged.
+- [ ] The machine is still live with the bay open: nobody reaches into the bay until [Step 11.67](../manual/11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) has shut it down, unplugged it and read 0 V.
 
 <div class="print-page-break"></div>
 
@@ -447,7 +448,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
 - [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
-- [ ] Smooth sheet back on the printer for any ASA plate
+- [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
 
 <div class="print-page-break"></div>

@@ -1,8 +1,8 @@
 # Chapter 03 — Build plate
 
-Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so the frame has its datum surface and the bed harness is hanging below deck ready for Ch 10.
+Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so the frame has its datum surface and the plate's three leads lie loose above the deck, ready for the bed WAGO breakout in Ch 09.
 
-**What you're building in this chapter:** the heated bed, as a stack of four things. The **build plate** is a cast, ground aluminium slab with a mains-powered silicone **heater pad** and a 125 °C **thermal fuse** already bonded to its underside — both are factory-fitted on this kit, so two of the official manual's pages become inspections. On top of it you laminate the **magnetic pad**, an adhesive magnetised sheet, and onto that drops the **flex plate**: removable spring steel, the surface prints actually stick to and the reason you can pop a finished part off by flexing it. The whole stack sits on four **thumb-nut spacers** on the two bed extrusions from Ch 01, held by four bolts of which only one is ever tightened — the other three let a 355 mm aluminium plate expand as it heats instead of buckling. Nothing is wired here; the plate's three cables are left hanging below the deck for Ch 10.
+**What you're building in this chapter:** the heated bed, as a stack of four things. The **build plate** is a cast, ground aluminium slab with a mains-powered silicone **heater pad** and a 125 °C **thermal fuse** already bonded to its underside — both are factory-fitted on this kit, so two of the official manual's pages become inspections. On top of it you laminate the **magnetic pad**, an adhesive magnetised sheet, and onto that drops the **flex plate**: removable spring steel, the surface prints actually stick to and the reason you can pop a finished part off by flexing it. The whole stack sits on four **thumb-nut spacers** on the two bed extrusions from Ch 01, held by four bolts of which only one is ever tightened — the other three let a 355 mm aluminium plate expand as it heats instead of buckling. Nothing is wired here; the plate's three short leads stay loose **above** the deck, for the bed WAGO breakout Ch 09 fits on the left bed extrusion.
 
 ```mascot
 pose: check
@@ -57,7 +57,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - Use **M3×20 SHCS**, not the manual's M3×16 — this plate and these spacers are thicker. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - The magnet goes on with the hinge method at Step 03.9 — one shot; read the whole step before you peel anything.
 - Only one of the four bolts gets tightened (p.59). A bed clamped hard at all four corners while cold, then heated fast, tacos.
-- No wiring happens here. The Omron SSR, the WAGO breakout, the bed PE run and the thermistor connection are all Ch 10. Leave the three bed cables loose below deck.
+- No wiring happens here, and **no bed lead goes through the deck**. Manual p.60 feeds the bed wires through the opening; this kit's plate leads end at the bed WAGO breakout above the deck (Ch 09), and only the kit's extension leads go below, in Ch 10. Leave the three leads loose above the deck. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 **Sources for this chapter:**
 
@@ -81,7 +81,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 **Parts:** build plate ×1, magnetic pad ×1, spring steel flex plate ×1.
 
-**Do:** Take the plate out flat, never on edge; a dropped corner dents a 10 mm cast slab. Lay it on a clean towel. It ends up on the two bed extrusions above the deck panel, cables through the deck.
+**Do:** Take the plate out flat, never on edge; a dropped corner dents a 10 mm cast slab. Lay it on a clean towel. It ends up on the two bed extrusions, cables above the deck.
 
 **Check:** Three cables leave the plate at the back-centre edge, with the M4×6 PE screw beside them. Washer type (verify on bench).
 
@@ -192,7 +192,7 @@ Source: [Voron manual p.56](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ⚠ **Rev D+ / LDO:** the manual calls for an M3×6 BHCS you supply. Your plate ships with an **M4×6 BHCS** already attached — use that one. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-⚠ **Rev D+ / LDO:** do **not** wire the PE, the heater leads or the thermistor here. The bed harness is a breakout design: the AC leads land on the bed WAGO mount and the SSR, and the thermistor on the 2×2 XH splicer PCB, all in Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+⚠ **Rev D+ / LDO:** do **not** wire the PE, the heater leads or the thermistor here. The bed harness is a breakout design: the plate's L and N land on the bed WAGO mount above the deck and its thermistor on the 2×2 XH splicer PCB, both in Ch 10; extension leads carry on below. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 Source: [Voron manual p.57](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=57) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
@@ -341,25 +341,26 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ---
 
-### Step 03.14 — Lower the plate on and feed the cables through the deck
+### Step 03.14 — Lower the plate on, cables above the deck
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png)
+![LDO build-plate mapping, seen from above, rear at the top: the plate's leads end at the red bed WAGO mount on the left bed extrusion](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** Manual p.60: the plate coming down onto its four spacers, cables first. The three cables have to go through the deck before the plate lands: the AC pair through the round hole, the thermistor through the Z-chain notch.
+**What you're looking at:** Manual p.60: the plate coming down onto its four spacers, cables first. This kit skips the page's wire passthrough: the plate's three short leads stay above the deck and end at the bed WAGO breakout on the left bed extrusion.
 
 **Parts:** build plate assembly.
 
 **Do:**
 
 1. Two hands, plate flat, magnet up, cables at the **back**.
-2. AC leads down the round hole, thermistor down the Z-chain notch.
-3. Lower the plate onto the four thumb nuts, cables clear of its edge.
+2. Lay the three leads toward the left bed extrusion, none through the deck.
+3. Lower the plate onto the four thumb nuts, cables clear.
 
-**Check:** Plate rests on all four thumb nuts, none knocked over. All three cables hang free below the deck with slack, none trapped.
+**Check:** Plate rests on all four thumb nuts, none knocked over. All three leads loose above the deck, none through it, none trapped.
 
-⚠ **Layout v3:** the round hole carries mains only, so the thermistor takes the notch; about 44 mm longer `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill). **LDO layout:** all three cables go down the round hole together. [LDO § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+⚠ **Rev D+ / LDO:** skip the manual's wire passthrough. The plate's leads end at LDO's bed WAGO mount above the deck, so the plate lifts off. Only Ch 10's extension leads go below: **Layout v3** L, N, PE via the round hole, TH via the notch; **LDO layout** all four via the hole. [LDO § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
-Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met · [Video: Part 2 @1:36:04](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s)
+Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met · [Video: Part 2 @1:36:04](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s)
 
 ---
 
@@ -427,7 +428,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59)
 
-Pause: ~35 min since the last pause — the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables fed through the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.
+Pause: ~35 min since the last pause — the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.
 
 ---
 
@@ -456,25 +457,24 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ---
 
-### Step 03.19 — Dress the bed harness below deck
+### Step 03.19 — Dress the bed leads above the deck
 
-![Voron manual p.60](assets/manual-pages/manual-p060.png)
+![LDO build-plate mapping, seen from above, rear at the top: Bed L, N and TH run to the red bed WAGO mount on the left bed extrusion](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** Manual p.60: the three bed cables below the deck, loose. Nothing is terminated in this chapter. The AC pair goes to the relay and the WAGO bus, the thermistor to a splicer PCB, all in Ch 10.
+**What you're looking at:** The plate's three leads, loose above the deck. Nothing is terminated in this chapter. They end at the bed WAGO breakout Ch 09 fits on the left bed extrusion; Ch 10 terminates them.
 
 **Parts:** none — no zip ties yet.
 
 **Do:**
 
-1. Below the deck, separate the two AC leads from the thermistor cable.
-2. Lay them toward the electronics bay, generous slack at the plate end.
-3. Keep them off the deck opening's sharp edge and off the bed extrusions.
+1. Lay the three leads toward the left bed extrusion's rear half, generous slack at the plate end.
+2. Keep them out of the round hole and the notch, and off every thumb nut.
 
-**Check:** Slack loop at the plate; no cable under tension; no cable touching a cut edge; the thermal fuse's legs undisturbed. Nothing tied down.
+**Check:** Slack loop at the plate; no lead under tension, through the deck or touching a cut edge; the thermal fuse's legs undisturbed. Nothing tied down.
 
-⚠ **Rev D+ / LDO:** do not zip-tie or terminate anything yet. The bed harness is a breakout design specifically so the plate can be removed from the top of the deck panel later; final routing, the WAGO terminals, the 2×2 XH splicer and the Omron SSR are all Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+⚠ **Rev D+ / LDO:** do not zip-tie or terminate anything yet. The bed harness is a breakout design specifically so the plate can be removed from the top of the deck panel later. The bed WAGO mount is Ch 09; the terminations, the extension leads and the Omron SSR are Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
-Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 ---
 
@@ -498,7 +498,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.61](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=61) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-Pause: ~20 min since the last pause — the four-corner gap check is done, the bed harness is dressed loose below deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.
+Pause: ~20 min since the last pause — the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.
 
 ---
 
@@ -514,7 +514,7 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the b
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
 - [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.
 - [ ] Straightedge check done before the magnet went on — no gap you could slide paper under.
-- [ ] Three bed cables hanging free below the deck with slack, unterminated, nothing pinched or tied.
+- [ ] Three bed leads loose **above** the deck with slack, none through it, unterminated, nothing pinched or tied.
 - [ ] Flex plate test-fitted, removed, and the bed covered for the rest of the build.
 
 ## Common mistakes
@@ -523,7 +523,7 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the b
 - **Using the M3×16 the manual calls for.** It engages barely any thread through a 10 mm plate plus spacer, and strips the T-nut on first tighten. M3×20.
 - **Tightening all four bolts because three loose bolts feel wrong.** The plate tacos on the first fast heat-up to 110 °C and never comes flat again.
 - **Trying to "fix" the pre-applied heater or fuse.** Peeling a bonded AC heatpad to re-seat it wrecks it. Inspect and ask in `#ldo_motors` if something looks wrong.
-- **Wiring the bed here.** The PE, heater leads and thermistor all terminate in Ch 10 after the SSR and WAGOs are mounted. Landing them now means undoing them.
+- **Wiring the bed here, or feeding its leads through the deck.** The plate's leads end at the bed WAGO breakout above the deck (Ch 09) and terminate in Ch 10. Landing or threading them now means undoing them.
 - **Building on the bare magnet, or leaving the surface exposed.** The magnet sheet is not a print surface, and everything you drop for the next six chapters lands on it.
 
 ## Next

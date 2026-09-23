@@ -262,11 +262,11 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Required adjustment is greater than max_adjust
 
-            The gantry is too far out of level to correct in software. M84, level by hand against the frame, G28, retry. [13.33](13-initial-startup.md#step-1333-quad_gantry_level)
+            The gantry is too far out of level to correct in software. M84 with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, G28, retry. [13.33](13-initial-startup.md#step-1333-quad_gantry_level)
 
         - Out of bounds, or a probe point cannot be reached
 
-            The gantry is far from level, or gantry_corners is wrong. FIRMWARE_RESTART, hand-level, G28, and confirm the 350 corners. [13.33](13-initial-startup.md#step-1333-quad_gantry_level) · [12.26](12-software.md#step-1226-350-mm-quad_gantry_level)
+            The gantry is far from level, or gantry_corners is wrong. FIRMWARE_RESTART with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, G28, and confirm the 350 corners. [13.33](13-initial-startup.md#step-1333-quad_gantry_level) · [12.26](12-software.md#step-1226-350-mm-quad_gantry_level)
 
         - QGL passes but printed parts come out skewed
 
@@ -394,8 +394,8 @@ Source: [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-a
 |---|---|---|---|
 | **QGL does not converge** — `Probed points range` stalls or grows | gantry racking | square the gantry in Ch 06b, re-tension A/B to 110 Hz, re-QGL | [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab), [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) |
 | QGL: *"Probed points range is increasing. Possibly Z motor numbering is wrong"* | Z motors on the wrong drivers | recheck the map: Z0 front-left → `STEPPER-0`, Z1 rear-left → `-1`, Z2 rear-right → `-2`, Z3 front-right → `-3` | [13.33](13-initial-startup.md#step-1333-quad_gantry_level), [10.43](10-wiring.md#step-1043-z0z3-stepper-0-to-stepper-3) |
-| QGL: *"required adjustment … is greater than max_adjust"* | gantry too far out of level to correct in software | `M84`, level by hand against the frame, `G28`, retry | [13.33](13-initial-startup.md#step-1333-quad_gantry_level) |
-| QGL "out of bounds" / cannot reach a probe point | gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART`, hand-level, `G28`; confirm the 350 corners `-60,-10 / 410,420` | [13.33](13-initial-startup.md#step-1333-quad_gantry_level), [12.26](12-software.md#step-1226-350-mm-quad_gantry_level) |
+| QGL: *"required adjustment … is greater than max_adjust"* | gantry too far out of level to correct in software | `M84` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`, retry | [13.33](13-initial-startup.md#step-1333-quad_gantry_level) |
+| QGL "out of bounds" / cannot reach a probe point | gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`; confirm the 350 corners `-60,-10 / 410,420` | [13.33](13-initial-startup.md#step-1333-quad_gantry_level), [12.26](12-software.md#step-1226-350-mm-quad_gantry_level) |
 | QGL passes but printed parts come out skewed | QGL levels in Z only — it says nothing about the X extrusion being square to Y | de-rack the gantry; QGL cannot detect racking | [Ch 06b Common mistakes](06-z-axis-and-gantry-squaring.md#common-mistakes-06b) |
 | `PROBE_ACCURACY` σ high but stable | probe mount, cable strain, or `[probe] speed` too fast | check the retainer bracket is tight; try a lower `speed` | [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream), [07.35](07-ab-belts.md#step-0735-fit-the-probe-and-its-retainer-bracket) |
 | `PROBE_ACCURACY` values trending one way | frame still expanding, or Z pulley grub screws / uneven Z belts | soak longer; then check all four Z belts and the pulley set screws | [14.3](14-calibration.md#step-143-verify-thermal-stability-then-re-qgl), [14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) |

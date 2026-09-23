@@ -17,7 +17,7 @@ caption: Build the gantry on the bench, not in the frame. Clear the whole table,
 
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
 - **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17) — they come off at Steps 05.11 / 05.33.
-- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.6 h, black) and **B02-P3** (the blue accent plate — cable bridge and endstop pod) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
+- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.6 h, black) and **B02-P3** (the blue accent plate — cable bridge, endstop pod and the four upper Z-belt clips) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
 - **Titanium backer set** (Fabreeko/LDO, 350 size) unpacked and counted.
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
 
@@ -46,6 +46,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `x_frame_V2TR_MGN12_right.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07* |
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `probe_retainer_bracket.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07/08* |
 | ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Blue — *staged here, fitted at endstop wiring* |
+| ![](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png){ width=96 } | `[a]_z_belt_clip_upper_x4.stl` | 06-Z-joints | 4 | Blue — *take them from the 06-Z-joints bin; fitted here under the idler and drive M5×16 (p.91, p.93, p.95), loaded with belt in Ch 06* |
 
 Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3hole.stl`, or any `xy_joint_*_MGN9` — wrong variants for this kit ([print plan §7](../voron-print-plan.md)).
 
@@ -62,7 +63,7 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 | M3 roll-in T-nut | ≈32 | ≈20 Y rails (p.88 — ~10 per 400 mm MGN9), 4 in the C pair (p.90), ≈8 X rail (p.101) |
 | M3 roll-in T-nut, backers | ~30 | not supplied with the backers — count the kit's spare M3 T-nuts after Ch 03 before ordering any |
 | M5×10 BHCS | 10 | 8 bridge-to-drive (p.86–87), 2 left XY joint (p.104) |
-| M5×16 BHCS | 10 | 4 front idlers (p.91, p.93), 4 rear drive joints (p.95), 2 right XY joint + cable bridge (p.104) |
+| M5×16 BHCS | 10 | 4 front idlers, through the upper Z-belt clips (p.91, p.93), 4 rear drive joints, same (p.95), 2 right XY joint + cable bridge (p.104) |
 | M5×30 BHCS | 2 | XY joints from below (p.104) |
 | M5×40 SHCS | 8 | 4 per XY joint (p.97–100) |
 | M3×8 SHCS | ≈28 | ≈20 Y rails (~10 each), ≈8 X rail — count the holes on your own rails |
@@ -439,16 +440,17 @@ Pause: ~35 min since the last pause — both titanium Y backers screwed down fla
 
 ![Voron manual p.91](assets/manual-pages/manual-p091.png)
 
-**What you're looking at:** The front idler block is the Ch 04 assembly that turns its belt around at the front corner: a printed frame around a stack of bearings, with a belt-clamp notch moulded into the outside. It slides onto the front end of a Y extrusion.
+**What you're looking at:** The front idler block is the Ch 04 assembly that turns its belt around at the front corner. The blue upper Z-belt clip sits on its serrated top under the two M5×16. In Ch 06 it clamps a Z belt's second end.
 
-**Parts:** front idler assembly ×1, M5×16 BHCS ×2.
+**Parts:** front idler assembly ×1; `[a]_z_belt_clip_upper_x4` ×1 (blue); M5×16 BHCS ×2.
 
 **Do:**
 
-1. Take the **A idler**: FRONT RIGHT, tall 21.6 mm lower frame, **two M5 holes in the top**.
-2. Slide it on the **front** end of the first C extrusion, then drive two M5×16 BHCS into its top T-nuts.
+1. Take the **A idler**: FRONT RIGHT, 21.6 mm frame, **two M5 holes on top**.
+2. Slide it onto the **front** end of the first C extrusion.
+3. Upper clip over the holes, indent down; two M5×16 BHCS through both.
 
-**Check:** Two M5 holes on top, both bolts biting into T-nuts, idler pulled up tight against the extrusion.
+**Check:** Clip flat on the idler top, both bolts biting into T-nuts, idler pulled up tight against the extrusion.
 
 Source: [Voron manual p.91](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=91) · [Video: Part 4 @0:06:41](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=401s)
 
@@ -458,13 +460,13 @@ Source: [Voron manual p.91](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.92](assets/manual-pages/manual-p092.png)
 
-**What you're looking at:** The two front idlers are handed, different parts not mirrored copies: their lower frames differ by 10 mm to match the belt planes. Plastic flush to the end face means the right hand; the notch outboard means the right way up.
+**What you're looking at:** The two front idlers are handed, different parts not mirrored copies: their lower frames differ by 10 mm to match the belt planes. Plastic flush to the end face means the right hand. The clip's notch is the indent that grips the belt.
 
 **Parts:** none.
 
-**Do:** Sight the joint from the end: the plastic must sit flush with the end face. A wrong-hand idler will not, so take it off rather than pulling it down with bolts. The notch points **away from the idler assembly**.
+**Do:** Sight the joint from the end: the plastic must sit flush with the end face. A wrong-hand idler will not, so take it off rather than pulling it down with bolts. The clip's notch points **away from the idler assembly**.
 
-**Check:** Plastic flush to the extrusion end, notch pointing outboard.
+**Check:** Plastic flush to the extrusion end, clip notch pointing away from the idler assembly.
 
 Source: [Voron manual p.92](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=92) · [Video: Part 4 @0:08:32](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=512s)
 
@@ -474,13 +476,13 @@ Source: [Voron manual p.92](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.93](assets/manual-pages/manual-p093.png)
 
-**What you're looking at:** The other front corner, with the opposite-hand idler. After this the two Y assemblies are complete as sides of the machine: rail, backer and idler on each.
+**What you're looking at:** The other front corner, with the opposite-hand idler and its own upper clip. After this the two Y assemblies are complete as sides of the machine: rail, backer, idler and clip on each.
 
-**Parts:** front idler assembly ×1, M5×16 BHCS ×2.
+**Parts:** front idler assembly ×1; `[a]_z_belt_clip_upper_x4` ×1 (blue); M5×16 BHCS ×2.
 
-**Do:** Same on the second Y assembly with the **B idler**: FRONT LEFT, the short 11.6 mm lower frame, which becomes the left-hand Y axis. Push flush, two M5×16 BHCS into the top-slot T-nuts, snug.
+**Do:** Same on the second Y assembly with the **B idler**: FRONT LEFT, the short 11.6 mm lower frame. Push flush, lay an upper clip on top, indent down, then two M5×16 BHCS through both, snug.
 
-**Check:** Both Y assemblies now have an idler at the front, both flush, both notches pointing away from the idler body.
+**Check:** Both Y assemblies have an idler and clip at the front, both flush, both clip notches pointing away from the idler assembly.
 
 Source: [Voron manual p.93](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=93)
 
@@ -506,13 +508,13 @@ Source: [Voron manual p.94](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.95](assets/manual-pages/manual-p095.png)
 
-**What you're looking at:** Two M5×16 per side, down through each drive frame's flange into the rear-end T-nuts, closing the two rear corners. The checks repeat the idler checks: a block not pushed fully home leaves that corner short, and a short corner cannot be squared.
+**What you're looking at:** Two M5×16 per side, down through an upper clip and each drive frame's flange into the rear-end T-nuts, closing the two rear corners. A block not pushed fully home leaves that corner short, and a short corner cannot be squared.
 
-**Parts:** M5×16 BHCS ×4.
+**Parts:** `[a]_z_belt_clip_upper_x4` ×2 (blue); M5×16 BHCS ×4.
 
-**Do:** Two M5×16 BHCS per side, down through the drive frame's top flange into the M5 T-nuts at the rear of each C extrusion, snug only. Plastic flush with the extrusion end, notch pointing **away from the drive assembly**.
+**Do:** Per side, lay an upper clip on the drive frame's top flange, indent down. Drive two M5×16 BHCS through clip and flange into the rear M5 T-nuts, snug only. Clip notch points **away from the drive assembly**.
 
-**Check:** Four bolts in, both rear joints flush, both notches outboard.
+**Check:** Four bolts through two clips, both rear joints flush, both clip notches pointing away from the drive assembly.
 
 Source: [Voron manual p.95](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=95)
 
@@ -989,7 +991,7 @@ Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - [ ] Every carriage retained by a stopper or tape; none dropped
 - [ ] At each of the four C-extrusion ends: 2× M5 in the top (backer) slot, 1× M5 + 1× M3 in the rail slot beyond the rail end
 - [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out
-- [ ] Both front idlers and both rear drive joints flush with the extrusion ends, notches pointing away from the assembly
+- [ ] Both front idlers and both rear drive joints flush with the extrusion ends, each with a blue upper Z-belt clip under its two M5×16, clip notch pointing away from the idler or drive assembly
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
 - [ ] Cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
@@ -1006,6 +1008,7 @@ Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - **Forgetting the reserved T-nuts at p.90.** Nothing in this chapter uses them, so they are easy to skip — and Ch 06's Z joints and Ch 10's chain hardware then have nowhere to bolt to. Count per slot — 2× M5 in the top slot, 1× M5 + 1× M3 in the rail slot — before the idlers go on.
 - **One spacer in an XY joint stack, or a flange facing inward.** The pair drops 1 mm and its inner races are never clamped, or there is no belt channel at all; found in Ch 07 as belt rub, and both joints come apart again (3× M5×40 + idler each). Fix: spacer, flange down, flange up, spacer — read it from the side before closing the joint (p.97, p.99).
 - **Torquing the XY joints and "squaring" on the bench.** The joints are meant to stay slightly loose and the gantry is squared in the frame with the belts slack. Tightening now, or tensioning belts now, costs a full de-tension in Ch 07 (survey §5.2 W1).
+- **Leaving the blue upper Z-belt clips off the idlers and drives.** Nothing in this chapter loads them, but Ch 06 clamps every Z belt's second end under them (p.117, p.120). Fitting them later means backing out M5×16s on a gantry that is already in the frame.
 - **Over-tightening the 20T idler bolts.** They thread straight into plastic and only locate the idler. Crushed pockets show up later as belt noise you will blame on tension.
 
 ## Next

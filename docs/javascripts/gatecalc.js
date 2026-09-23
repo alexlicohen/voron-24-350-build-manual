@@ -118,14 +118,21 @@
     /* The verdict bird. Its two URLs come from data- attributes the hook set
      * page-relative, so nothing here knows where the art lives; it stays
      * hidden until there is a verdict to stand beside. */
-    var bird = document.createElement('img');
-    bird.className = 'mascot-panel gate-calc__mascot';
-    bird.width = 96;
-    bird.height = 96;
-    bird.decoding = 'async';
-    bird.hidden = true;
-    head.appendChild(bird);
+    /* No attributes = a no-mascot step (hooks/gatecalc.py drops them there,
+     * per hooks/mascot.py NO_MASCOT_STEPS): no bird element at all, so the
+     * head keeps no empty 96 px slot; the PASS/FAIL badge and note stay. */
+    var bird = null;
+    if (root.hasAttribute('data-mascot-pass') || root.hasAttribute('data-mascot-fail')) {
+      bird = document.createElement('img');
+      bird.className = 'mascot-panel gate-calc__mascot';
+      bird.width = 96;
+      bird.height = 96;
+      bird.decoding = 'async';
+      bird.hidden = true;
+      head.appendChild(bird);
+    }
     function showBird(which) {
+      if (!bird) return;
       var src = root.getAttribute('data-mascot-' + which);
       if (!src) { bird.hidden = true; return; }
       bird.src = src;
@@ -239,7 +246,7 @@
         showBird('fail');
       } else {
         note.textContent = announce ? 'Fill in every row, then press Check.' : '';
-        bird.hidden = true;
+        if (bird) bird.hidden = true;
       }
       var failed = {};
       result.fails.forEach(function (f) { failed[f.row.key] = f.advice; });

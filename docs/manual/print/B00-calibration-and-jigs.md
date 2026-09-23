@@ -190,10 +190,12 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:**
 
 1. Fit [the print sheet](00-slicer-setup.md#print-sheet), cleaned since the last print, with a thin glue-stick film over the printed area.
-2. Confirm the chamber reaches 40 °C minimum before the print starts; the ASA profile gates this, do not override.
-**Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges.
+2. Let the chamber reach 40 °C; never override the profile's gate.
+3. Set **Settings → Chamber Filtration → Adv. Filtration**.
+**Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
 
-⚠ ASA off-gasses styrene. Advanced Filtration Kit fitted, door shut for the whole print, room ventilated
+⚠ ASA off-gasses styrene. Chamber Filtration on Adv. Filtration, also under Tune mid-print: on None the
+AFS blower never runs and the plate vents unfiltered. Door shut for the whole print, room ventilated
 between plates. The bed (110 °C) and nozzle (265 °C) stay hot for ~20 min after the print ends — a helper
 handles cooled parts, not the printer.
 

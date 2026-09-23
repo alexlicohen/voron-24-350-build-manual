@@ -59,7 +59,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B05.3 — Print
 
 **Do:** Print with standing overrides.
-**Check:** First layer clean; no warp on the small joint parts.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; no warp on the small joint parts.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

@@ -90,7 +90,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B09.3 — Print plate B09-P1
 
 **Do:** Print with standing overrides.
-**Check:** Plenum lid groove prints crisp.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Plenum lid groove prints crisp.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

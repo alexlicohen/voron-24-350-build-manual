@@ -103,7 +103,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B02.3 — Print plate B02-P1
 
 **Do:** Print with standing overrides, no brim on this plate's parts.
-**Check:** First layer clean; SB body prints without support failure.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; SB body prints without support failure.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

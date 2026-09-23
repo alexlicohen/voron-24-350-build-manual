@@ -221,7 +221,9 @@ generator fails the build if that stops being true.
 
 Reference the **SVG** in a page, not the preview PNG — the previews exist only for this review. Size
 with `width`; use `mascot-badge.svg` below 160 px and nothing else. One mascot per page. There is
-deliberately **no pose for mains, soldering iron, blade or hot chamber**: those steps get no mascot.
+deliberately **no pose for mains, soldering iron, blade or hot chamber**: those steps get no mascot,
+not even the Check / Tip / Pause / Gather badges. The steps are listed in `NO_MASCOT_STEPS` in
+`hooks/mascot.py`, which strips the badges there at build time.
 
 ## The name: Revali
 

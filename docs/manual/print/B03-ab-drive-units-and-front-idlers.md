@@ -64,7 +64,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B03.3 — Print plate B03-P1
 
 **Do:** Print with standing overrides.
-**Check:** No warp at drive-frame corners.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. No warp at drive-frame corners.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

@@ -15,16 +15,16 @@ caption: Label both ends of every harness. An anonymous connector is a fault tha
 
 **Prerequisites:**
 
-- **Ch 03 — Build plate.** Plate bolted down; heater, thermistor and PE leads hanging loose below deck.
+- **Ch 03 — Build plate.** Plate bolted down; its heater and thermistor leads loose **above** the deck, none through it.
 - **Ch 06 — Z axis.** Gantry in, Z belts on. The gantry must move by hand over its full Z travel — that is what sets the chain slack.
 - **Ch 07 — A/B belts.** Probe wires already dressed along the X extrusion (manual p.143).
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
-- **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
+- **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted above the deck on the left bed extrusion, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
 - **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
 
 **Tools**
 
-- **Multimeter — mandatory.** Continuity/beeper, a resistance range to at least 2 MΩ (a 20 MΩ range is preferred — it turns an `OL` pass into a number you can write down), and a DC volts range. No multimeter, no power-on.
+- **Multimeter — mandatory.** Continuity/beeper, a 2 MΩ or 20 MΩ resistance range you can select by hand, and a DC volts range. The L↔N pass at 10.19 and 10.78 is a number on that range, not `OL`: the PSU input bridges L and N. No multimeter, no power-on.
 - 2.5 mm flat-blade screwdriver (supplied) — WAGO levers, plug-type terminals, drag-chain latches
 - PH2 Phillips — PSU terminal block and SSR terminals
 - Hex 2 / 2.5 / 3 / 4 mm
@@ -110,13 +110,11 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 ## Section 1 — Mains: inlet → switch → PSU → SSR → bed heater
 
-**Who is in the room ([00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall)):** one adult at the machine from 10.1 to 10.23. She is out of the room for Sections 1 and 2 and back for 10.24; she reads the meter aloud in Section 8, with the printer unplugged.
-
 ### Step 10.1 — Empty the bay and set the end state
 
 ![LDO Rev D finished bay](assets/remote/10-wiring/ldo-revd-vs9-finished-bay.jpg)
 
-**What you're looking at:** LDO's finished Rev D bay, seen from below. Ch 09 placed it all: two [DIN rails](16-glossary.md#d), the [wire ducts](16-glossary.md#w) that hide cable runs, the Leviathan with the Raspberry Pi on top, the PSU, the SSR, the USB-adapter PCB, the bed and 3×5 WAGO mounts.
+**What you're looking at:** LDO's finished Rev D bay, seen from below. Ch 09 placed it all: two [DIN rails](16-glossary.md#d), the [wire ducts](16-glossary.md#w) that hide cable runs, the Leviathan with the Raspberry Pi on top, the PSU, the SSR, the USB-adapter PCB and the 3×5 WAGO mount.
 
 **Parts:** none.
 
@@ -127,6 +125,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 3. Unplug the C13 cord and put it in another room.
 
 **Check:** The photo above is the target. Nothing is connected yet and no duct covers are on.
+
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from 10.1 to 10.23. She is out of the room for Sections 1 and 2 and back for 10.24; she reads the meter aloud in Section 8, with the printer unplugged.
 
 Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg) · [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
@@ -345,7 +345,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 ![LDO build-plate wiring mapping](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** Four things come down from the build plate: the silicone heater pad's two mains leads, its earth ring terminal, and the bed thermistor. The bed WAGO mount splits them out; the 2×2 splicer PCB joins the thermistor pair to the mainboard cable.
+**What you're looking at:** Four things leave the build plate: the heater pad's two mains leads, its earth ring terminal and the bed thermistor. The bed WAGO mount, above the deck on the left bed extrusion, joins the leads to the kit's extensions; the 2×2 splicer does the thermistor.
 
 **Parts:** the three cables hanging from the plate (**Bed L**, **N**, **BED TH**) plus the bed PE ring terminal, the kit's two braided extension leads (tagged **Bed L** and **Bed N**), bed WAGO mount with 2× WAGO 221-412 and the 2×2 XH splicer (fitted Ch 09).
 
@@ -370,7 +370,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **What you're looking at:** You are measuring the heater pad before it can ever be energised. Across its own two leads it should read a few tens of ohms; to the aluminium plate it is bonded to, nothing at all. The photo identifies which lead is which.
 
-**Parts:** multimeter, the Bed L and Bed N extension leads (free ends still unconnected below the WAGO breakout).
+**Parts:** multimeter, the Bed L and Bed N extension leads (far ends still free, not yet run below the deck).
 
 **Do:**
 
@@ -407,7 +407,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **Parts:** *Bed L* cable ×1.
 
-**Do:** Run the Bed L lead from the bed WAGO breakout down through the round deck hole into the 34 mm run, round both curves, through the wire box, port stub and SSR run to terminal **LOAD 1**. PH2, tight.
+**Do:** Run the Bed L extension from the bed WAGO breakout down through the round deck hole into the 34 mm run, round both curves, through the wire box, port stub and SSR run to terminal **LOAD 1**. PH2, tight.
 
 **Check:** Terminal 1 = bed, terminal 2 = mains Live, LDO's convention from the photo. The lead lies slack in the conduit.
 
@@ -460,10 +460,6 @@ Pause: ~30 min since the last pause — every mains connection made and pull-tes
 
 ## Section 2 — Checkpoint #1, exactly as LDO writes it
 
-LDO's own words: *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."* Do all seven steps in order. Do not skip ahead to the 24 V section.
-
-**Who is in the room ([00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall)):** one adult at the machine for 10.17–10.23. She is out of the room until 10.24; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
-
 ### Step 10.17 — De-energise and set up
 
 (no image — see text)
@@ -475,6 +471,10 @@ LDO's own words: *"Incorrect wiring of AC/mains can be dangerous — therefore, 
 **Do:** Confirm the C13 power cord is **not** plugged into the inlet and is not in the room. Set the meter to continuity/beeper and test it by shorting the probes.
 
 **Check:** The meter beeps on a dead short. No cord anywhere near the machine.
+
+⚠ **LDO:** *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."* Do all seven steps, 10.17 to 10.23, in order. Do not skip ahead to the 24 V section.
+
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine for 10.17 to 10.23. She is out of the room until 10.24; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -548,11 +548,13 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 1. Probe L→N, L→PE, N→PE at the WAGO blocks, rocker **on**, then again **off**.
 2. Probe the same three pairs at the PSU screws: **3 FG ↔ 1 L**, **3 FG ↔ 2 N**, **1 L ↔ 2 N**.
 
-**Check:** Silence on all nine measurements, and `OL` on your meter's highest Ω range.
+**Check:** No beep on any of the nine. L↔N reads 100 kΩ or more, or `OL`, on the 2 MΩ range; L↔PE and N↔PE read `OL`.
+
+⚠ **Why 100 kΩ:** the PSU input bridges L and N whatever the rocker does, reading hundreds of kΩ or more, often climbing as its capacitors charge `(verify on bench)`. A stray strand reads near 0 Ω; a shorted SSR reads the bed pad, tens of ohms. Write your L↔N number down for 10.78.
 
 Tip: a momentary tick on 1 L ↔ 2 N as the PSU's input filter charges from the meter is normal; a steady beep is not.
 
-**If L→N beeps:** something is bridging the mains. The candidates are a stray strand at a WAGO or a shorted SSR — with the relay open, the bed pad itself cannot bridge L to N. Lift the brown lead off SSR **LOAD 2** to take the whole bed branch out of the picture and re-measure: silent now means the fault is on the SSR/bed side; still beeping means a strand at a block.
+**If L→N beeps or stays under 100 kΩ:** something is bridging the mains. The candidates are a stray strand at a WAGO or a shorted SSR — with the relay open, the bed pad itself cannot bridge L to N. Lift the brown lead off SSR **LOAD 2** to take the whole bed branch out of the picture and re-measure: silent now means the fault is on the SSR/bed side; still beeping means a strand at a block.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -612,8 +614,6 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **What you're looking at:** The only moment in this chapter when mains is present. The rocker lamp and the PSU's indicator LED are the two observations that say the mains half works; ten seconds of looking, listening and smelling is the whole test. Nothing is measured live.
 
-**Who is in the room ([00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall)):** one adult, standing to the side, hand on the switch. Nobody else within reach of the machine; she is out of the room.
-
 **Parts:** C13 power cord ×1. No meter.
 
 **Do:**
@@ -631,6 +631,8 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 | Noise / smell | none. Any buzz, click-cycling or smell → rocker OFF, then pull the plug at the wall |
 
 Everything from here to the end of the chapter is done dead.
+
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult, standing to the side, hand on the switch. Nobody else within reach of the machine; she is out of the room.
 
 ⚠ Rev D+ / LDO: this is the only power-on in the chapter. The Leviathan, Pi and toolboard are all still unpowered — the PSU's DC terminals are empty. Never meter a live block: the PSU's +V/−V screws share an uncovered block with live N and L. Keep your free hand behind your back. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -1674,10 +1676,6 @@ Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC
 
 ## Section 8 — Pre-power-on meter sweep
 
-Everything here is measured **unplugged**. Nothing in this section powers anything on.
-
-The AC lids went on at 10.80, on purpose before this sweep: every point below is probed outside them (WAGO blocks, PSU and SSR screws, plate and frame screw heads), and the sweep re-checks the mains side after the fin and lids went on. If a row fails, snap the AC lids off, trace and fix, refit them, and repeat that step. LDO layout: every lid is still off.
-
 ### Step 10.73 — Confirm dead
 
 (no image — see text)
@@ -1690,7 +1688,7 @@ The AC lids went on at 10.80, on purpose before this sweep: every point below is
 
 **Check:** 0 V, and it stays 0 V for ten seconds. The bulk caps are discharged.
 
-Tip: The AC lids stay on for this sweep; every probe point is outside them. If a row fails, lids off, trace, refit, repeat that step.
+⚠ **Unplugged, AC lids on:** every step in this section is measured with the cord out; nothing here powers anything on. Every probe point is outside the AC lids, so the sweep re-checks the closed mains side. A row fails: lids off, trace and fix, refit, repeat that step. **LDO layout:** every lid is still off.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -1817,7 +1815,7 @@ Source: [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable
 
 | Measurement | Expected |
 |---|---|
-| SSR 1 → SSR 2 | `OL` — unpowered SSR is open |
+| SSR 1 → SSR 2 | 100 kΩ or more, or `OL`, on the 2 MΩ range, close to your 10.19 L↔N number: the bed pad and the PSU input bridge the open relay. Near 0 Ω is a shorted SSR |
 | SSR 3 → SSR 4 | the Leviathan's bed output impedance, a finite reading. Not 0 Ω |
 | SSR 1 or 2 → SSR 3 or 4 | `OL` — mains and DC control are galvanically isolated |
 | SSR 1 → SSR 2 wire colours | bed cable on 1, brown WAGO cable on 2 |

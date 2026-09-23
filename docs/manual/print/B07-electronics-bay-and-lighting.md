@@ -72,7 +72,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B07.3 — Print plate B07-P1
 
 **Do:** Print with standing overrides.
-**Check:** Clean first layer across the inlet's full 118 mm; no corner lift.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Clean first layer across the inlet's full 118 mm; no corner lift.
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

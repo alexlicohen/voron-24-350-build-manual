@@ -31,7 +31,9 @@ import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset p
 
 # STYLE.md § "Humour rule": the neutral badges punctuate a callout's TITLE row,
 # never its body, so no badge ever lands inside a budgeted Do/Check/Tip/⚠ run.
-# `warning` is deliberately absent — ⚠ boxes carry no bird.
+# `warning` is deliberately absent — ⚠ boxes carry no bird.  Badges are written
+# on every step; `hooks/mascot.py` (NO_MASCOT_STEPS) strips them again on mains,
+# iron, blade and hot-chamber steps, so that decision lives in one place.
 _BADGE = {"success": "check", "tip": "tip", "info": "pause"}
 
 _BLOCKQUOTE_PREFIX_RE = re.compile(r"^>\s?")

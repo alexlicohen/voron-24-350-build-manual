@@ -88,7 +88,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Gate:* Checkpoint 02: four Z carriages move freely, deck in, every set screw threadlocked on the flat
     - *Sessions:* 11 × ~30 min
 - **18 · Build** — [Ch 03 — Build plate](03-build-plate.md) **KIT** · 1.5–2.5 · needs: Ch 01, Ch 02
-    - *Gate:* Checkpoint 03: magnet applied **and** its bolt holes trimmed straight after, plate bolted, three cables hanging below deck
+    - *Gate:* Checkpoint 03: magnet applied **and** its bolt holes trimmed straight after, plate bolted, three cables hanging loose above deck
     - *Sessions:* 4 × ~30 min
 - **19 · Build** — [Ch 04 — A/B drives and front idlers](04-ab-drives.md) **KIT** · 3.5–5.0 · needs: Ch 01; bins for Ch 04 full (B00 `pulley_jig`, **B02-P2**, B03)
     - *Gate:* Checkpoint 04: A = rear right, B = rear left; both pulley heights set with `pulley_jig`
@@ -114,7 +114,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **26 · Build** — [Ch 12 Part 2 — flash both MCUs, `printer.cfg` for a 350 Rev D+](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) **KIT** · the rest of 2.0–3.0 · needs: Ch 10
     - *Gate:* Checkpoint 12: toolboard ID reads `stm32g0b1xx` (survey W13); every 350 mm value uncommented (survey W14)
     - *Sessions:* 7 × ~30 min
-- **27 · Build** — [Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges](11-skirts-panels-door.md#part-a-before-first-power-up) **KIT** · 3.0–4.0 · needs: Ch 10 Checkpoint #1, Ch 12 Part 2; bins for Ch 11 full (B02, B07, B08, B09, B10)
+- **27 · Build** — [Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges](11-skirts-panels-door.md#part-a-before-ch-13-machine-unplugged) **KIT** · 3.0–4.0 · needs: Ch 10 Checkpoint #1, Ch 12 Part 2; bins for Ch 11 full (B02, B07, B08, B09, B10)
     - *Gate:* Bay closed. **Back, side and top panels and the door stay off** — Ch 13 and Ch 06b need to reach the gantry
     - *Sessions:* 12 × ~30 min
 - **28 · Build** — [Ch 13 — Initial startup](13-initial-startup.md) **KIT** · 2.5–4.0 plus ~1 h cube print · needs: Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12
@@ -171,7 +171,7 @@ Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of
 | [00a — Mains safety](00a-mains-safety.md) | Decide who does the mains work, buy and test the meter, agree the who's-in-the-room and smoke/trip/bite rules — read before Ch 09 | 0.75–1.0 | 2 × ~30 min | Ch 00 Steps 00.8 and 00.30 as reading. No kit part, no printed part — doable before the kit |
 | [01 — Frame](01-frame.md) | 2020 frame and the two bed extrusions, squared on a verified-flat surface | 2.5–4.0 | 4 × ~30 min | Ch 00. No printed part required |
 | [02 — Z drives, Z idlers, Z rails, deck](02-z-drives.md) | Four Z drives, four Z idlers, four Z rails, deck panel and supports | 4.25–6.25 | 11 × ~30 min | Ch 01; B00, B01, B02-P1, B02-P3 |
-| [03 — Build plate](03-build-plate.md) | 355×355×10 mm plate, magnet sheet, bed harness dressed below deck | 1.5–2.5 | 4 × ~30 min | Ch 01, Ch 02. No printed part required |
+| [03 — Build plate](03-build-plate.md) | 355×355×10 mm plate, magnet sheet, bed leads left loose above deck for Ch 09's WAGO breakout | 1.5–2.5 | 4 × ~30 min | Ch 01, Ch 02. No printed part required |
 | [04 — A/B drives and front idlers](04-ab-drives.md) | The four CoreXY sub-assemblies that carry the A and B belts | 3.5–5.0 | 6 × ~30 min | Ch 01; B00 (`pulley_jig`), B02-P2, B03 |
 | [05 — Gantry](05-gantry.md) | X and Y axes, both XY joints, X carriage, titanium backers | 5.0–7.0 | 12 × ~30 min | Ch 00 rails, Ch 04; B02-P3, B04 |
 | [06 Part A — Z axis](06-z-axis-and-gantry-squaring.md#part-a-chapter-06-z-axis-mechanical) | Hang the gantry on the Z joints, belt all four Z corners | 3.5–5.0 | 8 × ~30 min | Ch 02, Ch 05; B02, B05 |

@@ -92,7 +92,7 @@ Source: [print/README § B11 spool ledger](README.md#b11-spool-ledger) · [Prusa
 **Do:** Door closed, Chamber Filtration left on Adv. Filtration. Watch the rear bypass flaps once the plate starts.
 **Check:** The flaps lift within the first minutes and the chamber settles near 35 °C `(verify on bench)`.
 
-Tip: If the flaps stay shut, set Chamber Filtration to None by hand for this plate. The chamber fans then run under the firmware's own control and lift the flaps.
+Tip: If the flaps stay shut, set Chamber Filtration to None by hand for this plate; the chamber fans then lift them. Set Adv. Filtration again when it ends.
 
 Source: [`slicer/OVERRIDES.md` § Bay-duct bundle](https://github.com/alexlicohen/voron-24-350-build-manual/blob/main/slicer/OVERRIDES.md) · [Prusa KB — PETG](https://help.prusa3d.com/article/petg_2059)
 
@@ -189,7 +189,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
-Pause: ~10 min since the last pause — the before-kit half of B11 is binned. Swap the smooth sheet back on if an ASA plate is next.
+⚠ **Before the next ASA plate:** smooth sheet back on, and **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
+
+Pause: ~10 min since the last pause — the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next.
 
 Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates](../../voron-print-plan.md#9-machine-readable-batch-summary)
 
@@ -358,7 +360,9 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
-Pause: ~10 min since the last pause — all of B11 is binned for Ch 09. Swap the smooth sheet back on.
+⚠ **Before the next ASA plate:** smooth sheet back on, and **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
+
+Pause: ~10 min since the last pause — all of B11 is binned for Ch 09. Smooth sheet back on, Chamber Filtration on Adv. Filtration.
 
 Source: [print/README § Bins](README.md#bins)
 
@@ -371,7 +375,7 @@ Source: [print/README § Bins](README.md#bins)
 - [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
 - [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
-- [ ] Smooth sheet back on the printer for any ASA plate
+- [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
 
 ## Common mistakes
@@ -379,6 +383,7 @@ Source: [print/README § Bins](README.md#bins)
 - Printing B11-P5 before the coupon test and the gap measurement. Both can send it to the fallback.
 - Slicing a regenerated piece with the ASA bundle. B11 uses `slicer/bay-ducts-petg.ini` only.
 - Leaving Adv. Filtration to hold the flaps shut on a PETG plate printed without the B11 bundle.
+- Starting the next ASA plate with Chamber Filtration still on None. The AFS blower never runs, so the styrene goes into the room.
 
 ## Next
 Ch 09 fits the conduits in place of LDO's PVC ducts, in its bay-ducting variant; Ch 10 lays the harness in them and fits the strip fin as it closes the AC lids.

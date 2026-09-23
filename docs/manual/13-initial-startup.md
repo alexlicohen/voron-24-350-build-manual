@@ -640,7 +640,7 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 **Check:** The nozzle tip is over the middle of the probe shaft, with a 2–3 mm gap to the plate's back edge across its travel.
 
-⚠ Each `G28 X Y` lifts the gantry another 10 mm until Z is homed at Step 13.27. If it is getting near the top, `M84` with a hand under the gantry, lower it by hand, and re-home.
+⚠ Each `G28 X Y` lifts the gantry another 10 mm until Z is homed at Step 13.27. If it is getting near the top, `M84` with a hand under the gantry (it sinks when the Z motors release), lower it by hand, and re-home.
 
 Tip: if the bed fouls the shaft, loosen the bed and shift it forward. This is the last chance to do it easily.
 
@@ -1218,7 +1218,7 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 | Endstop unreachable by the toolhead | Rubber rail stopper still on the rail, or racked gantry | Remove stoppers; then Ch 06b |
 | `G28` → `Move out of range: -10.000 -10.000 …` | `[safe_z_home] home_xy_position` still the `-10,-10` placeholder | Step 13.26 |
 | Homing overshoots into the frame, or stops short | The wrong build-size pair is uncommented (there is no default — with all three commented Klipper does not start) | Step 13.5: the Moonraker query must show `350.0, 350.0, 330.0` |
-| A `G28 X` or `G28 Y` stalls the Z motors against the frame, or drops the nozzle onto the bed | Gantry parked at its top stop (or a reversed Z `dir_pin`) — every homing move before Z is homed lifts 10 mm from wherever the gantry is | Step 13.17: park the gantry a third of the way up by hand first; Step 13.16 for the `dir_pin` |
+| A `G28 X` or `G28 Y` stalls the Z motors against the frame, or drops the nozzle onto the bed | Gantry parked at its top stop (or a reversed Z `dir_pin`) — every homing move before Z is homed lifts 10 mm from wherever the gantry is | Step 13.17: first `M84` with a hand under the gantry (it sinks when the Z motors release), then park it a third of the way up by hand; Step 13.16 for the `dir_pin` |
 | `QUERY_PROBE` stuck `open` or stuck `TRIGGERED` | Ground/signal/24 V, wrong `[probe] pin`, or a voltage-select jumper | Check wiring first, then `pin: !nhk:PC15` |
 | **Probe triggers too early** (large gap at trigger) | Probe mounted too high in the retainer bracket, or fibreglass tape on the sensing face | Lower the probe in the bracket so it triggers ~2 mm above the plate; strip tape from the **back and bottom** — front and sides only |
 | **Probe triggers too late** (nozzle nearly touching, or the probe grazes the plate) | Probe mounted too low | Raise it in the bracket. It must clear the plate and any clips at every mesh point |
@@ -1230,7 +1230,7 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 | A move will not stop when you send `RESTART` | `RESTART` queues behind the running move; only a line that is exactly `M112` goes round it — Mainsail sends that as its emergency-stop call | Send `M112` alone on the line (or Mainsail's red Emergency Stop), then `FIRMWARE_RESTART` |
 | QGL: `Retries aborting: Probed points range is increasing. Possibly Z motor numbering is wrong` | Z motors on the wrong drivers | Recheck the Z map: Z0 front-left → `STEPPER-0`, Z1 rear-left → `-1`, Z2 rear-right → `-2`, Z3 front-right → `-3` |
 | QGL: `Aborting quad_gantry_level required adjustment … is greater than max_adjust` | Gantry too far out of level to correct in software | `M84` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`, retry |
-| QGL "out of bounds" / cannot reach the probe point | Gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART`, hand-level, `G28`, retry; confirm the 350 corners `-60,-10 / 410,420` |
+| QGL "out of bounds" / cannot reach the probe point | Gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`, retry; confirm the 350 corners `-60,-10 / 410,420` |
 | `Unknown command:"BED_MESH_CLEAR"` at the end of a print | No `[bed_mesh]` section | Step 13.38. It is a warning, not a failure — but you have no mesh |
 | First layer is right at the front and wrong at the back (or similar) | Meshed before QGL, or mesh taken cold | Re-run: `G28` → `QUAD_GANTRY_LEVEL` → `G28` → `BED_MESH_CALIBRATE`, hot |
 

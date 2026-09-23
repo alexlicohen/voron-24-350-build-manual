@@ -41,6 +41,14 @@ Three jobs, all of them here so no other file has to know where the art lives:
    that page needs, so every reference on a page resolves to the same five or six
    URLs and the browser caches them.  Nothing is inlined.
 
+4. The humour rule's step list, `NO_MASCOT_STEPS`: mains, soldering-iron
+   (heat-set insert or solder), blade and hot-chamber steps carry no bird at
+   all.  `on_page_content` strips every badge inside such a step — the Check /
+   Tip / Pause titles `hooks/callouts.py` writes and the Gather / Helper badges
+   `scripts/build_steps.py` writes alike — on the step page and on the long
+   chapter page, and the fence refuses a scene inside one.  No other file
+   classifies steps.
+
 `scripts/gen_mascot.py` owns the SVGs; this hook never writes one.
 """
 
@@ -80,6 +88,63 @@ _SIDES = ("left", "right")
 
 class MascotError(Exception):
     """A bad fence — fails the build with the page name."""
+
+
+# --------------------------------------------------------------------------
+# the humour rule, as data: the steps that get no bird at all
+# --------------------------------------------------------------------------
+
+# STYLE.md § "Humour rule", CONVENTIONS.md § "Where the bird may and may not
+# go": no mascot on mains, soldering-iron, blade or hot-chamber content.  A step
+# is listed when its Do puts the reader at that hazard: mains wiring, metering
+# or power-on (all of Ch 00a); the iron, for a heat-set insert or a solder
+# joint; a blade or cutter as the step's main action; a heater at temperature
+# with hands at the open machine.  `A.B-A.C` is a range inside one chapter.
+# Step ids never change (CONVENTIONS: never split or renumber), so this list
+# only grows: an appended step of one of these kinds goes in here.  The
+# self-test fails on an id that is not a step heading, and on a `**Helper:**`
+# line inside a listed step (the Helper safety rule forbids the same steps).
+NO_MASCOT_STEPS: dict[str, str] = {
+    "mains": "00a.1-00a.12 09.11-09.18 09.34-09.36 10.1-10.23 10.68 10.69 "
+             "10.73 10.77 10.78 10.80 11.67 12.11 13.2 13.3 13.8",
+    "iron": "00.13-00.16 02.03-02.04 04.3-04.4 07.6 08.3-08.7 08.36 09.10 09.34 "
+            "10.35 11.2 11.3 11.5 11.28 11.33 11.49 B00.7",
+    "blade": "00.1 03.10 06.4 07.8 07.34 08.2 08.32 08.33 11.27 11.29 11.31 11.45",
+    "hot": "13.29-13.33 13.35-13.37 13.39 13.40 13.42 14.3 14.6-14.8 14.21 14.22",
+}
+
+_STEP_ID_RE = re.compile(r"^([0-9]{2}[a-z]?|B[0-9]{2})\.([0-9]+)$", re.IGNORECASE)
+
+
+def _step_key(step_id: str) -> tuple[str, int] | None:
+    """`10.8` / `02.03` / `00a.2` / `B00.7` -> (`10`, 8) etc.; None if not a step id."""
+    m = _STEP_ID_RE.match(step_id.strip())
+    return (m.group(1).lower(), int(m.group(2))) if m else None
+
+
+def _expand(spec: str) -> list[tuple[str, int]]:
+    keys = []
+    for token in spec.split():
+        first, _, last = token.partition("-")
+        a = _step_key(first)
+        b = _step_key(last) if last else a
+        if a is None or b is None or a[0] != b[0] or b[1] < a[1]:
+            raise ValueError(f"NO_MASCOT_STEPS: bad step or range {token!r}")
+        keys += [(a[0], n) for n in range(a[1], b[1] + 1)]
+    return keys
+
+
+_NO_MASCOT: dict[tuple[str, int], str] = {}
+
+
+def no_mascot_reason(step_id: str) -> str | None:
+    """`mains` / `iron` / `blade` / `hot` if the step carries no bird, else None."""
+    if not _NO_MASCOT:
+        for reason, spec in NO_MASCOT_STEPS.items():
+            for key in _expand(spec):
+                _NO_MASCOT.setdefault(key, reason)
+    key = _step_key(step_id)
+    return _NO_MASCOT.get(key) if key else None
 
 
 # --------------------------------------------------------------------------
@@ -217,13 +282,44 @@ def _scene_from_fence(body: list[str], where: str) -> str:
     return scene_html(pose, caption, side)
 
 
+_MD_HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
+_STEP_TITLE_RE = re.compile(r"^\s*Step\s+(\S+?)\s+[—–-]")
+
+
+class _StepScope:
+    """Which listed step, if any, the text after the last heading belongs to.
+
+    A `Step <id> — …` heading opens a scope when the step is in
+    `NO_MASCOT_STEPS`; the next heading at the same or a higher level (the
+    next step, `## Checkpoint`, …) closes it, a deeper one (a `####` inside the
+    step) does not.  Shared by the fence check and the badge strip, so the
+    markdown and the HTML agree on where a step ends.
+    """
+
+    def __init__(self) -> None:
+        self.level: int | None = None
+        self.step: str | None = None
+
+    def heading(self, level: int, text: str) -> None:
+        if self.level is not None and level > self.level:
+            return
+        self.level = self.step = None
+        m = _STEP_TITLE_RE.match(text)
+        if m and no_mascot_reason(m.group(1)):
+            self.level, self.step = level, m.group(1)
+
+
 def _convert(markdown: str, where: str) -> str:
     lines = markdown.split("\n")
     out: list[str] = []
+    scope = _StepScope()
     i, n = 0, len(lines)
     while i < n:
         m = _FENCE_RE.match(lines[i])
         if not m:
+            h = _MD_HEADING_RE.match(lines[i])
+            if h:
+                scope.heading(len(h.group(1)), h.group(2))
             out.append(lines[i])
             i += 1
             continue
@@ -234,10 +330,48 @@ def _convert(markdown: str, where: str) -> str:
         close = min(j + 1, n)
         if info != "mascot":
             out.extend(lines[i:close])          # somebody else's fence, untouched
+        elif scope.step:
+            raise MascotError(
+                f"{where}: a mascot fence inside Step {scope.step}, a "
+                f"{no_mascot_reason(scope.step)} step — no mascot at all there "
+                "(hooks/mascot.py NO_MASCOT_STEPS, STYLE.md § Humour rule)"
+            )
         else:
             out += ["", _scene_from_fence(lines[i + 1:j], where), ""]
         i = close
     return "\n".join(out)
+
+
+# --------------------------------------------------------------------------
+# the badge strip: no bird inside a listed step, whoever put it there
+# --------------------------------------------------------------------------
+
+_HTML_HEADING_RE = re.compile(r"<h([1-6])\b[^>]*>(.*?)</h\1>", re.DOTALL)
+_TAG_RE = re.compile(r"<[^>]+>")
+_BADGE_IMG_RE = re.compile(r"<img\b[^>]*\bclass=(['\"])mascot-badge\b[^>]*>[ \t]?")
+
+
+def strip_badges(html_text: str) -> str:
+    """Remove every `mascot-badge` <img> inside a `NO_MASCOT_STEPS` step.
+
+    Works on the rendered page, after every markdown hook has run, so it does
+    not matter which generator wrote the badge.  A step page is one `<h1>Step
+    …` scope; a long chapter page has one `<h3>` scope per step.
+    """
+    if "mascot-badge" not in html_text:
+        return html_text
+    scope = _StepScope()
+    out: list[str] = []
+    pos = 0
+    for m in _HTML_HEADING_RE.finditer(html_text):
+        chunk = html_text[pos:m.start()]
+        out.append(_BADGE_IMG_RE.sub("", chunk) if scope.step else chunk)
+        out.append(m.group(0))
+        scope.heading(int(m.group(1)), html.unescape(_TAG_RE.sub("", m.group(2))))
+        pos = m.end()
+    tail = html_text[pos:]
+    out.append(_BADGE_IMG_RE.sub("", tail) if scope.step else tail)
+    return "".join(out)
 
 
 # --------------------------------------------------------------------------
@@ -271,7 +405,7 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
 
 
 def on_page_content(html_text, page, config, files, **kwargs):
-    return resolve(html_text, getattr(page, "url", "") or "")
+    return resolve(strip_badges(html_text), getattr(page, "url", "") or "")
 
 
 # --------------------------------------------------------------------------
@@ -411,6 +545,93 @@ if __name__ == "__main__":
                  + badge_html("check", "check") + scene_html("point", "Look here."))
     urls = set(re.findall(r"src='([^']+)'", resolve(page_html, "manual/04-x/")))
     check("repeated badges share one URL", len(urls) == 3, repr(sorted(urls)))
+
+    # ---- the humour rule's step list --------------------------------------
+    print("\n--- no-mascot steps ---")
+    for reason, spec in NO_MASCOT_STEPS.items():
+        print(f"  {reason:6s} {len(_expand(spec)):3d}  {spec}")
+    listed = {k for spec in NO_MASCOT_STEPS.values() for k in _expand(spec)}
+    print(f"  {'total':6s} {len(listed):3d} distinct steps")
+
+    # Every listed id is a real step heading, and no listed step carries a
+    # **Helper:** line (CONVENTIONS § Helper steps forbids the same steps).
+    heading_re = re.compile(r"^(#{2,4})\s+Step\s+(\S+?)\s+[—–-]")
+    sections: dict[tuple[str, int], list[str]] = {}
+    for src in sorted((REPO / "docs/manual").glob("*.md")) + sorted(
+            (REPO / "docs/manual/print").glob("*.md")):
+        if src.name == "CONVENTIONS.md":
+            continue
+        cur, in_fence = None, False
+        for line in src.read_text(encoding="utf-8").split("\n"):
+            if _FENCE_RE.match(line):
+                in_fence = not in_fence
+            if in_fence:                       # a `# comment` in a code block
+                if cur:
+                    sections[cur].append(line)
+                continue
+            hm = heading_re.match(line)
+            if hm:
+                cur = _step_key(hm.group(2))
+                if cur:
+                    sections.setdefault(cur, [])
+                continue
+            if line.startswith("#") and _MD_HEADING_RE.match(line) and len(
+                    line) - len(line.lstrip("#")) <= 3:
+                cur = None
+            elif cur:
+                sections[cur].append(line)
+    missing = sorted(k for k in listed if k not in sections)
+    check("every NO_MASCOT_STEPS id is a step heading", not missing,
+          ", ".join("%s.%d" % k for k in missing))
+    helpers = sorted(k for k in listed
+                     if any(re.match(r"^\*{0,2}Helper:", ln) for ln in sections.get(k, [])))
+    check("no listed step carries a **Helper:** line", not helpers,
+          ", ".join("%s.%d" % k for k in helpers))
+
+    for sid in ("00.1", "00.14", "00a.2", "00a.4", "08.3", "08.7", "09.10", "09.11",
+                "09.13", "09.34", "10.5", "10.23", "10.35", "10.80", "11.2", "11.3",
+                "11.28", "11.33", "02.03", "B00.7", "b00.7"):
+        check(f"{sid} carries no mascot", no_mascot_reason(sid) is not None)
+    for sid in ("01.1", "01.14", "05.2", "10.4x", "10.24", "10.81", "11.1", "B00.5", "Ch"):
+        check(f"{sid} keeps its mascot", no_mascot_reason(sid) is None)
+    check("reason is reported", no_mascot_reason("10.8") == "mains"
+          and no_mascot_reason("11.33") == "iron" and no_mascot_reason("06.4") == "blade"
+          and no_mascot_reason("14.6") == "hot")
+
+    b = badge_html("check", "check")
+    chapter = ("<h1>Chapter 10</h1><p>%s intro</p>"
+               "<h3 id='a'>Step 10.8 — Inlet<a class='headerlink'>¶</a></h3>"
+               "<p class='admonition-title'>%s Check</p><h4>Detail</h4><p>%s Tip</p>"
+               "<h3 id='b'>Step 10.24 — PSU</h3><p class='admonition-title'>%s Check</p>"
+               "<h2>Checkpoint 10</h2><p>%s Check</p>") % (b, b, b, b, b)
+    stripped = strip_badges(chapter)
+    check("chapter page: badges gone inside the mains step",
+          "<p class='admonition-title'>Check</p>" in stripped
+          and "<p>Tip</p>" in stripped, stripped)
+    check("chapter page: badges kept outside it", stripped.count("mascot-badge") == 3,
+          str(stripped.count("mascot-badge")))
+    step_page = ('<h1 id="step-1133">Step 11.33 — Solder the fans</h1>'
+                 '<details class="note"><summary>%s Gather</summary></details>'
+                 '<p class="admonition-title">%s Check</p>'
+                 '<p class="step-helper">%s Holds it</p>') % (b, b, b.replace("'", '"'))
+    check("step page: every badge gone, either quote style",
+          "mascot-badge" not in strip_badges(step_page), strip_badges(step_page))
+    ordinary = '<h1 id="s">Step 01.1 — Lay out</h1><p>%s Check</p>' % b
+    check("step page: an ordinary step keeps its badge", strip_badges(ordinary) == ordinary)
+
+    fence = "```mascot\npose: tip\ncaption: Fine.\n```\n"
+    try:
+        _convert("### Step 10.8 — Inlet\n\n" + fence, "manual/10-wiring.md")
+        check("a fence inside a mains step is rejected", False)
+    except MascotError as exc:
+        print(f"  fence in 10.8: {exc}")
+        check("the rejection names the page and step",
+              "10-wiring" in str(exc) and "10.8" in str(exc))
+    check("a fence after the listed step closes is allowed",
+          "mascot-scene" in _convert("### Step 10.8 — Inlet\n\n## Checkpoint 10\n\n"
+                                     + fence, "manual/10-wiring.md"))
+    check("a fence inside an ordinary step is allowed",
+          "mascot-scene" in _convert("### Step 10.24 — PSU\n\n" + fence, "p.md"))
 
     if fail:
         raise SystemExit(1)

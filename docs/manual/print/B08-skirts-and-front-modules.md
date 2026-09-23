@@ -90,7 +90,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B08.3 — Print plate B08-P1
 
 **Do:** Print with standing overrides.
-**Check:** Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate in the set.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate.
 
 Tip: look at the first layer, the corners after an hour, and again at bedtime. A lifted corner is a stop, not a wait.
 

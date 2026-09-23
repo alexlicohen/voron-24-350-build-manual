@@ -184,9 +184,33 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 
 ---
 
-## Part A — before first power-up
+<a id="part-a-before-first-power-up"></a>
 
-Everything in Part A is done with the machine open and, in the build order, **after Ch 12 Part 2**: the boards were powered for the first time at Step 12.11 with the bay open, so "first power-up" here means Ch 13 — the first time the machine moves and heats (13.3). Work through it, then stop at the marker before 11.52. Three runs are off-machine: the touchscreen module (11.5–11.6) is built **from Ch 10 Step 10.50**, before its ribbon is latched; the Nevermore (11.26–11.41, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) can be done any time after their batch has printed — for instance while Ch 12 flashes images.
+## Part A — before Ch 13, machine unplugged
+
+Everything in Part A is done with the machine open, **unplugged**, and, in the build order, **after Ch 12 Part 2**, which left it powered with the bay open. So Part A opens with 11.67: shut down, unplug and prove it dead before any hand goes into the bay. Nothing in Part A needs power; the next power-on is Ch 13's 13.3, the first time the machine moves and heats. Work through it, then stop at the marker before 11.52. Three runs are off-machine: the touchscreen module (11.5–11.6) is built **from Ch 10 Step 10.50**, before its ribbon is latched; the Nevermore (11.26–11.41, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) can be done any time after their batch has printed — for instance while Ch 12 flashes images.
+
+### Step 11.67 — Shut down, unplug and prove it dead
+
+(no image — see text)
+
+**What you're looking at:** Checkpoint 12 left the machine live with the bay open. Part A reaches into the bay, tips the printer on its side and plugs a fan lead into the Leviathan, so it starts dead. The PSU's green LED sits beside its voltage-adjust pot.
+
+**Parts:** multimeter.
+
+**Do:**
+
+1. Shut the Pi down from Mainsail; wait for its green ACT LED to stop.
+2. Rocker off; unplug wall, then inlet; cord out of the room.
+3. Once the PSU LED is dark, meter DC V, +V to −V.
+
+**Check:** Rocker unlit, PSU LED dark, no cord at the inlet. The meter reads 0 V and holds it for ten seconds, as at [10.73](10-wiring.md#step-1073-confirm-dead).
+
+⚠ **Stays dead through Part A.** Nothing here needs power. If a step tempts you to check something live, stop: the next plug-in is Ch 13's hand-on-the-switch power-on at 13.3, with the bay closed. At every Pause, the cord stays out of the room. [src](https://docs.vorondesign.com/build/electrical/)
+
+Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Mean Well LRS-200 datasheet — LED beside +V ADJ.](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives)
+
+---
 
 ### Step 11.1 — Dry-fit the whole skirt ring
 
@@ -266,7 +290,7 @@ Source: [Voron manual p.213](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Source: [Voron manual p.211](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=211) · [Voron manual p.214–216](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=214) · [LDO Build Notes p.211, p.214–216](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDO BTT Pi TFT4.3 mount README](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/5b0496a/STLs/BTT%20Pi%20TFT4.3%20Mount)
 
-Pause: ~20 min since the last pause — every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.
+Pause: ~25 min since the last pause — machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.
 
 ---
 
@@ -604,7 +628,7 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 
 **Do:**
 
-1. Put the printer on its side, as at 10.1.
+1. Still unplugged, put the printer on its side, as at 10.1.
 2. Wipe all six pad faces with IPA and let it flash off.
 3. Cut six VHB pads to match, press one onto each, liners left on.
 
@@ -967,7 +991,7 @@ Source: [LDO Nevermore V5 Duo guide § Installation for Voron V2.4](https://ldom
 
 **Parts:** the kit's **FILTER FAN** extension wire.
 
-**Do:** Mate the Nevermore's pigtail with the FILTER FAN extension and follow it back to the Leviathan. It lands on **FAN3 / PF9**. Confirm that header's voltage-selection jumper is set for **24 V** before anything is powered.
+**Do:** Mate the Nevermore's pigtail with the FILTER FAN extension and follow it back to the Leviathan. It lands on **FAN3 / PF9**. With the machine still unplugged, confirm that header's voltage-selection jumper is set for **24 V**.
 
 **Check:** Filter fan on FAN3/PF9; 24 V jumper confirmed; the lead is routed in the duct and cannot be caught by the bed or the gantry.
 
@@ -1030,7 +1054,7 @@ Source: [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Source: [Voron manual p.259](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=259) · [Video: Part 9 @3:11:11](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11471s)
 
-Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it is there before you close this session.
+Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it against your Ch 12 notes or Checkpoint 12, not a live Mainsail: the machine stays unplugged until 13.3.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Fits out the space under the deck panel: two DIN rails and the two printed B11 conduits that replace LDO's five wire ducts, the Meanwell 24 V PSU, the Omron SSR, the Leviathan mainboard carrying the Raspberry Pi 4B, the Nitehawk USB adapter, the mains inlet and WAGO blocks, and both endstops. Everything is mounted and nothing is wired — that unlocks Ch 10, which is one continuous harness job ending at Checkpoint #1.
 
-**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** round both rails, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too.
+**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** round both rails, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too. One part goes **above** the deck: the **bed WAGO breakout**, on the left bed extrusion under the plate, where the plate's own three leads end.
 
 ```mascot
 pose: point
@@ -17,10 +17,10 @@ caption: Mount everything before wiring anything. A board you move later takes s
 
 **Prerequisites:**
 
-- **Ch 01–03.** Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three cables hanging free below the deck.
+- **Ch 01–03.** Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three leads loose **above** the deck, none through it (Ch 03 Step 03.14).
 - **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
-- **Batch B00 heat-set pass.** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3).
+- **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
 - **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print only after the kit-day A/B lead go/no-go and bay measurements, [B11.9 and B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements). If the go/no-go failed and you build LDO's layout instead, every changed step below keeps LDO's way in a `⚠ LDO layout` note.
 
 **Tools**
@@ -777,24 +777,25 @@ Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 09.34 — Build and mount the bed WAGO breakout
 
 ![LDO bed WAGO mount — splicer PCB and two 2-way WAGOs on the printed bracket](assets/remote/09-electronics-bay/bed-wago-mount.jpg)
+![LDO build-plate mapping, seen from above, rear at the top: the red bed WAGO mount on the left bed extrusion, above the deck; grey dot = the round deck hole](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** The bed WAGO mount is a small breakout under the deck where the bed's three cables, live, neutral and thermistor, terminate at connectors instead of being spliced into the harness, so the plate can be lifted off from above.
+**What you're looking at:** The bed WAGO mount is a small breakout **above** the deck, in the chamber under the plate, on the left bed extrusion. The plate's three short leads end here, so the plate lifts off from above; extension leads carry on below deck.
 
 **Parts:** Bed WAGO Mount ×1 (LDO-supplied printed), M3×5×4 heat-set inserts ×2, 2×2 XH splicer PCB ×1, M3×6 BHCS ×2, WAGO 221-412 (2-way) ×2, M5×10 BHCS ×2, M5 T-nut ×2 **(verify on bench)**.
 
 **Do:**
 
-1. Heat-set two inserts into the **front** face; let them cool.
-2. Fasten the splicer PCB with M3×6 BHCS, snap in two WAGO 221-412.
-3. Bolt it to the rear extrusion's side slot with M5×10 BHCS **(verify on bench)**.
+1. Heat-set two inserts into the **front** face; let cool.
+2. Screw on the splicer PCB; snap in both WAGOs.
+3. Bolt it to the **left** bed extrusion's inner side slot, above the deck under the plate's rear half `(verify on bench)`.
 
-**Check:** Inserts flush, splicer PCB solid, both levers free and facing into the bay, three bed cables reaching with slack, plate still liftable from above.
+**Check:** Inserts flush, splicer PCB solid, both levers free. Mount above the deck, clear of the plate underside; the plate's three leads reach it with slack.
 
-⚠ **Rev D+ / LDO:** this whole sub-assembly is a Rev C+ addition with no page in the manual. It lets the build plate detach from above without unpicking the harness. Two 2-way WAGOs break out the bed power lines; the splicer PCB breaks out the bed thermistor. Terminating any of it is Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+⚠ **Rev D+ / LDO:** a Rev C+ addition with no manual page. LDO's build-plate mapping puts it above the deck on the left bed extrusion, so the plate detaches from the top: two 2-way WAGOs break out bed L and N, the splicer PCB the thermistor. Nothing goes below the deck here; terminating is Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
-Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · image [`bed_wago_mount.jpg`](https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg)
+Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · image [`bed_wago_mount.jpg`](https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg)
 
-Pause: ~25 min since the last pause — XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted under the deck. All three bed cables reach with slack; none of them terminated.
+Pause: ~25 min since the last pause — XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.
 
 ---
 
@@ -855,7 +856,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin rising through the deck's rear notch and ~1.5 mm clear of the plate's rear edge. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
-- [ ] Bed WAGO breakout built and mounted; the plate still lifts off the deck from above.
+- [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
 
 ## Common mistakes

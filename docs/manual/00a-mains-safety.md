@@ -151,6 +151,8 @@ Source: [NFPA 70E live–dead–live practice](https://www.70econsultants.com/li
 
 **What you're looking at:** The wall outlet the printer will live on, and the breaker that feeds it. An **[RCD](16-glossary.md#g)**, a GFCI receptacle or GFCI breaker in a US house, compares the current on live with the current on neutral and cuts the supply when they differ.
 
+A residual-current device compares live and neutral current and cuts the supply when they differ, which is what happens when current is leaving through a person or through the frame. RepRap's safety page is blunt about it: *"If not compulsory in your country, a 20mA resident current device (RCD) shall be installed on your electrical installation."* In a US house that is a **GFCI receptacle or a GFCI breaker**, and monthly TEST/RESET is for the life of the printer: a GFCI that does not trip on its own test button is a dead GFCI. The PSU alone draws about **4 A at 115 VAC**, and the AC bed heater is a much larger load again — the Omron SSR that switches it is rated **10 A**.
+
 **Parts:** none.
 
 **Do:**
@@ -159,9 +161,9 @@ Source: [NFPA 70E live–dead–live practice](https://www.70econsultants.com/li
 2. Label the breaker that feeds it, so the circuit can be killed from outside the room.
 3. Do not share the circuit with a space heater or microwave.
 
-A residual-current device compares live and neutral current and cuts the supply when they differ, which is what happens when current is leaving through a person or through the frame. RepRap's safety page is blunt about it: *"If not compulsory in your country, a 20mA resident current device (RCD) shall be installed on your electrical installation."* In a US house that is a **GFCI receptacle or a GFCI breaker**, and monthly TEST/RESET is for the life of the printer: a GFCI that does not trip on its own test button is a dead GFCI. The PSU alone draws about **4 A at 115 VAC**, and the AC bed heater is a much larger load again — the Omron SSR that switches it is rated **10 A**.
-
 **Check:** Outlet trips on TEST and resets. Breaker identified and labelled. You can reach that breaker without passing the machine.
+
+⚠ **No working GFCI, no plug-in.** The printer runs only on a GFCI receptacle or GFCI breaker. One that does not trip on its own TEST button is dead: replace it before the machine is plugged in. The PSU draws about 4 A and the AC bed heater far more, so nothing else heavy shares the circuit.
 
 Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Mean Well LRS-200 spec sheet](https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF) · [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket)
 
@@ -238,15 +240,20 @@ Source: [Omron — Solid State Relays G3NB datasheet (J164-E1)](https://www.omro
 
 **What you're looking at:** Two kinds of mains terminal. The PSU's three **screw terminals** each take a stranded core crimped into a red **[ferrule](16-glossary.md#f)**, a sleeve that turns loose strands into one tube the screw can clamp. The orange **WAGO 221** lever blocks need no ferrule.
 
-**Parts:** none — the kit supplies the ferrules.
-
-**Do:** Learn which terminal takes which. Screw terminals get a crimped **VE0508** ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with **no copper visible outside any port**.
-
 Two kinds of terminal carry mains in this machine and they want opposite things. **Screw terminals** — the Meanwell's L/N/⏚ block, L, N, ⏚ from the outer end, and the SSR's LOAD 1 / LOAD 2 — clamp a stranded core against a metal plate; strands splay, one escapes the clamp, and you are left with a reduced contact area that heats. The kit ships **VE0508** ferrules for exactly this, five of them counted in Ch 09's hardware table and used in Ch 10. **WAGO 221 lever terminals** — the three 5-way N / L / PE blocks — clamp the core themselves; the failure there is not splaying but *escaping*, and [10.8](10-wiring.md#step-108-inlet-wago-bus) gives the test: tug each core hard, and confirm **no copper is visible outside any port**. A whisker of exposed strand next to a live terminal is the failure mode.
 
 On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."* Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.
 
+**Parts:** none — the kit supplies the ferrules.
+
+**Do:** Learn which terminal takes which, from the two rows below. Screw terminals get a crimped **VE0508** ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with **no copper visible outside any port**.
+
 **Check:** Ferrules found in the kit before Ch 10 starts, and you know which terminals take one, which take bare core, and the pull-and-look test.
+
+- **Screw terminals** (the PSU's L / N / ⏚ block, the SSR's LOAD 1 / LOAD 2): a crimped VE0508 ferrule on every stranded core, so no strand escapes the clamp.
+- **WAGO 221 levers** (the three 5-way N / L / PE blocks): core to the stop, lever shut, then tug each core hard and look: no copper outside any port ([10.8](10-wiring.md#step-108-inlet-wago-bus)).
+
+⚠ **No whiskers.** A strand of exposed copper beside a live terminal is the failure mode: if one shows, re-terminate that core. Mains conductors are at least 18 AWG (0.75 mm²); every one in this kit arrives pre-made, so this matters only if you lengthen or replace one.
 
 Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [image: LDO `S3_wago_PSU.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg) · [Ch 09 — Hardware](09-electronics-bay.md) · [Ch 10 Step 10.8](10-wiring.md#step-108-inlet-wago-bus), [Step 10.9](10-wiring.md#step-109-wago-bus-psu)
 
@@ -258,15 +265,21 @@ Source: [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/el
 
 **What you're looking at:** No parts: a routing rule. Everything here keeps load off a termination: the wire ducts that carry the mains run below deck, the anchor at the deck opening, and the zip ties at both ends of every drag chain.
 
-**Parts:** none.
-
-**Do:** Route the mains run **inside a wire duct**, strain-relieve the deck opening, and zip-tie every drag chain at both ends, so the duct or the chain takes the pull, never a terminal.
-
 A terminal is a connection, not an anchor. RepRap's rule is the one to hold: *"all wires ends of moving wires and static power wires shall be secured just aside the connection, in order to release any load on connexion."* In this build that means the mains run goes inside a wire duct, not across open deck ([10.8](10-wiring.md#step-108-inlet-wago-bus)), the deck opening is strain-relieved ([10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening)), and every drag chain is zip-tied at both ends so the chain — not the connector — takes the motion ([10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain)). Ch 10's own warning is that cables pulled tight *"will survive assembly and fail in three months"*.
 
 The same page sets the end state for the whole electronics bay: *"All connections of mains (110/230V) shall be physically protected and you shall not be capable to access them even if you try."* That is what the bottom panel and the skirts in **Ch 11 Part A** are for, the AC conduit's lids just before the dead meter sweep ([10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids)), and the DC duct covers once Ch 13 has driven every motor, heater and fan ([Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off)). Closing the machine is a safety step, not a cosmetic one — which is exactly why Ch 11 is not allowed to start until Checkpoint #1 has passed.
 
+**Parts:** none.
+
+**Do:** Route the mains run **inside a wire duct**, strain-relieve the deck opening, and zip-tie every drag chain at both ends, so the duct or the chain takes the pull, never a terminal.
+
 **Check:** You can name the three places this manual anchors a cable near its termination, and why Ch 11 makes the mains inaccessible.
+
+- **Mains run** inside a wire duct, never across open deck: [10.8](10-wiring.md#step-108-inlet-wago-bus).
+- **Deck opening** strain-relieved: [10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening).
+- **Every drag chain** zip-tied at both ends, so the chain takes the motion: [10.66](10-wiring.md#step-1066-zip-tie-both-ends-of-every-chain).
+
+⚠ **A terminal is a connection, not an anchor.** A cable pulled tight survives assembly and fails in three months. The end state is mains you cannot touch even if you try: AC lids at [10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids), bottom panel and skirts in Ch 11 Part A. Ch 11 does not start before Checkpoint #1 passes.
 
 Source: [RepRap — Safety](https://reprap.org/wiki/Safety) · [Ch 10 Step 10.69](10-wiring.md#step-1069-strain-relieve-the-deck-opening) · [Ch 11 — Read first](11-skirts-panels-door.md)
 
@@ -304,17 +317,18 @@ Source: [Omron — G3NB datasheet (J164-E1)](https://www.omron-ap.com/data_pdf/c
 
 **What you're looking at:** No parts: two scripted sequences, read now so neither is improvised. Checkpoint #1 is meter measurements on a completely unplugged machine followed by one deliberate plug-in. The hand-on-the-switch ritual is a ten-second listen with the chamber cleared.
 
+Why the rituals are written this way. Nothing is measured live: the PSU's +V/−V screws share an uncovered block with live L and N, so its 24 V is proved by the boards' LEDs at 12.11, and the only DC-volts readings in the build are the confirm-dead 0 V at 10.24, 10.73 and 11.67. 12.11 is the first time the Leviathan, the Pi and the toolboard are energised, so the hand-on-the-switch ritual belongs there, not only in Ch 13; [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) formalises the cleared chamber, and 13.3 repeats the ritual on the closed machine before the first motion. The bay is open **by design** between Checkpoint #1 and Ch 11: [10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) leaves the DC duct covers off, and the AC lids that go on at [10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids) cover the mains leads only; the WAGO blocks, the PSU's terminal block and the SSR's screws stay exposed until Ch 11. Voron's page states the general form: *"Never plug or unplug any device while the printer is powered"*, and *"Always double check to make sure your printer is unplugged and the capacitors in the power supplies have discharged before touching any wire or terminal."* LDO's framing of the whole section: *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."*
+
 **Parts:** none.
 
-**Do:** Read both rituals end to end now. Before the bay closes, the machine is energised at exactly two steps, [10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate). The third powered moment, [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch), follows Ch 11 Part A.
-
-**Ritual 1 — Checkpoint #1, [10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again).** Meter first, cord out of the room: colour groups shorted, L / N / PE mutually isolated, the switch actually switching, the SSR open when unpowered, the voltage selector re-read. Only then one deliberate plug-in — rocker off, cord to inlet, then to wall, step back, then rocker on — one hand on the switch, the other behind your back, **no meter**: looking for the rocker to illuminate and the PSU LED to light green, and ten seconds of look, listen and smell. Nothing is measured live — the PSU's +V/−V screws share an uncovered block with live L and N; its 24 V is proved by the boards' LEDs at 12.11, and the only DC-volts readings in the build are the confirm-dead 0 V at 10.24 and 10.73. Then off, unplug, and the cord goes back out of the room. LDO's framing of the whole section: *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."*
-
-**Ritual 2 — hand on the switch, first at [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), again at [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch).** 12.11 is the first time the Leviathan, the Pi and the toolboard are energised — it is the first real power-on, and the ritual belongs there, not only in Ch 13. Clear the chamber and have a fire extinguisher within arm's reach (what [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) formalises). Then: stand to the **side** of the machine, hand on the inlet rocker, switch on, and keep your hand there for a full ten seconds while you listen and smell — PSU LED green, Pi and toolboard LEDs lit, no click-cycling, buzz or smell. Anything wrong — switch off immediately. 13.3 repeats it on the closed machine before the first motion.
-
-Between Checkpoint #1 and Ch 11 the bay is open **by design** — [10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) leaves the DC duct covers off on purpose. The AC conduit's lids go on at [10.80](10-wiring.md#step-1080-fit-the-strip-fin-and-close-the-ac-lids), but they cover the mains leads only: the WAGO blocks, the PSU's terminal block and the SSR's screws stay exposed until Ch 11, so the bay is still open. So the rule is: the machine is energised with the bay open **only** at 10.23 and 12.11, and only with hands out of the bay. If you want to look at something, power off, look, power on. Voron's page states the general form: *"Never plug or unplug any device while the printer is powered"*, and *"Always double check to make sure your printer is unplugged and the capacitors in the power supplies have discharged before touching any wire or terminal"* — which is what [10.73](10-wiring.md#step-1073-confirm-dead) measures, 0 V held for ten seconds.
+**Do:** Read both rituals below, end to end, now. Before the bay closes, the machine is energised at exactly two steps, [10.23](10-wiring.md#step-1023-first-power-on-then-off-again) and [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate). Ch 11 Part A starts by unplugging it.
 
 **Check:** You can recite both rituals and name the two steps where this machine may be live with the bay open, 10.23 and 12.11.
+
+- **Ritual 1 · Checkpoint #1** ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again)): Cord out of the room, meter the dead machine: colour groups shorted, L / N / PE isolated, switch switching, SSR open, selector re-read. Then one plug-in: rocker off, inlet, then wall, step back, rocker on. One hand on the switch, the other behind your back, **no meter**. Rocker lit, PSU LED green, ten seconds of look, listen, smell. Off, unplug, cord out of the room.
+- **Ritual 2 · Hand on the switch** ([12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), again at [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch)): Chamber clear, extinguisher within arm's reach. Stand to the **side**, hand on the rocker, switch on, hand stays ten seconds: PSU LED green, Pi and toolboard LEDs lit, no click-cycling, buzz or smell. Anything wrong: switch off at once.
+
+⚠ **Bay open = hands out.** Until Ch 11 closes the bay, the machine is live with the bay open **only** at 10.23 and from 12.11 to Checkpoint 12, hands out of the bay. To look or touch: power off, unplug, read 0 V held ten seconds, as at [10.73](10-wiring.md#step-1073-confirm-dead). Ch 11 Part A opens with exactly that, at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch) · [00-index — build order](00-index.md)
 

@@ -17,6 +17,14 @@ step pages themselves stay out of the nav — `steps/.nav.yml`, written by
 `build()` below, carries `hide: true`. Prev/next and the breadcrumb are static
 markup emitted here, so step navigation never depends on nav order.
 
+Prev/next follow file order, with one exception: when a chapter's `## Next`
+section *leads* with a link to a step (`[Step 11.67](11-skirts-panels-door.md#step-1167-…)`),
+the Next button on the chapter's last page goes to that step instead of the
+next file's first page. That is how a chapter whose bench successor is not
+the next file (Ch 12 → Ch 11 Part A, per the 00-index timeline) says so once,
+in its own prose, and the button agrees. A lead link to a chapter or a
+non-step anchor changes nothing.
+
 The directory is gitignored and rebuilt by `mkdocs build`; never hand-edit it.
 Writes are content-compared so `mkdocs serve` does not loop on its own output.
 """
@@ -132,6 +140,7 @@ class Chapter:
     n_steps: int = 0
     segments: list["Segment"] = field(default_factory=list)
     gather: dict[str, list[str]] = field(default_factory=dict)
+    next_body: list[str] = field(default_factory=list)   # the `## Next` section's lines
 
 
 def _split_blocks(text: str) -> list[Block]:
@@ -271,6 +280,8 @@ def parse_chapter(path: Path) -> Chapter | None:
                 continue
             if re.match(r"^Common mistakes", head, re.IGNORECASE) or head.strip() == "Next":
                 trailing += ["", f"## {head}", ""] + body
+                if head.strip() == "Next":
+                    chapter.next_body = body
                 continue
             flush_pending_note()
             pending_title, pending_body = head, body
@@ -1018,6 +1029,34 @@ def _page_label(chapter: Chapter, page: Page) -> str:
     return _plain(page.title)
 
 
+# A markdown link that is not an image: `[text](target)`.
+_TEXT_LINK_RE = re.compile(r"(?<!!)\[(?:[^\[\]]|\[[^\]]*\])*\]\(\s*([^()\s]+?)\s*(?:\"[^\"]*\")?\)")
+
+
+def _next_section_step(chapter: Chapter, chapters: list[Chapter]) -> tuple[Chapter, Page] | None:
+    """The step the chapter's `## Next` section leads with, if it leads with one.
+
+    Only the section's first link counts, and only a `<chapter>.md#<anchor>`
+    link whose anchor is a `Step` heading (see the module docstring).
+    """
+    for line in chapter.next_body:
+        m = _TEXT_LINK_RE.search(line)
+        if not m:
+            continue
+        path, _, frag = m.group(1).partition("#")
+        if not (path.endswith(".md") and frag):
+            return None
+        stem = Path(path).stem
+        for target in chapters:
+            if target.stem != stem:
+                continue
+            for page in target.pages:
+                if page.kind == "step" and slugify(page.title, "-") == frag:
+                    return target, page
+        return None
+    return None
+
+
 def _front_matter(title: str) -> str:
     import yaml
 
@@ -1317,9 +1356,14 @@ def build() -> dict:
                 prev_ref = (_page_label(chapter, p), "%s.md" % p.slug)
             else:
                 prev_ref = ("%s — chapter overview" % chapter.short, "index.md")
+            bench = _next_section_step(chapter, chapters) if i + 1 == len(chapter.pages) else None
             if i + 1 < len(chapter.pages):
                 nx = chapter.pages[i + 1]
                 next_ref = (_page_label(chapter, nx), "%s.md" % nx.slug)
+            elif bench:
+                tch, tp = bench
+                next_ref = (_page_label(tch, tp), "%s%s.md" % (
+                    "" if tch is chapter else "../%s/" % tch.slug, tp.slug))
             elif next_ch and next_ch.pages:
                 next_ref = (_page_label(next_ch, next_ch.pages[0]),
                             "../%s/%s.md" % (next_ch.slug, next_ch.pages[0].slug))

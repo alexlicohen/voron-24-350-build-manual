@@ -260,7 +260,7 @@ the overview grid and the long chapter page.
 
 - **`⚠` boxes carry no mascot.** `callouts.py` badges `success` / `tip` / `info` and deliberately not `warning`.
 - **`pose: warn`** — the hard hat — is rejected on any page but `00a-mains-safety`.
-- **No mascot at all** on mains, soldering-iron, blade or hot-chamber content. There is no pose for those and there will not be one; that is the humour rule, not an oversight.
+- **No mascot at all** on mains, soldering-iron, blade or hot-chamber content. There is no pose for those and there will not be one; that is the humour rule, not an oversight. The steps are an explicit id list, `NO_MASCOT_STEPS` in `hooks/mascot.py` (the one place that classifies them): the hook strips every badge inside a listed step, on its step page and on the long chapter page, and fails the build on a ` ```mascot ` fence inside one. An appended step of one of those kinds goes into that list.
 - **One scene per page** is a judgement call the fence does not police. Home is the deliberate exception.
 
 Captions are dry and kind, and the bird never makes the mistake: it watches, checks, shrugs alongside you. No speech, no puns, no `⚠` gags. Everything else about the art — palette, views, the two-wing rule, regeneration — is in `assets/mascot/STYLE.md`, and `scripts/gen_mascot.py` is the only thing that writes an SVG.

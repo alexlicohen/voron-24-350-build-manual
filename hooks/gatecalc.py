@@ -215,7 +215,7 @@ def _normalise_derive(raw, inputs, where):
     }
 
 
-def _gate_calc_html(body, where):
+def _gate_calc_html(body, where, bird=True):
     try:
         spec = yaml.safe_load("\n".join(body))
     except yaml.YAMLError as exc:
@@ -245,12 +245,16 @@ def _gate_calc_html(body, where):
     # The two verdict birds ride as page-relative asset paths (hooks/mascot.py
     # resolves the `@mascot/` sentinel per page), so gatecalc.js stays
     # spec-agnostic: it reads an attribute and never knows where the art lives.
-    return (
-        f'<div class="gate-calc" data-gate-calc="{payload}"'
+    # Inside a NO_MASCOT_STEPS step (B00.7 is an iron step) the attributes are
+    # left off; gatecalc.js then makes no bird element and shows only the text.
+    birds = (
         f' data-mascot-pass="{mascot.asset("pass")}"'
         f' data-mascot-fail="{mascot.asset("fail")}"'
         f' data-mascot-pass-alt="{html.escape(mascot.title_of("pass"), quote=True)}"'
-        f' data-mascot-fail-alt="{html.escape(mascot.title_of("fail"), quote=True)}">'
+        f' data-mascot-fail-alt="{html.escape(mascot.title_of("fail"), quote=True)}"'
+    ) if bird else ""
+    return (
+        f'<div class="gate-calc" data-gate-calc="{payload}"{birds}>'
         f'<p class="gate-calc__nojs">{html.escape(out["title"])} — '
         f"the calculator needs JavaScript; the limits are in the table on this page.</p></div>"
     )
@@ -266,10 +270,16 @@ def _tap_tree_markdown(body, indent, where):
 def _convert(markdown, where):
     lines = markdown.split("\n")
     out = []
+    # hooks/mascot.py's step scope (the humour rule's one classifier): which
+    # NO_MASCOT_STEPS step, if any, the current line sits in.
+    scope = mascot._StepScope()
     i, n = 0, len(lines)
     while i < n:
         m = _FENCE_RE.match(lines[i])
         if not m:
+            h = mascot._MD_HEADING_RE.match(lines[i])
+            if h:
+                scope.heading(len(h.group(1)), h.group(2))
             out.append(lines[i])
             i += 1
             continue
@@ -282,7 +292,7 @@ def _convert(markdown, where):
         if info not in _WIDGETS:
             out.extend(lines[i:close])          # somebody else's fence, untouched
         elif info == "gate-calc":
-            out += ["", _gate_calc_html(body, where), ""]
+            out += ["", _gate_calc_html(body, where, bird=not scope.step), ""]
         else:
             out += [""] + _tap_tree_markdown(body, indent, where) + [""]
         i = close
@@ -412,6 +422,24 @@ if __name__ == "__main__":
     if '<div class="tap-tree" markdown="1">' not in tree or "- Printing a plate" not in tree:
         print("FAIL: tap-tree did not wrap the list verbatim")
         fail = True
+
+    # The humour rule: no verdict bird inside a NO_MASCOT_STEPS step (B00.7 is
+    # an iron step), on the step page (h1) and the chapter page (h2) alike; the
+    # next step heading closes the scope.
+    small = "```gate-calc\nid: g\ninputs:\n  - key: a\n    label: A\n    max: 1\n    high: x\n```\n"
+    if "data-mascot-pass" not in gate:
+        print("FAIL: a gate outside any listed step lost its verdict bird")
+        fail = True
+    for doc, want, what in (
+        ("# Step B00.7 — Gate B\n\n" + small, False, "step page of a listed step"),
+        ("## Step B00.7 — Gate B\n\n#### Row\n\n" + small, False, "sub-heading inside a listed step"),
+        ("## Step B00.7 — Gate B\n\n## Step B00.8 — Next\n\n" + small, True, "step after a listed one"),
+        ("# Step B00.2 — Gate A\n\n" + small, True, "unlisted step"),
+    ):
+        got = _convert(doc, "fixture")
+        if ("data-mascot-pass" in got) != want or 'class="gate-calc"' not in got:
+            print("FAIL: verdict bird on the", what, "- want bird:", want)
+            fail = True
 
     untouched = _convert(fixtures["a plain fence is untouched"], "fixture")
     if untouched.strip() != fixtures["a plain fence is untouched"].strip():

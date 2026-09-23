@@ -798,7 +798,7 @@ def d04_z_drive() -> Doc:
     px, py = 30, top + 16
     ph = 700
     d.panel(px, py, 344, ph, "One corner, side view",
-            "one strand, both ends clamped at the Z joint")
+            "one strand, both ends at the gantry corner")
     up_x = px + 74                      # frame upright
     d.rect(up_x, py + 78, 24, ph - 176, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=3)
     d.text(up_x - 6, py + 72, "frame upright", size=11, anchor="middle", fill=BLUE,
@@ -828,8 +828,9 @@ def d04_z_drive() -> Doc:
     # Z joint on the gantry
     zj_y = py + 380
     d.rect(up_x - 6, zj_y - 24, 92, 48, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=5)
-    d.text(up_x + 92, zj_y - 4, "Z joint / Z bearing block", size=11.5, weight=600)
-    d.text(up_x + 92, zj_y + 12, "both belt ends clamped here", size=11, fill=MUTED)
+    d.text(up_x + 100, zj_y - 12, "gantry corner + Z joint", size=11.5, weight=600)
+    d.text(up_x + 100, zj_y + 4, "1st end: under it, lower clip", size=11, fill=MUTED)
+    d.text(up_x + 100, zj_y + 19, "2nd end: on top, upper clip", size=11, fill=MUTED)
     d.line(up_x - 36, zj_y, up_x - 8, zj_y, stroke=BLUE, sw=6)
     d.text(up_x - 40, zj_y + 4, "gantry", size=11, anchor="end", fill=BLUE, weight=600)
 
