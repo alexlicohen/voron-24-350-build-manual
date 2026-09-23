@@ -41,7 +41,7 @@ BINS: dict[str, dict[str, str]] = {
     "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39)", colour="#cd853f"),
     "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
     "08-CW2": dict(label="Clockwork 2 extruder + toolboard cover", chapter="Ch 08", steps="08.3–08.20 (cover 08.51)", colour="#f28482"),
-    "09-bay": dict(label="Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts", chapter="Ch 09", steps="09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)", colour="#e0a100"),
+    "09-bay": dict(label="Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts", chapter="Ch 09", steps="09.6–09.25 (B11 DC loop 09.6, AC conduit 09.36, AC lids 10.80, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)", colour="#e0a100"),
     "10-chains": dict(label="Z cable chain anchor, guide, retainer", chapter="Ch 10", steps="10.62–10.64 (inserts at 10.35)", colour="#6b8e23"),
     "10-lights": dict(label="COB light-strip mounts", chapter="Ch 10", steps="10.35–10.36", colour="#b8b62c"),
     "10-wiring": dict(label="Bay wiring: AC strip fin (B11)", chapter="Ch 10", steps="10.80, appended with the B11 bay ducting", colour="#3d5a80"),

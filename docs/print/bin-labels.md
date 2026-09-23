@@ -275,7 +275,7 @@ _7 pieces_
 
 **Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts**
 
-_Ch 09 · 09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)_
+_Ch 09 · 09.6–09.25 (B11 DC loop 09.6, AC conduit 09.36, AC lids 10.80, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25)_
 
 **Should contain:**
 
@@ -581,7 +581,7 @@ _All bins on one page — which chapter opens each one, and what should be insid
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | 4 | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | 5 | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | 7 | B02, B06 |
-| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | Ch 09 · 09.6–09.25 (B11 ducts 09.6, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | 61 | B07, B11 |
+| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | Ch 09 · 09.6–09.25 (B11 DC loop 09.6, AC conduit 09.36, AC lids 10.80, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | 61 | B07, B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | 4 | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | 8 | B07 |
 | **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | 1 | B11 |

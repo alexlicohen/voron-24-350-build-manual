@@ -108,7 +108,7 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 | Leviathan jumpers | exactly two: **Fan2** and **Fan3**, both on the **24 V** pins |
 | Probe, Fan0, Fan1 | bare, no jumper |
 
-**Check:** Selector correct. No bare copper anywhere. Every wire duct still open so you can watch the bay. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+**Check:** Selector correct. No bare copper anywhere. Every DC duct still open so you can watch the bay; the AC lids stay on. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
 ⚠ LDO: *"Mixing voltage will permanantly damage the controller and attached components."*
 

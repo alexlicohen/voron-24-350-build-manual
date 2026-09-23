@@ -345,19 +345,21 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.60](assets/manual-pages/manual-p060.png)
 
-**What you're looking at:** Manual p.60: the plate coming down onto its four spacers, cables first. The three cables have to go through the deck opening before the plate lands; afterwards you cannot feed them through without lifting it again.
+**What you're looking at:** Manual p.60: the plate coming down onto its four spacers, cables first. The three cables have to go through the deck before the plate lands: the AC pair through the round hole, the thermistor through the Z-chain notch.
 
 **Parts:** build plate assembly.
 
 **Do:**
 
 1. Two hands, plate flat, magnet up, cables at the **back**.
-2. Feed the two AC leads and the thermistor cable down through the deck opening.
+2. AC leads down the round hole, thermistor down the Z-chain notch.
 3. Lower the plate onto the four thumb nuts, cables clear of its edge.
 
 **Check:** Plate rests on all four thumb nuts, none knocked over. All three cables hang free below the deck with slack, none trapped.
 
-Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · [Video: Part 2 @1:36:04](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s)
+⚠ **Layout v3:** the round hole carries mains only, so the thermistor takes the notch; about 44 mm longer `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill). **LDO layout:** all three cables go down the round hole together. [LDO § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+
+Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met · [Video: Part 2 @1:36:04](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s)
 
 ---
 

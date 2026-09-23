@@ -1,4 +1,5 @@
-# Images for docs/manual/print/B11-bay-ducting.md, copied 2026-09-23 from
+# Images for docs/manual/print/B11-bay-ducting.md and the layout-v3 steps of Ch 09 / Ch 10,
+# copied 2026-09-23 from
 # review/2026-09-23-bay-mods/layout-v3/ (made in this repo). CONVENTIONS.md "Image licensing".
 
 layout-v3-overlay.jpg
@@ -13,3 +14,10 @@ coupon-22-vs-22N.jpg
   from    : review/2026-09-23-bay-mods/layout-v3/renders/r-03_coupon_22_vs_22N.jpg (work/render.py)
   owner   : rendered in this repo from MyStoopidStuff / RyanDam duct geometry (Printables 502306, GPL-3.0)
   sha256  : 750e5631656662c31f22635c5fa85f010b386daadca3bea3754f5bd6f5db4bfa
+
+ac-conduit-assembled.jpg
+  from    : review/2026-09-23-bay-mods/layout-v3/renders/r-06_AC_conduit_assembled.jpg (work/render.py)
+  owner   : rendered in this repo from MyStoopidStuff / RyanDam duct geometry (Printables 502306, 505838, GPL-3.0)
+  note    : render colours only (B11 prints every part black); right half shows the optional WARNING lid, B11 prints the plain lid
+  used by : Ch 10 Step 10.80
+  sha256  : 5bd1acbbd6acb0fcfdbee340f49fe4f5f7798d34e21c31094de25cff065ba06c

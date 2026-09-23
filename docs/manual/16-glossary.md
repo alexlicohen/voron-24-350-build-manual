@@ -357,9 +357,9 @@ Source: [Ch 00a Step 00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-wh
 |---|---|---|
 | **WAGO 221** | Lever-clamp connector blocks. Three 5-way ones form the mains N / L / PE bus; two 2-way ones break out the bed's L and N | [10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus) |
 | **Washer (DIN 125)** | A plain flat washer. In this build it appears at M3 locations only — every M5 "washer" in the official manual is really the brass precision spacer | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
-| **Wire duct** | The slotted PVC channel the below-deck runs sit inside. Mains never crosses open deck, and the covers stay **off** until Checkpoint #1 has passed | [09.6](09-electronics-bay.md#step-096-cut-and-stick-the-five-wire-ducts) |
+| **Wire duct** | The slotted channel the below-deck runs sit inside: on this build the printed B11 conduits, on LDO's layout PVC. Mains never crosses open deck. Lids stay **off** until Checkpoint #1 has passed; the AC lids close at 10.80, the DC lids before the first panel in Ch 11 | [09.6](09-electronics-bay.md#step-096-lay-the-printed-dc-conduit) |
 
-Source: [Ch 10 Steps 10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus), [10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) · [Ch 00 Step 00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 09 Step 09.6](09-electronics-bay.md#step-096-cut-and-stick-the-five-wire-ducts)
+Source: [Ch 10 Steps 10.7](10-wiring.md#step-107-populate-and-label-the-wago-bus), [10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) · [Ch 00 Step 00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 09 Step 09.6](09-electronics-bay.md#step-096-lay-the-printed-dc-conduit)
 
 ---
 

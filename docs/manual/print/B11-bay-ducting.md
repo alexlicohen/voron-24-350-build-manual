@@ -252,6 +252,16 @@ inputs:
     optional: true
     low: Move the PSU 8 mm left instead and leave the 10 mm piece at the SSR run's right end off P4.
     why: At 4 mm the narrowed T's fillet touches the PSU; 6 mm is the layout's estimate and it is tight.
+  - key: sig
+    label: Bed TH, nozzle-probe and filter-fan leads, the shortest spare of the three on LDO's route (mm)
+    min: 65
+    low: Short. The notch route needs about 44 mm more. Never route a DC lead through the AC conduit; decide the route before printing P4.
+    why: Layout v3 sends all three through the Z-chain notch, about 44 mm longer (verify on bench), so 65 mm spare leaves about 20 mm of slack.
+  - key: bedl
+    label: Bed L lead spare at the SSR, on LDO's route (mm)
+    min: 70
+    low: Short. The v3 AC route needs about 47 mm more, and a mains lead is never stretched to reach. Decide before printing P4.
+    why: Bed L runs through the wire box and both curves, about 47 mm longer than LDO's route (verify on bench).
   - key: fill
     label: Kit day. The full middle bundle lies below the coupon's lid rail
     kind: yesno
@@ -265,7 +275,7 @@ pass: Measured. Regenerate any piece whose gap differs, then print P4, and P5 on
 
 Pause: ~20 min since the last pause — the bay is dry-laid and measured; nothing is stuck down or fastened.
 
-Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, checks 3, 5, 7 and 16 · `layout-v3/overlay-v3.jpg`
+Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, checks 3, 5, 7, 15 and 16 · `layout-v2/layout-v2.md` bench check 2 · `layout-v3/overlay-v3.jpg`
 
 ## Step B11.11 — Regenerate a piece whose gap differs
 
@@ -359,6 +369,7 @@ Source: [print/README § Bins](README.md#bins)
 - [ ] A/B lead go/no-go decided on kit day; extensions or layout v1 settled if either was short
 - [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
 - [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
+- [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
 - [ ] Smooth sheet back on the printer for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves

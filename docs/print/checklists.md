@@ -195,8 +195,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 09 — Electronics bay
 
 - [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] Five wire ducts VHB'd down; the rear duct runs rearward of the deck's wire opening, and the opening is clear.
-- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets — and **no** support bracket fitted.
+- [ ] DC loop VHB'd down as one closed loop; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
+- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets at the spot B11.10 recorded, 2 mm or more clear of the right T junction — and **no** support bracket fitted.
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
@@ -215,13 +215,13 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion between the WAGO mount and the notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Both thermistors read within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Duct covers **off**, skirts **off**, bottom panel **off**; touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Strip fin between PSU −V and FG, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
 
 <div class="print-page-break"></div>
@@ -445,6 +445,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] A/B lead go/no-go decided on kit day; extensions or layout v1 settled if either was short
 - [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
 - [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
+- [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
 - [ ] Smooth sheet back on the printer for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
