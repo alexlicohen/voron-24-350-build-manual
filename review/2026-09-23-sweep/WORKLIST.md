@@ -93,6 +93,16 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Also carry the Wave 4 leftovers above (02.12/02.14 p.29 claim, G2-13 ledges, 20-hole rail wording, survey 29 T-nuts, nameplate BHCS vs SHCS, box sources `(verify on bench)`).
 - Residue from the wave-4 wrap-up (2026-09-24): (1) open Tonight on the real iPad after ticking a step and confirm the overlay re-plans on first open (only WebKit-tested); (2) spot-check crops on the iPad, one step per chapter (packets checked contact sheets, the orchestrator only Ch 11); (3) kit day: re-pin scripts/data/ldo-350-bom.yml to the batch's own sheet, since Gather bag names come from the generic Rev D BOM.
 
+- [x] **Done 2026-09-24** (0e9563b phase 1: 7 chapter packets; c51c0bf cross-file fixes; 2f6265a phase 2: render tooling, 09-ducts bin, plate board, CAD captions). Every minor/polish row dispositioned; gate, strict parts, crops, Tonight all green. Alex decisions: Check renders after Do (done); chapter header order unchanged (G2-19 declined); new bin 09-ducts (27 bins); B11 fallback 82 mm straight left for kit day.
+
+**Wave 5 notes (leftovers, not fixed).**
+- G5-08: where the fallback middle run's stock 82 mm straight goes: kit day (09.6 says "not drawn yet").
+- G8-30: PrusaSlicer screenshot of the three "(modified)" preset boxes (B00.0/B00.8) and a dimensioned retainer render (B00.7): need the GUI.
+- Changed on evidence, Alex to confirm: rail screws every other hole from the 2nd, both ends open (9 per MGN9, 7 on MGN12, was 10/8; p.88/p.101); frame-lug and plate-screw earth checks now < 1 Ω with probe zeroing (far corner stays < 2–3 Ω); 10.23 powers on with the printer upright (PSU LED visibility `(verify on bench)`); 00a.12 extinguisher line lost its `(verify on bench)` tag (NFPA 10 class C); Clicky-Clack hinges take M3×8, handle hinges M3×20 (STL holes), latch pair spare.
+- Z-chain end-link notch not added (LDO calls it optional; p.202 bolts both ends rigid). Latch warning lives at 10.65.
+- Plate-board milestone text is faint on printed tiles (`.plate-tile--printed` opacity .62 dims the whole tile).
+- 09.35 ferrule crimp tool is not on the owned-tools list (only needed if a lead is re-terminated).
+- AGENTS.md status line still says lint has 5 checks: diff proposed to Alex.
 
 ## Decisions (Alex, 2026-09-23)
 - Pushed waves 1–2 (283ed5c).
