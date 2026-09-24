@@ -355,7 +355,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 | SSR reads short **LOAD 1 → LOAD 2** unpowered | Do not energise the machine | A solid-state relay that reads short is dead and the bed would be permanently live. Replace it ([10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered), [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)) |
 | Someone is shocked or stuck to the machine | **Do not touch them.** Kill the circuit at the breaker you labelled in [00a.5](#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach) | Then emergency services. Any shock, however small, ends the session — the machine stays unplugged until the PE sweep at [10.77](10-wiring.md#step-1077-protective-earth-bonding) has been redone |
 
-Two standing rules on top of the table. **Never re-energise a circuit that tripped without finding out why** — a second trip is not new information and it is not a test. And keep the extinguisher from [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) permanently by the machine, not just on startup day: RepRap's position on unattended printing is that *"No printer shall remain unattended"*, and this one runs multi-hour ASA prints in a hot chamber. No Voron or LDO source specifies an extinguisher class — buy one rated for electrical fires and read its label once **(verify on bench)**.
+Two standing rules on top of the table. **Never re-energise a circuit that tripped without finding out why** — a second trip is not new information and it is not a test. And keep the extinguisher from [Step 13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench) permanently by the machine, not just on startup day: RepRap's position on unattended printing is that *"No printer shall remain unattended"*, and this one runs multi-hour ASA prints in a hot chamber. No Voron or LDO source specifies an extinguisher class. Buy an **ABC** extinguisher: A covers burning plastic, C covers live electrical equipment (NFPA 10 classes). Check the label shows the C before it goes by the machine.
 
 **Check:** All five responses agreed out loud, the breaker labelled, and the extinguisher in reach of the machine rather than in a cupboard.
 
@@ -378,6 +378,7 @@ Do not open Ch 09 until every line is ticked.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
+- [ ] Both of you have walked to the labelled breaker once and know which switch is the printer's.
 - [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
 - [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
 - [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.

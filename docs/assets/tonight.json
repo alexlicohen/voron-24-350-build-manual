@@ -70,14 +70,14 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change.",
+     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change."
+     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange."
     },
     {
      "id": "b00-calibration-and-jigs#2",
@@ -139,14 +139,14 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "B11's five PETG V0 plates reviewed and ticked; `qc=\"pending\"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed.",
+     "leave_state": "B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; `qc=\"pending\"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed."
+     "text": "Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed."
     },
     {
      "id": "b00-calibration-and-jigs#5",
@@ -199,7 +199,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.",
-     "helpers": [],
+     "helpers": [
+      [
+       "B00.5",
+       "Reads each caliper number back aloud and types it into the Gate A calculator."
+      ]
+     ],
      "text": "Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs."
     },
     {
@@ -216,9 +221,9 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.",
+     "leave_state": "plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.",
      "helpers": [],
-     "text": "Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit."
+     "text": "Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit."
     },
     {
      "id": "b00-calibration-and-jigs#9",
@@ -361,7 +366,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.",
-     "helpers": [],
+     "helpers": [
+      [
+       "B01.7",
+       "Reads each caliper number back aloud and writes it into the log."
+      ]
+     ],
      "text": "Step B01.7 · ~15 min · leave-state: every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted."
     },
     {
@@ -1256,14 +1266,14 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every bin is now full and the printer is free; the bushing and pin tests wait for the kit.",
+     "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.",
      "helpers": [
       [
        "B10.6",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every bin is now full and the printer is free; the bushing and pin tests wait for the kit."
+     "text": "Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit."
     }
    ]
   },
@@ -2274,39 +2284,57 @@
       "04.20",
       "04.21",
       "04.22",
-      "04.23",
+      "04.23"
+     ],
+     "first_step": "04.20",
+     "last_step": "04.23",
+     "href": "../manual/steps/04-ab-drives/04-20/",
+     "minutes": 25,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "leave_state": "the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off.",
+     "helpers": [
+      [
+       "04.22",
+       "Reads the eight-item stack order aloud and hands you each part in turn."
+      ]
+     ],
+     "text": "Step 04.20 → Step 04.23 · ~25 min · leave-state: the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off."
+    },
+    {
+     "id": "04-ab-drives#4",
+     "chapter": "04-ab-drives",
+     "kind": "build",
+     "steps": [
       "04.24",
       "04.25",
       "04.26",
       "04.27",
       "04.28"
      ],
-     "first_step": "04.20",
+     "first_step": "04.24",
      "last_step": "04.28",
-     "href": "../manual/steps/04-ab-drives/04-20/",
-     "minutes": 50,
+     "href": "../manual/steps/04-ab-drives/04-24/",
+     "minutes": 25,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
      "helpers": [
       [
-       "04.22",
-       "Reads the eight-item stack order aloud and hands you each part in turn."
-      ],
-      [
        "04.24",
        "Reads the caliper aloud while you slide the pulley along the shaft."
       ],
       [
        "04.28",
-       "Sights along the offcut at eye level and says if it tilts."
+       "Sights along the belt at eye level and says if it tilts."
       ]
      ],
-     "text": "Step 04.20 → Step 04.28 · ~50 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
+     "text": "Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
     },
     {
-     "id": "04-ab-drives#4",
+     "id": "04-ab-drives#5",
      "chapter": "04-ab-drives",
      "kind": "build",
      "steps": [
@@ -2343,13 +2371,13 @@
       ],
       [
        "04.37",
-       "Sights along the offcut at eye level and says if it tilts."
+       "Sights along the belt at eye level and says if it tilts."
       ]
      ],
      "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions."
     },
     {
-     "id": "04-ab-drives#5",
+     "id": "04-ab-drives#6",
      "chapter": "04-ab-drives",
      "kind": "build",
      "steps": [
@@ -2451,11 +2479,11 @@
      "helpers": [
       [
        "05.10",
-       "Counts ten T-nuts into the slot and checks one sits under each marked hole."
+       "Counts nine T-nuts into the slot and checks one sits under each marked hole."
       ],
       [
        "05.11",
-       "Holds both rail jigs steady on the extrusion while you start holes 2 and 19."
+       "Holds both rail jigs steady on the extrusion while you start holes 2 and 18."
       ]
      ],
      "text": "Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away."
@@ -3024,7 +3052,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.",
+     "leave_state": "belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.",
      "helpers": [
       [
        "07.29",
@@ -3043,7 +3071,7 @@
        "Reads each belt's lowest peak aloud after every quarter turn you make."
       ]
      ],
-     "text": "Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time."
+     "text": "Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time."
     },
     {
      "id": "07-ab-belts#4",
@@ -3199,7 +3227,7 @@
      "helpers": [
       [
        "08.31",
-       "Checks that the four bolt heads stand at the same height and points at any that sits proud."
+       "Checks that the four bolt heads stand at the same height and points at any that sits high."
       ]
      ],
      "text": "Step 08.27 → Step 08.32 · ~20 min · leave-state: the tool cartridge is closed around the Revo, the four M3×8 studs are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle; both undo the hand-tight seat you just set."
@@ -3389,18 +3417,16 @@
       "09.2",
       "09.3",
       "09.4",
-      "09.5",
-      "09.6",
-      "09.7"
+      "09.5"
      ],
      "first_step": "09.1",
-     "last_step": "09.7",
+     "last_step": "09.5",
      "href": "../manual/steps/09-electronics-bay/09-1/",
-     "minutes": 25,
+     "minutes": 30,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
+     "leave_state": "printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails bolted through the deck holes and capped. Nothing is laid on the deck or clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
      "helpers": [
       [
        "09.2",
@@ -3413,7 +3439,27 @@
       [
        "09.4",
        "Reads the caliper at the deck edge aloud and writes the thickness down."
-      ],
+      ]
+     ],
+     "text": "Step 09.1 → Step 09.5 · ~30 min · leave-state: printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails bolted through the deck holes and capped. Nothing is laid on the deck or clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access."
+    },
+    {
+     "id": "09-electronics-bay#1",
+     "chapter": "09-electronics-bay",
+     "kind": "build",
+     "steps": [
+      "09.6",
+      "09.7"
+     ],
+     "first_step": "09.6",
+     "last_step": "09.7",
+     "href": "../manual/steps/09-electronics-bay/09-6/",
+     "minutes": 25,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "leave_state": "both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
+     "helpers": [
       [
        "09.6",
        "Writes each joint's mark on the masking tape as the adult pushes the pieces closed."
@@ -3423,10 +3469,10 @@
        "Practises hook, rotate and snap on the spare clip until it clicks on first time."
       ]
      ],
-     "text": "Step 09.1 → Step 09.7 · ~25 min · leave-state: printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access."
+     "text": "Step 09.6 → Step 09.7 · ~25 min · leave-state: both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access."
     },
     {
-     "id": "09-electronics-bay#1",
+     "id": "09-electronics-bay#2",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3449,7 +3495,7 @@
      "text": "Step 09.8 → Step 09.13 · ~30 min · leave-state: Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet."
     },
     {
-     "id": "09-electronics-bay#2",
+     "id": "09-electronics-bay#3",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3471,7 +3517,7 @@
      "text": "Step 09.14 → Step 09.18 · ~30 min · leave-state: PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged."
     },
     {
-     "id": "09-electronics-bay#3",
+     "id": "09-electronics-bay#4",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3503,7 +3549,7 @@
      "text": "Step 09.19 → Step 09.24 · ~30 min · leave-state: every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10."
     },
     {
-     "id": "09-electronics-bay#4",
+     "id": "09-electronics-bay#5",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3543,7 +3589,7 @@
      "text": "Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in."
     },
     {
-     "id": "09-electronics-bay#5",
+     "id": "09-electronics-bay#6",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3573,7 +3619,7 @@
      "text": "Step 09.31 → Step 09.34 · ~25 min · leave-state: XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated."
     },
     {
-     "id": "09-electronics-bay#6",
+     "id": "09-electronics-bay#7",
      "chapter": "09-electronics-bay",
      "kind": "build",
      "steps": [
@@ -3583,13 +3629,13 @@
      "first_step": "09.35",
      "last_step": "09.36",
      "href": "../manual/steps/09-electronics-bay/09-35/",
-     "minutes": 30,
+     "minutes": 45,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.",
      "helpers": [],
-     "text": "Step 09.35 → Step 09.36 · ~30 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
+     "text": "Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
     }
    ]
   },
@@ -3686,9 +3732,9 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead.",
+     "leave_state": "Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead; lay the printer back on its side, bay towards you, for Section 3.",
      "helpers": [],
-     "text": "Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead."
+     "text": "Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead; lay the printer back on its side, bay towards you, for Section 3."
     },
     {
      "id": "10-wiring#4",
@@ -4383,9 +4429,9 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off with the leads tinned. Nothing is glued and nothing is soldered to the bridge PCB yet.",
+     "leave_state": "Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet.",
      "helpers": [],
-     "text": "Step 11.26 → Step 11.29 · ~15 min · leave-state: Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off with the leads tinned. Nothing is glued and nothing is soldered to the bridge PCB yet."
+     "text": "Step 11.26 → Step 11.29 · ~15 min · leave-state: Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet."
     },
     {
      "id": "11-skirts-panels-door#7",
@@ -5652,8 +5698,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -5757,8 +5805,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -5859,6 +5909,7 @@
     ],
     "helpers": [
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -5949,8 +6000,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6041,8 +6094,10 @@
      }
     ],
     "helpers": [
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6136,8 +6191,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6261,8 +6318,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6350,8 +6409,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6814,8 +6875,10 @@
      "b00-calibration-and-jigs#2",
      "b00-calibration-and-jigs#3",
      "b00-calibration-and-jigs#4",
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -6878,6 +6941,7 @@
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
+     "04-ab-drives#6",
      "05-gantry#0",
      "05-gantry#2",
      "05-gantry#3",
@@ -6903,9 +6967,10 @@
      "08-toolhead#8",
      "08-toolhead#9",
      "09-electronics-bay#0",
-     "09-electronics-bay#3",
+     "09-electronics-bay#1",
      "09-electronics-bay#4",
      "09-electronics-bay#5",
+     "09-electronics-bay#6",
      "10-wiring#5",
      "10-wiring#6",
      "10-wiring#7",
@@ -7052,8 +7117,10 @@
      }
     ],
     "helpers": [
+     "b00-calibration-and-jigs#7",
      "b01-z-drive-assemblies#0",
      "b01-z-drive-assemblies#1",
+     "b01-z-drive-assemblies#2",
      "b01-z-drive-assemblies#3",
      "b02-accent-parts-orange#0",
      "b02-accent-parts-orange#1",
@@ -7116,6 +7183,7 @@
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
+     "04-ab-drives#6",
      "05-gantry#0",
      "05-gantry#2",
      "05-gantry#3",
@@ -7141,9 +7209,10 @@
      "08-toolhead#8",
      "08-toolhead#9",
      "09-electronics-bay#0",
-     "09-electronics-bay#3",
+     "09-electronics-bay#1",
      "09-electronics-bay#4",
      "09-electronics-bay#5",
+     "09-electronics-bay#6",
      "10-wiring#5",
      "10-wiring#6",
      "10-wiring#7",
@@ -7449,6 +7518,7 @@
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
+     "04-ab-drives#6",
      "05-gantry#0",
      "05-gantry#2",
      "05-gantry#3",
@@ -7474,9 +7544,10 @@
      "08-toolhead#8",
      "08-toolhead#9",
      "09-electronics-bay#0",
-     "09-electronics-bay#3",
+     "09-electronics-bay#1",
      "09-electronics-bay#4",
      "09-electronics-bay#5",
+     "09-electronics-bay#6",
      "10-wiring#5",
      "10-wiring#6",
      "10-wiring#7",
@@ -8334,7 +8405,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 205,
+    "done": 207,
     "gate_closed": true,
     "start": null,
     "sections": [

@@ -2,16 +2,16 @@
 
 Builds the four Z drive units, the four Z idlers, the four Z linear rails and the deck panel. When this chapter closes, the frame has a floor, feet, and every part of the Z motion system except the belts and the Z joints — the gantry has somewhere to hang from.
 
-**What you're building in this chapter:** the machinery that raises and lowers the gantry, one corner at a time. A **Z drive** is the gearbox in a bottom corner: a printed housing holding three bearings and a shaft, with a big 80-tooth pulley the motor drives through a short closed belt and a 20-tooth pulley the long Z belt runs over — 80:16 of reduction, which is what makes Z fine enough to print with. The housing is two printed halves: a shallow **retainer** tray the shaft and its bearings drop into, and the deeper **main** body that closes over them on six long screws and carries the two M5×40 that bolt the drive to the frame. An blue **baseplate** bolts across the drive's foot face and holds the nut the rubber foot screws into, and an blue cam **tensioner** pushes the motor along its extrusion to pull the short belt tight. Directly above each drive, at the top corner, a **Z idler** carries a free-spinning pulley that turns the long belt back down again; its blue slider is the adjuster you tension that belt with in Ch 06 (final tension is set in Ch 14). Between them run the four **Z linear rails** on the vertical extrusions, the tracks the gantry's corners actually ride on. Last comes the **deck panel**, the acrylic floor that divides the electronics bay underneath from the print chamber above — it goes in now because once the gantry and the wiring are in, it cannot be lifted out again. Four corners, all identical in function, built from mirrored `_a` and `_b` printed parts — diagonal corners share a hand (the map is at Step 02.02).
+**What you're building in this chapter:** the machinery that raises and lowers the gantry, one corner at a time. A **Z drive** is the gearbox in a bottom corner: a printed housing holding three bearings and a shaft, with a big 80-tooth pulley the motor drives through a short closed belt and a 20-tooth pulley the long Z belt runs over — 80:16 of reduction, which is what makes Z fine enough to print with. The housing is two printed halves: a shallow **retainer** tray the shaft and its bearings drop into, and the deeper **main** body that closes over them on six long screws and carries the two M5×40 that bolt the drive to the frame. A blue **baseplate** bolts across the drive's foot face and holds the nut the rubber foot screws into, and a blue cam **tensioner** pushes the motor along its extrusion to pull the short belt tight. Directly above each drive, at the top corner, a **Z idler** carries a free-spinning pulley that turns the long belt back down again; its blue slider is the adjuster you tension that belt with in Ch 06 (final tension is set in Ch 14). Between them run the four **Z linear rails** on the vertical extrusions, the tracks the gantry's corners actually ride on. Last comes the **deck panel**, the acrylic floor that divides the electronics bay underneath from the print chamber above — it goes in now because once the gantry and the wiring are in, it cannot be lifted out again. Four corners, all identical in function, built from mirrored `_a` and `_b` printed parts — diagonal corners share a hand (the map is at Step 02.02).
 
 ```mascot
 pose: point
-caption: The mirrored pair will happily go on the wrong sides. Read the letter cast into each.
+caption: The mirrored pair will happily go on the wrong sides. Check the letter you wrote on each.
 ```
 
 **Time:** 4.25–6.25 h hands-on, first build (survey §7.2, less the ~45 min of rail cleaning and greasing, which is done once for all seven rails in Ch 00 Steps 00.18–00.21).
 
-**Sessions:** 11 × ~30 min — the `Pause:` lines below break the chapter into 11 segments; every minute figure is a first-build estimate.
+**Sessions:** 11 × ~30 min — the `Pause:` lines below break the chapter into 11 segments of 20–55 min; every minute figure is a first-build estimate.
 
 **Prerequisites:**
 
@@ -19,7 +19,7 @@ caption: The mirrored pair will happily go on the wrong sides. Read the letter c
 - Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`, `pulley_jig`.
 - Print batch **B01** (Z drive assemblies) — drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports.
 - Print batch **B02** (Accent parts, blue) plates P1 and P3 — the five `[a]_` parts below.
-- Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf long before kit day, so do them the moment the Motor Kit box is open, and label the motor cables then. then.
+- Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf long before kit day, so do them the moment the Motor Kit box is open, and label the motor cables then.
 - **Chapter 00** complete: all seven rails cleaned, flip-and-packed with grease, wiped and labelled (Steps 00.18–00.21). The four marked Z0–Z3 are used here.
 - Kit boxes open: Motion, Linear Rail Kit, Motor Kit, the M3/M5 fastener bags.
 
@@ -196,6 +196,8 @@ Source: [Voron manual p.23](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ⚠ **Rev D+ / LDO:** the kit supplies the brass tip and 153 inserts for the whole build; this one is the first of the 36 in the drive parts, and none go into a coupon. A bulge means 10 °C cooler and a slower push before the next insert, and a reprinted retainer. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
+⚠ Iron back in its stand between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
+
 Tip: Do not leave the iron sitting in a part, or powered longer than needed: the brass tip oxidises.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
@@ -221,6 +223,8 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Insert pockets are **Ø4.7 × 5 mm deep**. **Ø6 counterbores on the main's flat face take no insert.**
 
 **Check:** 36 inserts in, every one flush or a hair below, none cocked, no melted bulge, nothing in a counterbore.
+
+⚠ Iron back in its stand between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
 
 Tip: The retainer's 7 are 6 in the flat print face plus 1 in a side face; the main's 2 are both in one side face.
 
@@ -278,7 +282,7 @@ Source: [Voron manual p.24](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Rail centred on the front-left vertical's rear-looking face, sitting on the 3 mm key, all nine screws started, both end holes empty.
 
-⚠ **Rev D+ / LDO:** LDO's note "do not use the holes on the ends of the rails, use the second ones from the ends" is written against manual p.88; the survey generalises it to every rail (§4.4 #6). Use holes 2, 4 … 18 of a 20-hole rail on all four Z rails. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** p.25 draws a screw in every other hole from the end hole. LDO's "do not use the holes on the ends of the rails" is written for p.88; the survey applies it to every rail (§4.4 #6). So shift one hole in: holes 2, 4 … 18, leaving 1, 19 and 20 empty. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Tip: Tape-mark the nine holes before you start. Test-fit each T-nut: if one jams, swap the nut, not the face. On the rear verticals the rail faces forward.
 
@@ -358,7 +362,7 @@ Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- `z_rail_stop_x4.stl` ×4 (LDO repo, black) — printed in batch **B05**, which comes *after* this chapter in the timeline
+- `z_rail_stop_x4` ×4
 
 **Do:** If B05 is already printed, fit a stop to the top of each Z rail now, while the rails are accessible. If not, skip: the tape from Step 02.08 covers you until Ch 06.
 
@@ -394,9 +398,10 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 02.12 — Caliper the deck panel and choose the support thickness
 
-![Voron manual p.29](assets/manual-pages/manual-p029.png)
+![Voron manual p.28](assets/manual-pages/manual-p028.png){ crop="0.40 0.57 0.90 0.84" }
+![`deck_support_3mm` — the printed clip; the manual never draws it](assets/parts/deck_support_3mm_x8.png){ width=240 }
 
-**What you're looking at:** Manual p.29: the deck panel and its support clips. The **deck panel** is the acrylic floor separating the electronics bay below from the print chamber above. See the [glossary](16-glossary.md#d). The printed clips twist into the extrusion slots and their ledges carry the panel's edges.
+**What you're looking at:** Manual p.28: the **deck panel**, the acrylic floor separating the electronics bay below from the print chamber above. See the [glossary](16-glossary.md#d). The render is one printed support clip; its slot must match the panel's thickness.
 
 **Parts:**
 
@@ -413,13 +418,13 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ⚠ **Rev D+ / LDO:** LDO's build note for p.29–30 says the LDO deck panel is **4 mm nominal — use `deck_support_4mm`**, but the Rev D 350 BOM lists it as *469×469×**3 mm***. The size-specific 350 BOM wins, so B01 prints the **3 mm** set. Measure, fit whichever matches, reprint the other if you have to. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
+Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
 
 ### Step 02.13 — Drop the deck panel in, notch to the back
 
 ![Voron manual p.28](assets/manual-pages/manual-p028.png){ crop="0.40 0.57 0.90 0.84" }
 
-**What you're looking at:** Manual p.28: the deck panel dropping onto the bed extrusions. The panel is cut 1 mm smaller than the bottom frame's opening, 469 mm on the 350, so it sits inside the frame on the two bed extrusions. The cut-out notch is the cable pass-through.
+**What you're looking at:** Manual p.28: the deck panel dropping onto the bed extrusions. Cut 469 mm, 1 mm under the frame's opening, it sits inside the frame on them. The round hole passes the bed cables, the notch the Z-chain bundle.
 
 **Parts:**
 
@@ -431,7 +436,7 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Lower the panel into the bottom frame's opening, **cut-out notch toward the back**, flat on both bed extrusions.
 3. Line the four bolt holes up over the four T-nuts.
 
-**Check:** Notch at the back. Panel inside the frame opening, flat on both bed extrusions, flush with the frame face, no rock or gap.
+**Check:** Notch at the back. Panel inside the frame opening, flat on both bed extrusions, sunk 16–17 mm below the rails' upward faces, no rock.
 
 **Helper:** Holds the far edge of the deck panel level as it lowers into the frame.
 
@@ -439,9 +444,9 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 02.14 — Fit the deck support clips
 
-![Voron manual p.29](assets/manual-pages/manual-p029.png)
+![`deck_support_3mm` — the printed clip; the manual never draws it](assets/parts/deck_support_3mm_x8.png){ width=240 }
 
-**What you're looking at:** Manual p.29: eight deck support clips going into the extrusion slots. Each `deck_support` is a small T-tab, about 20 × 14.5 × 5.8 mm, with a ledge. Inverted, these eight ledges are the only thing carrying the panel until Ch 09 bolts it.
+**What you're looking at:** One `deck_support` clip: a small T-tab, about 20 × 14.5 × 5.8 mm, with a ledge. The manual never draws them. Once the printer is upright, the panel hangs under the bed extrusions and these eight ledges carry it until Ch 09 bolts it.
 
 **Parts:**
 
@@ -515,7 +520,7 @@ Pause: ~30 min since the last pause — the printer is inverted and stable, the 
 2. Rotate until you **see the D-cut flat down a set-screw hole**.
 3. Fit both set screws with a hex driver, **not** a ball-end.
 
-**Check:** One set-screw hole showed the flat before the screws went in; 33 mm from the long shaft end to the pulley's toothed face.
+**Check:** One set-screw hole showed the flat before the screws went in; 33 mm from the long shaft end to the pulley's near flange.
 
 **Helper:** Reads the caliper aloud: 33 mm from the long shaft end to the pulley.
 
@@ -867,7 +872,7 @@ Source: [Voron manual p.42](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- `[a]_belt_tensioner_a` or `_b` ×1 (blue)
+- `[a]_belt_tensioner_a` ×1
 - M5×10 BHCS ×1
 
 **Do:**
@@ -964,8 +969,9 @@ Pause: ~30 min since the last pause — the Z0 corner is complete: drive body on
 
 **Do:**
 
-1. Repeat Steps 02.29–02.37 at Z2 rear-right with the other `_a` set, then at Z1 rear-left and Z3 front-right with the `_b` parts: diagonal corners share a hand.
+1. Repeat Steps 02.29–02.37 at Z2 with the other `_a` set, then at Z1 and Z3 with the `_b` parts.
 2. Label each motor's cable Z0/Z1/Z2/Z3 by its physical corner.
+3. With a helper, turn the printer upright onto its feet.
 
 **Check:** Four drives, feet, tensioned belts, closed cams and labelled cables. Deck captured by its eight clips, the frame back upright on its feet without rocking.
 
@@ -973,7 +979,7 @@ Pause: ~30 min since the last pause — the Z0 corner is complete: drive body on
 
 Source: [Voron manual p.47](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=47) · [LDO wiring guide § Connecting Steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers) · [Video: Part 2 @0:02:14](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=134s)
 
-Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 built and fitted the same way. Stop after any corner whose four M5 bolts are tight, tensioner closed and foot fitted; never with a cam open and the motor free to slide. All four cables labelled Z0–Z3 by physical corner.
+Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 built and fitted the same way. Stop after any corner whose four M5 bolts are tight, tensioner closed and foot fitted; never with a cam open and the motor free to slide. All four cables labelled Z0–Z3 by physical corner, and the printer back upright on its feet.
 
 ### Step 02.39 — Assemble a Z idler cage
 
@@ -986,7 +992,7 @@ Pause: ~55 min since the last pause, in three ~18-min corners — Z1, Z2 and Z3 
 
 - `z_tensioner_bracket_a` ×2
 - `z_tensioner_bracket_b` ×2
-- `[a]_z_tensioner_9mm` ×4 (blue)
+- `[a]_z_tensioner_9mm` ×4
 - M3×16 SHCS ×4
 - M3 hexnut ×4
 
@@ -1100,7 +1106,7 @@ Pause: ~25 min since the last pause — all four Z idlers mounted, each aligned 
 - [ ] All four Z rails run their full travel with no notch, tight spot or grinding; every carriage is taped or stoppered.
 - [ ] Rail surfaces are clean and dry and grease is inside the carriages only — carried over from Ch 00 Steps 00.18–00.21 and re-confirmed at Step 02.05.
 - [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left ↔ rear-left, front-right ↔ rear-right), and share the same 3 mm bottom gap and the same nine-hole pattern (holes 2–18, no end holes).
-- [ ] Deck panel notch is at the **back**; panel sits inside the frame opening on the bed extrusions, captured by eight clip ledges, no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
+- [ ] Deck panel notch is at the **back**; panel sits inside the frame opening under the bed extrusions, held up by eight clip ledges, no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
 - [ ] `_a` parts at Z0 and Z2, `_b` at Z1 and Z3 (or the reverse if the Step 02.29 dry-fit said so — written in the build log), and each idler the same hand as the drive below it.
 - [ ] Measured deck-panel thickness is written down and the fitted deck supports (8 off) match it.
 - [ ] Every 20T drive pulley sits 33 mm along its shaft; every 16T motor pulley sits 10.7 mm off the motor face.

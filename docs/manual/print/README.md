@@ -4,7 +4,8 @@
 **PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
-previous figure beside each one, and the exact unrounded values, are in `slicer/estimates.csv`;
+previous figure beside each one, and the exact unrounded values, are in `slicer/estimates.csv`. Totals here are
+sums of the rounded plate figures, so they can differ from that file's TOTAL rows by 0.1–0.2 h or a gram or two;
 `python3 slicer/check_docs.py` re-checks every number on this page against it.
 
 **B11**, the PETG V0 bay ducting, is a separate batch outside this run: 5 plates, 25.0 h, 348 g of Jet Black
@@ -161,7 +162,7 @@ predicted, on such a plate:
 
 - **B09-P1** (Nevermore plenum, plenum lid, cartridge lid) — spool #2 has about 27 g left when it starts.
 
-Two rules that override the ledger:
+Four rules that override the ledger:
 
 - **B01-P1 needs ≥ 201 g on the spool at start** (the ledger has it on a fresh spool #1 with 748 g — fine).
   If a reprint or an extra plate has pushed the active spool under ~230 g, start B01-P1 on a fresh one and
@@ -170,6 +171,9 @@ Two rules that override the ledger:
   Clockwork 2 gear bores, and a resume seam there is not worth 133 g. Keep the stub for a clip reprint.
 - **B02-P1/P2/P3** run back to back on the one accent spool — two colour changes in the entire build, and
   that is the point ([print plan §4.3](../../voron-print-plan.md#43-spool-changes)).
+- **B08-P4 starts with only ~27 g of cushion** on spool #2 (97 g for a 70 g plate). A runout there lands on a
+  side skirt, where the seam shows. If #2 looks light or its flange reading says under ~90 g, start B08-P4 on
+  #3; B09-P1 then runs whole on #3 and #2's stub is kept for clips.
 
 | plate | slicer g | actual g (weigh) | spool # | remaining |
 |---|---:|---:|---|---:|
@@ -197,6 +201,30 @@ Two rules that override the ledger:
 | B10-P1 | 76 | | #3 | 454 |
 | **TOTAL black** | **1813** | | 3 × 800 g | **587 g margin** (454 on #3 + 133 on #1) |
 | **TOTAL blue** | **279** | | 1 × 800 g | **521 g margin** |
+
+## When the printer stops
+
+A plate that stops is almost always one of these five. Read the screen first, and keep hands out of the
+chamber until the bed and nozzle have cooled: the nozzle runs at 265 °C and the bed at 110 °C. The helper
+never reaches in.
+
+| What you see | What to do |
+|---|---|
+| **"Filament runout during print, please insert new one"** | Normal: the sensor paused the plate. Follow the screen: it heats and walks you through the change. Load the next spool, check it extrudes clean, press **Continue**. A seam at that layer is fine on a part with no bearing seat; on a bearing-seat part, reprint it. Write the swap in the [ledger](#spool-ledger). |
+| **The power went off** | Power Panic saved the plate. When power returns the printer offers to resume. First check every part is still stuck down: a long cut cools the bed and ASA lets go ("The heatbed cooled down during the power outage"). Stuck: resume and stay for 10 minutes. Loose: cancel and reprint the plate. Power Panic does not cover switching the printer off yourself. |
+| **"The bed doesn't seem to be aligned properly. Run Z alignment procedure?"** before the plate starts | Cancel the print. Run **Control → Calibrations & Tests → Z alignment calibration**, press **Quit** when it asks, and start the plate again. Prompt again: brass-brush the hot nozzle clean, check nothing is under the sheet, and pass the [hot first-layer check](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) before the next plate. |
+| **The nozzle taps the same spot over and over** while it probes | Usually ooze or dirt on the tip. Cancel, brass-brush the hot nozzle, wipe the sheet, start again. Still looping on a clean nozzle: stop the run until the cause is found; it is the printer, not the plate. |
+| **Spaghetti, a part knocked loose, or a blob on the nozzle** | Stop the print from the knob menu. Let everything cool before you touch it, then clear the sheet. Plastic wrapped round the heater block: stop the run and ask Prusa support before the next plate; never pull on the wires. Reprint the whole plate: a part that stopped halfway is scrap, marked `R` per [Bins](#bins). |
+
+A first layer that looks wrong is not in this table: stop it and fix the cause, as at
+[Step B00.4](B00-calibration-and-jigs.md#step-b004-print), and see [troubleshooting](../15-troubleshooting.md) for
+parts that print but measure wrong. Still stuck on the Core One+ itself: Prusa's 24/7 support chat, from
+[help.prusa3d.com](https://help.prusa3d.com).
+
+Sources: [Prusa KB — Filament runout #31829](https://help.prusa3d.com/article/filament-runout-31829-core-one-35829-core-one-l-17829-xl-26829-mk4s-13829-mk4-27829-mk3-9s-21829-mk3-9-28829-mk3-5s-23829-mk3-5-12829-mini_916077) ·
+[Power Panic](https://help.prusa3d.com/article/power-panic_2092) ·
+[Heatbed cooled during the outage #31808](https://help.prusa3d.com/article/the-heatbed-cooled-down-during-the-power-outage-31808-core-one-35808-core-one-l-26808-mk4s-27808-mk3-9s-28808-mk3-5s-13808-mk4-21808-mk3-9-23808-mk3-5-17808-xl_899380) ·
+[Uneven bed #31111](https://help.prusa3d.com/article/uneven-bed-31111-core-one-35111-core-one-l-36111-core-one-indx_856294)
 
 ## B11 — bay ducting (PETG V0)
 

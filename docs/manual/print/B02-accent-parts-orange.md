@@ -105,6 +105,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides, no brim on this plate's parts.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; SB body prints without support failure.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -132,6 +134,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** `Handle` stands through the full print with no lean; brim shows no lift.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -158,6 +162,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** No warp on the small parts, and the guidler, latch and latch shuttle print crisp.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

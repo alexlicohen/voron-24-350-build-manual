@@ -74,6 +74,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Clean first layer across the inlet's full 118 mm; no corner lift.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -97,6 +99,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Watch for end-lift on the 100 mm mounts partway through: this is the batch's known warp risk.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 

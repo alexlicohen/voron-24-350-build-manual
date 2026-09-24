@@ -11,7 +11,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 
 **Time:** 2.5–4.0 h hands-on, first build, two people ([survey §5.1 P01 / §7.2](../voron-build-instructions-survey.md)).
 
-**Sessions:** 4 × ~30 min — the `Pause:` lines below break the chapter into 4 segments; every minute figure is a first-build estimate.
+**Sessions:** 4 × ~40 min — the `Pause:` lines below break the chapter into 4 segments of 25–65 min; every minute figure is a first-build estimate.
 
 **Prerequisites:**
 
@@ -20,11 +20,11 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 
 **Tools**
 
-- 3 mm hex key, straight, long-arm — the kit's 3 mm L-wrench (the Fabreeko precision set is ball-end) — for the 16 M5×16 BHCS blind joints; the access hole is in line with the bolt, so no ball end is needed and a straight key is better for the torque pass. A 3 mm ball-end is optional for the first snug
+- 3 mm hex key, straight, long-arm — the kit's 3 mm L-wrench, if the kit has one (verify on bench); the Fabreeko precision set is ball-end — for the 16 M5×16 BHCS blind joints; the access hole is in line with the bolt, so no ball end is needed and a straight key is better for the torque pass. A 3 mm ball-end is optional for the first snug
 - Machinist square, 150 mm, DIN 875/2 or better
 - Steel rule 300 mm, plus a steel tape ≥1 m (a 350 frame's plan diagonal is ≈721 mm)
 - Straightedge + feeler gauges, 0.02–0.10 mm — to re-check the reference surface (Step 01.1)
-- Flat reference surface: the kitchen stone counter, verified (decision recorded in `CLAUDE.md` → Tools & metrology)
+- Flat reference surface: the kitchen stone counter, verified (decision: Ch 00 Step 00.10)
 - Rubber or nylon mallet, for nudging the frame square
 - Torque screwdriver 0.5–3 N·m — optional; the manual specifies no torque value
 - Masking tape + marker (FRONT label, extrusion labels, log)
@@ -139,7 +139,8 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Deburr all 10 A and 4 B end faces.
-2. Roll an M5 nut into the front and rear bottom rails' top channel, and the M3 nut into each vertical's two channels without access holes; tape the better face.
+2. Roll the M5 nut down each A's four channels; tape the easiest one.
+3. Roll the M3 nut into each B's two channels without access holes.
 
 **Check:** Every end face sits flat on the machinist square with no rock, and every T-nut rolls in and rotates with finger pressure.
 
@@ -204,8 +205,8 @@ Pause: ~40 min since the last pause — extrusions sorted and labelled A–E, al
 
 **Do:**
 
-1. Lay four A extrusions flat on the stone in a square, each end face pointing into a corner void. They do not touch each other.
-2. Keep every part flat on the stone. Build here and nowhere else.
+1. Lay four A extrusions flat on the stone in a square, taped channel up, each end face pointing into a corner void. They do not touch each other.
+2. Keep every part flat on the stone.
 
 **Check:** All four extrusions lie dead flat with no gap under any of them. The four corner voids are square and roughly 20 × 20 mm.
 
@@ -426,10 +427,10 @@ Pause: ~65 min since the last pause — the frame is assembled, squared on both 
 
 **Do:**
 
-1. Bolt a corner bracket to each end of the last two A extrusions: one leg on the end face, M5×16 BHCS into the centre bore.
-2. Other leg flush with the bottom face, pointing outward. Snug only.
+1. Bolt a bracket to each end of both A extrusions: one leg on the end face, M5×16 BHCS in the centre bore.
+2. Free leg flush with the bottom face, past the end, to sit on the rail. Snug.
 
-**Check:** 4 brackets, 4 bolts, every free leg flush with the bottom face and pointing outward, all four oriented identically.
+**Check:** 4 brackets, 4 bolts, every free leg flush with the bottom face and pointing away from its end, all four oriented identically.
 
 Tip: Leave the M5×16 snug. Step 01.19 tightens them once the brackets sit flat on the rails.
 

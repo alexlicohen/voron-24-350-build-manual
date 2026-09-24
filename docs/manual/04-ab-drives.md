@@ -2,7 +2,7 @@
 
 Builds the four CoreXY sub-assemblies that carry the A and B belts — two motor-carrying drive units and two front idlers with their tension arms. Unlocks Ch 05 (gantry), which bolts all four onto the Y extrusions.
 
-**What you're building in this chapter:** the four corners the printer's two long belts run around. In **CoreXY**, two motors sit fixed at the back of the machine and pull two crossed belts; drive both the same way and the toolhead moves in X, drive them opposite ways and it moves in Y — nothing heavy has to move with the toolhead, which is why the machine can be fast ([glossary](16-glossary.md#c)). **A** is the rear-right corner and **B** the rear-left. Each is a **drive unit**: a printed frame in two halves, holding stacks of small flanged bearings on two standing bolts, with a stepper motor bolted underneath and a toothed pulley on its shaft. At the front, each belt turns around a **front idler** — the same printed sandwich of bearings, with no motor, plus an blue **tension arm** that carries the bearing stack on its own axle bolt and that a small screw draws forward to take up belt slack in Ch 07. The two belts run at two different heights so they never touch, and almost everything in this chapter exists to set those two heights exactly: the pulley height on each motor, the bearing-stack heights on each post, and the deliberately different heights of the two idler frames. All four assemblies are built on the bench and bagged; none of them touches the printer until Ch 05.
+**What you're building in this chapter:** the four corners the two long belts run around. In **CoreXY** two motors fixed at the back pull two crossed belts, so nothing heavy rides with the toolhead ([glossary](16-glossary.md#c)). **A** is the rear-right corner, **B** the rear-left. Each **drive unit** is a two-half printed frame with flanged bearing stacks on two standing bolts and a stepper motor underneath. Each **front idler** is the same bearing sandwich without a motor, plus a blue **tension arm**. The two belts run at two heights, and most of this chapter sets those heights exactly. Everything is built on the bench and bagged.
 
 ```mascot
 pose: point
@@ -11,12 +11,12 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 
 **Time:** 3.5–5.0 h hands-on, first build ([survey §5.1 P04](../voron-build-instructions-survey.md)).
 
-**Sessions:** 6 × ~30 min — the `Pause:` lines below break the chapter into 6 segments; every minute figure is a first-build estimate.
+**Sessions:** 7 × ~30 min — the `Pause:` lines below break the chapter into 7 segments; every minute figure is a first-build estimate.
 
 **Prerequisites:**
 
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
-- **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 8.5 h, 119 g black ([print plan](../voron-print-plan.md)). B03's plate captions were corrected 2026-09-05 to pair `front_idler_right_*` with the A drive and `front_idler_left_*` with B — see Step 04.2. Both plates print all eight frames either way.
+- **Print batch B03** — *A/B drive units + front idlers*, 2 plates, 8.5 h, 119 g black ([print plan](../voron-print-plan.md)). `front_idler_right_*` go with the A drive, `front_idler_left_*` with B (Step 04.2).
 - **Print batch B02** — *the accent day*, plate **B02-P2**, for `[a]_tensioner_left` and `[a]_tensioner_right`.
 - **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 
@@ -27,7 +27,7 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 - Temperature-controlled soldering iron + LDO brass M3 insert tip (4 heat-set inserts, Steps 04.3–04.4)
 - Printed `pulley_jig.stl` (Voron-2 `STLs/Tools/`)
 - Digital caliper — pulley height fallback, and to confirm both drives match
-- A 60 mm offcut of 6 mm 2GT belt, or a thin steel rule — the belt-path straightness check
+- The free end of the kit's 6 mm A/B belt reel, **uncut** — the belt-path straightness check. Cutting belt waits for Ch 07's matched cut
 - Tweezers or a small screwdriver to place spacers into the stacks without dropping them
 - Masking tape + marker — label every assembly **A** or **B** as it is finished
 
@@ -75,6 +75,7 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 - **Where each assembly ends up, standing in front of the printer: A = rear right, B = rear left.** The official manual shows it (p.63, p.83 — A on the right, B on the left, seen from the front) but never writes it; the LDO wiring guide does, and the LDO Klipper config repeats it (`## B Stepper - Left`, `## A Stepper - Right`). It follows that the A idler is the **front right** pair and the B idler the **front left** pair. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 - **The bearing stacks are the mistake everyone makes.** Every F695 pair goes **flange-out** — the two plain faces touch, the two flanges face away from each other — with one spacer above the pair and one below. The drive's far post takes **two** such pairs (4 bearings, 4 spacers); the near post and each front idler take **one** (2 bearings, 2 spacers).
 - **The A and B pulleys sit at different heights and face opposite ways**: A is hub-down at 16.5 mm (p.75), B is hub-up at 6.5 mm (p.79). That difference is what stacks the two belt planes. No amount of belt tension in Ch 07 will fix it if you set them the same.
+- **Short a bearing, spacer or pulley?** This chapter needs exactly 16 F695, 16 spacers and the two 6 mm pulleys. Recount against your Ch 00 inventory sheet, then contact Fabreeko support. Never borrow a 9 mm Z pulley.
 - **LDO's Build Notes have no entry for p.62–81.** The only kit deviation in this whole chapter is the standing substitution from their p.19 note: brass M5 precision spacer everywhere the manual writes "M5 shim". [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 **Sources for this chapter:**
@@ -167,11 +168,11 @@ Source: [Voron manual p.63](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Find the two blind 4.7 mm bosses either side of the motor bore on `a_drive_frame_upper`, ~56 mm apart.
-2. At your ASA insert temperature, hold the part flat and press each insert straight down until flush. Let it cool.
+2. At the temperature written on your iron, press each insert straight down until flush, part held flat. Let it cool.
 
 **Check:** Both inserts flush and square. `b_drive_frame_upper` takes **no** inserts; bosses on it mean you picked up the A frame.
 
-Tip: if your print batch already ran its insert pass ([survey §4.4 #4](../voron-build-instructions-survey.md)), just confirm the two are present and skip ahead.
+Tip: if you ran the B03 insert pass that Step 00.16 plans, just confirm the two are present and skip ahead.
 
 Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=64) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -598,6 +599,8 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=74)
 
+Pause: ~25 min since the last pause — the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off.
+
 ---
 
 ### Step 04.24 — A drive: set the pulley on the A motor at 16.5 mm
@@ -625,8 +628,6 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Reads the caliper aloud while you slide the pulley along the shaft.
 
-Tip: the jig stands on its long bottom edge either side of the two feet, never on the feet; stood on the feet every height reads 3 mm high.
-
 ⚠ Jig misuse: the plate stands beside the pulley, never over the boss. Its two feet hang past the motor face; stood on the feet every height reads 3 mm high. Without the jig, set 16.5 mm with a caliper.
 
 ⚠ Rev D+ / LDO: the two A/B motors are **0.9°** (`LDO-42STH48-2004MAH(VRN)`); the four Z motors are 1.8° and look identical. Read the label: **-2004MAH** = A/B (0.9°), **-2004AC** = Z (1.8°). Take an A/B motor, not a spare Z motor. This is why the LDO config carries `full_steps_per_rotation: 400` in `[stepper_x]` and `[stepper_y]`, set in Ch 12. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
@@ -649,11 +650,11 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Back both set screws out, a drop of Loctite 243 on each, refit.
-2. Land the first set screw on the shaft's flat if there is one, then the second.
-3. Recheck the height with the jig and caliper.
+1. Back both set screws out. Blue patch on the thread? Refit dry. Otherwise one drop of Loctite 243 each.
+2. Land the first on the shaft's flat, if any, then the second.
+3. Recheck the height.
 
-**Check:** The pulley will not twist or slide under firm hand pressure and still reads 16.5 mm. A dry blue patch is pre-applied threadlocker; add none.
+**Check:** The pulley will not twist or slide under firm hand pressure and still reads 16.5 mm.
 
 Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=75)
 
@@ -703,29 +704,29 @@ Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.76](assets/manual-pages/manual-p076.png){ crop="0.58 0.30 0.90 0.80" }
 
-**What you're looking at:** Manual p.76's elevation and a belt offcut used as a straightedge. The A pulley runs in the **upper** belt plane, level with the near pair and the far post's upper pair.
+**What you're looking at:** Manual p.76's elevation and the belt reel's free end used as a straightedge. The A pulley runs in the **upper** belt plane, level with the near pair and the far post's upper pair.
 
 **Parts:**
 
-- tool: a 6 mm belt offcut or a thin steel rule
+- tool: free end of the 6 mm belt reel, uncut
 - consumable: masking tape
 - tool: marker
 
 **Do:**
 
 1. Motor down, compare against p.76's elevation: pulley in the upper plane, level with the near pair.
-2. Lay the offcut across the pulley teeth, the near pair and the far post's **upper** pair.
+2. Lay the belt end across the pulley teeth, near pair and far post's **upper** pair.
 3. Label it **A: REAR RIGHT**.
 
-**Check:** **Belt path straight**: offcut flat on the pulley, the near pair and the far post's **upper** pair; no tilt, no flange contact.
+**Check:** **Belt path straight**: belt flat on the pulley, the near pair and the far post's **upper** pair; no tilt, no flange contact.
 
-**Helper:** Sights along the offcut at eye level and says if it tilts.
+**Helper:** Sights along the belt at eye level and says if it tilts.
 
-Tip: the far post's lower pair sits 10 mm below the offcut. That is correct: it carries the B belt, so leave the stack alone.
+Tip: the far post's lower pair sits 10 mm below the belt. That is correct: it carries the B belt, so leave the stack alone.
 
 Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=76) · [Video: Part 5 @1:12:36](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4356s)
 
-Pause: ~50 min since the last pause — the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.
+Pause: ~25 min since the last pause — the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.
 
 ---
 
@@ -855,7 +856,7 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - consumable: Loctite 243
 - tool: 1.5 mm hex key
 
-**Do:** Loctite 243 on both set screws, first one onto the shaft flat if there is one, then the second. Re-measure with the jig and then the caliper after tightening.
+**Do:** Back both set screws out: refit dry if the thread carries a blue patch, else one drop of Loctite 243 each. First one onto the shaft flat if there is one, then the second. Re-measure with the jig and caliper.
 
 **Check:** No slip under hand pressure; still 6.5 mm.
 
@@ -905,21 +906,21 @@ Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.80](assets/manual-pages/manual-p080.png){ crop="0.53 0.35 0.85 0.83" }
 
-**What you're looking at:** Manual p.80's elevation and the belt offcut again. The B pulley runs in the **lower** belt plane, level with the near pair and the far post's lower pair.
+**What you're looking at:** Manual p.80's elevation and the belt's free end again. The B pulley runs in the **lower** belt plane, level with the near pair and the far post's lower pair.
 
 **Parts:**
 
-- tool: the belt offcut or steel rule
+- tool: free end of the 6 mm belt reel, uncut
 - consumable: masking tape
 - tool: marker
 
-**Do:** Motor down, compare against p.80's elevation: pulley in the lower plane. Lay the offcut across the pulley teeth, the near pair and the far post's **lower** pair. Label it **B: REAR LEFT**.
+**Do:** Motor down, compare against p.80's elevation: pulley in the lower plane. Lay the belt's free end across the pulley teeth, the near pair and the far post's **lower** pair. Label it **B: REAR LEFT**.
 
-**Check:** **Belt path straight**: offcut flat on the pulley, the near pair and the far post's **lower** pair; no tilt, no flange contact.
+**Check:** **Belt path straight**: belt flat on the pulley, the near pair and the far post's **lower** pair; no tilt, no flange contact.
 
-**Helper:** Sights along the offcut at eye level and says if it tilts.
+**Helper:** Sights along the belt at eye level and says if it tilts.
 
-Tip: the far post's upper pair sits 10 mm above the offcut. That is correct: it carries the A belt, so leave the stack alone.
+Tip: the far post's upper pair sits 10 mm above the belt. That is correct: it carries the A belt, so leave the stack alone.
 
 Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=80)
 
@@ -964,7 +965,7 @@ Pause: ~15 min since the last pause — all four assemblies bagged and labelled 
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] A pulley: hub down, 16.5 mm. B pulley: hub up, 6.5 mm. The two are visibly different.
 - [ ] Both pulleys are threadlocked and will not slip under hand pressure.
-- [ ] The belt offcut lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
+- [ ] The belt's free end lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
 - [ ] Both motor cable exits point inboard; held in their build positions, they face each other.
 - [ ] Every M5×30 BHCS is snug only — none was torqued down into the plastic thread.
 - [ ] Zero bearings, spacers or fasteners left over.

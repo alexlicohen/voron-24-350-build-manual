@@ -15,9 +15,10 @@ Twenty files in **three views**. Profile when the bird is looking at something; 
 it is doing something and wants you to see it; front when it is addressing you directly. Every file
 animates gently on its own and goes completely static under `prefers-reduced-motion: reduce`.
 
-**Nothing in the manual uses these yet.** This page is the review: look at each pose on both
-backgrounds, kill the ones that do not earn their place, then pick a name. The spec — the three view
-constructions, layer names, palette, the humour rule and where each pose is proposed to go — is in
+This page is his character sheet: every pose on both backgrounds, and what each one is for. He is
+live across the manual: the badge in Check, Tip, Pause, Gather and Helper rows, a scene on some
+chapter starts, and the `pass` pose on the Checkpoint rewards. The spec — the three view constructions, layer
+names, palette, the humour rule and where each pose goes — is in
 [STYLE.md](manual/assets/mascot/STYLE.md).
 
 ---
@@ -185,8 +186,9 @@ Standing, facing you, with the slightest turn. Carries the `.wave` one-shot gree
 
 ### Warn — hard hat, wings spread
 
-Safety only: mains, hot end, blade, magnets. A warning addresses the reader, so it is the front
-view. No joke, no smile, and not on every warning box.
+Ch 00a only, on its chapter start: the build rejects `pose: warn` on any other page, and no step
+carries it. A warning addresses the reader, so it is the front view. No joke, no smile, and never in
+a warning box.
 
 ![Warn, light](manual/assets/mascot/preview/mascot-warn-light.png){ width="256" }
 ![Warn, dark](manual/assets/mascot/preview/mascot-warn-dark.png){ width="256" }
@@ -219,7 +221,7 @@ the fledgling hopping, the first layer growing, the hex key turning, the chevron
 Every pose has exactly **two wings** — a side is either folded or spread, never both, and the
 generator fails the build if that stops being true.
 
-Reference the **SVG** in a page, not the preview PNG — the previews exist only for this review. Size
+Reference the **SVG** in a page, not the preview PNG — the previews exist only for this page. Size
 with `width`; use `mascot-badge.svg` below 160 px and nothing else. One mascot per page. There is
 deliberately **no pose for mains, soldering iron, blade or hot chamber**: those steps get no mascot,
 not even the Check / Tip / Pause / Gather badges. The steps are listed in `NO_MASCOT_STEPS` in

@@ -193,7 +193,7 @@ Then confirm in Mainsail's config editor that these are uncommented: `[stepper_x
 
 **Helper:** Reads the four axis_maximum numbers off the browser and checks them against 350, 350, 330, 0.
 
-Tip: with every size commented out Klipper refuses to start, so if it is running one pair is live. Step 13.22 proves it: `M114` must read `X:350.000 Y:350.000`. (survey §5.2 W14)
+Tip: with every size commented out Klipper refuses to start, so if it is running one pair is live. Step 13.23 proves it: `M114` must read `X:350.000 Y:350.000`. (survey §5.2 W14)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-235) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Moonraker API § Query printer object status](https://moonraker.readthedocs.io/en/latest/external_api/printer/)
 
@@ -446,7 +446,7 @@ Source: [Voron startup wizard § Stepper motor check](https://docs.vorondesign.c
 | Symptom | Fix |
 |---|---|
 | Nothing moved | Check `enable_pin` and `step_pin`, and that the driver has power |
-| Buzzed but did not travel 1 mm cleanly | Stepper phase wiring: the two coil pairs are transposed in the connector |
+| Buzzed but did not travel 1 mm cleanly | Coil pairs transposed in the connector. **Power down**, then re-pin it so each coil is a pair |
 | The wrong motor answered | Motors in the wrong ports. **Power the machine down** before moving any stepper connector |
 | It moved the wrong way | Invert that stepper's `dir_pin`: add a `!` so `dir_pin: PD3` becomes `dir_pin: !PD3`, or remove an existing `!`. `RESTART` and re-run the buzz |
 
@@ -616,10 +616,10 @@ Pause: ~20 min since the last pause — all three endstops and the inductive pro
 **Do:**
 
 1. Two people: one owns the stop, one watches, hands out.
-2. Test the stop: `M112` alone on the line, Mainsail's red **Emergency Stop**, then the touchscreen E-stop.
-3. Put `M112` typed and unsent in a second window, `FIRMWARE_RESTART`, then send `G28 X`.
+2. Test each stop, `FIRMWARE_RESTART` after each: `M112` alone on the line, Mainsail's red **Emergency Stop**, the touchscreen E-stop.
+3. Put `M112` typed and unsent in a second window, then send `G28 X`.
 
-**Check:** The toolhead lifts 10 mm, then travels to the **right** until it hits the X endstop, backs off 5 mm and re-touches.
+**Check:** Each stop put Klipper in Shutdown. The toolhead lifts 10 mm, travels **right** to the X endstop, backs off 5 mm and re-touches.
 
 ⚠ Before `G28 X`, confirm the gantry is still a third of the way up, where Step 13.17 left it: every homing move before Z is homed lifts it another 10 mm.
 
@@ -1110,7 +1110,7 @@ The first print is the last check in this chapter, not the start of tuning. The 
 - tool: steel rule or caliper
 - consumable: masking tape
 
-**Do:** *Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Homed and hot from Step 13.39, send `LOAD_FILAMENT TEMP=260`. Wipe the extruded blob off the nozzle.
+**Do:** *Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; it heats and waits. Wipe the extruded blob off the nozzle.
 
 *Measure.* Add `max_extrude_only_distance: 150` to `[extruder]` and `RESTART` — Klipper's default is **50 mm**, so a single `G1 E100` errors out with "Extrude only move too long". `G28`, park with `G0 X175 Y10 Z50 F6000`, heat to 260 °C. Put a piece of tape on the filament at the **120 mm** mark, measured from where the filament enters the extruder. Then extrude 100 mm slowly, in relative mode, at 1 mm/s:
 

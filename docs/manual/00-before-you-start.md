@@ -120,6 +120,8 @@ caption: One bin per chapter now. The alternative is meeting every screw again a
 
 **Check:** No crushed corners, no rattle from carton 2, no oil through carton 1; every panel filmed both faces until Ch 11.
 
+Tip: a good lamp, 1.5 × 1.5 m of clear floor, and one bin for all packaging. Check the bin for parts before it goes out.
+
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [survey](../voron-build-instructions-survey.md)
 
 ---
@@ -230,7 +232,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Helper:** Counts the eight panels against the BOM and writes the deck thickness on the tape.
 
-⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D BOM says **3 mm**. B01-P2 carries `deck_support_3mm_x8` and has not started; if the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md) first. Those clips, `deck_support_4mm_x8`, are an 8 g, 30-minute print and must exist before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D BOM says **3 mm**. B01-P2 printed `deck_support_3mm_x8` months ago. If the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md): print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -250,7 +252,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Do:**
 
-1. Handle the board by its edges on an antistatic bag.
+1. Touch bare metal first, then handle the board by its edges on its antistatic bag.
 2. Check all four markers below against the V2 board doc.
 
 | # | Marker |
@@ -345,7 +347,7 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 **Helper:** Lays the kit tools out on the bench and counts five wrenches, one tip and one drill bit.
 
-Tip: `CLAUDE.md` lists "5 mm hex driver for M5 frame bolts" as an open purchase. It is not needed — the M5 BHCS the frame uses is a 3 mm drive.
+Tip: no 5 mm hex driver is needed. The M5 BHCS the frame uses is a 3 mm drive.
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -368,11 +370,11 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Precision hex driver set of 5, ball-end | **Bought** — Fabreeko, in kit order F6424626 | Ch 02 (Ch 01 uses the kit's straight 3 mm key) |
 | Hex wrenches 1.5–4 mm | **In the kit** | Ch 01 |
 | Flat reference surface | **Resolved** — kitchen stone counter, verified in Step 00.10 | Ch 01 |
-| Digital caliper, 150 mm | **Buy** | Ch 00 (deck gate, cube gate) |
-| Machinist square, 150 mm DIN 875/2 | **Buy** | Ch 01 (frame squaring) |
+| Digital caliper, 150 mm | **Owned** — iGaging Absolute Origin, bought 2026-09-07 | Ch 00 (deck gate, cube gate) |
+| Machinist square, 150 mm DIN 875/2 | **Owned** — PEC 6 in, bought 2026-09-07 | Ch 01 (frame squaring) |
 | Temperature-controlled soldering iron, 900M-T tip fitting | **Owned** — X-Tronic; its stock conical tip sets the early Gate B inserts | Ch 00 (insert practice) |
 | LDO brass M3 heat-set tip | **In the kit** — it lands with the kit and is used from Ch 00 on. Nothing is bought to bring it forward | Ch 00 |
-| Flush cutters | **Buy** | Ch 07 (belts), Ch 10 (zip ties) |
+| Flush cutters | **Owned** — Hakko CHP-170, bought 2026-09-07 | Ch 07 (belts), Ch 10 (zip ties) |
 | Torque screwdriver 0.5–3 N·m | **Buy — optional.** No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec | Ch 01 |
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 10 (mandatory — Checkpoint #1) |
@@ -572,6 +574,8 @@ Pause: ~15 min since the last pause — kit day: every fastener bag is still clo
 
 ⚠ **Rev D+ / LDO:** LDO publishes no temperature, and the [technique guide](https://voron.link/m5ybt4d) on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 153 kit inserts. The adult holds the iron; the helper never does.
 
+⚠ The tip burns at a touch. Rest the iron in its stand between inserts, never on the bench, and keep a window open for the ASA fumes.
+
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 ---
@@ -688,7 +692,7 @@ Source: [Voron manual p.26](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** No oil film on the raceway, no visible wet IPA, both end-stop bands still tight, and the carriage running dry and slightly notchy. [src](https://docs.ldomotors.com/guides/rail_grease_guide)
 
-⚠ Gloves on and window open for the soak. IPA softens masking-tape adhesive, so re-wrap any end-stop band that has slipped before the grease goes in.
+⚠ Gloves on and window open for the soak, with no iron, heater or flame running in the room. IPA softens masking-tape adhesive, so re-wrap any end-stop band that has slipped before the grease goes in.
 
 Tip: the linked Nero 3D video is the reference demonstration of this whole procedure — manual p.24 QR, [voron.link/agu0nes](https://voron.link/agu0nes).
 
@@ -1096,7 +1100,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is lying on its extrusion at the install step (Ch 02 Step 02.06, Ch 05 Steps 05.11/05.33).
 - **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 153 kit inserts.
 - **Decanting the fastener bags on day one.** M3×8, M3×12 and M3×16 are indistinguishable in a mixed tray, and there are 283 of the first one.
-- **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it, and it has to be settled before batch B01 prints its deck supports.
+- **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it. B01 printed the 3 mm clips on the BOM's word; if the deck calipers 4 mm, print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02.
 
 ## Next
 

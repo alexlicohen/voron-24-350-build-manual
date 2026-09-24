@@ -21,7 +21,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 **Tools**
 
-- Hex 2.5 mm and 3 mm
+- Hex 2.5 mm
 - Plastic scraper, squeegee or an old credit card (magnet application)
 - Sharp craft knife with a fresh blade (trimming the magnet at the bolt holes; cutting the liner at Step 03.9)
 - Masking tape (marking the back edge at Step 03.2; the hinge for the magnet at Step 03.9)
@@ -56,6 +56,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - Use **M3×20 SHCS**, not the manual's M3×16 — this plate and these spacers are thicker. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - The magnet goes on with the hinge method at Step 03.9 — one shot; read the whole step before you peel anything.
 - Only one of the four bolts gets tightened (p.59). A bed clamped hard at all four corners while cold, then heated fast, tacos.
+- A part missing, damaged or wrong: stop, photograph it and ask Fabreeko. Questions about LDO's own parts go to [`#ldo_motors`](https://discord.com/channels/460117602945990666/710952853514223617). Both are set up at [Step 00.31](00-before-you-start.md#step-0031-join-the-three-lifelines-now).
 - No wiring happens here, and **no bed lead goes through the deck**. Manual p.60 feeds the bed wires through the opening; this kit's plate leads end at the bed WAGO breakout above the deck (Ch 09), and only the kit's extension leads go below, in Ch 10. Leave the three leads loose above the deck. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 **Sources for this chapter:**
@@ -153,7 +154,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Confirm the AC heatpad is flat and centred: no lifted corner, wrinkle or trapped air.
 3. Confirm every pad screw is present. Do not tighten them, add adhesive or re-press a lifted edge.
 
-**Check:** Pad flat and centred; every pad screw present and untouched, head type (verify on bench); nothing peeling at the cable exit. No bubble size specified.
+**Check:** Pad flat and centred; every pad screw present and untouched, head type (verify on bench); nothing peeling at the cable exit.
 
 **Helper:** Counts the pad screws aloud and points out any lifted corner.
 
@@ -321,7 +322,7 @@ Pause: ~30 min since the last pause — the top face is cleaned, the magnet is r
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
 
-**What you're looking at:** Manual p.58: the front elevation of the frame with the bed extrusions in it. Those two extrusions carry the plate's four mounting points, so you re-check Ch 01's placement here. The bare 25 on the verticals is unidentified and nothing depends on it.
+**What you're looking at:** Manual p.58: the front elevation of the frame with the bed extrusions in it. Those two extrusions carry the plate's four mounting points, so you re-check Ch 01's placement here.
 
 **Parts:** none.
 
@@ -445,7 +446,7 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Split the left and right gaps evenly, then re-check the 38 mm.
 3. Run a finger round the perimeter.
 
-**Check:** 38 mm at both front corners, left and right gaps equal, nothing touching a vertical extrusion or a Z rail. No tolerance is specified.
+**Check:** 38 mm at both front corners, left and right gaps equal, nothing touching a vertical extrusion or a Z rail.
 
 **Helper:** Reads the rule at each corner and calls the number back to you.
 
@@ -466,7 +467,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Tighten one bolt fully, at a front corner clear of the cable exit.
+1. Tighten any one bolt fully. Use the front-left one so you remember which.
 2. **Leave the other three slightly loose.** They locate the plate, not clamp it.
 3. Torque is **not specified**: snug by hand feel, no torque driver.
 

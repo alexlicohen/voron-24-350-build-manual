@@ -156,21 +156,21 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 
 | Setting | Profile default | Set to | Why | Source |
 |---|---|---|---|---|
-| **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; on a 66.7 mm Z-drive body that is +0.15 mm and it lands straight in the bearing bores. **This is the single most important override in this document.** | [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) + profile value |
+| **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; that is +0.15 mm on a 66.7 mm Z-drive body and +0.035 mm on every 16 mm bearing bore, compounding with any flow error. **This is the single most important override in this document.** | [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) + profile value |
 | Shrinkage compensation Z | 0.22 % | **0 %** | same reason | as above |
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for the HF nozzle on this machine | profile |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809) |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* your preheat gate | profile |
 | Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
-| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈8 mm³/s) | profile |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈8.8 mm³/s) | profile |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 #### Drying
 
 ASA is mildly hygroscopic. A fresh, sealed Prusament spool used within ~2 weeks needs nothing.
 Dry at **80 °C for 4 h** if a spool has been open longer, or the moment you see stringing, matte striping, or
-popping. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
+popping; on the Sunlu SP2 (70 °C cap) that is **70 °C for 6 h** with the port plugs out. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
 material where wet filament actually costs you strength.
 (Sources: [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); the project's drying rules, `AGENTS.md` › Materials & filament.)
 
@@ -211,7 +211,7 @@ material where wet filament actually costs you strength.
 
 6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the whole run prints on the
    current Gen 1 GT2 belts — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
-   58.5 h and 763 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
+   58.4 h and 763 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
    Gate B forward: its insert row runs on the KADRICK inserts already on the bench and its bore row is a
    caliper, so both run in the same week as Gate A. The **bearing press** and the **MGN12 rail row** wait
    for the kit, and the rail row gates nothing but a 20-minute reprint of the `MGN12_rail_guide` jig.
@@ -856,7 +856,7 @@ delivery is **late November to late December 2026**.
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
 whole 157.0 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
-supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause below is
+supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench

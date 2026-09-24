@@ -138,9 +138,9 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M5×16 BHCS — from Clicky-Clack door kit | 4 | door frame blind joints |
 | M5×45 dowel pin — from Clicky-Clack door kit | 4 | door hinges 2, handle 2 |
 | M5×7×8 split bushing — from Clicky-Clack door kit | 6 | door hinges 4, handle hinges 2 |
-| M3×20 SHCS — from Clicky-Clack door kit | 4 | door hinges to the frame |
-| M3 roll-in T-nut — from Clicky-Clack door kit | 12 | door hinges 8, four on the printer and four on the door frame (11.62); handle hinges 4 (11.64); the bag holds 14 |
-| M3×8 SHCS — from Clicky-Clack door kit | 12 | handle locating screws 2, handle hinges 4; no source places the other 6 *(verify on bench)* |
+| M3×20 SHCS — from Clicky-Clack door kit | 4 | handle hinges to the door frame, two each (11.64) |
+| M3 roll-in T-nut — from Clicky-Clack door kit | 12 | door hinges 8, four on the printer and four on the door frame (11.62); handle hinges 4 (11.64); the bag holds 14, so 2 are spare |
+| M3×8 SHCS — from Clicky-Clack door kit | 12 | door hinges 8 (11.62), handle locating screws 2 (11.50); 2 spare, the latch's pair, since 11.63 keeps the displaced midspan clip's fixing |
 | M3×8 BHCS — from Clicky-Clack door kit | 1 | `Panel_Clip` into the latch |
 | M3 heat-set insert — from Clicky-Clack door kit | 1 | the latch |
 | 6×3 mm magnet — from Clicky-Clack door kit | 12 | handle 6, latch 4, handle hinges 2 (pockets counted in the STLs) |
@@ -969,7 +969,7 @@ Source: [LDO Nevermore V5 Duo guide § Preparation](https://ldomotion.com/guides
 
 Source: [LDO Nevermore V5 Duo guide § Preparation](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
-Pause: ~15 min since the last pause — Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off with the leads tinned. Nothing is glued and nothing is soldered to the bridge PCB yet.
+Pause: ~15 min since the last pause — Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet.
 
 ---
 
@@ -1791,7 +1791,7 @@ Pause: ~15 min since the last pause — top panel on its eight clips, handlebars
 **Parts:**
 
 - reused: the two door hinges
-- M3×20 SHCS ×4 — from Clicky-Clack door kit
+- M3×8 SHCS ×8 — from Clicky-Clack door kit
 - M3 roll-in T-nut ×8 — from Clicky-Clack door kit
 - consumable: blue tape
 
@@ -1806,7 +1806,7 @@ Pause: ~15 min since the last pause — top panel on its eight clips, handlebars
 
 Tip: tape the door in the opening first to see where it wants to sit.
 
-Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly)
+Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [Clicky-Clack `STLs/`](https://github.com/tanaes/whopping_Voron_mods/tree/62268ed/clickyclacky_door/STLs): each `Hinge-L` half has two Ø3.4 bores through a 3 mm flange, so M3×8
 
 ---
 
@@ -1841,7 +1841,7 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 **Parts:**
 
 - reused: the handle assembly
-- M3×8 SHCS ×4 — from Clicky-Clack door kit
+- M3×20 SHCS ×4 — from Clicky-Clack door kit
 - M3 roll-in T-nut ×4 — from Clicky-Clack door kit
 - consumable: a paper shim
 
@@ -1857,7 +1857,7 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 
 Tip: if the latch will not catch cleanly, the problem is usually hinge alignment, not latch position. Re-align at 11.62 rather than moving the latch. [src](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod)
 
-Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [Video: Part 9 @4:36:44](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=16604s) (differs: stock hinged doors; this kit gets the Clicky-Clack door (batch B10))
+Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [Clicky-Clack `STLs/`](https://github.com/tanaes/whopping_Voron_mods/tree/62268ed/clickyclacky_door/STLs): each handle hinge has two Ø3.6 bores about 14 mm long, so M3×20 · [Video: Part 9 @4:36:44](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=16604s) (differs: stock hinged doors; this kit gets the Clicky-Clack door (batch B10))
 
 Pause: ~25 min since the last pause — door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.
 

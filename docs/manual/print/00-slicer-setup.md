@@ -1,7 +1,8 @@
 # Slicer setup — PrusaSlicer profile and Voron overrides
 
 One-time setup for every print batch (`B00`–`B10`). Read this chapter before B00; batch chapters link
-back here and list only their own deviations (brim, orientation, accent colour).
+back here and list only their own deviations (brim, orientation, accent colour). B11, the PETG V0 bay
+ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured sheet: see [its page](B11-bay-ducting.md).
 
 ```mascot
 pose: check
@@ -54,7 +55,7 @@ and then raises perimeter 70→150, external 50→200 and small-perimeter 50→1
 solid layers to 3.
 
 **High flow raises the ceiling, not the speeds.** Every speed below stays exactly as the table says.
-At those speeds the peak volumetric flow is 100 mm/s × 0.4 × 0.2 = **8.0 mm³/s**, well under the
+At those speeds the peak volumetric flow is 110 mm/s solid infill × 0.4 × 0.2 = **8.8 mm³/s**, well under the
 15 mm³/s the non-HF profile allows, let alone 26 — so the HF base changes the melt temperature and the
 start G-code and nothing else about these plates.
 
@@ -161,22 +162,22 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 
 | Setting | Profile default | Set to | Why | Source |
 |---|---|---|---|---|
-| **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; on a 66.7 mm Z-drive body that is +0.15 mm and it lands straight in the bearing bores. **This is the single most important override in this document.** | docs.vorondesign.com/materials.html + profile value |
+| **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; that is +0.15 mm on a 66.7 mm Z-drive body and +0.035 mm on every 16 mm bearing bore, compounding with any flow error. **This is the single most important override in this document.** | docs.vorondesign.com/materials.html + profile value |
 | Shrinkage compensation Z | 0.22 % | **0 %** | same reason | as above |
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate | profile |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
-| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 8.0 mm³/s | profile (HF0.4) |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 8.8 mm³/s | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 ### Drying
 
 ASA is mildly hygroscopic. A fresh, sealed Prusament spool used within ~2 weeks needs nothing. Dry at
-**80 °C for 4 h** if a spool has been open longer, or the moment you see stringing, matte striping, or
-popping. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
-material where wet filament actually costs strength. (Prusa ASA KB; drying decision in project `CLAUDE.md`.)
+**80 °C for 4 h** (Prusa KB) if a spool has been open longer, or the moment you see stringing, matte striping, or
+popping. The Sunlu SP2 on the bench tops out at 70 °C, so there it is **70 °C for 6 h**, with the port plugs out. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
+material where wet filament actually costs strength. ([Prusa ASA KB](https://help.prusa3d.com/article/asa_1809).)
 
 ## Print sheet
 
@@ -249,7 +250,7 @@ so a change made here does not travel: re-enter it in every later project as you
 value on the sheet-edge tape so you know what it should be.
 
 **Gate A passed →** every batch with no press fit is released: **B02**, **B07**, and the cosmetics
-**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 58.5 h and 763 g of
+**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 58.4 h and 763 g of
 bearing-seat and shaft-bore parts printed against an unverified fit — run Gate B first, the same week.
 
 ### Gate B — bore and inserts now, rail on kit day
@@ -269,7 +270,7 @@ inserts stay for the build**.
 The same calculator covers Gate B at [Step B00.7](B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), with the two kit-day rows marked optional so they can stay blank until carton 1 is open.
 
 **Gate B passed →** start **B01**, then **B03–B06**. Gate B is Step B00.7; its two early rows take about
-15 minutes and unblock 58.5 h of printing, so run them in the same week as Gate A. If Gate B moves the
+15 minutes and unblock 58.4 h of printing, so run them in the same week as Gate A. If Gate B moves the
 extrusion multiplier, re-print the cube and re-pass Gate A before B01.
 
 If the bore is still loose with shrinkage compensation already at 0 % and XY compensation at 0, **raise the
@@ -325,7 +326,7 @@ one that does. The plate diagram at the top of each Load step draws the brim rin
 plate is the same: *the outline shows on the parts the chapter names, and on nothing else.*
 
 Separately, the projects **brim the long flat parts** — not because they're tall, but because 150–182 mm of ASA
-on a plate lifts at the ends: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
+on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
 `side_fan_support_x2`, `keystone_panel`, `power_inlet_IECGS_1mm`, `exhaust_cover`, `V2_Duo_Plenum`,
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`. Brim
 separation stays at PrusaSlicer's 0.1 mm so it snaps off.
@@ -333,7 +334,7 @@ separation stays at PrusaSlicer's 0.1 mm so it snaps off.
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
 global brim setting** (Print Settings → Skirt and brim) — it brims every flat part on the plate, including
-fan grills and clips that must not have one.
+the skirt fan grills (`[a]_fan_grill_*`) and clips that must not have one.
 
 Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
 (Nevermore), `V2_Duo_Plenum`. The skirts are single-shell parts — they have no break-away body.

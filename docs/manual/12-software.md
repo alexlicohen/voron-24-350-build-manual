@@ -284,15 +284,9 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 video=DSI-1:800x480@60,rotate=180
 ```
 
-Reboot. Valid rotations are 0, 90, 180, 270. LDO's mount hangs the panel 180° from the Pi's default. Then, **at Step 12.11**, with the bay powered and the ribbon latched at both ends, confirm the kernel sees the panel:
+Reboot. LDO's mount hangs the panel 180° from the Pi's default.
 
-```bash
-grep -H . /sys/class/drm/card*-*/status | grep :connected
-```
-
-You should get a line containing `DSI-1`. No `DSI-1` at all: power off and check the ribbon first (both latches closed, contacts up at the screen and forward at the Pi), then `display_auto_detect=1` again; if both are right and the panel is still absent, add a line `dtoverlay=vc4-kms-dsi-7inch` to `config.txt` and reboot. If the picture is upside down for how the module is mounted, change `rotate=180` to `rotate=0` and reboot.
-
-**Check:** On the bench: `config.txt` carries `display_auto_detect=1`, `cmdline.txt` carries the `video=` line, the Pi still boots. At 12.11: `/sys/class/drm/...DSI-1/status:connected`, console the right way up, touch following your finger.
+**Check:** `config.txt` carries `display_auto_detect=1`, `cmdline.txt` carries the `video=` line, and the Pi still boots. The panel itself is checked at Step 12.11.
 
 ⚠ **Rev D+ / LDO:** LDO's touchscreen guide tells you to edit `/boot/config.txt`, comment out `dtoverlay=vc4-fkms-v3d` and set `display_lcd_rotate=2`. That is the **legacy fake-KMS path**. MainsailOS 3.x is built on a current Raspberry Pi OS: the boot partition is mounted at **`/boot/firmware/`**, and the display stack is full KMS (`vc4-kms-v3d`), where `display_lcd_rotate` does nothing. Use the `cmdline.txt` method above. [src](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [src](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
@@ -323,9 +317,10 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 ```bash
 lsusb
+grep -H . /sys/class/drm/card*-*/status | grep :connected
 ```
 
-**Check:** Every row below true in ten seconds; anything wrong, switch off and return to Ch 10. Then `lsusb` lists two `ID 1d50:614e` devices plus the Nitehawk hub.
+**Check:** Rows true within ten seconds, the last after a minute; anything wrong, switch off, back to Ch 10. `lsusb` lists two `ID 1d50:614e` devices plus the Nitehawk hub.
 
 | Watch | What is right |
 |---|---|
@@ -333,10 +328,20 @@ lsusb
 | Pi | red PWR lit, green ACT flickering as it boots |
 | Toolboard | **3V3** and **24V** LEDs lit, unless the toolhead cover hides them |
 | 4.3" panel | lights, and KlipperScreen comes up the right way up |
+| DSI, over SSH | the `grep` prints a line with `DSI-1` and `:connected` |
 | Sound, smell | no click-cycling, no buzz, no hot smell |
 | A minute on | no stepper hot, nothing warm to the touch |
 
-No picture on the panel at all means switch off and check the ribbon's two latches before anything else. The text after the USB ID reads `Klipper 3d-Printer Firmware` or an MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`. The Nitehawk's onboard USB hub is a separate hub device, normal on V2 and the "+" feature. Klipper has **no config yet**, so no heater or motor can be commanded by software: anything warming up now is a wiring fault, not a setting.
+??? note "Panel missing, or upside down"
+
+    No `DSI-1` line or no picture: switch off and check the ribbon first, both latches
+    closed, contacts up at the screen and forward at the Pi. Then check
+    `display_auto_detect=1` again. If both are right and the panel is still absent, add
+    `dtoverlay=vc4-kms-dsi-7inch` to `config.txt` and reboot. Upside down for how the module
+    is mounted: change `rotate=180` to `rotate=0` in `cmdline.txt` and reboot. Valid
+    rotations are 0, 90, 180 and 270.
+
+The text after the USB ID reads `Klipper 3d-Printer Firmware` or an MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`. The Nitehawk's onboard USB hub is a separate hub device, normal on V2 and the "+" feature. Klipper has **no config yet**, so no heater or motor can be commanded by software: anything warming up now is a wiring fault, not a setting.
 
 ⚠ **Rev D+ / LDO:** the Nitehawk-SB V2 adds a **USB hub and a secondary USB port** the V1 lacks, so expect one more device than any Rev D photo shows. The machine now stays powered with the bay open through the flashing steps, the one time this is allowed: to touch anything in the bay, switch off first. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 

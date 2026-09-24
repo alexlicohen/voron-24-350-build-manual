@@ -21,7 +21,7 @@ caption: Belts that sound alike are not alike. Measure both. My ears are excelle
 
 **Tools**
 
-- Ball-end hex 2.0 mm and 2.5 mm
+- Ball-end hex 2.5 mm, for every screw in this chapter
 - Needle-nose pliers and tweezers (belt threading; the manual calls these out on p.132)
 - Flush cutters or sharp scissors for belt; steel rule or tape ≥ 2.2 m; 150 mm steel rule for the tension span; marker
 - Phone with a spectrum app: **Spectroid** (Android), **Sound Spectrum Analysis** (iOS), or **Gates Carbon Drive** (both — use the "motorcycle" option) ([Voron tuning docs](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html))
@@ -147,7 +147,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.128](assets/manual-pages/manual-p128.png){ crop="0.18 0.22 0.92 0.74" }
 ![Front-idler tensioners — the handed left/right pair](assets/parts/pair-tensioner.png)
 
-**What you're looking at:** The front-idler tensioners are the two blue parts at the front; each carries an M3×40 whose job is belt tension. Winding it **in** pulls the idler forward and tightens that belt, backing it **out** releases it. A handed pair: 45×25 mm and 25×45 mm.
+**What you're looking at:** The front-idler tensioners are the two blue parts at the front; each carries an M3×40 whose job is belt tension. Winding it **in** pulls the idler forward and tightens that belt, backing it **out** releases it. Both went on in Ch 04.
 
 **Parts:**
 
@@ -253,8 +253,8 @@ Pause: ~30 min since the last pause — heat-set inserts and M3 nuts in the carr
 
 **Do:**
 
-1. Feed belt **A** into the **upper** slot of the **left** carriage part, **B** into the lower, **teeth away from the extrusion** on both.
-2. Install it against the rail carriage and run the two M3×8 SHCS in, snug only.
+1. Feed belt **A** into the **upper** slot of the **left** carriage part, **B** into the lower, **teeth away from the extrusion**.
+2. Hold the left part, belts in, against the rail carriage; run both M3×8 SHCS in, snug only.
 
 **Check:** Both ends captured and immovable under a firm tug, the A mark in the upper slot, teeth facing the same way, neither belt twisted.
 
@@ -302,7 +302,7 @@ Source: [Voron manual p.126](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.126](assets/manual-pages/manual-p126.png){ crop="0.14 0.175 0.42 0.42" }
 
-**What you're looking at:** The rear-left corner is the **B** drive unit, carrying two things at two heights: B's toothed motor pulley, and a plain bearing stack that belongs to the **A** belt. A wraps the plain stack only. The motor pulley instead locks the two axes together.
+**What you're looking at:** The rear-left corner is the **B** drive unit, carrying two things at two heights: B's toothed motor pulley, and a plain bearing stack that belongs to the **A** belt. A wraps the plain stack only. Wrapping the pulley instead would lock the axes together.
 
 **Parts:**
 
@@ -593,7 +593,7 @@ Source: [Voron manual p.141](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** none.
 
-**Do:** *"Fully tighten the carriage bolts."* Then fully tighten the four M3×8 belt-clamp screws. These thread into plastic and captive nuts, so stop at solid *(not specified — snug)*.
+**Do:** Fully tighten the four M3×8 belt-clamp screws first, as p.141's middle panel shows. Then *"Fully tighten the carriage bolts."* These thread into plastic and captive nuts, so stop at solid *(not specified — snug)*.
 
 **Check:** Pull hard on each belt at the carriage: nothing slips. The X carriage still runs the full X rail without fouling.
 
@@ -605,7 +605,7 @@ Pause: ~80 min since the last pause — the long one, and it has no safe interio
 
 ![Voron manual p.142](assets/manual-pages/manual-p142.png){ crop="0.12 0.18 0.92 0.82" }
 
-**What you're looking at:** Ten belt contacts at six locations: two idlers per XY joint, one per front idler, and at each drive the S-wrap posts, the motor pulley and the other belt's idler post. A belt riding a printed flange ticks once per revolution and leaves plastic dust.
+**What you're looking at:** Fourteen belt contacts at six locations: two per XY joint, one per front idler, and four per drive: two S-wrap stacks, the motor pulley and the other belt's stack. A belt riding a printed flange ticks once per revolution.
 
 **Parts:** none.
 
@@ -624,7 +624,7 @@ Source: [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ## Initial tension (provisional)
 
-> A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, cold and open) and Ch 14 Step 14.4 (final — panels on, cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of 14.6). Z belts: 06b.3 (so QGL converges for squaring), set for the last time at 14.5, same cold session. The squaring procedure starts by releasing this tension completely ([V2 gantry squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html); [survey §4.4 #2 and §5.2 W1](../voron-build-instructions-survey.md)). What you set here only needs to be good enough to home, QGL and run the bring-up in Ch 13; **Ch 14 Step 14.4 owns the final number.**
+> Provisional: the squaring procedure starts by releasing this tension completely ([V2 gantry squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html); [survey §4.4 #2 and §5.2 W1](../voron-build-instructions-survey.md)). What you set here only needs to be good enough to home, QGL and run the bring-up in Ch 13; **Ch 14 Step 14.4 owns the final number.**
 
 ### Step 07.30 — Set the 150 mm measuring span
 
@@ -701,7 +701,7 @@ Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.voro
 
 Source: [Voron docs § Secondary printer tuning — A/B Belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [survey §7.2 Ch 07](../voron-build-instructions-survey.md) · [Video: Part 6 @0:15:01](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=901s)
 
-Pause: ~30 min since the last pause — belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.
+Pause: ~30 min since the last pause — belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.
 
 ---
 
@@ -822,13 +822,14 @@ Source: [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/t
 - [ ] Both belts routed to match p.126 (A) and p.127 (B); each belt stays in one plane, neither crosses the other.
 - [ ] No half-twist anywhere; belt teeth face away from the extrusion at the X carriage; each belt's toothed face stays on the same side all the way round.
 - [ ] Teeth meshed on both toothed motor pulleys — each pulley indexes when the belt is nudged, no slip — and on the two XY-joint toothed idlers (A at the right joint, B at the left); smooth back on every plain stack.
-- [ ] Belt not riding on any printed part at any of the ten contacts (six locations), checked at both ends of X travel and both ends of Y travel (p.142).
+- [ ] Belt not riding on any printed part at any of the fourteen contacts at six locations, checked at both ends of X travel and both ends of Y travel (p.142).
 - [ ] Equal length of belt protruding from the X carriage on both belts, after moving the gantry and returning (p.141).
 - [ ] Carriage bolts and all four M3×8 belt clamps fully tightened; nothing slips under a hard pull.
 - [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry — provisional; Ch 14 Step 14.4 sets the final value.
 - [ ] Gantry moves through the full XY envelope by hand with even resistance, no ticking, no notchiness.
 - [ ] Probe insulated (front + sides only), fitted, lead **uncut** with its factory connector, tip 6 mm below the plastic, cable in its channel.
 - [ ] No hall-effect magnet fitted (p.145 skipped).
+- [ ] Turn the A motor pulley by hand: the carriage moves diagonally. Turn both pulleys the same way: it moves in a straight line. That is CoreXY.
 
 ## Common mistakes
 
@@ -842,7 +843,7 @@ Source: [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/t
 
 ## Next
 
-Ch 08 — Toolhead: Stealthburner, Clockwork 2 and the Nitehawk-SB V2, where all five Rev D+ deviations land.
+[Ch 08 — Toolhead](08-toolhead.md): Stealthburner, Clockwork 2 and the Nitehawk-SB V2, where all five Rev D+ deviations land.
 
 Pause: ~30 min since the last pause — inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry.
 

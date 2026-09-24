@@ -234,7 +234,7 @@ Source: [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Do:** The latch shuttle takes one insert in its end face, the guidler arm one in its side boss. Both finish **flush or only slightly below**, never sunk. The latch takes none.
 
-**Check:** A straightedge across the insert face rocks on the plastic, not on the brass. Count: 2 `(verify on bench)`.
+**Check:** A straightedge across the insert face rocks on the plastic, not on the brass. Count: 2, as p.15 draws them.
 
 Source: [SB manual p.15](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=15)
 
@@ -319,7 +319,7 @@ Pause: ~35 min since the last pause — all 15 heat-set inserts are in and cool,
 - Bondtech IDGA gear set ×1
 - consumable: light grease, Super Lube
 
-**Do:** Slide the IDGA set's idler gear, shaft and bearing sleeve together. Wipe a light film of the rails' Super Lube, the sourcing guide's "light grease", onto the bearing surfaces. Toothed face towards the filament path.
+**Do:** Slide the IDGA set's idler gear, shaft and bearing sleeve together. Wipe a thin film of Super Lube 21030 onto the bearing surfaces `(verify on bench)`. Toothed face towards the filament path.
 
 **Check:** The idler spins freely with no gritty feel and no axial slop.
 
@@ -569,7 +569,7 @@ Source: [SB manual p.26](https://github.com/VoronDesign/Voron-Stealthburner/blob
 - reused: the assembled extruder
 - consumable: 1.75 mm filament offcut
 
-**Do:** Clockwise on the thumbscrew increases grip. Set it just tight enough that the filament cannot be pulled back through by hand. Then set the CW2 anti-squish stop, the **minimum** drive-gear-to-idler distance, so the gears mesh without binding.
+**Do:** Clockwise on the thumbscrew adds grip; SB p.27 warns that too much tension causes print issues, so start light. Then set the anti-squish screw circled on p.27 so the gears mesh without binding `(verify on bench)`.
 
 **Check:** With filament loaded, the arm closes without the gears grinding against each other, and the filament shows shallow tooth marks rather than a flattened track.
 
@@ -769,11 +769,11 @@ Source: [SB manual p.41](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 - M3×8 SHCS ×4
 
-**Do:** Drive four M3×8 SHCS into the top face of the tool cartridge. Do not overtighten and do not leave them proud.
+**Do:** Drive four M3×8 SHCS into the top face of the tool cartridge until each head seats on the plastic. Stop there; do not overtighten.
 
-**Check:** Four bolts, all seated to the same depth.
+**Check:** Four heads seated, all at the same height.
 
-**Helper:** Checks that the four bolt heads stand at the same height and points at any that sits proud.
+**Helper:** Checks that the four bolt heads stand at the same height and points at any that sits high.
 
 Source: [SB manual p.42](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=42)
 
@@ -1467,7 +1467,7 @@ Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob
 **Do:**
 
 1. Close the blue body onto the front of the toolhead, mating the fan adapter's header with the toolboard's. **Keyed: resistance means backwards.**
-2. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** lower through the blower area.
+2. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** through the bottom lobes, below the hotend fan.
 
 **Check:** No gap along the body-to-cartridge parting line, all four bolts snug, and the header fully seated.
 

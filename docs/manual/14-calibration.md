@@ -118,7 +118,7 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 ⚠ Ch 13 owns the tuning procedure: bed at 100 °C, hotend at 245 °C with the part fan at 25 %. Re-run it only if you have moved a target since, for example re-tuning the bed at `TARGET=110` for ASA; PID is most accurate near the temperature it was tuned at.
 
-⚠ Do not re-run the hotend tune at 260 °C, the ASA print temperature. `PID_CALIBRATE` overshoots the target during the relay test and `[extruder] max_temp` is **270**, so a 60 W Revo HF trips `max_temp` and shuts Klipper down mid-tune. To tune at the print temperature, raise `max_temp` to 290 first, safely under the Revo HF's rated 300 °C, then set it back.
+⚠ Do not re-run the hotend tune at the 260 °C print temperature. `PID_CALIBRATE` switches the heater off only at the target, and `[extruder] max_temp` is **270**, so a 60 W Revo HF can overshoot and shut Klipper down mid-tune *(verify on bench)*. To tune at the print temperature, raise `max_temp` to 290 first, under the core's rated 300 °C, then set it back.
 
 Tip: the generic values are `58.437 / 2.347 / 363.769` for the bed and `26.213 / 1.304 / 131.721` for the hotend. Do **not** add `pwm_cycle_time`; Klipper's 0.100 s default is correct here.
 
@@ -375,17 +375,17 @@ Pause: ~20 min since the last pause — rotation distance measured, iterated and
 
 (no image — see text)
 
-**What you're looking at:** There is no chamber heater on this machine; the chamber is warmed by the bed and held there by the panels and the door. The toolboard sensor tells you how hot the enclosure gets, and 30–45 minutes is how long the frame takes to arrive.
+**What you're looking at:** There is no chamber heater on this machine; the chamber is warmed by the bed and held there by the panels and the door. The toolboard sensor tells you how hot the enclosure gets; expect it settled by 45 minutes from cold.
 
 **Parts:** none.
 
 **Do:**
 
 1. `SET_IDLE_TIMEOUT TIMEOUT=7200` before you set a temperature.
-2. Bed 100–110 °C, panels on, Clicky-Clack door shut. Read `[temperature_sensor chamber_temp]` in the web UI and wait **30–45 minutes** from cold.
+2. Bed 100–110 °C, panels on, Clicky-Clack door shut. Read `[temperature_sensor chamber_temp]` in the web UI and wait **up to 45 minutes** from cold.
 3. Put the settled value in the tuning log, then `SET_IDLE_TIMEOUT TIMEOUT=1800`.
 
-**Check:** With bed at 110 °C, panels on and door closed, `chamber_temp` climbs past 45 °C within ~20 minutes and settles in the **50–60 °C accept band**.
+**Check:** With bed at 110 °C, panels on and door closed, `chamber_temp` has settled in the **50–60 °C accept band** by 45 minutes.
 
 ⚠ The LDO config's 1800 s idle timeout turns the heaters **and the Z motors** off 30 minutes after the last move, and a static soak is exactly that. `RESTART`, `FIRMWARE_RESTART` and every `SAVE_CONFIG` put it back to 1800.
 
@@ -393,7 +393,7 @@ Pause: ~20 min since the last pause — rotation distance measured, iterated and
 
 ⚠ If the chamber stalls below 45 °C, first check the bed is still heating: targets that went to 0 by themselves mean the idle timeout fired. Then look for a missing panel, an open keystone blank, or the exhaust left open.
 
-Tip: the Voron target is **55–60 °C**, the band the printed parts were designed for. A 350 with a 100–110 °C bed, panels on and the door shut gets there passively.
+Tip: 55–60 °C is the ideal end of that band, what the printed parts were designed for. A 350 with a 100–110 °C bed and closed panels gets there passively.
 
 Source: [Voron docs — materials](https://docs.vorondesign.com/materials.html) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout)
 
@@ -584,7 +584,7 @@ Source: [Klipper docs § Input shaper auto-calibration](https://www.klipper3d.or
 
 **Parts:** none.
 
-**Do:** Generate the PNGs from the CSVs the run left in `/tmp`:
+**Do:** Generate the PNGs from the CSVs the run left in `/tmp`. Ran it more than once? Delete the older CSVs first; the script averages every file it matches.
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_x.png
@@ -737,7 +737,7 @@ SET_PRESSURE_ADVANCE ADVANCE=<your value>
 
 Or set `[extruder] pressure_advance:` if you only ever print ASA on this machine.
 
-**Check:** One corner is visibly the sharpest, and the value you saved is in the **0.02–0.05** band.
+**Check:** One corner is visibly the sharpest, and the value you saved is in the **0.01–0.08** band, most often 0.02–0.05.
 
 **Helper:** Counts the lines from the start of the pattern to the sharpest corner, with the loupe.
 
@@ -771,11 +771,11 @@ inputs:
     why: Counting the lines is the whole measurement, and a line miscounted by one is a pressure advance wrong by a full step of the sweep.
   - key: saved
     label: Value you are writing into the ASA filament profile
-    min: 0.02
-    max: 0.05
-    hint: the 0.02 to 0.05 band, copied off the badge above
-    low: Below the 0.02 to 0.05 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
-    high: Above the 0.02 to 0.05 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
+    min: 0.01
+    max: 0.08
+    hint: 0.01 to 0.08, most often 0.02 to 0.05, copied off the badge above
+    low: Below the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
+    high: Above the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
     why: This is the number that leaves the bench, and it belongs to the filament rather than the machine, so it goes in the ASA filament profile where every later ASA print picks it up.
   - key: corner
     label: One corner is visibly the sharpest, with no gap and no bulge
@@ -798,14 +798,15 @@ Tip: there is rarely a perfect value. Ellis leans **higher**: if the sharpest co
 
 ⚠ If you cannot get a clean corner at *any* value, or you see gapping and bulging simultaneously, stop tuning — Ellis: *"you likely have extruder issues."* Check the CW2 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.
 
-??? note "Where the 0.02–0.05 band comes from"
+??? note "Where the 0.01–0.08 band comes from"
 
     The LDO config's own commented starting point is `#pressure_advance: 0.05`, and
     Klipper documents typical values as "between 0.050 and 1.000 (the high end usually
     only with bowden extruders)". For a direct-drive Clockwork 2 with a Revo HF and a
     0.4 nozzle in ASA, expect the bottom of that band. No vendor publishes a
     Revo-HF-specific number; treat 0.04 as the place to start looking and let the
-    pattern decide.
+    pattern decide. Most land between 0.02 and 0.05; the wider 0.01–0.08 gate only
+    flags a reading worth a second look.
 
 Source: [Ellis' Print Tuning Guide — saving the pressure-advance value](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/saving.html) · [Klipper docs § Pressure advance](https://www.klipper3d.org/Pressure_Advance.html) · [Klipper docs § SET_PRESSURE_ADVANCE](https://www.klipper3d.org/G-Codes.html#set_pressure_advance)
 
@@ -1012,7 +1013,7 @@ Pause: ~15 min since the last pause — mesh variance recorded, `printer.cfg` ba
 
 ![Nameplate render, V2.1234 sample](assets/nameplate/nameplate.png)
 
-**What you're looking at:** Voron serials are issued by the community, not a vendor: mods on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the Voron's second print, after the cube.
+**What you're looking at:** Voron serials are issued by the community, not a vendor: mods on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the first print made for the machine itself.
 
 **Parts:**
 
@@ -1104,9 +1105,9 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - **Running `SHAPER_CALIBRATE` before the first successful print, or before final belt tension.** Both change the resonances you just measured, so the result is stale before you use it. Same for pressure advance, which also shifts when input shaping is switched on.
 - **`SAVE_CONFIG` after the shaper run and stopping there.** It writes `[input_shaper]` but explicitly does *not* touch `max_accel`. Leaving the stock `max_accel: 10000` means you shaped the ringing and then printed at an acceleration that reintroduces it.
 - **Fixing an oversize cube with negative XY size compensation or the extrusion multiplier.** Negative XY compensation makes every bearing bore and screw hole in the machine oversize, and a multiplier moved to hit a caliper number leaves the top-surface optimum of 14.19–14.20. Voron parts need no compensation beyond a good multiplier tune (Ellis).
-- **PID-tuning the hotend at 260 °C with `max_temp: 270`.** The calibration overshoots and trips the limit mid-run. Tune at 245, or raise `max_temp` to 290 first.
+- **PID-tuning the hotend at 260 °C with `max_temp: 270`.** The relay test overshoots the target and can reach the limit mid-run *(verify on bench)*. Tune at 245, or raise `max_temp` to 290 first.
 - **Raising `[heater_bed] max_power` above 0.6 to speed up warm-up.** LDO set it to protect a 355 mm cast plate from warping. Wait the extra five minutes.
-- **Skipping the heat soak because the bed says 110 °C.** The bed reaches temperature in minutes; the *frame* takes 30–45. Probing a cold frame gives a mesh and a Z offset that are wrong for every print you then run.
+- **Skipping the heat soak because the bed says 110 °C.** The bed reaches temperature in minutes; the *frame* is there only when `PROBE_ACCURACY` stops trending. Probing a cold frame gives a mesh and a Z offset that are wrong for every print you then run.
 - **Soaking on the stock idle timeout.** `[idle_timeout] timeout: 1800` (LDO config) runs `TURN_OFF_HEATERS` + `M84` 30 minutes after the last move; a static soak has no moves, so the heaters go off, the Z motors release and the chamber "stalls". `SET_IDLE_TIMEOUT TIMEOUT=7200` before 14.3 and 14.8 (99999 for 14.6, which runs longer), and put it back to 1800 afterwards.
 
 ## Next

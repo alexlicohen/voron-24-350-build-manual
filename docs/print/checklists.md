@@ -29,6 +29,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
+- [ ] Both of you have walked to the labelled breaker once and know which switch is the printer's.
 - [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
 - [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
 - [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
@@ -59,7 +60,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] All four Z rails run their full travel with no notch, tight spot or grinding; every carriage is taped or stoppered.
 - [ ] Rail surfaces are clean and dry and grease is inside the carriages only — carried over from Ch 00 Steps 00.18–00.21 and re-confirmed at Step 02.05.
 - [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left ↔ rear-left, front-right ↔ rear-right), and share the same 3 mm bottom gap and the same nine-hole pattern (holes 2–18, no end holes).
-- [ ] Deck panel notch is at the **back**; panel sits inside the frame opening on the bed extrusions, captured by eight clip ledges, no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
+- [ ] Deck panel notch is at the **back**; panel sits inside the frame opening under the bed extrusions, held up by eight clip ledges, no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
 - [ ] `_a` parts at Z0 and Z2, `_b` at Z1 and Z3 (or the reverse if the Step 02.29 dry-fit said so — written in the build log), and each idler the same hand as the drive below it.
 - [ ] Measured deck-panel thickness is written down and the fitted deck supports (8 off) match it.
 - [ ] Every 20T drive pulley sits 33 mm along its shaft; every 16T motor pulley sits 10.7 mm off the motor face.
@@ -101,7 +102,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] A pulley: hub down, 16.5 mm. B pulley: hub up, 6.5 mm. The two are visibly different.
 - [ ] Both pulleys are threadlocked and will not slip under hand pressure.
-- [ ] The belt offcut lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
+- [ ] The belt's free end lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
 - [ ] Both motor cable exits point inboard; held in their build positions, they face each other.
 - [ ] Every M5×30 BHCS is snug only — none was torqued down into the plastic thread.
 - [ ] Zero bearings, spacers or fasteners left over.
@@ -111,8 +112,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
 
 - [ ] E extrusion joined to both drive units with 8× M5×10 BHCS; drives parallel, no twist
-- [ ] Both MGN9 rails centred and tightened, first screw in the **second hole** from each end, overhang equal at both ends
-- [ ] MGN12 rail centred and tightened, second hole in, overhang equal at both ends
+- [ ] Both MGN9 rails centred and tightened on holes **2, 4 … 18**, both end holes open, overhang equal at both ends
+- [ ] MGN12 rail centred and tightened on holes **2, 4 … 14**, both end holes open, overhang equal at both ends
 - [ ] Every carriage retained by a stopper or tape; none dropped
 - [ ] At each of the four C-extrusion ends: 2× M5 in the top (backer) slot, 1× M5 + 1× M3 in the rail slot beyond the rail end
 - [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out
@@ -164,13 +165,14 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Both belts routed to match p.126 (A) and p.127 (B); each belt stays in one plane, neither crosses the other.
 - [ ] No half-twist anywhere; belt teeth face away from the extrusion at the X carriage; each belt's toothed face stays on the same side all the way round.
 - [ ] Teeth meshed on both toothed motor pulleys — each pulley indexes when the belt is nudged, no slip — and on the two XY-joint toothed idlers (A at the right joint, B at the left); smooth back on every plain stack.
-- [ ] Belt not riding on any printed part at any of the ten contacts (six locations), checked at both ends of X travel and both ends of Y travel (p.142).
+- [ ] Belt not riding on any printed part at any of the fourteen contacts at six locations, checked at both ends of X travel and both ends of Y travel (p.142).
 - [ ] Equal length of belt protruding from the X carriage on both belts, after moving the gantry and returning (p.141).
 - [ ] Carriage bolts and all four M3×8 belt clamps fully tightened; nothing slips under a hard pull.
 - [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry — provisional; Ch 14 Step 14.4 sets the final value.
 - [ ] Gantry moves through the full XY envelope by hand with even resistance, no ticking, no notchiness.
 - [ ] Probe insulated (front + sides only), fitted, lead **uncut** with its factory connector, tip 6 mm below the plastic, cable in its channel.
 - [ ] No hall-effect magnet fitted (p.145 skipped).
+- [ ] Turn the A motor pulley by hand: the carriage moves diagonally. Turn both pulleys the same way: it moves in a straight line. That is CoreXY.
 
 <div class="print-page-break"></div>
 
@@ -217,7 +219,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
 - [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
-- [ ] Both thermistors read within ±15 % of the room-temperature table (10.44, 10.76)
+- [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
@@ -319,7 +321,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Gate A — before B02 and B07**
 
-- [ ] Pre-B00 checks passed (index row 1): belt pluck check, hot first-layer check `(verify on bench)`
+- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
@@ -433,8 +435,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint B10 — Clicky-Clack door
 
-- [ ] Split bushings tap into hinge sleeves without splitting the part
-- [ ] M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
+- [ ] *(kit day)* Split bushings tap into hinge sleeves without splitting the part
+- [ ] *(kit day)* M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
 - [ ] Door swing decided from where the machine will live (as designed: hinges left, opens from the right); hinge files mirrored only if it must open the other way
 - [ ] Blue `Handle` (B02) reunited with the black hardware for assembly
 

@@ -6,7 +6,7 @@ Hangs the finished gantry on the four Z joints, belts all four Z corners, and ge
 
 ```mascot
 pose: caliper
-caption: Four corners agreeing on one height. Prints remember this number. They remember nothing else you did.
+caption: Four corners agreeing on one height. Get this right and every print remembers it.
 ```
 
 **Time:** 3.5–5.0 h hands-on for Part A, first build (survey §7.2). Part B adds ~1 h hands-on, cold (the heat soak and hot lock-in now live in Ch 14).
@@ -24,7 +24,7 @@ caption: Four corners agreeing on one height. Prints remember this number. They 
 **Tools**
 
 - Hex 2.5 mm, 3 mm and 4 mm; a ball-end 4 mm helps at the Z joints
-- Hex 2 mm and 2.5 mm for Part B
+- Hex 2.5 mm, 3 mm and 4 mm for Part B
 - **Two people** for the gantry lift (survey §7.3, chapter 06 row) — Alex on one side, daughter on the other
 - Four rubber rail stoppers taken off the Z rails (the LDO trick, below), or long zip ties as the fallback
 - Needle-nose pliers or tweezers for belt routing (manual p.118)
@@ -596,7 +596,7 @@ Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ??? note "If one side hits first"
 
-    The A/B drives are not equally spaced. Loosen the bolts securing the B drive to the rear gantry extrusion, push the gantry back until both sides land together, then re-tighten. The bolts you tighten at each joint are the M5×10 (left) / M5×16 (right) BHCS from Step 05.38 and the M5×30 with its black washer from 05.39 — never the Z belt-clamp bolts at the drives and idlers, never the rail screws.
+    Then the A/B drive spacing needs adjusting; p.122 says you may need to. Loosen the bolts securing the B drive to the rear gantry extrusion, push the gantry back until both sides land together, then re-tighten. The bolts you tighten at each joint are the M5×10 (left) / M5×16 (right) BHCS from Step 05.38 and the M5×30 with its black washer from 05.39 — never the Z belt-clamp bolts at the drives and idlers, never the rail screws.
 
 **Check:** Looking down, the X extrusion is parallel to the rear frame extrusion pushed fully back, and to the front extrusion pushed fully forward.
 
@@ -617,7 +617,7 @@ Source: [Voron manual p.122](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:**
 
 1. Cut any long zip ties and unscrew the four mid-rail stoppers.
-2. Refit them at the rail ends, or fit the `z_rail_stop_x4`.
+2. Refit the rubber stoppers at the rail bottoms; printed stops stay on top.
 3. Turn each Z drive pulley by hand and watch that corner rise.
 
 **Check:** The gantry stays where the belts hold it unsupported, and turning any Z drive raises that corner smoothly with no slip or rubbing.
@@ -695,11 +695,11 @@ Pause: ~15 min since the last pause — Z axis mechanically complete and logged.
 
 The procedure needs `SET_IDLE_TIMEOUT`, `G28`, `QUAD_GANTRY_LEVEL` and `SET_STEPPER_ENABLE`. It ends at Step 06b.16 by sending you back to Ch 13 Step 13.35. Final belt tension (Ch 14 Steps 14.4–14.5, cold, door open) and then the heat soak, the hot QGL runs and the hot tighten of the Z joints (Step 14.6) are Ch 14's, after the panels go on in Ch 11 Part B.
 
-**Why it is split out:** the procedure's first moves are to *fully release A/B belt tension* and *drop the lower Z joints*. Anything you tension before this gets undone (survey §5.2 W1, §4.4 #2). Ch 07's A/B tension is therefore provisional — and so is the one you set at step 06b.15 below. A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, machine cold and open) and Ch 14 Step 14.4 (final — panels on, machine cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of Step 14.6). Z belts: Ch 06b Step 06b.3 (so QGL converges for squaring), set for the last time at Ch 14 Step 14.5, in the same cold session.
+**Why it is split out:** the procedure's first moves are to *fully release A/B belt tension* and *drop the lower Z joints*. Anything you tension before this gets undone (survey §5.2 W1, §4.4 #2). Ch 07's A/B tension and the one you set at step 06b.15 are both provisional; Ch 14 Step 14.4 sets the final value.
 
 **Part B is transcribed from:** [V2 Gantry Squaring, docs.vorondesign.com](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — 17 numbered steps. Steps 1–13 are transcribed below with the original number cited on each (plus one added Z-belt step); steps 14–17 (soak, hot QGL, hot Z-joint tighten, restart) are handed to Ch 14 at Step 06b.16. [Ellis' identical section](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html) is the same text. The manual's own p.122 QR ([voron.link/cekh81l](https://voron.link/cekh81l)) points here.
 
-**Extra tools for Part B:** 150 mm machinist square, digital caliper, 150 mm rule, phone spectrum app, hex 2/2.5/3/4 mm.
+**Extra tools for Part B:** 150 mm machinist square, digital caliper, 150 mm rule, phone spectrum app, hex 2.5/3/4 mm.
 
 Tip: [Z Locks](https://github.com/VoronDesign/VoronUsers/tree/master/printer_mods/tallman5/z-locks/) make step 06b.8 easier by holding the gantry while the joints are off. Not required. [src](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 

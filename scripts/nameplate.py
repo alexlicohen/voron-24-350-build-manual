@@ -2,7 +2,8 @@
 """Serial nameplate for the finished Voron 2.4 350 (Step 14.24).
 
 Generates an STL and a PNG preview of a flat plate that bolts to a 2020
-extrusion with two M3 roll-in T-nuts and carries three embossed lines:
+extrusion with two M3x8 SHCS into M3 roll-in T-nuts (kit hardware; the kit has
+no M3x8 BHCS) and carries three embossed lines:
 
     VORON 2.4 350
     <serial>
@@ -56,7 +57,7 @@ SINK = 0.2           # mm, text is sunk this far into the body so the union is
 CHAMFER = 0.8        # mm, all body edges
 HOLE_D = 3.4         # mm, M3 clearance
 HOLE_PITCH = 70.0    # mm, the two M3 T-nuts, 10 mm in from each end
-HOLE_CHAMFER = 0.4   # mm, so an M3 BHCS head seats without a raised lip
+HOLE_CHAMFER = 0.4   # mm, so the M3x8 SHCS head seats without a raised lip
 
 # Nominal type sizes (CadQuery `fontsize`, i.e. em height in mm). Each line is
 # shrunk if it would not fit its lane; none is ever grown.

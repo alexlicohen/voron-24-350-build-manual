@@ -11,14 +11,15 @@ caption: Mount everything before wiring anything. A board you move later takes s
 
 **Left and right in this chapter** are always the printer's own — the way you would say them standing at the front of the upright machine, display towards you. With the printer on its head, work from the printer's **rear** (the edge the deck notch points to — 09.4 — with the A/B motors hanging from the gantry's rear corners above it) and look down into the bay: the front edge is far from you, and your left is the printer's left. That is exactly the view in LDO's placement photo (display at the top of the frame) and in the manual's p.169/p.171 insets (labelled *Front* at the top). Stand at the front of the inverted printer instead and everything below is mirrored — and the bay is not symmetric.
 
-**Time:** 2.5–4.0 h hands-on, first build (survey §7.2).
+**Time:** 3.0–4.5 h hands-on, first build (survey §7.2, plus the B11 conduits).
 
-**Sessions:** 7 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes).
+**Sessions:** 8 × ~30 min (first-build estimate; each `Pause:` line carries its own segment minutes).
 
 **Prerequisites:**
 
 - **Ch 01–03.** Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three leads loose **above** the deck, none through it (Ch 03 Step 03.14).
 - **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
+- **Ch 08.** The USB-adapter stack bagged at Step 08.64 is clipped on at 09.25.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
 - **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
 - **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print after the kit-day bay measurements ([B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements)). An A/B motor lead that measures short at B11.9 gets a longer replacement lead; layout v3 stays. The `⚠ LDO layout` notes below are only for a build without B11.
@@ -32,6 +33,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - Hacksaw or fine-tooth saw + file (DIN rail), side cutters or a fine saw (PVC wire duct, LDO layout or the fallback middle run only)
 - Steel rule ≥300 mm, marker, digital caliper
 - Multimeter (used properly in Ch 10; keep it on the bench from now on)
+- Ferrule crimp tool, square, for VE0508: staged at 09.35, used only if a lead is re-terminated in Ch 10
 
 **Consumables:** 3M VHB tape (supplied, for the printed conduits), IPA + lint-free cloth, masking tape and marker for labelling.
 
@@ -214,15 +216,17 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Slide the four M5 T-nuts so each rail crosses **both** extrusions, one nut in each.
-2. One rail front, one rear, a duct's width apart.
-3. Bolt each rail down with M5×10 BHCS, snug, then cap the ends.
+1. Slide each deck T-nut directly under one of the deck panel's four holes.
+2. Lay each rail across **both** extrusions over two holes, front rail and rear rail.
+3. Bolt down with M5×10 BHCS, snug, then cap the ends.
 
-**Check:** Both rails parallel, left-to-right, two screws each, inside the deck edges, clear of the Z belts and the gantry's travel, four end caps on.
+**Check:** Both rails parallel, left-to-right, two screws each through the deck holes, inside the deck edges, clear of the Z belts, four end caps on.
 
 ⚠ **Rev D+ / LDO:** no **cut length** is published for a 350's rails — **(verify on bench)**. Cut both the same, keep them inside the deck panel, and use p.29's escape hatch: if a rail slot does not land on a T-nut, shorten the rail by a few mm rather than moving the nut off the extrusion.
 
 Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [Video: Part 2 @0:56:00](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3360s)
+
+Pause: ~30 min since the last pause — printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails bolted through the deck holes and capped. Nothing is laid on the deck or clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
 
 ---
 
@@ -253,11 +257,13 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 2. Mark each joint and run end on masking tape on the deck.
 3. Leave the loop there; VHB, lids and AC parts stay in the bin.
 
-**Check:** One closed loop, every joint marked, notch and round hole uncovered, no motor or plug touched. Nothing is stuck down yet.
+**Check:** One closed loop, joints marked, round hole uncovered, notch open wide enough for the DC bundle, no motor or plug touched. Nothing stuck down.
 
 **Helper:** Writes each joint's mark on the masking tape as the adult pushes the pieces closed.
 
-⚠ **Middle run:** fit it only if B11.10's gap row passed `(verify on bench)`. Otherwise fit B11's fallback set and LDO's PVC middle duct instead. [B11 options](print/B11-bay-ducting.md#after-the-kit-day-measurements)
+Tip: Overlay labels: 58c, 130c, 70c and 10c are the straights of that length; FL 90 is `V2L_90DEG_MIRROR`; T (N) is `V3L_T_REG_N`; 45 is the 45° pair.
+
+⚠ **Middle run:** fit it only if B11.10's gap row passed `(verify on bench)`. Otherwise fit stock `CMD_V3_1H_T_REG` in place of each narrowed T, and butt LDO's PVC middle duct against both T stems `(verify on bench)`. Where B11's fallback 82 mm straight goes is not drawn yet. [B11 options](print/B11-bay-ducting.md#after-the-kit-day-measurements)
 
 ⚠ **LDO layout:** cut five PVC ducts instead: three left to right, ahead of the front rail, between the rails and behind the rear one; two front to back down the sides. Lengths are not published `(verify on bench)`; keep the offcuts. [LDO § DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts)
 
@@ -283,7 +289,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` · [B11 — Bay duct
 
 Source: [Voron manual p.168](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=168) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [Video: Part 7 @0:28:22](https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1702s)
 
-Pause: ~25 min since the last pause — printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
+Pause: ~25 min since the last pause — both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
 
 ---
 
@@ -381,8 +387,8 @@ Source: [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/
 
 **Do:**
 
-1. Hook the panel's lip over the rear extrusion's slot, line the holes up with the T-nuts and drive M3×8 SHCS in.
-2. Slide it along until it touches the rear-left Z-motor mount. The WAGO block goes to its right.
+1. Hook the panel's lip over the rear extrusion's slot and start two M3×8 SHCS into the T-nuts, loose.
+2. Slide it against the rear-left Z-motor mount, then tighten. The WAGO block goes to its right.
 
 **Check:** Panel flat against the extrusion, no gap at the lip, no overhang where the rear skirt lands in Ch 11, inlet reachable from outside.
 
@@ -721,15 +727,15 @@ Source: [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2
 ![CAD render — clip the USB adapter to the front rail](assets/cad/09-26-a.png)
 ![CAD render — clip the USB adapter to the front rail, in place](assets/cad/09-26-b.png)
 
-**What you're looking at:** The CAD renders show the position. The adapter goes on the right-hand end of the front rail, the rail nearer the door, with its umbilical socket pointing where the drag chain drops into the bay, so nothing pulls sideways on the connector.
+**What you're looking at:** The CAD renders show the position. The adapter goes on the right-hand end of the front rail, the rail nearer the door, with its umbilical socket facing the right-hand duct run the umbilical follows from the notch, so nothing pulls sideways on the connector.
 
 **Parts:**
 
 - reused: the USB adapter assembly
 
-**Do:** Clip it onto the **right-hand end of the front DIN rail**, beside the Leviathan, umbilical connector facing where the cable chain drops into the bay. Route the ground lead to the nearest frame extrusion and leave it hanging.
+**Do:** Clip it onto the **right-hand end of the front DIN rail**, beside the Leviathan, umbilical connector facing the right-hand duct run. Route the ground lead to the nearest frame extrusion and leave it hanging.
 
-**Check:** Adapter latched and square. Umbilical socket points at the chain entry, not at a wire duct. Ground lead reaches a frame extrusion with slack.
+**Check:** Adapter latched and square. Umbilical socket faces the right-hand duct run, not the Leviathan. Ground lead reaches a frame extrusion with slack.
 
 ⚠ **Rev D+ / LDO:** this is the Rev D+ ESD path: extruder motor body → toolboard → umbilical → USB adapter → **frame/earth**. Skipping the frame end leaves the chain broken. LDO's procedure is the board doc § ESD Hardening (Ch 08 Step 08.53); ask in `#ldo_motors` only if your hardware differs. (survey §4.1 ⑤)
 
@@ -975,7 +981,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 
 ---
 
-### Step 09.36 — Check the bay against LDO's layout and hand it to Ch 10
+### Step 09.36 — Stick down both conduits, then check the bay
 
 ![Layout v3 on LDO's Rev D bay photo: the AC conduit drawn orange, rear at the bottom](assets/b11/layout-v3-overlay.jpg)
 ![Assembled AC conduit, render: lids off on the left; B11 prints every part black](assets/b11/ac-conduit-assembled.jpg)
@@ -1043,5 +1049,5 @@ Ch 10 — Wiring: above-deck, below-deck, mains and **Checkpoint #1** (LDO wirin
 
 Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [survey §7.5](../voron-build-instructions-survey.md)
 
-Pause: ~30 min since the last pause — both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
+Pause: ~45 min since the last pause — both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
 

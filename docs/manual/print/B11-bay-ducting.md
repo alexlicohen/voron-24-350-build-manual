@@ -108,6 +108,8 @@ Source: [`slicer/OVERRIDES.md` § Bay-duct bundle](https://github.com/alexlicohe
 
 ⚠ **GUI QC pending:** this arrangement came from `nest.py`. Before the first print, run Arrange Current Bed, save over the 3MF, then `build_plates.py --from-3mf B11-P1` and `check_docs.py`.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — the coupon is printing, 25 min, textured sheet on.
 
 Source: [print/README § B11](README.md#b11-bay-ducting-petg-v0) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run
@@ -135,6 +137,8 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run and ch
 **Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V2_6B_154mm_DUCT_COVER` ×2 · `CMD_V3_1H_90DEG` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_MIRROR` · `V2L_90DEG_COVER_MIRROR` · 6 files, 10 objects — 6.9 h, 96 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** Every duct body base down, every lid flat; the two 154 mm ducts lie clear of the bed edge.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate B11-P2 running, 6.9 h unattended.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306)
@@ -148,6 +152,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Open `slicer/plates/B11-P3.3mf` with **File → Open Project**. This is the AC conduit, the strip fin and the DC S-jog.
 **Parts:** `V3L_WIRE_BOX_PORT` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15` ×2 · `V3L_90DEG_R15_COVER` ×2 · `CMD_V3_1H_T_SHORT` · `CMD_V2_6B_T_SHORT_COVER` · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · `V2L_STRIP_FIN` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · 10 files, 15 objects — 4.6 h, 73 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** Endcaps stand on their flat face, the fin lies plate down, every duct body sits base down.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate B11-P3 running, 4.6 h unattended.
 
@@ -338,6 +344,8 @@ Source: `review/2026-09-23-bay-mods/layout-v3/work/remix_v3.py` · `layout-v2/wo
 **Parts:** `V2L_58mm_DUCT` ×3 · `V2L_58mm_DUCT_COVER` ×3 · `V2L_130mm_DUCT` · `V2L_130mm_DUCT_COVER` · `V2L_70mm_DUCT` · `V2L_70mm_DUCT_COVER` · `V3L_10mm_DUCT` ×3 · `V3L_10mm_DUCT_COVER` ×3 · `V3L_34mm_DUCT_HOLE` · `V3L_34mm_DUCT_COVER` · 10 files, 18 objects — 6.3 h, 82 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** The plate holds the lengths the bay measured, and the 34 mm piece shows its floor opening.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate B11-P4 running, 6.3 h unattended.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`
@@ -353,6 +361,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Check:** Both narrowed 154s and both narrowed Ts base down, lids flat.
 
 ⚠ **Fallback:** stock `CMD_V3_1H_T_REG` and `CMD_V3_1H_82mm_DUCT` are drawn base up. Load them with `slicer/bay-ducts-petg.ini`, place each on its wide flat base, and print their covers as they come.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate B11-P5 or the fallback running.
 

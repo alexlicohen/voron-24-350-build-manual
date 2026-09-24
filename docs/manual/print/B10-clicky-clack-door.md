@@ -89,6 +89,8 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 **Check:** The four hinge-sleeve/solid parts print upright and stable through their full 55–58 mm height;
 watch the first 10 mm for any brim lift.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -122,15 +124,15 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every bin is now full and the printer is free; the bushing and pin tests wait for the kit.
+Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
 ## Checkpoint B10
-- [ ] Split bushings tap into hinge sleeves without splitting the part
-- [ ] M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
+- [ ] *(kit day)* Split bushings tap into hinge sleeves without splitting the part
+- [ ] *(kit day)* M5×45 dowel pin is a tight hammer fit into `Hinge-L-solid`, ~20 mm proud
 - [ ] Door swing decided from where the machine will live (as designed: hinges left, opens from the right); hinge files mirrored only if it must open the other way
 - [ ] Blue `Handle` (B02) reunited with the black hardware for assembly
 
@@ -141,5 +143,6 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
-nothing — this is the last plate of the run. All 22 are done and binned, weeks before the cartons land; the
-only job left for the printer is a `deck_support_4mm` reprint if the deck panel calipers 4 mm.
+this is the last plate of the ASA run. All 22 are done and binned, weeks before the cartons land.
+[B11](B11-bay-ducting.md)'s P1–P3 (PETG V0) can print now; P4 and P5 wait for the kit-day bay measurements.
+The only ASA job left is a `deck_support_4mm` reprint if the deck panel calipers 4 mm.

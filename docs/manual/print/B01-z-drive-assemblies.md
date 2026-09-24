@@ -5,7 +5,7 @@ early, on a caliper across the printed pocket, so this batch prints second, stra
 
 ```mascot
 pose: print
-caption: The first real parts. They hold bearings, so Gate B has opinions and it goes first.
+caption: The first real parts. They hold bearings, so Gate B has opinions and the final say.
 ```
 
 **Time:** 22.8 h (2 plates) — PrusaSlicer 2.9.6 estimates.
@@ -78,7 +78,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: profile `0.20mm STRUCTURAL @COREONE 0.4 (modified)`, **5 files, 7 objects**, no brim outline.
-3. Do not rotate any part.
+3. Do not change which face sits on the bed.
 **Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 15.2 h, 201 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Estimated plate time is **15 h 13 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
@@ -98,7 +98,7 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 **Do:** Start in the morning or at the start of a full workday: this is the 15.2 h plate.
 **Check:** First layer clean; no corner lift on the `z_drive_main` bodies partway through.
 
-Tip: look at the first layer, the corners after an hour, and again at bedtime. A lifted corner is a stop, not a wait.
+Tip: look at the first layer, the corners after an hour, and at bedtime. A lifted corner is a stop. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — B01-P1 running, 15.2 h unattended, door shut. Meanwhile: read Ch 02, sort the last plate, label bins.
 
@@ -128,6 +128,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Start after P1 is pulled and inspected.
 **Check:** No warp at the corners of the motor mounts.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
 ## Step B01.7 — Inspect
@@ -138,6 +140,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 2. Log every reading.
 3. Kit day: thumb a real 625-2RS into every seat, no rocking.
 **Check:** Every pocket reads 16.30 mm ±0.15. A part outside that is reprinted, never forced.
+
+**Helper:** Reads each caliper number back aloud and writes it into the log.
 
 Pause: ~15 min since the last pause — every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.
 
@@ -185,7 +189,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## While a long plate runs
 
-Four plates in this build run past eight hours and one runs past fifteen. None of them wants watching, but
+Seven plates in this build run past eight hours and one runs past fifteen. None of them wants watching, but
 all of them want three looks: the **first layer**, the **corners after an hour**, and once more **at
 bedtime**. A lifted corner is a stop, not a wait — abort, clear the sheet, renew the glue film and restart,
 rather than letting the plate print another six hours on top of it.

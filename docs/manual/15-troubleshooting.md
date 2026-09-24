@@ -75,6 +75,27 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
             One runout is predicted, on a plate with no bearing seat. Let the runout sensor pause, load the next spool and resume; never plan one on a bearing-seat plate. [Spool ledger](print/README.md#spool-ledger)
 
+    - The printer stopped mid-plate
+        - It paused and asks for filament
+
+            The runout sensor paused it. Load the next spool and resume from the printer screen. [When the printer stops](print/README.md#when-the-printer-stops) · [Spool ledger](print/README.md#spool-ledger)
+
+        - The power went out
+
+            If the printer offers to resume when power returns, accept only if the part is still firmly stuck to the sheet. Otherwise clear the sheet and reprint the plate. [When the printer stops](print/README.md#when-the-printer-stops)
+
+        - A "bed not aligned" or Z-alignment prompt
+
+            Cancel the print, run the printer's Z alignment, and start the plate again. If it comes back, brush the hot nozzle tip clean and check nothing is under the sheet. [When the printer stops](print/README.md#when-the-printer-stops)
+
+        - It taps the same probe point again and again
+
+            Ooze on the nozzle tip or heater noise on the loadcell. Cancel, brush the hot tip clean, and start the plate again. If it loops again, stop the run and read the section linked here. [When the printer stops](print/README.md#when-the-printer-stops)
+
+        - Spaghetti: a part came loose
+
+            Stop the print and let everything cool before you touch it, then clear the sheet. Fix the glue film, the brim or the chamber start, and reprint the whole plate. [When the printer stops](print/README.md#when-the-printer-stops) · [Print sheet](print/00-slicer-setup.md#print-sheet)
+
 - Frame and motion, with nothing powered
     - A carriage or the toolhead binds
         - A tight spot near one end of X travel
@@ -198,7 +219,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Homing overshoots into the frame
 
-            position_endstop or position_max is still at the 250 default. Prove the 350 edits are live on the running instance. [13.5](13-initial-startup.md#step-135-prove-the-350-mm-config-edits-are-live) · [12.24](12-software.md#step-1224-350-mm-stepper_x-and-stepper_y)
+            The wrong build-size pair is uncommented; with none uncommented Klipper will not start. Prove the 350 edits are live on the running instance. [13.5](13-initial-startup.md#step-135-prove-the-350-mm-config-edits-are-live) · [12.24](12-software.md#step-1224-350-mm-stepper_x-and-stepper_y)
 
         - The toolhead cannot reach an endstop
 
@@ -254,7 +275,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
     - QGL will not converge
         - Probed points range stalls or grows
 
-            The gantry is racked. Square it in Ch 06b, re-tension A and B to 110 Hz, then re-run QGL. [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints)
+            The gantry is racked. Square it in Ch 06b, which leaves A and B at a provisional tension, then re-run QGL. [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab) · [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) · [13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring)
 
         - Possibly Z motor numbering is wrong
 
@@ -377,7 +398,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 | The wrong motor answers a buzz | motors on the wrong ports | power **off**, move the connector, power on. Never hot-swap a stepper | [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction), [10.40](10-wiring.md#step-1040-tag-every-stepper-cable-before-you-plug-anything-in) |
 | `G28 X` drives the gantry *down* first | Z stepper directions reversed | fix the Z `dir_pin`s before touching A or B | [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction) |
 | X and Y both move but the toolhead travels diagonally | A and B swapped, or one inverted | upper block on the V2 chart → invert a `dir_pin`; lower (orange) block → physically swap A and B | [13.16](13-initial-startup.md#step-1316-correct-any-wrong-motor-or-wrong-direction) |
-| Homing overshoots into the frame | `position_endstop` / `position_max` still at the 250 default | prove the 350 edits are live | [13.5](13-initial-startup.md#step-135-prove-the-350-mm-config-edits-are-live), [12.24](12-software.md#step-1224-350-mm-stepper_x-and-stepper_y) |
+| Homing overshoots into the frame | the wrong build-size pair of `position_endstop` / `position_max` is uncommented | prove the 350 edits are live | [13.5](13-initial-startup.md#step-135-prove-the-350-mm-config-edits-are-live), [12.24](12-software.md#step-1224-350-mm-stepper_x-and-stepper_y) |
 | An endstop reads `TRIGGERED` untouched | wiring, not polarity — stock Voron endstops are N.C. to ground | fix the wiring; do **not** add a `!` to silence it | [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released), [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes) |
 | X or Y endstop never triggers, cable is labelled *X Stop / Y Stop* | LDO batch shipped with the wrong labels; needs re-pinning | read the labels, then re-pin | [10.31](10-wiring.md#step-1031-read-the-xy-endstop-cable-labels), [10.32](10-wiring.md#step-1032-repin-the-xy-endstop-cable-only-if-labelled-x-stop-y-stop) |
 | The toolhead cannot reach an endstop | rubber rail stopper still on the rail, or the gantry is racked | pull the stoppers, then square the gantry | [13.1](13-initial-startup.md#step-131-clear-the-machine-and-stage-the-bench), [Ch 06b](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) |
@@ -392,7 +413,7 @@ Source: [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-a
 
 | Symptom | Likely cause | Fix | Owned by |
 |---|---|---|---|
-| **QGL does not converge** — `Probed points range` stalls or grows | gantry racking | square the gantry in Ch 06b, re-tension A/B to 110 Hz, re-QGL | [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab), [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) |
+| **QGL does not converge** — `Probed points range` stalls or grows | gantry racking | square the gantry in Ch 06b (provisional A/B tension), then re-QGL | [13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab), [06b.14](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints), [13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) |
 | QGL: *"Probed points range is increasing. Possibly Z motor numbering is wrong"* | Z motors on the wrong drivers | recheck the map: Z0 front-left → `STEPPER-0`, Z1 rear-left → `-1`, Z2 rear-right → `-2`, Z3 front-right → `-3` | [13.33](13-initial-startup.md#step-1333-quad_gantry_level), [10.43](10-wiring.md#step-1043-z0z3-stepper-0-to-stepper-3) |
 | QGL: *"required adjustment … is greater than max_adjust"* | gantry too far out of level to correct in software | `M84` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`, retry | [13.33](13-initial-startup.md#step-1333-quad_gantry_level) |
 | QGL "out of bounds" / cannot reach a probe point | gantry far from level, or wrong `gantry_corners` | `FIRMWARE_RESTART` with a hand under the gantry (it sinks when the Z motors release), level the gantry by hand against the frame, `G28`; confirm the 350 corners `-60,-10 / 410,420` | [13.33](13-initial-startup.md#step-1333-quad_gantry_level), [12.26](12-software.md#step-1226-350-mm-quad_gantry_level) |
@@ -468,7 +489,7 @@ Source: [Ch 10 Checkpoint 10](10-wiring.md#checkpoint-10) and [Common mistakes](
 | Top surfaces have gaps and valleys, or pellets and ridging | extrusion multiplier low / high | run the 2 % pass, then the 0.5 % refinement | [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass), [14.20](14-calibration.md#step-1420-the-05-refinement-pass) |
 | Ringing / ghosting after corners, even with input shaping saved | `max_accel` left at the stock `10000` — `SAVE_CONFIG` does not touch it | set `max_accel` at or below the lower per-axis suggestion, with margin | [14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel) |
 | Fine vertical ripple 0.5–2 mm apart on flat faces (VFA) | belt-tooth engagement ripple — cosmetic, not ringing | not a tuning fault; input shaping does not fix it | [print/00-slicer-setup.md](print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild) |
-| Mesh and Z offset are wrong for every print | probed on a cold frame — the bed reaches temperature in minutes, the frame takes 30–45 | heat soak before probing | [13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c), [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
+| Mesh and Z offset are wrong for every print | probed on a cold frame — the bed reaches temperature in minutes, the frame only when `PROBE_ACCURACY` stops trending | heat soak before probing | [13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c), [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
 | Shaper graph shows two or more widely separated peaks | usually mechanical — a loose backer, an under-tensioned belt, a rail bolt in an end hole | fix the machine before shaping over it; below 25 Hz on either axis is a build fault | [14.14](14-calibration.md#step-1414-read-the-graphs) |
 
 Source: [Ch 14 Parts D–F](14-calibration.md#part-d-chamber-and-the-first-real-print) and [Common mistakes](14-calibration.md#common-mistakes) · [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes) · [print/00-slicer-setup.md](print/00-slicer-setup.md)
@@ -490,7 +511,11 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 | The preview shows a brim on flat grills or clips that should have none | the global brim was set by hand | clear Print Settings → Skirt and brim; brims live per object in the committed projects | [Orientation & brim](print/00-slicer-setup.md#orientation-brim), [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2) |
 | 625-2RS or F695 bore too tight or too loose | flow, or shrinkage compensation not zero — the seats are drawn for 100 % | tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect), [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect) |
 | Heat-set boss bulges or the insert sits crooked | iron too hot or pushed too fast — technique, not the slicer | practise on the coupon until two in a row are flush | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush) |
-| The spool runs out mid-plate | predicted once, on B09-P2 | let the runout sensor pause, load the next spool, resume — never plan one on a bearing-seat plate | [Spool ledger](print/README.md#spool-ledger) |
+| The spool runs out mid-plate | predicted once, on B09-P2 | let the runout sensor pause, load the next spool, resume — never plan one on a bearing-seat plate | [Spool ledger](print/README.md#spool-ledger), [When the printer stops](print/README.md#when-the-printer-stops) |
+| The power went out mid-plate | — | resume only if the printer offers it and the part is still firmly stuck; otherwise clear the sheet and reprint the plate | [When the printer stops](print/README.md#when-the-printer-stops) |
+| A "bed not aligned" / Z-alignment prompt at a plate start | on this machine usually loadcell noise or a dirty tip, not a moved bed | cancel, run the printer's Z alignment, start again; if it returns, brush the hot tip clean and check under the sheet | [When the printer stops](print/README.md#when-the-printer-stops) |
+| The nozzle taps the same probe point again and again | ooze on the tip, or heater noise on the loadcell | cancel, brush the hot tip clean, restart the plate; a second loop stops the run | [When the printer stops](print/README.md#when-the-printer-stops) |
+| Spaghetti: a part came loose mid-plate | glue film, brim or a cold chamber start | stop, cool, clear the sheet, fix the cause, reprint the whole plate | [When the printer stops](print/README.md#when-the-printer-stops), [Print sheet](print/00-slicer-setup.md#print-sheet) |
 
 Source: [print/00-slicer-setup.md — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [B00 Common mistakes](print/B00-calibration-and-jigs.md#common-mistakes) · [B01 Common mistakes](print/B01-z-drive-assemblies.md#common-mistakes) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)
 

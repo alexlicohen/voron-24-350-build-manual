@@ -152,19 +152,15 @@ so nothing here gets hand-typed.
 3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
    [print/README](README.md#spool-ledger) by hand.
 
-B11's five plates carry `qc="pending"` in `slicer/plates.py` — nobody has flipped that flag yet. It
-is not this step's job to flip it; finishing B11's review here is what clears it, done by Alex or on
-his word to Claude.
-
-Pause: ~25 min since the last pause — B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. Do not close without saving any arrangement change.
+Pause: ~25 min since the last pause — B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange.
 
 Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.
 
 Pause: ~35 min since the last pause — B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.
 
-Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked; `qc="pending"` cleared in `slicer/plates.py` if every one passed. Checklist and Checkpoint B00 both closed.
+Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed.
 
-Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger)
+Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger) · maintainer note: a passed B11 review is what clears B11's `qc="pending"` flag in `slicer/plates.py`
 
 ## Step B00.1 — Filament prep
 
@@ -217,13 +213,13 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 
 **Do:**
 
-1. Slice, then Export G-code to the USB stick or Send to printer.
-2. Start it, watch the first layer 2 to 3 minutes.
-3. Gappy beads: long-press the knob, nudge **Live Adjust Z**, then find the cause before B02.
+1. Slice, then Export G-code to USB or Send to printer.
+2. Start it, watch the first layer for 2–3 minutes.
+3. Gappy beads: long-press the knob, nudge **Live Adjust Z**, then find the cause before the next plate.
 
 **Check:** First layer smooth, no gaps between beads, no ridging, and either no Live Adjust Z nudge or its cause written in the log.
 
-Tip: expect 15–25 minutes of chamber heating before the purge (verify on bench). The 4.0 h estimate does not include it.
+Tip: expect 15–25 minutes of chamber heating before the purge (verify on bench), not in the 4.0 h. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
 
 Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) · [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -236,6 +232,8 @@ Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#cal
 3. Log all four numbers.
 
 **Check:** All four pass; any failure means adjusting [extrusion multiplier](../16-glossary.md#e), never negative XY compensation, then reprinting this plate before B02 or B07.
+
+**Helper:** Reads each caliper number back aloud and types it into the Gate A calculator.
 
 ```gate-calc
 id: gate-a
@@ -289,7 +287,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Do:**
 
-1. Sort every part into its bin off the diagram above.
+1. Sort every part except the three Gate B coupons into its bin off the diagram above.
 2. Mark plate id and date on a hidden face.
 3. Bag the three **Gate B coupons** at the front of 00-jigs: `GATE B — bore and inserts now, rail on kit day`.
 
@@ -298,13 +296,13 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | bin | parts off this plate |
 |---|---|
 | **00-jigs** — Jigs and coupons | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` |
-| **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_drive_retainer_a` |
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_drive_retainer_a`, after Step B00.7 |
 
-**Check:** Bins 00-jigs and 02-Z0 are labelled, every part off this plate is in one of them, and the Gate B bag is closed.
+**Check:** Bins 00-jigs and 02-Z0 are labelled, every other part is in 00-jigs, and the Gate B bag is closed.
 
 Tip: after Gate B the retainer moves to **02-Z0**; the cube stays as the reference coupon.
 
-Pause: ~10 min since the last pause — plate sorted into 00-jigs and 02-Z0, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.
+Pause: ~10 min since the last pause — plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -314,7 +312,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 1. Open the GATE B bag and run [Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day).
 2. Caliper the `z_drive_retainer_a` 625-2RS pocket, then set seven KADRICK inserts.
-3. Kit day: thumb a real 625-2RS into that pocket, then slide the guide onto a taped carriage.
+3. Kit day: thumb a real 625-2RS into that pocket, then slide the `MGN12_rail_guide` onto the real MGN12 rail.
 
 **Check:** The pocket calipers 16.30 mm ±0.15 and all seven inserts sit flush. Bearing and rail rows sign off on kit day.
 
@@ -374,7 +372,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 
 **Gate A — before B02 and B07**
 
-- [ ] Pre-B00 checks passed (index row 1): belt pluck check, hot first-layer check `(verify on bench)`
+- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm

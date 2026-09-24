@@ -92,7 +92,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate.
 
-Tip: look at the first layer, the corners after an hour, and again at bedtime. A lifted corner is a stop, not a wait.
+Tip: look at the first layer, the corners after an hour, and at bedtime. A lifted corner is a stop. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes. Meanwhile: read the chapter this batch feeds, sort the previous plate, label bins.
 
@@ -118,6 +118,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** Both front skirts lay down a clean first layer across the full 150 mm; no corner lift.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -142,6 +144,8 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Print with standing overrides.
 **Check:** No corner lift on the skirts, no warp on the tall narrow TFT mount.
 
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
@@ -159,12 +163,16 @@ already in it. Confirm it loaded as described rather than rebuilding it.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
+⚠ Spool #2 should hold about 97 g here and this plate needs 70 g. Six plates of slicer error on #2 can eat that cushion, and a runout on a side skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~90 g left, start this plate on spool #3; keep #2's stub.
+
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B08.9 — Print plate B08-P4
 
 **Do:** Print with standing overrides.
 **Check:** Keystone panel's two cutout slots print crisp and undistorted.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
 Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
 
