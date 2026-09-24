@@ -615,17 +615,19 @@ Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.76](assets/manual-pages/manual-p076.png)
 
-**What you're looking at:** Manual p.76's elevation, and a length of belt used as a straightedge. The pulley and the two bearing channels have to lie in one flat plane, and a belt offcut laid across them shows any step in height.
+**What you're looking at:** Manual p.76's elevation and a belt offcut used as a straightedge. The A pulley runs in the **upper** belt plane, level with the near pair and the far post's upper pair.
 
 **Parts:** a 6 mm belt offcut or a thin steel rule.
 
 **Do:**
 
-1. Compare against p.76's elevation: pulley orientation and alignment with the bearing stacks.
-2. Lay the belt offcut flat across the pulley teeth, then each bearing pair, following the belt path.
-3. Label it **A: REAR RIGHT** and set aside.
+1. Motor down, compare against p.76's elevation: pulley in the upper plane, level with the near pair.
+2. Lay the offcut across the pulley teeth, the near pair and the far post's **upper** pair.
+3. Label it **A: REAR RIGHT**.
 
-**Check:** **The belt path is straight**: the offcut lies flat on the pulley and in each bearing groove, no tilt, no flange contact.
+**Check:** **Belt path straight**: offcut flat on the pulley, the near pair and the far post's **upper** pair; no tilt, no flange contact.
+
+Tip: the far post's lower pair sits 10 mm below the offcut. That is correct: it carries the B belt, so leave the stack alone.
 
 Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=76) · [Video: Part 5 @1:12:36](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4356s)
 
@@ -781,13 +783,15 @@ Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.80](assets/manual-pages/manual-p080.png)
 
-**What you're looking at:** Manual p.80's elevation and the belt offcut again. Same straightness test as the A drive: flat on the pulley, flat in both bearing channels, no tilt and no contact with a flange.
+**What you're looking at:** Manual p.80's elevation and the belt offcut again. The B pulley runs in the **lower** belt plane, level with the near pair and the far post's lower pair.
 
 **Parts:** the belt offcut or steel rule.
 
-**Do:** Compare against p.80's elevation and run the offcut across the pulley and each bearing pair as you did for the A drive.
+**Do:** Motor down, compare against p.80's elevation: pulley in the lower plane. Lay the offcut across the pulley teeth, the near pair and the far post's **lower** pair. Label it **B: REAR LEFT**.
 
-**Check:** **The belt path must be straight**: offcut flat on the pulley and in both grooves, no tilt, no flange contact. Label it **B: REAR LEFT**.
+**Check:** **Belt path straight**: offcut flat on the pulley, the near pair and the far post's **lower** pair; no tilt, no flange contact.
+
+Tip: the far post's upper pair sits 10 mm above the offcut. That is correct: it carries the A belt, so leave the stack alone.
 
 Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=80)
 
@@ -826,7 +830,7 @@ Pause: ~15 min since the last pause — all four assemblies bagged and labelled 
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
 - [ ] A pulley: hub down, 16.5 mm. B pulley: hub up, 6.5 mm. The two are visibly different.
 - [ ] Both pulleys are threadlocked and will not slip under hand pressure.
-- [ ] The belt offcut lies flat across pulley and bearing grooves on both drives — no tilt, no flange contact.
+- [ ] The belt offcut lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
 - [ ] Both motor cable exits point inboard; held in their build positions, they face each other.
 - [ ] Every M5×30 BHCS is snug only — none was torqued down into the plastic thread.
 - [ ] Zero bearings, spacers or fasteners left over.

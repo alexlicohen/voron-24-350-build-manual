@@ -317,7 +317,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
     - The printed part is wrong
         - The cube is 0.1 to 0.3 mm oversize in X and Y
 
-            ASA shrinkage and bulging, not an axis error. Fix it with the extrusion multiplier, never with negative XY size compensation. [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) · [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass)
+            ASA shrinkage and bulging, not an axis error and not a flow number. Confirm shrinkage and XY size compensation were 0 in the slice, and set the extrusion multiplier by eye on the top surface only. Voron parts need no other compensation. Never negative XY compensation. [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) · [14.20](14-calibration.md#step-1420-the-05-refinement-pass)
 
         - A persistent X to Y size difference on the same cube
 
@@ -461,7 +461,7 @@ Source: [Ch 10 Checkpoint 10](10-wiring.md#checkpoint-10) and [Common mistakes](
 | First layer featureless and glassy, or gappy and ridged | squish set wrong, or extrusion multiplier moved since it was set | re-run the live-Z procedure and commit with `Z_OFFSET_APPLY_ENDSTOP` | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish), [14.21](14-calibration.md#step-1421-re-check-first-layer-squish-because-the-multiplier-moved) |
 | The Z offset reverts after every restart | babystepping was never committed | `Z_OFFSET_APPLY_ENDSTOP` then `SAVE_CONFIG` | [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes) |
 | Every first layer slightly under-squished | expected after the paper test, before live-Z closes it | close it with live-Z at 13.42 and commit with `Z_OFFSET_APPLY_ENDSTOP` | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
-| Cube is 0.1–0.3 mm oversize in X and Y | ASA shrinkage and bulging, not an axis error | fix with extrusion multiplier — never with negative XY size compensation | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
+| Cube is 0.1–0.3 mm oversize in X and Y | ASA shrinkage and bulging, not an axis error or a flow number | confirm shrinkage and XY size compensation were 0; set extrusion multiplier by eye on the top surface, never from the caliper; never negative XY compensation | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [14.20](14-calibration.md#step-1420-the-05-refinement-pass) |
 | Cube's first layer is wider than its mid-height | elephant-foot compensation wrong | adjust in 0.05 mm steps | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
 | A persistent X − Y size difference on the same cube | gantry-square problem | Ch 06b | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [Ch 06b](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) |
 | Cube corner delaminates along a layer line | chamber too cold, or part fan too high | set the chamber target and soak | [14.8](14-calibration.md#step-148-set-the-chamber-target-and-understand-the-soak), [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |

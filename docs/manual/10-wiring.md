@@ -415,7 +415,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **Check:** Terminal 1 = bed, terminal 2 = mains Live, LDO's convention from the photo. The lead lies slack in the conduit.
 
-⚠ **Layout v3:** this route is about 47 mm longer than LDO's; the lead needs 70 mm spare on LDO's route `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill). Never stretch a mains lead to reach. **LDO layout:** hole, then LDO's rear PVC duct, to LOAD 1. [LDO § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate)
+⚠ **Layout v3:** this route is about 47 mm longer than LDO's; check spare against LDO's route during this fit `(verify on bench)`. Never stretch a mains lead — if short, make a longer Bed L lead, same gauge and connector `(verify on bench)`. **LDO layout:** hole, then LDO's rear PVC duct, to LOAD 1. [LDO § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate)
 
 Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S5_mapping.jpg) · [LDO wiring guide § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate)
 
@@ -761,22 +761,21 @@ Pause: ~25 min since the last pause — 24 V distribution complete: board supply
 
 ## Section 4 — Above deck: probe, endstops, nozzle probe, lighting
 
-### Step 10.30 — Insulate the inductive probe
+<a id="step-1030-insulate-the-inductive-probe"></a>
+
+### Step 10.30 — Confirm the inductive probe's tape
 
 ![LDO inductive-probe insulation](assets/remote/10-wiring/ldo-probe-insulation.jpg)
 
-**What you're looking at:** The [inductive probe](16-glossary.md#i) is the small Omron sensor on the X carriage that senses the metal bed for gantry levelling; it never sets Z=0. The fibreglass tape is a heat shield against the hotend beside it, front and sides only.
+**What you're looking at:** The [inductive probe](16-glossary.md#i) is the small Omron sensor on the X carriage that senses the metal bed for gantry levelling; it never sets Z=0. Its fibreglass tape went on before it was fitted. This step only confirms it.
 
-**Parts:** Omron inductive probe (fitted to the X carriage in Ch 05/07), fibreglass tape 2×12 cm ×1.
+**Parts:** none.
 
-**Do:**
-
-1. Wrap at least two layers of fibreglass tape around the **front and sides** of the probe body, offset slightly up from the bottom edge.
-2. **Do not cover the back or the bottom.**
+**Do:** Look at the probe on the carriage. Confirm the tape from Step 07.34 is intact on the front and sides. Do not add more tape.
 
 **Check:** The sensing face and the back are bare, and the tape does not bulge past the probe's lower rim.
 
-⚠ Rev D+ / LDO: LDO note p.143 — the tape is a heat shield against the hotend, not a spacer. Too much of it and the probe stops triggering. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
+⚠ Rev D+ / LDO: the tape shields the probe from hotend heat; it is not a spacer. A second wrap here makes too much, and the probe stops triggering. Torn tape: patch that spot only. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
 
 Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143) · [LDO wiring guide § Insulating the Z-probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe) · [LDO wiki probe insulation photo](https://docs.ldomotors.com/v2_wire_guide/v2_revc/probe_insulation.jpg)
 
@@ -865,11 +864,11 @@ Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.
 
 ⚠ The small GT2 pulley used as the shaft collar, built in Ch 09, has a set screw that stops the shaft falling out. It must **not** grip the shaft.
 
-⚠ **Layout v3:** the notch route adds about 44 mm `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill); a DC lead never enters the AC conduit. **LDO layout:** it drops through the round hole alongside the bed cables, per LDO's build-plate mapping. [LDO § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+⚠ **Layout v3:** the notch route adds about 44 mm; check the lead has spare during this fit `(verify on bench)`. If it's short, make a longer replacement lead, same 3-pin connector; a DC lead never enters the AC conduit. **LDO layout:** it drops through the round hole alongside the bed cables, per LDO's build-plate mapping. [LDO § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 Source: [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · [LDO wiring photo z_stop_final.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg) · [Video: Part 8 @1:49:54](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6594s) (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged · BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
-Pause: ~25 min since the last pause — probe taped, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain.
+Pause: ~25 min since the last pause — probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain.
 
 ---
 
@@ -1010,7 +1009,7 @@ Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/M
 
 **Check:** Connector fully home, latch engaged, lead in the DC loop with slack and no tension on the header.
 
-⚠ **Layout v3:** this route adds about 195 mm to A; the [B11.9 go/no-go](print/B11-bay-ducting.md#step-b119-kit-day-gono-go-the-ab-motor-leads) passed it at 215 mm spare `(verify on bench)`. **LDO layout:** route the lead as `S1_mapping.jpg` shows. [LDO § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
+⚠ **Layout v3:** this route adds about 195 mm to A over LDO's route; [B11.9](print/B11-bay-ducting.md#step-b119-kit-day-gono-go-the-ab-motor-leads) confirmed the lead reaches with spare, or a longer replacement lead was made `(verify on bench)`. **LDO layout:** route the lead as `S1_mapping.jpg` shows. [LDO § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
 ⚠ Rev D+ / LDO: never plug or unplug a stepper with power on, and never spin a connected motor **fast** by hand or shove the gantry — a fast move generates back-EMF the driver has to absorb. The slow, driver-disabled (`M84`) hand moves that Ch 13 and Ch 06b ask for are fine. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
@@ -1030,7 +1029,7 @@ Source: [LDO Rev D photo S1 steppers wired](https://raw.githubusercontent.com/Mo
 
 **Check:** A and B are in the two 5160 ports and nowhere else. A 2209 would badly under-drive the motor.
 
-⚠ **Layout v3:** this route adds about 129 mm to B; the [B11.9 go/no-go](print/B11-bay-ducting.md#step-b119-kit-day-gono-go-the-ab-motor-leads) passed it at 150 mm spare `(verify on bench)`. **LDO layout:** follow `S1_mapping.jpg`, and the alternate below if B is short. [LDO § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
+⚠ **Layout v3:** this route adds about 129 mm to B over LDO's route; [B11.9](print/B11-bay-ducting.md#step-b119-kit-day-gono-go-the-ab-motor-leads) confirmed the lead reaches with spare, or a longer replacement lead was made `(verify on bench)`. **LDO layout:** follow `S1_mapping.jpg`, and the alternate below if B is short. [LDO § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
 **On LDO's layout, if your B motor cable is too short** to follow the mapping photo, LDO publishes an alternate route: [alternate B-motor mapping](assets/remote/10-wiring/ldo-b-motor-alternate-mapping.jpg) and [B-motor cable wiring](assets/remote/10-wiring/ldo-b-motor-cable-wiring.jpg). Take the alternate route rather than pulling the cable tight. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
@@ -1068,7 +1067,7 @@ Source: [LDO Rev D photo S1 steppers wired](https://raw.githubusercontent.com/Mo
 
 **Check:** `TH1`, not TH0. TH0 is the hotend port and is unused on a Nitehawk build; the config reads the bed on `PA2` = TH1.
 
-⚠ **Layout v3:** the notch route adds about 44 mm `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill); a DC lead never enters the AC conduit. **LDO layout:** up the round hole, then LDO's rear, right and front PVC ducts to TH1, as the photo shows. [LDO § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate)
+⚠ **Layout v3:** the notch route adds about 44 mm; check spare during this fit `(verify on bench)`. If short, make a longer Bed TH lead (2-pin JST-XH); a DC lead never enters the AC conduit. **LDO layout:** up the round hole, then LDO's rear, right and front PVC ducts to TH1, as the photo shows. [LDO § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate)
 
 Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S5_mapping.jpg) · [LDO wiring guide § Connecting build plate](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-build-plate) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.9)
 
@@ -1146,7 +1145,7 @@ Source: [LDO Rev D photo S7 fan/LED mapping](https://raw.githubusercontent.com/M
 
 **Check:** The cable is at the board and the free end is parked where Ch 11 will need it.
 
-⚠ **Layout v3:** the notch route adds about 44 mm `(verify on bench)`, measured at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill); the lead never enters the AC conduit. **LDO layout:** up through the round deck hole, as LDO's fan mapping shows. [LDO § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+⚠ **Layout v3:** the notch route adds about 44 mm; check the lead has spare during this fit `(verify on bench)`. If it's short, make a longer replacement FILTER FAN lead, same connector `(verify on bench)`; the lead never enters the AC conduit. **LDO layout:** up through the round deck hole, as LDO's fan mapping shows. [LDO § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 
 Source: [LDO Rev D photo S7 fans wired](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 

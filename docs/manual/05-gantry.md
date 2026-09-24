@@ -67,7 +67,7 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 | M5×30 BHCS | 2 | XY joints from below (p.104) |
 | M5×40 SHCS | 8 | 4 per XY joint (p.97–100) |
 | M3×8 SHCS | ≈28 | ≈20 Y rails (~10 each), ≈8 X rail — count the holes on your own rails |
-| M3×16 SHCS | 6 | XY joints to the Y carriages (p.106) — the right joint takes 2 only; the 2 you do not fit are spares, not the pod's bolts |
+| M3×16 SHCS | 6 | XY joints to the Y carriages (p.106): 4 left joint, 2 right joint; all six fitted, none spare |
 | M3×30 SHCS | 2 | bagged with the endstop pod for Ch 09 — p.164 fits the pod through its body with M3×30, not the M3×16 of p.106 (verify against the bag) |
 | M5 nut | 6 | 3 per XY joint (p.96) |
 | **M5 precision spacer, brass** | 4 | 2 per XY joint stack — one below and one above the F695 pair (p.97, p.99) — replaces the manual's "M5 shim" |
@@ -254,13 +254,15 @@ Source: [Voron manual p.86](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.87](assets/manual-pages/manual-p087.png)
 
-**What you're looking at:** With both drives bolted on, bridge plus drives is a single rear beam: the fixed back edge of the gantry, and the reference everything else is built to. The plan view is the alignment check.
+**What you're looking at:** With both drives bolted on, bridge plus drives is a single rear beam: the fixed back edge of the gantry, and the reference everything else is built to. p.87's lower elevation is the alignment check.
 
 **Parts:** M5×10 BHCS ×4.
 
-**Do:** Fit the last four M5×10 BHCS, snug. Then sight down the plan view: the two drive frames must be parallel and the two pulley stacks must line up across the bridge, exactly as the lower graphic shows.
+**Do:** Fit the last four M5×10 BHCS, snug. Then compare with p.87's lower elevation: drive frames parallel, and the two pulleys **one belt plane apart**, one high and one low, as drawn.
 
-**Check:** Drives parallel, no twist along the bridge, all eight M5×10 in and snug. Nothing here is torqued yet.
+**Check:** Drives parallel, no twist along the bridge, pulleys one plane apart, all eight M5×10 in and snug. Nothing here is torqued yet.
+
+Tip: A's pulley sits high, B's low. Never move a pulley to make them match; that 10 mm step keeps the two belts apart.
 
 Source: [Voron manual p.87](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=87)
 
@@ -274,11 +276,11 @@ Pause: ~30 min since the last pause — XY bridge bolted to both drive units, al
 
 **What you're looking at:** The two C extrusions are the **Y axes**, the side rails the X beam slides along. Each carries an [MGN9](16-glossary.md#m) linear rail on one face. The M3 T-nuts anchor every rail screw; once the rail is down, no more can go in.
 
-**Parts:** C extrusion ×1, M3 T-nut ×~10.
+**Parts:** C extrusion ×1, M3 T-nut ×10.
 
-**Do:** The 400 mm MGN9H `LDO-SLR9H-400Z0` has 20 holes at 20 mm pitch and uses every other one, so about **10** T-nuts. Mark them. Slide the T-nuts into the rail's slot, spread out, leaving ~25 mm free at each end.
+**Do:** The 400 mm MGN9H `LDO-SLR9H-400Z0` has 20 holes. Mark holes **2, 4 … 18 and 19**: every other hole, plus the second-from-last, never an end hole. Slide in **10** M3 T-nuts, ~25 mm clear of each end.
 
-**Check:** ~10 nuts, one per marked hole, evenly spread, all rolled flat in the channel, ~25 mm clear at both ends.
+**Check:** 10 nuts, one per marked hole, all rolled flat in the channel; holes 1 and 20 unmarked; ~25 mm clear at both ends.
 
 Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=88) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -290,13 +292,13 @@ Source: [Voron manual p.88](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** An MGN9 rail is a hardened steel guide with a recirculating-ball carriage riding on it. The two printed guides are U-shaped clips that straddle rail and extrusion and hold the rail dead-centred while you start the screws.
 
-**Parts:** MGN9H 400 mm rail ×1, `MGN9_rail_guide_x2` jig ×2, M3×8 SHCS ×~10 (one per marked hole).
+**Parts:** MGN9H 400 mm rail ×1, `MGN9_rail_guide_x2` jig ×2, M3×8 SHCS ×10 (one per marked hole).
 
 **Do:**
 
 1. Tape the carriage mid-rail; peel the Ch 00 end-stop bands off with the rail flat.
 2. Sit the rail on the extrusion, centred by an MGN9 guide at each end.
-3. Start at the **second hole from each end**.
+3. Start holes **2** and **19**, then the rest.
 
 ⚠ **Rev D+ / LDO:** *"Do not use the holes on the ends of the rails, use the second ones from the ends."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq) — the manual only requires this on 300 mm builds; LDO requires it on every build, because the end holes sit over the M5/M3 nuts of Step 05.14, which share the rail's slot.
 
@@ -671,11 +673,11 @@ Pause: ~20 min since the last pause — both XY joints built, bolted and idler-f
 
 **What you're looking at:** The D extrusion is the **X beam**, the one the toolhead runs along. It carries an [MGN12](16-glossary.md#m) rail, wider than the Y rails because it holds the toolhead off one carriage. Same T-nut rule: load them before the XY joints cap the ends.
 
-**Parts:** D extrusion ×1, M3 T-nut ×~8.
+**Parts:** D extrusion ×1, M3 T-nut ×8.
 
-**Do:** The **400 mm** MGN12H `LDO-SLR12H-400Z1` has ~16 holes at 25 mm pitch and uses every other one, so about **8** T-nuts. Mark them. Slide the T-nuts into the D extrusion's rail slot, leaving about 15 mm clear at each end.
+**Do:** The **400 mm** MGN12H `LDO-SLR12H-400Z1` has 16 holes. Mark holes **2, 4 … 14 and 15**: every other hole, plus the second-from-last, never an end hole. Slide in **8** M3 T-nuts, ~15 mm clear of each end.
 
-**Check:** ~8 nuts in, one per marked hole, flat, with clear slot at both ends.
+**Check:** 8 nuts, one per marked hole, flat; holes 1 and 16 unmarked; clear slot at both ends.
 
 Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=101)
 
@@ -687,9 +689,9 @@ Source: [Voron manual p.101](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** Same centre-and-tighten procedure as the Y rails, with the larger MGN12 guides. This is the rail that decides print quality across X: it must sit centred along its whole length and pull down flat with no gap underneath.
 
-**Parts:** MGN12H 400 mm rail ×1, `MGN12_rail_guide_x2` jig ×2, M3×8 SHCS ×~8 (one per marked hole).
+**Parts:** MGN12H 400 mm rail ×1, `MGN12_rail_guide_x2` jig ×2, M3×8 SHCS ×8 (one per marked hole).
 
-**Do:** Tape the carriage mid-rail; peel its Ch 00 bands off with the rail flat. Sit the rail on the D extrusion, centred by an MGN12 guide at each end. Start at the **second hole from each end**, then tighten centre-outwards.
+**Do:** Tape the carriage mid-rail; peel its Ch 00 bands off with the rail flat. Sit the rail on the D extrusion, centred by an MGN12 guide at each end. Start holes **2** and **15**, then the rest; tighten centre-outwards.
 
 ⚠ **Rev D+ / LDO:** second hole in from each end here too, not the end hole. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -871,7 +873,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** The **left** joint takes all four M3×16 SHCS. The **right** joint takes **two only**: *"2X BOLT ONLY: the remaining bolts will be installed during the end-stop installation."* Take all six to snug.
 
-**Check:** 4 bolts on one joint, 2 on the other, and 2 M3×16 left over as spares; Step 05.46 bags the pod's 2× M3×30.
+**Check:** 4 on one joint, 2 on the other, no M3×16 left over. The two empty holes take the pod's M3×30 in Ch 09.
 
 Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
 
@@ -924,11 +926,11 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The [XY endstop pod](16-glossary.md#x) is the blue box carrying the X and Y limit switches on the right XY joint. The renders show both either/or choices pulled apart: the D2F pod and 2-hole bridge are kept, the hall-effect pod and 3-hole bridge are not.
 
-**Parts:** `[a]_endstop_pod_D2F_switch` ×1, M3×30 SHCS ×2 (p.164 — verify against the bag), the 2 spare M3×16 kept back earlier, `[a]_cable_cover`, the unused cable bridge variant.
+**Parts:** `[a]_endstop_pod_D2F_switch` ×1, M3×30 SHCS ×2 (p.164 — verify against the bag), `[a]_cable_cover`, the unused cable bridge variant.
 
 **Do:**
 
-1. Bag the endstop pod with **2× M3×30 SHCS** and the two spare M3×16 from Step 05.43, labelled.
+1. Bag the endstop pod with its **2× M3×30 SHCS**, labelled.
 2. Bag the `[a]_cable_cover` and the unused bridge variant separately.
 
 ⚠ **Rev D+ / LDO:** *"Our kit includes the XY microswitch PCB, print [a]_endstop_pod_D2F_switch instead of [a]_endstop_pod_hall_effect."* [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
@@ -995,7 +997,7 @@ Source: [Voron manual p.107](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
 - [ ] Cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
-- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; **2× M3×30 SHCS bagged** with the endstop pod (p.164), the 2 unused M3×16 kept as spares
+- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; **2× M3×30 SHCS bagged** with the endstop pod (p.164) for the right joint's two empty holes
 - [ ] X axis runs the full Y travel with no tight spot
 - [ ] A/B belts still unopened; nothing squared, nothing torqued down
 - [ ] Gantry is **upside down** (motors up, rails up) with the right joint (bridge, endstop channel) on the A-drive side; it is turned back at Ch 06 Step 06.11

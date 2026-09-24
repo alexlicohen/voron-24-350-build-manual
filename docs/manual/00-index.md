@@ -20,7 +20,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 
 **The whole run prints before the kit.** Rows 1–13 cover the pre-B00 checks and every batch in numeric order, B00 → B10 (row 3 is Ch 00a): 157.0 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. The bench work under them is Ch 00a and Ch 00's own pre-kit steps (00.23–00.32: the manual's front matter, the measurement log, the Discord questions — marked `(pre-kit)` so [Tonight](00-tonight.md) offers them), plus reading a chapter and sorting a batch into its bins as each plate comes off. Rows 14–31 are the build, and not one of them waits for a plate.
 
-**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 5 plates of PETG V0, 25.0 h, outside the run and its 157.0 h. They are not in execution order. Row 32 needs nothing measured and prints any time after row 13, including while the build rows run; row 33 waits for the kit-day go/no-go and bay measurements and must be off the bed before Ch 09 (row 24) fits the ducts.
+**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 5 plates of PETG V0, 25.0 h, outside the run and its 157.0 h. They are not in execution order. Row 32 needs nothing measured and prints any time after row 13, including while the build rows run; row 33 waits for the kit-day bay measurements and must be off the bed before Ch 09 (row 24) fits the ducts; the A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
 
 - **1 · Both** — **Pre-B00 checks, Gen 1 belts** · ~1 h · needs: nothing new — the Core One+ as commissioned
     - *While it prints:* Nothing prints yet. Dry the first black spool, read [00-slicer-setup](print/00-slicer-setup.md), confirm the sheet and glue
@@ -133,9 +133,9 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *While it prints:* Whatever build row is current; nothing waits on this row
     - *Gate:* The coupon's lid snaps home and holds (Step B11.4); without that, row 33 prints the fallback middle run instead of B11-P5
     - *Sessions:* 3 plate starts
-- **33 · Print** — [B11 — Bay ducting, after the kit-day measurements](print/B11-bay-ducting.md#after-the-kit-day-measurements) **KIT** · 13.1 h print · needs: row 32; the A/B lead go/no-go (Step B11.9), taken after Checkpoint 06 (row 21) once the gantry is belted, plus the kit-day bay measurements (Step B11.10); must finish before Ch 09 (row 24)
+- **33 · Print** — [B11 — Bay ducting, after the kit-day measurements](print/B11-bay-ducting.md#after-the-kit-day-measurements) **KIT** · 13.1 h print · needs: row 32; the A/B lead confirmation (Step B11.9), taken after Checkpoint 06 (row 21) once the gantry is belted, plus the kit-day bay measurements (Step B11.10); must finish before Ch 09 (row 24)
     - *While it prints:* Ch 00–08 build rows
-    - *Gate:* A/B motor leads long enough (≥ 215 / ≥ 150 mm spare) or the extensions bought; B11-P5 only if the Leviathan-to-PSU gap is ≥ 25 mm
+    - *Gate:* none from the A/B leads — P4 and P5 print either way, a short lead gets a longer replacement lead instead; B11-P5 only if the Leviathan-to-PSU gap is ≥ 25 mm
     - *Sessions:* 2 plate starts
 
 **Row 1, and why the whole run stays on Gen 1.** The Gen 2 belt upgrade (Prusa order 1787919456, shipped) is deferred to this winter, done together with the INDX 8-tool conversion — Prusa documents the combined install (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The printer is commissioned and printing well, the upgrade fixes neither open issue on the bench (loadcell/heater noise, PETG infill strands), and a heatbed swap now would put the closed bed calibration at risk and force a belt retune, XY-homing recal and a start-G-code re-sync of all 22 3MFs — one teardown instead of two. Row 1's two checks (belt pluck, hot first layer) confirm the Gen 1 machine is fit to carry the whole 157.0 h run; if either fails, the upgrade happens now instead, then both checks are re-run.
@@ -209,7 +209,7 @@ Full table with grams and plate counts: [print/README.md](print/README.md). Prof
 | [B08 — Skirts and front modules](print/B08-skirts-and-front-modules.md) | The 350 skirt set, front touchscreen module, grills and guards | 4 · 29.2 | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09 — Panels, filtration, spool](print/B09-panels-filtration-spool.md) | Panel clips, Z belt covers, Nevermore Micro V5 Duo, spool holder | 5 · 21.8 | Gate A (after B08) |
 | [B10 — Clicky-Clack door](print/B10-clicky-clack-door.md) | The door set, plus the blue `Handle` from B02 | 1 · 5.7 | Gate A (after B09) |
-| [B11 — Bay ducting (PETG V0)](print/B11-bay-ducting.md) | Outside the ASA run: two printed conduits for the bay, layout v3, in Jet Black PETG V0 on the textured sheet | 5 · 25.0 | None before kit, coupon first; B11-P4 and P5 after the kit-day go/no-go and measurements |
+| [B11 — Bay ducting (PETG V0)](print/B11-bay-ducting.md) | Outside the ASA run: two printed conduits for the bay, layout v3, in Jet Black PETG V0 on the textured sheet | 5 · 25.0 | None before kit, coupon first; B11-P4 and P5 right after the kit-day A/B lead check and bay measurements |
 
 ---
 

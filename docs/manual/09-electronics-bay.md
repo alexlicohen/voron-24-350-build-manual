@@ -2,7 +2,7 @@
 
 Fits out the space under the deck panel: two DIN rails and the two printed B11 conduits that replace LDO's five wire ducts, the Meanwell 24 V PSU, the Omron SSR, the Leviathan mainboard carrying the Raspberry Pi 4B, the Nitehawk USB adapter, the mains inlet and WAGO blocks, and both endstops. Everything is mounted and nothing is wired — that unlocks Ch 10, which is one continuous harness job ending at Checkpoint #1.
 
-**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** round both rails, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the frame-mounted **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too. One part goes **above** the deck: the **bed WAGO breakout**, on the left bed extrusion under the plate, where the plate's own three leads end.
+**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** round both rails, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too. Two bed-extrusion parts go **above** the deck, under the plate: the nozzle probe, on the right extrusion with its pin in the plate's rear cut-out, and the **bed WAGO breakout** on the left one, where the plate's own three leads end.
 
 ```mascot
 pose: point
@@ -21,7 +21,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
 - **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
-- **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print only after the kit-day bay measurements and the A/B lead go/no-go after Checkpoint 06, [B11.9 and B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements). If the go/no-go failed and you build LDO's layout instead, every changed step below keeps LDO's way in a `⚠ LDO layout` note.
+- **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print after the kit-day bay measurements ([B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements)). An A/B motor lead that measures short at B11.9 gets a longer replacement lead; layout v3 stays. The `⚠ LDO layout` notes below are only for a build without B11.
 
 **Tools**
 
@@ -518,9 +518,9 @@ Source: [Voron manual p.154](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** Leviathan ×1, the two bracket assemblies from 09.20, M3×8 SHCS ×4 **(verify on bench)**.
 
-**Do:** Lay the Leviathan face down on a clean anti-static surface. Set a bracket under each short end, line up the corner mounting holes and drive M3×8 SHCS, finger-tight plus a nudge.
+**Do:** Stand the two brackets clips-down on an anti-static surface. Lay the Leviathan **face up** across them, one short end on each. Drive M3×8 SHCS down through the corner holes, finger-tight plus a nudge.
 
-**Check:** Board flat on both brackets with no twist, the two DIN hooks coplanar. On a rail offcut, both clips engage together.
+**Check:** Components and connectors face up, brackets underneath. Board flat with no twist, the two DIN hooks coplanar. On a rail offcut, both clips engage together.
 
 ⚠ **Rev D+ / LDO:** the manual's board is a dummy Octopus fastened with **M3×6 BHCS**. The Leviathan takes **M3×8 SHCS** through the LDO brackets. Confirm the screw seats without bottoming out before you drive all four. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board)
 
@@ -698,27 +698,30 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ### Step 09.30 — Mount the nozzle probe on the bed extrusion
 
 ![Voron manual p.161](assets/manual-pages/manual-p161.png) ·
+![LDO build-plate mapping, seen from above, rear at the top: the nozzle probe on the right bed extrusion's inner face, pin in the plate's rear cut-out, above the deck](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 ![LDO — finished probe (bench); mounting is p.161](assets/remote/09-electronics-bay/nozzle-probe-installed.jpg)
 
-**What you're looking at:** There is no rear bed extrusion: the two run front-to-back. The probe bolts to the **side slot** of one, at its rear end past the plate, pin beside the plate's rear edge where the nozzle can drive onto it.
+**What you're looking at:** The probe sits **above** the deck, on the chamber side: the bed extrusions carry the plate, and the deck hangs under them. It bolts to the right extrusion's inner face, its pin standing in the plate's rear cut-out.
 
 **Parts:** nozzle probe assembly, M3×25 SHCS ×2, M3 T-nut ×2.
 
 **Do:**
 
-1. Slide two M3 T-nuts into the right-hand extrusion's **side slot** `(verify on bench)`.
-2. Hold the probe flat on that face, M3×25 SHCS snug.
-3. Slide it until the pin rises through the deck notch, **1.5 mm** from the plate.
+1. Reach in between deck and plate: two M3 T-nuts into the right extrusion's inner slot `(verify on bench)`.
+2. Probe on that face, pin away from the deck, M3×25 snug.
+3. Slide it until the pin stands in the plate's cut-out.
 
-**Check:** Pin ~1.5 mm clear of the plate's rear edge, clicking the switch when pushed and returning to its stop. Body square, screws snug, connector reachable.
+**Check:** A 1.5 mm hex key just fits between pin and plate. The pin clicks the switch and returns. Body square, connector reachable.
 
 ⚠ **Rev D+ / LDO:** the manual calls for **M3×20 SHCS**. LDO's nozzle probe needs **M3×25 SHCS ×2** — the printed body is thicker. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
 
 Tip: Un-notched shaft? Bag and label it `probe shaft — refit before 13.24`.
 
-Source: [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg)
+⚠ **Probe lead:** it stays in the chamber until Ch 10. **Layout v3** drops it through the rear notch at 10.34; **LDO layout** through the round deck hole. Nothing goes through the deck here.
 
-Pause: ~30 min since the last pause — USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted in the bed extrusion's side slot; the printer is still on its head. Nothing plugged in.
+Source: [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
+
+Pause: ~30 min since the last pause — USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in.
 
 ---
 
@@ -858,7 +861,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
-- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** in the bed extrusion's side slot, pin rising through the deck's rear notch and ~1.5 mm clear of the plate's rear edge. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
+- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out and 1.5 mm clear of the plate; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.

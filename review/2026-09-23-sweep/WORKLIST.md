@@ -58,12 +58,14 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Wave 2 leftovers: 13.34's Next button skips to 13.35 instead of 06b (override works on checkpoints only); B11.10 `sig`/`bedl` rows measure spare on LDO's route before the bed/probe/Nevermore are fitted (same flaw as G8-10); Tonight segment from the 00.16 pre-kit Pause starts at kit-day 00.13 (needs a Pause on 00.13); 02.03 insert temperature with the LDO brass tip `(verify on bench)`; B11 P4/P5 schedule (13.1 h must be off the bed before 09.6; print right after kit day instead? Alex); AGENTS.md `--from-3mf` wording proposal pending approval.
 
 ## Wave 3: remaining accuracy majors (deep tier)
-- [ ] G2-01 Z-idler T-nuts go in the top rail's inner slot; G2-02 tighten the 01.16 M5×16.
-- [ ] G3-03 the belt-offcut check; G3-04 pulley planes; G3-05 the rail-hole rule; G3-07 the M3×16 count.
-- [ ] G4 M3 07.7 stop screws in the plain hole; M4 Omron is a rectangular block; M5 don't cut the pre-terminated probe lead; M6 the belt-cut advice; M7 double taping.
-- [ ] G5-03 probe above the deck; G5-04 Leviathan brackets per p.155.
-- [ ] G7-04 `SET_IDLE_TIMEOUT` not `RESTART`; G7-05 the MainsailOS numpy/matplotlib check; G7-06 EM vs shrinkage (Ellis).
-- [ ] G6-08 the DC lid instruction out of the collapsed block; G6-09 11.37 cartridge fill.
+- [x] G2-01 Z-idler T-nuts go in the top rail's inner slot; G2-02 tighten the 01.16 M5×16.
+- [x] G3-03 the belt-offcut check; G3-04 pulley planes; G3-05 the rail-hole rule; G3-07 the M3×16 count.
+- [x] G4 M3 07.7 stop screws in the plain hole; M4 Omron is a rectangular block; M5 don't cut the pre-terminated probe lead; M6 the belt-cut advice; M7 double taping.
+- [x] G5-03 probe above the deck; G5-04 Leviathan brackets per p.155.
+- [x] G7-04 `SET_IDLE_TIMEOUT` not `RESTART`; G7-05 the MainsailOS numpy/matplotlib check; G7-06 EM vs shrinkage (Ellis).
+- [x] G6-08 the DC lid instruction out of the collapsed block; G6-09 11.37 cartridge fill.
+- Wave 3 done 2026-09-23 (claude). B11 decision applied: P4/P5 wait only for the kit-day bay measurements (+ coupon for P5); the A/B lead check (B11.9, after Checkpoint 06) only decides whether a longer replacement lead (4-pin JST-XH, `(verify on bench)`) is made before Ch 10. B11.10 `sig`/`bedl` rows now measurable on kit day. 10.30 renamed "Confirm the inductive probe's tape" (old anchor kept): tape goes on once, at 07.34.
+- Wave 3 leftovers: bench — 01.19 hex-key reach to the M5×16 (else tighten at 01.16 with the bracket held flush), MGN9H/MGN12H hole counts vs an LDO drawing, probe lead's bag name; wording — 01.16 "other leg down and outward" (CAD: flat on the rail top, pointing outward); 05 "A high, B low" inferred from pulley heights (p.76/80).
 
 ## Wave 4: systemic, closer to Prusa (plan first; decide scope with Alex)
 - [ ] **Parts lines use `;` separators and totals per segment, and give the bag source,** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.

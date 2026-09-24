@@ -54,7 +54,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - **Order is not intuitive and is enforced.** PID before QGL (a thermally unstable machine will not QGL repeatably); e-steps before the first print; **input shaper and pressure advance only *after* a successful first print** (survey §3.3). Pressure advance changes when input shaping is enabled, so shaper comes first of the two. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/pressure_linear_advance/introduction.html)
 - **`SAVE_CONFIG` restarts Klipper.** Every `SAVE_CONFIG` in this chapter loses your homing. Re-`G32` after each one. Saved values land in the auto-generated block at the *bottom* of `printer.cfg` and override anything you typed above.
 - **Change one thing at a time and write it down.** The [tuning log](#tuning-log) at the end of this chapter is the deliverable. If two things change between prints you cannot attribute the result.
-- **Do not chase dimensional error with `rotation_distance` or XY compensation.** Ellis: deviations are material shrinkage and bulging, not axis errors; 100–101 % X/Y scaling "is about the range you would expect with ABS". [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
+- **Do not chase dimensional error with `rotation_distance`, XY compensation or the extrusion multiplier.** Ellis: deviations are material shrinkage and bulging, not axis errors; his multiplier method is aesthetics-first, judged on a top surface, and Voron parts, drawn with ABS shrinkage in mind, need no compensation beyond a good multiplier tune. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
 - **Shaper auto-calibration is destructive if abused.** Klipper: "It is not advisable to run the shaper auto-calibration very frequently… There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer are securely fixed in place after each auto-tuning." [src](https://www.klipper3d.org/Measuring_Resonances.html)
 
 **Sources for this chapter:**
@@ -191,7 +191,7 @@ Tip: the two tensions affect each other, so go back and forth until both are equ
 
 Source: [Voron docs image `sound-spectrum-belt.jpg`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/tuning/images/sound-spectrum-belt.jpg) · [Voron docs — Secondary printer tuning § Belt tension](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [Ch 06b Steps 06b.1, 06b.5](06-z-axis-and-gantry-squaring.md#step-06b1-raise-the-stepper-idle-timeout)
 
-Pause: ~20 min since the last pause — **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised — Step 14.6's `RESTART` clears it.
+Pause: ~20 min since the last pause — **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.
 
 ### Step 14.5 — Set the four Z belts to 140 Hz over 150 mm
 
@@ -299,7 +299,7 @@ Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.v
 | 1 | `PROBE_ACCURACY` at bed centre, then `QUAD_GANTRY_LEVEL` **three to five times** in a row | Each run converges and its correction shrinks run over run rather than bouncing around |
 | 2 | Jog Z back to the height you noted, open the door, and repeat Ch 06b's machinist-square check at both front corners, gantry forward and back | No light under the square at either front corner, hot |
 | 3 | **Fully tighten the four M5×40 Z joint bolts while the machine is still hot**, rear pair first, door open as briefly as you can | First and only full torque on these four bolts |
-| 4 | Refit any side panel you took off, its M3×12 clip screws back in, `RESTART` to clear the idle timeout, `G28`, one more `QUAD_GANTRY_LEVEL` | `SET_IDLE_TIMEOUT` back to the config default, `PROBE_ACCURACY` σ < 0.003 mm with no trend, QGL converging in ≤3 retries within `retry_tolerance: 0.0075` |
+| 4 | Refit any side panel you took off, its M3×12 clip screws back in, door shut. Still hot: `G28`, one more `QUAD_GANTRY_LEVEL`, then `PROBE_ACCURACY`. Only then heaters off and `SET_IDLE_TIMEOUT TIMEOUT=1800` | QGL converging in ≤3 retries within `retry_tolerance: 0.0075`, `PROBE_ACCURACY` σ < 0.003 mm with no trend, idle timeout back at the config's 1800 |
 
 **Check:** `chamber_temp` was plateaued for at least 20 minutes before the QGL runs, and each run's correction got smaller rather than bouncing around.
 
@@ -311,7 +311,7 @@ Tip: bed to your print temperature, 110 °C for ASA. If a rear Z joint is out of
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Voron startup wizard § Quad gantry level](https://docs.vorondesign.com/build/startup/startup.html#quad-gantry-level) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Ch 06b Part B](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) · [Video: Part 9 @2:49:16](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10156s)
 
-Pause: ~15 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the machine soaked closed, QGL settled over 3–5 runs, the four Z joint bolts locked hot, idle timeout cleared and `PROBE_ACCURACY` re-verified afterwards. The whole belt-and-geometry item is closed; heaters can go off. The next item is the extruder.
+Pause: ~15 min since the last pause (plus the 1½–2 h soak) — all six belts at final tension and even, the machine soaked closed, QGL settled over 3–5 runs, the four Z joint bolts locked hot, `PROBE_ACCURACY` re-verified hot afterwards and the idle timeout set back to 1800. The whole belt-and-geometry item is closed; heaters can go off. The next item is the extruder.
 
 ---
 
@@ -442,14 +442,14 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 Two honest expectations before you start chasing numbers:
 
-- **Oversize is normal and is not an axis error.** Ellis: 100–101 % X/Y scaling "is about the range you would expect with ABS", and *"don't mess with your `steps_per_mm`/`rotation_distance`. Deviations are almost always from material shrinkage, bulging, layer inconsistencies, etc, NOT issues with your axes."* Fix it with extrusion multiplier at step 14.19, never with XY compensation — negative XY compensation wrecks every bearing fit in the machine. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
+- **A size error is not an axis error, and not a flow number.** Ellis: *"don't mess with your `steps_per_mm`/`rotation_distance`. Deviations are almost always from material shrinkage, bulging, layer inconsistencies, etc, NOT issues with your axes."* The extrusion multiplier is set by eye on a top surface at 14.19–14.20, never from these readings, and Voron parts need no compensation beyond that tune. X or Y out of ±0.15: confirm the slice had shrinkage and XY size compensation at 0, finish 14.19–14.20, then measure again. Never negative XY compensation: it wrecks every bearing fit in the machine. [src](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
 - **A Voron-vs-Prusa difference of ~0.1 mm is chamber, not calibration.** The Voron runs a hotter, more uniform chamber than the Core One+, so its parts shrink slightly differently. Both being *in* tolerance matters more than them matching each other.
 
 **Check:** Both cubes inside tolerance: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm, and within 0.15 mm of *each other*.
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html) · [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints)
 
-Pause: ~15 min since the last pause — the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; dimensional error is fixed later, at 14.19–14.20.
+Pause: ~15 min since the last pause — the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.
 
 ---
 
@@ -465,13 +465,14 @@ Now, and not before — the machine has printed successfully, the belts are at f
 
 **Parts:** none.
 
-**Do:** MainsailOS pre-installs the resonance dependencies, so there is nothing to install. Verify:
+**Do:** Check both Python environments. `SHAPER_CALIBRATE` runs inside Klipper's own `klippy-env`, and the graph script at 14.14 runs on the Pi's system Python:
 
 ```
-~/klippy-env/bin/python -c 'import numpy, matplotlib; print(numpy.__version__)'
+~/klippy-env/bin/python -c 'import numpy'
+python3 -c 'import numpy, matplotlib'
 ```
 
-Only if that fails — i.e. you are on a plain Raspberry Pi OS image rather than MainsailOS — follow Klipper's own installation instructions. Do **not** pin `numpy<1.26`, and do not ask for `libatlas-base-dev`: that package was merged into `libopenblas-dev` in Trixie and no longer exists, and the pinned numpy does not support Trixie's Python — either one can break `klippy-env` and stop Klipper. [src](https://www.klipper3d.org/Measuring_Resonances.html)
+On a MainsailOS image both print nothing and return: it installs numpy into `klippy-env`, and numpy and matplotlib system-wide. `klippy-env` has no matplotlib, so never test for it there. If the first errors, `~/klippy-env/bin/pip install numpy`; if the second errors, `sudo apt install python3-numpy python3-matplotlib libopenblas-dev`. That is what MainsailOS itself runs. Do **not** copy Klipper's `numpy<1.26` pin or its `libatlas-base-dev` on a Trixie image: the pinned numpy does not support Trixie's Python 3.13, and `libatlas-base-dev` was merged into `libopenblas-dev` and no longer exists. [src](https://www.klipper3d.org/Measuring_Resonances.html#software-installation) · [MainsailOS](https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper)
 
 Then confirm — do not edit — that the **350 mm** probe point in `[resonance_tester]` is live; Ch 12 Step 12.27 uncommented it and Checkpoint 12 required it (the stock config ships all three build sizes commented out):
 
@@ -499,7 +500,7 @@ Tip: 1000 or more from `MEASURE_AXES_NOISE` means a sensor, power or wiring prob
 
 ⚠ Rev D+ / LDO: The accelerometer is **on the Nitehawk-SB V2 board itself**. There is no separate ADXL345 breakout and no printed ADXL mount to fit — the V1 documentation's ADXL mount does not apply to this kit (survey §4.1). The `[adxl345]` pins above are already correct in `leviathan-printer-rev-d-sbv2.cfg`; if yours read `nhk:gpio21/18/20/19` you are on the V1 config.
 
-Source: [Klipper docs § Installation instructions](https://www.klipper3d.org/Measuring_Resonances.html#installation-instructions) · [Klipper docs § Checking the setup](https://www.klipper3d.org/Measuring_Resonances.html#checking-the-setup) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L411-440) · [Klipper docs § ACCELEROMETER_QUERY](https://www.klipper3d.org/G-Codes.html#accelerometer_query) · [Video: Extras! @0:42:02](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2522s)
+Source: [Klipper docs § Installation instructions](https://www.klipper3d.org/Measuring_Resonances.html#installation-instructions) · [MainsailOS `modules/generic/50-klipper`](https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper) · [Klipper docs § Checking the setup](https://www.klipper3d.org/Measuring_Resonances.html#checking-the-setup) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L411-440) · [Klipper docs § ACCELEROMETER_QUERY](https://www.klipper3d.org/G-Codes.html#accelerometer_query) · [Video: Extras! @0:42:02](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2522s)
 
 Pause: ~15 min since the last pause — accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.
 
@@ -788,7 +789,7 @@ inputs:
     hint: the lowest of 92, 94, 96, 98 with no gaps and no ridging
     low: Below the 92 to 98 window Prusament ASA should land in. Re-check the rotation distance and the pressure advance you just saved before trusting a number this low.
     high: Above the 92 to 98 window Prusament ASA should land in. Print the row again one or two steps higher and read it the same way before accepting it.
-    why: This one number scales every wall and every top surface the machine will print, and an oversize cube from the caliper step is fixed here rather than with XY compensation, which would wreck every bearing fit.
+    why: This one number scales every wall and every top surface the machine will print, and it is read off the top surface by eye, never off the caliper, because a size error is shrinkage and bulging rather than flow.
   - key: clean
     label: One cube in the row has no gaps between the top lines and no ridging
     kind: yesno
@@ -817,17 +818,17 @@ Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.co
 
 (no image — see text)
 
-**What you're looking at:** A second, finer pass around the winner. This is also the right lever for an oversize cube from Step 14.11: 1 % of extrusion multiplier is worth about 0.1 mm on a 30 mm face, because the error was extra plastic, not a mis-measuring axis.
+**What you're looking at:** A second, finer pass around the winner, judged the same way by eye on the centre of each top surface. The multiplier is not a size setting: Ellis tunes it for the surface, and Voron parts need no other compensation.
 
 **Parts:** ASA, ~25 g.
 
 **Do:** Take the winner from 14.19 and print four more cubes at ±0.5 % and ±1.0 % around it. Pick the smoothest centre and write that number into the **filament** profile's extrusion multiplier, not the print profile.
 
-**Check:** The chosen cube has a uniformly smooth top with no gaps and no ridging, and re-calipering it puts it in tolerance.
+**Check:** The chosen cube has a uniformly smooth top with no gaps and no ridging.
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)
 
-Pause: ~25 min since the last pause — both extrusion-multiplier passes done and the final number written into the filament profile. The cube has been re-calipered against 14.11.
+Pause: ~25 min since the last pause — both extrusion-multiplier passes done and the final number written into the filament profile. It was chosen by the top surface, not by a caliper.
 
 ### Step 14.21 — Re-check first-layer squish, because the multiplier moved
 
@@ -1003,7 +1004,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 | | `shaper_type_y` / freq | ______ / ___ Hz | `SHAPER_CALIBRATE` | vibrations ___ %, smoothing ___ | |
 | | `max_accel` | ______ mm/s² | lower of the two suggestions, minus margin | | |
 | | Pressure advance (ASA) | ______ | Ellis pattern, ___ to ___ step ___ | | |
-| | Extrusion multiplier (ASA) | ___ % | Ellis 30×30×3 cubes | cube X now ___ mm | |
+| | Extrusion multiplier (ASA) | ___ % | Ellis 30×30×3 cubes, centre of the top surface by eye | top smooth, no gaps, no ridging? | |
 | | Z offset (final) | `position_endstop` ______ | `Z_OFFSET_APPLY_ENDSTOP` | | |
 | | Bed mesh variance | ___ mm | `BED_MESH_CALIBRATE`, hot | | |
 | | | | | | |
@@ -1015,7 +1016,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
 - [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
 - [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched
-- [ ] Closed-chamber soak of 1½–2 h done with panels and door on; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout cleared with `RESTART`
+- [ ] Closed-chamber soak of 1½–2 h done with panels and door on; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
 - [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend
 - [ ] `rotation_distance` verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; `22.6789511` nowhere in `printer.cfg`
 - [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with `CHAMBER=0`
@@ -1041,7 +1042,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - **Tightening the Z joints cold, or skipping the closed-chamber soak.** The value of Step 14.6 is locking the gantry in at full thermal expansion; a cold tighten looks the same on the bench and shows up as first-layer inconsistency.
 - **Running `SHAPER_CALIBRATE` before the first successful print, or before final belt tension.** Both change the resonances you just measured, so the result is stale before you use it. Same for pressure advance, which also shifts when input shaping is switched on.
 - **`SAVE_CONFIG` after the shaper run and stopping there.** It writes `[input_shaper]` but explicitly does *not* touch `max_accel`. Leaving the stock `max_accel: 10000` means you shaped the ringing and then printed at an acceleration that reintroduces it.
-- **Fixing an oversize cube with negative XY size compensation.** It makes every bearing bore and screw hole in the machine oversize. Use extrusion multiplier (step 14.19), which is what actually changed.
+- **Fixing an oversize cube with negative XY size compensation or the extrusion multiplier.** Negative XY compensation makes every bearing bore and screw hole in the machine oversize, and a multiplier moved to hit a caliper number leaves the top-surface optimum of 14.19–14.20. Voron parts need no compensation beyond a good multiplier tune (Ellis).
 - **PID-tuning the hotend at 260 °C with `max_temp: 270`.** The calibration overshoots and trips the limit mid-run. Tune at 245, or raise `max_temp` to 290 first.
 - **Raising `[heater_bed] max_power` above 0.6 to speed up warm-up.** LDO set it to protect a 355 mm cast plate from warping. Wait the extra five minutes.
 - **Skipping the heat soak because the bed says 110 °C.** The bed reaches temperature in minutes; the *frame* takes 30–45. Probing a cold frame gives a mesh and a Z offset that are wrong for every print you then run.

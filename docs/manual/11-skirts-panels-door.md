@@ -79,6 +79,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/spool_holder.png){ width=96 } | `spool_holder.stl` | 11-spool | 1 | Black | B09 |
 | ![](assets/parts/bowden_retainer.png){ width=96 } | `bowden_retainer.stl` | 11-spool | 1 | Black | B09 |
 | ![](assets/parts/handlebar_spacer_x4.png){ width=96 } | `handlebar_spacer_x4.stl` (LDO) | 11-panels | 4 | Black | B07 |
+| ![](assets/parts/CMD_V2_6B_154mm_DUCT_COVER.png){ width=96 } | DC loop lids, step 11.52: `CMD_V2_6B_154mm_DUCT_COVER.stl` ×2, `CMD_V2_6B_90DEG_COVER.stl` ×2, `V2L_90DEG_COVER_MIRROR.stl`, `V2L_58mm_DUCT_COVER.stl` ×3, `V2L_130mm_DUCT_COVER.stl`, `V2L_70mm_DUCT_COVER.stl`, `CMD_Remix-V3_DUCT-2B_45deg_LID.stl` ×2, `V3L_10mm_DUCT_COVER.stl`, `V3L_154N_DUCT_COVER.stl` ×2, `V3L_T_REG_N_COVER.stl` ×2 | 09-bay | 17 | Black | B11 |
 | ![](assets/parts/Handle-Hinge_Top.png){ width=96 } ![](assets/parts/Handle-Hinge_Bottom.png){ width=96 } | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
@@ -935,19 +936,23 @@ Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com
 
 (no image — see [LDO Nevermore guide § Cartridge Assembly](https://ldomotion.com/guides/nevermore-v5-duo---v24))
 
-**What you're looking at:** The cartridge is the removable box that holds the activated carbon, acid-free pellets, which are not in the kit. An empty cartridge still has to be fitted and closed, or the plenum just stirs the chamber.
+**What you're looking at:** The cartridge is the removable box for the activated carbon: 4 mm acid-free pellets, which are not in the kit. Filled or empty, it has to be closed and fitted, or the plenum just stirs the chamber.
 
-**Parts:** `Regular_Cartridge_Lid`, M3×6 BHCS ×1, activated carbon pellets — **not supplied**.
+**Parts:** `Regular_Cartridge_Lid`, M3×6 BHCS ×1, a marker, 4 mm acid-free activated carbon pellets if you have them, **not supplied**.
 
-**Do:** Fill the cartridge with acid-free activated carbon pellets, then slide the lid into its grooves and secure with the M3×6 BHCS into the cartridge heat-set.
+**Do:**
 
-**Check:** Cartridge full but not packed so tight that airflow stops; lid home; no pellets loose in the grooves.
+1. Pellets on hand? Fill the cartridge with them. Otherwise leave it empty.
+2. Slide the lid into its grooves and fix it with the M3×6 BHCS.
+3. Write the fill state and date on the lid.
 
-⚠ **Media not in the kit.** LDO: *"NOT INCLUDED WITH THE KIT"*, and acid-free pellets are specified. Nevermore media is on the deferred list for this build, so install and wire the filter now and fill the cartridge later. Fit the **empty, closed** cartridge for now so the plenum is sealed. [src](https://ldomotion.com/guides/nevermore-v5-duo---v24)
+**Check:** Lid home in both grooves, screw snug, no pellets in the grooves. Fill state written on the lid.
 
-Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com/guides/nevermore-v5-duo---v24)
+⚠ **Media not in the kit.** LDO: *"NOT INCLUDED WITH THE KIT"*, acid-free pellets recommended. The Nevermore project warns that acid-residue carbon corrodes rails and switches: buy only vetted acid-free carbon. An empty, closed cartridge is fine until then; the filter still installs and wires. [src](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
-Pause: ~20 min since the last pause — plenum and cartridge magnets glued **in matching polarity**, both lids closed, cartridge filled. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.
+Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com/guides/nevermore-v5-duo---v24) · [Nevermore Micro README § Sourcing the proper acid-free carbon](https://github.com/nevermore3d/Nevermore_Micro#sourcing-the-proper-acid-free-carbon)
+
+Pause: ~20 min since the last pause — plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.
 
 ---
 
@@ -1233,18 +1238,22 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 
 ![Voron manual p.238](assets/manual-pages/manual-p238.png)
 ![Voron manual p.239](assets/manual-pages/manual-p239.png)
-**Before the first panel goes on:** snap the wire-duct covers on (they were left off at [Ch 10 Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) so the bay stayed reachable with a meter). Ch 13 has now driven every motor, heater and fan at least once, so nothing else needs the ducts open.
-
 
 **What you're looking at:** The back panel is 3 mm black acrylic. The 1 mm foam tape on its inner perimeter is a noise damper between acrylic and aluminium, not a gasket, so it is thinner than the 3 mm used on the sides.
 
-**Parts:** back panel (acrylic, black, 483 × 503 × 3 mm) ×1, **1 mm** foam tape.
+**Parts:** DC loop lids: `CMD_V2_6B_154mm_DUCT_COVER` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_COVER_MIRROR` · `V2L_58mm_DUCT_COVER` ×3 · `V2L_130mm_DUCT_COVER` · `V2L_70mm_DUCT_COVER` · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · `V3L_10mm_DUCT_COVER` · `V3L_154N_DUCT_COVER` ×2 · `V3L_T_REG_N_COVER` ×2 · back panel (acrylic, black, 483 × 503 × 3 mm) ×1 · **1 mm** foam tape.
 
-**Do:** Peel the protective film from both faces. Run **1 mm** foam tape around the perimeter of the face that meets the frame, on the contact areas only. Butt the corners; do not overlap.
+**Do:**
 
-**Check:** Continuous 1 mm tape on all four edges of the inner face; no tape where a clip has to sit; film off both faces.
+1. Open the bottom panel and snap every DC loop lid on. Close it.
+2. Peel the protective film from both faces of the back panel.
+3. Run **1 mm** foam tape on the frame-side contact areas, corners butted.
+
+**Check:** Every DC lid seated, no wire pinched under one. Continuous 1 mm tape on all four edges, none where a clip sits, film off.
 
 **Helper:** Holds the back panel steady and peels the tape backing ahead of you.
+
+⚠ **DC lids:** left off at [Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) for the meter. Ch 13 has now run every motor, heater and fan, so they close now, before any panel. Fallback middle run: its lids instead of the 154N and T_REG_N ones. **LDO layout:** snap the PVC duct covers on.
 
 ⚠ Back and top panels get **1 mm** foam. Side panels get **3 mm**. Mixing them up either lets the gantry rub a side panel or leaves the back panel proud of its clips.
 
@@ -1565,7 +1574,7 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 - [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
 - [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support blanked with the two spare grills.
 - [ ] Bottom panel bonded on six VHB pads to two rear hinges and four clips, opened and closed once after the VHB cured; four Z belt covers on, correct variant per corner, belts clear through full Z travel.
-- [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, carbon fill status recorded.
+- [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, cartridge closed with its fill state written on the lid.
 - [ ] Spool holder and bowden retainer fitted; a full spool spins freely with no kink in the PTFE.
 - [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side decided (left unless you chose otherwise at 11.44); 3 mm foam on the front face of the front opening.
 

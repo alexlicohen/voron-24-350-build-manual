@@ -209,7 +209,7 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---|---|
 | [B11](B11-bay-ducting.md) before kit | 3 | 11.9 | 173 | Ch 09 ducts; Ch 10 strip fin | none; the coupon, B11-P1, prints first |
-| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day A/B go/no-go; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day bay measurements; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
 | **B11 total** | **5** | **25.0** | **348** | | |
 
 **Filament:** 348 g needed from one 1 kg spool, **V1**, not yet bought → **652 g margin** if B11-P5 prints.

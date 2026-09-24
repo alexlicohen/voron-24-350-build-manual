@@ -656,8 +656,8 @@ stock pieces fetched into `slicer/stl/bayducts/mss/502306/`, remixes for the Rev
 
 Notes:
 - Before kit, 3 plates, 11.9 h, 173 g; after the kit-day measurements, 2 plates, 13.1 h, 175 g.
-- Kit-day go/no-go: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Short leads mean two
-  4-pin JST-XH extensions (a purchase) or layout v1.
+- Kit-day confirmation: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Either way, P4 and
+  P5 print on schedule; a short lead gets a longer replacement (4-pin JST-XH) rather than a drop to layout v1.
 - All five arrangements are provisional (`nest.py`), GUI QC pending.
 - Options, no plate: orange-ASA endcaps; MSS's WARNING lid (Printables 505838) waits for the INDX.
 

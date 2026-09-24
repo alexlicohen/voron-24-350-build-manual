@@ -55,7 +55,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - The heater pad (p.55) and the thermal fuse (p.56) are already on your plate. Both pages are **verify-only**. Do not peel, re-seat or re-bolt anything. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 - Trim the magnet at the four bolt holes **immediately after** you roll it down and **before** you bolt anything. Discovering it at p.59 means peeling the magnet or drilling through it (survey §5.2 W6).
 - Use **M3×20 SHCS**, not the manual's M3×16 — this plate and these spacers are thicker. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
-- The magnet goes on with the hinge method at Step 03.9 — one shot; read the whole step before you peel anything.
+- The magnet goes on with the hinge method at Step 03.10 — one shot; read the whole step before you peel anything.
 - Only one of the four bolts gets tightened (p.59). A bed clamped hard at all four corners while cold, then heated fast, tacos.
 - No wiring happens here, and **no bed lead goes through the deck**. Manual p.60 feeds the bed wires through the opening; this kit's plate leads end at the bed WAGO breakout above the deck (Ch 09), and only the kit's extension leads go below, in Ch 10. Leave the three leads loose above the deck. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
@@ -313,7 +313,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.58: four M3 roll-in T-nuts in the top slots of the bed extrusions, two per extrusion. Each is the thread one corner bolt picks up.
 
-**Parts:** M3 roll-in T-nut, 2020 ×4 (two per bed extrusion).
+**Parts:** M3 roll-in T-nut, 2020 ×6 (three per bed extrusion).
 
 **Do:** Roll two T-nuts into the **top** slot of each bed extrusion, one toward each end, and position them roughly under where the plate's corner holes will land. Leave them loose enough to slide.
 
@@ -333,7 +333,7 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** M4 knurled thumb nut ×4.
 
-**Do:** Stand one M4 thumb nut over each T-nut, knurl up, bore concentric with the T-nut thread. Do not thread anything into the thumb nut; the M3 bolt passes straight through its bore.
+**Do:** Stand one M4 thumb nut over each T-nut, knurl up, bore concentric with the T-nut thread. Take your time over this and make sure that each one of them is standing perfectly upright on the extrusion. Do not thread anything into the thumb nut at any point; the M3 bolt simply passes straight through its bore.
 
 **Check:** Four thumb nuts standing on the extrusions, none tipped, each aligned with the T-nut under it and all four the same height.
 
@@ -374,7 +374,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Start an M3×20 SHCS by hand through each trimmed corner hole and thumb nut into the T-nut below.
+1. Start an M3×16 SHCS by hand through each trimmed corner hole and thumb nut into the T-nut below.
 2. Nudge a T-nut if a bolt misses the thread.
 3. Run all four down only until they just take up.
 
@@ -404,7 +404,7 @@ Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Reads the rule at each corner and calls the number back to you.
 
-Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=60)
+Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=16)
 
 ---
 
@@ -420,7 +420,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 1. Tighten one bolt fully, at a front corner clear of the cable exit.
 2. **Leave the other three slightly loose.** They locate the plate, not clamp it.
-3. Torque is **not specified**: snug by hand feel, no torque driver.
+3. Torque it to **1.5 N·m** with a torque driver.
 
 **Check:** One bolt tight, the other three turnable with a fingertip on the hex key. A free corner gives slightly and returns.
 

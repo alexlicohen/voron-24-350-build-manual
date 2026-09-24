@@ -871,13 +871,13 @@ Pause: ~20 min since the last pause — four idler cages assembled with their ca
 
 ![Voron manual p.49](assets/manual-pages/manual-p049.png)
 
-**What you're looking at:** Manual p.49: two M5 T-nuts in the vertical extrusion at a top corner, on the vertical's inner side face, positioned for the idler bracket's two mounting holes.
+**What you're looking at:** Manual p.49: two M5 T-nuts in the top side rail, the top extrusion running front to back, in its inner slot right beside the corner. They lie along the rail, where the idler bracket's two mounting holes land.
 
 **Parts:** M5 roll-in T-nut ×2.
 
-**Do:** Slide two M5 T-nuts into the vertical at the top corner above a Z drive, in the slot on its inner **side** face, not the face the Z rail is on, right under the top rail.
+**Do:** Roll two M5 T-nuts into the **inner slot of the top side rail** above a Z drive, the top rail running front to back, right against the corner. Not into the vertical.
 
-**Check:** Two T-nuts in the side face, under the top rail, free to slide.
+**Check:** Two T-nuts in the top side rail's inner slot, right against the corner, free to slide.
 
 Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=49)
 
@@ -889,9 +889,9 @@ Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** M5×30 BHCS ×2; the idler from Step 02.40.
 
-**Do:** Offer the idler to the corner. **Its pulley must face the same way as the pulley in the drive below it.** Press the bracket **firmly into the corner** before tightening, then fit two M5×30 BHCS into the T-nuts.
+**Do:** Offer the idler to the corner. **Its pulley must face the same way as the pulley in the drive below it.** Fit two M5×30 BHCS through it into the side-rail T-nuts, press the bracket **firmly into the corner**, then tighten.
 
-**Check:** Idler pulley and the drive's 20T below it lie in the same vertical plane, and the bracket sits hard against both faces of the corner.
+**Check:** Idler pulley and the drive's 20T below lie in one vertical plane. Bracket hard into the corner, its top flush with the top rails.
 
 Tip: Sight down the two pulleys, or hang a length of 2GT belt between them and look for twist.
 
@@ -905,7 +905,7 @@ Source: [Voron manual p.49](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:** the remaining three idlers; M5×30 BHCS ×6; M5 roll-in T-nut ×6.
 
-**Do:** Repeat Steps 02.41–02.42 at Z2 with the other `_a` bracket, then at Z1 and Z3 with the `_b` brackets. Each idler goes on the vertical's inner side face, the same side of the corner as the drive's side-rail bolts.
+**Do:** Repeat Steps 02.41–02.42 at Z2 with the other `_a` bracket, then at Z1 and Z3 with the `_b` brackets. Each idler bolts into the top side rail's inner slot, above its drive.
 
 **Check:** Four idlers fitted, each one aligned with the drive beneath it, all pressed into their corners, all eight M5×30 tight.
 

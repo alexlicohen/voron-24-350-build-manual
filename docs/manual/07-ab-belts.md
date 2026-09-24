@@ -2,7 +2,7 @@
 
 Cut, route and clamp the two CoreXY belts, set a provisional tension, and finish the X carriage with the inductive probe. This makes the gantry a working XY motion system — everything after it (toolhead, wiring, bring-up) assumes the belts are on.
 
-**What you're building in this chapter.** Two belt loops and the printed carriage that clamps them. In [CoreXY](16-glossary.md#c) neither motor owns an axis: the rear-**right** motor drives the **A** belt, the rear-**left** drives the **B** belt, and the toolhead moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one long loop that starts and ends at the [X carriage](16-glossary.md#x), and on a Voron the two loops sit at **different heights and never cross** — each stays in its own horizontal plane the whole way round. Where a belt has to be *driven* it wraps a toothed motor pulley teeth-first; everywhere it is merely turned, it runs **smooth-side-on** over a plain bearing stack — except at the XY joints, where each belt meets one toothed 20T idler and one plain F695 pair: A rides the left joint's upper plain stack and the right joint's upper toothed idler; B rides the left joint's lower toothed idler and the right joint's lower plain stack (p.105, p.135, p.136, p.138). Whether a face is teeth-on is fixed by which joint and which height — never twist a belt to change it. The A belt is the **upper** of the two planes, B the lower. Both belts start in the **left** carriage half and leave it heading left, so A's first turn is on the left joint's plain stack and B's first turn is on the left joint's toothed idler. Both loops are the same length by design, so two belts cut identical arrive at identical tension — and no amount of tensioner adjustment can undo a length error, which is why they are cut together and their protruding tails measured against each other at the carriage. The chapter finishes by fitting the inductive probe that later levels the gantry and maps the bed.
+**What you're building in this chapter.** Two belt loops and the printed carriage that clamps them. In [CoreXY](16-glossary.md#c) neither motor owns an axis: the rear-**right** motor drives the **A** belt, the rear-**left** drives the **B** belt, and the toolhead moves in X when both turn the same way and in Y when they turn opposite ways. Each belt is one long loop that starts and ends at the [X carriage](16-glossary.md#x), and on a Voron the two loops sit at **different heights and never cross** — each stays in its own horizontal plane the whole way round. Where a belt has to be *driven* it wraps a toothed motor pulley teeth-first; everywhere it is merely turned, it runs **smooth-side-on** over a plain bearing stack — except at the XY joints, where each belt meets one toothed 20T idler and one plain F695 pair: A rides the left joint's upper plain stack and the right joint's upper toothed idler; B rides the left joint's lower toothed idler and the right joint's lower plain stack (p.105, p.135, p.136, p.138). Whether a face is teeth-on is fixed by which joint and which height — never twist a belt to change it. The A belt is the **upper** of the two planes, B the lower. Both belts start in the **left** carriage half and leave it heading left, so A's first turn is on the left joint's plain stack and B's first turn is on the left joint's toothed idler. Both loops are the same length by design, so two belts cut identical arrive at identical tension — and no amount of tensioner adjustment can undo a length error, which is why they are cut against each other and their protruding tails compared at the carriage. The chapter finishes by fitting the inductive probe that later levels the gantry and maps the bed.
 
 ```mascot
 pose: caliper
@@ -46,10 +46,10 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 |---|---|---|
 | Gates 2GT open belt, 6 mm wide | 2 lengths, cut equal | A and B belts (p.125, p.131 — see Step 07.8) |
 | M3×8 SHCS | 4 | belt clamps, 2 per X carriage half (p.131, p.140) |
-| M3×12 SHCS | 2 | 1 per X carriage half, set to 3 mm protrusion (p.130) |
+| M3×12 SHCS | 2 | 1 per X carriage half, in the plain hole beside the belt slot, head 3 mm off the plastic (p.130) |
 | M3×30 SHCS | 4 | 2 carriage bolts (p.140) + 2 probe retainer bracket (p.143) |
 | M3 nut | 2 | right X carriage half, capture the M3×30 carriage bolts (p.129) |
-| M3 heat-set insert | 4 | 1 per X carriage half + 2 in `probe_retainer_bracket` (p.129) |
+| M3 heat-set insert | 4 | 1 per X carriage half, in the bottom hole + 2 in `probe_retainer_bracket` (p.129); the M3×12 stop screws do not use them |
 | M3×40 SHCS + M3 washer | 2 + 2 | front-idler tensioners — **already fitted in Ch 04** (p.67, p.71); adjusted on p.128, temporarily removable on p.134 |
 | Inductive probe, Omron TL-Q5MC | 1 | X carriage (p.143) |
 | Fibreglass tape (LDO-supplied) | as needed | probe insulation, front + sides only (LDO note p.143) |
@@ -57,11 +57,11 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 **Read first**
 
 - **The tension you set here is provisional.** Gantry squaring (Ch 06b) *begins* by fully releasing A/B belt tension, and it needs a running printer (`G28`, `QUAD_GANTRY_LEVEL`, `SET_STEPPER_ENABLE`), so it happens inside Ch 13. Set enough tension to home and QGL. A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, cold and open) and Ch 14 Step 14.4 (final — panels on, cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of 14.6). Z belts: 06b.3 (so QGL converges for squaring), set for the last time at 14.5, same cold session. Ch 14 owns the final number; tensioning to final now just gets undone — that is [survey §5.2 W1](../voron-build-instructions-survey.md), a ~1.5 h rework.
-- **Equal length is the whole trick.** Both belt paths are the same length by design, so if the two belts are cut identical, equal tension follows (p.125). Cut them together, not one after the other.
+- **Equal length is the whole trick.** Both belt paths are the same length by design, so if the two belts are cut identical, equal tension follows (p.125). Cut each belt against the other, never to a tape measure alone: fold-cut both at once (Step 07.8), or do as p.125 recommends: route one, remove it, and cut the second to match it.
 - **There is no sourced deflection number.** The official manual gives *no* tension figure at all — only the equal-length rule. The one sourced number in this build's document set is **110 Hz over a 150 mm span** ([Voron secondary tuning](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)). voronldo.com's 80–100 Hz is discarded ([survey §4.3](../voron-build-instructions-survey.md)). Do not substitute a "push it 2 mm with your finger" test — nothing here calibrates it.
 - **Nothing in this chapter is torqued.** Belt clamps and carriage bolts go on lightly, the belts get pulled tight by hand, then the carriage bolts are fully tightened (p.140–141). The manual specifies no torque values; don't invent one.
 - Three LDO deviations land in this page range: the X-carriage variant check (p.129–130), probe insulation (p.143), and p.145 skipped entirely.
-- **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). Ch 08 does not touch the probe again — it only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
+- **The inductive probe is built once, here.** Insulation, fitting, the 6 mm height and the cable route are Steps 07.34–07.37 (manual p.143–144). The tape goes on here and nowhere else: Ch 10 Step 10.30 only confirms it. The lead is never cut: it arrives pre-terminated for the toolhead board, and Ch 08 Step 08.50 plugs it in. Ch 08 otherwise only confirms the decision and bags the Klicky set. The `probe_retainer_bracket` and the fibreglass tape are counted in this chapter's totals, not Ch 08's.
 
 **Sources for this chapter:**
 
@@ -191,7 +191,7 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** M3×12 SHCS ×2.
 
-**Do:** Thread one M3×12 into the heat-set insert in each carriage half, from the face shown, until **3 mm** stands proud of the plastic. Measure with the caliper depth blade or a rule.
+**Do:** In each carriage half, thread one M3×12 into the plain hole beside the belt slot on p.130, not the heat-set insert at the bottom. Stop when the head stands **3 mm** off the plastic. Measure with the caliper depth blade.
 
 **Check:** Both screws at 3 mm ±0.5 mm, and the same on both halves.
 
@@ -219,7 +219,7 @@ Source: [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Tip: Mark one belt A with a dot on the smooth back near each end: it goes into the **upper** slot. Once both are threaded they are impossible to tell apart.
 
-Tip: Nervous? Cut one belt generously at 2100 mm, route it as A, trim its tail, then cut the second to match. The 6.21 m reel leaves ~2 m spare.
+Tip: Voron's own method, p.125: route the first belt off the reel as A, mark its length, remove it, cut it, then cut the second against it.
 
 Source: [Voron manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [onetwo3D Voron 2.4 350 BOM](https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/)
 
@@ -644,35 +644,37 @@ Pause: ~30 min since the last pause — belt-rub inspection clean at all ten con
 
 ## Finish the X carriage: inductive probe
 
-### Step 07.34 — Insulate the probe and trim its wires
+### Step 07.34 — Insulate the probe and keep its lead whole
 
 ![Voron manual p.143](assets/manual-pages/manual-p143.png)
+![LDO: the Omron probe taped front and sides, sensing face bare (© LDO Motors)](assets/remote/10-wiring/ldo-probe-insulation.jpg)
 
-**What you're looking at:** The [inductive probe](16-glossary.md#i) is a metal-sensing barrel that detects the steel bed from a few millimetres away without touching it, and it is what the machine later uses for [QGL](16-glossary.md#q) and the bed mesh. LDO's tape wrap goes on **before** the probe is fitted.
+**What you're looking at:** The [inductive probe](16-glossary.md#i) is a small rectangular block with two mounting holes at the top and a lead out of it. It senses the steel bed without touching it, for [QGL](16-glossary.md#q) and the bed mesh.
 
-**Parts:** Omron TL-Q5MC inductive probe ×1; fibreglass tape.
+**Parts:** Omron TL-Q5MC inductive probe ×1, from the Toolhead PCB Cables bag; fibreglass tape 2×12 cm.
 
-**Do:** Cut the probe wires to about **150 mm**. The manual's photo shows the recommended Omron TL-Q5MC, which is what this kit ships.
+**Do:**
 
-**Check:** ~150 mm of lead, insulation intact, conductors not nicked.
+1. Wrap at least two layers of fibreglass tape round the **front and sides** of the block, set slightly up from the bottom edge.
+2. Leave the lead full length and coil the spare loosely.
 
-⚠ **Rev D+ / LDO:** *"We recommend you insulated the inductive probe prior to installation."* Wrap the probe body with the supplied fibreglass tape **before** it goes into the carriage — **front and sides only, not the back and not the bottom sensing face**. It is far more awkward to do once the probe is captured. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.143), [survey §4.2](../voron-build-instructions-survey.md)
+**Check:** Back and bottom sensing face bare; mounting holes clear; lead uncut with its connector on.
 
-Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** p.143's "cut the probe wires to about 150 mm" does not apply. This kit's probe lead comes pre-cut and crimped for the Nitehawk `PROBE` port, Step 08.50. Tape before fitting; too much tape stops the probe triggering, so peel some off if it fails in Ch 13. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
+
+Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO wiring guide § Insulating the Z probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 ### Step 07.35 — Fit the probe and its retainer bracket
 
 ![Voron manual p.143](assets/manual-pages/manual-p143.png)
 
-**What you're looking at:** The retainer bracket is the small printed clip that traps the probe barrel in its channel in the X carriage. Snug rather than tight at this stage, because the probe still has to slide up and down for the height setting in the next step.
+**What you're looking at:** The retainer bracket is the small printed bar with two heat-set inserts that sits behind the carriage. The two M3×30 clamp the probe block to the carriage face through it. Snug only: the probe still slides for the next step.
 
 **Parts:** `probe_retainer_bracket` ×1; M3×30 SHCS ×2.
 
-**Do:** Slide the probe into its channel in the X carriage, fit the retainer bracket over it, and run the two M3×30 SHCS into the bracket's heat-set inserts. Snug enough to hold the probe but still let it slide.
+**Do:** Hold the probe on the carriage face, lead up. Pass the two M3×30 SHCS through its mounting holes and the carriage into the retainer bracket's inserts behind. Snug enough to hold the probe but still let it slide.
 
 **Check:** The probe is held square, parallel to the carriage face, and can still be pushed up and down with firm finger pressure.
-
-Tip: If the probe barrel measures 9 mm rather than 8 mm, use `probe_retainer_bracket_9mm.stl` instead — a 0.5 g reprint. ([print plan, batch B04](../voron-print-plan.md))
 
 Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143)
 
@@ -694,11 +696,11 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.144](assets/manual-pages/manual-p144.png)
 
-**What you're looking at:** The moulded slot is the one place the probe cable can sit without being caught between the belts and the rail carriage across the full X travel. Connecting it and dressing it into the drag chain is Ch 10.
+**What you're looking at:** The moulded slot is the one place the probe cable can sit without being caught between the belts and the rail carriage across the full X travel. It plugs into the toolhead board in Ch 08.
 
 **Parts:** none.
 
-**Do:** Guide the probe cable into the moulded slot in the carriage. Leave it lying in the channel; it gets connected and dressed into the drag chain in Ch 10.
+**Do:** Guide the probe cable into the moulded slot in the carriage. Leave the coiled end loose above the carriage until Step 08.50 plugs it into `PROBE`.
 
 **Check:** The cable is captive in the slot and clear of both belts and the rail carriage over full travel. Move the carriage end to end.
 
@@ -747,13 +749,13 @@ Source: [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/t
 - [ ] Carriage bolts and all four M3×8 belt clamps fully tightened; nothing slips under a hard pull.
 - [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry — provisional; Ch 14 Step 14.4 sets the final value.
 - [ ] Gantry moves through the full XY envelope by hand with even resistance, no ticking, no notchiness.
-- [ ] Probe insulated (front + sides only), fitted, wires cut to ~150 mm, tip 6 mm below the plastic, cable in its channel.
+- [ ] Probe insulated (front + sides only), fitted, lead **uncut** with its factory connector, tip 6 mm below the plastic, cable in its channel.
 - [ ] No hall-effect magnet fitted (p.145 skipped).
 
 ## Common mistakes
 
 - **Tensioning to final now.** Ch 06b releases A/B tension completely as its first move, and it cannot run until the printer is alive (Ch 13); the final value is Ch 14 Step 14.4 — cold, door open, just before the 14.6 soak. Set ~110 Hz, confirm A ≈ B, move on. Chasing the last 5 Hz here is time you will spend again.
-- **Cutting the second belt after the first is installed.** Any length error becomes a permanent tension imbalance you will try to fix with the tensioners, which cannot fix it. Cut both together against a square edge (Step 07.8).
+- **Cutting the second belt to a tape measure instead of against the first.** Any length error becomes a permanent tension imbalance you will try to fix with the tensioners, which cannot fix it. Fold-cut both together, or remove the routed first belt and cut the second against it (Step 07.8).
 - **Wrapping the wrong element of a rear drive unit.** Each drive unit holds the motor pulley for its own belt *and* an idler stack for the other belt. Putting the A belt on the B motor pulley looks plausible and locks the two axes together. The p.126 top-left and p.127 top-right insets show which is which.
 - **A half-twist in a long run.** It shows up as a belt that runs fine at one end of travel and rubs at the other. Sight down each straight run and confirm the teeth face the same way at both ends.
 - **"Fixing" the teeth-on turn at an XY joint with a half-twist.** Each belt meets one toothed idler at the XY joints — A at the right joint (Step 07.16), B at the left (Step 07.17) — and wraps it teeth-on by design. A twist put in to get the smooth back there walks the belt off a flange at the far end of travel.

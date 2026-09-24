@@ -388,6 +388,8 @@ Pause: ~65 min since the last pause — the frame is assembled, squared on both 
 
 **Check:** 4 brackets, 4 bolts, all four free legs pointing down and outward, all four brackets oriented identically.
 
+Tip: Leave the M5×16 snug. Step 01.19 tightens them once the brackets sit flat on the rails.
+
 Source: [Voron manual p.18](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=18) · [Voron manual p.20](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20) · [Video: Part 1 @1:29:21](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5361s)
 
 ---
@@ -439,9 +441,9 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Do:**
 
-1. Mark the centreline **255 mm** in from the left rail's outer face, front and rear.
-2. Slide each bed extrusion until its inner face is **65 mm** from that line.
-3. Tighten the four M5×10 bolts.
+1. Mark the centreline **255 mm** from the left rail's outer face, front and rear.
+2. Slide each bed extrusion's inner face to **65 mm** from that line.
+3. Tighten the M5×10, then the M5×16, brackets flush with their extrusions.
 
 **Check:** **65 mm** each side of the centreline at both ends of both extrusions, four equal measurements, and both extrusions read **90°** to the rails.
 
@@ -449,7 +451,7 @@ Tip: p.20's dimension lines land on the facing inner faces: 130 mm clear, 150 mm
 
 Source: [Voron manual p.20](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=20) · [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [Video: Part 1 @1:46:36](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6396s)
 
-Pause: ~35 min since the last pause — both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline and their four M5×10 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.
+Pause: ~35 min since the last pause — both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.
 
 ---
 
@@ -531,7 +533,7 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 - [ ] Frame sits on all four corners with no rock
 - [ ] Every vertical's access holes face outward and take the straight 3 mm key face-on
 - [ ] Two bed extrusions running front-to-back on the front and rear rails, corner brackets, **M5 precision spacers** (not shims), 90° to the rails; FRONT tape on one of the two faces their ends land on
-- [ ] Bed extrusions 65 mm each side of the centreline, 130 mm clear gap, checked at both ends
+- [ ] Bed extrusions 65 mm each side of the centreline, 130 mm clear gap, checked at both ends; all four M5×10 and four M5×16 bracket bolts tight
 - [ ] Titanium backers still bagged and labelled for Ch 05
 - [ ] Frame log table filled in
 
