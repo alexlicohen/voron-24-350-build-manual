@@ -70,9 +70,17 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - [ ] **Step images cropped to the relevant manual panel;** screenshots for the Ch 12–14 software steps (76/104 without an image) and Ch 11 (29/66).
 - [ ] **Helper lines** in Ch 06–10 and 12 wherever two hands or a phone are needed (gantry lift, belt readings).
 - [ ] **A reward at every Checkpoint:** Revali's `pass` pose, "you built X", and a real treat. Alex to pick the treat.
-- [ ] **The Tonight progress overlay** as promised, or remove the claim.
+- [ ] **The Tonight progress overlay** (approved 2026-09-23): read the progress.js tick store, skip finished segments, plans start at the first unfinished step.
 
 ## Wave 5: minor and polish (176 items), batched per chapter from the G files
+
+
+## Decisions (Alex, 2026-09-23)
+- Pushed waves 1–2 (283ed5c).
+- **B11 P4/P5:** print right after kit day, once the A/B motor-cable lengths are measured; if a cable is short, make a replacement (longer) cable rather than drop layout v3. B11.9 becomes a confirmation. Fold into wave 3 (B11 Read first/B11.9/P4–P5 rule).
+- 11.67 keeps "cord out of the room". 10.80 lid order (lids on before the 10.73–10.79 sweep) confirmed.
+- Wave 4 approved: Parts lines become **one item per line** (bag source, per-segment totals) feeding Gather; cropped panel images + Ch 11–14 screenshots; helper lines; Checkpoint reward = Revali pass pose + **gummy worms** (bird theme).
+- Tonight progress overlay: **build it in wave 4** (read the progress.js tick store, skip finished segments, start the 30/60/90 plans at the first unfinished step; per-device only).
 
 ## Gated / needs Alex
 - B11 GUI QC (B00.8); the PETG V0 spool; kit-day bench values (every `(verify on bench)`); the Ch 10.80 lid order (lids on before the 10.73–10.79 sweep) was accepted by the orchestrator: confirm.
