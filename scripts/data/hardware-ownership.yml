@@ -1,0 +1,263 @@
+# Hardware ownership map — where each kit unit is CONSUMED (fitted) when a chapter
+# lists, stages, inventories or re-touches it elsewhere. Read by scripts/parts.py
+# (check 7 and `python3 scripts/parts.py --ledger`). Rule and correction list:
+# review/2026-09-23-sweep/HARDWARE-OWNERSHIP.md.
+#
+# The rule, in short: a kit unit is consumed once, at the step that first mounts,
+# fastens, presses, glues, solders or plugs it into the machine or a sub-assembly
+# that stays in it. Earlier steps (unpack, inspect, set a switch, trim, tape, bag)
+# list it `staged:`; later steps (adjust, remove and refit, route, verify) list it
+# `reused:`. A Hardware table counts its chapter's consumption, plus carries.
+#
+# `item` is the exact `item` text of a row in scripts/data/ldo-350-bom.yml.
+# Steps are step ids as they appear in the chapter headings.
+
+# Every kit item named in these chapters is inventory: never consumption, never
+# `staged:`-checked, never summed.
+inventory_chapters: ["00"]
+
+# Rows reconciled nowhere (no table row, no step count): stock drawn on demand,
+# cut-to-length stock, tools, and rows whose use is conditional. Steps should
+# prefix them `consumable:` or `tool:` (check 6 says so).
+unreconciled:
+  "Zip Ties, 3x150mm": 'consumable (100 in the bag)'
+  "Tape, 3M VHB": 'consumable (one roll; steps cut pads)'
+  "Foam Tape, 1mm": 'consumable (one roll)'
+  "Foam Tape, 3mm": 'consumable (one roll)'
+  "Fiberglass Tape, 2x12cm": 'consumable'
+  "Sandpaper": 'consumable'
+  "Ferrule, VE0508": 'spares (every kit mains/DC lead ships ferruled; E0508 only if the Revo leads are re-terminated, LDO wiring guide)'
+  "Gates Open Belt, 2GT, 9mm (by metre)": 'cut stock, in metres (Ch 06 cuts 4 × ~1400 mm)'
+  "Gates Open Belt, 2GT, 6mm (by metre)": 'cut stock, in metres (Ch 07 cuts 2 equal lengths)'
+  "Teflon Tube (4mm OD 3mm ID) - 1.2m": 'cut stock'
+  "Teflon Tube (4mm OD 2mm ID) - 10cm": 'cut stock'
+  "Extrusion Slot Cover, 6mm width": 'cut stock, optional cosmetic'
+  "PVC Wire Duct 20Wx25H": 'conditional (LDO layout only; layout v3 uses 0–1, B11.10)'
+  "Brass Heatset Insert tool (for M3 Brass Inserts)": 'tool'
+  "Drill bit, 2mm": 'tool'
+  "Hex Wrench, 1.5mm": 'tool'
+  "Hex Wrench, 2mm": 'tool'
+  "Hex Wrench, 2.5mm": 'tool'
+  "Hex Wrench, 3mm": 'tool'
+  "Hex Wrench, 4mm": 'tool'
+  "Slot head screwdriver, 2.5mm": 'tool'
+  "Brass Brush": 'tool'
+  "SD Card, 32GB": 'software medium (Ch 12)'
+
+# One BOM line, several different parts: reconciled per chapter, but the
+# kit-wide "consumed > BOM qty" test is skipped (the qty counts bags).
+bags:
+  - "Toolhead PCB Cables (Z Probe is included in this bag)"   # probe, toolhead cable, probe lead
+  - "Nevermore Micro V5 Parts"                                # 2× 5015, bridge PCB, …
+  - "LDO Printed Parts"                                       # the ten parts also have their own rows
+  - "Thumb Screw Kit"
+  - "Bondtech IDGA Gear Set"
+
+# Units whose every consumption location is fixed here. Any other step that
+# lists the row as a counted part is a double count; each step below must list
+# at least its quantity. Units not listed (the 4th DIN clip) are spares.
+owners:
+  # --- Ch 00 inventory (00.17) → where the rails are fitted
+  - item: "Linear Rail Stainless Steel, LDO-SLR9H-400Z0"
+    at: {"02.06": 1, "02.09": 3, "05.11": 1, "05.13": 1}
+    staged: ["00.17", "02.05"]
+    evidence: 'Voron p.24–27 (four Z rails), p.88 (two Y rails); Ch 02 table 4, Ch 05 table 2'
+  - item: "Linear Rail Stainless Steel, LDO-SLR12H-400Z1"
+    at: {"05.33": 1}
+    staged: ["00.17"]
+    evidence: 'Voron p.101 (X rail)'
+  # --- Ch 00 inventory (00.5) → Electronics 2 PCBs
+  - item: "Nitehawk SB Toolhead PCB"
+    at: {"08.43": 1}
+    staged: ["00.5"]
+    evidence: 'Ch 08 table; LDO Nitehawk-SB V2 README'
+  - item: "Stealthburner Fan Adapter"
+    at: {"08.44": 1}
+    staged: ["00.5"]
+    evidence: 'Ch 08 table row SBurnerFanAdapter_V2.0'
+  - item: "USB Adapter PCB"
+    at: {"08.64": 1}
+    staged: ["00.5"]
+    reused: ["09.25"]
+    evidence: 'Ch 09 table note ("adapter stack … fitted in Ch 08 Step 08.64"); Rev D+ usb_adapter_mount_partial_cover'
+  # --- Ch 00 inventory (00.6) → the LDO-supplied printed parts
+  - item: "Leviathan Bracket Left"
+    at: {"09.20": 1}
+    staged: ["00.6"]
+    evidence: 'LDO wiring guide § Installing the Leviathan'
+  - item: "Leviathan Bracket Right"
+    at: {"09.20": 1}
+    staged: ["00.6"]
+    evidence: 'LDO wiring guide § Installing the Leviathan'
+  - item: "NH Adapter Mount"
+    at: {"08.64": 1}
+    staged: ["00.6"]
+    evidence: 'Ch 08 Step 08.64'
+  - item: "DIN Clip"
+    at: {"09.20": 2, "09.25": 1}
+    staged: ["00.6"]
+    evidence: 'Ch 09 table M2×10 note (4 into the Leviathan brackets, 2 into the USB adapter clip); the 4th clip is a spare (open question)'
+  - item: "CW2 Chain Anchor Tilted"
+    at: {"08.25": 1}
+    staged: ["00.6", "08.6"]
+    evidence: 'Ch 08 Step 08.25 (fitted with M3×20); 08.6 only heat-sets it'
+  - item: "2x3 Splitter Spacer"
+    at: {"10.37": 1, "10.47": 1}
+    staged: ["00.6"]
+    evidence: 'LDO wiring guide ("mount 3x2 splicing PCBs using the printed part")'
+  - item: "LDO Nozzle Probe"
+    at: {"09.27": 1}
+    staged: ["00.6"]
+    evidence: 'Ch 09 Step 09.27–09.30; LDO build FAQ'
+  - item: "Bed WAGO Mount"
+    at: {"09.34": 1}
+    staged: ["00.6"]
+    evidence: 'LDO wiring guide § bed WAGO mount'
+  - item: "CW2 PCB Spacer"
+    at: {"08.43": 1}
+    staged: ["00.6"]
+    evidence: 'Ch 08 Step 08.43'
+  # --- Ch 00 inventory (00.7) → handles
+  - item: "Aluminium Handle"
+    at: {"11.60": 2}
+    staged: ["00.7"]
+    evidence: 'Ch 11 Step 11.60 (LDO extra, not in the Voron manual)'
+  # --- Ch 00 inventory (00.3 "Other") → mains parts, mainboard, PSU, hotend, DIN rails
+  - item: "E3D Revo Hotend (HF)"
+    at: {"08.28": 1}
+    staged: ["00.3", "08.27"]
+    evidence: 'Ch 08 Step 08.28 (seated in the rear printhead half)'
+  - item: "DIN Rails (35mm W)"
+    at: {"09.5": 2}
+    staged: ["00.3"]
+    evidence: 'Voron p.29 (DIN rails on the deck, M5×10 BHCS)'
+  - item: "LDO Leviathan Mainboard"
+    at: {"09.21": 1}
+    staged: ["00.3", "09.19"]
+    reused: ["10.3"]
+    evidence: 'LDO wiring guide § Installing the Leviathan; 09.19 strips jumpers on the loose board'
+  - item: "Meanwell LRS-200-24 PSU*"
+    at: {"09.15": 1}
+    staged: ["00.3", "09.14"]
+    reused: ["09.16", "10.2"]
+    evidence: 'Ch 09 Steps 09.14–09.16; LDO wiring guide § Connecting Wago and PSU (wiring only)'
+  - item: "C13 Power Cord 1.5 meter"
+    at: {"10.23": 1}
+    staged: ["00.3", "09.35"]
+    reused: ["12.11"]
+    evidence: 'Ch 10 Step 10.23 (first power-on) — the first step that plugs it in'
+  # --- Ch 00 inventory (00.4) → panels and plate
+  - item: "Deck Panel, Acrylic, Black, 469x469x3mm"
+    at: {"02.13": 1}
+    staged: ["00.4", "02.12"]
+    reused: ["09.4"]
+    evidence: 'Voron p.28–29'
+  - item: "Bottom Panel, Acrylic, Black, 469x469x4mm"
+    at: {"11.21": 1}
+    staged: ["00.4"]
+    evidence: 'Voron p.232–233'
+  - item: "Back Panel, Acrylic, Black, 483x503x3mm"
+    at: {"11.55": 1}
+    staged: ["00.4", "11.52"]
+    evidence: 'Voron p.238–239 (11.52 only foam-tapes the loose panel)'
+  - item: "Side Panel, PC, Clear, 483x503x3mm"
+    at: {"11.57": 1, "11.58": 1}
+    staged: ["00.4", "11.56"]
+    evidence: 'Voron p.240–241'
+  - item: "Top Panel, PC, Clear, 483x483x3mm"
+    at: {"11.59": 1}
+    staged: ["00.4"]
+    evidence: 'Voron p.242–243'
+  - item: "Door Panel, PC, Clear, 241x503x3mm"
+    at: {}
+    staged: ["00.4"]
+    evidence: 'Clicky-Clack replaces the stock doors (11.61); both PC door panels stay unused. 11.44''s 480×500 panel is the separately bought Clicky-Clack acrylic'
+  - item: "Magnetic Pad 2.4-350"
+    at: {"03.9": 1}
+    staged: ["00.4", "03.1"]
+    evidence: 'Voron p.58; Ch 03 Step 03.9 (applied)'
+  - item: "Build Plate, Cast 5083 Aluminium, Blanchard Ground, w/ LDO AC Heatpad & Thermal Fuse (125C), 355x355x10mm"
+    at: {"03.14": 1}
+    staged: ["00.4", "03.1"]
+    evidence: 'Voron p.60–61; 03.2–03.8 prepare the loose plate'
+  - item: "Spring Steel Flex Plate 2.4-350"
+    at: {"03.20": 1}
+    staged: ["00.4", "03.1"]
+    reused: ["13.42"]
+    evidence: 'Ch 03 Step 03.20'
+  # --- Ch 09 ↔ Ch 10: fitted in the bay (Ch 09), wired in Ch 10
+  - item: "AC Inlet, Integrated Switch & Fuse"
+    at: {"09.11": 1}
+    reused: ["10.5"]
+    evidence: 'Ch 09 Step 09.11 (M3×10 FHCS into the printed panel); LDO wiring guide § Connecting Inlet and WAGO is wiring only'
+  - item: "Genuine Wago 221-415 Splicing Connector"
+    at: {"09.13": 3}
+    reused: ["10.7"]
+    evidence: 'Ch 09 Step 09.13 (populated and mounted); 10.7 says "populated and mounted at Step 09.13"'
+  - item: "Genuine Wago 221-412 Splicing Connector"
+    at: {"09.34": 2}
+    evidence: 'LDO wiring guide ("The two WAGO terminals are snapped into the printed part") — the bed WAGO mount, Ch 09'
+  - item: "2x2 XH Splicer PCB"
+    at: {"09.34": 1}
+    reused: ["10.12"]
+    evidence: 'LDO wiring guide ("The 2x2 XH Splicer PCB is fastened using two M3x6 BHCS")'
+  - item: "Solid State Relay, Omron"
+    at: {"09.17": 1}
+    reused: ["09.18", "10.10"]
+    evidence: 'Ch 09 Step 09.17'
+  - item: "DIN Rail Mount Bracket for SSR"
+    at: {"09.17": 1}
+    evidence: 'Ch 09 Step 09.17'
+  - item: "XY Endstop PCB"
+    at: {"09.32": 1}
+    reused: ["10.33"]
+    evidence: 'Voron p.164 (pod) and Ch 09 Step 09.32'
+  - item: "Z Endstop PCB"
+    at: {"09.28": 1}
+    evidence: 'Ch 09 Step 09.28 (M2×10 self-tapping ×2); 08.56 only names it'
+  - item: "Raspberry Pi 4B (OPTIONAL item, check with your reseller whether the RPi is included)"
+    at: {"09.22": 1}
+    evidence: 'Ch 09 Step 09.22 (the HAT power adapter at 09.23 is NOT this row: open question)'
+  - item: "Heatsink, for Raspberry Pi"
+    at: {"09.22": 1}
+    evidence: 'Ch 09 Step 09.22'
+  # --- Ch 10 ↔ Ch 11
+  - item: "3x2 XH Splicer PCB"
+    at: {"10.37": 1, "10.47": 1}
+    reused: ["11.18"]
+    evidence: 'LDO wiring guide ("the two 6020 fans are joined using the 3x2 splicing PCB"; LED junction); 11.3''s own ⚠ says the kit ships the splicers, 11.18 only verifies'
+  - item: "60x60x20 Fan (24V)"
+    at: {"10.47": 2}
+    reused: ["11.3", "11.11"]
+    evidence: 'LDO wiring guide § Connecting the fans (plugged at 10.47, the first step that connects them); mounted in the supports at 11.11'
+  - item: "Keystone CAT6 Insert"
+    at: {"10.51": 1}
+    reused: ["11.10"]
+    evidence: 'Ch 10 Step 10.51 (the Pi''s patch cable plugs into it); snapped into the keystone panel at 11.10'
+  - item: "4.3 Capacitive Display, for RPi DSI"
+    at: {"11.6": 1}
+    staged: ["10.50"]
+    reused: ["12.10"]
+    evidence: 'Ch 10 Step 10.50 builds the module by running Ch 11 Steps 11.5–11.6 (the parts are counted in Ch 11''s table)'
+  # --- Ch 07 / Ch 08 (Toolhead PCB Cables bag: probe + toolhead cable)
+  - item: "50x50x15 Centrifugal Fan (24V)"
+    at: {"08.42": 1}
+    staged: ["08.34"]
+    evidence: 'Ch 08 Step 08.42 (fitted with M3×6 FHCS ×2); 08.34 trims the loose fan. 11.29/11.31 are the Nevermore fans, not this row (alias collision)'
+  - item: "Drag Chain, 10x10mm, R18"
+    at: {"10.59": 1, "10.60": 1}
+    evidence: 'Voron p.197, p.199'
+  - item: "Drag Chain, 10x15mm, R28"
+    at: {"10.62": 1}
+    evidence: 'Voron p.201–203'
+
+# A quantity staged (bagged) in one chapter and fitted in a later one, where the
+# staging chapter's Hardware table carries it. The staging step lists it
+# `staged:`; the consuming step lists it as a counted part; the consuming
+# chapter's table leaves it out (or writes `0: bagged at Step …`).
+carries:
+  - item: "Machine Screw, SHCS, M3x30"
+    qty: 2
+    staged: "05.46"
+    consumed: "09.33"
+    evidence: 'Voron p.164 (2× M3×30 SHCS through the XY endstop pod into the right XY joint); Ch 05 Step 05.46 bags them with the pod'

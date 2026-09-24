@@ -98,7 +98,10 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 
 **What you're looking at:** Manual p.62 opens the A/B section: ten printed parts, four sub-assemblies. Two **drive units**, each a two-half frame holding bearing stacks with a stepper bolted underneath, and two **front idlers**, the same without a motor. They are the four corners the CoreXY belts loop around.
 
-**Parts:** all ten printed parts; four trays or bags.
+**Parts:**
+
+- all ten printed parts
+- four trays or bags
 
 **Do:**
 
@@ -123,7 +126,9 @@ Source: [Voron manual p.62](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.63 shows the four positions; the pair renders tell the printed parts apart. **A is the rear-right drive and B the rear-left**, so the A idler is front-right and the B idler front-left. On the idlers the give-away is height, not handedness.
 
-**Parts:** masking tape, marker.
+**Parts:**
+
+- masking tape, marker
 
 **Do:**
 
@@ -147,7 +152,10 @@ Source: [Voron manual p.63](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.64: the heat-set inserts for this chapter. Only **four**, two into `a_drive_frame_upper` and one into each tension arm. It is the only drive frame with insert bosses, so two blind 4.7 mm holes beside the motor bore are the A/B test.
 
-**Parts:** 2× M3×5×4 brass heat-set insert; `a_drive_frame_upper`.
+**Parts:**
+
+- 2× M3×5×4 brass heat-set insert
+- `a_drive_frame_upper`
 
 **Do:**
 
@@ -168,7 +176,10 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.64 and the two blue **tension arms**: levers carrying each front idler's bearing stack, drawn forward to tension a belt. Each is a C: top boss counterbored for the M5×40 head, foot with the M5 nut pocket, back wall with one stepped bore.
 
-**Parts:** 2× M3×5×4 brass heat-set insert; `[a]_tensioner_left`, `[a]_tensioner_right`.
+**Parts:**
+
+- 2× M3×5×4 brass heat-set insert
+- `[a]_tensioner_left`, `[a]_tensioner_right`
 
 **Do:** Each tension arm has one through-bore stepping from 3.5 mm to 4.7 mm. Press the insert into the **4.7 mm end**, the wider opening. The 3.5 mm section is the M3×40's clearance and must stay clear.
 
@@ -184,7 +195,10 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.64: an M5 hex nut dropping into a pocket in the foot of each tension arm. The vertical M5×40 axle threads into that captive nut, so the bearing stack is clamped inside the arm and moves with it.
 
-**Parts:** 2× M5 hex nut; both tension arms.
+**Parts:**
+
+- 2× M5 hex nut
+- both tension arms
 
 **Do:** Drop an M5 nut into the hex pocket in the underside of each arm's foot. Seat it fully with a flat driver; it must sit below the face, never proud, or the arm will not lie flat.
 
@@ -203,7 +217,10 @@ Pause: ~30 min since the last pause — the bench is split into four labelled ki
 
 **What you're looking at:** Manual p.65: the A front-right idler starting. `front_idler_right_lower` is the taller of the two lower frames, 21.6 mm against 11.6 mm. The M5×40 standing in its boss is not a fastener yet but a temporary spindle for the bearing stack.
 
-**Parts:** `front_idler_right_lower`; 1× M5×40 SHCS.
+**Parts:**
+
+- `front_idler_right_lower`
+- 1× M5×40 SHCS
 
 **Do:** Lay `front_idler_right_lower` flat with its idler boss facing up. Push the M5×40 SHCS up through the boss from underneath so the thread stands vertically. It is only an alignment aid and comes out at Step 04.9.
 
@@ -220,7 +237,10 @@ Source: [Voron manual p.65](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.65: the bearing stack. **F695** bearings are 5 × 13 × 4 mm with a flange on one face. Fitted plain face to plain face, their flanges point outward, forming a channel one belt wide. A brass **precision spacer** each end sets stack height.
 
-**Parts:** 2× M5 precision spacer; 2× F695 bearing.
+**Parts:**
+
+- 2× M5 precision spacer
+- 2× F695 bearing
 
 **Do:** Thread onto the standing bolt, **bottom to top**: M5 precision spacer, F695 **flange down**, F695 **flange up**, M5 precision spacer. The two bearings meet plain face to plain face, flanges pointing outward.
 
@@ -238,7 +258,9 @@ Source: [Voron manual p.65](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.65: `front_idler_right_upper`, the 12.0 mm-tall cap. It captures the top spacer and closes the frame around the bearing pair; the two halves meeting with no gap proves nothing inside is out of place.
 
-**Parts:** `front_idler_right_upper` (the 12.0 mm-tall one).
+**Parts:**
+
+- `front_idler_right_upper` (the 12.0 mm-tall one)
 
 **Do:** Lower `front_idler_right_upper` over the stack so its nose captures the top spacer and the two frames meet along their mating faces.
 
@@ -255,7 +277,9 @@ Source: [Voron manual p.65](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.66 and the pair render: the blue `[a]_tensioner_right` sliding into the channel between the two idler frames. The two arms are mirrors of each other, the same C handed the other way. The wrong hand will not lie flat in the channel.
 
-**Parts:** `[a]_tensioner_right` (with its insert and M5 nut already fitted).
+**Parts:**
+
+- `[a]_tensioner_right` (with its insert and M5 nut already fitted)
 
 **Do:** Pinch the two frames together, withdraw the M5×40 SHCS downwards, and slide `[a]_tensioner_right` into the channel until its top boss lines up with the upper frame's hole. Keep pinching; the stack is unsupported.
 
@@ -271,7 +295,9 @@ Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.66: the M5×40 refitted from the top as the idler's **axle**. Its head seats in the arm's top boss and its thread runs into the M5 nut in the foot, clamping bolt, spacers, bearings and arm into one sliding unit. Not the tensioner.
 
-**Parts:** the same 1× M5×40 SHCS.
+**Parts:**
+
+- the same 1× M5×40 SHCS
 
 **Do:** Drop the M5×40 SHCS in from the **top** through the arm's top boss and run it down into the M5 nut in the foot until the head seats and the stack is clamped **firm**. It threads into steel, not plastic.
 
@@ -287,7 +313,10 @@ Source: [Voron manual p.66](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.67: the M3×40 entering horizontally through the idler frame's front wall and threading into the insert in the arm's back wall. It is the belt **tensioner**: winding it in draws the arm toward the wall. It does not clamp the frame halves.
 
-**Parts:** 1× M3 washer; 1× M3×40 SHCS.
+**Parts:**
+
+- 1× M3 washer
+- 1× M3×40 SHCS
 
 **Do:**
 
@@ -327,7 +356,10 @@ Pause: ~40 min since the last pause — the A (front right) idler is complete an
 
 **What you're looking at:** Manual p.69: the B front-left idler. `front_idler_left_lower` is the **short** one at 11.6 mm, so its bearing stack sits lower. That is why the B belt runs in a lower plane than the A belt.
 
-**Parts:** `front_idler_left_lower` (the 11.6 mm-tall one); 1× M5×40 SHCS.
+**Parts:**
+
+- `front_idler_left_lower` (the 11.6 mm-tall one)
+- 1× M5×40 SHCS
 
 **Do:** Lay `front_idler_left_lower` flat with its idler boss up and push the M5×40 SHCS up through it from underneath. The B idler's boss is lower than the A idler's; that is correct.
 
@@ -343,7 +375,10 @@ Source: [Voron manual p.69](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.69: the same four-item stack as the A idler, spacer, F695 flange down, F695 flange up, spacer. Identical hardware, different frame height.
 
-**Parts:** 2× M5 precision spacer; 2× F695 bearing.
+**Parts:**
+
+- 2× M5 precision spacer
+- 2× F695 bearing
 
 **Do:** Bottom to top: M5 precision spacer, F695 **flange down**, F695 **flange up**, M5 precision spacer. Identical to the A idler.
 
@@ -362,7 +397,9 @@ Source: [Voron manual p.69](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.69: `front_idler_left_upper`, the tall one at 21.6 mm where the A idler's upper was short. The uppers are handed the opposite way to the lowers, so two that look alike means two of the same hand.
 
-**Parts:** `front_idler_left_upper` (the tall 21.6 mm one).
+**Parts:**
+
+- `front_idler_left_upper` (the tall 21.6 mm one)
 
 **Do:** Lower `front_idler_left_upper` over the stack until the two frames meet.
 
@@ -378,7 +415,9 @@ Source: [Voron manual p.69](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.70: `[a]_tensioner_left` going into the B idler's channel, the mirror of Step 04.9.
 
-**Parts:** `[a]_tensioner_left`.
+**Parts:**
+
+- `[a]_tensioner_left`
 
 **Do:** Pinch the frames together, withdraw the M5×40 SHCS downwards, and slide `[a]_tensioner_left` into the channel until its top boss lines up with the frame's top hole.
 
@@ -394,7 +433,9 @@ Source: [Voron manual p.70](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.70: the M5×40 axle refitted from the top through the arm's top boss into its captive nut, mirror of Step 04.10. Clamped firm; it is the axle, not the tensioner.
 
-**Parts:** the same 1× M5×40 SHCS.
+**Parts:**
+
+- the same 1× M5×40 SHCS
 
 **Do:** Drop it in from the top, through the arm's top boss, and run it down into the M5 nut in the arm's foot until the head seats and the stack is clamped firm, into steel.
 
@@ -410,7 +451,10 @@ Source: [Voron manual p.70](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.71: the M3×40 tensioner and its washer through the B idler frame's front wall into the arm's insert, mirroring the A idler.
 
-**Parts:** 1× M3 washer; 1× M3×40 SHCS.
+**Parts:**
+
+- 1× M3 washer
+- 1× M3×40 SHCS
 
 **Do:** Washer under the head, in through the frame's front wall, the face away from the extrusion, into the arm's insert, until the arm is drawn up to the wall and the screw is snug. Step 07.5 sets it.
 
@@ -448,7 +492,10 @@ Pause: ~35 min since the last pause — the B (front left) idler is complete and
 
 **What you're looking at:** Manual p.73 and the pair render: `a_drive_frame_upper`, built upside down, flat insert face on the bench, so the two M5×30 stand up as the axles the bearing stacks thread onto. There is no pillar; the manual's post is the standing bolt.
 
-**Parts:** `a_drive_frame_upper`; 2× M5×30 BHCS.
+**Parts:**
+
+- `a_drive_frame_upper`
+- 2× M5×30 BHCS
 
 **Do:**
 
@@ -467,7 +514,10 @@ Source: [Voron manual p.73](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.74: the post **nearer** the motor bore, taking one bearing pair: spacer, two F695 flange-out, spacer. This post carries only one belt, so it takes half the stack of the other one.
 
-**Parts:** 2× M5 precision spacer; 2× F695 bearing.
+**Parts:**
+
+- 2× M5 precision spacer
+- 2× F695 bearing
 
 **Do:**
 
@@ -489,7 +539,10 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.74: the post **farther** from the motor bore, taking two pairs. Both belt planes pass through this drive, so it needs two channels stacked, separated by the two spacers that meet in the middle. It is the most mis-stacked assembly in the build.
 
-**Parts:** 4× M5 precision spacer; 4× F695 bearing.
+**Parts:**
+
+- 4× M5 precision spacer
+- 4× F695 bearing
 
 **Do:**
 
@@ -511,7 +564,9 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.74 and the pair render: `a_drive_frame_lower`, the other half of the printed frame, closing over both posts. The M5×30 bolts thread directly into the plastic of the lower frame, so they stop at closed-and-snug rather than torqued.
 
-**Parts:** `a_drive_frame_lower`.
+**Parts:**
+
+- `a_drive_frame_lower`
 
 **Do:**
 
@@ -533,7 +588,11 @@ Source: [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.75: the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height puts the belt in the same plane as the A idler's bearing channel; the underside of the jig's **A** tab repeats it without a caliper.
 
-**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; printed `pulley_jig.stl`.
+**Parts:**
+
+- 1× stepper motor (0.9° A/B motor)
+- 1× GT2 20 T **6 mm** pulley
+- printed `pulley_jig.stl`
 
 **Do:**
 
@@ -561,7 +620,10 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.75: the pulley's two set screws. A set screw that backs out lets the pulley slip on the shaft, and a slipping A or B pulley shows up as prints that drift diagonally, not as an obvious failure.
 
-**Parts:** 2× set screw (in the pulley); Loctite 243.
+**Parts:**
+
+- 2× set screw (in the pulley)
+- Loctite 243
 
 **Do:**
 
@@ -581,7 +643,9 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.75: the motor going into the frame, right way up now. The manual's rule is that the two motors' cables point at each other once both drives are on the machine, so both reach the same duct.
 
-**Parts:** the A motor with its pulley.
+**Parts:**
+
+- the A motor with its pulley
 
 **Do:** Turn the drive assembly the right way up, motor below the frames, and offer the motor into the frame with the **cable exit facing inboard**, toward the middle of the rear extrusion where the B drive sits.
 
@@ -597,7 +661,9 @@ Source: [Voron manual p.75](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.76: three M3×30 running down through both printed frames into the motor's face. Three, not four: the fourth motor hole has no clearance hole above it.
 
-**Parts:** 3× M3×30 SHCS.
+**Parts:**
+
+- 3× M3×30 SHCS
 
 **Do:**
 
@@ -617,7 +683,9 @@ Source: [Voron manual p.76](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.76's elevation and a belt offcut used as a straightedge. The A pulley runs in the **upper** belt plane, level with the near pair and the far post's upper pair.
 
-**Parts:** a 6 mm belt offcut or a thin steel rule.
+**Parts:**
+
+- a 6 mm belt offcut or a thin steel rule
 
 **Do:**
 
@@ -642,7 +710,10 @@ Pause: ~50 min since the last pause — the A drive is finished: 2-bearing near 
 
 **What you're looking at:** Manual p.77 and the same pair render: `b_drive_frame_upper`, laid out the same upside-down way. This is the B part, with **no cutout lobe on the base plate and no insert bosses**. Seeing either means you picked up the A frame.
 
-**Parts:** `b_drive_frame_upper`; 2× M5×30 BHCS.
+**Parts:**
+
+- `b_drive_frame_upper`
+- 2× M5×30 BHCS
 
 **Do:** As at Step 04.20: flat face up, drop an M5×30 BHCS into each of the two 5.4 mm holes, then turn the frame over so the heads are underneath and the threads stand up.
 
@@ -658,7 +729,10 @@ Source: [Voron manual p.77](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.78: the four-bearing post, drawn on the **left** on the B frame because it mirrors the A frame. It is still the post farther from the motor bore; the page position changed, the rule did not.
 
-**Parts:** 4× M5 precision spacer; 4× F695 bearing.
+**Parts:**
+
+- 4× M5 precision spacer
+- 4× F695 bearing
 
 **Do:**
 
@@ -679,7 +753,10 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.78: the two-bearing post, nearer the motor bore, drawn on the right. With this the two drives hold six bearings and six spacers each.
 
-**Parts:** 2× M5 precision spacer; 2× F695 bearing.
+**Parts:**
+
+- 2× M5 precision spacer
+- 2× F695 bearing
 
 **Do:** On the **near** bolt, ~17 mm from the bore centre, drawn on the right on p.78: spacer, F695 **flange down**, F695 **flange up**, spacer.
 
@@ -697,7 +774,9 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.78: `b_drive_frame_lower` closing the B drive. Same plastic threads, same rule: closed and snug, then stop.
 
-**Parts:** `b_drive_frame_lower`.
+**Parts:**
+
+- `b_drive_frame_lower`
 
 **Do:** Lower `b_drive_frame_lower` onto both stacks and run the two M5×30 BHCS down alternately until the frames meet.
 
@@ -715,7 +794,11 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.79: the B motor's pulley, fitted **the other way up** from the A drive's. The two pulley heights, 16.5 mm on A and 6.5 mm on B, separate the two belt planes; set them the same and the belts rub.
 
-**Parts:** 1× stepper motor (0.9° A/B motor); 1× GT2 20 T **6 mm** pulley; `pulley_jig.stl`.
+**Parts:**
+
+- 1× stepper motor (0.9° A/B motor)
+- 1× GT2 20 T **6 mm** pulley
+- `pulley_jig.stl`
 
 **Do:**
 
@@ -737,7 +820,10 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.79: the B pulley's set screws, threadlocked and re-measured, exactly as on the A drive.
 
-**Parts:** 2× set screw (in the pulley); Loctite 243.
+**Parts:**
+
+- 2× set screw (in the pulley)
+- Loctite 243
 
 **Do:** Loctite 243 on both set screws, first one onto the shaft flat if there is one, then the second. Re-measure with the jig and then the caliper after tightening.
 
@@ -753,7 +839,9 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.79: the B motor going in with its cable exit inboard, mirrored from the A drive. Held in their finished positions the two drives' cables face each other across the back of the machine.
 
-**Parts:** the B motor with its pulley.
+**Parts:**
+
+- the B motor with its pulley
 
 **Do:** Turn the assembly the right way up and fit the motor with the **cable exit facing inboard**, mirrored from the A drive, so with B at the rear left its cable also runs toward the machine's centreline.
 
@@ -769,7 +857,9 @@ Source: [Voron manual p.79](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.80: the same three M3×30 through both frames into the motor face.
 
-**Parts:** 3× M3×30 SHCS.
+**Parts:**
+
+- 3× M3×30 SHCS
 
 **Do:** Start all three by hand through both frames into the motor, then tighten evenly.
 
@@ -785,7 +875,9 @@ Source: [Voron manual p.80](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.80's elevation and the belt offcut again. The B pulley runs in the **lower** belt plane, level with the near pair and the far post's lower pair.
 
-**Parts:** the belt offcut or steel rule.
+**Parts:**
+
+- the belt offcut or steel rule
 
 **Do:** Motor down, compare against p.80's elevation: pulley in the lower plane. Lay the offcut across the pulley teeth, the near pair and the far post's **lower** pair. Label it **B: REAR LEFT**.
 
@@ -805,7 +897,11 @@ Pause: ~45 min since the last pause — the B drive is finished and labelled **B
 
 **What you're looking at:** Manual p.81 is a divider page with no assembly content. On the bench: four finished sub-assemblies, each of which only fits one corner of the machine, so each goes into a bag with its destination written on it.
 
-**Parts:** four finished assemblies; four bags; marker.
+**Parts:**
+
+- four finished assemblies
+- four bags
+- marker
 
 **Do:** Bag each assembly separately with its destination written on the bag: **A drive: rear right**, **B drive: rear left**, **A idler: front right**, **B idler: front left**.
 

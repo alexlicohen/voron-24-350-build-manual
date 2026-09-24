@@ -23,6 +23,11 @@ Both forms parse here. The kit source comes from scripts/data/ldo-350-bom.yml
 (vendored by scripts/kit_bom.py), never typed on the line.
 
     python3 scripts/parts.py --selftest
+    python3 scripts/parts.py --ledger [BOM-item regex]   # per-step consumption ledger
+
+Hardware ownership (check 7): scripts/data/hardware-ownership.yml says where
+each cross-chapter kit unit is consumed; `staged:` items are set out for a later
+step. Rule: review/2026-09-23-sweep/HARDWARE-OWNERSHIP.md.
 """
 
 from __future__ import annotations
@@ -214,7 +219,10 @@ def count_of(item: str) -> tuple[int | None, str]:
     for rx in (_CNT_PREFIX_RE, _CNT_SUFFIX_RE, _CNT_PAREN_RE):
         m = rx.search(masked)
         if m and rx is _CNT_SUFFIX_RE and masked[:m.start()].rstrip()[-1:].isdigit():
-            m = None
+            # `Ø4.7 × 5` (spaced) is a dimension; `M3×5×4 ×3` and
+            # `T-nut, 2020 ×4` are a size then a count.
+            if re.match(r"[×xX]\s", m.group(0)):
+                m = None
         if m:
             rest = (masked[:m.start()] + " " + masked[m.end():])
             rest = re.sub(r"\s+", " ", rest)
@@ -406,7 +414,10 @@ def box_label(row: dict) -> str:
 # one item, one field
 # --------------------------------------------------------------------------
 
-_ROLE_RE = re.compile(r"^(reused|tool|consumable)\s*:\s*", re.IGNORECASE)
+# Roles. `staged:` = taken out and set aside (unpacked, inspected, trimmed,
+# bagged) but fitted at a later step; `reused:` = fitted earlier, touched again.
+# Neither is summed; check 7 checks that a later / an earlier step consumes it.
+_ROLE_RE = re.compile(r"^(reused|staged|tool|consumable)\s*:\s*", re.IGNORECASE)
 _FROM_RE = re.compile(r"\s+[—–]\s+from\s+(.+?)\s*\.?$", re.IGNORECASE)
 _PER_RE = re.compile(r"\b(?:per|each)\b", re.IGNORECASE)
 _STEP_REF_RE = re.compile(r"\bSteps?\s+[A-Za-z]?\d+[A-Za-z]?\.\d+\b")
@@ -435,6 +446,8 @@ class PartItem:
         """Where it comes from, for the muted suffix on the step list."""
         if self.role == "reused":
             return "already on the bench"
+        if self.role == "staged":
+            return "set out now, fitted later"
         if self.role in ("tool", "consumable"):
             return self.role
         if self.source:
@@ -450,6 +463,8 @@ class PartItem:
         """(sort key, heading) of the Gather group this item lands in."""
         if self.role == "reused":
             return ((6,), "Already on the bench")
+        if self.role == "staged":
+            return ((5, 1), "Set out for later steps")
         if self.role in ("tool", "consumable"):
             return ((5,), "Tools and consumables")
         if self.printed:
@@ -571,11 +586,11 @@ def absorb_list(lines: list[str], end: int, is_boundary) -> int:
 
 def grouped_tally(items: list[Tally], item: PartItem) -> None:
     """Grouped Gather tally: merge by BOM row (so spellings meet), else by name;
-    `reused:` items are listed once and never summed."""
+    `reused:` and `staged:` items are listed once and never summed."""
     group = item.group
     ident = ("bom", item.bom["_n"]) if (item.bom and not item.printed and not item.source) else ("name", merge_key(item.name))
     key = "%r|%r" % (group[0], ident)
-    counted = item.role != "reused"
+    counted = item.role not in ("reused", "staged")
     display = item.name if counted else item.body
     if not merge_key(display):
         return
@@ -683,6 +698,7 @@ def check_grammar(text: str, rel: str) -> list[dict]:
     """Check 6 (warn until wave-4 phase 5): each Parts field is `none` or the
     list form, and each bullet is one counted, sourced, per-step-total item."""
     found: list[dict] = []
+    own = load_ownership()
 
     def add(step, line, kind, item="", detail=""):
         found.append({"check": 6, "file": rel, "line": line, "step": step,
@@ -700,11 +716,17 @@ def check_grammar(text: str, rel: str) -> list[dict]:
                 add(step, line, "stray-text", s)
         for it in fld.items:
             label = plain(it.text)
-            if it.role == "reused":
+            if it.role in ("reused", "staged"):
                 if _STEP_REF_RE.search(it.text):
-                    add(step, line, "reused-xref", label, "reused: items never cite step numbers")
+                    add(step, line, "%s-xref" % it.role, label,
+                        "%s: items never cite step numbers" % it.role)
                 continue
             if it.role in ("tool", "consumable"):
+                continue
+            if it.bom and not it.printed and not it.source and it.bom["_n"] in own.unreconciled:
+                add(step, line, "unreconciled-row", label,
+                    "%s: prefix `%s:`" % (own.unreconciled[it.bom["_n"]],
+                                          "tool" if own.unreconciled[it.bom["_n"]].startswith("tool") else "consumable"))
                 continue
             body = it.body
             if (";" in body or "·" in body or re.search(r"\s\+\s", plain(_mask_code(body)[0]))
@@ -775,11 +797,282 @@ def table_qty(cell: str) -> int | None:
     return int(m.group(1))
 
 
-def check_reconcile(text: str, rel: str, bom: list[dict] | None = None) -> tuple[list[dict], dict[int, int]]:
-    """Check 7 (warn until wave-4 phase 5): per chapter, the step totals of
-    each kit item (not `reused:`/`tool:`/`consumable:`/`— from`) equal the
-    chapter Hardware table's total. Returns (findings, {BOM row: table total})."""
+# --------------------------------------------------------------------------
+# ownership: where each kit unit is consumed (scripts/data/hardware-ownership.yml)
+# --------------------------------------------------------------------------
+#
+# The rule (review/2026-09-23-sweep/HARDWARE-OWNERSHIP.md): a kit unit is
+# consumed once, at the step that first mounts, fastens, presses, glues,
+# solders or plugs it into the machine or a sub-assembly. Earlier steps list it
+# `staged:`, later ones `reused:`; neither is summed. Inventory chapters are
+# never consumption. A Hardware table counts its chapter's consumption, plus
+# the carries the map declares (staged here, fitted in a later chapter).
+
+OWNERSHIP_YML = REPO / "scripts" / "data" / "hardware-ownership.yml"
+
+
+@dataclass
+class Ownership:
+    inventory: set[str] = field(default_factory=set)          # chapter ids
+    unreconciled: dict[int, str] = field(default_factory=dict)  # BOM row -> reason
+    bags: set[int] = field(default_factory=set)
+    owners: dict[int, dict[str, int]] = field(default_factory=dict)  # row -> {step: qty}
+    notes: dict[int, dict] = field(default_factory=dict)       # row -> {staged, reused, evidence}
+    carries: list[dict] = field(default_factory=list)          # {row, qty, staged, consumed, evidence}
+    errors: list[str] = field(default_factory=list)
+
+
+_OWN: Ownership | None = None
+
+
+def load_ownership(path: Path = OWNERSHIP_YML, bom: list[dict] | None = None,
+                   data: dict | None = None) -> Ownership:
+    """The ownership map, with items resolved to BOM row numbers. `data`
+    (a dict shaped like the YAML) is for tests."""
+    global _OWN
+    if data is None and bom is None and path == OWNERSHIP_YML and _OWN is not None:
+        return _OWN
+    from_file = data is None and bom is None and path == OWNERSHIP_YML
     bom = load_bom() if bom is None else bom
+    if data is None:
+        import yaml
+
+        data = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}) if path.exists() else {}
+    by_item = {r["item"]: r["_n"] for r in bom}
+    own = Ownership(inventory={str(c) for c in data.get("inventory_chapters") or []})
+
+    def row(item: str, where: str) -> int | None:
+        n = by_item.get(item)
+        if n is None:
+            own.errors.append("%s: %r is not an item of scripts/data/ldo-350-bom.yml" % (where, item))
+        return n
+
+    for item, reason in (data.get("unreconciled") or {}).items():
+        n = row(item, "unreconciled")
+        if n is not None:
+            own.unreconciled[n] = str(reason)
+    for item in data.get("bags") or []:
+        n = row(item, "bags")
+        if n is not None:
+            own.bags.add(n)
+    for o in data.get("owners") or []:
+        n = row(o.get("item", ""), "owners")
+        if n is None:
+            continue
+        own.owners[n] = {str(k): int(v) for k, v in (o.get("at") or {}).items()}
+        own.notes[n] = {"staged": [str(s) for s in o.get("staged") or []],
+                        "reused": [str(s) for s in o.get("reused") or []],
+                        "evidence": o.get("evidence", "")}
+    for c in data.get("carries") or []:
+        n = row(c.get("item", ""), "carries")
+        if n is not None:
+            own.carries.append({"row": n, "qty": int(c["qty"]), "staged": str(c["staged"]),
+                                "consumed": str(c["consumed"]), "evidence": c.get("evidence", "")})
+    if from_file:
+        _OWN = own
+    return own
+
+
+def chapter_id(rel: str) -> str:
+    """`docs/manual/05-gantry.md` -> `05`, `00a-mains-safety.md` -> `00a`."""
+    return Path(rel).name.split("-", 1)[0]
+
+
+@dataclass
+class Use:
+    """One kit-item mention in a step, in manual order."""
+    idx: int          # position in the manual (file order, then line)
+    rel: str
+    chapter: str
+    step: str
+    line: int
+    row: int
+    role: str         # part | staged | reused | inventory
+    count: int | None
+    text: str
+
+
+def ledger(docs: list[tuple[str, str]], own: Ownership) -> tuple[list[Use], dict[str, str]]:
+    """Every kit-row mention (not printed, not `— from`, not tool/consumable,
+    not an unreconciled row) across `docs` in order, and {step id: rel}."""
+    uses: list[Use] = []
+    where: dict[str, str] = {}
+    idx = 0
+    for rel, text in docs:
+        ch = chapter_id(rel)
+        for step, line, fld in step_fields(text):
+            where.setdefault(step, rel)
+            for it in fld.items:
+                if not it.bom or it.printed or it.source or it.role in ("tool", "consumable"):
+                    continue
+                n = it.bom["_n"]
+                if n in own.unreconciled:
+                    continue
+                role = "inventory" if (ch in own.inventory and it.role == "part") else it.role
+                uses.append(Use(idx, rel, ch, step, line, n, role, it.count, plain(it.text)))
+                idx += 1
+    return uses, where
+
+
+def _steps_in_order(text: str) -> list[str]:
+    return [m.group(1) for m in map(_STEP_HEAD_RE.match, text.split("\n")) if m]
+
+
+def _steps_in(text: str) -> set[str]:
+    return set(_steps_in_order(text))
+
+
+def check_ownership(docs: list[tuple[str, str]], own: Ownership | None = None,
+                    bom: list[dict] | None = None) -> list[dict]:
+    """Check 7, cross-chapter part: double counts, fake `reused:`, `staged:`
+    with nothing fitting it later, the map's owner steps and carries, and kit-wide
+    consumption over the BOM quantity. `docs` = [(rel, text)] in manual order."""
+    bom = load_bom() if bom is None else bom
+    own = load_ownership() if own is None else own
+    by_n = {r["_n"]: r for r in bom}
+    uses, where = ledger(docs, own)
+    found: list[dict] = []
+
+    def add(u_or_rel, line, kind, item, detail, step=None):
+        found.append({"check": 7, "file": u_or_rel, "line": line, "step": step,
+                      "kind": kind, "item": item, "detail": detail})
+
+    for e in own.errors:
+        add(str(OWNERSHIP_YML.relative_to(REPO)), 0, "map-error", "", e)
+    for n, at in own.owners.items():
+        for s in list(at) + own.notes.get(n, {}).get("staged", []) + own.notes.get(n, {}).get("reused", []):
+            if s not in where and chapter_id_of_step(s) in {chapter_id(r) for r, _ in docs}:
+                add(str(OWNERSHIP_YML.relative_to(REPO)), 0, "map-error", by_n[n]["item"],
+                    "ownership map names Step %s, which no chapter has" % s)
+    for c in own.carries:
+        for s in (c["staged"], c["consumed"]):
+            if s not in where and chapter_id_of_step(s) in {chapter_id(r) for r, _ in docs}:
+                add(str(OWNERSHIP_YML.relative_to(REPO)), 0, "map-error", by_n[c["row"]]["item"],
+                    "carry names Step %s, which no chapter has" % s)
+
+    def qty(u: Use) -> int:
+        return u.count if u.count is not None else 1
+
+    # Consumption = a counted part. An uncounted mention is check 6's
+    # no-count finding and is not summed here either (as in check_reconcile).
+    def fits(u: Use) -> bool:
+        return u.role == "part" and u.count is not None
+
+    order = {}
+    for rel, text in docs:
+        for s in _steps_in_order(text):
+            order.setdefault(s, len(order))
+    consumed_by_step: dict[tuple[int, str], int] = {}
+    for u in uses:
+        if fits(u):
+            consumed_by_step[(u.row, u.step)] = consumed_by_step.get((u.row, u.step), 0) + qty(u)
+
+    # Owned rows: every counted consumption sits at an owner step, and each
+    # owner step carries at least its quantity.
+    for n, at in own.owners.items():
+        item = by_n[n]["item"]
+        first_owner = min((order.get(s, 10 ** 9) for s in at), default=None)
+        seen: set[str] = set()
+        for u in uses:
+            if u.row != n or not fits(u) or u.step in at or u.step in seen:
+                continue
+            seen.add(u.step)
+            before = first_owner is None or order.get(u.step, 0) < first_owner
+            fix = "staged:" if before else "reused:"
+            add(u.rel, u.line, "double-count", item,
+                "Step %s lists it as fitted (×%d), but the ownership map fits it at %s — list it as `%s`"
+                % (u.step, qty(u), ", ".join("%s ×%d" % kv for kv in at.items()) or "no step (unused)", fix),
+                u.step)
+        for s, q in at.items():
+            got = consumed_by_step.get((n, s), 0)
+            if got < q and s in where:
+                rel = where[s]
+                line = next((l for st, l, _ in step_fields(dict(docs)[rel]) if st == s), 0)
+                add(rel, line, "owner-missing", item,
+                    "the ownership map fits ×%d here; the step lists ×%d as fitted" % (q, got), s)
+
+    # Carries: staged at the staging step, fitted at the consuming step.
+    for c in own.carries:
+        item = by_n[c["row"]]["item"]
+        st = sum(qty(u) for u in uses if u.row == c["row"] and u.step == c["staged"] and u.role == "staged")
+        if st < c["qty"] and c["staged"] in where:
+            u0 = next((u for u in uses if u.row == c["row"] and u.step == c["staged"]), None)
+            add(where[c["staged"]], u0.line if u0 else 0, "carry-unstaged", item,
+                "the ownership map carries ×%d from here to Step %s; list them `staged: … ×%d`"
+                % (c["qty"], c["consumed"], c["qty"]), c["staged"])
+        got = consumed_by_step.get((c["row"], c["consumed"]), 0)
+        if got < c["qty"] and c["consumed"] in where:
+            u0 = next((u for u in uses if u.row == c["row"] and u.step == c["consumed"]), None)
+            add(where[c["consumed"]], u0.line if u0 else 0, "carry-unfitted", item,
+                "the ownership map fits ×%d here (bagged at Step %s); the step lists ×%d as fitted"
+                % (c["qty"], c["staged"], got), c["consumed"])
+
+    # `reused:` needs an earlier consumption; `staged:` needs a later one.
+    running: dict[int, int] = {}
+    total = {}
+    for u in uses:
+        if fits(u):
+            total[u.row] = total.get(u.row, 0) + qty(u)
+    for u in uses:
+        item = by_n[u.row]["item"]
+        if u.role == "reused":
+            have = running.get(u.row, 0)
+            if have < qty(u):
+                add(u.rel, u.line, "fake-reuse", item,
+                    "reused: ×%d, but only %d fitted before Step %s — new hardware is a counted part (or `staged:`)"
+                    % (qty(u), have, u.step), u.step)
+        elif u.role == "staged":
+            later = total.get(u.row, 0) - running.get(u.row, 0)
+            if later < qty(u):
+                add(u.rel, u.line, "staged-unfitted", item,
+                    "staged: ×%d, but only %d fitted at or after Step %s" % (qty(u), later, u.step), u.step)
+        if fits(u):
+            running[u.row] = running.get(u.row, 0) + qty(u)
+
+    # Kit-wide: consumption over the BOM quantity is a double count somewhere.
+    running = {}
+    flagged: set[int] = set()
+    for u in uses:
+        if not fits(u) or u.row in own.bags or u.row in own.owners:
+            continue
+        running[u.row] = running.get(u.row, 0) + qty(u)
+        cap = by_n[u.row].get("qty")
+        if isinstance(cap, (int, float)) and running[u.row] > cap and u.row not in flagged:
+            flagged.add(u.row)
+            add(u.rel, u.line, "over-bom", by_n[u.row]["item"],
+                "fitted %d by Step %s, the kit BOM has %s — a double count (mark the repeat `reused:`/`staged:`) or a non-kit source (`— from …`)"
+                % (running[u.row], u.step, cap), u.step)
+    return found
+
+
+def chapter_id_of_step(step: str) -> str:
+    """`06b.13` -> `06`, `05.46` -> `05`: the chapter file a step id lives in."""
+    return re.sub(r"(?<=\d\d)[b-z]$", "", step.split(".", 1)[0])
+
+
+def carry_adjust(text: str, own: Ownership) -> dict[int, int]:
+    """{BOM row: table delta} for one chapter: + a carry staged here, − a carry
+    consumed here (it came out of the bag in the staging chapter)."""
+    steps = _steps_in(text)
+    adj: dict[int, int] = {}
+    for c in own.carries:
+        if c["staged"] in steps:
+            adj[c["row"]] = adj.get(c["row"], 0) + c["qty"]
+        if c["consumed"] in steps:
+            adj[c["row"]] = adj.get(c["row"], 0) - c["qty"]
+    return adj
+
+
+def check_reconcile(text: str, rel: str, bom: list[dict] | None = None,
+                    own: Ownership | None = None) -> tuple[list[dict], dict[int, int]]:
+    """Check 7, per chapter (warn until wave-4 phase 5): the chapter's
+    consumption of each kit item (counted parts; not `reused:`/`staged:`/
+    `tool:`/`consumable:`/`— from`, not an inventory chapter, not an
+    unreconciled row), plus its carries, equals the Hardware table's total.
+    Returns (findings, {BOM row: table total})."""
+    bom = load_bom() if bom is None else bom
+    own = load_ownership() if own is None else own
+    inventory = chapter_id(rel) in own.inventory
     found: list[dict] = []
 
     def add(line, kind, item="", detail="", step=None):
@@ -798,9 +1091,11 @@ def check_reconcile(text: str, rel: str, bom: list[dict] | None = None) -> tuple
             add(line, "table-multi", pname, "one kit item per Hardware row")
             continue
         row = resolve(pname, bom)
+        if row is not None and row["_n"] in own.unreconciled:
+            continue
         n = table_qty(qty)
         if row is None:
-            add(line, "table-unresolved", pname, "Hardware row is not a kit BOM item")
+            add(line, "table-unresolved", pname, "Hardware row is not a kit BOM item (add `— from <source>` if it is not kit)")
             continue
         table_line.setdefault(row["_n"], line)
         if n is None:
@@ -814,36 +1109,41 @@ def check_reconcile(text: str, rel: str, bom: list[dict] | None = None) -> tuple
     for step, line, fld in step_fields(text):
         for it in fld.items:
             k = it.kit_key
-            if k is None:
+            if k is None or k in own.unreconciled or inventory:
                 continue
             first_line.setdefault(k, (line, step))
             if it.count is None:
                 continue
             steps[k] = steps.get(k, 0) + it.count
+    adj = carry_adjust(text, own)
 
     by_n = {r["_n"]: r for r in bom}
-    for k in sorted(set(table) | set(steps) | set(first_line)):
+    for k in sorted(set(table) | set(steps) | set(first_line) | set(adj)):
         if k in unsure:
             continue
-        s, t = steps.get(k, 0), table.get(k)
+        s, t = steps.get(k, 0) + adj.get(k, 0), table.get(k)
         item = by_n[k]["item"]
+        carry = (" (%+d carried, see scripts/data/hardware-ownership.yml)" % adj[k]) if adj.get(k) else ""
         if t is None:
             if not s:
                 continue            # uncounted mentions are check 6's no-count
-            line, step = first_line[k]
-            add(line, "not-in-table", item, "steps use %d, the Hardware table has no row" % s, step)
+            line, step = first_line.get(k, (0, None))
+            add(line, "not-in-table", item, "steps use %d%s, the Hardware table has no row" % (s, carry), step)
         elif s != t:
-            add(table_line.get(k, 0), "mismatch", item, "steps total %d, Hardware table %d" % (s, t))
+            add(table_line.get(k, 0), "mismatch", item, "steps total %d%s, Hardware table %d" % (s, carry, t))
     return found, table
 
 
-def kit_totals(tables: dict[int, int], bom: list[dict] | None = None) -> list[str]:
-    """Informative: Σ chapter Hardware tables against the BOM quantity."""
+def kit_totals(tables: dict[int, int], bom: list[dict] | None = None,
+               own: Ownership | None = None) -> list[str]:
+    """Informative: Σ chapter Hardware tables against the BOM quantity (bag
+    rows, whose quantity counts bags, are skipped)."""
     bom = load_bom() if bom is None else bom
+    own = load_ownership() if own is None else own
     lines = []
     for r in bom:
         used = tables.get(r["_n"])
-        if used is None or not isinstance(r.get("qty"), (int, float)):
+        if used is None or not isinstance(r.get("qty"), (int, float)) or r["_n"] in own.bags:
             continue
         spare = r["qty"] - used
         if spare < 0:
@@ -854,21 +1154,66 @@ def kit_totals(tables: dict[int, int], bom: list[dict] | None = None) -> list[st
     return lines
 
 
+def _rel(f: Path) -> str:
+    return str(f.relative_to(REPO)) if f.is_relative_to(REPO) else str(f)
+
+
 def report(files: list[Path] | None = None) -> tuple[list[dict], list[str]]:
-    """Checks 6 and 7 over the assembly chapters (or `files`)."""
-    files = assembly_chapters() if files is None else files
+    """Checks 6 and 7 over the assembly chapters (or `files`). The
+    cross-chapter part of check 7 always reads the whole manual; its findings
+    are then kept for `files` only."""
+    every = assembly_chapters()
+    files = every if files is None else files
+    docs = [(_rel(f), f.read_text(encoding="utf-8")) for f in every]
+    texts = dict(docs)
+    picked = {_rel(f) for f in files}
     findings: list[dict] = []
     totals: dict[int, int] = {}
     for f in files:
-        text = f.read_text(encoding="utf-8")
-        rel = str(f.relative_to(REPO)) if f.is_relative_to(REPO) else str(f)
+        rel = _rel(f)
+        text = texts.get(rel) or f.read_text(encoding="utf-8")
         findings += check_grammar(text, rel)
         found, table = check_reconcile(text, rel)
         findings += found
         for k, v in table.items():
             totals[k] = totals.get(k, 0) + v
-    info = kit_totals(totals) if files == assembly_chapters() else []
+    for x in check_ownership(docs):
+        if x["file"] in picked or (x["kind"] == "map-error" and files == every):
+            findings.append(x)
+    info = kit_totals(totals) if files == every else []
     return findings, info
+
+
+def print_ledger(pattern: str = "") -> None:
+    """`--ledger [pattern]`: every mention of each matching kit row, in manual
+    order, with its role, count and the step's Source line (per-step evidence)."""
+    own = load_ownership()
+    docs = [(_rel(f), f.read_text(encoding="utf-8")) for f in assembly_chapters()]
+    sources: dict[str, str] = {}
+    for rel, text in docs:
+        step = None
+        for line in text.split("\n"):
+            m = _STEP_HEAD_RE.match(line)
+            if m:
+                step = m.group(1)
+            elif _ANY_HEAD_RE.match(line):
+                step = None
+            elif step and line.startswith("Source:") and step not in sources:
+                sources[step] = re.sub(r"\]\([^)]*\)", "]", line[7:].strip())[:110]
+    uses, _ = ledger(docs, own)
+    bom = {r["_n"]: r for r in load_bom()}
+    rx = re.compile(pattern, re.IGNORECASE) if pattern else None
+    for n in sorted({u.row for u in uses}):
+        item = bom[n]["item"]
+        if rx and not rx.search(item):
+            continue
+        fitted = sum(u.count for u in uses if u.row == n and u.role == "part" and u.count is not None)
+        tag = " [owned]" if n in own.owners else (" [bag]" if n in own.bags else "")
+        print("%s — BOM %s, fitted %d%s" % (item, bom[n].get("qty"), fitted, tag))
+        for u in uses:
+            if u.row == n:
+                print("   %-7s %-9s %-4s %s  ⟨%s⟩" % (u.step, u.role, u.count if u.count is not None else "-",
+                                                  u.text[:60], sources.get(u.step, "no Source line")))
 
 
 # --------------------------------------------------------------------------
@@ -1054,6 +1399,118 @@ def _selftest() -> int:
     its = step_fields(g624)[0][2].items
     eq("G6-24 sources", [i.note for i in its], ["Other box", "tool", None])
 
+    # Hardware ownership (check 7 reconciles consumption, not listing).
+    own = load_ownership(data={
+        "inventory_chapters": ["00"],
+        "unreconciled": {"Zip Ties, 3x150mm": "consumable"},
+        "owners": [{"item": "Genuine Wago 221-415 Splicing Connector", "at": {"09.13": 3}}],
+        "carries": [{"item": "Machine Screw, SHCS, M3x30", "qty": 2,
+                     "staged": "05.46", "consumed": "09.33"}]})
+    eq("own map resolves", own.errors, [])
+    ch00 = """### Step 00.17 — Unbag the rails
+
+**Parts:**
+
+- MGN9H 400 mm rail ×6
+- Genuine WAGO 221-415 (5-way) ×3
+"""
+    ch05 = """**Hardware**
+
+| Fastener / part | Qty |
+|---|---:|
+| M3×30 SHCS | 2: bagged with the pod for Ch 09 |
+
+### Step 05.46 — Bag what belongs to later chapters
+
+**Parts:**
+
+- staged: M3×30 SHCS ×2
+"""
+    ch09 = """**Hardware**
+
+| Fastener / part | Qty |
+|---|---:|
+| WAGO 221-415 (5-way) | 3 |
+| M3×30 SHCS | 0: bagged at Step 05.46 |
+
+### Step 09.13 — WAGO mount
+
+**Parts:**
+
+- WAGO 221-415 (5-way) ×3
+- zip ties ×4
+
+### Step 09.33 — Pod
+
+**Parts:**
+
+- M3×30 SHCS ×2
+"""
+    ch10 = """**Hardware**
+
+| Fastener / part | Qty |
+|---|---:|
+| WAGO 221-415 (5-way) | 3 |
+
+### Step 10.7 — Wire the WAGOs
+
+**Parts:**
+
+- WAGO 221-415 (5-way) ×3
+"""
+    ch10_ok = """### Step 10.7 — Wire the WAGOs
+
+**Parts:**
+
+- reused: the three WAGO 221-415 (5-way) blocks
+"""
+    ch08_fake = """### Step 08.9 — Pre-wire
+
+**Parts:**
+
+- reused: WAGO 221-415 (5-way) ×3
+"""
+    ch09_fake = ch09.replace("- M3×30 SHCS ×2", "- reused: M3×30 SHCS ×2")
+
+    def kinds(docs):
+        out = []
+        for rel, text in docs:
+            out += [(x["step"], x["kind"]) for x in check_reconcile(text, rel, own=own)[0]]
+        out += [(x["step"], x["kind"]) for x in check_ownership(docs, own=own)]
+        return sorted(out, key=str)
+
+    good = [("t/00-a.md", ch00), ("t/05-a.md", ch05), ("t/09-a.md", ch09), ("t/10-a.md", ch10_ok)]
+    # Cross-chapter item accepted: staged + carried in Ch 05, fitted at 09.33,
+    # Ch 09's table leaves it out (`0:`); Ch 00 inventory never counts; the
+    # WAGOs are fitted once and reused in Ch 10; zip ties are never reconciled.
+    eq("own accepted", kinds(good), [])
+    # Double count rejected: Ch 10 lists the same three WAGOs as fitted again.
+    eq("own double count", kinds(good[:3] + [("t/10-a.md", ch10)]),
+       [("10.7", "double-count")])
+    no_owner = load_ownership(data={"inventory_chapters": ["00"]})
+    eq("own over-bom", [x["kind"] for x in check_ownership(good[:3] + [("t/10-a.md", ch10)], own=no_owner)],
+       ["over-bom"])
+    # Fake reuse rejected: `reused:` before anything fitted it, and a carried
+    # (only staged) screw passed off as reused.
+    eq("own fake reuse", kinds([("t/08-a.md", ch08_fake)] + good),
+       [("08.9", "fake-reuse")])
+    eq("own fake reuse of a staged screw", kinds(good[:2] + [("t/09-a.md", ch09_fake)] + good[3:]),
+       [("05.46", "staged-unfitted"), ("09.33", "carry-unfitted"), ("09.33", "fake-reuse"), (None, "mismatch")])
+    # Inventory excluded: without the inventory rule Ch 00's six rails are a
+    # consumption with no table row.
+    eq("own inventory excluded", [x["kind"] for x in check_reconcile(ch00, "t/00-a.md", own=own)[0]], [])
+    eq("own inventory counted without the rule",
+       sorted(x["kind"] for x in check_reconcile(ch00, "t/00-a.md", own=no_owner.__class__())[0]),
+       ["not-in-table", "not-in-table"])
+    # A staged item nothing fits later.
+    eq("own staged unfitted", kinds([("t/05-a.md", ch05)]),
+       [("05.46", "staged-unfitted")])
+    # Count parse: a size then a count.
+    eq("count after a size", count_of("heat-set inserts M3×5×4 ×3"), (3, "heat-set inserts M3×5×4"))
+    eq("dimension stays", count_of("Ø4.7 × 5 mm"), (None, "Ø4.7 × 5 mm"))
+    eq("profile then count", count_of("M3 roll-in T-nut, 2020 ×4"), (4, "M3 roll-in T-nut, 2020"))
+    eq("staged role", (parse_item("staged: M3×30 SHCS ×2").role, parse_item("staged: M3×30 SHCS ×2").kit_key), ("staged", None))
+
     if fails:
         for f_ in fails:
             print("FAIL", f_)
@@ -1066,4 +1523,9 @@ def _selftest() -> int:
 if __name__ == "__main__":
     if "--selftest" in sys.argv[1:]:
         sys.exit(_selftest())
+    if "--ledger" in sys.argv[1:]:
+        load_part_thumbs()
+        rest = [a for a in sys.argv[1:] if a != "--ledger"]
+        print_ledger(rest[0] if rest else "")
+        sys.exit(0)
     print(__doc__)

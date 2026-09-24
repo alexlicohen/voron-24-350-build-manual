@@ -99,7 +99,13 @@ Source: [Voron manual p.12](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.13 lays the eighteen extrusions out by length. These 2020 extrusions are 20 × 20 mm aluminium bars with a T-slot down each face. **A** is the horizontal, **B** the vertical, **C / D / E** the gantry in Ch 05.
 
-**Parts:** all extrusions — A ×10, B ×4, C ×2, D ×1, E ×1 (counted off p.13).
+**Parts:**
+
+- all extrusions — A ×10
+- B ×4
+- C ×2
+- D ×1
+- E ×1 (counted off p.13)
 
 **Do:**
 
@@ -121,7 +127,9 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** The same p.13 layout plus one **roll-in T-nut**, a nut that drops into an extrusion slot and rotates a quarter turn to lock, see [glossary](16-glossary.md#r). You are checking for a burred end face and a slot that will not accept a nut.
 
-**Parts:** 1× M5 roll-in T-nut and 1× M3 roll-in T-nut (for the fit test — both go back in their bags).
+**Parts:**
+
+- 1× M5 roll-in T-nut and 1× M3 roll-in T-nut (for the fit test — both go back in their bags)
 
 **Do:**
 
@@ -142,7 +150,10 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.14 shows eight A extrusions with an **M5×16 BHCS** button head cap screw started in the tapped bore at each end. The screw goes into the horizontal first because in the finished joint its head hides inside the vertical.
 
-**Parts:** 8× A extrusion, 16× M5×16 BHCS.
+**Parts:**
+
+- 8× A extrusion
+- 16× M5×16 BHCS
 
 **Do:**
 
@@ -161,7 +172,9 @@ Source: [Voron manual p.14](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.15 and p.10 show one horizontal and one vertical dry-assembled: the **blind joint**, see [glossary](16-glossary.md#b). The screw head slides into a slot of the vertical, and you tighten it through the access hole in the opposite face.
 
-**Parts:** none — dry run.
+**Parts:**
+
+- none — dry run
 
 **Do:**
 
@@ -182,7 +195,9 @@ Pause: ~40 min since the last pause — extrusions sorted and labelled A–E, al
 
 **What you're looking at:** Manual p.15 shows four A extrusions lying flat on the reference surface in a square, with a gap at each corner. The extrusions do not touch: each corner void is where a vertical drops in and joins the two horizontals.
 
-**Parts:** 4× A extrusion (prepared, from Step 01.4).
+**Parts:**
+
+- 4× A extrusion (prepared, from Step 01.4)
 
 **Do:**
 
@@ -203,7 +218,10 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.15 shows the first corner going together: one B extrusion standing in the void with its two **access holes** on the outward faces. The two horizontals occupy the vertical's inner faces, so only the outer pair can take a driver.
 
-**Parts:** 1× B extrusion; engages 2 of the M5×16 BHCS already in the two A extrusions.
+**Parts:**
+
+- 1× B extrusion
+- engages 2 of the M5×16 BHCS already in the two A extrusions
 
 **Do:**
 
@@ -223,7 +241,10 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.16 shows the other three verticals and the last two bottom horizontals, closing the base into a rectangle. Everything stays snug rather than tight so the assembly can still be nudged square before anything locks.
 
-**Parts:** 3× B extrusion, 2× A extrusion (prepared); engages 6 more M5×16 BHCS.
+**Parts:**
+
+- 3× B extrusion, 2× A extrusion (prepared)
+- engages 6 more M5×16 BHCS
 
 **Do:** Repeat Step 01.7 at the other three corners, working around the frame, adding the last two bottom A extrusions as you go. Access holes outward every time. Snug only.
 
@@ -261,7 +282,10 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.17 shows the four remaining A extrusions dropping onto the tops of the verticals. Their screw heads enter the verticals' slots from the open top ends, which is why this half needs a second pair of hands.
 
-**Parts:** 4× A extrusion (prepared); engages the remaining 8 M5×16 BHCS.
+**Parts:**
+
+- 4× A extrusion (prepared)
+- engages the remaining 8 M5×16 BHCS
 
 **Do:**
 
@@ -379,7 +403,11 @@ Pause: ~65 min since the last pause — the frame is assembled, squared on both 
 
 **What you're looking at:** Manual p.18: the last two A extrusions with a **corner bracket** on each end. These *bed extrusions* are 470 mm and carry the build plate. They hang on their brackets between the front and rear rails, underside about level with the rail tops `(verify on bench)`.
 
-**Parts:** 2× A extrusion (the last two), 4× corner bracket, 4× M5×16 BHCS.
+**Parts:**
+
+- 2× A extrusion (the last two)
+- 4× corner bracket
+- 4× M5×16 BHCS
 
 **Do:**
 
@@ -400,7 +428,9 @@ Source: [Voron manual p.18](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.19 shows four M5 roll-in T-nuts dropped into the top slots of the two bottom rails. Each is the thread a bracket bolt picks up, loaded now and slid into position later.
 
-**Parts:** 4× M5 T-nut (roll-in).
+**Parts:**
+
+- 4× M5 T-nut (roll-in)
 
 **Do:** Roll two M5 T-nuts into the top channel of the front bottom rail and two into the rear, one per bed-extrusion end. Leave them loose, roughly where the brackets will land.
 
@@ -416,7 +446,11 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.19 shows both bed extrusions in the frame, each bracket leg on a rail over a T-nut, with an **M5 precision spacer** under each bolt head. The brass spacer is a controlled thickness that sets stack height, not a washer, see [glossary](16-glossary.md#p).
 
-**Parts:** 2× bed extrusion (from Step 01.16), 4× M5×10 BHCS, 4× **M5 precision spacer**.
+**Parts:**
+
+- 2× bed extrusion (from Step 01.16)
+- 4× M5×10 BHCS
+- 4× **M5 precision spacer**
 
 **Do:**
 
@@ -437,7 +471,9 @@ Source: [Voron manual p.19](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Manual p.20 shows the two bed extrusions set symmetrically about the printer's centreline. Their spacing puts the build plate's mounting points where the plate's own holes are, so measure it at both ends of both extrusions.
 
-**Parts:** none — positioning only.
+**Parts:**
+
+- none — positioning only
 
 **Do:**
 
@@ -477,7 +513,9 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** The titanium extrusion backers, still bagged. A **backer** is a titanium strip bolted to the face opposite a linear rail; it cancels the bimetallic bow of steel rail on aluminium extrusion, see [glossary](16-glossary.md#b).
 
-**Parts:** none — confirm the backers stay bagged.
+**Parts:**
+
+- none — confirm the backers stay bagged
 
 **Do:** Check the titanium backers are still sealed and labelled for **Ch 05**. They are **not** frame parts and fit the gantry's X and Y extrusions, on the face opposite the rail.
 

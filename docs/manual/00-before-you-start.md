@@ -108,7 +108,9 @@ caption: One bin per chapter now. The alternative is meeting every screw again a
 
 **What you're looking at:** Two shipping cartons and a blade. Carton 1 is the mechanical and electrical kit: extrusions, motors, rails, fasteners, boards. Carton 2 is the flat, fragile half: eight acrylic and polycarbonate panels and the 355 × 355 × 10 mm cast aluminium build plate.
 
-**Parts:** the shipping cartons, 2.
+**Parts:**
+
+- the shipping cartons, 2
 
 **Do:**
 
@@ -128,7 +130,9 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **What you're looking at:** The printed label on carton 1. Its serial ties your kit to the right **batch BOM**, LDO's per-batch bill of materials and the inventory checklist for the next two steps. Quantities and substitutions change between batches, so the generic page is no stand-in.
 
-**Parts:** the label on carton 1.
+**Parts:**
+
+- the label on carton 1
 
 **Do:**
 
@@ -150,7 +154,9 @@ Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM
 
 **What you're looking at:** Nine labelled boxes plus loose items: the mechanical and electrical half of the printer. The bags hold **SHCS** and **BHCS** screws, **roll-in T-nuts** and 153 brass **heat-set inserts**. The motors and extrusions in here are the frame and the four Z drives.
 
-**Parts:** carton 1 — boxes *Cable Kit 2.4-350*, *Motion*, *Electronics 1*, *Electronics 2*, *Fasteners, Tools & Misc*, *Belts, Chains & Fans*, *Linear Rail Kit*, *Frame Kit 2.4-350*, *Motor Kit*, plus loose *Other* items (C13 cord, PVC wire duct ×5, Revo HF hotend, DIN rails ×2, Leviathan mainboard, Meanwell LRS-200-24 PSU, extrusion slot cover ×9).
+**Parts:**
+
+- carton 1 — boxes *Cable Kit 2.4-350*, *Motion*, *Electronics 1*, *Electronics 2*, *Fasteners, Tools & Misc*, *Belts, Chains & Fans*, *Linear Rail Kit*, *Frame Kit 2.4-350*, *Motor Kit*, plus loose *Other* items (C13 cord, PVC wire duct ×5, Revo HF hotend, DIN rails ×2, Leviathan mainboard, Meanwell LRS-200-24 PSU, extrusion slot cover ×9)
 
 **Do:**
 
@@ -184,7 +190,9 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **What you're looking at:** The eight flat panels and the plate. The **deck panel** is the acrylic floor of the chamber: it sits on the bed extrusions and separates the electronics bay below from the print chamber above. Its thickness decides which support clip you fit in Ch 02.
 
-**Parts:** deck panel (acrylic, black, 469×469), back panel (acrylic, black, 483×503), bottom panel (acrylic, black, 469×469), door panels (PC clear, 241×503) ×2, side panels (PC clear, 483×503) ×2, top panel (PC clear, 483×483), magnetic pad, spring steel flex plate, build plate.
+**Parts:**
+
+- deck panel (acrylic, black, 469×469), back panel (acrylic, black, 483×503), bottom panel (acrylic, black, 469×469), door panels (PC clear, 241×503) ×2, side panels (PC clear, 483×503) ×2, top panel (PC clear, 483×483), magnetic pad, spring steel flex plate, build plate
 
 **Do:**
 
@@ -206,7 +214,11 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **What you're looking at:** The Nitehawk-SB V2 **toolboard**: the small PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one cable. The `+` in Rev D+ *is* this board. The silkscreen in the drawing reads `LDO NiteHawk-SB V2.0.0`; read yours.
 
-**Parts:** *Electronics 2* box — Nitehawk SB toolhead PCB ×1, Stealthburner fan adapter ×1, USB adapter PCB ×1.
+**Parts:**
+
+- *Electronics 2* box — Nitehawk SB toolhead PCB ×1
+- Stealthburner fan adapter ×1
+- USB adapter PCB ×1
 
 **Do:**
 
@@ -234,7 +246,18 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 
 **What you're looking at:** Ten printed parts LDO makes for you, in one bag: the pieces the Voron STL set does not cover or you cannot reproduce. They include the two Leviathan brackets, DIN clips, the nozzle-probe body, the bed WAGO mount and the clear Stealthburner LED diffuser.
 
-**Parts:** the *LDO Printed Parts* bag — Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, CW2 Chain Anchor Tilted ×1, 2×3 Splitter Spacer ×2, LDO Nozzle Probe ×1, Bed WAGO Mount ×1, Stealthburner LED Diffuser ×1 (clear PETG), CW2 PCB Spacer ×1.
+**Parts:**
+
+- the *LDO Printed Parts* bag — Leviathan Bracket Left ×1
+- Leviathan Bracket Right ×1
+- NH Adapter Mount ×1
+- DIN Clip ×4
+- CW2 Chain Anchor Tilted ×1
+- 2×3 Splitter Spacer ×2
+- LDO Nozzle Probe ×1
+- Bed WAGO Mount ×1
+- Stealthburner LED Diffuser ×1 (clear PETG)
+- CW2 PCB Spacer ×1
 
 **Do:**
 
@@ -259,7 +282,9 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 **What you're looking at:** The kit's own tools: five hex wrenches, a 2.5 mm slot driver, a 2 mm drill bit, a brass brush, and the brass **heat-set insert tip** that screws into a soldering iron. The drawing dimensions its tongue: 2.4 mm across, 5.0 mm long.
 
-**Parts:** from *Fasteners, Tools & Misc* — hex wrenches 1.5 / 2 / 2.5 / 3 / 4 mm, 2.5 mm slot-head screwdriver, brass heat-set insert tool (M3), 2 mm drill bit, brass brush, aluminium handles ×2.
+**Parts:**
+
+- from *Fasteners, Tools & Misc* — hex wrenches 1.5 / 2 / 2.5 / 3 / 4 mm, 2.5 mm slot-head screwdriver, brass heat-set insert tool (M3), 2 mm drill bit, brass brush, aluminium handles ×2
 
 **Do:**
 
@@ -351,7 +376,9 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **What you're looking at:** The kitchen stone counter, a long straightedge and a set of feeler gauges. This surface is the reference the whole frame is squared against in Ch 01, so its flatness becomes the printer's flatness. The gauges measure the gap under the straightedge.
 
-**Parts:** straightedge ≥ 600 mm, feeler gauge set, marker or tape.
+**Parts:**
+
+- straightedge ≥ 600 mm, feeler gauge set, marker or tape
 
 **Do:**
 
@@ -381,7 +408,9 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Empty bins and a marker. Each bin belongs to one sub-assembly, not to a whole chapter: Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive, so a session never starts with a hunt.
 
-**Parts:** ~26 stackable bins, boxes or labelled zip bags, plus masking tape and marker.
+**Parts:**
+
+- ~26 stackable bins, boxes or labelled zip bags, plus masking tape and marker
 
 **Do:**
 
@@ -416,7 +445,9 @@ Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instruct
 
 **What you're looking at:** The *Fasteners, Tools & Misc* box, unopened bags. Every bag is one size of screw or nut; mixing them is easy and un-mixing them is not, because M3×8, M3×12 and M3×16 differ only by a few millimetres of shank.
 
-**Parts:** the *Fasteners, Tools & Misc* box.
+**Parts:**
+
+- the *Fasteners, Tools & Misc* box
 
 **Do:**
 
@@ -443,7 +474,9 @@ Pause: ~30 min since the last pause (pre-kit) — the tool and consumable decisi
 
 **What you're looking at:** The LDO brass tip, and the same tip set against an insert. The four-panel photo is the tip going into the iron: sleeve off, stock tip out, LDO tip in, sleeve on. The **tongue** is the thin pin that goes inside the insert.
 
-**Parts:** LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 kit insert as the gauge.
+**Parts:**
+
+- LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 kit insert as the gauge
 
 **Do:**
 
@@ -466,7 +499,11 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 **What you're looking at:** Manual p.31 shows the general insert operation: the blue pills are inserts going into real Z-drive bosses. The `Heatset_Practice` coupon is seven insert pockets. This step is Gate B's insert row, Step B00.7, run before the kit.
 
-**Parts:** `Heatset_Practice` coupon ×1 (batch B00); KADRICK M3×H5 inserts ×7, one per pocket; the iron with its stock conical tip.
+**Parts:**
+
+- `Heatset_Practice` coupon ×1 (batch B00)
+- KADRICK M3×H5 inserts ×7, one per pocket
+- the iron with its stock conical tip
 
 **Do:**
 
@@ -487,7 +524,9 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** The seven inserts you just set, one per pocket of the practice coupon. A good one is flush with the surface, square to it, and has not made the plastic boss around it swell. A swollen boss will not fit its neighbour.
 
-**Parts:** the practice coupon from Step 00.14.
+**Parts:**
+
+- the practice coupon from Step 00.14
 
 **Do:**
 
@@ -545,7 +584,10 @@ Pause: ~30 min since the last pause (pre-kit) — Gate B's insert row is done: t
 
 **What you're looking at:** Manual p.26: the linear rails and their carriages. A **linear rail** is a hardened steel bar with ball-bearing grooves down each side; the **carriage** is the block that rides on it. Its balls fall out if it runs off the end.
 
-**Parts:** 1× `LDO-SLR12H-400Z1` stainless MGN12H (X axis), 6× `LDO-SLR9H-400Z0` stainless MGN9H (2× Y, 4× Z).
+**Parts:**
+
+- 1× `LDO-SLR12H-400Z1` stainless MGN12H (X axis)
+- 6× `LDO-SLR9H-400Z0` stainless MGN9H (2× Y, 4× Z)
 
 **Do:**
 
@@ -569,7 +611,12 @@ Source: [Voron manual p.26](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** A rail in its own shipping bag with one corner cut off and IPA poured in: LDO's method makes the bag the soak tray. The rails ship coated in a shipping oil, not a lubricant; the soak dissolves it out of the ball tracks.
 
-**Parts:** one rail at a time, in its own bag with the end stops on; IPA ≥ 90%; nitrile gloves; a clean towel.
+**Parts:**
+
+- one rail at a time, in its own bag with the end stops on
+- IPA ≥ 90%
+- nitrile gloves
+- a clean towel
 
 **Do:**
 
@@ -596,7 +643,10 @@ Pause: ~30 min since the last pause — all seven rails are soaked, end stops on
 
 **What you're looking at:** Grease prepared in a syringe, and grease forced into a carriage through one of the rail's mounting holes. This is LDO's **flip-and-pack** method: upside down, the mounting hole lines up with the ball tracks, so grease reaches the bearings without taking the carriage apart.
 
-**Parts:** dried rail; Super Lube 21030 in a syringe or its own nozzle.
+**Parts:**
+
+- dried rail
+- Super Lube 21030 in a syringe or its own nozzle
 
 **Do:**
 
@@ -616,7 +666,11 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **What you're looking at:** The greased rail and a cloth. Grease belongs inside the carriage; the polished outer faces of the rail are a running surface, and any film left there collects dust and hair and feeds it into the bearings.
 
-**Parts:** greased rail; lint-free cloth; `MGN12_rail_guide_x2` and `MGN9_rail_guide_x2` (batch B00) and one C extrusion from the frame box, for the guide test.
+**Parts:**
+
+- greased rail
+- lint-free cloth
+- `MGN12_rail_guide_x2` and `MGN9_rail_guide_x2` (batch B00) and one C extrusion from the frame box, for the guide test
 
 **Do:**
 
@@ -638,7 +692,12 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **What you're looking at:** Seven finished rails, tape and a marker. One is the MGN12H that carries the toolhead on X; the six MGN9H split into two gantry Y rails and four vertical Z rails. Labelling them now stops a mix-up in Ch 02 and Ch 05.
 
-**Parts:** 7 greased rails; masking tape; marker; a bin.
+**Parts:**
+
+- 7 greased rails
+- masking tape
+- marker
+- a bin
 
 **Do:**
 
@@ -660,7 +719,11 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **What you're looking at:** Manual p.25 draws the rail guides in green, its jig colour. A **rail guide** clips over the 2020 extrusion and the rail and holds the rail centred while you start the screws; the `pulley_jig` sets how far a pulley sits along a motor shaft.
 
-**Parts:** `MGN9_rail_guide_x2` ×2, `MGN12_rail_guide_x2` ×2, `pulley_jig` ×1 (all batch B00).
+**Parts:**
+
+- `MGN9_rail_guide_x2` ×2
+- `MGN12_rail_guide_x2` ×2
+- `pulley_jig` ×1 (all batch B00)
 
 **Do:**
 
@@ -786,7 +849,9 @@ Source: [Voron manual p.8](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 **What you're looking at:** Manual p.9, the drivers. A **ball-end** driver has a spherical tip that turns a screw at an angle, the only way to reach several joints in this frame. A plain hex tip grips more of the socket, for when you need force.
 
-**Parts:** hex drivers.
+**Parts:**
+
+- hex drivers
 
 **Do:**
 
@@ -857,7 +922,9 @@ Pause: ~25 min since the last pause (pre-kit) — you have read the manual's fro
 
 **What you're looking at:** A notebook. A handful of numbers in this build cannot be re-derived later: the deck panel thickness, the frame diagonals, the belt frequency, the probe accuracy sigma. Each one gates a decision several chapters downstream.
 
-**Parts:** a notebook, or a shared note on the iPad.
+**Parts:**
+
+- a notebook, or a shared note on the iPad
 
 **Do:**
 

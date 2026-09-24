@@ -125,7 +125,9 @@ Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/
 
 **What you're looking at:** The meter, its two test leads, and a wall outlet you know is live. **[Live–dead–live](16-glossary.md#l)** means proving the meter works immediately before and immediately after the measurement that matters. A dead meter reads no voltage on a live conductor.
 
-**Parts:** multimeter, a known-live wall outlet.
+**Parts:**
+
+- multimeter, a known-live wall outlet
 
 **Do:** Prove the meter **live–dead–live** before you trust any dead reading, and short the probes to check continuity, leads and battery.
 
@@ -244,7 +246,9 @@ Two kinds of terminal carry mains in this machine and they want opposite things.
 
 On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."* Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.
 
-**Parts:** none — the kit supplies the ferrules.
+**Parts:**
+
+- none — the kit supplies the ferrules
 
 **Do:** Learn which terminal takes which, from the two rows below. Screw terminals get a crimped **VE0508** ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with **no copper visible outside any port**.
 

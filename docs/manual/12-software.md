@@ -73,7 +73,9 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **What you're looking at:** The Raspberry Pi 4B is the printer's **host**: it runs the [Klipper](16-glossary.md#k) motion planner, the web interface and the touchscreen, and feeds the two microcontroller boards precisely timed step commands.
 
-**Parts:** none — Pi 4B, supplied 32 GB microSD, laptop, card reader.
+**Parts:**
+
+- none — Pi 4B, supplied 32 GB microSD, laptop, card reader
 
 **Do:**
 
@@ -95,7 +97,10 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 
 **What you're looking at:** MainsailOS is a ready-made Raspberry Pi disk image carrying the whole printer stack: **Klipper**, which runs the machine, **Moonraker**, the API service in front of it, and [**Mainsail**](16-glossary.md#m), the web page you drive the printer from.
 
-**Parts:** microSD 32 GB ×1, card reader ×1.
+**Parts:**
+
+- microSD 32 GB ×1
+- card reader ×1
 
 **Do:**
 
@@ -261,7 +266,9 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 
 **What you're looking at:** DSI is the Raspberry Pi's native display connection, what the panel's flat ribbon plugs into; `/sys/class/drm/` is where the kernel reports the displays it can see. Rotation goes in the kernel command line because the current driver ignores the older config-file setting.
 
-**Parts:** none on the bench. The 4.3" DSI touchscreen and its FFC ribbon are connected in Ch 10 and Ch 11 — nothing is plugged in here.
+**Parts:**
+
+- none on the bench. The 4.3" DSI touchscreen and its FFC ribbon are connected in Ch 10 and Ch 11 — nothing is plugged in here
 
 **Do:** Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; add it if missing. Second, `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line, no line breaks:
 
@@ -295,7 +302,10 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 **What you're looking at:** An **MCU** is a microcontroller, a processor board that turns Klipper's commands into pin signals. Two here: the [Leviathan](16-glossary.md#l) mainboard and the [Nitehawk-SB V2](16-glossary.md#n) toolboard. `lsusb` proves both are alive. This is the **first time the boards, drivers and heater outputs are energised**.
 
-**Parts:** C13 power cord ×1; fire extinguisher within arm's reach.
+**Parts:**
+
+- C13 power cord ×1
+- fire extinguisher within arm's reach
 
 **Do:**
 

@@ -79,7 +79,9 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 **What you're looking at:** Nothing to look at. You are reading four config sections before letting any of them generate numbers. The thermistor type, the pull-up resistor and the temperature ceiling all live in `[extruder]`, and a wrong value in any makes every PID constant wrong with it.
 
-**Parts:** none — console only.
+**Parts:**
+
+- none — console only
 
 **Do:** Open `printer.cfg` and confirm these four sections before any of them generates a number.
 
@@ -158,7 +160,9 @@ These three steps are the end of Voron's gantry-squaring procedure, split off fr
 
 **What you're looking at:** The photo shows a phone spectrum analyser on a plucked belt. A tensioned belt is a string: its lowest frequency peak is its pitch. A frequency means nothing without its span. Ch 06b put a working tension on these belts; this is the final one.
 
-**Parts:** 2.5 mm hex (the two M3×40 front-idler tensioner screws), steel rule, phone spectrum analyser.
+**Parts:**
+
+- 2.5 mm hex (the two M3×40 front-idler tensioner screws), steel rule, phone spectrum analyser
 
 **Do:**
 
@@ -199,7 +203,9 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 
 **What you're looking at:** The four Z belts lift the gantry and are set like A and B. One odd belt shows up as scatter in `PROBE_ACCURACY` rather than as anything you can see. The adjuster is the **Z idler tensioner bolt** at the top of each upright, an M3×16.
 
-**Parts:** 2.5 mm hex (the M3×16 Z idler tensioner bolt at the top of each upright), steel rule, phone.
+**Parts:**
+
+- 2.5 mm hex (the M3×16 Z idler tensioner bolt at the top of each upright), steel rule, phone
 
 **Do:**
 
@@ -287,7 +293,9 @@ Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.v
 
 **What you're looking at:** Aluminium grows as it warms, so a gantry squared cold in Ch 06b is not square at chamber temperature. A long soak brings the frame to its working size, and the four Z joint M5×40 bolts get their first and only full tighten hot.
 
-**Parts:** the four M5×40 Z joint SHCS (already fitted, light), ball-end hex 4 mm, 150 mm machinist square.
+**Parts:**
+
+- the four M5×40 Z joint SHCS (already fitted, light), ball-end hex 4 mm, 150 mm machinist square
 
 **Do:**
 
@@ -323,7 +331,9 @@ Pause: ~15 min since the last pause (plus the 1½–2 h soak) — all six belts 
 
 **What you're looking at:** `rotation_distance` is millimetres of filament per motor revolution. The measurement is indirect: the rule reads the **remainder**, not the amount extruded. [Ch 13 Step 13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure) owns it; this is the refinement pass, now that the extruder has run a print.
 
-**Parts:** masking tape, steel rule, caliper, loaded ASA.
+**Parts:**
+
+- masking tape, steel rule, caliper, loaded ASA
 
 **Do:** Heat the hotend to the ASA print temperature of 260 °C with filament loaded and the extruder engaged. Repeat 13.40's measurement once, caliper rather than rule on the remainder: tape at the **120 mm** mark from the extruder entrance, then
 
@@ -409,7 +419,10 @@ Pause: ~15 min since the last pause — chamber behaviour measured and written d
 
 **What you're looking at:** Two cubes of the same file in the same filament: one printed on the Prusa in batch B00, one on the Voron in Ch 13. Nothing is printed here; the pair goes on the bench so the next step can measure them.
 
-**Parts:** the Voron-printed cube; the Prusa-printed B00 reference cube.
+**Parts:**
+
+- the Voron-printed cube
+- the Prusa-printed B00 reference cube
 
 **Do:** Put both cubes on the bench. The cube is printed **once**, in Ch 13, and [Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) is authoritative for it. Re-print only if you have changed a slicer setting since, and then re-run 13.41–13.42 as written.
 
@@ -427,7 +440,9 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 **What you're looking at:** A caliper on a 30 mm cube is the cheapest whole-machine test there is. Mid-height is the honest place to measure: the first layer is squashed and the top can bulge. The difference between the X and Y readings is a squareness proxy.
 
-**Parts:** both cubes, digital caliper.
+**Parts:**
+
+- both cubes, digital caliper
 
 **Do:** Measure both cubes at **mid-height**, not across the first layer: X, Y and Z, recorded in the table below. Same STL, same filament, same nominal settings; the only variables are the two machines.
 
@@ -655,7 +670,9 @@ Pause: ~10 min since the last pause — optional Z shaping either done or skippe
 
 **What you're looking at:** Pressure advance compensates for molten plastic behaving like a spring in the nozzle: pressure lags the extruder, so corners under-extrude going in and over-extrude coming out. Ellis' pattern prints many corners across a sweep of values so the right one can be picked by eye.
 
-**Parts:** ASA, ~15 g.
+**Parts:**
+
+- ASA, ~15 g
 
 **Do:**
 
@@ -677,7 +694,10 @@ Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https:/
 
 **What you're looking at:** You are hunting for the one corner in the sweep that is sharp with no gap and no bulge. The value belongs to the **filament**, not the machine, so it is saved in the filament profile rather than in `printer.cfg`.
 
-**Parts:** caliper not needed; good light and, ideally, a loupe.
+**Parts:**
+
+- caliper not needed
+- good light and, ideally, a loupe
 
 **Do:**
 
@@ -769,7 +789,9 @@ Pause: ~20 min since the last pause — the PA pattern is printed, read and the 
 
 **What you're looking at:** Extrusion multiplier is a straight percentage scaling of how much plastic comes out. It is judged on the centre of a top surface: too little leaves visible valleys between the lines, too much leaves ridges. The edges always look over-extruded and prove nothing.
 
-**Parts:** ASA, ~25 g.
+**Parts:**
+
+- ASA, ~25 g
 
 **Do:**
 
@@ -820,7 +842,9 @@ Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.co
 
 **What you're looking at:** A second, finer pass around the winner, judged the same way by eye on the centre of each top surface. The multiplier is not a size setting: Ellis tunes it for the surface, and Voron parts need no other compensation.
 
-**Parts:** ASA, ~25 g.
+**Parts:**
+
+- ASA, ~25 g
 
 **Do:** Take the winner from 14.19 and print four more cubes at ±0.5 % and ±1.0 % around it. Pick the smoothest centre and write that number into the **filament** profile's extrusion multiplier, not the print profile.
 
@@ -962,7 +986,9 @@ Pause: ~15 min since the last pause — mesh variance recorded, `printer.cfg` ba
 
 **What you're looking at:** Voron serials are issued by the community, not a vendor: mods on the r/voroncorexy subreddit review a video of a finished machine and reply with yours. The nameplate carrying it is the Voron's second print, after the cube.
 
-**Parts:** phone or camera, paper and a pen, the accent ASA spool from B02, M3×8 SHCS ×2, M3 roll-in T-nut ×2.
+**Parts:**
+
+- phone or camera, paper and a pen, the accent ASA spool from B02, M3×8 SHCS ×2, M3 roll-in T-nut ×2
 
 **Do:**
 

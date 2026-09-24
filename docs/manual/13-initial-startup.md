@@ -77,7 +77,9 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 **What you're looking at:** The render is a stock Voron 2.4: the gantry across the top, four Z drives in the corners, the bed on its own frame, the electronics bay under the deck. Anything left in the chamber can be crushed or set alight.
 
-**Parts:** none — preparation.
+**Parts:**
+
+- none — preparation
 
 **Do:** Clear the chamber: tools, offcuts, zip-tie tails, spare fasteners, filament spool. Pull off any rubber rail stoppers. Put a fire extinguisher within reach, clear the bench of paper and IPA, and confirm the side and top panels are off.
 
@@ -93,7 +95,9 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 
 **What you're looking at:** LDO's finished Rev D bay, photographed from below: the view you have with the machine on its side. Three things are re-read in it: the PSU's red voltage slider, the SSR's four numbered terminals, and the Leviathan's five-position voltage-selection jumper block.
 
-**Parts:** none — verification.
+**Parts:**
+
+- none — verification
 
 **Do:**
 
@@ -631,7 +635,9 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 **What you're looking at:** The photo is LDO's bench shot of the probe body, not how it sits on the extrusion. Two things have to line up: the shaft directly under the nozzle, and 2–3 mm of clearance between that shaft and the back edge of the build plate.
 
-**Parts:** none — repositioning parts already fitted in Ch 09.
+**Parts:**
+
+- none — repositioning parts already fitted in Ch 09
 
 **Do:**
 
@@ -905,7 +911,9 @@ Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL co
 
 **What you're looking at:** The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring undoes belt tension, so Ch 07's tensioning was only provisional, Ch 06b puts back only a working tension, and final tension belongs to Ch 14.
 
-**Parts:** none — Ch 06b and Ch 07 hardware only.
+**Parts:**
+
+- none — Ch 06b and Ch 07 hardware only
 
 **Do:** Leave this chapter here and run [**Ch 06b gantry squaring**](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring), which needs exactly what you now have: a printer that homes and QGLs.
 
@@ -951,7 +959,9 @@ Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.v
 
 **What you're looking at:** The screenshot is Klipper's manual-probe dialog. `Z_ENDSTOP_CALIBRATE` steps the nozzle down in known increments until a sheet of paper just drags under it, then records that height as Z=0. The paper is ~0.1 mm thick, so this Z=0 sits one paper-thickness above the plate.
 
-**Parts:** one sheet of printer paper.
+**Parts:**
+
+- one sheet of printer paper
 
 **Do:**
 
@@ -994,7 +1004,9 @@ Source: [Voron docs image mainsail_manual_probe.png](https://raw.githubuserconte
 
 **What you're looking at:** The same sheet of paper, now a check rather than a measurement: the nozzle is commanded to the Z=0 you just saved and the paper should behave the same way. A **larger** `position_endstop` puts the nozzle closer to the bed.
 
-**Parts:** paper.
+**Parts:**
+
+- paper
 
 **Do:** `G28`, then `G0 X175 Y175 Z0 F1200`. Slide the paper under the nozzle.
 
@@ -1070,7 +1082,11 @@ The first print is the last check in this chapter, not the start of tuning. The 
 
 **What you're looking at:** `rotation_distance` is how far the filament advances for one turn of the extruder motor. Until it is right, every flow number downstream is wrong by the same percentage. The measurement is indirect: the rule reads the **remainder**, not the amount extruded.
 
-**Parts:** Prusament ASA, dried; steel rule or caliper; masking tape.
+**Parts:**
+
+- Prusament ASA, dried
+- steel rule or caliper
+- masking tape
 
 **Do:** *Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Homed and hot from Step 13.39, send `LOAD_FILAMENT TEMP=260`. Wipe the extruded blob off the nozzle.
 
@@ -1125,7 +1141,11 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 
 **What you're looking at:** `Voron_Design_Cube_v7` is a 30 mm test cube that batch B00 already printed on the Prusa. Everything sliced so far used the Core One+ profile. The Voron profile is four things: the 350 mm bed, the Klipper flavour, a start G-code calling `PRINT_START`, and a physical printer.
 
-**Parts:** `Voron_Design_Cube_v7.stl`; ASA; the laptop with PrusaSlicer.
+**Parts:**
+
+- `Voron_Design_Cube_v7.stl`
+- ASA
+- the laptop with PrusaSlicer
 
 **Do:** *Printer profile.* In **Printer Settings**, with `Prusa CORE One HF0.4 nozzle` selected, **Save as… `Voron 2.4 350`**, then change: bed shape rectangular **350 × 350**, origin **0, 0**; **max print height 330**; **G-code flavor: Klipper**. Untick **Emit temperature commands automatically**. Replace the **Start G-code** with:
 
@@ -1153,7 +1173,11 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 **What you're looking at:** The photo is Voron's own example of correct first-layer squish: beads that touch with no gaps but are still individually visible. Babystepping moves Z live while the layer prints; `Z_OFFSET_APPLY_ENDSTOP` turns that live adjustment into a saved value.
 
-**Parts:** the sliced cube; clean flex plate; IPA.
+**Parts:**
+
+- the sliced cube
+- clean flex plate
+- IPA
 
 **Do:** Upload from the slicer using the physical printer from Step 13.41, start it, and **watch the whole first layer**. Live-adjust Z in 0.01 mm steps while it lays down; Mainsail's "Z Offset" babystep control does the same thing:
 

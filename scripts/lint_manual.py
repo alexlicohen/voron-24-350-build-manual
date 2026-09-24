@@ -29,9 +29,14 @@ chapters by `scripts/build_steps.py` and carries no independent content.
      `— from <source>`).
   7. Hardware reconciliation: per chapter, the step totals of each kit item
      equal the chapter **Hardware** table's total (Qty cells lead with it).
+     Check 7 reconciles against consumption, not listing: inventory chapters
+     and `staged:` / `reused:` lines are not summed, and
+     scripts/data/hardware-ownership.yml fixes where cross-chapter kit units
+     are fitted (double counts, fake `reused:`, carries, over-BOM).
      6 and 7 WARN until wave-4 phase 5 flips `PARTS_CHECKS_FAIL`; the default
      run prints their counts, `--parts-report [chapter …]` every finding
-     (`--json` one per line, `--strict` exits 1 on any).
+     (`--json` one per line, `--strict` exits 1 on any). Packet gate:
+     `--strict-parts --chapters 05,06` fails on 6/7 for just those chapters.
 
 Exits non-zero (and prints every finding) if any check fails. This only
 reports — it does not edit chapter content.
@@ -575,10 +580,42 @@ def _run_parts_report(argv):
     return 1 if (findings and "--strict" in argv) else 0
 
 
+def _chapters_arg(argv):
+    """`--chapters 05,06` / `--chapters=05,06` -> ['05', '06'] (None if absent)."""
+    for i, a in enumerate(argv):
+        if a.startswith("--chapters="):
+            return [c for c in a.split("=", 1)[1].split(",") if c]
+        if a == "--chapters" and i + 1 < len(argv):
+            return [c for c in argv[i + 1].split(",") if c]
+    return None
+
+
+def _run_strict_parts(argv):
+    """Packet gate: checks 6 and 7 FAIL (exit 1) for the named chapters only.
+    The default run keeps them WARN until PARTS_CHECKS_FAIL flips."""
+    chapters = _chapters_arg(argv)
+    if chapters is not None and not _parts_files(chapters):
+        print("--strict-parts: no assembly chapter matches %s" % ",".join(chapters))
+        return 2
+    six, seven, _ = check_parts(chapters)
+    try:
+        for f in six + seven:
+            print(_parts_line(f))
+        print("\nstrict parts (%s): check 6 %d, check 7 %d finding(s)" % (
+            ",".join(chapters) if chapters else "all chapters", len(six), len(seven)))
+    except BrokenPipeError:
+        import os
+
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+    return 1 if (six or seven) else 0
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if "--budgets-only" in argv:
         return _run_budgets_only("--json" in argv)
+    if "--strict-parts" in argv:
+        return _run_strict_parts(argv)
     if "--parts-report" in argv:
         return _run_parts_report([a for a in argv if a != "--parts-report"])
 

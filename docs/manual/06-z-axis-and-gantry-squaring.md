@@ -133,7 +133,10 @@ Source: [Voron manual p.109](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The look-alike pair. The **`z_joint_upper`**, the Z bearing block, clamps the first belt end and takes the M5 nut. The **`z_joint_lower`** bolts to the Z carriage; one M5×40 joins the two into a [Z joint](16-glossary.md#z). The lower is chunkier, with four M3 holes.
 
-**Parts:** `z_joint_upper_x4` ×4, M5 hex nut ×4.
+**Parts:**
+
+- `z_joint_upper_x4` ×4
+- M5 hex nut ×4
 
 **Do:** Press one M5 hex nut fully into the pocket of each of the four `z_joint_upper` blocks, square and flush. Push it home with the flat of a screwdriver, never by threading a bolt through and cranking.
 
@@ -151,7 +154,9 @@ Source: [Voron manual p.110](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** Open-ended GT2 belt off the reel. This is the **9 mm** belt for Z; the A/B belts in Ch 07 are the narrower 6 mm. Each is one cut length, not a loop: both ends clamp at one gantry corner, below and on top.
 
-**Parts:** Gates open 2GT belt, 9 mm wide.
+**Parts:**
+
+- Gates open 2GT belt, 9 mm wide
 
 **Do:** Cut four lengths of **~1400 mm**. The manual's minimum for a 350 is **1200 mm** and the kit supplies 6 m, so 1400 leaves ~400 mm spare. Cut square with flush cutters, between teeth. Label each with masking tape.
 
@@ -169,7 +174,9 @@ Pause: ~30 min since the last pause — M5 nuts seated in all four Z bearing blo
 
 **What you're looking at:** The first belt end goes onto the serrated pad under a gantry corner, a front idler or A/B drive, facing up while the gantry is upside down. Teeth down, the belt meshes into the plastic and cannot creep under load.
 
-**Parts:** one Z belt.
+**Parts:**
+
+- one Z belt
 
 **Do:**
 
@@ -191,7 +198,9 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The **lower** blue clip, one large hole and one small, goes on now, indented face down onto this first belt end. Its look-alike, the twin-hole upper clip, is already on top of each corner from Ch 05.
 
-**Parts:** `[a]_z_belt_clip_lower_x4` ×1 (blue).
+**Parts:**
+
+- `[a]_z_belt_clip_lower_x4` ×1 (blue)
 
 **Do:** Drop the lower belt clip onto the belt, **indented face down onto the belt**. Line up the clip's small hole with the frame's M3 hole and its large hole with the M5 hole.
 
@@ -208,7 +217,11 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The Z bearing block tops the sandwich. Two screws run through block, lower clip and the corner frame into the reserved rail-slot T-nuts, clamping the first belt end. The cutout faces the upright, away from the build volume.
 
-**Parts:** `z_joint_upper_x4` ×1 (with its M5 nut), M3×30 SHCS ×1, M5×30 BHCS ×1.
+**Parts:**
+
+- `z_joint_upper_x4` ×1 (with its M5 nut)
+- M3×30 SHCS ×1
+- M5×30 BHCS ×1
 
 **Do:**
 
@@ -227,7 +240,9 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The same stack at the other three corners. The manual leaves the belts out of these drawings, but you now have four long tails hanging off the gantry. A trodden-on belt is a re-cut belt, and there is only ~400 mm spare.
 
-**Parts:** the remaining 3× belt, 3× lower clip, 3× block, 3× M3×30 SHCS, 3× M5×30 BHCS.
+**Parts:**
+
+- the remaining 3× belt, 3× lower clip, 3× block, 3× M3×30 SHCS, 3× M5×30 BHCS
 
 **Do:** Repeat steps 06.5–06.7 at the other three gantry corners. Coil each belt tail loosely and tape it to its own Y extrusion so nothing gets trodden on during the lift.
 
@@ -245,7 +260,10 @@ Pause: ~40 min since the last pause — all four first belt ends clamped under t
 
 **What you're looking at:** The `z_joint_lower` is the other half of each Z joint: it bolts sideways onto the MGN9 carriage riding the upright's Z rail, and its domed top is what the gantry's bearing block lands on. Four M3×20 per corner and no fewer.
 
-**Parts:** `z_joint_lower_x4` ×4, M3×20 SHCS ×16.
+**Parts:**
+
+- `z_joint_lower_x4` ×4
+- M3×20 SHCS ×16
 
 **Do:** Bolt one `z_joint_lower` to each MGN9 Z carriage with **four M3×20 SHCS**, driven horizontally into the carriage's tapped face. The domed top with the central bore faces up. Tighten evenly, corner to corner, firm.
 
@@ -263,7 +281,10 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** A rubber rail stopper screws into a free rail hole and blocks the carriage. Screwed in directly under each lower joint it becomes a shelf, so all four joints park at the same height. The printed `z_rail_stop_x4` does the same job at the rail top.
 
-**Parts:** four rubber rail stoppers off the Z rails; `z_rail_stop_x4` ×4 (optional, from batch B05).
+**Parts:**
+
+- four rubber rail stoppers off the Z rails
+- `z_rail_stop_x4` ×4 (optional, from batch B05)
 
 **Do:**
 
@@ -285,7 +306,9 @@ Pause: ~25 min since the last pause — four lower Z joints on the Z carriages a
 
 **What you're looking at:** The gantry back the way it runs: A/B motors hanging **down** below the rear extrusion, Y rails on the underside, X rail facing the front, the four Z bearing blocks at the corners with their belt tails hanging. The frame is not front-to-back symmetric.
 
-**Parts:** the gantry.
+**Parts:**
+
+- the gantry
 
 **Do:**
 
@@ -305,7 +328,9 @@ Source: [Voron manual p.113](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The lift itself. The gantry will not pass the four uprights flat, so it goes in tilted and levels out inside the frame. Hands on the Y extrusions only: the X carriage, the drive units and the belts are not handles.
 
-**Parts:** the gantry.
+**Parts:**
+
+- the gantry
 
 **Do:**
 
@@ -325,7 +350,10 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** Each Z bearing block comes down onto the domed top of its lower joint. The last millimetre should be gravity, not force: if a block will not seat, slide that carriage along its rail rather than levering the gantry.
 
-**Parts:** the gantry; long zip ties ×4 only if you skipped step 06.10.
+**Parts:**
+
+- the gantry
+- long zip ties ×4 only if you skipped step 06.10
 
 **Do:**
 
@@ -345,7 +373,9 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** One M5×40 runs up through the lower joint's bore into the M5 nut, turning the two blocks into one Z joint. It stays light on purpose: the joint must swivel while the gantry is squared, and gets full torque once, hot, in Ch 14.
 
-**Parts:** M5×40 SHCS ×1.
+**Parts:**
+
+- M5×40 SHCS ×1
 
 **Do:** From underneath, run one M5×40 SHCS **up** through the lower joint's bore into the M5 nut captive in the Z bearing block. Tighten **lightly only**: the joint must still articulate. Final torque is Ch 14, hot, at Step 06b.16.
 
@@ -361,7 +391,9 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The other three corners, same single bolt, same lightness. With four in, the gantry is properly attached to all four Z carriages and moves as one piece up and down the uprights.
 
-**Parts:** M5×40 SHCS ×3.
+**Parts:**
+
+- M5×40 SHCS ×3
 
 **Do:** Add the other three joints the same way. Same light tightening on all four.
 
@@ -379,7 +411,9 @@ Pause: ~45 min since the last pause — gantry lifted into the frame and bolted 
 
 **What you're looking at:** The Z idler is the toothed pulley on a sliding bracket at the top of each upright. Its bolt is the tensioner: it moves the pulley, changing how much belt the loop needs. The same four turns back parks all four identically.
 
-**Parts:** none (the four `[a]_z_tensioner_9mm_x4` fitted in Ch 02).
+**Parts:**
+
+- none (the four `[a]_z_tensioner_9mm_x4` fitted in Ch 02)
 
 **Do:**
 
@@ -416,7 +450,9 @@ Source: [Voron manual p.117](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The belt tail runs down the rail side of the upright and wraps the toothed pulley in the Z drive, the pulley that lifts this corner. Teeth face inward so they engage; a belt running smooth-side-on over a toothed pulley skips teeth.
 
-**Parts:** the belt tail at one corner.
+**Parts:**
+
+- the belt tail at one corner
 
 **Do:** Take the belt tail down past the lower Z joint on the **rail side**, around the Z drive pulley, and back up the run further from the rail. **Teeth face inward, onto the pulley.** Needle-nose pliers help.
 
@@ -432,7 +468,9 @@ Source: [Voron manual p.118](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The same belt continues up the run further from the rail, over the Z idler, and back down on the rail side toward the joint, closing the loop. The idler's flanges are all that keep the belt on it.
 
-**Parts:** the same belt.
+**Parts:**
+
+- the same belt
 
 **Do:** Run the belt up the far run to the top of the upright, over the Z idler pulley, and back down the rail side toward the Z joint. Teeth stay on the inside of the loop.
 
@@ -448,7 +486,9 @@ Source: [Voron manual p.119](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The returning end feeds in under the upper clip, teeth down on the frame's serrated top, as the first end did under the lower clip. Pulling the tail hard while you tighten takes out the slack; the tensioner only fine-tunes the rest.
 
-**Parts:** the two M5×16 BHCS on top of this corner (already in place).
+**Parts:**
+
+- the two M5×16 BHCS on top of this corner (already in place)
 
 **Do:** Feed the returning belt end between the upper clip and the frame's serrated top, teeth down. Pull the tail hard and hold it while you tighten both M5×16, firm rather than crushed.
 
@@ -464,7 +504,9 @@ Source: [Voron manual p.120](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The leftover belt past the clamp. Folded back and zip-tied it cannot flap into a pulley or a panel; left long rather than cut flush, it gives you one free re-clamp if the tension comes out wrong.
 
-**Parts:** zip tie, 3×150 mm ×1.
+**Parts:**
+
+- zip tie, 3×150 mm ×1
 
 **Do:** Fold the tail back on itself and zip-tie it to the running belt. Leave enough tail to re-clamp once if the tension comes out wrong, so do not cut it flush yet. Trim the zip-tie tail flush.
 
@@ -482,7 +524,9 @@ Pause: ~40 min since the last pause — all four Z idlers extended, top clamps l
 
 **What you're looking at:** The other three corners, the same four operations each. Doing them in the same order every time is how you notice a corner that came out different, rather than discovering it as a QGL that will not converge.
 
-**Parts:** the remaining three belts, 3× zip tie.
+**Parts:**
+
+- the remaining three belts, 3× zip tie
 
 **Do:** Repeat steps 06.18–06.21 at each of the remaining three corners. Do them in the same order every time, drive then idler then clamp, so you notice if one comes out different.
 
@@ -570,7 +614,9 @@ Pause: ~35 min since the last pause — gantry squared against the A/B drives, X
 
 **What you're looking at:** A closing page. The Z [drag chain](16-glossary.md#d) is the plastic link chain that carries cables from the fixed frame up to the moving gantry; its two black frame mounts and two blue retainer brackets are printed here and fitted in Ch 10.
 
-**Parts:** `z_chain_bottom_anchor` ×1, `z_chain_guide` ×1, `[a]_z_chain_retainer_bracket_x2` ×2, the 10×15 mm R28 drag chain.
+**Parts:**
+
+- `z_chain_bottom_anchor` ×1, `z_chain_guide` ×1, `[a]_z_chain_retainer_bracket_x2` ×2, the 10×15 mm R28 drag chain
 
 **Do:**
 
@@ -757,7 +803,9 @@ Source: [Voron docs § V2 Gantry Squaring, step 6](https://docs.vorondesign.com/
 
 **What you're looking at:** The four lower Z joints, unbolted and slid down their rails, away from the gantry. With them out of the way the gantry hangs on its four Z belts and settles into its own natural position, the position you build the joints back to.
 
-**Parts:** the four M5×40 SHCS from step 06.14.
+**Parts:**
+
+- the four M5×40 SHCS from step 06.14
 
 **Do:** Take the M5×40 out of each Z joint and slide the four lower joints down their rails, away from the gantry. Do one at a time and keep a hand on the gantry. Voron step 7.
 
@@ -868,7 +916,9 @@ Source: [Voron docs § V2 Gantry Squaring, step 10](https://docs.vorondesign.com
 
 **What you're looking at:** The four M5×40 go back in, light again. Light because the de-racking and the QGL runs that follow both need the joints free to articulate; they get their only full tighten hot, at Ch 14.
 
-**Parts:** M5×40 SHCS ×4.
+**Parts:**
+
+- M5×40 SHCS ×4
 
 **Do:** Slide the four lower joints back up and run one M5×40 into each. Lightly only: the joint must still articulate freely. Voron step 11.
 
