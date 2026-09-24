@@ -1293,7 +1293,28 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench.",
-     "helpers": [],
+     "helpers": [
+      [
+       "00.2",
+       "Reads the serial off the carton label and finds the batch tile that holds it."
+      ],
+      [
+       "00.3",
+       "Ticks each BOM line as you call out the count."
+      ],
+      [
+       "00.4",
+       "Counts the eight panels against the BOM and writes the deck thickness on the tape."
+      ],
+      [
+       "00.5",
+       "Reads the four markers from the table aloud while you check each one on the board."
+      ],
+      [
+       "00.6",
+       "Counts the ten LDO parts into their bin and writes the DO NOT PRINT label."
+      ]
+     ],
      "text": "Step 00.1 → Step 00.6 · ~40 min · leave-state: both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench."
     },
     {
@@ -1301,56 +1322,100 @@
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
-      "00.7",
-      "00.8",
-      "00.9",
-      "00.10",
-      "00.11",
-      "00.12"
+      "00.7"
      ],
      "first_step": "00.7",
-     "last_step": "00.12",
+     "last_step": "00.7",
      "href": "../manual/steps/00-before-you-start/00-7/",
-     "minutes": 30,
-     "pre_kit": true,
+     "minutes": 10,
+     "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Step 00.7 waits for the kit; leave the fastener bags closed and do not decant anything into a tray yet.",
+     "leave_state": "kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12.",
      "helpers": [
       [
-       "00.11",
-       "Writes the chapter number on each bin label and sticks it on square."
-      ],
-      [
-       "00.12",
-       "Reads each bag's size aloud while you tick it off the fastener list."
+       "00.7",
+       "Lays the kit tools out on the bench and counts five wrenches, one tip and one drill bit."
       ]
      ],
-     "text": "Step 00.7 → Step 00.12 · ~30 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Step 00.7 waits for the kit; leave the fastener bags closed and do not decant anything into a tray yet."
+     "text": "Step 00.7 · ~10 min · leave-state: kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12."
     },
     {
      "id": "00-before-you-start#2",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
-      "00.13",
+      "00.8",
+      "00.9",
+      "00.10",
+      "00.11"
+     ],
+     "first_step": "00.8",
+     "last_step": "00.11",
+     "href": "../manual/steps/00-before-you-start/00-8/",
+     "minutes": 25,
+     "pre_kit": true,
+     "plate": null,
+     "print_hours": null,
+     "leave_state": "the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.",
+     "helpers": [
+      [
+       "00.10",
+       "Reads the thickest leaf that slides under aloud and writes it in the log."
+      ],
+      [
+       "00.11",
+       "Writes the chapter number on each bin label and sticks it on square."
+      ]
+     ],
+     "text": "Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit."
+    },
+    {
+     "id": "00-before-you-start#3",
+     "chapter": "00-before-you-start",
+     "kind": "build",
+     "steps": [
+      "00.12",
+      "00.13"
+     ],
+     "first_step": "00.12",
+     "last_step": "00.13",
+     "href": "../manual/steps/00-before-you-start/00-12/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "leave_state": "kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.",
+     "helpers": [
+      [
+       "00.12",
+       "Reads each bag's size aloud while you tick it off the fastener list."
+      ]
+     ],
+     "text": "Step 00.12 → Step 00.13 · ~15 min · leave-state: kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17."
+    },
+    {
+     "id": "00-before-you-start#4",
+     "chapter": "00-before-you-start",
+     "kind": "build",
+     "steps": [
       "00.14",
       "00.15",
       "00.16"
      ],
-     "first_step": "00.13",
+     "first_step": "00.14",
      "last_step": "00.16",
-     "href": "../manual/steps/00-before-you-start/00-13/",
-     "minutes": 30,
+     "href": "../manual/steps/00-before-you-start/00-14/",
+     "minutes": 25,
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
      "leave_state": "Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.",
      "helpers": [],
-     "text": "Step 00.13 → Step 00.16 · ~30 min · leave-state: Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build."
+     "text": "Step 00.14 → Step 00.16 · ~25 min · leave-state: Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build."
     },
     {
-     "id": "00-before-you-start#3",
+     "id": "00-before-you-start#5",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
@@ -1365,11 +1430,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.",
-     "helpers": [],
+     "helpers": [
+      [
+       "00.17",
+       "Holds the rail flat on the bench while you tape the carriage and the end stops."
+      ]
+     ],
      "text": "Step 00.17 → Step 00.18 · ~30 min · leave-state: all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp."
     },
     {
-     "id": "00-before-you-start#4",
+     "id": "00-before-you-start#6",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
@@ -1388,14 +1458,18 @@
      "leave_state": "all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.",
      "helpers": [
       [
+       "00.20",
+       "Clips each rail guide over the rail and says whether it seats with light finger pressure."
+      ],
+      [
        "00.21",
-       "Writes the seven rail labels Z0 to Z3, X and Y, and checks each bag."
+       "Writes the seven rail labels X, Y1, Y2 and Z0 to Z3, and checks each bag."
       ]
      ],
      "text": "Step 00.19 → Step 00.22 · ~40 min · leave-state: all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed."
     },
     {
-     "id": "00-before-you-start#5",
+     "id": "00-before-you-start#7",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
@@ -1415,11 +1489,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.",
-     "helpers": [],
+     "helpers": [
+      [
+       "00.25",
+       "Picks one of each fastener out of the bags and lays it beside its name on the page."
+      ]
+     ],
      "text": "Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress."
     },
     {
-     "id": "00-before-you-start#6",
+     "id": "00-before-you-start#8",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
@@ -1492,7 +1571,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.",
-     "helpers": [],
+     "helpers": [
+      [
+       "12.7",
+       "Copies the version string into the build notes and reads it back, character by character."
+      ]
+     ],
      "text": "Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet."
     }
    ]
@@ -1523,6 +1607,10 @@
      "print_hours": null,
      "leave_state": "extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.",
      "helpers": [
+      [
+       "01.1",
+       "Reads the thickest feeler leaf that slides under and writes it in the log."
+      ],
       [
        "01.2",
        "Sorts the extrusions into piles by length and counts each pile aloud."
@@ -1556,16 +1644,36 @@
      "leave_state": "the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.",
      "helpers": [
       [
-       "01.6",
-       "Holds two extrusions together at the corner while you start the bolts."
+       "01.7",
+       "Holds the two A extrusions together at the corner while you snug the bolts."
+      ],
+      [
+       "01.8",
+       "Holds each vertical upright while you slide it over the bolt heads."
       ],
       [
        "01.9",
-       "Reads each diagonal measurement aloud and says which one is longer."
+       "Holds the square in each inside corner and calls out any light under the blade."
+      ],
+      [
+       "01.10",
+       "Holds the far end of each top extrusion level while you guide its bolt heads in."
+      ],
+      [
+       "01.12",
+       "Holds the tape's far end on the corner and reads each diagonal aloud."
+      ],
+      [
+       "01.13",
+       "Reads both top diagonals aloud and says which one is longer."
       ],
       [
        "01.14",
        "Holds the square flat against each upright and calls out any gap."
+      ],
+      [
+       "01.15",
+       "Watches the bottom corners and calls out any that lifts as you press."
       ]
      ],
      "text": "Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered."
@@ -1588,7 +1696,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.",
-     "helpers": [],
+     "helpers": [
+      [
+       "01.19",
+       "Holds the tape on the centreline mark and reads each 65 mm aloud."
+      ]
+     ],
      "text": "Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there."
     },
     {
@@ -1609,6 +1722,10 @@
      "print_hours": null,
      "leave_state": "final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.",
      "helpers": [
+      [
+       "01.20",
+       "Reads each diagonal pair aloud and ticks it off as you go."
+      ],
       [
        "01.22",
        "Writes the four diagonals and the final torque into the frame log."
@@ -1672,7 +1789,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the first Z rail is centred, tightened centre-outward, verified smooth over full travel, and its carriage is taped. A rail is a self-contained unit; stop only with one finished, never with half its screws started.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.05",
+       "Runs each carriage end to end over the bench and says smooth or notchy."
+      ]
+     ],
      "text": "Step 02.05 → Step 02.08 · ~25 min · leave-state: the first Z rail is centred, tightened centre-outward, verified smooth over full travel, and its carriage is taped. A rail is a self-contained unit; stop only with one finished, never with half its screws started."
     },
     {
@@ -1691,7 +1813,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.09",
+       "Tape-marks holes 2, 4 and on to 18 on each rail before its screws go in."
+      ]
+     ],
      "text": "Step 02.09 → Step 02.10 · ~35 min · leave-state: all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured."
     },
     {
@@ -1716,8 +1843,20 @@
      "leave_state": "the printer is inverted and stable, the deck panel is in with its notch to the back and captured by eight support clips of the measured thickness, the four M5 T-nuts sit under the deck holes, and the FRONT tape is on. Leave the deck unbolted: those four bolts belong to Ch 09 Step 09.5.",
      "helpers": [
       [
+       "02.11",
+       "Takes the other side of the frame as it turns over, then counts the four T-nuts in."
+      ],
+      [
        "02.12",
        "Reads the caliper display aloud three times so you can pick the clip."
+      ],
+      [
+       "02.13",
+       "Holds the far edge of the deck panel level as it lowers into the frame."
+      ],
+      [
+       "02.16",
+       "Writes FRONT on the tape strip and sticks it on the front bottom rail."
       ]
      ],
      "text": "Step 02.11 → Step 02.16 · ~30 min · leave-state: the printer is inverted and stable, the deck panel is in with its notch to the back and captured by eight support clips of the measured thickness, the four M5 T-nuts sit under the deck holes, and the FRONT tape is on. Leave the deck unbolted: those four bolts belong to Ch 09 Step 09.5."
@@ -1742,6 +1881,10 @@
      "print_hours": null,
      "leave_state": "four complete shaft assemblies: 20T pulleys at 33 mm, bearing and precision-spacer stacks built, 80T pulleys threadlocked, and the 188 mm belt loops hung on. The bearings are only slid onto the shaft here, so nothing is mid-assembly. Do not start Step 02.22 until you can close a drive in one sitting.",
      "helpers": [
+      [
+       "02.17",
+       "Reads the caliper aloud: 33 mm from the long shaft end to the pulley."
+      ],
       [
        "02.18",
        "Drops each shaft into the jig and says whether the pulley sits flush."
@@ -1768,7 +1911,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "all four drives closed: shafts seated, retainers down on six M3×40 each, blue baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.23",
+       "Holds the drive beside the page and names any difference from the section view."
+      ]
+     ],
      "text": "Step 02.22 → Step 02.26 · ~35 min · leave-state: all four drives closed: shafts seated, retainers down on six M3×40 each, blue baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed."
     },
     {
@@ -1787,7 +1935,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "four Z motors carry their 16T pulleys at 10.7 mm and are bolted to their `a`/`b` mounts with the cable exits matched. Get every remaining 16T pulley off the bench before you walk away, and leave the motor cables labelled.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.27",
+       "Counts each pulley's teeth to 16 and reads the 10.7 mm caliper aloud."
+      ]
+     ],
      "text": "Step 02.27 → Step 02.28 · ~25 min · leave-state: four Z motors carry their 16T pulleys at 10.7 mm and are bolted to their `a`/`b` mounts with the cable exits matched. Get every remaining 16T pulley off the bench before you walk away, and leave the motor cables labelled."
     },
     {
@@ -1813,7 +1966,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the Z0 corner is complete: drive body on its two M5×40, motor slid in, cam closed, both M5×10 tight, rubber foot on, and the p.46 section check passed. One corner is a self-contained unit and this is the natural stop.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.36",
+       "Holds the rubber foot square on the baseplate while you drive its screw."
+      ]
+     ],
      "text": "Step 02.29 → Step 02.37 · ~30 min · leave-state: the Z0 corner is complete: drive body on its two M5×40, motor slid in, cam closed, both M5×10 tight, rubber foot on, and the p.46 section check passed. One corner is a self-contained unit and this is the natural stop."
     },
     {
@@ -1833,7 +1991,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet.",
-     "helpers": [],
+     "helpers": [
+      [
+       "02.38",
+       "Writes Z0 to Z3 on the motor cable labels by physical corner."
+      ]
+     ],
      "text": "Step 02.38 → Step 02.40 · ~20 min · leave-state: four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet."
     },
     {
@@ -1855,6 +2018,10 @@
      "print_hours": null,
      "leave_state": "all four Z idlers mounted, each aligned with the drive below it, all eight M5×30 tight, printer back upright on its feet. Work through Checkpoint 02 before the gantry starts hiding this.",
      "helpers": [
+      [
+       "02.42",
+       "Sights down both pulleys and says if the belt line twists."
+      ],
       [
        "02.44",
        "Ticks the checkpoint list while you point at each item on the machine."
@@ -1894,6 +2061,10 @@
       [
        "03.2",
        "Points to the magnet side and the heater side and names each one."
+      ],
+      [
+       "03.4",
+       "Counts the pad screws aloud and points out any lifted corner."
       ]
      ],
      "text": "Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination."
@@ -1917,6 +2088,10 @@
      "print_hours": null,
      "leave_state": "the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it.",
      "helpers": [
+      [
+       "03.7",
+       "Holds a torch behind the straightedge and says if any light shows under it."
+      ],
       [
        "03.8",
        "Holds the plate flat on the towel and checks afterwards for missed patches."
@@ -1947,6 +2122,14 @@
      "leave_state": "the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.",
      "helpers": [
       [
+       "03.11",
+       "Holds the rule on one inner face and reads the gap at each end."
+      ],
+      [
+       "03.14",
+       "Holds the three leads toward the left extrusion while you lower the plate."
+      ],
+      [
        "03.16",
        "Reads the rule at each corner and calls the number back to you."
       ]
@@ -1970,7 +2153,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.",
-     "helpers": [],
+     "helpers": [
+      [
+       "03.18",
+       "Reads the caliper at each corner and writes the four gaps down."
+      ]
+     ],
      "text": "Step 03.18 → Step 03.20 · ~20 min · leave-state: the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters."
     }
    ]
@@ -2004,6 +2192,10 @@
       [
        "04.1",
        "Counts the bearings and spacers into four labelled trays, one per assembly."
+      ],
+      [
+       "04.2",
+       "Writes each destination in marker as you call it out, then reads the caliper on both lower frames."
       ]
      ],
      "text": "Step 04.1 → Step 04.5 · ~30 min · leave-state: the bench is split into four labelled kits, every part carries its destination in marker, the two inserts are in `a_drive_frame_upper`, one is in each tension arm and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet."
@@ -2029,7 +2221,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported.",
-     "helpers": [],
+     "helpers": [
+      [
+       "04.9",
+       "Pinches the two idler frames together while you swap the bolt for the arm."
+      ],
+      [
+       "04.12",
+       "Points to each circled feature on the page while you find it on the idler."
+      ]
+     ],
      "text": "Step 04.6 → Step 04.12 · ~40 min · leave-state: the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported."
     },
     {
@@ -2053,7 +2254,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the B (front left) idler is complete and checked against p.72, and the two idlers sit side by side with visibly different bearing heights. Both are in their trays. Nothing is open.",
-     "helpers": [],
+     "helpers": [
+      [
+       "04.16",
+       "Pinches the two idler frames together while you swap the bolt for the arm."
+      ],
+      [
+       "04.19",
+       "Points to each circled feature on the page while you find it on the idler."
+      ]
+     ],
      "text": "Step 04.13 → Step 04.19 · ~35 min · leave-state: the B (front left) idler is complete and checked against p.72, and the two idlers sit side by side with visibly different bearing heights. Both are in their trays. Nothing is open."
     },
     {
@@ -2081,8 +2291,16 @@
      "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
      "helpers": [
       [
+       "04.22",
+       "Reads the eight-item stack order aloud and hands you each part in turn."
+      ],
+      [
        "04.24",
        "Reads the caliper aloud while you slide the pulley along the shaft."
+      ],
+      [
+       "04.28",
+       "Sights along the offcut at eye level and says if it tilts."
       ]
      ],
      "text": "Step 04.20 → Step 04.28 · ~50 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
@@ -2112,8 +2330,20 @@
      "leave_state": "the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.",
      "helpers": [
       [
+       "04.30",
+       "Reads the eight-item stack order aloud and hands you each part in turn."
+      ],
+      [
        "04.33",
        "Reads the caliper aloud and says whether the pulley is the flipped one."
+      ],
+      [
+       "04.35",
+       "Holds the A drive in its rear-right position while you hold B beside it."
+      ],
+      [
+       "04.37",
+       "Sights along the offcut at eye level and says if it tilts."
       ]
      ],
      "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions."
@@ -2218,7 +2448,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away.",
-     "helpers": [],
+     "helpers": [
+      [
+       "05.10",
+       "Counts ten T-nuts into the slot and checks one sits under each marked hole."
+      ],
+      [
+       "05.11",
+       "Holds both rail jigs steady on the extrusion while you start holes 2 and 19."
+      ]
+     ],
      "text": "Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away."
     },
     {
@@ -2238,7 +2477,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.",
-     "helpers": [],
+     "helpers": [
+      [
+       "05.14",
+       "Checks every extrusion end: two M5 on top, one M5 and one M3 in the rail slot."
+      ]
+     ],
      "text": "Step 05.13 → Step 05.15 · ~30 min · leave-state: both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it."
     },
     {
@@ -2262,6 +2506,10 @@
       [
        "05.16",
        "Sorts the backers by length and lays each one beside the rail it matches."
+      ],
+      [
+       "05.17",
+       "Holds the backer flat on the extrusion while you start every screw."
       ]
      ],
      "text": "Step 05.16 → Step 05.18 · ~35 min · leave-state: both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop."
@@ -2286,7 +2534,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go).",
-     "helpers": [],
+     "helpers": [
+      [
+       "05.24",
+       "Reads the rule at the idler end while you read it at the bridge."
+      ]
+     ],
      "text": "Step 05.19 → Step 05.24 · ~40 min · leave-state: front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go)."
     },
     {
@@ -2370,7 +2623,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone.",
-     "helpers": [],
+     "helpers": [
+      [
+       "05.36",
+       "Counts the six M5 T-nuts aloud: four in the top slot, two underneath."
+      ],
+      [
+       "05.40",
+       "Spins each bearing stack and idler and calls out any that drags."
+      ]
+     ],
      "text": "Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone."
     },
     {
@@ -2392,6 +2654,14 @@
      "print_hours": null,
      "leave_state": "gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.",
      "helpers": [
+      [
+       "05.41",
+       "Holds the idler end level while you turn the gantry over."
+      ],
+      [
+       "05.42",
+       "Holds one XY joint on its carriage while you land the other."
+      ],
       [
        "05.44",
        "Slides the X carriage slowly end to end and reports any rough spot."
@@ -2418,6 +2688,10 @@
      "print_hours": null,
      "leave_state": "gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.",
      "helpers": [
+      [
+       "05.46",
+       "Labels the two bags and writes what is inside each one."
+      ],
       [
        "05.48",
        "Writes each gantry measurement into the log as you call it out."
@@ -2491,7 +2765,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move.",
-     "helpers": [],
+     "helpers": [
+      [
+       "06.10",
+       "Reads the rule at all four corners and calls out any joint that sits higher."
+      ]
+     ],
      "text": "Step 06.9 → Step 06.10 · ~25 min · leave-state: four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move."
     },
     {
@@ -2513,7 +2792,20 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone.",
-     "helpers": [],
+     "helpers": [
+      [
+       "06.11",
+       "Tapes the Front and Back marks, then holds one end while you turn the gantry over."
+      ],
+      [
+       "06.12",
+       "Lifts the other Y extrusion with you, hands on the extrusion only, and says stop if anything catches."
+      ],
+      [
+       "06.13",
+       "Lowers the other side in step with you and lets go only when you say so."
+      ]
+     ],
      "text": "Step 06.11 → Step 06.15 · ~45 min · leave-state: gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone."
     },
     {
@@ -2536,7 +2828,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.",
-     "helpers": [],
+     "helpers": [
+      [
+       "06.16",
+       "Counts the turns aloud at each idler and ticks off each corner when it is done."
+      ],
+      [
+       "06.20",
+       "Pulls the belt tail tight and holds it while you tighten both M5×16 bolts."
+      ]
+     ],
      "text": "Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on."
     },
     {
@@ -2574,7 +2875,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off.",
-     "helpers": [],
+     "helpers": [
+      [
+       "06.23",
+       "Plucks each Z belt in turn and says which note sounds lowest."
+      ],
+      [
+       "06.25",
+       "Watches the corner you turn and says whether it rises smoothly, with no slip."
+      ]
+     ],
      "text": "Step 06.23 → Step 06.25 · ~35 min · leave-state: gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off."
     },
     {
@@ -2622,7 +2932,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it.",
-     "helpers": [],
+     "helpers": [
+      [
+       "07.5",
+       "Counts the four turns aloud on each tensioner so both idlers get the same number."
+      ]
+     ],
      "text": "Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it."
     },
     {
@@ -2679,7 +2994,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends.",
-     "helpers": [],
+     "helpers": [
+      [
+       "07.23",
+       "Reads out each stop on the loop from p.126 and p.127 while you check it on the machine."
+      ],
+      [
+       "07.27",
+       "Reads both tail lengths off the rule and says which belt sticks out further."
+      ]
+     ],
      "text": "Step 07.9 → Step 07.28 · ~80 min · leave-state: the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends."
     },
     {
@@ -2701,7 +3025,24 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.",
-     "helpers": [],
+     "helpers": [
+      [
+       "07.29",
+       "Watches one side of every stack as you move the gantry and calls out any rub."
+      ],
+      [
+       "07.30",
+       "Holds the rule between the two idler centres and reads the number aloud on each side."
+      ],
+      [
+       "07.31",
+       "Holds the phone by the belt and reads the lowest peak aloud after each pluck."
+      ],
+      [
+       "07.32",
+       "Reads each belt's lowest peak aloud after every quarter turn you make."
+      ]
+     ],
      "text": "Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub inspection clean at all ten contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time."
     },
     {
@@ -2724,7 +3065,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry.",
-     "helpers": [],
+     "helpers": [
+      [
+       "07.36",
+       "Reads the caliper depth aloud while you slide the probe to 6 mm."
+      ],
+      [
+       "07.37",
+       "Slides the X carriage slowly end to end while you watch the probe cable."
+      ]
+     ],
      "text": "Step 07.34 → Step 07.39 · ~30 min · leave-state: inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry."
     }
    ]
@@ -2756,9 +3106,14 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "all 16 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
-     "helpers": [],
-     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 16 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
+     "leave_state": "all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
+     "helpers": [
+      [
+       "08.1",
+       "Reads the moulded code on each printhead half aloud and sorts the prints into build order."
+      ]
+     ],
+     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
     },
     {
      "id": "08-toolhead#1",
@@ -2784,7 +3139,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.13",
+       "Slides each bearing on and off the shaft and says whether it catches anywhere."
+      ],
+      [
+       "08.18",
+       "Shines a torch down the filament path and says whether the filament meets the teeth."
+      ]
+     ],
      "text": "Step 08.9 → Step 08.18 · ~30 min · leave-state: the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load."
     },
     {
@@ -2832,7 +3196,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the tool cartridge is closed around the Revo, the four M3×8 studs are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle; both undo the hand-tight seat you just set.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.31",
+       "Checks that the four bolt heads stand at the same height and points at any that sits proud."
+      ]
+     ],
      "text": "Step 08.27 → Step 08.32 · ~20 min · leave-state: the tool cartridge is closed around the Revo, the four M3×8 studs are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle; both undo the hand-tight seat you just set."
     },
     {
@@ -2876,7 +3245,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the Stealthburner body is fully populated: three LEDs seated, diffusers pushed forward, both fans in, every wire exiting on the right. Rest it face-down on a soft cloth. Do not put weight on the diffuser faces or spin the impellers with anything but a finger.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.40",
+       "Finds the airflow arrow on the fan frame and checks that it points into the body."
+      ]
+     ],
      "text": "Step 08.37 → Step 08.42 · ~20 min · leave-state: the Stealthburner body is fully populated: three LEDs seated, diffusers pushed forward, both fans in, every wire exiting on the right. Rest it face-down on a soft cloth. Do not put weight on the diffuser faces or spin the impellers with anything but a finger."
     },
     {
@@ -2897,7 +3271,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the Nitehawk-SB V2 and the fan adapter are mounted, both fan-voltage selectors are verified at 24 V, and the three PH2.0 fan and LED plugs are in. Do not mate the board-to-board header yet — that happens with the Stealthburner body at Step 08.62 — and do not cut or bridge a voltage-selector pad.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.45",
+       "Reads the meter aloud at each selector while you hold the probes."
+      ]
+     ],
      "text": "Step 08.43 → Step 08.46 · ~20 min · leave-state: the Nitehawk-SB V2 and the fan adapter are mounted, both fan-voltage selectors are verified at 24 V, and the three PH2.0 fan and LED plugs are in. Do not mate the board-to-board header yet — that happens with the Stealthburner body at Step 08.62 — and do not cut or bridge a voltage-selector pad."
     },
     {
@@ -2921,7 +3300,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.48",
+       "Reads the meter aloud and says whether it shows about 100 kΩ."
+      ],
+      [
+       "08.52",
+       "Reads each port name from the table aloud while you find it on the board."
+      ]
+     ],
      "text": "Step 08.47 → Step 08.53 · ~25 min · leave-state: every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order."
     },
     {
@@ -2941,7 +3329,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the probe decision is recorded, the inductive probe is confirmed on the carriage from Ch 07, and the nozzle-probe bag is still closed for Ch 09. The Klicky bag stays closed. Do not open either bag to \"get ahead\": the nozzle probe is built at its mounting location in Ch 09.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.55",
+       "Reads the caliper aloud from the probe tip to the plastic; about 6 mm passes."
+      ]
+     ],
      "text": "Step 08.54 → Step 08.56 · ~10 min · leave-state: the probe decision is recorded, the inductive probe is confirmed on the carriage from Ch 07, and the nozzle-probe bag is still closed for Ch 09. The Klicky bag stays closed. Do not open either bag to \"get ahead\": the nozzle probe is built at its mounting location in Ch 09."
     },
     {
@@ -2967,7 +3360,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the toolhead is on the carriage, the body is on with the board-to-board header mated, the umbilical is parked on the chain anchor with one loose tie and its free end is coiled and labelled. This is the end of the hands-on work in this chapter. Do not apply power: Checkpoint 08 below is a cold bench test and it is the last cheap chance to find a toolhead fault.",
-     "helpers": [],
+     "helpers": [
+      [
+       "08.58",
+       "Holds the carriage steady at mid-travel while you start the first bolt."
+      ],
+      [
+       "08.64",
+       "Checks that one screw head shows through the cover, then labels the bag for Ch 09."
+      ]
+     ],
      "text": "Step 08.57 → Step 08.65 · ~35 min · leave-state: the toolhead is on the carriage, the body is on with the board-to-board header mated, the umbilical is parked on the chain anchor with one loose tie and its free end is coiled and labelled. This is the end of the hands-on work in this chapter. Do not apply power: Checkpoint 08 below is a cold bench test and it is the last cheap chance to find a toolhead fault."
     }
    ]
@@ -2999,7 +3401,28 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
-     "helpers": [],
+     "helpers": [
+      [
+       "09.2",
+       "Holds LDO's placement photo up and calls out each match: Leviathan, Pi, USB adapter, SSR, PSU and inlet."
+      ],
+      [
+       "09.3",
+       "Steadies the second side of the frame as it rolls onto the blanket, on a count of three."
+      ],
+      [
+       "09.4",
+       "Reads the caliper at the deck edge aloud and writes the thickness down."
+      ],
+      [
+       "09.6",
+       "Writes each joint's mark on the masking tape as the adult pushes the pieces closed."
+      ],
+      [
+       "09.7",
+       "Practises hook, rotate and snap on the spare clip until it clicks on first time."
+      ]
+     ],
      "text": "Step 09.1 → Step 09.7 · ~25 min · leave-state: printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access."
     },
     {
@@ -3067,7 +3490,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.",
-     "helpers": [],
+     "helpers": [
+      [
+       "09.19",
+       "Counts the jumpers into the bag, five in all, and writes its label."
+      ],
+      [
+       "09.20",
+       "Holds each bracket steady on the bench while the adult drives the M2 screws."
+      ]
+     ],
      "text": "Step 09.19 → Step 09.24 · ~30 min · leave-state: every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10."
     },
     {
@@ -3090,7 +3522,24 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in.",
-     "helpers": [],
+     "helpers": [
+      [
+       "09.27",
+       "Looks under the collar's flange and says whether any gap shows."
+      ],
+      [
+       "09.28",
+       "Presses the switch plunger and says whether the click is clean and it springs back."
+      ],
+      [
+       "09.29",
+       "Releases the shaft and says whether it drops freely and clicks the switch."
+      ],
+      [
+       "09.30",
+       "Slides the 1.5 mm hex key between pin and plate and says whether it just fits."
+      ]
+     ],
      "text": "Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in."
     },
     {
@@ -3111,7 +3560,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.",
-     "helpers": [],
+     "helpers": [
+      [
+       "09.32",
+       "Presses both switches on the fitted board and says whether each one clicks cleanly."
+      ],
+      [
+       "09.33",
+       "Watches the pod while the adult moves the toolhead through X and Y, and calls out any touch."
+      ]
+     ],
      "text": "Step 09.31 → Step 09.34 · ~25 min · leave-state: XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated."
     },
     {
@@ -3274,7 +3732,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.31",
+       "Reads both 3-pin labels aloud and points to the matching row in the table."
+      ],
+      [
+       "10.34",
+       "Presses the probe shaft down and says when the switch clicks and the shaft springs back."
+      ]
+     ],
      "text": "Step 10.30 → Step 10.34 · ~25 min · leave-state: probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain."
     },
     {
@@ -3296,7 +3763,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.36",
+       "Holds each COB mount in place on the top extrusion while the adult drives its screws."
+      ]
+     ],
      "text": "Step 10.35 → Step 10.39 · ~35 min · leave-state: eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good."
     },
     {
@@ -3320,7 +3792,20 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "six steppers tagged and plugged on their mapped ports, `STEPPER-4` empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. No chain work started.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.40",
+       "Writes the seven tags from the table and hands each one over for its cable."
+      ],
+      [
+       "10.43",
+       "Reads each tag aloud and names the corner its cable runs to before it is plugged in."
+      ],
+      [
+       "10.45",
+       "Presses each microswitch on the gantry PCB and says when it clicks."
+      ]
+     ],
      "text": "Step 10.40 → Step 10.46 · ~30 min · leave-state: six steppers tagged and plugged on their mapped ports, `STEPPER-4` empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. No chain work started."
     },
     {
@@ -3409,7 +3894,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "every cable laid into its chain, all six chain ends zip-tied, every latch clicked shut, umbilical Micro-Fit seated in the USB adapter. Gantry moves through full X, Y and Z travel by hand.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.65",
+       "Holds each chain latch open with the flat screwdriver while the adult lays the cables in."
+      ]
+     ],
      "text": "Step 10.65 → Step 10.67 · ~25 min · leave-state: every cable laid into its chain, all six chain ends zip-tied, every latch clicked shut, umbilical Micro-Fit seated in the USB adapter. Gantry moves through full X, Y and Z travel by hand."
     },
     {
@@ -3432,7 +3922,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.70",
+       "Reads every tag aloud and says where its far end goes."
+      ],
+      [
+       "10.72",
+       "Reads each row of the walk table aloud and ticks it off when the adult points to it."
+      ]
+     ],
      "text": "Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt."
     },
     {
@@ -3456,7 +3955,32 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23.",
-     "helpers": [],
+     "helpers": [
+      [
+       "10.74",
+       "Records each reading the adult calls out in the table; the adult holds both probes."
+      ],
+      [
+       "10.75",
+       "Records the 5 V reading the adult calls out; the adult holds both probes."
+      ],
+      [
+       "10.76",
+       "Records the room temperature and each thermistor reading the adult calls out; the adult holds both probes."
+      ],
+      [
+       "10.77",
+       "Records each bonding reading the adult calls out; the adult holds both probes, cord out of the room."
+      ],
+      [
+       "10.78",
+       "Records the five SSR readings the adult calls out; the adult holds both probes."
+      ],
+      [
+       "10.79",
+       "Reads the connector list aloud, one port at a time, and ticks each one pressed home."
+      ]
+     ],
      "text": "Step 10.73 → Step 10.79 · ~20 min · leave-state: the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23."
     }
    ]
@@ -3484,7 +4008,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.",
-     "helpers": [],
+     "helpers": [
+      [
+       "12.12",
+       "Reads each serial ID off the screen and names its board from the table."
+      ]
+     ],
      "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting."
     },
     {
@@ -3567,7 +4096,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.",
-     "helpers": [],
+     "helpers": [
+      [
+       "12.27",
+       "Reads each count off the screen against the expected 2, 1, 1, 1, 1."
+      ]
+     ],
      "text": "Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly."
     },
     {
@@ -3610,7 +4144,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "`[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.",
-     "helpers": [],
+     "helpers": [
+      [
+       "12.37",
+       "Reads each row of the table off Mainsail and ticks it only when it matches."
+      ]
+     ],
      "text": "Step 12.33 → Step 12.37 · ~20 min · leave-state: `[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13."
     }
    ]
@@ -3639,14 +4178,18 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.",
+     "leave_state": "machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments, both bay fans and the two grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.",
      "helpers": [
       [
        "11.1",
        "Holds each skirt segment in place while you check the joints line up."
+      ],
+      [
+       "11.4",
+       "Looks through the skirt bins for any mini12864 part and reads out what is there."
       ]
      ],
-     "text": "Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet."
+     "text": "Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments, both bay fans and the two grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet."
     },
     {
      "id": "11-skirts-panels-door#1",
@@ -3666,7 +4209,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the touchscreen module (built at 10.50) is bolted into the front of the ring, snug, and its FFC run checked end to end, latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.6",
+       "Holds the mount steady, face down, while you seat the screen and drive its four screws."
+      ],
+      [
+       "11.7",
+       "Holds the module level between the two front skirts while you drive its three screws."
+      ]
+     ],
      "text": "Step 11.5 → Step 11.8 · ~10 min · leave-state: the touchscreen module (built at 10.50) is bolted into the front of the ring, snug, and its FFC run checked end to end, latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts."
     },
     {
@@ -3686,9 +4238,22 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one blanked, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.",
-     "helpers": [],
-     "text": "Step 11.9 → Step 11.12 · ~15 min · leave-state: three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one blanked, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine."
+     "leave_state": "three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one with its two retainers, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.",
+     "helpers": [
+      [
+       "11.9",
+       "Sorts the guards into an a pile and a b pile and hands over the one each corner needs."
+      ],
+      [
+       "11.11",
+       "Reads each fan's airflow arrow aloud and checks both point into the bay."
+      ],
+      [
+       "11.12",
+       "Counts twelve M3 and two M5 T-nuts into a tray and hands them over one at a time."
+      ]
+     ],
+     "text": "Step 11.9 → Step 11.12 · ~15 min · leave-state: three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one with its two retainers, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine."
     },
     {
      "id": "11-skirts-panels-door#3",
@@ -3708,9 +4273,30 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "front, rear and both side skirt runs mounted, both bay fans trapped in the right-hand run, the left run blanked. The ring is complete all the way round; no run is half-fastened.",
-     "helpers": [],
-     "text": "Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs mounted, both bay fans trapped in the right-hand run, the left run blanked. The ring is complete all the way round; no run is half-fastened."
+     "leave_state": "front, rear and both side skirt runs mounted, both bay fans in the right-hand run, grills on retainers in the left. The ring is complete all the way round; no run is half-fastened.",
+     "helpers": [
+      [
+       "11.13",
+       "Holds each front skirt against the touchscreen module while you drive its screws."
+      ],
+      [
+       "11.14",
+       "Holds the rear center skirt in its gap while you drive the screws."
+      ],
+      [
+       "11.15",
+       "Holds each side skirt level against the extrusion while you start its screw."
+      ],
+      [
+       "11.16",
+       "Holds the fan support in the gap, grills out, while you drive the M5 screw."
+      ],
+      [
+       "11.17",
+       "Holds the left fan support in its gap while you close the run."
+      ]
+     ],
+     "text": "Step 11.13 → Step 11.17 · ~20 min · leave-state: front, rear and both side skirt runs mounted, both bay fans in the right-hand run, grills on retainers in the left. The ring is complete all the way round; no run is half-fastened."
     },
     {
      "id": "11-skirts-panels-door#4",
@@ -3730,7 +4316,20 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.19",
+       "Picks the hexagon and pushes the insert in until it clicks."
+      ],
+      [
+       "11.20",
+       "Wipes all six pad faces with IPA and the cloth before the pads go on."
+      ],
+      [
+       "11.21",
+       "Holds the panel square to the frame while you press it onto the pads."
+      ]
+     ],
      "text": "Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it."
     },
     {
@@ -3751,7 +4350,20 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "all four Z belt covers on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.23",
+       "Counts four covers, four nuts and four screws onto the tray."
+      ],
+      [
+       "11.24",
+       "Pinches the Z belt flat while you slide the cover in."
+      ],
+      [
+       "11.25",
+       "Watches each cover and calls out any rub while you move the gantry."
+      ]
+     ],
      "text": "Step 11.22 → Step 11.25 · ~15 min · leave-state: all four Z belt covers on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one."
     },
     {
@@ -3814,7 +4426,20 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.34",
+       "Tests each magnet against a spare and hands them over all the same side up."
+      ],
+      [
+       "11.36",
+       "Marks the exposed face of each magnet while it sits on the plenum."
+      ],
+      [
+       "11.37",
+       "Writes the fill state and the date on the cartridge lid."
+      ]
+     ],
      "text": "Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went."
     },
     {
@@ -3837,7 +4462,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it against your Ch 12 notes or Checkpoint 12, not a live Mainsail: the machine stays unplugged until 13.3.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.40",
+       "Finds the FILTER FAN tag on the coiled lead and reads it aloud."
+      ],
+      [
+       "11.41",
+       "Writes the tag and tapes it to the plenum."
+      ]
+     ],
      "text": "Step 11.38 → Step 11.43 · ~15 min · leave-state: Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it against your Ch 12 notes or Checkpoint 12, not a live Mainsail: the machine stays unplugged until 13.3."
     },
     {
@@ -3858,7 +4492,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the door frame is squared and blind-jointed, the rubber retainer strip is in, and both hinges are dowelled and bushed. The acrylic is not yet trapped and nothing is glued.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.44",
+       "Holds the machinist square in each corner while you tighten it."
+      ]
+     ],
      "text": "Step 11.44 → Step 11.47 · ~20 min · leave-state: the door frame is squared and blind-jointed, the rubber retainer strip is in, and both hinges are dowelled and bushed. The acrylic is not yet trapped and nothing is glued."
     },
     {
@@ -3944,6 +4583,10 @@
      "leave_state": "the machine has been powered, Klipper reports `Ready` with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.",
      "helpers": [
       [
+       "13.5",
+       "Reads the four axis_maximum numbers off the browser and checks them against 350, 350, 330, 0."
+      ],
+      [
        "13.6",
        "Reads the three temperatures off the Mainsail screen and calls them out."
       ],
@@ -3976,6 +4619,14 @@
       [
        "13.13",
        "Watches each Z corner and calls out which one just moved."
+      ],
+      [
+       "13.14",
+       "Watches the two rear motors and calls out which one moved for each command."
+      ],
+      [
+       "13.15",
+       "Watches the Clockwork 2 gears and says whether they turned both ways."
       ]
      ],
      "text": "Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed **at the connector, not in the config**. The machine still has not homed."
@@ -4003,6 +4654,22 @@
       [
        "13.17",
        "Reads the endstop states off the screen and calls each one back."
+      ],
+      [
+       "13.18",
+       "Sends QUERY_ENDSTOPS while the adult holds the toolhead on the switch, then reads the reply aloud."
+      ],
+      [
+       "13.19",
+       "Sends QUERY_ENDSTOPS while the adult holds the gantry at the back, then reads the reply aloud."
+      ],
+      [
+       "13.20",
+       "Sends QUERY_ENDSTOPS while the adult holds the probe shaft down, then reads the reply aloud."
+      ],
+      [
+       "13.21",
+       "Reads the probe state off the screen after each QUERY_PROBE and calls it back."
       ]
      ],
      "text": "Step 13.17 → Step 13.21 · ~20 min · leave-state: all three endstops and the inductive probe respond correctly to `QUERY_ENDSTOPS` / `QUERY_PROBE`, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting."
@@ -4027,7 +4694,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "**homing works.** X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop.",
-     "helpers": [],
+     "helpers": [
+      [
+       "13.26",
+       "Reads the M114 X and Y values aloud while the adult types them into safe_z_home."
+      ]
+     ],
      "text": "Step 13.22 → Step 13.27 · ~30 min · leave-state: **homing works.** X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop."
     },
     {
@@ -4150,7 +4822,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B.",
-     "helpers": [],
+     "helpers": [
+      [
+       "13.43",
+       "Watches the Pi's green activity LED and says when it has stayed dark."
+      ]
+     ],
      "text": "Step 13.40 → Step 13.43 · ~30 min · leave-state: extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B."
     }
    ]
@@ -4191,7 +4868,24 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).",
-     "helpers": [],
+     "helpers": [
+      [
+       "06b.3",
+       "Holds the phone at the belt span and reads the lowest peak aloud after each pluck."
+      ],
+      [
+       "06b.8",
+       "Steadies the gantry corner you are working on while you take out its M5×40."
+      ],
+      [
+       "06b.11",
+       "Writes the four gap readings into the table as you call them out."
+      ],
+      [
+       "06b.15",
+       "Holds the phone at each belt span and reads the lowest peak aloud after each pluck."
+      ]
+     ],
      "text": "Step 06b.1 → Step 06b.16 · ~60 min · leave-state: gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6)."
     }
    ]
@@ -4224,6 +4918,18 @@
       [
        "11.52",
        "Holds the back panel steady and peels the tape backing ahead of you."
+      ],
+      [
+       "11.53",
+       "Counts out eleven screws and eleven hammerhead nuts, two per corner clip and one per midspan."
+      ],
+      [
+       "11.54",
+       "Holds the grill flat on the outside face while you drive the two screws."
+      ],
+      [
+       "11.55",
+       "Holds the panel square in the clips while you tighten opposite corners."
       ]
      ],
      "text": "Step 11.52 → Step 11.55 · ~25 min · leave-state: back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips."
@@ -4244,14 +4950,22 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "both side panels foam-taped, clipped and screwed, all sixteen M3×12 in. Both sides are fully on.",
+     "leave_state": "both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on.",
      "helpers": [
       [
        "11.56",
        "Cleans both side panels with the cloth, then peels the tape backing ahead."
+      ],
+      [
+       "11.57",
+       "Holds the side panel against the clips while you tighten them."
+      ],
+      [
+       "11.58",
+       "Holds the side panel against the clips while you tighten them."
       ]
      ],
-     "text": "Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all sixteen M3×12 in. Both sides are fully on."
+     "text": "Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on."
     },
     {
      "id": "11-skirts-panels-door#14",
@@ -4274,6 +4988,14 @@
       [
        "11.59",
        "Wipes the top panel clean and holds one edge while you seat it."
+      ],
+      [
+       "11.60",
+       "Holds each handle square on its spacers while you drive the screws."
+      ],
+      [
+       "11.61",
+       "Bags the two stock door panels and the spare magnets and labels the bag."
       ]
      ],
      "text": "Step 11.59 → Step 11.61 · ~15 min · leave-state: top panel on its eight clips, handlebars bolted through their spacers, and the stock front doors confirmed not-installed. The machine is closed on five faces; the front is still open."
@@ -4295,7 +5017,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.",
-     "helpers": [],
+     "helpers": [
+      [
+       "11.62",
+       "Holds the taped door in the opening while you mark and hang the hinges."
+      ],
+      [
+       "11.64",
+       "Holds the paper shim between the magnets while you slide the handle into line."
+      ]
+     ],
      "text": "Step 11.62 → Step 11.64 · ~25 min · leave-state: door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic."
     },
     {
@@ -4347,7 +5078,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.1",
+       "Reads each Must hold value aloud while the adult finds it in printer.cfg."
+      ]
+     ],
      "text": "Step 14.1 → Step 14.3 · ~25 min · leave-state: config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched."
     },
     {
@@ -4365,7 +5101,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "**A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.4",
+       "Holds the phone by the span and reads the lowest peak aloud after each pluck."
+      ]
+     ],
      "text": "Step 14.4 · ~20 min · leave-state: **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed."
     },
     {
@@ -4385,7 +5126,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.5",
+       "Holds the phone by each Z belt and reads the lowest peak aloud after each pluck."
+      ]
+     ],
      "text": "Step 14.5 → Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot."
     },
     {
@@ -4423,7 +5169,16 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.10",
+       "Fetches the Prusa B00 cube from its bin and sets both cubes side by side."
+      ],
+      [
+       "14.11",
+       "Writes each caliper reading into the comparison table as the adult calls it out."
+      ]
+     ],
      "text": "Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers."
     },
     {
@@ -4441,7 +5196,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.12",
+       "Reads the MEASURE_AXES_NOISE figures aloud and checks each one is under 100."
+      ]
+     ],
      "text": "Step 14.12 · ~15 min · leave-state: accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet."
     },
     {
@@ -4461,7 +5221,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "`SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.14",
+       "Finds the tallest peak on each graph and reads its frequency aloud."
+      ]
+     ],
      "text": "Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them."
     },
     {
@@ -4498,7 +5263,12 @@
      "plate": null,
      "print_hours": null,
      "leave_state": "the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next.",
-     "helpers": [],
+     "helpers": [
+      [
+       "14.18",
+       "Counts the lines from the start of the pattern to the sharpest corner, with the loupe."
+      ]
+     ],
      "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next."
     },
     {
@@ -4865,11 +5635,12 @@
        },
        {
         "budget": 90,
-        "total": 85,
+        "total": 90,
         "items": [
          "00a-mains-safety#0",
          "00a-mains-safety#1",
-         "00-before-you-start#1"
+         "00-before-you-start#2",
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        }
@@ -4912,8 +5683,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -4941,7 +5713,7 @@
    "expect": {
     "done": 2,
     "gate_closed": false,
-    "start": "00.7",
+    "start": "00.8",
     "sections": [
      {
       "id": "before-kit",
@@ -4950,9 +5722,9 @@
       "buckets": [
        {
         "budget": 30,
-        "total": 30,
+        "total": 25,
         "items": [
-         "00-before-you-start#1"
+         "00-before-you-start#2"
         ],
         "next": null
        },
@@ -4960,8 +5732,9 @@
         "budget": 60,
         "total": 60,
         "items": [
-         "00-before-you-start#1",
-         "00-before-you-start#2"
+         "00-before-you-start#2",
+         "00-before-you-start#4",
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        },
@@ -4969,9 +5742,10 @@
         "budget": 90,
         "total": 85,
         "items": [
-         "00-before-you-start#1",
          "00-before-you-start#2",
-         "00-before-you-start#5"
+         "00-before-you-start#4",
+         "00-before-you-start#7",
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        }
@@ -5014,8 +5788,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5070,12 +5845,12 @@
        },
        {
         "budget": 90,
-        "total": 90,
+        "total": 85,
         "items": [
          "00a-mains-safety#0",
          "00a-mains-safety#1",
          "b01-z-drive-assemblies#1",
-         "00-before-you-start#1"
+         "00-before-you-start#2"
         ],
         "next": null
        }
@@ -5113,8 +5888,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5157,11 +5933,11 @@
        },
        {
         "budget": 90,
-        "total": 85,
+        "total": 80,
         "items": [
          "00a-mains-safety#0",
          "00a-mains-safety#1",
-         "00-before-you-start#1"
+         "00-before-you-start#2"
         ],
         "next": null
        }
@@ -5204,8 +5980,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5295,8 +6072,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5341,11 +6119,12 @@
        },
        {
         "budget": 90,
-        "total": 85,
+        "total": 90,
         "items": [
          "00a-mains-safety#0",
          "00a-mains-safety#1",
-         "00-before-you-start#1"
+         "00-before-you-start#2",
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        }
@@ -5388,8 +6167,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5413,13 +6193,10 @@
      "00a.12"
     ],
     "00-before-you-start": [
-     "00.7",
      "00.8",
      "00.9",
      "00.10",
      "00.11",
-     "00.12",
-     "00.13",
      "00.14",
      "00.15",
      "00.16",
@@ -5604,8 +6381,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5696,29 +6474,31 @@
       "buckets": [
        {
         "budget": 30,
-        "total": 5,
+        "total": 30,
         "items": [
-         "b06-toolhead-sb-cw2-klicky#0"
+         "b06-toolhead-sb-cw2-klicky#0",
+         "00-before-you-start#2"
         ],
         "next": null
        },
        {
         "budget": 60,
-        "total": 35,
+        "total": 55,
         "items": [
          "b06-toolhead-sb-cw2-klicky#0",
-         "00-before-you-start#1"
+         "00-before-you-start#2",
+         "00-before-you-start#4"
         ],
         "next": null
        },
        {
         "budget": 90,
-        "total": 90,
+        "total": 80,
         "items": [
          "b06-toolhead-sb-cw2-klicky#0",
-         "00-before-you-start#1",
          "00-before-you-start#2",
-         "00-before-you-start#5"
+         "00-before-you-start#4",
+         "00-before-you-start#7"
         ],
         "next": null
        }
@@ -5744,8 +6524,9 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
-     "00-before-you-start#1",
-     "00-before-you-start#6",
+     "00-before-you-start#2",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
      "b11-bay-ducting#5"
     ]
    }
@@ -5875,13 +6656,10 @@
      "B10.6"
     ],
     "00-before-you-start": [
-     "00.7",
      "00.8",
      "00.9",
      "00.10",
      "00.11",
-     "00.12",
-     "00.13",
      "00.14",
      "00.15",
      "00.16",
@@ -6019,11 +6797,12 @@
        },
        {
         "budget": 90,
-        "total": 85,
+        "total": 90,
         "items": [
          "00a-mains-safety#0",
          "00a-mains-safety#1",
-         "00-before-you-start#1"
+         "00-before-you-start#2",
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        }
@@ -6066,37 +6845,105 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "00-before-you-start#0",
      "00-before-you-start#1",
-     "00-before-you-start#4",
+     "00-before-you-start#2",
+     "00-before-you-start#3",
+     "00-before-you-start#5",
      "00-before-you-start#6",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
+     "12-software#1",
      "01-frame#0",
      "01-frame#1",
+     "01-frame#2",
      "01-frame#3",
      "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
      "02-z-drives#3",
      "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
      "02-z-drives#9",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
+     "03-build-plate#3",
      "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
      "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
      "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
      "05-gantry#10",
      "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#3",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "10-wiring#5",
+     "10-wiring#6",
+     "10-wiring#7",
+     "10-wiring#11",
+     "10-wiring#12",
+     "10-wiring#13",
+     "12-software#2",
+     "12-software#6",
+     "12-software#8",
      "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
      "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
+     "13-initial-startup#4",
      "13-initial-startup#5",
+     "13-initial-startup#10",
+     "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
      "11-skirts-panels-door#16",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#4",
+     "14-calibration#5",
+     "14-calibration#6",
+     "14-calibration#8",
      "14-calibration#12",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
@@ -6236,37 +7083,105 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "00-before-you-start#0",
      "00-before-you-start#1",
-     "00-before-you-start#4",
+     "00-before-you-start#2",
+     "00-before-you-start#3",
+     "00-before-you-start#5",
      "00-before-you-start#6",
+     "00-before-you-start#7",
+     "00-before-you-start#8",
+     "12-software#1",
      "01-frame#0",
      "01-frame#1",
+     "01-frame#2",
      "01-frame#3",
      "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
      "02-z-drives#3",
      "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
      "02-z-drives#9",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
+     "03-build-plate#3",
      "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
      "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
      "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
      "05-gantry#10",
      "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#3",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "10-wiring#5",
+     "10-wiring#6",
+     "10-wiring#7",
+     "10-wiring#11",
+     "10-wiring#12",
+     "10-wiring#13",
+     "12-software#2",
+     "12-software#6",
+     "12-software#8",
      "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
      "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
+     "13-initial-startup#4",
      "13-initial-startup#5",
+     "13-initial-startup#10",
+     "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
      "11-skirts-panels-door#16",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#4",
+     "14-calibration#5",
+     "14-calibration#6",
+     "14-calibration#8",
      "14-calibration#12",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
@@ -6435,7 +7350,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 60,
+    "done": 62,
     "gate_closed": true,
     "start": "12.1",
     "sections": [
@@ -6509,34 +7424,97 @@
      }
     ],
     "helpers": [
+     "12-software#1",
      "01-frame#0",
      "01-frame#1",
+     "01-frame#2",
      "01-frame#3",
      "02-z-drives#0",
+     "02-z-drives#1",
+     "02-z-drives#2",
      "02-z-drives#3",
      "02-z-drives#4",
+     "02-z-drives#5",
+     "02-z-drives#6",
+     "02-z-drives#7",
+     "02-z-drives#8",
      "02-z-drives#9",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
+     "03-build-plate#3",
      "04-ab-drives#0",
+     "04-ab-drives#1",
+     "04-ab-drives#2",
      "04-ab-drives#3",
      "04-ab-drives#4",
      "04-ab-drives#5",
      "05-gantry#0",
+     "05-gantry#2",
+     "05-gantry#3",
      "05-gantry#4",
+     "05-gantry#5",
+     "05-gantry#9",
      "05-gantry#10",
      "05-gantry#11",
+     "06-z-axis-and-gantry-squaring#2",
+     "06-z-axis-and-gantry-squaring#3",
+     "06-z-axis-and-gantry-squaring#4",
+     "06-z-axis-and-gantry-squaring#6",
+     "07-ab-belts#0",
+     "07-ab-belts#2",
+     "07-ab-belts#3",
+     "07-ab-belts#4",
+     "08-toolhead#0",
+     "08-toolhead#1",
+     "08-toolhead#3",
+     "08-toolhead#5",
+     "08-toolhead#6",
+     "08-toolhead#7",
+     "08-toolhead#8",
+     "08-toolhead#9",
+     "09-electronics-bay#0",
+     "09-electronics-bay#3",
+     "09-electronics-bay#4",
+     "09-electronics-bay#5",
+     "10-wiring#5",
+     "10-wiring#6",
+     "10-wiring#7",
+     "10-wiring#11",
+     "10-wiring#12",
+     "10-wiring#13",
+     "12-software#2",
+     "12-software#6",
+     "12-software#8",
      "11-skirts-panels-door#0",
+     "11-skirts-panels-door#1",
+     "11-skirts-panels-door#2",
+     "11-skirts-panels-door#3",
+     "11-skirts-panels-door#4",
+     "11-skirts-panels-door#5",
+     "11-skirts-panels-door#8",
+     "11-skirts-panels-door#9",
+     "11-skirts-panels-door#10",
      "11-skirts-panels-door#11",
      "13-initial-startup#1",
      "13-initial-startup#2",
      "13-initial-startup#3",
+     "13-initial-startup#4",
      "13-initial-startup#5",
+     "13-initial-startup#10",
+     "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
      "11-skirts-panels-door#14",
+     "11-skirts-panels-door#15",
      "11-skirts-panels-door#16",
+     "14-calibration#0",
+     "14-calibration#1",
+     "14-calibration#2",
+     "14-calibration#4",
+     "14-calibration#5",
+     "14-calibration#6",
+     "14-calibration#8",
      "14-calibration#12",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
@@ -7356,7 +8334,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 203,
+    "done": 205,
     "gate_closed": true,
     "start": null,
     "sections": [

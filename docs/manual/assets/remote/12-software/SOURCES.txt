@@ -71,3 +71,29 @@ KIAUH_install_opt.png
   licence : © LDO Motors, attributed, non-commercial
   used-at : Step 12.9
 
+
+# Added 2026-09-24 (wave 4 packet P9, claude): licence-cleared per assets/remote/LICENSES.md.
+
+rpi-4-model-b.jpg
+  owner   : Raspberry Pi Ltd (raspberrypi/documentation)
+  cited-as: https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg
+  fetched : https://raw.githubusercontent.com/raspberrypi/documentation/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg
+  date    : 2026-09-24
+  licence : CC-BY-SA-4.0 (raspberrypi/documentation/LICENSE.md); changed: resized 1920 -> 1200 px wide, metadata stripped, JPEG q85
+  sha256  : d057ec3e5c0a7f361c01bedb5673e11df0ed6c23a641de348bc27b4588468455
+
+mainsail-first-boot-update-manager.png
+  owner   : mainsail-crew (mainsail-crew/docs)
+  cited-as: https://github.com/mainsail-crew/docs/blob/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png
+  fetched : https://raw.githubusercontent.com/mainsail-crew/docs/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png
+  date    : 2026-09-24
+  licence : GPL-3.0 (mainsail-crew/docs/LICENSE); unmodified
+  sha256  : cc63dad8779bc5ab42c265877c0887357c5c1d6ef7f3c222a4a79fb8fb825aaf
+
+klipperscreen-main-panel.png
+  owner   : KlipperScreen contributors (KlipperScreen/KlipperScreen)
+  cited-as: https://github.com/KlipperScreen/KlipperScreen/blob/3f08a9f/docs/img/panels/main_panel.png
+  fetched : https://raw.githubusercontent.com/KlipperScreen/KlipperScreen/3f08a9f/docs/img/panels/main_panel.png
+  date    : 2026-09-24
+  licence : AGPL-3.0 (KlipperScreen/KlipperScreen/LICENSE); unmodified
+  sha256  : 4e4c73c1c6f9364c034a207c757c94ac914900bc8fd0667ccb4cf5a50fa4b787

@@ -77,12 +77,12 @@ Source: [Ch 10 — Read first](10-wiring.md) · [Voron forum — Mains Wiring Sa
 
 **Do:** Write the mains carve-out to your daughter's measurement-log job, post it where you both see it, and say it out loud once before Ch 09.
 
-[Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) gives her the measurement log — *"the diagonals in Ch 01 are hers to read out"* — and that assignment has no carve-out for mains. The rule, in these words:
+[Step 00.30](00-before-you-start.md#step-0030-start-the-measurement-log) gives her the measurement log, and that assignment has no carve-out for mains. The rule, in these words:
 
 - She does not strip, land, tighten or unplug any conductor that is or has been connected to the wall.
 - She is not in the room while the mains conductors are being worked on, or while the machine is plugged in with the bay open — **Ch 10 Section 1 ([10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe))**, the whole of **Checkpoint #1 ([10.17](10-wiring.md#step-1017-de-energise-and-set-up)–[10.23](10-wiring.md#step-1023-first-power-on-then-off-again))**, and the firmware gate at [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate). Those are adult-only.
 - She is not beside the machine at any power-on — [10.23](10-wiring.md#step-1023-first-power-on-then-off-again), [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) and [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch). One adult, standing to the side, hand on the switch — nobody else within reach of the machine.
-- What she *does* own on those days: the meter — but only with the printer **unplugged**. In the post-power sweeps at [10.74](10-wiring.md#step-1074-24-v-rails)–[10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time), once [10.73](10-wiring.md#step-1073-confirm-dead) has read 0 V and the cord is out of the room, she reads out the meter values while you hold the probes. Reading numbers out loud is a real job: it is how you catch a row you skipped.
+- What she *does* own on those days: the record, and only with the printer **unplugged**. In the post-power sweeps at [10.74](10-wiring.md#step-1074-24-v-rails)–[10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time), once [10.73](10-wiring.md#step-1073-confirm-dead) has read 0 V and the cord is out of the room, you hold the probes and read each value aloud, and she records it in the log. She never holds a probe. Recording every row is a real job: it is how you catch a row you skipped.
 
 **Check:** The rule is written, posted, and has been read aloud. Neither of you has to reconstruct it at 22:00 with the printer on its back.
 
@@ -127,7 +127,8 @@ Source: [Fluke — IEC category ratings](https://www.fluke.com/en-us/learn/blog/
 
 **Parts:**
 
-- multimeter, a known-live wall outlet
+- tool: multimeter with its rated leads
+- tool: a known-live wall outlet
 
 **Do:** Prove the meter **live–dead–live** before you trust any dead reading, and short the probes to check continuity, leads and battery.
 
@@ -246,9 +247,7 @@ Two kinds of terminal carry mains in this machine and they want opposite things.
 
 On conductor size, Voron's electrical page sets the floor: *"Use at least 18 AWG (0.75 mm²) for mains AC wiring, even better would be 16 AWG (1.25 mm²)."* Every mains conductor in this kit arrives pre-made; the number matters if you ever lengthen or replace one.
 
-**Parts:**
-
-- none — the kit supplies the ferrules
+**Parts:** none.
 
 **Do:** Learn which terminal takes which, from the two rows below. Screw terminals get a crimped **VE0508** ferrule; WAGO 221 lever terminals take bare stranded or ferruled core to the stop, with **no copper visible outside any port**.
 
@@ -370,10 +369,12 @@ Pause: ~25 min since the last pause — the chapter is read and nothing is half-
 
 ## Checkpoint 00a
 
+**Built:** a posted room rule, a tested meter and a labelled breaker
+
 Do not open Ch 09 until every line is ticked.
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 and Ch 13 Step 13.3; she reads the meter only on the unplugged sweeps 10.74–10.78.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 and Ch 13 Step 13.3; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.

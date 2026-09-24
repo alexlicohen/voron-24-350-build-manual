@@ -77,9 +77,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 **What you're looking at:** The render is a stock Voron 2.4: the gantry across the top, four Z drives in the corners, the bed on its own frame, the electronics bay under the deck. Anything left in the chamber can be crushed or set alight.
 
-**Parts:**
-
-- none — preparation
+**Parts:** none.
 
 **Do:** Clear the chamber: tools, offcuts, zip-tie tails, spare fasteners, filament spool. Pull off any rubber rail stoppers. Put a fire extinguisher within reach, clear the bench of paper and IPA, and confirm the side and top panels are off.
 
@@ -95,9 +93,7 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 
 **What you're looking at:** LDO's finished Rev D bay, photographed from below: the view you have with the machine on its side. Three things are re-read in it: the PSU's red voltage slider, the SSR's four numbered terminals, and the Leviathan's five-position voltage-selection jumper block.
 
-**Parts:**
-
-- none — verification
+**Parts:** none.
 
 **Do:**
 
@@ -150,9 +146,12 @@ Source: [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/Moto
 
 ### Step 13.4 — Connect Klipper and confirm both MCUs
 
+![Simulated printer: the Mainsail console answering STATUS with Klipper state: Ready](assets/screens/mainsail-console-status.png)
 ![Mainsail console](assets/remote/13-initial-startup/voron-startup-mainsail-console.png)
 
-**What you're looking at:** The screenshot is the web interface's **Console** tab, where every command in this chapter is typed and every reply is read. `FIRMWARE_RESTART` restarts the host process *and* both microcontrollers, so a clean `Ready` after it means the whole software stack is talking to the whole machine.
+(no image of your own printer yet — simulated printer: your numbers differ)
+
+**What you're looking at:** The screenshots are the **Console** tab, where every command in this chapter is typed and every reply read. `FIRMWARE_RESTART` restarts the host *and* both microcontrollers, so a clean `Ready` after it means the whole stack is talking to the whole machine.
 
 **Parts:** none.
 
@@ -192,6 +191,8 @@ Then confirm in Mainsail's config editor that these are uncommented: `[stepper_x
 
 **Check:** The browser shows `"axis_maximum": [350.0, 350.0, 330.0, 0.0]` from the *running* config; `250` or `300` in the first two slots means the wrong size pair is live.
 
+**Helper:** Reads the four axis_maximum numbers off the browser and checks them against 350, 350, 330, 0.
+
 Tip: with every size commented out Klipper refuses to start, so if it is running one pair is live. Step 13.22 proves it: `M114` must read `X:350.000 Y:350.000`. (survey §5.2 W14)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-235) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Moonraker API § Query printer object status](https://moonraker.readthedocs.io/en/latest/external_api/printer/)
@@ -202,7 +203,10 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 ### Step 13.6 — Verify the three temperature readings at room temperature
 
+![Simulated printer: Mainsail's Temperatures panel, extruder, bed and chamber at room temperature, flat graph](assets/screens/mainsail-temperatures-room.png)
 ![Mainsail temperature graph](assets/remote/13-initial-startup/voron-startup-mainsail-temp-graph.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** The screenshot is the temperature panel, one trace per sensor. Three are expected: the hotend, the bed, and the chamber sensor on the toolboard. A sensor reading room temperature and staying there is a sensor that is wired and configured correctly.
 
@@ -401,6 +405,8 @@ Send: STEPPER_BUZZ STEPPER=stepper_y
 
 **Check:** `stepper_x` moves the **rear-left** motor B on `HV-STEPPER-0` and `stepper_y` the **rear-right** motor A on `HV-STEPPER-1`, both cleanly, with no grinding.
 
+**Helper:** Watches the two rear motors and calls out which one moved for each command.
+
 Tip: ignore the wizard's clockwise-then-counterclockwise expectation. On CoreXY one motor's rotation direction proves nothing by eye; A/B direction is settled at Step 13.22.
 
 Source: [Voron docs image verifysteppers.gif](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/verifysteppers.gif) · [Voron startup wizard § Motor configuration guide for the Voron V2](https://docs.vorondesign.com/build/startup/startup.html#motor-configuration-guide-for-the-voron-v2) · [Klipper docs § STEPPER_BUZZ](https://www.klipper3d.org/G-Codes.html#stepper_buzz) · [Video: Part 9 @1:53:47](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6827s)
@@ -418,6 +424,8 @@ Source: [Voron docs image verifysteppers.gif](https://raw.githubusercontent.com/
 **Do:** Send `STEPPER_BUZZ STEPPER=extruder` with no filament loaded.
 
 **Check:** The Clockwork 2 gears turn back and forth. Direction is not tested here; it is tested when you first extrude, at Step 13.40.
+
+**Helper:** Watches the Clockwork 2 gears and says whether they turned both ways.
 
 Tip: if nothing moves, check `[extruder] step_pin: nhk:PB8 / dir_pin: nhk:PB9 / enable_pin: !nhk:PC14`. Those are the **V2** pins; the V1 config's `gpio23/24/25` silently does nothing on this board.
 
@@ -454,7 +462,10 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 ### Step 13.17 — `QUERY_ENDSTOPS` with everything released
 
-(no image — see text)
+![Simulated printer: the Mainsail console, QUERY_ENDSTOPS answering stepper_x:open stepper_y:open stepper_z:open](assets/screens/mainsail-console-query-endstops.png)
+![Simulated printer: Mainsail's Endstops panel, all three steppers and the probe OPEN](assets/screens/mainsail-machine-endstops.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** `QUERY_ENDSTOPS` reports each limit switch's present state without moving anything at all. `open` means the switch is not pressed. Stock Voron endstops are wired normally-closed to ground, so a `TRIGGERED` reading on an untouched switch means a broken circuit, not a reversed one.
 
@@ -467,7 +478,7 @@ Pause: ~20 min since the last pause — every motor buzzed, identified and turni
 
 ```
 Send: QUERY_ENDSTOPS
-Recv: // x:open y:open z:open
+Recv: // stepper_x:open stepper_y:open stepper_z:open
 ```
 
 **Check:** All three read `open`. A `TRIGGERED` reading with nothing pressing it is a wiring fault, not a missing `!`.
@@ -494,10 +505,12 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 ```
 Send: QUERY_ENDSTOPS
-Recv: // x:TRIGGERED y:open z:open
+Recv: // stepper_x:TRIGGERED stepper_y:open stepper_z:open
 ```
 
-**Check:** Only `x` changes, and it returns to `open` when you push the toolhead back to the middle.
+**Check:** Only `stepper_x` changes, and it returns to `open` when you push the toolhead back to the middle.
+
+**Helper:** Sends QUERY_ENDSTOPS while the adult holds the toolhead on the switch, then reads the reply aloud.
 
 Tip: if the toolhead cannot reach the switch, look for a rubber rail stopper still on the rail, then for a racked gantry.
 
@@ -517,10 +530,12 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 ```
 Send: QUERY_ENDSTOPS
-Recv: // x:open y:TRIGGERED z:open
+Recv: // stepper_x:open stepper_y:TRIGGERED stepper_z:open
 ```
 
-**Check:** Only `y` changes, and it releases when you move the gantry forward again.
+**Check:** Only `stepper_y` changes, and it releases when you move the gantry forward again.
+
+**Helper:** Sends QUERY_ENDSTOPS while the adult holds the gantry at the back, then reads the reply aloud.
 
 Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/build/startup/startup.html#endstop-check) · [Klipper docs § QUERY_ENDSTOPS](https://www.klipper3d.org/G-Codes.html#query_endstops)
 
@@ -538,10 +553,12 @@ Source: [Voron startup wizard § Endstop check](https://docs.vorondesign.com/bui
 
 ```
 Send: QUERY_ENDSTOPS
-Recv: // x:open y:open z:TRIGGERED
+Recv: // stepper_x:open stepper_y:open stepper_z:TRIGGERED
 ```
 
-**Check:** Only `z` changes, and the shaft springs back up **freely** to read `open` again.
+**Check:** Only `stepper_z` changes, and the shaft springs back up **freely** to read `open` again.
+
+**Helper:** Sends QUERY_ENDSTOPS while the adult holds the probe shaft down, then reads the reply aloud.
 
 Tip: if the shaft is sticky, back off the probe body's set screw a quarter turn. That screw only stops the shaft falling out; it must not grip it.
 
@@ -551,7 +568,10 @@ Source: [LDO wiring photo z_stop_final.jpg](https://raw.githubusercontent.com/Mo
 
 ### Step 13.21 — `QUERY_PROBE` on the inductive probe
 
+![Simulated printer: the Mainsail console, QUERY_PROBE answering probe: open](assets/screens/mainsail-console-query-probe.png)
 ![LDO photo of the inductive probe's fibreglass tape — front and sides only, sensing face bare](assets/remote/13-initial-startup/Probe_Insulation.jpg)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** The Omron inductive probe senses metal without touching it, and on this build it is used only to level the gantry and shape the mesh. The photo shows the fibreglass heat shield it must wear: front and sides only, sensing face bare.
 
@@ -570,6 +590,8 @@ Recv: // probe: TRIGGERED
 ```
 
 **Check:** `open` when far, `TRIGGERED` when metal is close.
+
+**Helper:** Reads the probe state off the screen after each QUERY_PROBE and calls it back.
 
 Tip: if it is stuck one way, check ground, signal and 24 V at the probe, and that `[probe] pin: nhk:PC15` matches where it is plugged. If the sense is inverted, use `pin: !nhk:PC15`.
 
@@ -635,9 +657,7 @@ Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubus
 
 **What you're looking at:** The photo is LDO's bench shot of the probe body, not how it sits on the extrusion. Two things have to line up: the shaft directly under the nozzle, and 2–3 mm of clearance between that shaft and the back edge of the build plate.
 
-**Parts:**
-
-- none — repositioning parts already fitted in Ch 09
+**Parts:** none.
 
 **Do:**
 
@@ -699,6 +719,8 @@ Recv: X:163.500 Y:350.000 Z:10.000 E:0.000
 Copy the X and Y values into `[safe_z_home] home_xy_position:` replacing the placeholder `-10,-10`. `FIRMWARE_RESTART`.
 
 **Check:** The values are yours, not the example above `(verify on bench)`.
+
+**Helper:** Reads the M114 X and Y values aloud while the adult types them into safe_z_home.
 
 Tip: until you do this, a full `G28` fails with `Move out of range: -10.000 -10.000 …` because the placeholder is outside `position_min: 0`. Re-set these if you ever re-calibrate the X or Y endstop.
 
@@ -911,9 +933,7 @@ Pause: ~15 min since the last pause — hot `PROBE_ACCURACY` passed and **QGL co
 
 **What you're looking at:** The diagram shows the A/B tensioners fully released, which is where gantry squaring begins. Squaring undoes belt tension, so Ch 07's tensioning was only provisional, Ch 06b puts back only a working tension, and final tension belongs to Ch 14.
 
-**Parts:**
-
-- none — Ch 06b and Ch 07 hardware only
+**Parts:** none.
 
 **Do:** Leave this chapter here and run [**Ch 06b gantry squaring**](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring), which needs exactly what you now have: a printer that homes and QGLs.
 
@@ -926,6 +946,8 @@ Tip: **Final** belt tensions are [Ch 14 Steps 14.4–14.6](14-calibration.md#par
 Source: [Voron docs image Gantry-ABTension.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png) · [Voron docs — V2 gantry squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
 Pause: ~10 min since the last pause — you are handed off to **Ch 06b**: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.
+
+**Next:** [Ch 06b Step 06b.1](06-z-axis-and-gantry-squaring.md#step-06b1-raise-the-stepper-idle-timeout)
 
 ---
 
@@ -961,7 +983,7 @@ Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.v
 
 **Parts:**
 
-- one sheet of printer paper
+- tool: printer paper, one sheet
 
 **Do:**
 
@@ -1006,7 +1028,7 @@ Source: [Voron docs image mainsail_manual_probe.png](https://raw.githubuserconte
 
 **Parts:**
 
-- paper
+- tool: the same sheet of paper
 
 **Do:** `G28`, then `G0 X175 Y175 Z0 F1200`. Slide the paper under the nozzle.
 
@@ -1084,9 +1106,9 @@ The first print is the last check in this chapter, not the start of tuning. The 
 
 **Parts:**
 
-- Prusament ASA, dried
-- steel rule or caliper
-- masking tape
+- consumable: Prusament ASA, dried
+- tool: steel rule or caliper
+- consumable: masking tape
 
 **Do:** *Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Homed and hot from Step 13.39, send `LOAD_FILAMENT TEMP=260`. Wipe the extruded blob off the nozzle.
 
@@ -1143,9 +1165,8 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 
 **Parts:**
 
-- `Voron_Design_Cube_v7.stl`
-- ASA
-- the laptop with PrusaSlicer
+- tool: the laptop with PrusaSlicer 2.9.6
+- tool: the `Voron_Design_Cube_v7.stl` file
 
 **Do:** *Printer profile.* In **Printer Settings**, with `Prusa CORE One HF0.4 nozzle` selected, **Save as… `Voron 2.4 350`**, then change: bed shape rectangular **350 × 350**, origin **0, 0**; **max print height 330**; **G-code flavor: Klipper**. Untick **Emit temperature commands automatically**. Replace the **Start G-code** with:
 
@@ -1175,9 +1196,9 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 **Parts:**
 
-- the sliced cube
-- clean flex plate
-- IPA
+- reused: the flex plate, cleaned
+- consumable: Prusament ASA, already loaded
+- consumable: IPA
 
 **Do:** Upload from the slicer using the physical printer from Step 13.41, start it, and **watch the whole first layer**. Live-adjust Z in 0.01 mm steps while it lays down; Mainsail's "Z Offset" babystep control does the same thing:
 
@@ -1212,6 +1233,8 @@ Source: [Voron docs image voron_cereal.png](https://raw.githubusercontent.com/Vo
 2. Use the web interface's **Shutdown**, wait for the Pi's activity LED to go dark, then switch the machine off at the inlet.
 
 **Check:** `git log` on the Pi lists the Ch 12 baseline and every `SAVE_CONFIG` since, and a copy of the directory is off the Pi's SD card.
+
+**Helper:** Watches the Pi's green activity LED and says when it has stayed dark.
 
 ⚠ Pulling power on a running Pi corrupts the SD card and costs you Ch 12 all over again.
 
@@ -1262,6 +1285,8 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 
 ## Checkpoint 13
 
+**Built:** a machine that homes, levels and has printed its first cube
+
 Tick every line before you start Ch 14.
 
 - [ ] Checkpoint #1 (Ch 10) was passed before this chapter began, with a multimeter, unplugged.
@@ -1272,7 +1297,7 @@ Tick every line before you start Ch 14.
 - [ ] Both heaters heat and cool on command; the SSR LED tracks the bed, the toolboard HE0 LED tracks the hotend.
 - [ ] All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
 - [ ] All seven motors pass `STEPPER_BUZZ` — correct motor, clean motion; correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
-- [ ] `QUERY_ENDSTOPS` reads `x:open y:open z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.
+- [ ] `QUERY_ENDSTOPS` reads `stepper_x:open stepper_y:open stepper_z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.
 - [ ] `QUERY_PROBE` toggles `open` / `TRIGGERED` with metal, and the probe's fibreglass tape is front-and-sides only.
 - [ ] `G28` completes on all three axes; 0,0 lands within 5 mm of the front-left corner of the plate with no skipping.
 - [ ] `[safe_z_home] home_xy_position` holds your measured Z-endstop coordinate, not `-10,-10`.

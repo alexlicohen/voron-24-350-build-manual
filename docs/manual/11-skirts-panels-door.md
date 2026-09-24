@@ -91,58 +91,64 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Where |
 |---|---:|---|
-| M3×8 SHCS | 7 | back-panel clips (p.239) |
-| M3×8 SHCS | 8 | top-panel clips (p.243) |
-| M3×8 SHCS | 8 | electronics-bay fans, 4 per fan (p.228) |
-| M3×8 SHCS | 6 | bottom-panel clips and hinges (p.233) |
-| M3 T-nut, 2020 (hammerhead or roll-in) | 6 | bottom-panel clips and hinges — p.233 draws the screws straight into the bottom extrusions and names no nut; one per screw *(verify on bench)* |
-| M3×8 SHCS | 5 | BTT TFT4.3 mount + faceplate ([mount README](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount)) |
+| M3×8 SHCS | 20 | skirt ring: belt guards 8, two each (p.217, p.222); front skirts 4 (p.219); rear run 4 (p.223–224); side skirts 4 (p.227, p.230) |
+| M3×8 SHCS | 16 | bay-fan grills, four each: 8 into the fans (p.228), 8 into the grill retainers (p.225) |
+| M3×8 SHCS | 5 | BTT TFT4.3 mount and faceplate ([mount README](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount)) |
+| M3×8 SHCS | 6 | bottom-panel clips and hinges, into the skirts' heat-set inserts, no T-nuts (p.233, CAD) |
 | M3×8 SHCS | 1 | bowden retainer (p.257) |
-| M3×8 SHCS | belt guards, keystone panel, skirt-to-skirt and skirt-to-frame joints | *(verify on bench — p.217, 219, 222–224, 227, 230 name the fastener with no count)* |
-| M3×12 SHCS | 16 | side-panel clips, 8 per side (p.241) |
+| M3×8 SHCS | 11 | back-panel clips: two per corner clip, one per midspan (p.239) |
+| M3×8 SHCS | 12 | top-panel clips: two per corner clip, one per midspan (p.243) |
+| M3×12 SHCS | 24 | side-panel clips, 12 per side: two per corner clip, one per midspan (p.241) |
 | M3×12 SHCS | 2 | exhaust grill to exhaust cover (p.254) |
+| M3×12 SHCS | 2 | Nevermore plenum to the bed extrusions |
 | M3×6 BHCS | 4 | Z belt covers (p.234) |
-| M3 hammerhead T-nut, 2020 | 7 + 8 + 16 + 4 | back / top / side panel clips, Z belt covers |
+| M3×6 BHCS | 2 | Nevermore plenum lid and cartridge lid (LDO's optional M3×4 BHCS is not a kit row) |
+| M3 hammerhead T-nut, 2020 | 47 | panel clips: 11 back, 24 side, 12 top (p.239, p.241, p.243) |
+| M3 hammerhead T-nut, 2020 | 4 | Z belt covers (p.234) |
 | M3 hammerhead T-nut, 2020 | 1 | bowden retainer (p.257) |
 | M3 roll-in T-nut, 2020 | 3 | BTT TFT4.3 mount |
-| M3 roll-in T-nut, 2020 | 12 | skirt ring: p.218 ×4 (front skirts), p.222 ×4 (rear run), p.226 ×2 and p.229 ×2 (side runs) |
-| M3 roll-in T-nut, 2020 | 12 | Clicky-Clack: door hinges ×8 (11.62 — 4 on the printer, 4 on the door frame), handle hinges ×4 (11.64) |
-| M3 heat-set insert, brass M3×5×4 | 8 | fan grill retainers, 4 each (p.213) |
+| M3 roll-in T-nut, 2020 | 12 | skirt ring: 4 front (p.218), 4 rear (p.222), 2 per side (p.226, p.229) |
+| M3 roll-in T-nut, 2020 | 2 | Nevermore plenum |
+| M3 heat-set insert, brass M3×5×4 | 11 | skirt segments: three in each front skirt and the keystone panel, one in each fan support (p.212) |
+| M3 heat-set insert, brass M3×5×4 | 16 | bay fans and grill retainers, four each (p.213) |
 | M3 heat-set insert, brass M3×5×4 | 2 | BTT TFT4.3 mount |
 | M3 heat-set insert, brass M3×5×4 | 6 | Nevermore: 4 fans, 1 plenum, 1 cartridge ([LDO guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)) |
-| M3 heat-set insert, brass M3×5×4 | 1 | Clicky-Clack latch |
-| M3 heat-set insert, brass M3×5×4 | skirt segments | *(verify on bench — p.212 shows 2–3 per segment)* |
-| M2.5×6 | 4 | BTT screen into its mount (supplied with the screen) |
-| M5×10 BHCS | 2 | skirt ring to frame (p.227, p.230) |
-| M5×16 BHCS | 2 | spool holder arm *(verify on bench — p.259)* |
+| M5×10 BHCS | 2 | fan supports to the frame (p.227, p.230) |
+| M5×16 BHCS | 1 | spool holder arm (p.259) |
 | M5×14 BHCS | 4 | aluminium handlebars (LDO extra, not in the manual) |
-| M5 T-nut, roll-in 2020 | 2 | spool holder (p.259) |
-| M5 T-nut, roll-in 2020 | 2 | skirt ring (p.226, p.229) |
+| M5 roll-in T-nut, 2020 | 1 | spool holder (p.259) |
+| M5 roll-in T-nut, 2020 | 2 | fan supports (p.226, p.229) |
 | M5 hammerhead T-nut, 2020 | 4 | aluminium handlebars |
-| 60×60×20 mm 24 V fan | 2 | electronics bay ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)) |
-| 3×2 XH splicer PCB | 1 | joins the two bay fans ([wiring guide](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)) |
-| 5015 fan (Nevermore) | 2 | supplied in the kit's "Nevermore Micro V5 Parts" bag |
-| Nevermore bridge PCB | 1 | supplied |
-| 6×3 mm neodymium magnet | 8 | Nevermore plenum + cartridge (print plan B09; LDO's guide gives no count) |
-| 6×3 mm neodymium magnet | 12 | Clicky-Clack handle, latch, handle hinges ([mod BOM](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)) |
-| M3×16 BHCS | 4 | Nevermore fans to plenum |
-| M3×12 SHCS | 2 | Nevermore plenum to bed extrusions |
-| M3×6 BHCS | 2 (+1 optional M3×4 BHCS) | Nevermore plenum lid and cartridge lid |
-| M3 T-nut, roll-in 2020 | 2 | Nevermore plenum |
-| M5×16 BHCS | 4 | Clicky-Clack door frame blind joints |
-| M5×45 dowel pin | 4 | Clicky-Clack hinges and handle |
-| M5×7×8 split bushing | 6 | Clicky-Clack hinges and handle hinges |
-| M3×20 SHCS | 4 | Clicky-Clack door hinges to frame |
-| M3×8 SHCS | 12 | Clicky-Clack (hinges, handle locating screws, latch) |
-| M3×8 BHCS | 1 | Clicky-Clack `Panel_Clip` into the latch |
-| Keystone CAT6 insert | 1 | keystone panel |
+| 4.3" capacitive DSI display | 1 | the BTT Pi TFT4.3, into its mount at 11.6 |
+| 5015 fan, Nevermore | 2 | the kit's "Nevermore Micro V5 Parts" bag |
+| Nevermore bridge PCB | 1 | the kit's "Nevermore Micro V5 Parts" bag |
+| 6×3 mm neodymium magnet | 8 | Nevermore: 4 plenum, 4 cartridge (pockets counted in the STLs); the kit's other 8 were for the stock doors |
+| Bottom panel, acrylic, black, 469×469×4 mm | 1 | 11.21 |
+| Back panel, acrylic, black, 483×503×3 mm | 1 | 11.55 |
+| Side panel, PC, clear, 483×503×3 mm | 2 | 11.57, 11.58 |
+| Top panel, PC, clear, 483×483×3 mm | 1 | 11.59 |
+| Aluminium handle | 2 | top panel (LDO) |
 | Foam tape, 1 mm | back panel + top panel perimeters | supplied, 1 roll |
 | Foam tape, 3 mm | both side panels + the Clicky-Clack door opening | supplied, 1 roll |
 | 3M VHB tape | 6 pads | bottom-panel clips and hinges (p.232) |
-| Aluminium handle | 2 | top panel (LDO) |
 | Extrusion slot cover, 6 mm | 2 × 9 m | optional cosmetic finish (LDO) |
+| M2.5×6 screw — from BTT screen packaging | 4 | BTT screen into its mount |
+| FFC ribbon — from BTT screen packaging | 1 | screen to the Pi's DSI port |
+| M3×16 BHCS — from the Nevermore parts bag | 4 | Nevermore fans to the plenum; the kit's fastener box has no M3×16 BHCS *(verify on bench)* |
+| M5×16 BHCS — from Clicky-Clack door kit | 4 | door frame blind joints |
+| M5×45 dowel pin — from Clicky-Clack door kit | 4 | door hinges 2, handle 2 |
+| M5×7×8 split bushing — from Clicky-Clack door kit | 6 | door hinges 4, handle hinges 2 |
+| M3×20 SHCS — from Clicky-Clack door kit | 4 | door hinges to the frame |
+| M3 roll-in T-nut — from Clicky-Clack door kit | 12 | door hinges 8, four on the printer and four on the door frame (11.62); handle hinges 4 (11.64); the bag holds 14 |
+| M3×8 SHCS — from Clicky-Clack door kit | 12 | handle locating screws 2, handle hinges 4; no source places the other 6 *(verify on bench)* |
+| M3×8 BHCS — from Clicky-Clack door kit | 1 | `Panel_Clip` into the latch |
+| M3 heat-set insert — from Clicky-Clack door kit | 1 | the latch |
+| 6×3 mm magnet — from Clicky-Clack door kit | 12 | handle 6, latch 4, handle hinges 2 (pockets counted in the STLs) |
+| Door frame extrusion, 2020 — from Clicky-Clack door kit | 4 | two 470 mm with tapped ends, two 530 mm with access holes |
+| Panel retainer strip — from Clicky-Clack door kit | 1 | 2 m rubber strip, cut to length |
+| Door panel, acrylic, 480×500×3 mm — from Clicky-Clack acrylic panel | 1 | the separate Fabreeko line item, not the kit's PC doors |
 
-Counts marked *(verify on bench)* are pages where the manual prints the fastener callout with no quantity. Count them off the exploded view as you go; the kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts in total, so you are not going to run short.
+Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
 
 **The LDO panel stack for a 350** — read this table before you cut a single strip of foam tape. Thicknesses are from the [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D); the clip assignment is derived in 11.53/11.57/11.59.
 
@@ -150,13 +156,13 @@ Counts marked *(verify on bench)* are pages where the manual prints the fastener
 |---|---|---|---|---|---|---|
 | Deck | Acrylic, black | 469 × 469 | **3 mm** (verify — see below) | — | `deck_support_*mm_x8`, fitted in **Ch 02** | — |
 | Bottom | Acrylic, black | 469 × 469 | **4 mm** | none — VHB pads instead | `bottom_panel_clip_x4` ×4 + `bottom_panel_hinge_x2` ×2 | M3×8 SHCS ×6 |
-| Back | Acrylic, black | 483 × 503 | **3 mm** | **1 mm** | 4 × `corner_panel_clip_4mm` + 3 × `midspan_panel_clip_4mm` | M3×8 SHCS ×7 |
-| Side (×2) | PC, clear | 483 × 503 | **3 mm** | **3 mm** | 4 × `corner_panel_clip_6mm` + 4 × `midspan_panel_clip_6mm`, **each side** | M3×12 SHCS ×8 each |
-| Top | PC, clear | 483 × 483 | **3 mm** | **1 mm** | 4 × `corner_panel_clip_4mm` + 4 × `midspan_panel_clip_4mm` | M3×8 SHCS ×8 |
+| Back | Acrylic, black | 483 × 503 | **3 mm** | **1 mm** | 4 × `corner_panel_clip_4mm` + 3 × `midspan_panel_clip_4mm` | M3×8 SHCS ×11 |
+| Side (×2) | PC, clear | 483 × 503 | **3 mm** | **3 mm** | 4 × `corner_panel_clip_6mm` + 4 × `midspan_panel_clip_6mm`, **each side** | M3×12 SHCS ×12 each |
+| Top | PC, clear | 483 × 483 | **3 mm** | **1 mm** | 4 × `corner_panel_clip_4mm` + 4 × `midspan_panel_clip_4mm` | M3×8 SHCS ×12 |
 | Front door (stock, ×2) | PC, clear | 241 × 503 | 3 mm | — | **NOT INSTALLED** | — |
 | Front door (Clicky-Clack) | Acrylic, clear (Fabreeko) | 480 × 500 | **3 mm** | **3 mm** on the frame face it seals against | extrusion frame + rubber retainer strip | M5×16 BHCS ×4 (frame) |
 
-Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` + `midspan_panel_clip_4mm_x7`. 6 mm → 8 corner + 8 midspan = exactly `corner_panel_clip_6mm_x8` + `midspan_panel_clip_6mm_x8`. Nothing left over, nothing short.
+Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` + `midspan_panel_clip_4mm_x7`. 6 mm → 8 corner + 8 midspan = exactly `corner_panel_clip_6mm_x8` + `midspan_panel_clip_6mm_x8`. Nothing left over, nothing short. A corner clip takes **two** screws and two hammerhead nuts, a midspan one (p.239, p.241, p.243).
 
 ⚠ **Deck panel thickness — unresolved conflict.** LDO's Build Notes for p.29–30 say *"The LDO deck panel has a 4mm nominal thickness, use deck_support_4mm instead of its 3mm counterpart"*, but LDO's own 350 Rev D BOM lists the deck panel as **469×469×3 mm** (and the *bottom* panel as 4 mm). One of the two documents is wrong. **Caliper the deck panel; do not resolve this from documents** (print plan §6). This is a **Ch 02** decision — if you fitted `deck_support_4mm_x8` under a 3 mm panel, the deck rattles and the skirt ring will not sit flat, and you fix it now, before the ring goes on, not later. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
@@ -199,7 +205,7 @@ Everything in Part A is done with the machine open, **unplugged**, and, in the b
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:**
 
@@ -223,16 +229,20 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- front run, three across: `front_skirt_a_350`, BTT `mount`, `front_skirt_b_350`
-- rear run, three across: `power_inlet_IECGS_1mm` in one corner, `rear_center_skirt_350` in the middle because it has no belt-guard cut-out, `keystone_panel` in the other corner
-- each side, three down: `side_skirt_a_350`, `side_fan_support`, `side_skirt_b_350`
-- twelve segments in all, sharing one 67 × 20 mm cross-section, so a mis-ordered ring still bolts together
-- `power_inlet_IECGS_1mm` is already bolted to the frame and wired in Ch 09/10 and stays there
+- `front_skirt_a_350` ×1
+- `front_skirt_b_350` ×1
+- `rear_center_skirt_350` ×1
+- `keystone_panel` ×1
+- `side_skirt_a_350` ×2
+- `side_skirt_b_350` ×2
+- `side_fan_support` ×2
+- reused: the BTT `mount`, taped to the front extrusion
+- reused: `power_inlet_IECGS_1mm`, already on the frame
 
 **Do:**
 
 1. Lay every segment face-down on the flat reference; no corner should rock.
-2. Lay the ring out in the order above, inlet corner rear-left seen from the front, as Ch 09 bolted it.
+2. Lay the ring out: front skirt, TFT module, front skirt; rear center between inlet and keystone; each side skirt, fan support, skirt. Inlet corner rear-left.
 
 **Check:** Twelve segments, none rocking, the ring closing with front and rear runs equal and the two sides equal.
 
@@ -248,37 +258,37 @@ Source: [Voron manual p.210](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.212](assets/manual-pages/manual-p212.png)
 
-**What you're looking at:** [Heat-set inserts](16-glossary.md#h) are brass M3×5×4 sleeves melted into a printed boss to give it a real metal thread. The skirt segments take two or three each: one in the top rail, a pair inside each curved cut-out.
+**What you're looking at:** [Heat-set inserts](16-glossary.md#h) are brass M3×5×4 sleeves melted into a printed boss to give it a real metal thread. Both front skirts and the keystone panel take three each; each fan support takes one.
 
 **Parts:**
 
-- M3×5×4 brass heat-set inserts — the page shows 2–3 per segment *(verify on bench)*
+- M3×5×4 heat-set insert ×11
 
-**Do:** Press an insert into every boss the page highlights: the top rail boss and the pair inside each curved cut-out. Part flat, tongue flush to the insert height, insert square, same tip temperature as the earlier 153.
+**Do:** Press an insert into every boss the page highlights: three in each front skirt and the keystone panel, one in each fan support's top rail. Part flat, insert square, same tip temperature as before.
 
 **Check:** Every insert flush or just below, none proud, no bulge on the show face. An M3×8 SHCS turns in freely by hand.
 
-Tip: the iron is hot: do the rest now. Fan grill retainers ×8 at 11.3, TFT mount ×2 at 11.5, Nevermore ×6 at 11.28, Clicky-Clack latch ×1 at 11.49. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Tip: the iron is hot: do the rest now. Bay fans and retainers ×16 at 11.3, TFT mount ×2 at 11.5, Nevermore ×6 at 11.28, Clicky-Clack latch ×1 at 11.49. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=212) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ---
 
-### Step 11.3 — Heat-set the fan grill retainers and identify the bay fans
+### Step 11.3 — Heat-set the bay fans and the fan grill retainers
 
-![Voron manual p.213](assets/manual-pages/manual-p213.png)
+![Voron manual p.213](assets/manual-pages/manual-p213.png){ crop="0.13 0.26 0.80 0.77" }
 
-**What you're looking at:** The fan grill retainer is the printed frame that sits inside a `side_fan_support` opening with a bay fan captured in it. Its four corner bosses take the inserts the grill screws bite into. The two 60 × 20 mm fans are the electronics-bay coolers.
+**What you're looking at:** The two 60 × 20 mm fans are the electronics-bay coolers. Each takes four inserts in its corner holes, and so does each printed grill retainer, which stands in for a fan behind the grills of the empty support.
 
 **Parts:**
 
+- reused: the two bay fans
 - `[a]_fan_grill_retainer` ×2
-- M3×5×4 heat-set inserts ×8 (4 per retainer)
-- 60×60×20 mm 24 V fan ×2
+- M3×5×4 heat-set insert ×16
 
-**Do:** Press four inserts into the corner bosses of each retainer. Find the two 60×20 fans and read the airflow arrow on each frame edge, not on the hub. You orient both the same way at 11.11.
+**Do:** Read each fan's airflow arrow on the frame edge. Press four inserts into the corner holes of the face the arrow points away from, then four into each retainer's corner bosses.
 
-**Check:** Eight inserts flush; a fan sits flat on a retainer with all four holes lining up on the inserts.
+**Check:** Sixteen inserts flush and square, four per fan on its intake face and four per retainer. No fan frame cracked.
 
 ⚠ **Rev D+ / LDO:** the kit ships exactly **two** 60×60×20 mm 24 V fans and **one** 3×2 XH splicer PCB, which joins them into a single "PCB FAN" run. Do not expect four. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
@@ -295,19 +305,21 @@ Source: [Voron manual p.213](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **What you're looking at:** The four manual pages show the mini12864, the small monochrome LCD with a click-wheel that a stock Voron uses as its display. This kit ships a 4.3" colour touchscreen instead, so all four pages, and every part on them, are dead.
 
-**Parts:**
-
-- none. The M3×12 SHCS, M3×40 SHCS and the length of filament these pages call for stay in the bag
+**Parts:** none.
 
 **Do:** Skip p.211, p.214, p.215 and p.216; they build a display module this kit does not have. Confirm you never printed `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert` or `[a]_btt_knob_light_shield`.
 
 **Check:** No mini12864 parts in your bins. The front-centre ring position is filled by the BTT mount from B08.
 
+**Helper:** Looks through the skirt bins for any mini12864 part and reads out what is there.
+
+Tip: the M3×12 SHCS, M3×40 SHCS and filament length these pages call for stay in their bags.
+
 ⚠ **Rev D+ / LDO:** *"For Rev C/D please use The BigTreeTech touchscreen, print the mount from here."* The mount STL is in the **LDOVoronTrident** repo — it is not in the Voron-2 tree. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [mount](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount)
 
 Source: [Voron manual p.211](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=211) · [Voron manual p.214–216](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=214) · [LDO Build Notes p.211, p.214–216](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDO BTT Pi TFT4.3 mount README](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/5b0496a/STLs/BTT%20Pi%20TFT4.3%20Mount)
 
-Pause: ~25 min since the last pause — machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments and the two fan grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.
+Pause: ~25 min since the last pause — machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments, both bay fans and the two grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.
 
 ---
 
@@ -319,9 +331,9 @@ Pause: ~25 min since the last pause — machine unplugged and proved dead at 11.
 
 **Parts:**
 
-- `mount.stl` ×1 (black)
-- `[a]_faceplate.stl` ×1 (blue)
-- M3×5×4 heat-set inserts ×2
+- `mount` ×1
+- `[a]_faceplate` ×1
+- M3×5×4 heat-set insert ×2
 - M3×8 SHCS ×2
 
 **Do:**
@@ -346,8 +358,9 @@ Source: [LDO BTT Pi TFT4.3 mount README](https://github.com/MotorDynamicsLab/LDO
 **Parts:**
 
 - 4.3" capacitive DSI display ×1
-- FFC ribbon cable ×1
-- M2.5×6 screws ×4 (supplied in the BTT packaging)
+- FFC ribbon ×1 — from BTT screen packaging
+- M2.5×6 screw ×4 — from BTT screen packaging
+- reused: the faceplated `mount`
 
 **Do:**
 
@@ -355,6 +368,8 @@ Source: [LDO BTT Pi TFT4.3 mount README](https://github.com/MotorDynamicsLab/LDO
 2. Fit the screen, FFC connector at the bottom edge, and drive the four M2.5×6 screws finger-tight.
 
 **Check:** Screen-end latch closed evenly, ribbon square in the socket, screen square in the faceplate aperture, FFC leaving the slot with no kink.
+
+**Helper:** Holds the mount steady, face down, while you seat the screen and drive its four screws.
 
 Tip: leave the front film on until the build is finished; tape over the free end's bare contacts until Ch 10 Step 10.50 latches the Pi end.
 
@@ -372,7 +387,9 @@ Source: [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_
 
 **Parts:**
 
-- the TFT module built at 10.50 (11.5–11.6) — taped to the front extrusion since Ch 10, ribbon latched at both ends and proved at 12.11 — M3×8 SHCS ×3, M3 roll-in T-nut ×3
+- reused: the touchscreen module, ribbon latched at both ends
+- M3 roll-in T-nut ×3
+- M3×8 SHCS ×3
 
 **Do:**
 
@@ -381,6 +398,8 @@ Source: [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_
 3. Slide the module between the two front skirts, top rails flush, and drive three M3×8 SHCS snug.
 
 **Check:** The module's top rail is flush and continuous with both front skirt rails; the screen is level; the gaps to `front_skirt_a` and `front_skirt_b` are equal.
+
+**Helper:** Holds the module level between the two front skirts while you drive its three screws.
 
 ⚠ **Rev D+ / LDO:** the manual's p.220 fastener is M3×12 SHCS into the mini12864 case. The BTT mount uses **M3×8 SHCS into M3 roll-in nuts** — 5 M3×8 and 3 roll-in nuts across steps 11.5 and 11.7. [src](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount)
 
@@ -397,9 +416,7 @@ Source: [Voron manual p.220](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- none new
-- the FFC ribbon cable ×1 is already in, latched at both ends at 10.50, screen end at 11.6
-- Pi end at the Pi's **DISPLAY** connector, metal contacts facing forward, blue tab to the rear, as in `RPI_DSI_FFC.jpg`
+- reused: the FFC ribbon, Pi end contacts forward and blue tab rearward
 
 **Do:**
 
@@ -421,7 +438,7 @@ Pause: ~10 min since the last pause — the touchscreen module (built at 10.50) 
 
 ### Step 11.9 — Fit the belt guards to the skirt segments
 
-![Voron manual p.217](assets/manual-pages/manual-p217.png)
+![Voron manual p.217](assets/manual-pages/manual-p217.png){ crop="0.13 0.18 0.81 0.86" }
 ![Belt guards a and b, side by side](assets/parts/pair-belt_guard_x2.png)
 
 **What you're looking at:** A belt guard is the blue ring that closes the circular cut-out in a skirt segment over an idler pulley, so nothing can reach a moving belt from outside. Guards `a` and `b` are mirror images, and the pair render shows both.
@@ -429,15 +446,17 @@ Pause: ~10 min since the last pause — the touchscreen module (built at 10.50) 
 **Parts:**
 
 - `[a]_belt_guard_a` ×2
-- `[a]_belt_guard_b` ×2 (blue)
-- M3×8 SHCS ×1 per guard (p.222 shows one; *verify on bench*)
+- `[a]_belt_guard_b` ×2
+- M3×8 SHCS ×6
 
 **Do:**
 
 1. Fit guards to `front_skirt_a`, `front_skirt_b` and `keystone_panel`. The plug-panel corner gets its guard in situ at 11.14.
-2. Dry-fit each corner: the boss drops in only one way round. Drive one M3×8 SHCS into the insert from 11.2.
+2. Dry-fit each corner: the boss drops in only one way round. Drive two M3×8 SHCS into the inserts from 11.2.
 
 **Check:** Three guards fitted flush, each aperture concentric with its cut-out, and the fourth set aside for 11.14 with its corner known.
+
+**Helper:** Sorts the guards into an a pile and a b pile and hands over the one each corner needs.
 
 Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=217)
 
@@ -445,15 +464,15 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.10 — Populate the keystone panel
 
-![Voron manual p.217](assets/manual-pages/manual-p217.png)
+![Voron manual p.217](assets/manual-pages/manual-p217.png){ crop="0.49 0.53 0.93 0.83" }
 
 **What you're looking at:** The keystone panel is the rear skirt segment with two rectangular cut-outs for snap-in network modules. The CAT6 keystone is the RJ45 socket that Ch 10's Ethernet run plugs into from the inside; the blue blank fills the second slot.
 
 **Parts:**
 
 - `keystone_panel` ×1
-- Keystone CAT6 insert ×1 (supplied)
-- `[a]_keystone_blank_insert` ×1 (blue; the second is a spare)
+- reused: the CAT6 keystone insert
+- `[a]_keystone_blank_insert` ×1
 
 **Do:** Snap the CAT6 keystone into whichever of the two slots suits your cable run to the Pi's Ethernet port, and the blue blank into the other. Both clip in from the inside face, no fasteners.
 
@@ -467,32 +486,34 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.11 — Build the electronics-bay fan modules
 
-![Voron manual p.225](assets/manual-pages/manual-p225.png)
-![Voron manual p.228](assets/manual-pages/manual-p228.png)
+![Voron manual p.225](assets/manual-pages/manual-p225.png){ crop="0.22 0.25 0.65 0.70" }
+![Voron manual p.228](assets/manual-pages/manual-p228.png){ crop="0.34 0.18 0.87 0.73" }
 ![Fan grills a and b, side by side](assets/parts/pair-fan_grill_x2.png)
 
-**What you're looking at:** Each `side_fan_support` has **two** fan openings. This kit has two fans, two retainers and four grills, so both fans go in the right-hand support, the PSU side seen from the front, and the left support gets grills only. Grills `a` and `b` are mirrored.
+**What you're looking at:** Each `side_fan_support` has **two** fan openings. Both fans go in the right-hand support, the PSU side seen from the front. On the left, the two grill retainers stand in for fans. Grills `a` and `b` are mirrored.
 
 **Parts:**
 
-- 60×60×20 mm 24 V fan ×2
+- reused: the two bay fans, inserts fitted
+- reused: the two grill retainers, inserts fitted
 - `side_fan_support` ×2
-- `[a]_fan_grill_a` ×2 and `[a]_fan_grill_b` ×2, blue
-- `[a]_fan_grill_retainer` ×2, from 11.3
-- M3×8 SHCS ×4 per fan, 8 total
-- stack at each populated opening, from outside in: blue grill, support wall, then the retainer directly behind the wall with the fan captured in its frame and its leads toward the bay. The screws never pass through the fan, so the retainer's inserts must sit within ~8 mm of the grill face for an M3×8 to reach them *(verify on bench)*
+- `[a]_fan_grill_a` ×2
+- `[a]_fan_grill_b` ×2
+- M3×8 SHCS ×16
 
 **Do:**
 
-1. Build both right-hand openings to the stack above, four M3×8 SHCS from outside into the inserts.
-2. Both airflow arrows **into** the bay. Leads uncut.
-3. Blank the left support with the remaining grills, no retainer *(verify on bench)*.
+1. Right support: grill outside each opening, fan behind, four M3×8 SHCS through the grill into the fan's inserts.
+2. Both arrows **into** the bay; leads uncut.
+3. Left support: the same, a retainer for each fan.
 
-**Check:** Two fans in the right-hand support, spinning freely, screws snug without crushing the fan bodies, arrows pointing into the bay. Left support: grills only.
+**Check:** Two fans in the right-hand support, spinning freely, arrows into the bay. Left support: grills on retainers. Screws snug, fan frames not crushed.
 
-⚠ **Rev D+ / LDO:** the kit contains **two** 60×20 fans, **two** retainers, **four** grills and **one** 3×2 splicer PCB. The manual draws fans in both supports; count the fans you have. LDO's Rev D bay photos S1, S4, S6 put both beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+**Helper:** Reads each fan's airflow arrow aloud and checks both point into the bay.
 
-Tip: `[a]_fan_grill_open_optional_x2` is an alternate grill with more open area and less filtering, if the bay runs warm. The two blank grills need their own fixing *(verify on bench)*. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Skirts)
+⚠ **Rev D+ / LDO:** the kit contains **two** 60×20 fans, **two** retainers, **four** grills and **one** 3×2 splicer PCB. p.228 is the fan support, p.225 the retainer support. LDO's Rev D bay photos S1, S4, S6 put the fans beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+
+Tip: `[a]_fan_grill_open_optional_x2` is an alternate grill with more open area and less filtering, if the bay runs warm. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Skirts)
 
 Source: [Voron manual p.225](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=225) · [Voron manual p.228](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=228) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Voron-2 `STLs/Skirts/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Skirts)
 
@@ -500,48 +521,56 @@ Source: [Voron manual p.225](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.12 — Pre-load the skirt T-nuts
 
-![Voron manual p.218](assets/manual-pages/manual-p218.png)
-![Voron manual p.226](assets/manual-pages/manual-p226.png)
-![Voron manual p.229](assets/manual-pages/manual-p229.png)
+![Voron manual p.218](assets/manual-pages/manual-p218.png){ crop="0.45 0.51 0.88 0.83" }
+![Voron manual p.222](assets/manual-pages/manual-p222.png){ crop="0.44 0.53 0.90 0.79" }
+![Voron manual p.226](assets/manual-pages/manual-p226.png){ crop="0.12 0.21 0.56 0.53" }
+![Voron manual p.229](assets/manual-pages/manual-p229.png){ crop="0.09 0.18 0.48 0.53" }
 
 **What you're looking at:** A [roll-in T-nut](16-glossary.md#r) drops into an extrusion slot and rotates a quarter turn to lock, so it can be added after a frame is built. Once a skirt segment covers the slot, no nut can get in.
 
 **Parts:**
 
-- M3 roll-in T-nut ×12 — front extrusion ×4 (p.218), rear ×4 (p.222), each side ×2 (p.226, p.229)
-- M5 roll-in T-nut ×2 — one per side, under the fan support, where p.226/p.229 show the larger M5×10 BHCS. The TFT mount's three M3 T-nuts went in at 11.7
+- M3 roll-in T-nut ×12
+- M5 roll-in T-nut ×2
 
 **Do:**
 
-1. Roll every T-nut the ring needs into the frame extrusions **before** any segment goes up, each left loose at roughly its position.
-2. An M3 at each skirt-to-frame screw position, an M5 between the two M3 per side.
+1. Roll every T-nut into the frame extrusions **before** any segment goes up, each loose at roughly its position.
+2. M3: four front, four rear, two per side. M5: one per side, between that side's two M3.
 
 **Check:** Every T-nut sits flat in its slot and slides with light finger pressure. None jammed, none dropped inside a closed extrusion end.
+
+**Helper:** Counts twelve M3 and two M5 T-nuts into a tray and hands them over one at a time.
 
 ⚠ **Rev D+ / LDO:** *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly to identify the sides of the extrusions that fits the best or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.218](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=218) · [Voron manual p.226](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=226) · [Voron manual p.229](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=229) · [LDO Build Notes p.218](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [Video: Part 5 @4:24:04](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15844s)
 
-Pause: ~15 min since the last pause — three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one blanked, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.
+Pause: ~15 min since the last pause — three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one with its two retainers, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.
 
 ---
 
 ### Step 11.13 — Mount the front skirt segments
 
-![Voron manual p.219](assets/manual-pages/manual-p219.png)
+![Voron manual p.219](assets/manual-pages/manual-p219.png){ crop="0.11 0.19 0.82 0.84" }
 
 **What you're looking at:** The front run is the most-looked-at part of a finished Voron: skirt, touchscreen module, skirt, reading as one continuous band. Snugging first and only then closing the joints is what makes the two seams disappear.
 
 **Parts:**
 
-- `front_skirt_a_350` ×1, `front_skirt_b_350` ×1, M3×8 SHCS *(verify on bench)*
+- `front_skirt_a_350` ×1
+- `front_skirt_b_350` ×1
+- M3×8 SHCS ×4
+- reused: the four front T-nuts
 
 **Do:**
 
-1. Hang each front skirt on its T-nuts, belt-guard aperture over the front idler, and drive the M3×8 SHCS up from underneath.
+1. Hang each front skirt on its T-nuts, belt-guard aperture over the front idler, and drive two M3×8 SHCS up from underneath.
 2. Snug them, back off a quarter turn, push both hard against the TFT module, then tighten.
 
 **Check:** Front run reads as one continuous band: skirt–module–skirt with equal, tight joints and a flush top rail. No daylight at the front idler apertures.
+
+**Helper:** Holds each front skirt against the touchscreen module while you drive its screws.
 
 Source: [Voron manual p.219](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=219)
 
@@ -549,23 +578,30 @@ Source: [Voron manual p.219](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.14 — Mount the rear skirt run
 
-![Voron manual p.222](assets/manual-pages/manual-p222.png)
-![Voron manual p.223](assets/manual-pages/manual-p223.png)
-![Voron manual p.224](assets/manual-pages/manual-p224.png)
+![Voron manual p.222](assets/manual-pages/manual-p222.png){ crop="0.17 0.19 0.55 0.52" }
+![Voron manual p.223](assets/manual-pages/manual-p223.png){ crop="0.08 0.18 0.86 0.78" }
+![Voron manual p.224](assets/manual-pages/manual-p224.png){ crop="0.17 0.18 0.85 0.78" }
 
 **What you're looking at:** The rear run has three segments. One of them, the `power_inlet_IECGS_1mm` panel carrying the AC inlet, has been on the machine since Ch 09 and never moves. p.222 is not a segment: it shows the last belt guard going onto that panel.
 
 **Parts:**
 
-- the fourth belt guard from 11.9 + M3×8 SHCS ×1 (p.222), `keystone_panel` ×1 (from 11.10, guard already on), `rear_center_skirt_350` ×1, the already-fitted `power_inlet_IECGS_1mm` segment, M3×8 SHCS ×4 into the four M3 T-nuts pre-loaded at 11.12
+- reused: the fourth belt guard
+- reused: the populated `keystone_panel`
+- `rear_center_skirt_350` ×1
+- reused: `power_inlet_IECGS_1mm`, already on the frame
+- reused: the four rear T-nuts
+- M3×8 SHCS ×6
 
 **Do:**
 
-1. Belt guard onto the mounted plug panel, one M3×8 SHCS into its insert from outside.
+1. Belt guard onto the plug panel, two M3×8 SHCS into its inserts.
 2. `keystone_panel` into the **far** rear corner, then `rear_center_skirt_350` into the gap.
-3. Feed the Ethernet through the keystone, snug, push the joints closed, tighten.
+3. Feed the Ethernet through the keystone. Two M3×8 per segment: snug, close the joints, tighten.
 
 **Check:** Rear run continuous and flush, all four guards on, the AC switch moving freely, RJ45 keystone square, nothing pinching the Ethernet or AC leads.
+
+**Helper:** Holds the rear center skirt in its gap while you drive the screws.
 
 ⚠ **Rev D+ / LDO:** the inlet segment is `power_inlet_IECGS_1mm` — the 1.0 mm AC inlet with the integrated switch. The 1.2 mm variants and `power_inlet_filtered` are wrong for this kit. p.222–224 are drawn from the rear, plug panel on the image-left, which is the printer's right; follow the panel on your frame, not the picture's side. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -575,8 +611,8 @@ Source: [Voron manual p.222–224](https://github.com/VoronDesign/Voron-2/blob/d
 
 ### Step 11.15 — Mount the first side skirt run
 
-![Voron manual p.226](assets/manual-pages/manual-p226.png)
-![Voron manual p.227](assets/manual-pages/manual-p227.png)
+![Voron manual p.226](assets/manual-pages/manual-p226.png){ crop="0.51 0.53 0.93 0.83" }
+![Voron manual p.227](assets/manual-pages/manual-p227.png){ crop="0.08 0.16 0.48 0.45" }
 
 **What you're looking at:** Each side run is three segments: `side_skirt_a` at the front, the fan support in the middle, `side_skirt_b` at the rear. The two skirts go on first and stay loose, because the fan support drops into the gap they leave.
 
@@ -584,7 +620,8 @@ Source: [Voron manual p.222–224](https://github.com/VoronDesign/Voron-2/blob/d
 
 - `side_skirt_a_350` ×1
 - `side_skirt_b_350` ×1
-- M3×8 SHCS ×2 — the right-hand fan support from 11.11 (two fans) waits for 11.16
+- M3×8 SHCS ×2
+- reused: this side's two M3 T-nuts
 
 **Do:**
 
@@ -593,20 +630,24 @@ Source: [Voron manual p.222–224](https://github.com/VoronDesign/Voron-2/blob/d
 
 **Check:** Both segments parallel to the extrusion, top rails level with the front and rear runs, the gap matching the fan module's width.
 
+**Helper:** Holds each side skirt level against the extrusion while you start its screw.
+
 Source: [Voron manual p.226](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=226) · [Voron manual p.227](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=227)
 
 ---
 
 ### Step 11.16 — Drop in the fan module and close the side run
 
-![Voron manual p.227](assets/manual-pages/manual-p227.png)
-![Voron manual p.230](assets/manual-pages/manual-p230.png)
+![Voron manual p.227](assets/manual-pages/manual-p227.png){ crop="0.14 0.56 0.80 0.88" }
+![Voron manual p.230](assets/manual-pages/manual-p230.png){ crop="0.57 0.17 0.93 0.84" }
 
 **What you're looking at:** The right-hand fan support from 11.11, both fans in it, is the middle segment of the side run. It is trapped rather than screwed at its ends, so pushing the two skirts against it closes both joints.
 
 **Parts:**
 
-- the right-hand fan support from 11.11, M5×10 BHCS ×1
+- reused: the right-hand fan support with both fans
+- M5×10 BHCS ×1
+- reused: this side's M5 T-nut
 
 **Do:**
 
@@ -616,28 +657,37 @@ Source: [Voron manual p.226](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** The whole side one band with flush joints, both fans spinning freely, no lead trapped between the support and the extrusion.
 
+**Helper:** Holds the fan support in the gap, grills out, while you drive the M5 screw.
+
 Source: [Voron manual p.227](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=227) · [Voron manual p.230](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=230)
 
 ---
 
 ### Step 11.17 — Mount the second side skirt run
 
-![Voron manual p.229](assets/manual-pages/manual-p229.png)
-![Voron manual p.230](assets/manual-pages/manual-p230.png)
+![Voron manual p.229](assets/manual-pages/manual-p229.png){ crop="0.09 0.18 0.77 0.82" }
+![Voron manual p.230](assets/manual-pages/manual-p230.png){ crop="0.15 0.15 0.56 0.53" }
 
-**What you're looking at:** The same three-segment run on the **left-hand** side. Its middle segment is the second `side_fan_support`, no fans in it, just the two blank grills from 11.11. When it closes, the skirt ring is continuous all the way round.
+**What you're looking at:** The same three-segment run on the **left-hand** side. Its middle segment is the second `side_fan_support`, no fans in it, just grills on the two retainers from 11.11. When it closes, the skirt ring is continuous all the way round.
 
 **Parts:**
 
-- `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, the left-hand `side_fan_support` with its two blank grills, M3×8 SHCS ×2, M5×10 BHCS ×1
+- `side_skirt_a_350` ×1
+- `side_skirt_b_350` ×1
+- reused: the left-hand fan support with its retainers
+- M3×8 SHCS ×2
+- M5×10 BHCS ×1
+- reused: this side's three T-nuts
 
-**Do:** Repeat 11.15 and 11.16 on the left-hand side with the blanked support. p.229 shows the T-nuts, p.230 the fasteners; both draw fans in this support and yours has none.
+**Do:** Repeat 11.15 and 11.16 on the left-hand side with the retainer support. p.229 shows the T-nuts, p.230 the fasteners.
 
-**Check:** The ring closed all the way round, every joint tight, every top rail flush. Two fans right, two blank grills left.
+**Check:** The ring closed all the way round, every joint tight, every top rail flush. Two fans right, two retainers left.
+
+**Helper:** Holds the left fan support in its gap while you close the run.
 
 Source: [Voron manual p.229](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=229) · [Voron manual p.230](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=230)
 
-Pause: ~20 min since the last pause — front, rear and both side skirt runs mounted, both bay fans trapped in the right-hand run, the left run blanked. The ring is complete all the way round; no run is half-fastened.
+Pause: ~20 min since the last pause — front, rear and both side skirt runs mounted, both bay fans in the right-hand run, grills on retainers in the left. The ring is complete all the way round; no run is half-fastened.
 
 ---
 
@@ -650,7 +700,7 @@ Pause: ~20 min since the last pause — front, rear and both side skirt runs mou
 
 **Parts:**
 
-- 3×2 XH splicer PCB ×1, its printed spacer (supplied printed by LDO)
+- reused: the 3×2 XH splicer PCB on its printed spacer
 
 **Do:**
 
@@ -674,11 +724,13 @@ Source: [Voron manual p.228](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- `ldo_bestagon_insert` ×1 (blue), or as many as you printed
+- `ldo_bestagon_insert` ×1
 
 **Do:** Push the insert into one of the skirt hexagons from the outside until it snaps. Pick a hexagon on the front-left or front-right skirt where it reads without competing with the touchscreen.
 
 **Check:** Insert flush and retained; the hexagon is not stressed white at the corners.
+
+**Helper:** Picks the hexagon and pushes the insert in until it clicks.
 
 Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs)
 
@@ -686,15 +738,16 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 
 ### Step 11.20 — VHB the bottom-panel clips and hinges
 
-![Voron manual p.232](assets/manual-pages/manual-p232.png)
+![Voron manual p.232](assets/manual-pages/manual-p232.png){ crop="0.29 0.18 0.57 0.48" }
 
 **What you're looking at:** 3M VHB is a double-sided acrylic foam tape that reaches most of its strength within an hour and does not come off again. These six printed parts, four clips and two hinges, are what the bottom panel bonds to.
 
 **Parts:**
 
-- `bottom_panel_clip_x4` ×4
-- `bottom_panel_hinge_x2` ×2
-- 3M VHB tape ×6 pads
+- `bottom_panel_clip` ×4
+- `bottom_panel_hinge` ×2
+- consumable: 3M VHB tape, six pads
+- consumable: IPA and a lint-free cloth
 
 **Do:**
 
@@ -704,33 +757,39 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 
 **Check:** Six parts, six pads, each centred with no overhang onto a curved face, liners still on.
 
+**Helper:** Wipes all six pad faces with IPA and the cloth before the pads go on.
+
 Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=232)
 
 ---
 
 ### Step 11.21 — Fit the bottom panel
 
-![Voron manual p.232](assets/manual-pages/manual-p232.png)
-![Voron manual p.233](assets/manual-pages/manual-p233.png)
+![Voron manual p.232](assets/manual-pages/manual-p232.png){ crop="0.40 0.52 0.83 0.84" }
+![Voron manual p.233](assets/manual-pages/manual-p233.png){ crop="0.08 0.18 0.87 0.87" }
 
 **What you're looking at:** The bottom panel is the 4 mm acrylic floor of the electronics bay, and it is a **door**: VHB-bonded to two rear hinges and held by four snap clips, it unclips at the front and swings down for access through Ch 13.
 
 **Parts:**
 
-- bottom panel (acrylic, black, 469×469×**4 mm**) ×1, the six taped parts from 11.20, M3×8 SHCS ×6, M3 T-nut ×6 *(p.233 draws the screws straight into the extrusion — one nut per screw, verify on bench)*
+- bottom panel, acrylic, black, 469×469×4 mm ×1
+- reused: the six taped clips and hinges
+- M3×8 SHCS ×6
 
 **Do:**
 
-1. Screw the hinges to the rear extrusion and the clips front and sides, one M3×8 SHCS each.
+1. Screw each part into its skirt insert with one M3×8 SHCS: hinges rear, clips front and sides.
 2. Peel the film off both panel faces, pull the liners, and press the panel home, hinge edge at the rear.
 
 **Check:** Panel square, equal margins, no rock, every pad bonded. After an hour, release the front clips and swing it down, clearing the skirt ring.
+
+**Helper:** Holds the panel square to the frame while you press it onto the pads.
 
 ⚠ **Rev D+ / LDO:** the bottom panel is the **4 mm** acrylic, not the 3 mm deck panel. If you are holding a 469×469 panel and cannot tell which is which, caliper it — 3 mm is the deck (fitted back in Ch 02), 4 mm is this one. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 Tip: swing the door with the machine still on its side or up on blocks; confirm every duct is reachable, then close it.
 
-Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=232) · [Voron manual p.233](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=233) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=232) · [Voron manual p.233](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=233) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~20 min since the last pause — bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.
 
@@ -738,14 +797,15 @@ Pause: ~20 min since the last pause — bay-fan wiring verified against Ch 10, b
 
 ### Step 11.22 — Choose the Z belt cover variant
 
-![Voron manual p.234](assets/manual-pages/manual-p234.png)
+![Voron manual p.234](assets/manual-pages/manual-p234.png){ crop="0.16 0.25 0.87 0.68" }
 ![Z belt covers a and b, side by side](assets/parts/pair-z_belt_cover_x2.png)
 
 **What you're looking at:** A Z belt cover is a printed shroud that clips over each of the four Z belts at a frame corner, so nothing can be drawn into the belt. LDO's alternate `_a_led` version adds a cable slot for LED wiring routed through a Z-motor opening.
 
 **Parts:**
 
-- `z_belt_cover_a_x2` ×2 and `z_belt_cover_b_x2` ×2 — **or** LDO's `z_belt_cover_a_led` in place of `z_belt_cover_a`
+- `z_belt_cover_a` ×2
+- `z_belt_cover_b` ×2
 
 **Do:** Check how Ch 10 routed the chamber LED wiring. Ch 10 used the extrusion slot, so the stock covers apply. If any LED wire passes through a **Z-motor opening**, print LDO's `z_belt_cover_a_led` for that corner, a 7 g, 25-minute part.
 
@@ -759,13 +819,13 @@ Source: [Voron manual p.234](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.23 — Load each cover with a hammerhead nut
 
-![Voron manual p.234](assets/manual-pages/manual-p234.png)
+![Voron manual p.234](assets/manual-pages/manual-p234.png){ crop="0.16 0.25 0.87 0.68" }
 
 **What you're looking at:** A [hammerhead T-nut](16-glossary.md#h) drops straight into an extrusion slot from the face rather than rolling in from an end, then rotates a quarter turn under load to lock. Starting the screw keeps the nut captive in the cover's recess.
 
 **Parts:**
 
-- Z belt covers ×4
+- reused: the four Z belt covers
 - M3 hammerhead T-nut ×4
 - M3×6 BHCS ×4
 
@@ -773,19 +833,21 @@ Source: [Voron manual p.234](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Nut captive, screw started, nut still able to turn, the head still reachable with a 2 mm hex once the cover is on.
 
+**Helper:** Counts four covers, four nuts and four screws onto the tray.
+
 Source: [Voron manual p.234](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=234)
 
 ---
 
 ### Step 11.24 — Fit the first Z belt cover
 
-![Voron manual p.235](assets/manual-pages/manual-p235.png)
+![Voron manual p.235](assets/manual-pages/manual-p235.png){ crop="0.06 0.19 0.89 0.66" }
 
 **What you're looking at:** The cover goes on with the belt already threaded through its slot, which is why the belt is pinched flat first. The click you feel is the hammerhead nut rotating and biting inside the extrusion channel.
 
 **Parts:**
 
-- one loaded cover from 11.23
+- reused: one loaded Z belt cover
 
 **Do:**
 
@@ -793,6 +855,8 @@ Source: [Voron manual p.234](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 2. Hold the cover square, tighten the M3×6 BHCS. If the nut spins, back off and re-seat it squarely.
 
 **Check:** Cover flat against the extrusion, the Z belt running through freely with no rub, the cover not moving when pushed.
+
+**Helper:** Pinches the Z belt flat while you slide the cover in.
 
 Source: [Voron manual p.235](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=235)
 
@@ -807,11 +871,13 @@ Source: [Voron manual p.235](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- the three remaining loaded covers
+- reused: the three remaining loaded covers
 
 **Do:** Repeat 11.24 at the other three Z belt corners. Then run the gantry up and down its full travel by hand and watch each cover.
 
 **Check:** Four covers on, all four belts running clear, no rubbing anywhere in the full Z travel.
+
+**Helper:** Watches each cover and calls out any rub while you move the gantry.
 
 Tip: p.237 is a page of Voron history, nothing to build.
 
@@ -829,7 +895,10 @@ Pause: ~15 min since the last pause — all four Z belt covers on, each with its
 
 **Parts:**
 
-- `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge`, `Regular_Cartridge_Lid`
+- `V2_Duo_Plenum` ×1
+- `V2_Duo_Plenum_LID` ×1
+- `Regular_Cartridge` ×1
+- `Regular_Cartridge_Lid` ×1
 
 **Do:** The cartridge and the plenum each carry a built-in printed support. Push them out; they break at the interface. Do not cut them out with a knife.
 
@@ -849,7 +918,8 @@ Source: [LDO Nevermore V5 Duo guide § Preparation](https://ldomotion.com/guides
 
 **Parts:**
 
-- 5015 fan ×2 (supplied in the kit's Nevermore bag)
+- staged: Nevermore 5015 fan ×2
+- tool: wire snips
 
 **Do:**
 
@@ -871,7 +941,8 @@ Source: [LDO Nevermore V5 Duo guide § Preparation](https://ldomotion.com/guides
 
 **Parts:**
 
-- M3×5×4 heat-set inserts ×6
+- M3×5×4 heat-set insert ×6
+- reused: the plenum and the cartridge
 
 **Do:** Four inserts go into the **fan mounting holes**, one into the **plenum**, one into the **cartridge**. Six total.
 
@@ -889,7 +960,8 @@ Source: [LDO Nevermore V5 Duo guide § Preparation](https://ldomotion.com/guides
 
 **Parts:**
 
-- the 5015 fan with the longer lead
+- staged: the long-lead Nevermore 5015 fan
+- tool: side cutters
 
 **Do:** Cut the JST connector off the longer-leaded fan. **Keep the connector pigtail**; it gets soldered back onto the bridge PCB at 11.33.
 
@@ -909,7 +981,9 @@ Pause: ~15 min since the last pause — Nevermore supports broken off, both 5015
 
 **Parts:**
 
-- the cut-lead fan from 11.29, plenum
+- Nevermore 5015 fan, cut lead ×1
+- reused: the plenum
+- tool: tweezers
 
 **Do:** Route the fan's wires from the **right** side of the plenum, right to left along the wire channel, with tweezers. Then seat the fan in the **right** side and pull the wire flat in the channel.
 
@@ -927,7 +1001,8 @@ Source: [LDO Nevermore V5 Duo guide § Install Fans](https://ldomotion.com/guide
 
 **Parts:**
 
-- the second 5015 fan
+- Nevermore 5015 fan ×1
+- tool: side cutters
 
 **Do:** Route its wires from the **left** side of the plenum, right to left, and seat the fan in the left side. Now cut both fans' wires to equal length, roughly **30–40 mm** proud of the enclosure.
 
@@ -945,7 +1020,8 @@ Source: [LDO Nevermore V5 Duo guide § Install Fans](https://ldomotion.com/guide
 
 **Parts:**
 
-- M3×16 BHCS ×4
+- M3×16 BHCS ×4 — from the Nevermore parts bag
+- reused: the two Nevermore fans
 
 **Do:** Drive the four M3×16 BHCS into the fan heat-sets from 11.28. Snug only; a 5015 housing distorts and the impeller rubs if you crank them.
 
@@ -963,7 +1039,10 @@ Source: [LDO Nevermore V5 Duo guide § Install Fans](https://ldomotion.com/guide
 
 **Parts:**
 
-- bridge PCB ×1, the connector pigtail saved at 11.29
+- Nevermore bridge PCB ×1
+- reused: the saved connector pigtail
+- tool: soldering iron and solder
+- tool: multimeter
 
 **Do:**
 
@@ -989,11 +1068,14 @@ Pause: ~20 min since the last pause — both fans seated in the plenum, leads tr
 
 **Parts:**
 
-- 6×3 mm neodymium magnets, super glue
+- 6×3 mm neodymium magnet ×4
+- consumable: super glue
 
-**Do:** Drop a spot of super glue into each magnet pocket in the plenum and press a magnet in, one at a time, **all with the same pole facing out**. Press each fully home so none stands proud.
+**Do:** Drop a spot of super glue into each of the plenum's four magnet pockets and press a magnet in, one at a time, **all with the same pole facing out**. Press each fully home.
 
-**Check:** All plenum magnets flush and the same polarity across the set: a spare magnet is attracted to every one the same way.
+**Check:** All four plenum magnets flush and the same polarity: a spare magnet is attracted to every one the same way.
+
+**Helper:** Tests each magnet against a spare and hands them over all the same side up.
 
 Source: [LDO Nevermore V5 Duo guide § Nevermore Assembly](https://ldomotion.com/guides/nevermore-v5-duo---v24) · [Video: Extras! @2:59:56](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10796s)
 
@@ -1007,7 +1089,8 @@ Source: [LDO Nevermore V5 Duo guide § Nevermore Assembly](https://ldomotion.com
 
 **Parts:**
 
-- `V2_Duo_Plenum_LID`, M3×6 BHCS ×1 (optional second M3×4 BHCS for symmetry)
+- `V2_Duo_Plenum_LID` ×1
+- M3×6 BHCS ×1
 
 **Do:** Slide the lid into the plenum body's grooves and secure with the M3×6 BHCS into the plenum heat-set. Add the optional M3×4 on the other side if you want it to look symmetric.
 
@@ -1025,11 +1108,15 @@ Source: [LDO Nevermore V5 Duo guide § Nevermore Assembly](https://ldomotion.com
 
 **Parts:**
 
-- 6×3 mm neodymium magnets, super glue, a marker
+- 6×3 mm neodymium magnet ×4
+- consumable: super glue
+- tool: a marker
 
 **Do:** Stick each magnet to the assembled plenum, mark the exposed face, and keep that orientation. Then glue them into the cartridge pockets one at a time, marked face out.
 
-**Check:** Cartridge offers up to the plenum and snaps home; it holds against a firm shake; all magnets flush.
+**Check:** Cartridge offers up to the plenum and snaps home; it holds against a firm shake; all four magnets flush.
+
+**Helper:** Marks the exposed face of each magnet while it sits on the plenum.
 
 Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
@@ -1043,7 +1130,10 @@ Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com
 
 **Parts:**
 
-- `Regular_Cartridge_Lid`, M3×6 BHCS ×1, a marker, 4 mm acid-free activated carbon pellets if you have them, **not supplied**
+- `Regular_Cartridge_Lid` ×1
+- M3×6 BHCS ×1
+- tool: a marker
+- consumable: 4 mm acid-free activated carbon pellets, not supplied
 
 **Do:**
 
@@ -1052,6 +1142,8 @@ Source: [LDO Nevermore V5 Duo guide § Cartridge Assembly](https://ldomotion.com
 3. Write the fill state and date on the lid.
 
 **Check:** Lid home in both grooves, screw snug, no pellets in the grooves. Fill state written on the lid.
+
+**Helper:** Writes the fill state and the date on the cartridge lid.
 
 ⚠ **Media not in the kit.** LDO: *"NOT INCLUDED WITH THE KIT"*, acid-free pellets recommended. The Nevermore project warns that acid-residue carbon corrodes rails and switches: buy only vetted acid-free carbon. An empty, closed cartridge is fine until then; the filter still installs and wires. [src](https://ldomotion.com/guides/nevermore-v5-duo---v24)
 
@@ -1069,6 +1161,7 @@ Pause: ~20 min since the last pause — plenum and cartridge magnets glued **in 
 
 **Parts:**
 
+- reused: the plenum assembly
 - M3 roll-in T-nut ×2
 - M3×12 SHCS ×2
 
@@ -1088,7 +1181,7 @@ Source: [LDO Nevermore V5 Duo guide § Installation for Voron V2.4](https://ldom
 
 **Parts:**
 
-- cartridge from 11.37
+- reused: the cartridge
 
 **Do:** Slide the cartridge along until the magnets take, and let it pull itself home.
 
@@ -1106,11 +1199,13 @@ Source: [LDO Nevermore V5 Duo guide § Installation for Voron V2.4](https://ldom
 
 **Parts:**
 
-- the kit's **FILTER FAN** extension wire
+- reused: the kit's FILTER FAN extension lead
 
 **Do:** Mate the Nevermore's pigtail with the FILTER FAN extension and follow it back to the Leviathan. It lands on **FAN3 / PF9**. With the machine still unplugged, confirm that header's voltage-selection jumper is set for **24 V**.
 
 **Check:** Filter fan on FAN3/PF9; 24 V jumper confirmed; the lead is routed in the duct and cannot be caught by the bed or the gantry.
+
+**Helper:** Finds the FILTER FAN tag on the coiled lead and reads it aloud.
 
 ⚠ **Rev D+ / LDO:** the Nevermore guide was written for a **BTT Octopus** and tells you to use *"Octopus Fan3 - Pinout PD13"*. This machine has a **Leviathan**. Use **FAN3 / PF9** from the Rev D wiring guide's fan table. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
@@ -1130,13 +1225,15 @@ Source: [LDO wiring guide § Connecting the fans and the LED strip](https://docs
 
 **Check:** Tag on the plenum reading "FILTER FAN → FAN3 / PF9". Ch 12's config checklist has the Nevermore section on it.
 
+**Helper:** Writes the tag and tapes it to the plenum.
+
 Source: [LDO Nevermore V5 Duo guide § Configuration printer.cfg](https://ldomotion.com/guides/nevermore-v5-duo---v24) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 ---
 
 ### Step 11.42 — Fit the bowden retainer
 
-![Voron manual p.257](assets/manual-pages/manual-p257.png)
+![Voron manual p.257](assets/manual-pages/manual-p257.png){ crop="0.10 0.19 0.88 0.73" }
 ![Voron manual p.258](assets/manual-pages/manual-p258.png)
 
 **What you're looking at:** The bowden retainer is a small printed clamp on the top rear extrusion that holds the PTFE tube guiding filament from the spool into the toolhead umbilical. Its only job is to stop the tube kinking where it changes direction.
@@ -1160,21 +1257,21 @@ Source: [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.43 — Fit the spool holder arm
 
-![Voron manual p.259](assets/manual-pages/manual-p259.png)
+![Voron manual p.259](assets/manual-pages/manual-p259.png){ crop="0.10 0.19 0.88 0.84" }
 
 **What you're looking at:** The spool holder is the printed arm that carries a 1 kg filament spool on the rear of the machine. The two short PTFE offcuts pressed into its grooves are the bearing surface the spool turns on.
 
 **Parts:**
 
 - `spool_holder` ×1
-- PTFE tube offcuts ×2 (4 mm OD)
-- M5 T-nut ×2
-- M5×16 BHCS ×2 *(verify on bench)*
+- consumable: PTFE tube, two short offcuts
+- M5 roll-in T-nut ×1
+- M5×16 BHCS ×1
 
 **Do:**
 
 1. Press the two short PTFE lengths into the grooves along the arm.
-2. Roll the M5 T-nuts into the rear vertical extrusion at spool height, offer the arm up, and drive the M5×16 BHCS home.
+2. Roll the M5 T-nut into the rear vertical extrusion at spool height, offer the arm up, and drive the M5×16 BHCS home.
 
 **Check:** Arm level and solid enough for a full 1 kg spool, both PTFE inserts seated, a spool spinning with light finger pressure without binding.
 
@@ -1188,22 +1285,25 @@ Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartri
 
 (no image — see [KB3D install guide](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod) · [mod README](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door))
 
-**What you're looking at:** [Clicky-Clack](16-glossary.md#c) is the magnetic-latch front door: a 2020 aluminium frame around one clear acrylic panel, hung on lift-off hinges and closed by a magnetic handle and latch. The corners are blind joints, a screw through an access hole into a tapped end face.
+**What you're looking at:** [Clicky-Clack](16-glossary.md#c) is the magnetic-latch front door: a 2020 aluminium frame around one clear acrylic panel. The two shorter extrusions have tapped ends; the longer two have access holes for the blind-joint screws.
 
 **Parts:**
 
-- door frame extrusions, 2 × `HFSFB5-2020-470-TPW` (X, 470 mm) and 2 × `HFSFB5-2020-530-LCH-RCH` (Z, 530 mm) for a 350
-- M5×16 BHCS ×4
-- the 480 × 500 × 3 mm clear acrylic door panel
-- sort the four extrusions by eye: two show an M5 thread in the end face, the other two a round access hole through the side wall near each end *(verify on bench — the KB3D guide names which; the Misumi suffixes are not decoded here)*
+- door frame extrusion, 470 mm ×2 — from Clicky-Clack door kit
+- door frame extrusion, 530 mm ×2 — from Clicky-Clack door kit
+- M5×16 BHCS ×4 — from Clicky-Clack door kit
+- door panel, acrylic, 480×500×3 mm ×1 — from Clicky-Clack acrylic panel
+- tool: machinist square
 
 **Do:**
 
 1. Start an M5×16 BHCS halfway into each tapped end.
-2. Bring the access-hole pieces onto one tapped piece, tighten through the holes, square each corner.
+2. Fit both 530 mm pieces to one tapped piece through their access holes; square each corner.
 3. Three sides only, slide the acrylic in, then close the fourth.
 
 **Check:** All four corners square, the acrylic fully home with no bow, no twist on a flat surface, and the hinge side written down.
+
+**Helper:** Holds the machinist square in each corner while you tighten it.
 
 ⚠ You are using the plain acrylic panel from Fabreeko, not the NanoNest stack the KB3D guide illustrates. Skip the KB3D guide's NanoNest taping section entirely; the panel goes straight into the frame slot. [src](https://www.fabreeko.com/products/acrylic-pannel-for-clicky-clacky-door)
 
@@ -1221,7 +1321,8 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 
 **Parts:**
 
-- `HSCPF3H-B-2000` retainer strip (supplied in the LDO frame kit)
+- panel retainer strip, 2 m ×1 — from Clicky-Clack door kit
+- tool: side cutters
 
 **Do:** Cut the strip to length for each side with **45° mitres** at the corners, then press it into the extrusion groove alongside the acrylic. It takes up the clearance and stops the panel rattling.
 
@@ -1239,7 +1340,9 @@ Source: [Clicky-Clack mod README](https://github.com/tanaes/whopping_Voron_mods/
 
 **Parts:**
 
-- `Hinge-L-solid` ×2, M5×45 dowel pin ×2, small hammer
+- `Hinge-L-solid` ×2
+- M5×45 dowel pin ×2 — from Clicky-Clack door kit
+- tool: small hammer
 
 **Do:** Tap an M5×45 dowel into each solid hinge half; it is meant to be a very tight fit. Stop when about **20 mm** protrudes. Do not drive it flush.
 
@@ -1260,7 +1363,8 @@ Source: [Clicky-Clack mod README § Assembly](https://github.com/tanaes/whopping
 **Parts:**
 
 - `Hinge-L-sleeve` ×2
-- M5×7×8 split bushings ×4
+- M5×7×8 split bushing ×4 — from Clicky-Clack door kit
+- tool: small hammer
 
 **Do:** Slide two bushings over one of the dowels, offer the empty sleeve part over them, and tap the sleeve down until the bushings sit fully inside with **nothing protruding**. Repeat for the second sleeve.
 
@@ -1278,16 +1382,21 @@ Pause: ~20 min since the last pause — the door frame is squared and blind-join
 
 (no image — see [KB3D guide § Hinge & Handle Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod))
 
-**What you're looking at:** The handle, the latch, and the two handle hinges all carry 6 × 3 mm magnets: the handle pulls to the latch, the hinges pull to the handle. Every pair has to attract, so each magnet is tested before any glue goes in.
+**What you're looking at:** Twelve 6 × 3 mm magnets: six in the handle, four in the latch, one in each handle hinge. The handle pulls to the latch, the hinges pull to the handle ends, so test each pair before gluing.
 
 **Parts:**
 
-- `Handle` (blue), `Latch`, `Handle-Hinge_Top`, `Handle-Hinge_Bottom`, 6×3 mm magnets ×12, super glue
+- `Handle` ×1
+- `Latch` ×1
+- `Handle-Hinge_Top` ×1
+- `Handle-Hinge_Bottom` ×1
+- 6×3 mm magnet ×12 — from Clicky-Clack door kit
+- consumable: super glue
 
 **Do:**
 
 1. Test each pair with a loose magnet first.
-2. Glue each magnet into its hexagon pocket, fully home: four in the handle **attracting** four in the latch, one per handle hinge attracting the handle.
+2. Glue each magnet into its hexagon pocket, fully home: four in the handle **attracting** four in the latch, one in each handle end attracting one in each handle hinge.
 
 **Check:** Handle and latch pull together firmly and click; both handle hinges pull to the handle; nothing standing proud of a pocket.
 
@@ -1307,7 +1416,10 @@ Source: [KB3D Clicky-Clack install guide § Hinge & Handle Assembly](https://wik
 
 **Parts:**
 
-- `Latch`, M3×5×4 heat-set insert ×1, `Panel_Clip`, M3×8 BHCS ×1
+- reused: the latch
+- M3×5×4 heat-set insert ×1 — from Clicky-Clack door kit
+- `Panel_Clip` ×1
+- M3×8 BHCS ×1 — from Clicky-Clack door kit
 
 **Do:** Press one heat-set insert into the hole in the middle of the latch and let it cool. Then screw the `Panel_Clip` onto the latch with the M3×8 BHCS.
 
@@ -1325,7 +1437,10 @@ Source: [KB3D Clicky-Clack install guide § Hinge & Handle Assembly](https://wik
 
 **Parts:**
 
-- `Handle`, M5×45 dowel pin ×2, M5×7×8 split bushing ×2, M3×8 SHCS ×2, `Handle-Hinge_Top` / `Handle-Hinge_Bottom`
+- reused: the handle and both handle hinges
+- M5×45 dowel pin ×2 — from Clicky-Clack door kit
+- M5×7×8 split bushing ×2 — from Clicky-Clack door kit
+- M3×8 SHCS ×2 — from Clicky-Clack door kit
 
 **Do:**
 
@@ -1347,7 +1462,7 @@ Source: [Clicky-Clack mod README § Assembly](https://github.com/tanaes/whopping
 
 **Parts:**
 
-- 3 mm foam tape
+- consumable: 3 mm foam tape
 
 **Do:** Run 3 mm foam tape around the **front face** of the four front-opening extrusions, along their inboard edge. Hold the door frame dry against it and tape the surface it lands on. Butt the corners; do not overlap.
 
@@ -1378,24 +1493,24 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 ### Step 11.52 — Foam-tape the back panel
 
 ![Voron manual p.238](assets/manual-pages/manual-p238.png)
-![Voron manual p.239](assets/manual-pages/manual-p239.png)
+![Voron manual p.239](assets/manual-pages/manual-p239.png){ crop="0.15 0.17 0.36 0.86" }
 
 **What you're looking at:** The back panel is 3 mm black acrylic. The 1 mm foam tape on its inner perimeter is a noise damper between acrylic and aluminium, not a gasket, so it is thinner than the 3 mm used on the sides.
 
 **Parts:**
 
-- DC loop lids: `CMD_V2_6B_154mm_DUCT_COVER` ×2
+- `CMD_V2_6B_154mm_DUCT_COVER` ×2
 - `CMD_V2_6B_90DEG_COVER` ×2
-- `V2L_90DEG_COVER_MIRROR`
+- `V2L_90DEG_COVER_MIRROR` ×1
 - `V2L_58mm_DUCT_COVER` ×3
-- `V2L_130mm_DUCT_COVER`
-- `V2L_70mm_DUCT_COVER`
+- `V2L_130mm_DUCT_COVER` ×1
+- `V2L_70mm_DUCT_COVER` ×1
 - `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2
-- `V3L_10mm_DUCT_COVER`
+- `V3L_10mm_DUCT_COVER` ×1
 - `V3L_154N_DUCT_COVER` ×2
 - `V3L_T_REG_N_COVER` ×2
-- back panel (acrylic, black, 483 × 503 × 3 mm) ×1
-- **1 mm** foam tape
+- staged: back panel, acrylic, black, 483×503×3 mm ×1
+- consumable: 1 mm foam tape
 
 **Do:**
 
@@ -1417,7 +1532,7 @@ Source: [Voron manual p.238](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.53 — Fit the back-panel clips
 
-![Voron manual p.239](assets/manual-pages/manual-p239.png)
+![Voron manual p.239](assets/manual-pages/manual-p239.png){ crop="0.36 0.18 0.87 0.83" }
 ![Voron manual p.240](assets/manual-pages/manual-p240.png)
 
 **What you're looking at:** A panel clip is a small printed part that screws to the frame and grips the panel edge in a groove. The `4mm` in the name is the stack the groove is cut for: a 3 mm panel plus 1 mm of foam.
@@ -1426,16 +1541,18 @@ Source: [Voron manual p.238](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 - `corner_panel_clip_4mm` ×4
 - `midspan_panel_clip_4mm` ×3
-- M3×8 SHCS ×7
-- M3 hammerhead T-nut ×7
+- M3×8 SHCS ×11
+- M3 hammerhead T-nut ×11
 
 **Do:**
 
-1. Load each clip with a hammerhead nut and an M3×8 SHCS, loose.
-2. Four corner clips first, then three midspan as p.239 shows.
-3. Offer the panel up, slide every clip onto its edge, and tighten.
+1. Load each clip loosely: two M3×8 SHCS and nuts per corner clip, one per midspan.
+2. Corners first, then three midspans as p.239 shows.
+3. Offer the panel up, slide every clip onto its edge, tighten.
 
 **Check:** Seven clips engaged on the panel edge, the panel flat against the frame with the 1 mm foam just compressed, no bowed acrylic.
+
+**Helper:** Counts out eleven screws and eleven hammerhead nuts, two per corner clip and one per midspan.
 
 ⚠ **Clip-thickness assignment.** The manual never says which clip goes on which panel; the print plan infers it: 3 mm panel plus 1 mm foam = **4 mm**, **7** back and **8** top clips matching `_4mm_x7` and `_4mm_x8`, **M3×8** here versus **M3×12** on the sides. **Test-fit a 4 mm and a 6 mm clip before committing the 31.** [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Panel_Mounting)
 
@@ -1451,7 +1568,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.251](assets/manual-pages/manual-p251.png)
 ![Voron manual p.252](assets/manual-pages/manual-p252.png)
 ![Voron manual p.253](assets/manual-pages/manual-p253.png)
-![Voron manual p.254](assets/manual-pages/manual-p254.png)
+![Voron manual p.254](assets/manual-pages/manual-p254.png){ crop="0.14 0.19 0.49 0.52" }
 ![Voron manual p.255](assets/manual-pages/manual-p255.png)
 ![Voron manual p.256](assets/manual-pages/manual-p256.png)
 
@@ -1459,9 +1576,9 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- LDO `exhaust_cover` ×1
-- Voron `exhaust_filter_grill` ×1
-- M3×12 SHCS ×2 *(verify on bench)*
+- `exhaust_cover` ×1
+- `exhaust_filter_grill` ×1
+- M3×12 SHCS ×2
 
 **Do:**
 
@@ -1469,6 +1586,8 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 2. Dry-fit both parts against the cut-out, then sandwich it: `exhaust_cover` on the **inside** face, `exhaust_filter_grill` on the **outside**, bolted through with M3×12 SHCS.
 
 **Check:** Cut-out fully covered from both faces, no light through the joint, panel not stressed white around the screw holes, grill sitting flat.
+
+**Helper:** Holds the grill flat on the outside face while you drive the two screws.
 
 ⚠ **Rev D+ / LDO:** *"PAGE 250-253 & 256 SKIP — Please follow our guide for Nevermore mod."* LDO's list stops at p.253 and p.256, but p.254–255 hang the housing on `[a]_exhaust_filter_mount_x2`, not printed here, so its M5 T-nuts and M5×10 BHCS are unused. *(verify on bench — LDO publishes no step-by-step for the exhaust cover.)* [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs)
 
@@ -1484,11 +1603,14 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 **Parts:**
 
-- back panel assembly from 11.52–11.54
+- back panel, acrylic, black, 483×503×3 mm ×1
+- reused: the back-panel clips, exhaust cover and grill
 
 **Do:** Lift the panel into the clips, check the exhaust cut-out lines up with whatever it needs to clear behind it, and tighten every clip screw. Work opposite corners rather than around the perimeter.
 
 **Check:** Panel square and flat with even margins, the foam compressed but not squashed, the exhaust cover clearing the Nevermore, umbilical and cables behind it.
+
+**Helper:** Holds the panel square in the clips while you tighten opposite corners.
 
 Source: [Voron manual p.240](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=240)
 
@@ -1498,13 +1620,15 @@ Pause: ~25 min since the last pause — back panel foam-taped, its seven clips o
 
 ### Step 11.56 — Foam-tape the side panels
 
-![Voron manual p.241](assets/manual-pages/manual-p241.png)
+![Voron manual p.241](assets/manual-pages/manual-p241.png){ crop="0.12 0.18 0.32 0.86" }
 
 **What you're looking at:** The side panels are clear polycarbonate, tougher than acrylic and the material the gantry gets closest to. Their 3 mm foam is a functional standoff that holds the panel far enough out for the gantry to clear it.
 
 **Parts:**
 
-- side panel (PC, clear, 483 × 503 × 3 mm) ×2, **3 mm** foam tape
+- staged: side panel, PC, clear, 483×503×3 mm ×2
+- consumable: 3 mm foam tape
+- consumable: a lint-free cloth
 
 **Do:** Peel the film from both faces of both panels. Run **3 mm** foam tape around the perimeter of each inner face, corners butted.
 
@@ -1520,24 +1644,27 @@ Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.57 — Fit the first side panel
 
-![Voron manual p.241](assets/manual-pages/manual-p241.png)
+![Voron manual p.241](assets/manual-pages/manual-p241.png){ crop="0.36 0.19 0.84 0.89" }
 ![Voron manual p.242](assets/manual-pages/manual-p242.png)
 
-**What you're looking at:** The `6mm` clips are the deeper-grooved version, sized for a 3 mm panel plus 3 mm of foam, and they take the longer M3×12 screw to reach the nut. One midspan position on the right-hand panel's front vertical edge stays accessible for the latch at 11.63.
+**What you're looking at:** The `6mm` clips are the deeper-grooved version, sized for a 3 mm panel plus 3 mm of foam, and take the longer M3×12, two per corner clip. One midspan position on the right-hand panel's front vertical edge stays accessible for the latch at 11.63.
 
 **Parts:**
 
+- side panel, PC, clear, 483×503×3 mm ×1
 - `corner_panel_clip_6mm` ×4
 - `midspan_panel_clip_6mm` ×4
-- M3×12 SHCS ×8
-- M3 hammerhead T-nut ×8
+- M3×12 SHCS ×12
+- M3 hammerhead T-nut ×12
 
 **Do:**
 
-1. **Right-hand** side, seen from the front. Load eight clips with M3×12 SHCS.
-2. Four corners then four midspans as p.241 shows, offer the panel up and tighten every clip. Leave the front-edge midspan only snug for 11.63.
+1. **Right-hand** side, seen from the front. Load eight clips: two M3×12 SHCS per corner clip, one per midspan.
+2. Corners then midspans as p.241 shows; offer the panel up, tighten every clip. Front-edge midspan only snug for 11.63.
 
 **Check:** Panel flat with equal margins, and the gantry run through its full XY travel by hand touches nothing.
+
+**Helper:** Holds the side panel against the clips while you tighten them.
 
 ⚠ Side panels take **M3×12 SHCS**, not M3×8. The 6 mm clip is thicker and an M3×8 will not reach the hammerhead nut with any thread to spare.
 
@@ -1549,40 +1676,48 @@ Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.242](assets/manual-pages/manual-p242.png)
 
-**What you're looking at:** The same eight clips and eight screws on the opposite side. When it is done both stocks of 6 mm clips are exactly used up, which is the arithmetic check that the assignment was right.
+**What you're looking at:** The same eight clips and twelve screws on the opposite side. When it is done both stocks of 6 mm clips are exactly used up, which is the arithmetic check that the assignment was right.
 
 **Parts:**
 
+- side panel, PC, clear, 483×503×3 mm ×1
 - `corner_panel_clip_6mm` ×4
 - `midspan_panel_clip_6mm` ×4
-- M3×12 SHCS ×8
-- M3 hammerhead T-nut ×8
+- M3×12 SHCS ×12
+- M3 hammerhead T-nut ×12
 
 **Do:** Repeat 11.57 on the **left-hand** side, the hinge side. All eight clips are fully tight here; nothing on this panel gets replaced.
 
 **Check:** Both panels on, the gantry clearing both through full travel, all 6 mm clips fitted: 8 corner, 8 midspan. One comes off at 11.63.
 
+**Helper:** Holds the side panel against the clips while you tighten them.
+
 Source: [Voron manual p.242](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=242)
 
-Pause: ~25 min since the last pause — both side panels foam-taped, clipped and screwed, all sixteen M3×12 in. Both sides are fully on.
+Pause: ~25 min since the last pause — both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on.
 
 ---
 
 ### Step 11.59 — Fit the top panel
 
-![Voron manual p.243](assets/manual-pages/manual-p243.png)
+![Voron manual p.243](assets/manual-pages/manual-p243.png){ crop="0.14 0.17 0.78 0.88" }
 ![Voron manual p.244](assets/manual-pages/manual-p244.png)
 
 **What you're looking at:** The top panel is clear polycarbonate again, but back on 1 mm foam and 4 mm clips like the back panel, because the gantry never comes near it. Fitting it closes the machine on five faces and is what lets the chamber hold heat.
 
 **Parts:**
 
-- top panel (PC, clear, 483 × 483 × 3 mm) ×1, **1 mm** foam tape, `corner_panel_clip_4mm` ×4, `midspan_panel_clip_4mm` ×4, M3×8 SHCS ×8, M3 hammerhead T-nut ×8
+- top panel, PC, clear, 483×483×3 mm ×1
+- consumable: 1 mm foam tape
+- `corner_panel_clip_4mm` ×4
+- `midspan_panel_clip_4mm` ×4
+- M3×8 SHCS ×12
+- M3 hammerhead T-nut ×12
 
 **Do:**
 
 1. Film off both faces, **1 mm** foam around the perimeter of the underside.
-2. Load eight clips, fit four corners and four midspans as p.243 shows, drop the panel on and tighten.
+2. Load eight clips, two screws per corner clip, fit four corners and four midspans as p.243 shows, drop the panel on and tighten.
 
 **Check:** Panel flat with even margins, foam compressed evenly, the machine closed on five faces. All 4 mm clips used: 8 corner, 7 midspan.
 
@@ -1609,6 +1744,8 @@ Source: [Voron manual p.243](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Both handles solid, the spacers carrying the load rather than the polycarbonate, and nothing flexing at the panel on a one-inch lift.
 
+**Helper:** Holds each handle square on its spacers while you drive the screws.
+
 ⚠ **Rev D+ / LDO:** *"This optional part offsets the top panel thickness and helps mount the included aluminium handle bar."* The 350 Rev D BOM ships two aluminium handles and four M5×14 BHCS. [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
@@ -1625,9 +1762,7 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 
 **What you're looking at:** The five pages show the stock Voron front: two narrow hinged doors, magnets glued into the front extrusions, printed handles and latches. The Clicky-Clack replaces all of it with one framed door, so nothing here is fitted and the two supplied door panels become spares.
 
-**Parts:**
-
-- none. The kit's two 241 × 503 × 3 mm clear PC door panels, and the 6×3 mm magnets those pages would have you glue into the front extrusions, are not used here
+**Parts:** none.
 
 **Do:**
 
@@ -1636,6 +1771,8 @@ Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8
 3. Bag the two stock door panels and the spare magnets.
 
 **Check:** No stock door hardware installed; the front opening is bare extrusion with the 3 mm foam gasket from 11.51 on it.
+
+**Helper:** Bags the two stock door panels and the spare magnets and labels the bag.
 
 ⚠ Fitting Clicky-Clack means you also lose LDO's kit-number nameplate, which lives on `LDO Door/handle_b_nameplate.stl`. Print it and glue it elsewhere if you want it (print plan §3, B10).
 
@@ -1653,7 +1790,10 @@ Pause: ~15 min since the last pause — top panel on its eight clips, handlebars
 
 **Parts:**
 
-- the two hinge assemblies from 11.46–11.47, M3×20 SHCS ×4, M3 roll-in T-nut ×8 (4 on the printer, 4 on the door frame), blue tape
+- reused: the two door hinges
+- M3×20 SHCS ×4 — from Clicky-Clack door kit
+- M3 roll-in T-nut ×8 — from Clicky-Clack door kit
+- consumable: blue tape
 
 **Do:**
 
@@ -1661,6 +1801,8 @@ Pause: ~15 min since the last pause — top panel on its eight clips, handlebars
 2. Screw each hinge on loosely, **pins up**, small gap at the top.
 
 **Check:** Both printer-side halves on with pins up, the door lifting off and dropping back on, hanging parallel with an even gap top to bottom.
+
+**Helper:** Holds the taped door in the opening while you mark and hang the hinges.
 
 Tip: tape the door in the opening first to see where it wants to sit.
 
@@ -1676,7 +1818,8 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 
 **Parts:**
 
-- `Latch` + `Panel_Clip` assembly from 11.49, M3 hammerhead T-nut (reuse the one from the middle side-panel clip you displace)
+- reused: the latch with its panel clip
+- reused: the hammerhead nut of the midspan clip it displaces
 
 **Do:**
 
@@ -1697,7 +1840,10 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 
 **Parts:**
 
-- handle assembly from 11.50, M3×8 SHCS ×4, M3 roll-in T-nut ×4 (door side)
+- reused: the handle assembly
+- M3×8 SHCS ×4 — from Clicky-Clack door kit
+- M3 roll-in T-nut ×4 — from Clicky-Clack door kit
+- consumable: a paper shim
 
 **Do:**
 
@@ -1706,6 +1852,8 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 3. Lock the latch, tighten the handle screws, pull the shim.
 
 **Check:** The door closes with a click, the latch **drawing it in** against the 3 mm foam, the handle swinging freely, all four sides sealed.
+
+**Helper:** Holds the paper shim between the magnets while you slide the handle into line.
 
 Tip: if the latch will not catch cleanly, the problem is usually hinge alignment, not latch position. Re-align at 11.62 rather than moving the latch. [src](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod)
 
@@ -1717,13 +1865,13 @@ Pause: ~25 min since the last pause — door hinges hung, latch fitted, handle o
 
 ### Step 11.65 — Thread-lock the hammerhead nuts
 
-![Voron manual p.239](assets/manual-pages/manual-p239.png)
+![Voron manual p.239](assets/manual-pages/manual-p239.png){ crop="0.59 0.19 0.87 0.83" }
 
 **What you're looking at:** Thread locker on the hammerhead nuts stops them turning when the screw is slackened. That converts every panel clip into a quarter-turn quick release: the panel comes off in seconds and the nut does not vanish inside the extrusion.
 
 **Parts:**
 
-- thread locker (optional)
+- consumable: thread locker, optional
 
 **Do:** Now that every panel is on and aligned, put a drop of thread locker on each panel clip's hammerhead nut.
 
@@ -1741,7 +1889,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- none. Optional: extrusion slot cover, 6 mm
+- consumable: 6 mm extrusion slot cover, optional
 
 **Do:**
 
@@ -1763,12 +1911,14 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 
 ## Checkpoint 11
 
+**Built:** a sealed enclosure with skirts, panels, a carbon filter and a door
+
 **Part A — before Ch 13**
 
 - [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
 - [ ] All twelve skirt segments checked for rock on the flat reference; the ring is closed with flush, tight joints all round, and no mini12864 parts exist anywhere on the machine.
 - [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
-- [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support blanked with the two spare grills.
+- [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support's grills on the two retainers.
 - [ ] Bottom panel bonded on six VHB pads to two rear hinges and four clips, opened and closed once after the VHB cured; four Z belt covers on, correct variant per corner, belts clear through full Z travel.
 - [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, cartridge closed with its fill state written on the lid.
 - [ ] Spool holder and bowden retainer fitted; a full spool spins freely with no kink in the PTFE.
@@ -1777,7 +1927,7 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 **Part B — after Ch 13**
 
 - [ ] **Ch 12 and Ch 13 complete**, including the Ch 06b gantry-squaring pass, before any panel went on.
-- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back + top with M3×8, 6 mm on both sides with M3×12; none left over, none short. Foam tape correct per panel: 1 mm back and top, 3 mm both sides.
+- [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back + top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip; none left over, none short. Foam tape correct per panel: 1 mm back and top, 3 mm both sides.
 - [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel; no Voron filter housing fitted. Both handlebars on their printed spacers.
 - [ ] No stock door parts fitted; the Clicky-Clack latches with a click and draws the door onto the 3 mm foam; no daylight at any seam; thread locker on the panel-clip hammerhead nuts.
 

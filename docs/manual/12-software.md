@@ -69,13 +69,11 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 ### Step 12.1 — Decide where you are doing the Pi half
 
-(no image — see text)
+![Raspberry Pi 4 Model B: Ethernet and USB at one end, the microSD slot underneath at the other](assets/remote/12-software/rpi-4-model-b.jpg)
 
-**What you're looking at:** The Raspberry Pi 4B is the printer's **host**: it runs the [Klipper](16-glossary.md#k) motion planner, the web interface and the touchscreen, and feeds the two microcontroller boards precisely timed step commands.
+**What you're looking at:** The photo is a Raspberry Pi 4B, the printer's **host**: it runs the [Klipper](16-glossary.md#k) motion planner, the web interface and the touchscreen. Ethernet and USB sit at one end; the microSD slot is underneath, at the other.
 
-**Parts:**
-
-- none — Pi 4B, supplied 32 GB microSD, laptop, card reader
+**Parts:** none.
 
 **Do:**
 
@@ -87,20 +85,23 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 ⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer". That is why this chapter is gated on Checkpoint #1 (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
-Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan)
+Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
 
 ---
 
 ### Step 12.2 — Write MainsailOS with Raspberry Pi Imager
 
-(no image — see text)
+![Raspberry Pi Imager: MainsailOS 3.0.0, Raspberry Pi 64-bit, the one entry offered for a Pi 4](assets/screens/imager-os-mainsailos-64bit.png)
+![Raspberry Pi Imager: Other specific-purpose OS, 3D printing](assets/screens/imager-os-3d-printing.png)
+![Raspberry Pi Imager: the 3D printing list, Mainsail OS](assets/screens/imager-os-mainsailos.png)
+![Raspberry Pi Imager: the Write image summary for a Pi 4 and MainsailOS 64-bit](assets/screens/imager-write-summary.png)
 
-**What you're looking at:** MainsailOS is a ready-made Raspberry Pi disk image carrying the whole printer stack: **Klipper**, which runs the machine, **Moonraker**, the API service in front of it, and [**Mainsail**](16-glossary.md#m), the web page you drive the printer from.
+**What you're looking at:** MainsailOS is a ready-made Pi disk image carrying **Klipper**, which runs the machine, **Moonraker**, the API in front of it, and [**Mainsail**](16-glossary.md#m), the web page you drive it from. The screenshots walk the Imager's menus to it.
 
 **Parts:**
 
-- microSD 32 GB ×1
-- card reader ×1
+- consumable: the kit's 32 GB microSD card
+- tool: SD card reader
 
 **Do:**
 
@@ -118,9 +119,13 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 
 ### Step 12.3 — Fill in the Imager customisation
 
-(no image — see text)
+![Raspberry Pi Imager customisation: hostname voron](assets/screens/imager-hostname.png)
+![Raspberry Pi Imager customisation: localisation](assets/screens/imager-localisation.png)
+![Raspberry Pi Imager customisation: username and password, placeholder values](assets/screens/imager-user.png)
+![Raspberry Pi Imager customisation: Wi-Fi, placeholder SSID](assets/screens/imager-wifi.png)
+![Raspberry Pi Imager customisation: SSH enabled, password authentication](assets/screens/imager-ssh.png)
 
-**What you're looking at:** The Imager's customisation pages write settings into the image before it boots, so the Pi comes up already named, on the network and reachable over SSH. The hostname you choose here is the address you type for the rest of the build.
+**What you're looking at:** The Imager's customisation pages write settings into the image before it boots, so the Pi comes up named, on the network and reachable over SSH. The screenshots carry placeholder values; type your own. The hostname is the address you use from now on.
 
 **Parts:** none.
 
@@ -159,8 +164,11 @@ Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/fir
 ### Step 12.5 — Reach Mainsail and open an SSH session
 
 ![LDO: Mainsail Machine page](assets/remote/12-software/ldo-revd-mainsail-machine-page.png)
+![Simulated printer: the Mainsail dashboard once a printer.cfg exists](assets/screens/mainsail-dashboard.png)
 
-**What you're looking at:** The screenshot is Mainsail's **Machine** page, the file manager and settings view where every config file in this chapter gets edited. The error on first load is expected: MainsailOS ships no `printer.cfg`. SSH gives you the same machine as a command line.
+(no image of your own printer yet — simulated printer: your numbers differ)
+
+**What you're looking at:** The first screenshot is Mainsail's **Machine** page, where every config file in this chapter gets edited. The second is the dashboard of a printer that already has a `printer.cfg`. Yours shows an error first: MainsailOS ships no `printer.cfg`.
 
 **Parts:** none.
 
@@ -174,9 +182,9 @@ Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.c
 
 ### Step 12.6 — Update everything before you touch anything else
 
-(no image — see text)
+![Mainsail docs: the Update Manager on first boot, with Update all components at the bottom](assets/remote/12-software/mainsail-first-boot-update-manager.png)
 
-**What you're looking at:** The Update Manager is Moonraker's package updater, shown inside Mainsail. It runs now rather than later because each MCU's firmware has to be compiled from exactly the Klipper version the host ends up on.
+**What you're looking at:** The screenshot, from the Mainsail docs, is the Update Manager: Moonraker's package updater inside Mainsail. It runs now because each MCU's firmware has to be compiled from exactly the Klipper version the host ends up on.
 
 **Parts:** none.
 
@@ -186,7 +194,7 @@ Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.c
 
 **Why now:** the version of Klipper you end up with here is the version you must build MCU firmware from in Steps 12.14 and 12.17. Update first, then flash — do it the other way round and you will re-flash both boards after the first update. [src](https://docs-os.mainsail.xyz/getting-started/first-boot/)
 
-Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/first-boot/) · [Video: Extras! @0:18:01](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1081s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
+Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/first-boot/) · [Mainsail docs image `first-boot-update-manager.png`](https://github.com/mainsail-crew/docs/blob/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png) (GPL-3.0) · [Video: Extras! @0:18:01](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1081s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
 Pause: ~25 min since the last pause — MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.
 
@@ -209,6 +217,8 @@ cd ~/klipper && git describe --tags --always --dirty
 Write the string down (or paste it into your build notes). Both MCUs must be flashed from this exact working copy.
 
 **Check:** You have one version string, and `ls ~/printer_data/config/` shows `mainsail.cfg` and `moonraker.conf` but no `printer.cfg`.
+
+**Helper:** Copies the version string into the build notes and reads it back, character by character.
 
 **Why:** if the host Klipper and an MCU's firmware were built from different commits, Klipper aborts at connect with a *Command format mismatch* error naming the offending MCU. [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
@@ -262,15 +272,13 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 
 ### Step 12.10 — Bring up the DSI panel and rotate it
 
-(no image — see text)
+![KlipperScreen docs: the home panel, as it should look the right way up](assets/remote/12-software/klipperscreen-main-panel.png)
 
-**What you're looking at:** DSI is the Raspberry Pi's native display connection, what the panel's flat ribbon plugs into; `/sys/class/drm/` is where the kernel reports the displays it can see. Rotation goes in the kernel command line because the current driver ignores the older config-file setting.
+**What you're looking at:** DSI is the Pi's native display connection, where the panel's ribbon plugs in. Rotation goes in the kernel command line because the current driver ignores the old config-file setting. The screenshot, from the KlipperScreen docs, is its home panel.
 
-**Parts:**
+**Parts:** none.
 
-- none on the bench. The 4.3" DSI touchscreen and its FFC ribbon are connected in Ch 10 and Ch 11 — nothing is plugged in here
-
-**Do:** Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; add it if missing. Second, `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line, no line breaks:
+**Do:** Nothing plugs in here; Ch 10 connected the panel. Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; add it if missing. Second, `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line, no line breaks:
 
 ```
 video=DSI-1:800x480@60,rotate=180
@@ -290,7 +298,7 @@ You should get a line containing `DSI-1`. No `DSI-1` at all: power off and check
 
 Tip: if the touch axes end up rotated relative to the picture, that is a separate fix — see KlipperScreen's touch-rotation matrix page, not the display rotation above. [src](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/)
 
-Source: [KlipperScreen rotation](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [KlipperScreen touch issues](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
+Source: [KlipperScreen rotation](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Rotation/) · [KlipperScreen docs image `main_panel.png`](https://github.com/KlipperScreen/KlipperScreen/blob/3f08a9f/docs/img/panels/main_panel.png) (AGPL-3.0) · [KlipperScreen touch issues](https://klipperscreen.github.io/KlipperScreen/Troubleshooting/Touch_issues/) · [LDO BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 
 Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.
 
@@ -304,8 +312,8 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 **Parts:**
 
-- C13 power cord ×1
-- fire extinguisher within arm's reach
+- reused: the C13 cord
+- tool: fire extinguisher, within arm's reach
 
 **Do:**
 
@@ -361,6 +369,8 @@ Copy both lines into a scratch file. Identify them by MCU family, not by order:
 If you are unsure, unplug one board's USB, re-run the command, and see which line disappears. Mainsail's **Machine** → open a config file → **DEVICES** → **SERIAL** → **REFRESH** shows the same list under *Path by ID*.
 
 **Check:** Exactly two Klipper devices, one toolboard `stm32g0b1xx` and one mainboard `stm32f446xx` or `stm32h743xx`, and you know which physical board each belongs to.
+
+**Helper:** Reads each serial ID off the screen and names its board from the table.
 
 ⚠ **Rev D+ / LDO:** the wiring guide states the toolboard ID will look like `usb-Klipper_rp2040_…`. **It will not.** Rev D+ ships the STM32G0B1 Nitehawk-SB V2. Matching `rp2040` assigns the *mainboard's* ID to `[mcu nhk]` or finds nothing (survey §4.1 ②). The guide also writes `stmf446xx`; the real string is `stm32f446xx`. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://docs.ldomotors.com/guides/klipper_id) · [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12)
 
@@ -660,6 +670,9 @@ Pause: ~20 min since the last pause — both boards flashed, both serial paths r
 ### Step 12.21 — Download the correct config file
 
 ![LDO: Mainsail config devices panel](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
+![Simulated printer: Mainsail's Config Files list with printer.cfg beside mainsail.cfg and moonraker.conf](assets/screens/mainsail-machine-config-files.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** `printer.cfg` is the single text file that describes this machine to Klipper: which pin drives which motor, what shape the bed is, what every heater, sensor and fan is. LDO publishes one per kit variant and the `-sbv2` suffix is the Rev D+ one.
 
@@ -686,7 +699,9 @@ Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent
 
 ### Step 12.22 — Add the Mainsail include at the top of `printer.cfg`
 
-(no image — see text)
+![Simulated printer: Mainsail's editor with line 1 reading include mainsail.cfg](assets/screens/mainsail-editor-include.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** An `[include]` line pulls another config file in at that point. `mainsail.cfg` is already on the card and supplies the sections and macros the web interface needs: virtual SD card, display status, pause, resume, cancel.
 
@@ -744,7 +759,9 @@ Pause: ~15 min since the last pause — `printer.cfg` is the `-sbv2` file with t
 
 ### Step 12.24 — 350 mm: `[stepper_x]` and `[stepper_y]`
 
-(no image — see text)
+![Simulated printer: Mainsail's editor at stepper_x, the 350 pair live and the 250 and 300 pairs commented](assets/screens/mainsail-editor-stepper-x-350.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** A `[stepper_x]` section describes one axis motor and its limit switch: how far one revolution moves the axis, how finely the driver subdivides a step, which pin the endstop is on, and where the axis ends. All three build sizes ship commented out.
 
@@ -950,6 +967,8 @@ grep -c '^    G0 X175 Y175 Z30' printer.cfg     # 1  (G32)
 ```
 
 Expect `2 / 1 / 1 / 1 / 1`. A `0` is a block still commented; a `2` where `1` is expected is a second size uncommented as well.
+
+**Helper:** Reads each count off the screen against the expected 2, 1, 1, 1, 1.
 
 **Naming note:** the config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block; homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]` — an incorrect one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -1387,7 +1406,9 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 
 ### Step 12.37 — The config-compiles check
 
-(no image — see text)
+![Simulated printer: Mainsail's editor with SAVE & RESTART at the top right](assets/screens/mainsail-editor-include.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
 
 **What you're looking at:** `SAVE & RESTART` reloads the config into the host process; `FIRMWARE_RESTART` restarts the MCUs as well. The four things you are reading are the entire state of the machine at this point: Klipper Ready, both MCUs connected, and three temperature sensors telling the truth about a cold room.
 
@@ -1396,6 +1417,8 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 **Do:** In Mainsail's editor press **SAVE & RESTART**. Then, if anything at all looks wrong, run `FIRMWARE_RESTART` from the console, which restarts the MCUs as well as the host. Read the whole console output, not just the last line.
 
 **Check:** all four rows of the table, and nothing less.
+
+**Helper:** Reads each row of the table off Mainsail and ticks it only when it matches.
 
 | where | expect |
 |---|---|
@@ -1424,6 +1447,8 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 ---
 
 ## Checkpoint 12
+
+**Built:** two flashed boards and a printer.cfg that knows it is a 350
 
 - [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
 - [ ] The Klipper version string from Step 12.7 is written down, and **both** MCUs were flashed from that same working copy.

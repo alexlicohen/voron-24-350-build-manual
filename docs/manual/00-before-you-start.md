@@ -11,7 +11,7 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 
 **Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P00). Rail prep is roughly half of it.
 
-**Sessions:** 7 × ~30 min — the `Pause:` lines below break the chapter into 7 segments; every minute figure is a first-build estimate.
+**Sessions:** 9 × ~30 min — the `Pause:` lines below break the chapter into 9 segments; every minute figure is a first-build estimate.
 
 **Prerequisites:**
 
@@ -110,7 +110,7 @@ caption: One bin per chapter now. The alternative is meeting every screw again a
 
 **Parts:**
 
-- the shipping cartons, 2
+- tool: box cutter, blade set shallow
 
 **Do:**
 
@@ -130,9 +130,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **What you're looking at:** The printed label on carton 1. Its serial ties your kit to the right **batch BOM**, LDO's per-batch bill of materials and the inventory checklist for the next two steps. Quantities and substitutions change between batches, so the generic page is no stand-in.
 
-**Parts:**
-
-- the label on carton 1
+**Parts:** none.
 
 **Do:**
 
@@ -141,6 +139,8 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 3. Print it or open it on the iPad: this is your inventory checklist.
 
 **Check:** The page you land on is headed `V2.4 350 BOM (Rev. D)`; every Rev D batch tile from 2406 onward resolves to that one page, as expected.
+
+**Helper:** Reads the serial off the carton label and finds the batch tile that holds it.
 
 ⚠ **Rev D+ / LDO:** the index tops out at batch **2606**. A November/December 2026 kit will be a batch LDO has not listed yet. If your serial is not in any tile, use the Rev_D page above and ask Fabreeko for your batch sheet — do not assume quantities from an older batch. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME)
 
@@ -156,7 +156,22 @@ Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM
 
 **Parts:**
 
-- carton 1 — boxes *Cable Kit 2.4-350*, *Motion*, *Electronics 1*, *Electronics 2*, *Fasteners, Tools & Misc*, *Belts, Chains & Fans*, *Linear Rail Kit*, *Frame Kit 2.4-350*, *Motor Kit*, plus loose *Other* items (C13 cord, PVC wire duct ×5, Revo HF hotend, DIN rails ×2, Leviathan mainboard, Meanwell LRS-200-24 PSU, extrusion slot cover ×9)
+- staged: *Cable Kit 2.4-350* box
+- staged: *Motion* box
+- staged: *Electronics 1* box
+- staged: *Electronics 2* box
+- staged: *Fasteners, Tools & Misc* box
+- staged: *Belts, Chains & Fans* box
+- staged: *Linear Rail Kit* box
+- staged: *Frame Kit 2.4-350* box
+- staged: *Motor Kit* box
+- C13 power cord ×1
+- consumable: PVC wire duct ×5
+- Revo HF hotend ×1
+- DIN rail ×2
+- Leviathan mainboard ×1
+- Meanwell LRS-200-24 PSU ×1
+- consumable: extrusion slot cover ×9
 
 **Do:**
 
@@ -178,6 +193,8 @@ Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM
 
 **Check:** Every BOM line ticked, or written down as short, and the frame and motor kits match the table above.
 
+**Helper:** Ticks each BOM line as you call out the count.
+
 ⚠ **Rev D+ / LDO:** in the *Cable Kit* box, read the labels on the XY endstop cable now. LDO documents a batch where they read **"X Stop / Y Stop"** instead of **"XES / YES"** and need re-pinning before they will work. Finding this in Ch 10 with the bay half-closed is much worse than finding it now. [src](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO XY endstop cable guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) · [Video: Part 1 @0:03:01](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=181s) (differs: pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D)
@@ -192,7 +209,16 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Parts:**
 
-- deck panel (acrylic, black, 469×469), back panel (acrylic, black, 483×503), bottom panel (acrylic, black, 469×469), door panels (PC clear, 241×503) ×2, side panels (PC clear, 483×503) ×2, top panel (PC clear, 483×483), magnetic pad, spring steel flex plate, build plate
+- Deck panel, acrylic, black, 469×469 ×1
+- Back panel, acrylic, black, 483×503 ×1
+- Bottom panel, acrylic, black, 469×469 ×1
+- Door panel, PC, clear, 241×503 ×2
+- Side panel, PC, clear, 483×503 ×2
+- Top panel, PC, clear, 483×483 ×1
+- Magnetic pad ×1
+- Spring steel flex plate ×1
+- Build plate ×1
+- tool: digital caliper
 
 **Do:**
 
@@ -201,6 +227,8 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 3. Write the number on tape stuck to the film, re-cover it, leave others filmed.
 
 **Check:** Eight panels present, no cracks, no chips at the corners. You now have one number written down: the deck thickness.
+
+**Helper:** Counts the eight panels against the BOM and writes the deck thickness on the tape.
 
 ⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D BOM says **3 mm**. B01-P2 carries `deck_support_3mm_x8` and has not started; if the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md) first. Those clips, `deck_support_4mm_x8`, are an 8 g, 30-minute print and must exist before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -216,7 +244,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Parts:**
 
-- *Electronics 2* box — Nitehawk SB toolhead PCB ×1
+- Nitehawk SB toolhead PCB ×1
 - Stealthburner fan adapter ×1
 - USB adapter PCB ×1
 
@@ -234,6 +262,8 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Check:** All four markers present means Rev D+; any one absent means a V1 board, so stop and ask Fabreeko before going further. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2)
 
+**Helper:** Reads the four markers from the table aloud while you check each one on the board.
+
 ⚠ **Rev D+ / LDO:** the USB serial ID settles it, and Ch 12 reads it once the Pi is up: it must contain **`stm32g0b1xx`**. LDO's Rev D wiring guide expects `usb-Klipper_rp2040_…`, which is wrong for this kit. On `rp2040`, load `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`; the wrong one mis-drives heater, thermistor, probe, fans and accelerometer. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg) · survey §4.1 ①②
 
 Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [image: Nitehawk-SB-V2 `Images/nhsbv2_pcb_pinout.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg) · [LDO Klipper config `leviathan-printer-rev-d-sbv2.cfg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg)
@@ -248,7 +278,7 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 
 **Parts:**
 
-- the *LDO Printed Parts* bag — Leviathan Bracket Left ×1
+- Leviathan Bracket Left ×1
 - Leviathan Bracket Right ×1
 - NH Adapter Mount ×1
 - DIN Clip ×4
@@ -256,7 +286,7 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 - 2×3 Splitter Spacer ×2
 - LDO Nozzle Probe ×1
 - Bed WAGO Mount ×1
-- Stealthburner LED Diffuser ×1 (clear PETG)
+- Stealthburner LED Diffuser ×1, clear PETG
 - CW2 PCB Spacer ×1
 
 **Do:**
@@ -265,6 +295,8 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 2. Do **not** print these; the print plan already excludes them, and you have no clear filament for the PETG LED diffuser.
 
 **Check:** Ten part types accounted for, in one bin, labelled `LDO SUPPLIED — DO NOT PRINT`.
+
+**Helper:** Counts the ten LDO parts into their bin and writes the DO NOT PRINT label.
 
 ⚠ **Rev D+ / LDO:** the USB-adapter mount base is supplied printed, but the **cover** changed for the V2 board. Plate **B07-P1** already prints the correct **V2** [`usb_adapter_mount_partial_cover.stl`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl) into bin `09-bay`, plus a spare V1 cover in `spare-alt`. Fit the V2 one. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · survey §4.1 ⑤
 
@@ -284,7 +316,16 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 **Parts:**
 
-- from *Fasteners, Tools & Misc* — hex wrenches 1.5 / 2 / 2.5 / 3 / 4 mm, 2.5 mm slot-head screwdriver, brass heat-set insert tool (M3), 2 mm drill bit, brass brush, aluminium handles ×2
+- tool: hex wrench 1.5 mm
+- tool: hex wrench 2 mm
+- tool: hex wrench 2.5 mm
+- tool: hex wrench 3 mm
+- tool: hex wrench 4 mm
+- tool: slot head screwdriver 2.5 mm
+- tool: brass heat-set insert tool, M3
+- tool: drill bit 2 mm
+- tool: brass brush
+- Aluminium handle ×2
 
 **Do:**
 
@@ -302,9 +343,13 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 **Check:** Five wrenches, one slot driver, one brass tip with its two knurled tongue-adjuster nuts, and one drill bit.
 
+**Helper:** Lays the kit tools out on the bench and counts five wrenches, one tip and one drill bit.
+
 Tip: `CLAUDE.md` lists "5 mm hex driver for M5 frame bolts" as an open purchase. It is not needed — the M5 BHCS the frame uses is a 3 mm drive.
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+
+Pause: ~10 min since the last pause — kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12.
 
 ---
 
@@ -378,7 +423,10 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:**
 
-- straightedge ≥ 600 mm, feeler gauge set, marker or tape
+- tool: straightedge ≥ 600 mm
+- tool: feeler gauge set
+- consumable: masking tape
+- tool: marker
 
 **Do:**
 
@@ -396,6 +444,8 @@ The 350's frame uses 470 mm and 530 mm extrusions, which is where the 600 mm com
 
 **Check:** No rock in any of the five positions, worst leaf ≤ 0.1 mm and logged, flattest sub-area masked off for Ch 01.
 
+**Helper:** Reads the thickest leaf that slides under aloud and writes it in the log.
+
 Tip: between sessions lay a clean towel or foam over the masked area; grit trapped under an extrusion will make a flat surface lie to you.
 
 Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=15) · [survey](../voron-build-instructions-survey.md)
@@ -410,7 +460,9 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- ~26 stackable bins, boxes or labelled zip bags, plus masking tape and marker
+- consumable: stackable bin or labelled zip bag ×26
+- consumable: masking tape
+- tool: marker
 
 **Do:**
 
@@ -437,6 +489,8 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
+Pause: ~25 min since the last pause (pre-kit) — the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.
+
 ---
 
 ### Step 00.12 — Leave the fasteners in their bags
@@ -447,7 +501,8 @@ Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instruct
 
 **Parts:**
 
-- the *Fasteners, Tools & Misc* box
+- staged: *Fasteners, Tools & Misc* box, bags closed
+- tool: small parts tray
 
 **Do:**
 
@@ -460,7 +515,6 @@ Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instruct
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
-Pause: ~30 min since the last pause (pre-kit) — the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Step 00.7 waits for the kit; leave the fastener bags closed and do not decant anything into a tray yet.
 
 ---
 
@@ -476,11 +530,13 @@ Pause: ~30 min since the last pause (pre-kit) — the tool and consumable decisi
 
 **Parts:**
 
-- LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 kit insert as the gauge
+- tool: LDO brass M3 heat-set tip
+- tool: soldering iron, cold
+- tool: one M3×5×4 kit insert as the tongue gauge, back in its bag after
 
 **Do:**
 
-1. Unscrew the iron's sleeve, remove the stock tip, fit the LDO tip, re-fit the sleeve.
+1. Iron off and cold: sleeve off, stock tip out, LDO tip in, sleeve on.
 2. Hold an insert alongside the tip and move the two knurled nuts until the **exposed tongue length equals the insert height**.
 
 **Check:** With an insert on the tongue, the tongue tip and the insert's far face are level.
@@ -491,19 +547,21 @@ Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](h
 
 Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
 
+Pause: ~15 min since the last pause — kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.
+
 ---
 
 ### Step 00.14 — Find the iron temperature on the practice coupon
 
-![Voron manual p.31](assets/manual-pages/manual-p031.png)
+![Voron manual p.31](assets/manual-pages/manual-p031.png){ crop="0.11 0.18 0.69 0.85" }
 
 **What you're looking at:** Manual p.31 shows the general insert operation: the blue pills are inserts going into real Z-drive bosses. The `Heatset_Practice` coupon is seven insert pockets. This step is Gate B's insert row, Step B00.7, run before the kit.
 
 **Parts:**
 
-- `Heatset_Practice` coupon ×1 (batch B00)
-- KADRICK M3×H5 inserts ×7, one per pocket
-- the iron with its stock conical tip
+- `Heatset_Practice` coupon ×1
+- M3×H5 heat-set insert ×7 — from KADRICK kit
+- tool: soldering iron with its stock conical tip
 
 **Do:**
 
@@ -526,7 +584,9 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- the practice coupon from Step 00.14
+- reused: the `Heatset_Practice` coupon and its seven inserts
+- tool: soldering iron
+- tool: flat cold tool, for the last 10 %
 
 **Do:**
 
@@ -572,7 +632,7 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-Pause: ~30 min since the last pause (pre-kit) — Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
+Pause: ~25 min since the last pause (pre-kit) — Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
 
 ---
 
@@ -580,7 +640,7 @@ Pause: ~30 min since the last pause (pre-kit) — Gate B's insert row is done: t
 
 ### Step 00.17 — Unbag the rails and immobilise every carriage
 
-![Voron manual p.26](assets/manual-pages/manual-p026.png)
+![Voron manual p.26](assets/manual-pages/manual-p026.png){ crop="0.20 0.25 0.80 0.82" }
 
 **What you're looking at:** Manual p.26: the linear rails and their carriages. A **linear rail** is a hardened steel bar with ball-bearing grooves down each side; the **carriage** is the block that rides on it. Its balls fall out if it runs off the end.
 
@@ -596,6 +656,8 @@ Pause: ~30 min since the last pause (pre-kit) — Gate B's insert row is done: t
 3. Band tape **15 mm from each end**, remove the carriage tape, re-bag the rail.
 
 **Check:** Seven rails, each back in its own bag with two end stops on and none dropped. Bags laid flat, not stacked on each other.
+
+**Helper:** Holds the rail flat on the bench while you tape the carriage and the end stops.
 
 ⚠ The carriage is designed to slide freely, which includes sliding off the end and spilling its ball bearings. Never work over the floor, never let a rail hang vertically with an untaped, unstopped carriage, and never let one fall: a dent or nick anywhere on the raceway makes that rail misbehave for the life of the machine.
 
@@ -613,10 +675,10 @@ Source: [Voron manual p.26](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- one rail at a time, in its own bag with the end stops on
-- IPA ≥ 90%
-- nitrile gloves
-- a clean towel
+- staged: the seven rails, one at a time, end stops on
+- consumable: IPA ≥ 90%
+- consumable: nitrile gloves
+- tool: clean towel
 
 **Do:**
 
@@ -645,8 +707,9 @@ Pause: ~30 min since the last pause — all seven rails are soaked, end stops on
 
 **Parts:**
 
-- dried rail
-- Super Lube 21030 in a syringe or its own nozzle
+- staged: one dried rail
+- consumable: Super Lube 21030
+- tool: 10 ml syringe with a blunt tip, or the tube nozzle
 
 **Do:**
 
@@ -668,9 +731,11 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:**
 
-- greased rail
-- lint-free cloth
-- `MGN12_rail_guide_x2` and `MGN9_rail_guide_x2` (batch B00) and one C extrusion from the frame box, for the guide test
+- staged: one greased rail
+- consumable: lint-free cloth
+- `MGN12_rail_guide_x2` ×2
+- `MGN9_rail_guide_x2` ×2
+- staged: C extrusion ×1, for the guide test
 
 **Do:**
 
@@ -679,6 +744,8 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 3. Clip each guide over its rail on the spare C extrusion, locating with **light finger pressure**.
 
 **Check:** The rail is visibly clean and dry, the carriage slides smoothly and silently, and both guide sizes locate with light finger pressure, logged.
+
+**Helper:** Clips each rail guide over the rail and says whether it seats with light finger pressure.
 
 ⚠ A guide that will not seat now, with Gate A and Gate B both passed, is more likely a burr on the extrusion or a string in the guide than the profile. Clean it and retry before you blame the slicer.
 
@@ -694,10 +761,10 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Parts:**
 
-- 7 greased rails
-- masking tape
-- marker
-- a bin
+- staged: the seven greased rails
+- consumable: masking tape
+- tool: marker
+- consumable: storage bin ×1
 
 **Do:**
 
@@ -707,7 +774,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Check:** Seven labelled, bagged rails; end stops and carriage tape intact on all seven; bin stored flat and away from foot traffic.
 
-**Helper:** Writes the seven rail labels Z0 to Z3, X and Y, and checks each bag.
+**Helper:** Writes the seven rail labels X, Y1, Y2 and Z0 to Z3, and checks each bag.
 
 Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @1:54:30](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s)
 
@@ -715,7 +782,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 ### Step 00.22 — Understand the rail jigs before you need them
 
-![Voron manual p.25](assets/manual-pages/manual-p025.png)
+![Voron manual p.25](assets/manual-pages/manual-p025.png){ crop="0.70 0.16 0.93 0.90" }
 
 **What you're looking at:** Manual p.25 draws the rail guides in green, its jig colour. A **rail guide** clips over the 2020 extrusion and the rail and holds the rail centred while you start the screws; the `pulley_jig` sets how far a pulley sits along a motor shaft.
 
@@ -723,7 +790,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 - `MGN9_rail_guide_x2` ×2
 - `MGN12_rail_guide_x2` ×2
-- `pulley_jig` ×1 (all batch B00)
+- `pulley_jig` ×1
 
 **Do:**
 
@@ -745,7 +812,7 @@ Pause: ~40 min since the last pause — all seven rails greased, wiped back to b
 
 ### Step 00.23 — Print guidelines (p.4)
 
-![Voron manual p.4](assets/manual-pages/manual-p004.png)
+![Voron manual p.4](assets/manual-pages/manual-p004.png){ crop="0.21 0.20 0.78 0.63" }
 
 **What you're looking at:** Manual p.4, the Voron print specification. These are the numbers the parts in this build are designed around: ABS or ASA, 0.2 mm layers, 4 perimeters, 5 solid top and bottom layers, 40 % infill. You print every part yourself.
 
@@ -768,8 +835,8 @@ Source: [Voron manual p.4](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 ### Step 00.24 — File naming, and where to get help (p.5–6)
 
-![Voron manual p.5](assets/manual-pages/manual-p005.png)
-![Voron manual p.6](assets/manual-pages/manual-p006.png)
+![Voron manual p.5](assets/manual-pages/manual-p005.png){ crop="0.20 0.20 0.84 0.76" }
+![Voron manual p.6](assets/manual-pages/manual-p006.png){ crop="0.25 0.20 0.76 0.72" }
 
 **What you're looking at:** Manual p.5–6, the STL filename convention and the two support routes. A prefix in square brackets sets the colour and a `_xN` suffix is how many the machine needs. The print plan and every parts table here use that convention.
 
@@ -788,7 +855,7 @@ Source: [Voron manual p.5](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 ### Step 00.25 — Fastener names, part 1 (p.7)
 
-![Voron manual p.7](assets/manual-pages/manual-p007.png)
+![Voron manual p.7](assets/manual-pages/manual-p007.png){ crop="0.10 0.18 0.88 0.86" }
 
 **What you're looking at:** Manual p.7, the first half of the fastener vocabulary, each drawn beside its name. **BHCS** is a domed button head, **SHCS** a plain cylinder, **FHCS** a countersunk cone. Every *Parts:* line in this manual uses these names exactly.
 
@@ -809,13 +876,15 @@ Source: [Voron manual p.5](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 **Check:** You can pick a BHCS out of a bag by its dome and an SHCS by its straight cylinder without reading a label.
 
+**Helper:** Picks one of each fastener out of the bags and lays it beside its name on the page.
+
 Source: [Voron manual p.7](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=7)
 
 ---
 
 ### Step 00.26 — Fastener names, part 2, and the spacer substitution (p.8)
 
-![Voron manual p.8](assets/manual-pages/manual-p008.png)
+![Voron manual p.8](assets/manual-pages/manual-p008.png){ crop="0.13 0.18 0.90 0.88" }
 
 **What you're looking at:** Manual p.8, the second half: bearings, spacers, pulleys and set screws. **F695** and **625-2RS** are both 5 mm-bore ball bearings with different jobs: F695 is flanged and lives in the A/B drives, 625-2RS is plain and lives in the Z drives.
 
@@ -845,13 +914,16 @@ Source: [Voron manual p.8](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 ### Step 00.27 — Drivers (p.9)
 
-![Voron manual p.9](assets/manual-pages/manual-p009.png)
+![Voron manual p.9](assets/manual-pages/manual-p009.png){ crop="0.09 0.22 0.72 0.82" }
 
 **What you're looking at:** Manual p.9, the drivers. A **ball-end** driver has a spherical tip that turns a screw at an angle, the only way to reach several joints in this frame. A plain hex tip grips more of the socket, for when you need force.
 
 **Parts:**
 
-- hex drivers
+- tool: ball-end hex driver 2 mm
+- tool: ball-end hex driver 2.5 mm
+- tool: ball-end hex driver 3 mm
+- tool: plain hex driver 2.5 mm
 
 **Do:**
 
@@ -867,7 +939,7 @@ Source: [Voron manual p.9](https://github.com/VoronDesign/Voron-2/blob/de7e89d/M
 
 ### Step 00.28 — Blind joints (p.10)
 
-![Voron manual p.10](assets/manual-pages/manual-p010.png)
+![Voron manual p.10](assets/manual-pages/manual-p010.png){ crop="0.12 0.20 0.90 0.73" }
 
 **What you're looking at:** Manual p.10, the **blind joint**, the joint the frame is built from. A button-head screw threads into the tapped bore in the end of one extrusion, its head captured inside the slot of the mating extrusion, tightened through a small access hole in the side.
 
@@ -886,9 +958,9 @@ Source: [Voron manual p.10](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 00.29 — How to read an exploded view, and the page-number contract (p.11)
 
-![Voron manual p.11](assets/manual-pages/manual-p011.png)
+![Voron manual p.25](assets/manual-pages/manual-p025.png){ crop="0.06 0.17 0.92 0.90" }
 
-**What you're looking at:** Manual p.11, how to read the drawings. Blue is what you add on this page, grey what you already built, green a printed jig; a rounded pill names a part, and the wireframe cube says which way round the machine is drawn.
+**What you're looking at:** Manual p.25, where every drawing convention shows at once. p.11 itself is a divider page. Blue is what you add, grey what you already built, green a printed jig; the cube says which way round the machine is drawn.
 
 **Parts:** none.
 
@@ -904,7 +976,7 @@ Source: [Voron manual p.10](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | plain dimension arrow with a bare number | a millimetre gap you must leave |
 | red heading | section title or warning |
 
-Then note the contract that makes this manual possible: the official PDF has not changed since **2023-07-18**, and LDO's Build Notes are a page-indexed diff pinned to that exact commit. Every `p.XX` reference in these chapters points at a page number that will not move. Pages like this one are dividers with no assembly content — they still get a page number, so do not assume a missing step when a page looks empty.
+Then note the contract that makes this manual possible: the official PDF has not changed since **2023-07-18**, and LDO's Build Notes are a page-indexed diff pinned to that exact commit. Every `p.XX` reference in these chapters points at a page number that will not move. Pages like p.11 are dividers with no assembly content — they still get a page number, so do not assume a missing step when a page looks empty.
 
 **Check:** Open any page in Ch 02 and identify, without reading the text, which part is new and which way the machine is facing.
 
@@ -924,7 +996,7 @@ Pause: ~25 min since the last pause (pre-kit) — you have read the manual's fro
 
 **Parts:**
 
-- a notebook, or a shared note on the iPad
+- tool: notebook, or a shared note on the iPad
 
 **Do:**
 
@@ -999,6 +1071,8 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 ---
 
 ## Checkpoint 00
+
+**Built:** a counted kit, a verified bench and seven greased rails
 
 - [ ] Both cartons inventoried against **your batch's** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.

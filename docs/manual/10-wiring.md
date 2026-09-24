@@ -56,28 +56,25 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| AC inlet, integrated switch + fuse | 1 | pre-wired; verify, don't rewire |
-| Meanwell LRS-200-24 PSU | 1 | 24 V 8.8 A; 115/230 V selector on the side |
-| Omron SSR G3NB-210B-1 + DIN bracket | 1 | 24–220 VAC 10 A |
-| WAGO 221-415 (5-way) | 3 | N / L / PE bus |
-| WAGO 221-412 (2-way) | 2 | bed L and bed N breakout, on the bed WAGO mount |
 | 3×2 XH splicer PCB | 2 | one for the 6020 fan pair, one as the LED junction |
-| 2×2 XH splicer PCB | 1 | bed thermistor breakout (fitted Ch 09) |
+| 2×3 Splitter Spacer | 2 | LDO-supplied printed, one under each 3×2 splicer |
+| 60×60×20 fan | 2 | bay fan pair, first plugged in at 10.47, mounted in Ch 11 |
+| Keystone CAT6 insert | 1 | plugged at 10.51, snapped into its panel in Ch 11 |
+| C13 power cord | 1 | first plugged in at 10.23, then out of the room |
 | Drag chain 10×10 R18 | 2 | X chain and Y chain |
 | Drag chain 10×15 R28 | 1 | Z chain |
 | M3×5×4 brass heat-set insert | 20 | 16 for the COB mounts, 2 for the Z chain guide, 2 for the Z chain retainer bracket (p.204 carries the heat-set icon but no count — count the bosses on your part, verify on bench) |
 | M3×6 FHCS | 16 | COB mount halves |
 | M3×8 SHCS | 20 | 16 COB mounts to extrusion, 2 per splicer PCB ×2 |
 | M3 hammerhead T-nut, 2020 | 20 | pairs with the M3×8 SHCS above |
-| M3×6 FHCS (chain ends, X and Y) | (verify on bench) | manual p.197, p.199 — 2-hole chain ends |
+| M3×6 FHCS (chain ends, X and Y) | 6: 3 X chain + 3 Y chain | manual p.197, p.199: one into the T-nut at each fixed end, two into each 2-hole moving end **(verify on bench)** |
 | M3 roll-in T-nut, 2020 | 2 | X and Y chain ends |
 | M3×10 FHCS | 4 | Z chain top and bottom ends (p.202) |
 | M3×12 SHCS | 2 | Z chain retainer bracket to the A drive (p.204) |
-| M5×10 BHCS + M5 roll-in T-nut | 2 + 2 | Z chain guide (p.201), Z chain bottom anchor (p.203) |
-| M5×10 BHCS + M5 roll-in T-nut (frame PE) | 1 + 1 | plus the two M5 locking washers below |
+| M5×10 BHCS | 3 | Z chain guide (p.201), Z chain bottom anchor (p.203), frame PE lug |
+| M5 roll-in T-nut, 2020 | 3 | the same three |
 | M5 locking washer | 2 | frame PE stack |
 | Extrusion slot cover, 6 mm | up to 9 | closes the slots the LED leads run in |
-| VE0508 ferrule | 5 | spares |
 | Zip ties 3×150 mm | ~35 | from the 100 supplied |
 
 **Read first**
@@ -134,14 +131,14 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 
 ### Step 10.2 — Set the PSU input-voltage selector
 
-![Voron manual p.181](assets/manual-pages/manual-p181.png)
+![Voron manual p.181](assets/manual-pages/manual-p181.png){ crop="0.08 0.24 0.88 0.62" }
 ![LDO photo of the PSU voltage selector](assets/remote/10-wiring/ldo-psu-voltage-selector.jpg)
 
 **What you're looking at:** The grey brick is the [Meanwell LRS-200-24](16-glossary.md#m), the 24 V supply for everything except the bed heater. The second photo is the small red slide switch in its side, which sets 115 V or 230 V mains.
 
 **Parts:**
 
-- Meanwell LRS-200-24 ×1
+- reused: the Meanwell PSU
 
 **Do:** Find the red slide switch in the cut-out on the PSU's long side. With the flat screwdriver, slide it so the window shows **115** for a US 110/120 V supply, **230** for a 230 V supply.
 
@@ -163,7 +160,7 @@ Source: [Voron manual p.181](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- Leviathan mainboard ×1
+- reused: the Leviathan mainboard
 
 **Do:** Find the jumper block silkscreened *Voltage selection for Z-Probe and Fans*, next to the fan headers. All five positions, **Probe, Fan0, Fan1, Fan2, Fan3**, must be bare.
 
@@ -177,14 +174,11 @@ Source: [LDO wiring guide § Preparing the mainboard](https://docs.ldomotors.com
 
 ### Step 10.4 — Fit the AC inlet into the printed plug panel
 
-![Voron manual p.156](assets/manual-pages/manual-p156.png)
+![Voron manual p.156](assets/manual-pages/manual-p156.png){ crop="0.52 0.28 0.94 0.68" }
 
 **What you're looking at:** `power_inlet_IECGS_1mm` is the printed panel that carries mains into the machine. The module in it combines three parts: the [C14 inlet](16-glossary.md#i), the on/off rocker, and the fuse drawer. The manual page is drawn for the stock separate inlet and does not match your frame.
 
-**Parts:**
-
-- none — already done in Ch 09
-- this step only confirms it
+**Parts:** none.
 
 **Do:** Nothing to build. On the rear extrusion's panel, confirm the earth pin is at the top with the printer upright, the switch faces out, and both M3×10 FHCS are in. If not, go back to Ch 09 Steps 09.10–09.11.
 
@@ -206,7 +200,7 @@ Pause: ~15 min since the last pause — printer on its side, PSU selector set, L
 
 **Parts:**
 
-- AC inlet assembly ×1
+- reused: the AC inlet module
 
 **Do:** Compare your pre-wired inlet against LDO's diagram: the **fuse sits in series with Live**; Live and Neutral pass through the rocker; the **Earth spade is neither switched nor fused**. Three wires leave: brown L, blue N, green/yellow PE.
 
@@ -231,10 +225,7 @@ Source: [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/
 
 **What you're looking at:** The panel is already part of the machine's rear wall: Ch 09 hooked it over the rear extrusion and bolted it to two T-nuts, with the WAGO block beside it. It becomes one of the three rear skirt segments in Ch 11.
 
-**Parts:**
-
-- none — already done at Step 09.12
-- this step only confirms it
+**Parts:** none.
 
 **Do:** Nothing to build. Confirm the panel is flat on the extrusion with no gap at its lip, both M3×8 SHCS snug, and that it does not overhang where the rear skirt lands.
 
@@ -252,7 +243,8 @@ Source: [Voron manual p.156](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- the three WAGO 221-415 blocks in their mount (populated and mounted at Step 09.13 — nothing to snap in here), label maker
+- reused: the three WAGO 221-415 blocks in their mount
+- tool: label maker
 
 **Do:** Label the three blocks left to right **N**, **L**, **PE**, with the label maker.
 
@@ -271,7 +263,8 @@ Source: [LDO Rev D photo S2 inlet/WAGO mapping](https://raw.githubusercontent.co
 
 **Parts:**
 
-- inlet cable (3 cores), WAGO N / L / PE
+- reused: the inlet module's three pre-wired cores
+- reused: WAGO N, L and PE
 
 **Do:**
 
@@ -298,7 +291,8 @@ Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/Motor
 
 **Parts:**
 
-- PSU AC cable set (3 cores, ferruled at the PSU end), PH2 screwdriver
+- PSU AC cable set, 3 cores ×1 — from the Cable Kit box
+- tool: PH2 screwdriver
 
 **Do:**
 
@@ -325,7 +319,7 @@ Pause: ~30 min since the last pause — inlet verified, plug panel confirmed on 
 
 **Parts:**
 
-- Omron SSR on its DIN bracket (fitted Ch 09)
+- reused: the Omron SSR on its DIN bracket
 
 **Do:** Read the SSR body: the pair silkscreened **1 LOAD 2** is the AC switching side, **3 + INPUT 4 −** the DC control side. Note which end the yellow indicator LED sits at, and match LDO's photo.
 
@@ -350,7 +344,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Parts:**
 
-- *SSR to Wago* cable ×1 (one end tagged **TO SSR**)
+- *SSR to Wago* cable ×1 — from the Cable Kit box
 
 **Do:**
 
@@ -374,7 +368,10 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Parts:**
 
-- the three cables hanging from the plate (**Bed L**, **N**, **BED TH**) plus the bed PE ring terminal, the kit's two braided extension leads (tagged **Bed L** and **Bed N**), bed WAGO mount with 2× WAGO 221-412 and the 2×2 XH splicer (fitted Ch 09)
+- reused: the plate's Bed L, Bed N and BED TH leads and its PE ring terminal
+- Bed L extension lead ×1 — from the Cable Kit box
+- Bed N extension lead ×1 — from the Cable Kit box
+- reused: the bed WAGO mount with its two WAGO 221-412 and the 2×2 XH splicer
 
 **Do:**
 
@@ -399,7 +396,8 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **Parts:**
 
-- multimeter, the Bed L and Bed N extension leads (far ends still free, not yet run below the deck)
+- tool: multimeter
+- reused: the Bed L and Bed N extension leads, far ends still free
 
 **Do:**
 
@@ -437,7 +435,7 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 **Parts:**
 
-- *Bed L* cable ×1
+- reused: the Bed L extension lead
 
 **Do:** Run the Bed L extension from the bed WAGO breakout down through the round deck hole into the 34 mm run, round both curves, through the wire box, port stub and SSR run to terminal **LOAD 1**. PH2, tight.
 
@@ -458,7 +456,8 @@ Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.c
 
 **Parts:**
 
-- *Bed N* and *Bed PE* leads
+- reused: the Bed N extension lead
+- reused: the bed PE lead
 
 **Do:** Lay both leads from the 34 mm run round the two curves into the wire box. Bed N into a spare port of the blue **N** WAGO. Bed PE into a spare port of the yellow **PE** WAGO.
 
@@ -479,7 +478,10 @@ Source: [LDO Rev D photo S5 bed wired](https://raw.githubusercontent.com/MotorDy
 
 **Parts:**
 
-- *FRAME PE* cable ×1, M5 locking washer ×2, M5×10 BHCS + M5 roll-in T-nut (verify on bench)
+- *FRAME PE* cable ×1 — from the Cable Kit box
+- M5 locking washer ×2
+- M5×10 BHCS ×1 (verify on bench)
+- M5 roll-in T-nut ×1 (verify on bench)
 
 **Do:**
 
@@ -506,7 +508,7 @@ Pause: ~30 min since the last pause — every mains connection made and pull-tes
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:** Confirm the C13 power cord is **not** plugged into the inlet and is not in the room. Set the meter to continuity/beeper and test it by shorting the probes.
 
@@ -528,7 +530,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- multimeter on continuity (beeper), then on Ω for the frame and plate rows
+- tool: multimeter
 
 **Do:**
 
@@ -585,7 +587,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:**
 
@@ -612,7 +614,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:** With the meter across the C14 L pin and a brown WAGO node, toggle the rocker.
 
@@ -630,7 +632,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:** Measure SSR **LOAD 1 → LOAD 2** with nothing energised.
 
@@ -664,11 +666,11 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- C13 power cord ×1. No meter
+- C13 power cord ×1
 
 **Do:**
 
-1. Rocker **OFF**, cord into the inlet then the wall.
+1. Rocker **OFF**, meter away, cord into inlet, then wall.
 2. Everyone back; stand aside, hand on the rocker, switch **ON**. Look, listen and smell **ten seconds**.
 3. Rocker **OFF**, unplug wall then inlet, cord out of the room.
 
@@ -702,7 +704,9 @@ Pause: ~25 min since the last pause — Checkpoint #1 passed end to end and the 
 
 **Parts:**
 
-- *24V PSU to MB* cable ×1 (ends tagged **24V** and **TO MB**), multimeter, cable tag
+- *24V PSU to MB* cable ×1 — from the Cable Kit box
+- tool: multimeter
+- consumable: cable tag
 
 **Do:**
 
@@ -723,7 +727,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Parts:**
 
-- *HV to MB HV* cable ×1 (ends tagged **HV** and **TO MB HV**)
+- *HV to MB HV* cable ×1 — from the Cable Kit box
 
 **Do:** **TO MB HV** end onto the PSU's +V / −V terminals, alongside the board supply. **HV** end onto the Leviathan terminal silkscreened **Vin 24-48V / HV-Steppers**.
 
@@ -741,7 +745,7 @@ Source: [LDO Rev D photo S4 mainboard/PSU wired](https://raw.githubusercontent.c
 
 **Parts:**
 
-- *24V power* cable ×1 (ends tagged **TO TOOLHEAD** and **24V IN**)
+- *24V power* cable ×1 — from the Cable Kit box
 
 **Do:** **TO TOOLHEAD** end onto the PSU +V/−V. **24V IN** end onto the USB adapter PCB on its DIN clip. This is what powers the Nitehawk down the umbilical.
 
@@ -759,7 +763,7 @@ Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.
 
 **Parts:**
 
-- *SSR to MB* cable ×1 (ends tagged **SSR SIG** and **To SSR**)
+- *SSR to MB* cable ×1 — from the Cable Kit box
 
 **Do:** **SSR SIG** end onto the SSR's **INPUT 3&4**: red to **INPUT 3**, black to **INPUT 4**. **To SSR** end onto the Leviathan's **HEATBED** terminals.
 
@@ -780,7 +784,7 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Parts:**
 
-- 2 of the jumpers removed in Ch 09
+- reused: two of the jumpers bagged in Ch 09
 
 **Do:** Fit a jumper on **Fan2** and one on **Fan3**, both in the **24 V** position. Leave **Fan0**, **Fan1** and **Probe** bare.
 
@@ -800,7 +804,7 @@ Source: [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:**
 
@@ -845,11 +849,13 @@ Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- XY endstop cable ×1 (4-pin JST-XH one end, two 3-pin JST-XH the other)
+- staged: XY endstop cable ×1
 
 **Do:** Read the two 3-pin connectors' labels.
 
 **Check:** Read the two 3-pin connectors and match one row.
+
+**Helper:** Reads both 3-pin labels aloud and points to the matching row in the table.
 
 | Labels read | Meaning |
 |---|---|
@@ -870,7 +876,8 @@ Source: [LDO wiring guide § Wiring the XY endstop](https://docs.ldomotors.com/e
 
 **Parts:**
 
-- XY endstop cable ×1, tweezers or the supplied 2.5 mm flat screwdriver
+- staged: XY endstop cable ×1
+- tool: tweezers or the supplied 2.5 mm flat screwdriver
 
 **Do:**
 
@@ -900,7 +907,8 @@ Source: [LDO XY endstop reconnecting guide](https://docs.ldomotors.com/en/guides
 
 **Parts:**
 
-- XY endstop cable ×1, XY endstop PCB (on the right XY joint — bagged in Ch 05, mounted at Ch 09 Steps 09.32–09.33)
+- XY endstop cable ×1 — from the Cable Kit box
+- reused: the XY endstop PCB on the right XY joint
 
 **Do:** Plug the **4-pin** end into the XY endstop PCB. Leave the two 3-pin ends free; they reach the Leviathan in step 10.45. Dress the cable along the **right** Y extrusion toward the rear-right, ready for the Y chain.
 
@@ -920,11 +928,14 @@ Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.
 
 **Parts:**
 
-- Z endstop cable ×1, nozzle-probe PCB (assembled and mounted in Ch 09)
+- Z endstop cable ×1 — from the Cable Kit box
+- reused: the nozzle-probe PCB
 
 **Do:** Plug the 3-pin connector onto the nozzle-probe PCB. Route the lead across the deck to the Z-chain notch and drop it through beside the Z-chain bundle, not the round hole.
 
 **Check:** Press the 5 mm shaft down with a finger: it moves freely, clicks the D2F, and springs back.
+
+**Helper:** Presses the probe shaft down and says when the switch clicks and the shaft springs back.
 
 ⚠ The small GT2 pulley used as the shaft collar, built in Ch 09, has a set screw that stops the shaft falling out. It must **not** grip the shaft.
 
@@ -944,7 +955,12 @@ Pause: ~25 min since the last pause — probe tape confirmed, XY endstop cable r
 
 **Parts:**
 
-- `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2, M3×5×4 heat-set inserts ×16, M3×6 FHCS ×16 — plus, for the same sitting, the `z_chain_guide` (2 inserts) and the `[a]_z_chain_retainer_bracket` (p.204 heat-set icon; count its bosses, verify on bench)
+- `cob_light_strip_mount_100mm` ×6
+- `cob_light_strip_mount_50mm` ×2
+- M3×5×4 heat-set insert ×20 (verify on bench)
+- M3×6 FHCS ×16
+- staged: `z_chain_guide` ×1
+- staged: `[a]_z_chain_retainer_bracket` ×1
 
 **Do:**
 
@@ -965,8 +981,8 @@ Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/L
 
 **Parts:**
 
-- COB LED strips ×2
-- assembled mounts ×8
+- COB LED strip ×2 — from the LDO kit, box not in the Rev D BOM
+- reused: the eight assembled COB mounts
 - M3×8 SHCS ×16
 - M3 hammerhead T-nut ×16
 
@@ -976,6 +992,8 @@ Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/L
 2. Fasten each with two M3×8 SHCS into hammerhead nuts. Press the strips into their channels, leads to the rear.
 
 **Check:** Both strips are level, fully seated, and their leads meet near the rear centre of the ceiling with slack to spare.
+
+**Helper:** Holds each COB mount in place on the top extrusion while the adult drives its screws.
 
 Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips) · [LDO wiring photo led_route.png](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/led_route.png)
 
@@ -1011,7 +1029,8 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 **Parts:**
 
-- extrusion slot covers, 6 mm — up to 9
+- *LED STRIP* cable ×1 — from the Cable Kit box
+- consumable: extrusion slot cover, 6 mm, up to 9
 
 **Do:**
 
@@ -1034,7 +1053,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 **Parts:**
 
-- chamber thermistor (batch-dependent)
+- reused: the chamber thermistor, if your batch has one
 
 **Do:** Nothing on the Leviathan: the chamber thermistor lands on the **toolboard's CT port**, a Ch 08 step. If yours is still loose, dress its tip into free chamber air, away from the hotend and out of the toolhead's travel.
 
@@ -1059,7 +1078,7 @@ Pause: ~35 min since the last pause — eight COB mounts built, both strips moun
 
 **Parts:**
 
-- cable tags (supplied) ×7
+- consumable: cable tag ×7
 
 **Do:** Transcribe the table below onto tags and fit one to each motor cable at the board end. Positions are given *"as if standing in front of an upright printer and looking towards it."*
 
@@ -1075,6 +1094,8 @@ Pause: ~35 min since the last pause — eight COB mounts built, both strips moun
 
 **Check:** Seven tags written, six cables tagged, and you can trace each cable back to the motor it came from without guessing.
 
+**Helper:** Writes the seven tags from the table and hands each one over for its cable.
+
 Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S1_mapping.jpg) · [LDO wiring guide § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers) · [Video: Part 6 @0:25:08](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1508s)
 
 ---
@@ -1087,7 +1108,7 @@ Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/M
 
 **Parts:**
 
-- A motor cable ×1 (4-pin JST-XH)
+- reused: the A motor's lead
 
 **Do:** Plug the A motor, rear right, into the TMC5160 port LDO's diagram labels `HV-STEPPER-1`. Match your board against `S1_mapping.jpg`, not the *Stepper X/Y* silkscreen. Route the lead from the notch along the DC loop's right run and middle run.
 
@@ -1109,7 +1130,7 @@ Source: [LDO Rev D photo S1 steppers wired](https://raw.githubusercontent.com/Mo
 
 **Parts:**
 
-- B motor cable ×1
+- reused: the B motor's lead
 
 **Do:** Plug the B motor, rear left, into `HV-STEPPER-0`, the other 5160 port. Route the lead with A's: notch, right run, middle run.
 
@@ -1131,11 +1152,13 @@ Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/M
 
 **Parts:**
 
-- Z motor cables ×4
+- reused: the four Z motor leads
 
 **Do:** Working left to right along the 2209 header row as `S1_mapping.jpg` shows it, `STEPPER-3`, `STEPPER-2`, `STEPPER-1`, `STEPPER-0`, plug in Z3 front right, Z2 rear right, Z1 rear left, Z0 front left. Leave `STEPPER-4` empty; the extruder lives on the toolboard.
 
 **Check:** Four connectors, four tags, and each tag's physical position matches the corner its cable physically runs to. `STEPPER-4` is empty.
+
+**Helper:** Reads each tag aloud and names the corner its cable runs to before it is plugged in.
 
 **Verification deferred:** the definitive test is `STEPPER_BUZZ` per motor in Ch 13. If a corner buzzes that you did not name, swap the two cables — do not edit the config.
 
@@ -1151,7 +1174,7 @@ Source: [LDO Rev D photo S1 steppers wired](https://raw.githubusercontent.com/Mo
 
 **Parts:**
 
-- *Bed TH* cable ×1 (2-pin JST-XH)
+- *Bed TH* cable ×1 — from the Cable Kit box
 
 **Do:** Lead it from the splicer over the deck, down the Z-chain notch and round the DC loop. Measure it against the table in step 10.76, then plug it into **TH1**. Polarity does not matter.
 
@@ -1171,11 +1194,13 @@ Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.c
 
 **Parts:**
 
-- the two 3-pin ends of the XY endstop cable
+- reused: the two 3-pin ends of the XY endstop cable
 
 **Do:** **XES / X Stop** into the port labelled `X-ENDSTOP`; **YES / Y Stop** into `Y-ENDSTOP`. LDO's mapping photo labels the three endstop headers **Z STOP / Y STOP / X STOP** in that order along the board.
 
 **Check:** Both fully seated. Press each microswitch on the gantry PCB with a fingertip and feel a distinct click.
+
+**Helper:** Presses each microswitch on the gantry PCB and says when it clicks.
 
 Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S6_mapping.jpg) · [LDO wiring guide § Connecting the gantry cables](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-gantry-cables)
 
@@ -1189,7 +1214,7 @@ Source: [LDO Rev D photo S6 gantry-cable mapping](https://raw.githubusercontent.
 
 **Parts:**
 
-- Z endstop cable ×1 (3-pin)
+- reused: the Z endstop cable
 
 **Do:** Plug the nozzle-probe lead into the port labelled `Z-ENDSTOP`.
 
@@ -1211,12 +1236,12 @@ Pause: ~30 min since the last pause — six steppers tagged and plugged on their
 
 **Parts:**
 
-- 6020 fans ×2
+- 60×60×20 fan ×2
 - 3×2 XH splicer PCB ×1
 - `2x3 Splitter Spacer` ×1
 - M3×8 SHCS ×2
 - M3 hammerhead T-nut ×2
-- *PCB FAN* cable ×1
+- *PCB FAN* cable ×1 — from the Cable Kit box
 
 **Do:** Bolt the splicer PCB to its printed spacer and mount the sandwich to a frame extrusion in the bay. Plug both 6020 fans into it and run the *PCB FAN* cable to the Leviathan port `FAN2`, pin `PF7`.
 
@@ -1242,7 +1267,7 @@ Source: [LDO Rev D photo S7 fan/LED mapping](https://raw.githubusercontent.com/M
 
 **Parts:**
 
-- *FILTER FAN* cable ×1
+- *FILTER FAN* cable ×1 — from the Cable Kit box
 
 **Do:** Plug the board end into `FAN3`, pin `PF9`. Route the free end up through the Z-chain notch, not the round hole, toward the Nevermore position at the rear of the chamber. Coil 150 mm of slack there.
 
@@ -1262,7 +1287,7 @@ Source: [LDO Rev D photo S7 fans wired](https://raw.githubusercontent.com/MotorD
 
 **Parts:**
 
-- *LED STRIP* cable ×1 (2-pin JST-XH)
+- reused: the LED STRIP cable from the junction PCB
 
 **Do:** Plug the lead from the ceiling junction PCB into the Leviathan port silkscreened `LED-Strip`, pin `PE6`.
 
@@ -1281,7 +1306,13 @@ Source: [LDO Rev D photo S7 fan/LED mapping](https://raw.githubusercontent.com/M
 
 **Parts:**
 
-- FFC ribbon cable ×1, 4.3" capacitive DSI display ×1 — plus, for the module built in this step, `mount.stl` (B08-P3), `[a]_faceplate` (B02), M3×5×4 heat-set inserts ×2, M3×8 SHCS ×2 and the screen's four M2.5×6 screws (all counted in Ch 11's tables)
+- FFC ribbon cable ×1 (verify on bench) — from the display box
+- staged: 4.3" capacitive DSI display ×1
+- staged: `mount.stl` ×1
+- staged: `[a]_faceplate` ×1
+- staged: M3×5×4 heat-set insert ×2
+- staged: M3×8 SHCS ×2
+- staged: M2.5×6 screw ×4 — from BTT screen packaging
 
 **Do:**
 
@@ -1307,7 +1338,7 @@ Source: [LDO Rev D photo VS8 mapping](https://raw.githubusercontent.com/MotorDyn
 
 **Parts:**
 
-- Ethernet patch cable ×1
+- Ethernet patch cable ×1 — from the Cable Kit box
 - Keystone CAT6 insert ×1
 
 **Do:** Plug one end into the Pi's RJ45. Run the cable round the DC loop to the rear-right corner, out through the rear-lower run's tines, and into the keystone insert. Leave the insert loose for Ch 11.
@@ -1328,7 +1359,7 @@ Source: [LDO Rev D photo VS8 Ethernet/USB wired](https://raw.githubusercontent.c
 
 **Parts:**
 
-- short USB-A to USB-C cable ×1
+- USB-A to USB-C cable, short ×1 (verify on bench) — from the Cable Kit box
 
 **Do:** Plug USB-A into a Pi port and USB-C into the Leviathan's USB port. Keep it short and dress it flat; this loop is only 60 mm and a long cable will foul the DIN clips.
 
@@ -1348,7 +1379,7 @@ Source: [LDO Rev D photo VS8 Ethernet/USB wired](https://raw.githubusercontent.c
 
 **Parts:**
 
-- USB cable ×1 (supplied)
+- USB cable ×1 — from the Cable Kit box
 
 **Do:** Plug one end into a second Pi USB port and the other into the USB adapter PCB on its DIN clip. This carries the toolboard's USB data; the 24 V it also needs arrived in step 10.26.
 
@@ -1371,7 +1402,7 @@ Pause: ~40 min since the last pause — bay fans, filter fan and LED strip on th
 
 **Parts:**
 
-- toolhead umbilical cable ×1
+- reused: the toolhead umbilical cable
 
 **Do:** Confirm the toolboard end is an Amass `XT30(2+2)-F`, the *partially overmolded* variant, and the bay end a **Micro-Fit 3.0**. Nominal bend radius **28 mm**, max operating temperature **105 °C**.
 
@@ -1390,9 +1421,7 @@ Source: [Nitehawk-SB V2 doc § Umbilical cable](https://docs.ldomotors.com/en/To
 
 **What you're looking at:** The [Nitehawk-SB V2](16-glossary.md#n) is the toolboard: the small PCB on the toolhead driving the hotend, fans, LEDs, probe and accelerometer, so only one cable crosses the moving gantry. V2 uses the finer [JST-PH2.0](16-glossary.md#j) housings where the Rev D guide still names the coarser XH2.5.
 
-**Parts:**
-
-- none — verification only
+**Parts:** none.
 
 **Do:** Before you touch anything on the toolhead, confirm what Ch 08 fitted:
 
@@ -1420,9 +1449,7 @@ Source: [Nitehawk-SB-V2 repo `nhsbv2_pcb_pinout.jpg`](https://github.com/MotorDy
 
 **What you're looking at:** The fan-adapter PCB is the small board inside the Stealthburner front carrying the part-cooling and hotend fans; it mates to the toolboard through a pin header, not a cable. The photo is the V2 header: 2×5 pins, keyed, reversed in gender from V1.
 
-**Parts:**
-
-- none — verification only
+**Parts:** none.
 
 **Do:** The board-to-board interface between the Stealthburner fan adapter and the toolboard is a **2×5**, 10-pin header on V2, with **reversed gender** and **keying**. V1 used 2×4, and every Rev D photo online shows that old arrangement.
 
@@ -1443,7 +1470,7 @@ Source: [Nitehawk-SB-V2 repo `sbv2_fan_adapter_pcb_pinout.jpg`](https://github.c
 
 **Parts:**
 
-- `usb_adapter_mount_partial_cover.stl` (Nitehawk-SB-**V2** repo) ×1
+- reused: the fitted `usb_adapter_mount_partial_cover`
 
 **Do:** Confirm the cover on the USB adapter PCB is the V2 **partial** cover, which deliberately leaves one mounting point exposed. The printed-parts guide still points at the V1 `usb_adapter_mount.stl` / `cw2_captive_pcb_cover.stl`; that cover encloses the point you need.
 
@@ -1465,7 +1492,9 @@ Detail photos: [toolboard ground routing](assets/remote/10-wiring/nitehawk-sb-v2
 
 **Parts:**
 
-- the long **supplied** grounding cable's free end (its ring terminal is already on the USB adapter from 09.25), M3 screw + serrated washer + T-nut for the frame end *(LDO does not name the fastener — verify on bench)*, multimeter
+- reused: the long supplied grounding cable, ring already on the USB adapter
+- consumable: one M3 screw, serrated washer and T-nut for the frame end (verify on bench)
+- tool: multimeter
 
 **Do:**
 
@@ -1492,9 +1521,12 @@ Pause: ~25 min since the last pause — the three Rev D+ toolhead deviations ver
 
 **Parts:**
 
-- drag chain 10×10 R18 ×1 (cut to length), M3 roll-in T-nut ×1, M3×6 FHCS (verify on bench), CW2 chain anchor tilted (LDO-supplied printed, fitted Ch 08)
+- drag chain 10×10 R18 ×1
+- M3 roll-in T-nut ×1
+- M3×6 FHCS ×3 (verify on bench)
+- reused: the CW2 chain anchor on the toolhead
 
-**Do:** Slide the T-nut into the top slot of the X extrusion. Mount the chain's fixed end to it with the M3×6 FHCS, and clip the moving end onto the CW2 chain anchor on the toolhead.
+**Do:** Cut the chain to length. Slide the T-nut into the top slot of the X extrusion. Fix the chain's fixed end to it with one M3×6 FHCS, and the moving end to the CW2 chain anchor with two.
 
 **Check:** Push the toolhead through its full X travel by hand. The chain rolls, never drags on the extrusion, and never reaches full extension.
 
@@ -1506,18 +1538,21 @@ Source: [Voron manual p.197](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 10.60 — Fit the Y drag chain
 
-![Voron manual p.199](assets/manual-pages/manual-p199.png)
-![Voron manual p.198](assets/manual-pages/manual-p198.png)
+![Voron manual p.199](assets/manual-pages/manual-p199.png){ crop="0.08 0.20 0.88 0.89" }
+![Voron manual p.198](assets/manual-pages/manual-p198.png){ crop="0.58 0.18 0.96 0.76" }
 
 **What you're looking at:** The Y chain does the same job one level out: fixed to the **right** Y extrusion, moving with the right XY joint, so the toolhead umbilical and the endstop cable can travel front to back. Everything it serves lives on the right.
 
 **Parts:**
 
-- drag chain 10×10 R18 ×1, M3 roll-in T-nut ×1, M3×6 FHCS (verify on bench), small zip ties ×2
+- drag chain 10×10 R18 ×1
+- M3 roll-in T-nut ×1
+- M3×6 FHCS ×3 (verify on bench)
+- consumable: small zip tie ×2
 
 **Do:**
 
-1. T-nut into the **right** Y extrusion, chain fixed end onto it, moving end onto the **right** XY joint's cable bridge, the blue arch from Step 05.38.
+1. T-nut into the **right** Y extrusion, chain fixed end onto it with one M3×6 FHCS, moving end onto the **right** XY joint's cable bridge with two.
 2. Secure the bundle to the chain's strain relief with **small** zip ties.
 
 **Check:** Run the gantry front to back over full Y travel: the chain articulates freely and the loop stays clear of the bed extrusions.
@@ -1530,13 +1565,13 @@ Source: [Voron manual p.199](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 10.61 — Secure the A and B motor cables
 
-![Voron manual p.200](assets/manual-pages/manual-p200.png)
+![Voron manual p.200](assets/manual-pages/manual-p200.png){ crop="0.14 0.24 0.82 0.72" }
 
 **What you're looking at:** The A and B motor leads run from the two rear drive units along the small extrusion between them, then join everything else in the Z chain. The ties keep the cables out of the belts and pulleys.
 
 **Parts:**
 
-- zip ties ×4–6
+- consumable: zip ties, 4 to 6
 
 **Do:** Bundle the A and B motor cables along the small extrusion between the two drive units, tying every 60–80 mm. Both bundles feed into the Z chain next.
 
@@ -1548,14 +1583,14 @@ Source: [Voron manual p.200](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 10.62 — Fit the Z chain guide and the Z chain
 
-![Voron manual p.201](assets/manual-pages/manual-p201.png)
-![Voron manual p.202](assets/manual-pages/manual-p202.png)
+![Voron manual p.201](assets/manual-pages/manual-p201.png){ crop="0.30 0.17 0.84 0.88" }
+![Voron manual p.202](assets/manual-pages/manual-p202.png){ crop="0.50 0.52 0.86 0.84" }
 
 **What you're looking at:** The Z chain is the largest of the three, 10 × 15 mm links on a 28 mm bend radius, because it carries the entire gantry harness down to the deck. The printed guide bolts to the frame and holds the chain's lower run.
 
 **Parts:**
 
-- Z chain guide (batch B05) ×1 with its two M3×5×4 inserts already melted in at 10.35
+- `z_chain_guide` ×1
 - M5 roll-in T-nut ×1
 - M5×10 BHCS ×1
 - drag chain 10×15 R28 ×1
@@ -1574,13 +1609,13 @@ Source: [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 10.63 — Fit the Z chain bottom anchor
 
-![Voron manual p.203](assets/manual-pages/manual-p203.png)
+![Voron manual p.203](assets/manual-pages/manual-p203.png){ crop="0.08 0.20 0.92 0.60" }
 
 **What you're looking at:** The bottom anchor is a printed clip with an open channel: the chain runs *through* it, so it is a mid-run keeper, not a chain end. p.203 shows it bolted to a **horizontal** extrusion, the chain passing vertically through its channel.
 
 **Parts:**
 
-- Z chain bottom anchor (batch B05) ×1
+- `z_chain_bottom_anchor` ×1
 - M5 roll-in T-nut ×1
 - M5×10 BHCS ×1
 
@@ -1605,10 +1640,10 @@ Source: [Voron manual p.203](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- `[a]_z_chain_retainer_bracket` ×1 (batch **B02**, plate B02-P3; B02 prints 2 and Ch 06 Step 06.26 bags both — the second is a spare **(verify on bench)**) with its M3×5×4 inserts already melted in at 10.35 (p.204 carries the heat-set icon; count the bosses on your part)
+- `[a]_z_chain_retainer_bracket` ×1
 - M3×12 SHCS ×2
 - M3×10 FHCS ×2
-- zip ties ×2
+- consumable: zip ties, 2
 
 **Do:**
 
@@ -1625,14 +1660,17 @@ Pause: ~35 min since the last pause — X, Y and Z chains all mounted at both en
 
 ### Step 10.65 — Lay the harness into the chains
 
-![Voron manual p.195](assets/manual-pages/manual-p195.png)
+![Voron manual p.195](assets/manual-pages/manual-p195.png){ crop="0.30 0.19 0.84 0.72" }
 ![Voron manual p.194](assets/manual-pages/manual-p194.png)
 
 **What you're looking at:** Every drag-chain link has a hinged latch down one side, marked with a small screwdriver icon on the side you may pry. With the latches open the chain is an open trough, so cables are laid into it rather than threaded through it.
 
 **Parts:**
 
-- umbilical ×1, XY endstop cable ×1, A and B motor bundles, 2.5 mm flat screwdriver
+- reused: the umbilical
+- reused: the XY endstop cable
+- reused: the A and B motor bundles
+- tool: 2.5 mm flat screwdriver
 
 **Do:**
 
@@ -1640,6 +1678,8 @@ Pause: ~35 min since the last pause — X, Y and Z chains all mounted at both en
 2. Fill in order: umbilical alone in X, umbilical plus XY endstop cable in Y, both plus A and B motor bundles in Z.
 
 **Check:** Every latch clicked shut. With the gantry mid-travel, you can pinch each cable inside a link and slide it a few millimetres.
+
+**Helper:** Holds each chain latch open with the flat screwdriver while the adult lays the cables in.
 
 ⚠ Rev D+ / LDO: LDO note p.194–195 — *"When running wires in the cable chain, it is important to keep the wires loose. Pulling the wires tight inside the cable chain will result to excessive wire fatigue and possible pre-mature wire breaks."* This is the most-repeated warning in the whole LDO documentation set. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -1657,7 +1697,7 @@ Source: [Voron manual p.195](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- zip ties ×12
+- consumable: zip ties, 12
 
 **Do:**
 
@@ -1678,7 +1718,7 @@ Source: [Nitehawk-SB V2 doc § Working with cable chains](https://docs.ldomotors
 
 **Parts:**
 
-- umbilical Micro-Fit 3.0 end
+- reused: the umbilical's Micro-Fit 3.0 end
 
 **Do:** With the machine unplugged and confirmed dead, push the Micro-Fit connector into the USB adapter PCB until the latch clicks.
 
@@ -1725,7 +1765,7 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 
 **Parts:**
 
-- zip ties ×3–4
+- consumable: zip ties, 3 to 4
 
 **Do:** Tie each bundle to the deck support or the frame just below its opening: bed L, N and PE at the hole; umbilical, XY endstop, A, B, LED, bed TH, nozzle probe and filter fan at the notch.
 
@@ -1745,11 +1785,13 @@ Source: [LDO wiring guide § Below-deck wiring](https://docs.ldomotors.com/en/vo
 
 **Parts:**
 
-- cable tags (supplied), for whatever is missing
+- consumable: cable tags, for whatever is missing
 
 **Do:** Walk every cable that reaches the Leviathan, the PSU, the SSR or the USB adapter and read its tag aloud: what it is, where its far end goes. Tag anything that has none.
 
 **Check:** You could disconnect the whole board and put it back tomorrow from the tags alone.
+
+**Helper:** Reads every tag aloud and says where its far end goes.
 
 Source: [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
@@ -1761,9 +1803,7 @@ Source: [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/vo
 
 **What you're looking at:** Duct covers are the snap-on lids for the conduits from step 10.68. The DC lids are the last thing to fit: the bay has to stay reachable with a meter probe until Ch 13 has driven every motor, heater and fan once.
 
-**Parts:**
-
-- DC loop lids — **not** fitted
+**Parts:** none.
 
 **Do:** Nothing. LDO's "Finish Line" covers the ducts; do not. DC lids stay off until Checkpoint 10 passes and Ch 13 has run everything once. The AC lids close at 10.80, after the strip fin.
 
@@ -1808,6 +1848,8 @@ Source: [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/vo
 
 **Check:** Every difference from the photo is one you can name and point to a step for. `STEPPER-4`, `TH0`, `Z-PROBE`, `FAN0` and `FAN1` stay empty.
 
+**Helper:** Reads each row of the walk table aloud and ticks it off when the adult points to it.
+
 Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg) · [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line) · `review/2026-09-23-bay-mods/layout-v3/overlay-v3.jpg`
 
 ---
@@ -1821,13 +1863,13 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 
 **Parts:**
 
-- `V2L_STRIP_FIN`
-- `CMD_V2_6B_WIRE_BOX_COVER`
+- `V2L_STRIP_FIN` ×1
+- `CMD_V2_6B_WIRE_BOX_COVER` ×1
 - `V3L_90DEG_R15_COVER` ×2
-- `V3L_34mm_DUCT_COVER`
-- `CMD_V2_6B_T_SHORT_COVER`
+- `V3L_34mm_DUCT_COVER` ×1
+- `CMD_V2_6B_T_SHORT_COVER` ×1
 - `V3L_10mm_DUCT_COVER` ×2
-- VHB pad
+- consumable: VHB pad
 
 **Do:**
 
@@ -1855,7 +1897,7 @@ Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:** Cord out of the inlet and out of the room. Meter on DC V across the PSU's +V and −V.
 
@@ -1875,11 +1917,13 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- multimeter on Ω
+- tool: multimeter on Ω
 
 **Do:** Measure the rail once, then each 24 V input against its own ground to prove it is landed, then each side of the rail against the C14 earth pin.
 
 **Check:** Every row.
+
+**Helper:** Records each reading the adult calls out in the table; the adult holds both probes.
 
 | Node | Expected |
 |---|---|
@@ -1904,11 +1948,13 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 **Parts:**
 
-- multimeter on Ω
+- tool: multimeter on Ω
 
 **Do:** Measure at the Pi's 40-pin GPIO header, at the end nearest the microSD slot: **pin 2 or 4, 5 V, to pin 6, GND**, the outer row's first three pins.
 
 **Check:** Finite, and **not** 0 Ω. Exactly two jumpers on the board, Fan2 and Fan3, both on the 24 V pins.
+
+**Helper:** Records the 5 V reading the adult calls out; the adult holds both probes.
 
 ⚠ Rev D+ / LDO: LDO notes p.152, p.172 and p.190 are all **SKIP** — the manual's 5 V PSU does not exist in this kit and the Pi is never powered over its own USB-C. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -1924,7 +1970,8 @@ Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/v
 
 **Parts:**
 
-- multimeter on Ω, room thermometer
+- tool: multimeter on Ω
+- tool: room thermometer
 
 **Do:**
 
@@ -1932,6 +1979,8 @@ Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/v
 2. Measure the hotend thermistor at the toolboard's `TH0` if the toolhead is still open, and the chamber thermistor at `CT` if your batch has one.
 
 **Check:** Read your room temperature, then compare against Klipper's own curve for that part:
+
+**Helper:** Records the room temperature and each thermistor reading the adult calls out; the adult holds both probes.
 
 | Room temp | Expected resistance |
 |---|---|
@@ -1959,11 +2008,13 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 
 **Parts:**
 
-- multimeter on Ω
+- tool: multimeter on Ω
 
 **Do:** With one probe on the **C14 earth pin**, touch the other to each row below. On the frame and the plate, probe a **screw head, a T-nut or a bare cut end**, never an anodised face.
 
 **Check:** Every metal thing you can touch is bonded; nothing that carries current is, except the 24 V negative, bonded on purpose.
+
+**Helper:** Records each bonding reading the adult calls out; the adult holds both probes, cord out of the room.
 
 | Point | Expected |
 |---|---|
@@ -1990,11 +2041,13 @@ Source: [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable
 
 **Parts:**
 
-- multimeter
+- tool: multimeter
 
 **Do:** Read the SSR terminals with the harness attached: **1** = bed L, **2** = mains L from the brown WAGO, **3** = red from the Leviathan HEATBED, **4** = black.
 
 **Check:** All five rows, with the harness attached.
+
+**Helper:** Records the five SSR readings the adult calls out; the adult holds both probes.
 
 | Measurement | Expected |
 |---|---|
@@ -2022,6 +2075,8 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 **Check:** Nothing rocks, nothing is half-seated, no header pin is bent, no connector is one position off on a header.
 
+**Helper:** Reads the connector list aloud, one port at a time, and ticks each one pressed home.
+
 Source: [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
 Pause: ~20 min since the last pause — the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23.
@@ -2029,6 +2084,8 @@ Pause: ~20 min since the last pause — the dead meter sweep is complete and eve
 ---
 
 ## Checkpoint 10
+
+**Built:** a wired printer that passed LDO's Checkpoint #1
 
 Do not start Ch 11 until every line is ticked.
 

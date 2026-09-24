@@ -26,3 +26,13 @@ voron-tuning-heightmap-variance.png
   date    : 2026-09-05
   licence : GPL-3.0 (VoronDesign/Voron-Documentation/LICENSE)
   sha256  : 4749e63db846fc578f91efada18a43a1cbc52aad18bdf9e0e02f920e11c21995
+
+# Added 2026-09-24 (wave 4 packet P9, claude): licence-cleared per assets/remote/LICENSES.md.
+
+klipper-calibrate-z.png
+  owner   : Klipper3d (Klipper3d/klipper)
+  cited-as: https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-z.png
+  fetched : https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-z.png
+  date    : 2026-09-24
+  licence : GPL-3.0 (Klipper3d/klipper/COPYING); unmodified
+  sha256  : af1e3f4f549e4fe4982805fdb014fa1f593e6f6f0d5711e009f888340257a979

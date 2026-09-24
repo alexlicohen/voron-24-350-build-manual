@@ -45,7 +45,9 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| — none — | 0 | No fasteners are added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the belt clamps at the XY joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
+| M3×8 SHCS | 2 | the nameplate, Step 14.24 |
+| M3 roll-in T-nut | 2 | the nameplate, Step 14.24 |
+| — turned, not added — | 0 | Nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the belt clamps at the XY joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
 **Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate.
 
@@ -79,9 +81,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 **What you're looking at:** Nothing to look at. You are reading four config sections before letting any of them generate numbers. The thermistor type, the pull-up resistor and the temperature ceiling all live in `[extruder]`, and a wrong value in any makes every PID constant wrong with it.
 
-**Parts:**
-
-- none — console only
+**Parts:** none.
 
 **Do:** Open `printer.cfg` and confirm these four sections before any of them generates a number.
 
@@ -93,6 +93,8 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 | `[input_shaper]` | present, both `shaper_freq` lines still commented. Do not delete it |
 
 **Check:** `STATUS` is clean, both MCUs connected, and chamber, hotend and bed all read within a couple of degrees of the room.
+
+**Helper:** Reads each Must hold value aloud while the adult finds it in printer.cfg.
 
 ⚠ A hotend reading 20 °C off the bed at rest means a wrong `sensor_type`, and every PID number you generate will be wrong with it.
 
@@ -162,7 +164,10 @@ These three steps are the end of Voron's gantry-squaring procedure, split off fr
 
 **Parts:**
 
-- 2.5 mm hex (the two M3×40 front-idler tensioner screws), steel rule, phone spectrum analyser
+- reused: the two M3×40 A/B front-idler tensioner screws
+- tool: 2.5 mm hex key
+- tool: steel rule
+- tool: phone with a spectrum analyser app
 
 **Do:**
 
@@ -170,6 +175,8 @@ These three steps are the end of Voron's gantry-squaring procedure, split off fr
 2. Set a measured **150 mm** span between the idler centres, pluck A, read the **lowest** peak, tension to **110 Hz**, repeat on B until equal.
 
 **Check:** A and B agree within a few Hz at ~110 Hz after moving the gantry and returning. Write both in the tuning log.
+
+**Helper:** Holds the phone by the span and reads the lowest peak aloud after each pluck.
 
 ⚠ If one reads 110 and the other 95, the gantry is not square — go back to Ch 06b, do not compensate with tension.
 
@@ -205,7 +212,10 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 
 **Parts:**
 
-- 2.5 mm hex (the M3×16 Z idler tensioner bolt at the top of each upright), steel rule, phone
+- reused: the four M3×16 Z idler tensioner bolts
+- tool: 2.5 mm hex key
+- tool: steel rule
+- tool: phone with a spectrum analyser app
 
 **Do:**
 
@@ -213,6 +223,8 @@ Pause: ~20 min since the last pause — **A and B are both at final tension and 
 2. Pluck it, read the lowest peak, adjust to **≈140 Hz**. All four, then re-check after jogging down and back up.
 
 **Check:** All four Z belts within a few Hz of each other at ~140 Hz, and four numbers in the tuning log.
+
+**Helper:** Holds the phone by each Z belt and reads the lowest peak aloud after each pluck.
 
 ```gate-calc
 id: tune-belts
@@ -295,7 +307,9 @@ Source: [Voron docs — Secondary printer tuning § Belt tension](https://docs.v
 
 **Parts:**
 
-- the four M5×40 Z joint SHCS (already fitted, light), ball-end hex 4 mm, 150 mm machinist square
+- reused: the four M5×40 Z joint SHCS
+- tool: 4 mm ball-end hex key
+- tool: 150 mm machinist square
 
 **Do:**
 
@@ -333,7 +347,10 @@ Pause: ~15 min since the last pause (plus the 1½–2 h soak) — all six belts 
 
 **Parts:**
 
-- masking tape, steel rule, caliper, loaded ASA
+- consumable: masking tape
+- tool: steel rule
+- tool: digital caliper
+- consumable: Prusament ASA, loaded
 
 **Do:** Heat the hotend to the ASA print temperature of 260 °C with filament loaded and the extruder engaged. Repeat 13.40's measurement once, caliper rather than rule on the remainder: tape at the **120 mm** mark from the extruder entrance, then
 
@@ -421,12 +438,14 @@ Pause: ~15 min since the last pause — chamber behaviour measured and written d
 
 **Parts:**
 
-- the Voron-printed cube
-- the Prusa-printed B00 reference cube
+- reused: the Voron-printed cube
+- reused: the Prusa-printed B00 reference cube
 
 **Do:** Put both cubes on the bench. The cube is printed **once**, in Ch 13, and [Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) is authoritative for it. Re-print only if you have changed a slicer setting since, and then re-run 13.41–13.42 as written.
 
 **Check:** Two cubes in front of you, both `Voron_Design_Cube_v7`, both in Prusament ASA Galaxy Black.
+
+**Helper:** Fetches the Prusa B00 cube from its bin and sets both cubes side by side.
 
 ⚠ The purge line you just added to `PRINT_START` governs the *next* print; it does not invalidate this cube.
 
@@ -442,7 +461,8 @@ Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tre
 
 **Parts:**
 
-- both cubes, digital caliper
+- reused: both cubes
+- tool: digital caliper
 
 **Do:** Measure both cubes at **mid-height**, not across the first layer: X, Y and Z, recorded in the table below. Same STL, same filament, same nominal settings; the only variables are the two machines.
 
@@ -461,6 +481,8 @@ Two honest expectations before you start chasing numbers:
 - **A Voron-vs-Prusa difference of ~0.1 mm is chamber, not calibration.** The Voron runs a hotter, more uniform chamber than the Core One+, so its parts shrink slightly differently. Both being *in* tolerance matters more than them matching each other.
 
 **Check:** Both cubes inside tolerance: X and Y within ±0.15 mm and Z within ±0.10 mm of 30.00 mm, and within 0.15 mm of *each other*.
+
+**Helper:** Writes each caliper reading into the comparison table as the adult calls it out.
 
 Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html) · [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints)
 
@@ -510,6 +532,8 @@ probe_points:
 Then `ACCELEROMETER_QUERY` and `MEASURE_AXES_NOISE` (no restart needed — nothing was edited).
 
 **Check:** `ACCELEROMETER_QUERY` returns three axis values with roughly 9800, free-fall in mm/s², on one of them, and `MEASURE_AXES_NOISE` returns figures **in the ~1–100 range**.
+
+**Helper:** Reads the MEASURE_AXES_NOISE figures aloud and checks each one is under 100.
 
 Tip: 1000 or more from `MEASURE_AXES_NOISE` means a sensor, power or wiring problem, or a badly imbalanced fan. On `Invalid adxl345 id`, run it again; SPI init is flaky on the first attempt.
 
@@ -576,6 +600,8 @@ Read them in this order:
 
 **Check:** Both plots show a clear dominant peak, and neither axis peaks **below 25 Hz**.
 
+**Helper:** Finds the tallest peak on each graph and reads its frequency aloud.
+
 ⚠ Below 25 Hz on either axis is a build fault, not a tuning result. Stop, and go re-check belt tension, the titanium backers, the XY joints and the frame bolts before you shape over it.
 
 ??? note "What to expect on a 350, and where the 25 Hz floor comes from"
@@ -633,9 +659,9 @@ Pause: ~25 min since the last pause — `SHAPER_CALIBRATE` run, graphs read, `[i
 
 ### Step 14.16 — Z-axis shaping and Z limits (optional)
 
-(no image — see text)
+![Klipper docs: a Z-axis shaper calibration chart](assets/remote/14-calibration/klipper-calibrate-z.png)
 
-**What you're looking at:** On a 2.4 the gantry itself moves in Z, so the toolhead's accelerometer can measure the Z axis too. The Z speed and acceleration limits must be raised for the test only; they exist because Z is belt-driven on four motors.
+**What you're looking at:** On a 2.4 the gantry itself moves in Z, so the toolhead's accelerometer can measure Z too; the chart is Klipper's example of the result. The Z speed and acceleration limits are raised for the test only; they exist because Z is belt-driven.
 
 **Parts:** none.
 
@@ -656,7 +682,7 @@ max_z_accel: 1550         # temporarily, up from 350
 
 Tip: those are belt-and-driver limits for a four-motor belted Z, not resonance limits; leaving them at 20/1550 is a way to skip Z steps. Skipping this step breaks nothing downstream.
 
-Source: [Klipper docs § Measuring the resonances of Z axis](https://www.klipper3d.org/Measuring_Resonances.html#measuring-the-resonances-of-z-axis) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46)
+Source: [Klipper docs § Measuring the resonances of Z axis](https://www.klipper3d.org/Measuring_Resonances.html#measuring-the-resonances-of-z-axis) · [Klipper `docs/img/calibrate-z.png`](https://raw.githubusercontent.com/Klipper3d/klipper/f0892d8/docs/img/calibrate-z.png) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L32-46)
 
 Pause: ~10 min since the last pause — optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.
 
@@ -672,7 +698,7 @@ Pause: ~10 min since the last pause — optional Z shaping either done or skippe
 
 **Parts:**
 
-- ASA, ~15 g
+- consumable: Prusament ASA, about 15 g
 
 **Do:**
 
@@ -696,8 +722,8 @@ Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https:/
 
 **Parts:**
 
-- caliper not needed
-- good light and, ideally, a loupe
+- tool: good light
+- tool: loupe, optional
 
 **Do:**
 
@@ -712,6 +738,8 @@ SET_PRESSURE_ADVANCE ADVANCE=<your value>
 Or set `[extruder] pressure_advance:` if you only ever print ASA on this machine.
 
 **Check:** One corner is visibly the sharpest, and the value you saved is in the **0.02–0.05** band.
+
+**Helper:** Counts the lines from the start of the pattern to the sharpest corner, with the loupe.
 
 ```gate-calc
 id: tune-pa
@@ -791,7 +819,7 @@ Pause: ~20 min since the last pause — the PA pattern is printed, read and the 
 
 **Parts:**
 
-- ASA, ~25 g
+- consumable: Prusament ASA, about 25 g
 
 **Do:**
 
@@ -844,7 +872,7 @@ Source: [Ellis' Print Tuning Guide — extrusion multiplier](https://ellis3dp.co
 
 **Parts:**
 
-- ASA, ~25 g
+- consumable: Prusament ASA, about 25 g
 
 **Do:** Take the winner from 14.19 and print four more cubes at ±0.5 % and ±1.0 % around it. Pick the smoothest centre and write that number into the **filament** profile's extrusion multiplier, not the print profile.
 
@@ -988,7 +1016,12 @@ Pause: ~15 min since the last pause — mesh variance recorded, `printer.cfg` ba
 
 **Parts:**
 
-- phone or camera, paper and a pen, the accent ASA spool from B02, M3×8 SHCS ×2, M3 roll-in T-nut ×2
+- M3×8 SHCS ×2
+- M3 roll-in T-nut ×2
+- consumable: accent Prusament ASA, blue
+- consumable: a sheet of paper
+- tool: a pen
+- tool: phone or camera
 
 **Do:**
 
@@ -1038,6 +1071,8 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 ---
 
 ## Checkpoint 14
+
+**Built:** a tuned printer with every number in the tuning log
 
 - [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
 - [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
