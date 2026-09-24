@@ -63,10 +63,11 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 Prusa's help-site steps run 30–60 words. Ours averaged 237. The fix is the action first and
 hard budgets, not more structure.
 
-**Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): **Do:** →
-**Check:** → **Helper:** → the segment's Gather block → **Parts:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
-`Pause:` → `Source:` → **Next:** (§ Step pages › Next overrides). Check sits right under Do so the
-pass criterion is on the first screen at 1024×768 (Alex, 2026-09-24). Images stay hoisted to the figure column. Write a step in house order as before; the
+**Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): the segment's
+Gather block → **Parts:** → **Do:** → **Check:** → **Helper:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
+`Pause:` → `Source:` → **Next:** (§ Step pages › Next overrides). Parts come before Do because
+parts are prepared before they are assembled, as in Prusa's manuals (Alex, 2026-09-24; this
+reverses the same day's Check-after-Do order, G2-26). Images stay hoisted to the figure column. Write a step in house order as before; the
 generator moves it.
 
 **Budgets** (words, excluding images, code, inline `code` spans and link URLs):
@@ -267,7 +268,7 @@ generator only formalises it.
 
 **What the generator does to a step block.** Images are hoisted to the top with the manual-page
 render first and the part renders and diagrams after. The text column is then re-ordered
-action-first — **Do:** → **Check:** → **Helper:** → Gather → **Parts:** → the collapsed
+Gather → **Parts:** → **Do:** → **Check:** → **Helper:** → the collapsed
 `What you're looking at` block → `⚠`/`Tip:` → `Pause:` → `Source:` → **Next:** — regardless of where those lines sit in the chapter (see
 "Action-first steps and word budgets"). A manual-page or panel-crop figure gets a muted "Tap to
 enlarge" line under it (glightbox opens every figure image zoomable). A step whose code block
@@ -292,8 +293,8 @@ through the next step that carries one; the trailing run after the last `Pause:`
 For each segment the generator sums every `**Parts:**` item across its steps and renders it twice:
 
 - on the segment's **first step page**, as a collapsed `??? note` titled
-  `Gather for this segment — steps 02.05–02.08 (~25 min)`, placed after the **Do:**, **Check:**
-  and **Helper:** lines and before that step's own **Parts:** list — hardware first, then printed parts, one item per line
+  `Gather for this segment — steps 02.05–02.08 (~25 min)`, placed at the top of the text column,
+  before that step's own **Parts:** list — hardware first, then printed parts, one item per line
   with the summed count;
 - on the **chapter overview**, as one line per segment under the step grid ("Gather per session"),
   so a session can be laid out before it starts.

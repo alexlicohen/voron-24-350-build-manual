@@ -717,8 +717,8 @@ _ENLARGE_HINT = '<p class="step-figure__hint" data-search-exclude>Tap to enlarge
 
 
 def layout_step(page: Page, chapter: Chapter) -> list[str]:
-    """Action-first step page: Do, Check, the helper's job, then the segment's
-    Gather block and Parts, the collapsed description, then ⚠/Tip, Pause and
+    """Step page, Prusa order: the segment's Gather block, Parts, then Do, Check
+    and the helper's job, the collapsed description, then ⚠/Tip, Pause and
     Source (CONVENTIONS.md § "Action-first steps" and § "Helper steps")."""
     dest_dir = STEPS / chapter.slug
     segs = _segments(page.body)
@@ -800,16 +800,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     out += ["</div>", ""]
 
     out += ['<div class="step-text" markdown="1">', ""]
-    if do:
-        out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
-    # Check right under Do, so the pass criterion is on the first screen at
-    # 1024×768 (G2-26); the helper's job stays with it.
-    if check:
-        out += _strip_edges(check) + [""]
-    for job in helper:
-        out += ['<p class="step-helper" markdown="span">%s'
-                '<span class="step-helper__label">Helper</span> %s</p>'
-                % (mascot.badge_html("helper", "helper"), job), ""]
+    # Parts are prepared before they are assembled (Alex 2026-09-24, reversing
+    # G2-26): the segment's Gather block, then this step's Parts, then Do.
     gather = chapter.gather.get(page.step_id or "")
     if gather:
         # Parts items may carry chapter-relative links; re-base them as the
@@ -817,6 +809,14 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         out += rewrite_links(gather, chapter.path.parent, dest_dir, chapter.stem) + [""]
     if parts_md:
         out += _strip_edges(parts_md) + [""]
+    if do:
+        out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
+    if check:
+        out += _strip_edges(check) + [""]
+    for job in helper:
+        out += ['<p class="step-helper" markdown="span">%s'
+                '<span class="step-helper__label">Helper</span> %s</p>'
+                % (mascot.badge_html("helper", "helper"), job), ""]
     if desc:
         out += ['??? note "What you\'re looking at"', ""]
         out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
