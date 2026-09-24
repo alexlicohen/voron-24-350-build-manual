@@ -75,7 +75,7 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - [x] **The Tonight progress overlay** (approved 2026-09-23): read the progress.js tick store, skip finished segments, plans start at the first unfinished step.
 
 **Wave 4 notes (2026-09-24, phase 5 integration).** Done: phases 1–4 (752f3bf, cdfb033, 27fc719, 6f5f5cc) and phase 5 (checks 6/7 and `**Built:**` now fail the gate; CONVENTIONS § Parts grammar, § Panel crops, § Checkpoint reward, Next overrides, Helper exception 10.74–10.78; Checkpoint 13 → Step 11.52; 10.1 helper records, adult holds the probes; bin idler range 02.39–02.43). Leftovers, not fixed:
-- 11.63 latch: may take 2 fresh M3 T-nuts + 2 M3×8 (bench check); the door kit's 14 T-nuts and 12 M3×8 balance that way.
+- 11.63 latch: may take 2 fresh M3 T-nuts + 2 M3×8; **Alex 2026-09-24: leave as is (he has extra hardware).** Closed.
 - 6 of the door kit's M3×8 have no step.
 - Corner brackets: p.18 and the CAD show 4, but there is no LDO BOM row.
 - `(verify on bench)` sources: COB LED strips, Pi HAT adapter, Leviathan standoffs, FFC ribbon, Nitehawk ground cable box.
@@ -84,10 +84,14 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Survey says ~30 backer T-nuts; the count is 29.
 - `nameplate.py` says BHCS, 14.24 says SHCS.
 - Checkpoint 14's Next goes to B00 (end of build; fine as is).
-- Mirror the GPL tanaes door images (render.png, handle_transparent.png, hinge_cutaway.png) for the image-less door steps.
-- 06.12's helper shares the gantry lift: Alex to confirm.
+- Mirror the GPL tanaes door images (render.png, handle_transparent.png, hinge_cutaway.png) for the image-less door steps: **approved by Alex 2026-09-24, done in the wrap-up commit.**
+- 06.12's helper shares the gantry lift: **confirmed OK by Alex 2026-09-24.** Closed.
 
 ## Wave 5: minor and polish (176 items), batched per chapter from the G files
+- Source: every `| G…` row with severity minor in review/2026-09-23-sweep/G1–G8 (`grep -h '^| G' G*.md | grep '| minor |'`); skip rows already fixed by waves 1–4 (check the current text, not the finding).
+- Batch per chapter group as in wave 4 (P1–P9 file ownership); gate = `bash review/2026-09-23-sweep/gate.sh` + `python3 scripts/lint_manual.py` (checks 6/7 and Built now FAIL) + `python3 scripts/crop_panels.py --check` + `node scripts/check_tonight.mjs`.
+- Also carry the Wave 4 leftovers above (02.12/02.14 p.29 claim, G2-13 ledges, 20-hole rail wording, survey 29 T-nuts, nameplate BHCS vs SHCS, box sources `(verify on bench)`).
+- Residue from the wave-4 wrap-up (2026-09-24): (1) open Tonight on the real iPad after ticking a step and confirm the overlay re-plans on first open (only WebKit-tested); (2) spot-check crops on the iPad, one step per chapter (packets checked contact sheets, the orchestrator only Ch 11); (3) kit day: re-pin scripts/data/ldo-350-bom.yml to the batch's own sheet, since Gather bag names come from the generic Rev D BOM.
 
 
 ## Decisions (Alex, 2026-09-23)

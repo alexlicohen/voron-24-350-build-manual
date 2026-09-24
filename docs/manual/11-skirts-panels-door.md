@@ -1784,7 +1784,7 @@ Pause: ~15 min since the last pause — top panel on its eight clips, handlebars
 
 ### Step 11.62 — Hang the door hinges
 
-(no image — see [KB3D guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod))
+![Clicky-Clack hinge, cut away: the pin rides in the printed barrel (tanaes, GPL-3.0)](assets/remote/11-skirts-panels-door/clicky-clack-hinge-cutaway.png)
 
 **What you're looking at:** The hinges are the lift-off kind: the pins point up, so the door drops on and lifts straight off. The top and bottom corner panel clips on that vertical are the alignment datum, because they are already square to the frame.
 
@@ -1834,7 +1834,7 @@ Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.c
 
 ### Step 11.64 — Fit the handle and align the door
 
-(no image — see [KB3D guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod))
+![Clicky-Clack handle (tanaes, GPL-3.0)](assets/remote/11-skirts-panels-door/clicky-clack-handle.png)
 
 **What you're looking at:** Alignment happens by moving the latch and the handle hinges. The paper shim keeps the handle and handle-hinge magnets from snapping together while you position them. A correctly aligned door is drawn onto its foam by the magnets, not merely resting against it.
 
@@ -1883,7 +1883,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 11.66 — Final seal and clearance check
 
-(no image — see text)
+![Clicky-Clack door assembly render, frame, hinges, latch and handle](assets/remote/11-skirts-panels-door/clicky-clack-render.png)
 
 **What you're looking at:** Nothing to fit. This is the whole enclosure as one object: five panels, a door, a skirt ring and a screen, all of which have to seal without touching anything that moves. The chamber temperature Ch 14's ASA work depends on is decided here.
 
