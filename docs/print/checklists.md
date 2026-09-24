@@ -10,13 +10,13 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
-- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to `usb_adapter_mount_partial_cover.stl`.
+- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `09-bay` (B07-P1); the spare V1 cover in `spare-alt`.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 25 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)) and the batch → bin map posted on the wall.
+- [ ] 26 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)) and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 
@@ -195,8 +195,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 09 — Electronics bay
 
 - [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] DC loop VHB'd down as one closed loop; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
-- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets at the spot B11.10 recorded, 2 mm or more clear of the right T junction — and **no** support bracket fitted.
+- [ ] DC loop VHB'd at 09.36 as one closed loop, middle run 1.5 mm or more off the Leviathan and the PSU; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
+- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets, front-right corner 2 mm or more clear of the right T's rear fillet and left end 3 mm or more from the SSR run's open end — and **no** support bracket fitted.
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
@@ -215,13 +215,13 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion between the WAGO mount and the notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Both thermistors read within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Strip fin between PSU −V and FG, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
 
 <div class="print-page-break"></div>
@@ -341,9 +341,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B01 — Z drive assemblies
 
 - [ ] Gate B passed before B01-P1 started (Step B00.7)
-- [ ] 625-2RS bearing press-fit into all `z_drive_main_a/b` seats — thumb pressure, no rocking
-- [ ] 625-2RS bearing press-fit into all `z_drive_retainer_a/b` seats — thumb pressure, no rocking
-- [ ] M3 heat-set bosses on motor mounts: flush, no bulge
+- [ ] Every `z_drive_main_a/b` and `z_drive_retainer_a/b` 625-2RS pocket calipers 16.30 mm ±0.15
+- [ ] *(kit day)* a real 625-2RS presses into every `z_drive_main_a/b` seat by thumb, no rocking
+- [ ] *(kit day)* a real 625-2RS presses into every `z_drive_retainer_a/b` seat by thumb, no rocking
 - [ ] *(kit day)* Deck panel measured; correct deck-support thickness confirmed or `deck_support_4mm_x8` reprinted
 - [ ] No corner lift or delamination on any `z_drive_main` body
 - [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
@@ -443,9 +443,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B11 — Bay ducting (PETG V0)
 
 - [ ] Coupon lid snaps home and holds, tested before B11-P5
-- [ ] A/B lead go/no-go decided on kit day; extensions or layout v1 settled if either was short
+- [ ] A/B lead go/no-go decided after Checkpoint 06, before P4; extensions or layout v1 settled if either was short
 - [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
-- [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
+- [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
 - [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate

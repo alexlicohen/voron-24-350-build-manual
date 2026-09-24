@@ -106,16 +106,18 @@ Clicky-Clack's `Hinge-L-sleeve-2X` / `-solid-2X` contain **one** body each — "
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25 —
 [GitHub releases](https://github.com/prusa3d/PrusaSlicer/releases)). 3.0.0-alpha11 shipped 2026-09-01 as an
 early preview. **Version posture:** the dimension-critical batches — the B00 gate, B01, and B03–B06 — are sliced on
-2.9.6; 3.0 is acceptable for B08–B10 with every override re-entered by hand. Any toolchain change re-runs the
-B00 seven-item gate. Deltas and the migration route are in
+2.9.6; 3.0 is acceptable for B08–B10 with every override re-entered by hand. Any toolchain change re-runs
+Gate A and Gate B (§1.4). Deltas and the migration route are in
 [`docs/manual/print/00-slicer-setup.md`](manual/print/00-slicer-setup.md#prusaslicer-30-preview).
 
-**Base profiles to select (verified against
-[`PrusaResearch.ini` @ version_2.9.6](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini)):**
+**Base profiles — the ones every committed 3MF and both `.ini` bundles carry** (verified against
+[`PrusaResearch.ini` @ version_2.9.6](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini)).
+The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
+[00-slicer-setup](manual/print/00-slicer-setup.md) owns the full reasoning:
 
-- Printer: **`Prusa CORE One 0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed `250×220`, max height `270`, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off.
-- Filament: **`Prusament ASA @COREONE`** — nozzle 260 °C, bed 110 °C, **chamber 55 °C** (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 15 mm³/s.
-- Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased profile
+- Printer: **`Prusa CORE One HF0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed `250×220`, max height `270`, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off. The projects carry the cold-probe start G-code, so the Plater shows it as `(modified)`.
+- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle 265 °C, bed 110 °C, **chamber 55 °C** (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 26 mm³/s. The projects save it as `Prusament ASA @COREONE HF0.4 - Voron black` (accent: `- Voron blue`).
+- Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. There is no HF0.4 STRUCTURAL at 0.20 mm; this non-HF print preset is offered on the HF printer and is the one the projects use. STRUCTURAL is already the quality-biased profile
   (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
 
 **Overrides.** Column "source" = where the number comes from; **judgment** = my call, not a cited spec.
@@ -150,18 +152,18 @@ B00 seven-item gate. Deltas and the migration route are in
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
 
-#### Filament settings (Prusament ASA @COREONE)
+#### Filament settings (Prusament ASA @COREONE HF0.4)
 
 | Setting | Profile default | Set to | Why | Source |
 |---|---|---|---|---|
 | **Shrinkage compensation XY** | **0.22 %** | **0 %** | Same rule as XY size compensation — PrusaSlicer 2.9 scales ASA parts up 0.22 %; on a 66.7 mm Z-drive body that is +0.15 mm and it lands straight in the bearing bores. **This is the single most important override in this document.** | [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) + profile value |
 | Shrinkage compensation Z | 0.22 % | **0 %** | same reason | as above |
-| Nozzle / first-layer nozzle | 260 / 260 °C | **keep** | Prusa's own Prusament ASA values for this machine | profile |
+| Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for the HF nozzle on this machine | profile |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809) |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* your preheat gate | profile |
-| Min / max fan | 20 / 25 % | **keep for batch 0–1, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
-| Max volumetric speed | 15 mm³/s | **keep** | not a limit at these speeds | profile |
+| Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈8 mm³/s) | profile |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 #### Drying
@@ -170,9 +172,9 @@ ASA is mildly hygroscopic. A fresh, sealed Prusament spool used within ~2 weeks 
 Dry at **80 °C for 4 h** if a spool has been open longer, or the moment you see stringing, matte striping, or
 popping. Keep the active spool in one USS Drybox during the run. Voron parts are structural — this is the
 material where wet filament actually costs you strength.
-(Sources: [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); your own drying decision in `CLAUDE.md`.)
+(Sources: [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); the project's drying rules, `AGENTS.md` › Materials & filament.)
 
-### 1.4 Calibration sequence — run this before Batch 1, and again after any toolchain change
+### 1.4 Calibration sequence — run this before B00, and again after any toolchain change
 
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so there is nothing to install here. You're
    about to run ~157 h of ASA in an enclosure: on the first ASA plate confirm the blower runs and the bypass
@@ -202,7 +204,7 @@ material where wet filament actually costs you strength.
 
    | When | Coupon | Nominal | Accept | If out of spec |
    |---|---|---|---|---|
-   | now | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit, all seven pockets (all 153 kit inserts stay for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the adult's practice part: set all seven before touching a real part. The iron stays with the adult; once the coupon has cooled, the helper reads the caliper on each insert and calls flush or proud. |
+   | now | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit, all seven pockets (all 153 kit inserts stay for the build) | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast; this is a technique problem, not a slicer one. This coupon is the adult's practice part and has no other use: Ch 00 Steps 00.14–00.15 are this row. Set all seven before touching a real part. The iron stays with the adult; once the coupon has cooled, the helper reads the caliper on each insert and calls flush or proud. |
    | now | `z_drive_retainer_a` 625-2RS pocket (on the same plate) | **16.30 mm**, measured off the STL | caliper reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise extrusion multiplier 1 %. Under → reduce it 1 %. Reprint the retainer and the cube, re-pass Gate A. |
    | kit day | the same pocket, on a real 625-2RS (16 mm OD; F695 is the A/B-drive bearing, not the Z drive) | — | bearing presses in with thumb pressure, no rocking | **The press fit the caliper stood in for.** |
    | kit day | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
@@ -772,8 +774,8 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 
 | After | Inspect | Most commonly reprinted here |
 |---|---|---|
-| **B00** | The seven-item gate in §1.4. Nothing proceeds until all pass. | the cube, until the profile is right |
-| **B01** | 625-2RS (16 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check the 4 mm/3 mm deck-support call. | `z_drive_main_*` — largest single parts, most exposed to warp at the corners |
+| **B00** | Gate A and Gate B in §1.4. Nothing proceeds until the rows you can run today pass; Gate B's bearing and rail rows sign off on kit day. | the cube, until the profile is right |
+| **B01** | Each `z_drive_main` and `z_drive_retainer` 625-2RS pocket calipers **16.30 mm ±0.15** now; on kit day a real 625-2RS (16 mm OD) must thumb in with no rocking. M3 inserts wait for the kit's own (Step 02.04). Check the 4 mm/3 mm deck-support call. | `z_drive_main_*` — largest single parts, most exposed to warp at the corners |
 | **B02** | Guidler and latch must move freely against the CW2 body once it exists (B06) — test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp. | `[a]_stealthburner_main_body` (most-photographed part in the build) |
 | **B03** | The F695 flange seats caliper **15.00 mm** now; on kit day the real **F695-2RS** (13 mm OD, flanged) bearing/spacer stacks must drop into them without reaming. Either way the two halves of each drive unit must close flat with no gap. (625-2RS is the Z-drive bearing — B01, not this batch.) | `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine |
 | **B04** | Test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before you commit heat-sets. XY joint bores must accept the shafts without reaming. | `xy_joint_*_lower_MGN12` |
@@ -869,8 +871,10 @@ and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b
 
 1. **Belt pluck check** — belt tuning was never formally closed. Targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz
    apart; out of range, retension via Control → Calibrations & Tests → Belt Tuning.
-2. **Hot first-layer check, at ASA bed temperature** — the bed has only been verified flat at 60 °C. Five
-   30×30×0.2 mm squares, corners + centre, in Galaxy Black ASA; pass at 0.17–0.23 mm each, spread ≤0.05 mm.
+2. **Hot first-layer check, at ASA bed temperature** — the bed has only been verified flat at 60 °C. It runs
+   after Step B00.0's wizard, on the committed project `slicer/checks/hot-first-layer.3mf`: five
+   30×30×0.2 mm squares, corners + centre, one layer, in Galaxy Black ASA on B00-P1's presets (110 °C bed,
+   cold start G-code); pass with no Z-alignment prompt, 0.17–0.23 mm each, spread ≤0.05 mm.
 
 Either check failing means doing the Gen 2 upgrade now, before B00, after all — then re-running both checks.
 

@@ -308,7 +308,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Every first layer is slightly under-squished
 
-            The extra TESTZ Z=-0.1 was skipped when calibrating Z zero. Redo Z_ENDSTOP_CALIBRATE with the correction. [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test)
+            Under-squish is expected after the paper test. Close it with live-Z at 13.42 and commit with Z_OFFSET_APPLY_ENDSTOP. [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish)
 
         - The whole mesh is offset by a constant
 
@@ -460,7 +460,7 @@ Source: [Ch 10 Checkpoint 10](10-wiring.md#checkpoint-10) and [Common mistakes](
 | First layer right at the front, wrong at the back | meshed before QGL, or the mesh was taken cold | `G28` → `QUAD_GANTRY_LEVEL` → `G28` → `BED_MESH_CALIBRATE`, hot | [13.39](13-initial-startup.md#step-1339-bed_mesh_calibrate), [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes) |
 | First layer featureless and glassy, or gappy and ridged | squish set wrong, or extrusion multiplier moved since it was set | re-run the live-Z procedure and commit with `Z_OFFSET_APPLY_ENDSTOP` | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish), [14.21](14-calibration.md#step-1421-re-check-first-layer-squish-because-the-multiplier-moved) |
 | The Z offset reverts after every restart | babystepping was never committed | `Z_OFFSET_APPLY_ENDSTOP` then `SAVE_CONFIG` | [Ch 13 Common mistakes](13-initial-startup.md#common-mistakes) |
-| Every first layer slightly under-squished | the extra `TESTZ Z=-0.1` was skipped when calibrating Z=0 hot | redo `Z_ENDSTOP_CALIBRATE` with the correction | [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test) |
+| Every first layer slightly under-squished | expected after the paper test, before live-Z closes it | close it with live-Z at 13.42 and commit with `Z_OFFSET_APPLY_ENDSTOP` | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | Cube is 0.1–0.3 mm oversize in X and Y | ASA shrinkage and bulging, not an axis error | fix with extrusion multiplier — never with negative XY size compensation | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
 | Cube's first layer is wider than its mid-height | elephant-foot compensation wrong | adjust in 0.05 mm steps | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one) |
 | A persistent X − Y size difference on the same cube | gantry-square problem | Ch 06b | [14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [Ch 06b](06-z-axis-and-gantry-squaring.md#step-06b14-de-rack-the-gantry-then-tighten-the-xy-joints) |

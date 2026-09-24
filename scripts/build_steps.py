@@ -25,6 +25,14 @@ the next file (Ch 12 → Ch 11 Part A, per the 00-index timeline) says so once,
 in its own prose, and the button agrees. A lead link to a chapter or a
 non-step anchor changes nothing.
 
+The same override is available mid-chapter: a `## Checkpoint` whose own body
+carries a `**Next:** [Step 7.1](07-ab-belts.md#step-071-…)` line sends ITS
+Next button there instead of the page that follows it in the file (Ch 06's
+Checkpoint 06, whose next page in file order is Part B/06b.1 even though the
+manual's own text says to go to Ch 07 and come back to 06b from Ch 13). The
+line stays visible in the rendered checklist; only its first valid link is
+read.
+
 The directory is gitignored and rebuilt by `mkdocs build`; never hand-edit it.
 Writes are content-compared so `mkdocs serve` does not loop on its own output.
 """
@@ -57,6 +65,11 @@ _FENCE_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
 _HEADING_RE = re.compile(r"^(#{1,3})\s+(.*?)\s*$")
 _STEP_HEAD_RE = re.compile(r"^Step\s+([A-Za-z]?\d+[A-Za-z]?\.\d+)\s*(?:[—–-]\s*)?(.*)$")
 _CHECKPOINT_HEAD_RE = re.compile(r"^Checkpoint\b\s*(\S*)", re.IGNORECASE)
+# A checkpoint whose Next button should not just fall through to the next page
+# in file order (e.g. a mid-chapter Checkpoint whose text says "stop here and
+# go to a different chapter") carries a `**Next:** [text](file.md#anchor)`
+# line in its own body; it stays visible and is also read as the override.
+_NEXT_OVERRIDE_RE = re.compile(r"^\*\*Next:\*\*\s*(.+)$")
 _IMAGE_LINE_RE = re.compile(r"^!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]*)\)(?P<attr>\s*\{[^}]*\})?\s*$")
 _NOIMAGE_RE = re.compile(r"^\*?\(no image[^\n]*\)\*?\s*$", re.IGNORECASE)
 _PARTS_RE = re.compile(r"^\*\*Parts:\*\*\s*(.*)$")
@@ -125,6 +138,10 @@ class Page:
     section: str | None = None
     ordinal: int | None = None   # 1-based position among the chapter's steps
     images: list[tuple[str, str, str]] = field(default_factory=list)
+    next_override: list[str] = field(default_factory=list)  # a `**Next:** [...]` line, if this
+                                                              # page (e.g. a mid-chapter Checkpoint)
+                                                              # sends the Next button somewhere
+                                                              # other than the following page
 
 
 @dataclass
@@ -274,9 +291,10 @@ def parse_chapter(path: Path) -> Chapter | None:
             if cp:
                 flush_pending_note()
                 tag = cp.group(1).strip() or ""
+                override = [l for l in body if _NEXT_OVERRIDE_RE.match(l.strip())]
                 pages.append(Page(kind="checkpoint",
                                   slug="checkpoint-" + (tag.lower() or "end"),
-                                  title=head, body=body))
+                                  title=head, body=body, next_override=override))
                 continue
             if re.match(r"^Common mistakes", head, re.IGNORECASE) or head.strip() == "Next":
                 trailing += ["", f"## {head}", ""] + body
@@ -1033,13 +1051,13 @@ def _page_label(chapter: Chapter, page: Page) -> str:
 _TEXT_LINK_RE = re.compile(r"(?<!!)\[(?:[^\[\]]|\[[^\]]*\])*\]\(\s*([^()\s]+?)\s*(?:\"[^\"]*\")?\)")
 
 
-def _next_section_step(chapter: Chapter, chapters: list[Chapter]) -> tuple[Chapter, Page] | None:
-    """The step the chapter's `## Next` section leads with, if it leads with one.
+def _resolve_link_step(lines: list[str], chapters: list[Chapter]) -> tuple[Chapter, Page] | None:
+    """The step a `<chapter>.md#<anchor>` link in `lines` leads to, if any.
 
-    Only the section's first link counts, and only a `<chapter>.md#<anchor>`
-    link whose anchor is a `Step` heading (see the module docstring).
+    Only the first line carrying a link counts, and only a link whose anchor
+    is a `Step` heading (see the module docstring) resolves.
     """
-    for line in chapter.next_body:
+    for line in lines:
         m = _TEXT_LINK_RE.search(line)
         if not m:
             continue
@@ -1055,6 +1073,11 @@ def _next_section_step(chapter: Chapter, chapters: list[Chapter]) -> tuple[Chapt
                     return target, page
         return None
     return None
+
+
+def _next_section_step(chapter: Chapter, chapters: list[Chapter]) -> tuple[Chapter, Page] | None:
+    """The step the chapter's `## Next` section leads with, if it leads with one."""
+    return _resolve_link_step(chapter.next_body, chapters)
 
 
 def _front_matter(title: str) -> str:
@@ -1357,7 +1380,12 @@ def build() -> dict:
             else:
                 prev_ref = ("%s — chapter overview" % chapter.short, "index.md")
             bench = _next_section_step(chapter, chapters) if i + 1 == len(chapter.pages) else None
-            if i + 1 < len(chapter.pages):
+            own = _resolve_link_step(page.next_override, chapters) if page.next_override else None
+            if own:
+                tch, tp = own
+                next_ref = (_page_label(tch, tp), "%s%s.md" % (
+                    "" if tch is chapter else "../%s/" % tch.slug, tp.slug))
+            elif i + 1 < len(chapter.pages):
                 nx = chapter.pages[i + 1]
                 next_ref = (_page_label(chapter, nx), "%s.md" % nx.slug)
             elif bench:

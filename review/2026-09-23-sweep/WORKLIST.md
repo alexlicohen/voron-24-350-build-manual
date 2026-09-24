@@ -31,15 +31,15 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Wave 1 leftovers for Alex/bench: 09.34 mount reach with the plate fitted (3 mm ball-end from the rear?) and its exact position; 11.67 says "cord out of the room" (worklist said "in view"); blower-audible check in B00.3 not added (start time unverified); 13.22/13.25 Tip/13.26 FIRMWARE_RESTART with the gantry lifted 10 mm (no hands under, left alone).
 
 ## Wave 2: regressions from today and stale numbers (builder tier, mechanical)
-- [ ] 10.80 fin between −V and FG, using the chapter's own terminal numbering (G6-02).
-- [ ] 09.6 dry-lay the DC loop and VHB it at 09.36 (G5-02).
-- [ ] 09.16: position from the clearance targets (G5-05).
-- [ ] B11.9 A/B lead check: move it to after the motors are mounted, or measure a proxy (G8-10).
-- [ ] B11.11 recipe: rename only the changed piece, round to the 12 mm tine step, flip base-down (G8-09).
-- [ ] B11.8: 26 pieces (G8-08).
-- [ ] Hot first-layer check after B00.0, with a project file for the five squares (G8-05).
-- [ ] v3 images for 10.8–10.16 and the frame PE lug (G6-05, G6-06).
-- [ ] Cross-page numbers:
+- [x] 10.80 fin between −V and FG, using the chapter's own terminal numbering (G6-02).
+- [x] 09.6 dry-lay the DC loop and VHB it at 09.36 (G5-02).
+- [x] 09.16: position from the clearance targets (G5-05).
+- [x] B11.9 A/B lead check: move it to after the motors are mounted, or measure a proxy (G8-10).
+- [x] B11.11 recipe: rename only the changed piece, round to the 12 mm tine step, flip base-down (G8-09).
+- [x] B11.8: 26 pieces (G8-08).
+- [x] Hot first-layer check after B00.0, with a project file for the five squares (G8-05).
+- [x] v3 images for 10.8–10.16 and the frame PE lug (G6-05, G6-06).
+- [x] Cross-page numbers:
   - inserts 146 → 153 (G1-03);
   - bins 25 → 26 (G1-04);
   - the stale 00.6 B07 ⚠ (G1-05);
@@ -49,11 +49,13 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
   - the bare `build_plates.py` line in 00-slicer-setup (G8-06);
   - B01.7 kit-day rows and B01 Next → B02 (G8-03, G8-04);
   - the Gate B table's double header (G8-02).
-- [ ] Wayfinding:
+- [x] Wayfinding:
   - Checkpoint 10 Next → 12.11 (G6-07);
   - Checkpoint 06 → 06b;
   - Home "Build tab in chapter order" (G1-08);
   - the Tonight claim of a progress overlay, which is false (G1-06/07).
+- Wave 2 done 2026-09-23 (claude): Heatset_Practice = Gate B insert row only (B00.7, pre-kit, adult, KADRICK M3×H5, stock tip); 00.13 now kit-day LDO-tip fit. Hot first-layer check = `slicer/hot_check.py` → `slicer/checks/hot-first-layer.3mf` (re-run after any start-G-code sync). v3 lead images in `docs/manual/assets/b11/v3-*.jpg` (from `layout-v3/work/leads_v3.py`). Checkpoint pages take their Next button from a `**Next:**` line (build_steps.py); Checkpoint 06 → 07.1, 06b → 13.35, 10 → 12.11, B01 → B02.
+- Wave 2 leftovers: 13.34's Next button skips to 13.35 instead of 06b (override works on checkpoints only); B11.10 `sig`/`bedl` rows measure spare on LDO's route before the bed/probe/Nevermore are fitted (same flaw as G8-10); Tonight segment from the 00.16 pre-kit Pause starts at kit-day 00.13 (needs a Pause on 00.13); 02.03 insert temperature with the LDO brass tip `(verify on bench)`; B11 P4/P5 schedule (13.1 h must be off the bed before 09.6; print right after kit day instead? Alex); AGENTS.md `--from-3mf` wording proposal pending approval.
 
 ## Wave 3: remaining accuracy majors (deep tier)
 - [ ] G2-01 Z-idler T-nuts go in the top rail's inner slot; G2-02 tighten the 01.16 M5×16.

@@ -601,6 +601,8 @@ Pause: ~15 min since the last pause — Z axis mechanically complete and logged.
 - [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
 - [ ] Z-chain parts bagged and labelled for Ch 10; chain latches tested, end link modified
 
+**Next:** [Ch 07 — A/B belts and tensioning](07-ab-belts.md#step-071-confirm-the-gate-before-you-start) — Part B (Ch 06b) below cannot start until Ch 13 Step 13.34 hands off to it.
+
 ## Common mistakes
 
 - **Doing p.114 before p.115–116.** Wrestling a 350 gantry on long zip ties while trying to line up four joints. Fit the lower joints and rest the gantry on rubber rail stoppers instead — LDO note p.114–116.
@@ -956,6 +958,8 @@ Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesi
 - [ ] A/B belts re-tensioned to a provisional **110 Hz** over a 150 mm span, matched to each other — final value is Ch 14 Step 14.4
 - [ ] Four Z joint M5×40 bolts **still light** — they are tightened hot in Ch 14, not here
 - [ ] `RESTART` run at Step 06b.16; idle timeout back to default; next page is Ch 13 Step 13.35
+
+**Next:** [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) — re-heat and re-QGL after squaring; then Ch 11 Part B.
 
 ## Common mistakes (06b)
 

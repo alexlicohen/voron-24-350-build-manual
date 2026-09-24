@@ -250,9 +250,10 @@ Source: [LDO Rev D photo S2 inlet/WAGO mapping](https://raw.githubusercontent.co
 
 ### Step 10.8 — Inlet → WAGO bus
 
-![LDO S2 inlet result](assets/remote/10-wiring/ldo-revd-s2-inlet-wired.jpg)
+![Layout v3, Step 10.8: the three inlet cores loop into the wire box and land in WAGO N, L and PE. Lead paths schematic](assets/b11/v3-lead-10-08-inlet-wago.jpg)
+![LDO S2 inlet result, LDO layout](assets/remote/10-wiring/ldo-revd-s2-inlet-wired.jpg)
 
-**What you're looking at:** The first mains run in the machine: the three wires leaving the inlet module land in their matching WAGO blocks. The photo shows LDO's result in a PVC [wire duct](16-glossary.md#w); yours runs inside the printed wire box, the AC conduit's head.
+**What you're looking at:** The first mains run in the machine: the three wires leaving the inlet module land in their matching WAGO blocks. The drawing shows your route inside the printed wire box; LDO's photo shows its PVC [wire duct](16-glossary.md#w).
 
 **Parts:** inlet cable (3 cores), WAGO N / L / PE.
 
@@ -274,7 +275,8 @@ Source: [LDO Rev D photo S2 inlet wired](https://raw.githubusercontent.com/Motor
 
 ### Step 10.9 — WAGO bus → PSU
 
-![LDO S3 mapping](assets/remote/10-wiring/ldo-revd-s3-wago-psu-mapping.jpg)
+![Layout v3, Step 10.9: WAGO bus into the wire box, down the port stub (10c) into the SSR run (T_SHORT) and out its open end to PSU 1 L, 2 N, 3 FG. Lead paths schematic](assets/b11/v3-lead-10-09-wago-psu.jpg)
+![LDO S3 mapping, LDO layout](assets/remote/10-wiring/ldo-revd-s3-wago-psu-mapping.jpg)
 
 **What you're looking at:** The PSU's AC input is the three screws at one end of its terminal block: **1 AC/L, 2 AC/N, 3 FG**, FG being frame ground, marked ⏚. The rest of the block is the 24 V DC output, empty until step 10.24.
 
@@ -321,7 +323,8 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 ### Step 10.11 — Live from the WAGO bus → SSR LOAD 2
 
-![LDO S4 mapping](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
+![Layout v3, Step 10.11: WAGO L through the wire box, port stub and SSR run to LOAD 2, the SSR's printer-left LOAD screw. Lead path schematic](assets/b11/v3-lead-10-11-wago-ssr.jpg)
+![LDO S4 mapping, LDO layout](assets/remote/10-wiring/ldo-revd-s4-24v-ssr-mapping.jpg)
 
 **What you're looking at:** The *SSR to Wago* cable is one of the kit's pre-made mains leads: a bare stripped end for the WAGO lever, and a [ferruled](16-glossary.md#f) end for the relay, its crimped sleeve turning stranded wire into a tube a screw can clamp.
 
@@ -401,7 +404,8 @@ Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/e
 
 ### Step 10.14 — Bed Live → SSR LOAD 1
 
-![LDO S5 mapping](assets/remote/10-wiring/ldo-revd-s5-build-plate-mapping.jpg)
+![Layout v3, Step 10.14: Bed L from the round deck hole along the 34 mm run (34c), round both R15 curves, through the wire box and port stub to SSR LOAD 1. Lead path schematic](assets/b11/v3-lead-10-14-bed-l-ssr.jpg)
+![LDO S5 mapping, LDO layout](assets/remote/10-wiring/ldo-revd-s5-build-plate-mapping.jpg)
 
 **What you're looking at:** Terminal 1 is the relay's output, live only while the SSR is switched on. Landing the bed's Live lead here is what makes the heater controllable instead of permanently connected to the mains.
 
@@ -419,7 +423,8 @@ Source: [LDO Rev D photo S5 build-plate mapping](https://raw.githubusercontent.c
 
 ### Step 10.15 — Bed Neutral and bed PE → the WAGO bus
 
-![LDO S5 bed result](assets/remote/10-wiring/ldo-revd-s5-bed-wired.jpg)
+![Layout v3, Step 10.15: Bed N and bed PE from the round deck hole round both curves into the wire box, to WAGO N and WAGO PE. Lead paths schematic](assets/b11/v3-lead-10-15-bed-n-pe.jpg)
+![LDO S5 bed result, LDO layout](assets/remote/10-wiring/ldo-revd-s5-bed-wired.jpg)
 
 **What you're looking at:** The heater's return path, Neutral, and the plate's earth both go straight to the bus, unswitched; only the Live side passes through the relay. That earth connection keeps the aluminium plate safe to touch if the heater pad ever fails onto it.
 
@@ -437,7 +442,8 @@ Source: [LDO Rev D photo S5 bed wired](https://raw.githubusercontent.com/MotorDy
 
 ### Step 10.16 — Frame PE
 
-![LDO VS8 mapping](assets/remote/10-wiring/ldo-revd-vs8-ffc-ethernet-usb-mapping.jpg)
+![Layout v3, Step 10.16: frame PE lug, magenta ring, on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, lead into the wire box to WAGO PE. LDO's lug sits right of the notch](assets/b11/v3-lead-10-16-frame-pe.jpg)
+![LDO VS8 mapping, LDO layout](assets/remote/10-wiring/ldo-revd-vs8-ffc-ethernet-usb-mapping.jpg)
 
 **What you're looking at:** *FRAME PE* is the single green/yellow lead that bonds the whole aluminium frame to earth. [Anodising](16-glossary.md#a), the hard oxide layer on the extrusions, is an insulator, so the ring terminal must bite through to bare metal. The two locking washers do the biting.
 
@@ -445,14 +451,14 @@ Source: [LDO Rev D photo S5 bed wired](https://raw.githubusercontent.com/MotorDy
 
 **Do:**
 
-1. Screw the ring terminal, between the two M5 locking washers, into the rear extrusion between the WAGO mount and the notch `(verify on bench)`. Scrape to bare metal first.
+1. Scrape the rear extrusion to bare metal ~20 mm to the printer's left of the Z-chain notch `(verify on bench)`. Screw the ring terminal there, between both locking washers.
 2. Lead it via the box's rear tines to the **PE** WAGO.
 
 **Check:** From the C14 earth pin to a far frame corner: **under 2–3 Ω**. Probe a **screw head, T-nut or bare cut end**, never anodising.
 
-⚠ **Layout v3:** the lug sits about 20 mm left of the frame centre, clear of the notch's DC bundle. **LDO layout:** the rear extrusion right of the deck notch, as the photo shows. Same washers, same bare metal, same check. [LDO § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
+⚠ **Layout v3:** the lug sits between the WAGO-mount screw and the notch, the drawing's magenta ring, clear of the notch's DC bundle. "Left" is the printer's left, whichever way it lies. **LDO layout:** the rear extrusion right of the deck notch, as the photo shows. Same washers, same bare metal, same check. [LDO § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
 
-Source: [LDO Rev D photo VS8 mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS8_mapping.jpg) · [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable and frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` bench check 12 · `layout-v3/layout-v3.json` components_moved
+Source: [LDO Rev D photo VS8 mapping](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS8_mapping.jpg) · [LDO wiring guide § Connecting the FFC cable, Ethernet cable, USB cable and frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` bench check 12 · `layout-v3/layout-v3.json` components_moved · drawings: `layout-v3/work/leads_v3.py`
 
 Pause: ~30 min since the last pause — every mains connection made and pull-tested: SSR LOAD 1/2, bed L/N/PE, frame PE. Cord still out of the room and the DC side untouched. Next segment is LDO's Checkpoint #1 — start it only when you have an uninterrupted 25 minutes.
 
@@ -1652,23 +1658,24 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 
 ### Step 10.80 — Fit the strip fin and close the AC lids
 
+![PSU screws in this chapter's numbering, 1 L, 2 N, 3 FG, 4–6 −V, 7–9 +V; the fin, magenta, stands between 3 FG and 4 −V. Layout v3, positions ±6 %](assets/b11/v3-psu-terminals-10-80.jpg)
 ![Assembled AC conduit, render: lids off, then on. Render colours only; B11 prints every part black, and the lettered lid on the right is the INDX option, not B11's plain lid](assets/b11/ac-conduit-assembled.jpg)
 
-**What you're looking at:** The strip fin, a 55 mm plate on a flat 22 by 12 mm foot, stands between the PSU's −V and FG screws: DC leads leave forward, mains rearward. The AC lids cover every mains lead; the terminal screws stay open.
+**What you're looking at:** The strip fin, a 55 mm plate on a flat 22 by 12 mm foot, stands between the PSU's **3 FG** and **4 −V** screws: DC leads leave forward, mains rearward. The AC lids cover every mains lead; the terminal screws stay open.
 
 **Parts:** `V2L_STRIP_FIN` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15_COVER` ×2 · `V3L_34mm_DUCT_COVER` · `CMD_V2_6B_T_SHORT_COVER` · `V3L_10mm_DUCT_COVER` ×2 · VHB pad.
 
 **Do:**
 
-1. Cord out of the room; read the silkscreen front to rear: +V ×3, −V ×3, FG, N, L.
-2. VHB the foot down `(verify on bench)`, foot forward, between terminals 6 and 7.
+1. Cord out of the room. Find **3 FG**, the ⏚ beside **2 N**, and **4 −V** next to it.
+2. VHB the foot down `(verify on bench)`, foot forward, between **3 FG** and **4 −V**.
 3. Snap every AC lid on.
 
-**Check:** Fin 2 mm or more clear of both screws, no lower than the PSU top `(verify on bench)`. No lead pinched; no terminal loosened.
+**Check:** Screws 1–3 on the fin's mains side, −V and +V on the other. Fin ≥2 mm from both, no lower than the PSU top `(verify on bench)`.
 
-⚠ **Layout v3:** a silkscreen in any other order moves the fin; stop and re-check before sticking it. Never loosen or bend a terminal to make room. **LDO layout:** skip this step; LDO's build has no fin and its lids stay off. [LDO § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
+⚠ **Layout v3:** a silkscreen in any other order moves the fin; stop and re-check before sticking it. Never loosen or bend a terminal to make room, and no lead may be pinched under a lid. **LDO layout:** skip this step; LDO's build has no fin and its lids stay off. [LDO § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
-Source: `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met, bench checks 13–14 · `layout-v3/layout-v3.md` § AC conduit · [MSS AC covers, Printables 505838](https://www.printables.com/model/505838) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306), after RyanDam's Cable Management Duct, GPL-3.0 · [Mean Well LRS-200 datasheet — terminal pin assignment](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200)
+Source: `review/2026-09-23-bay-mods/layout-v2/layout-v2.md` § How each requirement is met, bench checks 13–14 · `layout-v3/layout-v3.md` § AC conduit · `layout-v3/overlay-v3.jpg`, fin at the FG/−V gap · drawing: `layout-v3/work/leads_v3.py` · [MSS AC covers, Printables 505838](https://www.printables.com/model/505838) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306), after RyanDam's Cable Management Duct, GPL-3.0 · [Mean Well LRS-200 datasheet — terminal pin assignment](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200)
 
 Pause: ~30 min since the last pause — below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt.
 
@@ -1774,7 +1781,7 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 
 ### Step 10.77 — Protective-earth bonding
 
-(no image — see text)
+![Layout v3: the frame PE lug, magenta ring, about 20 mm to the printer's left of the Z-chain notch, between the WAGO-mount screw and the notch](assets/b11/v3-lead-10-16-frame-pe.jpg)
 
 **What you're looking at:** The last earth check. Every piece of metal a hand can reach must have a low-resistance path back to the inlet's earth pin, and nothing that carries current may have any path at all.
 
@@ -1788,7 +1795,7 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 |---|---|
 | PE WAGO, any port | < 1 Ω |
 | PSU **3 FG (⏚)** terminal | < 1 Ω |
-| Frame — the PE lug's screw head on the rear extrusion between the WAGO mount and the notch (LDO layout: right of the notch), then a far corner, screw head or T-nut | < 2–3 Ω |
+| Frame — the PE lug's screw head on the rear extrusion, about 20 mm to the printer's left of the Z-chain notch (LDO layout: right of the notch), then a far corner, screw head or T-nut | < 2–3 Ω |
 | Build plate — the M4×6 PE screw head | a few Ω or less |
 | Extruder motor body (via the ESD ground and the umbilical, 10.67) | a few Ω or less |
 | Bed heater L or N | `OL` |
@@ -1853,13 +1860,13 @@ Do not start Ch 11 until every line is ticked.
 - [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion between the WAGO mount and the notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Both thermistors read within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
 - [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
-- [ ] Strip fin between PSU −V and FG, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
+- [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
 
 ## Common mistakes
@@ -1875,4 +1882,4 @@ Do not start Ch 11 until every line is ticked.
 
 ## Next
 
-**Ch 12 Part 2 — Step 12.11 onward** (the power-on gate, flashing both MCUs, `printer.cfg`), done with the bay you just wired **still open**; it carries the two remaining Rev D+ deviations — the `-sbv2` config file and the `stm32g0b1xx` USB ID. Then **Ch 11 Part A**, which closes the bay.
+**Ch 12 Part 2**, starting at [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate): the power-on gate, flashing both MCUs, `printer.cfg`, done with the bay you just wired **still open**; it carries the two remaining Rev D+ deviations — the `-sbv2` config file and the `stm32g0b1xx` USB ID. Then **Ch 11 Part A**, which closes the bay.

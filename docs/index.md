@@ -14,9 +14,9 @@ caption: Cartons open, bins labelled, every plate printed. I planned it this way
 ```
 
 1. **Now.** Read [slicer setup](manual/print/00-slicer-setup.md). Do the pre-kit steps of [Ch 00](manual/steps/00-before-you-start/index.md): what the kit supplies, tools, consumables, the flat reference and the bins (Steps 00.7–00.12); the Voron manual's front matter, the measurement log and the Discord questions (Steps 00.23–00.32). Do [Ch 00a — Mains safety](manual/steps/00a-mains-safety/index.md). Print the [bin labels](print/bin-labels.md).
-2. **Pre-B00 checks, on the current Gen 1 belts.** [Pre-B00 checks](manual/steps/b00-calibration-and-jigs/note-before-b00-belt-and-hot-bed-checks.md): a belt pluck check and a hot first-layer check, about an hour. Then [B00](manual/steps/b00-calibration-and-jigs/index.md) and Gate A, then the insert practice (Steps 00.13–00.16).
+2. **Pre-B00 checks, on the current Gen 1 belts.** [Step B00.0](manual/steps/b00-calibration-and-jigs/b00-0.md) (the one-time slicer wizard), then the [pre-B00 checks](manual/steps/b00-calibration-and-jigs/note-before-b00-belt-and-hot-bed-checks.md): a belt pluck check and a hot first-layer check on its own project file, about an hour. Then [B00](manual/steps/b00-calibration-and-jigs/index.md), Gate A and Gate B. Gate B's insert row is the insert practice (Steps 00.14–00.16): seven KADRICK inserts, set by the adult. Step 00.13 waits for kit day.
 3. **Then every plate, B01 → B10,** in the [manual index](manual/00-index.md) timeline order. Sort each plate into its bins as it comes off the bed.
-4. **The day the Voron cartons land.** [Ch 00 — Before you start](manual/steps/00-before-you-start/index.md) from Step 00.1, then the **Build** tab in chapter order. Nothing waits on a plate.
+4. **The day the Voron cartons land.** [Ch 00 — Before you start](manual/steps/00-before-you-start/index.md) from Step 00.1, then follow the [manual index](manual/00-index.md) timeline rows 14–31 — [Tonight](manual/00-tonight.md) packs this into sessions for you. It is not the **Build** tab's chapter order: the timeline interleaves chapters (Ch 12 before Ch 01, Ch 06b after Ch 13, and more). Nothing waits on a plate.
 
 ## How to proceed, every session
 

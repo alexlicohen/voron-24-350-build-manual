@@ -491,7 +491,7 @@
     -15,
     91.2
    ],
-   "how": "PSU strip: fin between terminal 6 (-V) and 7 (FG); DC forward to the middle run, AC rearward into the SSR run's open end."
+   "how": "PSU strip: fin between 3 FG and 4 -V (datasheet numbering, as Ch 10 uses); DC forward to the middle run, AC rearward into the SSR run's open end."
   },
   {
    "at": [

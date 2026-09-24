@@ -55,7 +55,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 — M3 thread, ~4 mm OD × 5 mm long — the STL pockets are 5.0 mm deep with a ~4 mm bore and the LDO tip tongue is 5.0 mm `(verify against the bag)` | 7 | practice coupon only (the coupon STL has 7 pockets) — this is Gate B's insert item, Step B00.7. Kit inserts (146 of the 153 remain for the build), or the ten ordered with the filament (Step 00.9) |
+| Heat-set insert, brass, M3×H5 from the KADRICK kit already on the bench, not the Voron kit — the STL pockets are 5.0 mm deep with a ~4 mm bore; shank ~4 mm `(verify on bench)` | 7 | the practice coupon's seven pockets, set at Gate B (Step B00.7) months before the kit — Steps 00.14–00.15 are that session. All 153 kit inserts stay for the build; Step 00.13 borrows one as a tongue gauge and bags it again |
 | — no other kit hardware is consumed in this chapter — | 0 | every rail, fastener and PCB goes back in its bag |
 
 **Read first**
@@ -89,7 +89,7 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ## Before the kit ships
 
-Do these the week batch B00 prints and passes Gate A, months before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.13–00.16** (heat-set practice, on the LDO tip kit and ten inserts ordered at Step 00.9 — this is Gate B's insert row and it is no longer optional), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+Do these the week batch B00 prints and passes Gate A, months before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
 
 ## Kit day
 
@@ -243,7 +243,7 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 
 **Check:** Ten part types accounted for, in one bin, labelled `LDO SUPPLIED — DO NOT PRINT`.
 
-⚠ **Rev D+ / LDO:** the USB-adapter mount base is supplied printed, but the **cover** changed for the V2 board. The Rev D Printed Parts Guide points at the V1 `usb_adapter_mount.stl` cover; Rev D+ needs [`usb_adapter_mount_partial_cover.stl`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl) from the **V2** repo. Batch **B07** currently lists the V1 file. Fix the B07 plate before you print it. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · survey §4.1 ⑤
+⚠ **Rev D+ / LDO:** the USB-adapter mount base is supplied printed, but the **cover** changed for the V2 board. Plate **B07-P1** already prints the correct **V2** [`usb_adapter_mount_partial_cover.stl`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl) into bin `09-bay`, plus a spare V1 cover in `spare-alt`. Fit the V2 one. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · survey §4.1 ⑤
 
 Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [Nitehawk-SB-V2 `STLs/`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs)
 
@@ -381,12 +381,12 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **What you're looking at:** Empty bins and a marker. Each bin belongs to one sub-assembly, not to a whole chapter: Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive, so a session never starts with a hunt.
 
-**Parts:** ~25 stackable bins, boxes or labelled zip bags, plus masking tape and marker.
+**Parts:** ~26 stackable bins, boxes or labelled zip bags, plus masking tape and marker.
 
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), one per bin, and tape one to each container.
-2. The scheme is [print/README.md § Bins](print/README.md#bins): **25 bins**, `02-Z0` … `spare-alt`, the names every batch chapter and plate diagram already uses.
+2. The scheme is [print/README.md § Bins](print/README.md#bins): **26 bins**, `02-Z0` … `spare-alt`, the names every batch chapter and plate diagram already uses.
 
 | Print batch | Bins it fills |
 |---|---|
@@ -402,7 +402,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
 
-**Check:** 25 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 26 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
 **Helper:** Writes the chapter number on each bin label and sticks it on square.
 
@@ -443,7 +443,7 @@ Pause: ~30 min since the last pause (pre-kit) — the tool and consumable decisi
 
 **What you're looking at:** The LDO brass tip, and the same tip set against an insert. The four-panel photo is the tip going into the iron: sleeve off, stock tip out, LDO tip in, sleeve on. The **tongue** is the thin pin that goes inside the insert.
 
-**Parts:** LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 insert as the gauge.
+**Parts:** LDO brass M3 heat-set tip (from the kit), soldering iron, one M3×5×4 kit insert as the gauge.
 
 **Do:**
 
@@ -452,7 +452,7 @@ Pause: ~30 min since the last pause (pre-kit) — the tool and consumable decisi
 
 **Check:** With an insert on the tongue, the tongue tip and the insert's far face are level.
 
-⚠ Ch 00 runs on kit day, so the LDO tip is on the bench here. Gate B's early insert row, months earlier, is set with the iron's stock conical tip instead. No tip is bought for it.
+⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran months earlier at Gate B, on the iron's stock conical tip. The gauge insert goes back in its bag, and Ch 02 re-checks the temperature on this tip.
 
 Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -464,18 +464,18 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png)
 
-**What you're looking at:** Manual p.31 shows the general insert operation: the blue pills are inserts going into the bosses of real Z-drive parts. The `Heatset_Practice` coupon is a printed block of seven insert pockets for finding the iron temperature.
+**What you're looking at:** Manual p.31 shows the general insert operation: the blue pills are inserts going into real Z-drive bosses. The `Heatset_Practice` coupon is seven insert pockets. This step is Gate B's insert row, Step B00.7, run before the kit.
 
-**Parts:** `Heatset_Practice` coupon ×1 (batch B00), M3×5×4 inserts ×7 (one per pocket).
+**Parts:** `Heatset_Practice` coupon ×1 (batch B00); KADRICK M3×H5 inserts ×7, one per pocket; the iron with its stock conical tip.
 
 **Do:**
 
 1. Start at the bottom of the iron's range, never where soldering left it, and step up 10 °C at a time.
-2. Sit each insert narrow end down by hand, then push the tongue straight down until flush.
+2. Sit each insert narrow end down by hand, then press the tip straight down until flush.
 
 **Check:** Plastic very soft but not runny, the iron never lingering longer than seating takes, and the working temperature on tape on the iron.
 
-⚠ **Rev D+ / LDO:** LDO publishes no temperature, and the [technique guide](https://voron.link/m5ybt4d) on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 146 remaining inserts.
+⚠ **Rev D+ / LDO:** LDO publishes no temperature, and the [technique guide](https://voron.link/m5ybt4d) on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 153 kit inserts. The adult holds the iron; the helper never does.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -533,7 +533,7 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-Pause: ~30 min since the last pause (pre-kit) — the iron is set up, the working temperature is written on tape, and the seven practice inserts (one per coupon pocket) are done. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
+Pause: ~30 min since the last pause (pre-kit) — Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
 
 ---
 
@@ -937,13 +937,13 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
-- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". Batch B07 corrected to `usb_adapter_mount_partial_cover.stl`.
+- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `09-bay` (B07-P1); the spare V1 cover in `spare-alt`.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 25 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
+- [ ] 26 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

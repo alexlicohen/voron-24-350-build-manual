@@ -21,7 +21,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plate B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
 - **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
-- **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print only after the kit-day A/B lead go/no-go and bay measurements, [B11.9 and B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements). If the go/no-go failed and you build LDO's layout instead, every changed step below keeps LDO's way in a `⚠ LDO layout` note.
+- **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print only after the kit-day bay measurements and the A/B lead go/no-go after Checkpoint 06, [B11.9 and B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements). If the go/no-go failed and you build LDO's layout instead, every changed step below keeps LDO's way in a `⚠ LDO layout` note.
 
 **Tools**
 
@@ -205,17 +205,17 @@ Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ![Layout v3 on LDO's Rev D bay photo: DC loop black, AC conduit orange, remixed pieces hatched, rear at the bottom](assets/b11/layout-v3-overlay.jpg)
 ![LDO Rev D — DIN rails and the five PVC wire ducts, the LDO-layout fallback](assets/remote/09-electronics-bay/din-rails-and-wire-ducts.jpg)
 
-**What you're looking at:** Layout v3: two printed conduits in place of LDO's five PVC ducts. The DC loop, drawn black, circles both rails with a narrowed middle run between them. The AC conduit, drawn orange, goes in at 09.36. Positions on LDO's photo are approximate.
+**What you're looking at:** Layout v3: two printed conduits in place of LDO's five PVC ducts. The DC loop, drawn black, circles both rails with a narrowed middle run between them. It stays loose until 09.36, once the boards it must clear are on. Overlay positions are approximate.
 
-**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V3_1H_90DEG` ×2 · `V2L_90DEG_MIRROR` · `V2L_58mm_DUCT` ×3 · `V2L_130mm_DUCT` · `V2L_70mm_DUCT` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `V3L_10mm_DUCT` · `V3L_T_REG_N` ×2 · `V3L_154N_DUCT` ×2 · VHB tape.
+**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V3_1H_90DEG` ×2 · `V2L_90DEG_MIRROR` · `V2L_58mm_DUCT` ×3 · `V2L_130mm_DUCT` · `V2L_70mm_DUCT` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `V3L_10mm_DUCT` · `V3L_T_REG_N` ×2 · `V3L_154N_DUCT` ×2 · masking tape.
 
 **Do:**
 
 1. Dry-lay the DC loop against the overlay, every joint pushed closed.
-2. Wipe the deck with IPA, then VHB each piece down, front run first.
-3. Leave the AC parts and every lid in the bin.
+2. Mark each joint and run end on masking tape on the deck.
+3. Leave the loop there; VHB, lids and AC parts stay in the bin.
 
-**Check:** One closed loop, middle run 1.5 mm or more off the Leviathan, notch and round hole uncovered, no motor or plug touched.
+**Check:** One closed loop, every joint marked, notch and round hole uncovered, no motor or plug touched. Nothing is stuck down yet.
 
 ⚠ **Middle run:** fit it only if B11.10's gap row passed `(verify on bench)`. Otherwise fit B11's fallback set and LDO's PVC middle duct instead. [B11 options](print/B11-bay-ducting.md#after-the-kit-day-measurements)
 
@@ -239,7 +239,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` · [B11 — Bay duct
 
 Source: [Voron manual p.168](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=168) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [Video: Part 7 @0:28:22](https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1702s)
 
-Pause: ~25 min since the last pause — printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop stuck down, lids off; the AC parts wait for 09.36. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
+Pause: ~25 min since the last pause — printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.
 
 ---
 
@@ -405,13 +405,15 @@ Source: [Voron manual p.153](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.169](assets/manual-pages/manual-p169.png)
 
-**What you're looking at:** Hook, rotate, snap: the motion from Step 09.7, now with the heaviest component in the bay. Position is decided by access, because a PH2 driver has to reach every terminal screw later, with the bay full.
+**What you're looking at:** Hook, rotate, snap: the motion from Step 09.7, now with the heaviest component in the bay. Position is set by the dry-laid DC loop's right T and by access: a PH2 driver must reach every terminal screw later, with the bay full.
 
 **Parts:** PSU assembly from 09.15.
 
-**Do:** Hook, rotate and snap the PSU onto the **rear** DIN rail, toward the right of the bay with its terminal block facing left. Slide it to the spot [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill) recorded, 6 mm left of LDO's `(verify on bench)`.
+**Do:** Hook, rotate and snap the PSU onto the **rear** DIN rail at the bay's right, terminal block facing left. Slide it left until its front-right corner clears the dry-laid right T's rear fillet by 2 mm, then stop.
 
-**Check:** Both brackets latched, no rocking, front-right corner 2 mm or more clear of the right T junction, every terminal screw reachable with a PH2 driver.
+**Check:** Both brackets latched, no rocking, front-right corner 2 mm or more from the right T's rear fillet, every terminal screw reachable with a PH2 driver.
+
+⚠ **Layout v3:** stop at 2 mm. The PSU's left end must stay 3 mm or more from the SSR run's open end, which 09.36 checks `(verify on bench)`. If the psu row at [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill) failed, that run is one 10 mm piece shorter and the PSU has more room.
 
 ⚠ **Rev D+ / LDO:** **SKIP the bottom half of p.169** — the L-shaped support bracket with its M5 T-nut, M5×10 BHCS and M4×6 BHCS. LDO: *"PAGE 169 SKIP. The kit does not use a support bracket."* The two printed DIN brackets carry the PSU on their own. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -419,7 +421,7 @@ Source: [Voron manual p.153](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ⚠ **LDO layout:** no shift. Slide the PSU clear of the right-hand PVC duct, where LDO's placement photo shows it, so a PH2 driver reaches every terminal screw. [LDO § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement)
 
-Source: [Voron manual p.169](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=169) · [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [print plan §B08](../voron-print-plan.md) · `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § What changed, bench check 5
+Source: [Voron manual p.169](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=169) · [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [print plan §B08](../voron-print-plan.md) · `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § What changed, bench checks 5 and 6
 
 ---
 
@@ -826,19 +828,21 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 ![Layout v3 on LDO's Rev D bay photo: the AC conduit drawn orange, rear at the bottom](assets/b11/layout-v3-overlay.jpg)
 ![Assembled AC conduit, render: lids off on the left; B11 prints every part black](assets/b11/ac-conduit-assembled.jpg)
 
-**What you're looking at:** The AC conduit goes in last because it sits against the WAGO bus, the SSR and the PSU. Then a comparison pass against the v3 overlay and LDO's placement photo, component by component, not pixel by pixel.
+**What you're looking at:** Both conduits are bonded last because they must clear the boards, the WAGO bus and the SSR. Then a comparison pass against the v3 overlay and LDO's placement photo, component by component, not pixel by pixel.
 
-**Parts:** `V3L_WIRE_BOX_PORT` · `V3L_90DEG_R15` ×2 · `V3L_34mm_DUCT_HOLE` · `CMD_V3_1H_T_SHORT` · `V3L_10mm_DUCT` ×2 · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · VHB tape · cable tags.
+**Parts:** the dry-laid DC loop from 09.6 · `V3L_WIRE_BOX_PORT` · `V3L_90DEG_R15` ×2 · `V3L_34mm_DUCT_HOLE` · `CMD_V3_1H_T_SHORT` · `V3L_10mm_DUCT` ×2 · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · VHB tape · IPA · cable tags.
 
 **Do:**
 
-1. Dry-lay the AC conduit per the overlay: box on the WAGO ports, 34 mm run over the round hole, stub into the box port.
-2. VHB it down, lids off.
+1. VHB the DC loop to its marks on IPA-wiped deck, middle run centred between Leviathan and PSU.
+2. VHB the AC conduit per the overlay, 34 mm run over the round hole.
 3. Tag the boards and WAGO blocks.
 
-**Check:** Stub on the box port, hole inside the 34 mm opening, PSU 3 mm clear of the SSR run. Bay matches the overlay; nothing wired.
+**Check:** Middle run 1.5 mm or more off the Leviathan and PSU. PSU 3 mm or more from the SSR run. Stub on the box port.
 
-⚠ **Stub:** its length is the SSR-to-WAGO gap B11.10 measured, minus 90 mm; 10 mm on the layout `(verify on bench)`. More than 2 mm off the box port means re-cut it; never leave a gap in the AC conduit. [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill)
+⚠ **Middle run:** check its 1.5 mm with the boards on before any VHB goes down; VHB does not let go. If it cannot clear both edges, stop: B11's fallback, stock T junctions and LDO's PVC middle duct, is printed and fitted instead `(verify on bench)`.
+
+⚠ **Stub:** 10 mm on the layout; B11.10 set its real length `(verify on bench)`. Seat it on the box port and let the T sit back from the SSR by any remainder; L, N and FG must still enter the SSR run's open end. Never leave a gap in the AC conduit. [B11.10](print/B11-bay-ducting.md#step-b1110-measure-the-gaps-the-custom-pieces-fill)
 
 ⚠ **LDO layout:** no AC conduit. The mains runs share LDO's rear PVC duct; compare the bay against LDO's [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg) only, standing at the rear. [LDO § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement)
 
@@ -847,8 +851,8 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 ## Checkpoint 09
 
 - [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] DC loop VHB'd down as one closed loop; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
-- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets at the spot B11.10 recorded, 2 mm or more clear of the right T junction — and **no** support bracket fitted.
+- [ ] DC loop VHB'd at 09.36 as one closed loop, middle run 1.5 mm or more off the Leviathan and the PSU; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
+- [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets, front-right corner 2 mm or more clear of the right T's rear fillet and left end 3 mm or more from the SSR run's open end — and **no** support bracket fitted.
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
@@ -874,5 +878,5 @@ Ch 10 — Wiring: above-deck, below-deck, mains and **Checkpoint #1** (LDO wirin
 
 Source: [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · [survey §7.5](../voron-build-instructions-survey.md)
 
-Pause: ~30 min since the last pause — AC conduit stuck down with its lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
+Pause: ~30 min since the last pause — both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.
 

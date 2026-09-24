@@ -69,7 +69,7 @@ The `_xN` suffix is the quantity you need, not the number of copies in the file 
 | M3×40 SHCS | 24 |
 | M3 hexnut | 4 |
 | M3 roll-in T-nut, 2020 | 36 (one per Z-rail screw) |
-| M3×5×4 brass heat-set insert | 36 (Step 02.04) + up to 7 on the practice coupon (Step 02.03) |
+| M3×5×4 brass heat-set insert | 36 (Steps 02.03–02.04: the first one is Step 02.03's re-check) |
 | M5×10 BHCS | 8 (drives) |
 | M5×16 BHCS | 4 |
 | M5×30 BHCS | 12 (idlers: 2 mounting + 1 axle each) |
@@ -172,23 +172,23 @@ Tip: The hand map comes from the official CAD, not a manual page. Confirm it by 
 
 Source: [Voron manual p.23](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=23) · [Voron manual p.40](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=40) · [LDO wiring guide § Connecting Steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) (corner map)
 
-### Step 02.03 — Dial in the iron on the practice coupon before you touch a structural part
+### Step 02.03 — Re-check the iron with the LDO tip on the first insert
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png)
 
-**What you're looking at:** The `Heatset_Practice` coupon and the iron. A **heat-set insert** is a knurled brass sleeve melted into a printed boss to give it a real M3 thread instead of plastic. See the [glossary](16-glossary.md#h). Calibrate on scrap: too hot bulges the boss, too cold goes in crooked.
+**What you're looking at:** Manual p.31: the blue pills are inserts going into Z-drive bosses. Gate B found the iron temperature with the stock conical tip and filled the `Heatset_Practice` coupon. The LDO tip is different brass, so the first real insert re-checks that number. See the [glossary](16-glossary.md#h).
 
-**Parts:** `Heatset_Practice` coupon from B00 (7 pockets on the STL — 3 in a side face, 4 in the top, all the same Ø4.7 × 5 mm as the drive parts); M3×5×4 brass heat-set inserts, up to 7 for practice.
+**Parts:** the iron with the LDO brass tip fitted at Step 00.13; `z_drive_retainer_a` from Gate B, bin 02-Z0; one M3×5×4 kit insert.
 
 **Do:**
 
-1. Fit the brass M3 tip, tongue set flush with an insert's height.
-2. Set the iron so the plastic goes *soft, not runny*.
-3. Drive each insert ~90 % home, then press it flat with a steel block.
+1. Heat the iron to the temperature taped on it at Gate B.
+2. Drive one insert 90 % into the Gate B retainer, then press it flat with a steel block.
+3. Let it cool and inspect it.
 
-**Check:** On the coupon, an insert goes in square in under 5 seconds with no visible bulge, two in a row.
+**Check:** The insert went in square in under 5 seconds, sits flush to 0.2 mm proud, and its boss has not bulged.
 
-⚠ **Rev D+ / LDO:** the kit supplies the brass tip (`Brass Heatset Insert tool (for M3 Brass Inserts)`, 1 off) and 153 inserts for the whole build. 36 go into the drive parts in the next step; the coupon spends up to 7 more. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+⚠ **Rev D+ / LDO:** the kit supplies the brass tip and 153 inserts for the whole build; this one is the first of the 36 in the drive parts, and none go into a coupon. A bulge means 10 °C cooler and a slower push before the next insert, and a reprinted retainer. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 Tip: Do not leave the iron sitting in a part, or powered longer than needed: the brass tip oxidises.
 

@@ -380,7 +380,7 @@ Source: [Ch 05 Steps 05.25](05-gantry.md#step-0525-seat-the-m5-nuts-in-both-xy-j
 
 | Term | What it is | First matters at |
 |---|---|---|
-| **Z=0 / `Z_ENDSTOP_CALIBRATE`** | Setting the nozzle-to-bed zero with the paper test, done **hot**, with an extra `TESTZ Z=-0.1` because Klipper's test assumes a cold machine | [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test) |
+| **Z=0 / `Z_ENDSTOP_CALIBRATE`** | Paper-test Z=0 from the nozzle probe, done **hot**; accept at light drag, no extra step down; squish is set live at 13.42 | [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test) |
 | **Z joint** | The printed block joining each corner of the gantry to a Z carriage. Kept light through squaring and tightened **hot**, at the end | [06.14](06-z-axis-and-gantry-squaring.md#step-0614-bolt-the-first-z-joint-together) |
 | **`Z_OFFSET_APPLY_ENDSTOP`** | The command that commits a live babystepping adjustment. Without it — followed by `SAVE_CONFIG` — the slider is discarded on restart | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | **Z-hop** | The 0.2 mm lift the Nextruder makes on every travel move so the nozzle clears the part. Printer-preset value — never edited | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |

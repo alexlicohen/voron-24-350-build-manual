@@ -15,8 +15,10 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 
 **Sessions:** ~15 min one-time slicer and filament setup, then Step B00.8's plate review (~25+20+35+20 min, four sessions, done with a helper) before B00-P1 starts, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
 
-**Prerequisites:** the pre-B00 checks (index row 1) passed — see **Before B00: belt and hot-bed checks**, below. Slicer set up per
-[00-slicer-setup.md](00-slicer-setup.md) (Step B00.0 below walks the one-time wizard). **Step B00.8** — reviewing all 27 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
+one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
+hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
+**Step B00.8** — reviewing all 27 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -52,33 +54,6 @@ the kit's own 153 inserts stay untouched.
 - First layer: the Core One+ has no first-layer wizard. The loadcell sets Z before every print; you judge the
   result (Step B00.4) and nudge with Live Adjust Z only if you must.
 
-## Before B00: belt and hot-bed checks
-
-The Gen 2 belt upgrade (GT1.5 belts, heatbed expansion joints, nozzle wiper — Prusa order 1787919456,
-shipped) is **deferred to the INDX 8-tool conversion this winter**; Prusa documents the combined install
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)). The whole 157.0 h run prints on the current **Gen 1 GT2** belts. Before any plate,
-run these two checks instead — belt tuning was never formally closed, and the bed has only been proved flat
-at 60 °C, not at ASA temperature.
-
-**1. Belt pluck check** `(verify on bench)`
-
-- [ ] Motors disabled, head parked front, X centred
-- [ ] Pluck mid-belt with belt.connect.prusa3d.com or the Prusa app
-- [ ] Upper belt ≈96 Hz (≤98 Hz), lower belt ≈92 Hz (≥92 Hz), ≤8 Hz apart
-- [ ] Out of range: Control → Calibrations & Tests → Belt Tuning (fw ≥ 6.8.1), tensioner screws half a turn, both evenly and alternately — left = upper, right = lower
-
-**2. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
-
-- [ ] Slice five 30×30×0.2 mm squares — four corners plus centre of the usable bed — in Galaxy Black ASA on the B00 project's printer/filament presets (bed **110 °C**, as in `B00-P1.3mf`), with the vendored cold start G-code
-- [ ] No "bed not aligned" / Z-alignment prompt during the print
-- [ ] Every square calipers 0.17–0.23 mm
-- [ ] Spread across all five squares ≤ 0.05 mm
-
-Both pass → Step B00.0, B00 prints on GT2. Either fails → do the Gen 2 upgrade now (expansion joints
-included) before B00, then re-run both checks.
-
-- [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
-
 ## Steps
 
 ## Step B00.0 — One-time PrusaSlicer setup
@@ -98,6 +73,41 @@ included) before B00, then re-run both checks.
 Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [PrusaSlicer releases](https://github.com/prusa3d/PrusaSlicer/releases)
 
 Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P1 open and showing "(modified)" / " - Voron black". Nothing printing.
+
+## Before B00: belt and hot-bed checks
+
+The Gen 2 belt upgrade (GT1.5 belts, heatbed expansion joints, nozzle wiper — Prusa order 1787919456,
+shipped) is **deferred to the INDX 8-tool conversion this winter**; Prusa documents the combined install
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)). The whole 157.0 h run prints on the current **Gen 1 GT2** belts. Before any plate,
+run these two checks instead — belt tuning was never formally closed, and the bed has only been proved flat
+at 60 °C, not at ASA temperature. They sit here, after Step B00.0, because the hot check opens a project on
+the presets B00.0 installs; they run before Step B00.8 and before any plate.
+
+**1. Belt pluck check** `(verify on bench)`
+
+- [ ] Motors disabled, head parked front, X centred
+- [ ] Pluck mid-belt with belt.connect.prusa3d.com or the Prusa app
+- [ ] Upper belt ≈96 Hz (≤98 Hz), lower belt ≈92 Hz (≥92 Hz), ≤8 Hz apart
+- [ ] Out of range: Control → Calibrations & Tests → Belt Tuning (fw ≥ 6.8.1), tensioner screws half a turn, both evenly and alternately — left = upper, right = lower
+
+**2. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
+
+- [ ] Step B00.0 done; Galaxy Black ASA loaded as in Step B00.1; the sheet glued and Adv. Filtration set as in Step B00.3
+- [ ] **File → Open Project**: `slicer/checks/hot-first-layer.3mf` — five 30×30×0.2 mm squares, four corners plus centre, one layer, on B00-P1's presets (bed **110 °C**, the vendored cold start G-code); the printer box reads `(modified)`. Slice (~5 min print after the chamber heat-up) and print it
+- [ ] No "bed not aligned" / Z-alignment prompt during the print
+- [ ] Every square calipers 0.17–0.23 mm
+- [ ] Spread across all five squares ≤ 0.05 mm
+
+Both pass → Step B00.8, and B00 prints on GT2. Either fails → do the Gen 2 upgrade now (expansion joints
+included) before B00, then re-run both checks.
+
+- [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
+
+The check's project is not a plate of the run and sits outside every total. `python3 slicer/hot_check.py`
+rebuilds it from `slicer/voron-coreone-asa.ini` and slices it to prove one layer, five squares, a 110 °C bed
+and no nozzle target before the mesh; `--check` only re-slices the committed file.
+
+## Plate review, B00-P1 and the gates
 
 ## Step B00.8 — Review every plate in PrusaSlicer, together
 
@@ -137,8 +147,8 @@ so nothing here gets hand-typed.
    **Arrange Current Bed**. Save the 3MF. [src](https://help.prusa3d.com/article/auto-arrange-tool_1770)
 2. Rebuild only the plates you touched:
    `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]` — name every re-saved
-   plate. **Never run `--from-3mf` with no plate ids**: with no ids it re-slices all 27, not the
-   ones you changed.
+   plate. With no ids it re-slices all 27: safe, but slow. **Never drop `--from-3mf`**: that
+   re-packs the plates and loses this arrangement.
 3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
    [print/README](README.md#spool-ledger) by hand.
 
@@ -311,7 +321,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 | coupon | when | passes when |
 |---|---|---|
 | `z_drive_retainer_a` 625-2RS pocket, calipered | now | reads **16.30 mm ±0.15** across the pocket |
-| heat-set inserts | now, on seven KADRICK M3×H5 | **flush to 0.2 mm proud**, no boss bulge > 0.2 mm |
+| heat-set inserts | now, on seven KADRICK M3×H5, one per pocket — the how-to is Ch 00 Steps 00.14–00.15, the same session | **flush to 0.2 mm proud**, no boss bulge > 0.2 mm |
 | insert count | now | the practice seven come out of the KADRICK kit; all **153** kit inserts stay for the build |
 | the same pocket, on a real 625-2RS | kit day, out of carton 1 | thumb pressure seats it, **no rocking** |
 | `MGN12_rail_guide` | kit day, out of carton 1 | seats with **light finger pressure** |
@@ -330,8 +340,8 @@ inputs:
   - key: inserts
     label: All seven inserts flush to 0.2 mm proud, no boss bulging over 0.2 mm
     kind: yesno
-    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Practise on the spare pockets until two in a row land flush, and do not re-slice anything.
-    why: The kit's 153 inserts go into real parts from Ch 00 onwards, so seven flush, un-bulged ones on a coupon are how you learn the iron before a chapter part sees it.
+    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Reprint Heatset_Practice, 6.5 g, and practise on it until two in a row land flush. Do not re-slice anything.
+    why: The kit's 153 inserts go into real parts from Ch 02 onwards, so seven flush, un-bulged ones on this coupon are how you learn the iron before a chapter part sees it. The coupon has no other use.
   - key: bearing
     label: Kit day. A real 625-2RS seats by thumb with no rocking
     kind: yesno
@@ -351,11 +361,12 @@ pass: Gate B passed on the rows you can run today. B01 and B03 to B06 are releas
 
 A 625-2RS is the plain 16 mm bearing in every Z drive, and this pocket is the seat it presses into. The
 caliper now is standing in for that press: if the pocket is wrong, 22 h of Z-drive bodies would print wrong
-with it. Flush, un-bulged inserts mean the iron is right before any real part sees one.
+with it. Flush, un-bulged inserts mean the iron is right before any real part sees one. The adult sets the
+inserts; the helper never handles the iron.
 
 Pause: ~15 min since the last pause — Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.
 
-Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-batch-1-and-again-after-any-toolchain-change) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-b00-and-again-after-any-toolchain-change) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 ---
 
@@ -390,4 +401,4 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 
 ## Next
-Printing: Gate B (Step B00.7) on the caliper and the KADRICK inserts, then [B01 — Z drive assemblies](B01-z-drive-assemblies.md) and on through B02 → B10 in numeric order, all before the kit. Assembly: Ch 00 needs this plate's `Heatset_Practice` and rail guides on kit day; Ch 01 Frame needs no printed part.
+Printing: Gate B (Step B00.7) on the caliper and the KADRICK inserts, then [B01 — Z drive assemblies](B01-z-drive-assemblies.md) and on through B02 → B10 in numeric order, all before the kit. Assembly: Ch 00 needs this plate's rail guides on kit day; its `Heatset_Practice` is spent at Gate B, which is Ch 00's insert practice (Steps 00.14–00.15). Ch 01 Frame needs no printed part.

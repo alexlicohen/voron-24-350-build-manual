@@ -48,8 +48,9 @@ the reprint is the one plate the build may still owe when the cartons land.
 - The parts come in **mirrored pairs**: every `_a` file has a `_b` twin, and each Z corner takes *either* the
   `a` set *or* the `b` set — two corners of each. They are not interchangeable, so Step B01.8 sorts them into
   the four corner bins 02-Z0–Z3 by hand, not four identical sets.
-- Checkpoint after B01: 625-2RS (16 mm OD) press-fit into each `z_drive_main` and `z_drive_retainer` bearing
-  seat — thumb pressure, no rocking. M3 heat-set bosses on the motor mounts: no bulge, insert flush. Check
+- Checkpoint after B01: caliper each `z_drive_main` and `z_drive_retainer` 625-2RS pocket, **16.30 mm ±0.15**
+  (measured off the STL, as at Gate B). The bearings arrive with the kit, so pressing a real 625-2RS (16 mm OD)
+  in by thumb, no rocking, is a kit-day row. No inserts now: the kit's own go in at Ch 02 Step 02.04. Check
   the 4 mm/3 mm deck-support call above.
 - Most commonly reprinted here: `z_drive_main_*` — the largest single parts in the batch, most exposed to
   warp at the corners.
@@ -133,11 +134,12 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:**
 
-1. Press a 625-2RS bearing, 16 mm OD, into every `z_drive_main` and `z_drive_retainer` bearing seat by thumb: it should seat with no rocking.
-2. Check the M3 heat-set bosses on the motor mounts sit flush with no bulge.
-**Check:** All bearing seats pass; any that don't → reprint that part, don't proceed with a known-bad Z drive.
+1. Now: caliper each `z_drive_main` and `z_drive_retainer` 625-2RS pocket, a 16.30 mm bore.
+2. Log every reading.
+3. Kit day: thumb a real 625-2RS into every seat, no rocking.
+**Check:** Every pocket reads 16.30 mm ±0.15. A part outside that is reprinted, never forced.
 
-Pause: ~15 min since the last pause — every bearing seat tested and the bearings pulled back out; nothing pressed for keeps yet. Do not seat inserts — Ch 02 Step 02.04 does that with the parts sorted.
+Pause: ~15 min since the last pause — every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
@@ -199,9 +201,9 @@ write the bin labels you are still missing.
 
 ## Checkpoint B01
 - [ ] Gate B passed before B01-P1 started (Step B00.7)
-- [ ] 625-2RS bearing press-fit into all `z_drive_main_a/b` seats — thumb pressure, no rocking
-- [ ] 625-2RS bearing press-fit into all `z_drive_retainer_a/b` seats — thumb pressure, no rocking
-- [ ] M3 heat-set bosses on motor mounts: flush, no bulge
+- [ ] Every `z_drive_main_a/b` and `z_drive_retainer_a/b` 625-2RS pocket calipers 16.30 mm ±0.15
+- [ ] *(kit day)* a real 625-2RS presses into every `z_drive_main_a/b` seat by thumb, no rocking
+- [ ] *(kit day)* a real 625-2RS presses into every `z_drive_retainer_a/b` seat by thumb, no rocking
 - [ ] *(kit day)* Deck panel measured; correct deck-support thickness confirmed or `deck_support_4mm_x8` reprinted
 - [ ] No corner lift or delamination on any `z_drive_main` body
 - [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
@@ -209,10 +211,10 @@ write the bin labels you are still missing.
 ## Common mistakes
 - Starting the 15.2 h P1 plate late in the day and having it finish unattended overnight with no chance to
   abort a bad first layer.
-- Starting B01 on Gate A alone — the bore fit on the real bearing is what protects these 22.8 h.
+- Starting B01 on Gate A alone — Gate B's bore caliper is what protects these 22.8 h.
 - Trying to make four identical sets from two `a` and two `b` of each part — the sets are mirrored; the corner bins are not interchangeable.
 - Assuming the deck-support thickness without measuring the actual panel.
 - Forcing a tight bearing seat with a press instead of reducing extrusion multiplier for the reprint.
 
 ## Next
-Assembly: *Z Drives and Idlers* (Ch 02), with B02's accent parts already on the shelf. Printing: [B03 — A/B drive units + front idlers](B03-ab-drive-units-and-front-idlers.md).
+Assembly: *Z Drives and Idlers* (Ch 02), with B02's accent parts already on the shelf. Printing: [B02 — Accent parts (blue)](B02-accent-parts-orange.md), the colour change.

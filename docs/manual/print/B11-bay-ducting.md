@@ -7,9 +7,9 @@ caption: Ducts carry wires, not load. Same printer, different spool, gentler rul
 
 **Time:** 25.0 h (5 plates) — PrusaSlicer 2.9.6 estimates: 11.9 h before kit (B11-P1 to P3, 173 g), 13.1 h after the kit-day measurements (B11-P4 and B11-P5, 175 g). 348 g of Jet Black PETG V0 in all. **Not part of the 157.0 h ASA run**, and none of its numbers are in the run's totals.
 
-**Sessions:** 5 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~15 min to inspect and bin; on kit day ~45 min of measuring before P4 and P5.
+**Sessions:** 5 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~15 min to inspect and bin; ~35 min of bay measuring on kit day, and ~15 min for the A/B lead check after Checkpoint 06, before P4 and P5.
 
-**Prerequisites:** nothing from the ASA run. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** (not yet bought) and the **textured** sheet. P4 and P5 also need the kit: they wait for the kit-day go/no-go and bay measurements, Steps B11.9 to B11.11.
+**Prerequisites:** nothing from the ASA run. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** (not yet bought) and the **textured** sheet. P4 and P5 also need the kit: they wait for the kit-day bay measurements (B11.10, B11.11) and for the A/B lead go/no-go (B11.9), which needs the gantry hung and so runs after Checkpoint 06. They print during Ch 07 and Ch 08 and must be binned before Ch 09 Step 09.6 lays the DC loop.
 
 **What this batch builds.** Layout v3 replaces LDO's five PVC wire ducts in the electronics bay with two printed conduits, made from MyStoopidStuff's remix of RyanDam's Cable Management Duct. The **DC conduit** is one loop: curved 90° corners, two T-junctions, a 45° S-jog up to the Z-chain notch, and a middle run narrowed to 22 mm so it fits between the Leviathan and the PSU. The **AC conduit** is MSS's wire box at its original size by the WAGO bus, two re-radiused 90° curves down to a 34 mm run over the bed-lead hole, a T behind the SSR, and a divider fin at the PSU terminals. The closest AC-to-DC approach is 12.0 mm on the layout `(verify on bench)`. Fitting them is Ch 09's and Ch 10's job; this page only prints them. Design record: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`.
 
@@ -73,7 +73,7 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 - **Textured sheet.** Prusa does not recommend PETG V0 on smooth PEI: it bonds hard enough to damage the sheet, and that damage is not covered by warranty. Swap back to the smooth sheet before the next ASA plate.
 - **AFS flaps.** The bundle's filament start G-code sends `M106 P3 S160` and its end G-code `M106 P3 R`, so the bypass flaps lift for PETG with Chamber Filtration left on Adv. Filtration. Print from Connect or USB, not OctoPrint: the fixed P3 target makes `M141` log an error OctoPrint would halt on.
 - **Arrangement provisional, GUI QC pending.** All five plates were packed by `slicer/nest.py` at a 6 mm gap and sliced from the CLI; none has been opened, arranged and re-saved in PrusaSlicer yet. Before each first print: **Arrange Current Bed** (6 mm, rotations on), save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
-- **Two groups.** P1 to P3 need nothing measured and can print whenever the printer is free. P4 holds the custom lengths and P5 the narrowed middle run; both wait for the kit-day measurements, and P5 also waits for the coupon test.
+- **Two groups.** P1 to P3 need nothing measured and can print whenever the printer is free. P4 holds the custom lengths and P5 the narrowed middle run; both wait for the kit-day bay measurements and the A/B lead check after Checkpoint 06, and P5 also waits for the coupon test.
 - Every part is Jet Black. Nothing here is dimension-critical beyond the lid snap, which the coupon tests.
 
 ## Before kit
@@ -185,7 +185,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `V3L_WIRE_BOX_PORT`, `CMD_V2_6B_WIRE_BOX_COVER`, `V3L_90DEG_R15` ×2, `V3L_90DEG_R15_COVER` ×2, `CMD_V3_1H_T_SHORT`, `CMD_V2_6B_T_SHORT_COVER`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 |
 | **10-wiring** — Bay wiring: AC strip fin (B11) | `V2L_STRIP_FIN` |
 
-**Check:** 27 pieces in 09-bay and the strip fin alone in 10-wiring, each lid bagged with its duct.
+**Check:** 26 pieces in 09-bay and the strip fin alone in 10-wiring, each lid bagged with its duct.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
@@ -197,11 +197,17 @@ Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates
 
 ## After the kit-day measurements
 
-## Step B11.9 — Kit-day go/no-go: the A/B motor leads
+## Step B11.9 — Go/no-go after Checkpoint 06: the A/B motor leads
 
-**What you're looking at:** Layout v3 routes the A and B motor leads through the notch, the right run and the middle run. That adds about 195 mm to A and 129 mm to B against LDO's route.
+<a id="step-b119-kit-day-gono-go-the-ab-motor-leads"></a>
 
-**Do:** Lay each motor lead along LDO's route from its motor to its Leviathan header. Measure what is left past the plug on each and enter both below.
+**What you're looking at:** Layout v3 routes the A and B leads through the notch, right run and middle run: about 195 mm more for A, 129 mm for B, than LDO's route. The leads reach the deck only once the gantry hangs.
+
+**Do:** After Checkpoint 06, printer upright, gantry low:
+
+1. Run each lead along the extrusion between the drives, then down the Z chain's path to the deck notch. Tape-mark it there.
+2. Measure mark to plug tip, minus B11.10's LDO length.
+
 **Check:** A has at least 215 mm spare and B at least 150 mm. Both pass means layout v3 is a go.
 
 ```gate-calc
@@ -209,28 +215,35 @@ id: b11-ab-leads
 title: B11 go/no-go — A and B motor lead spare length
 inputs:
   - key: a
-    label: A motor lead spare at HV-STEPPER-0, on LDO's route (mm)
+    label: A motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-1 length (mm)
     min: 215
     low: Short. The v3 route needs about 195 mm of it. Either buy two 4-pin JST-XH extensions or go back to layout v1, and print neither P4 nor P5 until that is decided.
     why: The v3 route adds about 195 mm to A, so 215 mm spare leaves about 20 mm of slack at the header.
   - key: b
-    label: B motor lead spare at HV-STEPPER-1, on LDO's route (mm)
+    label: B motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-0 length (mm)
     min: 150
     low: Short. The v3 route needs about 129 mm of it. Same choice as A, extensions or layout v1, before P4 and P5.
     why: The v3 route adds about 129 mm to B, so 150 mm spare leaves about 20 mm of slack at the header.
-pass: Go. Layout v3 stands; measure the bay next and print P4, then P5 if the gap allows.
+pass: Go. Layout v3 stands; print P4, then P5 if the gap allows, while Ch 07 and Ch 08 run.
 ```
 
 ⚠ **No-go:** a short lead means two 4-pin JST-XH extensions, which is a purchase and Alex's call, or layout v1 with LDO's PVC ducts. The only other route crosses the AC zone, so it is not an option.
 
-Pause: ~15 min since the last pause — both leads measured and the go/no-go written in the log; nothing is fastened.
+Tip: The Z chain hangs at the rear from the A drive down to its guide by the deck, as p.201 shows. Hold the kit's chain there and follow it `(verify on bench)`.
 
-Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, check 1 · `layout-v2/layout-v2.md` § Component shifts
+Pause: ~15 min since the last pause — both leads measured after Checkpoint 06 and the go/no-go written in the log; leads hang loose again, tape marks off, nothing fastened. A go starts P4 before Ch 07, so both plates are binned before Ch 09.
+
+Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, check 1 · `layout-v2/layout-v2.md` § Component shifts · [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=201) · [Ch 10 Step 10.61](../10-wiring.md#step-1061-secure-the-a-and-b-motor-cables)
 
 ## Step B11.10 — Measure the gaps the custom pieces fill
 
-**Do:** Dry-lay the rails, PSU, SSR, Leviathan and the printed P2 and P3 pieces on the deck panel per the layout overlay. Measure the rows below with the caliper.
-**Check:** Every row entered; the gap row decides P5, the SSR row the stub length.
+**Do:** Kit day, deck panel loose:
+
+1. Dry-lay the rails, PSU, SSR, Leviathan and P2 and P3 pieces per the overlay.
+2. Caliper the rows below.
+3. String LDO's duct route from the notch to `HV-STEPPER-1` and `HV-STEPPER-0`; log both.
+
+**Check:** Every row entered, both string lengths logged. The gap row decides P5, the SSR row the stub, regenerated at B11.11 only from 112 mm.
 
 ```gate-calc
 id: b11-bay-gaps
@@ -243,11 +256,10 @@ inputs:
     why: The narrowed middle run is 21.7 mm across its lid and needs 1.5 mm of air on each side.
   - key: ssr
     label: SSR rear edge, with its DIN tab, to the WAGO port face (mm)
-    nominal: 100
-    tol: 1.0
-    low: Re-cut the stub to this gap minus 90 mm before slicing P4.
-    high: Re-cut the stub to this gap minus 90 mm before slicing P4.
-    why: The wire box is fixed at the WAGO bus, so the 10 mm stub into its port takes up any difference.
+    min: 100
+    hint: 100 on the layout, 100 or more
+    low: Under 100 even the 10 mm stub pushes the T into the SSR, and no piece is shorter. Decide the AC route before printing P4.
+    why: The wire box is fixed at the WAGO bus. The stub is the 12 mm step at or below this gap minus 90, so 10 mm from 100 to 111 and 22 mm from 112; the T sits back from the SSR by the rest.
   - key: psu
     label: PSU front-right corner to the right T's rear fillet, PSU moved 6 mm left (mm)
     min: 2.0
@@ -281,30 +293,44 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and ben
 
 ## Step B11.11 — Regenerate a piece whose gap differs
 
-**What you're looking at:** Every custom straight is a stock MSS duct with a slab cut out and the ends rejoined. Lengths come in 12 mm steps, 10, 22, 34 up to 154 mm, because each cut sits on a tine boundary.
+**What you're looking at:** Every custom straight is a stock MSS duct with a slab cut out. Lengths come in 12 mm steps, 10, 22, 34 up to 154 mm, because each cut sits on a tine boundary. Only the stub changes with a bench gap.
 
 **Do:**
 
-1. Run the recipe below with the step nearest the measured gap, never longer.
-2. Copy both STLs into `slicer/stl/bayducts/remix/` and change the name on the B11-P4 line of `slicer/plates.py` and in `slicer/bins.py`.
-3. Run `fetch_stls.py`, `build_plates.py --nest B11-P4`, then `check_docs.py`.
+1. Stub length: the 12 mm step at or below the SSR gap minus 90. Run the recipe only if that is 22 or more.
+2. Make the three edits in its comments.
+3. Run its last line.
 
 ```bash
 # once: python3 -m venv ~/.venv-remix && ~/.venv-remix/bin/pip install trimesh manifold3d numpy
+# the MSS parents are gitignored: run python3 slicer/fetch_stls.py first if slicer/stl/bayducts/mss/502306/ is empty
+# L = new length, 22, 34, 46 … (10 + 12n). P = parent: 82 for L up to 70, 142 up to 130, else 154.
+REPO=$PWD L=22 P=82
 S=$(mktemp -d); mkdir -p $S/mods/layout-v2 $S/mods/layout-v3/remix
-ln -s "$PWD/slicer/stl/bayducts/mss/502306" $S/mods/502306-cable-duct
-ln -s "$PWD/review/2026-09-23-bay-mods/layout-v2/remix" $S/mods/layout-v2/remix
+ln -s "$REPO/slicer/stl/bayducts/mss/502306" $S/mods/502306-cable-duct
+ln -s "$REPO/review/2026-09-23-bay-mods/layout-v2/remix" $S/mods/layout-v2/remix
 cd review/2026-09-23-bay-mods/layout-v3/work
-# L = new length; parent = the shortest of 82 / 142 / 154 that is >= L (82 below)
-BAY_MODS_SCRATCH=$S ~/.venv-remix/bin/python -c "import remix_v3 as r; L=22
-r.save(r.shorten(r.D+'CMD_V3_1H_82mm_DUCT.stl', 82-L, 11.0), f'V3L_{L}mm_DUCT.stl')
-r.save(r.shorten(r.D+'CMD_V2_6B_82mm_DUCT_COVER.stl', 82-L, 11.0), f'V3L_{L}mm_DUCT_COVER.stl')"
-ls $S/mods/layout-v3/remix/V3L_*mm_DUCT*.stl
+# importing remix_v3 re-runs all of layout v3 into $S first, and its listing prints before the new piece exists
+BAY_MODS_SCRATCH=$S L=$L P=$P ~/.venv-remix/bin/python -c "
+import os, trimesh, remix_v3 as r; L, P = int(os.environ['L']), int(os.environ['P'])
+assert L % 12 == 10 and 22 <= L < P, 'L must be 22, 34, 46 ... and shorter than the parent P'
+for part, new in (('CMD_V3_1H_%dmm_DUCT', 'V3L_%dmm_DUCT'), ('CMD_V2_6B_%dmm_DUCT_COVER', 'V3L_%dmm_DUCT_COVER')):
+    r.save(r.shorten(r.D + part % P + '.stl', P - L, 11.0), new % L + '.stl')
+    m = trimesh.load(r.OUT + new % L + '.stl'); print('NEW', new % L, m.extents.round(1), 'watertight' if m.is_watertight else 'OPEN')"
+cp $S/mods/layout-v3/remix/V3L_${L}mm_DUCT*.stl "$REPO/slicer/stl/bayducts/remix/"
+cd "$REPO"
+# edit 1, slicer/plates.py B11-P4: V3L_10mm_DUCT and V3L_10mm_DUCT_COVER 3 -> 2, add V3L_${L}mm_DUCT and _COVER x1.
+#         The other two 10 mm pieces keep their roles; never rename the 10 mm line.
+# edit 2, slicer/plates.py ORIENT: add "V3L_${L}mm_DUCT.stl" to the "flip" list. The duct is drawn base up, as
+#         remix_v3 leaves every body, and flip prints it base down. The cover needs no entry.
+# edit 3, slicer/bins.py: ASSIGN both new names -> "09-bay"; NOTES: the 10 mm line becomes "2 copies: DC rear-upper
+#         run, SSR run right end", and "V3L_${L}mm_DUCT.stl": "stub into the box port".
+python3 slicer/fetch_stls.py && python3 slicer/build_plates.py --nest B11-P4 && python3 slicer/check_docs.py
 ```
 
-**Check:** Both new STLs report watertight in the script's listing, and the new plate slices.
+**Check:** Both NEW lines say watertight, B11-P4 slices with the new duct base down, and `check_docs.py` passes once the B11 figures it names are updated.
 
-Tip: For a length over 82 mm use `CMD_V3_1H_142mm_DUCT` or `CMD_V3_1H_154mm_DUCT` and its cover as the parent, and replace 82 by that length in both lines.
+Tip: If B11.10's psu row also failed, the SSR run's right-end 10 mm piece comes off P4 too: one fewer on the 10 mm line.
 
 Pause: ~15 min since the last pause — every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.
 
@@ -370,9 +396,9 @@ Source: [print/README § Bins](README.md#bins)
 
 ## Checkpoint B11
 - [ ] Coupon lid snaps home and holds, tested before B11-P5
-- [ ] A/B lead go/no-go decided on kit day; extensions or layout v1 settled if either was short
+- [ ] A/B lead go/no-go decided after Checkpoint 06, before P4; extensions or layout v1 settled if either was short
 - [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
-- [ ] SSR-to-WAGO measured and the stub re-cut if it was off by more than 1 mm
+- [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe and filter-fan spare ≥ 65 mm and bed L spare ≥ 70 mm on LDO's route, or the route decided before B11-P4
 - [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
 - [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate

@@ -71,10 +71,17 @@ with the arrangement, the per-object brims and the full configuration already in
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
+| The pre-B00 hot first-layer check (five squares, not a plate of the run, outside every total) | `slicer/checks/hot-first-layer.3mf` (`slicer/hot_check.py` rebuilds and checks it) |
 
 Open `slicer/plates/<plate>.3mf` in PrusaSlicer (**File → Open Project**) and slice. The project
 carries its own print/filament/printer configuration, so it does not matter which presets you had
-selected. Re-derive everything with `python3 slicer/fetch_stls.py && python3 slicer/build_plates.py`.
+selected. After a plate is re-saved from the GUI, refresh its numbers with
+`python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
+as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
+diagrams. `--from-3mf` with no ids does the same for all 27 plates, which is safe but slow. **Never drop
+`--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
+all 27 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+re-downloads the pinned STLs if `slicer/stl/` is empty.
 
 ⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 22 projects and both `.ini`
 bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
@@ -201,7 +208,8 @@ verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrad
 **deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.0 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
-open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C). Either
+open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
+its committed project right after Step B00.0 installs the presets. Either
 check failing means doing the Gen 2 upgrade now, before B00, after all.
 
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~157 h of ASA is
@@ -246,17 +254,16 @@ bearing-seat and shaft-bore parts printed against an unverified fit — run Gate
 
 ### Gate B — bore and inserts now, rail on kit day
 
-| Coupon | Nominal | Accept | If out of spec |
-|---|---|---|---|
 | When | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|---|
-| **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part; Ch 00 Steps 00.13–00.16 use this same coupon. |
+| **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part. Ch 00 Steps 00.14–00.15 are this row, same coupon, same session: the coupon's one use. |
 | **now** | `z_drive_retainer_a` 625-2RS pocket (same plate) | **16.30 mm**, measured off the STL; the concentric lip below it is 14.30 mm | caliper across the pocket reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise [extrusion multiplier](../16-glossary.md#e) 1 %. Under → reduce it 1 %. Never fix it with XY compensation. |
 | **kit day** | the same pocket, on a real 625-2RS (16 mm OD) | — | bearing presses in with thumb pressure, no rocking | this is the press fit the caliper is standing in for; a fail here reprints the retainer and the cube, and re-passes Gate A |
 | **kit day** | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-The inserts are set with the **X-Tronic iron's stock conical tip** — the LDO brass M3 tip lands with the
-kit and is used from Ch 00 onwards. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
+The inserts are set by the adult with the **X-Tronic iron's stock conical tip**; the helper never handles
+the iron. The LDO brass M3 tip lands with the kit: it is fitted at Ch 00 Step 00.13 and re-checked on the
+first real insert at Step 02.03. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
 inserts stay for the build**.
 
 The same calculator covers Gate B at [Step B00.7](B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), with the two kit-day rows marked optional so they can stay blank until carton 1 is open.
@@ -380,9 +387,10 @@ the full tick list `(verify on bench)`:
    Out of range → Control → Calibrations & Tests → Belt Tuning, tensioner screws half a turn, evenly and
    alternately.
 2. **Hot first-layer check, at ASA bed temperature.** The bed has only been verified flat at 60 °C, not at
-   the Voron ASA batches' 50–60 °C chamber / hotter bed. Five 30×30×0.2 mm squares (four corners + centre) in
-   Galaxy Black ASA on the B00 project's presets, cold start G-code. Pass: no "bed not aligned" prompt, every
-   square 0.17–0.23 mm, spread ≤0.05 mm.
+   the Voron ASA batches' 50–60 °C chamber / hotter bed. Its project is committed:
+   `slicer/checks/hot-first-layer.3mf`, five 30×30×0.2 mm squares (four corners + centre, one layer) in
+   Galaxy Black ASA on B00-P1's presets, 110 °C bed, cold start G-code. It runs after Step B00.0, whose wizard
+   installs those presets. Pass: no "bed not aligned" prompt, every square 0.17–0.23 mm, spread ≤0.05 mm.
 
 Either check failing means doing the Gen 2 upgrade now, before B00, after all — then re-running both checks.
 
