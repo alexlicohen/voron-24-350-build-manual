@@ -78,6 +78,10 @@ import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset p
 sys.path.insert(0, str(REPO / "scripts"))
 import parts  # noqa: E402  (scripts/parts.py — Parts parse, counts, bins, kit-BOM source)
 import crop_panels  # noqa: E402  (scripts/crop_panels.py — crop declarations and file names)
+# One owner for what a `Pause:` line says: build_tonight.py's parser, whose
+# `(pre-kit)` group is what "Before the kit" plans from (build_printables.py
+# imports its chapter-title rule the same way).
+from build_tonight import _PAUSE_RE as _TONIGHT_PAUSE_RE  # noqa: E402
 
 sys.path.insert(0, str(REPO / "slicer"))
 import check_docs  # noqa: E402  (slicer/check_docs.py — per-batch hours, rounded as the docs print them)
@@ -157,6 +161,7 @@ STEP_URLS: dict[str, str] = {}          # "04.2" -> "manual/steps/04-ab-drives/0
 ANCHOR_URLS: dict[tuple[str, str], str] = {}  # (chapter stem, anchor) -> step page src path
 CHAPTER_OVERVIEW: dict[str, str] = {}   # chapter stem -> overview src path
 CHAPTER_FIRST: dict[str, str] = {}      # chapter stem -> first page src path
+STEP_ANCHORS: dict[str, set[str]] = {}  # chapter stem -> its step headings' anchors
 
 
 # --------------------------------------------------------------------------
@@ -676,10 +681,45 @@ def helper_steps(chapter: Chapter) -> list[Page]:
             if p.kind == "step" and p.step_id and helper_jobs(p.body)]
 
 
+# A code block this long (or this long and this wide) cannot be read in the
+# half-width text column of the landscape split: the step page stacks instead
+# (picture on top, text and code full width). Widget fences are not code.
+WIDE_CODE_LINES = 12
+WIDE_CODE_MIN_LINES, WIDE_CODE_COLS = 5, 72
+_WIDGET_FENCES = ("gate-calc", "tap-tree", "mascot")
+
+
+def _has_wide_code(lines: list[str]) -> bool:
+    i, n = 0, len(lines)
+    while i < n:
+        m = _FENCE_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        token = m.group(1)[0] * 3
+        lang = lines[i].strip()[len(m.group(1)):].strip().split(" ")[0].lstrip("{.")
+        j = i + 1
+        while j < n and not lines[j].strip().startswith(token):
+            j += 1
+        code = lines[i + 1:j]
+        if lang not in _WIDGET_FENCES and (
+                len(code) >= WIDE_CODE_LINES
+                or (len(code) >= WIDE_CODE_MIN_LINES
+                    and max(len(l) for l in code) > WIDE_CODE_COLS)):
+            return True
+        i = j + 1
+    return False
+
+
+# Under the step's scanned manual page or panel crop: glightbox makes every
+# figure image tappable, and nothing else says so. Kept out of search.
+_ENLARGE_HINT = '<p class="step-figure__hint" data-search-exclude>Tap to enlarge</p>'
+
+
 def layout_step(page: Page, chapter: Chapter) -> list[str]:
-    """Action-first step page: Do, Parts, Check, the helper's job, the collapsed
-    description, then ⚠/Tip, Pause and Source (CONVENTIONS.md § "Action-first
-    steps" and § "Helper steps")."""
+    """Action-first step page: Do, Check, the helper's job, then the segment's
+    Gather block and Parts, the collapsed description, then ⚠/Tip, Pause and
+    Source (CONVENTIONS.md § "Action-first steps" and § "Helper steps")."""
     dest_dir = STEPS / chapter.slug
     segs = _segments(page.body)
 
@@ -724,7 +764,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
 
     images.sort(key=key)
 
-    out: list[str] = ['<div class="step-body" markdown="1">', ""]
+    wide = " step-body--wide" if _has_wide_code(page.body) else ""
+    out: list[str] = ['<div class="step-body%s" markdown="1">' % wide, ""]
     out += ['<div class="step-figure" markdown="1">', ""]
     if images:
         for n, img in enumerate(images):
@@ -733,6 +774,7 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             attr = (m.group("attr") or "").strip()
             if attr:
                 attr = attr[1:-1].strip()
+            hint = (n == 0 and key(img) == 0 and "off-glb" not in attr)
             crop = _crop_file(m.group("src"), attr)
             if crop:
                 # The committed crop, larger in the column; the page it came
@@ -746,6 +788,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             else:
                 img = "![%s](%s){ .%s }" % (m.group("alt"), m.group("src"), cls)
             out += [img, ""]
+            if hint:
+                out += [_ENLARGE_HINT, ""]
         # A step can carry both renders and a "(no image — …)" note that says
         # where the missing view lives; keep the note rather than dropping it.
         for caption in noimage:
@@ -758,6 +802,14 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     out += ['<div class="step-text" markdown="1">', ""]
     if do:
         out += ['<div class="step-do" markdown="1">', ""] + _strip_edges(do) + ["", "</div>", ""]
+    # Check right under Do, so the pass criterion is on the first screen at
+    # 1024×768 (G2-26); the helper's job stays with it.
+    if check:
+        out += _strip_edges(check) + [""]
+    for job in helper:
+        out += ['<p class="step-helper" markdown="span">%s'
+                '<span class="step-helper__label">Helper</span> %s</p>'
+                % (mascot.badge_html("helper", "helper"), job), ""]
     gather = chapter.gather.get(page.step_id or "")
     if gather:
         # Parts items may carry chapter-relative links; re-base them as the
@@ -765,12 +817,6 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         out += rewrite_links(gather, chapter.path.parent, dest_dir, chapter.stem) + [""]
     if parts_md:
         out += _strip_edges(parts_md) + [""]
-    if check:
-        out += _strip_edges(check) + [""]
-    for job in helper:
-        out += ['<p class="step-helper" markdown="span">%s'
-                '<span class="step-helper__label">Helper</span> %s</p>'
-                % (mascot.badge_html("helper", "helper"), job), ""]
     if desc:
         out += ['??? note "What you\'re looking at"', ""]
         out += ["    " + l if l.strip() else "" for l in _strip_edges(desc)]
@@ -820,6 +866,9 @@ class Segment:
     # the Hardware / Printed parts layout above, unchanged.
     grouped: bool = False
     tallies: list[_Item] = field(default_factory=list)
+    # Its closing Pause carries `(pre-kit)`: bench work that needs no Voron part
+    # (build_tonight.py's "Before the kit" planner offers exactly these).
+    pre_kit: bool = False
 
     @property
     def first(self) -> str:
@@ -870,11 +919,19 @@ def build_segments(chapter: Chapter) -> list[Segment]:
         if closing is not None:
             m = _PAUSE_MIN_RE.match(closing)
             current.minutes = int(m.group(1)) if m else None
+            tm = _TONIGHT_PAUSE_RE.match(closing.strip())
+            current.pre_kit = bool(tm and tm.group(2))
             segments.append(current)
             current = None
     if current is not None:
         segments.append(current)
     return segments
+
+
+def pre_kit_steps(chapter: Chapter) -> set[str]:
+    """Step ids inside a `(pre-kit)` segment: the overview tile and the step
+    counter badge them, so a pair working before the kit skips the rest."""
+    return {sid for seg in chapter.segments if seg.pre_kit for sid in seg.ids}
 
 
 def _item_line(item: _Item) -> str:
@@ -1190,10 +1247,17 @@ def _next_section_step(chapter: Chapter, chapters: list[Chapter]) -> tuple[Chapt
     return _resolve_link_step(chapter.next_body, chapters)
 
 
-def _front_matter(title: str) -> str:
+def _front_matter(title: str, hide_toc: bool = False) -> str:
+    """`hide_toc`: a step page has no heading below its h1, so Material's
+    table-of-contents sidebar is empty, yet it still takes a quarter of the
+    iPad's 1024 px; hiding it gives the picture, the text and a long config
+    block (G7-21) the whole width."""
     import yaml
 
-    return "---\n%s---" % yaml.safe_dump({"title": title}, allow_unicode=True,
+    meta = {"title": title}
+    if hide_toc:
+        meta["hide"] = ["toc"]
+    return "---\n%s---" % yaml.safe_dump(meta, allow_unicode=True,
                                           default_flow_style=False, width=10 ** 6)
 
 
@@ -1217,11 +1281,14 @@ def render_page(chapter: Chapter, page: Page, idx: int,
         counter = short_counter = "Note"
 
     badge = ''
+    if page.kind == "step" and page.step_id in pre_kit_steps(chapter):
+        badge += ' <span class="step-prekit-badge">pre-kit</span>'
     if page.kind == "step" and helper_jobs(page.body):
-        badge = ' <span class="step-helper-badge">with a helper</span>'
+        badge += ' <span class="step-helper-badge">with a helper</span>'
 
     out = [
-        _front_matter(_plain(page.title)),
+        _front_matter(_plain(page.title),
+                      hide_toc=page.kind == "step" and len(_split_blocks("\n".join(page.body))) == 1),
         '<div class="step-crumbs" data-chapter="%s"%s data-index="%s" data-total="%d" markdown="span">'
         '[%s](index.md)%s<span class="step-crumbs__counter">%s</span></div>'
         % (
@@ -1381,8 +1448,10 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
         out += _progress_figure(chapter, src_dir, dest_dir)
 
     out += ['<div class="step-grid" data-chapter="%s" markdown="1">' % chapter.slug, ""]
+    pre_kit = pre_kit_steps(chapter)
     for page in chapter.pages:
         helper = page.kind == "step" and bool(helper_jobs(page.body))
+        early = page.kind == "step" and page.step_id in pre_kit
         if page.kind == "step":
             label = "Step %s" % page.step_id
             title = _plain(_STEP_HEAD_RE.match(page.title).group(2))
@@ -1410,8 +1479,12 @@ def render_overview(chapter: Chapter, prev_ch: Chapter | None, next_ch: Chapter 
             inner += '<span class="step-card__thumb step-card__thumb--none"></span>'
         inner += '<span class="step-card__id">%s</span>' % html.escape(label)
         inner += '<span class="step-card__title">%s</span>' % html.escape(title)
-        if helper:
-            inner += '<span class="step-card__helper" title="With a helper">with a helper</span>'
+        if helper or early:
+            inner += '<span class="step-card__badges">%s%s</span>' % (
+                '<span class="step-card__prekit" title="Before the kit arrives">pre-kit</span>'
+                if early else "",
+                '<span class="step-card__helper" title="With a helper">with a helper</span>'
+                if helper else "")
         inner += '<span class="step-card__tick"></span>'
         out += ["[%s](%s.md){ .step-card%s%s }" % (inner, page.slug, mod, data), ""]
     out += ["</div>", ""]
@@ -1470,6 +1543,7 @@ def build() -> dict:
     ANCHOR_URLS.clear()
     CHAPTER_OVERVIEW.clear()
     CHAPTER_FIRST.clear()
+    STEP_ANCHORS.clear()
     for chapter in chapters:
         rel = "manual/steps/%s" % chapter.slug
         CHAPTER_OVERVIEW[chapter.stem] = "%s/index.md" % rel
@@ -1480,6 +1554,7 @@ def build() -> dict:
             ANCHOR_URLS[(chapter.stem, slugify(page.title, "-"))] = src
             if page.step_id:
                 STEP_URLS[page.step_id] = src
+                STEP_ANCHORS.setdefault(chapter.stem, set()).add(slugify(page.title, "-"))
 
     written = 0
     keep: set[Path] = set()
@@ -1625,6 +1700,29 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
         return _TONIGHT_SPAN_RE.sub(one, markdown)
 
     return markdown
+
+
+_HEADING_ID_RE = re.compile(r'<h([23]) id="([^"]+)"')
+
+
+def on_page_content(html_text, page, config, files, **kwargs):
+    """Search: a step is indexed on its own page only (G1-33). The long
+    chapter page's step sections carry `data-search-exclude`, which Material's
+    search plugin honours per section; the chapter's intro, section headings,
+    Checkpoint and Common mistakes stay searchable there."""
+    src = page.file.src_uri
+    if src.startswith("manual/steps/") or not src.startswith("manual/"):
+        return html_text
+    anchors = STEP_ANCHORS.get(Path(src).stem)
+    if not anchors:
+        return html_text
+
+    def one(m: re.Match) -> str:
+        if m.group(2) in anchors:
+            return '<h%s data-search-exclude id="%s"' % (m.group(1), m.group(2))
+        return m.group(0)
+
+    return _HEADING_ID_RE.sub(one, html_text)
 
 
 if __name__ == "__main__":

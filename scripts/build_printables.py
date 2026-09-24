@@ -14,8 +14,9 @@ Produces:
                                should contain with qty and the plates they come
                                off, a QR code linking to the chapter's step-page
                                overview), then a one-page bin map listing every
-                               bin. QR codes are generated with segno (SVG, no
-                               external service).
+                               bin, then a 1:1 fastener gauge (inline SVG in mm,
+                               from the kit BOM). QR codes are generated with segno
+                               (SVG, no external service).
   docs/print/plate-plans.md — every plate sorting diagram on one page,
                                grouped by batch in print order, each with its
                                colour/parts/hours/grams (from slicer/estimates.csv)
@@ -36,7 +37,10 @@ Produces:
                                "Run schedule" and "Spool ledger" tables (B11:
                                "B11 run schedule", "B11 spool ledger") and
                                cross-checked against the CSV — a table that stops
-                               parsing, or disagrees, fails the build.
+                               parsing, or disagrees, fails the build. Also: each
+                               batch's gate on its first plate's note, four
+                               `milestone` plates, and `runs` (one header line
+                               each for the ASA run and B11, never summed).
 
 All five files are regenerated on every build — never hand-edit them. QR SVGs
 are written to docs/print/assets/qr/.
@@ -237,6 +241,10 @@ def build_checklists_markdown(chapters):
             lines.append("")
             for btype, text_ in blocks:
                 if btype == "group":
+                    # A group heading after a tick box needs its own paragraph, or
+                    # python-markdown folds it into the last item's text (sweep G8-13).
+                    if lines[-1] != "":
+                        lines.append("")
                     lines.append(f"**{text_}**")
                     lines.append("")
                 else:
@@ -291,6 +299,167 @@ def _label_block(bin_id, meta, contents, qr_rel):
     return lines
 
 
+# ---------------------------------------------------------------------------
+# Fastener gauge (sweep G1-28): 1:1 silhouettes of every M3/M5 SHCS/BHCS/FHCS the
+# kit BOM ships, the heat-set insert and both roll-in T-nuts, plus a 50 mm bar to
+# check the print scale. Inline SVG in mm, so it prints true at 100 %.
+# ---------------------------------------------------------------------------
+
+_SCREW_RE = re.compile(r"^Machine Screw, (SHCS|BHCS|FHCS), M([35])x(\d+)$")
+_INSERT_RE = re.compile(r"^Heatset Insert, Brass, (M3x(\d+)x(\d+))$")
+_TNUT_RE = re.compile(r"^T-nut, Roll-in, 2020, M([35])$")
+# Head sizes (mm): SHCS ISO 4762 (dk, k); BHCS ISO 7380 (dk, k); FHCS dk as drawn in
+# the Voron CAD (~/.cache/voron-cad index: M3 FHCS head 6.0 mm), 90° countersink.
+_HEAD = {("SHCS", 3): (5.5, 3.0), ("SHCS", 5): (8.5, 5.0),
+         ("BHCS", 3): (5.7, 1.65), ("BHCS", 5): (9.5, 2.75),
+         ("FHCS", 3): (6.0, 1.5), ("FHCS", 5): (10.0, 2.5)}
+# Roll-in (drop-in) 2020 T-nut footprint from the same CAD: M3 12.5 × 7.7, M5 13.0 × 7.7.
+_TNUT = {3: (12.5, 7.7), 5: (13.0, 7.7)}
+_TYPE_ORDER = {"SHCS": 0, "BHCS": 1, "FHCS": 2}
+
+
+def _gauge_items():
+    """(screws, insert, tnuts) from the vendored kit BOM, via scripts/parts.py's loader."""
+    import parts   # scripts/parts.py owns the BOM load
+    screws, insert, tnuts = [], None, []
+    for row in parts.load_bom():
+        item = str(row.get("item", "")).strip()
+        m = _SCREW_RE.match(item)
+        if m:
+            screws.append((m.group(1), int(m.group(2)), int(m.group(3)), row.get("qty")))
+            continue
+        m = _INSERT_RE.match(item)
+        if m:
+            insert = (m.group(1), float(m.group(2)), float(m.group(3)), row.get("qty"))
+            continue
+        m = _TNUT_RE.match(item)
+        if m:
+            tnuts.append((int(m.group(1)), row.get("qty")))
+    screws.sort(key=lambda s: (s[1], _TYPE_ORDER[s[0]], s[2]))
+    tnuts.sort()
+    return screws, insert, tnuts
+
+
+def _f(x):
+    return f"{x:.2f}".rstrip("0").rstrip(".")
+
+
+def _screw_svg(kind, d, length, xo, y):
+    """One screw lying along +x, its length measured from x = xo (under the head for
+    SHCS/BHCS, the flat top for FHCS), plus a length bar under the shank."""
+    dk, k = _HEAD[(kind, d)]
+    out = []
+    shank = 'fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="0.2"'
+    head = 'fill="currentColor" fill-opacity="0.75" stroke="currentColor" stroke-width="0.2"'
+    if kind == "SHCS":
+        out.append(f'<rect x="{_f(xo - k)}" y="{_f(y - dk / 2)}" width="{_f(k)}" height="{_f(dk)}" {head}/>')
+        out.append(f'<rect x="{_f(xo)}" y="{_f(y - d / 2)}" width="{_f(length)}" height="{_f(d)}" {shank}/>')
+    elif kind == "BHCS":
+        out.append(f'<path d="M{_f(xo)} {_f(y - dk / 2)} A{_f(k)} {_f(dk / 2)} 0 0 0 {_f(xo)} {_f(y + dk / 2)} Z" {head}/>')
+        out.append(f'<rect x="{_f(xo)}" y="{_f(y - d / 2)}" width="{_f(length)}" height="{_f(d)}" {shank}/>')
+    else:   # FHCS: the countersunk head is inside the stated length
+        out.append(f'<path d="M{_f(xo)} {_f(y - dk / 2)} L{_f(xo + k)} {_f(y - d / 2)} '
+                   f'L{_f(xo + k)} {_f(y + d / 2)} L{_f(xo)} {_f(y + dk / 2)} Z" {head}/>')
+        out.append(f'<rect x="{_f(xo + k)}" y="{_f(y - d / 2)}" width="{_f(length - k)}" height="{_f(d)}" {shank}/>')
+    by = y + max(d / 2, 1.5) + 1.2
+    out.append(f'<path d="M{_f(xo)} {_f(by)} H{_f(xo + length)} M{_f(xo)} {_f(by - 0.7)} V{_f(by + 0.7)} '
+               f'M{_f(xo + length)} {_f(by - 0.7)} V{_f(by + 0.7)}" stroke="currentColor" stroke-width="0.25" fill="none"/>')
+    return out
+
+
+def _fastener_gauge_svg():
+    screws, insert, tnuts = _gauge_items()
+    if not screws:
+        raise SystemExit("build_printables.py: no M3/M5 screws parsed from scripts/data/ldo-350-bom.yml "
+                         "— the fastener gauge would be empty")
+    txt = 'fill="currentColor" font-family="Arial, Helvetica, sans-serif"'
+    parts_ = []
+    cols = {3: (16.0, 8.5), 5: (104.0, 12.5)}   # size -> (origin x, row pitch)
+    bottom = 0.0
+    for size, (xo, pitch) in cols.items():
+        rows = [s for s in screws if s[1] == size]
+        if not rows:
+            continue
+        top = 8.0
+        parts_.append(f'<text x="{_f(xo - 12)}" y="4" font-size="3.6" font-weight="700" {txt}>M{size} screws</text>')
+        y_first, y_last = top + pitch / 2, top + pitch / 2 + pitch * (len(rows) - 1)
+        parts_.append(f'<path d="M{_f(xo)} {_f(y_first - pitch / 2 + 1)} V{_f(y_last + pitch / 2 - 1)}" '
+                      f'stroke="currentColor" stroke-width="0.2" stroke-dasharray="1 1" fill="none"/>')
+        max_len = max(s[2] for s in rows)
+        for i, (kind, d, length, qty) in enumerate(rows):
+            y = top + pitch / 2 + pitch * i
+            parts_ += _screw_svg(kind, d, length, xo, y)
+            parts_.append(f'<text x="{_f(xo + max_len + 3)}" y="{_f(y + 1)}" font-size="2.8" {txt}>'
+                          f'M{d}×{length} {kind}</text>')
+        bottom = max(bottom, y_last + pitch / 2)
+
+    # insert and T-nuts under the M5 column
+    xo = cols[5][0]
+    y = 8.0 + cols[5][1] * sum(1 for s in screws if s[1] == 5) + 6
+    if insert:
+        name, od, ln, _q = insert
+        parts_.append(f'<rect x="{_f(xo)}" y="{_f(y - od / 2)}" width="{_f(ln)}" height="{_f(od)}" '
+                      f'fill="currentColor" fill-opacity="0.5" stroke="currentColor" stroke-width="0.2"/>')
+        for kx in range(1, int(ln)):
+            parts_.append(f'<path d="M{_f(xo + kx)} {_f(y - od / 2)} V{_f(y + od / 2)}" stroke="currentColor" '
+                          f'stroke-width="0.15" fill="none"/>')
+        cx = xo + ln + 6
+        parts_.append(f'<circle cx="{_f(cx)}" cy="{_f(y)}" r="{_f(od / 2)}" fill="currentColor" fill-opacity="0.5" '
+                      f'stroke="currentColor" stroke-width="0.2"/>')
+        parts_.append(f'<circle cx="{_f(cx)}" cy="{_f(y)}" r="1.5" style="fill: var(--md-default-bg-color, #fff)" stroke="currentColor" stroke-width="0.2"/>')
+        parts_.append(f'<text x="{_f(cx + od / 2 + 3)}" y="{_f(y + 1)}" font-size="2.8" {txt}>'
+                      f'{name.replace("x", "×")} heat-set insert, Ø{_f(od)} × {_f(ln)} mm</text>')
+        y += 12
+    for size, _q in tnuts:
+        w, h = _TNUT[size]
+        parts_.append(f'<rect x="{_f(xo)}" y="{_f(y - h / 2)}" width="{_f(w)}" height="{_f(h)}" rx="1.2" '
+                      f'fill="currentColor" fill-opacity="0.35" stroke="currentColor" stroke-width="0.2"/>')
+        parts_.append(f'<circle cx="{_f(xo + w / 2)}" cy="{_f(y)}" r="{_f(size / 2)}" style="fill: var(--md-default-bg-color, #fff)" '
+                      f'stroke="currentColor" stroke-width="0.2"/>')
+        parts_.append(f'<text x="{_f(xo + w + 3)}" y="{_f(y + 1)}" font-size="2.8" {txt}>'
+                      f'M{size} roll-in T-nut, top view: M{size} hole</text>')
+        y += h + 4
+    bottom = max(bottom, y - 2)
+
+    # 50 mm scale bar
+    y0 = bottom + 6
+    ticks = []
+    for mm in range(0, 51):
+        t = 3.0 if mm % 10 == 0 else (2.0 if mm % 5 == 0 else 1.2)
+        ticks.append(f"M{_f(4 + mm)} {_f(y0)} V{_f(y0 + t)}")
+    parts_.append(f'<path d="M4 {_f(y0)} H54 {" ".join(ticks)}" stroke="currentColor" stroke-width="0.2" fill="none"/>')
+    for mm in range(0, 51, 10):
+        parts_.append(f'<text x="{_f(4 + mm)}" y="{_f(y0 + 6.2)}" font-size="2.6" text-anchor="middle" {txt}>{mm}</text>')
+    parts_.append(f'<text x="58" y="{_f(y0 + 3)}" font-size="2.8" {txt}>50 mm: caliper this bar. 50.0 mm means '
+                  f'the sheet printed at 100 %.</text>')
+    height = y0 + 9
+    width = 172
+    return (f'<svg class="fastener-gauge__svg" xmlns="http://www.w3.org/2000/svg" width="{width}mm" '
+            f'height="{_f(height)}mm" viewBox="0 0 {width} {_f(height)}" role="img" '
+            'style="max-width: 100%; height: auto" '
+            f'aria-label="Fastener gauge: kit screws, insert and T-nuts drawn at 1:1, with a 50 mm scale bar">'
+            + "".join(parts_) + "</svg>")
+
+
+def build_fastener_gauge_markdown():
+    return [
+        '<div class="print-page-break"></div>',
+        "",
+        "## Fastener gauge, print at 100 %",
+        "",
+        "_Every M3 and M5 cap, button and flat head screw in the kit BOM "
+        "(`scripts/data/ldo-350-bom.yml`), the heat-set insert and both roll-in T-nuts, drawn 1:1. "
+        "Print with scaling at 100 % (not *fit to page*), then check the 50 mm bar with the caliper. "
+        "Lay a screw on its drawing: length runs from the dashed line, under the head for cap and button "
+        "heads, from the flat top for a flat head. The bar under each shank is that length._",
+        "",
+        '<div class="fastener-gauge">',
+        _fastener_gauge_svg(),
+        "</div>",
+        "",
+    ]
+
+
 def build_bin_labels_markdown(chapters):
     lines = [
         "# Bin labels",
@@ -302,8 +471,8 @@ def build_bin_labels_markdown(chapters):
         "",
         "_Generated by `scripts/build_printables.py` from `slicer/bins.py` — do not hand-edit. One label per "
         "bin: cut along the page breaks, tape to the box. The bin id is also what the plate diagrams and the "
-        "batch chapters' *Sort into bins* steps use, and each QR links to the chapter's step overview. The last "
-        "page is the bin map._",
+        "batch chapters' *Sort into bins* steps use, and each QR links to the chapter's step overview. Then "
+        "the bin map, and last a 1:1 fastener gauge._",
         "",
     ]
     contents = _bin_contents()
@@ -327,6 +496,7 @@ def build_bin_labels_markdown(chapters):
         lines.append(f"| **{bin_id}** | {meta['label']} | {meta['chapter']} · {meta['steps']} | {n} | "
                      f"{', '.join(batches)} |")
     lines.append("")
+    lines += build_fastener_gauge_markdown()
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -573,6 +743,10 @@ _LEDGER_ROW_RE = re.compile(
     re.MULTILINE,
 )
 _SPOOL_HEAD_RE = re.compile(r"[#AV]\d+")   # #1-#3 black, A1 accent, V1 B11's PETG V0
+# A batch chapter's gate is the bold one its **Prerequisites:** line names ("**Gate B passed**",
+# "**Gate A**"); B11 names neither. The plate board shows it on the batch's first plate.
+_PREREQ_RE = re.compile(r"^\*\*Prerequisites:\*\*(.*)$", re.MULTILINE)
+_GATE_RE = re.compile(r"\*\*Gate ([AB])\b[^*]*\*\*")
 
 
 def _readme_section(text, heading):
@@ -593,6 +767,33 @@ def _fail(problems):
         "build_printables.py: docs/manual/print/README.md no longer agrees with "
         "slicer/estimates.csv — " + "; ".join(problems)
     )
+
+
+def _batch_gate(text):
+    """'A', 'B' or None: the gate a batch chapter's Prerequisites line names in bold."""
+    m = _PREREQ_RE.search(text)
+    g = _GATE_RE.search(m.group(1)) if m else None
+    return g.group(1) if g else None
+
+
+def _milestones(plates):
+    """plate id -> milestone text for the four moments the plate board celebrates (sweep
+    G8-29), all derived from the run order: B00 off the bed (Gate A is next), the last
+    accent-colour plate, the middle plate of the ASA run, and its last plate."""
+    asa = [p for p in plates if p["run"] == "asa"]
+    if not asa:
+        return {}
+    out = {}
+    b00 = [p for p in asa if p["batch"] == "B00"]
+    if b00:
+        out[b00[-1]["id"]] = "B00 done: the first plate is off the bed. Gate A's cube is next."
+    blue = [p for p in asa if p["colour"] == "blue"]
+    if blue:
+        out[blue[-1]["id"]] = "Blue day done: every accent part is printed."
+    half = asa[(len(asa) + 1) // 2 - 1]
+    out[half["id"]] = f"Halfway: plate {(len(asa) + 1) // 2} of {len(asa)}."
+    out[asa[-1]["id"]] = f"Last ASA plate off the bed: all {len(asa)} plates of the run are done."
+    return out
 
 
 def build_plate_board_json():
@@ -657,7 +858,10 @@ def build_plate_board_json():
         if batch not in batches:
             problems.append(f"{pid}: no batch chapter for {batch}")
             continue
-        path, title, _batch_text = batches[batch]
+        path, title, batch_text = batches[batch]
+        gate = _batch_gate(batch_text)
+        if gate and not any(p["batch"] == batch for p in plates):
+            note = " · ".join(n for n in (note, f"after Gate {gate}") if n)
         diagram = PLATE_DIAGRAMS / f"{pid}.png"
         if not diagram.exists():
             problems.append(f"{pid}: no sorting diagram at {diagram.relative_to(DOCS)}")
@@ -680,8 +884,27 @@ def build_plate_board_json():
     if problems:
         _fail(problems)
 
+    for pid, text in _milestones(plates).items():
+        next(p for p in plates if p["id"] == pid)["milestone"] = text
+
+    # One header line per run (sweep G8-24): the 22-plate ASA run and B11 are never summed.
+    runs = []
+    for p in plates:
+        if not runs or runs[-1]["run"] != p["run"]:
+            runs.append({"run": p["run"], "plates": 0, "hours": 0.0, "batches": []})
+        r = runs[-1]
+        r["plates"] += 1
+        r["hours"] = round(r["hours"] + p["hours"], 1)
+        if p["batch"] not in r["batches"]:
+            r["batches"].append(p["batch"])
+    for r in runs:
+        r["label"] = (f"{r['plates']}-plate run" if r["run"] == "asa"
+                      else " + ".join(r["batches"]))
+        del r["batches"]
+
     return {
         "plates": plates,
+        "runs": runs,
         "totals": {
             "plates": len(plates),
             "hours": round(sum(p["hours"] for p in plates), 1),

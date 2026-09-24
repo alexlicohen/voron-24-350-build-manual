@@ -64,8 +64,9 @@ Prusa's help-site steps run 30–60 words. Ours averaged 237. The fix is the act
 hard budgets, not more structure.
 
 **Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): **Do:** →
-**Parts:** → **Check:** → **Helper:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
-`Pause:` → `Source:` → **Next:** (§ Step pages › Next overrides). Images stay hoisted to the figure column. Write a step in house order as before; the
+**Check:** → **Helper:** → the segment's Gather block → **Parts:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
+`Pause:` → `Source:` → **Next:** (§ Step pages › Next overrides). Check sits right under Do so the
+pass criterion is on the first screen at 1024×768 (Alex, 2026-09-24). Images stay hoisted to the figure column. Write a step in house order as before; the
 generator moves it.
 
 **Budgets** (words, excluding images, code, inline `code` spans and link URLs):
@@ -266,9 +267,14 @@ generator only formalises it.
 
 **What the generator does to a step block.** Images are hoisted to the top with the manual-page
 render first and the part renders and diagrams after. The text column is then re-ordered
-action-first — **Do:** → **Parts:** → **Check:** → **Helper:** → the collapsed
+action-first — **Do:** → **Check:** → **Helper:** → Gather → **Parts:** → the collapsed
 `What you're looking at` block → `⚠`/`Tip:` → `Pause:` → `Source:` → **Next:** — regardless of where those lines sit in the chapter (see
-"Action-first steps and word budgets"). A list or code block directly under a Do line rides with
+"Action-first steps and word budgets"). A manual-page or panel-crop figure gets a muted "Tap to
+enlarge" line under it (glightbox opens every figure image zoomable). A step whose code block
+runs to 12+ lines (or 5+ lines with one over 72 characters; `gate-calc`, `tap-tree` and `mascot`
+fences are widgets, not code) renders stacked in landscape too (`.step-body--wide`): the picture on
+top at 40vh, then the text and code full width, so a config block never scrolls sideways in the
+half-width column. A list or code block directly under a Do line rides with
 it; a table, code block or blockquote and the paragraph beside it stay visible; every other loose
 paragraph joins the collapsed block. `**Parts:**` becomes a compact list (the list form's bullets;
 a single-line field splits on `;`, then `·`), each item carrying the part render from
@@ -286,8 +292,8 @@ through the next step that carries one; the trailing run after the last `Pause:`
 For each segment the generator sums every `**Parts:**` item across its steps and renders it twice:
 
 - on the segment's **first step page**, as a collapsed `??? note` titled
-  `Gather for this segment — steps 02.05–02.08 (~25 min)`, placed after the **Do:** block and
-  before that step's own **Parts:** list — hardware first, then printed parts, one item per line
+  `Gather for this segment — steps 02.05–02.08 (~25 min)`, placed after the **Do:**, **Check:**
+  and **Helper:** lines and before that step's own **Parts:** list — hardware first, then printed parts, one item per line
   with the summed count;
 - on the **chapter overview**, as one line per segment under the step grid ("Gather per session"),
   so a session can be laid out before it starts.
@@ -331,7 +337,15 @@ show the assemblies alone.
 Reference), with the sidebar showing only the active tab's pages. Build and Print list chapter and
 batch overviews only; add a row there when a chapter is added (`steps/.nav.yml` carries
 `hide: true`). Step pages are built and searchable but out of nav, and prev/next comes from the
-generated markup, never from nav order. Each overview
+generated markup, never from nav order. Search finds a step on its step page only: the long
+chapter page's step headings carry `data-search-exclude` (`build_steps.on_page_content`), so
+`10.58` lands on the page with the done toggle; the long page's intro, section headings,
+Checkpoint and Common mistakes stay searchable.
+
+**Pre-kit badge.** A step inside a segment whose closing `Pause:` carries `(pre-kit)` (the tag
+`scripts/build_tonight.py` plans "Before the kit" from) gets a `pre-kit` badge on its overview tile
+(`.step-card__prekit`) and beside its step counter (`.step-prekit-badge`). Nothing is hand-marked:
+tag the Pause line and the badges follow. Each overview
 links to the long chapter page ("Read the whole chapter on one page") and every long chapter page
 gets a banner back to its overview.
 

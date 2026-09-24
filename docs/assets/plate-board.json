@@ -13,7 +13,8 @@
    "spool": "#1",
    "remaining": 748,
    "diagram": "../../manual/assets/plates/B00-P1.png",
-   "chapter": "../../manual/steps/b00-calibration-and-jigs/"
+   "chapter": "../../manual/steps/b00-calibration-and-jigs/",
+   "milestone": "B00 done: the first plate is off the bed. Gate A's cube is next."
   },
   {
    "id": "B01-P1",
@@ -24,7 +25,7 @@
    "grams": 201,
    "colour": "black",
    "slot": "overnight",
-   "note": "start in the morning",
+   "note": "start in the morning · after Gate B",
    "spool": "#1",
    "remaining": 547,
    "diagram": "../../manual/assets/plates/B01-P1.png",
@@ -54,7 +55,7 @@
    "grams": 90,
    "colour": "blue",
    "slot": "overnight",
-   "note": "",
+   "note": "after Gate A",
    "spool": "A1",
    "remaining": 710,
    "diagram": "../../manual/assets/plates/B02-P1.png",
@@ -88,7 +89,8 @@
    "spool": "A1",
    "remaining": 521,
    "diagram": "../../manual/assets/plates/B02-P3.png",
-   "chapter": "../../manual/steps/b02-accent-parts-orange/"
+   "chapter": "../../manual/steps/b02-accent-parts-orange/",
+   "milestone": "Blue day done: every accent part is printed."
   },
   {
    "id": "B03-P1",
@@ -99,7 +101,7 @@
    "grams": 119,
    "colour": "black",
    "slot": "overnight",
-   "note": "",
+   "note": "after Gate B",
    "spool": "#1",
    "remaining": 328,
    "diagram": "../../manual/assets/plates/B03-P1.png",
@@ -114,7 +116,7 @@
    "grams": 117,
    "colour": "black",
    "slot": "overnight",
-   "note": "",
+   "note": "after Gate B",
    "spool": "#1",
    "remaining": 211,
    "diagram": "../../manual/assets/plates/B04-P1.png",
@@ -129,7 +131,7 @@
    "grams": 78,
    "colour": "black",
    "slot": "day",
-   "note": "",
+   "note": "after Gate B",
    "spool": "#1",
    "remaining": 133,
    "diagram": "../../manual/assets/plates/B05-P1.png",
@@ -144,7 +146,7 @@
    "grams": 148,
    "colour": "black",
    "slot": "overnight",
-   "note": "",
+   "note": "after Gate B",
    "spool": "#2 (fresh)",
    "remaining": 652,
    "diagram": "../../manual/assets/plates/B06-P1.png",
@@ -159,11 +161,12 @@
    "grams": 102,
    "colour": "black",
    "slot": "overnight",
-   "note": "",
+   "note": "after Gate A",
    "spool": "#2",
    "remaining": 550,
    "diagram": "../../manual/assets/plates/B07-P1.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
+   "milestone": "Halfway: plate 11 of 22."
   },
   {
    "id": "B07-P2",
@@ -189,7 +192,7 @@
    "grams": 99,
    "colour": "black",
    "slot": "day",
-   "note": "",
+   "note": "after Gate A",
    "spool": "#2",
    "remaining": 327,
    "diagram": "../../manual/assets/plates/B08-P1.png",
@@ -249,7 +252,7 @@
    "grams": 63,
    "colour": "black",
    "slot": "day",
-   "note": "",
+   "note": "after Gate A",
    "spool": "#2 → #3",
    "remaining": 764,
    "diagram": "../../manual/assets/plates/B09-P1.png",
@@ -324,11 +327,12 @@
    "grams": 76,
    "colour": "black",
    "slot": "day",
-   "note": "",
+   "note": "after Gate A",
    "spool": "#3",
    "remaining": 454,
    "diagram": "../../manual/assets/plates/B10-P1.png",
-   "chapter": "../../manual/steps/b10-clicky-clack-door/"
+   "chapter": "../../manual/steps/b10-clicky-clack-door/",
+   "milestone": "Last ASA plate off the bed: all 22 plates of the run are done."
   },
   {
    "id": "B11-P1",
@@ -404,6 +408,20 @@
    "remaining": 652,
    "diagram": "../../manual/assets/plates/B11-P5.png",
    "chapter": "../../manual/steps/b11-bay-ducting/"
+  }
+ ],
+ "runs": [
+  {
+   "run": "asa",
+   "plates": 22,
+   "hours": 157.0,
+   "label": "22-plate run"
+  },
+  {
+   "run": "bay",
+   "plates": 5,
+   "hours": 25.0,
+   "label": "B11"
   }
  ],
  "totals": {

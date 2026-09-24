@@ -1,7 +1,10 @@
 /* Two build-data boards (R7 F2 + F3).
  *
  *   .build-progress   on Home — the cumulative CAD render of the last chapter
- *                     whose every step is ticked, plus an N-of-M counter.
+ *                     whose every step is ticked, plus an N-of-M counter, the
+ *                     run's printed plates and the next step, which is where
+ *                     Tonight's plans start (tonight.js's planner over
+ *                     docs/assets/tonight.json).
  *   .plate-board      on Print › Plate board — the 22 plates in run order with
  *                     printed / sorted toggles.
  *
@@ -16,7 +19,8 @@
  * build hook wrote page-relative (hooks/mascot.py), so no path is typed here:
  * Home's hero waves once on load, Home's growing-printer block shows the
  * watching-a-first-layer bird while nothing is ticked, and the plate board gets
- * the same bird in its header plus a small badge on the *next* plate.
+ * the same bird in its header plus a small badge on the *next* plate, and the
+ * same badge beside each `milestone` plate's line once that plate is printed.
  */
 (function () {
   var PROGRESS_PREFIX = 'voron-progress:ch:';
@@ -37,12 +41,16 @@
     if (text != null) node.textContent = text;
     return node;
   }
-  function getJSON(url, then) {
-    if (typeof fetch !== 'function') return;
+  /* `orElse` (optional) runs when the JSON cannot be had, so a second,
+   * optional source never blocks the first one's render. */
+  function getJSON(url, then, orElse) {
+    if (typeof fetch !== 'function') { if (orElse) orElse(); return; }
     fetch(url, { credentials: 'same-origin' })
       .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) { if (data) then(data); })
-      .catch(function () { /* offline or missing — leave the static fallback */ });
+      .then(function (data) { if (data) then(data); else if (orElse) orElse(); })
+      .catch(function () { /* offline or missing — leave the static fallback */
+        if (orElse) orElse();
+      });
   }
 
   /* ------------------------------------------------------ Home: the hero wave */
@@ -75,64 +83,156 @@
 
   /* --------------------------------------------------- Home: what you've built */
 
+  /* Where the build stands on this device, by Tonight's own planner.
+   *
+   * docs/index.md points `data-tonight` at docs/assets/tonight.json (written by
+   * scripts/build_tonight.py). With it and tonight.js's TonightPlanner loaded,
+   * "next" is the step Tonight's plans start at — before kit day that is the
+   * first unfinished pre-kit or print step (Ch 00a, B00.0, the next plate),
+   * never 00.1 "open the cartons" — and the run's printed plates (plate board,
+   * or the plate's Load step ticked, as Tonight counts them) are counted too.
+   * Without either, the chapter-order fallback below still renders. */
+  function tonightProgress(plan, planUrl) {
+    var planner = window.TonightPlanner;
+    if (!plan || !plan.rows || !planner || !planner.planState) return null;
+    var ticks = {}, printed = {};
+    plan.rows.forEach(function (row) {
+      row.segments.forEach(function (seg) {
+        if (!ticks[seg.chapter]) ticks[seg.chapter] = parse(safeGet(PROGRESS_PREFIX + seg.chapter));
+        if (seg.plate && parse(safeGet(PLATE_PREFIX + seg.plate)).printed) printed[seg.plate] = true;
+      });
+    });
+    if (plan.gate && plan.gate.chapter && !ticks[plan.gate.chapter]) {
+      ticks[plan.gate.chapter] = parse(safeGet(PROGRESS_PREFIX + plan.gate.chapter));
+    }
+    var kit = !!plan.kit_arrived;
+    var start = planner.planState(plan, ticks, printed, kit).summary.start;
+
+    var out = { kit: kit, start: start, next: null, href: null, plates: 0, platesDone: 0 };
+    var seen = {}, match = null;
+    plan.rows.forEach(function (row) {
+      row.segments.forEach(function (seg) {
+        var have = ticks[seg.chapter] || {};
+        if (seg.kind === 'print' && seg.run === 'asa' && !seen[seg.plate]) {
+          seen[seg.plate] = true;
+          out.plates++;
+          if (printed[seg.plate] || have[seg.first_step]) out.platesDone++;
+        }
+        /* The plan starts at a segment; name its first unticked step. */
+        if (start && seg.first_step === start) {
+          var open = (seg.steps || []).filter(function (id) { return !have[id]; });
+          if (!match || (!match.open.length && open.length)) match = { seg: seg, open: open };
+        }
+      });
+    });
+    if (match) {
+      out.next = match.open.length ? match.open[0] : start;
+      if (match.seg.href) {
+        try {
+          var first = new URL(match.seg.href, new URL(planUrl, document.baseURI));
+          /* Step pages are siblings: steps/<chapter>/<id with . as ->/ */
+          out.href = (out.next === match.seg.first_step ? first
+            : new URL('../' + out.next.replace(/\./g, '-').toLowerCase() + '/', first)).href;
+        } catch (e) { out.href = null; }
+      }
+    }
+    return out;
+  }
+
+  function renderBuildProgress(root, data, plan) {
+    var chapters = data.chapters || [];
+    var total = 0, done = 0, next = null, best = null;
+
+    chapters.forEach(function (ch) {
+      var state = parse(safeGet(PROGRESS_PREFIX + ch.slug));
+      var ticked = 0;
+      (ch.steps || []).forEach(function (id) {
+        total++;
+        if (state[id]) { ticked++; done++; }
+        else if (!next) next = id;
+      });
+      if (ch.steps && ch.steps.length && ticked === ch.steps.length && ch.image) best = ch;
+    });
+
+    var img = root.querySelector('.build-progress__img');
+    var caption = root.querySelector('.build-progress__caption');
+    var counts = root.querySelector('.build-progress__counts');
+
+    if (best) {
+      if (img) {
+        img.src = best.image;
+        img.alt = 'The machine after Chapter ' + best.number + ' — ' + best.title;
+        img.classList.remove('build-progress__img--mascot');
+        img.hidden = false;
+      }
+      if (caption) {
+        caption.textContent = 'Your build so far: after Ch ' + best.number + ' — ' + best.title;
+      }
+    } else {
+      var start = data.start || null;
+      var empty = root.getAttribute('data-mascot-empty');
+      if (img && start && start.image) {
+        img.src = start.image;
+        img.alt = start.title || 'The machine before the first chapter';
+        img.hidden = false;
+      } else if (img && empty) {
+        /* Nothing ticked: the bird watching a first layer stands in for the
+         * machine that does not exist yet. */
+        img.src = empty;
+        img.alt = root.getAttribute('data-mascot-empty-alt') || '';
+        img.classList.add('build-progress__img--mascot');
+        img.hidden = false;
+      } else if (img) {
+        img.hidden = true;
+      }
+      if (caption) {
+        if (plan && !plan.kit) {
+          caption.textContent = plan.platesDone
+            ? plan.platesDone + ' of ' + plan.plates + ' plates off the bed. The frame waits for the kit.'
+            : 'Nothing ticked yet. The pre-kit steps and the prints come first.';
+        } else {
+          caption.textContent = 'Nothing ticked yet — the frame is next.';
+        }
+      }
+    }
+
+    if (counts) {
+      counts.textContent = done + ' of ' + total + ' build steps done';
+      if (plan && plan.plates) {
+        counts.appendChild(document.createTextNode(
+          ' · ' + plan.platesDone + ' of ' + plan.plates + ' plates printed'));
+      }
+      if (plan) {
+        if (plan.next) {
+          counts.appendChild(document.createTextNode(' · next: '));
+          var label = 'Step ' + plan.next;
+          var target = plan.href ? el('a', 'build-progress__next', label) : el('strong', null, label);
+          if (plan.href) target.href = plan.href;
+          counts.appendChild(target);
+        } else {
+          counts.appendChild(document.createTextNode(
+            plan.kit ? ' · every step ticked' : ' · everything before the kit is done'));
+        }
+      } else {
+        counts.appendChild(document.createTextNode(
+          next ? ' · next: Step ' + next : ' · every chapter ticked'));
+      }
+    }
+    root.classList.add('build-progress--ready');
+  }
+
   function mountBuildProgress() {
     var root = document.querySelector('.build-progress[data-build-progress]');
     if (!root || root.dataset.mounted) return;
     root.dataset.mounted = '1';
     getJSON(root.getAttribute('data-build-progress'), function (data) {
-      var chapters = data.chapters || [];
-      var total = 0, done = 0, next = null, best = null;
-
-      chapters.forEach(function (ch) {
-        var state = parse(safeGet(PROGRESS_PREFIX + ch.slug));
-        var ticked = 0;
-        (ch.steps || []).forEach(function (id) {
-          total++;
-          if (state[id]) { ticked++; done++; }
-          else if (!next) next = id;
-        });
-        if (ch.steps && ch.steps.length && ticked === ch.steps.length && ch.image) best = ch;
-      });
-
-      var img = root.querySelector('.build-progress__img');
-      var caption = root.querySelector('.build-progress__caption');
-      var counts = root.querySelector('.build-progress__counts');
-
-      if (best) {
-        if (img) {
-          img.src = best.image;
-          img.alt = 'The machine after Chapter ' + best.number + ' — ' + best.title;
-          img.classList.remove('build-progress__img--mascot');
-          img.hidden = false;
-        }
-        if (caption) {
-          caption.textContent = 'Your build so far: after Ch ' + best.number + ' — ' + best.title;
-        }
-      } else {
-        var start = data.start || null;
-        var empty = root.getAttribute('data-mascot-empty');
-        if (img && start && start.image) {
-          img.src = start.image;
-          img.alt = start.title || 'The machine before the first chapter';
-          img.hidden = false;
-        } else if (img && empty) {
-          /* Nothing ticked: the bird watching a first layer stands in for the
-           * machine that does not exist yet. */
-          img.src = empty;
-          img.alt = root.getAttribute('data-mascot-empty-alt') || '';
-          img.classList.add('build-progress__img--mascot');
-          img.hidden = false;
-        } else if (img) {
-          img.hidden = true;
-        }
-        if (caption) caption.textContent = 'Nothing ticked yet — the frame is next.';
-      }
-
-      if (counts) {
-        counts.textContent = done + ' of ' + total + ' build steps done' +
-          (next ? ' · next: Step ' + next : ' · every chapter ticked');
-      }
-      root.classList.add('build-progress--ready');
+      var planUrl = root.getAttribute('data-tonight');
+      if (!planUrl) { renderBuildProgress(root, data, null); return; }
+      getJSON(planUrl, function (plan) {
+        var info = null;
+        try { info = tonightProgress(plan, planUrl); } catch (e) { info = null; }
+        renderBuildProgress(root, data, info);
+      }, function () { renderBuildProgress(root, data, null); });
     });
   }
 
@@ -190,15 +290,18 @@
       var tiles = [];
 
       function refresh() {
-        var printed = 0, remaining = 0, spool = null;
+        var printed = 0, remaining = 0, spool = null, byRun = {};
         plates.forEach(function (plate, i) {
           var s = plateState(plate.id);
-          if (s.printed) printed++;
+          var r = byRun[plate.run] || (byRun[plate.run] = { printed: 0, left: 0 });
+          if (s.printed) { printed++; r.printed++; }
           else {
             remaining += plate.hours;
+            r.left += plate.hours;
             if (spool === null) spool = plate.spool;
           }
           var tile = tiles[i];
+          if (tile.milestone) tile.milestone.hidden = !s.printed;
           tile.node.classList.toggle('plate-tile--printed', s.printed);
           tile.node.classList.toggle('plate-tile--sorted', s.sorted);
           tile.printed.setAttribute('aria-pressed', s.printed ? 'true' : 'false');
@@ -215,9 +318,24 @@
         tiles.forEach(function (t, i) {
           t.node.classList.toggle('plate-tile--next', i === nextIdx);
         });
-        summary.textContent = printed + ' of ' + plates.length + ' plates printed · ' +
-          remaining.toFixed(1) + ' h left · ' +
-          (spool ? 'spool ' + spool : 'every plate printed');
+        var runs = data.runs || [];
+        if (!runs.length) {
+          summary.textContent = printed + ' of ' + plates.length + ' plates printed · ' +
+            remaining.toFixed(1) + ' h left · ' +
+            (spool ? 'spool ' + spool : 'every plate printed');
+          return;
+        }
+        /* One line per run: the ASA run and B11 are never added together. */
+        summary.textContent = '';
+        runs.forEach(function (run) {
+          var r = byRun[run.run] || { printed: 0, left: 0 };
+          summary.appendChild(document.createTextNode(
+            run.label + ': ' + run.hours.toFixed(1) + ' h · ' + r.printed + ' of ' +
+            run.plates + ' printed · ' + r.left.toFixed(1) + ' h left'));
+          summary.appendChild(document.createElement('br'));
+        });
+        summary.appendChild(document.createTextNode(
+          spool ? 'Next spool: ' + spool : 'Every plate printed'));
       }
 
       plates.forEach(function (plate) {
@@ -255,6 +373,27 @@
           ' · ' + plate.remaining + ' g left after'));
         if (plate.note) body.appendChild(el('p', 'plate-tile__note', plate.note));
 
+        /* A milestone plate celebrates once it is printed, with the badge pose. */
+        var milestone = null;
+        if (plate.milestone) {
+          milestone = el('p', 'plate-tile__note plate-tile__milestone');
+          if (nextSrc) {
+            var badge = document.createElement('img');
+            badge.className = 'mascot-badge';
+            badge.src = nextSrc;
+            badge.alt = '';
+            badge.width = 30;
+            badge.height = 30;
+            badge.loading = 'lazy';
+            badge.decoding = 'async';
+            badge.style.verticalAlign = 'middle';
+            milestone.appendChild(badge);
+          }
+          milestone.appendChild(document.createTextNode(plate.milestone));
+          milestone.hidden = true;
+          body.appendChild(milestone);
+        }
+
         var toggles = el('div', 'plate-tile__toggles');
         var printedBtn = el('button', 'plate-tile__toggle', 'Printed');
         printedBtn.type = 'button';
@@ -267,7 +406,8 @@
         node.appendChild(body);
         grid.appendChild(node);
 
-        var entry = { node: node, head: title, printed: printedBtn, sorted: sortedBtn };
+        var entry = { node: node, head: title, printed: printedBtn, sorted: sortedBtn,
+                      milestone: milestone };
         tiles.push(entry);
 
         printedBtn.addEventListener('click', function () {

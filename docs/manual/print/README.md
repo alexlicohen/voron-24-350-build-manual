@@ -86,7 +86,7 @@ two swaps a day.
 ## Bins
 
 Every printed part has **one bin** — the assembly chapter that fits it, split into sub-bins where a chapter is
-part-heavy (the four Z corners, the A and B drive sides, the 4 mm and 6 mm panel clips). The bin id is what
+part-heavy (the four Z corners, the A and B drive sides, the 4 mm and 6 mm panel clips, B11's bay ducts). The bin id is what
 you write on the part and on the box; the plate diagram at the top of every Load step shows each part
 numbered and filled in its bin's colour with the id on it, and each batch's *Sort into bins* step lists
 bin → parts per plate.
@@ -103,7 +103,7 @@ manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
-26 bins, 271 printed pieces: 218 from the ASA run and 53 from B11.
+27 bins, 271 printed pieces: 218 from the ASA run and 53 from B11.
 
 | bin | label | chapter · steps | parts (qty) | from batches |
 |---|---|---|---|---|
@@ -120,7 +120,8 @@ each of its two corners, a `_x4` file one in each corner.
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` | B02, B06 |
-| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | Ch 09 · 09.6–09.25 (B11 DC loop 09.6, AC conduit 09.36, AC lids 10.80, inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm`; from B11, 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B07, B11 |
+| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
+| **09-ducts** | Bay ducts and lids, B11 | Ch 09 · 09.6, 09.36 (AC lids 10.80, DC lids 11.52; coupon from B11.4) | 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
 | **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | `V2L_STRIP_FIN` | B11 |

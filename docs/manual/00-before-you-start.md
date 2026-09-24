@@ -469,7 +469,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), one per bin, and tape one to each container.
-2. The scheme is [print/README.md § Bins](print/README.md#bins): **26 bins**, `02-Z0` … `spare-alt`, the names every batch chapter and plate diagram already uses.
+2. The scheme is [print/README.md § Bins](print/README.md#bins): **27 bins**, `00-jigs` … `spare-alt`, the names every batch chapter and plate diagram already uses.
 
 | Print batch | Bins it fills |
 |---|---|
@@ -484,8 +484,9 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B08 — Skirts and front modules | 11-skirts |
 | B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
+| B11 — Bay ducting (PETG V0) | 09-ducts, 10-wiring |
 
-**Check:** 26 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 27 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
 **Helper:** Writes the chapter number on each bin label and sticks it on square.
 
@@ -1088,7 +1089,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 26 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
+- [ ] 27 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

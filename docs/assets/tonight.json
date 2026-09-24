@@ -52,6 +52,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "wizard run with the 0.4 HF nozzle, B00-P1 open and showing \"(modified)\" / \" - Voron black\". Nothing printing.",
      "helpers": [],
      "text": "Step B00.0 · ~10 min · leave-state: wizard run with the 0.4 HF nozzle, B00-P1 open and showing \"(modified)\" / \" - Voron black\". Nothing printing."
@@ -70,6 +71,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange.",
      "helpers": [
       [
@@ -93,6 +95,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.",
      "helpers": [
       [
@@ -116,6 +119,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.",
      "helpers": [
       [
@@ -139,6 +143,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed.",
      "helpers": [
       [
@@ -162,6 +167,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "ASA loaded and purged clean, B00-P1 still open in PrusaSlicer. Nothing printing.",
      "helpers": [],
      "text": "Step B00.1 · ~10 min · leave-state: ASA loaded and purged clean, B00-P1 still open in PrusaSlicer. Nothing printing."
@@ -180,6 +186,7 @@
      "pre_kit": false,
      "plate": "B00-P1",
      "print_hours": 4.0,
+     "run": "asa",
      "leave_state": "plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends"
@@ -198,6 +205,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.",
      "helpers": [
       [
@@ -221,6 +229,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.",
      "helpers": [],
      "text": "Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit."
@@ -239,6 +248,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.",
      "helpers": [],
      "text": "Step B00.7 · ~15 min · leave-state: Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows."
@@ -269,6 +279,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.",
      "helpers": [],
      "text": "Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume."
@@ -293,6 +304,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.",
      "helpers": [],
      "text": "Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open."
@@ -319,6 +331,7 @@
      "pre_kit": false,
      "plate": "B01-P1",
      "print_hours": 15.2,
+     "run": "asa",
      "leave_state": "plate B01-P1 running, 15.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -342,6 +355,7 @@
      "pre_kit": false,
      "plate": "B01-P2",
      "print_hours": 7.6,
+     "run": "asa",
      "leave_state": "plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -365,6 +379,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.",
      "helpers": [
       [
@@ -388,6 +403,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.",
      "helpers": [
       [
@@ -419,6 +435,7 @@
      "pre_kit": false,
      "plate": "B02-P1",
      "print_hours": 7.0,
+     "run": "asa",
      "leave_state": "plate B02-P1 running, 7.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -442,6 +459,7 @@
      "pre_kit": false,
      "plate": "B02-P2",
      "print_hours": 7.3,
+     "run": "asa",
      "leave_state": "plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -465,6 +483,7 @@
      "pre_kit": false,
      "plate": "B02-P3",
      "print_hours": 7.6,
+     "run": "asa",
      "leave_state": "plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -488,6 +507,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.",
      "helpers": [],
      "text": "Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away."
@@ -506,6 +526,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.",
      "helpers": [
       [
@@ -537,6 +558,7 @@
      "pre_kit": false,
      "plate": "B03-P1",
      "print_hours": 8.5,
+     "run": "asa",
      "leave_state": "plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -560,6 +582,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "seats calipered, halves dry-fitted and separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row.",
      "helpers": [],
      "text": "Step B03.4 · ~10 min · leave-state: seats calipered, halves dry-fitted and separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row."
@@ -578,6 +601,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both bins sorted and labelled, A-side and B-side parts kept apart. Nothing is pressed or bolted; Ch 04 builds from the bins.",
      "helpers": [
       [
@@ -609,6 +633,7 @@
      "pre_kit": false,
      "plate": "B04-P1",
      "print_hours": 8.6,
+     "run": "asa",
      "leave_state": "plate B04-P1 running, 8.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -632,6 +657,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "holes calipered and the halves separated again; no inserts set, and the real carriage is a kit-day row (Ch 05 sets the inserts).",
      "helpers": [],
      "text": "Step B04.5 · ~10 min · leave-state: holes calipered and the halves separated again; no inserts set, and the real carriage is a kit-day row (Ch 05 sets the inserts)."
@@ -650,6 +676,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the plate sorted into 05-XY and 07-X, bin ids on the parts. `probe_retainer_bracket` stays loose until the Omron barrel is measured; no inserts set.",
      "helpers": [
       [
@@ -681,6 +708,7 @@
      "pre_kit": false,
      "plate": "B05-P1",
      "print_hours": 6.4,
+     "run": "asa",
      "leave_state": "plate B05-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -704,6 +732,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "joints calipered and squared on the flat, then set down again; nothing pressed, and the carriage fit is a kit-day row.",
      "helpers": [],
      "text": "Step B05.4 · ~10 min · leave-state: joints calipered and squared on the flat, then set down again; nothing pressed, and the carriage fit is a kit-day row."
@@ -722,6 +751,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "joints in 06-Z-joints, anchor and guide in 10-chains, bin ids written. Nothing is pressed and the rail stops stay bagged.",
      "helpers": [
       [
@@ -753,6 +783,7 @@
      "pre_kit": false,
      "plate": "B06-P1",
      "print_hours": 12.1,
+     "run": "asa",
      "leave_state": "plate B06-P1 running, 12.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -776,6 +807,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "seat calipered, Klicky bag closed. Nothing pressed, no magnets, and the real heatsink is a kit-day row.",
      "helpers": [],
      "text": "Step B06.4 · ~10 min · leave-state: seat calipered, Klicky bag closed. Nothing pressed, no magnets, and the real heatsink is a kit-day row."
@@ -794,6 +826,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.",
      "helpers": [
       [
@@ -825,6 +858,7 @@
      "pre_kit": false,
      "plate": "B07-P1",
      "print_hours": 7.9,
+     "run": "asa",
      "leave_state": "plate B07-P1 running, 7.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -848,6 +882,7 @@
      "pre_kit": false,
      "plate": "B07-P2",
      "print_hours": 8.1,
+     "run": "asa",
      "leave_state": "plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -871,6 +906,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every mount checked on the reference, brims snapped off, nothing assembled.",
      "helpers": [],
      "text": "Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled."
@@ -889,6 +925,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.",
      "helpers": [
       [
@@ -920,6 +957,7 @@
      "pre_kit": false,
      "plate": "B08-P1",
      "print_hours": 6.3,
+     "run": "asa",
      "leave_state": "plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -943,6 +981,7 @@
      "pre_kit": false,
      "plate": "B08-P2",
      "print_hours": 8.4,
+     "run": "asa",
      "leave_state": "plate B08-P2 running, 8.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -966,6 +1005,7 @@
      "pre_kit": false,
      "plate": "B08-P3",
      "print_hours": 9.5,
+     "run": "asa",
      "leave_state": "plate B08-P3 running, 9.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -989,6 +1029,7 @@
      "pre_kit": false,
      "plate": "B08-P4",
      "print_hours": 5.0,
+     "run": "asa",
      "leave_state": "plate B08-P4 running, 5.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1012,6 +1053,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted.",
      "helpers": [],
      "text": "Step B08.10 · ~20 min · leave-state: every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted."
@@ -1030,6 +1072,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every skirt segment in 11-skirts, stacked by ring position, brims off and ids written. The ring is apart, nothing bolted.",
      "helpers": [
       [
@@ -1061,6 +1104,7 @@
      "pre_kit": false,
      "plate": "B09-P1",
      "print_hours": 4.5,
+     "run": "asa",
      "leave_state": "plate B09-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1084,6 +1128,7 @@
      "pre_kit": false,
      "plate": "B09-P2",
      "print_hours": 4.9,
+     "run": "asa",
      "leave_state": "plate B09-P2 running, 4.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1107,6 +1152,7 @@
      "pre_kit": false,
      "plate": "B09-P3",
      "print_hours": 3.9,
+     "run": "asa",
      "leave_state": "plate B09-P3 running, 3.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1130,6 +1176,7 @@
      "pre_kit": false,
      "plate": "B09-P4",
      "print_hours": 4.2,
+     "run": "asa",
      "leave_state": "plate B09-P4 running, 4.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1153,6 +1200,7 @@
      "pre_kit": false,
      "plate": "B09-P5",
      "print_hours": 4.3,
+     "run": "asa",
      "leave_state": "plate B09-P5 running, 4.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1176,6 +1224,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.",
      "helpers": [],
      "text": "Step B09.12 · ~10 min · leave-state: Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness."
@@ -1194,6 +1243,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all five plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.",
      "helpers": [
       [
@@ -1225,6 +1275,7 @@
      "pre_kit": false,
      "plate": "B10-P1",
      "print_hours": 5.7,
+     "run": "asa",
      "leave_state": "plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
@@ -1248,6 +1299,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "brims off, parts bagged; the bushing and pin tests wait for the kit.",
      "helpers": [],
      "text": "Step B10.5 · ~10 min · leave-state: brims off, parts bagged; the bushing and pin tests wait for the kit."
@@ -1266,6 +1318,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.",
      "helpers": [
       [
@@ -1302,6 +1355,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench.",
      "helpers": [
       [
@@ -1341,6 +1395,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12.",
      "helpers": [
       [
@@ -1367,6 +1422,7 @@
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.",
      "helpers": [
       [
@@ -1395,6 +1451,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.",
      "helpers": [
       [
@@ -1420,6 +1477,7 @@
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.",
      "helpers": [],
      "text": "Step 00.14 → Step 00.16 · ~25 min · leave-state: Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build."
@@ -1439,6 +1497,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.",
      "helpers": [
       [
@@ -1465,6 +1524,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.",
      "helpers": [
       [
@@ -1498,6 +1558,7 @@
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.",
      "helpers": [
       [
@@ -1523,6 +1584,7 @@
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.",
      "helpers": [
       [
@@ -1559,6 +1621,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.",
      "helpers": [],
      "text": "Step 12.1 → Step 12.6 · ~25 min · leave-state: MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed."
@@ -1580,6 +1643,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.",
      "helpers": [
       [
@@ -1615,6 +1679,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.",
      "helpers": [
       [
@@ -1651,6 +1716,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.",
      "helpers": [
       [
@@ -1705,6 +1771,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.",
      "helpers": [
       [
@@ -1730,6 +1797,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.",
      "helpers": [
       [
@@ -1768,6 +1836,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the coupon, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.",
      "helpers": [
       [
@@ -1798,6 +1867,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the first Z rail is centred, tightened centre-outward, verified smooth over full travel, and its carriage is taped. A rail is a self-contained unit; stop only with one finished, never with half its screws started.",
      "helpers": [
       [
@@ -1822,6 +1892,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four Z rails are on, facing each other, sharing the same ~3 mm bottom gap and hole pattern, every carriage taped or stoppered. The frame is still the right way up. Do not turn it over until the carriages are secured.",
      "helpers": [
       [
@@ -1850,6 +1921,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the printer is inverted and stable, the deck panel is in with its notch to the back and captured by eight support clips of the measured thickness, the four M5 T-nuts sit under the deck holes, and the FRONT tape is on. Leave the deck unbolted: those four bolts belong to Ch 09 Step 09.5.",
      "helpers": [
       [
@@ -1889,6 +1961,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "four complete shaft assemblies: 20T pulleys at 33 mm, bearing and precision-spacer stacks built, 80T pulleys threadlocked, and the 188 mm belt loops hung on. The bearings are only slid onto the shaft here, so nothing is mid-assembly. Do not start Step 02.22 until you can close a drive in one sitting.",
      "helpers": [
       [
@@ -1920,6 +1993,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four drives closed: shafts seated, retainers down on six M3×40 each, blue baseplates on with their captive M5 nuts, belt loops captive and free. Each drive is one ~9-minute unit, so if you stop earlier, stop with a drive fully closed and its baseplate on — never with a drive half-closed.",
      "helpers": [
       [
@@ -1944,6 +2018,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "four Z motors carry their 16T pulleys at 10.7 mm and are bolted to their `a`/`b` mounts with the cable exits matched. Get every remaining 16T pulley off the bench before you walk away, and leave the motor cables labelled.",
      "helpers": [
       [
@@ -1975,6 +2050,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the Z0 corner is complete: drive body on its two M5×40, motor slid in, cam closed, both M5×10 tight, rubber foot on, and the p.46 section check passed. One corner is a self-contained unit and this is the natural stop.",
      "helpers": [
       [
@@ -2000,6 +2076,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet.",
      "helpers": [
       [
@@ -2026,6 +2103,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four Z idlers mounted, each aligned with the drive below it, all eight M5×30 tight, printer back upright on its feet. Work through Checkpoint 02 before the gantry starts hiding this.",
      "helpers": [
       [
@@ -2066,6 +2144,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination.",
      "helpers": [
       [
@@ -2096,6 +2175,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it.",
      "helpers": [
       [
@@ -2129,6 +2209,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.",
      "helpers": [
       [
@@ -2162,6 +2243,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.",
      "helpers": [
       [
@@ -2197,6 +2279,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the bench is split into four labelled kits, every part carries its destination in marker, the two inserts are in `a_drive_frame_upper`, one is in each tension arm and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet.",
      "helpers": [
       [
@@ -2230,6 +2313,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported.",
      "helpers": [
       [
@@ -2263,6 +2347,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the B (front left) idler is complete and checked against p.72, and the two idlers sit side by side with visibly different bearing heights. Both are in their trays. Nothing is open.",
      "helpers": [
       [
@@ -2293,6 +2378,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off.",
      "helpers": [
       [
@@ -2320,6 +2406,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
      "helpers": [
       [
@@ -2355,6 +2442,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.",
      "helpers": [
       [
@@ -2390,6 +2478,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four assemblies bagged and labelled with their destinations, and nothing left over on the bench. Work through Checkpoint 04 before Ch 05.",
      "helpers": [
       [
@@ -2424,6 +2513,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off.",
      "helpers": [
       [
@@ -2455,6 +2545,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.",
      "helpers": [],
      "text": "Step 05.5 → Step 05.9 · ~30 min · leave-state: XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting."
@@ -2475,6 +2566,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away.",
      "helpers": [
       [
@@ -2504,6 +2596,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.",
      "helpers": [
       [
@@ -2529,6 +2622,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop.",
      "helpers": [
       [
@@ -2561,6 +2655,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go).",
      "helpers": [
       [
@@ -2588,6 +2683,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it.",
      "helpers": [],
      "text": "Step 05.25 → Step 05.29 · ~25 min · leave-state: right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it."
@@ -2607,6 +2703,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet.",
      "helpers": [],
      "text": "Step 05.30 → Step 05.31 · ~20 min · leave-state: both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet."
@@ -2628,6 +2725,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.",
      "helpers": [],
      "text": "Step 05.32 → Step 05.35 · ~35 min · leave-state: MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive."
@@ -2650,6 +2748,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone.",
      "helpers": [
       [
@@ -2680,6 +2779,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.",
      "helpers": [
       [
@@ -2714,6 +2814,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.",
      "helpers": [
       [
@@ -2752,6 +2853,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job.",
      "helpers": [],
      "text": "Step 06.1 → Step 06.4 · ~30 min · leave-state: M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job."
@@ -2773,6 +2875,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four first belt ends clamped under their gantry corners with the Z bearing blocks on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on.",
      "helpers": [],
      "text": "Step 06.5 → Step 06.8 · ~40 min · leave-state: all four first belt ends clamped under their gantry corners with the Z bearing blocks on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on."
@@ -2792,6 +2895,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move.",
      "helpers": [
       [
@@ -2819,6 +2923,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone.",
      "helpers": [
       [
@@ -2855,6 +2960,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.",
      "helpers": [
       [
@@ -2882,6 +2988,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's).",
      "helpers": [],
      "text": "Step 06.22 · ~30 min · leave-state: all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's)."
@@ -2902,6 +3009,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off.",
      "helpers": [
       [
@@ -2929,6 +3037,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34.",
      "helpers": [],
      "text": "Step 06.26 · ~15 min · leave-state: Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34."
@@ -2959,6 +3068,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it.",
      "helpers": [
       [
@@ -2984,6 +3094,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them; the next segment is the one that cannot be broken.",
      "helpers": [],
      "text": "Step 07.6 → Step 07.8 · ~30 min · leave-state: heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them; the next segment is the one that cannot be broken."
@@ -3021,6 +3132,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends.",
      "helpers": [
       [
@@ -3052,6 +3164,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.",
      "helpers": [
       [
@@ -3092,6 +3205,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry.",
      "helpers": [
       [
@@ -3134,6 +3248,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
      "helpers": [
       [
@@ -3166,6 +3281,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load.",
      "helpers": [
       [
@@ -3200,6 +3316,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Clockwork 2 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor and cable bridge fitted. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away.",
      "helpers": [],
      "text": "Step 08.19 → Step 08.26 · ~25 min · leave-state: Clockwork 2 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor and cable bridge fitted. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away."
@@ -3223,6 +3340,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the tool cartridge is closed around the Revo, the four M3×8 studs are in, and the PTFE is cut to 11 mm. Bag it nozzle-up. Do not put a tool on the nozzle and do not stand the cartridge on its nozzle; both undo the hand-tight seat you just set.",
      "helpers": [
       [
@@ -3249,6 +3367,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 100 and 120 mm pigtails are cut to fit the printed channels and kinking them loses that length.",
      "helpers": [],
      "text": "Step 08.33 → Step 08.36 · ~25 min · leave-state: the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 100 and 120 mm pigtails are cut to fit the printed channels and kinking them loses that length."
@@ -3272,6 +3391,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the Stealthburner body is fully populated: three LEDs seated, diffusers pushed forward, both fans in, every wire exiting on the right. Rest it face-down on a soft cloth. Do not put weight on the diffuser faces or spin the impellers with anything but a finger.",
      "helpers": [
       [
@@ -3298,6 +3418,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the Nitehawk-SB V2 and the fan adapter are mounted, both fan-voltage selectors are verified at 24 V, and the three PH2.0 fan and LED plugs are in. Do not mate the board-to-board header yet — that happens with the Stealthburner body at Step 08.62 — and do not cut or bridge a voltage-selector pad.",
      "helpers": [
       [
@@ -3327,6 +3448,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order.",
      "helpers": [
       [
@@ -3356,6 +3478,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the probe decision is recorded, the inductive probe is confirmed on the carriage from Ch 07, and the nozzle-probe bag is still closed for Ch 09. The Klicky bag stays closed. Do not open either bag to \"get ahead\": the nozzle probe is built at its mounting location in Ch 09.",
      "helpers": [
       [
@@ -3387,6 +3510,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the toolhead is on the carriage, the body is on with the board-to-board header mated, the umbilical is parked on the chain anchor with one loose tie and its free end is coiled and labelled. This is the end of the hands-on work in this chapter. Do not apply power: Checkpoint 08 below is a cold bench test and it is the last cheap chance to find a toolhead fault.",
      "helpers": [
       [
@@ -3426,6 +3550,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "printer on its top, rear T-nuts pre-loaded, deck panel verified, both DIN rails bolted through the deck holes and capped. Nothing is laid on the deck or clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
      "helpers": [
       [
@@ -3458,6 +3583,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both DIN rails on and the DC loop dry-laid on its tape marks, not stuck; VHB, lids and the AC parts wait for 09.36. A piece knocked out of place goes back to its marks; slide the middle run aside if a board needs room to clip on, since 09.36 re-centres it. Nothing is clipped to a rail yet. Leave the printer where it is if you can; standing it back up costs you the T-nut access.",
      "helpers": [
       [
@@ -3490,6 +3616,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet.",
      "helpers": [],
      "text": "Step 09.8 → Step 09.13 · ~30 min · leave-state: Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet."
@@ -3512,6 +3639,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged.",
      "helpers": [],
      "text": "Step 09.14 → Step 09.18 · ~30 min · leave-state: PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged."
@@ -3535,6 +3663,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.",
      "helpers": [
       [
@@ -3567,6 +3696,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in.",
      "helpers": [
       [
@@ -3605,6 +3735,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.",
      "helpers": [
       [
@@ -3633,6 +3764,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.",
      "helpers": [],
      "text": "Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
@@ -3662,6 +3794,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. **No mains wiring started.** Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated.",
      "helpers": [],
      "text": "Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. **No mains wiring started.** Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated."
@@ -3684,6 +3817,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "inlet verified, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run fully terminated at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever.",
      "helpers": [],
      "text": "Step 10.5 → Step 10.9 · ~30 min · leave-state: inlet verified, plug panel confirmed on the frame, WAGO bus labelled N/L/PE, and the inlet→WAGO→PSU run fully terminated at both ends. Nothing plugged in, cord out of the room. Do not walk away with a stripped mains core outside a WAGO lever."
@@ -3708,6 +3842,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every mains connection made and pull-tested: SSR LOAD 1/2, bed L/N/PE, frame PE. Cord still out of the room and the DC side untouched. Next segment is LDO's Checkpoint #1 — start it only when you have an uninterrupted 25 minutes.",
      "helpers": [],
      "text": "Step 10.10 → Step 10.16 · ~30 min · leave-state: every mains connection made and pull-tested: SSR LOAD 1/2, bed L/N/PE, frame PE. Cord still out of the room and the DC side untouched. Next segment is LDO's Checkpoint #1 — start it only when you have an uninterrupted 25 minutes."
@@ -3732,6 +3867,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead; lay the printer back on its side, bay towards you, for Section 3.",
      "helpers": [],
      "text": "Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead; lay the printer back on its side, bay towards you, for Section 3."
@@ -3755,6 +3891,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "24 V distribution complete: board supply, HV stepper supply, USB-adapter feed, HEATBED→SSR control pair, Fan2/Fan3 jumpers at 24 V, and every rail metered with no short. Nothing above deck touched yet.",
      "helpers": [],
      "text": "Step 10.24 → Step 10.29 · ~25 min · leave-state: 24 V distribution complete: board supply, HV stepper supply, USB-adapter feed, HEATBED→SSR control pair, Fan2/Fan3 jumpers at 24 V, and every rail metered with no short. Nothing above deck touched yet."
@@ -3777,6 +3914,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "probe tape confirmed, XY endstop cable read (and repinned if needed) and plugged into the gantry PCB, nozzle-probe lead run to the Z-chain notch. Both cables are loose on the gantry, not yet in a chain.",
      "helpers": [
       [
@@ -3808,6 +3946,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.",
      "helpers": [
       [
@@ -3837,6 +3976,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "six steppers tagged and plugged on their mapped ports, `STEPPER-4` empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. No chain work started.",
      "helpers": [
       [
@@ -3874,6 +4014,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "bay fans, filter fan and LED strip on their Leviathan ports, the touchscreen module built (Ch 11 Steps 11.5–11.6, done from 10.50) with its DSI ribbon latched at both ends and taped to the front extrusion, Ethernet and both USB links made. The umbilical is still unconnected at both ends.",
      "helpers": [],
      "text": "Step 10.47 → Step 10.53 · ~40 min · leave-state: bay fans, filter fan and LED strip on their Leviathan ports, the touchscreen module built (Ch 11 Steps 11.5–11.6, done from 10.50) with its DSI ribbon latched at both ends and taped to the front extrusion, Ethernet and both USB links made. The umbilical is still unconnected at both ends."
@@ -3896,6 +4037,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover), both ESD grounding cables confirmed and the bay cable landed on the frame, each half continuity-checked (the end-to-end reading waits for 10.67). Toolhead is closed and the umbilical is still loose.",
      "helpers": [],
      "text": "Step 10.54 → Step 10.58 · ~25 min · leave-state: the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover), both ESD grounding cables confirmed and the bay cable landed on the frame, each half continuity-checked (the end-to-end reading waits for 10.67). Toolhead is closed and the umbilical is still loose."
@@ -3919,6 +4061,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. **Chains are empty and latched.** Do not part-fill a chain and walk away — the next segment fills all three in one go.",
      "helpers": [],
      "text": "Step 10.59 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. **Chains are empty and latched.** Do not part-fill a chain and walk away — the next segment fills all three in one go."
@@ -3939,6 +4082,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every cable laid into its chain, all six chain ends zip-tied, every latch clicked shut, umbilical Micro-Fit seated in the USB adapter. Gantry moves through full X, Y and Z travel by hand.",
      "helpers": [
       [
@@ -3967,6 +4111,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt.",
      "helpers": [
       [
@@ -4000,6 +4145,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23.",
      "helpers": [
       [
@@ -4053,6 +4199,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.",
      "helpers": [
       [
@@ -4078,6 +4225,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.",
      "helpers": [],
      "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard."
@@ -4099,6 +4247,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.",
      "helpers": [],
      "text": "Step 12.17 → Step 12.20 · ~20 min · leave-state: both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet."
@@ -4119,6 +4268,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "`printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.",
      "helpers": [],
      "text": "Step 12.21 → Step 12.23 · ~15 min · leave-state: `printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start."
@@ -4141,6 +4291,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.",
      "helpers": [
       [
@@ -4167,6 +4318,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.",
      "helpers": [],
      "text": "Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved."
@@ -4189,6 +4341,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "`[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.",
      "helpers": [
       [
@@ -4224,6 +4377,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments, both bay fans and the two grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.",
      "helpers": [
       [
@@ -4254,6 +4408,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the touchscreen module (built at 10.50) is bolted into the front of the ring, snug, and its FFC run checked end to end, latched at both ends. Do not leave an FFC half-latched — the latch is what holds the contacts.",
      "helpers": [
       [
@@ -4284,6 +4439,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "three belt guards on their segments (the fourth waits for the plug panel at 11.14), keystone panel populated, the right-hand fan support built with both fans and the left one with its two retainers, and every skirt T-nut pre-loaded in the right slot. The ring is still off the machine.",
      "helpers": [
       [
@@ -4319,6 +4475,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "front, rear and both side skirt runs mounted, both bay fans in the right-hand run, grills on retainers in the left. The ring is complete all the way round; no run is half-fastened.",
      "helpers": [
       [
@@ -4361,6 +4518,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.",
      "helpers": [
       [
@@ -4395,6 +4553,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all four Z belt covers on, each with its hammerhead nut, and the gantry runs its full Z travel without touching one.",
      "helpers": [
       [
@@ -4429,6 +4588,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet.",
      "helpers": [],
      "text": "Step 11.26 → Step 11.29 · ~15 min · leave-state: Nevermore supports broken off, both 5015 enclosures trimmed, inserts melted, and the long-wire fan's connector cut off. Nothing is glued and nothing is soldered to the bridge PCB yet."
@@ -4450,6 +4610,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both fans seated in the plenum, leads trimmed to length and soldered to the bridge PCB, and the pair metered for a short. The plenum is open and unglued.",
      "helpers": [],
      "text": "Step 11.30 → Step 11.33 · ~20 min · leave-state: both fans seated in the plenum, leads trimmed to length and soldered to the bridge PCB, and the pair metered for a short. The plenum is open and unglued."
@@ -4471,6 +4632,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.",
      "helpers": [
       [
@@ -4507,6 +4669,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "Nevermore mounted in the chamber, cartridge attached, filter fan connected to the Ch 10 lead, bowden retainer and spool holder arm fitted. Its config is `[fan_generic nevermore]` on PF9 (11.41) — Ch 12 Step 12.32 already wrote it; confirm it against your Ch 12 notes or Checkpoint 12, not a live Mainsail: the machine stays unplugged until 13.3.",
      "helpers": [
       [
@@ -4537,6 +4700,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the door frame is squared and blind-jointed, the rubber retainer strip is in, and both hinges are dowelled and bushed. The acrylic is not yet trapped and nothing is glued.",
      "helpers": [
       [
@@ -4563,6 +4727,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "**end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.",
      "helpers": [
       [
@@ -4599,6 +4764,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.",
      "helpers": [],
      "text": "Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free."
@@ -4626,6 +4792,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the machine has been powered, Klipper reports `Ready` with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.",
      "helpers": [
       [
@@ -4660,6 +4827,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every motor buzzed, identified and turning the right way, and any swap has been fixed **at the connector, not in the config**. The machine still has not homed.",
      "helpers": [
       [
@@ -4695,6 +4863,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all three endstops and the inductive probe respond correctly to `QUERY_ENDSTOPS` / `QUERY_PROBE`, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.",
      "helpers": [
       [
@@ -4739,6 +4908,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "**homing works.** X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop.",
      "helpers": [
       [
@@ -4765,6 +4935,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "cold `PROBE_ACCURACY` is in range, both PID tunes are saved, and the machine is holding its heat soak at bed 100 °C / hotend 150 °C. The soak is a genuine wait state: leave it soaking, but do not leave the room with the heaters on.",
      "helpers": [
       [
@@ -4789,6 +4960,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.",
      "helpers": [],
      "text": "Step 13.32 → Step 13.33 · ~15 min · leave-state: hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first."
@@ -4807,6 +4979,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "you are handed off to **Ch 06b**: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.",
      "helpers": [],
      "text": "Step 13.34 · ~10 min · leave-state: you are handed off to **Ch 06b**: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored."
@@ -4827,6 +5000,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "re-heated, re-QGL'd after squaring, `Z_ENDSTOP_CALIBRATE` done at the paper-drag height, and Z=0 sanity-checked at the bed centre. `SAVE_CONFIG` run and committed. The machine now knows where the bed is.",
      "helpers": [],
      "text": "Step 13.35 → Step 13.37 · ~20 min · leave-state: re-heated, re-QGL'd after squaring, `Z_ENDSTOP_CALIBRATE` done at the paper-drag height, and Z=0 sanity-checked at the bed centre. `SAVE_CONFIG` run and committed. The machine now knows where the bed is."
@@ -4846,6 +5020,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "`[bed_mesh]` confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, `SET_IDLE_TIMEOUT TIMEOUT=1800` sent to put the timeout back.",
      "helpers": [],
      "text": "Step 13.38 → Step 13.39 · ~15 min · leave-state: `[bed_mesh]` confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, `SET_IDLE_TIMEOUT TIMEOUT=1800` sent to put the timeout back."
@@ -4867,6 +5042,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B.",
      "helpers": [
       [
@@ -4913,6 +5089,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).",
      "helpers": [
       [
@@ -4959,6 +5136,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.",
      "helpers": [
       [
@@ -4996,6 +5174,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on.",
      "helpers": [
       [
@@ -5029,6 +5208,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "top panel on its eight clips, handlebars bolted through their spacers, and the stock front doors confirmed not-installed. The machine is closed on five faces; the front is still open.",
      "helpers": [
       [
@@ -5062,6 +5242,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.",
      "helpers": [
       [
@@ -5090,6 +5271,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11.",
      "helpers": [
       [
@@ -5123,6 +5305,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.",
      "helpers": [
       [
@@ -5146,6 +5329,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "**A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.",
      "helpers": [
       [
@@ -5171,6 +5355,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.",
      "helpers": [
       [
@@ -5195,6 +5380,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "chamber behaviour measured and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.",
      "helpers": [],
      "text": "Step 14.8 → Step 14.9 · ~15 min · leave-state: chamber behaviour measured and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean."
@@ -5214,6 +5400,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.",
      "helpers": [
       [
@@ -5241,6 +5428,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.",
      "helpers": [
       [
@@ -5266,6 +5454,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "`SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them.",
      "helpers": [
       [
@@ -5289,6 +5478,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.",
      "helpers": [],
      "text": "Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print."
@@ -5308,6 +5498,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next.",
      "helpers": [
       [
@@ -5332,6 +5523,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both extrusion-multiplier passes done and the final number written into the filament profile. It was chosen by the top surface, not by a caliper.",
      "helpers": [],
      "text": "Step 14.19 → Step 14.20 · ~25 min · leave-state: both extrusion-multiplier passes done and the final number written into the filament profile. It was chosen by the top surface, not by a caliper."
@@ -5350,6 +5542,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.",
      "helpers": [],
      "text": "Step 14.21 · ~10 min · leave-state: first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed."
@@ -5369,6 +5562,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.",
      "helpers": [],
      "text": "Step 14.22 → Step 14.23 · ~15 min · leave-state: mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace."
@@ -5387,6 +5581,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges.",
      "helpers": [
       [
@@ -5418,6 +5613,7 @@
      "pre_kit": false,
      "plate": "B11-P1",
      "print_hours": 0.4,
+     "run": "bay",
      "leave_state": "plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
@@ -5436,9 +5632,10 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
-     "leave_state": "coupon tested and kept in 09-bay. The bundle-fill test waits for the harness on kit day.",
+     "run": null,
+     "leave_state": "coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day.",
      "helpers": [],
-     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and kept in 09-bay. The bundle-fill test waits for the harness on kit day."
+     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day."
     },
     {
      "id": "b11-bay-ducting#2",
@@ -5454,6 +5651,7 @@
      "pre_kit": false,
      "plate": "B11-P2",
      "print_hours": 6.9,
+     "run": "bay",
      "leave_state": "plate B11-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B11-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends"
@@ -5472,6 +5670,7 @@
      "pre_kit": false,
      "plate": "B11-P3",
      "print_hours": 4.6,
+     "run": "bay",
      "leave_state": "plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends"
@@ -5490,6 +5689,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "before-kit parts inspected and bagged by plate.",
      "helpers": [],
      "text": "Step B11.7 · ~10 min · leave-state: before-kit parts inspected and bagged by plate."
@@ -5508,6 +5708,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next.",
      "helpers": [
       [
@@ -5539,6 +5740,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected.",
      "helpers": [],
      "text": "Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected."
@@ -5557,6 +5759,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "the bay is dry-laid and measured; nothing is stuck down or fastened.",
      "helpers": [
       [
@@ -5580,6 +5783,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.",
      "helpers": [],
      "text": "Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green."
@@ -5598,6 +5802,7 @@
      "pre_kit": false,
      "plate": "B11-P4",
      "print_hours": 6.3,
+     "run": "bay",
      "leave_state": "plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B11-P4 (Step B11.12) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
@@ -5616,6 +5821,7 @@
      "pre_kit": false,
      "plate": "B11-P5",
      "print_hours": 6.8,
+     "run": "bay",
      "leave_state": "plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
      "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends"
@@ -5634,6 +5840,7 @@
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
+     "run": null,
      "leave_state": "all of B11 is binned for Ch 09. Smooth sheet back on, Chamber Filtration on Adv. Filtration.",
      "helpers": [
       [

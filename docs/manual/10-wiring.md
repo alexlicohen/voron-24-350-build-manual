@@ -45,7 +45,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 |  | `2x3 Splitter Spacer` | — | 2 | LDO-supplied printed — do not print |
 | ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 09-bay | 1 | Black — fitted in Ch 08/09, used here |
 | ![](assets/parts/V2L_STRIP_FIN.png){ width=96 } | `V2L_STRIP_FIN.stl` (batch **B11**, plate B11-P3), step 10.80 | 10-wiring | 1 | Black |
-| ![](assets/parts/CMD_V2_6B_WIRE_BOX_COVER.png){ width=96 } | AC conduit lids, step 10.80: `CMD_V2_6B_WIRE_BOX_COVER.stl`, `V3L_90DEG_R15_COVER.stl` ×2, `V3L_34mm_DUCT_COVER.stl`, `CMD_V2_6B_T_SHORT_COVER.stl`, `V3L_10mm_DUCT_COVER.stl` ×2 (batch **B11**) | 09-bay | 7 | Black |
+| ![](assets/parts/CMD_V2_6B_WIRE_BOX_COVER.png){ width=96 } | AC conduit lids, step 10.80: `CMD_V2_6B_WIRE_BOX_COVER.stl`, `V3L_90DEG_R15_COVER.stl` ×2, `V3L_34mm_DUCT_COVER.stl`, `CMD_V2_6B_T_SHORT_COVER.stl`, `V3L_10mm_DUCT_COVER.stl` ×2 (batch **B11**) | 09-ducts | 7 | Black |
 
 **Hardware** (chapter totals)
 
@@ -1686,11 +1686,13 @@ Pause: ~35 min since the last pause — X, Y and Z chains all mounted at both en
 
 **Helper:** Holds each chain latch open with the flat screwdriver while the adult lays the cables in.
 
+⚠ Pry a latch only in the small indent on its screwdriver-icon side. Prying the other side breaks the latch. [LDO cable-chain guide](https://docs.ldomotors.com/en/guides/cable_chain_guide)
+
 ⚠ Rev D+ / LDO: LDO note p.194–195 — *"When running wires in the cable chain, it is important to keep the wires loose. Pulling the wires tight inside the cable chain will result to excessive wire fatigue and possible pre-mature wire breaks."* This is the most-repeated warning in the whole LDO documentation set. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Note: the umbilical's nominal bend radius is **28 mm** and the X and Y chains are **R18**. LDO ships this combination and rates the cable for drag-chain use, but it is the cable most likely to fail first — which is exactly why the next two steps exist.
 
-Source: [Voron manual p.195](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=195) · [Voron manual p.194](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=194) · [LDO Build Notes p.194–195](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [Video: More Extras! @2:18:20](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8300s) (differs: no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical)
+Source: [Voron manual p.195](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=195) · [Voron manual p.194](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=194) · [LDO cable-chain guide](https://docs.ldomotors.com/en/guides/cable_chain_guide) · [LDO Build Notes p.194–195](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [Video: More Extras! @2:18:20](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8300s) (differs: no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical)
 
 ---
 

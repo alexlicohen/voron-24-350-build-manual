@@ -20,38 +20,38 @@ Every part is Jet Black PETG V0 ("Black" below). *g ea* is each piece sliced alo
 
 | STL | Repo path | Qty | Colour | g ea | Bin |
 |---|---|---:|---|---:|---|
-| `V3L_COUPON_22N_DUCT.stl` | bayducts `remix/` · before kit | 1 | Black | 3.0 | 09-bay |
-| `V3L_COUPON_22N_DUCT_COVER.stl` | bayducts `remix/` · before kit | 1 | Black | 1.1 | 09-bay |
-| `CMD_V3_1H_154mm_DUCT.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 21.0 | 09-bay |
-| `CMD_V2_6B_154mm_DUCT_COVER.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 8.1 | 09-bay |
-| `CMD_V3_1H_90DEG.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 9.2 | 09-bay |
-| `CMD_V2_6B_90DEG_COVER.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 3.7 | 09-bay |
-| `V2L_90DEG_MIRROR.stl` | bayducts `remix/` · before kit | 1 | Black | 9.2 | 09-bay |
-| `V2L_90DEG_COVER_MIRROR.stl` | bayducts `remix/` · before kit | 1 | Black | 3.7 | 09-bay |
-| `CMD_Remix-V3_DUCT-2B_45deg.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 7.3 | 09-bay |
-| `CMD_Remix-V3_DUCT-2B_45deg_LID.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 2.8 | 09-bay |
-| `V3L_WIRE_BOX_PORT.stl` | bayducts `remix/` · before kit | 1 | Black | 17.7 | 09-bay |
-| `CMD_V2_6B_WIRE_BOX_COVER.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 7.4 | 09-bay |
-| `V3L_90DEG_R15.stl` | bayducts `remix/` · before kit | 2 | Black | 2.8 | 09-bay |
-| `V3L_90DEG_R15_COVER.stl` | bayducts `remix/` · before kit | 2 | Black | 1.3 | 09-bay |
-| `CMD_V3_1H_T_SHORT.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 9.0 | 09-bay |
-| `CMD_V2_6B_T_SHORT_COVER.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 3.7 | 09-bay |
-| `CMD_Remix-V3_DUCT-1M_ENDCAP.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 1.4 | 09-bay |
+| `V3L_COUPON_22N_DUCT.stl` | bayducts `remix/` · before kit | 1 | Black | 3.0 | 09-ducts |
+| `V3L_COUPON_22N_DUCT_COVER.stl` | bayducts `remix/` · before kit | 1 | Black | 1.1 | 09-ducts |
+| `CMD_V3_1H_154mm_DUCT.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 21.0 | 09-ducts |
+| `CMD_V2_6B_154mm_DUCT_COVER.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 8.1 | 09-ducts |
+| `CMD_V3_1H_90DEG.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 9.2 | 09-ducts |
+| `CMD_V2_6B_90DEG_COVER.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 3.7 | 09-ducts |
+| `V2L_90DEG_MIRROR.stl` | bayducts `remix/` · before kit | 1 | Black | 9.2 | 09-ducts |
+| `V2L_90DEG_COVER_MIRROR.stl` | bayducts `remix/` · before kit | 1 | Black | 3.7 | 09-ducts |
+| `CMD_Remix-V3_DUCT-2B_45deg.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 7.3 | 09-ducts |
+| `CMD_Remix-V3_DUCT-2B_45deg_LID.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 2.8 | 09-ducts |
+| `V3L_WIRE_BOX_PORT.stl` | bayducts `remix/` · before kit | 1 | Black | 17.7 | 09-ducts |
+| `CMD_V2_6B_WIRE_BOX_COVER.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 7.4 | 09-ducts |
+| `V3L_90DEG_R15.stl` | bayducts `remix/` · before kit | 2 | Black | 2.8 | 09-ducts |
+| `V3L_90DEG_R15_COVER.stl` | bayducts `remix/` · before kit | 2 | Black | 1.3 | 09-ducts |
+| `CMD_V3_1H_T_SHORT.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 9.0 | 09-ducts |
+| `CMD_V2_6B_T_SHORT_COVER.stl` | bayducts `mss/502306/` · before kit | 1 | Black | 3.7 | 09-ducts |
+| `CMD_Remix-V3_DUCT-1M_ENDCAP.stl` | bayducts `mss/502306/` · before kit | 2 | Black | 1.4 | 09-ducts |
 | `V2L_STRIP_FIN.stl` | bayducts `remix/` · before kit | 1 | Black | 5.0 | 10-wiring |
-| `V2L_58mm_DUCT.stl` | bayducts `remix/` · after kit | 3 | Black | 7.9 | 09-bay |
-| `V2L_58mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 3 | Black | 3.1 | 09-bay |
-| `V2L_130mm_DUCT.stl` | bayducts `remix/` · after kit | 1 | Black | 17.8 | 09-bay |
-| `V2L_130mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 6.9 | 09-bay |
-| `V2L_70mm_DUCT.stl` | bayducts `remix/` · after kit | 1 | Black | 9.6 | 09-bay |
-| `V2L_70mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 3.7 | 09-bay |
-| `V3L_10mm_DUCT.stl` | bayducts `remix/` · after kit | 3 | Black | 1.5 | 09-bay |
-| `V3L_10mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 3 | Black | 0.6 | 09-bay |
-| `V3L_34mm_DUCT_HOLE.stl` | bayducts `remix/` · after kit | 1 | Black | 4.1 | 09-bay |
-| `V3L_34mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 1.8 | 09-bay |
-| `V3L_154N_DUCT.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 20.3 | 09-bay |
-| `V3L_154N_DUCT_COVER.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 7.5 | 09-bay |
-| `V3L_T_REG_N.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 13.5 | 09-bay |
-| `V3L_T_REG_N_COVER.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 5.4 | 09-bay |
+| `V2L_58mm_DUCT.stl` | bayducts `remix/` · after kit | 3 | Black | 7.9 | 09-ducts |
+| `V2L_58mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 3 | Black | 3.1 | 09-ducts |
+| `V2L_130mm_DUCT.stl` | bayducts `remix/` · after kit | 1 | Black | 17.8 | 09-ducts |
+| `V2L_130mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 6.9 | 09-ducts |
+| `V2L_70mm_DUCT.stl` | bayducts `remix/` · after kit | 1 | Black | 9.6 | 09-ducts |
+| `V2L_70mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 3.7 | 09-ducts |
+| `V3L_10mm_DUCT.stl` | bayducts `remix/` · after kit | 3 | Black | 1.5 | 09-ducts |
+| `V3L_10mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 3 | Black | 0.6 | 09-ducts |
+| `V3L_34mm_DUCT_HOLE.stl` | bayducts `remix/` · after kit | 1 | Black | 4.1 | 09-ducts |
+| `V3L_34mm_DUCT_COVER.stl` | bayducts `remix/` · after kit | 1 | Black | 1.8 | 09-ducts |
+| `V3L_154N_DUCT.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 20.3 | 09-ducts |
+| `V3L_154N_DUCT_COVER.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 7.5 | 09-ducts |
+| `V3L_T_REG_N.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 13.5 | 09-ducts |
+| `V3L_T_REG_N_COVER.stl` | bayducts `remix/` · after kit, if gap ≥ 25 mm | 2 | Black | 5.4 | 09-ducts |
 
 ![Layout v3 on LDO's Rev D bay photo: DC conduit black, AC conduit orange, remixed pieces hatched, rear at the bottom](../assets/b11/layout-v3-overlay.jpg)
 
@@ -123,7 +123,7 @@ Source: [print/README § B11](README.md#b11-bay-ducting-petg-v0) · [00-slicer-s
 **Do:** Snap the lid on and off five times, then shake the coupon lid down.
 **Check:** The lid clicks home each time and stays on when shaken. Any crack or loose lid means no B11-P5.
 
-Pause: ~10 min since the last pause — coupon tested and kept in 09-bay. The bundle-fill test waits for the harness on kit day.
+Pause: ~10 min since the last pause — coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day.
 
 Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run and check 16
 
@@ -170,28 +170,28 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B11.8 — Sort into bins
 
-**Do:** Sort off the plate diagrams: number to legend, colour to bin, bin id on the part. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). Everything goes to **09-bay** except the strip fin, which goes to **10-wiring**.
+**Do:** Sort off the plate diagrams: number to legend, colour to bin, bin id on the part. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). Everything goes to **09-ducts** except the strip fin, which goes to **10-wiring**.
 
 **B11-P1**
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `V3L_COUPON_22N_DUCT`, `V3L_COUPON_22N_DUCT_COVER` |
+| **09-ducts** — Bay ducts and lids, B11 | `V3L_COUPON_22N_DUCT`, `V3L_COUPON_22N_DUCT_COVER` |
 
 **B11-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V2_6B_154mm_DUCT_COVER` ×2, `CMD_V3_1H_90DEG` ×2, `CMD_V2_6B_90DEG_COVER` ×2, `V2L_90DEG_MIRROR`, `V2L_90DEG_COVER_MIRROR` |
+| **09-ducts** — Bay ducts and lids, B11 | `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V2_6B_154mm_DUCT_COVER` ×2, `CMD_V3_1H_90DEG` ×2, `CMD_V2_6B_90DEG_COVER` ×2, `V2L_90DEG_MIRROR`, `V2L_90DEG_COVER_MIRROR` |
 
 **B11-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `V3L_WIRE_BOX_PORT`, `CMD_V2_6B_WIRE_BOX_COVER`, `V3L_90DEG_R15` ×2, `V3L_90DEG_R15_COVER` ×2, `CMD_V3_1H_T_SHORT`, `CMD_V2_6B_T_SHORT_COVER`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 |
+| **09-ducts** — Bay ducts and lids, B11 | `V3L_WIRE_BOX_PORT`, `CMD_V2_6B_WIRE_BOX_COVER`, `V3L_90DEG_R15` ×2, `V3L_90DEG_R15_COVER` ×2, `CMD_V3_1H_T_SHORT`, `CMD_V2_6B_T_SHORT_COVER`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 |
 | **10-wiring** — Bay wiring: AC strip fin (B11) | `V2L_STRIP_FIN` |
 
-**Check:** 26 pieces in 09-bay and the strip fin alone in 10-wiring, each lid bagged with its duct.
+**Check:** 26 pieces in 09-ducts and the strip fin alone in 10-wiring, each lid bagged with its duct.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
@@ -321,7 +321,7 @@ cd "$REPO"
 #         The other two 10 mm pieces keep their roles; never rename the 10 mm line.
 # edit 2, slicer/plates.py ORIENT: add "V3L_${L}mm_DUCT.stl" to the "flip" list. The duct is drawn base up, as
 #         remix_v3 leaves every body, and flip prints it base down. The cover needs no entry.
-# edit 3, slicer/bins.py: ASSIGN both new names -> "09-bay"; NOTES: the 10 mm line becomes "2 copies: DC rear-upper
+# edit 3, slicer/bins.py: ASSIGN both new names -> "09-ducts"; NOTES: the 10 mm line becomes "2 copies: DC rear-upper
 #         run, SSR run right end", and "V3L_${L}mm_DUCT.stl": "stub into the box port".
 python3 slicer/fetch_stls.py && python3 slicer/build_plates.py --nest B11-P4 && python3 slicer/check_docs.py
 ```
@@ -370,21 +370,21 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 
 ## Step B11.14 — Sort the after-kit plates into bins
 
-**Do:** Snap each lid on once, then sort off the diagrams into **09-bay**, beside the before-kit pieces.
+**Do:** Snap each lid on once, then sort off the diagrams into **09-ducts**, beside the before-kit pieces.
 
 **B11-P4**
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `V2L_58mm_DUCT` ×3, `V2L_58mm_DUCT_COVER` ×3, `V2L_130mm_DUCT`, `V2L_130mm_DUCT_COVER`, `V2L_70mm_DUCT`, `V2L_70mm_DUCT_COVER`, `V3L_10mm_DUCT` ×3, `V3L_10mm_DUCT_COVER` ×3, `V3L_34mm_DUCT_HOLE`, `V3L_34mm_DUCT_COVER` |
+| **09-ducts** — Bay ducts and lids, B11 | `V2L_58mm_DUCT` ×3, `V2L_58mm_DUCT_COVER` ×3, `V2L_130mm_DUCT`, `V2L_130mm_DUCT_COVER`, `V2L_70mm_DUCT`, `V2L_70mm_DUCT_COVER`, `V3L_10mm_DUCT` ×3, `V3L_10mm_DUCT_COVER` ×3, `V3L_34mm_DUCT_HOLE`, `V3L_34mm_DUCT_COVER` |
 
 **B11-P5**
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts | `V3L_154N_DUCT` ×2, `V3L_154N_DUCT_COVER` ×2, `V3L_T_REG_N` ×2, `V3L_T_REG_N_COVER` ×2 |
+| **09-ducts** — Bay ducts and lids, B11 | `V3L_154N_DUCT` ×2, `V3L_154N_DUCT_COVER` ×2, `V3L_T_REG_N` ×2, `V3L_T_REG_N_COVER` ×2 |
 
-**Check:** 26 more pieces in 09-bay, or the fallback set in place of P5's eight.
+**Check:** 26 more pieces in 09-ducts, or the fallback set in place of P5's eight.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
@@ -402,7 +402,7 @@ Source: [print/README § Bins](README.md#bins)
 - [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
 - [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe, filter-fan and bed L leads confirmed against layout v3 in Ch 09/10, not on kit day
-- [ ] Every lid snaps onto its duct; 09-bay holds the ducts, 10-wiring the strip fin
+- [ ] Every lid snaps onto its duct; 09-ducts holds the ducts, 10-wiring the strip fin
 - [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
 

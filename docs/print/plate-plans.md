@@ -256,7 +256,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P1 — sorting diagram](../manual/assets/plates/B11-P1.png)
 
-**B11-P1** · petg · 2 parts · 0.4 h · 4 g · bins: 09-bay · [Load step](../manual/print/B11-bay-ducting.md#step-b113-load-and-print-plate-b11-p1)
+**B11-P1** · petg · 2 parts · 0.4 h · 4 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b113-load-and-print-plate-b11-p1)
 
 </div>
 
@@ -264,7 +264,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P2 — sorting diagram](../manual/assets/plates/B11-P2.png)
 
-**B11-P2** · petg · 10 parts · 6.9 h · 96 g · bins: 09-bay · [Load step](../manual/print/B11-bay-ducting.md#step-b115-load-and-print-plate-b11-p2)
+**B11-P2** · petg · 10 parts · 6.9 h · 96 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b115-load-and-print-plate-b11-p2)
 
 </div>
 
@@ -272,7 +272,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P3 — sorting diagram](../manual/assets/plates/B11-P3.png)
 
-**B11-P3** · petg · 15 parts · 4.6 h · 73 g · bins: 09-bay, 10-wiring · [Load step](../manual/print/B11-bay-ducting.md#step-b116-load-and-print-plate-b11-p3)
+**B11-P3** · petg · 15 parts · 4.6 h · 73 g · bins: 09-ducts, 10-wiring · [Load step](../manual/print/B11-bay-ducting.md#step-b116-load-and-print-plate-b11-p3)
 
 </div>
 
@@ -280,7 +280,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P4 — sorting diagram](../manual/assets/plates/B11-P4.png)
 
-**B11-P4** · petg · 18 parts · 6.3 h · 82 g · bins: 09-bay · [Load step](../manual/print/B11-bay-ducting.md#step-b1112-load-and-print-plate-b11-p4)
+**B11-P4** · petg · 18 parts · 6.3 h · 82 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b1112-load-and-print-plate-b11-p4)
 
 </div>
 
@@ -288,7 +288,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P5 — sorting diagram](../manual/assets/plates/B11-P5.png)
 
-**B11-P5** · petg · 8 parts · 6.8 h · 93 g · bins: 09-bay · [Load step](../manual/print/B11-bay-ducting.md#step-b1113-load-and-print-plate-b11-p5)
+**B11-P5** · petg · 8 parts · 6.8 h · 93 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b1113-load-and-print-plate-b11-p5)
 
 </div>
 

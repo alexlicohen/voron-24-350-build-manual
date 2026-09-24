@@ -39,7 +39,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 
 **Printed parts**
 
-Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start. Every B11 lid stays bagged in 09-bay: the AC lids close at Ch 10 Step 10.80, the DC lids before the first panel in Ch 11.
+Parts arrive in the bins named below (see the bin map in print/README.md#bins); check the bin label's list before you start. Every B11 lid stays bagged in 09-ducts: the AC lids close at Ch 10 Step 10.80, the DC lids before the first panel in Ch 11.
 
 | Looks like | STL | Bin | Qty | Colour |
 |---|---|---|---|---|
@@ -49,9 +49,9 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/PSU_stabilizer_50mm.png){ width=96 } | `Electronics_Bay/PSU_stabilizer_50mm` | 09-bay | 1 — **fit only if needed**, see 09.16 | Black |
 | ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `Nitehawk-SB-V2/usb_adapter_mount_partial_cover` | 09-bay | 1 | Black |
 | ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `Skirts/power_inlet_IECGS_1mm` | 09-bay | 1 (batch B07-P1) | Black |
-| ![](assets/parts/V2L_90DEG_MIRROR.png){ width=96 } | B11 DC loop, 09.6: `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, `V2L_58mm_DUCT` ×3, `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `V3L_10mm_DUCT` | 09-bay | 13 | Black |
-| ![](assets/parts/V3L_154N_DUCT.png){ width=96 } | B11 middle run, 09.6: `V3L_154N_DUCT` ×2, `V3L_T_REG_N` ×2, or B11's fallback set | 09-bay | 4 | Black |
-| ![](assets/parts/V3L_WIRE_BOX_PORT.png){ width=96 } | B11 AC conduit, 09.36: `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `V3L_34mm_DUCT_HOLE`, `CMD_V3_1H_T_SHORT`, `V3L_10mm_DUCT` ×2, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 | 09-bay | 9 | Black |
+| ![](assets/parts/V2L_90DEG_MIRROR.png){ width=96 } | B11 DC loop, 09.6: `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, `V2L_58mm_DUCT` ×3, `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `V3L_10mm_DUCT` | 09-ducts | 13 | Black |
+| ![](assets/parts/V3L_154N_DUCT.png){ width=96 } | B11 middle run, 09.6: `V3L_154N_DUCT` ×2, `V3L_T_REG_N` ×2, or B11's fallback set | 09-ducts | 4 | Black |
+| ![](assets/parts/V3L_WIRE_BOX_PORT.png){ width=96 } | B11 AC conduit, 09.36: `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `V3L_34mm_DUCT_HOLE`, `CMD_V3_1H_T_SHORT`, `V3L_10mm_DUCT` ×2, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 | 09-ducts | 9 | Black |
 
 **Supplied printed by LDO — do not print these:** Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 

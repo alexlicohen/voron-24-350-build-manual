@@ -643,17 +643,11 @@ Pause: ~35 min since the last pause — gantry squared against the A/B drives, X
 - staged: `[a]_z_chain_retainer_bracket_x2` ×2
 - staged: drag chain 10×15 R28 ×1
 
-**Do:**
+**Do:** Bag the Z chain parts and label the bag **Ch 10, manual p.200–204**. Chain latches and mounting are Ch 10's.
 
-1. Bag the Z chain parts and label the bag **Ch 10, manual p.200–204**.
-2. Open the link latches with a **2.5 mm flat screwdriver**, icon side.
-3. Expand the notch on the notched end link with pliers.
+**Check:** One labelled bag holding the chain, the anchor, the guide and both retainer brackets.
 
-Prying the wrong side breaks the latch. Chain length and mounting are Ch 10's. [src](https://docs.ldomotors.com/en/guides/cable_chain_guide)
-
-**Check:** One labelled bag, latches opening and closing with an audible click, one end link modified.
-
-Source: [Voron manual p.123](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=123) · [LDO cable-chain guide](https://docs.ldomotors.com/en/guides/cable_chain_guide)
+Source: [Voron manual p.123](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=123)
 
 Pause: ~15 min since the last pause — Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34.
 

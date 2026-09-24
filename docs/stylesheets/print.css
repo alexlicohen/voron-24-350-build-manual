@@ -64,3 +64,15 @@
 
   .print-page-break { break-before: page; page-break-before: always; }
 }
+
+/* Fastener gauge (docs/print/bin-labels.md, scripts/build_printables.py): the SVG is
+ * drawn in mm and must print 1:1, so the screen-only max-width is lifted on paper
+ * and the drawing never splits across a page. */
+@media print {
+  .fastener-gauge { break-inside: avoid; page-break-inside: avoid; }
+  .fastener-gauge svg.fastener-gauge__svg {
+    width: 172mm !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+}

@@ -14,24 +14,24 @@
 <line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
 <text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
 <text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
-<path d="M488.0,446.5 517.5,446.0 518.0,447.5 521.0,449.5 521.5,452.0 526.5,452.0 527.0,449.5 529.5,449.0 531.5,446.0 560.5,446.0 561.0,447.5 564.0,449.5 564.0,461.5 561.0,462.5 561.0,509.5 564.0,510.5 564.0,522.5 562.5,523.0 560.5,526.0 531.5,526.0 529.5,523.0 527.0,522.5 526.5,520.0 521.5,520.0 521.0,522.5 519.5,523.0 517.5,526.0 488.5,526.0 486.5,523.0 484.0,522.5 484.0,511.5 485.5,510.0 488.0,509.5 488.0,462.5 485.5,462.0 484.0,460.5 484.0,449.5 486.5,449.0Z" fill-rule="evenodd" fill="#e0a100" stroke="#7b5900" stroke-width="1.0" stroke-linejoin="round"><title>#2 V3L_COUPON_22N_DUCT.stl → 09-bay</title></path>
-<path d="M384.0,446.5 463.5,446.0 464.0,525.5 384.5,526.0Z" fill-rule="evenodd" fill="#e0a100" stroke="#7b5900" stroke-width="1.0" stroke-linejoin="round"><title>#1 V3L_COUPON_22N_DUCT_COVER.stl → 09-bay</title></path>
-<text x="423.5" y="487.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">1</text>
-<text x="423.5" y="498.0" font-size="12" fill="#1a1a1e" text-anchor="middle">09-bay</text>
-<text x="524.5" y="487.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">2</text>
-<text x="524.5" y="498.0" font-size="12" fill="#1a1a1e" text-anchor="middle">09-bay</text>
+<path d="M488.0,446.5 517.5,446.0 518.0,447.5 521.0,449.5 521.5,452.0 526.5,452.0 527.0,449.5 529.5,449.0 531.5,446.0 560.5,446.0 561.0,447.5 564.0,449.5 564.0,461.5 561.0,462.5 561.0,509.5 564.0,510.5 564.0,522.5 562.5,523.0 560.5,526.0 531.5,526.0 529.5,523.0 527.0,522.5 526.5,520.0 521.5,520.0 521.0,522.5 519.5,523.0 517.5,526.0 488.5,526.0 486.5,523.0 484.0,522.5 484.0,511.5 485.5,510.0 488.0,509.5 488.0,462.5 485.5,462.0 484.0,460.5 484.0,449.5 486.5,449.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#2 V3L_COUPON_22N_DUCT.stl → 09-ducts</title></path>
+<path d="M384.0,446.5 463.5,446.0 464.0,525.5 384.5,526.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#1 V3L_COUPON_22N_DUCT_COVER.stl → 09-ducts</title></path>
+<text x="423.5" y="488.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<text x="423.5" y="498.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="524.5" y="488.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="524.5" y="498.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
 <text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
-<rect x="950.0" y="48.0" width="53.0" height="18.0" rx="4.0" fill="#e0a100"/>
-<text x="976.5" y="61.3" font-size="12" fill="#1a1a1e" text-anchor="middle" font-weight="bold">09-bay</text>
+<rect x="950.0" y="48.0" width="64.0" height="18.0" rx="4.0" fill="#9c6a12"/>
+<text x="982.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">09-ducts</text>
 <text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
-<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#e0a100"/>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
 <text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
 <text x="983.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V3L_COUPON_22N_DUCT_COVER.stl</text>
-<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">09-bay · Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts · Ch 09 · 09.6–09.25</text>
-<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#e0a100"/>
+<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
 <text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
 <text x="983.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V3L_COUPON_22N_DUCT.stl</text>
-<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">09-bay · Electronics bay: inlet, WAGO, PSU, USB, DIN clips, B11 ducts · Ch 09 · 09.6–09.25</text>
+<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
 <text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
 <text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B11-P1.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
 </svg>

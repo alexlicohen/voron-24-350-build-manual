@@ -123,6 +123,18 @@ def check_bins(readme: str) -> list[str]:
     for b in bins.BINS:
         if not re.search(rf"^\| \*\*{re.escape(b)}\*\* \|", readme, re.M):
             bad.append(f"print/README § Bins: no row for {b}")
+    # "N bins" / "N containers" in prose: the table checks above never see a bare count
+    # (a new sub-bin left "26 bins" standing in three files). 00-index's corrections log
+    # is history and exempt, as in check_plate_ids.
+    for path in (PRINT / "README.md", DOCS / "manual" / "00-before-you-start.md",
+                 DOCS / "manual" / "00-index.md"):
+        text = path.read_text().split("\n## Corrections log")[0]
+        for n, line in enumerate(text.splitlines(), 1):
+            for m in re.finditer(r"\b(\d+)\**\s+(?:bins|containers)\b", line):
+                if int(m.group(1)) != len(bins.BINS):
+                    bad.append(f"{path.relative_to(REPO)}:{n}: says {m.group(1)} "
+                               f"{'bins' if 'bins' in m.group(0) else 'containers'}, "
+                               f"bins.py has {len(bins.BINS)}")
     # manifest column
     manifest = DOCS / "manual" / "assets" / "parts" / "MANIFEST.csv"
     rows = list(csv.DictReader(manifest.open()))
