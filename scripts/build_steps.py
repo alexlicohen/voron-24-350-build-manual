@@ -33,6 +33,27 @@ manual's own text says to go to Ch 07 and come back to 06b from Ch 13). The
 line stays visible in the rendered checklist; only its first valid link is
 read.
 
+A **step** body can carry the same `**Next:** [..](..)` line (13.34 hands off
+to Ch 06b, not to 13.35): it renders visibly after Source and overrides that
+step page's Next button the same way.
+
+Panel crops: an image line may declare `{ crop="x0 y0 x1 y1" }` (page
+fractions) on a `manual-pages/` or `sb-pages/` PNG. The step page shows the
+committed crop from `assets/manual-crops/` (scripts/crop_panels.py owns the box
+parse, file name and `--check`) with a "Full page" link to the original; the
+long chapter page keeps the whole page. A declared crop whose PNG is missing
+fails the build.
+
+Checkpoint rewards: every `## Checkpoint` page ends its own section with a
+reward from `mascot.reward_html` — the `pass` scene, captioned "You built <X>.
+<N> gummy worms." from the Checkpoint's `**Built:** <X>` line (assembly
+chapters; ≤12 words) or "<Checkpoint> passed." without one, and for a print
+batch "Batch Bnn printed: plate(s) … of 22, … of 157.0 h." from slicer/plates.py
+and slicer/check_docs.py. Worms: one per 30 min of the chapter's
+`**Sessions:**` bench time (split across a chapter's Checkpoints by their
+Pause segments), one per plate for a batch. The long chapter page gets the same
+reward at the end of each Checkpoint section.
+
 The directory is gitignored and rebuilt by `mkdocs build`; never hand-edit it.
 Writes are content-compared so `mkdocs serve` does not loop on its own output.
 """
@@ -40,6 +61,7 @@ Writes are content-compared so `mkdocs serve` does not loop on its own output.
 from __future__ import annotations
 
 import html
+import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -55,6 +77,15 @@ import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset p
 
 sys.path.insert(0, str(REPO / "scripts"))
 import parts  # noqa: E402  (scripts/parts.py — Parts parse, counts, bins, kit-BOM source)
+import crop_panels  # noqa: E402  (scripts/crop_panels.py — crop declarations and file names)
+
+sys.path.insert(0, str(REPO / "slicer"))
+import check_docs  # noqa: E402  (slicer/check_docs.py — per-batch hours, rounded as the docs print them)
+from plates import PLATES, run_of  # noqa: E402  (slicer/plates.py — which plates a batch has)
+
+
+class BuildStepsError(Exception):
+    """A chapter declares something the step pages cannot honour — fails the build."""
 
 DOCS = REPO / "docs"
 MANUAL = DOCS / "manual"
@@ -87,6 +118,15 @@ _DESC_RE = re.compile(r"^\*{0,2}What you're looking at:\*{0,2}\s*(.*)$")
 # A helper (child) job for this step: rendered right after Check, and counted on
 # the overview, the chapter start page and the Tonight view.
 _HELPER_RE = re.compile(r"^\*{0,2}Helper:\*{0,2}\s*(.*)$")
+# A Checkpoint's authored "what you built" line, the reward's caption.
+_BUILT_RE = re.compile(r"^\*\*Built:\*\*\s*(.*?)\s*$")
+BUILT_MAX_WORDS = 12
+WORM_MINUTES = 30
+_SESSIONS_MIN_RE = re.compile(r"(\d+)\s*×\s*~?\s*(\d+)\s*min")
+_TIME_HOURS_RE = re.compile(r"(\d+(?:\.\d+)?)\s*(?:[–-]\s*(\d+(?:\.\d+)?))?\s*h\b")
+# `{ crop="x0 y0 x1 y1" }` on an image line, and the page PNG it crops.
+_CROP_ATTR_RE = re.compile(r"""\s*\bcrop=(["'])([^"']*)\1""")
+_PAGE_PNG_RE = re.compile(r"(manual|sb)-p(\d{3})\.png$")
 _LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s")
 _TABLE_ROW_RE = re.compile(r"^\s*\|")
 _BQ_PREFIX_RE = re.compile(r"^>\s?")
@@ -145,6 +185,9 @@ class Page:
                                                               # page (e.g. a mid-chapter Checkpoint)
                                                               # sends the Next button somewhere
                                                               # other than the following page
+    own_end: int | None = None   # Checkpoint: where its own section ends in `body` (the
+                                 # chapter tail rides after it); the reward goes here
+    built: str | None = None     # Checkpoint: its `**Built:**` text, line removed from body
 
 
 @dataclass
@@ -278,10 +321,12 @@ def parse_chapter(path: Path) -> Chapter | None:
                 section = _plain(pending_title)
                 current_section = None if section.lower() == "steps" else section
             pending_title, pending_body = None, []
+            step_body = (intro + ["", ""] if intro else []) + body
             pages.append(Page(kind="step", slug=_slug_for_step(step_id),
                               title=head, step_id=step_id, section=current_section,
-                              ordinal=ordinal,
-                              body=(intro + ["", ""] if intro else []) + body))
+                              ordinal=ordinal, body=step_body,
+                              next_override=[seg.lines[0] for seg in _segments(step_body)
+                                             if seg.kind == "next"]))
             continue
 
         if block.level == 2:
@@ -290,9 +335,16 @@ def parse_chapter(path: Path) -> Chapter | None:
                 flush_pending_note()
                 tag = cp.group(1).strip() or ""
                 override = [l for l in body if _NEXT_OVERRIDE_RE.match(l.strip())]
+                built = [l for l in body if _BUILT_RE.match(l.strip())]
+                if len(built) > 1:
+                    raise BuildStepsError("%s: %s has %d **Built:** lines; one per Checkpoint"
+                                          % (path.name, head, len(built)))
+                body = _strip_edges([l for l in body if l not in built])
                 pages.append(Page(kind="checkpoint",
                                   slug="checkpoint-" + (tag.lower() or "end"),
-                                  title=head, body=body, next_override=override))
+                                  title=head, body=body, next_override=override,
+                                  own_end=len(body),
+                                  built=_BUILT_RE.match(built[0].strip()).group(1) if built else None))
                 continue
             if re.match(r"^Common mistakes", head, re.IGNORECASE) or head.strip() == "Next":
                 trailing += ["", f"## {head}", ""] + body
@@ -457,6 +509,8 @@ def _marker(line: str) -> str | None:
         return "desc"
     if _HELPER_RE.match(s):
         return "helper"
+    if _NEXT_OVERRIDE_RE.match(s):
+        return "next"
     return None
 
 
@@ -639,6 +693,7 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     other: list[str] = []
     pause: list[str] = []
     source: list[str] = []
+    nxt: list[str] = []
     for seg in segs:
         if seg.kind == "do":
             do += seg.lines + [""]
@@ -660,6 +715,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             pause += seg.lines + [""]
         elif seg.kind == "source":
             source += seg.lines + [""]
+        elif seg.kind == "next":
+            nxt += seg.lines + [""]
 
     def key(img: str) -> int:
         src = _IMAGE_LINE_RE.match(img).group("src")
@@ -676,6 +733,15 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
             attr = (m.group("attr") or "").strip()
             if attr:
                 attr = attr[1:-1].strip()
+            crop = _crop_file(m.group("src"), attr)
+            if crop:
+                # The committed crop, larger in the column; the page it came
+                # from one tap away (glightbox opens it zoomable).
+                attr = _CROP_ATTR_RE.sub("", attr).strip()
+                rel = Path(os.path.relpath(crop_panels.CROPS_DIR / crop, dest_dir)).as_posix()
+                img = "![%s](%s){ %s.%s .step-figure__crop }\n[Full page](%s){ .glightbox .step-figure__full data-type=\"image\" }" % (
+                    m.group("alt"), rel, (attr + " ") if attr else "", cls, m.group("src"))
+            elif attr:
                 img = "![%s](%s){ %s .%s }" % (m.group("alt"), m.group("src"), attr, cls)
             else:
                 img = "![%s](%s){ .%s }" % (m.group("alt"), m.group("src"), cls)
@@ -715,6 +781,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         out += _strip_edges(pause) + [""]
     if source:
         out += _strip_edges(source)
+    if nxt:
+        out += [""] + _strip_edges(nxt)
     out += ["", "</div>", "", "</div>"]
     return out
 
@@ -868,6 +936,195 @@ def gather_overview(chapter: Chapter) -> list[str]:
 
 
 # --------------------------------------------------------------------------
+# panel crops (scripts/crop_panels.py owns the box, the file name and --check)
+# --------------------------------------------------------------------------
+
+
+def _crop_file(src: str, attr: str) -> str | None:
+    """The crop PNG's file name for an image `{ crop="…" }` attr, else None."""
+    cm = _CROP_ATTR_RE.search(attr or "")
+    if not cm:
+        return None
+    pm = _PAGE_PNG_RE.search(src)
+    try:
+        box = tuple(float(v) for v in cm.group(2).split())
+    except ValueError:
+        box = ()
+    if not pm or len(box) != 4:
+        raise BuildStepsError("crop=%r on %s: needs four numbers on a manual-pages/ or "
+                              "sb-pages/ PNG" % (cm.group(2), src))
+    page_id = ("p" if pm.group(1) == "manual" else "sb") + pm.group(2)
+    return crop_panels.crop_filename(page_id, box)
+
+
+def check_crops(chapters: list["Chapter"]) -> None:
+    """Fail the build on a crop the step pages cannot show.
+
+    Every `crop=` image line must be one `crop_panels.py --check` sees (same
+    regex), and every declared crop's PNG must be committed.
+    """
+    problems = []
+    for chapter in chapters:
+        for n, line in enumerate(chapter.path.read_text(encoding="utf-8").split("\n"), 1):
+            m = _IMAGE_LINE_RE.match(line.strip())
+            if not m or not _CROP_ATTR_RE.search(m.group("attr") or ""):
+                continue
+            where = "%s:%d" % (chapter.path.relative_to(REPO), n)
+            if chapter.path.parent != crop_panels.CHAPTERS_DIR \
+                    or not crop_panels.CROP_ATTR_RE.search(line):
+                problems.append("%s: crop declared where crop_panels.py --check cannot see "
+                                "it (write `](assets/…png){ crop=\"x0 y0 x1 y1\" }` in "
+                                "docs/manual/*.md)" % where)
+                continue
+            try:
+                fname = _crop_file(m.group("src"), m.group("attr")[1:-1])
+            except BuildStepsError as exc:
+                problems.append("%s: %s" % (where, exc))
+                continue
+            if not (crop_panels.CROPS_DIR / fname).exists():
+                problems.append("%s: crop PNG missing: assets/manual-crops/%s — render it with "
+                                "`python3 scripts/crop_panels.py --render …`" % (where, fname))
+    if problems:
+        raise BuildStepsError("panel crops:\n  " + "\n  ".join(problems))
+
+
+# --------------------------------------------------------------------------
+# Checkpoint rewards
+# --------------------------------------------------------------------------
+
+REWARDS: dict[tuple[str, str], str] = {}   # (chapter stem, checkpoint slug) -> reward HTML
+
+
+def _bench_minutes(chapter: "Chapter") -> int | None:
+    """The chapter's bench time: `**Sessions:** N × ~M min`, else the Time midpoint."""
+    m = _SESSIONS_MIN_RE.search(chapter.sessions or "")
+    if m:
+        return int(m.group(1)) * int(m.group(2))
+    m = _TIME_HOURS_RE.search(_plain(chapter.time or ""))
+    if m:
+        lo = float(m.group(1))
+        hi = float(m.group(2) or lo)
+        return round((lo + hi) / 2 * 60)
+    return None
+
+
+def _worms(n: int) -> str:
+    return "%d gummy worm%s." % (n, "" if n == 1 else "s")
+
+
+def _checkpoint_worms(chapter: "Chapter") -> dict[str, int]:
+    """checkpoint slug -> worms: one per 30 min of bench time, split across a
+    chapter's Checkpoints by how many Pause segments lead up to each."""
+    cps = [p for p in chapter.pages if p.kind == "checkpoint"]
+    minutes = _bench_minutes(chapter)
+    if not cps or minutes is None:
+        return {}
+    total = max(1, int(minutes / WORM_MINUTES + 0.5))
+    if len(cps) == 1:
+        return {cps[0].slug: total}
+    index = {p.step_id: i for i, p in enumerate(chapter.pages) if p.step_id}
+    cp_at = [i for i, p in enumerate(chapter.pages) if p.kind == "checkpoint"]
+    weight = [0] * len(cps)
+    for seg in chapter.segments:
+        last = index.get(seg.ids[-1], 0)
+        k = next((j for j, at in enumerate(cp_at) if at > last), len(cps) - 1)
+        weight[k] += 1
+    whole = sum(weight) or 1
+    return {cp.slug: max(1, int(total * w / whole + 0.5)) for cp, w in zip(cps, weight)}
+
+
+def _batch_caption(batch: str, where: str) -> str:
+    """"Batch B05 printed: plate 9 of 22, 72.2 of 157.0 h. 1 gummy worm." — plates
+    from slicer/plates.py, hours as slicer/check_docs.py rounds them for the docs."""
+    ids = sorted(PLATES)
+    mine = [pid for pid in ids if PLATES[pid]["batch"] == batch]
+    if not mine:
+        raise BuildStepsError("%s: Checkpoint %s names no batch in slicer/plates.py"
+                              % (where, batch))
+    run_of_batch = {PLATES[pid]["batch"]: run_of(pid) for pid in ids}
+    _plate, batches = check_docs.load()
+    run = [pid for pid in ids if run_of(pid) == "asa"]
+    done = total = 0.0
+    for b, d in batches.items():            # additive, as check_docs sums the run
+        if run_of_batch.get(b) == "asa":
+            total = round(total + d["h"], 1)
+            if b <= batch:
+                done = round(done + d["h"], 1)
+    worms = _worms(len(mine))
+    if run_of(mine[0]) != "asa":
+        return "Batch %s printed: %d plate%s, %.1f h, outside the %.1f h run. %s" % (
+            batch, len(mine), "" if len(mine) == 1 else "s", batches[batch]["h"], total, worms)
+    first, last = run.index(mine[0]) + 1, run.index(mine[-1]) + 1
+    plates = ("plate %d" % first) if first == last else ("plates %d to %d" % (first, last))
+    return "Batch %s printed: %s of %d, %.1f of %.1f h. %s" % (
+        batch, plates, len(run), done, total, worms)
+
+
+def build_rewards(chapters: list["Chapter"]) -> None:
+    """Fill REWARDS for every Checkpoint (mascot.reward_html owns the markup,
+    the humour rule and the caption cap)."""
+    REWARDS.clear()
+    for chapter in chapters:
+        is_batch = chapter.path.parent == PRINT
+        worms = {} if is_batch else _checkpoint_worms(chapter)
+        for page in chapter.pages:
+            if page.kind != "checkpoint":
+                continue
+            tag = _CHECKPOINT_HEAD_RE.match(page.title).group(1).strip()
+            where = "%s § %s" % (chapter.path.name, _plain(page.title))
+            if is_batch:
+                if page.built:
+                    raise BuildStepsError("%s: **Built:** is for assembly Checkpoints; a batch "
+                                          "reward is generated from slicer/plates.py" % where)
+                caption = _batch_caption(tag, where)
+            else:
+                n = worms.get(page.slug)
+                tail = (" " + _worms(n)) if n else ""
+                if page.built:
+                    built = _plain(page.built).rstrip(".").strip()
+                    if len(built.split()) > BUILT_MAX_WORDS:
+                        raise BuildStepsError("%s: **Built:** is %d words, budget is %d"
+                                              % (where, len(built.split()), BUILT_MAX_WORDS))
+                    caption = "You built %s.%s" % (built, tail)
+                else:
+                    caption = "Checkpoint %s passed.%s" % (tag, tail)
+            REWARDS[(chapter.stem, page.slug)] = mascot.reward_html(tag, caption, where)
+
+
+def _long_page_rewards(markdown: str, stem: str) -> str:
+    """The long chapter page: each Checkpoint section ends with its reward, and
+    its `**Built:**` line (the reward's source) is not shown raw."""
+    if not any(k[0] == stem for k in REWARDS):
+        return markdown
+    out: list[str] = []
+    pending: str | None = None
+    fence: str | None = None
+    for line in markdown.split("\n"):
+        fm = _FENCE_RE.match(line)
+        if fm:
+            token = fm.group(1)[0] * 3
+            fence = token if fence is None else (None if line.strip().startswith(fence) else fence)
+            out.append(line)
+            continue
+        if fence is None:
+            hm = _HEADING_RE.match(line)
+            if hm and len(hm.group(1)) <= 2:
+                if pending:
+                    out += ["", pending, ""]
+                    pending = None
+                cp = _CHECKPOINT_HEAD_RE.match(hm.group(2)) if len(hm.group(1)) == 2 else None
+                if cp:
+                    slug = "checkpoint-" + (cp.group(1).strip().lower() or "end")
+                    pending = REWARDS.get((stem, slug))
+            elif pending and _BUILT_RE.match(line.strip()):
+                continue
+        out.append(line)
+    if pending:
+        out += ["", pending, ""]
+    return "\n".join(out)
+
+
+# --------------------------------------------------------------------------
 # emission
 # --------------------------------------------------------------------------
 
@@ -998,7 +1255,12 @@ def render_page(chapter: Chapter, page: Page, idx: int,
                     "<figcaption>What you should have now — %s</figcaption>"
                     % html.escape(_shot_caption(shot)), "", "</figure>", ""]
         out += ['<div class="step-text step-text--wide" markdown="1">', ""]
-        out += page.body
+        reward = REWARDS.get((chapter.stem, page.slug)) if page.kind == "checkpoint" else None
+        if reward:
+            end = page.own_end if page.own_end is not None else len(page.body)
+            out += page.body[:end] + ["", reward, ""] + page.body[end:]
+        else:
+            out += page.body
         if page.kind == "front":
             out += helper_list_line(chapter)
         out += ["", "</div>"]
@@ -1182,6 +1444,8 @@ def build() -> dict:
         if chapter:
             chapters.append(chapter)
 
+    check_crops(chapters)
+
     PARSE_WARNINGS.clear()
     for chapter in chapters:
         chapter.segments = build_segments(chapter)
@@ -1190,6 +1454,8 @@ def build() -> dict:
             block = gather_admonition(segment)
             if block:
                 chapter.gather[segment.first] = block
+
+    build_rewards(chapters)
 
     _load_chapter_captions()
     CHAPTER_SHOTS.clear()
@@ -1334,7 +1600,7 @@ def on_page_markdown(markdown, page, config, files, **kwargs):
                 lines[i] = line + "\n\n" + banner
                 break
         markdown = "\n".join(lines)
-        return markdown
+        return _long_page_rewards(markdown, stem)
 
     # The manual index: chapter links become chapter-overview links.
     if src == "manual/00-index.md":

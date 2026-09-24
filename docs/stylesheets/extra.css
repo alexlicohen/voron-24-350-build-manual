@@ -188,6 +188,21 @@ h3.step-done { opacity: .6; text-decoration: line-through; }
 .md-typeset .step-figure img { display: block; width: 100%; height: auto; border-radius: .2rem; }
 .md-typeset img.step-figure__main { max-height: 68vh; width: auto; max-width: 100%; margin: 0 auto; }
 .md-typeset img.step-figure__extra { width: 100%; max-height: 30vh; object-fit: contain; object-position: center top; }
+/* A panel crop (build_steps, `{ crop="…" }`): the crop is the figure, and the
+   page it was cut from stays one tap away (glightbox, zoomable). */
+.md-typeset .step-figure > p:has(> a.step-figure__full) { position: relative; }
+.md-typeset a.step-figure__full {
+  position: absolute;
+  top: .4rem;
+  right: .4rem;
+  padding: .45rem .8rem;
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 1rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 0 0 1px var(--md-default-fg-color--lightest), 0 1px 4px rgba(0, 0, 0, .15);
+}
 .md-typeset .step-figure__none {
   flex: 1 0 100%;
   margin: 0;
@@ -945,6 +960,19 @@ body.step-is-done .md-typeset .step-done-label {
   .md-typeset .mascot-scene ~ .chapter-nav { clear: both; }
   .md-typeset .step-text:has(> .mascot-scene),
   .md-typeset .step-do:has(> .mascot-scene) { display: flow-root; }
+}
+
+/* Checkpoint reward (build_steps + mascot.reward_html): the pass scene,
+ * centred under the checklist, never floated beside it. */
+.md-typeset .checkpoint-reward { clear: both; margin: 1.4rem 0 .8rem; }
+.md-typeset .checkpoint-reward .mascot-scene { float: none; max-width: 24rem; margin: 0 auto; }
+.md-typeset .checkpoint-reward .mascot-scene img { width: 220px; max-width: 100%; }
+.md-typeset .checkpoint-reward figcaption,
+.md-typeset .checkpoint-reward--text {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  text-align: center;
 }
 
 /* Home: the front-view bird beside the title. boards.js swaps the <img> for the

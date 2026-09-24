@@ -47,7 +47,12 @@ Three jobs, all of them here so no other file has to know where the art lives:
    Tip / Pause titles `hooks/callouts.py` writes and the Gather / Helper badges
    `scripts/build_steps.py` writes alike — on the step page and on the long
    chapter page, and the fence refuses a scene inside one.  No other file
-   classifies steps.
+   classifies steps.  The same list refuses a `**Helper:**` line inside such a
+   step (the build fails), with one approved exception, `HELPER_RECORD_ONLY`.
+
+5. `reward_html()` — the Checkpoint reward `scripts/build_steps.py` generates:
+   the `pass` scene with its caption, or the caption alone for a Checkpoint in
+   `REWARD_TEXT_ONLY`.  The caption obeys the fence's rules.
 
 `scripts/gen_mascot.py` owns the SVGs; this hook never writes one.
 """
@@ -113,6 +118,18 @@ NO_MASCOT_STEPS: dict[str, str] = {
     "hot": "13.29-13.33 13.35-13.37 13.39 13.40 13.42 14.3 14.6-14.8 14.21 14.22",
 }
 
+# Alex, 2026-09-24 (WAVE4-PLAN D4): on the unplugged meter sweep the helper may
+# RECORD readings while the adult holds the probes, so a Helper line in these
+# steps is allowed, listed or not, only if its job says "record".
+HELPER_RECORD_ONLY = "10.74-10.78"
+_RECORD_RE = re.compile(r"\brecord", re.IGNORECASE)
+_HELPER_LINE_RE = re.compile(r"^(?:>\s?)?\*{0,2}Helper:\*{0,2}\s*(.*)$")
+
+# WAVE4-PLAN D5: Checkpoint 00a closes the mains-safety chapter, so its reward
+# is the caption alone; every other Checkpoint (10 included) gets the bird.
+REWARD_TEXT_ONLY = {"00a"}
+REWARD_POSE = "pass"
+
 _STEP_ID_RE = re.compile(r"^([0-9]{2}[a-z]?|B[0-9]{2})\.([0-9]+)$", re.IGNORECASE)
 
 
@@ -145,6 +162,24 @@ def no_mascot_reason(step_id: str) -> str | None:
                 _NO_MASCOT.setdefault(key, reason)
     key = _step_key(step_id)
     return _NO_MASCOT.get(key) if key else None
+
+
+_RECORD_ONLY: set[tuple[str, int]] = set()
+
+
+def helper_problem(step_id: str, job: str) -> str | None:
+    """Why a `**Helper:**` job may not sit in this step, or None if it may."""
+    if not _RECORD_ONLY:
+        _RECORD_ONLY.update(_expand(HELPER_RECORD_ONLY))
+    if _step_key(step_id) in _RECORD_ONLY:
+        if _RECORD_RE.search(job):
+            return None
+        return ("the meter sweep %s allows a helper who records readings only "
+                "(the adult holds the probes); say \"records\"" % HELPER_RECORD_ONLY)
+    reason = no_mascot_reason(step_id)
+    if reason:
+        return "%s %s step takes no helper" % ("an" if reason[0] in "aeiou" else "a", reason)
+    return None
 
 
 # --------------------------------------------------------------------------
@@ -232,6 +267,31 @@ def scene_html(pose: str, caption: str, side: str = "right") -> str:
 # --------------------------------------------------------------------------
 
 
+def check_caption(caption: str, where: str) -> None:
+    """The caption rule, for fences and generated captions alike."""
+    words = len(caption.split())
+    if words > CAPTION_MAX_WORDS:
+        raise MascotError(
+            f"{where}: caption is {words} words, budget is {CAPTION_MAX_WORDS}"
+        )
+    if _DASH_RE.search(caption):
+        raise MascotError(f"{where}: caption may not use an em-dash — {caption!r}")
+    if _PAREN_RE.search(caption):
+        raise MascotError(f"{where}: caption may not use a parenthetical — {caption!r}")
+
+
+def reward_html(checkpoint: str, caption: str, where: str) -> str:
+    """A Checkpoint's reward: the `pass` scene, or text only (`REWARD_TEXT_ONLY`).
+
+    One line of raw HTML, so it drops into any markdown body as its own block.
+    """
+    check_caption(caption, where)
+    if checkpoint.lower() in REWARD_TEXT_ONLY:
+        return ('<p class="checkpoint-reward checkpoint-reward--text">%s</p>'
+                % html.escape(caption))
+    return '<div class="checkpoint-reward">%s</div>' % scene_html(REWARD_POSE, caption)
+
+
 def _scene_from_fence(body: list[str], where: str) -> str:
     try:
         spec = yaml.safe_load("\n".join(body))
@@ -265,15 +325,7 @@ def _scene_from_fence(body: list[str], where: str) -> str:
     caption = str(spec.get("caption") or "").strip()
     if not caption:
         raise MascotError(f"{where}: a mascot fence needs a `caption:`")
-    words = len(caption.split())
-    if words > CAPTION_MAX_WORDS:
-        raise MascotError(
-            f"{where}: caption is {words} words, budget is {CAPTION_MAX_WORDS}"
-        )
-    if _DASH_RE.search(caption):
-        raise MascotError(f"{where}: caption may not use an em-dash — {caption!r}")
-    if _PAREN_RE.search(caption):
-        raise MascotError(f"{where}: caption may not use a parenthetical — {caption!r}")
+    check_caption(caption, where)
 
     side = str(spec.get("side") or "right").strip().lower()
     if side not in _SIDES:
@@ -298,15 +350,18 @@ class _StepScope:
 
     def __init__(self) -> None:
         self.level: int | None = None
-        self.step: str | None = None
+        self.step: str | None = None     # a listed step only
+        self.sid: str | None = None      # any step
 
     def heading(self, level: int, text: str) -> None:
         if self.level is not None and level > self.level:
             return
-        self.level = self.step = None
+        self.level = self.step = self.sid = None
         m = _STEP_TITLE_RE.match(text)
-        if m and no_mascot_reason(m.group(1)):
-            self.level, self.step = level, m.group(1)
+        if m:
+            self.level, self.sid = level, m.group(1)
+            if no_mascot_reason(self.sid):
+                self.step = self.sid
 
 
 def _convert(markdown: str, where: str) -> str:
@@ -320,6 +375,13 @@ def _convert(markdown: str, where: str) -> str:
             h = _MD_HEADING_RE.match(lines[i])
             if h:
                 scope.heading(len(h.group(1)), h.group(2))
+            hl = _HELPER_LINE_RE.match(lines[i]) if scope.sid else None
+            problem = hl and helper_problem(scope.sid, hl.group(1))
+            if problem:
+                raise MascotError(
+                    f"{where}: a **Helper:** line inside Step {scope.sid} — {problem} "
+                    "(hooks/mascot.py NO_MASCOT_STEPS, CONVENTIONS.md § Helper steps)"
+                )
             out.append(lines[i])
             i += 1
             continue
@@ -398,7 +460,8 @@ def resolve(html_text: str, url: str) -> str:
 
 
 def on_page_markdown(markdown, page, config, files, **kwargs):
-    if "```mascot" not in markdown and "~~~mascot" not in markdown:
+    if ("```mascot" not in markdown and "~~~mascot" not in markdown
+            and "Helper:" not in markdown):
         return markdown
     where = getattr(getattr(page, "file", None), "src_uri", None) or "page"
     return _convert(markdown, where)
@@ -414,6 +477,13 @@ def on_page_content(html_text, page, config, files, **kwargs):
 
 if __name__ == "__main__":
     fail = False
+
+    def _ok(fn) -> bool:
+        try:
+            fn()
+            return True
+        except MascotError:
+            return False
 
     def check(name, cond, detail=""):
         global fail
@@ -583,10 +653,11 @@ if __name__ == "__main__":
     missing = sorted(k for k in listed if k not in sections)
     check("every NO_MASCOT_STEPS id is a step heading", not missing,
           ", ".join("%s.%d" % k for k in missing))
-    helpers = sorted(k for k in listed
-                     if any(re.match(r"^\*{0,2}Helper:", ln) for ln in sections.get(k, [])))
-    check("no listed step carries a **Helper:** line", not helpers,
-          ", ".join("%s.%d" % k for k in helpers))
+    bad_helpers = sorted(
+        "%s.%d" % k for k, body in sections.items() for ln in body
+        if (hm := _HELPER_LINE_RE.match(ln)) and helper_problem("%s.%d" % k, hm.group(1)))
+    check("no **Helper:** line where the humour rule forbids one", not bad_helpers,
+          ", ".join(bad_helpers))
 
     for sid in ("00.1", "00.14", "00a.2", "00a.4", "08.3", "08.7", "09.10", "09.11",
                 "09.13", "09.34", "10.5", "10.23", "10.35", "10.80", "11.2", "11.3",
@@ -632,6 +703,53 @@ if __name__ == "__main__":
                                      + fence, "manual/10-wiring.md"))
     check("a fence inside an ordinary step is allowed",
           "mascot-scene" in _convert("### Step 10.24 — PSU\n\n" + fence, "p.md"))
+
+    # ---- Helper lines: forbidden in a listed step, the D4 exception -------
+    print("\n--- helper lines ---")
+    helper_cases = {
+        # (step heading, helper job) -> allowed?
+        ("Step 10.8 — Inlet", "Holds the cord out of the way."): False,
+        ("Step 11.33 — Solder the fans", "Hands over the solder."): False,
+        ("Step 10.77 — Meter the PE path", "Records each reading on the sheet while the adult holds the probes."): True,
+        ("Step 10.78 — Meter the heater", "Reads the meter aloud."): False,
+        ("Step 10.75 — Meter the frame", "Holds the black probe on the lug."): False,
+        ("Step 10.75 — Meter the frame", "Records the reading."): True,
+        ("Step 10.24 — PSU", "Holds the PSU square while you start the screws."): True,
+    }
+    for (head, job), allowed in helper_cases.items():
+        md = "### %s\n\n**Do:** Something.\n\n**Check:** Fine.\n\n**Helper:** %s\n" % (head, job)
+        try:
+            _convert(md, "manual/10-wiring.md")
+            got = True
+        except MascotError as exc:
+            got = False
+            print(f"  refused: {exc}")
+        check(f"helper in {head.split(' —')[0]} ({job[:28]}…) "
+              f"{'allowed' if allowed else 'refused'}", got == allowed)
+    check("a quoted **Helper:** line is caught too",
+          not _ok(lambda: _convert("### Step 10.8 — Inlet\n\n> **Helper:** Holds it.\n",
+                                   "manual/10-wiring.md")))
+    check("a Helper line after the listed step closes is allowed",
+          _ok(lambda: _convert("### Step 10.8 — Inlet\n\n## Checkpoint 10\n\n"
+                               "**Helper:** Ticks the list.\n", "manual/10-wiring.md")))
+    check("a Helper line in a code fence is not a Helper line",
+          _ok(lambda: _convert("### Step 10.8 — Inlet\n\n```text\n**Helper:** x\n```\n",
+                               "manual/10-wiring.md")))
+
+    # ---- the Checkpoint reward -------------------------------------------
+    print("\n--- reward ---")
+    bird = reward_html("02", "You built the four Z drives. 11 gummy worms.", "cp")
+    print(" ", bird)
+    check("reward: pass scene", "mascot-pass.svg" in bird and "checkpoint-reward" in bird)
+    text = reward_html("00a", "You built a safe mains plan. 2 gummy worms.", "cp")
+    check("reward: 00a is text only", "mascot-" not in text
+          and "checkpoint-reward--text" in text, text)
+    check("reward: Checkpoint 10 gets the bird",
+          "mascot-pass.svg" in reward_html("10", "Wired. 14 gummy worms.", "cp"))
+    check("reward: caption cap enforced",
+          not _ok(lambda: reward_html("02", " ".join(["w"] * 19), "cp")))
+    check("reward: no en/em dash in a caption",
+          not _ok(lambda: reward_html("B03", "Plates 7–9 printed.", "cp")))
 
     if fail:
         raise SystemExit(1)

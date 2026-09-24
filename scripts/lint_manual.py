@@ -237,6 +237,9 @@ _B_MARKERS = (
     ("Parts", re.compile(r"^\*\*Parts:\*\*")),
     ("Pause", re.compile(r"^Pause:\s")),
     ("Source", re.compile(r"^Source:\s")),
+    # A step's `**Next:** [..](..)` override (build_steps.py): navigation, like
+    # Source, so its link is not one of the step's cross-references.
+    ("Next", re.compile(r"^\*\*Next:\*\*\s")),
 )
 _B_LABEL_RE = re.compile(
     r"^\s*(?:>\s?)?(?:⚠\s*)?"
@@ -382,7 +385,7 @@ def check_step_budgets():
                     end = _b_absorb_list(body, end)
                 run = body[i:end]
                 line_no = body_start + i
-                if field not in ("Pause", "Source"):
+                if field not in ("Pause", "Source", "Next"):
                     xrefs += sum(len(_B_XREF_RE.findall(l)) for l in run)
                 if field == "Helper" and prev_field != "Check":
                     add(line_no, "Helper", "helper-position")
@@ -440,6 +443,37 @@ def check_missing_source():
                 findings.append(
                     f"{f.relative_to(REPO)}:{line_no}: Step {step_id} has no `Source:` line"
                 )
+    return findings
+
+
+BUILT_REQUIRED = False   # wave-4 phase 5 flips this once every Checkpoint has one
+_CHECKPOINT_H2_RE = re.compile(r"^##\s+Checkpoint\b(.*)$")
+_BUILT_LINE_RE = re.compile(r"^\*\*Built:\*\*\s*\S")
+
+
+def check_checkpoint_built():
+    """Every assembly `## Checkpoint` section carries one `**Built:** <X>` line,
+    the caption of the reward scripts/build_steps.py renders (batch rewards are
+    generated, so print/ is not scanned). WARN until BUILT_REQUIRED."""
+    findings = []
+    for f in sorted(MANUAL.glob("*.md")):
+        if not re.match(r"^\d", f.name) or f.name in _GENERATED_OR_META:
+            continue
+        lines = f.read_text(encoding="utf-8").split("\n")
+        open_at, found, fence = None, False, False
+        for n, line in enumerate(lines + ["## (end)"], 1):
+            if line.lstrip().startswith(("```", "~~~")):
+                fence = not fence
+            if fence:
+                continue
+            if re.match(r"^#{1,2}\s", line):
+                if open_at and not found:
+                    findings.append("%s:%d: %s has no `**Built:**` line"
+                                    % (f.relative_to(REPO), open_at, lines[open_at - 1][3:]))
+                open_at = n if _CHECKPOINT_H2_RE.match(line) else None
+                found = False
+            elif open_at and _BUILT_LINE_RE.match(line.strip()):
+                found = True
     return findings
 
 
@@ -573,6 +607,14 @@ def main(argv=None):
     print(f"\n== WARN: Steps missing a `Source:` line: {len(missing_source)} ==")
     for line in missing_source:
         print(f"  WARN: {line}")
+
+    missing_built = check_checkpoint_built()
+    label = "" if BUILT_REQUIRED else "WARN: "
+    print(f"\n== {label}Checkpoints without a `**Built:**` line: {len(missing_built)} ==")
+    for line in missing_built:
+        print(f"  {label}{line}")
+    if BUILT_REQUIRED:
+        total += len(missing_built)
 
     six, seven, _ = check_parts()
     for n, name, group in ((6, "Parts grammar", six), (7, "Hardware reconciliation", seven)):
