@@ -1,0 +1,796 @@
+# LDO Voron 2.4 350 kit BOM, vendored by scripts/kit_bom.py (scripts/parts.py reads it).
+# Hand edits are fine (kit-day re-pin) but a re-fetch overwrites them; aliases live in
+# kit_bom.ALIASES, keyed by item text.
+# source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D
+# fetched: 2026-09-24 (curl)
+# Kit day: re-pin to the batch sheet shipped with the kit (Step 00.2).
+source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D
+fetched: '2026-09-24'
+notes:
+- '*EU Customers may receive the Meanwhile RSP-200-24 in order to comply with local regulations'
+rows:
+- carton: 1
+  box: Cable Kit 2.4-350
+  item: Power Cables
+  qty: 1
+  aliases:
+  - \bpower cables? (?:bag|set)\b
+- carton: 1
+  box: Cable Kit 2.4-350
+  item: Toolhead PCB Cables (Z Probe is included in this bag)
+  qty: 1
+  aliases:
+  - \btoolhead (?:pcb )?cable
+  - \bumbilical\b
+  - \binductive probe\b|\btl-q5mc\b
+- carton: 1
+  box: Cable Kit 2.4-350
+  item: Misc. Cables
+  qty: 1
+  aliases:
+  - \bmisc\.? cables?\b
+- carton: 1
+  box: Motion
+  item: Bearing, F695-2RS
+  qty: 20
+  aliases:
+  - \bf695\b
+- carton: 1
+  box: Motion
+  item: Bearing, 625-2RS
+  qty: 12
+  aliases:
+  - \b625(?:-2rs)?\b.*\bbearing|\b625-2rs\b
+- carton: 1
+  box: Motion
+  item: Pulley, 2GT, 16T, (5mm ID 6mm W)
+  qty: 4
+  aliases:
+  - \b16 ?t(?:ooth)?\b.*\bpulley|\bpulley\b.*\b16 ?t\b|^16t\b
+- carton: 1
+  box: Motion
+  item: Pulley, 2GT, 20T, (5mm ID 6mm W)
+  qty: 2
+  aliases:
+  - \b20 ?t(?:ooth)?\b.*\bpulley\b.*\b6 ?mm\b|\bpulley\b.*\b20 ?t\b.*\b6 ?mm w
+  - \b20 ?t(?:ooth)?\b.*\b6 ?mm\b.*\bpulley\b
+- carton: 1
+  box: Motion
+  item: Pulley, 2GT, 20T, (5mm ID 9mm W)
+  qty: 4
+  aliases:
+  - \b20 ?t(?:ooth)?\b.*\b9 ?mm\b.*\bpulley\b|\bpulley\b.*\b20 ?t\b.*\b9 ?mm\b
+  - \b20 ?t(?:ooth)? (?:9 ?mm )?pulley\b
+- carton: 1
+  box: Motion
+  item: Pulley, 2GT, 80T, (5mm ID 6mm W)
+  qty: 4
+  aliases:
+  - \b80 ?t\b
+- carton: 1
+  box: Motion
+  item: Idler, 2GT, 20T, (5mm ID 6mm W)
+  qty: 2
+  aliases:
+  - \b20 ?t(?:ooth)?\b.*\bidler\b.*\b6 ?mm|\b20 ?t(?:ooth)? 6 ?mm idler
+  - \bgt2 20-?tooth idler\b|\b20-tooth idler\b
+- carton: 1
+  box: Motion
+  item: Idler, 2GT, 20T, (5mm ID 9mm W)
+  qty: 4
+  aliases:
+  - \b20 ?t(?:ooth)?\b.*\b9 ?mm\b.*\bidler\b|\b20 ?t idler\b.*\b9 ?mm|\bgt2 20t 9 ?mm idler
+- carton: 1
+  box: Motion
+  item: Shaft, 5x60mm
+  qty: 4
+  aliases:
+  - \b5 ?x ?60 ?mm\b.*\bshaft|\bshaft\b.*\b5 ?x ?60\b
+- carton: 1
+  box: Motion
+  item: Shaft, for Nozzle Probe
+  qty: 1
+  aliases:
+  - \bnozzle[- ]probe shaft\b|\bprobe shaft\b
+- carton: 1
+  box: Motion
+  item: Thumb Screw Kit
+  qty: 1
+  aliases:
+  - \bthumb ?screw\b
+- carton: 1
+  box: Motion
+  item: MR85 Bearing
+  qty: 2
+  aliases:
+  - \bmr85\b
+- carton: 1
+  box: Motion
+  item: Bondtech IDGA Gear Set
+  qty: 1
+  aliases:
+  - \bidga\b|\bbondtech\b.*\bgear
+- carton: 1
+  box: Motion
+  item: 4mm Bowden Coupler
+  qty: 1
+  aliases:
+  - \bbowden coupler\b
+- carton: 1
+  box: Motion
+  item: Teflon Tube (4mm OD 2mm ID) - 10cm
+  qty: 1
+  aliases:
+  - \b(?:ptfe|teflon)\b.*\b2 ?mm id\b|\b(?:ptfe|teflon)\b.*/ ?2 ?mm\b|\b(?:ptfe|teflon)\b.*\b10 ?cm\b
+- carton: 1
+  box: Motion
+  item: Foam Tape, 1mm
+  qty: 1
+  aliases:
+  - \bfoam tape,? 1 ?mm\b|\b1 ?mm foam tape\b
+- carton: 1
+  box: Motion
+  item: Foam Tape, 3mm
+  qty: 1
+  aliases:
+  - \bfoam tape,? 3 ?mm\b|\b3 ?mm foam tape\b
+- carton: 1
+  box: Motion
+  item: Sandpaper
+  qty: 2
+  aliases:
+  - \bsandpaper\b
+- carton: 1
+  box: Electronics 1
+  item: 4.3 Capacitive Display, for RPi DSI
+  qty: 1
+  aliases:
+  - \bdsi\b|\btouch ?screen\b|\b4\.3\b.*\bdisplay\b
+- carton: 1
+  box: Electronics 1
+  item: AC Inlet, Integrated Switch & Fuse
+  qty: 1
+  aliases:
+  - \bac inlet\b|\biec inlet\b
+- carton: 1
+  box: Electronics 1
+  item: Keystone CAT6 Insert
+  qty: 1
+  aliases:
+  - \bkeystone\b
+- carton: 1
+  box: Electronics 1
+  item: Raspberry Pi 4B (OPTIONAL item, check with your reseller whether the RPi is included)
+  qty: 1
+  aliases:
+  - \braspberry pi\b(?!.*\bheatsink\b)|\bpi 4b?\b(?!.*\bheatsink\b)
+- carton: 1
+  box: Electronics 1
+  item: Heatsink, for Raspberry Pi
+  qty: 1
+  aliases:
+  - \b(?:raspberry )?pi heatsink\b|\bheatsink,? for (?:the )?(?:raspberry )?pi\b
+- carton: 1
+  box: Electronics 1
+  item: Solid State Relay, Omron
+  qty: 1
+  aliases:
+  - \bssr\b(?!.*\bbracket\b)|\bsolid state relay\b|\bg3nb\b
+- carton: 1
+  box: Electronics 1
+  item: DIN Rail Mount Bracket for SSR
+  qty: 1
+  aliases:
+  - \bssr\b.*\b(?:din )?bracket\b|\bdin bracket\b|\bdin rail mount bracket\b
+- carton: 1
+  box: Electronics 1
+  item: Fiberglass Tape, 2x12cm
+  qty: 1
+  aliases:
+  - \bfib(?:er|re)glass tape\b
+- carton: 1
+  box: Electronics 1
+  item: Genuine Wago 221-412 Splicing Connector
+  qty: 2
+  aliases:
+  - \b221-412\b|\bwago\b.*\b2-way\b
+- carton: 1
+  box: Electronics 1
+  item: Genuine Wago 221-415 Splicing Connector
+  qty: 3
+  aliases:
+  - \b221-415\b|\bwago\b.*\b5-way\b
+- carton: 1
+  box: Electronics 1
+  item: SD Card, 32GB
+  qty: 1
+  aliases:
+  - \b(?:micro ?)?sd card\b
+- carton: 1
+  box: Electronics 2
+  item: XY Endstop PCB
+  qty: 1
+  aliases:
+  - \bxy endstop (?:pcb|board)\b
+- carton: 1
+  box: Electronics 2
+  item: 3x2 XH Splicer PCB
+  qty: 2
+  aliases:
+  - \b3 ?x ?2 xh splicer\b
+- carton: 1
+  box: Electronics 2
+  item: 2x2 XH Splicer PCB
+  qty: 1
+  aliases:
+  - \b2 ?x ?2 xh splicer\b
+- carton: 1
+  box: Electronics 2
+  item: Z Endstop PCB
+  qty: 1
+  aliases:
+  - \bz endstop pcb\b
+- carton: 1
+  box: Electronics 2
+  item: Nitehawk SB Toolhead PCB
+  qty: 1
+  aliases:
+  - \bnitehawk\b
+- carton: 1
+  box: Electronics 2
+  item: USB Adapter PCB
+  qty: 1
+  aliases:
+  - \busb adapter pcb\b
+- carton: 1
+  box: Electronics 2
+  item: Stealthburner Fan Adapter
+  qty: 1
+  aliases:
+  - \bfan adapter\b
+- carton: 1
+  box: Electronics 2
+  item: Klicky Probe Kit
+  qty: 1
+  aliases:
+  - \bklicky\b.*\bkit\b
+- carton: 1
+  box: Electronics 2
+  item: Print a Steppy Kit (LDO Mascot)
+  qty: 1
+  aliases:
+  - \bsteppy\b
+- carton: 1
+  box: Electronics 2
+  item: Tape, 3M VHB
+  qty: 1
+  aliases:
+  - \bvhb\b
+- carton: 1
+  box: Electronics 2
+  item: LDO Printed Parts
+  qty: 1
+- carton: 1
+  box: Electronics 2
+  item: Leviathan Bracket Left
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bleviathan bracket left\b
+- carton: 1
+  box: Electronics 2
+  item: Leviathan Bracket Right
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bleviathan bracket right\b
+- carton: 1
+  box: Electronics 2
+  item: NH Adapter Mount
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bnh adapter mount\b
+- carton: 1
+  box: Electronics 2
+  item: DIN Clip
+  qty: 4
+  note: LDO Printed Parts bag
+  aliases:
+  - \bdin clips?\b
+- carton: 1
+  box: Electronics 2
+  item: CW2 Chain Anchor Tilted
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bchain anchor tilted\b
+- carton: 1
+  box: Electronics 2
+  item: 2x3 Splitter Spacer
+  qty: 2
+  note: LDO Printed Parts bag
+  aliases:
+  - \bsplitter spacer\b
+- carton: 1
+  box: Electronics 2
+  item: LDO Nozzle Probe
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bnozzle probe\b(?!.*\bshaft\b)
+- carton: 1
+  box: Electronics 2
+  item: Bed WAGO Mount
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bbed wago mount\b
+- carton: 1
+  box: Electronics 2
+  item: Stealthburner LED Diffuser
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bled diffuser\b
+- carton: 1
+  box: Electronics 2
+  item: CW2 PCB Spacer
+  qty: 1
+  note: LDO Printed Parts bag
+  aliases:
+  - \bcw2 pcb spacer\b
+- carton: 1
+  box: Electronics 2
+  item: DIN Rail Plastic Endcap
+  qty: 4
+  aliases:
+  - \bdin rail\b.*\bend ?caps?\b
+- carton: 1
+  box: Electronics 2
+  item: Ferrule, VE0508
+  qty: 5
+  aliases:
+  - \bv?e0508\b
+- carton: 1
+  box: Electronics 2
+  item: Brass Brush
+  qty: 1
+  aliases:
+  - \bbrass brush\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M3x6
+  qty: 14
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M3x25
+  qty: 6
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M4x6
+  qty: 8
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M5x6
+  qty: 1
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M5x10
+  qty: 54
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M5x14
+  qty: 4
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M5x16
+  qty: 43
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, BHCS, M5x30
+  qty: 26
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x8
+  qty: 283
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x12
+  qty: 50
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x16
+  qty: 30
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x20
+  qty: 40
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x25
+  qty: 12
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x30
+  qty: 44
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x35
+  qty: 6
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x40
+  qty: 34
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M3x50
+  qty: 4
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, SHCS, M5x40
+  qty: 26
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, FHCS, M3x6
+  qty: 42
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, FHCS, M3x10
+  qty: 8
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, Wafer head, M3x25
+  qty: 3
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Machine Screw, Captive, M3x6
+  qty: 2
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Self-tapping Screw, M2x10
+  qty: 43
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hexnut, M5
+  qty: 30
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hexnut, M3
+  qty: 14
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: T-nut, Roll-in, 2020, M5
+  qty: 80
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: T-nut, Roll-in, 2020, M3
+  qty: 135
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Heatset Insert, Brass, M3x5x4
+  qty: 153
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Washer, M3
+  qty: 6
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Washer, M5, 1mm
+  qty: 9
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Precision Spacer, M5, 1mm
+  qty: 46
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Locking Washer, M5
+  qty: 2
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Knurled Nut, M4
+  qty: 4
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: T-nut, Hammer Head, 2020, M3
+  qty: 75
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: T-nut, Hammer Head, 2020, M5
+  qty: 16
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Set Screw, M3x2, Pre-applied Threadlocker
+  qty: 5
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Set Screw, M4x4, Pre-applied Threadlocker
+  qty: 32
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: 6x3mm Neodymium Magnet
+  qty: 16
+  aliases:
+  - \b6 ?x ?3 ?mm\b.*\bmagnets?\b|\bmagnets?\b.*\b6 ?x ?3\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Teflon Tube (4mm OD 3mm ID) - 1.2m
+  qty: 1
+  aliases:
+  - \b(?:ptfe|teflon)\b.*\b3 ?mm id\b|\b(?:ptfe|teflon)\b.*/ ?3 ?mm\b|\b(?:ptfe|teflon)\b.*\b1\.2 ?m\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Zip Ties, 3x150mm
+  qty: 100
+  aliases:
+  - \bzip[- ]?ties?\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Brass Heatset Insert tool (for M3 Brass Inserts)
+  qty: 1
+  aliases:
+  - \binsert tool\b|\bbrass tip\b|\b900m-t\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Drill bit, 2mm
+  qty: 1
+  aliases:
+  - \b2 ?mm drill\b|\bdrill bit\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hex Wrench, 1.5mm
+  qty: 1
+  aliases:
+  - \b1\.5 ?mm hex (?:key|wrench)\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hex Wrench, 2mm
+  qty: 1
+  aliases:
+  - (?<![.\d])2 ?mm hex (?:key|wrench)\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hex Wrench, 2.5mm
+  qty: 1
+  aliases:
+  - \b2\.5 ?mm hex (?:key|wrench)\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hex Wrench, 3mm
+  qty: 1
+  aliases:
+  - \b3 ?mm hex (?:key|wrench)\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Hex Wrench, 4mm
+  qty: 1
+  aliases:
+  - \b4 ?mm hex (?:key|wrench)\b
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Slot head screwdriver, 2.5mm
+  qty: 1
+  aliases:
+  - '\bslot(?:ted)?(?: head)? screwdriver\b'
+- carton: 1
+  box: Fasteners, Tools & Misc
+  item: Aluminium Handle
+  qty: 2
+  aliases:
+  - \balumin(?:i)?um handles?\b|\bhandle ?bars?\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: 50x50x15 Centrifugal Fan (24V)
+  qty: 1
+  aliases:
+  - \b50 ?x ?50 ?x ?15\b|\b5015\b(?!.*nevermore)|\bcentrifugal\b|\bblower\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: 40x40x10 Axial Fan (24V)
+  qty: 1
+  aliases:
+  - \b40 ?x ?40 ?x ?10\b|\b4010\b|\bhotend fan\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Nevermore Micro V5 Parts
+  qty: 1
+  aliases:
+  - \bnevermore\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: 60x60x20 Fan (24V)
+  qty: 2
+  aliases:
+  - \b60 ?x ?60 ?x ?20\b|\b6020\b|\bbay fan\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Gates Open Belt, 2GT, 9mm (by metre)
+  qty: 6
+  aliases:
+  - \b(?:open )?belt\b.*\b9 ?mm\b|\b9 ?mm\b.*\bbelt\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Gates Open Belt, 2GT, 6mm (by metre)
+  qty: 6.21
+  aliases:
+  - \bopen belt\b.*\b6 ?mm\b|\b6 ?mm (?:wide )?(?:open )?belt\b|\b2gt open belt, 6 ?mm\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Gates Belt Loop, 2GT, 6x188mm
+  qty: 4
+  aliases:
+  - \b188 ?mm\b|\bclosed loop\b|\bbelt loop\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Rubber Feet, 38x19mm (Amplifier Cabinet Feet)
+  qty: 4
+  aliases:
+  - \brubber (?:feet|foot)\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Drag Chain, 10x10mm, R18
+  qty: 2
+  aliases:
+  - \b(?:drag|cable) chain\b.*\b10 ?x ?10\b|\br18\b
+- carton: 1
+  box: Belts, Chains & Fans
+  item: Drag Chain, 10x15mm, R28
+  qty: 1
+  aliases:
+  - \b(?:drag|cable) chain\b.*\b10 ?x ?15\b|\br28\b
+- carton: 1
+  box: Linear Rail Kit
+  item: Linear Rail Stainless Steel, LDO-SLR12H-400Z1
+  qty: 1
+  aliases:
+  - \bmgn12h?\b.*\brail\b|\bslr12h\b
+- carton: 1
+  box: Linear Rail Kit
+  item: Linear Rail Stainless Steel, LDO-SLR9H-400Z0
+  qty: 6
+  aliases:
+  - \bmgn9h?\b.*\brails?\b|\bslr9h\b
+- carton: 1
+  box: Frame Kit 2.4-350
+  item: LDO-V2.4F350-2020T-340E
+  qty: 1
+  aliases:
+  - \be extrusions?\b|\b340 ?e\b
+- carton: 1
+  box: Frame Kit 2.4-350
+  item: LDO-V2.4F350-2020T-430D
+  qty: 1
+  aliases:
+  - \bd extrusions?\b|\b430 ?d\b
+- carton: 1
+  box: Frame Kit 2.4-350
+  item: LDO-V2.4F350-2020-450C
+  qty: 2
+  aliases:
+  - \bc extrusions?\b|\b450 ?c\b
+- carton: 1
+  box: Frame Kit 2.4-350
+  item: LDO-V2.4F350-2020T-470A
+  qty: 10
+  aliases:
+  - \ba extrusions?\b|\b470 ?a\b
+- carton: 1
+  box: Frame Kit 2.4-350
+  item: LDO-V2.4F350-2020T-530B
+  qty: 4
+  aliases:
+  - \bb extrusions?\b|\b530 ?b\b
+- carton: 1
+  box: Motor Kit
+  item: LDO-36STH20-1004AHG(VRN) E Motor
+  qty: 1
+  aliases:
+  - \b36sth20\b|\bpancake (?:stepper|motor)\b(?! lead)|\bnema ?14\b|^(?:the )?(?:e|extruder) motor\b
+- carton: 1
+  box: Motor Kit
+  item: LDO-42STH48-2004MAH(VRN) AB Motor
+  qty: 2
+  aliases:
+  - \b2004mah\b|\ba/?b motors?\b|\b0\.9 ?°
+- carton: 1
+  box: Motor Kit
+  item: LDO-42STH48-2004AC(VRN) Z Motor
+  qty: 4
+  aliases:
+  - \b2004ac\b|\bz motors?\b(?!\s+cables?)
+- carton: 1
+  box: Other
+  item: C13 Power Cord 1.5 meter
+  qty: 1
+  aliases:
+  - \bc13\b|\bpower cord\b
+- carton: 1
+  box: Other
+  item: PVC Wire Duct 20Wx25H
+  qty: 5
+  aliases:
+  - \bwire duct\b|\bpvc duct\b
+- carton: 1
+  box: Other
+  item: E3D Revo Hotend (HF)
+  qty: 1
+  aliases:
+  - \brevo\b
+- carton: 1
+  box: Other
+  item: DIN Rails (35mm W)
+  qty: 2
+  aliases:
+  - \bdin rails?\b(?!.*\b(?:end ?caps?|clips?|bracket|mount)\b)
+- carton: 1
+  box: Other
+  item: LDO Leviathan Mainboard
+  qty: 1
+  aliases:
+  - \bleviathan\b(?!.*\bbracket\b)
+- carton: 1
+  box: Other
+  item: Meanwell LRS-200-24 PSU*
+  qty: 1
+  aliases:
+  - \blrs-200\b|\bpsu\b(?!.*\b(?:bracket|cables?)\b)|\bpower supply\b
+- carton: 1
+  box: Other
+  item: Extrusion Slot Cover, 6mm width
+  qty: 9
+  aliases:
+  - \bslot covers?\b
+- carton: 2
+  box: Panel Kit
+  item: Deck Panel, Acrylic, Black, 469x469x3mm
+  qty: 1
+  aliases:
+  - \bdeck panel\b
+- carton: 2
+  box: Panel Kit
+  item: Back Panel, Acrylic, Black, 483x503x3mm
+  qty: 1
+  aliases:
+  - \bback panel\b
+- carton: 2
+  box: Panel Kit
+  item: Bottom Panel, Acrylic, Black, 469x469x4mm
+  qty: 1
+  aliases:
+  - \bbottom panel\b
+- carton: 2
+  box: Panel Kit
+  item: Door Panel, PC, Clear, 241x503x3mm
+  qty: 2
+  aliases:
+  - \bdoor panels?\b
+- carton: 2
+  box: Panel Kit
+  item: Side Panel, PC, Clear, 483x503x3mm
+  qty: 2
+  aliases:
+  - \bside panels?\b
+- carton: 2
+  box: Panel Kit
+  item: Top Panel, PC, Clear, 483x483x3mm
+  qty: 1
+  aliases:
+  - \btop panel\b
+- carton: 2
+  box: Build Plate
+  item: Magnetic Pad 2.4-350
+  qty: 1
+  aliases:
+  - \bmagnetic (?:pad|sheet)\b
+- carton: 2
+  box: Build Plate
+  item: Spring Steel Flex Plate 2.4-350
+  qty: 1
+  aliases:
+  - \bflex ?plate\b|\bspring steel\b|\bpei sheet\b
+- carton: 2
+  box: Build Plate
+  item: Build Plate, Cast 5083 Aluminium, Blanchard Ground, w/ LDO AC Heatpad & Thermal Fuse (125C), 355x355x10mm
+  qty: 1
+  aliases:
+  - \bbuild plate\b|\bbed plate\b|\bheated bed\b

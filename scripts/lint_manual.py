@@ -23,6 +23,16 @@ chapters by `scripts/build_steps.py` and carries no independent content.
      budgets", plus the `**Helper:**` rules of § "Helper steps") — opt-in: `--budgets` adds it to the run above, `--budgets-only`
      runs it alone and needs no `site/` (`--json` for one finding per line).
 
+  6. Parts grammar (assembly chapters; scripts/parts.py): each `**Parts:**`
+     field is `none` or the one-item-per-bullet list, each item counted with
+     the step total, no per/each, and sourced (kit BOM row, printed STL or
+     `— from <source>`).
+  7. Hardware reconciliation: per chapter, the step totals of each kit item
+     equal the chapter **Hardware** table's total (Qty cells lead with it).
+     6 and 7 WARN until wave-4 phase 5 flips `PARTS_CHECKS_FAIL`; the default
+     run prints their counts, `--parts-report [chapter …]` every finding
+     (`--json` one per line, `--strict` exits 1 on any).
+
 Exits non-zero (and prints every finding) if any check fails. This only
 reports — it does not edit chapter content.
 """
@@ -459,10 +469,84 @@ def _run_budgets_only(as_json):
     return 1 if findings else 0
 
 
+# --------------------------------------------------------------------------
+# 6. Parts grammar and 7. Hardware reconciliation — scripts/parts.py owns the
+#    parse and the kit-BOM resolve; this only selects files and prints.
+# --------------------------------------------------------------------------
+
+PARTS_CHECKS_FAIL = False   # wave-4 phase 5 flips this once packets reach zero
+
+
+def _parts_files(selectors):
+    import parts
+
+    files = parts.assembly_chapters()
+    if not selectors:
+        return files
+    picked = []
+    for f in files:
+        for s in selectors:
+            name = Path(s).name
+            if f.name == name or f.name.startswith(name.rstrip("-") + "-") or f.stem == name:
+                picked.append(f)
+                break
+    return picked
+
+
+def _parts_line(f):
+    step = ("  Step %s" % f["step"]) if f.get("step") else ""
+    item = ("  %s" % f["item"]) if f.get("item") else ""
+    detail = (" — %s" % f["detail"]) if f.get("detail") else ""
+    return "%s:%d%s  [%d %s]%s%s" % (f["file"], f["line"], step, f["check"], f["kind"], item, detail)
+
+
+def check_parts(selectors=None):
+    """(check-6 findings, check-7 findings, kit-wide info lines)."""
+    import parts
+
+    parts.load_part_thumbs()
+    files = _parts_files(selectors)
+    findings, info = parts.report(files)
+    return ([f for f in findings if f["check"] == 6],
+            [f for f in findings if f["check"] == 7], info)
+
+
+def _run_parts_report(argv):
+    import json
+    from collections import Counter
+
+    selectors = [a for a in argv if not a.startswith("--")]
+    six, seven, info = check_parts(selectors)
+    findings = six + seven
+    try:
+        if "--json" in argv:
+            for f in findings:
+                print(json.dumps(f, ensure_ascii=False))
+        else:
+            for f in findings:
+                print(_parts_line(f))
+            for n, group in ((6, six), (7, seven)):
+                kinds = Counter(f["kind"] for f in group)
+                print("\ncheck %d: %d finding(s) in %d file(s)%s" % (
+                    n, len(group), len({f["file"] for f in group}),
+                    (" — " + ", ".join("%s %d" % kv for kv in kinds.most_common())) if kinds else ""))
+            if info:
+                print("\nkit-wide (informative): chapter Hardware tables vs the vendored LDO BOM")
+                for line in info:
+                    print("  " + line)
+    except BrokenPipeError:
+        import os
+
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+    return 1 if (findings and "--strict" in argv) else 0
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if "--budgets-only" in argv:
         return _run_budgets_only("--json" in argv)
+    if "--parts-report" in argv:
+        return _run_parts_report([a for a in argv if a != "--parts-report"])
 
     checks = [
         ("Raw callout markers outside admonitions", check_raw_callouts),
@@ -489,6 +573,17 @@ def main(argv=None):
     print(f"\n== WARN: Steps missing a `Source:` line: {len(missing_source)} ==")
     for line in missing_source:
         print(f"  WARN: {line}")
+
+    six, seven, _ = check_parts()
+    for n, name, group in ((6, "Parts grammar", six), (7, "Hardware reconciliation", seven)):
+        label = "" if PARTS_CHECKS_FAIL else "WARN: "
+        print(f"\n== {label}{n} · {name}: {len(group)} finding(s) in "
+              f"{len({f['file'] for f in group})} file(s) — "
+              "details: python3 scripts/lint_manual.py --parts-report ==")
+        if PARTS_CHECKS_FAIL:
+            for f in group:
+                print(f"  {_parts_line(f)}")
+            total += len(group)
 
     return 1 if total else 0
 

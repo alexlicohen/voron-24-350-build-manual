@@ -42,6 +42,7 @@ theme:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/print.css
+  - stylesheets/tonight.css
 
 extra_javascript:
   - javascripts/wakelock.js
@@ -54,6 +55,9 @@ extra_javascript:
   - javascripts/gatecalc.js
   - javascripts/taptree.js
   - javascripts/boards.js
+  # Tonight re-plans its buckets from this device's ticks (docs/assets/tonight.json,
+  # written by scripts/build_tonight.py); the static plan stays without it.
+  - javascripts/tonight.js
 
 markdown_extensions:
   - admonition

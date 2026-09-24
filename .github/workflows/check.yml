@@ -18,6 +18,12 @@ jobs:
 
       - run: mkdocs build --strict
 
+      # Tonight: the planner fix's self-test, then JS-vs-Python parity over the
+      # cases the build just wrote into docs/assets/tonight.json.
+      - run: python3 scripts/build_tonight.py --self-test
+
+      - run: node scripts/check_tonight.mjs
+
       - run: python3 hooks/callouts.py
 
       - run: python3 scripts/lint_manual.py

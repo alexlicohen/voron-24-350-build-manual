@@ -68,7 +68,7 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Wave 3 leftovers: bench — 01.19 hex-key reach to the M5×16 (else tighten at 01.16 with the bracket held flush), MGN9H/MGN12H hole counts vs an LDO drawing, probe lead's bag name; wording — 01.16 "other leg down and outward" (CAD: flat on the rail top, pointing outward); 05 "A high, B low" inferred from pulley heights (p.76/80).
 
 ## Wave 4: systemic, closer to Prusa (plan first; decide scope with Alex)
-- [ ] **Parts lines use `;` separators and totals per segment, and give the bag source,** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.
+- [ ] **Parts lines: one item per line (Alex 2026-09-23), totals per segment, bag source;** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.
 - [ ] **Step images cropped to the relevant manual panel;** screenshots for the Ch 12–14 software steps (76/104 without an image) and Ch 11 (29/66).
 - [ ] **Helper lines** in Ch 06–10 and 12 wherever two hands or a phone are needed (gantry lift, belt readings).
 - [ ] **A reward at every Checkpoint:** Revali's `pass` pose, "you built X", and a real treat. Alex to pick the treat.
@@ -83,6 +83,8 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - 11.67 keeps "cord out of the room". 10.80 lid order (lids on before the 10.73–10.79 sweep) confirmed.
 - Wave 4 approved: Parts lines become **one item per line** (bag source, per-segment totals) feeding Gather; cropped panel images + Ch 11–14 screenshots; helper lines; Checkpoint reward = Revali pass pose + **gummy worms** (bird theme).
 - Tonight progress overlay: **build it in wave 4** (read the progress.js tick store, skip finished segments, start the 30/60/90 plans at the first unfinished step; per-device only).
+
+- Wave 4 plan: WAVE4-PLAN.md; Alex's six decisions recorded at its end (2026-09-24).
 
 ## Gated / needs Alex
 - B11 GUI QC (B00.8); the PETG V0 spool; kit-day bench values (every `(verify on bench)`); the Ch 10.80 lid order (lids on before the 10.73–10.79 sweep) was accepted by the orchestrator: confirm.

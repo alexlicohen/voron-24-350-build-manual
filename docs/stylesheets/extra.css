@@ -205,6 +205,14 @@ h3.step-done { opacity: .6; text-decoration: line-through; }
 .md-typeset .step-parts p { margin: 0 0 .2rem; }
 .md-typeset .step-parts ul { margin: 0 0 0 .2rem; padding-left: 1.1rem; }
 .md-typeset .step-parts li { margin: 0; line-height: 1.45; }
+/* Where a Parts / Gather item comes from (kit box, bin, hand-set source, tool),
+   written by scripts/build_steps.py from scripts/parts.py; muted, never wraps
+   mid-label on the iPad. */
+.md-typeset .step-parts__src {
+  color: var(--md-default-fg-color--light);
+  font-size: .85em;
+  white-space: nowrap;
+}
 
 /* Landscape / wide: text left, picture right and sticky — Prusa's split. */
 @media (min-width: 50em) and (min-aspect-ratio: 1/1) {

@@ -53,6 +53,9 @@ import sys  # noqa: E402
 sys.path.insert(0, str(REPO / "hooks"))
 import mascot  # noqa: E402  (hooks/mascot.py — the raven's markup and asset paths)
 
+sys.path.insert(0, str(REPO / "scripts"))
+import parts  # noqa: E402  (scripts/parts.py — Parts parse, counts, bins, kit-BOM source)
+
 DOCS = REPO / "docs"
 MANUAL = DOCS / "manual"
 PRINT = MANUAL / "print"
@@ -72,7 +75,7 @@ _CHECKPOINT_HEAD_RE = re.compile(r"^Checkpoint\b\s*(\S*)", re.IGNORECASE)
 _NEXT_OVERRIDE_RE = re.compile(r"^\*\*Next:\*\*\s*(.+)$")
 _IMAGE_LINE_RE = re.compile(r"^!\[(?P<alt>[^\]]*)\]\((?P<src>[^)]*)\)(?P<attr>\s*\{[^}]*\})?\s*$")
 _NOIMAGE_RE = re.compile(r"^\*?\(no image[^\n]*\)\*?\s*$", re.IGNORECASE)
-_PARTS_RE = re.compile(r"^\*\*Parts:\*\*\s*(.*)$")
+_PARTS_RE = parts.PARTS_RE
 _PAUSE_RE = re.compile(r"^>?\s*Pause:\s")
 _SOURCE_RE = re.compile(r"^>?\s*Source:\s")
 # House markers the step layout reorders around (callouts.py renders them).
@@ -192,12 +195,7 @@ def _strip_edges(lines: list[str]) -> list[str]:
     return out
 
 
-def _plain(text: str) -> str:
-    """Markdown inline -> plain text, for card titles and nav labels."""
-    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
-    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)
-    text = text.replace("`", "").replace("**", "").replace("*", "")
-    return re.sub(r"\s+", " ", text).strip()
+_plain = parts.plain
 
 
 def _chapter_files() -> list[Path]:
@@ -387,115 +385,13 @@ def rewrite_links(lines: list[str], src_dir: Path, dest_dir: Path,
 # --------------------------------------------------------------------------
 
 
-def _split_top_level(text: str, sep: str) -> list[str]:
-    out, depth, tick, buf = [], 0, False, []
-    for ch in text:
-        if ch == "`":
-            tick = not tick
-        elif not tick:
-            if ch in "([":
-                depth += 1
-            elif ch in ")]":
-                depth = max(0, depth - 1)
-            elif ch == sep and depth == 0:
-                out.append("".join(buf).strip())
-                buf = []
-                continue
-        buf.append(ch)
-    out.append("".join(buf).strip())
-    return [p for p in out if p]
+_split_top_level = parts.split_top_level
+_CODE_SPAN_RE = parts.CODE_SPAN_RE
+_load_part_thumbs = parts.load_part_thumbs
+_thumb_for = parts.thumb_for
 
 
-# stl stem -> part render, longest stem first so `Handle-Hinge_Top` wins over `Handle`.
-_PART_THUMBS: list[tuple[re.Pattern, Path]] = []
-# Same keys, mapped to the manifest's `bin` column, so the gather block can say
-# which bin a printed part is waiting in.
-_PART_BINS: list[tuple[re.Pattern, str]] = []
-_CODE_SPAN_RE = re.compile(r"`([^`]+)`")
-
-
-def _load_part_thumbs() -> None:
-    import csv
-
-    _PART_THUMBS.clear()
-    _PART_BINS.clear()
-    manifest = MANUAL / "assets" / "parts" / "MANIFEST.csv"
-    if not manifest.exists():
-        return
-    rows: list[tuple[str, Path]] = []
-    bins: list[tuple[str, str]] = []
-    seen: set[str] = set()
-    seen_bin: set[str] = set()
-    with manifest.open(encoding="utf-8", newline="") as fh:
-        for row in csv.DictReader(fh):
-            stl = (row.get("stl") or "").strip()
-            png = (row.get("png") or "").strip()
-            if not stl:
-                continue
-            path = REPO / png if png else None
-            # Chapters name a part as the Voron repo does (`z_drive_main_a`);
-            # the manifest keeps the LDO filename's `[a]_` colour prefix, its
-            # `_x2` / `-2X` multiplicity suffix and any `(contributed_by_…)`
-            # tail. Register every spelling in between.
-            keys = {Path(stl).stem}
-            keys |= {re.sub(r"\([^()]*\)$", "", k) for k in keys}
-            keys |= {re.sub(r"(?:[-_][xX]\d+|-\d+[xX])$", "", k) for k in keys}
-            keys |= {re.sub(r"^\[[a-z]\]_", "", k) for k in keys}
-            ordered = sorted((k for k in keys if k), key=len, reverse=True)
-            for key in ordered:
-                if path is not None and path.exists() and key not in seen:
-                    seen.add(key)
-                    rows.append((key, path))
-                if key not in seen_bin:
-                    seen_bin.add(key)
-                    bins.append((key, (row.get("bin") or "").strip()))
-    rows.sort(key=lambda r: -len(r[0]))
-    bins.sort(key=lambda r: -len(r[0]))
-    _PART_THUMBS.extend(
-        (re.compile(r"(?<![0-9A-Za-z_])%s(?![0-9A-Za-z_])" % re.escape(stem)), png)
-        for stem, png in rows
-    )
-    _PART_BINS.extend(
-        (re.compile(r"(?<![0-9A-Za-z_])%s(?![0-9A-Za-z_])" % re.escape(stem)), bin_id)
-        for stem, bin_id in bins
-    )
-
-
-def _thumb_for(item: str, dest_dir: Path) -> str | None:
-    """Part render for a Parts item that names an STL in backticks."""
-    spans = _CODE_SPAN_RE.findall(item)
-    if not spans:
-        return None
-    import os
-
-    # Spans in item order: the thumb depicts the part the bullet leads with,
-    # not whichever named part happens to have the longest filename.
-    for s in spans:
-        for pattern, png in _PART_THUMBS:
-            if pattern.search(s):
-                return os.path.relpath(str(png), str(dest_dir)).replace("\\", "/")
-    return None
-
-
-def _parts_items(line: str) -> list[str]:
-    """The items of a `**Parts:**` line, or [] when it lists nothing.
-
-    House separators are `;` then `·`; a comma list counts only when *every*
-    chunk carries its own count, so `door panels (PC clear, 241×503) ×2` stays
-    one item while `build plate ×1, magnetic pad ×1` becomes two.
-    """
-    body = _PARTS_RE.match(line).group(1).strip()
-    plain = _plain(body).strip().rstrip(".").lower()
-    if not body or plain in {"none", "—", "-", "n/a"}:
-        return []
-    items = _split_top_level(body, ";")
-    if len(items) == 1:
-        items = _split_top_level(body, "·")
-    if len(items) == 1:
-        commas = _split_top_level(body, ",")
-        if len(commas) > 1 and all(_count_of(c)[0] is not None for c in commas):
-            items = commas
-    return [i.strip().rstrip(".").strip() for i in items if i.strip()]
+_parts_items = parts.parts_items
 
 
 def _parts_block(line: str, dest_dir: Path) -> list[str]:
@@ -513,6 +409,20 @@ def _parts_block(line: str, dest_dir: Path) -> list[str]:
     for item in items:
         thumb = _thumb_for(item, dest_dir)
         out.append("- " + (("![](%s){ .step-parts__thumb } " % thumb) if thumb else "") + item)
+    out += ["", "</div>"]
+    return out
+
+
+def _parts_list_block(fld: "parts.Field", dest_dir: Path) -> list[str]:
+    """A list-form Parts field: one bullet per item, thumb for printed parts,
+    and a muted source (kit box, bin, hand-set source, tool, on the bench)."""
+    out = ['<div class="step-parts" markdown="1">', "", "**Parts:**", ""]
+    for it in fld.items:
+        thumb = _thumb_for(it.text, dest_dir)
+        out.append("- " + (("![](%s){ .step-parts__thumb } " % thumb) if thumb else "")
+                   + it.body + _src(it.note))
+    if fld.stray:
+        out += [""] + fld.stray
     out += ["", "</div>"]
     return out
 
@@ -661,6 +571,9 @@ def _segments(lines: list[str]) -> list[_Seg]:
             j = _run(lines, i)
             if kind == "do":
                 j = _absorb_lead(lines, j)
+            elif kind == "parts" and not _PARTS_RE.match(_logical(line)).group(1).strip():
+                # List form: `**Parts:**`, a blank line, one bullet per item.
+                j = parts.absorb_list(lines, j, _is_boundary)
             segs.append(_Seg(kind, lines[i:j]))
             i = j
             continue
@@ -719,7 +632,7 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     images = [s.lines[0] for s in segs if s.kind == "image"]
     noimage = [s.lines[0] for s in segs if s.kind == "noimage"]
     do: list[str] = []
-    parts: list[str] = []
+    parts_md: list[str] = []
     check: list[str] = []
     helper: list[str] = []
     desc: list[str] = []
@@ -730,7 +643,11 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         if seg.kind == "do":
             do += seg.lines + [""]
         elif seg.kind == "parts":
-            parts += _parts_block(" ".join(l.strip() for l in seg.lines), dest_dir) + [""]
+            fld = parts.parse_field(seg.lines)
+            if fld.form == "list":
+                parts_md += _parts_list_block(fld, dest_dir) + [""]
+            else:
+                parts_md += _parts_block(" ".join(l.strip() for l in seg.lines), dest_dir) + [""]
         elif seg.kind == "check":
             check += seg.lines + [""]
         elif seg.kind == "helper":
@@ -780,8 +697,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
         # Parts items may carry chapter-relative links; re-base them as the
         # rest of the page's links already were.
         out += rewrite_links(gather, chapter.path.parent, dest_dir, chapter.stem) + [""]
-    if parts:
-        out += _strip_edges(parts) + [""]
+    if parts_md:
+        out += _strip_edges(parts_md) + [""]
     if check:
         out += _strip_edges(check) + [""]
     for job in helper:
@@ -812,90 +729,16 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
 # free by summing each segment's `**Parts:**` lines.  Nothing here is
 # hand-maintained: the chapters stay the single source.
 
-# Count forms, searched on the item with its `code spans` masked out so that
-# `z_rail_stop_x4` and `M3×8` are never read as quantities.
-_CNT_PREFIX_RE = re.compile(r"^\s*(\d+)\s*[×xX](?=\s)")
-# A suffix count is `… ×4`, never the `×` of a dimension: reject one whose left
-# neighbour is a digit (`Ø4.7 × 5 mm`) or whose number carries a unit.
-_CNT_SUFFIX_RE = re.compile(
-    r"(?<=\s)[×xX]\s*(\d+)(?![0-9A-Za-z])"
-    r"(?!\s*(?:mm|cm|µm|m\b|kg|g\b|h\b|min\b|°))"
-)
-_CNT_PAREN_RE = re.compile(r"(?<=\s)\((\d+)\)")
-_NONE_ITEM_RE = re.compile(r"^\s*none\b", re.IGNORECASE)
-_BIN_IN_TEXT_RE = re.compile(r"\bbins?\s+`?([0-9]{2}-[A-Za-z0-9-]+)`?")
 _PAUSE_MIN_RE = re.compile(r"^>?\s*Pause:\s*~?\s*(\d+)\s*min", re.IGNORECASE)
-_CODE_MASK_RE = re.compile("\x00(\\d+)\x00")
 
-# An item with no count that runs this long is prose, not a part; it is still
-# listed verbatim, but the build log names it so a chapter can be tightened.
-_UNPARSED_WORDS = 8
-
-PARSE_WARNINGS: list[str] = []
-
-
-def _mask_code(text: str) -> tuple[str, list[str]]:
-    spans: list[str] = []
-
-    def repl(m: re.Match) -> str:
-        spans.append(m.group(0))
-        return "\x00%d\x00" % (len(spans) - 1)
-
-    return _CODE_SPAN_RE.sub(repl, text), spans
-
-
-def _unmask_code(text: str, spans: list[str]) -> str:
-    return _CODE_MASK_RE.sub(lambda m: spans[int(m.group(1))], text)
-
-
-def _count_of(item: str) -> tuple[int | None, str]:
-    """(count, item without its count token). No count token -> (None, item)."""
-    masked, spans = _mask_code(item)
-    for rx in (_CNT_PREFIX_RE, _CNT_SUFFIX_RE, _CNT_PAREN_RE):
-        m = rx.search(masked)
-        if m and rx is _CNT_SUFFIX_RE and masked[:m.start()].rstrip()[-1:].isdigit():
-            m = None
-        if m:
-            rest = (masked[:m.start()] + " " + masked[m.end():])
-            rest = re.sub(r"\s+", " ", rest)
-            rest = re.sub(r"\s+([,;.)\]])", r"\1", rest)   # ` ,` left where the count was
-            rest = re.sub(r"([(\[])\s+", r"\1", rest)
-            rest = rest.strip(" ,;·").strip()
-            return int(m.group(1)), _unmask_code(rest, spans).strip()
-    return None, item.strip()
-
-
-def _printed_info(item: str) -> tuple[bool, list[str]]:
-    """(is a printed part, bins it lives in) for one Parts item."""
-    spans = _CODE_SPAN_RE.findall(item)
-    printed, bins = False, []
-    for span in spans:
-        if span.lower().endswith(".stl"):
-            printed = True
-        for pattern, bin_id in _PART_BINS:
-            if pattern.search(span):
-                printed = True
-                for one in bin_id.split(";"):
-                    one = one.strip()
-                    if one and one not in bins:
-                        bins.append(one)
-                break
-    for one in _BIN_IN_TEXT_RE.findall(item):
-        if one not in bins:
-            bins.append(one)
-    return printed, bins
-
-
-def _merge_key(name: str) -> str:
-    return re.sub(r"\s+", " ", _plain(name)).strip().strip(".,;").casefold()
-
-
-@dataclass
-class _Item:
-    display: str
-    count: int
-    explicit: bool = False      # a count was written in the chapter
-    bins: list[str] = field(default_factory=list)
+# Parse, counts, merge and bins live in scripts/parts.py; the names below are
+# the ones this module has always used.
+PARSE_WARNINGS = parts.PARSE_WARNINGS
+_count_of = parts.count_of
+_printed_info = parts.printed_info
+_merge_key = parts.merge_key
+_Item = parts.Tally
+_collect = parts.collect
 
 
 @dataclass
@@ -904,6 +747,11 @@ class Segment:
     minutes: int | None                  # from the closing Pause line
     hardware: list[_Item] = field(default_factory=list)
     printed: list[_Item] = field(default_factory=list)
+    # Any list-form Parts field in the segment switches its Gather block to the
+    # grouped-by-source layout (parts.groups); single-line-only segments keep
+    # the Hardware / Printed parts layout above, unchanged.
+    grouped: bool = False
+    tallies: list[_Item] = field(default_factory=list)
 
     @property
     def first(self) -> str:
@@ -921,29 +769,7 @@ class Segment:
         return "Gather for this segment — %s%s" % (self.label, mins)
 
     def items(self) -> list[_Item]:
-        return self.hardware + self.printed
-
-
-def _collect(items: list[_Item], item: str, where: str) -> None:
-    if _NONE_ITEM_RE.match(_plain(item)):
-        return
-    count, name = _count_of(item)
-    if count is None and len(_plain(name).split()) > _UNPARSED_WORDS:
-        PARSE_WARNINGS.append("%s: unparsed Parts item, listed verbatim: %s" % (where, name))
-    key = _merge_key(name)
-    if not key:
-        return
-    printed, bins = _printed_info(name)
-    for existing in items:
-        if _merge_key(existing.display) == key:
-            existing.count += count if count is not None else 1
-            existing.explicit = existing.explicit or count is not None
-            for b in bins:
-                if b not in existing.bins:
-                    existing.bins.append(b)
-            return
-    items.append(_Item(display=name, count=count if count is not None else 1,
-                       explicit=count is not None, bins=list(bins)))
+        return self.tallies if self.grouped else self.hardware + self.printed
 
 
 def build_segments(chapter: Chapter) -> list[Segment]:
@@ -960,11 +786,17 @@ def build_segments(chapter: Chapter) -> list[Segment]:
         closing = None
         for seg in _segments(page.body):
             if seg.kind == "parts":
-                line = " ".join(l.strip() for l in seg.lines)
-                where = "%s Step %s" % (chapter.stem, page.step_id)
-                for item in _parts_items(line):
-                    printed, _ = _printed_info(item)
-                    _collect(current.printed if printed else current.hardware, item, where)
+                fld = parts.parse_field(seg.lines)
+                if fld.form == "list":
+                    current.grouped = True
+                else:
+                    line = " ".join(l.strip() for l in seg.lines)
+                    where = "%s Step %s" % (chapter.stem, page.step_id)
+                    for item in _parts_items(line):
+                        printed, _ = _printed_info(item)
+                        _collect(current.printed if printed else current.hardware, item, where)
+                for it in fld.items:
+                    parts.grouped_tally(current.tallies, it)
             elif seg.kind == "pause":
                 closing = seg.lines[0]
         if closing is not None:
@@ -983,12 +815,23 @@ def _item_line(item: _Item) -> str:
     return "%s%s%s" % (item.display, count, (" — from bin %s" % bins) if bins else "")
 
 
+def _src(note: str | None) -> str:
+    """The muted source suffix: kit box, bin, hand-set source, tool, on the bench."""
+    return (' <span class="step-parts__src">· %s</span>' % html.escape(note)) if note else ""
+
+
 def gather_admonition(segment: Segment) -> list[str]:
     """The collapsed block that opens a segment's first step page."""
     if not segment.items():
         return []
     out = ['??? note "%s %s"' % (mascot.badge_html("gather", "gather"),
                                  segment.title), ""]
+    if segment.grouped:
+        for heading, items in parts.groups(segment.tallies):
+            out += ["    **%s**" % heading, ""]
+            out += ["    - " + parts.tally_line(i) + _src(i.note) for i in items]
+            out += [""]
+        return out[:-1] if out[-1] == "" else out
     for label, items in (("Hardware", segment.hardware), ("Printed parts", segment.printed)):
         if not items:
             continue
@@ -996,6 +839,17 @@ def gather_admonition(segment: Segment) -> list[str]:
         out += ["    - " + _item_line(i) for i in items]
         out += [""]
     return out[:-1] if out[-1] == "" else out
+
+
+def _overview_body(segment: Segment) -> str:
+    if not segment.items():
+        return "nothing to lay out"
+    if not segment.grouped:
+        return " · ".join(_item_line(i) for i in segment.items())
+    return " · ".join(
+        "*%s:* %s" % (heading, "; ".join(
+            parts.tally_line(i) + ((" (%s)" % i.note) if i.note else "") for i in items))
+        for heading, items in parts.groups(segment.tallies))
 
 
 def gather_overview(chapter: Chapter) -> list[str]:
@@ -1006,8 +860,7 @@ def gather_overview(chapter: Chapter) -> list[str]:
            "**Gather per session** — what to lay out before each bench segment.", ""]
     for segment in chapter.segments:
         mins = " · ~%d min" % segment.minutes if segment.minutes else ""
-        items = segment.items()
-        body = " · ".join(_item_line(i) for i in items) if items else "nothing to lay out"
+        body = _overview_body(segment)
         label = segment.label[0].upper() + segment.label[1:]   # step ids keep their case
         out.append("- **%s**%s — %s" % (label, mins, body))
     out += ["", "</div>", ""]
