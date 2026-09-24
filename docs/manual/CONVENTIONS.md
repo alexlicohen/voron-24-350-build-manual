@@ -19,7 +19,7 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 ## Steps
 - `### Step NN.M — short imperative title`
 - Image line first: `![Voron manual p.XX](assets/manual-pages/manual-pXXX.png)` or an LDO image URL, or `(no image — see text)`.
-- **Parts:** exact fasteners/parts for THIS step, qty.
+- **Parts:** exact fasteners/parts for THIS step, one per line with the step total (§ Parts grammar).
 - **Do:** 1–5 imperative sentences. Say which way round, which hole, how tight ("snug, not torqued", "torque after squaring").
 - **Check:** what you should see/measure before moving on.
 - `⚠ Rev D+ / LDO:` callout whenever the kit deviates from the official manual (from survey §4.1–4.2 and LDO Build Notes) — always inline at the step, never only in a preamble.
@@ -40,7 +40,7 @@ Purpose: a Prusa-style, single-track build manual for Alex's LDO Voron 2.4 R2 Re
 - No emoji except the `⚠` callout marker.
 
 ## Lint
-`scripts/lint_manual.py` runs in CI, after `mkdocs build --strict`. Five checks (the fifth, step word budgets, is in § Action-first steps; `--budgets-only` runs it alone, `--no-budgets` skips it): raw `⚠` / `**Check:**` / `Tip:` text outside an admonition or `<code>`/`<pre>` block; `Step NN.M` references with no matching heading; STL filenames in an assembly-chapter table with no matching print-batch table row (exempt: a row containing `not printed`, `kit-supplied`, or `SKIP`, case-insensitive); Markdown tables wider than 7 columns (exempt: tables under a heading whose text contains "Machine-readable").
+`scripts/lint_manual.py` runs in CI, after `mkdocs build --strict`. Five checks (the fifth, step word budgets, is in § Action-first steps; `--budgets-only` runs it alone, `--no-budgets` skips it): raw `⚠` / `**Check:**` / `Tip:` text outside an admonition or `<code>`/`<pre>` block; `Step NN.M` references with no matching heading; STL filenames in an assembly-chapter table with no matching print-batch table row (exempt: a row containing `not printed`, `kit-supplied`, or `SKIP`, case-insensitive); Markdown tables wider than 7 columns (exempt: tables under a heading whose text contains "Machine-readable"). Checks 6 and 7 (Parts grammar, Hardware reconciliation) are in § Parts grammar; check 8 (every assembly Checkpoint has a `**Built:**` line) is in § Checkpoint reward.
 
 ## Print-batch chapters (added 2026-09-05)
 - Live in `docs/manual/print/`: `00-slicer-setup.md` then `B00-calibration-and-jigs.md` … `B10-clicky-clack-door.md` (batch ids from `docs/voron-print-plan.md`). Assembly chapters stay in `docs/manual/NN-*.md`; `00-index.md` holds the interleaved timeline that says which batch to start before which assembly chapter.
@@ -65,7 +65,7 @@ hard budgets, not more structure.
 
 **Rendered order** (`scripts/build_steps.py`, chapter source order unchanged): **Do:** →
 **Parts:** → **Check:** → **Helper:** → a collapsed `What you're looking at` block → `⚠`/`Tip:` →
-`Pause:` → `Source:`. Images stay hoisted to the figure column. Write a step in house order as before; the
+`Pause:` → `Source:` → **Next:** (§ Step pages › Next overrides). Images stay hoisted to the figure column. Write a step in house order as before; the
 generator moves it.
 
 **Budgets** (words, excluding images, code, inline `code` spans and link URLs):
@@ -112,7 +112,11 @@ labelling, counting, reading a number or a screen back, holding a part steady, c
 or pressing a button. **Never** on a step that involves mains (Ch 00a, Ch 09's inlet / WAGO /
 PSU / SSR steps, Ch 10's mains-side wiring and power-on checks), the soldering iron or heat-set
 inserts (00.13–00.16, 02.03–02.04, 08.3–08.7 and every other insert step), a blade or cutter, or
-a hot chamber, bed, nozzle or freshly-pulled plate. If the safe part of a step is only a fraction
+a hot chamber, bed, nozzle or freshly-pulled plate. The build enforces this: a `**Helper:**` line in
+a step listed in `NO_MASCOT_STEPS` (`hooks/mascot.py`) fails it. **One exception** (Alex,
+2026-09-24): the unplugged meter sweep 10.74–10.78 (`HELPER_RECORD_ONLY`), where the helper
+records the readings the adult calls out and the adult holds the probes. Its job text must contain
+"record"; the badge stays stripped on the listed steps. If the safe part of a step is only a fraction
 of it, leave the step untagged rather than splitting it: **steps are never split or renumbered.**
 
 **What the build does with it.** `scripts/build_steps.py` renders the job as a
@@ -126,6 +130,86 @@ bucket line with `· helper: <job>`.
 **Lint.** `scripts/lint_manual.py` check 5 enforces the budget, the position (it must follow
 Check) and the em-dash / parenthetical rules; `--json` reports them as `words`, `em-dash`,
 `parenthetical` and `helper-position` findings.
+
+## Parts grammar (added 2026-09-24, wave 4)
+
+`scripts/parts.py` owns the parse, the counts, the kit-BOM resolve and checks 6–7; `build_steps.py`
+and `lint_manual.py` only call it. Assembly chapters (00–14) write every `**Parts:**` field as
+`**Parts:** none.` or the list form: the label alone, a blank line, one bullet per item.
+
+    **Parts:**
+
+    - M3×40 SHCS ×24
+    - `[a]_z_drive_baseplate_a` ×2
+    - staged: roll-in M5 T-nut ×4
+    - reused: the four belted shaft assemblies
+    - tool: 2.5 mm hex key
+    - consumable: masking tape
+    - M3 heat-set insert ×7 — from KADRICK kit
+
+- **One item per bullet, counted with the step total** (`×N`): a step that closes four drives says
+  ×24, not ×6. `per` / `each` belongs in Do. A `×` inside a dimension (`M3×8`) or a code span is
+  never a count.
+- **Sourced.** Each counted item is a kit BOM row, a printed STL in backticks (bin from
+  `assets/parts/MANIFEST.csv`), or ends `— from <source>` (anything the kit does not ship). **The
+  kit box is never typed**: it resolves from `scripts/data/ldo-350-bom.yml`, LDO's pinned 350
+  Rev D BOM vendored by `scripts/kit_bom.py`; re-pin it to the batch sheet on kit day (Step 00.2).
+  Spelling aliases live in `kit_bom.ALIASES`; fasteners, nuts, T-nuts and inserts need none.
+- **Roles** (prefix): `staged:` taken out and set aside for a later step (unpack, inspect, set,
+  trim, bag); `reused:` fitted earlier and touched again. Neither is summed, and neither cites a
+  step number. `tool:` and `consumable:` are gathered apart and never reconciled; the map's
+  `unreconciled:` rows (zip ties, VHB, foam tape, belt stock, ferrules…) must carry one of them.
+- **Print chapters** (B00–B11) keep the single-line form, `;` then `·` separated:
+  `build_tonight.py` and `slicer/check_docs.py` read their Load-step lines.
+
+**Consumption and ownership.** A kit unit is consumed once, at the step that first mounts,
+fastens, presses, glues, solders or plugs it in; that step counts it. Earlier mentions are
+`staged:`, later ones `reused:`. Ch 00 is inventory and never counts. A chapter's **Hardware**
+table counts its own consumption, one kit item per row, the Qty cell leading with the total
+(`24`, or `60: 24 drives + 36 Z rails`). Units bagged in one chapter for another are a `carries:`
+entry in `scripts/data/hardware-ownership.yml` (the consuming table writes `0: bagged at Step …`);
+the same map fixes the step that fits each cross-chapter unit. Rule and per-row evidence:
+`review/2026-09-23-sweep/HARDWARE-OWNERSHIP.md`. New hardware on a later step is a counted part,
+never `reused:`.
+
+**Checks.** `lint_manual.py` check 6 is the grammar (`single-line`, `no-count`, `per-unit`,
+`multi-item`, `unresolved`, `unreconciled-row`, `staged-xref`/`reused-xref`); check 7 reconciles
+step totals against each chapter's Hardware table and, across the manual, flags `double-count`,
+`owner-missing`, `fake-reuse`, `staged-unfitted`, `carry-unstaged`/`carry-unfitted`, `over-bom`
+and `map-error`. Both fail the default run for the assembly chapters (`PARTS_CHECKS_FAIL`, on since
+wave 4 phase 5); print chapters are never scanned. **Strict mode**, the per-chapter gate: `python3 scripts/lint_manual.py --strict-parts
+--chapters 09,10` exits 1 on any check 6/7 finding in those chapters (a cross-chapter finding is
+filed under the chapter that holds the step). `--parts-report [chapter …]` lists every finding;
+`python3 scripts/parts.py --ledger '<BOM regex>'` prints every mention of a kit row in manual
+order with its role, count and Source line, so equal totals cannot hide a wrong step.
+
+## Panel crops (added 2026-09-24, wave 4)
+
+A step that acts on one panel of a multi-panel page shows that panel, larger. Add
+`{ crop="x0 y0 x1 y1" }` (page fractions) directly after the image:
+`![Voron manual p.NN](assets/manual-pages/manual-pNNN.png){ crop="0.12 0.14 0.62 0.72" }`
+(`sb-pages/sb-pNNN.png` too). Pick the box on `python3 scripts/crop_panels.py --sheet pNNN` (a
+10 % grid), render it with `--render pNNN --box 0.12 0.14 0.62 0.72` into
+`assets/manual-crops/pNNN-<hash8>.png` (named from page + box, so two writers agree), and commit
+the PNG; `--sheet`/`--render` need the gitignored source PDFs. The step page shows the crop with
+a **Full page** link; the long chapter page keeps the whole page. The build fails on a declared
+crop whose PNG is missing and on a crop written where `crop_panels.py --check` cannot see it (a
+print chapter, another image path). `--check` needs no PDF: it exits 1 on a missing PNG and lists
+orphan PNGs no chapter declares.
+
+## Checkpoint reward (added 2026-09-24, wave 4)
+
+Each assembly `## Checkpoint` carries one `**Built:** <what now exists>` line: at most 12 words,
+no em-dash, no parenthetical, no leading "You built". The build renders it at the end of the
+Checkpoint (step page and long page) as Revali's `pass` scene captioned "You built X. N gummy
+worms."; the line itself is not shown. N is one worm per 30 min of the chapter's
+`**Sessions:**` time (else the `Time:` midpoint), split across a chapter's Checkpoints by their
+Pause segments, at least one each. Two `**Built:**` lines in one Checkpoint fail the build.
+Without one the caption is "Checkpoint NN passed. N gummy worms.", and lint check 8 fails
+(`BUILT_REQUIRED`, on since wave 4 phase 5). Print-batch Checkpoints take no `**Built:**` line (it fails
+the build): their caption is generated from `slicer/plates.py` ("Batch Bnn printed: plates … of
+22, … of 157.0 h."), one worm per plate. Checkpoint 00a's reward is the caption
+alone, no bird (`REWARD_TEXT_ONLY` in `hooks/mascot.py`); Checkpoint 10 gets the bird.
 
 ## Bench photos (added 2026-09-05, evening)
 Alex's own photos, taken at the bench and filed by `scripts/ingest_photos.py` — not mirrored
@@ -183,12 +267,15 @@ generator only formalises it.
 **What the generator does to a step block.** Images are hoisted to the top with the manual-page
 render first and the part renders and diagrams after. The text column is then re-ordered
 action-first — **Do:** → **Parts:** → **Check:** → **Helper:** → the collapsed
-`What you're looking at` block → `⚠`/`Tip:` → `Pause:` → `Source:` — regardless of where those lines sit in the chapter (see
+`What you're looking at` block → `⚠`/`Tip:` → `Pause:` → `Source:` → **Next:** — regardless of where those lines sit in the chapter (see
 "Action-first steps and word budgets"). A list or code block directly under a Do line rides with
 it; a table, code block or blockquote and the paragraph beside it stay visible; every other loose
-paragraph joins the collapsed block. `**Parts:**` becomes a compact list (split on `;`, then `·`),
-each item carrying the part render from `assets/parts/MANIFEST.csv` when it names an STL in
-backticks. `(no image — …)` renders as a neutral placeholder. Every relative link is re-resolved
+paragraph joins the collapsed block. `**Parts:**` becomes a compact list (the list form's bullets;
+a single-line field splits on `;`, then `·`), each item carrying the part render from
+`assets/parts/MANIFEST.csv` when it names an STL in backticks, and a muted note saying where it
+comes from: bin, kit box, `— from` source, `tool`/`consumable`, "set out now, fitted later"
+(`staged:`) or "already on the bench" (`reused:`). An image line with a `crop=` box shows its
+panel crop (§ Panel crops). `(no image — …)` renders as a neutral placeholder. Every relative link is re-resolved
 for the new depth; `chapter.md#step-…` retargets that step's page and a bare `chapter.md`
 retargets that chapter's overview.
 
@@ -215,7 +302,14 @@ column (a bin id written into the Parts text is honoured too). A Parts item the 
 read is listed **verbatim** rather than dropped, and named in the build log
 (`mkdocs build` INFO, or the `warn:` lines from `python3 scripts/build_steps.py`) so the chapter can
 be tightened. A segment with nothing to gather gets no block on the step page and a
-"nothing to lay out" line on the overview.
+"nothing to lay out" line on the overview. A segment that holds any list-form Parts field is
+**grouped by source** instead: kit boxes in BOM order, hand-named sources, other hardware, printed
+parts by bin, tools and consumables, set out for later (`staged:`), already on the bench
+(`reused:`). Kit items merge by BOM row, so two spellings of one fastener meet. Within one segment:
+a `staged:` item that a later step fits is listed only under its box (a partial fit leaves the
+remainder under "set out for later"); `reused:` lines are listed once and never summed; a `tool:` is
+listed once, at the most any one step needs; a `consumable:` sums its counts, a quantity in its name
+("about 25 g") counts one portion per step, and a bare name is listed once.
 
 **Chapter progress figure.** Where `docs/manual/assets/cad/ch-NN-after.png` exists — one
 cumulative "state at the end of this chapter" CAD render per assembly chapter, built by
@@ -240,6 +334,20 @@ batch overviews only; add a row there when a chapter is added (`steps/.nav.yml` 
 generated markup, never from nav order. Each overview
 links to the long chapter page ("Read the whole chapter on one page") and every long chapter page
 gets a banner back to its overview.
+
+**Next overrides.** Prev/next follow file order unless one of three lines says otherwise
+(`scripts/build_steps.py`; only the first link counts, and only when its anchor is a step heading):
+
+- a chapter's `## Next` section that **leads** with a step link sends the chapter's last page there
+  (Ch 12 → Step 11.67). A lead link to a chapter or a non-step anchor changes nothing;
+- a `## Checkpoint` whose body carries `**Next:** [text](chapter.md#step-anchor)` sends that
+  Checkpoint page's Next button there (Checkpoint 06 → Ch 07, Checkpoint 06b → 13.35,
+  Checkpoint 13 → Ch 11 Part B). The line stays visible in the checklist;
+- a **step** may end with the same `**Next:**` line (13.34 → 06b.1). It renders after `Source:`
+  and overrides that step page's Next button. It is navigation, like `Source:`, so its link does
+  not count against the step's one cross-reference.
+
+Use one wherever the bench order in `00-index.md` leaves the file order.
 
 **Progress** is keyed `chapter-slug` + `step id`, so one tick is the same tick on the step page,
 the overview grid and the long chapter page.

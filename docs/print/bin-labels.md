@@ -28,7 +28,7 @@ _7 pieces_
 
 **Z0 corner (front-left, `_a` hand)**
 
-_Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)_
+_Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)_
 
 **Should contain:**
 
@@ -50,7 +50,7 @@ _7 pieces_
 
 **Z1 corner (rear-left, `_b` hand)**
 
-_Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)_
+_Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)_
 
 **Should contain:**
 
@@ -72,7 +72,7 @@ _7 pieces_
 
 **Z2 corner (rear-right, `_a` hand)**
 
-_Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)_
+_Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)_
 
 **Should contain:**
 
@@ -94,7 +94,7 @@ _7 pieces_
 
 **Z3 corner (front-right, `_b` hand)**
 
-_Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43)_
+_Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)_
 
 **Should contain:**
 
@@ -569,10 +569,10 @@ _All bins on one page — which chapter opens each one, and what should be insid
 | bin | label | chapter · steps | pieces | from batches |
 |---|---|---|---:|---|
 | **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.11) | 7 | B00 |
-| **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | 7 | B00, B01, B02 |
-| **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | 7 | B01, B02 |
-| **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | 7 | B01, B02 |
-| **02-Z3** | Z3 corner (front-right, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.36, idler 02.37–02.43) | 7 | B01, B02 |
+| **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | 7 | B00, B01, B02 |
+| **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | 7 | B01, B02 |
+| **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | 7 | B01, B02 |
+| **02-Z3** | Z3 corner (front-right, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | 7 | B01, B02 |
 | **02-deck** | Deck panel clips | Ch 02 · 02.11–02.15 (confirm thickness at 02.12) | 8 | B01 |
 | **04-A** | A drive unit + A (right) front idler | Ch 04 · 04.1–04.24 (A idler 04.6–04.9, A drive 04.20–04.24) | 5 | B02, B03 |
 | **04-B** | B drive unit + B (left) front idler | Ch 04 · 04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33) | 5 | B02, B03 |

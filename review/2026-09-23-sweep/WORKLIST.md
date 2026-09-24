@@ -68,11 +68,24 @@ Parsed list of all 243 rows: re-run the parser in the session notes, or just `gr
 - Wave 3 leftovers: bench — 01.19 hex-key reach to the M5×16 (else tighten at 01.16 with the bracket held flush), MGN9H/MGN12H hole counts vs an LDO drawing, probe lead's bag name; wording — 01.16 "other leg down and outward" (CAD: flat on the rail top, pointing outward); 05 "A high, B low" inferred from pulley heights (p.76/80).
 
 ## Wave 4: systemic, closer to Prusa (plan first; decide scope with Alex)
-- [ ] **Parts lines: one item per line (Alex 2026-09-23), totals per segment, bag source;** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.
-- [ ] **Step images cropped to the relevant manual panel;** screenshots for the Ch 12–14 software steps (76/104 without an image) and Ch 11 (29/66).
-- [ ] **Helper lines** in Ch 06–10 and 12 wherever two hands or a phone are needed (gantry lift, belt readings).
-- [ ] **A reward at every Checkpoint:** Revali's `pass` pose, "you built X", and a real treat. Alex to pick the treat.
-- [ ] **The Tonight progress overlay** (approved 2026-09-23): read the progress.js tick store, skip finished segments, plans start at the first unfinished step.
+- [x] **Parts lines: one item per line (Alex 2026-09-23), totals per segment, bag source;** so the generated Gather block becomes Prusa-style parts preparation (G2-03, G3-06). Fix the generator plus the content.
+- [x] **Step images cropped to the relevant manual panel;** screenshots for the Ch 12–14 software steps (76/104 without an image) and Ch 11 (29/66).
+- [x] **Helper lines** in Ch 06–10 and 12 wherever two hands or a phone are needed (gantry lift, belt readings).
+- [x] **A reward at every Checkpoint:** Revali's `pass` pose, "you built X", and a real treat. Alex to pick the treat.
+- [x] **The Tonight progress overlay** (approved 2026-09-23): read the progress.js tick store, skip finished segments, plans start at the first unfinished step.
+
+**Wave 4 notes (2026-09-24, phase 5 integration).** Done: phases 1–4 (752f3bf, cdfb033, 27fc719, 6f5f5cc) and phase 5 (checks 6/7 and `**Built:**` now fail the gate; CONVENTIONS § Parts grammar, § Panel crops, § Checkpoint reward, Next overrides, Helper exception 10.74–10.78; Checkpoint 13 → Step 11.52; 10.1 helper records, adult holds the probes; bin idler range 02.39–02.43). Leftovers, not fixed:
+- 11.63 latch: may take 2 fresh M3 T-nuts + 2 M3×8 (bench check); the door kit's 14 T-nuts and 12 M3×8 balance that way.
+- 6 of the door kit's M3×8 have no step.
+- Corner brackets: p.18 and the CAD show 4, but there is no LDO BOM row.
+- `(verify on bench)` sources: COB LED strips, Pi HAT adapter, Leviathan standoffs, FFC ribbon, Nitehawk ground cable box.
+- 02.12/02.14 say p.29 shows deck support clips (it shows T-nuts and DIN rails); G2-13's backwards "ledges" claim.
+- The 20-hole rail screw pattern wording.
+- Survey says ~30 backer T-nuts; the count is 29.
+- `nameplate.py` says BHCS, 14.24 says SHCS.
+- Checkpoint 14's Next goes to B00 (end of build; fine as is).
+- Mirror the GPL tanaes door images (render.png, handle_transparent.png, hinge_cutaway.png) for the image-less door steps.
+- 06.12's helper shares the gantry lift: Alex to confirm.
 
 ## Wave 5: minor and polish (176 items), batched per chapter from the G files
 

@@ -213,9 +213,8 @@ def _unmask_code(text: str, spans: list[str]) -> str:
     return _CODE_MASK_RE.sub(lambda m: spans[int(m.group(1))], text)
 
 
-def count_of(item: str) -> tuple[int | None, str]:
-    """(count, item without its count token). No count token -> (None, item)."""
-    masked, spans = _mask_code(item)
+def _count_match(masked: str) -> re.Match | None:
+    """The count token of a code-masked item (the one count_of reads)."""
     for rx in (_CNT_PREFIX_RE, _CNT_SUFFIX_RE, _CNT_PAREN_RE):
         m = rx.search(masked)
         if m and rx is _CNT_SUFFIX_RE and masked[:m.start()].rstrip()[-1:].isdigit():
@@ -224,13 +223,22 @@ def count_of(item: str) -> tuple[int | None, str]:
             if re.match(r"[×xX]\s", m.group(0)):
                 m = None
         if m:
-            rest = (masked[:m.start()] + " " + masked[m.end():])
-            rest = re.sub(r"\s+", " ", rest)
-            rest = re.sub(r"\s+([,;.)\]])", r"\1", rest)   # ` ,` left where the count was
-            rest = re.sub(r"([(\[])\s+", r"\1", rest)
-            rest = rest.strip(" ,;·").strip()
-            return int(m.group(1)), _unmask_code(rest, spans).strip()
-    return None, item.strip()
+            return m
+    return None
+
+
+def count_of(item: str) -> tuple[int | None, str]:
+    """(count, item without its count token). No count token -> (None, item)."""
+    masked, spans = _mask_code(item)
+    m = _count_match(masked)
+    if not m:
+        return None, item.strip()
+    rest = (masked[:m.start()] + " " + masked[m.end():])
+    rest = re.sub(r"\s+", " ", rest)
+    rest = re.sub(r"\s+([,;.)\]])", r"\1", rest)   # ` ,` left where the count was
+    rest = re.sub(r"([(\[])\s+", r"\1", rest)
+    rest = rest.strip(" ,;·").strip()
+    return int(m.group(1)), _unmask_code(rest, spans).strip()
 
 
 def merge_key(name: str) -> str:
@@ -282,6 +290,19 @@ class Tally:
     group: tuple = ()           # grouped path: (order, heading)
     note: str = ""              # grouped path: muted suffix (bin, box)
     counted: bool = True        # False for `reused:` — listed, never summed
+    role: str = ""              # grouped path: the item's role
+    ident: tuple = ()           # grouped path: kit row or name, whatever the group
+    staged: int | None = None   # `staged:`: most set out at once (None = uncounted)
+    used: int = 0               # `staged:`: fitted by a later step of the segment
+    some: bool = False          # `consumable:` with no count and no quantity: "have some"
+
+    @property
+    def settled(self) -> bool:
+        """A `staged:` row fitted within its own segment: it is listed under
+        its box (the fitting step's counted row), not also under 'Set out for
+        later steps'."""
+        return self.role == "staged" and self.used > 0 and (
+            self.staged is None or self.used >= self.staged)
 
 
 def collect(items: list[Tally], item: str, where: str) -> None:
@@ -585,8 +606,16 @@ def absorb_list(lines: list[str], end: int, is_boundary) -> int:
 
 
 def grouped_tally(items: list[Tally], item: PartItem) -> None:
-    """Grouped Gather tally: merge by BOM row (so spellings meet), else by name;
-    `reused:` and `staged:` items are listed once and never summed."""
+    """Grouped Gather tally, fed in step order: merge by BOM row (so spellings
+    meet), else by name. Within one segment:
+    - `reused:` and `staged:` items are listed once and never summed;
+    - a `staged:` item that a later step of the segment fits is used up by that
+      counted row (`Tally.settled`, or the remainder still set out for later);
+    - a `tool:` is the same tool in every step: listed once, at the most any
+      one step needs;
+    - a `consumable:` sums its counts; without one, a name that states a
+      quantity ("about 25 g") is one portion per step, and a bare name
+      ("masking tape") is listed once."""
     group = item.group
     ident = ("bom", item.bom["_n"]) if (item.bom and not item.printed and not item.source) else ("name", merge_key(item.name))
     key = "%r|%r" % (group[0], ident)
@@ -594,12 +623,30 @@ def grouped_tally(items: list[Tally], item: PartItem) -> None:
     display = item.name if counted else item.body
     if not merge_key(display):
         return
+    if item.role == "part":
+        for st in items:
+            if st.role == "staged" and st.ident == ident:
+                st.used += item.count if item.count is not None else 1
     note = ("bin " + ", ".join(item.bins)) if (item.printed and item.bins) else ""
     for existing in items:
         if existing.key == key:
+            n = item.count
+            if item.role == "staged" and existing.staged is not None:
+                existing.staged = None if n is None else max(existing.staged, n)
+            if not counted or (n is None and item.role == "tool"):
+                pass
+            elif item.role == "tool":
+                existing.count = max(existing.count if existing.explicit else 0, n)
+            elif item.role == "consumable" and (existing.some or n is None):
+                if n is None and not _states_quantity(display):
+                    pass                                  # "some" again: already listed
+                else:
+                    existing.count = (0 if existing.some else existing.count) + (n or 1)
+                    existing.some = False
+            else:
+                existing.count += n if n is not None else 1
             if counted:
-                existing.count += item.count if item.count is not None else 1
-                existing.explicit = existing.explicit or item.count is not None
+                existing.explicit = existing.explicit or n is not None
             for b in item.bins:
                 if b not in existing.bins:
                     existing.bins.append(b)
@@ -608,7 +655,17 @@ def grouped_tally(items: list[Tally], item: PartItem) -> None:
             return
     items.append(Tally(display=display, count=(item.count or 1) if counted else 0,
                        explicit=counted and item.count is not None, bins=list(item.bins),
-                       key=key, group=group, note=note, counted=counted))
+                       key=key, group=group, note=note, counted=counted,
+                       role=item.role, ident=ident,
+                       staged=item.count if item.role == "staged" else None,
+                       some=(item.role == "consumable" and item.count is None
+                             and not _states_quantity(display))))
+
+
+def _states_quantity(name: str) -> bool:
+    """A count-less consumable whose name carries its amount ("about 25 g",
+    "zip ties, 4 to 6"): each step's mention is another portion."""
+    return bool(re.search(r"\d", _CODE_MASK_RE.sub("", _mask_code(name)[0])))
 
 
 def groups(items: list[Tally]) -> list[tuple[str, list[Tally]]]:
@@ -617,6 +674,8 @@ def groups(items: list[Tally]) -> list[tuple[str, list[Tally]]]:
     consumables, then what is already on the bench."""
     out: dict[tuple, tuple[str, list[Tally]]] = {}
     for t in items:
+        if t.settled:
+            continue
         out.setdefault(t.group[0], (t.group[1], []))[1].append(t)
     result = []
     for order in sorted(out):
@@ -627,7 +686,19 @@ def groups(items: list[Tally]) -> list[tuple[str, list[Tally]]]:
     return result
 
 
+def _recount(text: str, n: int) -> str:
+    """`text` with its count token (the one count_of reads) set to `n`."""
+    masked, spans = _mask_code(text)
+    m = _count_match(masked)
+    if not m:
+        return text
+    a, b = m.span(1)
+    return _unmask_code(masked[:a] + str(n) + masked[b:], spans)
+
+
 def tally_line(t: Tally) -> str:
+    if t.role == "staged" and t.used and t.staged:
+        return _recount(t.display, t.staged - t.used)   # the rest, still for later
     if not t.counted:
         return t.display
     count = " ×%d" % t.count if (t.explicit or t.count > 1) else ""
@@ -695,7 +766,7 @@ def assembly_chapters() -> list[Path]:
 
 
 def check_grammar(text: str, rel: str) -> list[dict]:
-    """Check 6 (warn until wave-4 phase 5): each Parts field is `none` or the
+    """Check 6 (fails the default lint since wave-4 phase 5): each Parts field is `none` or the
     list form, and each bullet is one counted, sourced, per-step-total item."""
     found: list[dict] = []
     own = load_ownership()
@@ -1065,7 +1136,7 @@ def carry_adjust(text: str, own: Ownership) -> dict[int, int]:
 
 def check_reconcile(text: str, rel: str, bom: list[dict] | None = None,
                     own: Ownership | None = None) -> tuple[list[dict], dict[int, int]]:
-    """Check 7, per chapter (warn until wave-4 phase 5): the chapter's
+    """Check 7, per chapter (fails the default lint since wave-4 phase 5): the chapter's
     consumption of each kit item (counted parts; not `reused:`/`staged:`/
     `tool:`/`consumable:`/`— from`, not an inventory chapter, not an
     unreconciled row), plus its carries, equals the Hardware table's total.
@@ -1510,6 +1581,97 @@ def _selftest() -> int:
     eq("dimension stays", count_of("Ø4.7 × 5 mm"), (None, "Ø4.7 × 5 mm"))
     eq("profile then count", count_of("M3 roll-in T-nut, 2020 ×4"), (4, "M3 roll-in T-nut, 2020"))
     eq("staged role", (parse_item("staged: M3×30 SHCS ×2").role, parse_item("staged: M3×30 SHCS ×2").kit_key), ("staged", None))
+
+    # Gather, one segment: a `staged:` item fitted later in the same segment is
+    # listed once, under its box; a partial fit leaves the rest set out; a fit
+    # BEFORE the staging step is a different unit; a staged item fitted in
+    # another segment stays set out. A tool repeated across steps is one tool.
+    def gather(md):
+        tallies = []
+        for _, _, fl in step_fields(md):
+            for it in fl.items:
+                grouped_tally(tallies, it)
+        return [(h, [tally_line(t) for t in ts]) for h, ts in groups(tallies)]
+
+    seg = """### Step 09.14 — Unbox the PSU
+
+**Parts:**
+
+- staged: M3×30 SHCS ×2
+- staged: MGN9H 400 mm rail ×4, labelled Z0–Z3
+- staged: `deck_support_3mm_x8` ×8
+- staged: Revo nozzle
+- tool: multimeter
+- consumable: masking tape
+
+### Step 09.15 — Fit it
+
+**Parts:**
+
+- M3×30 SHCS ×2
+- MGN9H 400 mm rail ×1
+- `deck_support_3mm_x8` ×8
+- tool: multimeter
+- tool: 2.5 mm hex key ×2
+- consumable: masking tape
+- consumable: zip tie ×2
+- consumable: Prusament ASA, about 25 g
+
+### Step 09.16 — Again
+
+**Parts:**
+
+- MGN9H 400 mm rail ×1
+- tool: multimeter
+- tool: 2.5 mm hex key ×1
+- consumable: zip tie ×3
+- consumable: Prusament ASA, about 25 g
+"""
+    got = gather(seg)
+    eq("staged+fitted once", [h for h, _ in got if h == "Set out for later steps"],
+       ["Set out for later steps"])
+    eq("staged remainder", dict(got)["Set out for later steps"],
+       ["MGN9H 400 mm rail ×2, labelled Z0–Z3", "Revo nozzle"])
+    eq("staged fitted rows", [t for h, ts in got for t in ts if "M3×30" in t or "deck_support" in t],
+       ["M3×30 SHCS ×2", "`deck_support_3mm_x8` ×8"])
+    eq("tool once", dict(got)["Tools and consumables"],
+       ["multimeter", "masking tape", "2.5 mm hex key ×2", "zip tie ×5",
+        "Prusament ASA, about 25 g ×2"])   # a stated amount is one portion per step
+    # Fitted before it is staged: both rows stay (two different sets of screws).
+    before = """### Step 10.47 — Fit
+
+**Parts:**
+
+- M3×8 SHCS ×2
+
+### Step 10.50 — Set aside
+
+**Parts:**
+
+- staged: M3×8 SHCS ×2
+"""
+    eq("fit before staging", [t for _, ts in gather(before) for t in ts],
+       ["M3×8 SHCS ×2", "M3×8 SHCS ×2"])
+    # The same unit staged in two steps, fitted once: settled.
+    twice = """### Step 10.31 — Read
+
+**Parts:**
+
+- staged: M3×30 SHCS ×1
+
+### Step 10.32 — Repin
+
+**Parts:**
+
+- staged: M3×30 SHCS ×1
+
+### Step 10.33 — Fit
+
+**Parts:**
+
+- M3×30 SHCS ×1
+"""
+    eq("staged twice, fitted once", gather(twice), [("Fasteners, Tools & Misc box", ["M3×30 SHCS ×1"])])
 
     if fails:
         for f_ in fails:

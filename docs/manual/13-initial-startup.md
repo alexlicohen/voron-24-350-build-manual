@@ -1308,6 +1308,8 @@ Tick every line before you start Ch 14.
 - [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, `PRINT_START`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
 
+**Next:** [Ch 11 Part B, Step 11.52](11-skirts-panels-door.md#step-1152-foam-tape-the-back-panel) — back, side and top panels and the door; then Ch 14.
+
 ---
 
 ## Common mistakes

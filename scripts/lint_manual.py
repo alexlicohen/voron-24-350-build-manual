@@ -33,10 +33,13 @@ chapters by `scripts/build_steps.py` and carries no independent content.
      and `staged:` / `reused:` lines are not summed, and
      scripts/data/hardware-ownership.yml fixes where cross-chapter kit units
      are fitted (double counts, fake `reused:`, carries, over-BOM).
-     6 and 7 WARN until wave-4 phase 5 flips `PARTS_CHECKS_FAIL`; the default
-     run prints their counts, `--parts-report [chapter …]` every finding
-     (`--json` one per line, `--strict` exits 1 on any). Packet gate:
-     `--strict-parts --chapters 05,06` fails on 6/7 for just those chapters.
+     6 and 7 FAIL the default run (wave-4 phase 5, `PARTS_CHECKS_FAIL`) for
+     the assembly chapters only; print chapters (print/B*.md) keep their
+     single-line Load form and are never scanned. `--parts-report [chapter …]`
+     lists every finding (`--json` one per line, `--strict` exits 1 on any);
+     `--strict-parts --chapters 05,06` gates just those chapters.
+  8. Checkpoint reward: every assembly `## Checkpoint` carries a `**Built:**`
+     line (FAIL since wave-4 phase 5, `BUILT_REQUIRED`).
 
 Exits non-zero (and prints every finding) if any check fails. This only
 reports — it does not edit chapter content.
@@ -451,7 +454,7 @@ def check_missing_source():
     return findings
 
 
-BUILT_REQUIRED = False   # wave-4 phase 5 flips this once every Checkpoint has one
+BUILT_REQUIRED = True    # wave-4 phase 5: every assembly Checkpoint has one (FAIL)
 _CHECKPOINT_H2_RE = re.compile(r"^##\s+Checkpoint\b(.*)$")
 _BUILT_LINE_RE = re.compile(r"^\*\*Built:\*\*\s*\S")
 
@@ -459,7 +462,7 @@ _BUILT_LINE_RE = re.compile(r"^\*\*Built:\*\*\s*\S")
 def check_checkpoint_built():
     """Every assembly `## Checkpoint` section carries one `**Built:** <X>` line,
     the caption of the reward scripts/build_steps.py renders (batch rewards are
-    generated, so print/ is not scanned). WARN until BUILT_REQUIRED."""
+    generated, so print/ is not scanned). FAIL when BUILT_REQUIRED, else WARN."""
     findings = []
     for f in sorted(MANUAL.glob("*.md")):
         if not re.match(r"^\d", f.name) or f.name in _GENERATED_OR_META:
@@ -513,7 +516,7 @@ def _run_budgets_only(as_json):
 #    parse and the kit-BOM resolve; this only selects files and prints.
 # --------------------------------------------------------------------------
 
-PARTS_CHECKS_FAIL = False   # wave-4 phase 5 flips this once packets reach zero
+PARTS_CHECKS_FAIL = True    # wave-4 phase 5: assembly chapters at zero, now FAIL
 
 
 def _parts_files(selectors):
@@ -591,8 +594,8 @@ def _chapters_arg(argv):
 
 
 def _run_strict_parts(argv):
-    """Packet gate: checks 6 and 7 FAIL (exit 1) for the named chapters only.
-    The default run keeps them WARN until PARTS_CHECKS_FAIL flips."""
+    """Packet gate: checks 6 and 7 FAIL (exit 1) for the named chapters only
+    (the default run fails on them for every assembly chapter)."""
     chapters = _chapters_arg(argv)
     if chapters is not None and not _parts_files(chapters):
         print("--strict-parts: no assembly chapter matches %s" % ",".join(chapters))
@@ -638,8 +641,6 @@ def main(argv=None):
         if findings and not findings[0].startswith("SKIPPED"):
             total += len(findings)
 
-    print(f"\n{total} lint finding(s) total.")
-
     missing_source = check_missing_source()
     print(f"\n== WARN: Steps missing a `Source:` line: {len(missing_source)} ==")
     for line in missing_source:
@@ -664,6 +665,7 @@ def main(argv=None):
                 print(f"  {_parts_line(f)}")
             total += len(group)
 
+    print(f"\n{total} lint finding(s) total.")
     return 1 if total else 0
 
 

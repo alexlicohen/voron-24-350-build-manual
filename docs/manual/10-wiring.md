@@ -123,7 +123,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 **Check:** The photo above is the target. Nothing is connected yet and no duct covers are on.
 
-⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from 10.1 to 10.23. She is out of the room for Sections 1 and 2 and back for 10.24; she reads the meter aloud in Section 8, with the printer unplugged.
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine from 10.1 to 10.23. She is out of the room for Sections 1 and 2 and back for 10.24. In Section 8, with the printer unplugged, she records the readings you call out; you hold the probes.
 
 Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg) · [LDO wiring guide § Finish line](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#finish-line)
 
