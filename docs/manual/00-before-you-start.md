@@ -618,11 +618,11 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 1. LDO ships **153** M3×5×4 brass inserts and all 153 stay for the build.
 2. Count them off each printed part.
-3. Run that pass **per batch, off the plate and before any part enters an assembly chapter**.
+3. Run each pass **per batch, off the plate**, or by the step that closes the part, like 02.04.
 
 | Insert pass belongs to | Manual page carrying the callout | Count |
 |---|---|---|
-| Ch 02 — Z drive mains, retainers, motor mounts | p.31 | **36** (7 × 4 retainers + 2 × 4 mains — verified against the STLs) |
+| Ch 02 — Z drive mains, retainers | p.31 | **36** (7 × 4 retainers + 2 × 4 mains — verified against the STLs) |
 | Ch 04 — A/B drive frames | p.64 | (verify on bench) |
 | Ch 05 — X carriage and XY joints | p.129 | (verify on bench) |
 | Ch 08 — Stealthburner and Clockwork 2 | Stealthburner manual | (verify on bench) |

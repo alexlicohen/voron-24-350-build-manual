@@ -57,7 +57,7 @@ caption: Mains can kill. Unplug at the wall and prove it dead before you touch a
 
 **Parts:** none.
 
-**Do:** Read your local rules for who may make mains connections in a dwelling. If the answer is not you, write that down today: build the machine, mount every part, and hand over at [10.4](10-wiring.md#step-104-fit-the-ac-inlet-into-the-printed-plug-panel).
+**Do:** Read your local rules for who may make mains connections in a dwelling. If the answer is not you, write that down today: build the machine, mount every part, and hand over at [10.8](10-wiring.md#step-108-inlet-wago-bus).
 
 The one region that can kill you is **Ch 10 Section 1, [10.1](10-wiring.md#step-101-empty-the-bay-and-set-the-end-state)–[10.16](10-wiring.md#step-1016-frame-pe)**: the C14 inlet, the three-way WAGO bus, the Meanwell LRS-200-24's AC terminal block, the Omron SSR's LOAD pair, and the bed heater's live lead. The Voron community's standard advice is *"install the parts and then find a qualified electrician to do the connecting up."* Ch 10's own **Read first** says the same and names the same stopping line. Writing the decision down changes nothing else in the build order.
 
@@ -201,7 +201,7 @@ Protective earth (PE) is the conductor that makes the machine safe to *touch*: i
 
 A sixth path is not protective earth but shares the same bus at the far end: the **ESD ground** from the extruder motor body to the toolboard, fitted at [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path). It is why the extruder can appears in the earth-bonding table.
 
-The whole chain is proved in one sweep at [10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, and the frame, bare plate aluminium and extruder motor body read **a few Ω or less** — while the bed heater's L and N, and the **+24 V** side of the rail, read `OL`. The rail's **−V / GND** side reads a few Ω on purpose — that is the ESD bond from [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path), and [10.74](10-wiring.md#step-1074-24-v-rails) and 10.77 both expect it; do not go hunting a reversed ferrule for it.
+The whole chain is proved in one sweep at [10.77](10-wiring.md#step-1077-protective-earth-bonding): from the C14 earth pin, the PE WAGO and PSU ⏚ read **< 1 Ω**, the frame PE lug and the plate's M4×6 PE screw read **< 1 Ω**, a far frame corner **< 2–3 Ω**, and the extruder motor body **a few Ω or less** — while the bed heater's L and N, and the **+24 V** side of the rail, read `OL`. The rail's **−V / GND** side reads a few Ω on purpose — that is the ESD bond from [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path), and [10.74](10-wiring.md#step-1074-24-v-rails) and 10.77 both expect it; do not go hunting a reversed ferrule for it.
 
 **Check:** You can draw the five branches from memory and say where each is verified.
 

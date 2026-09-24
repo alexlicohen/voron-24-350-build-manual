@@ -312,7 +312,7 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 **Do:**
 
 1. **Stop unless LDO Checkpoint #1 has passed.** Clear tools from the bay.
-2. Two people, hands out: cord into the inlet, then the wall.
+2. Printer upright, two people, hands out: cord into inlet, then wall.
 3. Stand aside, hand on the rocker, switch on ten seconds, then over SSH:
 
 ```bash
