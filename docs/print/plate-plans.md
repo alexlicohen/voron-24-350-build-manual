@@ -108,7 +108,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B05-P1 — sorting diagram](../manual/assets/plates/B05-P1.png)
 
-**B05-P1** · black · 14 parts · 6.4 h · 78 g · bins: 06-Z-joints, 10-chains · [Load step](../manual/print/B05-z-joints-and-z-chain.md#step-b052-load-plate-b05-p1)
+**B05-P1** · black · 14 parts · 6.4 h · 78 g · bins: 02-Z0, 02-Z1, 02-Z2, 02-Z3, 06-Z-joints, 10-chains · [Load step](../manual/print/B05-z-joints-and-z-chain.md#step-b052-load-plate-b05-p1)
 
 </div>
 

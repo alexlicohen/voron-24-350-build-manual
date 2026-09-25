@@ -262,7 +262,7 @@ Pre-load or test-fit roll-in T-nuts — LDO warns extrusion/T-nut tolerances are
 4. **Heat-set inserts (153 of them) go in before assembly, not during.** A missed insert in an XY joint means a gantry teardown. Batch them per printed-part group, use the supplied brass tip with the tongue adjusted flush to the insert height, and practise on `STLs/Test_Prints/Heatset_Practice.stl` first.
 5. **Rails ship dry and must be cleaned and packed before installation** — the flip-and-pack method requires access to the back of the rail, i.e. *before* it goes on an extrusion. IPA soak 10 min, dry fully, pack NLGI 0/1 grease (Super Lube 21030) through a mounting hole until it oozes past the bearings, wipe the rail surface clean. Rail carriages slide off the ends easily and are ruined by a drop.
 6. **Use the second mounting hole from each end of every rail, never the end hole** (LDO note p.88). Also use the printed `MGN9_rail_guide_x2` / `MGN12_rail_guide_x2` jigs to centre rails on the extrusion.
-7. **Z pulleys: 16T on the Z motors, 20T elsewhere — they look nearly identical.** Threadlocker is pre-applied to the set screws; get orientation and stack height right the first time (`pulley_jig.stl`).
+7. **Z pulleys: 16T on the Z motors, 20T elsewhere — they look nearly identical.** Threadlocker is pre-applied to the set screws; get orientation and stack height right the first time (caliper at 33 mm on the Z shafts; `pulley_jig.stl` gauges only the A/B motor pulleys).
 8. **Mains wiring is the one step that can kill you.** Do LDO's *Checkpoint #1* with a multimeter, unplugged: continuity within each colour group, no continuity between L/N/PE, and confirm the PSU's 115/230 V selector **before** the first power-on. The SSR wiring is called out as *"critical — an incorrect connection can cause catastrophic damage"*; watch the numbered terminals and the yellow LED position.
 9. **Leviathan voltage-selection jumpers must be removed before installation** and only re-inserted after each attached component's voltage is verified. Mixing voltages on a shared 24 V supply "will permanently damage the controller and attached components."
 10. **Never unplug or re-plug a stepper with power on, and never hand-spin a connected stepper fast** — back-EMF kills drivers.
@@ -321,7 +321,7 @@ Reality check on the total: the low end (47.5 h) sits inside the community 40–
 | W9 | Rails installed before cleaning/greasing | Rails off again, or run them dry and wear them out | Rail prep is P00, explicitly before P02/P05 |
 | W10 | Rails mounted using the end holes (manual default) instead of the second holes | Rail off, re-position, re-align | LDO p.88 note is inlined at the step, not in an appendix |
 | W11 | Nevermore vs. stock exhaust decided after the back panel is sealed | Back panel off, different exhaust cover printed; 1 h + a reprint | Decide in P00 (it's Nevermore — the kit has no exhaust fan); print the matching exhaust cover in the same batch as the skirts |
-| W12 | Z-motor pulley set screws not threadlocked/seated before Z belting | Belt slip under load, re-belt all four; 1.5 h | Set-screw + `pulley_jig` verification step inside P02 |
+| W12 | Z-motor pulley set screws not threadlocked/seated before Z belting | Belt slip under load, re-belt all four; 1.5 h | Set-screw + caliper (33 mm) verification step inside P02 |
 | W13 | Wrong Klipper config loaded (Rev D vs Rev D+) at P12 | Mis-driven heater/probe/fans at P13; potentially a damaged component | P12 step 1: confirm the toolboard ID reads `stm32g0b1xx`; if it reads `rp2040` you have a V1 board and the *other* config |
 | W14 | `position_max` / QGL points left commented out for the 350 | Homing crashes into the frame at P13 | P12 config-edit checklist with the exact 350 values |
 
@@ -478,7 +478,7 @@ Each row is a chapter file. **Source** = what the writer transcribes from, with 
 |---|---|---|
 | 00 | Digital caliper 150 mm; machinist square 150 mm DIN 875/2; flat reference (the stone counter, verified); temperature-controlled soldering iron + LDO brass M3 tip; flush cutters; 2 mm drill bit (supplied) | IPA ≥90%; Super Lube 21030 (NLGI 0/1); nitrile gloves; lint-free cloth; masking tape + marker for labelling |
 | 01 | Ball-end hex 4 mm; machinist square; steel rule; flat reference; torque driver 0.5–3 N·m (optional) | — |
-| 02 | Hex 1.5/2/2.5/3/4 mm; soldering iron + insert tip; caliper (deck thickness gate); printed `MGN9_rail_guide`, `pulley_jig` | Loctite 243 (blue) for non-pre-applied set screws; grease |
+| 02 | Hex 1.5/2/2.5/3/4 mm; soldering iron + insert tip; caliper (deck thickness gate, Z pulley at 33 mm); printed `MGN9_rail_guide` | Loctite 243 (blue) for non-pre-applied set screws; grease |
 | 03 | Hex 2.5/3 mm; PH2 screwdriver; plastic scraper or card (magnet application); sharp knife (trim magnet holes) | IPA; the bed's protective film goes in the bin |
 | 04 | Hex 2/2.5/3/4 mm; printed assembly aid (from the manual); pulley jig | Loctite 243 |
 | 05 | Hex 2/2.5/3/4 mm; **T10 Torx** driver for backer FHCS (strongly preferred); rail guides; soldering iron (inserts) | Loctite 243 |

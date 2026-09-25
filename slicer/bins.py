@@ -37,7 +37,7 @@ BINS: dict[str, dict[str, str]] = {
     "04-A": dict(label="A drive unit + A (right) front idler", chapter="Ch 04", steps="04.1–04.24 (A idler 04.6–04.9, A drive 04.20–04.24)", colour="#2e8b57"),
     "04-B": dict(label="B drive unit + B (left) front idler", chapter="Ch 04", steps="04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33)", colour="#8fbc4a"),
     "05-XY": dict(label="XY joints, cable bridge, endstop pod", chapter="Ch 05", steps="05.3, 05.25–05.38 (endstop pod fitted at 09.32–09.33)", colour="#c2185b"),
-    "06-Z-joints": dict(label="Z joints, belt clips, rail stops", chapter="Ch 06", steps="06.3–06.10, 06.26 (rail stops optional at 02.10)", colour="#a0522d"),
+    "06-Z-joints": dict(label="Z joints and belt clips", chapter="Ch 06", steps="06.3–06.10, 06.26", colour="#a0522d"),
     "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39)", colour="#cd853f"),
     "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
     "08-CW2": dict(label="Clockwork 2 extruder + toolboard cover", chapter="Ch 08", steps="08.3–08.20 (cover 08.51)", colour="#f28482"),
@@ -134,7 +134,7 @@ ASSIGN: dict[str, str | list[str]] = {
     "z_joint_upper_x4.stl": "06-Z-joints",
     "z_chain_bottom_anchor.stl": "10-chains",
     "z_chain_guide.stl": "10-chains",
-    "z_rail_stop_x4.stl": "06-Z-joints",
+    "z_rail_stop_x4.stl": _ALL_Z,
     # B06
     "stealthburner_printhead_revo_voron_front.stl": "08-SB",
     "stealthburner_printhead_revo_voron_rear_cw2.stl": "08-SB",

@@ -21,7 +21,7 @@ the same assembly chapters; neither is a print prerequisite.
 | `z_joint_upper_x4.stl` | Voron-2 `STLs/Gantry/Z_Joints/` | 4 | Black | 6.6 | 06-Z-joints |
 | `z_chain_bottom_anchor.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 9.1 | 10-chains |
 | `z_chain_guide.stl` | Voron-2 `STLs/Gantry/` | 1 | Black | 6.0 | 10-chains |
-| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 1.4 | 06-Z-joints |
+| `z_rail_stop_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 1.4 | 02-Z0–Z3, one each |
 
 Print **4× `z_joint_upper_x4`** and **zero** `z_joint_upper_hall_effect.stl` — that variant exists only for
 hall-effect XY endstops, which this kit does not use.
@@ -88,10 +88,14 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **06-Z-joints** — Z joints, belt clips, rail stops | `z_joint_lower` ×4, `z_joint_upper` ×4, `z_rail_stop` ×4 |
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `z_rail_stop` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `z_rail_stop` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `z_rail_stop` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `z_rail_stop` |
+| **06-Z-joints** — Z joints and belt clips | `z_joint_lower` ×4, `z_joint_upper` ×4 |
 | **10-chains** — Z cable chain anchor, guide, retainer | `z_chain_bottom_anchor`, `z_chain_guide` |
 
-**Check:** 4 joint pairs and 4 rail stops in 06-Z-joints with B02's eight belt clips; anchor and guide in 10-chains.
+**Check:** one rail stop in each 02-Z corner bin; 4 joint pairs in 06-Z-joints with B02's eight belt clips; anchor and guide in 10-chains.
 
 **Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 

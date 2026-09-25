@@ -61,7 +61,7 @@ z_chain_bottom_anchor.stl,B05,primary,docs/manual/assets/parts/z_chain_bottom_an
 z_chain_guide.stl,B05,primary,docs/manual/assets/parts/z_chain_guide.png,docs/manual/assets/parts/sheet-B05.png,,"30.0,20.0,21.0",6.38,10-chains
 z_joint_lower_x4.stl,B05,primary,docs/manual/assets/parts/z_joint_lower_x4.png,docs/manual/assets/parts/sheet-B05.png,,"20.5,30.4,24.0",10.78,06-Z-joints
 z_joint_upper_x4.stl,B05,primary,docs/manual/assets/parts/z_joint_upper_x4.png,docs/manual/assets/parts/sheet-B05.png,,"20.0,25.0,20.3",7.37,06-Z-joints
-z_rail_stop_x4.stl,B05,primary,docs/manual/assets/parts/z_rail_stop_x4.png,docs/manual/assets/parts/sheet-B05.png,,"16.0,9.2,22.0",1.28,06-Z-joints
+z_rail_stop_x4.stl,B05,primary,docs/manual/assets/parts/z_rail_stop_x4.png,docs/manual/assets/parts/sheet-B05.png,,"16.0,9.2,22.0",1.28,02-Z0;02-Z1;02-Z2;02-Z3
 Dock_mount_fixed_v2.stl,B06,primary,docs/manual/assets/parts/Dock_mount_fixed_v2.png,docs/manual/assets/parts/sheet-B06.png,,"66.7,52.3,36.3",28.95,spare-alt
 KlickyProbe_AB_mount_v2.stl,B06,primary,docs/manual/assets/parts/KlickyProbe_AB_mount_v2.png,docs/manual/assets/parts/sheet-B06.png,,"19.2,27.0,29.4",3.99,spare-alt
 KlickyProbe_AB_mount_v2_holder.stl,B06,primary,docs/manual/assets/parts/KlickyProbe_AB_mount_v2_holder.png,docs/manual/assets/parts/sheet-B06.png,,"12.3,18.8,7.8",1.54,spare-alt
