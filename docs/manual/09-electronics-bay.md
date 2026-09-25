@@ -67,12 +67,12 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M4×6 BHCS | 6 | 4 PSU brackets **(verify)**, 2 SSR to its metal bracket |
 | M3×8 SHCS | 8 | 4 Leviathan to brackets **(verify)**, 2 inlet panel, 2 XY endstop PCB |
 | M3×6 BHCS | 2 | 2×2 XH splicer PCB to the bed WAGO mount |
-| M3×10 FHCS | 2 | IEC inlet module into the printed panel **(verify on bench)** |
+| M3×10 FHCS | 0 | p.156's two fix the filtered inlet; the IEC-GS module snaps into `power_inlet_IECGS_1mm` on its 1 mm tabs, no screws (CAD, STL) |
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
 | M3×30 SHCS | 0: bagged with the pod at Step 05.46 | 2 fitted at 09.33, XY endstop pod to the gantry (manual p.164); counted in Ch 05's table |
 | M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
 | M2×10 self-tapping | 8 (LDO's bag holds 24) | 4 DIN clips to Leviathan brackets (09.20), 2 the USB adapter's DIN clip (09.25), 2 Z endstop PCB (09.28) — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
-| M3×5×4 heat-set insert | 5: 3 inlet panel + 2 bed WAGO mount | inlet panel: 2 for the IEC module, 1 for the p.222 belt guard (Ø4.7 bores in `power_inlet_IECGS_1mm.stl`); the mains WAGO mount has none, only two M5 holes |
+| M3×5×4 heat-set insert | 5: 3 inlet panel + 2 bed WAGO mount | inlet panel: 1 in the rail's bottom face for the bottom-panel hinge (Ch 11), 2 in the cut-out for the p.222 belt guard (three Ø4.7 bores in `power_inlet_IECGS_1mm.stl`; p.156 draws five because the filtered variant adds two for its inlet screws); the mains WAGO mount has none, only two M5 holes |
 | Meanwell LRS-200-24 PSU | 1 | 115/230 V selector switch on the side |
 | Omron G3NB-210B-1 SSR | 1 | |
 | DIN rail mount bracket for SSR, metal | 1 | off-the-shelf metal; there is no printed SSR mount |
@@ -335,14 +335,14 @@ Source: [Voron manual p.152](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.156](assets/manual-pages/manual-p156.png){ crop="0.14 0.26 0.47 0.68" }
 
-**What you're looking at:** The inlet panel is the printed plate that fills a cut-out in the rear skirt and carries the mains socket. [Heat-set inserts](16-glossary.md#h) give the plastic real metal threads for the module's screws, and they go in before the module does.
+**What you're looking at:** The inlet panel is the printed plate that fills a cut-out in the rear skirt and carries the mains socket. [Heat-set inserts](16-glossary.md#h) give the plastic metal threads: one for the bottom-panel hinge and two for the belt guard, both fitted in Ch 11.
 
 **Parts:**
 
 - `power_inlet_IECGS_1mm` ×1
 - M3×5×4 heat-set insert ×3
 
-**Do:** If Ch 08's insert pass already did this panel, confirm the inserts and move on. Otherwise set the iron to ASA insert temperature, press one insert into each of its three bosses, square and flush, and let it cool.
+**Do:** If Ch 08's insert pass did this panel, confirm and move on. Otherwise, at your ASA insert temperature, press one insert into each of the three bores, square and flush: one in the rail, two in the curved cut-out.
 
 **Check:** Every insert flush or a hair below, none tilted, no bulged plastic around a boss.
 
@@ -362,9 +362,8 @@ Source: [Voron manual p.156](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Parts:**
 
 - AC inlet with integrated switch & fuse ×1
-- M3×10 FHCS ×2 **(verify on bench)**
 
-**Do:** Press the module into the panel from the outside, earth pin at the top when the printer is upright, switch facing out. Fasten with M3×10 FHCS into the inserts. Connect nothing to its spade terminals.
+**Do:** Press the module into the panel from the outside, earth pin at the top when the printer is upright, switch facing out, until its tabs snap behind the panel wall. No screws. Connect nothing to its spade terminals.
 
 **Check:** Module square in the panel, no rocking, fuse drawer accessible, switch rocks freely. Nothing wired.
 

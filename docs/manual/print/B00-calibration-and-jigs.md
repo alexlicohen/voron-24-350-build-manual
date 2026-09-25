@@ -158,7 +158,7 @@ Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, Pru
 
 Pause: ~35 min since the last pause — B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.
 
-Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed.
+Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.
 
 Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger) · maintainer note: a passed B11 review is what clears B11's `qc="pending"` flag in `slicer/plates.py`
 

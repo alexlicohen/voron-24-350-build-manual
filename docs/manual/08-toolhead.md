@@ -58,14 +58,14 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 | 15 | 4 CW2 main body, 4 CW2 motor plate, 1 latch shuttle, 1 guidler arm, 3 chain anchor, 2 printhead rear — all `(verify on bench)`, the SB manual highlights locations, not counts; the latch takes none (SB p.15, and its STL has a plain Ø3.4 bore) |
+| Heat-set insert, brass, M3×5×4 | 18 | 4 CW2 main body, 7 CW2 motor plate, 1 latch shuttle, 1 guidler arm, 3 chain anchor, 2 printhead rear — all `(verify on bench)`, the SB manual highlights locations, not counts; the latch takes none (SB p.15, and its STL has a plain Ø3.4 bore) |
 | M3×8 SHCS | 10 | 1 motor, 1 cable bridge, 4 tool cartridge, 2 toolboard, 2 CW2→carriage |
 | M3×16 SHCS | 3 | 1 joins the guidler halves, 2 tool cartridge |
 | M3×20 SHCS | 1 | chain anchor |
 | M3×25 SHCS | 6 | 2 motor plate, 1 tension arm, 1 latch, 2 SB mounting |
 | M3×30 SHCS | 1 | 1 motor (the probe's 2 are counted in Ch 07) |
 | M3×50 SHCS | 2 | SB mounting (lower pair) |
-| M3×6 FHCS | 3 | 1 CW2 main body (threadlocked), 2 part-cooling fan |
+| M3×6 FHCS | 3 | 1 CW2 anti-squish stop (threadlocked), 2 part-cooling fan |
 | M3×10 FHCS | 2 | fan adapter PCB to the 5015 |
 | M3×6 captive screw | 1 | LDO cable cover; kit ships 2 |
 | M3 washer | 1 | under the M3×8 motor bolt |
@@ -92,7 +92,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 **Read first**
 
-- **Do the insert pass before you assemble anything.** A missed insert in the CW2 main body means stripping the extruder back to bare plastic (survey §5.2 W3). All 15 go in first, in Steps 08.3–08.7.
+- **Do the insert pass before you assemble anything.** A missed insert in the CW2 main body means stripping the extruder back to bare plastic (survey §5.2 W3). All 18 go in first, in Steps 08.3–08.7.
 - **Five of the six Rev D+ deltas land in this chapter.** PROBE / TH0 / XY-Endstop are **JST-PH2.0**, not XH2.5; the board-to-board fan header is **keyed and gender-reversed**; there is no ADXL mount; the USB-adapter cover is the V2 part; and there is an undocumented grounding scheme (survey §4.1).
 - **The kit ships both probes and you build the inductive one.** LDO's wiring guide, the Rev D+ Klipper config and survey §4.3 all assume the Omron inductive probe for QGL plus the LDO nozzle probe as the Z endstop. The Klicky parts are printed; bag them (Step 08.54).
 - **Skip the ADXL mount entirely.** The Nitehawk-SB has an ADXL345 on board. Do not fit the two extra inserts SB p.38 highlights, and do not print `ADXL345_Mounts/*`. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
@@ -187,7 +187,7 @@ Source: [SB manual p.45](https://github.com/VoronDesign/Voron-Stealthburner/blob
 2. Press in the three inserts SB p.11 highlights: foot, both side faces.
 3. Add the p.13 fourth, for the toolhead PCB. Press each one square.
 
-**Check:** All four sit below the surface, none is cocked, and an M3 screw starts by hand in each. Count: 4 `(verify on bench — the manual highlights locations, not counts)`.
+**Check:** All four sit below the surface, none is cocked, and an M3 screw starts by hand in each. Count: 4 `(verify on bench)`.
 
 ⚠ Rev D+ / LDO: the p.13 "OPTION: TOOLHEAD PCB" inserts are not optional here. The Nitehawk-SB V2 bolts to the CW2 sides with two M3×8 into these inserts. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
@@ -208,11 +208,11 @@ Source: [SB manual p.11](https://github.com/VoronDesign/Voron-Stealthburner/blob
 **Parts:**
 
 - `motor_plate.stl` ×1
-- heat-set insert, M3×5×4 ×4
+- heat-set insert, M3×5×4 ×7
 
-**Do:** SB p.12 highlights **three** locations. The top and bottom inserts must both sit **below** the surface; mind the cutout beside the bottom one and keep it straight. SB p.13 adds the **fourth**, for the toolhead PCB.
+**Do:** SB p.12 draws **six**: three in the motor face, two in the inner face, one in the edge. Top and bottom motor-face inserts sit **below** the surface; mind the bottom cutout. SB p.13 adds the **seventh**, for the toolhead PCB.
 
-**Check:** Lay a steel rule across each insert: no insert stands proud. Count: 4 `(verify on bench)`.
+**Check:** Lay a steel rule across each insert: no insert stands proud. Count: 7 `(verify on bench)`.
 
 Source: [SB manual p.12](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=12) · [SB manual p.13](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=13)
 
@@ -272,9 +272,9 @@ Source: [SB manual p.14](https://github.com/VoronDesign/Voron-Stealthburner/blob
 - `stealthburner_printhead_revo_voron_rear_cw2` ×1
 - heat-set inserts M3×5×4 ×2
 
-**Do:** SB p.38 highlights four locations on the rear printhead. Fit only the **two on the top face**. The **two inside the circled region are the ADXL PCB mount**: leave those holes empty.
+**Do:** SB p.38 highlights four holes on the face it shows. Fit only the **upper two**, just below the top edge, pressing in sideways, not down through the top face. The **circled pair is the ADXL mount**: leave it empty.
 
-**Check:** Two inserts on the top face; the circled pair are bare plastic. Count: 2 `(verify on bench)`.
+**Check:** Two inserts in the upper holes of that face; the top face and the circled pair are bare plastic. Count: 2 `(verify on bench)`.
 
 ⚠ Rev D+ / LDO: the Nitehawk-SB V2 carries an ADXL345 on board with `[resonance_tester] accel_per_hz: 100` already configured. There is no toolhead accelerometer to mount, now or later. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -302,7 +302,7 @@ Source: [SB manual p.38](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=130) · [SB manual p.59](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=59)
 
-Pause: ~35 min since the last pause — all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.
+Pause: ~35 min since the last pause — all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.
 
 ---
 
@@ -415,7 +415,7 @@ Source: [SB manual p.19](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.20](assets/sb-pages/sb-p020.png){ crop="0.05 0.22 0.85 0.84" }
 
-**What you're looking at:** The second MR85, this time in the main body, plus one countersunk screw to retain it. Threadlocker rather than more torque: the screw goes into printed plastic, and vibration, not slackness, is what would otherwise back it out.
+**What you're looking at:** The second MR85, this time in the main body, plus one countersunk screw above the gears. That screw is the anti-squish stop from SB p.27, threaded into a heat-set insert. Threadlocker keeps vibration from walking it out.
 
 **Parts:**
 
@@ -424,7 +424,7 @@ Source: [SB manual p.19](https://github.com/VoronDesign/Voron-Stealthburner/blob
 - M3×6 FHCS ×1
 - consumable: medium-strength threadlocker
 
-**Do:** Press the second MR85 into the main-body pocket, outer ring only. Then put a small drop of **medium-strength threadlocker** on the M3×6 FHCS and drive it into the retaining position shown.
+**Do:** Press the second MR85 into the main-body pocket, outer ring only. Then put a small drop of **medium-strength threadlocker** on the M3×6 FHCS and drive it into the insert above the gears, as p.20 shows.
 
 **Check:** Bearing flush and free; the flat head sits level in its countersink.
 
@@ -889,7 +889,7 @@ Source: [SB manual p.47](https://github.com/VoronDesign/Voron-Stealthburner/blob
 1. Check the toolhead cable bag: many Rev D kits ship this chain pre-soldered.
 2. Otherwise solder **OUT to IN**: 120 mm to logo 1, 100 mm to right 2, 100 mm to left 3. Wires exit the same way.
 
-**Check:** Continuity from the connector's DIN through each LED's DIN/DOUT pair in chain order; 5 V and GND common; no 5 V–GND short.
+**Check:** Continuity on each data wire, connector to logo DIN, then each DOUT to the next DIN; 5 V and GND common; no 5 V–GND short.
 
 ⚠ Rev D+ / LDO: the config declares `chain_count: 3` and `color_order: GRBW`. A colour-order mismatch shows up as wrong colours, never as a failure — if the LEDs light in the wrong colours in Ch 13, change `color_order`, do not rewire. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -1074,9 +1074,11 @@ Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-
 
 **Do:** Confirm both selectors, silkscreened `24V  V_HEF  5V` and `24V  V_PCF  5V`, are on the **24 V** side. Both your fans are 24 V per the Rev D 350 BOM. LDO's 5 V conversion cuts the trace and solders a bridge: do neither. Cut nothing.
 
-**Check:** By meter: both selectors continuous from the middle pad to `24V`, open to `5V`. The factory trace is too thin to see. `(verify on bench — factory default is 24 V)`
+**Check:** By meter: both selectors continuous from the middle pad to `24V`, open to `5V`. The factory trace is too thin to see. `(verify on bench)`
 
 **Helper:** Reads the meter aloud at each selector while you hold the probes.
+
+Tip: the factory default is 24 V on both selectors.
 
 Source: [SB V2 fan adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg)
 
@@ -1320,7 +1322,7 @@ Source: decision step — see Ch 07 Steps 07.34–07.37 · [Video: More Extras! 
 
 **Parts:** none.
 
-**Do:** The probe was seated in `probe_retainer_bracket`, set and its lead trimmed to ~150 mm in **Ch 07 Steps 07.34–07.37**. Confirm the two M3×30 SHCS are tight, the tape intact, and the lead lying in the carriage's channel for Ch 10.
+**Do:** The probe was seated in `probe_retainer_bracket` and set in **Ch 07 Steps 07.34–07.37**, its lead left whole. Confirm the two M3×30 SHCS are tight, the tape intact, and the lead plugged into `PROBE` at 08.50.
 
 **Check:** The probe does not move under finger pressure, sits 6 mm ±1 mm below the plastic, is taped **front and sides only**, lead captive.
 
@@ -1511,7 +1513,7 @@ Source: [`cable_chain_ties.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB
 - `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2 repo**) ×1
 - M3×10 SHCS ×3 — from the kit, no 350 BOM row
 
-**Do:** Stack the USB adapter into its mount base and close it with the **V2 partial cover**, not the full V1 `usb_adapter_mount.stl` cover. It exposes the point for the Step 08.53 ground lug. Bag the assembly for Ch 09.
+**Do:** Stack the USB adapter into its mount base and close it with the **V2 partial cover**, not the full V1 `usb_adapter_mount.stl` cover. It exposes the point for the adapter-to-frame ground lead, Step 10.58. Bag the assembly for Ch 09.
 
 **Check:** One mounting screw head is exposed and reachable through the cover. The board's `24V IN` terminal and its 4-pin Micro-Fit 3.0 umbilical socket are both accessible.
 

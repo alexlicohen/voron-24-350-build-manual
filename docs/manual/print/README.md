@@ -29,7 +29,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 
 | batch | plates | hours | g black | g blue | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---:|---|---|
-| [B00](B00-calibration-and-jigs.md) | 1 | 4.0 | 52 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 02 / 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
+| [B00](B00-calibration-and-jigs.md) | 1 | 4.0 | 52 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
 | [B01](B01-z-drive-assemblies.md) | 2 | 22.8 | 301 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore, inserts) |
 | [B02](B02-accent-parts-orange.md) | 3 | 21.9 | 0 | 279 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 1 | 8.5 | 119 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
@@ -107,7 +107,7 @@ each of its two corners, a `_x4` file one in each corner.
 
 | bin | label | chapter · steps | parts (qty) | from batches |
 |---|---|---|---|---|
-| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.11) | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
+| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 04.24, 04.33; cube at 14.11) | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
 | **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` | B00, B01, B02 |
 | **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` | B01, B02 |
 | **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` | B01, B02 |

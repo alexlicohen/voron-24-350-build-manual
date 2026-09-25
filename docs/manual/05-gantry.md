@@ -392,7 +392,7 @@ Source: [Voron manual p.89](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.90](assets/manual-pages/manual-p090.png)
 
-**What you're looking at:** Another M5 and M3 nut at each end, in the **rail's own slot**, the underside of the Y axis. They serve the Ch 06 [Z joints](16-glossary.md#z) and the Ch 10 chain and endstop mounts; the idler and drive frames close these slots permanently.
+**What you're looking at:** Another M5 and M3 nut at each end, in the **rail's own slot**, the underside of the Y axis. Both anchor the Ch 06 [Z joint](16-glossary.md#z) bearing block and lower belt clip; the idler and drive frames close these slots permanently.
 
 **Parts:**
 

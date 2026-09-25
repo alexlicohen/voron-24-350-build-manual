@@ -462,7 +462,8 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- consumable: stackable bin or labelled zip bag ×26
+- consumable: stackable bin or labelled zip bag ×27
+- consumable: spare bins for the LDO-supplied parts and the greased rails
 - consumable: masking tape
 - tool: marker
 
@@ -800,7 +801,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 **Do:**
 
 1. Keep both rail-guide sizes with the jigs; the rails stay bagged now.
-2. Keep the `pulley_jig` with the Z-drive bin. It sets pulley stack height on the Z motors in Ch 02.
+2. Keep the `pulley_jig` in 00-jigs. It sets the A and B motor pulley heights in Ch 04.
 
 **Check:** Both guide sizes fitted, the MGN12 on the bare rail at Gate B and both on the extrusion at Step 00.20.
 

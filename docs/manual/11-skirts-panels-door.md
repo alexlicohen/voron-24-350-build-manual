@@ -215,6 +215,8 @@ Everything in Part A is done with the machine open, **unplugged**, and, in the b
 
 **Check:** Rocker unlit, PSU LED dark, no cord at the inlet. The meter reads 0 V and holds it for ten seconds, as at [10.73](10-wiring.md#step-1073-confirm-dead).
 
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine, bay open and live, until this Check passes. She stays out of the room until the meter holds 0 V and the cord is gone.
+
 ⚠ **Stays dead through Part A.** Nothing here needs power. If a step tempts you to check something live, stop: the next plug-in is Ch 13's hand-on-the-switch power-on at 13.3, with the bay closed. At every Pause, the cord stays out of the room. [src](https://docs.vorondesign.com/build/electrical/)
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Mean Well LRS-200 datasheet — LED beside +V ADJ.](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives)
@@ -441,7 +443,7 @@ Pause: ~10 min since the last pause — the touchscreen module (built at 10.50) 
 ![Voron manual p.217](assets/manual-pages/manual-p217.png){ crop="0.13 0.18 0.81 0.86" }
 ![Belt guards a and b, side by side](assets/parts/pair-belt_guard_x2.png)
 
-**What you're looking at:** A belt guard is the blue ring that closes the circular cut-out in a skirt segment over an idler pulley, so nothing can reach a moving belt from outside. Guards `a` and `b` are mirror images, and the pair render shows both.
+**What you're looking at:** A belt guard is the blue ring that closes the circular cut-out in a skirt segment over a Z-drive pulley, so nothing can reach a moving belt from outside. Guards `a` and `b` are mirror images, and the pair render shows both.
 
 **Parts:**
 
@@ -565,10 +567,10 @@ Pause: ~15 min since the last pause — three belt guards on their segments (the
 
 **Do:**
 
-1. Hang each front skirt on its T-nuts, belt-guard aperture over the front idler, and drive two M3×8 SHCS up from underneath.
+1. Hang each front skirt on its T-nuts, belt-guard aperture over the front Z-drive pulley, and drive two M3×8 SHCS up from underneath.
 2. Snug them, back off a quarter turn, push both hard against the TFT module, then tighten.
 
-**Check:** Front run reads as one continuous band: skirt–module–skirt with equal, tight joints and a flush top rail. No daylight at the front idler apertures.
+**Check:** Front run reads as one continuous band: skirt–module–skirt with equal, tight joints and a flush top rail. No daylight at the front Z-drive apertures.
 
 **Helper:** Holds each front skirt against the touchscreen module while you drive its screws.
 

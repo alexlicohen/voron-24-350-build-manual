@@ -144,14 +144,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed.",
+     "leave_state": "B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked. Checklist and Checkpoint B00 both closed."
+     "text": "Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next."
     },
     {
      "id": "b00-calibration-and-jigs#5",
@@ -1970,7 +1970,7 @@
       ],
       [
        "02.18",
-       "Drops each shaft into the jig and says whether the pulley sits flush."
+       "Reads the caliper aloud on each of the four shafts: 33 mm."
       ]
      ],
      "text": "Step 02.17 → Step 02.21 · ~35 min · leave-state: four complete shaft assemblies: 20T pulleys at 33 mm, bearing and precision-spacer stacks built, 80T pulleys threadlocked, and the 188 mm belt loops hung on. The bearings are only slid onto the shaft here, so nothing is mid-assembly. Do not start Step 02.22 until you can close a drive in one sitting."
@@ -3249,14 +3249,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
+     "leave_state": "all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
      "helpers": [
       [
        "08.1",
        "Reads the moulded code on each printhead half aloud and sorts the prints into build order."
       ]
      ],
-     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 15 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
+     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
     },
     {
      "id": "08-toolhead#1",
@@ -4158,7 +4158,7 @@
       ],
       [
        "10.76",
-       "Records the room temperature and each thermistor reading the adult calls out; the adult holds both probes."
+       "Records the room temperature and copies the 10.44 bed reading into the table."
       ],
       [
        "10.77",
@@ -5503,7 +5503,7 @@
      "helpers": [
       [
        "14.18",
-       "Counts the lines from the start of the pattern to the sharpest corner, with the loupe."
+       "Once the pattern has cooled off the plate, counts lines from its start to the sharpest corner with the loupe."
       ]
      ],
      "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next."

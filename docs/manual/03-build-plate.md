@@ -67,7 +67,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) — where the three bed cables actually terminate (Ch 10)
 - [magnet lamination demo](https://voron.link/rm6tpld) — the lamination demo the manual links from p.54
 - [survey](../voron-build-instructions-survey.md) §5.2 W6
-- The one mirrored image in this chapter (Step 03.4) is LDO Motors', used with attribution; see `assets/remote/03-build-plate/SOURCES.txt`. Its original URL stays on that step's `Source:` line.
+- The two mirrored images in this chapter, the plate's underside at Step 03.4 and the build-plate mapping at Steps 03.14 and 03.19, are LDO Motors', used with attribution; see `assets/remote/03-build-plate/SOURCES.txt` and `assets/remote/10-wiring/SOURCES.txt`. Each original URL stays on its step's `Source:` line.
 
 **Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):** [Part 1 @0:45:02](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2702s) (+5m)
 
@@ -103,7 +103,7 @@ Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - staged: build plate
 - consumable: masking tape
-- tool: M3×20 SHCS, fit test, back in its bag
+- staged: M3×20 SHCS ×1, fit test, back in its bag
 
 **Do:**
 
@@ -300,7 +300,8 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - reused: the applied magnetic pad
 - tool: sharp craft knife
-- tool: M3×20 SHCS and 2.5 mm hex key, fit test
+- staged: M3×20 SHCS ×1, fit test
+- tool: 2.5 mm hex key
 
 **Do:**
 
@@ -320,9 +321,9 @@ Pause: ~30 min since the last pause — the top face is cleaned, the magnet is r
 
 ### Step 03.11 — Verify the bed extrusion position
 
-![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
+![Voron manual p.20](assets/manual-pages/manual-p020.png){ crop="0.22 0.18 0.92 0.83" }
 
-**What you're looking at:** Manual p.58: the front elevation of the frame with the bed extrusions in it. Those two extrusions carry the plate's four mounting points, so you re-check Ch 01's placement here.
+**What you're looking at:** Manual p.20: the bottom frame in plan, the two bed extrusions 65 mm each side of the centreline, 130 mm apart. They carry the plate's four mounting points, so you re-check Ch 01's placement here.
 
 **Parts:** none.
 
@@ -343,14 +344,15 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 ### Step 03.12 — Load the four M3 T-nuts
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.15 0.18 0.51 0.71" }
+![Voron manual p.58, plan view: the front T-nuts 25 mm behind the front rail](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
 
-**What you're looking at:** Manual p.58: four M3 roll-in T-nuts in the top slots of the bed extrusions, two per extrusion. Each is the thread one corner bolt picks up.
+**What you're looking at:** Manual p.58: four M3 roll-in T-nuts in the top slots of the bed extrusions, two per extrusion. Each is the thread one corner bolt picks up. The plan view places the front pair.
 
 **Parts:**
 
 - M3 roll-in T-nut, 2020 ×4
 
-**Do:** Roll two T-nuts into the **top** slot of each bed extrusion, one toward each end, and position them roughly under where the plate's corner holes will land. Leave them loose enough to slide.
+**Do:** Roll two T-nuts into the **top** slot of each bed extrusion. Centre the front pair 25 mm behind the front rail's inner face, the rear pair under the plate's rear corner holes. Leave them loose to slide.
 
 **Check:** Four T-nuts, all in the top slot, all rotated so their threads face up and they cannot fall out.
 

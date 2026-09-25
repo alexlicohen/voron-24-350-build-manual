@@ -82,8 +82,8 @@ generator moves it.
 | **Helper:** | 20 |
 
 Also, in Do / Check / description / Helper: **no em-dash** (`—`), and **no parenthetical** except the two
-canonical markers `(verify on bench)` and `(not specified — snug)`. At most **one** `Step NN.M`
-cross-reference per step outside the `Source:` and `Pause:` lines — the rest belong in `Source:`.
+canonical markers `(verify on bench)` and `(not specified — snug)`. At most **one** prose `Step NN.M`
+cross-reference per step outside the `Source:` and `Pause:` lines, the rest belonging in `Source:`; a bare `[NN.M]` step link is navigation and is not counted.
 
 **Multi-action steps**: a numbered list of ≤ 3 imperatives under the Do line (it renders as part
 of the lead). **Never split or renumber a step to fit a budget** — step ids are keys in progress

@@ -46,7 +46,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_bottom_anchor.stl` | 10-chains | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.201–203) |
 | ![](assets/parts/z_chain_guide.png){ width=96 } | `z_chain_guide.stl` | 10-chains | Voron-2 `STLs/Gantry/` | 1 | Black | B05 — **fitted in Ch 10** (manual p.201–203) |
 | ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2.stl` | 10-chains | Voron-2 `STLs/Gantry/AB_Drive_Units/` | 2 | Blue | B02 — **fitted in Ch 10** (manual p.204) |
-| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | `z_rail_stop_x4.stl` | 06-Z-joints | LDOVoron2 `STLs/` | 4 | Black | B05 — optional rail-end safety stop |
+| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | `z_rail_stop_x4.stl` | 06-Z-joints | LDOVoron2 `STLs/` | 4 | Black | B05 — optional rail-end safety stop, fitted at Step 02.10 |
 | — | `z_joint_upper_hall_effect.stl` | — | Voron-2 `STLs/Gantry/Z_Joints/` | **0** | — | **SKIP** per LDO — no hall-effect endstops in this kit, not printed |
 
 **Hardware** (chapter totals — Part A)
@@ -289,13 +289,13 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Parts:**
 
 - Rubber rail stopper ×4 — from the Z rails
-- `z_rail_stop_x4` ×4
+- reused: the four `z_rail_stop_x4` on the rail tops, if fitted
 
 **Do:**
 
 1. Move each Z carriage to mid-rail; screw a rubber stopper into the **free** rail hole **directly under** it.
 2. Use the same hole from the same end at all four corners.
-3. Fit a `z_rail_stop_x4` at each rail top.
+3. Confirm a `z_rail_stop_x4` caps each rail top.
 
 **Check:** Deck-to-joint-top height at all four corners is within ~1 mm, and each carriage stops on its rubber stopper when pushed down.
 
@@ -369,9 +369,9 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Lower the gantry until each Z block seats on its lower joint, nudging the carriages until the bores line up.
-2. Let go one at a time.
-3. No rail stoppers? Zip-tie each corner to its upright first.
+1. Lower until each Z block seats on its lower joint, nudging carriages until the bores line up.
+2. No rail stoppers? First zip-tie each corner up over the top frame rail.
+3. Let go one at a time.
 
 **Check:** The gantry rests on all four joints with nobody holding it. It does not rock, and no corner is visibly lower than the others.
 
@@ -666,7 +666,7 @@ Pause: ~15 min since the last pause — Z axis mechanically complete and logged.
 - [ ] Four belts pluck to roughly the same note; nothing rubs anywhere in ±30 mm of Z travel
 - [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); Z belt-clamp bolts and rail screws untouched
 - [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
-- [ ] Z-chain parts bagged and labelled for Ch 10; chain latches tested, end link modified
+- [ ] Z-chain parts bagged and labelled for Ch 10
 
 **Next:** [Ch 07 — A/B belts and tensioning](07-ab-belts.md#step-071-confirm-the-gate-before-you-start) — Part B (Ch 06b) below cannot start until Ch 13 Step 13.34 hands off to it.
 

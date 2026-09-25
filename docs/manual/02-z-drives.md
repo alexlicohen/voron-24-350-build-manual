@@ -16,7 +16,7 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 **Prerequisites:**
 
 - Chapter 01 complete: frame assembled, squared, bed extrusions positioned **65 mm each side of the printer centreline (130 mm clear gap between their inner faces, 150 mm centre-to-centre)** per Ch 01 Step 01.19, and the squareness re-checked after the final torque pass.
-- Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`, `pulley_jig`.
+- Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`.
 - Print batch **B01** (Z drive assemblies) — drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports.
 - Print batch **B02** (Accent parts, blue) plates P1 and P3 — the five `[a]_` parts below.
 - Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf long before kit day, so do them the moment the Motor Kit box is open, and label the motor cables then.
@@ -28,7 +28,7 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 - Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — good quality, *not* ball-end for set screws (p.32).
 - Temperature-controlled soldering iron + the LDO brass M3 heat-set tip.
 - Digital caliper (deck-panel thickness gate; 33 mm and 10.7 mm pulley dimensions).
-- Printed jigs: `MGN9_rail_guide_x2` ×2, `pulley_jig` ×1.
+- Printed jig: `MGN9_rail_guide_x2` ×2.
 - Masking tape (carriage retention, rail hole marking, the FRONT label) and a marker. The 3 mm hex key doubles as the rail-gap feeler (Step 02.06).
 
 **Consumables:** Loctite 243 for any set screw that did *not* arrive with threadlocker pre-applied. (IPA, grease, soak tray, syringe and cloth were the Ch 00 rail-prep kit — nothing here needs them unless a rail was missed.)
@@ -55,8 +55,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
 | *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | — | 8 | Black — fallback if the panel measures 4 mm |
 | ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 00-jigs | 2 | Black |
-| ![](assets/parts/pulley_jig.png){ width=96 } | `Tools/pulley_jig.stl` (jig, not consumed) | 00-jigs | 1 | Black |
-| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 06-Z-joints | 4 | Black — batch **B05**, which prints *after* this chapter in the timeline |
+| ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 06-Z-joints | 4 | Black — batch **B05**, fitted at Step 02.10 |
 
 The `_xN` suffix is the quantity you need, not the number of copies in the file — each STL contains one part. `_a` and `_b` are mirrored: two drives use the `a` set, two use the `b` set.
 
@@ -364,9 +363,9 @@ Source: [Voron manual p.27](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - `z_rail_stop_x4` ×4
 
-**Do:** If B05 is already printed, fit a stop to the top of each Z rail now, while the rails are accessible. If not, skip: the tape from Step 02.08 covers you until Ch 06.
+**Do:** Fit a stop to the top of each Z rail now, while the rails are accessible. Skip them and the tape from Step 02.08 covers you until Ch 06.
 
-**Check:** A stop on each of the four rails, or a decision to defer them to Ch 06 with the tape left in place.
+**Check:** A stop on each of the four rails, or a decision to skip them with the tape left in place.
 
 Tip: LDO also uses a rubber rail stopper under the Z joints as a gantry rest at manual p.114–116. That is Chapter 06 — do not confuse the two. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -528,24 +527,24 @@ Pause: ~30 min since the last pause — the printer is inverted and stable, the 
 
 Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=32) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-### Step 02.18 — Verify the pulley with the jig, then repeat ×4
+### Step 02.18 — Verify the pulley at 33 mm, then repeat ×4
 
 ![Voron manual p.32](assets/manual-pages/manual-p032.png){ crop="0.60 0.20 0.93 0.68" }
 
-**What you're looking at:** Manual p.32 with the printed `pulley_jig`: a flat gauge with steps cut to the pulley heights the build uses. It repeats the 33 mm dimension across all four shafts without re-measuring, so the four corners lift on belts that all sit in the same plane.
+**What you're looking at:** Manual p.32's set-screw panel: both set screws in, one on the D-cut flat. The same 33 mm on all four shafts puts the four 20T pulleys in one plane, so the four corners lift evenly.
 
 **Parts:**
 
 - 5×60 mm shaft ×3
 - GT2 20T 9 mm pulley ×3
 - M4×4 set screws ×6
-- `pulley_jig` ×1
+- tool: caliper
 
-**Do:** Check the pulley position against the printed `pulley_jig`, then build the other three shaft/pulley pairs the same way.
+**Do:** Caliper the first pulley at 33 mm from the long shaft end to its near flange, then build the other three shaft/pulley pairs the same way.
 
 **Check:** Four shafts, four 20T pulleys, all at the same protrusion, all with a set screw on the flat, all eight set screws tight.
 
-**Helper:** Drops each shaft into the jig and says whether the pulley sits flush.
+**Helper:** Reads the caliper aloud on each of the four shafts: 33 mm.
 
 Source: [Voron manual p.32](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=32) · [Voron-2 `STLs/Tools`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools)
 

@@ -25,7 +25,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00a — Mains safety: read before Chapter 09
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 and Ch 13 Step 13.3; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67 and Ch 13 Step 13.3; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
@@ -139,7 +139,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Four belts pluck to roughly the same note; nothing rubs anywhere in ±30 mm of Z travel
 - [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); Z belt-clamp bolts and rail screws untouched
 - [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
-- [ ] Z-chain parts bagged and labelled for Ch 10; chain latches tested, end link modified
+- [ ] Z-chain parts bagged and labelled for Ch 10
 
 <div class="print-page-break"></div>
 
@@ -217,11 +217,11 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
-- [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — the frame lug fitted at 10.16, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
+- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
 - [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open

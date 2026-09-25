@@ -259,7 +259,7 @@ inputs:
     label: Leviathan PCB rear edge to PSU front (mm)
     min: 25.0
     low: Skip B11-P5. Print the fallback instead, stock T_REG in place of each narrowed T plus one 82 mm straight, and keep LDO's PVC middle duct.
-    why: The narrowed middle run is 21.7 mm across its lid and needs 1.5 mm of air on each side.
+    why: The narrowed middle run is 22.0 mm across its body and needs 1.5 mm of air on each side.
   - key: ssr
     label: SSR rear edge, with its DIN tab, to the WAGO port face (mm)
     min: 100

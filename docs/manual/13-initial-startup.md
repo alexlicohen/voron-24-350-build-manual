@@ -485,7 +485,7 @@ Recv: // stepper_x:open stepper_y:open stepper_z:open
 
 **Helper:** Reads the endstop states off the screen and calls each one back.
 
-⚠ `M84` releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This and Step 13.24 are the only places `M84` is right; elsewhere disable just `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding.
+⚠ `M84` releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This, Step 13.24 and the QGL `max_adjust` What-if row are the only places `M84` is right; elsewhere disable just `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding.
 
 ⚠ Rev D+ / LDO: if your XY endstop cables are labelled **"X Stop / Y Stop"** instead of **"XES / YES"**, you have the mis-pinned batch and both X and Y will misbehave here. Re-pin per LDO's guide before going further. [src](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) (survey §4.4 #14)
 
@@ -1265,7 +1265,7 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 | Endstop unreachable by the toolhead | Rubber rail stopper still on the rail, or racked gantry | Remove stoppers; then Ch 06b |
 | `G28` → `Move out of range: -10.000 -10.000 …` | `[safe_z_home] home_xy_position` still the `-10,-10` placeholder | Step 13.26 |
 | Homing overshoots into the frame, or stops short | The wrong build-size pair is uncommented (there is no default — with all three commented Klipper does not start) | Step 13.5: the Moonraker query must show `350.0, 350.0, 330.0` |
-| A `G28 X` or `G28 Y` stalls the Z motors against the frame, or drops the nozzle onto the bed | Gantry parked at its top stop (or a reversed Z `dir_pin`) — every homing move before Z is homed lifts 10 mm from wherever the gantry is | Step 13.17: first `M84` with a hand under the gantry (it sinks when the Z motors release), then park it a third of the way up by hand; Step 13.16 for the `dir_pin` |
+| A `G28 X` or `G28 Y` stalls the Z motors against the frame, or drops the nozzle onto the bed | Gantry parked at its top stop (or a reversed Z `dir_pin`) — every homing move before Z is homed lifts 10 mm from wherever the gantry is | Step 13.17's first Do line: hand under the gantry, release the motors as it says, lower the gantry to a third of its travel; Step 13.16 for the `dir_pin` |
 | `QUERY_PROBE` stuck `open` or stuck `TRIGGERED` | Ground/signal/24 V, wrong `[probe] pin`, or a voltage-select jumper | Check wiring first, then `pin: !nhk:PC15` |
 | **Probe triggers too early** (large gap at trigger) | Probe mounted too high in the retainer bracket, or fibreglass tape on the sensing face | Lower the probe in the bracket so it triggers ~2 mm above the plate; strip tape from the **back and bottom** — front and sides only |
 | **Probe triggers too late** (nozzle nearly touching, or the probe grazes the plate) | Probe mounted too low | Raise it in the bracket. It must clear the plate and any clips at every mesh point |

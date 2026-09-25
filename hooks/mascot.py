@@ -105,8 +105,9 @@ class MascotError(Exception):
 # or power-on (all of Ch 00a); the iron, for a heat-set insert or a solder
 # joint; a blade or cutter as the step's main action; a heater at temperature
 # with hands at the open machine.  `A.B-A.C` is a range inside one chapter.
-# Step ids never change (CONVENTIONS: never split or renumber), so this list
-# only grows: an appended step of one of these kinds goes in here.  The
+# Step ids never change (CONVENTIONS: never split or renumber): an appended
+# step of one of these kinds goes in here, and a step whose hazard is edited
+# out of its Do comes out (07.34 keeps its probe lead whole since 2026-09-24).  The
 # self-test fails on an id that is not a step heading, and on a `**Helper:**`
 # line inside a listed step (the Helper safety rule forbids the same steps).
 NO_MASCOT_STEPS: dict[str, str] = {
@@ -114,8 +115,10 @@ NO_MASCOT_STEPS: dict[str, str] = {
              "10.73 10.77 10.78 10.80 11.67 12.11 13.2 13.3 13.8",
     "iron": "00.13-00.16 02.03-02.04 04.3-04.4 07.6 08.3-08.7 08.36 09.10 09.34 "
             "10.35 10.50 11.2 11.3 11.5 11.28 11.33 11.49 B00.7",
-    "blade": "00.1 03.10 06.4 07.8 07.34 08.2 08.32 08.33 08.34 11.27 11.29 11.31 11.45",
-    "hot": "13.29-13.33 13.35-13.37 13.39 13.40 13.42 14.3 14.6-14.8 14.21 14.22",
+    "blade": "00.1 03.10 06.4 06.21 07.8 08.2 08.32 08.33 08.34 10.59 10.66 11.27 11.29 "
+             "11.31 11.45",
+    "hot": "13.29-13.33 13.35-13.37 13.39 13.40 13.42 14.3 14.6-14.9 14.17 14.19 14.20 "
+           "14.21 14.22",
 }
 
 # Alex, 2026-09-24 (WAVE4-PLAN D4): on the unplugged meter sweep the helper may

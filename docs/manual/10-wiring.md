@@ -16,6 +16,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
 - **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted above the deck on the left bed extrusion, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
 - **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
+- **Print batch B11**: `V2L_STRIP_FIN` (bin 10-wiring) and the AC conduit lids (bin 09-ducts), at Step 10.80.
 
 **Tools**
 
@@ -175,7 +176,7 @@ Source: [LDO wiring guide § Preparing the mainboard](https://docs.ldomotors.com
 
 **Parts:** none.
 
-**Do:** Nothing to build. On the rear extrusion's panel, confirm the earth pin is at the top with the printer upright, the switch faces out, and both M3×10 FHCS are in. If not, go back to Ch 09 Steps 09.10–09.11.
+**Do:** Nothing to build. On the rear extrusion's panel, confirm the earth pin is at the top with the printer upright, the switch faces out, and the module's tabs are snapped home. If not, go back to Ch 09 Steps 09.10–09.11.
 
 **Check:** The inlet sits square with no rock, the fuse drawer opens freely, the rocker clicks both ways, and no spade terminal is connected.
 
@@ -1120,7 +1121,7 @@ Source: [LDO Rev D photo S1 stepper mapping](https://raw.githubusercontent.com/M
 
 ⚠ **Layout v3:** this route adds about 195 mm to A over LDO's route; [B11.9](print/B11-bay-ducting.md#step-b119-kit-day-gono-go-the-ab-motor-leads) confirmed the lead reaches with spare, or a longer replacement lead was made `(verify on bench)`. **LDO layout:** route the lead as `S1_mapping.jpg` shows. [LDO § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
-⚠ Rev D+ / LDO: never plug or unplug a stepper with power on, and never spin a connected motor **fast** by hand or shove the gantry — a fast move generates back-EMF the driver has to absorb. The slow, driver-disabled (`M84`) hand moves that Ch 13 and Ch 06b ask for are fine. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
+⚠ Rev D+ / LDO: never plug or unplug a stepper with power on, and never spin a connected motor **fast** by hand or shove the gantry — a fast move generates back-EMF the driver has to absorb. The slow hand moves Ch 13 and Ch 06b ask for are fine, with those drivers disabled first. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
 Source: [LDO Rev D photo S1 steppers wired](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S1_steppers.jpg) · [LDO wiring guide § Connecting steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers)
 
@@ -1236,7 +1237,7 @@ Pause: ~30 min since the last pause — six steppers tagged and plugged on their
 
 ![LDO S7 mapping](assets/remote/10-wiring/ldo-revd-s7-fan-led-mapping.jpg)
 
-**What you're looking at:** The two 6020 fans are 60 × 20 mm blowers that move air through the electronics bay. The 3×2 splicer PCB joins them into one lead so a single Leviathan fan port drives both; its printed spacer keeps the bare board off the extrusion.
+**What you're looking at:** The two 6020 fans are 60 × 60 × 20 mm axial fans that cool the electronics bay. The 3×2 splicer PCB joins them into one lead so a single Leviathan fan port drives both; its printed spacer keeps the bare board off the extrusion.
 
 **Parts:**
 
@@ -1438,7 +1439,7 @@ Source: [Nitehawk-SB V2 doc § Umbilical cable](https://docs.ldomotors.com/en/To
 
 `TH0` is the one real conflict: JST-XH2.5 is the only connector the Rev D guide names for the toolhead, and for the SB fans it names JST-PH2.0.
 
-**Check:** Every toolhead connector is the small PH2.0 housing, not the larger XH2.5.
+**Check:** The probe, hotend-thermistor and endstop plugs are the small PH2.0 housings. The extruder motor stays XH2.5 and the umbilical stays XT30.
 
 ⚠ Rev D+ / LDO: the Rev D wiring guide has not been updated for this. Trust the V2 board doc. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#changes-from-the-nitehawk-sb-v1) — survey §4.1 ③
 
@@ -1940,10 +1941,10 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 | Leviathan `Vin 24V` + → − | the same reading — same node |
 | Leviathan `Vin 24-48V` + → − | the same reading — same node |
 | USB adapter 24 V in + → − | the same reading — same node, now with the umbilical and toolboard on it |
-| PSU **+V** (or any Vin **+**) → **PE** | `OL` |
+| PSU **+V** (or any Vin **+**) → **PE** | about your **+V → −V** reading: the ESD bond below puts −V on PE, so this reads through the same loads `(verify on bench)`. **Never 0 Ω** |
 | PSU **−V** / any GND → **PE** | **a few Ω — expected.** This is the ESD bond from 10.58: USB-adapter GND to the frame, frame to PE. It reads `OL` only if that cable is missing or its washer sits on anodising |
 
-A continuous beep on a + → − row is a reversed ferrule or a stray strand — find it now. A beep on −V → PE is not a fault; a `+V → PE` beep is.
+A continuous beep on a + → − row is a reversed ferrule or a stray strand — find it now. A beep on −V → PE is not a fault; a continuous `+V → PE` beep is.
 
 Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v)
 
@@ -1989,8 +1990,6 @@ Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/v
 
 **Check:** Read your room temperature, then compare against Klipper's own curve for that part:
 
-**Helper:** Records the room temperature and each thermistor reading the adult calls out; the adult holds both probes.
-
 | Room temp | Expected resistance |
 |---|---|
 | 15 °C | ≈ 162 kΩ |
@@ -2000,6 +1999,8 @@ Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/v
 | 25 °C | ≈ 100 kΩ |
 | 28 °C | ≈ 87 kΩ |
 | 30 °C | ≈ 79 kΩ |
+
+**Helper:** Records the room temperature and copies the 10.44 bed reading into the table.
 
 Within ±15 % of the row for your room is fine. **0 Ω** means a crushed lead; **`OL`** means a broken one or an unseated crimp.
 
@@ -2011,7 +2012,7 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 
 ### Step 10.77 — Protective-earth bonding
 
-![Layout v3: the frame PE lug, magenta ring, about 20 mm to the printer's left of the Z-chain notch, between the WAGO-mount screw and the notch](assets/b11/v3-lead-10-16-frame-pe.jpg)
+![Layout v3: the frame PE lug fitted at 10.16, magenta ring, between the WAGO-mount screw and the Z-chain notch](assets/b11/v3-lead-10-16-frame-pe.jpg)
 
 **What you're looking at:** The last earth check. Every piece of metal a hand can reach must have a low-resistance path back to the inlet's earth pin, and nothing that carries current may have any path at all.
 
@@ -2029,12 +2030,12 @@ Source: [Klipper `temperature_sensors.cfg`](https://github.com/Klipper3d/klipper
 |---|---|
 | PE WAGO, any port | < 1 Ω |
 | PSU **3 FG (⏚)** terminal | < 1 Ω |
-| Frame — the PE lug's screw head on the rear extrusion, about 20 mm to the printer's left of the Z-chain notch (LDO layout: right of the notch) | < 1 Ω |
+| Frame — the screw head of the PE lug fitted at 10.16, on the rear extrusion beside the Z-chain notch | < 1 Ω |
 | Frame — a far corner, screw head or T-nut | < 2–3 Ω |
 | Build plate — the M4×6 PE screw head | < 1 Ω |
 | Extruder motor body (via the ESD ground and the umbilical, 10.67) | a few Ω or less |
 | Bed heater L or N | `OL` |
-| **+24 V** — PSU +V or any Vin + | `OL` |
+| **+24 V** — PSU +V or any Vin + | about your 10.74 **+V → −V** reading, through the loads and the ESD bond `(verify on bench)`. **Never 0 Ω** |
 | **−V / GND** — PSU −V or any Vin − | **a few Ω — expected**, the ESD bond from 10.58 |
 
 Every Ω figure is above your shorted-probe reading. A failed row here is a missing PE lead, anodising under a washer, or a probe on anodising. Fix it before Ch 11 closes the bay.
@@ -2103,11 +2104,11 @@ Do not start Ch 11 until every line is ticked.
 - [ ] LDO's **Checkpoint #1** passed in full: every node of each colour traced end to end — C14 pin to PSU screw, SSR, bed and frame — L/N/PE mutually isolated at the WAGOs and at the PSU screws, switch switches, SSR open, then one hand-on-the-switch power-on and off again (10.17–10.23)
 - [ ] Bed heater reads tens of ohms L→N and `OL` to the plate (10.13)
 - [ ] SSR: bed on **LOAD 1**, mains L on **LOAD 2**, red on **INPUT 3**, black on **INPUT 4**; load and control sides isolated (10.14, 10.27, 10.78)
-- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — frame lug on the rear extrusion about 20 mm to the printer's left of the Z-chain notch, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
-- [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads `OL` and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
+- [ ] Protective earth reaches the frame, the build plate and the extruder motor body from the C14 earth pin — the frame lug fitted at 10.16, probed on bare metal, never anodising (10.16, 10.58, 10.67, 10.77)
+- [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
+- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
 - [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open

@@ -189,7 +189,7 @@ owners:
   - item: "AC Inlet, Integrated Switch & Fuse"
     at: {"09.11": 1}
     reused: ["10.5"]
-    evidence: 'Ch 09 Step 09.11 (M3×10 FHCS into the printed panel); LDO wiring guide § Connecting Inlet and WAGO is wiring only'
+    evidence: 'Ch 09 Step 09.11 (snaps into the printed panel on its 1 mm tabs, no screws; CAD IEC-GS variant has no fasteners); LDO wiring guide § Connecting Inlet and WAGO is wiring only'
   - item: "Genuine Wago 221-415 Splicing Connector"
     at: {"09.13": 3}
     reused: ["10.7"]

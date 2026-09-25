@@ -47,7 +47,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 |---|---|---|
 | M3×8 SHCS | 2 | the nameplate, Step 14.24 |
 | M3 roll-in T-nut | 2 | the nameplate, Step 14.24 |
-| — turned, not added — | 0 | Nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the belt clamps at the XY joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
+| — turned, not added — | 0 | Nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
 **Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate.
 
@@ -251,7 +251,7 @@ inputs:
     nominal: 140
     tol: 5
     hint: about 140 Hz, top belt clip to that corner's Z idler centre
-    low: Slack. Tighten at that upright's Z idler tensioner bolt only, never at the belt clamps down on the XY joints.
+    low: Slack. Tighten at that upright's Z idler tensioner bolt only, never at the belt clamps on the gantry corner.
     high: Tight. Back that upright's Z idler tensioner bolt off, then jog the gantry down and back up and re-read all four.
     why: The four Z belts lift the gantry together, and one odd belt shows up as scatter in PROBE_ACCURACY rather than as anything you can see.
   - key: zfr
@@ -276,8 +276,8 @@ inputs:
     tol: 5
     hint: about 140 Hz, reached from the rear of the machine
     low: Slack. Tighten at that upright's Z idler tensioner bolt only. A loosened belt clamp means re-threading the belt.
-    high: Tight. Back that upright's Z idler tensioner bolt off. Never reach for the clamps at the XY joints to let tension out.
-    why: The adjuster is the idler tensioner bolt at the top of the upright, because the clamps down at the XY joints hold both belt ends and let the belt go if you loosen them.
+    high: Tight. Back that upright's Z idler tensioner bolt off. Never reach for the belt clamps on the gantry corner to let tension out.
+    why: The adjuster is the idler tensioner bolt at the top of the upright, because the clamps on the gantry corner, on top of the front idler or A/B drive and under the Z joint, hold both belt ends and let the belt go if you loosen them.
   - key: span
     label: Every span measured at 150 mm with the rule, not eyeballed
     kind: yesno
@@ -291,7 +291,7 @@ inputs:
 pass: All six belts are at final tension over measured spans. Write the six numbers in the tuning log, then soak the closed chamber and lock the Z joints hot.
 ```
 
-⚠ Adjust at the Z idler tensioner bolt only, never the belt clamps down at the XY joints: those hold both belt ends and let a belt go if loosened.
+⚠ Adjust at the Z idler tensioner bolt only, never the Z belt clamps on the gantry corners, on top of each front idler or A/B drive and under each Z joint: those hold both belt ends and let a belt go if loosened.
 
 ⚠ Evenness across the four matters more than hitting 140 exactly: the Voron QGL troubleshooting text points at uneven Z belts when `PROBE_ACCURACY` σ is high. This is the final setting; [Ch 06b Step 06b.3](06-z-axis-and-gantry-squaring.md#step-06b3-set-the-z-belts-to-140-hz) was the working value. (survey §4.3)
 
@@ -739,7 +739,7 @@ Or set `[extruder] pressure_advance:` if you only ever print ASA on this machine
 
 **Check:** One corner is visibly the sharpest, and the value you saved is in the **0.01–0.08** band, most often 0.02–0.05.
 
-**Helper:** Counts the lines from the start of the pattern to the sharpest corner, with the loupe.
+**Helper:** Once the pattern has cooled off the plate, counts lines from its start to the sharpest corner with the loupe.
 
 ```gate-calc
 id: tune-pa
@@ -1100,7 +1100,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 
 - **Tensioning belts before Ch 06b squaring.** The squaring procedure begins by fully releasing A/B tension; anything set before it is thrown away, and you will have done the work twice (survey §5.2 W1).
 - **Reading a belt frequency without measuring the span.** 110 Hz is only meaningful at 150 mm. Eyeballing the span is the single most common way people end up with belts 30 % out and blame the printer.
-- **Loosening a Z belt clamp to "adjust" Z tension.** The clamps at the XY joints hold both belt ends; the adjuster is the idler tensioner bolt at the top of each upright. A released clamp means re-threading the belt.
+- **Loosening a Z belt clamp to "adjust" Z tension.** The clamps on each gantry corner, on top of the front idler or A/B drive and under the Z joint, hold both belt ends; the adjuster is the idler tensioner bolt at the top of each upright. A released clamp means re-threading the belt.
 - **Tightening the Z joints cold, or skipping the closed-chamber soak.** The value of Step 14.6 is locking the gantry in at full thermal expansion; a cold tighten looks the same on the bench and shows up as first-layer inconsistency.
 - **Running `SHAPER_CALIBRATE` before the first successful print, or before final belt tension.** Both change the resonances you just measured, so the result is stale before you use it. Same for pressure advance, which also shifts when input shaping is switched on.
 - **`SAVE_CONFIG` after the shaper run and stopping there.** It writes `[input_shaper]` but explicitly does *not* touch `max_accel`. Leaving the stock `max_accel: 10000` means you shaped the ringing and then printed at an acceleration that reintroduces it.
