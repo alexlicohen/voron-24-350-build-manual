@@ -60,12 +60,15 @@
       }
       return [picked, total];
     }
-    var printsBlocked = false;
+    var printsBlocked = false, buildsBlocked = false;
     for (i = 0; i < rows.length; i++) {
       row = rows[i];
       if (stopAtKit && row.kit) break;
       if (!row.segments.length) continue;
       if (row.kind === 'Print' && printsBlocked) continue;
+      /* **KIT** build rows are sequential, like print rows (build_tonight.py). */
+      var kitBuild = row.kind === 'Build' && !!row.kit;
+      if (kitBuild && buildsBlocked) continue;
       var finished = true;
       for (j = 0; j < row.segments.length; j++) {
         seg = row.segments[j];
@@ -83,6 +86,7 @@
         total += seg.minutes;
       }
       if (row.kind === 'Print' && !finished) printsBlocked = true;
+      if (kitBuild && !finished) buildsBlocked = true;
       if (budget - total < psm) break;
     }
     return [picked, total];

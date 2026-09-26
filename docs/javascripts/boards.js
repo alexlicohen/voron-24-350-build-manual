@@ -186,12 +186,17 @@
         img.hidden = true;
       }
       if (caption) {
+        /* No chapter render yet (Ch 00 has none), which is not the same as
+         * nothing ticked. */
         if (plan && !plan.kit) {
           caption.textContent = plan.platesDone
             ? plan.platesDone + ' of ' + plan.plates + ' plates off the bed. The frame waits for the kit.'
+            : done ? 'No chapter finished yet. Your next step is below.'
             : 'Nothing ticked yet. The pre-kit steps and the prints come first.';
         } else {
-          caption.textContent = 'Nothing ticked yet — the frame is next.';
+          caption.textContent = done || (plan && plan.platesDone)
+            ? 'No chapter built yet. Your next step is below.'
+            : 'Nothing ticked yet. Your first step is below.';
         }
       }
     }

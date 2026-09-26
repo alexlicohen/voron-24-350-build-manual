@@ -7011,10 +7011,9 @@
       "buckets": [
        {
         "budget": 30,
-        "total": 25,
+        "total": 10,
         "items": [
-         "b00-calibration-and-jigs#0",
-         "10-wiring#0"
+         "b00-calibration-and-jigs#0"
         ],
         "next": null
        },
@@ -7258,26 +7257,24 @@
        },
        {
         "budget": 60,
-        "total": 60,
+        "total": 45,
         "items": [
          "b00-calibration-and-jigs#7",
          "b00-calibration-and-jigs#8",
          "b00-calibration-and-jigs#9",
-         "b01-z-drive-assemblies#0",
-         "10-wiring#0"
+         "b01-z-drive-assemblies#0"
         ],
         "next": null
        },
        {
         "budget": 90,
-        "total": 90,
+        "total": 75,
         "items": [
          "b00-calibration-and-jigs#7",
          "b00-calibration-and-jigs#8",
          "b00-calibration-and-jigs#9",
          "00a-mains-safety#0",
-         "b01-z-drive-assemblies#0",
-         "10-wiring#0"
+         "b01-z-drive-assemblies#0"
         ],
         "next": null
        }
@@ -7646,11 +7643,11 @@
        },
        {
         "budget": 60,
-        "total": 60,
+        "total": 50,
         "items": [
          "12-software#0",
          "12-software#1",
-         "10-wiring#0"
+         "b11-bay-ducting#0"
         ],
         "next": null
        },

@@ -331,7 +331,9 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
     B00's Gate B, B11 on B10 off the bed). Once a Print row is left unfinished,
     because a segment did not fit or a plate was started, no later Print row
     is entered, so a bucket never offers B01's plate start while B00's Gate B
-    is still ahead of it. Build rows keep the per-row rule.
+    is still ahead of it. **KIT** Build rows are sequential the same way (Ch 10
+    waits on Ch 01 even when Ch 10's first segment would fit the time left);
+    the pre-kit Build rows keep the per-row rule.
 
     With `stop_at_kit`, packing stops at the first row marked **KIT**: the
     rows are in timeline order, so nothing past that row can be started
@@ -367,13 +369,16 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
             picked.extend(rest)
             total += extra
         return picked, total
-    prints_blocked = False
+    prints_blocked = builds_blocked = False
     for row in rows:
         if stop_at_kit and row["kit"]:
             break
         if not row["segments"]:
             continue
         if row["kind"] == "Print" and prints_blocked:
+            continue
+        kit_build = row["kind"] == "Build" and row["kit"]
+        if kit_build and builds_blocked:
             continue
         finished = True
         for seg in row["segments"]:
@@ -391,6 +396,8 @@ def _plan_for_budget(rows, budget, stop_at_kit=False, bench_first=False):
             total += seg["minutes"]
         if row["kind"] == "Print" and not finished:
             prints_blocked = True
+        if kit_build and not finished:
+            builds_blocked = True
         if budget - total < PLATE_START_MIN:
             break
     return picked, total
@@ -924,7 +931,13 @@ def _self_test():
     rows3 = [{"kind": "Build", "kit": False, "segments": [seg("C.1", "build", 40)]},
              {"kind": "Build", "kit": False, "segments": [seg("D.1", "build", 20)]}]
     got = ids(_plan_for_budget(rows3, 30)[0])
-    check("build rows keep the per-row rule", got == ["D.1"], got)
+    check("pre-kit build rows keep the per-row rule", got == ["D.1"], got)
+    rows4 = [{"kind": "Build", "kit": True, "segments": [seg("E.1", "build", 40)]},
+             {"kind": "Build", "kit": True, "segments": [seg("F.1", "build", 20)]},
+             {"kind": "Print", "kit": False, "segments": [seg("G.plate", "print", 5)]}]
+    got = ids(_plan_for_budget(rows4, 30)[0])
+    check("KIT build rows are sequential; the printer track still runs",
+          got == ["G.plate"], got)
 
     # The same bug on the real timeline, as the kit-arrived case in tonight.json.
     model = _model()
@@ -942,6 +955,13 @@ def _self_test():
                 bad.append((sec["id"], b["budget"], its))
     check("real timeline: B01 is offered only after B00's Gate B in the same bucket",
           not bad, bad)
+    late = next(c for c in data["cases"] if c["name"].startswith("kit arrived, run printed"))
+    frame = model[0]["01-frame.md"]["slug"]
+    # Ch 00 done, run printed: only row 15 (Ch 12 flashing), the frame and the B11 prints may appear.
+    skipped = [(b["budget"], b["items"]) for b in late["expect"]["sections"][0]["buckets"]
+               if any(i.split("#")[0] not in ("12-software", frame) and not i.startswith("b11-")
+                      for i in b["items"])]
+    check("real timeline: no build chapter is offered ahead of the frame", not skipped, skipped)
     b30 = case["expect"]["sections"][0]["buckets"][0]["items"]
     check("real timeline: the 30-min bucket is Gate A + sort", len(b30) == 2, b30)
 
