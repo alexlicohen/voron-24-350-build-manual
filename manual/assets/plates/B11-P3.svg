@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif">
+<title>Plate B11-P3 — sorting diagram</title>
+<rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
+<text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B11-P3</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">15 parts  ·  4.6 h  ·  73 g  ·  arrangement provisional (GUI QC pending)  ·  Jet Black PETG V0  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
+<rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
+<line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="564.0" y1="90.0" x2="564.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="744.0" y1="90.0" x2="744.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="702.0" x2="924.0" y2="702.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="522.0" x2="924.0" y2="522.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="342.0" x2="924.0" y2="342.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
+<text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
+<path d="M355.0,590.5 383.5,590.0 384.0,592.5 387.5,593.0 388.5,596.0 393.5,596.0 395.5,593.0 398.0,592.5 398.5,590.0 426.5,590.0 428.5,593.0 431.0,593.5 431.5,596.0 436.5,596.0 437.0,594.5 438.5,593.0 440.5,593.0 442.5,590.0 469.5,590.0 471.5,593.0 474.0,593.5 474.5,596.0 480.5,596.0 481.0,593.5 483.5,593.0 485.5,590.0 513.5,590.0 514.0,592.5 516.5,593.0 518.5,596.0 523.5,596.0 524.0,593.5 527.5,593.0 528.5,590.0 556.5,590.0 557.0,592.5 559.5,593.0 561.5,596.0 566.5,596.0 568.5,593.0 571.0,592.5 571.5,590.0 599.5,590.0 601.5,593.0 604.0,593.5 604.5,596.0 609.5,596.0 611.5,593.0 614.0,592.5 614.5,590.0 633.5,590.0 634.0,765.5 614.5,766.0 614.0,763.5 611.5,763.0 610.0,761.5 609.5,759.0 604.5,759.0 604.0,762.5 601.5,763.0 599.5,766.0 571.5,766.0 571.0,763.5 568.5,763.0 567.0,761.5 566.5,759.0 561.5,759.0 561.0,761.5 559.5,763.0 557.5,763.0 556.5,766.0 528.5,766.0 527.5,763.0 524.0,762.5 523.5,759.0 518.5,759.0 518.0,761.5 516.5,763.0 514.5,763.0 513.5,766.0 509.5,766.0 508.0,764.5 507.5,760.0 482.5,760.0 481.5,759.0 473.5,759.0 472.5,760.0 444.5,760.0 444.0,765.5 442.5,766.0 440.5,763.0 438.5,763.0 437.0,761.5 436.5,759.0 431.5,759.0 431.0,762.5 428.5,763.0 426.5,766.0 398.5,766.0 398.0,763.5 395.5,763.0 394.0,761.5 393.5,759.0 388.5,759.0 388.0,762.5 384.5,763.0 383.5,766.0 355.5,766.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#14 V3L_WIRE_BOX_PORT.stl → 09-ducts</title></path>
+<path d="M38.0,594.5 330.5,594.0 332.0,595.5 332.0,764.5 330.5,766.0 38.5,766.0 38.0,725.5 54.0,724.5 54.0,635.5 38.0,634.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#13 CMD_V2_6B_WIRE_BOX_COVER.stl → 09-ducts</title></path>
+<path d="M436.0,250.5 524.5,250.0 525.0,257.5 524.0,258.5 524.0,266.5 523.0,267.5 523.0,272.5 522.0,273.5 522.0,276.5 521.0,277.5 518.0,288.5 510.0,304.5 507.0,307.5 504.0,312.5 499.0,317.5 499.0,318.5 489.5,328.0 488.5,328.0 481.5,334.0 475.5,337.0 473.5,339.0 469.5,341.0 467.5,341.0 460.5,345.0 458.5,345.0 454.5,347.0 451.5,347.0 450.5,348.0 447.5,348.0 446.5,349.0 439.5,349.0 438.5,350.0 424.5,350.0 424.0,262.5 429.5,262.0 431.5,261.0 435.0,257.5 435.0,255.5 436.0,254.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#4 V3L_90DEG_R15.stl → 09-ducts</title></path>
+<path d="M51.0,246.5 138.5,246.0 140.0,247.5 139.0,262.5 138.0,263.5 137.0,271.5 136.0,272.5 136.0,275.5 135.0,276.5 133.0,284.5 126.0,298.5 124.0,300.5 120.0,307.5 117.0,310.5 117.0,311.5 103.5,325.0 102.5,325.0 89.5,335.0 85.5,336.0 73.5,342.0 71.5,342.0 70.5,343.0 66.5,343.0 62.5,345.0 57.5,345.0 56.5,346.0 39.5,347.0 39.0,258.5 45.5,258.0 50.0,253.5 50.0,251.5 51.0,250.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#1 V3L_90DEG_R15.stl → 09-ducts</title></path>
+<path d="M574.0,338.5 661.5,338.0 663.0,344.5 666.5,349.0 668.5,350.0 674.5,350.0 675.0,436.5 673.5,438.0 662.5,438.0 661.5,437.0 655.5,437.0 654.5,436.0 650.5,436.0 649.5,435.0 642.5,434.0 639.5,432.0 637.5,432.0 631.5,429.0 629.5,429.0 627.5,427.0 622.5,425.0 619.5,422.0 612.5,418.0 604.5,410.0 603.5,410.0 588.0,390.5 583.0,380.5 583.0,378.5 580.0,373.5 580.0,371.5 578.0,367.5 578.0,364.5 577.0,363.5 577.0,360.5 576.0,359.5 576.0,355.5 575.0,354.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#10 V3L_90DEG_R15_COVER.stl → 09-ducts</title></path>
+<path d="M167.0,316.5 253.5,316.0 255.0,317.5 255.0,327.5 254.0,328.5 254.0,335.5 253.0,336.5 252.0,344.5 250.0,348.5 250.0,351.5 248.0,354.5 248.0,356.5 245.0,362.5 243.0,364.5 241.0,369.5 234.0,378.5 234.0,379.5 220.5,393.0 219.5,393.0 206.5,403.0 196.5,408.0 194.5,408.0 189.5,411.0 187.5,411.0 186.5,412.0 182.5,412.0 181.5,413.0 178.5,413.0 177.5,414.0 174.5,414.0 173.5,415.0 170.5,415.0 169.5,416.0 155.5,416.0 155.0,328.5 163.5,327.0 167.0,322.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#8 V3L_90DEG_R15_COVER.stl → 09-ducts</title></path>
+<path d="M596.0,460.5 624.5,460.0 626.5,463.0 629.0,463.5 629.5,466.0 635.5,466.0 636.0,463.5 638.5,463.0 640.5,460.0 667.5,460.0 669.0,462.5 671.5,463.0 673.5,466.0 681.5,466.0 683.5,463.0 686.0,462.5 686.5,460.0 714.5,460.0 716.5,463.0 719.0,463.5 719.5,466.0 728.5,466.0 730.5,463.0 733.0,462.5 733.5,460.0 761.5,460.0 763.5,463.0 766.0,463.5 766.5,466.0 771.5,466.0 773.5,463.0 776.0,462.5 776.5,460.0 804.5,460.0 806.5,463.0 809.0,463.5 809.0,475.5 806.0,476.5 806.0,532.5 809.0,533.5 809.0,545.5 807.5,546.0 805.5,549.0 772.5,549.0 771.5,550.0 764.5,551.0 759.5,554.0 751.0,562.5 750.0,565.5 748.0,567.5 748.0,569.5 746.0,573.5 746.0,577.5 745.0,578.5 745.0,597.5 743.0,598.5 741.5,602.0 730.5,602.0 729.0,600.5 728.5,598.0 672.5,598.0 671.5,602.0 660.5,602.0 659.0,600.5 659.0,598.5 656.0,597.5 656.0,575.5 654.0,571.5 654.0,568.5 652.0,566.5 650.0,561.5 643.5,555.0 636.5,551.0 630.5,550.0 629.5,549.0 596.5,549.0 594.5,546.0 592.0,545.5 592.0,534.5 593.5,533.0 596.0,532.5 596.0,476.5 592.0,475.5 592.0,464.5 593.5,463.0 595.5,463.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#12 CMD_V3_1H_T_SHORT.stl → 09-ducts</title></path>
+<path d="M657.0,625.5 873.5,625.0 874.0,711.5 840.5,712.0 839.5,713.0 834.5,713.0 833.5,714.0 830.5,714.0 820.5,720.0 820.0,721.5 815.0,726.5 813.0,730.5 813.0,732.5 811.0,735.5 811.0,738.5 810.0,739.5 810.0,764.5 808.5,766.0 722.5,766.0 722.0,744.5 721.0,743.5 721.0,737.5 720.0,736.5 720.0,734.5 718.0,731.5 717.0,727.5 709.5,719.0 700.5,714.0 692.5,713.0 691.5,712.0 657.0,711.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#15 CMD_V2_6B_T_SHORT_COVER.stl → 09-ducts</title></path>
+<path d="M692.0,241.5 697.5,241.0 698.5,242.0 706.5,242.0 707.5,243.0 722.5,244.0 723.5,245.0 727.5,245.0 728.5,246.0 733.5,246.0 734.5,247.0 740.0,247.5 739.5,319.0 737.5,319.0 736.5,320.0 731.5,320.0 730.5,321.0 725.5,321.0 721.5,323.0 712.5,323.0 711.5,324.0 705.5,324.0 704.5,325.0 697.5,325.0 696.5,326.0 692.5,326.0 691.5,325.0 687.5,325.0 685.0,323.5 684.5,317.0 672.5,317.0 668.5,315.0 664.5,315.0 663.5,314.0 660.5,314.0 656.5,312.0 654.5,312.0 653.5,313.0 651.0,310.5 650.0,308.5 650.0,257.5 652.5,254.0 658.5,254.0 659.5,253.0 662.5,253.0 663.5,252.0 668.5,252.0 672.5,250.0 684.5,250.0 685.0,243.5 687.5,242.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#5 CMD_Remix-V3_DUCT-1M_ENDCAP.stl → 09-ducts</title></path>
+<path d="M203.0,208.5 211.5,209.0 212.5,210.0 218.5,210.0 219.5,211.0 226.5,211.0 227.5,212.0 232.5,212.0 233.5,213.0 238.5,213.0 239.5,214.0 249.5,215.0 251.0,216.5 250.5,287.0 247.5,287.0 246.5,288.0 240.5,288.0 239.5,289.0 234.5,289.0 233.5,290.0 227.5,290.0 226.5,291.0 212.5,292.0 211.5,293.0 204.5,293.0 203.5,294.0 199.5,292.0 195.5,292.0 195.0,285.5 193.5,284.0 181.5,284.0 180.5,283.0 175.5,283.0 174.5,282.0 168.5,281.0 167.5,280.0 164.5,280.0 163.5,281.0 161.0,277.5 160.0,275.5 160.0,226.5 161.0,224.5 163.5,221.0 164.5,222.0 167.5,222.0 168.5,221.0 176.5,220.0 177.5,219.0 180.5,219.0 181.5,218.0 193.5,218.0 195.0,216.5 195.0,210.5 199.5,210.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#2 CMD_Remix-V3_DUCT-1M_ENDCAP.stl → 09-ducts</title></path>
+<path d="M38.0,372.5 127.5,372.0 129.0,373.5 128.5,571.0 38.0,570.5Z" fill-rule="evenodd" fill="#3d5a80" stroke="#223246" stroke-width="1.0" stroke-linejoin="round"><title>#7 V2L_STRIP_FIN.stl → 10-wiring</title></path>
+<path d="M773.0,268.5 785.5,268.0 786.5,271.0 842.5,271.0 843.5,268.0 855.5,268.0 857.0,270.5 859.0,271.5 859.0,300.5 857.0,301.5 855.5,305.0 853.0,305.5 853.0,310.5 855.5,311.0 857.0,313.5 859.0,314.5 859.0,349.5 861.0,352.5 861.0,355.5 864.0,360.5 867.0,363.5 867.0,364.5 879.0,375.5 878.0,376.5 878.0,378.5 879.0,379.5 878.0,383.5 881.5,387.0 883.5,386.0 887.5,387.0 888.5,386.0 909.0,405.5 908.0,407.5 910.0,411.5 901.5,420.0 899.5,418.0 897.5,418.0 858.0,457.5 858.0,458.5 860.0,460.5 859.0,462.5 852.5,469.0 850.5,469.0 849.5,468.0 847.5,468.0 846.5,469.0 836.0,458.5 836.0,457.5 827.0,448.5 827.0,445.5 826.0,443.5 828.0,441.5 823.5,437.0 822.5,437.0 820.5,439.0 818.5,437.0 815.5,438.0 797.0,418.5 797.0,417.5 793.0,413.5 793.0,412.5 790.0,409.5 789.0,406.5 787.0,404.5 778.0,386.5 778.0,384.5 775.0,377.5 773.0,366.5 772.0,365.5 771.0,352.5 770.0,351.5 770.0,315.5 773.0,313.5 773.5,311.0 776.0,310.5 776.0,305.5 773.0,303.5 772.5,301.0 770.0,300.5 770.0,272.5 773.0,270.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#6 CMD_Remix-V3_DUCT-2B_45deg.stl → 09-ducts</title></path>
+<path d="M309.0,264.5 320.5,264.0 322.0,265.5 322.5,268.0 378.5,268.0 379.5,264.0 390.5,264.0 392.0,265.5 392.0,267.5 395.0,268.5 395.0,296.5 392.5,297.0 392.0,300.5 389.0,301.5 389.0,306.5 392.0,308.5 392.5,311.0 395.0,311.5 395.0,345.5 396.0,346.5 397.0,352.5 399.0,356.5 404.0,361.5 404.0,362.5 414.0,371.5 413.0,373.5 415.0,376.5 413.0,378.5 413.0,379.5 416.5,383.0 418.5,383.0 419.5,382.0 421.5,383.0 424.5,383.0 445.0,402.5 444.0,403.5 445.0,407.5 443.0,409.5 443.0,410.5 436.5,416.0 434.5,414.0 433.5,414.0 414.0,433.5 414.0,434.5 394.0,454.5 394.0,455.5 396.0,457.5 392.5,461.0 391.5,461.0 387.5,466.0 386.5,466.0 384.5,464.0 382.5,465.0 362.0,444.5 363.0,443.5 362.0,441.5 363.0,437.5 359.5,434.0 357.5,435.0 351.5,434.0 335.0,417.5 335.0,416.5 329.0,410.5 329.0,409.5 323.0,401.5 320.0,394.5 318.0,392.5 315.0,386.5 313.0,378.5 311.0,375.5 311.0,372.5 310.0,371.5 310.0,368.5 309.0,367.5 309.0,364.5 308.0,363.5 308.0,359.5 307.0,358.5 307.0,353.5 306.0,352.5 306.0,311.5 308.0,310.5 309.5,307.0 312.0,306.5 312.0,301.5 309.5,301.0 308.0,297.5 306.0,296.5 306.0,268.5 308.0,267.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#3 CMD_Remix-V3_DUCT-2B_45deg.stl → 09-ducts</title></path>
+<path d="M193.0,433.5 274.5,433.0 275.5,434.0 285.5,434.0 286.5,435.0 290.5,435.0 291.5,436.0 294.5,436.0 295.5,437.0 299.5,437.0 300.5,438.0 303.5,438.0 306.5,440.0 308.5,440.0 311.5,442.0 316.5,443.0 320.5,445.0 322.5,447.0 327.5,449.0 329.5,451.0 336.5,455.0 339.5,458.0 340.5,458.0 344.5,462.0 345.5,462.0 396.0,512.5 334.5,574.0 288.5,528.0 280.5,523.0 278.5,523.0 277.5,522.0 273.5,522.0 272.5,521.0 193.5,521.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#11 CMD_Remix-V3_DUCT-2B_45deg_LID.stl → 09-ducts</title></path>
+<path d="M469.0,367.5 557.0,367.5 557.0,454.5 556.0,455.5 556.0,461.5 555.0,462.5 554.0,471.5 553.0,472.5 553.0,475.5 552.0,476.5 550.0,484.5 548.0,487.5 548.0,489.5 544.0,497.5 542.0,499.5 540.0,504.5 537.0,507.5 533.0,514.5 527.0,520.5 527.0,521.5 478.5,570.0 476.5,568.0 475.5,568.0 472.0,564.5 472.0,563.5 420.0,512.5 420.0,511.5 417.0,508.5 417.0,507.5 460.0,465.5 460.0,464.5 465.0,459.5 468.0,453.5 468.0,451.5 469.0,450.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#9 CMD_Remix-V3_DUCT-2B_45deg_LID.stl → 09-ducts</title></path>
+<text x="192.5" y="682.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">13</text>
+<text x="192.5" y="692.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="494.5" y="680.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">14</text>
+<text x="494.5" y="690.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="765.5" y="678.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">15</text>
+<text x="765.5" y="688.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="700.5" y="518.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">12</text>
+<text x="700.5" y="528.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="76.0" y="477.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 76.0 471.5)">7</text>
+<text x="90.5" y="475.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 90.5 471.5)">10-wiring</text>
+<text x="505.5" y="420.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 505.5 414.5)">9</text>
+<text x="519.5" y="418.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 519.5 414.5)">09-ducts</text>
+<text x="239.5" y="480.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">11</text>
+<text x="239.5" y="490.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="807.5" y="338.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 807.5 332.5)">6</text>
+<text x="821.5" y="336.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 821.5 332.5)">09-ducts</text>
+<text x="343.5" y="336.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 343.5 330.5)">3</text>
+<text x="357.5" y="334.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 357.5 330.5)">09-ducts</text>
+<text x="73.5" y="293.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<text x="73.5" y="303.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="458.5" y="297.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<text x="458.5" y="307.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="641.5" y="385.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">10</text>
+<text x="641.5" y="395.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="199.5" y="352.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">8</text>
+<text x="199.5" y="362.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="215.5" y="253.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="215.5" y="263.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="705.5" y="286.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
+<text x="705.5" y="296.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts</text>
+<text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
+<rect x="950.0" y="48.0" width="64.0" height="18.0" rx="4.0" fill="#9c6a12"/>
+<text x="982.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">09-ducts</text>
+<rect x="1020.0" y="48.0" width="66.0" height="18.0" rx="4.0" fill="#3d5a80"/>
+<text x="1053.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">10-wiring</text>
+<text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1, 4</text>
+<text x="1003.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V3L_90DEG_R15.stl  ×2</text>
+<text x="1003.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2, 5</text>
+<text x="1003.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_Remix-V3_DUCT-1M_ENDCAP.stl  ×2</text>
+<text x="1003.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3, 6</text>
+<text x="1003.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_Remix-V3_DUCT-2B_45deg.stl  ×2</text>
+<text x="1003.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#3d5a80"/>
+<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">7</text>
+<text x="1003.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V2L_STRIP_FIN.stl</text>
+<text x="1003.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">10-wiring · Bay wiring: AC strip fin (B11) · Ch 10 · 10.80, appended with the B11 bay ducting</text>
+<rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8, 10</text>
+<text x="1003.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V3L_90DEG_R15_COVER.stl  ×2</text>
+<text x="1003.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">9, 11</text>
+<text x="1003.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_Remix-V3_DUCT-2B_45deg_LID.stl  ×2</text>
+<text x="1003.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="332.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="341.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">12</text>
+<text x="1003.0" y="342.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_V3_1H_T_SHORT.stl</text>
+<text x="1003.0" y="356.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="368.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="377.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">13</text>
+<text x="1003.0" y="378.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_V2_6B_WIRE_BOX_COVER.stl</text>
+<text x="1003.0" y="392.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="404.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="413.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">14</text>
+<text x="1003.0" y="414.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V3L_WIRE_BOX_PORT.stl</text>
+<text x="1003.0" y="428.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<rect x="950.0" y="440.0" width="12.0" height="12.0" rx="2.0" fill="#9c6a12"/>
+<text x="968.0" y="449.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">15</text>
+<text x="1003.0" y="450.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">CMD_V2_6B_T_SHORT_COVER.stl</text>
+<text x="1003.0" y="464.1" font-size="11" fill="#6e6e73" text-anchor="start">09-ducts · Bay ducts and lids, B11 · Ch 09 · 09.6, 09.36</text>
+<text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
+<text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B11-P3.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
+</svg>

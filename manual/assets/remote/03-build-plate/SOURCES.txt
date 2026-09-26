@@ -1,0 +1,19 @@
+# Mirrored step images for docs/manual/03-build-plate.md
+# Mirrored 2026-09-05 (wave-3 chapter pass) from the local LDO cache
+# (docs/manual/assets/ldo/, gitignored), under CONVENTIONS.md "Image
+# licensing" — non-commercial, attributed. Attribution: LDO Motors.
+
+build_plate_bottom_view.jpg
+  used at : Step 03.4 (second image line, beside Voron manual p.55)
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/build_plate_bottom_view.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/build_plate_bottom_view.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 02f4863b1705f9079ffb157ee2a6573cae245e790b133e8262c9669c43bdba66
+  note    : LDO's own photo is the Rev C guide's 300 mm / 220 VAC pad
+            (LDO-SHPAC-300-220-600 on the silkscreen). The 350 kit's pad is a
+            different part number and the label reads differently — the photo is
+            used for the pre-applied layout (pad, retaining screws, fuse patch,
+            three labelled cables, PE screw), not for the ratings on it. The
+            caption in the chapter says so.
