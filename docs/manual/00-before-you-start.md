@@ -378,6 +378,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Torque screwdriver 0.5–3 N·m | **Buy — optional.** No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec | Ch 01 |
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 10 (mandatory — Checkpoint #1) |
+| Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
 | Dial indicator + magnetic base | Optional, skip for now | — |
 
 **Check:** Every "Buy" row has an order placed or a decision to skip written down.

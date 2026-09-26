@@ -13,9 +13,9 @@ caption: Set the profile once, carefully. Twenty two plates inherit these number
 (published 2026-09-01) is an early preview.
 ([releases](https://github.com/prusa3d/PrusaSlicer/releases))
 
-**Version posture.** First build: **2.9.6 for everything.** The dimension-critical batches — the **B00
-gates**, **B01**, and **B03–B06** — are 2.9.6 only. 3.0 is acceptable for **B08–B10** provided you re-enter
-every override in this document by hand (see *PrusaSlicer 3.0 preview*, reference-only, at the end).
+**Version posture.** First build: **2.9.6 for every batch, B11 included** (decision 2026-09-26). The 3.0
+preview is not used for this build; *PrusaSlicer 3.0 preview* at the end is reference only, for when it goes
+stable.
 Changing slicer version is a toolchain change: re-run Gate A — and Gate B once the kit is here — before the
 next plate.
 

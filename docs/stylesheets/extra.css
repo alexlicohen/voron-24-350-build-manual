@@ -810,7 +810,8 @@ body.step-is-done .md-typeset .step-done-label {
   color: var(--md-primary-fg-color);
   font-weight: 700;
 }
-.plate-tile--printed { opacity: .62; }
+.plate-tile--printed .plate-tile__thumb,
+.plate-tile--printed .plate-tile__body > :not(.plate-tile__milestone) { opacity: .62; }  /* the milestone stays full strength */
 .plate-tile__thumb { flex: 0 0 72px; }
 .md-typeset .plate-tile__thumb img {
   width: 72px;
