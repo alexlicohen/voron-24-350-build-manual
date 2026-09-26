@@ -89,8 +89,10 @@
    * scripts/build_tonight.py). With it and tonight.js's TonightPlanner loaded,
    * "next" is the step Tonight's plans start at — before kit day that is the
    * first unfinished pre-kit or print step (Ch 00a, B00.0, the next plate),
-   * never 00.1 "open the cartons" — and the run's printed plates (plate board,
-   * or the plate's Load step ticked, as Tonight counts them) are counted too.
+   * never 00.1 "open the cartons" — and the run's printed plates are counted
+   * too. The plate board is the only authority for "printed" (Alex, 2026-09-26):
+   * a ticked Load step means started, which moves Tonight's plan on but does not
+   * count a plate as off the bed.
    * Without either, the chapter-order fallback below still renders. */
   function tonightProgress(plan, planUrl) {
     var planner = window.TonightPlanner;
@@ -116,7 +118,7 @@
         if (seg.kind === 'print' && seg.run === 'asa' && !seen[seg.plate]) {
           seen[seg.plate] = true;
           out.plates++;
-          if (printed[seg.plate] || have[seg.first_step]) out.platesDone++;
+          if (printed[seg.plate]) out.platesDone++;
         }
         /* The plan starts at a segment; name its first unticked step. */
         if (start && seg.first_step === start) {
