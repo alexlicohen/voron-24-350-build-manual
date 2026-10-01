@@ -104,10 +104,10 @@ Clicky-Clack's `Hinge-L-sleeve-2X` / `-solid-2X` contain **one** body each — "
 ### 1.3 Slicer: PrusaSlicer profile and the Voron overrides
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25 —
-[GitHub releases](https://github.com/prusa3d/PrusaSlicer/releases)). 3.0.0-alpha11 shipped 2026-09-01 as an
-early preview. **Version posture:** the dimension-critical batches — the B00 gate, B01, and B03–B06 — are sliced on
-2.9.6; 3.0 is acceptable for B08–B10 with every override re-entered by hand. Any toolchain change re-runs
-Gate A and Gate B (§1.4). Deltas and the migration route are in
+[GitHub releases](https://github.com/prusa3d/PrusaSlicer/releases)). 3.0.0-alpha12 shipped 2026-09-21 as an
+early preview. **Version posture (ruling 2026-09-26):** every batch, B00 through B11, is sliced on
+2.9.6; the 3.0 preview is not used for this build. Any toolchain change re-runs
+Gate A and Gate B (§1.4). The 3.0 deltas are kept as reference in
 [`docs/manual/print/00-slicer-setup.md`](manual/print/00-slicer-setup.md#prusaslicer-30-preview).
 
 **Base profiles — the ones every committed 3MF and both `.ini` bundles carry** (verified against

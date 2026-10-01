@@ -9,8 +9,8 @@ pose: check
 caption: Set the profile once, carefully. Twenty two plates inherit these numbers and none of them ask twice.
 ```
 
-**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha11**
-(published 2026-09-01) is an early preview.
+**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
+(published 2026-09-21) is an early preview.
 ([releases](https://github.com/prusa3d/PrusaSlicer/releases))
 
 **Version posture.** First build: **2.9.6 for every batch, B11 included** (decision 2026-09-26). The 3.0
@@ -26,7 +26,7 @@ file exist and they are not the same file:
   inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
   reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
 - `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
-  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed).
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.10 (2026-09-17): Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks; the CORE One HF0.4 printer, its start G-code, Prusament ASA and Prusament PETG V0 are untouched, so the update is safe to take.
 
 They differ on one key that reaches these plates: 2.5.8+'s CORE One `start_gcode` bumps the firmware
 check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be
@@ -394,10 +394,13 @@ the full tick list `(verify on bench)`:
    installs those presets. Pass: no "bed not aligned" prompt, every square 0.17–0.23 mm, spread ≤0.05 mm.
 
 **Revised 2026-10-01: the expansion joints and the nozzle wiper go in before B00; only the belts wait.**
-Both parts come from the same kit and follow the heatbed and nozzle-wiper chapters of
-[Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435) `(verify on bench)`. Buddy 6.8.1 keeps the three Gen 2 features as
-separate switches under Settings → Hardware, so the joints and the wiper are switched on one by one;
-Edition = Gen 2 would also set GT1.5 steps/mm on GT2 belts. Taking the heatbed off reopens the closed
+Both parts are fitted in one chapter of [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435), **4. Heatbed upgrade**
+(expansion joints, heatbed spacer and aligner, then the nozzle wiper); chapter 3, Belts upgrade, is skipped,
+and so are the Belt tensioning and Changing the printer edition steps of chapter 5. How much of chapter 2's
+disassembly the heatbed needs with the Nextruder left on is `(verify on bench)`. Buddy 6.8.1 keeps separate
+switches "for printers that have been retrofitted with only some of the accessories": Settings → Hardware →
+**Expansion Joints Gen 2** and → **Nozzle Wiper** go on, **GT1.5 Belts** stays off. Edition = CORE One+ Gen2
+would also set GT1.5 steps/mm on GT2 belts. Taking the heatbed off reopens the closed
 ±0.1 mm bed, so the six-point bed check and the Z-stop correction caps are redone before the hot check.
 The hot check then runs twice, on the cold start and on the heat-then-off start
 (`slicer/checks/hot-first-layer-heat-off.3mf`), and the better one goes into all 22 plates with
@@ -448,7 +451,7 @@ records the branch head so a mid-build reprint is identical to the first print.
 
 *Reference only — first build: 2.9.6 for everything.*
 
-3.0.0-alpha11 (2026-09-01) is usable for the cosmetic batches but changes enough that it is not a drop-in.
+3.0.0-alpha12 (2026-09-21, a bug-fix build over alpha11) is usable for the cosmetic batches but changes enough that it is not a drop-in.
 Verified against the 3.0 branch, not recalled:
 
 - **Profiles moved** from the single `PrusaResearch.ini` to per-preset YAML under

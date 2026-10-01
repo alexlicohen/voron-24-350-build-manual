@@ -86,8 +86,10 @@ installs; they run before Step B00.8 and before any plate.
 
 **0. Fit the Gen 2 expansion joints and nozzle wiper** `(verify on bench)`
 
-- [ ] Follow only the heatbed and nozzle-wiper chapters of [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435); leave the belts and pulleys alone
-- [ ] Settings → Hardware: switch on the expansion joints and the nozzle wiper **one by one**. Never pick Edition = Gen 2: it also sets GT1.5 steps/mm, wrong for the GT2 belts still fitted
+- [ ] [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435): chapter 2 for the panels only, with the Nextruder left on. Skip chapter 3, Belts upgrade
+- [ ] Chapter **4. Heatbed upgrade**, all of it: expansion joints, heatbed spacer and aligner, nozzle wiper, panels back on
+- [ ] Chapter 5: skip Belt tensioning and Changing the printer edition; run the Selftest
+- [ ] Settings → Hardware → **Expansion Joints Gen 2** on, → **Nozzle Wiper** on, **GT1.5 Belts** left off. Never pick Edition = CORE One+ Gen2: it also sets GT1.5 steps/mm, wrong for the GT2 belts still fitted
 - [ ] The heatbed came off, so the closed ±0.1 mm bed is open again: repeat the six-point bed check and re-fit the Z-stop correction caps until it is back inside ±0.1 mm
 
 **1. Belt pluck check** `(verify on bench)`
