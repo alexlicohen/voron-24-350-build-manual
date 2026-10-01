@@ -8,7 +8,7 @@
   90
  ],
  "gate": {
-  "label": "Pre-B00 checks, Gen 1 belts",
+  "label": "Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts",
   "chapter": "b00-calibration-and-jigs",
   "closed_by": [
    "B00.8",
@@ -27,7 +27,7 @@
  "rows": [
   {
    "n": 1,
-   "label": "Pre-B00 checks, Gen 1 belts",
+   "label": "Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts",
    "kind": "Both",
    "kit": false,
    "segments": []

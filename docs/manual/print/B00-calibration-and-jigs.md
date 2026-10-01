@@ -76,12 +76,19 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 ## Before B00: belt and hot-bed checks
 
-The Gen 2 belt upgrade (GT1.5 belts, heatbed expansion joints, nozzle wiper — Prusa order 1787919456,
-shipped) is **deferred to the INDX 8-tool conversion this winter**; Prusa documents the combined install
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)). The whole 157.0 h run prints on the current **Gen 1 GT2** belts. Before any plate,
-run these two checks instead — belt tuning was never formally closed, and the bed has only been proved flat
-at 60 °C, not at ASA temperature. They sit here, after Step B00.0, because the hot check opens a project on
-the presets B00.0 installs; they run before Step B00.8 and before any plate.
+The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
+**heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
+deferred to the INDX 8-tool conversion this winter**
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the two
+checks — belt tuning was never formally closed, and the bed has only been proved flat at 60 °C, not at ASA
+temperature. They sit here, after Step B00.0, because the hot check opens a project on the presets B00.0
+installs; they run before Step B00.8 and before any plate.
+
+**0. Fit the Gen 2 expansion joints and nozzle wiper** `(verify on bench)`
+
+- [ ] Follow only the heatbed and nozzle-wiper chapters of [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435); leave the belts and pulleys alone
+- [ ] Settings → Hardware: switch on the expansion joints and the nozzle wiper **one by one**. Never pick Edition = Gen 2: it also sets GT1.5 steps/mm, wrong for the GT2 belts still fitted
+- [ ] The heatbed came off, so the closed ±0.1 mm bed is open again: repeat the six-point bed check and re-fit the Z-stop correction caps until it is back inside ±0.1 mm
 
 **1. Belt pluck check** `(verify on bench)`
 
@@ -97,15 +104,18 @@ the presets B00.0 installs; they run before Step B00.8 and before any plate.
 - [ ] No "bed not aligned" / Z-alignment prompt during the print
 - [ ] Every square calipers 0.17–0.23 mm
 - [ ] Spread across all five squares ≤ 0.05 mm
+- [ ] Print it again from `slicer/checks/hot-first-layer-heat-off.3mf`, the same plate on the heat-then-off start G-code: nozzle to 170 °C, retract, heater off, wipe, heater off again, then the mesh. Caliper its five squares the same way
+- [ ] Write down which start passed with the smaller spread and no prompt. If heat-then-off wins, stop here: all 22 plates must be re-synced to it and Live Adjust Z re-tuned before B00
 
-Both pass → Step B00.8, and B00 prints on GT2. Either fails → do the Gen 2 upgrade now (expansion joints
-included) before B00, then re-run both checks.
+Both pass → Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck. Hot check fails on
+both starts → back to the bed check in item 0, then re-run it.
 
 - [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
 
 The check's project is not a plate of the run and sits outside every total. `python3 slicer/hot_check.py`
-rebuilds it from `slicer/voron-coreone-asa.ini` and slices it to prove one layer, five squares, a 110 °C bed
-and no nozzle target before the mesh; `--check` only re-slices the committed file.
+rebuilds both projects from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
+a 110 °C bed and the heater off before every probe tap; `--check` only re-slices the committed files. The
+22 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
 

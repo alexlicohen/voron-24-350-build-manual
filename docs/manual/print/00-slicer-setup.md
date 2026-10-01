@@ -72,7 +72,7 @@ with the arrangement, the per-object brims and the full configuration already in
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
-| The pre-B00 hot first-layer check (five squares, not a plate of the run, outside every total) | `slicer/checks/hot-first-layer.3mf` (`slicer/hot_check.py` rebuilds and checks it) |
+| The pre-B00 hot first-layer check (five squares, not a plate of the run, outside every total) | `slicer/checks/hot-first-layer.3mf` and `hot-first-layer-heat-off.3mf`, the same plate on `slicer/coreone-heat-off-start.gcode` (`slicer/hot_check.py` rebuilds and checks both) |
 
 Open `slicer/plates/<plate>.3mf` in PrusaSlicer (**File → Open Project**) and slice. The project
 carries its own print/filament/printer configuration, so it does not matter which presets you had
@@ -210,8 +210,8 @@ verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrad
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
-its committed project right after Step B00.0 installs the presets. Either
-check failing means doing the Gen 2 upgrade now, before B00, after all.
+its committed project right after Step B00.0 installs the presets. The Gen 2
+expansion joints and nozzle wiper go in first (ruling 2026-10-01); only the belts wait for INDX.
 
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~157 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
@@ -393,9 +393,19 @@ the full tick list `(verify on bench)`:
    Galaxy Black ASA on B00-P1's presets, 110 °C bed, cold start G-code. It runs after Step B00.0, whose wizard
    installs those presets. Pass: no "bed not aligned" prompt, every square 0.17–0.23 mm, spread ≤0.05 mm.
 
-Either check failing means doing the Gen 2 upgrade now, before B00, after all — then re-running both checks.
+**Revised 2026-10-01: the expansion joints and the nozzle wiper go in before B00; only the belts wait.**
+Both parts come from the same kit and follow the heatbed and nozzle-wiper chapters of
+[Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435) `(verify on bench)`. Buddy 6.8.1 keeps the three Gen 2 features as
+separate switches under Settings → Hardware, so the joints and the wiper are switched on one by one;
+Edition = Gen 2 would also set GT1.5 steps/mm on GT2 belts. Taking the heatbed off reopens the closed
+±0.1 mm bed, so the six-point bed check and the Z-stop correction caps are redone before the hot check.
+The hot check then runs twice, on the cold start and on the heat-then-off start
+(`slicer/checks/hot-first-layer-heat-off.3mf`), and the better one goes into all 22 plates with
+`slicer/sync_start_gcode.py`. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
+the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater
+off again before the mesh for that reason.
 
-**After the eventual INDX + Gen 2 rebuild, before restarting prints:**
+**After the eventual INDX + GT1.5 belt rebuild, before restarting prints:**
 
 1. Firmware ≥ 6.8.1 (carries GT1.5 belt support and the Gen 2 expansion joints; the combined INDX + Gen 2
    guide supersedes the standalone Gen 2 KB article once both go in together).

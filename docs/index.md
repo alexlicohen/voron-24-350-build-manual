@@ -4,7 +4,7 @@
 
 # Voron 2.4 350 — Build Manual
 
-**Where things stand (23 Sept 2026):** the Core One+ is running, all the ASA is on the shelf, and the Voron kit is in transit (late November to late December). The Gen 2 belt kit shipped but installs later, together with the INDX conversion this winter — the whole print run goes down on the current Gen 1 belts. Every plate prints before the Voron kit lands.
+**Where things stand (1 Oct 2026):** the Core One+ is running, all the ASA is on the shelf, and the Voron kit is in transit (late November to late December). From the Gen 2 kit, the heatbed expansion joints and nozzle wiper go in before the first plate; the GT1.5 belts install later, together with the INDX conversion this winter — the whole print run goes down on the current Gen 1 belts. Every plate prints before the Voron kit lands.
 
 ## How to begin
 

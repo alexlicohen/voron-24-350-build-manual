@@ -12,20 +12,20 @@ The same planner over the timeline rows without the **KIT** marker, plus the ind
 
 **If you have 30 min:**
 
-- **First, before B00 (not tonight):** Pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
+- **First, before B00 (not tonight):** Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
 - Ch 00a — Mains safety — <span data-first-step="00a.1">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</span>
   <small>~30 min hands-on planned</small>
 
 **If you have 60 min:**
 
-- **First, before B00 (not tonight):** Pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
+- **First, before B00 (not tonight):** Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
 - Ch 00a — Mains safety — <span data-first-step="00a.1">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</span>
 - Ch 00a — Mains safety — <span data-first-step="00a.6">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</span>
   <small>~55 min hands-on planned</small>
 
 **If you have 90 min:**
 
-- **First, before B00 (not tonight):** Pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
+- **First, before B00 (not tonight):** Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts. The print rows below wait on it; the bench items do not.
 - Ch 00a — Mains safety — <span data-first-step="00a.1">Step 00a.1 → Step 00a.5 · ~30 min · leave-state: this is the chapter's first segment. Decisions made and written down, meter ordered or found and self-tested, outlet chosen and labelled. Nothing is open, nothing is wired, and no kit box has been touched. Do not start Ch 09 before finishing the rest of this chapter; the earth chain below is what Ch 09's placement decisions assume.</span>
 - Ch 00a — Mains safety — <span data-first-step="00a.6">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</span>
 - Ch 00 — Before you start — <span data-first-step="00.8">Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.</span> · helper: Reads the thickest leaf that slides under aloud and writes it in the log. (+1 more)
@@ -130,7 +130,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 
 ## By timeline row
 
-### 1 · Both — Pre-B00 checks, Gen 1 belts
+### 1 · Both — Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts
 - wall-clock pause — see the timeline row for its gate
 
 ### 2 · Print — B00 — Calibration & jigs

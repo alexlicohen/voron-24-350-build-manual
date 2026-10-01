@@ -876,9 +876,14 @@ and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b
    30×30×0.2 mm squares, corners + centre, one layer, in Galaxy Black ASA on B00-P1's presets (110 °C bed,
    cold start G-code); pass with no Z-alignment prompt, 0.17–0.23 mm each, spread ≤0.05 mm.
 
-Either check failing means doing the Gen 2 upgrade now, before B00, after all — then re-running both checks.
+**Revised 2026-10-01: expansion joints and nozzle wiper before B00, belts at the INDX rebuild.** The
+heatbed expansion joints and the nozzle wiper from the same kit are fitted before the two checks; the GT1.5
+belts and pulleys still wait for INDX, so the run stays on GT2. The firmware switches for the joints and the
+wiper are set one by one (Edition = Gen 2 would also set GT1.5 steps/mm), the bed is re-checked to ±0.1 mm
+because the heatbed came off, and the hot check runs on both start G-codes (cold, and heat-then-off) to pick
+the one all 22 plates carry. Tick list: [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks).
 
-**After the eventual INDX + Gen 2 rebuild, before restarting prints:**
+**After the eventual INDX + GT1.5 belt rebuild, before restarting prints:**
 
 1. Firmware **≥ 6.8.1** (carries GT1.5 belt support and the Gen 2 expansion joints).
 2. Re-tension both belts and re-square the gantry, per the combined INDX + Gen 2 guide.
