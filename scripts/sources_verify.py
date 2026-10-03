@@ -11,9 +11,10 @@
         `last_verified` and `sha` values.
 
     python3 scripts/sources_verify.py --git-only
-        Drift-job mode (R6 V3, git-backed only per the 2026-09-05 ruling):
-        checks only the git-tracked repos in
-        sources_common.GIT_TRACKED_REPOS, one line per repo, and prints
+        Drift-job mode (R6 V3; git-backed only per the 2026-09-05 ruling,
+        widened 2026-10-03 by Alex to the pinned Printables pages):
+        checks the git-tracked repos in sources_common.GIT_TRACKED_REPOS
+        and every `printables:` pin, one line per source, and prints
         `CHANGED <repo> <old_sha> -> <new_sha>` for any that moved plus
         `DOWN <url> [<status>]` for any pinned URL that stopped 200'ing.
         Exit code is 1 if anything changed or went down (drift.yml uses
@@ -172,7 +173,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="check only, don't rewrite sources.yml")
     ap.add_argument("--git-only", action="store_true",
-                     help="drift-job mode: check only the git-tracked repos in GIT_TRACKED_REPOS")
+                     help="drift-job mode: the git-tracked repos in GIT_TRACKED_REPOS plus the Printables pins")
     ap.add_argument("--today", default=datetime.date.today().isoformat())
     args = ap.parse_args()
 
