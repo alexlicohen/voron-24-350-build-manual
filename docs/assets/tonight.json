@@ -5059,46 +5059,104 @@
      "steps": [
       "13.44",
       "13.45",
-      "13.46"
+      "13.46",
+      "13.47"
      ],
      "first_step": "13.44",
-     "last_step": "13.46",
+     "last_step": "13.47",
      "href": "../manual/steps/13-initial-startup/13-44/",
-     "minutes": 25,
+     "minutes": 35,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48.",
+     "leave_state": "H, w, d, G and O measured and written down, the decision made, the chosen files in `measured/` or NO-GO recorded, and the Voron shut down as at Step 13.43. Nothing printed yet.",
      "helpers": [
       [
        "13.44",
-       "Reads the caliper and the M114 Y value aloud and writes both down."
+       "Holds the rule on each extrusion top and reads the clear length aloud."
       ],
       [
        "13.45",
-       "Tests each magnet pair and hands them over the right way up."
+       "Reads both caliper values aloud and writes them on the record card."
       ],
       [
        "13.46",
-       "Holds each bracket against the plate edge while the adult tightens it."
+       "Reads each caliper value and the M114 Y aloud and writes them down."
+      ],
+      [
+       "13.47",
+       "Reads each number off the record card while the adult types it in."
       ]
      ],
-     "text": "Step 13.44 → Step 13.46 · ~25 min · leave-state: the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48."
+     "text": "Step 13.44 → Step 13.47 · ~35 min · leave-state: H, w, d, G and O measured and written down, the decision made, the chosen files in `measured/` or NO-GO recorded, and the Voron shut down as at Step 13.43. Nothing printed yet."
     },
     {
      "id": "13-initial-startup#12",
      "chapter": "13-initial-startup",
      "kind": "build",
      "steps": [
-      "13.47",
-      "13.48",
+      "13.48"
+     ],
+     "first_step": "13.48",
+     "last_step": "13.48",
+     "href": "../manual/steps/13-initial-startup/13-48/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the add-on print is running on the Core One+, about 2.5 h. Leave the parts on the sheet until it has cooled.",
+     "helpers": [
+      [
+       "13.48",
+       "Checks each file name on the bed against the printout and ticks it."
+      ]
+     ],
+     "text": "Step 13.48 · ~15 min · leave-state: the add-on print is running on the Core One+, about 2.5 h. Leave the parts on the sheet until it has cooled."
+    },
+    {
+     "id": "13-initial-startup#13",
+     "chapter": "13-initial-startup",
+     "kind": "build",
+     "steps": [
       "13.49",
       "13.50"
      ],
-     "first_step": "13.47",
+     "first_step": "13.49",
      "last_step": "13.50",
-     "href": "../manual/steps/13-initial-startup/13-47/",
+     "href": "../manual/steps/13-initial-startup/13-49/",
+     "minutes": 25,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the add-on is bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.52.",
+     "helpers": [
+      [
+       "13.49",
+       "Tests each magnet pair and hands them over the right way up."
+      ],
+      [
+       "13.50",
+       "Holds each bracket against the plate edge while the adult tightens it."
+      ]
+     ],
+     "text": "Step 13.49 → Step 13.50 · ~25 min · leave-state: the add-on is bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.52."
+    },
+    {
+     "id": "13-initial-startup#14",
+     "chapter": "13-initial-startup",
+     "kind": "build",
+     "steps": [
+      "13.51",
+      "13.52",
+      "13.53",
+      "13.54"
+     ],
+     "first_step": "13.51",
+     "last_step": "13.54",
+     "href": "../manual/steps/13-initial-startup/13-51/",
      "minutes": 30,
      "pre_kit": false,
      "plate": null,
@@ -5107,15 +5165,15 @@
      "leave_state": "the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B.",
      "helpers": [
       [
-       "13.47",
+       "13.51",
        "Reads each M114 value aloud and writes it on the record card."
       ],
       [
-       "13.49",
+       "13.53",
        "Watches the Omron from the side and calls out if it touches anything."
       ]
      ],
-     "text": "Step 13.47 → Step 13.50 · ~30 min · leave-state: the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B."
+     "text": "Step 13.51 → Step 13.54 · ~30 min · leave-state: the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B."
     }
    ]
   },
@@ -7269,6 +7327,8 @@
      "13-initial-startup#10",
      "13-initial-startup#11",
      "13-initial-startup#12",
+     "13-initial-startup#13",
+     "13-initial-startup#14",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -7511,6 +7571,8 @@
      "13-initial-startup#10",
      "13-initial-startup#11",
      "13-initial-startup#12",
+     "13-initial-startup#13",
+     "13-initial-startup#14",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -7848,6 +7910,8 @@
      "13-initial-startup#10",
      "13-initial-startup#11",
      "13-initial-startup#12",
+     "13-initial-startup#13",
+     "13-initial-startup#14",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -8532,7 +8596,11 @@
      "13.47",
      "13.48",
      "13.49",
-     "13.50"
+     "13.50",
+     "13.51",
+     "13.52",
+     "13.53",
+     "13.54"
     ],
     "14-calibration": [
      "14.1",
@@ -8687,7 +8755,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 209,
+    "done": 211,
     "gate_closed": true,
     "start": null,
     "sections": [

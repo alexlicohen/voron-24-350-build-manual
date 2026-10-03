@@ -787,6 +787,52 @@ sources:
   title: Voron PrintItForward
   first_seen: '2026-09-05'
   last_verified: '2026-10-01'
+- id: printables-796563-nozzle-scrubber
+  url: https://www.printables.com/model/796563
+  kind: community
+  title: Voron 2.4 Silicone Nozzle Scrubber w/ Sheet Stops (Beacon / Carto Compatible)
+  first_seen: '2026-10-03'
+  last_verified: '2026-10-03'
+  printables:
+    print_id: '796563'
+    files:
+      Voron 2.4 Decontaminator.stp:
+        id: '5159481'
+        size: 26574528
+      8mm Bed Setup.3mf:
+        id: '5160556'
+        size: 280037
+      8mm Bed.stp:
+        id: '5160563'
+        size: 308510
+      10mm Bed Setup.3mf:
+        id: '5160570'
+        size: 280164
+      10mm Bed.stp:
+        id: '5160571'
+        size: 308070
+      MRW Kit with 8mm Bed.stp:
+        id: '6276594'
+        size: 602142
+      MRW Kit with 8mm Bed.3mf:
+        id: '6276610'
+        size: 621340
+      MRW Kit with 10mm Bed.stp:
+        id: '6276608'
+        size: 580592
+      MRW Kit with 10mm Bed.3mf:
+        id: '6276609'
+        size: 606440
+    macro_sha256: dab39fef45731da6746430cef37dc92e1ec6377fae66b3d43ef85c3a91588416
+    macro_rev: 12/22/2025
+    local:
+      slicer/addons/scrubber-796563/source/10mm Bed.stp: 64c88c0a3bc9dda1bc6bcfc9f958f10b1b4e32f413ab20ecb1c58e22a790fb9c
+    file_sha256:
+      10mm Bed Setup.3mf: ed50b6daa00aa76d1c24fa2da6159d04ae80553ec27fc33be68b88039b253dad
+      10mm Bed.stp: 64c88c0a3bc9dda1bc6bcfc9f958f10b1b4e32f413ab20ecb1c58e22a790fb9c
+    on_change: download the changed files (Printables GraphQL getDownloadLink, fileType:stl), diff 10mm
+      Bed.stp against slicer/addons/scrubber-796563/source/, re-run remix.py --defaults and the measured
+      set, re-diff the page macros against Ch 13 Step 13.52's block; print nothing until done
 - id: prusa-prusaslicer-settings-prusa-fff
   url: https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff
   kind: prusa

@@ -808,9 +808,10 @@ black margin against those.
 **Optional, not in any batch** (print later if you want them): `bed_hole_marking_template_x1_Rev2` (LDO's bed is
 pre-drilled), `bottom_panel_template`, `Purge Bucket/brush_holder_sheet_stop` + `individual_sheet_stop`
 (superseded 2026-10-03: the nozzle scrubber is jinetix's silicone-wiper design with sheet stops,
-[Printables 796563](https://www.printables.com/model/796563), printed as an add-on outside the plates from
-`slicer/addons/scrubber-796563/` — 3 parts, 38.3 g black ASA, 2 h 30 m, any time after B10 — and fitted at
-Ch 13 Part L; the kit's brass brush is a hand tool),
+[Printables 796563](https://www.printables.com/model/796563), an add-on outside the plates, **never printed ahead of kit day**: Ch 13 Part L
+measures the machine, `slicer/addons/scrubber-796563/remix.py` generates the parts from those numbers (or says
+no-go), and only then are they printed — about 3 parts, 38 g black ASA, 2 h 30 m; the kit's brass brush is a
+hand tool),
 `[a]_fan_grill_open_optional_x2`, `z_belt_cover_a_led` (LDO variant if you route the LED strip through the
 Z-belt opening), extra `ldo_bestagon_insert`s.
 

@@ -379,7 +379,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 10 (mandatory — Checkpoint #1) |
 | Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
-| Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it | Ch 13 (13.45) |
+| Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
 | Dial indicator + magnetic base | Optional, skip for now | — |
 
 **Check:** Every "Buy" row has an order placed or a decision to skip written down.

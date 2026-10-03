@@ -2,16 +2,16 @@
 
 Turns the wired machine on for the first time and proves every subsystem in the order the Voron startup wizard prescribes — temperatures, heaters, fans, motors, endstops, homing, probe, PID, QGL, Z=0, bed mesh — then hands off to gantry squaring and comes back for the first print.
 
-**What you're building in this chapter.** Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the three **temperature sensors** are read cold; then each **heater** is driven briefly and watched to stop; then every **fan** and **light** is commanded on and off; then each of the seven **motors** is buzzed a millimetre to prove the right cable is in the right socket; then each **endstop** and the **probe** are pressed by hand. Only then does the machine move on its own, in the **homing** sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for cold squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on. Part L is an optional add-on: a silicone nozzle scrubber behind the plate, wired into `PRINT_START`. Final belt tension, the closed-chamber soak and the hot Z-joint lock are Ch 14's, once Ch 11 Part B has put the panels on.
+**What you're building in this chapter.** Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the three **temperature sensors** are read cold; then each **heater** is driven briefly and watched to stop; then every **fan** and **light** is commanded on and off; then each of the seven **motors** is buzzed a millimetre to prove the right cable is in the right socket; then each **endstop** and the **probe** are pressed by hand. Only then does the machine move on its own, in the **homing** sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for cold squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on. Part L is an optional add-on: a silicone nozzle scrubber behind the plate, wired into `PRINT_START`. Its parts are printed only after Part L has measured this machine and decided which parts fit. Final belt tension, the closed-chamber soak and the hot Z-joint lock are Ch 14's, once Ch 11 Part B has put the panels on.
 
 ```mascot
 pose: screen
 caption: First power on. Prove one subsystem at a time, so there is only ever one suspect.
 ```
 
-**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end. The optional scrubber add-on (Part L) adds ~1 h.
+**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end. The optional scrubber add-on (Part L) adds ~2 h hands-on, plus a ~2.5 h Core One+ print in the middle of it.
 
-**Sessions:** 11 × ~30 min hands-on, 13 with Part L (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
+**Sessions:** 11 × ~30 min hands-on, 15 with Part L (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
 
 **Prerequisites:**
 
@@ -19,7 +19,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 - **Ch 12 — Software.** Klipper, Moonraker and Mainsail installed; `leviathan-printer-rev-d-sbv2.cfg` fetched as `printer.cfg` (`grep -c gpio printer.cfg` → 0); both MCU serial IDs filled in; the 350 mm options uncommented. The boards were energised for the first time at Ch 12 Step 12.11, with the hand-on-switch drill; Step 13.3 repeats it.
 - **[Ch 06 Part A — Z axis](06-z-axis-and-gantry-squaring.md)** (gantry installed, Z belts on) and **[Ch 07 — A/B belts](07-ab-belts.md)** at provisional tension. The gantry is *not* squared yet — that is Ch 06 Part B (06b), which runs out of the middle of this chapter at Step 13.34: cold squaring and a provisional A/B re-tension only. Final tension, the closed-chamber soak and the hot Z-joint lock are Ch 14 Steps 14.4–14.6.
 - **Ch 11 — Skirts and panels:** bottom panel and skirts on (Ch 11 Part A). **Back, side and top panels off** and left off (Ch 11 Part B comes after this chapter, before Ch 14) — you need access to the gantry for Ch 06b, and you want to see and smell everything on power-up. The heat soaks in this chapter therefore run with the front open; their gate is probe repeatability, not a chamber temperature.
-- **Print batches:** none. You will *print* `Voron_Design_Cube_v7` at the end of this chapter, on the new machine. Part L only: the scrubber add-on print (`slicer/addons/scrubber-796563/`) and one Bambu A1 nozzle wiper.
+- **Print batches:** none. You will *print* `Voron_Design_Cube_v7` at the end of this chapter, on the new machine. Part L only: one Bambu A1 nozzle wiper in hand. The scrubber parts are **not** printed ahead: Step 13.47 decides them from this machine's numbers, Step 13.48 prints them on the Core One+.
 
 **Tools**
 
@@ -37,7 +37,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 | STL | Qty | Colour |
 |---|---|---|
-| Scrubber add-on, Part L only: brush bracket, stop bracket, purge bucket | 1 each | Black |
+| Scrubber add-on, Part L only: brush bracket, stop bracket, purge bucket, generated and printed inside Part L after the decision step | 1 each | Black |
 
 **Hardware** (chapter totals)
 
@@ -1248,67 +1248,240 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 
 ## Part L — Add-on: nozzle scrubber with sheet stops
 
-This part is optional. It fits jinetix's silicone nozzle scrubber, low variant, on the rear of the bed extrusions: a brush bracket and its magnetic purge bucket on the left, a narrow stop bracket on the right. `PRINT_START` then wipes the nozzle before the Z home that counts.
+This part is optional. It fits jinetix's silicone nozzle scrubber on the rear of the bed extrusions: a brush bracket and its magnetic purge bucket on the left, a narrow stop bracket on the right. Nothing is printed until this part has measured the machine and decided which parts fit, or that none do. `PRINT_START` then wipes the nozzle before the Z home that counts.
 
-### Step 13.44 — Measure the probe height and the reach past the plate
+### Step 13.44 — Inspect the plate edge and the room behind it
 
 (no image — see text)
 
-**What you're looking at:** The brush sits just behind the plate's rear edge, so the nozzle has to travel a few millimetres past that edge. The Omron rides 25 mm behind the nozzle and passes over the bucket. These two numbers decide whether the add-on fits.
+**What you're looking at:** Behind the plate, each bed extrusion needs a bare top for a 38 mm bracket that butts the plate's rear edge. The brush sits on that edge outboard of the left extrusion, so the edge must be straight there.
+
+**Parts:**
+
+- tool: steel rule
+- tool: digital caliper
+
+**Do:**
+
+1. Machine off: is the plate's rear edge straight outboard of the left bed extrusion?
+2. Rule each extrusion top from the plate edge back to the first obstacle.
+3. Note what stands above either top there, probe collar included.
+
+**Check:** Edge straight, at least 39 mm of bare top on the left, and the right side's length and collar noted. All written down.
+
+**Helper:** Holds the rule on each extrusion top and reads the clear length aloud.
+
+⚠ A notched edge at the brush, or under 39 mm of bare top on the left, ends the add-on here. The right side only decides whether the narrow stop bracket is fitted.
+
+Tip: Nothing is printed before the decision step, so these looks cost nothing. Bed leads, the WAGO mount and the Nevermore all belong inboard and below the tops.
+
+Source: [Printables 796563 — jinetix, nozzle scrubber w/ sheet stops](https://www.printables.com/model/796563) · [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
+
+---
+
+### Step 13.45 — Measure the sheet height and the wiper
+
+(no image — see text)
+
+**What you're looking at:** The printed parts are drawn from the bed-extrusion top up. The author's LDO stack puts the flex plate's top 20.05 mm above it; yours sets how far the brush stands proud of the sheet. The wiper's own height adds to that.
+
+**Parts:**
+
+- staged: Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
+- tool: digital caliper
+
+**Do:**
+
+1. Caliper body flat on the flex plate at its rear edge, depth rod down to the left extrusion top: that is H.
+2. Caliper the wiper from its base underside to the bristle tips: that is w.
+
+**Check:** Both numbers written down. Expect H near 20 mm, and w near 3.85 mm, or 4.0 mm for a clone.
+
+**Helper:** Reads both caliper values aloud and writes them on the record card.
+
+Tip: The wiper must be in hand for this step. Ch 00's tool list carries its buy row.
+
+Source: [Printables 796563 — height notes and BOM](https://www.printables.com/model/796563) · [Bambu Lab — Heatbed Nozzle Wiper A1/A2L](https://us.store.bambulab.com/products/heatbed-nozzle-wiper-a1)
+
+---
+
+### Step 13.46 — Measure the Omron height and the reach past the plate
+
+(no image — see text)
+
+**What you're looking at:** The Omron rides 25 mm behind the nozzle, so it sweeps the strip behind the plate whenever the rear rows print. d and G are its height; O is how far the nozzle travels past the plate's rear edge.
 
 **Parts:**
 
 - tool: digital caliper
-- tool: steel rule
 
 **Do:**
 
-1. Power on, `M112` ready, `G28`, then `G0 X175 Y175 Z10`. Caliper the Omron face above the plate; minus 10 is d.
-2. At `X70`, `G0 Z1`, jog Y back until the tip is over the plate's rear edge. O is `position_max` minus that `M114` Y.
+1. Power on, `M112` ready: `G28` then `G0 X175 Y175 Z10`. Omron face to plate, minus 10, is d.
+2. Full Y, over the left extrusion: Omron to its top, minus 10, is G.
+3. At `Z1` jog to the plate edge; `position_max` minus `M114` Y is O.
 
-**Check:** d is at least 0.6 mm and O is at least 3.5 mm. Both are written down.
+**Check:** G is within 0.3 mm of H plus d. d, G, O and that edge Y are written down.
 
-**Helper:** Reads the caliper and the M114 Y value aloud and writes both down.
+**Helper:** Reads each caliper value and the M114 Y aloud and writes them down.
 
-⚠ If O is under 3.5 mm the nozzle cannot reach the brush, and if d is under 0.6 mm the Omron will strike the sheet stops. Stop here and leave the add-on off `(verify on bench)`.
-
-Tip: The author's macro assumes 6 to 7 mm of reach. The version used here shrinks its scrub circles to whatever O you measured.
-
-Source: [Printables 796563 — jinetix, nozzle scrubber w/ sheet stops](https://www.printables.com/model/796563) · [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe)
+Source: [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe) · [Klipper docs § M114](https://www.klipper3d.org/G-Codes.html#g-code-commands) · [Printables 796563 — Y overtravel note](https://www.printables.com/model/796563)
 
 ---
 
-### Step 13.45 — Press the magnets and seat the wiper
+### Step 13.47 — Decide what to print, or stop
 
 (no image — see text)
 
-**What you're looking at:** The brush bracket holds the silicone wiper and two magnets. The bucket carries two more and hangs under the bracket on them, so it lifts off for emptying. The wiper is a Bambu A1 bed wiper, a row of silicone bristles.
+**What you're looking at:** The calculator checks the layout numbers. The generator works the heights out from yours: how far to lower the wiper seat, how much to trim the bucket, and whether the sheet-stop screws fit. It can also say no-go.
+
+**Parts:**
+
+- tool: the laptop with this repo and its `venv-cq` Python
+
+**Do:**
+
+1. Fill in the calculator below. A failing row stops here or drops the stop bracket.
+2. Run the generator with your five numbers and keep its printout.
+3. Shut the Voron down as before.
+
+```
+venv-cq/bin/python slicer/addons/scrubber-796563/remix.py --H 20.05 --w 3.85 --d 0.6 --G 20.65 --O 4.5
+```
+
+```gate-calc
+id: scrubber-decide
+title: Scrubber add-on — does it fit, and which parts
+inputs:
+  - key: edge
+    label: Plate rear edge straight outboard of the left bed extrusion
+    kind: yesno
+    no: The brush would sit in a notch the nozzle cannot reach past. Leave the add-on off.
+    why: The brush's front edge sits on the plate's rear edge, and the nozzle reaches only a few millimetres past it.
+  - key: left
+    label: Bare top on the left bed extrusion behind the plate (mm)
+    min: 39
+    low: The brush bracket does not fit. Re-dress what is in the way, or leave the add-on off.
+    why: The brush bracket is 38.25 mm long and butts the plate edge.
+  - key: right
+    label: Bare top on the right bed extrusion behind the plate (mm)
+    min: 39
+    low: Leave the stop bracket and its screw off. The brush bracket still works.
+    why: The stop bracket is 38.25 mm long, the same as the brush bracket.
+  - key: collar
+    label: Probe collar and body clear of the right extrusion's top edge
+    kind: yesno
+    no: Leave the stop bracket off. It would touch the collar, and a pin that cannot move freely drifts Z zero.
+    why: The stop bracket overhangs the extrusion's inner face by 0.23 mm, right beside the nozzle-probe collar.
+  - key: h
+    label: "H: flex-plate top above the bed-extrusion top (mm)"
+    max: 21.0
+    high: The sheet-stop heads would sit below the flex plate. Fit the brackets but leave both upright screws out.
+    why: The stop heads stand 20.47 mm above the extrusion top, and the flex plate's edge has to meet them.
+  - key: w
+    label: "w: wiper height, base underside to bristle tips (mm)"
+    nominal: 3.95
+    tol: 0.2
+    low: Not an A1 wiper. Get the A1/A2L part before printing anything.
+    high: Not an A1 wiper. Get the A1/A2L part before printing anything.
+    why: The seat is the A1 wiper's 37 × 8 mm footprint; official ones measure 3.85 mm, clones about 4.0.
+  - key: d
+    label: "d: Omron face above the nozzle tip (mm)"
+    min: 0.3
+    low: The Omron sits too low for printing near anything. Correct its height in the What-if table, then measure again.
+    why: The generator needs d for the scrub, when the Omron passes over the bucket walls.
+  - key: g
+    label: "G: Omron face above the left extrusion top at Z0 (mm)"
+    min: 20.6
+    low: Below 20.6 the generator leaves the sheet-stop screws out; below 19.75 it says no-go. Run it to see which.
+    why: While the rear rows print, the Omron must clear the stop heads at 20.47 mm and the wiper top.
+  - key: o
+    label: "O: nozzle reach past the plate's rear edge (mm)"
+    min: 3.5
+    low: The nozzle cannot reach the brush. Leave the add-on off.
+    why: The scrub starts 1.5 mm behind the edge and needs room for at least a 0.75 mm circle.
+pass: Layout passes. Run the generator and print only the files it writes.
+derive:
+  expr: 17.87 + w - g
+  label: Wiper-seat lowering before rounding, mm (0 or less is the stock seat)
+  digits: 2
+```
+
+**Check:** The generator printed L, T and a sheet-stop line and wrote three files to `measured/`, or printed NO-GO and wrote nothing.
+
+**Helper:** Reads each number off the record card while the adult types it in.
+
+⚠ NO-GO means the add-on stays off and every step below is skipped. The files committed beside the generator are only its default for the expected numbers: print the set it writes for yours.
+
+Source: `slicer/addons/scrubber-796563/README.md` and `remix.py` · [Printables 796563 — STEP files and height notes](https://www.printables.com/model/796563)
+
+Pause: ~35 min since the last pause — H, w, d, G and O measured and written down, the decision made, the chosen files in `measured/` or NO-GO recorded, and the Voron shut down as at Step 13.43. Nothing printed yet.
+
+---
+
+### Step 13.48 — Print the chosen parts on the Core One+
+
+(no image — see text)
+
+**What you're looking at:** The parts print as one job on the Core One+, outside the plate run. The bracket and bucket file names carry the L and T the generator chose, so what lands on the bed matches your machine.
+
+**Parts:**
+
+- consumable: Galaxy Black ASA, about 40 g
+- tool: the Core One+ with the smooth sheet
+
+**Do:**
+
+1. In PrusaSlicer 2.9.6, load the files from `measured/` with `voron-coreone-asa.ini`, as oriented, no supports.
+2. Leave the stop bracket out if the calculator said so.
+3. Print on the smooth sheet.
+
+**Check:** The bed holds exactly the files the printout named, and the slice comes to about 2.5 h and 40 g.
+
+**Helper:** Checks each file name on the bed against the printout and ticks it.
+
+⚠ ASA: set Chamber Filtration to Adv. Filtration before starting, as for every ASA plate.
+
+Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · [Printables 796563 — print settings](https://www.printables.com/model/796563)
+
+Pause: ~15 min since the last pause — the add-on print is running on the Core One+, about 2.5 h. Leave the parts on the sheet until it has cooled.
+
+---
+
+### Step 13.49 — Inspect the prints, then fit the magnets and the wiper
+
+(no image — see text)
+
+**What you're looking at:** Two caliper readings prove the parts match the decision before anything goes on the machine. The bucket hangs under the bracket on four magnets, so it lifts off for emptying.
 
 **Parts:**
 
 - 6×3 mm neodymium magnet ×4
-- brush bracket, low, mirrored ×1 — from the scrubber add-on print
-- purge bucket, trimmed, mirrored ×1 — from the scrubber add-on print
+- brush bracket, mirrored ×1 — from the scrubber add-on print
+- purge bucket, mirrored ×1 — from the scrubber add-on print
 - Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
 - consumable: super glue
+- tool: digital caliper
 
 **Do:**
 
-1. Press two magnets into the bracket's underside pockets, flush.
-2. Press the bucket's two in, each one attracting the bracket magnet above it.
-3. Press the wiper into its seat, bristles up.
+1. Press two magnets into the bracket's underside, then the bucket's two, each attracting the one above it.
+2. Press the wiper into its seat, bristles up.
+3. Caliper bracket base to bristle tips, then the bucket's height.
 
-**Check:** The bucket snaps up under the bracket and hangs square. All four magnets sit flush and the wiper lies flat.
+**Check:** Both readings within 0.2 mm of the printout's inspect line. The bucket hangs square and the magnets sit flush.
 
 **Helper:** Tests each magnet pair and hands them over the right way up.
 
+⚠ A reading more than 0.2 mm off means the wrong file or a bad print. Reprint before anything goes on the machine.
+
 Tip: The pockets are drawn for ASA shrinkage, so the magnets press in. Any that falls out gets a drop of super glue.
 
-Source: [Printables 796563 — BOM and print settings](https://www.printables.com/model/796563) · [Bambu Lab — Heatbed Nozzle Wiper A1/A2L](https://us.store.bambulab.com/products/heatbed-nozzle-wiper-a1)
+Source: [Printables 796563 — BOM](https://www.printables.com/model/796563) · `slicer/addons/scrubber-796563/remix.py`
 
 ---
 
-### Step 13.46 — Bolt both brackets to the bed extrusions
+### Step 13.50 — Bolt both brackets to the bed extrusions
 
 (no image — see text)
 
@@ -1324,27 +1497,27 @@ Source: [Printables 796563 — BOM and print settings](https://www.printables.co
 
 **Do:**
 
-1. `G0 X175 Y60 Z150`, bed cold. Roll two T-nuts into each bed extrusion's top slot behind the plate.
-2. Bolt each bracket with two M3×8, front face on the plate edge, snug.
-3. Thread one M3×8 into each upright hole until seated.
+1. Power on, `G28`, `G0 X175 Y60 Z150`. Roll two T-nuts into each extrusion's top slot behind the plate.
+2. Bolt each bracket with two M3×8, face on the plate edge, snug.
+3. Fit the upright M3×8s unless the printout said no.
 
-**Check:** Both brackets sit flat, front faces on the plate edge. Pushed back, the flex plate stops on both screw heads.
+**Check:** Both brackets sit flat, front faces on the plate edge. With the stop screws fitted, the flex plate stops on both heads.
 
 **Helper:** Holds each bracket against the plate edge while the adult tightens it.
 
-⚠ The right bracket sits beside the nozzle-probe collar. If it touches the collar or the probe body, the pin cannot move freely and Z zero drifts. Leave that bracket off `(verify on bench)`.
+⚠ If the right bracket touches the probe collar or body after all, take it off. A pin that cannot move freely drifts Z zero.
 
 Source: [Printables 796563 — BOM](https://www.printables.com/model/796563) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
 
-Pause: ~25 min since the last pause — the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48.
+Pause: ~25 min since the last pause — the add-on is bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.52.
 
 ---
 
-### Step 13.47 — Read the brush coordinates off the machine
+### Step 13.51 — Read the brush coordinates off the machine
 
 (no image — see text)
 
-**What you're looking at:** The macros work from numbers read off this machine, never presets: the X of both bristle edges, the plate-edge Y from the first step of this part, and the height of the bristle tops.
+**What you're looking at:** The macros work from numbers read off this machine, never presets: the X of both bristle edges, the plate-edge Y from the reach measurement, and the height of the bristle tops.
 
 **Parts:**
 
@@ -1356,7 +1529,7 @@ Pause: ~25 min since the last pause — the add-on is measured and bolted on, th
 1. `M112` ready, `G28`, nozzle cold. Jog over the brush at `Z5` and read `M114` X at its left and right bristle edges.
 2. Lower over the bristles until paper drags. That Z minus 0.5 is `z_scrub`.
 
-**Check:** The two X values are about 35 mm apart and `z_scrub` is close to minus 0.5 mm `(verify on bench)`.
+**Check:** The two X values are about 35 mm apart, and `z_scrub` is within 0.3 mm of the printout's expected value.
 
 **Helper:** Reads each M114 value aloud and writes it on the record card.
 
@@ -1366,7 +1539,7 @@ Source: [Printables 796563 — macro reference point](https://www.printables.com
 
 ---
 
-### Step 13.48 — Add the scrubber macros
+### Step 13.52 — Add the scrubber macros
 
 (no image — see text)
 
@@ -1478,7 +1651,7 @@ Source: [Printables 796563 — macros, revision 2025-12-22](https://www.printabl
 
 ---
 
-### Step 13.49 — Dry-run the scrub cold
+### Step 13.53 — Dry-run the scrub cold
 
 (no image — see text)
 
@@ -1495,13 +1668,13 @@ Source: [Printables 796563 — macros, revision 2025-12-22](https://www.printabl
 
 **Helper:** Watches the Omron from the side and calls out if it touches anything.
 
-⚠ If the Omron touches the bucket, send `M112` and re-measure d from the first step of this part. The trimmed bucket needs at least 0.6 mm.
+⚠ If the Omron touches the bucket, send `M112`, measure d and G again and re-run the generator from the decision step. Fit nothing it did not choose.
 
 Source: [Printables 796563 — macro behaviour](https://www.printables.com/model/796563)
 
 ---
 
-### Step 13.50 — Scrub inside `PRINT_START`, then shut down
+### Step 13.54 — Scrub inside `PRINT_START`, then shut down
 
 (no image — see text)
 
@@ -1590,7 +1763,7 @@ Tick every line before you start Ch 14.
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
 - [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, `PRINT_START`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
-- [ ] Part L, if fitted: d ≥ 0.6 mm and O ≥ 3.5 mm written down, cold dry-run touched nothing but silicone, and `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
+- [ ] Part L, if fitted: H, w, d, G and O written down and the Step 13.47 decision kept (L, T, sheet stops, or NO-GO); only the files it wrote were printed, both inspection readings within 0.2 mm; the cold dry-run touched nothing but silicone; `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 
 **Next:** [Ch 11 Part B, Step 11.52](11-skirts-panels-door.md#step-1152-foam-tape-the-back-panel) — back, side and top panels and the door; then Ch 14.
 

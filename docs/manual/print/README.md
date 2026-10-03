@@ -276,8 +276,11 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 
 | add-on | parts | hours | g ASA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Nozzle scrubber with sheet stops (jinetix, low remix) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
+| Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
 
-Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, no supports, any time after B10; it comes out of the black
-spare, not the ledger above. Estimates are PrusaSlicer 2.9.6 CLI, not GUI-arranged. Also needs one Bambu A1
-nozzle wiper (Ch 00 Step 00.8).
+**Not printed ahead.** The parts are generated from this machine's measurements at
+[Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
+after kit day; that step can also say no-go. Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, no supports;
+it comes out of the black spare, not the ledger above. Hours and grams are the default set's PrusaSlicer 2.9.6
+CLI estimate, not GUI-arranged. Also needs one Bambu A1 nozzle wiper (Ch 00 Step 00.8), in hand before
+Step 13.45 measures it.

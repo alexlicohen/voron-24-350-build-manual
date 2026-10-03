@@ -290,7 +290,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
 - [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, `PRINT_START`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
-- [ ] Part L, if fitted: d ≥ 0.6 mm and O ≥ 3.5 mm written down, cold dry-run touched nothing but silicone, and `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
+- [ ] Part L, if fitted: H, w, d, G and O written down and the Step 13.47 decision kept (L, T, sheet stops, or NO-GO); only the files it wrote were printed, both inspection readings within 0.2 mm; the cold dry-run touched nothing but silicone; `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 
 <div class="print-page-break"></div>
 

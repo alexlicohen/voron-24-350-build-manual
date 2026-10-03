@@ -220,6 +220,98 @@ def default_branch_sha(repo):
     return data[0]["sha"]
 
 
+# --- Printables (R6 V3 extension, 2026-10-03) ------------------------------------
+# Printables answers plain fetches with 403, so a sources.yml entry carrying a
+# `printables:` block is checked through its GraphQL API instead (browser UA plus
+# printables.com origin/referer, the same way slicer/fetch_stls.py downloads).
+# The pin is what changes when the author updates the model: every file's id and
+# size (a re-upload gets a new id) and a hash of the page's Klipper macro text.
+
+PRINTABLES_API = "https://api.printables.com/graphql/"
+_PRINTABLES_HEADERS = {
+    "user-agent": ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"),
+    "origin": "https://www.printables.com",
+    "referer": "https://www.printables.com/",
+    "content-type": "application/json",
+}
+_MACRO_START = "[gcode_arcs]"
+_MACRO_REV_RE = re.compile(r"Klipper Macro updated for\s+([0-9/]+)")
+
+
+def _printables_text(html_text):
+    """The page description as plain text, one space between words."""
+    import html as _html
+    text = re.sub(r"<br\s*/?>|</p>", "\n", html_text or "")
+    text = _html.unescape(re.sub(r"<[^>]+>", " ", text))
+    return " ".join(text.split())
+
+
+def printables_fingerprint(print_id, timeout=30):
+    """{'name', 'files': {name: {'id', 'size'}}, 'macro_sha256', 'macro_rev'} for one
+    Printables model, or raises RuntimeError. macro_sha256 hashes the description
+    from the first `[gcode_arcs]` to its end, whitespace-normalised, so a macro edit
+    (or a note added after it) shows up; None if the page carries no macro."""
+    import hashlib
+    import json
+    query = ('{ print(id:"%s"){ name description stls{ id name fileSize } } }' % print_id)
+    req = urllib.request.Request(PRINTABLES_API, data=json.dumps({"query": query}).encode(),
+                                 headers=_PRINTABLES_HEADERS)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            out = json.load(resp)
+    except Exception as e:  # noqa: BLE001 — any transport failure is one ERROR line
+        raise RuntimeError(f"Printables API request failed: {e}")
+    data = (out.get("data") or {}).get("print")
+    if not data:
+        raise RuntimeError(f"Printables API returned no print {print_id}: {out.get('errors')}")
+    text = _printables_text(data.get("description"))
+    i = text.find(_MACRO_START)
+    macro = text[i:] if i >= 0 else None
+    rev = _MACRO_REV_RE.search(text)
+    return {
+        "name": data.get("name"),
+        "files": {f["name"]: {"id": str(f["id"]), "size": int(f["fileSize"])}
+                  for f in data.get("stls") or []},
+        "macro_sha256": hashlib.sha256(macro.encode()).hexdigest() if macro else None,
+        "macro_rev": rev.group(1) if rev else None,
+    }
+
+
+def printables_diff(pin, current):
+    """Human-readable differences between a stored `printables:` pin and a fresh
+    fingerprint; empty list = unchanged."""
+    diffs = []
+    old_files, new_files = pin.get("files") or {}, current["files"]
+    for name in sorted(set(old_files) | set(new_files)):
+        a, b = old_files.get(name), new_files.get(name)
+        if a is None:
+            diffs.append(f"file added: {name!r} (id {b['id']}, {b['size']} B)")
+        elif b is None:
+            diffs.append(f"file removed: {name!r} (was id {a['id']})")
+        elif str(a.get("id")) != b["id"] or int(a.get("size", -1)) != b["size"]:
+            diffs.append(f"file changed: {name!r} id {a.get('id')} -> {b['id']}, "
+                         f"{a.get('size')} -> {b['size']} B")
+    if pin.get("macro_sha256") != current["macro_sha256"]:
+        diffs.append(f"macro text changed (revision {pin.get('macro_rev')} -> {current['macro_rev']})")
+    return diffs
+
+
+def printables_local_check(pin):
+    """Tracked copies named in the pin (`local: {path: sha256}`) must still match."""
+    import hashlib
+    bad = []
+    for rel, want in (pin.get("local") or {}).items():
+        path = REPO / rel
+        if not path.exists():
+            bad.append(f"local copy missing: {rel}")
+            continue
+        got = hashlib.sha256(path.read_bytes()).hexdigest()
+        if got != want:
+            bad.append(f"local copy differs from the pin: {rel}")
+    return bad
+
+
 def slugify(text, maxlen=40):
     s = re.sub(r"[^a-zA-Z0-9]+", "-", text).strip("-").lower()
     return s[:maxlen].strip("-")

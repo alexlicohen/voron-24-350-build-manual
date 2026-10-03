@@ -1,3 +1,5 @@
+<!-- Superseded: first draft of Ch 13 Part L (13.44–13.50). The live text is docs/manual/13-initial-startup.md Part L, Steps 13.44–13.54. -->
+
 ## Part L — Add-on: nozzle scrubber with sheet stops
 
 This part is optional. It fits jinetix's silicone nozzle scrubber, low variant, on the rear of the bed extrusions: a brush bracket and its magnetic purge bucket on the left, a narrow stop bracket on the right. `PRINT_START` then wipes the nozzle before the Z home that counts.

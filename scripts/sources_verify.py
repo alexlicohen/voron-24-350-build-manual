@@ -18,6 +18,12 @@
         `DOWN <url> [<status>]` for any pinned URL that stopped 200'ing.
         Exit code is 1 if anything changed or went down (drift.yml uses
         this to decide whether to open an issue).
+
+    Entries with a `printables:` block (Printables answers plain fetches with
+    403) are checked in every mode through the Printables GraphQL API instead:
+    each file's id and size plus a hash of the page's macro text, and the
+    tracked local copies listed under `local:`. A difference prints
+    `CHANGED printables:<id> ...` and the entry's `on_change:` instructions.
 """
 
 import argparse
@@ -28,6 +34,31 @@ import yaml
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import sources_common as sc
+
+
+def check_printables(s, write=False):
+    """One sources.yml entry with a `printables:` block -> (status, lines).
+    status: 'OK', 'CHANGED' or 'ERROR'. With write=True a changed pin is refreshed
+    (the CHANGED lines still print, as for a moved git sha)."""
+    pin = s["printables"]
+    tag = f"printables:{pin['print_id']}"
+    try:
+        current = sc.printables_fingerprint(pin["print_id"])
+    except RuntimeError as e:
+        return "ERROR", [f"ERROR {tag}: {e}"]
+    diffs = sc.printables_diff(pin, current) + sc.printables_local_check(pin)
+    if not diffs:
+        n = len(current["files"])
+        return "OK", [f"OK {tag} {n} files, macro {current['macro_rev']} "
+                      f"{(current['macro_sha256'] or '-')[:12]}"]
+    lines = [f"CHANGED {tag} ({s['url']})"] + [f"    {d}" for d in diffs]
+    if pin.get("on_change"):
+        lines.append(f"    re-check: {pin['on_change']}")
+    if write:
+        pin["files"] = current["files"]
+        pin["macro_sha256"] = current["macro_sha256"]
+        pin["macro_rev"] = current["macro_rev"]
+    return "CHANGED", lines
 
 
 def verify_git_only():
@@ -65,6 +96,12 @@ def verify_git_only():
                 print(f"DOWN {s['url']} [{status}]")
                 changed = True
 
+    for s in sources:
+        if "printables" in s:
+            state, lines = check_printables(s)
+            print("\n".join(lines))
+            changed |= state != "OK"
+
     return 1 if changed else 0
 
 
@@ -73,7 +110,18 @@ def verify_all(write, today):
     non200 = []
     sha_changes = []
 
+    printables_lines = []
     for s in sources:
+        if "printables" in s:
+            state, lines = check_printables(s, write=write)
+            printables_lines += lines
+            if state == "ERROR":
+                non200.append((s["id"], s["url"], "printables API"))
+            else:
+                s["last_verified"] = today
+                if state == "CHANGED":
+                    sha_changes.append((s["id"], "printables", s["printables"]["print_id"], "see below"))
+            continue
         status, _ = sc.fetch_status_and_title(s["url"])
         if status != 200:
             non200.append((s["id"], s["url"], status))
@@ -100,6 +148,8 @@ def verify_all(write, today):
         print(f"{len(sha_changes)} CHANGED (sha moved):")
         for entry_id, repo, old, new in sha_changes:
             print(f"  CHANGED {entry_id} ({repo}) {old} -> {new}")
+    for line in printables_lines:
+        print(line)
 
     if write:
         with open(sc.SOURCES_YML, "w", encoding="utf-8") as f:

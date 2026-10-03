@@ -40,6 +40,14 @@ EXTRA_SOURCES = [
     },
     # Not cited by URL anywhere in docs/, but a git-tracked repo per R6 V3 —
     # give the weekly drift job a sources.yml entry (and sha) to check.
+    # Printables answers plain fetches with 403; this entry's `printables:` pin (file ids,
+    # sizes, macro hash) is checked through the GraphQL API by sources_verify.py.
+    {
+        "id": "printables-796563-nozzle-scrubber",
+        "url": "https://www.printables.com/model/796563",
+        "kind": "community",
+        "title": "Voron 2.4 Silicone Nozzle Scrubber w/ Sheet Stops (Beacon / Carto Compatible)",
+    },
     {
         "id": "prusa-prusaslicer-settings-prusa-fff",
         "url": "https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff",
@@ -61,6 +69,8 @@ def build(today):
         entry = dict(extra)
         entry["first_seen"] = prior.get("first_seen", FIRST_SEEN_DEFAULT)
         entry["last_verified"] = today
+        if "printables" in prior:
+            entry["printables"] = prior["printables"]   # the pin; sources_verify.py refreshes it
         repo = sc.github_repo_slug(extra["url"])
         if repo:
             try:

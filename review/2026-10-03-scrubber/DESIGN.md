@@ -1,5 +1,7 @@
 # Nozzle scrubber with sheet stops — design record (2026-10-03)
 
+> **Superseded in part, 2026-10-03 (follow-up).** Nothing is printed ahead any more: Ch 13 Part L is now Steps 13.44–13.54 (inspect → measure → decide → print → fit), and `slicer/addons/scrubber-796563/remix.py` (reading the tracked `source/10mm Bed.stp`) is the only generator, deriving L and T from the measured H, w, d, G and O (rules in that folder's README). `remix_low.py` below was its prototype and is removed; `ch13-append.md` is the first draft of Part L. Geometry, sources and § 3/§ 4 analysis here still stand.
+
 Add-on for the end of Ch 13: jinetix's "Voron 2.4 Silicone Nozzle Scrubber w/ Sheet Stops (Beacon / Carto
 Compatible)", Printables 796563. Research only; no existing file was edited.
 
