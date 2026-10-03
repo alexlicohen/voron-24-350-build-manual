@@ -5051,6 +5051,71 @@
       ]
      ],
      "text": "Step 13.40 → Step 13.43 · ~30 min · leave-state: extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B."
+    },
+    {
+     "id": "13-initial-startup#11",
+     "chapter": "13-initial-startup",
+     "kind": "build",
+     "steps": [
+      "13.44",
+      "13.45",
+      "13.46"
+     ],
+     "first_step": "13.44",
+     "last_step": "13.46",
+     "href": "../manual/steps/13-initial-startup/13-44/",
+     "minutes": 25,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48.",
+     "helpers": [
+      [
+       "13.44",
+       "Reads the caliper and the M114 Y value aloud and writes both down."
+      ],
+      [
+       "13.45",
+       "Tests each magnet pair and hands them over the right way up."
+      ],
+      [
+       "13.46",
+       "Holds each bracket against the plate edge while the adult tightens it."
+      ]
+     ],
+     "text": "Step 13.44 → Step 13.46 · ~25 min · leave-state: the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48."
+    },
+    {
+     "id": "13-initial-startup#12",
+     "chapter": "13-initial-startup",
+     "kind": "build",
+     "steps": [
+      "13.47",
+      "13.48",
+      "13.49",
+      "13.50"
+     ],
+     "first_step": "13.47",
+     "last_step": "13.50",
+     "href": "../manual/steps/13-initial-startup/13-47/",
+     "minutes": 30,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B.",
+     "helpers": [
+      [
+       "13.47",
+       "Reads each M114 value aloud and writes it on the record card."
+      ],
+      [
+       "13.49",
+       "Watches the Omron from the side and calls out if it touches anything."
+      ]
+     ],
+     "text": "Step 13.47 → Step 13.50 · ~30 min · leave-state: the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B."
     }
    ]
   },
@@ -7202,6 +7267,8 @@
      "13-initial-startup#4",
      "13-initial-startup#5",
      "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -7442,6 +7509,8 @@
      "13-initial-startup#4",
      "13-initial-startup#5",
      "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -7777,6 +7846,8 @@
      "13-initial-startup#4",
      "13-initial-startup#5",
      "13-initial-startup#10",
+     "13-initial-startup#11",
+     "13-initial-startup#12",
      "06-z-axis-and-gantry-squaring#8",
      "11-skirts-panels-door#12",
      "11-skirts-panels-door#13",
@@ -8454,7 +8525,14 @@
      "13.40",
      "13.41",
      "13.42",
-     "13.43"
+     "13.43",
+     "13.44",
+     "13.45",
+     "13.46",
+     "13.47",
+     "13.48",
+     "13.49",
+     "13.50"
     ],
     "14-calibration": [
      "14.1",
@@ -8609,7 +8687,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 207,
+    "done": 209,
     "gate_closed": true,
     "start": null,
     "sections": [

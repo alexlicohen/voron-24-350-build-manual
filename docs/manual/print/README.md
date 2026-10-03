@@ -269,3 +269,15 @@ spools. Nothing else in the build prints from it.
 | B11-P4 | 82 | | V1 | 745 |
 | B11-P5 | 93 | | V1 | 652 |
 | **TOTAL PETG V0** | **348** | | 1 × 1000 g | **652 g margin** |
+
+## Add-on prints (outside the plates)
+
+Optional parts that are on no plate and in no run total. Print each as its own job when the Core One+ is free.
+
+| add-on | parts | hours | g ASA | sheet | feeds | files |
+|---|---:|---:|---:|---|---|---|
+| Nozzle scrubber with sheet stops (jinetix, low remix) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
+
+Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, no supports, any time after B10; it comes out of the black
+spare, not the ledger above. Estimates are PrusaSlicer 2.9.6 CLI, not GUI-arranged. Also needs one Bambu A1
+nozzle wiper (Ch 00 Step 00.8).

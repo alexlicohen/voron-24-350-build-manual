@@ -1,0 +1,8 @@
+# Large upstream downloads: re-fetch per DESIGN.md § Sources (Printables GraphQL file ids).
+src/Voron 2.4 Decontaminator.stp
+src/MRW Kit with 10mm Bed.*
+src/img/*.jpeg
+src/img/
+# print copies live in slicer/addons/scrubber-796563/; the rest regenerate (remix_low.py, src/10mm Bed Setup.3mf)
+stl/
+src/comments.*

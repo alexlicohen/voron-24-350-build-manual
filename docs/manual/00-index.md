@@ -117,7 +117,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **27 · Build** — [Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges](11-skirts-panels-door.md#part-a-before-ch-13-machine-unplugged) **KIT** · 3.0–4.0 · needs: Ch 10 Checkpoint #1, Ch 12 Part 2; bins for Ch 11 full (B02, B07, B08, B09, B10)
     - *Gate:* Bay closed. **Back, side and top panels and the door stay off** — Ch 13 and Ch 06b need to reach the gantry
     - *Sessions:* 12 × ~30 min
-- **28 · Build** — [Ch 13 — Initial startup](13-initial-startup.md) **KIT** · 2.5–4.0 plus ~1 h cube print · needs: Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12
+- **28 · Build** — [Ch 13 — Initial startup](13-initial-startup.md) **KIT** · 2.5–4.0 plus ~1 h cube print (+ ~1 h optional scrubber, Part L) · needs: Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12
     - *Gate:* Checkpoint 13: `PROBE_ACCURACY` σ < 0.003 mm, QGL converged, Z=0 set, cube printed and kept
     - *Sessions:* 11 × ~30 min
 - **29 · Build** — [Ch 06b — Gantry squaring, cold, and provisional tension](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) **KIT 2P** · ~1.0 · needs: Ch 13 Step 13.34
@@ -182,7 +182,7 @@ Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of
 | [10 — Wiring](10-wiring.md) | Every harness, ending at LDO Checkpoint #1 | 5.0–7.0 | 14 × ~30 min | Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07, B08 (`mount.stl`), B02 (`[a]_faceplate`) — both at Step 10.50; B11 (strip fin, AC lids) at Step 10.80 |
 | [11 — Skirts, panels, door, filtration](11-skirts-panels-door.md) | Part A closes the bay and builds the door hinges and handle; Part B fits the back, side and top panels and hangs the Clicky-Clack door after Ch 06b | 3.0–4.0 + 1.0–2.0 | 12 + 5 × ~30 min | Part A: Ch 10 + Checkpoint #1; B02, B07, B08, B09, B10 (by Step 11.46). Part B also Ch 13, Ch 06b; B09, B10, B02 `Handle`, B07 `handlebar_spacer_x4` |
 | [12 — Software](12-software.md) | Pi image, Klipper/Moonraker/Mainsail, both MCUs flashed, `printer.cfg` for a 350 Rev D+ | 2.0–3.0 | 9 × ~30 min | Part 1: the Pi only. Part 2: Ch 10 + Checkpoint #1. No printed part required |
-| [13 — Initial startup](13-initial-startup.md) | First power-on through temps, fans, motors, endstops, homing, PID, QGL, Z=0, bed mesh and the first cube | 2.5–4.0 | 11 × ~30 min | Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12. No printed part required |
+| [13 — Initial startup](13-initial-startup.md) | First power-on through temps, fans, motors, endstops, homing, PID, QGL, Z=0, bed mesh and the first cube; optional nozzle scrubber (Part L) | 2.5–4.0 | 11 × ~30 min (13 with Part L) | Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12. No printed part required |
 | [14 — Calibration and tuning](14-calibration.md) | Hot soak with the chamber closed, Z joints tightened hot, final belt tension, squaring and QGL re-check; then rotation distance, chamber and `PRINT_START`, cube measurement, input shaper, PA, flow | 2.5–4.0 | 14 × ~30 min | Ch 13, Ch 06b, Ch 11 Part B, Ch 12; the B00 reference cube and Ch 13's cube |
 
 ### Reference

@@ -2,16 +2,16 @@
 
 Turns the wired machine on for the first time and proves every subsystem in the order the Voron startup wizard prescribes — temperatures, heaters, fans, motors, endstops, homing, probe, PID, QGL, Z=0, bed mesh — then hands off to gantry squaring and comes back for the first print.
 
-**What you're building in this chapter.** Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the three **temperature sensors** are read cold; then each **heater** is driven briefly and watched to stop; then every **fan** and **light** is commanded on and off; then each of the seven **motors** is buzzed a millimetre to prove the right cable is in the right socket; then each **endstop** and the **probe** are pressed by hand. Only then does the machine move on its own, in the **homing** sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for cold squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on. Final belt tension, the closed-chamber soak and the hot Z-joint lock are Ch 14's, once Ch 11 Part B has put the panels on.
+**What you're building in this chapter.** Nothing is assembled here. This chapter proves, one subsystem at a time and in the wizard's own order, that what the earlier chapters built actually works — and it goes outward from the safest test to the most dangerous. First the three **temperature sensors** are read cold; then each **heater** is driven briefly and watched to stop; then every **fan** and **light** is commanded on and off; then each of the seven **motors** is buzzed a millimetre to prove the right cable is in the right socket; then each **endstop** and the **probe** are pressed by hand. Only then does the machine move on its own, in the **homing** sequence, after which comes the calibration chain: bed locating and the 0,0 origin, the Z-endstop coordinate, PID tuning, a heat soak, quad gantry levelling, a hand-off to Ch 06b for cold squaring, and finally Z=0 by the paper test and a bed mesh. It ends with the first print — a 30 mm cube that Ch 14 will put a caliper on. Part L is an optional add-on: a silicone nozzle scrubber behind the plate, wired into `PRINT_START`. Final belt tension, the closed-chamber soak and the hot Z-joint lock are Ch 14's, once Ch 11 Part B has put the panels on.
 
 ```mascot
 pose: screen
 caption: First power on. Prove one subsystem at a time, so there is only ever one suspect.
 ```
 
-**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end.
+**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end. The optional scrubber add-on (Part L) adds ~1 h.
 
-**Sessions:** 11 × ~30 min hands-on (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
+**Sessions:** 11 × ~30 min hands-on, 13 with Part L (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
 
 **Prerequisites:**
 
@@ -19,7 +19,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 - **Ch 12 — Software.** Klipper, Moonraker and Mainsail installed; `leviathan-printer-rev-d-sbv2.cfg` fetched as `printer.cfg` (`grep -c gpio printer.cfg` → 0); both MCU serial IDs filled in; the 350 mm options uncommented. The boards were energised for the first time at Ch 12 Step 12.11, with the hand-on-switch drill; Step 13.3 repeats it.
 - **[Ch 06 Part A — Z axis](06-z-axis-and-gantry-squaring.md)** (gantry installed, Z belts on) and **[Ch 07 — A/B belts](07-ab-belts.md)** at provisional tension. The gantry is *not* squared yet — that is Ch 06 Part B (06b), which runs out of the middle of this chapter at Step 13.34: cold squaring and a provisional A/B re-tension only. Final tension, the closed-chamber soak and the hot Z-joint lock are Ch 14 Steps 14.4–14.6.
 - **Ch 11 — Skirts and panels:** bottom panel and skirts on (Ch 11 Part A). **Back, side and top panels off** and left off (Ch 11 Part B comes after this chapter, before Ch 14) — you need access to the gantry for Ch 06b, and you want to see and smell everything on power-up. The heat soaks in this chapter therefore run with the front open; their gate is probe repeatability, not a chamber temperature.
-- **Print batches:** none. You will *print* `Voron_Design_Cube_v7` at the end of this chapter, on the new machine.
+- **Print batches:** none. You will *print* `Voron_Design_Cube_v7` at the end of this chapter, on the new machine. Part L only: the scrubber add-on print (`slicer/addons/scrubber-796563/`) and one Bambu A1 nozzle wiper.
 
 **Tools**
 
@@ -37,13 +37,15 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 | STL | Qty | Colour |
 |---|---|---|
-| — none — | 0 | — |
+| Scrubber add-on, Part L only: brush bracket, stop bracket, purge bucket | 1 each | Black |
 
 **Hardware** (chapter totals)
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| — none — | 0 | Nothing is fastened in this chapter except re-positioning the Z endstop and the probe, both already installed in Ch 09/Ch 10 |
+| M3×8 SHCS | 6 | Part L only: scrubber brackets and their two sheet stops. Otherwise nothing is fastened in this chapter except re-positioning the Z endstop and the probe, both already installed in Ch 09/Ch 10 |
+| M3 roll-in T-nut | 4 | Part L only |
+| 6×3 mm neodymium magnet | 4 | Part L only: kit spares |
 
 **Read first**
 
@@ -1244,6 +1246,287 @@ Pause: ~30 min since the last pause — extruder rotation distance set, the Voro
 
 ---
 
+## Part L — Add-on: nozzle scrubber with sheet stops
+
+This part is optional. It fits jinetix's silicone nozzle scrubber, low variant, on the rear of the bed extrusions: a brush bracket and its magnetic purge bucket on the left, a narrow stop bracket on the right. `PRINT_START` then wipes the nozzle before the Z home that counts.
+
+### Step 13.44 — Measure the probe height and the reach past the plate
+
+(no image — see text)
+
+**What you're looking at:** The brush sits just behind the plate's rear edge, so the nozzle has to travel a few millimetres past that edge. The Omron rides 25 mm behind the nozzle and passes over the bucket. These two numbers decide whether the add-on fits.
+
+**Parts:**
+
+- tool: digital caliper
+- tool: steel rule
+
+**Do:**
+
+1. Power on, `M112` ready, `G28`, then `G0 X175 Y175 Z10`. Caliper the Omron face above the plate; minus 10 is d.
+2. At `X70`, `G0 Z1`, jog Y back until the tip is over the plate's rear edge. O is `position_max` minus that `M114` Y.
+
+**Check:** d is at least 0.6 mm and O is at least 3.5 mm. Both are written down.
+
+**Helper:** Reads the caliper and the M114 Y value aloud and writes both down.
+
+⚠ If O is under 3.5 mm the nozzle cannot reach the brush, and if d is under 0.6 mm the Omron will strike the sheet stops. Stop here and leave the add-on off `(verify on bench)`.
+
+Tip: The author's macro assumes 6 to 7 mm of reach. The version used here shrinks its scrub circles to whatever O you measured.
+
+Source: [Printables 796563 — jinetix, nozzle scrubber w/ sheet stops](https://www.printables.com/model/796563) · [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe)
+
+---
+
+### Step 13.45 — Press the magnets and seat the wiper
+
+(no image — see text)
+
+**What you're looking at:** The brush bracket holds the silicone wiper and two magnets. The bucket carries two more and hangs under the bracket on them, so it lifts off for emptying. The wiper is a Bambu A1 bed wiper, a row of silicone bristles.
+
+**Parts:**
+
+- 6×3 mm neodymium magnet ×4
+- brush bracket, low, mirrored ×1 — from the scrubber add-on print
+- purge bucket, trimmed, mirrored ×1 — from the scrubber add-on print
+- Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
+- consumable: super glue
+
+**Do:**
+
+1. Press two magnets into the bracket's underside pockets, flush.
+2. Press the bucket's two in, each one attracting the bracket magnet above it.
+3. Press the wiper into its seat, bristles up.
+
+**Check:** The bucket snaps up under the bracket and hangs square. All four magnets sit flush and the wiper lies flat.
+
+**Helper:** Tests each magnet pair and hands them over the right way up.
+
+Tip: The pockets are drawn for ASA shrinkage, so the magnets press in. Any that falls out gets a drop of super glue.
+
+Source: [Printables 796563 — BOM and print settings](https://www.printables.com/model/796563) · [Bambu Lab — Heatbed Nozzle Wiper A1/A2L](https://us.store.bambulab.com/products/heatbed-nozzle-wiper-a1)
+
+---
+
+### Step 13.46 — Bolt both brackets to the bed extrusions
+
+(no image — see text)
+
+**What you're looking at:** Both brackets sit on the bed extrusions just behind the plate, their front faces against its rear edge. The brush bracket goes on the left, away from the nozzle-probe pin. One upright M3×8 in each bracket is a sheet stop.
+
+**Parts:**
+
+- reused: the brush bracket with its bucket
+- stop bracket ×1 — from the scrubber add-on print
+- M3 roll-in T-nut ×4
+- M3×8 SHCS ×6
+- tool: 2.5 mm hex key
+
+**Do:**
+
+1. `G0 X175 Y60 Z150`, bed cold. Roll two T-nuts into each bed extrusion's top slot behind the plate.
+2. Bolt each bracket with two M3×8, front face on the plate edge, snug.
+3. Thread one M3×8 into each upright hole until seated.
+
+**Check:** Both brackets sit flat, front faces on the plate edge. Pushed back, the flex plate stops on both screw heads.
+
+**Helper:** Holds each bracket against the plate edge while the adult tightens it.
+
+⚠ The right bracket sits beside the nozzle-probe collar. If it touches the collar or the probe body, the pin cannot move freely and Z zero drifts. Leave that bracket off `(verify on bench)`.
+
+Source: [Printables 796563 — BOM](https://www.printables.com/model/796563) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
+
+Pause: ~25 min since the last pause — the add-on is measured and bolted on, the bucket hangs on its magnets, and Klipper does not know about it yet. Do not run any scrub command before Step 13.48.
+
+---
+
+### Step 13.47 — Read the brush coordinates off the machine
+
+(no image — see text)
+
+**What you're looking at:** The macros work from numbers read off this machine, never presets: the X of both bristle edges, the plate-edge Y from the first step of this part, and the height of the bristle tops.
+
+**Parts:**
+
+- reused: the fitted scrubber
+- tool: a sheet of printer paper
+
+**Do:**
+
+1. `M112` ready, `G28`, nozzle cold. Jog over the brush at `Z5` and read `M114` X at its left and right bristle edges.
+2. Lower over the bristles until paper drags. That Z minus 0.5 is `z_scrub`.
+
+**Check:** The two X values are about 35 mm apart and `z_scrub` is close to minus 0.5 mm `(verify on bench)`.
+
+**Helper:** Reads each M114 value aloud and writes it on the record card.
+
+⚠ Below Z1, keep the nozzle over the brush. Over the plate's rear edge it digs into the flex plate.
+
+Source: [Printables 796563 — macro reference point](https://www.printables.com/model/796563) · [Klipper docs § M114](https://www.klipper3d.org/G-Codes.html#g-code-commands)
+
+---
+
+### Step 13.48 — Add the scrubber macros
+
+(no image — see text)
+
+**What you're looking at:** `[gcode_arcs]` lets Klipper run the small G2/G3 circles of the scrub. `_SCRUB` holds your numbers; `NOZZLE_PARK_BUCKET` and `NOZZLE_CLEAN` read them and refuse to run while any is still a placeholder.
+
+**Parts:** none.
+
+**Do:** Paste the block below under `[gcode_macro PRINT_END]`. Replace the four placeholder values with the numbers you wrote down, then **SAVE & RESTART**.
+
+```ini
+#####################################################################
+#   Nozzle scrubber  — ADDED at Ch 13 (add-on). Geometry and macro logic
+#   adapted from jinetix, "Voron 2.4 Silicone Nozzle Scrubber w/ Sheet
+#   Stops", Printables 796563, macro revision 2025-12-22, CC BY-NC-SA 4.0.
+#   Changes: one variable block instead of two copies; bucket on the LEFT
+#   (mirrored fit); the circle radius and centre are clamped to this
+#   machine's Y overtravel; XY moves happen at park height and Z drops only
+#   over the bucket (the author's Z-then-XY order drags the nozzle at scrub
+#   height); refuses to run until the values are measured.
+#####################################################################
+
+[gcode_arcs]
+resolution: 0.1
+
+[gcode_macro _SCRUB]
+description: Scrubber geometry. Values only; read by NOZZLE_PARK_BUCKET and NOZZLE_CLEAN.
+##  Every value marked (verify on bench) is measured on YOUR machine.
+##  The placeholders below make both macros refuse to run.
+variable_brush_x_min: -1.0     # (verify on bench) X, nozzle over the OUTBOARD (left) bristle edge
+variable_brush_x_max: -1.0     # (verify on bench) X, nozzle over the INBOARD (right) bristle edge
+variable_edge_y: -1.0          # (verify on bench) Y, nozzle tip exactly over the plate's rear edge
+variable_z_scrub: 99.0         # (verify on bench) Z of the bristle tops minus 0.5
+variable_bucket_offset: 10.0   # park this far outboard of brush_x_min, over the bucket
+variable_park_z: 5.0
+variable_circle_r: 2.0         # largest scrub circle; shrunk to fit the Y overtravel
+variable_passes: 5
+variable_circles: 2
+variable_flicks: 5
+variable_flick_depth: 3.0
+variable_travel_speed: 9000
+variable_flick_speed: 9000
+variable_scrub_speed: 3000
+variable_z_speed: 1500
+gcode:
+    {action_respond_info("_SCRUB only holds the scrubber's measured values")}
+
+[gcode_macro NOZZLE_PARK_BUCKET]
+description: Lift, then park the nozzle over the purge bucket.
+gcode:
+    {% set s = printer["gcode_macro _SCRUB"] %}
+    {% if s.brush_x_min < 0 or s.brush_x_max <= s.brush_x_min or s.edge_y < 0 or s.z_scrub > 10 %}
+      {action_raise_error("Scrubber not measured yet: fill in [gcode_macro _SCRUB]")}
+    {% endif %}
+    {% if printer.toolhead.homed_axes != "xyz" %}
+      {action_raise_error("Scrubber: home all three axes first")}
+    {% endif %}
+    {% set ymax = printer.toolhead.axis_maximum.y - 0.5 %}
+    {% set ylo = s.edge_y + 1.5 %}
+    {% set r = [s.circle_r, (ymax - ylo) / 2.0]|min %}
+    {% set cy = ylo + r %}
+    G90
+    G1 Z{[printer.toolhead.position.z, s.park_z]|max} F{s.z_speed}
+    G1 X{s.brush_x_min - s.bucket_offset} Y{cy} F{s.travel_speed}
+    G1 Z{s.park_z} F{s.z_speed}
+
+[gcode_macro NOZZLE_CLEAN]
+description: Flick ooze into the bucket, then scrub the nozzle on the silicone brush.
+gcode:
+    {% set s = printer["gcode_macro _SCRUB"] %}
+    {% set ymax = printer.toolhead.axis_maximum.y - 0.5 %}
+    {% set ylo = s.edge_y + 1.5 %}
+    {% set r = [s.circle_r, (ymax - ylo) / 2.0]|min %}
+    {% if r < 0.75 %}
+      {action_raise_error("Scrubber: Y overtravel past the plate is too short for the brush")}
+    {% endif %}
+    {% set cy = ylo + r %}
+    {% set bucket_x = s.brush_x_min - s.bucket_offset %}
+    {% set flick_x = s.brush_x_min + s.flick_depth %}
+    {% set x0 = s.brush_x_min + 0.5 %}
+    {% set x1 = s.brush_x_max - 2 * r - 0.5 %}
+    {% set dx = (x1 - x0) / (s.passes - 1) if s.passes > 1 else 0 %}
+    NOZZLE_PARK_BUCKET
+    G90
+    G1 Z{s.z_scrub} F{s.z_speed}                ; down over the bucket, never over the brush
+    {% for i in range(s.flicks) %}
+      G1 X{flick_x} F{s.flick_speed}            ; into the outboard bristles
+      G4 P20
+      G1 X{bucket_x} F{s.flick_speed * 1.5}     ; snap back: the string drops in the bucket
+    {% endfor %}
+    {% for i in range(s.passes) %}
+      {% set x = x0 + i * dx %}
+      G1 X{x} Y{cy} F{s.travel_speed}
+      {% for j in range(s.circles) %}
+        {% if (i + j) % 2 == 1 %}
+          G3 X{x} Y{cy} I{r} J0 F{s.scrub_speed}
+        {% else %}
+          G2 X{x} Y{cy} I{r} J0 F{s.scrub_speed}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    G1 Z{s.park_z} F{s.z_speed}                 ; lift straight up off the brush
+```
+
+**Check:** Klipper restarts without an error, and `NOZZLE_PARK_BUCKET` parks the nozzle over the bucket at Z5.
+
+Tip: The macro sizes its scrub circles to fit your reach past the plate, from 2 mm radius down to 0.75 mm.
+
+Source: [Printables 796563 — macros, revision 2025-12-22](https://www.printables.com/model/796563) · [Klipper docs § gcode_arcs](https://www.klipper3d.org/Config_Reference.html#gcode_arcs) · [Klipper docs § Command templates](https://www.klipper3d.org/Command_Templates.html)
+
+---
+
+### Step 13.49 — Dry-run the scrub cold
+
+(no image — see text)
+
+**What you're looking at:** A cold run shows the whole path before anything is hot: five flicks from the bucket into the brush edge, five rows of small circles on the bristles, then a straight lift. The Omron trails behind, over the bucket.
+
+**Parts:** none.
+
+**Do:**
+
+1. `M112` ready, `G28`, then send `NOZZLE_CLEAN`.
+2. Watch the nozzle stay on the bristles and the Omron pass over the bucket without touching.
+
+**Check:** Nothing touches except nozzle on silicone, the bucket stays hung, and the run ends at Z5.
+
+**Helper:** Watches the Omron from the side and calls out if it touches anything.
+
+⚠ If the Omron touches the bucket, send `M112` and re-measure d from the first step of this part. The trimmed bucket needs at least 0.6 mm.
+
+Source: [Printables 796563 — macro behaviour](https://www.printables.com/model/796563)
+
+---
+
+### Step 13.50 — Scrub inside `PRINT_START`, then shut down
+
+(no image — see text)
+
+**What you're looking at:** The scrub runs after QGL at the QGL temperature, between a provisional Z home and the one that counts. The nozzle probe measures the real tip, so a clean tip is a true Z zero.
+
+**Parts:** none.
+
+**Do:** In `PRINT_START`, insert the three lines below after `QUAD_GANTRY_LEVEL`, above the existing `G28 Z`. **SAVE & RESTART**, print one small part and watch the scrub, then commit and shut down as before.
+
+```ini
+    G28 Z    ; provisional, tip not clean yet
+    NOZZLE_PARK_BUCKET
+    NOZZLE_CLEAN
+```
+
+**Check:** The tip leaves the brush clean, the string lands in the bucket, and the first layer matches the cube's.
+
+⚠ The nozzle is at 150 °C during the scrub. Keep hands off the toolhead, and empty the bucket only cold, lifting it off its magnets.
+
+Source: [Printables 796563 — macro placement](https://www.printables.com/model/796563) · [Ch 12 Step 12.36](12-software.md#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber)
+
+Pause: ~30 min since the last pause — the scrubber runs inside `PRINT_START`, the config is committed and copied off the Pi, and the machine is shut down. Ready for Checkpoint 13, then Ch 11 Part B.
+
+---
+
 ## What if — first-start failures and what they actually mean
 
 | Symptom | Most likely cause | Fix |
@@ -1307,6 +1590,7 @@ Tick every line before you start Ch 14.
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
 - [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, `PRINT_START`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
+- [ ] Part L, if fitted: d ≥ 0.6 mm and O ≥ 3.5 mm written down, cold dry-run touched nothing but silicone, and `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 
 **Next:** [Ch 11 Part B, Step 11.52](11-skirts-panels-door.md#step-1152-foam-tape-the-back-panel) — back, side and top panels and the door; then Ch 14.
 
