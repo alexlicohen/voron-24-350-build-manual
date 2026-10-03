@@ -40,8 +40,9 @@ Estimates were sliced with the parts laid side by side, not GUI-arranged (2026-1
 
 ## Hardware (all kit spares except the purchase)
 
-8 × M3×5×4 heat-set insert, 4 × M3×30 SHCS (fan and grill), 2 × M3×8 SHCS (access cover), 2 × M5 roll-in
-T-nut and 2 × M5×10 BHCS (mounts), VHB tape; the two M3×12 SHCS come off the exhaust cover. Bought (Ch 00
+8 × M3×5×4 heat-set insert, 4 × M3×30 SHCS (fan and grill), 2 × M3×8 SHCS (access cover), VHB tape; the
+mounts reuse the exhaust cover's 2 × M5 roll-in T-nut and 2 × M5×10 BHCS (Ch 11 Step 11.55), and the two
+M3×12 SHCS and the PTFE coupler come off the cover too. Bought (Ch 00
 Step 00.8): a 60×60×20 mm 24 V fan, a 1 m JST-XH 2-pin extension, carbon filter mat. Counts from the Voron
 2.4r2 assembly CAD and manual p.250–256; design record `review/2026-10-03-exhaust/DESIGN.md`.
 

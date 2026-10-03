@@ -28,7 +28,7 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 **Tools**
 
 - Hex 2 / 2.5 / 3 / 4 mm
-- Temperature-controlled soldering iron + M3 brass heat-set tip (skirts, fan grill retainers, Nevermore, Clicky-Clack latch)
+- Temperature-controlled soldering iron + M3 brass heat-set tip (skirts, fan grill retainers, Nevermore, Clicky-Clack latch, exhaust cover)
 - Soldering iron + solder for the Nevermore bridge PCB; multimeter for the short check
 - Small hammer (Clicky-Clack dowel pins and split bushings)
 - Side cutters / flush cutters (5015 fan enclosures, rubber retainer strip)
@@ -99,7 +99,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3×8 SHCS | 11 | back-panel clips: two per corner clip, one per midspan (p.239) |
 | M3×8 SHCS | 12 | top-panel clips: two per corner clip, one per midspan (p.243) |
 | M3×12 SHCS | 24 | side-panel clips, 12 per side: two per corner clip, one per midspan (p.241) |
-| M3×12 SHCS | 2 | exhaust grill to exhaust cover (p.254) |
+| M3×12 SHCS | 2 | exhaust grill to exhaust cover, into its two inserts (p.254, `exhaust_cover` STL) |
 | M3×12 SHCS | 2 | Nevermore plenum to the bed extrusions |
 | M3×6 BHCS | 4 | Z belt covers (p.234) |
 | M3×6 BHCS | 2 | Nevermore plenum lid and cartridge lid (LDO's optional M3×4 BHCS is not a kit row) |
@@ -113,15 +113,19 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3 heat-set insert, brass M3×5×4 | 16 | bay fans and grill retainers, four each (p.213) |
 | M3 heat-set insert, brass M3×5×4 | 2 | BTT TFT4.3 mount |
 | M3 heat-set insert, brass M3×5×4 | 6 | Nevermore: 4 fans, 1 plenum, 1 cartridge ([LDO guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)) |
+| M3 heat-set insert, brass M3×5×4 | 2 | exhaust cover, for the grill screws (`exhaust_cover` STL) |
 | M5×10 BHCS | 2 | fan supports to the frame (p.227, p.230) |
+| M5×10 BHCS | 2 | exhaust cover tabs to the top rear extrusion (p.255, `exhaust_cover` STL) |
 | M5×16 BHCS | 1 | spool holder arm (p.259) |
 | M5×14 BHCS | 4 | aluminium handlebars (LDO extra, not in the manual) |
 | M5 roll-in T-nut, 2020 | 1 | spool holder (p.259) |
 | M5 roll-in T-nut, 2020 | 2 | fan supports (p.226, p.229) |
+| M5 roll-in T-nut, 2020 | 2 | exhaust cover tabs, top rear extrusion back slot (p.254) |
 | M5 hammerhead T-nut, 2020 | 4 | aluminium handlebars |
 | 4.3" capacitive DSI display | 1 | the BTT Pi TFT4.3, into its mount at 11.6 |
 | 5015 fan, Nevermore | 2 | the kit's "Nevermore Micro V5 Parts" bag |
 | Nevermore bridge PCB | 1 | the kit's "Nevermore Micro V5 Parts" bag |
+| 4mm Bowden Coupler | 1 | exhaust cover centre hole, the PTFE's way through the back panel (11.54) |
 | 6×3 mm neodymium magnet | 8 | Nevermore: 4 plenum, 4 cartridge (pockets counted in the STLs); the kit's other 8 were for the stock doors |
 | Bottom panel, acrylic, black, 469×469×4 mm | 1 | 11.21 |
 | Back panel, acrylic, black, 483×503×3 mm | 1 | 11.55 |
@@ -172,7 +176,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 - **Only Part A happens now.** The back, side and top panels and the door go on in **Part B, after Ch 13** — the startup wizard's motor, endstop and probe checks and the Ch 06b gantry-squaring pass all need the machine open on every face.
 - **The Clicky-Clack replaces the entire stock front-door assembly**, not the front skirt. `front_skirt_a_350` + the TFT module + `front_skirt_b_350` still go on. Manual p.245–249 are dead pages.
 - **The BTT 4.3" DSI touchscreen replaces the mini12864 module.** Manual p.211, p.214–216 and p.220–221 are dead pages; the mount STL lives in the **Trident** repo, not the Voron-2 repo. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
-- **Nevermore replaces the stock exhaust filter.** Manual p.250–253 and p.256 are skipped; you print LDO's `exhaust_cover` and use it with the stock `exhaust_filter_grill` to seal the back panel's exhaust cut-out. Decide this now — a back panel sealed the wrong way means the panel comes off and a part gets reprinted (survey §5.2 W11).
+- **Nevermore replaces the stock exhaust filter.** Manual p.250–253 and p.256 are skipped; you print LDO's `exhaust_cover` and use it with the stock `exhaust_filter_grill` to seal the back panel's exhaust cut-out: grill inside, cover outside, and the filament PTFE crosses the panel through the coupler in the cover's centre. Decide this now — a back panel sealed the wrong way means the panel comes off and a part gets reprinted (survey §5.2 W11).
 - **Lay every skirt segment on the flat reference and check for rock before you fit anything.** `rear_center_skirt_350` is 182 mm on its long axis and the worst warp candidate in the whole build. A bowed skirt is the most visible defect on a finished Voron (print plan §5.2, B08 checkpoint).
 
 **Sources for this chapter:**
@@ -270,7 +274,7 @@ Source: [Voron manual p.210](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Every insert flush or just below, none proud, no bulge on the show face. An M3×8 SHCS turns in freely by hand.
 
-Tip: the iron is hot: do the rest now. Bay fans and retainers ×16 at 11.3, TFT mount ×2 at 11.5, Nevermore ×6 at 11.28, Clicky-Clack latch ×1 at 11.49. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Tip: iron hot, do the rest: fans and retainers ×16 at 11.3, TFT mount ×2 at 11.5, Nevermore ×6 at 11.28, latch ×1 at 11.49, exhaust cover ×2 at 11.54. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=212) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1238,20 +1242,24 @@ Source: [LDO Nevermore V5 Duo guide § Configuration printer.cfg](https://ldomot
 ![Voron manual p.257](assets/manual-pages/manual-p257.png){ crop="0.10 0.19 0.88 0.73" }
 ![Voron manual p.258](assets/manual-pages/manual-p258.png)
 
-**What you're looking at:** The bowden retainer is a small printed clamp on the top rear extrusion that holds the PTFE tube guiding filament from the spool into the toolhead umbilical. Its only job is to stop the tube kinking where it changes direction.
+**What you're looking at:** The bowden retainer sits on the top rear extrusion and overhangs the back. It holds the spool end of the reverse-bowden PTFE that carries filament to the Clockwork 2. With the back panel on, the tube crosses it through the exhaust cover's coupler.
 
 **Parts:**
 
 - `bowden_retainer` ×1
 - M3 hammerhead T-nut ×1
 - M3×8 SHCS ×1
+- consumable: PTFE tube, 4 mm OD, 3 mm ID, 1.2 m
 
 **Do:**
 
-1. Drop the hammerhead nut into the retainer's recess, start the M3×8 SHCS, and slide it onto the top rear extrusion.
-2. Position it so the PTFE curves smoothly into the toolhead umbilical, then tighten to lock.
+1. Nut in its recess, M3×8 started; slide onto the top rear extrusion beside the notch.
+2. Cut two 86 mm spool-holder lengths off the PTFE.
+3. Run the rest from the round hole to the Clockwork 2 inlet; tighten.
 
 **Check:** Retainer solid on the extrusion; the PTFE passes through with light drag only; no sharp bend where the tube leaves the retainer.
+
+⚠ The back panel is still off, so the tube drops straight in for Ch 13. At 11.55 it is re-routed in through the exhaust cover's coupler, the way p.258 loops it into the housing. Do not shorten it until then `(verify on bench)`.
 
 Source: [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=257) · [Voron manual p.258](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=258) · [Video: Part 9 @3:13:57](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11637s)
 
@@ -1266,13 +1274,13 @@ Source: [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Parts:**
 
 - `spool_holder` ×1
-- consumable: PTFE tube, two short offcuts
+- consumable: PTFE tube, the two 86 mm lengths
 - M5 roll-in T-nut ×1
 - M5×16 BHCS ×1
 
 **Do:**
 
-1. Press the two short PTFE lengths into the grooves along the arm.
+1. Press the two 86 mm PTFE lengths into the grooves along the arm.
 2. Roll the M5 T-nut into the rear vertical extrusion at spool height, offer the arm up, and drive the M5×16 BHCS home.
 
 **Check:** Arm level and solid enough for a full 1 kg spool, both PTFE inserts seated, a spool spinning with light finger pressure without binding.
@@ -1574,24 +1582,26 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.255](assets/manual-pages/manual-p255.png)
 ![Voron manual p.256](assets/manual-pages/manual-p256.png)
 
-**What you're looking at:** The back panel has a rectangular exhaust cut-out meant for the Voron's own exhaust filter housing. Because this build filters internally with the Nevermore instead, the cut-out is simply sealed: LDO's `exhaust_cover` on the inside face and the Voron `exhaust_filter_grill` on the outside, bolted through the panel.
+**What you're looking at:** The grill goes inside: its thin flange sits behind the panel and its honeycomb fills the notch, flush with the outer face. LDO's `exhaust_cover` closes it from outside, its centre boss nesting in the grill's middle cell, its threaded hole taking the PTFE coupler.
 
 **Parts:**
 
 - `exhaust_cover` ×1
 - `exhaust_filter_grill` ×1
 - M3×12 SHCS ×2
+- M3 heat-set insert ×2
+- 4mm Bowden Coupler ×1
+- tool: soldering iron with the LDO insert tip
 
 **Do:**
 
-1. Skip p.250, p.251, p.252, p.253 and p.256; you are not building the Voron exhaust filter.
-2. Dry-fit both parts against the cut-out, then sandwich it: `exhaust_cover` on the **inside** face, `exhaust_filter_grill` on the **outside**, bolted through with M3×12 SHCS.
+1. Press an insert into each small cover hole from the boss side.
+2. Thread the coupler into the centre hole from the flat side.
+3. Grill flange inside, cover outside; drive both M3×12 from inside into the inserts.
 
-**Check:** Cut-out fully covered from both faces, no light through the joint, panel not stressed white around the screw holes, grill sitting flat.
+**Check:** Notch closed from both faces with no light through it, the boss in the grill's centre cell, both side ribs in the notch, coupler snug.
 
-**Helper:** Holds the grill flat on the outside face while you drive the two screws.
-
-⚠ **Rev D+ / LDO:** *"PAGE 250-253 & 256 SKIP — Please follow our guide for Nevermore mod."* LDO's list stops at p.253 and p.256, but p.254–255 hang the housing on `[a]_exhaust_filter_mount_x2`, not printed here, so its M5 T-nuts and M5×10 BHCS are unused. *(verify on bench — LDO publishes no step-by-step for the exhaust cover.)* [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs)
+⚠ **Rev D+ / LDO:** *"PAGE 250-253 & 256 SKIP — Please follow our guide for Nevermore mod."* The cover replaces p.256's housing and p.255's mounts: two inserts for the grill screws, two tabs bolted to the extrusion at 11.55. LDO publishes no step for it; this fit comes from the STL `(verify on bench)`. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs)
 
 Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250) · [LDO Build Notes p.250–253, p.256](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs) · [Video: Extras! @0:06:32](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=392s)
 
@@ -1600,23 +1610,32 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 ### Step 11.55 — Hang the back panel
 
 ![Voron manual p.240](assets/manual-pages/manual-p240.png)
+![Voron manual p.255](assets/manual-pages/manual-p255.png)
+![Voron manual p.258](assets/manual-pages/manual-p258.png)
 
-**What you're looking at:** Everything from 11.52 to 11.54 now goes on as one assembly. Tightening opposite corners rather than round the perimeter keeps the acrylic from being pulled into a bow.
+**What you're looking at:** Everything from 11.52 to 11.54 goes on as one assembly; the cover's two tabs bolt into the top rear extrusion's back slot, where p.255 puts the mounts. Opposite corners first keeps the acrylic flat. The PTFE then loops into the cover's coupler, as on p.258.
 
 **Parts:**
 
 - back panel, acrylic, black, 483×503×3 mm ×1
+- M5 roll-in T-nut ×2
+- M5×10 BHCS ×2
 - reused: the back-panel clips, exhaust cover and grill
+- reused: the reverse-bowden PTFE
 
-**Do:** Lift the panel into the clips, check the exhaust cut-out lines up with whatever it needs to clear behind it, and tighten every clip screw. Work opposite corners rather than around the perimeter.
+**Do:**
 
-**Check:** Panel square and flat with even margins, the foam compressed but not squashed, the exhaust cover clearing the Nevermore, umbilical and cables behind it.
+1. Roll two M5 T-nuts into the top rear extrusion's back slot, one per cover tab.
+2. Hang the panel; clips tight, opposite corners first; one M5×10 BHCS per tab.
+3. Re-route the PTFE in through the cover's coupler.
+
+**Check:** Panel square and flat, foam compressed but not squashed, both tabs tight on the extrusion, and the PTFE sliding through the coupler without a kink.
 
 **Helper:** Holds the panel square in the clips while you tighten opposite corners.
 
-Source: [Voron manual p.240](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=240)
+Source: [Voron manual p.240](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=240) · [Voron manual p.255](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=255) · [Voron manual p.258](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=258) · [LDOVoron2 `exhaust_cover.stl`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs)
 
-Pause: ~25 min since the last pause — back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.
+Pause: ~25 min since the last pause — back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs bolted, the PTFE through the cover's coupler. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.
 
 ---
 
@@ -1930,7 +1949,7 @@ Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every sea
 
 - [ ] **Ch 12 and Ch 13 complete**, including the Ch 06b gantry-squaring pass, before any panel went on.
 - [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back + top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip; none left over, none short. Foam tape correct per panel: 1 mm back and top, 3 mm both sides.
-- [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel; no Voron filter housing fitted. Both handlebars on their printed spacers.
+- [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel, cover tabs bolted to the top rear extrusion, the PTFE through the cover's coupler; no Voron filter housing fitted. Both handlebars on their printed spacers.
 - [ ] No stock door parts fitted; the Clicky-Clack latches with a click and draws the door onto the 3 mm foam; no daylight at any seam; thread locker on the panel-clip hammerhead nuts.
 
 ## Common mistakes

@@ -7,8 +7,10 @@
 2. Its macros render with Klipper's Jinja delimiters and a mock printer, and emit the
    expected commands for every material case (PLA, PETG, ASA with and without a soak).
 3. PRINT_START (taken from Ch 12 Step 12.36's block, with Step 14.33's line inserted where the
-   step says) sets the exhaust before homing; PRINT_END (LDO's stock macro, with the purge line
-   inserted) purges after TURN_OFF_HEATERS.
+   step says) sets the exhaust before homing and runs the Nevermore only for a filtered
+   FILAMENT (or none given), and _EXHAUST never vents a filtered material; PRINT_END (LDO's
+   stock macro, with both inserted lines) purges after TURN_OFF_HEATERS and starts the
+   Nevermore scrub after M107; _NEVERMORE_SCRUB runs on only after a filtered print.
 4. The real controller: Klipper's temperature_fan.py and temperature_combined.py at the commit
    Ch 13 pins (f0892d8), driven by a mock chamber_temp, behave as the step text says: ceiling 0
    is always off, ceiling 35 switches on at 37 and off at 33, ceiling 1 is flat out, and
@@ -116,12 +118,14 @@ _, purge_tpl = parse(sections["gcode_macro _EXHAUST_PURGE"])
 SET = "SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET="
 
 for label, params, want in (
-        ("PLA, Nominal 35, Minimal 0", {"CHAMBER": "0", "TARGET": "35"}, 35.0),
-        ("PETG, Nominal 40, Minimal 0", {"CHAMBER": "0", "TARGET": "40"}, 40.0),
-        ("PLA, vendor Nominal 20", {"CHAMBER": "0", "TARGET": "20"}, 20.0),
-        ("ASA, vendor 55 / 40", {"CHAMBER": "40", "TARGET": "55"}, 0.0),
-        ("ASA, Minimal 0 (timed soak), Nominal 55", {"CHAMBER": "0", "TARGET": "55"}, 0.0),
+        ("PLA, Nominal 35, Minimal 0", {"CHAMBER": "0", "TARGET": "35", "FILTER": "0"}, 35.0),
+        ("PETG, Nominal 40, Minimal 0", {"CHAMBER": "0", "TARGET": "40", "FILTER": "0"}, 40.0),
+        ("PLA, vendor Nominal 20", {"CHAMBER": "0", "TARGET": "20", "FILTER": "0"}, 20.0),
+        ("ASA, vendor 55 / 40", {"CHAMBER": "40", "TARGET": "55", "FILTER": "1"}, 0.0),
+        ("ASA, Minimal 0 (timed soak), Nominal 55", {"CHAMBER": "0", "TARGET": "55", "FILTER": "1"}, 0.0),
+        ("FLEX, filtered, Nominal 30, Minimal 0", {"CHAMBER": "0", "TARGET": "30", "FILTER": "1"}, 0.0),
         ("ceiling exactly hot_above", {"CHAMBER": "0", "TARGET": "45"}, 45.0),
+        ("no FILTER param (old start line)", {"CHAMBER": "0", "TARGET": "35"}, 35.0),
         ("no params (hand-run PRINT_START)", {}, 0.0)):
     out = render(ex_tpl, ex_vars, params)
     sets = [l for l in out if l.startswith(SET)]
@@ -139,35 +143,72 @@ for label, target, purge, want in (("after PLA", 35.0, 10, ["TARGET=1", "DURATIO
           f"_EXHAUST_PURGE {label}: {joined}")
 
 # ---------------------------------------------------------------- 3. PRINT_START / PRINT_END
-ps = code_blocks(step_block(CH12, "12.36"))[0]
+b1236 = code_blocks(step_block(CH12, "12.36"))
+ps = b1236[0]
+nm_cfg = b1236[1]
+nm_end_line = next(l for l in b1236[2].splitlines() if l.strip())
+nm_sections = {m.group(1): m.group(2)
+               for m in re.finditer(r"^\[([^\]]+)\]\n(.*?)(?=^\[|\Z)", nm_cfg, re.S | re.M)}
 ps_lines = ps.splitlines()
 anchor = next(i for i, l in enumerate(ps_lines) if l.strip() == "SET_GCODE_OFFSET Z=0")
 ps_lines.insert(anchor + 1, start_line)
 _, ps_tpl = parse("\n".join(ps_lines[1:]) + "\n")
-for label, params, want_wait in (
-        ("PLA", {"BED": "60", "EXTRUDER": "215", "CHAMBER": "0", "EXHAUST": "35"}, False),
-        ("ASA", {"BED": "110", "EXTRUDER": "260", "CHAMBER": "40", "EXHAUST": "55"}, True)):
+NM_ON = "SET_FAN_SPEED FAN=nevermore SPEED=1"
+NM_CANCEL = "UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION=0"
+# The Step 13.41 / 14.35 start lines as the 2.9.6 CLI expands them (FILAMENT = filament_type).
+for label, params, want_wait, want_filter in (
+        ("PLA", {"BED": "60", "EXTRUDER": "230", "CHAMBER": "0", "EXHAUST": "35", "FILAMENT": "PLA"}, False, False),
+        ("PETG", {"BED": "85", "EXTRUDER": "255", "CHAMBER": "0", "EXHAUST": "40", "FILAMENT": "PETG"}, False, False),
+        ("ASA", {"BED": "110", "EXTRUDER": "260", "CHAMBER": "40", "EXHAUST": "55", "FILAMENT": "ASA"}, True, True),
+        ("ABS", {"BED": "110", "EXTRUDER": "255", "CHAMBER": "0", "EXHAUST": "55", "FILAMENT": "ABS"}, False, True),
+        ("PC", {"BED": "110", "EXTRUDER": "275", "CHAMBER": "0", "FILAMENT": "PC"}, False, True),
+        ("FLEX", {"BED": "50", "EXTRUDER": "240", "CHAMBER": "0", "EXHAUST": "30", "FILAMENT": "FLEX"}, False, True),
+        ("PVB", {"BED": "75", "EXTRUDER": "215", "CHAMBER": "0", "FILAMENT": "PVB"}, False, False),
+        ("lower-case asa", {"BED": "110", "EXTRUDER": "260", "CHAMBER": "0", "FILAMENT": "asa"}, False, True),
+        ("Ch 13 line, no EXHAUST", {"BED": "110", "EXTRUDER": "260", "CHAMBER": "0", "FILAMENT": "ASA"}, False, True),
+        ("old line, no FILAMENT", {"BED": "110", "EXTRUDER": "260", "CHAMBER": "0"}, False, True),
+        ("hand run, no params", {}, False, True)):
     out = render(ps_tpl, params=params)
     i_ex = next(i for i, l in enumerate(out) if l.startswith("_EXHAUST "))
     i_g28 = out.index("G28")
     waits = any(l.startswith("TEMPERATURE_WAIT SENSOR=\"temperature_sensor chamber_temp\"") for l in out)
-    check(i_ex < i_g28 and waits == want_wait,
-          f"PRINT_START {label}: `{out[i_ex]}` before the first G28; chamber wait {'on' if waits else 'off'}")
-    exhaust_out = render(ex_tpl, ex_vars, dict(re.findall(r"(\w+)=(\S+)", out[i_ex])))
-    print(f"     -> _EXHAUST emits `{[l for l in exhaust_out if l.startswith(SET)][0]}`")
+    nm_on, nm_cancel = NM_ON in out, NM_CANCEL in out
+    nm_ok = (nm_on == want_filter and nm_cancel == want_filter
+             and (not nm_on or out.index(NM_CANCEL) < out.index(NM_ON) < out.index(f"M140 S{params.get('BED', '100')}.0")))
+    ex_params = dict(re.findall(r"(\w+)=(\S+)", out[i_ex]))
+    exhaust_out = render(ex_tpl, ex_vars, ex_params)
+    ex_set = [l for l in exhaust_out if l.startswith(SET)][0]
+    vented = float(ex_set[len(SET):]) > 0
+    check(i_ex < i_g28 and waits == want_wait and nm_ok and ex_params.get("FILTER") == str(int(want_filter))
+          and not (vented and want_filter),
+          f"PRINT_START {label}: Nevermore {'on' if nm_on else 'off'}, `{out[i_ex]}` before G28, "
+          f"chamber wait {'on' if waits else 'off'}; _EXHAUST -> `{ex_set}`")
 
 ldo = LDO_CFG.read_text()
 pe = re.search(r"^\[gcode_macro PRINT_END\]\n(.*?)(?=^\[)", ldo, re.S | re.M).group(1)
 pe_lines = pe.splitlines()
 anchor = next(i for i, l in enumerate(pe_lines) if l.strip() == "TURN_OFF_HEATERS")
 pe_lines.insert(anchor + 1, end_line)
+anchor = next(i for i, l in enumerate(pe_lines) if l.split(";")[0].strip() == "M107")
+pe_lines.insert(anchor + 1, nm_end_line)
 _, pe_tpl = parse("\n".join(pe_lines) + "\n")
 toolhead = {"position": {"x": 175.0, "y": 175.0, "z": 20.0},
             "axis_maximum": {"x": 350.0, "y": 350.0, "z": 330.0}}
 out = render(pe_tpl, printer={"toolhead": toolhead})
 check(out.index("_EXHAUST_PURGE") == out.index("TURN_OFF_HEATERS") + 1
+      and out.index("_NEVERMORE_SCRUB") == out.index("M107") + 1
       and out[-1].startswith("RESTORE_GCODE_STATE"),
-      "PRINT_END: _EXHAUST_PURGE right after TURN_OFF_HEATERS, inside the saved G-code state")
+      "PRINT_END: _EXHAUST_PURGE after TURN_OFF_HEATERS, _NEVERMORE_SCRUB after M107, inside the saved state")
+
+nm_vars, nm_tpl = parse(nm_sections["gcode_macro _NEVERMORE_SCRUB"])
+_, nm_off_tpl = parse(nm_sections["delayed_gcode _NEVERMORE_OFF"])
+for label, speed, scrub, want in (("after a filtered print", 1.0, 10, "UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION=600"),
+                                   ("after PLA, Nevermore off", 0.0, 10, "SET_FAN_SPEED FAN=nevermore SPEED=0"),
+                                   ("scrub_min 0", 1.0, 0, "SET_FAN_SPEED FAN=nevermore SPEED=0")):
+    out = render(nm_tpl, dict(nm_vars, scrub_min=scrub), printer={"fan_generic nevermore": {"speed": speed}})
+    check(out == [want], f"_NEVERMORE_SCRUB {label}: {out}")
+check(render(nm_off_tpl) == ["SET_FAN_SPEED FAN=nevermore SPEED=0"] and nm_vars.get("scrub_min") == 10,
+      f"_NEVERMORE_OFF stops the Nevermore; scrub_min {nm_vars.get('scrub_min')}")
 
 # ---------------------------------------------------------------- 4. the real controller
 tmp = Path(tempfile.mkdtemp(prefix="klipper-tf-"))

@@ -1180,8 +1180,8 @@ heater: heater_bed
 ##  FAN3 is labelled "FILTER FAN" in the harness and feeds the Nevermore
 ##  Micro V5 Duo. LDO's stock config declares it as a [heater_fan] slaved to
 ##  the bed at 60 C, which cannot be commanded from the slicer or a macro.
-##  fan_generic lets PRINT_START run it during the print and leave it running
-##  afterwards, which is the whole point of a recirculating filter.
+##  fan_generic lets PRINT_START run it for the materials that need filtering
+##  and PRINT_END run it on for a scrub afterwards (the macros come at 12.36).
 [fan_generic nevermore]                # CHANGED — was [heater_fan exhaust_fan]
 pin: PF9
 max_power: 1.0
@@ -1341,17 +1341,22 @@ Source: [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Referenc
 
 **Parts:** none.
 
-**Do:** LDO's stock `PRINT_START` is three lines and takes no parameters. Replace it. Leave `PRINT_END` alone; it already ends with `BED_MESH_CLEAR`, which pairs correctly with the mesh you just added.
+**Do:** LDO's stock `PRINT_START` is three lines and takes no parameters: replace it with the first block. Paste the second block under `PRINT_END`, and add the third line under `M107` inside `PRINT_END`. Keep the rest of `PRINT_END`.
 
 ```ini
 [gcode_macro PRINT_START]
-#   Slicer start G-code:  PRINT_START EXTRUDER={first_layer_temperature[0]} BED={first_layer_bed_temperature[0]} CHAMBER=45
+#   Slicer start G-code:  PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}
 #   CHAMBER=0 (the default) skips the chamber wait entirely and does a timed soak instead.
+#   FILAMENT= is the slicer's filament type. The Nevermore runs only for the types in
+#   `filtered`; a hand-run PRINT_START with no FILAMENT filters too.
 gcode:
     {% set bed      = params.BED|default(100)|float %}
     {% set extruder = params.EXTRUDER|default(240)|float %}
     {% set chamber  = params.CHAMBER|default(0)|float %}
     {% set soak     = params.SOAK|default(8)|int %}
+    {% set filament = params.FILAMENT|default("")|string|upper %}
+    {% set filtered = ["ABS", "ASA", "HIPS", "PC", "PA", "PP", "FLEX"] %}
+    {% set filter   = filament == "" or filament in filtered %}
 
     CLEAR_PAUSE
     BED_MESH_CLEAR
@@ -1363,7 +1368,10 @@ gcode:
     G0 X175 Y175 Z30 F3600                 ; park over centre  <-- 350 only
 
     SET_DISPLAY_TEXT MSG="Bed {bed}C"
-    SET_FAN_SPEED FAN=nevermore SPEED=1    ; filter runs from the start of the soak
+    {% if filter %}
+      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION=0
+      SET_FAN_SPEED FAN=nevermore SPEED=1  ; filtered material: filter from the start of the soak
+    {% endif %}
     M140 S{bed}
     M190 S{bed}                            ; wait for the bed
 
@@ -1399,9 +1407,31 @@ gcode:
     SET_DISPLAY_TEXT MSG="Printing"
 ```
 
+```ini
+[gcode_macro _NEVERMORE_SCRUB]
+description: PRINT_END calls it. After a filtered print the Nevermore runs on for scrub_min, then stops.
+variable_scrub_min: 10         # minutes; 0 stops it at the end of the print
+gcode:
+    {% if printer["fan_generic nevermore"].speed > 0 and scrub_min > 0 %}
+      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION={scrub_min * 60}
+    {% else %}
+      SET_FAN_SPEED FAN=nevermore SPEED=0
+    {% endif %}
+
+[delayed_gcode _NEVERMORE_OFF]
+gcode:
+    SET_FAN_SPEED FAN=nevermore SPEED=0
+```
+
+```ini
+    _NEVERMORE_SCRUB
+```
+
 **Check:** The macro parses at the config check. Do not run it: `G28` will fail until Step 12.33's TODO is closed in Ch 13.
 
 ⚠ **`TEMPERATURE_WAIT` has no timeout.** If the chamber never reaches `CHAMBER`, the macro blocks forever and the only way out is cancelling the print. Keep `CHAMBER=0` (timed soak) until you have measured what your chamber actually reaches with the door shut and the bed at your print temperature. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
+
+**Filter note:** `FILAMENT=` comes from the slicer profile Ch 13 makes. `filtered` is Prusa's own filtration list for the Core One (ASA, ABS, HIPS, PC, PP, FLEX) plus PA; PLA, PETG and PVB print with the Nevermore off and its carbon spared. After a filtered print `PRINT_END` keeps the Nevermore running for `scrub_min` minutes, then stops it; the next filtered print cancels that timer, and an unfiltered one leaves it to finish. `PRINT_END` already ends with `BED_MESH_CLEAR`, which pairs with the mesh you just added.
 
 **Ordering note:** bed heat and soak come first, then QGL hot, then the mesh — matching the Voron wizard's own order and the rule that a thermally unstable machine will not QGL repeatably (survey §3.3, §4.4 #16). `SET_DISPLAY_TEXT` needs `[display_status]`, which arrived with `[include mainsail.cfg]`. [src](https://docs.vorondesign.com/build/startup/)
 

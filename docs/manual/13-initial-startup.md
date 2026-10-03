@@ -1170,21 +1170,29 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 - tool: the laptop with PrusaSlicer 2.9.6
 - tool: the `Voron_Design_Cube_v7.stl` file
 
-**Do:** *Printer profile.* In **Printer Settings**, with `Prusa CORE One HF0.4 nozzle` selected, **Save as… `Voron 2.4 350`**, then change: bed shape rectangular **350 × 350**, origin **0, 0**; **max print height 330**; **G-code flavor: Klipper**. Untick **Emit temperature commands automatically**. Replace the **Start G-code** with:
+**Do:**
+
+1. Save the CORE One HF0.4 profile as `Voron 2.4 350`: bed 350 × 350, height 330, Klipper. Untick binary G-code, auto temperatures.
+2. Start G-code below, End `PRINT_END`. Physical printer `voron.local`; **Test**.
+3. Slice the cube: 260/110, compensations off, seam rear.
 
 ```
-PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0
+PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}
 ```
 
-Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from [print/00-slicer-setup.md](print/00-slicer-setup.md) compatible with it. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value and tune it in Ch 14 `(verify on bench)`. Unticking the automatic temperature commands stops PrusaSlicer prepending `M104`/`M190` before `PRINT_START`, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze.
+Where things are: **Printer Settings** → **Save as…** from `Prusa CORE One HF0.4 nozzle`, bed origin **0, 0**; **G-code flavor: Klipper** under General → Firmware, then OK its dialog; **Supports binary G-code** under General → Firmware in Expert mode; **Emit temperature commands automatically** under Custom G-code. The Start and End G-code each replace everything in their box. The physical printer is the icon next to the printer preset → *Add physical printer*, no API key.
 
-**End G-code**, replacing everything: `PRINT_END`. Save. Then the **physical printer** (the icon next to the printer preset → *Add physical printer*): host type **Moonraker** if your PrusaSlicer lists it, otherwise **OctoPrint** — Moonraker answers OctoPrint's upload API (`[octoprint_compat]` in MainsailOS's `moonraker.conf`); hostname `voron.local`, no API key; **Test** must say OK.
+The flavor dialog switches **Machine limits → How to apply limits** to **Use for time estimate**, because Klipper takes no machine limits from G-code. The Core One preset ships binary G-code ticked, and Klipper reads only plain `.gcode`. Unticking the automatic temperature commands stops PrusaSlicer prepending `M104`/`M190` before `PRINT_START`, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze. `FILAMENT=` passes the filament type, so `PRINT_START` runs the Nevermore only for materials that need it. Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from [print/00-slicer-setup.md](print/00-slicer-setup.md) compatible with it. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value and tune it in Ch 14 `(verify on bench)`.
 
-*Slice.* Load [`Voron_Design_Cube_v7.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints) — the same file batch B00 printed on the Prusa. It is exactly **30.000 × 30.000 × 30.000 mm**. Slice it at **hotend 260 °C, bed 110 °C, no XY size compensation, shrinkage compensation 0 %** — the same overrides the Prusa profile uses, so the two cubes are comparable ([print/00-slicer-setup.md](print/00-slicer-setup.md)). No supports, seam to the rear. Chamber temperature is **not** a slicer setting on this machine: the Prusa filament profile's chamber values emit `M141`/`M191`, which this config does not define (Klipper answers `Unknown command`, harmless); the chamber is `CHAMBER=` on `PRINT_START`, kept at **0**, a timed soak, until Ch 14 has measured what the closed chamber reaches.
+The cube is [`Voron_Design_Cube_v7.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints), the same file batch B00 printed on the Prusa, exactly **30.000 × 30.000 × 30.000 mm**. Slice it at **hotend 260 °C, bed 110 °C, XY size compensation 0, shrinkage compensation 0 %**, no supports, seam to the rear: the same overrides the Prusa profile uses, so the two cubes are comparable. Chamber temperature is **not** a slicer setting on this machine yet: the Prusa filament profile's chamber values emit `M141`/`M191`, which this config does not define (Klipper answers `Unknown command`, harmless); the chamber is `CHAMBER=` on `PRINT_START`, kept at **0**, a timed soak, until Ch 14 has measured what the closed chamber reaches.
 
-**Check:** The preview shows no supports and the seam at the rear, its first lines are `PRINT_START BED=110 EXTRUDER=260 CHAMBER=0` with **no** `M190`/`M109` before them, and the physical-printer **Test** passed.
+**Check:** The export is a `.gcode` file starting `PRINT_START BED=110 EXTRUDER=260 CHAMBER=0 FILAMENT=ASA`, no `M190`/`M109` before it. No supports, seam at the rear, physical-printer **Test** passed.
+
+⚠ Export refused with "Machine limits cannot be emitted to G-Code when Klipper firmware flavor is used": set **How to apply limits** back to **Use for time estimate**. A `.bgcode` file instead of `.gcode`: **Supports binary G-code** is still ticked.
 
 ⚠ The Voron slicer guide's own starting point is 240 °C / 100 °C / 92 % flow for ABS. Use 260/110 here anyway: it is the Prusament ASA figure, and it is what makes this cube comparable with the B00 reference you caliper it against at [Ch 14 Step 14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one).
+
+Tip: Host type **Moonraker** if your PrusaSlicer lists it, else **OctoPrint**: Moonraker answers OctoPrint's upload API through `[octoprint_compat]`.
 
 Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) · [Voron docs — first print](https://docs.vorondesign.com/build/slicer/first_print.html) · [Voron docs — slicer setup](https://docs.vorondesign.com/build/slicer/) · [Moonraker configuration § octoprint_compat](https://moonraker.readthedocs.io/en/latest/configuration/#octoprint_compat) · [Ch 12 Step 12.36](12-software.md#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber)
 
@@ -1761,7 +1769,7 @@ Tick every line before you start Ch 14.
 - [ ] Ch 06b cold gantry squaring done (Checkpoint 06b ticked), A/B belts back at its provisional tension, and QGL re-run and converged afterwards. Final tension is Ch 14 Steps 14.4–14.6, not here.
 - [ ] `Z_ENDSTOP_CALIBRATE` done hot at the paper-drag height (no extra step down) and saved; bed mesh taken hot **after** QGL and saved.
 - [ ] Filament loaded, extruder direction confirmed, `rotation_distance` measured here (Step 13.40) and written into `[extruder]`.
-- [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, `PRINT_START`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
+- [ ] PrusaSlicer has a `Voron 2.4 350` printer preset (350×350, Klipper flavour, limits for time estimate only, plain `.gcode`, `PRINT_START … FILAMENT=`/`PRINT_END`, physical printer test OK) and the Voron cube printed from it, first-layer squish committed with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG` **after** the print ended, cube kept for Ch 14's measurement.
 - [ ] `~/printer_data/config` committed after every `SAVE_CONFIG` and copied off the Pi.
 - [ ] Part L, if fitted: H, w, d, G and O written down and the Step 13.47 decision kept (L, T, sheet stops, or NO-GO); only the files it wrote were printed, both inspection readings within 0.2 mm; the cold dry-run touched nothing but silicone; `NOZZLE_CLEAN` runs in `PRINT_START` before the final `G28 Z`.
 

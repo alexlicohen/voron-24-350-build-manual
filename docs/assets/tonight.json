@@ -5260,7 +5260,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.",
+     "leave_state": "back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs bolted, the PTFE through the cover's coupler. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.",
      "helpers": [
       [
        "11.52",
@@ -5271,15 +5271,11 @@
        "Counts out eleven screws and eleven hammerhead nuts, two per corner clip and one per midspan."
       ],
       [
-       "11.54",
-       "Holds the grill flat on the outside face while you drive the two screws."
-      ],
-      [
        "11.55",
        "Holds the panel square in the clips while you tighten opposite corners."
       ]
      ],
-     "text": "Step 11.52 → Step 11.55 · ~25 min · leave-state: back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down. A panel is either fully clipped or off the machine — never leave one hanging on half its clips."
+     "text": "Step 11.52 → Step 11.55 · ~25 min · leave-state: back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs bolted, the PTFE through the cover's coupler. A panel is either fully clipped or off the machine — never leave one hanging on half its clips."
     },
     {
      "id": "11-skirts-panels-door#13",

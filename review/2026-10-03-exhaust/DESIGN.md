@@ -14,7 +14,7 @@ native *Chamber temperature* fields via `PRINT_START`, ASA never vented. Ch 14 P
 | File | What |
 |---|---|
 | `exhaust.cfg` | the Klipper block, byte-identical to Ch 14 Step 14.33's (the test asserts it) |
-| `test_macros.py` | `.venv/bin/python review/2026-10-03-exhaust/test_macros.py` — macros rendered with Klipper's Jinja delimiters; `PRINT_START` (Ch 12 12.36 block) and LDO's `PRINT_END` with the inserted lines; Klipper's own `temperature_fan.py` + `temperature_combined.py` at `f0892d8` driven by a mock `chamber_temp`. PASS 2026-10-03, 20 checks |
+| `test_macros.py` | `.venv/bin/python review/2026-10-03-exhaust/test_macros.py` — macros rendered with Klipper's Jinja delimiters; `PRINT_START` (Ch 12 12.36 block) and LDO's `PRINT_END` with the inserted lines; Klipper's own `temperature_fan.py` + `temperature_combined.py` at `f0892d8` driven by a mock `chamber_temp`; since the 2026-10-03 follow-up also the Nevermore gating (`FILAMENT=`), `_EXHAUST FILTER=` and `_NEVERMORE_SCRUB`. PASS 2026-10-03, 35 checks |
 
 ## 1. Physical exhaust
 
@@ -203,6 +203,12 @@ two). Not bought: a JST crimper (the plug and FAN2's pattern avoid crimping).
    real Klipper classes with mocks). Mainsail's display of a `temperature_fan` (target box, speed) is expected, not seen.
 
 ## Side findings (outside this task, not acted on)
+
+Follow-up 2026-10-03 (same day): the first, third and fourth findings below are fixed in the manual (13.41 machine
+limits and binary G-code; 11.42/11.54/11.55 grill inside, cover outside with two inserts, two M5 tabs and the
+PTFE coupler, 14.29 reusing them; 12.36 `FILAMENT=` gating with `_NEVERMORE_SCRUB`, and `_EXHAUST FILTER=`
+so a filtered material is never vented). The 13.41 claim was confirmed with the 2.9.6 CLI; the GUI switches
+*How to apply limits* to *Use for time estimate* itself when the flavour changes (`Tab.cpp` @version_2.9.6).
 
 - Ch 13 13.41 switches the copied Core One printer preset to Klipper flavour but does not change *Machine limits*;
   the 2.9.6 CLI refuses to export ("Machine limits cannot be emitted to G-Code when Klipper firmware flavor is used")

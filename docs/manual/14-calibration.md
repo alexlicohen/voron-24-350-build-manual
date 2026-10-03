@@ -52,8 +52,6 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 | M3 roll-in T-nut | 2 | the nameplate, Step 14.24 |
 | M3 heat-set insert, brass M3×5×4 | 8 | Part H only: the exhaust housing, Step 14.27 |
 | M3×30 SHCS | 4 | Part H only: the exhaust fan and its grill, Step 14.28 |
-| M5 roll-in T-nut | 2 | Part H only: the filter mounts, Step 14.29 |
-| M5×10 BHCS | 2 | Part H only: the filter mounts, Step 14.29 |
 | — turned, not added — | 0 | Outside Part H, nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
 **Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit, ~50 g PLA, and ~100 g ASA on the Core One+.
@@ -426,7 +424,7 @@ Source: [Voron docs — materials](https://docs.vorondesign.com/materials.html) 
 
 `M83` and `G92 E0` are not optional. Klipper starts in **absolute** extrusion mode, and Ch 12's macro does not set `M83`/`G92 E0` until *after* this point — a bare `G1 E20` here would extrude to an arbitrary absolute position instead of 20 mm.
 
-The slicer side already exists: the `Voron 2.4 350` printer preset from Ch 13 calls `PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0` and `PRINT_END`; nothing in the slicer changes for the purge line, because it lives in the macro.
+The slicer side already exists: the `Voron 2.4 350` printer preset from Ch 13 calls `PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}` and `PRINT_END`; nothing in the slicer changes for the purge line, because it lives in the macro.
 
 **Check:** A hand-run `PRINT_START CHAMBER=0` lays a continuous purge line at X5 to X120 that sticks, and `grep -c '^\[gcode_macro PRINT_START\]' printer.cfg` returns **1**.
 
@@ -1058,7 +1056,11 @@ This part is optional. It fits the stock Voron exhaust housing over the back pan
 
 ### Step 14.25 — Inspect the back of the machine before anything is bought
 
-![Voron manual p.256](assets/manual-pages/manual-p256.png)
+![Voron manual p.256](assets/manual-pages/manual-p256.png){ crop="0.13 0.19 0.48 0.75" }
+![CAD render — the whole machine from behind, the exhaust housing highlighted on the back panel's top edge](assets/cad/14-25-b.png)
+![CAD render — close-up from behind of the housing in place: housing, fan and fan grill, access cover, grill in the notch, two mounts](assets/cad/14-25-close-b.png)
+![CAD render — the back panel's notch shown empty, with the two M5 T-nut positions in the top rear extrusion behind it](assets/cad/14-25-notch-b.png)
+![Diagram — the fan lead's route: in through the grill, down the back panel's inside to the Z-chain notch, through the bay to Leviathan FAN0](assets/diagrams/exhaust-a-lead-route.svg)
 
 **What you're looking at:** The stock housing hangs outside the back panel over the exhaust notch, its grill in the notch and two mounts on the top rear extrusion. It stands about 62 mm proud, and its fan lead must reach the electronics bay.
 
@@ -1122,7 +1124,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 ### Step 14.26 — Print the exhaust parts on the Core One+
 
-(no image — see text)
+![The add-on prints from the Voron STLs: the housing in black; the fan grill, access cover and two mounts in the blue accent; the exhaust grill already fitted](assets/parts/sheet-addon-exhaust.png)
 
 **What you're looking at:** Four stock Voron parts, printed as two jobs outside the plate run: the housing in black, then the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks.
 
@@ -1152,7 +1154,8 @@ Pause: ~35 min since the last pause — the back of the machine inspected and th
 
 ### Step 14.27 — Set the eight heat-set inserts in the housing
 
-![Voron manual p.250](assets/manual-pages/manual-p250.png)
+![Voron manual p.250](assets/manual-pages/manual-p250.png){ crop="0.14 0.22 0.91 0.76" }
+![CAD render — the housing from behind and below with its insert bosses marked: four round the fan opening, two for the access cover](assets/cad/14-27-a.png)
 
 **What you're looking at:** The housing takes eight M3 inserts: two on the panel face for the grill screws, two on the outer face for the access cover, and four round the fan opening for the fan and its grill.
 
@@ -1171,8 +1174,9 @@ Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ### Step 14.28 — Build the fan and the filter into the housing
 
-![Voron manual p.252](assets/manual-pages/manual-p252.png)
-![Voron manual p.253](assets/manual-pages/manual-p253.png)
+![Voron manual p.252](assets/manual-pages/manual-p252.png){ crop="0.15 0.24 0.93 0.81" }
+![Voron manual p.253](assets/manual-pages/manual-p253.png){ crop="0.52 0.29 0.90 0.78" }
+![CAD render — the housing build pulled apart: fan, fan grill and four M3x30 on the bottom face; two mat layers and the access cover with two M3x8 at the back](assets/cad/14-28-a.png)
 
 **What you're looking at:** The fan sits on the housing's angled bottom face. It pulls chamber air through the grill and the carbon mat and blows it out of the bottom. The access cover closes the filter bay, so the mat can be changed later.
 
@@ -1206,33 +1210,37 @@ Pause: ~40 min since the last pause — eight inserts set, and the fan, its gril
 
 ### Step 14.29 — Swap the exhaust cover for the housing
 
-![Voron manual p.254](assets/manual-pages/manual-p254.png)
-![Voron manual p.255](assets/manual-pages/manual-p255.png)
-![Voron manual p.256](assets/manual-pages/manual-p256.png)
+![Voron manual p.254](assets/manual-pages/manual-p254.png){ crop="0.15 0.20 0.86 0.86" }
+![Voron manual p.255](assets/manual-pages/manual-p255.png){ crop="0.07 0.19 0.89 0.74" }
+![Voron manual p.253](assets/manual-pages/manual-p253.png){ crop="0.06 0.28 0.47 0.80" }
+![Voron manual p.256](assets/manual-pages/manual-p256.png){ crop="0.13 0.19 0.91 0.87" }
+![Voron manual p.251](assets/manual-pages/manual-p251.png){ crop="0.55 0.21 0.86 0.78" }
+![CAD render — the panel joint opened up: grill in the notch on two mounts and T-nuts, the taped housing pulled back, two M3x12 from inside](assets/cad/14-29-b.png)
+![CAD render — the finished swap from behind: housing, fan and fan grill, access cover, grill and mounts](assets/cad/14-25-close-b.png)
 
 **What you're looking at:** The grill sits in the notch, held up by two mounts bolted to the top rear extrusion. The housing is taped to the outside of the panel over it, and the two grill screws pull it tight from inside the chamber.
 
 **Parts:**
 
 - reused: the exhaust grill and its two M3×12 SHCS
+- reused: the cover tabs' two M5 T-nuts and M5×10 BHCS
+- reused: the PTFE coupler and the reverse-bowden PTFE
 - filter mount ×2 — from the exhaust add-on print
-- M5 roll-in T-nut ×2
-- M5×10 BHCS ×2
 - consumable: VHB tape
 - tool: 2.5 mm hex key
 - tool: 3 mm hex key
 
 **Do:**
 
-1. Machine off. Unbolt the exhaust cover and grill; keep both screws.
-2. Roll two T-nuts into the extrusion's back slot; hang the grill on both mounts, snug.
-3. Tape the housing over it, then drive both M3×12 from inside.
+1. Machine off. PTFE and coupler out of the cover; unbolt cover and grill, keep all four screws.
+2. Hang the grill on both mounts on the same T-nuts, snug.
+3. Tape the housing on; drive both M3×12 from inside.
 
 **Check:** The housing sits square over the notch with no light round the tape, grill and mounts are tight, and full XY travel touches nothing.
 
 **Helper:** Holds the housing square on the panel while the adult drives the two screws from inside.
 
-⚠ Before taping, pass the fan lead in through one grill opening. If the PTFE ran through the exhaust cover, move its coupler into the housing's threaded boss `(verify on bench)`.
+⚠ Before taping, pass the fan lead in through one grill opening. Then thread the coupler into the housing's top boss and run the PTFE in through it, looped as p.258 shows `(verify on bench)`.
 
 Tip: keep the exhaust cover. Refitting it returns the machine to its Ch 11 state if the add-on comes off.
 
@@ -1269,6 +1277,8 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 ### Step 14.31 — Plug the lead into FAN0 and jumper it for 24 V
 
 ![LDO Leviathan V1.3 board map — port and jumper-block locations](assets/remote/10-wiring/wiring_V1.3.jpg)
+![Diagram — the Leviathan's five selection headers after Part H: Fan0, Fan2 and Fan3 jumpered at 24 V, Probe and Fan1 bare, the fan's 2-pin plug on FAN0 with red on +](assets/diagrams/exhaust-b-jumpers.svg)
+![Diagram — the fan lead's route from the housing through the Z-chain notch and the bay to FAN0](assets/diagrams/exhaust-a-lead-route.svg)
 
 **What you're looking at:** FAN0 is the first of the Leviathan's four fan headers, a 3-pin XH socket on pin `PB7`. The jumper block beside them picks each port's voltage; this fan is a 24 V part.
 
@@ -1316,7 +1326,7 @@ Pause: ~45 min since the last pause — FAN0 wired and jumpered for 24 V, the ba
 
 ### Step 14.33 — Add the exhaust fan to `printer.cfg`
 
-(no image — see text)
+![Diagram — exhaust control: chamber thermistor, combined sensor, temperature_fan on a watermark, FAN0, the fan; the ceiling from the filament preset through PRINT_START; PLA 35, PETG 40, ASA unvented](assets/diagrams/exhaust-c-control.svg)
 
 **What you're looking at:** A `[temperature_fan]` is a fan Klipper switches against a temperature target, used here as a ceiling. It reads the existing chamber sensor through a combined sensor, so nothing Ch 12 wrote changes. Two small macros set and clear the ceiling for each print.
 
@@ -1351,13 +1361,14 @@ min_speed: 0.0
 max_speed: 1.0
 
 [gcode_macro _EXHAUST]
-description: Set the exhaust ceiling for this print. PRINT_START calls it.
+description: Set the exhaust ceiling for this print. PRINT_START calls it. FILTER=1 (a Nevermore material) is never vented.
 variable_hot_above: 45         # a ceiling above this is a hot-chamber material: stay off
 variable_purge_min: 10         # PRINT_END: minutes flat out after a vented print
 gcode:
     {% set chamber = params.CHAMBER|default(0)|float %}
     {% set target = params.TARGET|default(0)|float %}
-    {% if chamber > 0 or target > hot_above %}
+    {% set filter = params.FILTER|default(0)|int %}
+    {% if chamber > 0 or target > hot_above or filter %}
       {% set target = 0 %}
     {% endif %}
     UPDATE_DELAYED_GCODE ID=_EXHAUST_OFF DURATION=0
@@ -1381,7 +1392,7 @@ gcode:
 ```
 
 ```ini
-    _EXHAUST CHAMBER={chamber} TARGET={params.EXHAUST|default(0)|float}
+    _EXHAUST CHAMBER={chamber} TARGET={params.EXHAUST|default(0)|float} FILTER={1 if filter else 0}
 ```
 
 ```ini
@@ -1402,7 +1413,7 @@ Source: [Klipper docs § temperature_fan](https://www.klipper3d.org/Config_Refer
 
 ### Step 14.34 — Test the fan by target, then on a hot chamber
 
-(no image — see text)
+![Diagram — exhaust control: chamber thermistor, combined sensor, temperature_fan on a watermark, FAN0, the fan; the ceiling from the filament preset through PRINT_START; PLA 35, PETG 40, ASA unvented](assets/diagrams/exhaust-c-control.svg)
 
 **What you're looking at:** With a ceiling set, the fan starts 2 °C above it and stops 2 °C below, reading the toolhead's chamber sensor. The bed is the heat source, and the soak also proves the closed housing does not cost ASA its chamber band.
 
@@ -1470,10 +1481,10 @@ Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan pr
 3. ASA: Minimal a few degrees under your settled soak.
 
 ```
-PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER={chamber_minimal_temperature[initial_tool]} EXHAUST={chamber_temperature[initial_tool]}
+PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER={chamber_minimal_temperature[initial_tool]} EXHAUST={chamber_temperature[initial_tool]} FILAMENT={filament_type[initial_tool]}
 ```
 
-**Check:** A PLA slice starts `PRINT_START BED=60 EXTRUDER=215 CHAMBER=0 EXHAUST=35`, an ASA slice carries your Minimal as `CHAMBER`, and neither has `M141` or `M191`.
+**Check:** A PLA slice's start line ends `CHAMBER=0 EXHAUST=35 FILAMENT=PLA`, an ASA slice carries your Minimal as `CHAMBER` and `FILAMENT=ASA`, and neither has `M141` or `M191`.
 
 **Helper:** Reads each Nominal and Minimal value back from the preset while the adult types.
 

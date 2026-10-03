@@ -41,3 +41,12 @@
 # 07-30-{a,b}.png        Step 07.30   XY joint 20T idlers, front idler F695 stacks, A and B belts
 # 07-39-{a,b}.png        Step 07.39   [a]_cable_cover on the A drive, A drive frame, A and B belts
 # 09-26-{a,b}.png        Step 09.26   front and rear DIN rails, LDO USB/ESD adapter (schematic)
+#
+# Ch 14 Part H (chamber exhaust add-on): selections and cameras in exhaust-14h.yml,
+# rendered with render_steps.py --yml docs/manual/assets/cad/exhaust-14h.yml
+# 14-25-b.png            Step 14.25   whole machine from behind; exhaust housing, fan, grill and mounts
+# 14-25-notch-b.png      Step 14.25   back panel and its notch, empty; the two M5 T-nut positions
+# 14-25-close-b.png      Step 14.25   housing, fan + fan grill, access cover, grill, mounts (also 14.29)
+# 14-27-a.png            Step 14.27   exhaust_filter_housing and its M3 heat-set inserts
+# 14-28-a.png            Step 14.28   housing build exploded: fan, fan grill, M3x30, two filter slabs, cover, M3x8
+# 14-29-b.png            Step 14.29   grill, mounts, M5x10, T-nuts, M3x12; taped housing pulled back 90 mm
