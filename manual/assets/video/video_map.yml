@@ -1,0 +1,1445 @@
+# Manual step -> build-video mapping. Consumed by scripts/video_map.py, which
+# regenerates MANIFEST.md from it. Edit this file, never MANIFEST.md.
+#
+# A `segment` is a contiguous stretch of one video that covers a run of manual
+# steps. `keywords` gives, per step, phrases to look for in the caption
+# word-timeline INSIDE that segment; the earliest 90 s window containing the
+# most distinct phrases wins. Two or more phrases -> high, one -> med, none (or
+# no keywords at all) -> low and the timestamp falls back to the segment start.
+# `max_confidence` caps a whole segment where the operation itself differs from
+# this kit, so even a clean caption match is only "roughly here".
+
+playlist:
+  url: https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY
+  list_id: PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY
+  channel: Steve Builds
+
+# Reusable "differs" notes, referenced by key from a segment's `differs:` list.
+differs:
+  prerelease: "pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D"
+  afterburner: "builds Afterburner + Clockwork 1; this kit is Stealthburner + Clockwork 2 + Revo HF"
+  octopus: "BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it"
+  nitehawk: "no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical"
+  euclid: "Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged"
+  door: "stock hinged doors; this kit gets the Clicky-Clack door (batch B10)"
+  nobackers: "pre-release kit had no titanium rail backers"
+  trident: "substitutes Trident-repo parts still in beta at the time"
+  mgn12: "MGN12 X was a mod then; it is stock on this kit"
+  cw1fan: "Clockwork 1 / Afterburner fan and shroud parts, not the Stealthburner 5015 + logo LED stack"
+  order: "video does this out of the manual's page order"
+
+manifest:
+  intro: |
+    Eleven livestreams, 37 h 15 m, in which **Steve Builds** assembles the
+    *pre-release feedback* LDO Voron 2.4 R2 kit (December 2021 – January 2022) —
+    the build LDO shipped him to review before the kit went on sale. It is the
+    closest thing to a full video walkthrough of this machine, and the frame, Z
+    drives, A/B drives, gantry, Z belts and panels are unchanged in this kit.
+
+    **It is not this kit.** Steve's machine is Afterburner + Clockwork 1 on a BTT
+    Octopus with a separate Raspberry Pi and a Euclid probe. This build is
+    Stealthburner + Clockwork 2 + Revo HF on a Nitehawk-SB V2 toolboard, a
+    Leviathan carrying the Pi, an Omron inductive probe plus the LDO nozzle
+    probe, and a Clicky-Clack door. Every row where that matters carries a
+    *Differs* note — read it before you copy what is on screen. Chapters 08–13
+    diverge the most; 01–07 and 11 are close to identical.
+
+    These are livestreams, not edited tutorials: chat questions interrupt
+    constantly, and Steve works out of the manual's page order more than once.
+    A timestamp lands you at the start of the work, not at a clean cut.
+
+    No stills, no clips, no re-hosting — links and timestamps only (see
+    `SOURCES.txt`). Regenerate with `python3 scripts/video_map.py`.
+  outro: |
+    ## Confidence
+
+    - **high** — two or more step-specific phrases land in the same 90 s of
+      caption; or the video's own chapter marker names this exact operation.
+    - **med** — one phrase matched inside the right segment.
+    - **low** — no phrase matched; the link is the segment start, so the step is
+      somewhere in the following few minutes.
+
+    ## Not covered
+
+    Steps with no row have no usable footage: mains-safety and meter work
+    (Ch 00a, 10.17–10.23, 10.73–10.79), the Leviathan- and Nitehawk-specific
+    wiring and flashing (much of Ch 09–10, 12.11–12.20), the Clicky-Clack door
+    (11.44–11.50), the titanium backers, and anything the pre-release kit did not
+    ship. Print batches (`print/`) are not covered at all — Steve prints nothing
+    on stream.
+
+segments:
+
+  # ------------------------------------------------ Ch 00 — before you start
+  - id: p1-unbox
+    video: feTxcc0LIWM
+    start: 124
+    end: 731
+    chapter: 00-before-you-start.md
+    steps: "00.1, 00.3, 00.4"
+    covers: Kit arrives — cartons opened, every box named and its contents shown
+    differs: [prerelease]
+    max_confidence: med
+    keywords:
+      "00.3": ["motion box", "80 tooth pulleys"]
+  - id: p1-fasteners-tools
+    video: feTxcc0LIWM
+    start: 731
+    end: 1181
+    chapter: 00-before-you-start.md
+    steps: "00.7, 00.8, 00.25-00.27"
+    covers: Fasteners, tools and miscellaneous — what the kit supplies vs. what you buy
+    differs: [prerelease]
+    max_confidence: med
+  - id: p1-manual-intro
+    video: feTxcc0LIWM
+    start: 3002
+    end: 3350
+    chapter: 00-before-you-start.md
+    steps: "00.23, 00.24, 00.28, 00.29"
+    covers: Opens the official assembly manual and reads the print guidelines and blind-joint page
+    keywords:
+      "00.28": ["blind joint", "blind joint holes"]
+  - id: p1-fastener-sorting
+    video: feTxcc0LIWM
+    start: 7513
+    end: 8635
+    chapter: 00-before-you-start.md
+    steps: "00.11, 00.12"
+    covers: Sorting the fastener bags into bins, and why he leaves most of them bagged
+    keywords:
+      "00.12": ["fastener sorting"]
+  - id: p1-rail-prep
+    video: feTxcc0LIWM
+    start: 6850
+    end: 9172
+    chapter: 00-before-you-start.md
+    steps: "00.17-00.22"
+    covers: Every rail out of the bag, the best two picked for Y, then the factory grease pushed out by hand and replaced
+    keywords:
+      "00.17": ["install the z rails", "prep work on the rails"]
+      "00.21": ["select our best two for y"]
+      "00.18": ["through the channel", "wiping away"]
+      "00.20": ["wipe them off"]
+  - id: p1-printed-parts
+    video: feTxcc0LIWM
+    start: 9172
+    end: 11071
+    chapter: 00-before-you-start.md
+    steps: "00.6, 00.30"
+    covers: The printed parts LDO supplies, laid out and named
+    differs: [prerelease]
+    max_confidence: med
+  - id: p1-heatsets
+    video: feTxcc0LIWM
+    start: 11505
+    end: 12060
+    chapter: 00-before-you-start.md
+    steps: "00.13-00.16"
+    covers: Heat-set inserts — iron, brass tip, how far to press, what a good one looks like
+    keywords:
+      "00.13": ["heat set inserts", "brass"]
+      "00.15": ["flush with the plastic"]
+  - id: p3-heatset-tool
+    video: ii14-2COjuA
+    start: 4520
+    end: 4760
+    chapter: 00-before-you-start.md
+    steps: "00.13"
+    covers: The brass heat-set tip again, and doing without one
+    keywords:
+      "00.13": ["brass heat set insert", "makes the job a lot easier"]
+
+  # ------------------------------------------------------------ Ch 01 — frame
+  - id: p1-extrusions
+    video: feTxcc0LIWM
+    start: 3282
+    end: 3346
+    chapter: 01-frame.md
+    steps: "01.2, 01.3"
+    covers: LDO's extrusions unbagged, sorted by length, ends inspected
+  - id: p1-frame-build
+    video: feTxcc0LIWM
+    start: 3346
+    end: 4452
+    chapter: 01-frame.md
+    steps: "01.1, 01.4-01.11"
+    covers: Bottom square laid out on a flat surface and the verticals blind-jointed in
+    keywords:
+      "01.5": ["blind joint holes"]
+      "01.6": ["assembling the frame", "selecting our"]
+      "01.1": ["reasonable job"]
+  - id: p1-rear-extrusion
+    video: feTxcc0LIWM
+    start: 4452
+    end: 5287
+    chapter: 01-frame.md
+    steps: "01.10-01.15"
+    covers: Top square closed, the rear extrusion set, and every joint snugged and checked
+    keywords:
+      "01.14": ["not tapped deep enough", "was dropped"]
+  - id: p1-tnut-positions
+    video: feTxcc0LIWM
+    start: 5287
+    end: 5865
+    chapter: 01-frame.md
+    steps: "01.17"
+    covers: Pre-loading T-nuts before anything closes over the slot — "you're not bolting into anything unless there's a T-nut there"
+    keywords:
+      "01.17": ["t-nut there", "t-nuts in the frame"]
+  - id: p1-bed-extrusions
+    video: feTxcc0LIWM
+    start: 5340
+    end: 6450
+    chapter: 01-frame.md
+    steps: "01.16, 01.18, 01.19"
+    covers: Bed extrusions on their anodised angle brackets, flat, 150 mm apart centre to centre
+    keywords:
+      "01.16": ["angle brackets", "bed extrusions"]
+      "01.19": ["150 millimeters", "center to center"]
+  - id: p5-frame-square
+    video: hTKCBrk36R0
+    start: 11690
+    end: 11800
+    chapter: 01-frame.md
+    steps: "01.12, 01.13, 01.20"
+    covers: How he checks square — diagonals across the frame in both directions
+    max_confidence: med
+    keywords:
+      "01.20": ["measure diagonal", "square at work"]
+
+  # -------------------------------------------------------- Ch 02 — Z drives
+  - id: p1-zdrive-start
+    video: feTxcc0LIWM
+    start: 11314
+    end: 11505
+    chapter: 02-z-drives.md
+    steps: "02.01, 02.02, 02.03"
+    covers: Z drive parts gathered and laid out; the four corner positions named
+    keywords:
+      "02.01": ["z drive parts"]
+  - id: p1-zdrive-stack
+    video: feTxcc0LIWM
+    start: 12000
+    end: 12500
+    chapter: 02-z-drives.md
+    steps: "02.17-02.20"
+    covers: The shaft stack built up — 80T pulley, bearing, two spacers — and the grub screws locked
+    keywords:
+      "02.19": ["80 tooth pulley", "two spacers"]
+      "02.20": ["grub screws"]
+  - id: p1-zdrive-close
+    video: feTxcc0LIWM
+    start: 12500
+    end: 12900
+    chapter: 02-z-drives.md
+    steps: "02.21-02.24, 02.26"
+    covers: '"Don''t forget the belt" — 188 mm loop over the pulley before the two halves close on six M3×40'
+    keywords:
+      "02.21": ["forget the belt", "the belt and the belt"]
+      "02.24": ["two halves together"]
+  - id: p1-zdrive-base
+    video: feTxcc0LIWM
+    start: 12890
+    end: 13400
+    chapter: 02-z-drives.md
+    steps: "02.25, 02.36"
+    covers: Baseplate and rubber foot — and why the foot moves inboard on this revision
+    keywords:
+      "02.36": ["the foot", "base plate"]
+  - id: p1-zdrive-align
+    video: feTxcc0LIWM
+    start: 13591
+    end: 14196
+    chapter: 02-z-drives.md
+    steps: "02.20"
+    covers: Lining the grub screws up with each other so they are reachable later
+    keywords:
+      "02.20": ["grub screws", "in line with each other"]
+  - id: p2-zdrive-finish
+    video: 2U0YahE8w_0
+    start: 141
+    end: 700
+    chapter: 02-z-drives.md
+    steps: "02.19, 02.38"
+    covers: Z drive units three and four — the same 80T/bearing/spacer stack, twice more
+    keywords:
+      "02.38": ["two of the z drive units", "two left to do"]
+      "02.19": ["z drive stack", "80 tooth pulley"]
+  - id: p2-deck
+    video: 2U0YahE8w_0
+    start: 3300
+    end: 3700
+    chapter: 02-z-drives.md
+    steps: "02.11-02.15"
+    covers: Printer on its back — DIN rails unwrapped and the deck panel dropped in
+    keywords:
+      "02.12": ["the deck panel"]
+      "02.14": ["deck panel over here"]
+  - id: p2-16t
+    video: 2U0YahE8w_0
+    start: 4400
+    end: 4800
+    chapter: 02-z-drives.md
+    steps: "02.27, 02.28"
+    covers: 16T pulley onto the Z motor, height eyeballed to line up with the 80T below it
+    keywords:
+      "02.27": ["16 tooth", "grub screws"]
+      "02.28": ["16 tooth pulley", "same path as the 80 tooth"]
+  - id: p2-zdrive-mount
+    video: 2U0YahE8w_0
+    start: 4700
+    end: 5500
+    chapter: 02-z-drives.md
+    steps: "02.29-02.35, 02.37"
+    covers: Drives onto the frame — left loose enough to slide while the tensioner is set, then snugged
+    keywords:
+      "02.33": ["that tensioner is"]
+      "02.35": ["still slide", "everything is straight"]
+  - id: p2-zidlers
+    video: 2U0YahE8w_0
+    start: 5800
+    end: 6270
+    chapter: 02-z-drives.md
+    steps: "02.39-02.44"
+    covers: Z idlers at the top corners — LDO ships toothed idlers, not smooth bearings
+    keywords:
+      "02.39": ["z idler", "tooth idlers"]
+  - id: p4-gantry-start
+    video: ViB5Ulc9zDI
+    start: 376
+    end: 760
+    chapter: 05-gantry.md
+    steps: "05.1, 05.19-05.21"
+    covers: '"We''re at the point where we''re gonna start putting the gantry together" — front idlers onto the Y extrusions, checked for float and flush'
+    keywords:
+      "05.1": ["putting the gantry together"]
+      "05.19": ["both the front idlers", "the y extrusions"]
+      "05.20": ["flush with the front of the extrusion", "idlers can float"]
+  - id: p4-index-front-idlers
+    video: ViB5Ulc9zDI
+    start: 2050
+    end: 2560
+    chapter: 05-gantry.md
+    steps: "05.4, 05.13, 05.14, 05.22, 05.23"
+    covers: Everything indexes off the front idlers from here — T-nuts pre-inserted, then the A/B modules go on and the rear closes
+    keywords:
+      "05.22": ["indexing things off the front idlers", "the a b modules"]
+      "05.4": ["pre-inserting all these m5 t-nuts", "to hold that"]
+  - id: p4-railstops
+    video: ViB5Ulc9zDI
+    start: 5241
+    end: 5400
+    chapter: 02-z-drives.md
+    steps: "02.10"
+    covers: LDO rail stops bolted on with hammerhead nuts — no official V2.4 part for this
+    keywords:
+      "02.10": ["speaking of rail stops", "hammerhead nuts for these"]
+
+  # ------------------------------------------------------ Ch 03 — build plate
+  - id: p1-plate
+    video: feTxcc0LIWM
+    start: 2702
+    end: 3002
+    chapter: 03-build-plate.md
+    steps: "03.1-03.6"
+    covers: Build plate out of the box — which face is which, and the three cables leaving it
+    keywords:
+      "03.1": ["the build plate comes"]
+  - id: p2-plate-defer
+    video: 2U0YahE8w_0
+    start: 5700
+    end: 5900
+    chapter: 03-build-plate.md
+    steps: "03.14"
+    covers: Why he leaves the plate off the frame until later — it is heavy and in the way
+    max_confidence: med
+    keywords:
+      "03.14": ["build plate on the frame", "it's heavy"]
+
+  # ------------------------------------------------------- Ch 04 — A/B drives
+  - id: p3-bearings
+    video: ii14-2COjuA
+    start: 3500
+    end: 3660
+    chapter: 04-ab-drives.md
+    steps: "04.7, 04.14"
+    covers: The bearings — why the shielded ones matter in a heated chamber
+    keywords:
+      "04.7": ["metal shielded", "grease"]
+  - id: p3-bearing-stacks
+    video: ii14-2COjuA
+    start: 3860
+    end: 4683
+    chapter: 04-ab-drives.md
+    steps: "04.1-04.6, 04.8-04.13, 04.20-04.23"
+    covers: '"A 1 mm shim, a set of bearings, a 1 mm shim" — the rule for every A/B stack, and the washer trick when a bolt head protrudes'
+    keywords:
+      "04.7": ["1 mm shim to either side", "bearing stacks on a"]
+      "04.8": ["every pair of bearings", "surrounded on each side"]
+      "04.11": ["a washer underneath the head", "sticking out"]
+      "04.20": ["30 mm bolts", "our steppers"]
+  - id: p3-bdrive
+    video: ii14-2COjuA
+    start: 4683
+    end: 4763
+    chapter: 04-ab-drives.md
+    steps: "04.2, 04.29-04.32, 04.37"
+    covers: '"BAA like a sheep" — the mnemonic for which drive is A and which is B, looking at the front'
+    keywords:
+      "04.2": ["like a sheep", "the a drive"]
+  - id: p3-pulley-jig
+    video: ii14-2COjuA
+    start: 4040
+    end: 4620
+    chapter: 04-ab-drives.md
+    steps: "04.24, 04.26, 04.27, 04.33, 04.35, 04.36"
+    covers: The printed pulley-alignment jig — A side one way, B side the opposite, then M3×30s into the motor
+    keywords:
+      "04.24": ["this is the a side", "center the"]
+      "04.33": ["the opposite way", "we use the b side"]
+      "04.27": ["m3 by 30s"]
+      "04.26": ["pointing towards the inside of the printer"]
+      "04.35": ["wires going towards the"]
+  - id: p3-idler-shims
+    video: ii14-2COjuA
+    start: 5000
+    end: 5500
+    chapter: 04-ab-drives.md
+    steps: "04.14-04.19"
+    covers: Shimming the idler stacks, and being one idler short
+    max_confidence: med
+    keywords:
+      "04.14": ["bearing stack", "shims"]
+  - id: p5-pulley-jig-2
+    video: hTKCBrk36R0
+    start: 4340
+    end: 4768
+    chapter: 04-ab-drives.md
+    steps: "04.28, 04.37"
+    covers: Re-checking with the pulley-alignment jig that the belt runs centred
+    keywords:
+      "04.28": ["pulley alignment jig", "how well the belt is"]
+
+  # ---------------------------------------------------------- Ch 05 — gantry
+  - id: p3-gantry-intro
+    video: ii14-2COjuA
+    start: 3394
+    end: 3500
+    chapter: 05-gantry.md
+    steps: "05.1, 05.2"
+    covers: Gantry parts on the bench and named
+  - id: p3-xy-joints
+    video: ii14-2COjuA
+    start: 4763
+    end: 5676
+    chapter: 05-gantry.md
+    steps: "05.25-05.31"
+    covers: '"Let''s build the XY joints" — bearing stacks shimmed, 22T idlers left free to float, one bolt threading straight into plastic'
+    differs: [nobackers]
+    keywords:
+      "05.25": ["build the xy joints"]
+      "05.26": ["m5 hex bolts", "threads into plastic"]
+      "05.27": ["careful about shimming", "going to separate"]
+      "05.28": ["a bunch of 3 by 40s"]
+      "05.29": ["22-tooth idlers", "meant to float"]
+      "05.31": ["that is the xy joints"]
+  - id: p3-carriage-grease
+    video: ii14-2COjuA
+    start: 5676
+    end: 6209
+    chapter: 05-gantry.md
+    steps: "05.11, 05.12, 05.33"
+    covers: Marking carriage orientation, pulling it off the rail and greasing it properly rather than smearing
+    keywords:
+      "05.11": ["the carriage off", "smearing grease"]
+      "05.33": ["identify the orientation", "making a mark"]
+  - id: p3-cable-bridge
+    video: ii14-2COjuA
+    start: 6209
+    end: 6500
+    chapter: 05-gantry.md
+    steps: "05.3, 05.38"
+    covers: Cable-chain bridge — T-nut orientation, and which way the fat side faces
+    keywords:
+      "05.3": ["cable chain", "t-nut"]
+  - id: p5-xy-joints
+    video: hTKCBrk36R0
+    start: 4680
+    end: 4830
+    chapter: 05-gantry.md
+    steps: "05.25"
+    covers: XY joints — the parts that got revised, and the inserts that go in them
+    differs: [trident]
+    keywords:
+      "05.25": ["the xy joints", "x carriage"]
+  - id: p5-front-idlers
+    video: hTKCBrk36R0
+    start: 4827
+    end: 5580
+    chapter: 05-gantry.md
+    steps: "05.19-05.21"
+    covers: Front idlers onto the Y axes, with the extra side insert
+    keywords:
+      "05.19": ["one more insert", "on the side of this"]
+  - id: p5-x-carriage
+    video: hTKCBrk36R0
+    start: 3940
+    end: 4000
+    chapter: 05-gantry.md
+    steps: "05.32, 05.45"
+    covers: Where the MGN12 X carriage and XY joint parts came from at the time
+    differs: [trident, mgn12]
+    max_confidence: med
+    keywords:
+      "05.45": ["the x carriage", "xy joints"]
+
+  # ------------------------------- Ch 06 — Z axis into the frame and squaring
+  - id: p4-z-belt-clamps
+    video: ViB5Ulc9zDI
+    start: 761
+    end: 1838
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.3-06.8"
+    covers: Z belt clamps — the R2 revision of this joint, which face the notch goes to, and how the belt end seats
+    keywords:
+      "06.5": ["r2 improvements", "an attempt at an improvement"]
+      "06.6": ["the z-belt clamps", "two m5 holes"]
+      "06.7": ["the notch of it goes to the side"]
+  - id: p4-z-joints
+    video: ViB5Ulc9zDI
+    start: 3352
+    end: 5241
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.1, 06.2, 06.9-06.15"
+    covers: Gantry into the frame and the four Z joints made — he deviates from the manual and mounts before belting
+    keywords:
+      "06.2": ["covers the z joints", "assembly diagram"]
+      "06.9": ["m3 by 30", "three by twenties"]
+      "06.11": ["belting the gantry before you have it mounted"]
+      "06.13": ["loose enough that we can move"]
+      "06.15": ["set this in here", "holding things in place"]
+  - id: p4-z-belt-route
+    video: ViB5Ulc9zDI
+    start: 5400
+    end: 6230
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.16-06.22"
+    covers: Routing the four Z belts down around the drives and up over the idlers
+    keywords:
+      "06.18": ["let's route the belts", "one of these front"]
+  - id: p5-z-belt-cont
+    video: hTKCBrk36R0
+    start: 2760
+    end: 3600
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.20, 06.21"
+    covers: Pulling each Z belt to the side to get at the clamp, one corner at a time
+    keywords:
+      "06.20": ["pull the belt", "the z belt to the side"]
+  - id: p5-z-belt-check
+    video: hTKCBrk36R0
+    start: 3796
+    end: 4361
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.23, 06.25"
+    covers: '"Check your Z belt routing" — the pass he makes before trusting any of it'
+  - id: p6-gantry-bind
+    video: 8pWoYkY1DiA
+    start: 5680
+    end: 5760
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06.24, 06.26"
+    covers: How far out of square a gantry can be before it binds
+    max_confidence: med
+    keywords:
+      "06.24": ["before it starts binding", "how far off can the gantry"]
+  - id: p9-first-qgl
+    video: dmNwxUm4oik
+    start: 10140
+    end: 10440
+    chapter: 06-z-axis-and-gantry-squaring.md
+    steps: "06b.3, 06b.17"
+    covers: First QGL on the machine, run straight after homing
+    keywords:
+      "06b.17": ["let's do qgl", "our first qgl"]
+
+  # ------------------------------------------------------- Ch 07 — A/B belts
+  - id: p6-belt-tension
+    video: 8pWoYkY1DiA
+    start: 70
+    end: 1117
+    chapter: 07-ab-belts.md
+    steps: "07.27-07.33"
+    covers: Tensioning the A/B belts and getting the two even — the video's opening chapter
+    keywords:
+      "07.33": ["somewhat even"]
+      "07.30": ["call it a", "wary of using"]
+  - id: p5-tensioner-thumbscrew
+    video: hTKCBrk36R0
+    start: 6764
+    end: 7212
+    chapter: 07-ab-belts.md
+    steps: "07.5"
+    covers: The custom front-idler tensioner thumb screw
+    max_confidence: med
+  - id: p4-ab-belt-run
+    video: ViB5Ulc9zDI
+    start: 5900
+    end: 6230
+    chapter: 07-ab-belts.md
+    steps: "07.23, 07.29"
+    covers: Checking the belt rides in the right place on every pulley, at the same tension point
+    keywords:
+      "07.29": ["riding in the right spots", "tension point"]
+  - id: p8-probe-fit
+    video: Q3Q1szaFfSE
+    start: 6225
+    end: 6560
+    chapter: 07-ab-belts.md
+    steps: "07.34-07.37"
+    covers: The probe wired and fitted
+    differs: [euclid]
+    max_confidence: med
+
+  # -------------------------------------------------------- Ch 08 — toolhead
+  - id: p5-extruder-stepper
+    video: hTKCBrk36R0
+    start: 5580
+    end: 6323
+    chapter: 08-toolhead.md
+    steps: "08.22-08.24"
+    covers: Pancake stepper onto the extruder and the gear mesh set against the spur gear
+    differs: [afterburner]
+    max_confidence: med
+    keywords:
+      "08.24": ["spur gear", "tightened down"]
+  - id: p5-idler-bearings
+    video: hTKCBrk36R0
+    start: 6323
+    end: 6764
+    chapter: 08-toolhead.md
+    steps: "08.9-08.11, 08.19-08.21"
+    covers: BMG idler bearings, the guidler arm and the latch shuttle
+    differs: [afterburner]
+    max_confidence: med
+    keywords:
+      "08.20": ["latch shuttle"]
+  - id: p5-hotend
+    video: hTKCBrk36R0
+    start: 7212
+    end: 8531
+    chapter: 08-toolhead.md
+    steps: "08.27-08.32"
+    covers: Hotend assembled and the PTFE cut — he calipers the stickout to 25.46 mm for this hotend
+    differs: [afterburner]
+    max_confidence: med
+    keywords:
+      "08.32": ["square end", "25.5"]
+  - id: p5-part-fan
+    video: hTKCBrk36R0
+    start: 8270
+    end: 10027
+    chapter: 08-toolhead.md
+    steps: "08.34, 08.42"
+    covers: Part-cooling fan fitted, and the zip-tie wiring path across the shroud
+    differs: [afterburner, cw1fan]
+    max_confidence: med
+    keywords:
+      "08.34": ["zip tie slots", "wiring path"]
+  - id: p5-afterburner
+    video: hTKCBrk36R0
+    start: 11232
+    end: 11826
+    chapter: 08-toolhead.md
+    steps: "08.16-08.18, 08.58-08.62"
+    covers: The toolhead closed up and hung on the carriage
+    differs: [afterburner, nitehawk]
+    max_confidence: med
+    keywords:
+      "08.62": ["starting to come together"]
+  - id: p5-hotend-fan
+    video: hTKCBrk36R0
+    start: 11826
+    end: 13101
+    chapter: 08-toolhead.md
+    steps: "08.40, 08.41"
+    covers: Hotend heatsink fan clipped in and its wires routed
+    differs: [afterburner, cw1fan]
+    max_confidence: med
+  - id: p5-wire-cover
+    video: hTKCBrk36R0
+    start: 13101
+    end: 13591
+    chapter: 08-toolhead.md
+    steps: "08.51"
+    covers: The toolhead wire cover, and shifting it clear of the cable chain
+    differs: [nitehawk]
+    max_confidence: med
+    keywords:
+      "08.51": ["in the way of the", "cable chain right here"]
+  - id: p6-5015
+    video: 8pWoYkY1DiA
+    start: 1204
+    end: 1448
+    chapter: 08-toolhead.md
+    steps: "08.34"
+    covers: The 5015 blower the kit supplies, compared side by side with the alternative
+    keywords:
+      "08.34": ["the 5015", "comparison parts"]
+  - id: p11-klicky
+    video: D_44fDp9xt8
+    start: 1547
+    end: 1916
+    chapter: 08-toolhead.md
+    steps: "08.54"
+    covers: Assembling the Klicky probe from the parts the kit ships
+    max_confidence: med
+    keywords:
+      "08.54": ["three by twenty"]
+  - id: p11-klicky-magnets
+    video: D_44fDp9xt8
+    start: 1916
+    end: 2581
+    chapter: 08-toolhead.md
+    steps: "08.54"
+    covers: Klicky assembly guide — which way round the magnets go, and why one is inverted
+    keywords:
+      "08.54": ["install the magnets", "which are"]
+  - id: p11-led-harness
+    video: D_44fDp9xt8
+    start: 2769
+    end: 4300
+    chapter: 08-toolhead.md
+    steps: "08.35-08.39"
+    covers: LED harness made up and tinned; the clear-PETG diffuser holder
+    differs: [afterburner]
+    max_confidence: med
+    keywords:
+      "08.38": ["clear pet g", "led holder"]
+
+  # ------------------------------------------------- Ch 09 — electronics bay
+  - id: p2-din-rails
+    video: 2U0YahE8w_0
+    start: 3300
+    end: 3450
+    chapter: 09-electronics-bay.md
+    steps: "09.5"
+    covers: DIN rails unwrapped and laid into the bay
+    keywords:
+      "09.5": ["the din rails", "packaged in wrap"]
+  - id: p2-din-length
+    video: 2U0YahE8w_0
+    start: 3950
+    end: 4100
+    chapter: 09-electronics-bay.md
+    steps: "09.5"
+    covers: Why LDO's DIN rails are cut short
+    keywords:
+      "09.5": ["din rails are so short", "the length that"]
+  - id: p5-din-covers
+    video: hTKCBrk36R0
+    start: 10027
+    end: 11232
+    chapter: 09-electronics-bay.md
+    steps: "09.6, 09.7"
+    covers: Wire duct and DIN rail end covers cut and fitted; deck-panel support
+    keywords:
+      "09.6": ["goes on the end there"]
+  - id: p7-bay-start
+    video: eHo0k2wQsJw
+    start: 308
+    end: 516
+    chapter: 09-electronics-bay.md
+    steps: "09.1, 09.2"
+    covers: '"We are on to the electronics bay" — everything gathered before anything mounts'
+    keywords:
+      "09.1": ["the electronics bay", "gather some of that"]
+  - id: p7-mounts
+    video: eHo0k2wQsJw
+    start: 1467
+    end: 2000
+    chapter: 09-electronics-bay.md
+    steps: "09.7, 09.15, 09.20"
+    covers: DIN clips — which way they click on, and taping between components and their mounts
+    keywords:
+      "09.7": ["click on to the din rail"]
+      "09.20": ["between components and the din rail"]
+  - id: p7-layout
+    video: eHo0k2wQsJw
+    start: 1866
+    end: 2154
+    chapter: 09-electronics-bay.md
+    steps: "09.2, 09.4"
+    covers: Final bay layout decided before anything is fastened down
+    differs: [octopus]
+  - id: p7-companion
+    video: eHo0k2wQsJw
+    start: 2154
+    end: 3300
+    chapter: 09-electronics-bay.md
+    steps: "09.21, 09.24"
+    covers: The bay's companion PCB and mainboard mounted
+    differs: [octopus]
+    max_confidence: med
+  - id: p7-ducts
+    video: eHo0k2wQsJw
+    start: 3300
+    end: 3896
+    chapter: 09-electronics-bay.md
+    steps: "09.6"
+    covers: Laying out the wire channels across the deck
+    keywords:
+      "09.6": ["lay out the wire channels"]
+  - id: p7-compartment
+    video: eHo0k2wQsJw
+    start: 3560
+    end: 4240
+    chapter: 09-electronics-bay.md
+    steps: "09.10-09.12"
+    covers: The electronics compartment plug panel fitted to the rear extrusion
+    keywords:
+      "09.12": ["against the end of the din rails"]
+  - id: p7-pi-heatsink
+    video: eHo0k2wQsJw
+    start: 4240
+    end: 4503
+    chapter: 09-electronics-bay.md
+    steps: "09.22"
+    covers: Heatsink onto the Raspberry Pi before it is mounted
+    differs: [octopus]
+    keywords:
+      "09.22": ["raspberry pi"]
+  - id: p8-psu
+    video: Q3Q1szaFfSE
+    start: 1862
+    end: 3186
+    chapter: 09-electronics-bay.md
+    steps: "09.14-09.18"
+    covers: 24 V Meanwell and the SSR onto the rail — plastic brackets for the PSU, a metal bracket for the SSR
+    keywords:
+      "09.15": ["plastic brackets"]
+      "09.17": ["metal bracket to the din rail"]
+      "09.14": ["plugged it in with the switch on"]
+  - id: p8-pi-power
+    video: Q3Q1szaFfSE
+    start: 6861
+    end: 8100
+    chapter: 09-electronics-bay.md
+    steps: "09.22, 09.23"
+    covers: Raspberry Pi power and its position in the bay
+    differs: [octopus]
+    max_confidence: med
+    keywords:
+      "09.23": ["shift the pi up"]
+  - id: p6-endstops
+    video: 8pWoYkY1DiA
+    start: 5445
+    end: 6141
+    chapter: 09-electronics-bay.md
+    steps: "09.28-09.33"
+    covers: Endstops onto the Z rails and the endstop pod on the gantry
+    keywords:
+      "09.33": ["12 mm screws"]
+
+  # ---------------------------------------------------------- Ch 10 — wiring
+  - id: p6-main-harness
+    video: 8pWoYkY1DiA
+    start: 1448
+    end: 1544
+    chapter: 10-wiring.md
+    steps: "10.40, 10.70"
+    covers: The pre-made main wiring harness out of its bag, zip-tied as one bundle
+    keywords:
+      "10.40": ["the wiring harness has zip ties"]
+  - id: p6-xy-chains
+    video: 8pWoYkY1DiA
+    start: 1544
+    end: 2825
+    chapter: 10-wiring.md
+    steps: "10.59, 10.60, 10.65, 10.66"
+    covers: X and Y drag chains laid in and adjusted until the toolhead has full travel
+    keywords:
+      "10.59": ["full travel"]
+      "10.60": ["first link", "when you move the tool"]
+  - id: p6-stepper-wires
+    video: 8pWoYkY1DiA
+    start: 3850
+    end: 5445
+    chapter: 10-wiring.md
+    steps: "10.40-10.43, 10.61"
+    covers: Stepper cables run and dressed so nothing can rub on a belt
+    keywords:
+      "10.61": ["wires rubbing on this belt"]
+      "10.40": ["grab the the harness"]
+  - id: p7-inlet-wiring
+    video: eHo0k2wQsJw
+    start: 516
+    end: 1467
+    chapter: 10-wiring.md
+    steps: "10.4-10.6, 10.49"
+    covers: Power inlet and LED wiring; the USB power jumper deliberately left out
+    keywords:
+      "10.4": ["usb power jumper"]
+  - id: p7-mains-terminals
+    video: eHo0k2wQsJw
+    start: 5380
+    end: 6100
+    chapter: 10-wiring.md
+    steps: "10.7, 10.8"
+    covers: Terminal colour code read off the page — red for live, blue for neutral
+    keywords:
+      "10.7": ["red terminals", "blue terminals"]
+  - id: p8-bed-wiring
+    video: Q3Q1szaFfSE
+    start: 3186
+    end: 5403
+    chapter: 10-wiring.md
+    steps: "10.12, 10.13, 10.15"
+    covers: Bed harness terminated and run below deck; the bed PCB's 3-pin JST identified
+    keywords:
+      "10.12": ["three pin jst"]
+      "10.15": ["mains power wires"]
+  - id: p8-ssr
+    video: Q3Q1szaFfSE
+    start: 5100
+    end: 5681
+    chapter: 10-wiring.md
+    steps: "10.10, 10.11, 10.14, 10.27"
+    covers: SSR wiring, checking he is on the load side before anything is connected
+    keywords:
+      "10.11": ["the load side", "the ssr"]
+      "10.10": ["this is the ssr wiring", "comes from the bed"]
+  - id: p8-toolhead-breakout
+    video: Q3Q1szaFfSE
+    start: 5681
+    end: 5842
+    chapter: 10-wiring.md
+    steps: "10.54, 10.67"
+    covers: Toolhead breakout cables — the second harness through the XY chains
+    differs: [nitehawk]
+    keywords:
+      "10.54": ["the second harness", "goes through for the xy"]
+  - id: p8-ground
+    video: Q3Q1szaFfSE
+    start: 5842
+    end: 6225
+    chapter: 10-wiring.md
+    steps: "10.16, 10.58"
+    covers: Ground wire run
+    max_confidence: med
+  - id: p8-probe-wiring
+    video: Q3Q1szaFfSE
+    start: 6225
+    end: 6861
+    chapter: 10-wiring.md
+    steps: "10.30, 10.34, 10.46, 10.48"
+    covers: Z probe, endstops and the filter fan wired back to the board
+    differs: [euclid, octopus]
+    max_confidence: med
+    keywords:
+      "10.34": ["z end stop"]
+  - id: p9-leds
+    video: dmNwxUm4oik
+    start: 297
+    end: 1150
+    chapter: 10-wiring.md
+    steps: "10.35-10.38"
+    covers: Chamber LED strips installed and routed to the breakout board along the rear extrusion
+    keywords:
+      "10.38": ["along the back", "little extrusion"]
+  - id: p9-led-strip
+    video: dmNwxUm4oik
+    start: 2719
+    end: 2876
+    chapter: 10-wiring.md
+    steps: "10.36"
+    covers: The LED strip itself, and how its length is specified
+    max_confidence: med
+  - id: p9-trunking
+    video: dmNwxUm4oik
+    start: 2876
+    end: 3320
+    chapter: 10-wiring.md
+    steps: "10.68, 10.71"
+    covers: Cable trunking below deck — everything dressed into the ducts
+    max_confidence: med
+  - id: p9-chamber-sensor
+    video: dmNwxUm4oik
+    start: 5738
+    end: 5973
+    chapter: 10-wiring.md
+    steps: "10.39"
+    covers: Chamber temperature sensor, and where it should and should not go
+    keywords:
+      "10.39": ["chamber temp sensor", "best placement"]
+  - id: p4-z-chain
+    video: ViB5Ulc9zDI
+    start: 6230
+    end: 6985
+    chapter: 10-wiring.md
+    steps: "10.62-10.64"
+    covers: Z cable-chain mount fitted to the frame
+    keywords:
+      "10.62": ["cable chain"]
+  - id: p11-continuity
+    video: D_44fDp9xt8
+    start: 2581
+    end: 2769
+    chapter: 10-wiring.md
+    steps: "10.79"
+    covers: Continuity-testing a harness before trusting it
+    max_confidence: med
+  - id: p11-toolhead-wiring
+    video: D_44fDp9xt8
+    start: 7160
+    end: 8500
+    chapter: 10-wiring.md
+    steps: "10.54-10.57"
+    covers: Toolhead end wired — 5 V and ground pushed into the connector one pin at a time
+    differs: [nitehawk]
+    max_confidence: med
+    keywords:
+      "10.55": ["5 volts and ground"]
+  - id: p11-pull-wires
+    video: D_44fDp9xt8
+    start: 8290
+    end: 11429
+    chapter: 10-wiring.md
+    steps: "10.65, 10.66, 10.69"
+    covers: The long job — pulling the whole loom through every chain and landing it on the board
+    differs: [nitehawk]
+    max_confidence: med
+    keywords:
+      "10.65": ["all of our wires here"]
+      "10.66": ["through all the chains"]
+
+  # ------------------------------------------- Ch 11 — skirts, panels, door
+  - id: p1-bottom-clips
+    video: feTxcc0LIWM
+    start: 6351
+    end: 6900
+    chapter: 11-skirts-panels-door.md
+    steps: "11.20, 11.21"
+    covers: Bottom panel clips, and why he abandons the supplied sealing approach
+    max_confidence: med
+  - id: p5-skirts
+    video: hTKCBrk36R0
+    start: 15400
+    end: 16600
+    chapter: 11-skirts-panels-door.md
+    steps: "11.1, 11.2, 11.12-11.17"
+    covers: Skirt segments dry-fitted and mounted — the wrench-access holes, and mirroring the parts
+    keywords:
+      "11.1": ["these skirts", "wrench access"]
+      "11.12": ["they can be mirrored"]
+  - id: p5-deck-supports
+    video: hTKCBrk36R0
+    start: 18300
+    end: 18500
+    chapter: 11-skirts-panels-door.md
+    steps: "11.14"
+    covers: Deck support / cable management pieces along the rear
+    max_confidence: med
+    keywords:
+      "11.14": ["deck supports", "cable management"]
+  - id: p6-deck-accent
+    video: 8pWoYkY1DiA
+    start: 6141
+    end: 6392
+    chapter: 11-skirts-panels-door.md
+    steps: "11.14"
+    covers: Rear deck accent parts fitted over the chains
+    keywords:
+      "11.14": ["these chains", "put this piece on"]
+  - id: p9-rear-panel
+    video: dmNwxUm4oik
+    start: 10429
+    end: 11095
+    chapter: 11-skirts-panels-door.md
+    steps: "11.52, 11.53, 11.55"
+    covers: Back panel foam-taped and hung, with the four-corner T-nut routine
+    keywords:
+      "11.53": ["one corner"]
+  - id: p9-spool
+    video: dmNwxUm4oik
+    start: 11095
+    end: 11732
+    chapter: 11-skirts-panels-door.md
+    steps: "11.42, 11.43"
+    covers: Spool holder arm and its PTFE tube guide
+    keywords:
+      "11.43": ["for the spool holder", "ptfe tube"]
+      "11.42": ["ptfe tubing here"]
+  - id: p9-top-panel
+    video: dmNwxUm4oik
+    start: 11732
+    end: 11880
+    chapter: 11-skirts-panels-door.md
+    steps: "11.59"
+    covers: Top panel on
+    max_confidence: med
+  - id: p9-side-panels
+    video: dmNwxUm4oik
+    start: 11880
+    end: 13840
+    chapter: 11-skirts-panels-door.md
+    steps: "11.56-11.58"
+    covers: Side panels — peeling the film, foam tape, and working across the panel by hand
+    keywords:
+      "11.56": ["pull and just work my way across"]
+  - id: p9-panel-clips
+    video: dmNwxUm4oik
+    start: 13840
+    end: 15491
+    chapter: 11-skirts-panels-door.md
+    steps: "11.53, 11.65"
+    covers: Panel clips and the screw lengths — 8 mm M3 for 4 mm panels, 12 mm for 6 mm
+    keywords:
+      "11.53": ["four millimeter panel", "eight millimeter m3"]
+  - id: p9-doors
+    video: dmNwxUm4oik
+    start: 15491
+    end: 17000
+    chapter: 11-skirts-panels-door.md
+    steps: "11.62-11.64"
+    covers: Door hinges, handles and getting the door to sit flush
+    differs: [door]
+    max_confidence: med
+    keywords:
+      "11.64": ["push the door handles"]
+  - id: p10-exhaust-wire
+    video: 0aPi1rBwDC0
+    start: 397
+    end: 489
+    chapter: 11-skirts-panels-door.md
+    steps: "11.54"
+    covers: Running the wire for the rear exhaust fan
+    keywords:
+      "11.54": ["rear exhaust fan"]
+  - id: p10-handles
+    video: 0aPi1rBwDC0
+    start: 489
+    end: 780
+    chapter: 11-skirts-panels-door.md
+    steps: "11.60"
+    covers: The die-cast aluminium handlebars
+    max_confidence: med
+  - id: p10-bottom-panel
+    video: 0aPi1rBwDC0
+    start: 780
+    end: 845
+    chapter: 11-skirts-panels-door.md
+    steps: "11.21"
+    covers: Bottom panel fitted
+    max_confidence: med
+  - id: p10-filter-parts
+    video: 0aPi1rBwDC0
+    start: 7484
+    end: 9982
+    chapter: 11-skirts-panels-door.md
+    steps: "11.26-11.33"
+    covers: Nevermore parts broken out, heat-set, the 5015s modified and soldered to the bridge PCB
+    keywords:
+      "11.28": ["heat sets into a fan", "the inserts"]
+      "11.27": ["16 millimeter button heads"]
+      "11.33": ["the solder joints"]
+  - id: p10-filter-wiring
+    video: 0aPi1rBwDC0
+    start: 9982
+    end: 10935
+    chapter: 11-skirts-panels-door.md
+    steps: "11.40"
+    covers: Filter fan wiring and heat-shrink
+    keywords:
+      "11.40": ["nevermoor v5", "air circulation"]
+  - id: p10-magnets
+    video: 0aPi1rBwDC0
+    start: 10935
+    end: 11305
+    chapter: 11-skirts-panels-door.md
+    steps: "11.34, 11.36"
+    covers: Gluing the plenum and cartridge magnets, activated with accelerator
+    keywords:
+      "11.34": ["super glue", "activate it"]
+  - id: p10-brackets
+    video: 0aPi1rBwDC0
+    start: 11305
+    end: 12335
+    chapter: 11-skirts-panels-door.md
+    steps: "11.38, 11.39"
+    covers: Custom brackets for mounting the filter in the chamber
+    max_confidence: med
+  - id: p11-front-cover
+    video: D_44fDp9xt8
+    start: 4831
+    end: 5671
+    chapter: 11-skirts-panels-door.md
+    steps: "11.51"
+    covers: Front opening cover and its seal
+    max_confidence: med
+
+  # -------------------------------------------------------- Ch 12 — software
+  - id: p8-wifi
+    video: Q3Q1szaFfSE
+    start: 8700
+    end: 9200
+    chapter: 12-software.md
+    steps: "12.1, 12.3"
+    covers: Raspberry Pi Imager, and pre-seeding the Wi-Fi credentials
+    keywords:
+      "12.3": ["pi imager installed"]
+  - id: p8-sd
+    video: Q3Q1szaFfSE
+    start: 9200
+    end: 9700
+    chapter: 12-software.md
+    steps: "12.2, 12.4"
+    covers: Writing the card and the first boot
+    max_confidence: med
+    keywords:
+      "12.2": ["the sd card"]
+  - id: p9-firmware
+    video: dmNwxUm4oik
+    start: 3643
+    end: 3913
+    chapter: 12-software.md
+    steps: "12.14, 12.17"
+    covers: Building and flashing the mainboard firmware
+    differs: [octopus]
+    max_confidence: med
+  - id: p9-winscp
+    video: dmNwxUm4oik
+    start: 3913
+    end: 4948
+    chapter: 12-software.md
+    steps: "12.5, 12.21, 12.22"
+    covers: Getting a config onto the Pi, and the several ways to do it
+    keywords:
+      "12.5": ["many ways to do all of these"]
+  - id: p9-z-settings
+    video: dmNwxUm4oik
+    start: 4948
+    end: 5100
+    chapter: 12-software.md
+    steps: "12.25"
+    covers: Z stepper settings in printer.cfg
+    max_confidence: med
+  - id: p9-qgl-cfg
+    video: dmNwxUm4oik
+    start: 5100
+    end: 5400
+    chapter: 12-software.md
+    steps: "12.26, 12.33"
+    covers: '"Here''s an important part" — every quad_gantry_level setting checked and uncommented'
+    keywords:
+      "12.26": ["quad gantry level", "checked and uncommented"]
+  - id: p9-printer-cfg
+    video: dmNwxUm4oik
+    start: 9340
+    end: 10140
+    chapter: 12-software.md
+    steps: "12.21-12.24"
+    covers: Walking the whole printer.cfg LDO ships with the kit
+    differs: [octopus]
+    max_confidence: med
+    keywords:
+      "12.21": ["as ldo provided in the kit"]
+  - id: p10-mcu-update
+    video: 0aPi1rBwDC0
+    start: 845
+    end: 2381
+    chapter: 12-software.md
+    steps: "12.6, 12.12, 12.15"
+    covers: Updating Klipper and re-flashing the MCU; finding the device id the flash script needs
+    differs: [octopus]
+    max_confidence: med
+    keywords:
+      "12.12": ["the device id"]
+      "12.6": ["update finished"]
+  - id: p10-build-mcu
+    video: 0aPi1rBwDC0
+    start: 2730
+    end: 2903
+    chapter: 12-software.md
+    steps: "12.14"
+    covers: Building the microcontroller code from source
+    differs: [octopus]
+    max_confidence: med
+  - id: p10-sample-cfg
+    video: 0aPi1rBwDC0
+    start: 2903
+    end: 3930
+    chapter: 12-software.md
+    steps: "12.22, 12.23, 12.35"
+    covers: The sample config, and what to change in it before the first move
+    max_confidence: med
+  - id: p10-pip
+    video: 0aPi1rBwDC0
+    start: 5115
+    end: 5838
+    chapter: 12-software.md
+    steps: "12.8"
+    covers: Installing the extra Python packages the resonance tooling needs
+    keywords:
+      "12.8": ["finish the installation", "additional commands"]
+  - id: p10-fan-cfg
+    video: 0aPi1rBwDC0
+    start: 14300
+    end: 14900
+    chapter: 12-software.md
+    steps: "12.32"
+    covers: heater_fan vs temperature_fan, and which one you actually want
+    keywords:
+      "12.32": ["temperature fan", "heater fan"]
+  - id: p11-klipper-cfg
+    video: D_44fDp9xt8
+    start: 11429
+    end: 12030
+    chapter: 12-software.md
+    steps: "12.29"
+    covers: Klipper config for the probe — just enough to make it move
+    differs: [euclid]
+    max_confidence: med
+  - id: p11-dock
+    video: D_44fDp9xt8
+    start: 12294
+    end: 13445
+    chapter: 12-software.md
+    steps: "12.29"
+    covers: Klicky dock location variables and slowing the macro moves down to watch them
+    differs: [euclid]
+    max_confidence: med
+    keywords:
+      "12.29": ["let's slow this down"]
+
+  # ------------------------------------------------- Ch 13 — initial startup
+  - id: p9-stepper-buzz
+    video: dmNwxUm4oik
+    start: 5973
+    end: 6900
+    chapter: 13-initial-startup.md
+    steps: "13.13-13.16"
+    covers: STEPPER_BUZZ on every motor — and why a single A or B buzz always moves diagonally
+    keywords:
+      "13.14": ["always diagonal", "single stepper movements"]
+      "13.13": ["the z steppers"]
+  - id: p9-invert-stepper
+    video: dmNwxUm4oik
+    start: 8600
+    end: 8760
+    chapter: 13-initial-startup.md
+    steps: "13.16"
+    covers: What to change when a motor turns the wrong way — swapped axis vs. inverted direction
+    keywords:
+      "13.16": ["invert stepper", "if it's swapped"]
+  - id: p9-heaters
+    video: dmNwxUm4oik
+    start: 5760
+    end: 5980
+    chapter: 13-initial-startup.md
+    steps: "13.7, 13.8"
+    covers: First heat — bed warming and checking the hotend fan blows the right way
+    keywords:
+      "13.8": ["the bed heater is warming up"]
+  - id: p9-pid
+    video: dmNwxUm4oik
+    start: 6646
+    end: 6815
+    chapter: 13-initial-startup.md
+    steps: "13.29, 13.30"
+    covers: PID calibrating the heaters
+    max_confidence: med
+  - id: p9-qgl-run
+    video: dmNwxUm4oik
+    start: 10140
+    end: 10429
+    chapter: 13-initial-startup.md
+    steps: "13.27, 13.33"
+    covers: '"A homed printer, let''s do QGL" — first successful quad gantry level, no drama'
+    keywords:
+      "13.33": ["let's do qgl", "we have a homed printer"]
+  - id: p9-first-print
+    video: dmNwxUm4oik
+    start: 19000
+    end: 19500
+    chapter: 13-initial-startup.md
+    steps: "13.41, 13.42"
+    covers: First print sliced and started
+    max_confidence: med
+  - id: p11-restart
+    video: D_44fDp9xt8
+    start: 12030
+    end: 12294
+    chapter: 13-initial-startup.md
+    steps: "13.4"
+    covers: FIRMWARE_RESTART and reconnecting after a config change
+    max_confidence: med
+  - id: p11-zcal
+    video: D_44fDp9xt8
+    start: 13445
+    end: 14340
+    chapter: 13-initial-startup.md
+    steps: "13.36, 13.37"
+    covers: Z endstop offset explained — from the probe to the bed — and calibrating it
+    differs: [euclid]
+    max_confidence: med
+    keywords:
+      "13.36": ["z end stop offset", "from the probe to your bed"]
+
+  # --------------------------------------------------- Ch 14 — calibration
+  - id: p9-rotation
+    video: dmNwxUm4oik
+    start: 19400
+    end: 19800
+    chapter: 14-calibration.md
+    steps: "14.7"
+    covers: Marking the filament at 150 mm for the extruder rotation-distance check
+    keywords:
+      "14.7": ["mark on the filament", "150 millimeters"]
+  - id: p10-shaper-kit
+    video: 0aPi1rBwDC0
+    start: 2381
+    end: 2730
+    chapter: 14-calibration.md
+    steps: "14.12"
+    covers: The input-shaper toolkit and the measuring-resonances docs
+    keywords:
+      "14.12": ["measuring resonances"]
+  - id: p10-adxl
+    video: 0aPi1rBwDC0
+    start: 3930
+    end: 4559
+    chapter: 14-calibration.md
+    steps: "14.12"
+    covers: ADXL sensor mounted and its ribbon cable connected — where LDO wants it vs. where he puts it
+    keywords:
+      "14.12": ["the ribbon cable"]
+  - id: p10-axis-noise
+    video: 0aPi1rBwDC0
+    start: 4559
+    end: 5115
+    chapter: 14-calibration.md
+    steps: "14.13, 14.14"
+    covers: Measuring axis noise first, then the resonance runs and reading the numbers
+    keywords:
+      "14.13": ["a qgl might have been a good idea"]
+  - id: p10-resonance
+    video: 0aPi1rBwDC0
+    start: 6400
+    end: 7484
+    chapter: 14-calibration.md
+    steps: "14.13, 14.15"
+    covers: Running the resonance test, then max-acceleration testing and auto-calibration
+    keywords:
+      "14.13": ["a resonance test", "quad gantry level is qgl"]
+      "14.15": ["max acceleration testing", "input shaper auto calibration"]
+  - id: p11-z-calibrate
+    video: D_44fDp9xt8
+    start: 14947
+    end: 15404
+    chapter: 14-calibration.md
+    steps: "14.6"
+    covers: Final Z calibrate pass
+    differs: [euclid]
+    max_confidence: med
