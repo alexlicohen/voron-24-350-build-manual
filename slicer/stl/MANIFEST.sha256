@@ -12,8 +12,12 @@
 #   whopping   tanaes/whopping_Voron_mods @ main = 62268ed817878e54d6a1186882060aa8368d4f0f
 # Printables (file ids in slicer/plates.py PRINTABLES; the file id is the pin):
 #   bayducts   printables.com/model/502306 -> bayducts/mss/502306/
-# Committed in git, hashed only: bayducts/remix/
+# Committed in git, hashed only: bayducts/remix/, addons/scrubber-796563/
 
+77e7d49c1b63ff173b87ee155ee4fa96f4dc72d94cdfd0e24b8a0272c86afb5b  ../addons/scrubber-796563/brush_bracket_L1.5_MIRROR.stl
+2988befa85b17d666f96a4652045dbc44632446a879ea00b98ddd380489d9b28  ../addons/scrubber-796563/bucket350_T1.5_MIRROR.stl
+64c88c0a3bc9dda1bc6bcfc9f958f10b1b4e32f413ab20ecb1c58e22a790fb9c  ../addons/scrubber-796563/source/10mm Bed.stp
+57ffc8fbc021551602086518395b9f2873995ba8be616c7d753f7426d37b635d  ../addons/scrubber-796563/stop_bracket.stl
 dba3eabf448a0ff7c961661d4cf4024c193a4a67ad5f31a1773290fa0f430436  bayducts/mss/502306/CMD_Remix-V3_DUCT-1M_ENDCAP.stl
 7b2bbc653c1a93f88b5f999941e63604e3dada2bee60f21393c988791cde8522  bayducts/mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl
 887d50566c8eabd9cd820528155904ada8702c03b163252ea6a5da741b7db986  bayducts/mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl

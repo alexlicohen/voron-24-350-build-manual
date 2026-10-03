@@ -48,7 +48,9 @@ L and T round up to 0.5 mm (0 = stock). The printout also gives the two inspecti
 The committed STLs are the generator's **default**, `remix.py --defaults`, for the expected numbers
 (H 20.05 from the author's LDO 10 mm assembly, official wiper w 3.85, d 0.6, O 4.5): L 1.5, T 1.5, sheet
 stops fitted. They exist so the pipeline and the print estimate can be checked; print them only if the
-Step 13.47 printout names exactly these files.
+Step 13.47 printout names exactly these files. `slicer/stl/MANIFEST.sha256` pins them and `source/10mm Bed.stp`
+(`slicer/plates.py` `ADDONS`); `python3 slicer/fetch_stls.py --verify` fails if any of the four changes.
+`remix.py --defaults` is byte-reproducible, so regenerating them must leave `--verify` green.
 
 | File | Change from the author's part | Qty |
 |---|---|---:|

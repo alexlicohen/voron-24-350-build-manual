@@ -26,7 +26,7 @@ file exist and they are not the same file:
   inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
   reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
 - `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
-  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.10 (2026-09-17): Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks; the CORE One HF0.4 printer, its start G-code, Prusament ASA and Prusament PETG V0 are untouched, so the update is safe to take.
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.11 (2026-10-02, HT hotend support for the CORE One/L; 2.5.10 on 2026-09-17 added Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks). Resolved through `inherits`, the CORE One HF0.4 printer, its start G-code, the 0.20mm STRUCTURAL print, Prusament ASA and Prusament PETG V0 carry the same values in both; 2.5.11 only rewrites Prusament ASA's compatibility conditions to keep it off HT-hotend profiles, and it still matches the HF0.4 printer. The update is safe to take.
 
 They differ on one key that reaches these plates: 2.5.8+'s CORE One `start_gcode` bumps the firmware
 check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be

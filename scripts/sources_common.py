@@ -280,10 +280,12 @@ def printables_fingerprint(print_id, timeout=30):
 
 def printables_diff(pin, current):
     """Human-readable differences between a stored `printables:` pin and a fresh
-    fingerprint; empty list = unchanged."""
+    fingerprint; empty list = unchanged. With `watch_only: true` the pin lists only the
+    files the build uses, and other files on the page are ignored."""
     diffs = []
     old_files, new_files = pin.get("files") or {}, current["files"]
-    for name in sorted(set(old_files) | set(new_files)):
+    names = set(old_files) if pin.get("watch_only") else set(old_files) | set(new_files)
+    for name in sorted(names):
         a, b = old_files.get(name), new_files.get(name)
         if a is None:
             diffs.append(f"file added: {name!r} (id {b['id']}, {b['size']} B)")

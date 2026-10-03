@@ -43,6 +43,12 @@ EXTRA_SOURCES = [
     # Printables answers plain fetches with 403; this entry's `printables:` pin (file ids,
     # sizes, macro hash) is checked through the GraphQL API by sources_verify.py.
     {
+        "id": "printables-502306-cable-duct-remix",
+        "url": "https://www.printables.com/model/502306",
+        "kind": "community",
+        "title": "Remix of RyanDam's Cable Management Duct for Voron Printers Version 3.2",
+    },
+    {
         "id": "printables-796563-nozzle-scrubber",
         "url": "https://www.printables.com/model/796563",
         "kind": "community",

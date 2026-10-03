@@ -10,8 +10,9 @@ Three kinds of source (slicer/plates.py):
   PRINTABLES  B11's stock MSS pieces: Printables' GraphQL `getDownloadLink` for one file
               id (the id is the pin; a re-upload gets a new one). Needs a browser UA and
               the printables.com origin/referer, or the API refuses.
-  TRACKED     files committed under slicer/stl/ (B11's remixes): hashed, never downloaded.
-              --verify fails if one has changed since the manifest was written.
+  TRACKED     committed files (B11's remixes under slicer/stl/; the scrubber add-on's source
+              STEP and default STLs under slicer/addons/, plates.py ROOTS/ADDONS): hashed,
+              never downloaded. --verify fails if one has changed since the manifest was written.
 
     python3 slicer/fetch_stls.py            # fetch what is missing/changed
     python3 slicer/fetch_stls.py --verify   # check only, exit 1 on mismatch

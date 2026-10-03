@@ -55,7 +55,20 @@ PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
     ("bayducts", "mss/502306/CMD_V3_1H_WIRE_BOX.stl"): ("502306", "5252449"),
 }
 # Committed sources: (repo, path prefix). fetch_stls.py hashes them and never downloads.
-TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"),)
+TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scrubber-796563/"))
+
+# Committed files that live outside slicer/stl/: repo key -> folder relative to slicer/stl/.
+ROOTS: dict[str, str] = {"addons": "../addons"}
+
+# Pinned but on no plate: the nozzle-scrubber add-on (Ch 13 Part L), printed only after its
+# decision step. Listed here so MANIFEST.sha256 pins the author's STEP and the generator's
+# default set; nothing else reads it (it is not in PLATES, so no bin, plate, estimate or total).
+ADDONS: tuple[tuple[str, str], ...] = (
+    ("addons", "scrubber-796563/source/10mm Bed.stp"),
+    ("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
+    ("addons", "scrubber-796563/bucket350_T1.5_MIRROR.stl"),
+    ("addons", "scrubber-796563/stop_bracket.stl"),
+)
 
 # Print orientation for files that are not drawn print-ready (MSS keeps the parent's
 # frame: duct, box and curve bodies sit base-UP, lids base-down). build_plates.source_stl
@@ -417,12 +430,15 @@ MODEL_ESTIMATE: dict[str, tuple[float, int]] = {
 
 def all_sources() -> list[tuple[str, str]]:
     """Every (repo_key, path) referenced by any plate, plus the Printables files kept
-    for B11's fallback and regeneration path, deduplicated."""
+    for B11's fallback and regeneration path and the add-on files in ADDONS, deduplicated.
+    Only fetch_stls.py reads this; plate, bin and total code reads PLATES."""
     seen: dict[tuple[str, str], None] = {}
     for plate in PLATES.values():
         for repo, path, _qty in plate["parts"]:
             seen[(repo, path)] = None
     for key in PRINTABLES:
+        seen[key] = None
+    for key in ADDONS:
         seen[key] = None
     return sorted(seen)
 
@@ -433,5 +449,5 @@ def run_of(plate_id: str) -> str:
 
 
 def local_path(repo: str, path: str) -> str:
-    """Where fetch_stls.py puts one source file, relative to slicer/stl/."""
-    return f"{repo}/{path}"
+    """Where fetch_stls.py finds or puts one source file, relative to slicer/stl/."""
+    return f"{ROOTS.get(repo, repo)}/{path}"

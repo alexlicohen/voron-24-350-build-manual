@@ -49,13 +49,17 @@ def check_printables(s, write=False):
     diffs = sc.printables_diff(pin, current) + sc.printables_local_check(pin)
     if not diffs:
         n = len(current["files"])
-        return "OK", [f"OK {tag} {n} files, macro {current['macro_rev']} "
-                      f"{(current['macro_sha256'] or '-')[:12]}"]
+        files = (f"{len(pin['files'])} watched of {n} files" if pin.get("watch_only")
+                 else f"{n} files")
+        macro = (f", macro {current['macro_rev']} {current['macro_sha256'][:12]}"
+                 if current["macro_sha256"] else "")
+        return "OK", [f"OK {tag} {files}{macro}"]
     lines = [f"CHANGED {tag} ({s['url']})"] + [f"    {d}" for d in diffs]
     if pin.get("on_change"):
         lines.append(f"    re-check: {pin['on_change']}")
     if write:
-        pin["files"] = current["files"]
+        pin["files"] = ({n: current["files"][n] for n in pin["files"] if n in current["files"]}
+                        if pin.get("watch_only") else current["files"])
         pin["macro_sha256"] = current["macro_sha256"]
         pin["macro_rev"] = current["macro_rev"]
     return "CHANGED", lines
