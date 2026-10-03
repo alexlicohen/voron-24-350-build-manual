@@ -61,13 +61,19 @@ TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scru
 ROOTS: dict[str, str] = {"addons": "../addons"}
 
 # Pinned but on no plate: the nozzle-scrubber add-on (Ch 13 Part L), printed only after its
-# decision step. Listed here so MANIFEST.sha256 pins the author's STEP and the generator's
-# default set; nothing else reads it (it is not in PLATES, so no bin, plate, estimate or total).
+# decision step, and the chamber-exhaust add-on (Ch 14 Part H, slicer/addons/exhaust-voron2/),
+# the stock Voron housing set at the pinned Voron-2 commit, printed only after Step 14.25.
+# Listed here so MANIFEST.sha256 pins them; nothing else reads it (they are not in PLATES, so
+# no bin, plate, estimate or total). exhaust_filter_grill.stl is already pinned through B09-P3.
 ADDONS: tuple[tuple[str, str], ...] = (
     ("addons", "scrubber-796563/source/10mm Bed.stp"),
     ("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
     ("addons", "scrubber-796563/bucket350_T1.5_MIRROR.stl"),
     ("addons", "scrubber-796563/stop_bracket.stl"),
+    ("voron2", "STLs/Exhaust_Filter/exhaust_filter_housing.stl"),
+    ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl"),
+    ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl"),
+    ("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl"),
 )
 
 # Print orientation for files that are not drawn print-ready (MSS keeps the parent's

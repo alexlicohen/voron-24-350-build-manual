@@ -597,7 +597,9 @@ support you push out**. ([Nevermore README](https://github.com/nevermore3d/Never
 
 **Exhaust:** you are *not* building the Voron exhaust filter (76 g, 4.5 h saved). LDO: *"print this exhaust cover
 with the stock exhaust grill to seal the back panel"* — that is `exhaust_cover.stl` (LDO) + `exhaust_filter_grill.stl`
-(Voron). Skip `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`.
+(Voron). Skip `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. They come back
+only with the optional chamber exhaust fan (added 2026-10-03, Ch 14 Part H): an add-on print outside the plates,
+made after Step 14.25 has checked the machine — 101 g, 7.1 h in two jobs, `slicer/addons/exhaust-voron2/`.
 
 ---
 
@@ -834,7 +836,7 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 | `raspberrypi_bracket.stl`, `beefy_raspberry_bracket.stl` | Leviathan has an integrated Pi mount (Rev D) |
 | `rs25_psu_bracket.stl` | No 5 V PSU in this kit |
 | `mini12864_case_front/rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield` | BTT touchscreen replaces the mini12864 module |
-| `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` | Nevermore replaces the stock exhaust filter; kit has no fan for it |
+| `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` | Nevermore replaces the stock exhaust filter; kit has no fan for it. Printed later only for the optional Ch 14 Part H exhaust fan, outside every batch |
 | `door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`, LDO `LDO Door/*` | Clicky-Clack replaces the stock doors |
 | `power_inlet_IECGS_1.2mm`, `power_inlet_filtered`, `plug_panel_1.2mm` | Kit ships the 1.0 mm inlet |
 | `xy_joint_*_MGN9`, `x_carriage_*_MGN9`, `[a]_belt_clamp_MGN9_x2` (Superceded) | X axis is MGN12 |

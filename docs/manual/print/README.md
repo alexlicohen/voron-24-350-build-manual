@@ -277,10 +277,19 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 | add-on | parts | hours | g ASA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
 | Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
+| Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 7.1 | 101 | smooth | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
 
-**Not printed ahead.** The parts are generated from this machine's measurements at
+**The scrubber is not printed ahead.** Its parts are generated from this machine's measurements at
 [Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
 after kit day; that step can also say no-go. Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, no supports;
 it comes out of the black spare, not the ledger above. Hours and grams are the default set's PrusaSlicer 2.9.6
 CLI estimate, not GUI-arranged. Also needs one Bambu A1 nozzle wiper (Ch 00 Step 00.8), in hand before
 Step 13.45 measures it.
+
+**The exhaust housing** is the stock Voron part set, unchanged, fetched from the pinned Voron-2 commit by
+`python3 slicer/fetch_stls.py`. It is printed only after
+[Ch 14 Step 14.25](../14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought)
+has checked the back of the machine, as two jobs: the housing in Galaxy Black with `slicer/voron-coreone-asa.ini`
+(66 g, 5 h 03 m), then the fan grill, access cover and two mounts in the blue accent with
+`slicer/voron-accent-blue.ini` (35 g, 2 h 04 m). As oriented, no supports, smooth sheet; PrusaSlicer 2.9.6 CLI
+estimates, not GUI-arranged. The grams come out of the spares, not the ledger above.

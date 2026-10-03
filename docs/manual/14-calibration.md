@@ -2,16 +2,16 @@
 
 Takes a machine that homes, probes, levels, is squared cold and has printed its first cube (Ch 13), now closed in by Ch 11 Part B, and turns it into a machine that prints Voron-quality ASA: belts at final tension, the gantry's Z joints locked at working temperature, extruder refined, input shaper set, pressure advance and flow dialled in, and that cube calipered against the Prusa-printed reference.
 
-**What you're building in this chapter.** Nothing mechanical is added; six calibration items are measured and written down. **Belt tension** is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its first real **heat soak**, QGL is run until it settles, and the four **Z joint** bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The **extruder** value measured in Ch 13 is re-checked. **Input shaping** uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. **Pressure advance** compensates for the lag between the extruder and the nozzle at corners, and **extrusion multiplier** scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the **chamber**: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable.
+**What you're building in this chapter.** Nothing mechanical is added; six calibration items are measured and written down. **Belt tension** is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its first real **heat soak**, QGL is run until it settles, and the four **Z joint** bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The **extruder** value measured in Ch 13 is re-checked. **Input shaping** uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. **Pressure advance** compensates for the lag between the extruder and the nozzle at corners, and **extrusion multiplier** scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the **chamber**: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable. Part H is an optional add-on: the stock Voron **exhaust housing** on the back panel, its fan driven by the chamber thermistor, so PLA and PETG print under a 35–40 °C ceiling while ASA keeps its closed chamber.
 
 ```mascot
 pose: pass
 caption: Here the kit becomes a printer. I brought a caliper. Feelings are not evidence. My opinions nearly are.
 ```
 
-**Time:** 2.5–4.0 h hands-on (survey §7.2), spread over ~8–10 h wall-clock. Most of the wall-clock is the 1½–2 h closed-chamber soak at Step 14.6, the shorter soaks (~30 min each) and four test prints.
+**Time:** 2.5–4.0 h hands-on (survey §7.2), spread over ~8–10 h wall-clock. Most of the wall-clock is the 1½–2 h closed-chamber soak at Step 14.6, the shorter soaks (~30 min each) and four test prints. The optional exhaust add-on (Part H) adds ~3.5 h hands-on, plus ~7 h of Core One+ printing made after its first step passes, a ~1 h chamber soak and a ~1 h PLA print.
 
-**Sessions:** 14 × ~30 min hands-on (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
+**Sessions:** 14 × ~30 min hands-on, 20 with Part H (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
 
 **Prerequisites:**
 
@@ -21,7 +21,8 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - **Ch 11 Part B — Panels and the Clicky-Clack door**, on. The chamber has to close: Step 14.6's soak, Step 14.8 and Checkpoint 14 all gate on a closed chamber.
 - **Ch 12 — Software.** `[bed_mesh]` added at Step 12.34, `PRINT_START` replaced at Step 12.36 (survey §4.4 #15).
 - **Batch B00.** The Prusa-printed `Voron_Design_Cube_v7` in Prusament ASA Galaxy Black, kept as the reference coupon ([B00 step B00.6](print/B00-calibration-and-jigs.md)). You need it in hand at step 14.11.
-- **Printed parts: none.** Everything this chapter prints, it prints on the Voron.
+- **Printed parts: none** for Parts A–G; everything they print, they print on the Voron. Part H prints its own five parts on the Core One+ at Step 14.26, after Step 14.25 has checked the machine.
+- **Part H only:** the Step 00.8 exhaust row (a 24 V 6020 fan, a 1 m JST-XH extension, carbon filter mat), bought after Step 14.25 passes.
 - A spool of Prusament ASA in the dryer, warm and loaded (survey §7.3).
 
 **Tools**
@@ -33,23 +34,29 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - Hex 2.5 mm (A/B front tensioners, M3×40; Z idler tensioners, M3×16) and a ball-end hex 4 mm (the four Z joint M5×40 bolts, Step 14.6 — the rear pair are reached at an angle from the door)
 - 150 mm machinist square (the hot re-square check at Step 14.6 — the same one as Ch 06b)
 - Laptop or tablet on the Mainsail console, with `M112` typed and unsent in a second window for the shaper run at Step 14.13 (Ch 13 Tools)
+- Part H only: string, scissors, 3 mm hex key, the soldering iron with the LDO insert tip, and the multimeter
 
 **Printed parts**
 
 
 | STL | Qty | Colour |
 |---|---|---|
-| — none — | 0 | — |
+| Exhaust housing, Part H only, printed at Step 14.26 | 1 | Black |
+| Exhaust fan grill, access cover and two filter mounts, Part H only, printed at Step 14.26 | 1, 1, 2 | Blue |
 
 **Hardware** (chapter totals)
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| M3×8 SHCS | 2 | the nameplate, Step 14.24 |
+| M3×8 SHCS | 4: 2 nameplate + 2 exhaust | the nameplate, Step 14.24; Part H's access cover, Step 14.28 |
 | M3 roll-in T-nut | 2 | the nameplate, Step 14.24 |
-| — turned, not added — | 0 | Nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
+| M3 heat-set insert, brass M3×5×4 | 8 | Part H only: the exhaust housing, Step 14.27 |
+| M3×30 SHCS | 4 | Part H only: the exhaust fan and its grill, Step 14.28 |
+| M5 roll-in T-nut | 2 | Part H only: the filter mounts, Step 14.29 |
+| M5×10 BHCS | 2 | Part H only: the filter mounts, Step 14.29 |
+| — turned, not added — | 0 | Outside Part H, nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
-**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate.
+**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit, ~50 g PLA, and ~100 g ASA on the Core One+.
 
 **Read first**
 
@@ -66,6 +73,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) at commit `667521d` — the line ranges each tuning step reads or edits
 - [Voron 2.4r2 Assembly Manual p.125](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=125) — the belt step that gives no frequency, which is why step 14.4 exists
 - [Ellis' Print Tuning Guide](https://ellis3dp.com/Print-Tuning-Guide/) and the [Pressure/Linear Advance tool](https://ellis3dp.com/Pressure_Linear_Advance_Tool/) — **linked only.** The guide publishes no licence, so nothing from it is copied, quoted at length or mirrored here; every reference is a link out
+- Part H: [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter) and manual p.250–256 for the housing; [Voron docs — Chamber Temperature & Exhaust Fan](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md) for the pattern; Klipper [`temperature_fan`](https://www.klipper3d.org/Config_Reference.html#temperature_fan) and [`temperature_combined`](https://www.klipper3d.org/Config_Reference.html#combined-temperature-sensor); the design record `review/2026-10-03-exhaust/DESIGN.md`
 - [E3D Revo 60 W heatercore / 104NT thermistor](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore) — the 270 °C `max_temp` question in step 14.2
 - Step images mirrored into `assets/remote/14-calibration/` from [Voron-Documentation](https://github.com/VoronDesign/Voron-Documentation/tree/36b876b) and [Klipper](https://github.com/Klipper3d/klipper/tree/f0892d8/docs/img), both GPL-3.0 — see that folder's `SOURCES.txt`
 
@@ -1044,6 +1052,467 @@ Source: [Voron docs — About § Serial Numbers](https://docs.vorondesign.com/ab
 
 ---
 
+## Part H — Add-on: chamber exhaust fan
+
+This part is optional. It fits the stock Voron exhaust housing over the back panel's exhaust notch, in place of the cover Ch 11 sealed it with, and lets the chamber thermistor drive its 60 mm fan through Klipper. PLA and PETG then print under a 35–40 °C ceiling; ASA keeps a closed, unvented chamber and the Nevermore. Nothing is cut, and nothing is bought or printed until the first step has checked this machine. The fan takes the Leviathan's FAN0 and a third 24 V jumper: Ch 10's "exactly two jumpers" and "FAN0 empty" describe the machine before this add-on, and stay true for a build without it. Expect a ceiling, not air conditioning: Voron's own tuning notes say PLA may still want the door open.
+
+### Step 14.25 — Inspect the back of the machine before anything is bought
+
+![Voron manual p.256](assets/manual-pages/manual-p256.png)
+
+**What you're looking at:** The stock housing hangs outside the back panel over the exhaust notch, its grill in the notch and two mounts on the top rear extrusion. It stands about 62 mm proud, and its fan lead must reach the electronics bay.
+
+**Parts:**
+
+- tool: steel rule
+- tool: a length of string
+
+**Do:**
+
+1. Machine off: do the exhaust cover and grill fill a notch in the back panel's top edge?
+2. Rule the free depth behind it; string a lead route to FAN0.
+3. Note where the PTFE enters.
+
+**Check:** Every row of the calculator below answered and passing, and the string length written down.
+
+```gate-calc
+id: exhaust-fit
+title: Exhaust add-on — does the stock housing fit this machine
+inputs:
+  - key: notch
+    label: The exhaust cover and grill fill a notch about 147 × 42 mm in the back panel's top edge
+    kind: yesno
+    no: Without the stock notch the housing has nowhere to sit. Stop here; anything else means cutting the panel.
+    why: The housing, its grill and both mounts are drawn for the stock 350 back panel's notch, so they fit without cutting anything.
+  - key: depth
+    label: Free depth behind the back panel at the notch, to the wall or the nearest object (mm)
+    min: 100
+    low: The housing stands about 62 mm proud and its fan blows out of the bottom. Move the machine forward, or stop here.
+    why: A fan blowing at a wall a few millimetres away moves almost no air.
+  - key: slot
+    label: The top rear extrusion's back slot is reachable through the notch for two M5 roll-in T-nuts
+    kind: yesno
+    no: The two mounts hang the housing from that slot. Without it the housing hangs on its tape alone; stop here.
+    why: The mounts carry the housing's weight; the tape only seals it.
+  - key: route
+    label: A lead route from the notch, in through a grill opening and down the inside of the back panel to the Z-chain notch, clear of the bed and the gantry
+    kind: yesno
+    no: Nothing in this part cuts or drills a panel or a printed part to make a route. Stop here.
+    why: The fan sits outside the chamber. Its lead crosses in through the grill and reaches the bay the way the filter-fan lead already does.
+  - key: length
+    label: The string, from the housing's bottom face along that route to the Leviathan's FAN0 (mm)
+    max: 1250
+    high: Longer than the fan's own lead plus a 1 m extension. Buy a 1.5 m extension instead.
+    why: The extension in the Ch 00 buy row is sized for this number.
+  - key: jumper
+    label: The Ch 09 jumper bag still holds the three jumpers Ch 10 did not use
+    kind: yesno
+    no: FAN0 needs one voltage-selection jumper. Get a matching one before the wiring step.
+    why: Ch 09 bagged five jumpers and Ch 10 fitted two.
+pass: The stock housing fits. Order the Ch 00 exhaust row and print the parts.
+```
+
+**Helper:** Holds the string along the route and reads its length off the rule.
+
+⚠ A failing row ends the add-on here. Cutting the back panel or printing a community remix is a different job, decided separately, and nothing below covers it.
+
+Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250) · [Voron-2 `350_Back_Panel.DXF`](https://github.com/VoronDesign/Voron-2/blob/a192410/Drawing_DXFs/Panels/350_Back_Panel.DXF) · [LDO Build Notes p.250–253, p.256](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · `review/2026-10-03-exhaust/DESIGN.md`
+
+---
+
+### Step 14.26 — Print the exhaust parts on the Core One+
+
+(no image — see text)
+
+**What you're looking at:** Four stock Voron parts, printed as two jobs outside the plate run: the housing in black, then the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks.
+
+**Parts:**
+
+- consumable: Galaxy Black ASA, about 70 g
+- consumable: blue accent ASA, about 35 g
+- tool: the Core One+ with the smooth sheet
+
+**Do:**
+
+1. Run `python3 slicer/fetch_stls.py` so the add-on's files are on disk.
+2. In PrusaSlicer 2.9.6, print the housing with `voron-coreone-asa.ini`, as oriented, no supports.
+3. Then print the other three, mounts twice, with `voron-accent-blue.ini`.
+
+**Check:** The black job slices to about 5 h and 66 g, the blue one to about 2 h and 35 g, both without supports.
+
+**Helper:** Ticks each file on the bed against the list in the add-on folder.
+
+⚠ ASA: set Chamber Filtration to Adv. Filtration before each job, as for every ASA plate.
+
+Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · `slicer/addons/exhaust-voron2/README.md` · [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter)
+
+Pause: ~35 min since the last pause — the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed.
+
+---
+
+### Step 14.27 — Set the eight heat-set inserts in the housing
+
+![Voron manual p.250](assets/manual-pages/manual-p250.png)
+
+**What you're looking at:** The housing takes eight M3 inserts: two on the panel face for the grill screws, two on the outer face for the access cover, and four round the fan opening for the fan and its grill.
+
+**Parts:**
+
+- M3×5×4 heat-set insert ×8
+- tool: soldering iron with the LDO insert tip
+
+**Do:** Press an insert into each of the eight bosses p.250 highlights. Part flat, insert square, same tip temperature as every insert before.
+
+**Check:** Eight inserts flush and square, with no plastic pushed up round any of them.
+
+Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250)
+
+---
+
+### Step 14.28 — Build the fan and the filter into the housing
+
+![Voron manual p.252](assets/manual-pages/manual-p252.png)
+![Voron manual p.253](assets/manual-pages/manual-p253.png)
+
+**What you're looking at:** The fan sits on the housing's angled bottom face. It pulls chamber air through the grill and the carbon mat and blows it out of the bottom. The access cover closes the filter bay, so the mat can be changed later.
+
+**Parts:**
+
+- exhaust housing ×1 — from the exhaust add-on print
+- fan grill ×1 — from the exhaust add-on print
+- access cover ×1 — from the exhaust add-on print
+- 24 V exhaust fan ×1 — from the Ch 00 exhaust purchase
+- carbon filter mat layer ×2 — from the Ch 00 exhaust purchase
+- M3×30 SHCS ×4
+- M3×8 SHCS ×2
+- tool: scissors
+- tool: 2.5 mm hex key
+
+**Do:**
+
+1. Bolt fan and grill on with four M3×30, arrow out, lead fed inside the housing.
+2. Cut two mat layers to fill the filter bay; slide them in.
+3. Close the access cover with two M3×8.
+
+**Check:** The fan spins freely by hand, its arrow points out of the housing, and its plug reaches the panel face past the mat.
+
+⚠ Two mat layers, not the full stack the Voron CAD draws: PLA and PETG need the airflow more than the filtering. The PLA test at the end of this part decides whether even those two stay.
+
+Source: [Voron manual p.252](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=252) · [Voron manual p.253](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=253)
+
+Pause: ~40 min since the last pause — eight inserts set, and the fan, its grill, the mat and the access cover on the housing. The Voron is untouched and still has its exhaust cover.
+
+---
+
+### Step 14.29 — Swap the exhaust cover for the housing
+
+![Voron manual p.254](assets/manual-pages/manual-p254.png)
+![Voron manual p.255](assets/manual-pages/manual-p255.png)
+![Voron manual p.256](assets/manual-pages/manual-p256.png)
+
+**What you're looking at:** The grill sits in the notch, held up by two mounts bolted to the top rear extrusion. The housing is taped to the outside of the panel over it, and the two grill screws pull it tight from inside the chamber.
+
+**Parts:**
+
+- reused: the exhaust grill and its two M3×12 SHCS
+- filter mount ×2 — from the exhaust add-on print
+- M5 roll-in T-nut ×2
+- M5×10 BHCS ×2
+- consumable: VHB tape
+- tool: 2.5 mm hex key
+- tool: 3 mm hex key
+
+**Do:**
+
+1. Machine off. Unbolt the exhaust cover and grill; keep both screws.
+2. Roll two T-nuts into the extrusion's back slot; hang the grill on both mounts, snug.
+3. Tape the housing over it, then drive both M3×12 from inside.
+
+**Check:** The housing sits square over the notch with no light round the tape, grill and mounts are tight, and full XY travel touches nothing.
+
+**Helper:** Holds the housing square on the panel while the adult drives the two screws from inside.
+
+⚠ Before taping, pass the fan lead in through one grill opening. If the PTFE ran through the exhaust cover, move its coupler into the housing's threaded boss `(verify on bench)`.
+
+Tip: keep the exhaust cover. Refitting it returns the machine to its Ch 11 state if the add-on comes off.
+
+Source: [Voron manual p.254](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=254) · [Voron manual p.255](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=255) · [Voron manual p.256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=256)
+
+Pause: ~30 min since the last pause — the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing.
+
+---
+
+### Step 14.30 — Shut down, unplug and prove it dead
+
+(no image — see text)
+
+**What you're looking at:** The fan lead lands on the Leviathan, under the deck and beside the PSU's mains terminals. The bay opens only on a dead machine, exactly as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
+
+**Parts:**
+
+- tool: multimeter
+
+**Do:**
+
+1. Shut the Pi down from Mainsail; wait for the ACT LED to stop.
+2. Rocker off; unplug wall, then inlet; cord out of the room.
+3. On its side, open the bottom panel; meter DC V, +V to −V.
+
+**Check:** Rocker unlit, PSU LED dark, no cord at the inlet. The meter reads 0 V and holds it for ten seconds.
+
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine until this Check passes. The helper stays out of the room until the meter holds 0 V and the cord is gone.
+
+Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Ch 11 Step 11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead)
+
+---
+
+### Step 14.31 — Plug the lead into FAN0 and jumper it for 24 V
+
+![LDO Leviathan V1.3 board map — port and jumper-block locations](assets/remote/10-wiring/wiring_V1.3.jpg)
+
+**What you're looking at:** FAN0 is the first of the Leviathan's four fan headers, a 3-pin XH socket on pin `PB7`. The jumper block beside them picks each port's voltage; this fan is a 24 V part.
+
+**Parts:**
+
+- JST-XH 2-pin extension lead, 1 m ×1 — from the Ch 00 exhaust purchase
+- voltage-selection jumper ×1 — from the Ch 09 jumper bag
+- consumable: zip ties
+- consumable: VHB tape
+
+**Do:**
+
+1. Extend the fan lead; run it down the back panel's inside on VHB tie points, through the Z-chain notch.
+2. Plug it into FAN0, red where FAN2's red is.
+3. Jumper Fan0 on the 24 V pins.
+
+**Check:** Exactly three jumpers, Fan0, Fan2 and Fan3, all on the 24 V pins; Fan1 and Probe bare. The lead clears the bed and gantry.
+
+⚠ From here on this machine has three jumpers and a live FAN0, not the two jumpers Ch 10 checks for. A jumper on 5 V, or a 5 V fan on 24 V, destroys the fan or the board.
+
+Source: [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.7) · [Leviathan `voron2_leviathan.cfg` — FAN0 = PB7](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Klipper_config/voron2_leviathan.cfg#L324-L327) · [Leviathan V1.3 schematic — FAN_0 is a JST XH 3-pin](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/KiCad/V1.3/Leviathan_V1.3.sch)
+
+---
+
+### Step 14.32 — Close the bay and power on, hand on the switch
+
+(no image — see text)
+
+**What you're looking at:** The first power-on after the bay was open repeats Ch 13's ritual: a hand on the rocker and eyes on the board. A new lead and a third jumper are the only changes since the last good boot.
+
+**Parts:** none.
+
+**Do:**
+
+1. Close the bottom panel, stand the machine upright, cord back in.
+2. Power on with a hand on the rocker, as at [13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch).
+
+**Check:** Klipper Ready with both MCUs, no smell or smoke, and the exhaust fan still: nothing drives FAN0 yet.
+
+Source: [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Ch 13 Step 13.3](13-initial-startup.md#step-133-power-on-again-hand-on-the-switch)
+
+Pause: ~45 min since the last pause — FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet.
+
+---
+
+### Step 14.33 — Add the exhaust fan to `printer.cfg`
+
+(no image — see text)
+
+**What you're looking at:** A `[temperature_fan]` is a fan Klipper switches against a temperature target, used here as a ceiling. It reads the existing chamber sensor through a combined sensor, so nothing Ch 12 wrote changes. Two small macros set and clear the ceiling for each print.
+
+**Parts:** none.
+
+**Do:** Paste the block below under `[fan_generic nevermore]`. Add the first line under `SET_GCODE_OFFSET Z=0` in `PRINT_START`, the second under `TURN_OFF_HEATERS` in `PRINT_END`. **SAVE & RESTART**.
+
+```ini
+#####################################################################
+#   Chamber exhaust fan  — ADDED at Ch 14 Part H (add-on)
+#   Stock Voron 2.4r2 exhaust housing with a 6020 24 V fan on the
+#   Leviathan's FAN0. The chamber thermistor drives it through a
+#   combined sensor, so [temperature_sensor chamber_temp], its gcode_id
+#   and every macro that reads it stay exactly as Ch 12 wrote them.
+#####################################################################
+
+[temperature_fan exhaust_fan]
+pin: PB7                       # Leviathan FAN0, not the toolboard's FAN0
+max_power: 1.0
+shutdown_speed: 0.0            # a fault leaves it off, as LDO's stock exhaust did
+kick_start_time: 0.5
+sensor_type: temperature_combined
+sensor_list: temperature_sensor chamber_temp
+combination_method: max
+maximum_deviation: 999.9       # one sensor: nothing to compare
+min_temp: 0                    # the same limits as chamber_temp
+max_temp: 100
+control: watermark
+max_delta: 2.0                 # on at ceiling + 2, off at ceiling - 2
+target_temp: 0                 # 0 = off until a print sets a ceiling
+min_speed: 0.0
+max_speed: 1.0
+
+[gcode_macro _EXHAUST]
+description: Set the exhaust ceiling for this print. PRINT_START calls it.
+variable_hot_above: 45         # a ceiling above this is a hot-chamber material: stay off
+variable_purge_min: 10         # PRINT_END: minutes flat out after a vented print
+gcode:
+    {% set chamber = params.CHAMBER|default(0)|float %}
+    {% set target = params.TARGET|default(0)|float %}
+    {% if chamber > 0 or target > hot_above %}
+      {% set target = 0 %}
+    {% endif %}
+    UPDATE_DELAYED_GCODE ID=_EXHAUST_OFF DURATION=0
+    SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET={target}
+    {action_respond_info("Exhaust: off" if target == 0 else "Exhaust: ceiling %.0f C" % target)}
+
+[gcode_macro _EXHAUST_PURGE]
+description: PRINT_END calls it. After a vented print, flat out for purge_min, then off.
+gcode:
+    {% set e = printer["gcode_macro _EXHAUST"] %}
+    {% if printer["temperature_fan exhaust_fan"].target > 0 and e.purge_min > 0 %}
+      SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=1   ; below any chamber: flat out
+      UPDATE_DELAYED_GCODE ID=_EXHAUST_OFF DURATION={e.purge_min * 60}
+    {% else %}
+      SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=0
+    {% endif %}
+
+[delayed_gcode _EXHAUST_OFF]
+gcode:
+    SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=0
+```
+
+```ini
+    _EXHAUST CHAMBER={chamber} TARGET={params.EXHAUST|default(0)|float}
+```
+
+```ini
+    _EXHAUST_PURGE
+```
+
+**Check:** Klipper restarts clean, and Mainsail lists `exhaust_fan` at target 0 beside `chamber_temp`, both reading the same temperature.
+
+**Helper:** Reads the pin line back off the screen: PB7, not PF7.
+
+⚠ Leave `[temperature_sensor chamber_temp]` exactly as it is. The combined sensor reads it, so its pin is declared once, and `PRINT_START`'s chamber wait and `M105`'s `chamber_th` keep working.
+
+Tip: `SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan MAX_SPEED=0.6` quietens the fan until the next restart.
+
+Source: [Klipper docs § temperature_fan](https://www.klipper3d.org/Config_Reference.html#temperature_fan) · [Klipper docs § Combined temperature sensor](https://www.klipper3d.org/Config_Reference.html#combined-temperature-sensor) · [Klipper `temperature_fan.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_fan.py) · [Voron docs — Chamber Temperature & Exhaust Fan](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md) · `review/2026-10-03-exhaust/test_macros.py`
+
+---
+
+### Step 14.34 — Test the fan by target, then on a hot chamber
+
+(no image — see text)
+
+**What you're looking at:** With a ceiling set, the fan starts 2 °C above it and stops 2 °C below, reading the toolhead's chamber sensor. The bed is the heat source, and the soak also proves the closed housing does not cost ASA its chamber band.
+
+**Parts:** none.
+
+**Do:**
+
+1. Send the first three lines: air blows out of the housing, then stops.
+2. Door shut, `M140 S110`; log `chamber_temp` once settled, up to 45 min.
+3. Send the next two; the fan runs, then stops. Send the last two.
+
+```
+SET_IDLE_TIMEOUT TIMEOUT=7200
+SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=15
+SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=0
+TURN_OFF_HEATERS
+SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=45
+SET_TEMPERATURE_FAN_TARGET TEMPERATURE_FAN=exhaust_fan TARGET=0
+SET_IDLE_TIMEOUT TIMEOUT=1800
+```
+
+**Check:** The settled chamber is still in the 50–60 °C band, and at ceiling 45, bed off, the fan runs and stops near 43 °C.
+
+```gate-calc
+id: exhaust-test
+title: Exhaust fan — switches at its ceiling, and ASA still soaks
+inputs:
+  - key: settled
+    label: "Settled chamber_temp: bed 110 °C, door shut, ceiling 0 (°C)"
+    min: 50
+    low: The closed housing leaks heat. Check the tape round the panel and the access cover, then soak again.
+    why: Step 14.8's 50–60 °C band is what ASA needs; a closed exhaust must not cost it.
+  - key: stop
+    label: "chamber_temp when the fan stopped at ceiling 45, bed off (°C)"
+    nominal: 43
+    tol: 1.5
+    low: Stopped late. Read max_delta in the block; it should be 2.0.
+    high: Stopped early. Read max_delta in the block; it should be 2.0.
+    why: The fan stops at the ceiling minus max_delta, 2 °C, so each print holds a 4 °C band.
+pass: The fan follows its ceiling, and the ASA soak is unchanged. Log both numbers.
+```
+
+⚠ The bed reaches 110 °C. Hands off the plate until it reads under 40 °C again.
+
+Source: [Klipper docs § SET_TEMPERATURE_FAN_TARGET](https://www.klipper3d.org/G-Codes.html#set_temperature_fan_target) · [Klipper `temperature_fan.py` § watermark](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_fan.py#L117-L137) · [Ch 14 Step 14.8](#step-148-set-the-chamber-target-and-understand-the-soak)
+
+Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800.
+
+---
+
+### Step 14.35 — Give PrusaSlicer the exhaust ceiling
+
+(no image — see text)
+
+**What you're looking at:** Each filament preset already has two chamber fields, Nominal and Minimal, which Prusa's Core One uses the same way: a ceiling its fans hold, and a warmth it waits for. The new start line passes both, so each filament sets its own.
+
+**Parts:**
+
+- tool: the laptop with PrusaSlicer 2.9.6
+
+**Do:**
+
+1. Expert mode: make the line below the `Voron 2.4 350` start G-code.
+2. Voron filament presets, Chamber temperature Nominal / Minimal: PLA 35 / 0, PETG 40 / 0.
+3. ASA: Minimal a few degrees under your settled soak.
+
+```
+PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER={chamber_minimal_temperature[initial_tool]} EXHAUST={chamber_temperature[initial_tool]}
+```
+
+**Check:** A PLA slice starts `PRINT_START BED=60 EXTRUDER=215 CHAMBER=0 EXHAUST=35`, an ASA slice carries your Minimal as `CHAMBER`, and neither has `M141` or `M191`.
+
+**Helper:** Reads each Nominal and Minimal value back from the preset while the adult types.
+
+⚠ `CHAMBER` used to be one number in the printer preset, shared by every filament. Raised for ASA, it would make a PLA print wait forever for heat it never makes. Minimal 0 now means no wait.
+
+Tip: Prusa's own presets ship PLA 20, PETG 35 and ASA 55 / 40. Kept as they are, PLA just runs the fan more, and ASA stays unvented either way.
+
+Source: [PrusaSlicer 2.9.6 `GCode.cpp` — chamber commands only with automatic temperature commands on](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/src/libslic3r/GCode.cpp#L1981-L2001) · [Ch 13 Step 13.41](13-initial-startup.md#step-1341-make-the-voron-printer-profile-and-slice-the-cube) · `review/2026-10-03-exhaust/DESIGN.md`
+
+---
+
+### Step 14.36 — Print PLA under a 35 °C ceiling, log it, shut down
+
+(no image — see text)
+
+**What you're looking at:** The proof is a real PLA print with the door shut: the chamber should sit near the ceiling while the fan cycles. Voron's own notes warn that PLA may still need the door open; this print finds out.
+
+**Parts:**
+
+- consumable: PLA, about 50 g
+
+**Do:**
+
+1. Print an hour-long PLA part from the Voron PLA preset, door shut.
+2. Every 15 min, log `chamber_temp` and whether the fan runs.
+3. Commit the config, copy it off the Pi, and shut down as at [13.43](13-initial-startup.md#step-1343-shut-down-properly).
+
+**Check:** From 20 min in, `chamber_temp` stays at or under 37 °C. After the print the fan runs about 10 min, then stops.
+
+⚠ If the chamber passes 37 °C with the fan flat out, take one mat layer out and print again. Past that, print PLA with the door ajar.
+
+Tip: the sensor rides on the toolhead and reads warm, so the chamber itself runs a little under the ceiling. A thermometer hung mid-chamber shows by how much.
+
+Source: [Voron docs — filament tuning, PLA in an enclosure](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/tuning/filament_tuning.md) · [Voron docs — Chamber Temperature & Exhaust Fan](https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md)
+
+Pause: ~30 min since the last pause — PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly.
+
+---
+
 ## Tuning log
 
 Fill this in as you go — one row per change, both of you initialling. This is the record that makes the next tuning session cheap, and the thing you check first when a print goes wrong three months from now.
@@ -1067,6 +1536,9 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 | | Extrusion multiplier (ASA) | ___ % | Ellis 30×30×3 cubes, centre of the top surface by eye | top smooth, no gaps, no ridging? | |
 | | Z offset (final) | `position_endstop` ______ | `Z_OFFSET_APPLY_ENDSTOP` | | |
 | | Bed mesh variance | ___ mm | `BED_MESH_CALIBRATE`, hot | | |
+| | Part H: ASA soak with the housing (14.34) | ___ °C in ___ min | `chamber_temp`, bed 110, ceiling 0 | still 50–60 °C? | |
+| | Part H: fan stop at ceiling 45 (14.34) | ___ °C | bed off, `chamber_temp` | 43 ±1.5? | |
+| | Part H: PLA under a 35 ceiling (14.36) | ___ to ___ °C | every 15 min, door shut | fan on at ___ of ___ readings | |
 | | | | | | |
 
 ---
@@ -1095,6 +1567,7 @@ Fill this in as you go — one row per change, both of you initialling. This is 
 - [ ] Every fastener the shaper run could have loosened re-checked
 - [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
 - [ ] Tuning log filled in, with initials
+- [ ] Part H, if fitted: Step 14.25's calculator passed; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
 
 ## Common mistakes
 

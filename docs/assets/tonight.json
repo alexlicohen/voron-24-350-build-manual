@@ -5713,6 +5713,150 @@
       ]
      ],
      "text": "Step 14.24 · ~20 min · leave-state: the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges."
+    },
+    {
+     "id": "14-calibration#13",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.25",
+      "14.26"
+     ],
+     "first_step": "14.25",
+     "last_step": "14.26",
+     "href": "../manual/steps/14-calibration/14-25/",
+     "minutes": 35,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed.",
+     "helpers": [
+      [
+       "14.25",
+       "Holds the string along the route and reads its length off the rule."
+      ],
+      [
+       "14.26",
+       "Ticks each file on the bed against the list in the add-on folder."
+      ]
+     ],
+     "text": "Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed."
+    },
+    {
+     "id": "14-calibration#14",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.27",
+      "14.28"
+     ],
+     "first_step": "14.27",
+     "last_step": "14.28",
+     "href": "../manual/steps/14-calibration/14-27/",
+     "minutes": 40,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "eight inserts set, and the fan, its grill, the mat and the access cover on the housing. The Voron is untouched and still has its exhaust cover.",
+     "helpers": [],
+     "text": "Step 14.27 → Step 14.28 · ~40 min · leave-state: eight inserts set, and the fan, its grill, the mat and the access cover on the housing. The Voron is untouched and still has its exhaust cover."
+    },
+    {
+     "id": "14-calibration#15",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.29"
+     ],
+     "first_step": "14.29",
+     "last_step": "14.29",
+     "href": "../manual/steps/14-calibration/14-29/",
+     "minutes": 30,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing.",
+     "helpers": [
+      [
+       "14.29",
+       "Holds the housing square on the panel while the adult drives the two screws from inside."
+      ]
+     ],
+     "text": "Step 14.29 · ~30 min · leave-state: the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing."
+    },
+    {
+     "id": "14-calibration#16",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.30",
+      "14.31",
+      "14.32"
+     ],
+     "first_step": "14.30",
+     "last_step": "14.32",
+     "href": "../manual/steps/14-calibration/14-30/",
+     "minutes": 45,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet.",
+     "helpers": [],
+     "text": "Step 14.30 → Step 14.32 · ~45 min · leave-state: FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet."
+    },
+    {
+     "id": "14-calibration#17",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.33",
+      "14.34"
+     ],
+     "first_step": "14.33",
+     "last_step": "14.34",
+     "href": "../manual/steps/14-calibration/14-33/",
+     "minutes": 35,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800.",
+     "helpers": [
+      [
+       "14.33",
+       "Reads the pin line back off the screen: PB7, not PF7."
+      ]
+     ],
+     "text": "Step 14.33 → Step 14.34 · ~35 min · leave-state: the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800."
+    },
+    {
+     "id": "14-calibration#18",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.35",
+      "14.36"
+     ],
+     "first_step": "14.35",
+     "last_step": "14.36",
+     "href": "../manual/steps/14-calibration/14-35/",
+     "minutes": 30,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly.",
+     "helpers": [
+      [
+       "14.35",
+       "Reads each Nominal and Minimal value back from the preset while the adult types."
+      ]
+     ],
+     "text": "Step 14.35 → Step 14.36 · ~30 min · leave-state: PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly."
     }
    ]
   },
@@ -7343,6 +7487,10 @@
      "14-calibration#6",
      "14-calibration#8",
      "14-calibration#12",
+     "14-calibration#13",
+     "14-calibration#15",
+     "14-calibration#17",
+     "14-calibration#18",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
@@ -7587,6 +7735,10 @@
      "14-calibration#6",
      "14-calibration#8",
      "14-calibration#12",
+     "14-calibration#13",
+     "14-calibration#15",
+     "14-calibration#17",
+     "14-calibration#18",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
@@ -7926,6 +8078,10 @@
      "14-calibration#6",
      "14-calibration#8",
      "14-calibration#12",
+     "14-calibration#13",
+     "14-calibration#15",
+     "14-calibration#17",
+     "14-calibration#18",
      "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
@@ -8626,7 +8782,19 @@
      "14.21",
      "14.22",
      "14.23",
-     "14.24"
+     "14.24",
+     "14.25",
+     "14.26",
+     "14.27",
+     "14.28",
+     "14.29",
+     "14.30",
+     "14.31",
+     "14.32",
+     "14.33",
+     "14.34",
+     "14.35",
+     "14.36"
     ],
     "15-troubleshooting": [],
     "16-glossary": [],
@@ -8755,7 +8923,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 211,
+    "done": 217,
     "gate_closed": true,
     "start": null,
     "sections": [

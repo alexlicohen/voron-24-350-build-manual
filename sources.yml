@@ -1033,6 +1033,15 @@ sources:
   last_verified: '2026-10-03'
   pinned_ref: Voron2.4
   sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-drawing-dxfs-panels-350-back-p
+  url: https://github.com/VoronDesign/Voron-2/blob/a192410/Drawing_DXFs/Panels/350_Back_Panel.DXF
+  kind: voron-manual
+  title: Voron-2/Drawing_DXFs/Panels/350_Back_Panel.DXF at a192410e27ea345644ae5c4b29b4c9c40cbe1a73 ·
+    VoronDesign/Voron-2 · GitHub
+  first_seen: '2026-10-03'
+  last_verified: '2026-10-03'
+  pinned_ref: a192410
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
 - id: vorondesign-voron-2-manual-assembly-manual-2-4r2-p
   url: https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf
   kind: voron-manual
@@ -1067,6 +1076,15 @@ sources:
   last_verified: '2026-10-03'
   pinned_ref: Voron2.4
   sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-2-stls-exhaust-filter
+  url: https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter
+  kind: voron-manual
+  title: Voron-2/STLs/Exhaust_Filter at a192410e27ea345644ae5c4b29b4c9c40cbe1a73 · VoronDesign/Voron-2
+    · GitHub
+  first_seen: '2026-10-03'
+  last_verified: '2026-10-03'
+  pinned_ref: a192410
+  sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
 - id: vorondesign-voron-2-stls-gantry-ab-drive-units
   url: https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units
   kind: voron-manual
@@ -1099,6 +1117,15 @@ sources:
   last_verified: '2026-10-03'
   pinned_ref: Voron2.4
   sha: a192410e27ea345644ae5c4b29b4c9c40cbe1a73
+- id: vorondesign-voron-documentatio-community-howto-alchemyengine
+  url: https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md
+  kind: voron-docs
+  title: Voron-Documentation/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md at b8c014f88948c9fca963dfe726e0e66b1287af90
+    · VoronDesign/Voron-Documentation · GitHub
+  first_seen: '2026-10-03'
+  last_verified: '2026-10-03'
+  pinned_ref: b8c014f
+  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
 - id: vorondesign-voron-documentatio-community-howto-simonthecat-i
   url: https://github.com/VoronDesign/Voron-Documentation/blob/main/community/howto/simonthecat/I_wish_I_had_known.md
   kind: voron-docs
@@ -1106,6 +1133,15 @@ sources:
     · GitHub
   first_seen: '2026-09-05'
   last_verified: '2026-10-03'
+  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
+- id: vorondesign-voron-documentatio-tuning-filament-tuning-md
+  url: https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/tuning/filament_tuning.md
+  kind: voron-docs
+  title: Voron-Documentation/tuning/filament_tuning.md at b8c014f88948c9fca963dfe726e0e66b1287af90 · VoronDesign/Voron-Documentation
+    · GitHub
+  first_seen: '2026-10-03'
+  last_verified: '2026-10-03'
+  pinned_ref: b8c014f
   sha: b8c014f88948c9fca963dfe726e0e66b1287af90
 - id: vorondesign-voron-documentation
   url: https://github.com/VoronDesign/Voron-Documentation
