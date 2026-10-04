@@ -6,7 +6,8 @@ The plate hours and grams appear in five places (the batch chapters, the plan's
 one file the slicer wrote, so a re-slice cannot silently leave a stale number at
 the bench. It also checks the bin scheme (slicer/bins.py) against the batch
 chapters' Printed-parts `Bin` column and *Sort into bins* steps, print/README.md
-§ Bins, and the `bin` column of docs/manual/assets/parts/MANIFEST.csv.
+§ Bins (its `bag` column included), the `bin` column of docs/manual/assets/parts/MANIFEST.csv,
+and every A5/B5/box count stated in print/README, Ch 00 and the index (slicer/bins.py bag_summary).
 
     python3 slicer/check_docs.py        # exits non-zero on any mismatch
 
@@ -32,7 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 import bins  # noqa: E402
-from plates import PLATES, run_of  # noqa: E402
+from plates import ADDONS, PLATES, run_of  # noqa: E402
 REPO = ROOT.parent
 DOCS = REPO / "docs"
 PRINT = DOCS / "manual" / "print"
@@ -91,7 +92,7 @@ def _batch_bins() -> dict[str, dict[str, set[str]]]:
 def check_bins(readme: str) -> list[str]:
     bad: list[str] = []
     sources = [p.rsplit("/", 1)[-1] for pl in PLATES.values() for _r, p, _q in pl["parts"]]
-    bad += [f"bins.py: {b}" for b in bins.check(sources)]
+    bad += [f"bins.py: {b}" for b in bins.check(sources, list(ADDONS))]
     expected = _batch_bins()
     for bid, stem in CHAPTER.items():
         text = (PRINT / f"{stem}.md").read_text()
@@ -119,10 +120,27 @@ def check_bins(readme: str) -> list[str]:
             want = {b for s_ in expected[bid].values() for b in s_}
             if named != want:
                 bad.append(f"{stem}.md: Sort step tables name {sorted(named)}, bins.py says {sorted(want)}")
-    # README § Bins: one row per bin
-    for b in bins.BINS:
-        if not re.search(rf"^\| \*\*{re.escape(b)}\*\* \|", readme, re.M):
+    # README § Bins: one row per bin, its 4th cell the bag bins.py names
+    for b, meta in bins.BINS.items():
+        row = re.search(rf"^\| \*\*{re.escape(b)}\*\* \|(.*)$", readme, re.M)
+        if not row:
             bad.append(f"print/README § Bins: no row for {b}")
+            continue
+        cells = [c.strip() for c in row.group(1).split("|")]
+        if len(cells) < 3 or cells[2] != meta["bag"]:
+            bad.append(f"print/README § Bins: {b} bag cell is {cells[2] if len(cells) > 2 else None!r}, "
+                       f"bins.py says {meta['bag']!r}")
+    # bags: the summary phrase where the counts are stated, and no other A5/B5/box count
+    counts = bins.bag_counts()
+    summary = bins.bag_summary()
+    for k in ("A5", "B5"):
+        if counts[k] > bins.BAGS[k]["owned"]:
+            bad.append(f"bins.py: {counts[k]} {k} bags wanted, {bins.BAGS[k]['owned']} on hand "
+                       f"(split or share bins, or buy {counts[k] - bins.BAGS[k]['owned']} more)")
+    for path in (PRINT / "README.md", DOCS / "manual" / "00-before-you-start.md"):
+        if summary not in " ".join(path.read_text().split()):   # a line break may fall inside it
+            bad.append(f"{path.relative_to(REPO)}: does not state the bag summary {summary!r} "
+                       f"(slicer/bins.py bag_summary)")
     # "N bins" / "N containers" in prose: the table checks above never see a bare count
     # (a new sub-bin left "26 bins" standing in three files). 00-index's corrections log
     # is history and exempt, as in check_plate_ids.
@@ -135,6 +153,27 @@ def check_bins(readme: str) -> list[str]:
                     bad.append(f"{path.relative_to(REPO)}:{n}: says {m.group(1)} "
                                f"{'bins' if 'bins' in m.group(0) else 'containers'}, "
                                f"bins.py has {len(bins.BINS)}")
+            # "7 of 12 B5", "24 A5", "7 B5" (the stock figures 24/12 may stand too), "1 box",
+            # and a Parts line's "consumable: A5 mesh zip bag ×24"
+            for m in re.finditer(r"\b(\d+) of (\d+) (A5|B5)\b", line):
+                k = m.group(3)
+                if (int(m.group(1)), int(m.group(2))) != (counts[k], bins.BAGS[k]["owned"]):
+                    bad.append(f"{path.relative_to(REPO)}:{n}: says {m.group(0)}, bins.py uses "
+                               f"{counts[k]} of {bins.BAGS[k]['owned']} {k}")
+            for m in re.finditer(r"\b(\d+)\**\s+(A5|B5)\b", line):
+                k, v = m.group(2), int(m.group(1))
+                if v not in (counts[k], bins.BAGS[k]["owned"]):
+                    bad.append(f"{path.relative_to(REPO)}:{n}: says {v} {k}, bins.py uses "
+                               f"{counts[k]} (of {bins.BAGS[k]['owned']} on hand)")
+            # (kit carton names, "*Electronics 2* box", are not a count)
+            for m in re.finditer(r"(?<![\w.*-])(\d+) box(?:es)?\b", "" if "staged:" in line else line):
+                if int(m.group(1)) != counts["box"]:
+                    bad.append(f"{path.relative_to(REPO)}:{n}: says {m.group(1)} box(es), "
+                               f"bins.py uses {counts['box']}")
+            pm = re.match(r"\s*- consumable: (A5|B5|box)\b.*×(\d+)", line)
+            if pm and int(pm.group(2)) != counts[pm.group(1)]:
+                bad.append(f"{path.relative_to(REPO)}:{n}: Parts line counts {pm.group(2)} "
+                           f"{pm.group(1)}, bins.py uses {counts[pm.group(1)]}")
     # manifest column
     manifest = DOCS / "manual" / "assets" / "parts" / "MANIFEST.csv"
     rows = list(csv.DictReader(manifest.open()))
@@ -408,7 +447,7 @@ def main() -> int:
           f"{tb} g black + {to} g {ACCENT.lower()}, consistent across the chapters, "
           f"the plan (§3/§4/§9), print/README.md and README.md; "
           f"{len(bins.BINS)} bins consistent across bins.py, the chapters, README § Bins and "
-          f"MANIFEST.csv; 00-index.md's timeline rows and batch table, 00-slicer-setup's "
+          f"MANIFEST.csv, packed into {bins.bag_summary()}; 00-index.md's timeline rows and batch table, 00-slicer-setup's "
           f"totals and diagram 11's hours all agree; "
           + (f"B11 {batch['B11']['plates']} plates, {batch['B11']['h']} h, {batch['B11']['petg']} g "
              f"PETG V0 on its own, consistent across its page, print/README, the plan and the index"

@@ -36,7 +36,9 @@ Two jobs on the Core One+, smooth sheet, as oriented, **no supports**, Voron spe
 | 1 — housing | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 66.0 g, 5 h 03 m |
 | 2 — fan grill, access cover, 2 mounts | `slicer/voron-accent-blue.ini`, blue accent ASA | 34.6 g, 2 h 04 m |
 
-Estimates were sliced with the parts laid side by side, not GUI-arranged (2026-10-03). Bin with Ch 14.
+Estimates were sliced with the parts laid side by side, not GUI-arranged (2026-10-03). All five
+pieces go in bin `14-exhaust` (`slicer/bins.py` `ADDON_PARTS`); `exhaust_filter_grill` stays in `11-nevermore`,
+where B09 sorted it, since it is fitted at Step 11.54 and reused in place at Step 14.29.
 
 ## Hardware (all kit spares except the purchase)
 

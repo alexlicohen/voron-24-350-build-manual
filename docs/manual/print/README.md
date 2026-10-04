@@ -103,37 +103,49 @@ manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
-27 bins, 271 printed pieces: 218 from the ASA run and 53 from B11.
+29 bins, 279 printed pieces: 218 from the ASA run, 53 from B11 and 8 from the two add-ons, which print
+after kit day and are on no plate (`13-scrubber`, `14-exhaust`). They travel in 24 of 24 A5 and 7 of 12 B5
+mesh bags, plus 1 box.
 
-| bin | label | chapter · steps | parts (qty) | from batches |
-|---|---|---|---|---|
-| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 04.24, 04.33; cube at 14.11) | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
-| **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B00, B01, B02, B05 |
-| **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
-| **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
-| **02-Z3** | Z3 corner (front-right, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
-| **02-deck** | Deck panel clips | Ch 02 · 02.11–02.15 (confirm thickness at 02.12) | `deck_support_3mm` ×8 | B01 |
-| **04-A** | A drive unit + A (right) front idler | Ch 04 · 04.1–04.24 (A idler 04.6–04.9, A drive 04.20–04.24) | `[a]_tensioner_right`, `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper` | B02, B03 |
-| **04-B** | B drive unit + B (left) front idler | Ch 04 · 04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33) | `[a]_tensioner_left`, `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` | B02, B03 |
-| **05-XY** | XY joints, cable bridge, endstop pod | Ch 05 · 05.3, 05.25–05.38 (endstop pod fitted at 09.32–09.33) | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` | B02, B04 |
-| **06-Z-joints** | Z joints and belt clips | Ch 06 · 06.3–06.10, 06.26 | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4, `z_joint_lower` ×4, `z_joint_upper` ×4 | B02, B05 |
-| **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
-| **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
-| **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` | B02, B06 |
-| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
-| **09-ducts** | Bay ducts and lids, B11 | Ch 09 · 09.6, 09.36 (AC lids 10.80, DC lids 11.52; coupon from B11.4) | 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B11 |
-| **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
-| **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
-| **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | `V2L_STRIP_FIN` | B11 |
-| **11-skirts** | Skirt ring, keystone panel, TFT mount | Ch 11 · 11.1–11.17 (TFT 11.5–11.7, keystone 11.10, bestagon 11.19) | `[a]_faceplate`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`, `rear_center_skirt_350`, `side_fan_support` ×2, `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×2, `side_skirt_b_350` ×2, `keystone_panel`, `mount` | B02, B08 |
-| **11-fans** | Fan grills, retainers, belt guards | Ch 11 · 11.3, 11.9, 11.11, 11.16 | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 | B02 |
-| **11-panels** | Bottom-panel clips/hinges, Z belt covers, handlebar spacers | Ch 11 · 11.20–11.25, 11.60 | `handlebar_spacer` ×4, `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 | B07, B09 |
-| **11-clips-4mm** | Panel clips, 4 mm (back + top panels) | Ch 11 · 11.53, 11.59 | `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7 | B09 |
-| **11-clips-6mm** | Panel clips, 6 mm (side panels) | Ch 11 · 11.57–11.58 | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 | B09 |
-| **11-nevermore** | Nevermore plenum + cartridge, exhaust cover + grill | Ch 11 · 11.26–11.40, 11.54 | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)`, `exhaust_cover`, `exhaust_filter_grill` | B09 |
-| **11-spool** | Spool holder + bowden retainer | Ch 11 · 11.42–11.43 | `spool_holder`, `bowden_retainer` | B09 |
-| **11-door** | Clicky-Clack door | Ch 11 · 11.44–11.50, 11.62–11.64 | `Handle`, `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` | B02, B10 |
-| **spare-alt** | Spares / alternates (not fitted) | — · not fitted (Klicky set bagged at 08.54) | `[a]_pcb_spacer`, `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2`, `usb_adapter_mount` | B02, B06, B07 |
+**Bag per bin** (the *bag* column), measured from the STLs by `python3 slicer/bin_bags.py`: a bag's
+usable inside is its paper size (A5 148 × 210 mm, B5 176 × 250 mm) and about 25 mm deep, an
+assumption; a thicker piece still fits if each millimetre over 25 comes off both flat sides. Pieces
+lie on a flat face, and a bag holds a bin when every piece fits and their bounding boxes add up to no
+more than half the bag's volume. A bin takes one A5 if it can, else one B5, else two or three bags; a
+bin needing more goes in a box (`11-skirts`, the skirt ring). Every label prints at half US Letter
+and trims to fit inside an A5 bag, so a bag label reads through the mesh and a box label tapes on.
+
+| bin | label | chapter · steps | bag | parts (qty) | from batches |
+|---|---|---|---|---|---|
+| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 04.24, 04.33; cube at 14.11) | A5 | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
+| **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B00, B01, B02, B05 |
+| **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
+| **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
+| **02-Z3** | Z3 corner (front-right, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
+| **02-deck** | Deck panel clips | Ch 02 · 02.11–02.15 (confirm thickness at 02.12) | A5 | `deck_support_3mm` ×8 | B01 |
+| **04-A** | A drive unit + A (right) front idler | Ch 04 · 04.1–04.24 (A idler 04.6–04.9, A drive 04.20–04.24) | A5 | `[a]_tensioner_right`, `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper` | B02, B03 |
+| **04-B** | B drive unit + B (left) front idler | Ch 04 · 04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33) | A5 | `[a]_tensioner_left`, `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` | B02, B03 |
+| **05-XY** | XY joints, cable bridge, endstop pod | Ch 05 · 05.3, 05.25–05.38 (endstop pod fitted at 09.32–09.33) | A5 | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` | B02, B04 |
+| **06-Z-joints** | Z joints and belt clips | Ch 06 · 06.3–06.10, 06.26 | A5 | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4, `z_joint_lower` ×4, `z_joint_upper` ×4 | B02, B05 |
+| **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | A5 | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
+| **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
+| **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` | B02, B06 |
+| **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | A5 | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
+| **09-ducts** | Bay ducts and lids, B11 | Ch 09 · 09.6, 09.36 (AC lids 10.80, DC lids 11.52; coupon from B11.4) | B5 ×3 | 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B11 |
+| **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | A5 | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
+| **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | A5 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
+| **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | A5 | `V2L_STRIP_FIN` | B11 |
+| **11-skirts** | Skirt ring, keystone panel, TFT mount | Ch 11 · 11.1–11.17 (TFT 11.5–11.7, keystone 11.10, bestagon 11.19) | box | `[a]_faceplate`, `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert`, `rear_center_skirt_350`, `side_fan_support` ×2, `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×2, `side_skirt_b_350` ×2, `keystone_panel`, `mount` | B02, B08 |
+| **11-fans** | Fan grills, retainers, belt guards | Ch 11 · 11.3, 11.9, 11.11, 11.16 | A5 | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 | B02 |
+| **11-panels** | Bottom-panel clips/hinges, Z belt covers, handlebar spacers | Ch 11 · 11.20–11.25, 11.60 | A5 | `handlebar_spacer` ×4, `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 | B07, B09 |
+| **11-clips-4mm** | Panel clips, 4 mm (back + top panels) | Ch 11 · 11.53, 11.59 | A5 | `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7 | B09 |
+| **11-clips-6mm** | Panel clips, 6 mm (side panels) | Ch 11 · 11.57–11.58 | A5 | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 | B09 |
+| **11-nevermore** | Nevermore plenum + cartridge, exhaust cover + grill | Ch 11 · 11.26–11.40, 11.54 | B5 | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)`, `exhaust_cover`, `exhaust_filter_grill` | B09 |
+| **11-spool** | Spool holder + bowden retainer | Ch 11 · 11.42–11.43 | A5 | `spool_holder`, `bowden_retainer` | B09 |
+| **11-door** | Clicky-Clack door | Ch 11 · 11.44–11.50, 11.62–11.64 | A5 | `Handle`, `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` | B02, B10 |
+| **13-scrubber** | Nozzle scrubber add-on: brackets + bucket | Ch 13 · 13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50) | A5 | brush bracket, stop bracket, purge bucket (file names from `measured/`, Step 13.47) | add-on, on no plate |
+| **14-exhaust** | Chamber exhaust add-on: housing, grill, cover, mounts | Ch 14 · 14.25–14.36, Part H (printed 14.26, built 14.27–14.29) | B5 ×2 | `exhaust_filter_housing`, `[a]_exhaust_fan_grill`, `[a]_filter_access_cover`, `[a]_exhaust_filter_mount` ×2 | add-on, on no plate |
+| **spare-alt** | Spares / alternates (not fitted) | — · not fitted (Klicky set bagged at 08.54) | A5 | `[a]_pcb_spacer`, `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2`, `usb_adapter_mount` | B02, B06, B07 |
 
 **Re-arranged a plate in PrusaSlicer?** Save the project over `slicer/plates/<id>.3mf` and run
 `python3 slicer/build_plates.py --from-3mf` — it re-slices the committed projects as they are (no re-packing),

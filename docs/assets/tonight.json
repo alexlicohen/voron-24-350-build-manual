@@ -1431,7 +1431,7 @@
       ],
       [
        "00.11",
-       "Writes the chapter number on each bin label and sticks it on square."
+       "Trims each label to its frame and slides it into the bag it names."
       ]
      ],
      "text": "Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit."

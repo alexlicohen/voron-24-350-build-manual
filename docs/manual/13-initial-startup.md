@@ -1442,7 +1442,7 @@ Pause: ~35 min since the last pause — H, w, d, G and O measured and written do
 
 1. In PrusaSlicer 2.9.6, load the files from `measured/` with `voron-coreone-asa.ini`, as oriented, no supports.
 2. Leave the stop bracket out if the calculator said so.
-3. Print on the smooth sheet.
+3. Print on the smooth sheet. Once cool, bag the parts in bin `13-scrubber`.
 
 **Check:** The bed holds exactly the files the printout named, and the slice comes to about 2.5 h and 40 g.
 
@@ -1465,8 +1465,8 @@ Pause: ~15 min since the last pause — the add-on print is running on the Core 
 **Parts:**
 
 - 6×3 mm neodymium magnet ×4
-- brush bracket, mirrored ×1 — from the scrubber add-on print
-- purge bucket, mirrored ×1 — from the scrubber add-on print
+- brush bracket, mirrored ×1 — from bin 13-scrubber
+- purge bucket, mirrored ×1 — from bin 13-scrubber
 - Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
 - consumable: super glue
 - tool: digital caliper
@@ -1498,7 +1498,7 @@ Source: [Printables 796563 — BOM](https://www.printables.com/model/796563) · 
 **Parts:**
 
 - reused: the brush bracket with its bucket
-- stop bracket ×1 — from the scrubber add-on print
+- stop bracket ×1 — from bin 13-scrubber
 - M3 roll-in T-nut ×4
 - M3×8 SHCS ×6
 - tool: 2.5 mm hex key

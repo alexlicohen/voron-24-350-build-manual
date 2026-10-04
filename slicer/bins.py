@@ -8,7 +8,14 @@ This is the single source for:
   * scripts/render_plate_bins.py  - the per-plate sorting diagrams (colour + bin id on every part)
   * scripts/build_printables.py   - the printable bin labels and the bin map
   * docs/manual/assets/parts/MANIFEST.csv `bin` column (written by render_plate_bins.py --write-manifest)
-  * docs/manual/print/README.md § Bins (hand-maintained; slicer/check_docs.py cross-checks it)
+  * docs/manual/print/README.md § Bins (hand-maintained; slicer/check_docs.py cross-checks it,
+    the `bag` column included)
+
+Two bins hold add-on parts that are on no plate (13-scrubber, 14-exhaust): ADDON_PARTS lists them,
+so they reach the labels and the bag sizing but never a plate, a diagram, an estimate or a total.
+
+Every bin also names the bag (or box) its parts travel in: `bag`, decided from the STL geometry by
+slicer/bin_bags.py (`--check` re-derives it and fails on drift). BAGS is the stock of mesh zip bags.
 
 Consumers were derived from the assembly chapters' Printed-parts tables and the steps that name each
 STL (docs/manual/NN-*.md). Corner map for the Z parts is Ch 02 Step 02.02: `_a` parts build Z0
@@ -18,12 +25,24 @@ from __future__ import annotations
 
 import re
 
+# ------------------------------------------------------------------ the bags
+# Mesh zip bags in the bag stock (2026-10-04). `flat` is the usable flat inside, taken as the paper
+# size the bag is sold for; BAG_THICK is the usable thickness at that flat size (an assumption:
+# a filled mesh pouch is about an inch deep before it starts to steal width). slicer/bin_bags.py
+# owns the fit rule; a bin's `bag` is "A5", "B5", "A5 ×2" ... or "box".
+BAGS: dict[str, dict] = {
+    "A5": dict(flat=(148.0, 210.0), owned=24),
+    "B5": dict(flat=(176.0, 250.0), owned=12),
+}
+BAG_THICK = 25.0
+
 # ------------------------------------------------------------------ the bins
 # id -> (label, chapter, steps, colour)
 #   label   : what to write on the bin
 #   chapter : "Ch NN" the bin is opened for (the chapter whose steps fit the parts)
 #   steps   : step range(s) in that chapter; secondary uses in parentheses
 #   colour  : fill on the plate diagrams and labels (hex); consistent across every plate
+#   bag     : added from BAG below (the mesh bag or box the bin travels in)
 BINS: dict[str, dict[str, str]] = {
     "00-jigs": dict(
         label="Jigs and coupons",
@@ -54,8 +73,61 @@ BINS: dict[str, dict[str, str]] = {
     "11-nevermore": dict(label="Nevermore plenum + cartridge, exhaust cover + grill", chapter="Ch 11", steps="11.26–11.40, 11.54", colour="#00695c"),
     "11-spool": dict(label="Spool holder + bowden retainer", chapter="Ch 11", steps="11.42–11.43", colour="#78909c"),
     "11-door": dict(label="Clicky-Clack door", chapter="Ch 11", steps="11.44–11.50, 11.62–11.64", colour="#ff7043"),
+    # Add-on bins: their parts are on no plate (ADDON_PARTS below), printed after kit day.
+    "13-scrubber": dict(label="Nozzle scrubber add-on: brackets + bucket", chapter="Ch 13",
+                        steps="13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50)", colour="#b5838d"),
+    "14-exhaust": dict(label="Chamber exhaust add-on: housing, grill, cover, mounts", chapter="Ch 14",
+                       steps="14.25–14.36, Part H (printed 14.26, built 14.27–14.29)", colour="#264653"),
     "spare-alt": dict(label="Spares / alternates (not fitted)", chapter="—", steps="not fitted (Klicky set bagged at 08.54)", colour="#bdbdbd"),
 }
+
+# Bag per bin, from `python3 slicer/bin_bags.py` (the why is in its table and in print/README § Bins).
+BAG: dict[str, str] = {
+    "00-jigs": "A5", "02-Z0": "A5", "02-Z1": "A5", "02-Z2": "A5", "02-Z3": "A5",
+    "02-deck": "A5", "04-A": "A5", "04-B": "A5", "05-XY": "A5", "06-Z-joints": "A5",
+    "07-X": "A5", "08-SB": "B5", "08-CW2": "A5", "09-bay": "A5", "09-ducts": "B5 ×3",
+    "10-chains": "A5", "10-lights": "A5", "10-wiring": "A5", "11-skirts": "box",
+    "11-fans": "A5", "11-panels": "A5", "11-clips-4mm": "A5", "11-clips-6mm": "A5",
+    "11-nevermore": "B5", "11-spool": "A5", "11-door": "A5", "13-scrubber": "A5",
+    "14-exhaust": "B5 ×2", "spare-alt": "A5",
+}
+for _b, _meta in BINS.items():
+    _meta["bag"] = BAG[_b]
+
+
+def bag_parse(bag: str) -> tuple[str, int]:
+    """"A5" -> ("A5", 1); "B5 ×2" -> ("B5", 2); "box" -> ("box", 1)."""
+    m = re.fullmatch(r"(A5|B5|box)(?: ×(\d+))?", bag)
+    if not m:
+        raise ValueError(f"bad bag {bag!r}: want A5, B5, box, optionally ' ×N'")
+    return m.group(1), int(m.group(2) or 1)
+
+
+def bag_counts() -> dict[str, int]:
+    """{"A5": n, "B5": n, "box": n} over every bin."""
+    out = {"A5": 0, "B5": 0, "box": 0}
+    for meta in BINS.values():
+        kind, n = bag_parse(meta["bag"])
+        out[kind] += n
+    return out
+
+
+def bag_text(bag: str) -> str:
+    """Display form: "A5 mesh bag", "2 × B5 mesh bags", "box (too big for a bag)"."""
+    kind, n = bag_parse(bag)
+    if kind == "box":
+        return "box, too big for a bag"
+    return f"{kind} mesh bag" if n == 1 else f"{n} × {kind} mesh bags"
+
+
+def bag_summary() -> str:
+    """The phrase every page quotes, e.g. "24 of 24 A5 and 7 of 12 B5 mesh bags, plus 1 box"
+    (no parentheses: Ch 00 puts it in a Do line). slicer/check_docs.py requires it in print/README
+    and Ch 00 and fails on any other A5/B5/box count in the pages that state one."""
+    c = bag_counts()
+    return (f"{c['A5']} of {BAGS['A5']['owned']} A5 and {c['B5']} of {BAGS['B5']['owned']} B5 "
+            f"mesh bags, plus {c['box']} box{'es' if c['box'] != 1 else ''}")
+
 
 # ------------------------------------------------------ STL -> bin assignment
 # One entry per STL in slicer/plates.py. A list means one bin per printed copy, in the
@@ -269,6 +341,63 @@ NOTES: dict[str, str] = {
     "V2L_STRIP_FIN.stl": "divider between PSU −V and FG, fitted as Ch 10 closes the AC lids",
 }
 
+# ------------------------------------------------------------- add-on parts
+# On no plate (slicer/plates.py ADDONS pins the files): printed after kit day inside their own
+# chapter part. `name` is what the label says; `geom` is the file bin_bags.py measures (for the
+# scrubber, the committed default set: the real files come out of `measured/` at Step 13.47 and
+# differ by at most a few mm in height); `made` is where the part comes from instead of a plate id.
+ADDON_PARTS: dict[str, list[dict]] = {
+    "13-scrubber": [
+        dict(name="brush bracket, mirrored", qty=1,
+             geom=("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
+             made="add-on print, Step 13.48", note="file name from `measured/` (Step 13.47)"),
+        dict(name="stop bracket", qty=1,
+             geom=("addons", "scrubber-796563/stop_bracket.stl"),
+             made="add-on print, Step 13.48", note="only if Step 13.47 fits the sheet stops"),
+        dict(name="purge bucket, 350 mm, mirrored", qty=1,
+             geom=("addons", "scrubber-796563/bucket350_T1.5_MIRROR.stl"),
+             made="add-on print, Step 13.48", note="file name from `measured/` (Step 13.47)"),
+    ],
+    "14-exhaust": [
+        dict(name="`exhaust_filter_housing`", qty=1,
+             geom=("voron2", "STLs/Exhaust_Filter/exhaust_filter_housing.stl"),
+             made="add-on print, Step 14.26 job 1", note="black"),
+        dict(name="`[a]_exhaust_fan_grill`", qty=1,
+             geom=("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl"),
+             made="add-on print, Step 14.26 job 2", note="blue"),
+        dict(name="`[a]_filter_access_cover`", qty=1,
+             geom=("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl"),
+             made="add-on print, Step 14.26 job 2", note="blue"),
+        dict(name="`[a]_exhaust_filter_mount`", qty=2,
+             geom=("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl"),
+             made="add-on print, Step 14.26 job 2", note="blue"),
+    ],
+}
+
+
+def contents() -> dict[str, dict[str, dict]]:
+    """bin id -> part key -> {"name", "n", "from": [plate ids or add-on step], "note", "geom"}.
+
+    Plate parts come from slicer/plates.py through copies_bins (key = STL file name, `name` its
+    short form in backticks); add-on parts from ADDON_PARTS. The labels, the bin map and
+    slicer/bin_bags.py all read this one function."""
+    from plates import PLATES   # slicer/plates.py; imported here so bins.py stays importable alone
+    out: dict[str, dict[str, dict]] = {}
+    for pid, spec in PLATES.items():
+        for repo, path, qty in spec["parts"]:
+            stl = path.rsplit("/", 1)[-1]
+            for b in copies_bins(pid, stl, qty):
+                e = out.setdefault(b, {}).setdefault(stl, dict(
+                    name=f"`{short_name(stl)}`", n=0, made=[], note=NOTES.get(stl), geom=(repo, path)))
+                e["n"] += 1
+                if pid not in e["made"]:
+                    e["made"].append(pid)
+    for b, parts in ADDON_PARTS.items():
+        for p in parts:
+            out.setdefault(b, {})[p["geom"][1]] = dict(
+                name=p["name"], n=p["qty"], made=[p["made"]], note=p.get("note"), geom=p["geom"])
+    return out
+
 
 def copies_bins(plate_id: str, stl: str, n_copies: int) -> list[str]:
     """Bin id for each printed copy of `stl` on `plate_id`, in copy order."""
@@ -297,10 +426,26 @@ def text_colour(hex_colour: str) -> str:
     return "#ffffff" if lum < 0.5 else "#1a1a1e"
 
 
-def check(plate_sources: list[str]) -> list[str]:
+def check(plate_sources: list[str], addon_sources: list[tuple[str, str]] | None = None) -> list[str]:
     """Every STL in the plan has exactly one assignment; every assignment names a real bin
-    and a real STL. `plate_sources` are basenames from slicer/plates.py."""
+    and a real STL. `plate_sources` are basenames from slicer/plates.py; `addon_sources` its
+    ADDONS (repo, path) pairs, which every ADDON_PARTS file must be one of. Every bin names a
+    valid bag, and the add-on bins hold nothing a plate feeds."""
     bad = []
+    for b, meta in BINS.items():
+        try:
+            bag_parse(meta.get("bag", ""))
+        except ValueError as e:
+            bad.append(f"{b}: {e}")
+    plate_bins = {x for spec in ASSIGN.values() for x in ([spec] if isinstance(spec, str) else spec)}
+    for b, parts in ADDON_PARTS.items():
+        if b not in BINS:
+            bad.append(f"ADDON_PARTS: unknown bin {b}")
+        if b in plate_bins:
+            bad.append(f"ADDON_PARTS: bin {b} also takes plate parts; an add-on bin must not")
+        for p in parts:
+            if addon_sources is not None and tuple(p["geom"]) not in set(addon_sources):
+                bad.append(f"ADDON_PARTS {b}: {p['geom'][1]} is not in slicer/plates.py ADDONS")
     wanted = set(plate_sources)
     for stl in sorted(wanted - set(ASSIGN)):
         bad.append(f"no bin for {stl}")
@@ -320,9 +465,9 @@ def check(plate_sources: list[str]) -> list[str]:
 
 
 if __name__ == "__main__":
-    from plates import PLATES
+    from plates import ADDONS, PLATES
     names = [p.rsplit("/", 1)[-1] for pl in PLATES.values() for _r, p, _q in pl["parts"]]
-    problems = check(names)
+    problems = check(names, list(ADDONS))
     for p in problems:
         print(p)
     print(f"{len(BINS)} bins, {len(ASSIGN)} STLs, {len(problems)} problem(s)")

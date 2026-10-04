@@ -10,13 +10,16 @@ Produces:
                                for Step B00.8 in the B00 batch chapter, so that
                                step never hand-types the 27 plate ids.
   docs/print/bin-labels.md  — one label per sorting bin from slicer/bins.py
-                               (bin id, label, chapter · steps, the parts it
-                               should contain with qty and the plates they come
-                               off, a QR code linking to the chapter's step-page
-                               overview), then a one-page bin map listing every
-                               bin, then a 1:1 fastener gauge (inline SVG in mm,
-                               from the kit BOM). QR codes are generated with segno
-                               (SVG, no external service).
+                               (bin id, bag, label, chapter · steps, the parts it
+                               should contain with qty and the plates or add-on
+                               step they come from, a QR code linking to the
+                               chapter's step-page overview), two to a US Letter
+                               sheet, each half trimming to fit an A5 mesh bag
+                               (layout: extra.css `.bin-sheet`), then a one-page
+                               bin map listing every bin and its bag, then a 1:1
+                               fastener gauge (inline SVG in mm, from the kit
+                               BOM). QR codes are generated with segno (SVG, no
+                               external service).
   docs/print/plate-plans.md — every plate sorting diagram on one page,
                                grouped by batch in print order, each with its
                                colour/parts/hours/grams (from slicer/estimates.csv)
@@ -47,6 +50,7 @@ are written to docs/print/assets/qr/.
 """
 
 import csv
+import html
 import json
 import os
 import sys
@@ -263,40 +267,72 @@ def _chapter_overview_url(chapter_number):
 
 
 def _bin_contents():
-    """bin id -> {stl: {"n": copies, "plates": [plate ids]}} from slicer/plates.py + bins.py."""
-    out = {}
-    for pid, spec in PLATES.items():
-        for _repo, path, qty in spec["parts"]:
-            stl = path.rsplit("/", 1)[-1]
-            for b in bins.copies_bins(pid, stl, qty):
-                entry = out.setdefault(b, {}).setdefault(stl, {"n": 0, "plates": []})
-                entry["n"] += 1
-                if pid not in entry["plates"]:
-                    entry["plates"].append(pid)
-    return out
+    """bin id -> part key -> {name, n, made, note, geom}: slicer/bins.py contents(), the one owner
+    (plate parts through bins.copies_bins, the add-on bins' parts from bins.ADDON_PARTS)."""
+    return bins.contents()
 
 
-def _label_block(bin_id, meta, contents, qr_rel):
-    lines = [f"### {bin_id}", "", f"**{meta['label']}**", "",
-             f"_{meta['chapter']} · {meta['steps']}_", ""]
-    if contents:
-        lines.append("**Should contain:**")
-        lines.append("")
-        for stl, entry in contents.items():
-            qty = f" ×{entry['n']}" if entry["n"] > 1 else ""
-            note = bins.NOTES.get(stl)
-            plates = ", ".join(entry["plates"])
-            lines.append(f"- `{bins.short_name(stl)}`{qty} — {plates}" + (f" — {note}" if note else ""))
-        lines.append("")
-        n = sum(e["n"] for e in contents.values())
-        lines.append(f"_{n} piece{'s' if n != 1 else ''}_")
+def _inline(text):
+    """Escape for raw HTML, then the label text's `code` spans to <code>."""
+    out = html.escape(text, quote=False)
+    return re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
+
+
+def _density(n_items):
+    """List density class by line count, so the longest list (09-ducts) still fits the frame."""
+    if n_items <= 7:
+        return "roomy"
+    if n_items <= 12:
+        return "snug"
+    if n_items <= 18:
+        return "two"
+    return "three"
+
+
+def _label_html(bin_id, meta, contents, qr_rel):
+    """One half-sheet label (5.5 x 8.5 in) as a single raw-HTML line: a frame that trims to fit an
+    A5 bag, the bin id large, the bag, the label and steps, the QR, and what should be inside.
+    docs/stylesheets/extra.css (`.bin-label`) lays it out on screen and on paper."""
+    kind, nbags = bins.bag_parse(meta["bag"])
+    n = sum(e["n"] for e in contents.values())
+    if kind == "box":
+        bag_note = "tape this label to the box"
+    elif nbags > 1:
+        others = "2 on the other" if nbags == 2 else f"2 … {nbags} on the others"
+        bag_note = f"this label in bag 1; write {bin_id} {others}"
     else:
-        lines.append("_(empty — nothing in the plan feeds this bin)_")
-    lines.append("")
-    if qr_rel:
-        lines.append(f"![QR link to the chapter overview]({qr_rel})")
-    lines.append("")
-    return lines
+        bag_note = "slide this label in, facing out"
+    items = []
+    for e in contents.values():
+        qty = f" ×{e['n']}" if e["n"] > 1 else ""
+        made = ", ".join(e["made"])
+        note = f'<span class="bin-label__note"> · {_inline(e["note"])}</span>' if e["note"] else ""
+        items.append(f'<li>{_inline(e["name"])}{qty} <span class="bin-label__from">{_inline(made)}</span>{note}</li>')
+    listing = (f'<ul class="bin-label__list bin-label__list--{_density(len(items))}">{"".join(items)}</ul>'
+               if items else '<p class="bin-label__empty">(empty: nothing in the plan feeds this bin)</p>')
+    # Raw HTML is not re-linked by MkDocs: the page is served at print/bin-labels/ (directory
+    # URLs), so a docs/print/-relative path needs one more `../`.
+    # Eager: hooks/callouts.py makes every other image lazy, and a lazy QR below the fold can
+    # print blank when the browser prints before it has scrolled there.
+    qr = (f'<img class="bin-label__qr-img" loading="eager" decoding="sync" src="../{qr_rel}" alt="QR code: {html.escape(meta["chapter"])} step overview">'
+          if qr_rel else "")
+    on_chapter = meta["chapter"].startswith("Ch ")
+    target = f'{meta["chapter"]} steps' if on_chapter else "bin scheme"
+    where = f'{html.escape(meta["chapter"])} · {_inline(meta["steps"])}' if on_chapter else _inline(meta["steps"])
+    return (
+        f'<section class="bin-label" id="bin-{bin_id}" style="--bin-colour: {meta["colour"]}">'
+        f'<div class="bin-label__frame">'
+        f'<div class="bin-label__id">{html.escape(bin_id)}</div>'
+        f'<div class="bin-label__bag bin-label__bag--{kind.lower()}">'
+        f'<strong>{html.escape(bins.bag_text(meta["bag"]))}</strong>'
+        f'<span>{html.escape(bag_note)}</span></div>'
+        f'<div class="bin-label__what"><p class="bin-label__name">{_inline(meta["label"])}</p>'
+        f'<p class="bin-label__steps">{where}</p></div>'
+        f'<div class="bin-label__qr">{qr}<span>{html.escape(target)}</span></div>'
+        f'<div class="bin-label__contents"><p class="bin-label__contains">Should contain · '
+        f'<strong>{n} piece{"s" if n != 1 else ""}</strong></p>{listing}</div>'
+        f'</div></section>'
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -464,38 +500,63 @@ def build_bin_labels_markdown(chapters):
     lines = [
         "# Bin labels",
         "",
-        # extra.css hides every mascot inside @media print (even under the
-        # `.print-images` opt-in these sheets need for their QR codes and plate
-        # diagrams), so the bird is on the screen copy and never on the paper.
+        # The intro is screen-only: on paper the first sheet starts at the top of page 1.
+        '<div class="bin-labels-intro" markdown="1">',
+        "",
+        # extra.css hides every mascot inside @media print, so the bird is on the screen copy
+        # and never on the paper.
         mascot.panel_html("carry"),
         "",
-        "_Generated by `scripts/build_printables.py` from `slicer/bins.py` — do not hand-edit. One label per "
-        "bin: cut along the page breaks, tape to the box. The bin id is also what the plate diagrams and the "
-        "batch chapters' *Sort into bins* steps use, and each QR links to the chapter's step overview. Then "
-        "the bin map, and last a 1:1 fastener gauge._",
+        "_Generated by `scripts/build_printables.py` from `slicer/bins.py` — do not hand-edit._",
+        "",
+        f"**{len(bins.BINS)} bins in {bins.bag_summary()}.** "
+        "Each bin's bag comes from its parts' measured size (`slicer/bin_bags.py`; the rule is in "
+        "[print/README.md § Bins](../manual/print/README.md#bins)).",
+        "",
+        "Print on US Letter at 100 %, two labels to a sheet. Cut on the dashed line, then trim along "
+        "the frame: a trimmed label is 200 × 130 mm and slides into an A5 bag, reading through the "
+        "mesh. A box label tapes on. The bin id is what the plate diagrams and the batch chapters' "
+        "*Sort into bins* steps use, and each QR opens the chapter's step overview. After the labels "
+        "come the [bin map](#bin-map) and a 1:1 [fastener gauge](#fastener-gauge-print-at-100), "
+        "each on its own page.",
+        "",
+        "</div>",
         "",
     ]
     contents = _bin_contents()
+    labels = []
     for bin_id, meta in bins.BINS.items():
         number = meta["chapter"].replace("Ch ", "") if meta["chapter"].startswith("Ch ") else None
         url, slug = _chapter_overview_url(number) if number else (None, None)
         if url is None:
             url, slug = f"{_SITE_URL}manual/print/#bins", "print-README-bins"
         qr_rel = _write_qr(f"bin-{bin_id}", url)
-        lines += _label_block(bin_id, meta, contents.get(bin_id, {}), qr_rel)
-        lines.append('<div class="print-page-break"></div>')
+        labels.append(_label_html(bin_id, meta, contents.get(bin_id, {}), qr_rel))
+    # Two labels per US Letter sheet, a cut line between them. One raw-HTML line per sheet
+    # (no blank line inside), so Python-Markdown passes it through untouched.
+    for i in range(0, len(labels), 2):
+        pair = labels[i:i + 2]
+        cut = '<div class="bin-sheet__cut" aria-hidden="true"><span>✂ cut</span></div>'
+        lines.append(f'<div class="bin-sheet">{pair[0]}{cut if len(pair) > 1 else ""}'
+                     f'{pair[1] if len(pair) > 1 else ""}</div>')
         lines.append("")
 
     lines += ["## Bin map", "",
-              "_All bins on one page — which chapter opens each one, and what should be inside._", "",
-              "| bin | label | chapter · steps | pieces | from batches |", "|---|---|---|---:|---|"]
+              f"_All {len(bins.BINS)} bins on one page: which chapter opens each one, the bag it travels "
+              f"in and how many pieces should be inside. {bins.bag_summary()[0].upper() + bins.bag_summary()[1:]}._",
+              "",
+              '<div class="bin-map" markdown="1">', "",
+              "| bin | label | chapter · steps | bag | pieces | from |", "|---|---|---|---|---:|---|"]
     for bin_id, meta in bins.BINS.items():
         c = contents.get(bin_id, {})
         n = sum(e["n"] for e in c.values())
-        batches = sorted({p[:3] for e in c.values() for p in e["plates"]})
-        lines.append(f"| **{bin_id}** | {meta['label']} | {meta['chapter']} · {meta['steps']} | {n} | "
-                     f"{', '.join(batches)} |")
-    lines.append("")
+        sources = sorted({m[:3] if re.match(r"B\d\d-P\d", m) else "add-on" for e in c.values()
+                          for m in e["made"]})
+        # Main step range only (the label carries the secondary uses), so the map stays one page.
+        steps = meta["steps"].split(" (")[0]
+        lines.append(f"| [**{bin_id}**](#bin-{bin_id}) | {meta['label']} | {meta['chapter']} · {steps} | "
+                     f"{meta['bag']} | {n} | {', '.join(sources)} |")
+    lines += ["", "</div>", ""]
     lines += build_fastener_gauge_markdown()
     return "\n".join(lines).rstrip() + "\n"
 

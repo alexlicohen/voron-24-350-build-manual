@@ -1062,3 +1062,148 @@ body.step-is-done .md-typeset .step-done-label {
   .md-typeset .mascot-scene,
   .md-typeset .mascot-hero-wrap { display: none !important; }
 }
+
+/* Bin labels (docs/print/bin-labels.md, scripts/build_printables.py _label_html). On screen: one
+ * card per bin. On paper: two labels per US Letter sheet (`.bin-sheet`, its own named page with no
+ * margin), each a 5.5 × 8.5 in half with a dashed cut line between them, and inside each half a
+ * 200 × 130 mm frame (`.bin-label__frame`) that is the trim line: trimmed, it slides into an A5
+ * mesh bag (148 × 210 mm). Everything on the label sits inside that frame. */
+.md-typeset .bin-sheet { display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0; }
+.md-typeset .bin-sheet__cut { display: none; }
+.md-typeset .bin-label { scroll-margin-top: 4rem; }
+.md-typeset .bin-label__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "id qr" "bag qr" "what qr" "contents contents";
+  gap: .35rem 1rem;
+  padding: .7rem .9rem .8rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-left: .5rem solid var(--bin-colour, #888);
+  border-radius: .2rem;
+}
+.md-typeset .bin-label p { margin: 0; }
+.md-typeset .bin-label__id {
+  grid-area: id; font-size: 1.9rem; font-weight: 800; line-height: 1.05;
+  letter-spacing: -.01em; overflow-wrap: anywhere;
+}
+.md-typeset .bin-label__bag { grid-area: bag; display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .6rem; }
+.md-typeset .bin-label__bag strong {
+  font-size: 1rem; text-transform: uppercase; letter-spacing: .03em;
+  border: 2px solid currentColor; border-radius: .25rem; padding: .05rem .45rem;
+}
+.md-typeset .bin-label__bag--box strong { background: var(--md-default-fg-color); color: var(--md-default-bg-color); border-color: var(--md-default-fg-color); }
+.md-typeset .bin-label__bag span,
+.md-typeset .bin-label__steps,
+.md-typeset .bin-label__from,
+.md-typeset .bin-label__note { color: var(--md-default-fg-color--light); }
+.md-typeset .bin-label__bag span { font-size: .68rem; }
+.md-typeset .bin-label__what { grid-area: what; }
+.md-typeset .bin-label__name { font-weight: 700; font-size: .9rem; }
+.md-typeset .bin-label__steps { font-size: .7rem; }
+.md-typeset .bin-label__qr { grid-area: qr; display: flex; flex-direction: column; align-items: center; gap: .15rem; font-size: .6rem; }
+/* White ground under the black modules, so the code still scans in the dark scheme. */
+.md-typeset img.bin-label__qr-img { width: 6.5rem; height: 6.5rem; background: #fff; padding: .2rem; border-radius: .15rem; }
+.md-typeset .bin-label__contents { grid-area: contents; min-width: 0; }
+.md-typeset .bin-label__contains { font-size: .72rem; margin-bottom: .15rem; }
+.md-typeset ul.bin-label__list { margin: 0; padding-left: 1rem; font-size: .68rem; line-height: 1.35; }
+.md-typeset ul.bin-label__list li { margin: 0 0 .1rem; break-inside: avoid; }
+.md-typeset ul.bin-label__list--two,
+.md-typeset ul.bin-label__list--three { columns: 2; column-gap: 1.6rem; }
+@media screen and (min-width: 60em) {
+  .md-typeset ul.bin-label__list--three { columns: 3; }
+}
+@media screen and (max-width: 44.99em) {
+  .md-typeset .bin-label__frame { padding: .6rem .7rem; gap: .3rem .7rem; }
+  .md-typeset .bin-label__id { font-size: 1.5rem; }
+  .md-typeset img.bin-label__qr-img { width: 4.5rem; height: 4.5rem; }
+  .md-typeset ul.bin-label__list--two,
+  .md-typeset ul.bin-label__list--three { columns: 1; }
+}
+
+@media print {
+  @page bin-labels { size: 8.5in 11in; margin: 0; }
+  /* The map and the gauge after the labels. The document is laid out at the first page's
+   * width (the label sheets' full 8.5 in), so these get their own page with known margins and a
+   * width that fits inside them, or their right edge is cut off. */
+  /* Chromium lays the whole document out at the narrowest page's content width, so a margin here
+   * would shrink the 8.5 in label sheets to fit it (to 88 %). The map and gauge pages therefore also
+   * have no page margin; their 0.5 in inset is padding on the content instead. */
+  @page bin-labels-rest { size: 8.5in 11in; margin: 0; }
+  .md-content__inner:has(.bin-sheet) > :not(.bin-sheet) {
+    page: bin-labels-rest; box-sizing: border-box; max-width: none; padding-inline: .5in;
+  }
+  .md-content__inner:has(.bin-sheet) > h2 { padding-top: .5in; }
+
+  /* The label page prints edge to edge: no content padding, no title, no intro, and none of
+   * Material's zero-height body children, which would otherwise open a blank first page before
+   * the first named `bin-labels` page. */
+  body:has(.bin-sheet) > :not(.md-container) { display: none !important; }
+  .md-content__inner:has(.bin-sheet) { margin: 0 !important; padding: 0 !important; }
+  .md-content__inner:has(.bin-sheet)::before { display: none !important; }
+  .md-content__inner:has(.bin-sheet) > h1,
+  .md-typeset .bin-labels-intro { display: none !important; }
+
+  .md-typeset .bin-sheet {
+    page: bin-labels;
+    display: block; position: relative;
+    width: 8.5in; height: 11in; margin: 0; overflow: hidden;
+    break-after: page; page-break-after: always; break-inside: avoid;
+  }
+  .md-typeset .bin-label {
+    position: absolute; left: 0; width: 8.5in; height: 5.5in;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .md-typeset .bin-label:first-child { top: 0; }
+  .md-typeset .bin-sheet__cut + .bin-label { top: 5.5in; }
+  .md-typeset .bin-sheet__cut {
+    display: block; position: absolute; left: 0; right: 0; top: 5.5in; height: 0;
+    border-top: .3mm dashed #000;
+  }
+  .md-typeset .bin-sheet__cut span {
+    position: absolute; left: 6mm; top: -2mm; padding: 0 1.5mm;
+    background: #fff; color: #000; font-size: 3mm; line-height: 4mm;
+  }
+  .md-typeset .bin-label__frame {
+    box-sizing: border-box; width: 200mm; height: 130mm; overflow: hidden;
+    grid-template-columns: minmax(0, 1fr) 36mm;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 2.2mm 5mm; padding: 5mm 6mm 4mm 7mm;
+    border: .3mm solid #888; border-left: 4mm solid var(--bin-colour, #888); border-radius: 0;
+    color: #000; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .md-typeset .bin-label__id { font-size: 15mm; }
+  .md-typeset .bin-label__bag { gap: 1mm 3mm; }
+  .md-typeset .bin-label__bag strong { font-size: 6.5mm; border-width: .6mm; border-radius: 1.2mm; padding: .4mm 2.2mm; }
+  .md-typeset .bin-label__bag--box strong { background: #000; color: #fff; border-color: #000; }
+  .md-typeset .bin-label__bag span { font-size: 3mm; }
+  .md-typeset .bin-label__name { font-size: 5.6mm; line-height: 1.2; }
+  .md-typeset .bin-label__steps { font-size: 3.5mm; line-height: 1.25; }
+  .md-typeset .bin-label__bag span,
+  .md-typeset .bin-label__steps,
+  .md-typeset .bin-label__from,
+  .md-typeset .bin-label__note { color: #333; }
+  .md-typeset .bin-label__qr { font-size: 2.6mm; gap: .8mm; align-self: start; }
+  /* print.css hides every image unless .print-images is on; the QR is the label's link. */
+  .md-typeset img.bin-label__qr-img {
+    display: block !important; width: 34mm !important; height: 34mm !important;
+    max-width: none !important; padding: 0; background: #fff;
+  }
+  .md-typeset .bin-label__contents { align-self: start; }
+  .md-typeset .bin-label__contains { font-size: 4mm; margin-bottom: 1mm; }
+  .md-typeset ul.bin-label__list { padding-left: 4mm; line-height: 1.28; }
+  .md-typeset ul.bin-label__list li { margin: 0 0 .5mm; }
+  .md-typeset ul.bin-label__list--roomy { font-size: 4.1mm; }
+  .md-typeset ul.bin-label__list--snug { font-size: 3.5mm; }
+  .md-typeset ul.bin-label__list--two { font-size: 3.3mm; columns: 2; column-gap: 6mm; }
+  .md-typeset ul.bin-label__list--three { font-size: 2.9mm; columns: 3; column-gap: 4mm; }
+  .md-typeset .bin-label code { font-size: 1em; padding: 0; background: none; color: #000; }
+
+  /* The bin map: one page after the labels. Material's scroll wrapper hangs .8rem outside the
+   * column, which the page margin would cut off. */
+  .md-typeset .bin-map .md-typeset__scrollwrap { margin: 0; overflow: visible; }
+  .md-typeset .bin-map .md-typeset__table { padding: 0; }
+  .md-typeset .bin-map table { font-size: 7.5pt; }
+  .md-typeset .bin-map table th,
+  .md-typeset .bin-map table td { padding: .2em .45em; }
+}

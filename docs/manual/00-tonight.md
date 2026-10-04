@@ -116,7 +116,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B10.6 — Reads each bin label aloud and checks the count against the diagram.
 - **Ch 00 — Before you start** — <span data-first-step="00.8">Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.</span>
     - Step 00.10 — Reads the thickest leaf that slides under aloud and writes it in the log.
-    - Step 00.11 — Writes the chapter number on each bin label and sticks it on square.
+    - Step 00.11 — Trims each label to its frame and slides it into the bag it names.
 - **Ch 00 — Before you start** — <span data-first-step="00.23">Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</span>
     - Step 00.25 — Picks one of each fastener out of the bags and lays it beside its name on the page.
 - **Ch 00 — Before you start** — <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.</span>

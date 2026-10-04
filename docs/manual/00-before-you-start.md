@@ -461,19 +461,22 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 (no image — see text)
 
-**What you're looking at:** Empty bins and a marker. Each bin belongs to one sub-assembly, not to a whole chapter: Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive, so a session never starts with a hunt.
+**What you're looking at:** Bags, a box and labels. Each bin belongs to one sub-assembly, not to a whole chapter: Ch 02 alone builds four identical-looking corners that must not get mixed. Parts land in their bin as they arrive, so a session never starts with a hunt.
 
 **Parts:**
 
-- consumable: stackable bin or labelled zip bag ×27
+- consumable: A5 mesh zip bag ×24
+- consumable: B5 mesh zip bag ×7
+- consumable: box for the skirt ring ×1
 - consumable: spare bins for the LDO-supplied parts and the greased rails
 - consumable: masking tape
+- tool: scissors
 - tool: marker
 
 **Do:**
 
-1. Print the [bin labels](../print/bin-labels.md), one per bin, and tape one to each container.
-2. The scheme is [print/README.md § Bins](print/README.md#bins): **27 bins**, `00-jigs` … `spare-alt`, the names every batch chapter and plate diagram already uses.
+1. Print the [bin labels](../print/bin-labels.md), two per sheet. Cut, trim each to its frame, slide it into its bag.
+2. [**29 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 24 of 24 A5 and 7 of 12 B5 mesh bags, plus 1 box.
 
 | Print batch | Bins it fills |
 |---|---|
@@ -489,10 +492,11 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
 | B11 — Bay ducting (PETG V0) | 09-ducts, 10-wiring |
+| Add-ons after kit day, on no plate | 13-scrubber, 14-exhaust |
 
-**Check:** 27 containers labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 29 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
-**Helper:** Writes the chapter number on each bin label and sticks it on square.
+**Helper:** Trims each label to its frame and slides it into the bag it names.
 
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
@@ -1093,7 +1097,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 27 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)) and the batch → bin map posted on the wall.
+- [ ] 29 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

@@ -62,7 +62,8 @@ Step 13.47 printout names exactly these files. `slicer/stl/MANIFEST.sha256` pins
 
 One job on the Core One+, smooth sheet, `slicer/voron-coreone-asa.ini` (Voron spec: 4 walls, 5 top/bottom,
 40 % grid, 0.2 mm), Galaxy Black ASA, as oriented, **no supports**. Default set, PrusaSlicer 2.9.6 CLI
-estimate: **38.5 g, 2 h 30 m**. Bin with Ch 13.
+estimate: **38.5 g, 2 h 30 m**. The parts go in bin `13-scrubber` (`slicer/bins.py` `ADDON_PARTS`; its
+label is on the bin-labels sheet and names them generically, since the file names come from `measured/`).
 
 ## Upstream changes
 

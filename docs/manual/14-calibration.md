@@ -1138,7 +1138,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 1. Run `python3 slicer/fetch_stls.py` so the add-on's files are on disk.
 2. In PrusaSlicer 2.9.6, print the housing with `voron-coreone-asa.ini`, as oriented, no supports.
-3. Then print the other three, mounts twice, with `voron-accent-blue.ini`.
+3. Then print the other three, mounts twice, with `voron-accent-blue.ini`. Once cool, bag all five in bin `14-exhaust`.
 
 **Check:** The black job slices to about 5 h and 66 g, the blue one to about 2 h and 35 g, both without supports.
 
@@ -1182,9 +1182,9 @@ Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- exhaust housing ×1 — from the exhaust add-on print
-- fan grill ×1 — from the exhaust add-on print
-- access cover ×1 — from the exhaust add-on print
+- exhaust housing ×1 — from bin 14-exhaust
+- fan grill ×1 — from bin 14-exhaust
+- access cover ×1 — from bin 14-exhaust
 - 24 V exhaust fan ×1 — from the Ch 00 exhaust purchase
 - carbon filter mat layer ×2 — from the Ch 00 exhaust purchase
 - M3×30 SHCS ×4
@@ -1225,7 +1225,7 @@ Pause: ~40 min since the last pause — eight inserts set, and the fan, its gril
 - reused: the exhaust grill and its two M3×12 SHCS
 - reused: the cover tabs' two M5 T-nuts and M5×10 BHCS
 - reused: the PTFE coupler and the reverse-bowden PTFE
-- filter mount ×2 — from the exhaust add-on print
+- filter mount ×2 — from bin 14-exhaust
 - consumable: VHB tape
 - tool: 2.5 mm hex key
 - tool: 3 mm hex key
