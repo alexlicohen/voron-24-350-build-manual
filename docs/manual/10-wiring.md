@@ -16,7 +16,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 08 — Toolhead.** Stealthburner + CW2 + Nitehawk-SB **V2** assembled, all toolhead-side connectors seated, USB-adapter PCB stack built.
 - **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted above the deck on the left bed extrusion, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
 - **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
-- **Print batch B11**: `V2L_STRIP_FIN` (bin 10-wiring) and the AC conduit lids (bin 09-ducts), at Step 10.80.
+- **Print batch B11**: `V2L_STRIP_FIN` and the AC conduit lids, both in bin 10-lids-AC, at Step 10.80.
 
 **Tools**
 
@@ -44,9 +44,9 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_chain_guide.png){ width=96 } ![](assets/parts/z_chain_bottom_anchor.png){ width=96 } | `z_chain_guide` / `z_chain_bottom_anchor` (batch B05) | 10-chains | 1 / 1 | Black |
 | ![](assets/parts/%5Ba%5D_z_chain_retainer_bracket_x2.png){ width=96 } | `[a]_z_chain_retainer_bracket_x2` (batch **B02**, plate B02-P3) | 10-chains | 2 printed, 1 fitted, 1 spare **(verify on bench)** | Blue |
 |  | `2x3 Splitter Spacer` | — | 2 | LDO-supplied printed — do not print |
-| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 09-bay | 1 | Black — fitted in Ch 08/09, used here |
-| ![](assets/parts/V2L_STRIP_FIN.png){ width=96 } | `V2L_STRIP_FIN.stl` (batch **B11**, plate B11-P3), step 10.80 | 10-wiring | 1 | Black |
-| ![](assets/parts/CMD_V2_6B_WIRE_BOX_COVER.png){ width=96 } | AC conduit lids, step 10.80: `CMD_V2_6B_WIRE_BOX_COVER.stl`, `V3L_90DEG_R15_COVER.stl` ×2, `V3L_34mm_DUCT_COVER.stl`, `CMD_V2_6B_T_SHORT_COVER.stl`, `V3L_10mm_DUCT_COVER.stl` ×2 (batch **B11**) | 09-ducts | 7 | Black |
+| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (**Nitehawk-SB-V2** repo) | 08-CW2 | 1 | Black — fitted in Ch 08/09, used here |
+| ![](assets/parts/V2L_STRIP_FIN.png){ width=96 } | `V2L_STRIP_FIN.stl` (batch **B11**, plate B11-P3), step 10.80 | 10-lids-AC | 1 | Black |
+| ![](assets/parts/CMD_V2_6B_WIRE_BOX_COVER.png){ width=96 } | AC conduit lids, step 10.80: `CMD_V2_6B_WIRE_BOX_COVER.stl`, `V3L_90DEG_R15_COVER.stl` ×2, `V3L_34mm_DUCT_COVER.stl`, `CMD_V2_6B_T_SHORT_COVER.stl`, `V3L_10mm_DUCT_COVER.stl` ×2 (batch **B11**) | 10-lids-AC | 7 | Black |
 
 **Hardware** (chapter totals)
 

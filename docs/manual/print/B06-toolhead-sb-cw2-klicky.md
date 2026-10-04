@@ -129,7 +129,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | bin | parts off this plate |
 |---|---|
 | **08-SB** — Stealthburner body, printhead, LEDs | `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` |
-| **08-CW2** — Clockwork 2 extruder + toolboard cover | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
 | **spare-alt** — Spares / alternates (not fitted) | `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` |
 
 **Check:** All toolhead parts in 08-SB / 08-CW2; the Klicky bag closed in spare-alt.

@@ -36,7 +36,7 @@ before assembly.
 | `[a]_xy_joint_cable_bridge_2hole.stl` | Voron-2 `STLs/Gantry/X_Axis/XY_Joints/` | 1 | Blue | 9.2 | 05-XY |
 | `XY_cable_chain_bridge-Igus-3mm_backer.stl` | whopping_Voron_mods `extrusion_backers/STLs/` | 1 Note: alternate to the above — fit whichever clears the Ti backers, see §Read first | Blue | 9.1 | 05-XY |
 | `[a]_z_belt_clip_lower_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Blue | 2.3 | 06-Z-joints |
-| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Blue | 2.4 | 06-Z-joints |
+| `[a]_z_belt_clip_upper_x4.stl` | Voron-2 `STLs/Gantry/` | 4 | Blue | 2.4 | 05-XY |
 | `[a]_stealthburner_main_body.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Blue | 46.5 | 08-SB |
 | `[a]_guidler_a.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Blue | 3.7 | 08-CW2 |
 | `[a]_guidler_b.stl` | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Blue | 2.1 | 08-CW2 |
@@ -49,7 +49,7 @@ before assembly.
 | `[a]_fan_grill_b_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Blue | 5.9 | 11-fans |
 | `[a]_fan_grill_retainer_x2.stl` | Voron-2 `STLs/Skirts/` | 2 | Blue | 4.2 | 11-fans |
 | `[a]_keystone_blank_insert.stl` | Voron-2 `STLs/Skirts/` | 2 *(1 used + 1 spare; LDO ships one CAT6 keystone)* | Blue | 2.5 | 11-skirts |
-| `[a]_faceplate.stl` | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Blue | 6.6 | 11-skirts |
+| `[a]_faceplate.stl` | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Blue | 6.6 | 10-tft |
 | `ldo_bestagon_insert.stl` | LDOVoron2 `STLs/` | 1 | Blue | 3.0 | 11-skirts |
 | `Handle.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Blue | 33.7 | 11-door |
 
@@ -198,7 +198,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_z_drive_baseplate_b` |
 | **07-X** — X carriage halves, probe bracket, cable cover | `[a]_cable_cover` |
 | **08-SB** — Stealthburner body, printhead, LEDs | `[a]_stealthburner_main_body` |
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `[a]_faceplate` |
+| **10-tft** — Touchscreen faceplate + mount | `[a]_faceplate` |
 
 **B02-P2**
 
@@ -217,11 +217,11 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
 | **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` |
 | **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
-| **05-XY** — XY joints, cable bridge, endstop pod | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer` |
-| **06-Z-joints** — Z joints, belt clips, rail stops | `[a]_z_belt_clip_lower` ×4, `[a]_z_belt_clip_upper` ×4 |
-| **08-CW2** — Clockwork 2 extruder + toolboard cover | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle` |
+| **05-XY** — XY joints, endstop pod, upper Z belt clips | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×4 |
+| **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` ×4 |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle` |
 | **10-chains** — Z cable chain anchor, guide, retainer | `[a]_z_chain_retainer_bracket` ×2 |
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert` |
 | **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
 
 **Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
@@ -231,7 +231,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). `_a` parts go to Z0 and Z2, `_b` to Z1 and Z3. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05.
 
 
-Pause: ~15 min since the last pause — all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
+Pause: ~15 min since the last pause — all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

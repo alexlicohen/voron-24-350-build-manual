@@ -92,10 +92,10 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z1** — Z1 corner (rear-left, `_b` hand) | `z_rail_stop` |
 | **02-Z2** — Z2 corner (rear-right, `_a` hand) | `z_rail_stop` |
 | **02-Z3** — Z3 corner (front-right, `_b` hand) | `z_rail_stop` |
-| **06-Z-joints** — Z joints and belt clips | `z_joint_lower` ×4, `z_joint_upper` ×4 |
+| **06-Z-joints** — Z joints and lower Z belt clips | `z_joint_lower` ×4, `z_joint_upper` ×4 |
 | **10-chains** — Z cable chain anchor, guide, retainer | `z_chain_bottom_anchor`, `z_chain_guide` |
 
-**Check:** one rail stop in each 02-Z corner bin; 4 joint pairs in 06-Z-joints with B02's eight belt clips; anchor and guide in 10-chains.
+**Check:** one rail stop in each 02-Z corner bin; 4 joint pairs in 06-Z-joints with B02's four lower belt clips; anchor and guide in 10-chains.
 
 **Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 

@@ -22,9 +22,9 @@ their inserts on kit day, in Ch 09.
 | `lrs_200_psu_bracket_x2.stl` | Voron-2 `STLs/Electronics_Bay/` | 2 | Black | 8.2 | 09-bay |
 | `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 | 09-bay |
 | `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 *(spare — kit supplies one; → spare-alt)* | Black | 9.4 | spare-alt |
-| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 | 09-bay |
+| `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 | 08-CW2 |
 | `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies the 4 needed)* | Black | 5.9 | 09-bay |
-| `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 11-panels |
+| `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 11-finish |
 | `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 | 10-lights |
 | `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 | 10-lights |
 | `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, not the skirts chapter; rides on B07-P1)* | Black | 36.2 | 09-bay |
@@ -126,8 +126,9 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, USB, DIN clips | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` |
-| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `handlebar_spacer` ×4 |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×4 |
 | **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |
 
 **B07-P2**
@@ -141,7 +142,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.
+Pause: ~10 min since the last pause — both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -160,4 +161,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211) — on kit day, out of
-bins 09-bay, 10-lights and 11-panels. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).
+bins 09-bay and 10-lights; the USB adapter cover waits in 08-CW2 for Ch 08 and the handlebar spacers in 11-finish. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).

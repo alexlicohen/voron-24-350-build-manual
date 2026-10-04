@@ -19,6 +19,8 @@ The rule, every number from slicer/bins.py `BAGS` / `BAG_THICK` or below:
   * A bin takes the first that works of: one A5, one B5, two A5, two B5, three A5, three B5
     (fewest bags, A5 first because there are twice as many). A piece that fits no B5, or a bin
     that would need more than three bags, makes the whole bin a box.
+  * A bin with fallback parts (slicer/bins.py FALLBACK_PARTS) is sized for the worse of its two
+    cases, bins.scenarios(); bought parts (BOUGHT_PARTS) are packed as their nominal box.
 
     python3 slicer/bin_bags.py          # per-bin table and the totals against the stock
     python3 slicer/bin_bags.py --check  # exit 1 if bins.py BAG disagrees with the geometry
@@ -54,7 +56,17 @@ def orientations(repo: str, path: str) -> tuple[tuple[float, float, float], ...]
     if not src.exists():
         raise SystemExit(f"bin_bags.py: {src.relative_to(ROOT.parent)} missing — run "
                          "python3 slicer/fetch_stls.py (and slicer/build_plates.py for a 3MF)")
-    pts = {v for t in read_stl(src) for v in t}
+    return _orient(frozenset(v for t in read_stl(src) for v in t))
+
+
+@lru_cache(maxsize=None)
+def box_orientations(size: tuple[float, float, float]) -> tuple[tuple[float, float, float], ...]:
+    """orientations() of a bought part given as a nominal box (l, w, h) in mm."""
+    l, w, h = size
+    return _orient(frozenset((x, y, z) for x in (0.0, l) for y in (0.0, w) for z in (0.0, h)))
+
+
+def _orient(pts) -> tuple[tuple[float, float, float], ...]:
     out = []
     for up in range(3):
         a, b = (i for i in range(3) if i != up)
@@ -134,15 +146,34 @@ def decide(pieces: list[tuple[str, tuple]]) -> tuple[str, str]:
     return "box", f"{head}, more than {MAX_BAGS} B5 bags; {largest}"
 
 
+def piece_list(parts: dict[str, dict]) -> list[tuple[str, tuple]]:
+    """One (name, orientations) per piece of a contents() mapping, bought parts as their box."""
+    out = []
+    for e in parts.values():
+        o = box_orientations(tuple(e["size"])) if e["bought"] else orientations(*e["geom"])
+        out += [(e["name"].strip("`"), o)] * e["n"]
+    return out
+
+
+def rank(bag: str) -> tuple[int, int]:
+    """Order of the rule's options: one A5 < one B5 < two A5 < ... < box."""
+    kind, n = bins.bag_parse(bag)
+    return (99, 0) if kind == "box" else (n, 0 if kind == "A5" else 1)
+
+
 def per_bin() -> dict[str, tuple[str, str]]:
     out = {}
     content = bins.contents()
     for b in bins.BINS:
-        pieces = []
-        for _key, e in content.get(b, {}).items():
-            o = orientations(*e["geom"])
-            pieces += [(e["name"].strip("`"), o)] * e["n"]
-        out[b] = decide(pieces) if pieces else ("A5", "empty")
+        cases = [piece_list(s) for s in bins.scenarios(content.get(b, {}))]
+        decs = [decide(p) for p in cases if p]
+        if not decs:
+            out[b] = ("A5", "empty")
+            continue
+        bag, why = max(decs, key=lambda d: rank(d[0]))
+        if len(decs) > 1:
+            why += f"; worse of {len(decs)} cases (fallback)"
+        out[b] = (bag, why)
     return out
 
 
@@ -172,12 +203,13 @@ def main() -> int:
     for c in bins.containers():
         if c["kind"] == "box":
             continue
-        pieces = [orientations(*e["geom"]) for e in c["parts"].values() for _ in range(e["n"])]
-        vols = [packed_volume(o) for o in pieces]
-        if not all(fits(o, c["kind"]) for o in pieces) or not pack(vols, c["kind"], 1):
-            bad.append(f"{c['bin']} bag {c['k']}")
-            print(f"{c['bin']} bag {c['k']} of {c['of']}: {sum(vols):.0f} cm³ overfills one "
-                  f"{c['kind']} ({capacity(c['kind']):.0f} cm³)")
+        for case in bins.scenarios(c["parts"]):
+            pieces = [o for _n, o in piece_list(case)]
+            vols = [packed_volume(o) for o in pieces]
+            if not all(fits(o, c["kind"]) for o in pieces) or not pack(vols, c["kind"], 1):
+                bad.append(f"{c['bin']} bag {c['k']}")
+                print(f"{c['bin']} bag {c['k']} of {c['of']}: {sum(vols):.0f} cm³ overfills one "
+                      f"{c['kind']} ({capacity(c['kind']):.0f} cm³)")
     counts = {"A5": 0, "B5": 0, "box": 0}
     for b in bins.BINS:
         kind, n = bins.bag_parse(bins.BINS[b]["bag"])

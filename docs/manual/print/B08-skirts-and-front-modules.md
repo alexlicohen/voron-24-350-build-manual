@@ -35,7 +35,7 @@ inlet — sharing a 67–72 × 20 mm cross-section. On the 350: front = `front_s
 | `side_skirt_b_350_x2.stl` | Voron-2 `STLs/Skirts/350/` | 2 | Black | 36.9 | 11-skirts |
 | `side_fan_support_x2.STL` | Voron-2 `STLs/Skirts/` | 2 | Black | 33.0 | 11-skirts |
 | `keystone_panel.stl` | Voron-2 `STLs/Skirts/` | 1 | Black | 38.6 | 11-skirts |
-| `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 | 11-skirts |
+| `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 | 10-tft |
 
 `power_inlet_IECGS_1mm` moved to [B07](B07-electronics-bay-and-lighting.md) — it's consumed in Ch 09, not the skirts chapter.
 
@@ -197,27 +197,28 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `rear_center_skirt_350`, `side_fan_support` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `rear_center_skirt_350`, `side_fan_support` |
 
 **B08-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` |
 
 **B08-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_fan_support`, `side_skirt_a_350`, `side_skirt_b_350`, `mount` |
+| **10-tft** — Touchscreen faceplate + mount | `mount` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `side_fan_support`, `side_skirt_a_350`, `side_skirt_b_350` |
 
 **B08-P4**
 
 | bin | parts off this plate |
 |---|---|
-| **11-skirts** — Skirt ring, keystone panel, TFT mount | `side_skirt_b_350`, `keystone_panel` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `side_skirt_b_350`, `keystone_panel` |
 
-**Check:** All ten structural segments plus the TFT mount in 11-skirts, stacked by ring position; B02's grills, retainers and belt guards wait in 11-fans.
+**Check:** All ten structural segments in 11-skirts, stacked by ring position; the TFT mount in 10-tft; B02's grills, retainers and belt guards wait in 11-fans.
 
 **Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 

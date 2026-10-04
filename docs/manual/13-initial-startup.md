@@ -1295,7 +1295,7 @@ Source: [Printables 796563 — jinetix, nozzle scrubber w/ sheet stops](https://
 
 **Parts:**
 
-- staged: Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
+- staged: Bambu A1 heatbed nozzle wiper ×1 — from bin 13-scrubber, bought at Ch 00
 - tool: digital caliper
 
 **Do:**
@@ -1467,7 +1467,7 @@ Pause: ~15 min since the last pause — the add-on print is running on the Core 
 - 6×3 mm neodymium magnet ×4
 - brush bracket, mirrored ×1 — from bin 13-scrubber
 - purge bucket, mirrored ×1 — from bin 13-scrubber
-- Bambu A1 heatbed nozzle wiper ×1 — from Bambu Lab
+- Bambu A1 heatbed nozzle wiper ×1 — from bin 13-scrubber, bought at Ch 00
 - consumable: super glue
 - tool: digital caliper
 

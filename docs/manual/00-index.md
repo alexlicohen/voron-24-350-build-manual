@@ -27,7 +27,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Gate:* Tick list on its own page: [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — belt pluck check (targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart) and a hot first-layer check at ASA bed temperature (five 30×30×0.2 mm squares, 0.17–0.23 mm each, spread ≤0.05 mm). The Gen 2 expansion joints and nozzle wiper go in first, with a bed re-check; the hot check runs on both start G-codes. Both pass → B00 on GT2 `(verify on bench)`
     - *Sessions:* —
 - **2 · Print** — [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) · 4.0 h print · needs: the pre-B00 checks passed (row 1); Step B00.8 (review every plate, together) done before B00-P1 starts
-    - *While it prints:* Print the [bin labels](../print/bin-labels.md) (29 bins, [scheme](print/README.md#bins)) and bag them: 24 of 24 A5 and 8 of 12 B5 mesh bags, plus 1 box
+    - *While it prints:* Print the [bin labels](../print/bin-labels.md) (33 bins, [scheme](print/README.md#bins)) and bag them: 29 of 48 A5 and 6 of 12 B5 mesh bags, plus 1 box
     - *Gate:* **Gate A** (Step B00.5, cube only): X/Y ±0.15 mm, Z ±0.10 mm, first-layer-vs-mid delta ≤ 0.15 mm, corner snap. **Gate B** (Step B00.7) runs the same week on a caliper across the printed bore and seven KADRICK inserts; its bearing press and MGN12 rail check wait for the kit
     - *Sessions:* Step B00.8's plate review (4 sessions, with a helper), then 1 plate start
 - **3 · Build** — [Ch 00a — Mains safety](00a-mains-safety.md) · 0.75–1.0 · needs: Ch 00 Steps 00.8 and 00.30 as reading (the tool table and the log) — no kit part is touched
@@ -63,15 +63,15 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Gate:* COB mounts flat on the reference; this batch carries `power_inlet_IECGS_1mm` and the **V2** `usb_adapter_mount_partial_cover`. Its heat-set bosses get inserts on kit day (Ch 09)
     - *Sessions:* 2 plate starts
 - **11 · Print** — [B08 — Skirts and front modules](print/B08-skirts-and-front-modules.md) · 29.2 h print · needs: Gate A; B02 and B07 to hand for the ring dry-fit
-    - *While it prints:* Read Ch 09–10; sort B07 into 09-bay, 10-lights and 11-panels; stage spool #3 — it takes over inside B09-P1
+    - *While it prints:* Read Ch 09–10; sort B07 into 08-CW2, 09-bay, 10-lights and 11-finish; stage spool #3 — it takes over inside B09-P1
     - *Gate:* Skirt faces flat with no lift; the ring dry-fits (power inlet from B07)
     - *Sessions:* 4 plate starts
 - **12 · Print** — [B09 — Panels, filtration, spool](print/B09-panels-filtration-spool.md) · 21.8 h print · needs: B08
-    - *While it prints:* Read Ch 11; sort B08 into 11-skirts. The one predicted runout lands mid-plate on B09-P1 — Nevermore plenum, nothing dimension-critical — and the printer resumes on its own
+    - *While it prints:* Read Ch 11; sort B08 into 10-tft and 11-skirts. The one predicted runout lands mid-plate on B09-P1 — Nevermore plenum, nothing dimension-critical — and the printer resumes on its own
     - *Gate:* Nevermore lid slides, cartridge snaps; the panel-clip test (extrusion, panel offcut, foam tape) waits for kit day
     - *Sessions:* 5 plate starts
 - **13 · Print** — [B10 — Clicky-Clack door](print/B10-clicky-clack-door.md) · 5.7 h print · needs: B02 (`Handle`), B09; door swing decided
-    - *While it prints:* Read Ch 12–14; sort B09 into its five bins. Every bin is now full and the printer is free
+    - *While it prints:* Read Ch 12–14; sort B09 into its six bins. Every bin is now full and the printer is free
     - *Gate:* Brims off clean; the bushing and dowel tests wait for the Clicky-Clack hardware
     - *Sessions:* 1 plate start
 - **14 · Build** — [Ch 00 — Before you start](00-before-you-start.md) **KIT** · 2.5–4.0 · needs: the kit; bins for Ch 00 full (B00 both rail guides; `Heatset_Practice` is already spent at Gate B)
@@ -102,7 +102,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **22 · Build** — [Ch 07 — A/B belts, provisional tension](07-ab-belts.md) **KIT** · 2.5–4.0 · needs: Ch 04, Ch 05, Ch 06 Part A; bins for Ch 07 full (B02, B03, B04)
     - *Gate:* Checkpoint 07: both belts ~110 Hz and equal after moving the gantry — **provisional**, Ch 06b releases it again
     - *Sessions:* 5 × ~30 min
-- **23 · Build** — [Ch 08 — Toolhead](08-toolhead.md) **KIT** · 3.0–4.5 · needs: Ch 05, Ch 07; bins for Ch 08 full (B02, B04, B06)
+- **23 · Build** — [Ch 08 — Toolhead](08-toolhead.md) **KIT** · 3.0–4.5 · needs: Ch 05, Ch 07; bins for Ch 08 full (B02, B04, B06, B07 `usb_adapter_mount_partial_cover`)
     - *Gate:* Checkpoint 08: inductive probe built and Klicky bagged, every toolhead connector seated, ESD ground lead on
     - *Sessions:* 10 × ~30 min
 - **24 · Build** — [Ch 09 — Electronics bay](09-electronics-bay.md) **KIT** · 3.0–4.5 · needs: Ch 01–03, Ch 06, Ch 08 (the USB-adapter stack), Ch 00a; bins for Ch 09 full (B07, all five B11 plates)
@@ -123,7 +123,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **29 · Build** — [Ch 06b — Gantry squaring, cold, and provisional tension](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) **KIT 2P** · ~1.0 · needs: Ch 13 Step 13.34
     - *Gate:* Checkpoint 06b: gantry de-racked and the XY joints tightened **cold**; Z joints seated; A/B back to ~110 Hz provisional; Ch 13 Step 13.35 re-QGLs. No heat soak here — the chamber cannot close yet
     - *Sessions:* 1 × ~30 min
-- **30 · Build** — [Ch 11 Part B — back, side and top panels, Clicky-Clack door](11-skirts-panels-door.md#part-b-after-ch-13) **KIT** · 1.0–2.0 · needs: Ch 13, Ch 06b; bins for Ch 11 Part B full (B02 `Handle`, B07 `handlebar_spacer_x4`, B09, B10)
+- **30 · Build** — [Ch 11 Part B — back, side and top panels, Clicky-Clack door](11-skirts-panels-door.md#part-b-after-ch-13) **KIT** · 1.0–2.0 · needs: Ch 13, Ch 06b; bins for Ch 11 Part B full (B02 `Handle`, B07 `handlebar_spacer_x4`, B09, B10, B11 DC lids)
     - *Gate:* Chamber reaches the 50–60 °C band with the door shut
     - *Sessions:* 5 × ~30 min
 - **31 · Build** — [Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune](14-calibration.md) **KIT** · 2.5–4.0 over 8–10 h (+ ~3.5 h optional chamber exhaust, Part H, with its ~7 h Core One+ print made after Step 14.25 passes) · needs: Ch 12, Ch 13, Ch 06b, Ch 11 Part B (the chamber has to close for the soak); the B00 reference cube

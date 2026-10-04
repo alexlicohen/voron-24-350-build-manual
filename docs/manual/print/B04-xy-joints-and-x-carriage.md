@@ -101,7 +101,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **05-XY** — XY joints, cable bridge, endstop pod | `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` |
+| **05-XY** — XY joints, endstop pod, upper Z belt clips | `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` |
 | **07-X** — X carriage halves, probe bracket, cable cover | `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` |
 
 **Check:** 05-XY: four joint halves plus the pod and bridges; 07-X: two frame halves and the bracket.

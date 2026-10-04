@@ -146,11 +146,10 @@ def check_bins(readme: str) -> list[str]:
     if idx_path.exists():
         idx = idx_path.read_text()
         total = sum(counts.values())
-        sp = bins.spares()
         if idx.count('class="bag-index__row"') != total:
             bad.append(f"print/bin-labels.md: {idx.count('class=\"bag-index__row\"')} index rows, "
                        f"bins.py has {total} containers (one row per bag or box)")
-        for want in (f"{total} containers:", summary, f"Spares: {sp['A5']} A5, {sp['B5']} B5.",
+        for want in (f"{total} containers:", summary, bins.stock_note(),
                      'id="bin-map"'):
             if want not in " ".join(idx.split()):
                 bad.append(f"print/bin-labels.md: Bag and box index lacks {want!r}")

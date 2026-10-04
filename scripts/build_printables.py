@@ -286,7 +286,7 @@ _VERSION_RE = re.compile(r"^(?:CMD_V\d_\w{2}_|CMD_Remix-V3_)")
 def _tiles(contents):
     """Tiles for a label's parts: [{name, n, made, note, geom, cover}] in bin order.
 
-    A bin with more than DENSE_ABOVE distinct parts (09-ducts: 31) is too dense for one picture
+    A bin with more than DENSE_ABOVE distinct parts is too dense for one picture
     each at >= 8 mm, so a `*_COVER` / `*_LID` that matches a part in the same bin (same name apart
     from the cover token and the CMD version stamp, same quantity) folds into that part's tile as
     "+ cover" and gets no picture of its own. Every other part keeps its own tile."""
@@ -327,12 +327,64 @@ def _thumb_rel(geom):
     return rel.as_posix()
 
 
+def _cond_text(contents):
+    """The fallback sentence for a label: what replaces what, and when."""
+    conds = [e for e in contents.values() if e["cond"]]
+    if not conds:
+        return ""
+    swaps = "; ".join(f'{e["name"]}{" ×" + str(e["n"]) if e["n"] > 1 else ""} instead of {e["instead"]}'
+                      for e in conds)
+    return f"Fallback, {conds[0]['cond']}: {swaps}. Not counted above."
+
+
+def _bought_text(bin_id, contents):
+    """'Also in bag N, bought: ...' for a label; the bag is named when the bin has several."""
+    bought = [(k, e) for k, e in contents.items() if e["bought"]]
+    if not bought:
+        return ""
+    where = "this bag"
+    bags = [c["k"] for c in bins.containers() if c["bin"] == bin_id
+            and any(k in c["parts"] for k, _e in bought)]
+    if bags and max(c["of"] for c in bins.containers() if c["bin"] == bin_id) > 1:
+        where = "bag " + ", ".join(str(b) for b in bags)
+    items = "; ".join(f'{e["name"]}{" ×" + str(e["n"]) if e["n"] > 1 else ""}'
+                      f'{" (" + e["note"] + ")" if e["note"] else ""}' for _k, e in bought)
+    return f"Also in {where}, bought, not printed: {items}."
+
+
+def _label_extras(bin_id, contents):
+    out = ""
+    cond = _cond_text(contents)
+    if cond:
+        out += f'<p class="bin-label__cond">{_inline(cond)}</p>'
+    bought = _bought_text(bin_id, contents)
+    if bought:
+        out += f'<p class="bin-label__bought">{_inline(bought)}</p>'
+    return out
+
+
+def _index_extras(parts):
+    """Short fallback / bought lines under a row's pictures."""
+    out = ""
+    conds = [e for e in parts.values() if e["cond"]]
+    if conds:
+        names = ", ".join(f'{_VERSION_RE.sub("", e["name"].strip("`"))}{" ×" + str(e["n"]) if e["n"] > 1 else ""}'
+                          for e in conds)
+        out += (f'<span class="bag-index__extra">or, {html.escape(bins.FALLBACK_SHORT)}: '
+                f'{html.escape(names)}</span>')
+    bought = [e for e in parts.values() if e["bought"]]
+    if bought:
+        names = ", ".join(f'{e["short"] or e["name"]}{" ×" + str(e["n"]) if e["n"] > 1 else ""}' for e in bought)
+        out += f'<span class="bag-index__extra">+ bought: {html.escape(names)}</span>'
+    return out
+
+
 def _label_html(bin_id, meta, contents, qr_rel):
     """One half-sheet label (5.5 x 8.5 in) as a single raw-HTML line: a frame that trims to fit an
     A5 bag, the bin id large, the bag, the label and steps, the QR, and what should be inside.
     docs/stylesheets/extra.css (`.bin-label`) lays it out on screen and on paper."""
     kind, nbags = bins.bag_parse(meta["bag"])
-    n = sum(e["n"] for e in contents.values())
+    n = bins.pieces(contents)
     if kind == "box":
         bag_note = "tape this label to the box"
     elif nbags > 1:
@@ -340,24 +392,28 @@ def _label_html(bin_id, meta, contents, qr_rel):
         bag_note = f"this label in bag 1; write {bin_id} {others}"
     else:
         bag_note = "slide this label in, facing out"
-    tiles = _tiles(contents)
-    tier = _tier(len(tiles))
+    tiles = _tiles({k: e for k, e in contents.items() if not e["bought"]})
+    # A fallback or bought line under the tiles takes about a row of room: count it as six tiles.
+    extra_lines = any(e["cond"] for e in contents.values()) + any(e["bought"] for e in contents.values())
+    tier = _tier(len(tiles) + 6 * extra_lines)
     items = []
     for e in tiles:
         qty = f"×{e['n']}" if e["n"] > 1 else ""
         qty = f"{qty} + cover" if e["cover"] and qty else ("+ cover" if e["cover"] else qty)
-        made = ", ".join(e["made"])
+        made = f"fallback, {bins.FALLBACK_SHORT}" if e["cond"] else ", ".join(e["made"])
         # Notes only where there is room (up to 12 tiles); a denser bin's notes live in the chapters.
         note = (f'<span class="bin-label__note">{_inline(e["note"])}</span>'
                 if e["note"] and tier <= 2 else "")
         img = (f'<img class="bin-label__part-img" loading="eager" decoding="sync" '
                f'src="../{_thumb_rel(e["geom"])}" alt="">')
-        items.append(f'<li>{img}<span class="bin-label__part-text"><span class="bin-label__part-name">'
+        cls = ' class="bin-label__part--cond"' if e["cond"] else ""
+        items.append(f'<li{cls}>{img}<span class="bin-label__part-text"><span class="bin-label__part-name">'
                      f'{_inline(e["name"]).replace("_", "_<wbr>")}</span>'
                      f'<span class="bin-label__from">{html.escape(qty)}{" · " if qty else ""}{_inline(made)}</span>'
                      f'{note}</span></li>')
     listing = (f'<ul class="bin-label__parts bin-label__parts--t{tier}">{"".join(items)}</ul>'
                if items else '<p class="bin-label__empty">(empty: nothing in the plan feeds this bin)</p>')
+    listing += _label_extras(bin_id, contents)
     # Raw HTML is not re-linked by MkDocs: the page is served at print/bin-labels/ (directory
     # URLs), so a docs/print/-relative path needs one more `../`.
     # Eager: hooks/callouts.py makes every other image lazy, and a lazy QR below the fold can
@@ -548,8 +604,8 @@ def build_fastener_gauge_markdown():
 # Bag and box index: one row per physical container (slicer/bins.py containers()).
 # ---------------------------------------------------------------------------
 
-INDEX_PICS = 6            # part pictures per row; the rest is "+N more"
-INDEX_ROWS_PAGE1 = 16     # rows on the first printed page (the heading and tally take the rest)
+INDEX_PICS = 5            # part pictures per row; the rest is "+N more"
+INDEX_ROWS_PAGE1 = 17     # rows on the first printed page (the heading and tally take the rest)
 _FIRST_STEP_RE = re.compile(r"\d\d\.\d+")
 _PLATE_RE = re.compile(r"^(B\d\d)-P(\d+)$")
 _INDEX_COLS = ("Filled", "Used", "Container", "Bag", "Parts", "Fills from", "Opens at", "Pieces")
@@ -572,19 +628,23 @@ def _index_tiles(parts):
 
 def _index_from(c):
     """Print batches a container fills from. A split bin lists its plates (B11 P4), so the bags that
-    fill after kit day read differently from bag 1."""
-    made = [m for e in c["parts"].values() for m in e["made"]]
+    fill after kit day read differently from bag 1. Fallback parts add "or fallback", bought ones
+    "+ bought"."""
+    printed = [e for e in c["parts"].values() if not e["cond"] and not e["bought"]]
+    made = [m for e in printed for m in e["made"]]
+    tail = ((" or fallback" if any(e["cond"] for e in c["parts"].values()) else "")
+            + (" + bought" if any(e["bought"] for e in c["parts"].values()) else ""))
     if not made:
-        return "—"
+        return "—" + tail if tail else "—"
     if c["of"] > 1 and all(_PLATE_RE.match(m) for m in made):
         by_batch = {}
         for m in sorted(set(made)):
             bt, n = _PLATE_RE.match(m).groups()
             by_batch.setdefault(bt, []).append(f"P{n}")
-        return " · ".join(f"{bt} {', '.join(ps)}" for bt, ps in by_batch.items())
+        return " · ".join(f"{bt} {', '.join(ps)}" for bt, ps in by_batch.items()) + tail
     if c["of"] > 1:
-        return "add-on"
-    return ", ".join(sorted({m[:3] if _PLATE_RE.match(m) else "add-on" for m in made}))
+        return "add-on" + tail
+    return ", ".join(sorted({m[:3] if _PLATE_RE.match(m) else "add-on" for m in made})) + tail
 
 
 def _index_opens(meta):
@@ -597,13 +657,14 @@ def _index_opens(meta):
 def _index_row_html(c):
     meta = bins.BINS[c["bin"]]
     kind = c["kind"]
-    tiles = _index_tiles(c["parts"])
+    tiles = _index_tiles({k: e for k, e in c["parts"].items() if not e["cond"] and not e["bought"]})
     pics = "".join(
         f'<img class="skip-glightbox" src="../{_thumb_rel(e["geom"])}" alt="" title="{html.escape(re.sub(chr(96), "", e["name"]))}" '
         f'loading="eager" decoding="sync">' for e in tiles[:INDEX_PICS])
     more = (f'<span class="bag-index__more">+{len(tiles) - INDEX_PICS} more</span>'
             if len(tiles) > INDEX_PICS else "")
     parts = f'<div class="bag-index__pics">{pics}{more}</div>' if tiles else '<span class="bag-index__more">no parts</span>'
+    parts += _index_extras(c["parts"])
     bagn = (f'<span class="bag-index__of">bag {c["k"]} of {c["of"]}</span>' if c["of"] > 1 else "")
     return (
         f'<tr class="bag-index__row" style="--bin-colour: {meta["colour"]}">'
@@ -646,6 +707,8 @@ def build_bag_index_markdown():
         ("Kit fastener bags", "kit box",
          "Stay closed in the <em>Fasteners, Tools &amp; Misc</em> box until a step calls for one. "
          "Ch 00 Step 00.12."),
+        ("Bought consumables", "bench",
+         "Grease, IPA, Loctite 243, gloves, cloth, tape, marker: on the bench, not in a bin. Ch 00 Step 00.9."),
     ]
     other_html = "".join(
         f'<li><strong>{n}</strong> <span class="bag-index__chip bag-index__chip--other">{k}</span> {d}</li>'
@@ -653,12 +716,13 @@ def build_bag_index_markdown():
     lines = [
         '<span id="bin-map"></span>', "",
         "## Bag and box index", "",
-        f"**{total} containers:** {bins.bag_summary()}. Spares: {spare['A5']} A5, {spare['B5']} B5.", "",
+        f"**{total} containers:** {bins.bag_summary()}. {bins.stock_note()}", "",
         '<div class="bag-index__intro" markdown="1">', "",
         "One row per container, in chapter order. **Filled**: tick when its print batch is sorted in. "
-        "**Used**: tick when its chapter is done. A bin in several bags splits like this: "
-        + " ".join(f"{b} {why}." for b, why in bins.BAG_SPLIT_WHY.items()) + " "
-        f"Pictures show up to {INDEX_PICS} part types; covers and lids share their part's picture.",
+        "**Used**: tick when its chapter is done. A bin in several bags opens all of them at once: "
+        + "; ".join(f"{b} {why}" for b, why in bins.BAG_SPLIT_WHY.items()) + ". "
+        f"Pictures show up to {INDEX_PICS} part types; covers and lids share their part's picture. "
+        "Fallback and bought parts are named in the row and not counted in *Pieces*.",
         "", "</div>", "",
         '<div class="bag-index">' + table + "</div>", "",
         '<div class="bag-index__other"><h3>Other containers, not in the bin scheme</h3>'

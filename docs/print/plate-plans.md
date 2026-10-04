@@ -50,7 +50,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B02-P1 — sorting diagram](../manual/assets/plates/B02-P1.png)
 
-**B02-P1** · blue · 7 parts · 7.0 h · 90 g · bins: 02-Z0, 02-Z1, 02-Z2, 02-Z3, 07-X, 08-SB, 11-skirts · [Load step](../manual/print/B02-accent-parts-orange.md#step-b022-load-plate-b02-p1)
+**B02-P1** · blue · 7 parts · 7.0 h · 90 g · bins: 02-Z0, 02-Z1, 02-Z2, 02-Z3, 07-X, 08-SB, 10-tft · [Load step](../manual/print/B02-accent-parts-orange.md#step-b022-load-plate-b02-p1)
 
 </div>
 
@@ -136,7 +136,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B07-P1 — sorting diagram](../manual/assets/plates/B07-P1.png)
 
-**B07-P1** · black · 14 parts · 7.9 h · 102 g · bins: 09-bay, 11-panels, spare-alt · [Load step](../manual/print/B07-electronics-bay-and-lighting.md#step-b072-load-plate-b07-p1)
+**B07-P1** · black · 14 parts · 7.9 h · 102 g · bins: 08-CW2, 09-bay, 11-finish, spare-alt · [Load step](../manual/print/B07-electronics-bay-and-lighting.md#step-b072-load-plate-b07-p1)
 
 </div>
 
@@ -174,7 +174,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B08-P3 — sorting diagram](../manual/assets/plates/B08-P3.png)
 
-**B08-P3** · black · 4 parts · 9.5 h · 122 g · bins: 11-skirts · [Load step](../manual/print/B08-skirts-and-front-modules.md#step-b086-load-plate-b08-p3)
+**B08-P3** · black · 4 parts · 9.5 h · 122 g · bins: 10-tft, 11-skirts · [Load step](../manual/print/B08-skirts-and-front-modules.md#step-b086-load-plate-b08-p3)
 
 </div>
 
@@ -204,7 +204,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B09-P2 — sorting diagram](../manual/assets/plates/B09-P2.png)
 
-**B09-P2** · black · 2 parts · 4.9 h · 67 g · bins: 11-nevermore · [Load step](../manual/print/B09-panels-filtration-spool.md#step-b094-load-plate-b09-p2)
+**B09-P2** · black · 2 parts · 4.9 h · 67 g · bins: 11-finish, 11-nevermore · [Load step](../manual/print/B09-panels-filtration-spool.md#step-b094-load-plate-b09-p2)
 
 </div>
 
@@ -212,7 +212,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B09-P3 — sorting diagram](../manual/assets/plates/B09-P3.png)
 
-**B09-P3** · black · 7 parts · 3.9 h · 55 g · bins: 11-panels, 11-nevermore, 11-spool · [Load step](../manual/print/B09-panels-filtration-spool.md#step-b096-load-plate-b09-p3)
+**B09-P3** · black · 7 parts · 3.9 h · 55 g · bins: 11-panels, 11-finish, 11-spool · [Load step](../manual/print/B09-panels-filtration-spool.md#step-b096-load-plate-b09-p3)
 
 </div>
 
@@ -256,7 +256,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P1 — sorting diagram](../manual/assets/plates/B11-P1.png)
 
-**B11-P1** · petg · 2 parts · 0.4 h · 4 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b113-load-and-print-plate-b11-p1)
+**B11-P1** · petg · 2 parts · 0.4 h · 4 g · bins: 09-ducts-DC · [Load step](../manual/print/B11-bay-ducting.md#step-b113-load-and-print-plate-b11-p1)
 
 </div>
 
@@ -264,7 +264,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P2 — sorting diagram](../manual/assets/plates/B11-P2.png)
 
-**B11-P2** · petg · 10 parts · 6.9 h · 96 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b115-load-and-print-plate-b11-p2)
+**B11-P2** · petg · 10 parts · 6.9 h · 96 g · bins: 09-ducts-DC, 11-lids-DC · [Load step](../manual/print/B11-bay-ducting.md#step-b115-load-and-print-plate-b11-p2)
 
 </div>
 
@@ -272,7 +272,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P3 — sorting diagram](../manual/assets/plates/B11-P3.png)
 
-**B11-P3** · petg · 15 parts · 4.6 h · 73 g · bins: 09-ducts, 10-wiring · [Load step](../manual/print/B11-bay-ducting.md#step-b116-load-and-print-plate-b11-p3)
+**B11-P3** · petg · 15 parts · 4.6 h · 73 g · bins: 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC · [Load step](../manual/print/B11-bay-ducting.md#step-b116-load-and-print-plate-b11-p3)
 
 </div>
 
@@ -280,7 +280,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P4 — sorting diagram](../manual/assets/plates/B11-P4.png)
 
-**B11-P4** · petg · 18 parts · 6.3 h · 82 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b1112-load-and-print-plate-b11-p4)
+**B11-P4** · petg · 18 parts · 6.3 h · 82 g · bins: 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC · [Load step](../manual/print/B11-bay-ducting.md#step-b1112-load-and-print-plate-b11-p4)
 
 </div>
 
@@ -288,7 +288,7 @@ All **22 plates** of the ASA run, **157.0 h**, **1813 g Galaxy Black + 279 g ASA
 
 ![Plate B11-P5 — sorting diagram](../manual/assets/plates/B11-P5.png)
 
-**B11-P5** · petg · 8 parts · 6.8 h · 93 g · bins: 09-ducts · [Load step](../manual/print/B11-bay-ducting.md#step-b1113-load-and-print-plate-b11-p5)
+**B11-P5** · petg · 8 parts · 6.8 h · 93 g · bins: 09-ducts-DC, 11-lids-DC · [Load step](../manual/print/B11-bay-ducting.md#step-b1113-load-and-print-plate-b11-p5)
 
 </div>
 

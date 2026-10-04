@@ -527,14 +527,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.",
+     "leave_state": "all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.",
      "helpers": [
       [
        "B02.9",
        "Matches each part's number to the diagram legend and drops it in its bin."
       ]
      ],
-     "text": "Step B02.9 · ~15 min · leave-state: all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed."
+     "text": "Step B02.9 · ~15 min · leave-state: all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed."
     }
    ]
   },
@@ -926,14 +926,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.",
+     "leave_state": "both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.",
      "helpers": [
       [
        "B07.7",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B07.7 · ~10 min · leave-state: both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day."
+     "text": "Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day."
     }
    ]
   },
@@ -5896,9 +5896,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day.",
+     "leave_state": "coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.",
      "helpers": [],
-     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day."
+     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day."
     },
     {
      "id": "b11-bay-ducting#2",

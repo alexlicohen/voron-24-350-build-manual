@@ -52,8 +52,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/side_fan_support_x2.png){ width=96 } | `side_fan_support_x2.STL` | 11-skirts | 2 | Black | B08 |
 | ![](assets/parts/keystone_panel.png){ width=96 } | `keystone_panel.stl` | 11-skirts | 1 | Black | B08 |
 | ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `power_inlet_IECGS_1mm.stl` | 09-bay | 1 | Black | **B07-P1** *(fitted in Ch 09 Steps 09.10–09.12; listed here because it is a ring segment)* |
-| ![](assets/parts/mount.png){ width=96 } | `mount.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Black | B08 |
-| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 11-skirts | 1 | Blue | B02 |
+| ![](assets/parts/mount.png){ width=96 } | `mount.stl` (BTT Pi TFT4.3 Mount) | 10-tft | 1 | Black | B08 |
+| ![](assets/parts/%5Ba%5D_faceplate.png){ width=96 } | `[a]_faceplate.stl` (BTT Pi TFT4.3 Mount) | 10-tft | 1 | Blue | B02 |
 | ![](assets/parts/%5Ba%5D_belt_guard_a_x2.png){ width=96 } | `[a]_belt_guard_a_x2.stl` | 11-fans | 2 | Blue | B02 |
 | ![](assets/parts/%5Ba%5D_belt_guard_b_x2.png){ width=96 } | `[a]_belt_guard_b_x2.stl` | 11-fans | 2 | Blue | B02 |
 | ![](assets/parts/%5Ba%5D_fan_grill_a_x2.png){ width=96 } | `[a]_fan_grill_a_x2.stl` | 11-fans | 2 | Blue | B02 |
@@ -70,16 +70,16 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_belt_cover_a_x2.png){ width=96 } | `z_belt_cover_a_x2.stl` | 11-panels | 2 | Black | B09 |
 | ![](assets/parts/z_belt_cover_b_x2.png){ width=96 } | `z_belt_cover_b_x2.stl` | 11-panels | 2 | Black | B09 |
 |  | `z_belt_cover_a_led.stl` (LDO) | — | 0 | Black | not printed — Ch 10 Step 10.38 routes the LED lead through the extrusion slot, not the Z-motor opening; see 11.22 for the rejected alternative |
-| ![](assets/parts/exhaust_cover.png){ width=96 } | `exhaust_cover.stl` (LDO) | 11-nevermore | 1 | Black | B09 |
-| ![](assets/parts/exhaust_filter_grill.png){ width=96 } | `exhaust_filter_grill.stl` (Voron) | 11-nevermore | 1 | Black | B09 |
+| ![](assets/parts/exhaust_cover.png){ width=96 } | `exhaust_cover.stl` (LDO) | 11-finish | 1 | Black | B09 |
+| ![](assets/parts/exhaust_filter_grill.png){ width=96 } | `exhaust_filter_grill.stl` (Voron) | 11-finish | 1 | Black | B09 |
 | ![](assets/parts/V2_Duo_Plenum.png){ width=96 } | `V2_Duo_Plenum.stl` | 11-nevermore | 1 | Black | B09 |
 | ![](assets/parts/V2_Duo_Plenum_LID.png){ width=96 } | `V2_Duo_Plenum_LID.stl` | 11-nevermore | 1 | Black | B09 |
 | ![](assets/parts/Regular_Cartridge%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge(contributed_by_Bucknova).3mf` | 11-nevermore | 1 | Black | B09 |
 | ![](assets/parts/Regular_Cartridge_Lid%28contributed_by_Bucknova%29.png){ width=96 } | `Regular_Cartridge_Lid(contributed_by_Bucknova).3mf` | 11-nevermore | 1 | Black | B09 |
 | ![](assets/parts/spool_holder.png){ width=96 } | `spool_holder.stl` | 11-spool | 1 | Black | B09 |
 | ![](assets/parts/bowden_retainer.png){ width=96 } | `bowden_retainer.stl` | 11-spool | 1 | Black | B09 |
-| ![](assets/parts/handlebar_spacer_x4.png){ width=96 } | `handlebar_spacer_x4.stl` (LDO) | 11-panels | 4 | Black | B07 |
-| ![](assets/parts/CMD_V2_6B_154mm_DUCT_COVER.png){ width=96 } | DC loop lids, step 11.52: `CMD_V2_6B_154mm_DUCT_COVER.stl` ×2, `CMD_V2_6B_90DEG_COVER.stl` ×2, `V2L_90DEG_COVER_MIRROR.stl`, `V2L_58mm_DUCT_COVER.stl` ×3, `V2L_130mm_DUCT_COVER.stl`, `V2L_70mm_DUCT_COVER.stl`, `CMD_Remix-V3_DUCT-2B_45deg_LID.stl` ×2, `V3L_10mm_DUCT_COVER.stl`, `V3L_154N_DUCT_COVER.stl` ×2, `V3L_T_REG_N_COVER.stl` ×2 | 09-ducts | 17 | Black | B11 |
+| ![](assets/parts/handlebar_spacer_x4.png){ width=96 } | `handlebar_spacer_x4.stl` (LDO) | 11-finish | 4 | Black | B07 |
+| ![](assets/parts/CMD_V2_6B_154mm_DUCT_COVER.png){ width=96 } | DC loop lids, step 11.52: `CMD_V2_6B_154mm_DUCT_COVER.stl` ×2, `CMD_V2_6B_90DEG_COVER.stl` ×2, `V2L_90DEG_COVER_MIRROR.stl`, `V2L_58mm_DUCT_COVER.stl` ×3, `V2L_130mm_DUCT_COVER.stl`, `V2L_70mm_DUCT_COVER.stl`, `CMD_Remix-V3_DUCT-2B_45deg_LID.stl` ×2, `V3L_10mm_DUCT_COVER.stl`, `V3L_154N_DUCT_COVER.stl` ×2, `V3L_T_REG_N_COVER.stl` ×2 | 11-lids-DC | 17 | Black | B11 |
 | ![](assets/parts/Handle-Hinge_Top.png){ width=96 } ![](assets/parts/Handle-Hinge_Bottom.png){ width=96 } | `Handle-Hinge_Top.stl` / `Handle-Hinge_Bottom.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |

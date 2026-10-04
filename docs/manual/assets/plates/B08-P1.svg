@@ -31,11 +31,11 @@
 <rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#5c6b73"/>
 <text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
 <text x="983.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">rear_center_skirt_350.stl</text>
-<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-skirts · Skirt ring, keystone panel, TFT mount · Ch 11 · 11.1–11.17</text>
+<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-skirts · Skirt ring, keystone panel and inserts · Ch 11 · 11.1–11.19</text>
 <rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#5c6b73"/>
 <text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
 <text x="983.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">side_fan_support_x2.STL</text>
-<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">11-skirts · Skirt ring, keystone panel, TFT mount · Ch 11 · 11.1–11.17</text>
+<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">11-skirts · Skirt ring, keystone panel and inserts · Ch 11 · 11.1–11.19</text>
 <text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">brim (dashed ring) is set per object in the project: 3 mm on 2 part(s)</text>
 <text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B08-P1.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
 </svg>

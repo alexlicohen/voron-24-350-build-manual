@@ -4,7 +4,8 @@
 One PNG per STL that slicer/bins.py contents() puts in a bin, written to docs/print/assets/parts/<stem>.png.
 Same renderer and style as scripts/render_parts.py (matplotlib, isometric, [a] blue / grey), but no
 caption, no scale bar and a tight crop, because the picture prints 8-14 mm wide on a label.
-Covers the add-on bins too (13-scrubber, 14-exhaust), which have no plate and no MANIFEST row.
+Covers the add-on bins too (13-scrubber, 14-exhaust), which have no plate and no MANIFEST row, and the
+B11 fallback pieces (bins.py FALLBACK_PARTS), which are on no plate.
 
     python3 scripts/render_label_thumbs.py          # render what is missing
     python3 scripts/render_label_thumbs.py --force  # re-render all
@@ -65,6 +66,8 @@ def main() -> int:
     done = failed = 0
     for parts in bins.contents().values():
         for e in parts.values():
+            if e["bought"]:         # bought parts have no file and no picture
+                continue
             repo, path = e["geom"]
             out = thumb_path(path)
             if out.exists() and not args.force:

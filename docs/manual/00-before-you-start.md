@@ -465,8 +465,8 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- consumable: A5 mesh zip bag ×24
-- consumable: B5 mesh zip bag ×8
+- consumable: A5 mesh zip bag ×29
+- consumable: B5 mesh zip bag ×6
 - consumable: box for the skirt ring ×1
 - consumable: spare bins for the LDO-supplied parts and the greased rails
 - consumable: masking tape
@@ -476,27 +476,29 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), two per sheet. Cut, trim each to its frame, slide it into its bag.
-2. [**29 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 24 of 24 A5 and 8 of 12 B5 mesh bags, plus 1 box.
+2. [**33 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 29 of 48 A5 and 6 of 12 B5 mesh bags, plus 1 box.
 
 | Print batch | Bins it fills |
 |---|---|
 | B00 — Calibration & jigs | 00-jigs, 02-Z0 |
 | B01 — Z drive assemblies | 02-Z0, 02-Z1, 02-Z2, 02-Z3, 02-deck |
-| B02 — The accent day (all accent parts) | 02-Z0 … 02-Z3, 04-A, 04-B, 05-XY, 06-Z-joints, 07-X, 08-SB, 08-CW2, 10-chains, 11-skirts, 11-fans, 11-door, spare-alt |
+| B02 — The accent day (all accent parts) | 02-Z0 … 02-Z3, 04-A, 04-B, 05-XY, 06-Z-joints, 07-X, 08-SB, 08-CW2, 10-chains, 10-tft, 11-skirts, 11-fans, 11-door, spare-alt |
 | B03 — A/B drive units + front idlers | 04-A, 04-B |
 | B04 — XY joints + X carriage | 05-XY, 07-X |
-| B05 — Z joints + Z chain | 06-Z-joints, 10-chains |
+| B05 — Z joints + Z chain | 02-Z0 … 02-Z3, 06-Z-joints, 10-chains |
 | B06 — Toolhead | 08-SB, 08-CW2, spare-alt |
-| B07 — Electronics bay + lighting | 09-bay, 10-lights, 11-panels, spare-alt |
-| B08 — Skirts and front modules | 11-skirts |
-| B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-clips-6mm, 11-nevermore, 11-spool |
+| B07 — Electronics bay + lighting | 08-CW2, 09-bay, 10-lights, 11-finish, spare-alt |
+| B08 — Skirts and front modules | 10-tft, 11-skirts |
+| B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-finish, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
-| B11 — Bay ducting (PETG V0) | 09-ducts, 10-wiring |
+| B11 — Bay ducting (PETG V0) | 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC |
 | Add-ons after kit day, on no plate | 13-scrubber, 14-exhaust |
 
-**Check:** 29 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 33 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
 **Helper:** Trims each label to its frame and slides it into the bag it names.
+
+Tip: 29 A5 bags are needed and 24 are on hand: buy one more pack of A5 mesh bags, 24 to a pack. The B5 stock covers its 6.
 
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
@@ -1091,13 +1093,13 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
-- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `09-bay` (B07-P1); the spare V1 cover in `spare-alt`.
+- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 29 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
+- [ ] 33 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

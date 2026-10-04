@@ -64,7 +64,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B02.4 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.6 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
     - Step B02.9 — Matches each part's number to the diagram legend and drops it in its bin.
 - **B03 — A/B drive units + front idlers** — <span data-first-step="B03.2">Start plate B03-P1 (Step B03.2) · ~5 min hands-on, then 8.5 h unattended · leave-state: plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B03.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -86,7 +86,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B07.2 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B07 — Electronics bay + lighting** — <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
     - Step B07.4 — Names the bin colour of each part on the sorting diagram while you open the project.
-- **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
+- **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -160,7 +160,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.8">Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.</span>
-- <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their ten bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
+- <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
 
 ### 6 · Print — B03 — A/B drive units + front idlers
 - <span data-first-step="B03.2">Start plate B03-P1 (Step B03.2) · ~5 min hands-on, then 8.5 h unattended · leave-state: plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends</span>
@@ -186,7 +186,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.9 h unattended · leave-state: plate B07-P1 running, 7.9 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B07.6">Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled.</span>
-- <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 09-bay, 10-lights and 11-panels, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
+- <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
 
 ### 11 · Print — B08 — Skirts and front modules
 - <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
@@ -400,7 +400,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 
 ### 32 · Print — B11 — Bay ducting, before kit
 - <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and kept in 09-ducts. The bundle-fill test waits for the harness on kit day.</span>
+- <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.</span>
 - <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B11-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: before-kit parts inspected and bagged by plate.</span>

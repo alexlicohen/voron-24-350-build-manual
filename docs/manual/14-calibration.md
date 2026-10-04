@@ -1185,8 +1185,8 @@ Source: [Voron manual p.250](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - exhaust housing ×1 — from bin 14-exhaust
 - fan grill ×1 — from bin 14-exhaust
 - access cover ×1 — from bin 14-exhaust
-- 24 V exhaust fan ×1 — from the Ch 00 exhaust purchase
-- carbon filter mat layer ×2 — from the Ch 00 exhaust purchase
+- 24 V exhaust fan ×1 — from bin 14-exhaust, bought at Ch 00
+- carbon filter mat layer ×2 — from bin 14-exhaust, bought at Ch 00
 - M3×30 SHCS ×4
 - M3×8 SHCS ×2
 - tool: scissors
@@ -1284,7 +1284,7 @@ Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/v
 
 **Parts:**
 
-- JST-XH 2-pin extension lead, 1 m ×1 — from the Ch 00 exhaust purchase
+- JST-XH 2-pin extension lead, 1 m ×1 — from bin 14-exhaust, bought at Ch 00
 - voltage-selection jumper ×1 — from the Ch 09 jumper bag
 - consumable: zip ties
 - consumable: VHB tape

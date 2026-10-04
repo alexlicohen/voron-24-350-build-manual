@@ -26,8 +26,8 @@ back to back. No bearing seat here, so Gate B is not needed.
 | `bottom_panel_hinge_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 4.3 | 11-panels |
 | `z_belt_cover_a_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 | 11-panels |
 | `z_belt_cover_b_x2.stl` | Voron-2 `STLs/Panel_Mounting/` | 2 | Black | 6.9 | 11-panels |
-| `exhaust_cover.stl` | LDOVoron2 `STLs/` | 1 | Black | 30.2 | 11-nevermore |
-| `exhaust_filter_grill.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Black | 9.9 | 11-nevermore |
+| `exhaust_cover.stl` | LDOVoron2 `STLs/` | 1 | Black | 30.2 | 11-finish |
+| `exhaust_filter_grill.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Black | 9.9 | 11-finish |
 | `V2_Duo_Plenum.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 50.2 | 11-nevermore |
 | `V2_Duo_Plenum_LID.stl` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 12.3 | 11-nevermore |
 | `Regular_Cartridge(contributed_by_Bucknova).3mf` | Nevermore_Micro `V5_Duo/V2/` | 1 | Black | 43.0 | 11-nevermore |
@@ -223,27 +223,28 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)` |
+| **11-nevermore** — Nevermore plenum + cartridge | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)` |
 
 **B09-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `Regular_Cartridge(contributed_by_Bucknova)`, `exhaust_cover` |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_cover` |
+| **11-nevermore** — Nevermore plenum + cartridge | `Regular_Cartridge(contributed_by_Bucknova)` |
 
 **B09-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `z_belt_cover_a` ×2, `z_belt_cover_b` ×2 |
-| **11-nevermore** — Nevermore plenum + cartridge, exhaust cover + grill | `exhaust_filter_grill` |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `z_belt_cover_a` ×2, `z_belt_cover_b` ×2 |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_filter_grill` |
 | **11-spool** — Spool holder + bowden retainer | `spool_holder`, `bowden_retainer` |
 
 **B09-P4**
 
 | bin | parts off this plate |
 |---|---|
-| **11-panels** — Bottom-panel clips/hinges, Z belt covers, handlebar spacers | `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 |
 | **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7 |
 
 **B09-P5**
@@ -252,7 +253,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
 
-**Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore.
+**Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore; exhaust cover and grill in 11-finish.
 
 **Helper:** Writes the bin id and the date on the inside face of each part.
 

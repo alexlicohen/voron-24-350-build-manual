@@ -32,15 +32,15 @@
 <rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#00695c"/>
 <text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
 <text x="983.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V2_Duo_Plenum_LID.stl</text>
-<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge, exhaust cover + grill · Ch 11 · 11.26–11.40, 11.54</text>
+<text x="983.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge · Ch 11 · 11.26–11.40</text>
 <rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#00695c"/>
 <text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
 <text x="983.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">V2_Duo_Plenum.stl</text>
-<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge, exhaust cover + grill · Ch 11 · 11.26–11.40, 11.54</text>
+<text x="983.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge · Ch 11 · 11.26–11.40</text>
 <rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#00695c"/>
 <text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3</text>
 <text x="983.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Regular_Cartridge_Lid(contributed_by_Bucknova).3mf</text>
-<text x="983.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge, exhaust cover + grill · Ch 11 · 11.26–11.40, 11.54</text>
+<text x="983.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">11-nevermore · Nevermore plenum + cartridge · Ch 11 · 11.26–11.40</text>
 <text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">brim (dashed ring) is set per object in the project: 3 mm on 1 part(s)</text>
 <text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B09-P1.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
 </svg>
