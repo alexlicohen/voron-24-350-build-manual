@@ -154,14 +154,33 @@ def main() -> int:
     bad = []
     for b, (bag, why) in result.items():
         stored = bins.BINS[b].get("bag")
-        flag = "" if stored == bag else f"   <-- bins.py says {stored!r}"
-        if stored != bag:
+        if b in bins.BAG_SPLIT:
+            # A split bin may use more bags than the volume minimum (e.g. one per print plate);
+            # each of its bags is checked on its own below.
+            skind, sn = bins.bag_parse(stored)
+            dkind, dn = bins.bag_parse(bag)
+            ok = skind == dkind and sn >= dn
+        else:
+            ok = stored == bag
+        flag = "" if ok else f"   <-- bins.py says {stored!r}"
+        if not ok:
             bad.append(b)
-        if not args.check or stored != bag:
+        if not args.check or not ok:
             print(f"{b:14} {bag:7} {why}{flag}")
+    # Every physical container must hold its own share: a bin can fit its bags as a whole while
+    # its BAG_SPLIT overfills one of them.
+    for c in bins.containers():
+        if c["kind"] == "box":
+            continue
+        pieces = [orientations(*e["geom"]) for e in c["parts"].values() for _ in range(e["n"])]
+        vols = [packed_volume(o) for o in pieces]
+        if not all(fits(o, c["kind"]) for o in pieces) or not pack(vols, c["kind"], 1):
+            bad.append(f"{c['bin']} bag {c['k']}")
+            print(f"{c['bin']} bag {c['k']} of {c['of']}: {sum(vols):.0f} cm³ overfills one "
+                  f"{c['kind']} ({capacity(c['kind']):.0f} cm³)")
     counts = {"A5": 0, "B5": 0, "box": 0}
-    for bag, _why in result.values():
-        kind, n = bins.bag_parse(bag)
+    for b in bins.BINS:
+        kind, n = bins.bag_parse(bins.BINS[b]["bag"])
         counts[kind] += n
     over = {k: counts[k] - bins.BAGS[k]["owned"] for k in ("A5", "B5")
             if counts[k] > bins.BAGS[k]["owned"]}

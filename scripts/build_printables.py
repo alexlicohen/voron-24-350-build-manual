@@ -15,8 +15,8 @@ Produces:
                                step they come from, a QR code linking to the
                                chapter's step-page overview), two to a US Letter
                                sheet, each half trimming to fit an A5 mesh bag
-                               (layout: extra.css `.bin-sheet`), then a one-page
-                               bin map listing every bin and its bag, then a 1:1
+                               (layout: extra.css `.bin-sheet`), then a
+                               bag and box index, one row per container, then a 1:1
                                fastener gauge (inline SVG in mm, from the kit
                                BOM). QR codes are generated with segno (SVG, no
                                external service).
@@ -544,6 +544,129 @@ def build_fastener_gauge_markdown():
     ]
 
 
+# ---------------------------------------------------------------------------
+# Bag and box index: one row per physical container (slicer/bins.py containers()).
+# ---------------------------------------------------------------------------
+
+INDEX_PICS = 6            # part pictures per row; the rest is "+N more"
+INDEX_ROWS_PAGE1 = 16     # rows on the first printed page (the heading and tally take the rest)
+_FIRST_STEP_RE = re.compile(r"\d\d\.\d+")
+_PLATE_RE = re.compile(r"^(B\d\d)-P(\d+)$")
+_INDEX_COLS = ("Filled", "Used", "Container", "Bag", "Parts", "Fills from", "Opens at", "Pieces")
+
+
+def _index_tiles(parts):
+    """The distinct parts of one container, in bin order, a `*_COVER` / `*_LID` that has a base part
+    of the same name here folded into it (it is the same picture)."""
+    entries = list(parts.values())
+
+    def stem(e):
+        return Path(e["geom"][1]).stem
+
+    def key(e):
+        return _VERSION_RE.sub("", _COVER_RE.sub("", stem(e)))
+
+    bases = {key(e) for e in entries if not _COVER_RE.search(stem(e))}
+    return [e for e in entries if not (_COVER_RE.search(stem(e)) and key(e) in bases)]
+
+
+def _index_from(c):
+    """Print batches a container fills from. A split bin lists its plates (B11 P4), so the bags that
+    fill after kit day read differently from bag 1."""
+    made = [m for e in c["parts"].values() for m in e["made"]]
+    if not made:
+        return "—"
+    if c["of"] > 1 and all(_PLATE_RE.match(m) for m in made):
+        by_batch = {}
+        for m in sorted(set(made)):
+            bt, n = _PLATE_RE.match(m).groups()
+            by_batch.setdefault(bt, []).append(f"P{n}")
+        return " · ".join(f"{bt} {', '.join(ps)}" for bt, ps in by_batch.items())
+    if c["of"] > 1:
+        return "add-on"
+    return ", ".join(sorted({m[:3] if _PLATE_RE.match(m) else "add-on" for m in made}))
+
+
+def _index_opens(meta):
+    first = _FIRST_STEP_RE.search(meta["steps"].split(" (")[0])
+    if not meta["chapter"].startswith("Ch ") or not first:
+        return "not fitted"
+    return f'{meta["chapter"]} · {first.group(0)}'
+
+
+def _index_row_html(c):
+    meta = bins.BINS[c["bin"]]
+    kind = c["kind"]
+    tiles = _index_tiles(c["parts"])
+    pics = "".join(
+        f'<img class="skip-glightbox" src="../{_thumb_rel(e["geom"])}" alt="" title="{html.escape(re.sub(chr(96), "", e["name"]))}" '
+        f'loading="eager" decoding="sync">' for e in tiles[:INDEX_PICS])
+    more = (f'<span class="bag-index__more">+{len(tiles) - INDEX_PICS} more</span>'
+            if len(tiles) > INDEX_PICS else "")
+    parts = f'<div class="bag-index__pics">{pics}{more}</div>' if tiles else '<span class="bag-index__more">no parts</span>'
+    bagn = (f'<span class="bag-index__of">bag {c["k"]} of {c["of"]}</span>' if c["of"] > 1 else "")
+    return (
+        f'<tr class="bag-index__row" style="--bin-colour: {meta["colour"]}">'
+        f'<td class="bag-index__tick"><span class="bag-index__box" role="img" aria-label="Filled"></span></td>'
+        f'<td class="bag-index__tick"><span class="bag-index__box" role="img" aria-label="Used"></span></td>'
+        f'<td class="bag-index__id"><a href="#bin-{c["bin"]}">{html.escape(c["bin"])}</a>{bagn}'
+        f'<span class="bag-index__name">{_inline(meta["label"])}</span></td>'
+        f'<td><span class="bag-index__chip bag-index__chip--{kind.lower()}">{kind.upper()}</span></td>'
+        f'<td>{parts}</td>'
+        f'<td>{html.escape(_index_from(c))}</td>'
+        f'<td>{html.escape(_index_opens(meta))}</td>'
+        f'<td class="bag-index__n">{c["n"]}</td></tr>')
+
+
+def build_bag_index_markdown():
+    """The 'Bag and box index' (replaces the old bin map): every physical container on one table,
+    tick boxes to print, then the containers outside the bin scheme. Two Letter pages at most."""
+    conts = bins.containers()
+    counts = bins.bag_counts()
+    spare = bins.spares()
+    total = sum(counts.values())
+    head = "".join(f"<th>{h}</th>" for h in _INDEX_COLS)
+    rows = []
+    for i, c in enumerate(conts):
+        if i == INDEX_ROWS_PAGE1:
+            # Print only: a new page has no margin (see extra.css), so a spacer row insets it and a
+            # copy of the header row repeats the columns.
+            rows.append('<tr class="bag-index__pagepad" aria-hidden="true"><td colspan="8"></td></tr>')
+            rows.append(f'<tr class="bag-index__rehead" aria-hidden="true">{head}</tr>')
+        rows.append(_index_row_html(c))
+    table = ('<div class="bag-index__scroll"><table class="bag-index__table">'
+             f'<thead><tr>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+    other = [
+        ("LDO-supplied printed parts", "one bag",
+         "Ten part types, not printed; their bag is labelled <code>LDO SUPPLIED — DO NOT PRINT</code>. "
+         "Ch 00 Steps 00.6 (set aside) and 00.11 (spare bins)."),
+        ("Greased rails", "one bin",
+         "The seven rails, bagged and labelled by destination, carriages taped. "
+         "Ch 00 Steps 00.17–00.22 (label and bag at 00.21)."),
+        ("Kit fastener bags", "kit box",
+         "Stay closed in the <em>Fasteners, Tools &amp; Misc</em> box until a step calls for one. "
+         "Ch 00 Step 00.12."),
+    ]
+    other_html = "".join(
+        f'<li><strong>{n}</strong> <span class="bag-index__chip bag-index__chip--other">{k}</span> {d}</li>'
+        for n, k, d in other)
+    lines = [
+        '<span id="bin-map"></span>', "",
+        "## Bag and box index", "",
+        f"**{total} containers:** {bins.bag_summary()}. Spares: {spare['A5']} A5, {spare['B5']} B5.", "",
+        '<div class="bag-index__intro" markdown="1">', "",
+        "One row per container, in chapter order. **Filled**: tick when its print batch is sorted in. "
+        "**Used**: tick when its chapter is done. A bin in several bags splits like this: "
+        + " ".join(f"{b} {why}." for b, why in bins.BAG_SPLIT_WHY.items()) + " "
+        f"Pictures show up to {INDEX_PICS} part types; covers and lids share their part's picture.",
+        "", "</div>", "",
+        '<div class="bag-index">' + table + "</div>", "",
+        '<div class="bag-index__other"><h3>Other containers, not in the bin scheme</h3>'
+        f'<ul>{other_html}</ul></div>', "",
+    ]
+    return lines
+
+
 def build_bin_labels_markdown(chapters):
     lines = [
         "# Bin labels",
@@ -565,7 +688,7 @@ def build_bin_labels_markdown(chapters):
         "the frame: a trimmed label is 200 × 130 mm and slides into an A5 bag, reading through the "
         "mesh. A box label tapes on. The bin id is what the plate diagrams and the batch chapters' "
         "*Sort into bins* steps use, and each QR opens the chapter's step overview. After the labels "
-        "come the [bin map](#bin-map) and a 1:1 [fastener gauge](#fastener-gauge-print-at-100), "
+        "come the [bag and box index](#bin-map) and a 1:1 [fastener gauge](#fastener-gauge-print-at-100), "
         "each on its own page.",
         "",
         "</div>",
@@ -589,22 +712,7 @@ def build_bin_labels_markdown(chapters):
                      f'{pair[1] if len(pair) > 1 else ""}</div>')
         lines.append("")
 
-    lines += ["## Bin map", "",
-              f"_All {len(bins.BINS)} bins on one page: which chapter opens each one, the bag it travels "
-              f"in and how many pieces should be inside. {bins.bag_summary()[0].upper() + bins.bag_summary()[1:]}._",
-              "",
-              '<div class="bin-map" markdown="1">', "",
-              "| bin | label | chapter · steps | bag | pieces | from |", "|---|---|---|---|---:|---|"]
-    for bin_id, meta in bins.BINS.items():
-        c = contents.get(bin_id, {})
-        n = sum(e["n"] for e in c.values())
-        sources = sorted({m[:3] if re.match(r"B\d\d-P\d", m) else "add-on" for e in c.values()
-                          for m in e["made"]})
-        # Main step range only (the label carries the secondary uses), so the map stays one page.
-        steps = meta["steps"].split(" (")[0]
-        lines.append(f"| [**{bin_id}**](#bin-{bin_id}) | {meta['label']} | {meta['chapter']} · {steps} | "
-                     f"{meta['bag']} | {n} | {', '.join(sources)} |")
-    lines += ["", "</div>", ""]
+    lines += build_bag_index_markdown()
     lines += build_fastener_gauge_markdown()
     return "\n".join(lines).rstrip() + "\n"
 

@@ -85,7 +85,7 @@ BINS: dict[str, dict[str, str]] = {
 BAG: dict[str, str] = {
     "00-jigs": "A5", "02-Z0": "A5", "02-Z1": "A5", "02-Z2": "A5", "02-Z3": "A5",
     "02-deck": "A5", "04-A": "A5", "04-B": "A5", "05-XY": "A5", "06-Z-joints": "A5",
-    "07-X": "A5", "08-SB": "B5", "08-CW2": "A5", "09-bay": "A5", "09-ducts": "B5 ×3",
+    "07-X": "A5", "08-SB": "B5", "08-CW2": "A5", "09-bay": "A5", "09-ducts": "B5 ×4",
     "10-chains": "A5", "10-lights": "A5", "10-wiring": "A5", "11-skirts": "box",
     "11-fans": "A5", "11-panels": "A5", "11-clips-4mm": "A5", "11-clips-6mm": "A5",
     "11-nevermore": "B5", "11-spool": "A5", "11-door": "A5", "13-scrubber": "A5",
@@ -397,6 +397,56 @@ def contents() -> dict[str, dict[str, dict]]:
             out.setdefault(b, {})[p["geom"][1]] = dict(
                 name=p["name"], n=p["qty"], made=[p["made"]], note=p.get("note"), geom=p["geom"])
     return out
+
+
+# A bin that travels in more than one bag: which parts go in which bag. One set per bag, bag 1
+# first; each set holds the `made` values (plate id or add-on print step) whose parts that bag takes.
+# 09-ducts splits by print plate, so the bags that fill after kit day (P4, P5) are their own bags
+# and bag 1 keeps the bulk (26 of 52 pieces: the coupon, the stock MSS ducts, the wire box).
+# 14-exhaust splits by print job, which is by size: the housing (the one big piece) in bag 1.
+BAG_SPLIT: dict[str, list[set[str]]] = {
+    "09-ducts": [{"B11-P1", "B11-P2"}, {"B11-P3"}, {"B11-P4"}, {"B11-P5"}],
+    "14-exhaust": [{"add-on print, Step 14.26 job 1"}, {"add-on print, Step 14.26 job 2"}],
+}
+
+BAG_SPLIT_WHY: dict[str, str] = {
+    "09-ducts": "splits by print plate, so each bag fills when its plates print: bag 1 the coupon and the "
+                "straights and corners (P1–P2), bag 2 the 45° jog, wire box and T (P3), bag 3 the custom "
+                "lengths (P4) and bag 4 the narrow middle run (P5), the last two after kit day",
+    "14-exhaust": "splits by size: the housing in bag 1, the grill, cover and mounts in bag 2",
+}
+
+
+def containers() -> list[dict]:
+    """One dict per physical container (a bag or a box), in BINS order, bag 1 of a split bin first:
+    {bin, kind ("A5"|"B5"|"box"), k (1-based bag number), of (bags in the bin), parts (part key ->
+    contents() entry), n (pieces)}. Raises if a split leaves a part unplaced or placed twice."""
+    cont = contents()
+    out = []
+    for b, meta in BINS.items():
+        kind, nbags = bag_parse(meta["bag"])
+        parts = cont.get(b, {})
+        if nbags == 1:
+            groups = [dict(parts)]
+        else:
+            split = BAG_SPLIT.get(b)
+            if not split or len(split) != nbags:
+                raise ValueError(f"{b}: {nbags} bags but BAG_SPLIT has "
+                                 f"{len(split) if split else 0} groups")
+            groups = [{k: e for k, e in parts.items() if set(e["made"]) <= g} for g in split]
+            placed = sum(len(g) for g in groups)
+            if placed != len(parts) or len({k for g in groups for k in g}) != len(parts):
+                raise ValueError(f"{b}: BAG_SPLIT places {placed} of {len(parts)} parts exactly once")
+        for k, g in enumerate(groups, 1):
+            out.append(dict(bin=b, kind=kind, k=k, of=nbags, parts=g,
+                            n=sum(e["n"] for e in g.values())))
+    return out
+
+
+def spares() -> dict[str, int]:
+    """{"A5": owned - used, "B5": ...}: mesh bags left over."""
+    c = bag_counts()
+    return {k: BAGS[k]["owned"] - c[k] for k in BAGS}
 
 
 def copies_bins(plate_id: str, stl: str, n_copies: int) -> list[str]:

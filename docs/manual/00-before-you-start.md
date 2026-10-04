@@ -466,7 +466,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Parts:**
 
 - consumable: A5 mesh zip bag ×24
-- consumable: B5 mesh zip bag ×7
+- consumable: B5 mesh zip bag ×8
 - consumable: box for the skirt ring ×1
 - consumable: spare bins for the LDO-supplied parts and the greased rails
 - consumable: masking tape
@@ -476,7 +476,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), two per sheet. Cut, trim each to its frame, slide it into its bag.
-2. [**29 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 24 of 24 A5 and 7 of 12 B5 mesh bags, plus 1 box.
+2. [**29 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 24 of 24 A5 and 8 of 12 B5 mesh bags, plus 1 box.
 
 | Print batch | Bins it fills |
 |---|---|

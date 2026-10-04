@@ -1126,6 +1126,42 @@ body.step-is-done .md-typeset .step-done-label {
   .md-typeset ul.bin-label__parts { grid-template-columns: 1fr; }
 }
 
+/* The bag and box index (docs/print/bin-labels.md, build_printables.py build_bag_index_markdown).
+ * One row per container. The table scrolls inside its own wrapper on a phone. The chips differ in
+ * shape and fill, not only colour: A5 outlined, B5 solid, BOX dashed with square corners. */
+.md-typeset .bag-index__scroll { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.md-typeset table.bag-index__table { display: table; width: 100%; min-width: 36rem; margin: 0; font-size: .72rem;
+  border-collapse: collapse; table-layout: fixed; }
+.md-typeset .bag-index__table th { white-space: nowrap; font-size: .66rem; text-align: left; padding: .45rem .3rem; }
+.md-typeset .bag-index__table td { padding: .4rem .3rem; vertical-align: middle; }
+.md-typeset .bag-index__table th:nth-child(1), .md-typeset .bag-index__table th:nth-child(2) { text-align: center; width: 2rem; }
+.md-typeset .bag-index__table th:nth-child(3) { width: 7.2rem; }
+.md-typeset .bag-index__table th:nth-child(4) { width: 2.9rem; }
+.md-typeset .bag-index__table th:nth-child(5) { width: 10.8rem; }
+.md-typeset .bag-index__table th:nth-child(6) { width: 4.3rem; }
+.md-typeset .bag-index__table th:nth-child(7) { width: 5.4rem; }
+.md-typeset .bag-index__table th:nth-child(8) { width: 2.1rem; text-align: right; }
+.md-typeset .bag-index__tick { text-align: center; }
+.md-typeset .bag-index__intro { font-size: .8rem; }
+.md-typeset .bag-index__box { display: inline-block; vertical-align: middle; width: 1.1rem; height: 1.1rem;
+  border: 2px solid var(--md-default-fg-color--light); border-radius: .15rem; }
+.md-typeset .bag-index__id a { font-weight: 700; font-size: .78rem; border-bottom: 3px solid var(--bin-colour); }
+.md-typeset .bag-index__of { display: block; font-weight: 600; font-size: .68rem; }
+.md-typeset .bag-index__name { display: block; color: var(--md-default-fg-color--light); font-size: .66rem; line-height: 1.25; }
+.md-typeset .bag-index__chip { display: inline-block; min-width: 2.6rem; text-align: center; font-weight: 800; font-size: .72rem;
+  letter-spacing: .03em; padding: .1rem .35rem; border: 2px solid var(--md-default-fg-color); border-radius: .6rem; }
+.md-typeset .bag-index__chip--b5 { background: var(--md-default-fg-color); color: var(--md-default-bg-color); }
+.md-typeset .bag-index__chip--box { border-style: dashed; border-radius: 0; border-width: 3px; }
+.md-typeset .bag-index__chip--other { border-style: dotted; border-radius: .2rem; font-size: .62rem; min-width: 0; }
+.md-typeset .bag-index__pics { display: flex; align-items: center; gap: .1rem; flex-wrap: nowrap; }
+.md-typeset .bag-index__pics img { height: 7mm; width: auto; max-width: 9mm; object-fit: contain; flex: none; background: #fff; border-radius: .1rem; }
+.md-typeset .bag-index__more { font-size: .64rem; color: var(--md-default-fg-color--light); white-space: nowrap; margin-left: .15rem; }
+.md-typeset .bag-index__n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.md-typeset .bag-index__pagepad, .md-typeset .bag-index__rehead { display: none; }
+.md-typeset .bag-index__other ul { list-style: none; margin: 0; padding: 0; }
+.md-typeset .bag-index__other li { margin: .35rem 0; }
+.md-typeset .bag-index__other h3 { margin: 1rem 0 .3rem; }
+
 @media print {
   @page bin-labels { size: 8.5in 11in; margin: 0; }
   /* The map and the gauge after the labels. The document is laid out at the first page's
@@ -1220,11 +1256,49 @@ body.step-is-done .md-typeset .step-done-label {
   .md-typeset ul.bin-label__parts--t4 { --cols: 5; --pic: 10mm; --fs: 2.6mm; --rgap: 1.2mm; }
   .md-typeset .bin-label code { font-size: 1em; padding: 0; background: none; color: #000; }
 
-  /* The bin map: one page after the labels. Material's scroll wrapper hangs .8rem outside the
-   * column, which the page margin would cut off. */
-  .md-typeset .bin-map .md-typeset__scrollwrap { margin: 0; overflow: visible; }
-  .md-typeset .bin-map .md-typeset__table { padding: 0; }
-  .md-typeset .bin-map table { font-size: 7.5pt; }
-  .md-typeset .bin-map table th,
-  .md-typeset .bin-map table td { padding: .2em .45em; }
+  /* The bag and box index: up to two pages after the labels, one row per container. */
+  .md-typeset .bag-index__scroll { margin: 0; overflow: visible; }
+  .md-typeset .bag-index__intro { font-size: 8.5pt; line-height: 1.3; }
+  .md-typeset .bag-index__intro p { margin: 0 0 2mm; }
+  /* The table must fit the 7.5 in content width, or Chromium shrinks the whole document (the label
+   * sheets with it) to fit: no screen min-width, and the columns in mm (190 mm in all). */
+  .md-typeset table.bag-index__table { display: table; width: 100%; min-width: 0; font-size: 10pt;
+    break-inside: auto; page-break-inside: auto; border: 0;
+    box-shadow: none; table-layout: fixed; }
+  .md-typeset .bag-index__table th { font-size: 8.5pt; color: #000; background: #fff; border-bottom: .4mm solid #000;
+    padding: 1.2mm 1.2mm; text-align: left; }
+  .md-typeset .bag-index__table td { padding: .6mm 1.2mm; color: #000; border-top: .2mm solid #777; }
+  .md-typeset .bag-index__table thead { display: table-row-group; }   /* no repeat: the pagepad row insets page 2 */
+  .md-typeset .bag-index__table th:nth-child(1), .md-typeset .bag-index__table th:nth-child(2) { width: 10mm; }
+  .md-typeset .bag-index__table th:nth-child(3) { width: 35mm; }
+  .md-typeset .bag-index__table th:nth-child(4) { width: 14mm; }
+  .md-typeset .bag-index__table th:nth-child(5) { width: 62mm; }
+  .md-typeset .bag-index__table th:nth-child(6) { width: 20mm; }
+  .md-typeset .bag-index__table th:nth-child(7) { width: 25mm; }
+  .md-typeset .bag-index__table th:nth-child(8) { width: 12mm; }
+  .md-typeset .bag-index__table th, .md-typeset .bag-index__table td { padding-inline: 1mm; }
+  .md-typeset .bag-index__row { break-inside: avoid; }
+  .md-typeset .bag-index__row td:nth-child(7) { white-space: nowrap; }
+  .md-typeset .bag-index__pagepad { display: table-row; break-before: page; page-break-before: always; }
+  .md-typeset .bag-index__pagepad td { height: .5in; padding: 0; border: 0; }
+  .md-typeset .bag-index__rehead { display: table-row; }
+  .md-typeset .bag-index__box { width: 5mm; height: 5mm; border: .5mm solid #000; }
+  .md-typeset .bag-index__id a { color: #000; }
+  .md-typeset .bag-index__name, .md-typeset .bag-index__of { color: #222; font-size: 6.8pt; line-height: 1.15; }
+  .md-typeset .bag-index__of { display: inline; margin-left: 1.5mm; }
+  .md-typeset .bag-index__id a { border-bottom-width: 2px; line-height: 1.2; }
+  /* print.css hides every image unless .print-images is on; the part pictures are the point here. */
+  .md-typeset .bag-index__pics img { display: block !important; height: 7mm; width: auto; max-width: 8mm;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .md-typeset .bag-index__pics { gap: .5mm; }
+  .md-typeset .bag-index__more { margin-left: .5mm; }
+  .md-typeset .bag-index__more { font-size: 8pt; color: #000; }
+  .md-typeset .bag-index__chip { border-width: .5mm; font-size: 10pt; min-width: 11mm; }
+  .md-typeset .bag-index__chip--b5 { background: #000; color: #fff; border-color: #000; }
+  .md-typeset .bag-index__other { padding-bottom: .3in; break-inside: avoid; }
+  .md-typeset .bag-index__other h3 { margin: 3mm 0 1.5mm; }
+  .md-typeset .bag-index__other li { margin: 1.2mm 0; }
+  .md-typeset .bag-index__other li { font-size: 9.5pt; }
+  .md-typeset .bag-index__chip--other { background: #fff; color: #000; margin: 0 1mm; padding: .3mm 1.5mm; }
+}
 }

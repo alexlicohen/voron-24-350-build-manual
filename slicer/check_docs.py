@@ -141,6 +141,26 @@ def check_bins(readme: str) -> list[str]:
         if summary not in " ".join(path.read_text().split()):   # a line break may fall inside it
             bad.append(f"{path.relative_to(REPO)}: does not state the bag summary {summary!r} "
                        f"(slicer/bins.py bag_summary)")
+    # docs/print/bin-labels.md: the Bag and box index (generated; a stale copy means the build did not run)
+    idx_path = DOCS / "print" / "bin-labels.md"
+    if idx_path.exists():
+        idx = idx_path.read_text()
+        total = sum(counts.values())
+        sp = bins.spares()
+        if idx.count('class="bag-index__row"') != total:
+            bad.append(f"print/bin-labels.md: {idx.count('class=\"bag-index__row\"')} index rows, "
+                       f"bins.py has {total} containers (one row per bag or box)")
+        for want in (f"{total} containers:", summary, f"Spares: {sp['A5']} A5, {sp['B5']} B5.",
+                     'id="bin-map"'):
+            if want not in " ".join(idx.split()):
+                bad.append(f"print/bin-labels.md: Bag and box index lacks {want!r}")
+        for k in ("A5", "B5", "BOX"):
+            want = sum(n for kind, n in (bins.bag_parse(m["bag"]) for m in bins.BINS.values())
+                       if kind.upper() == k)
+            if idx.count(f'bag-index__chip bag-index__chip--{k.lower()}"') != want:
+                bad.append(f"print/bin-labels.md: {k} chips != {want} containers")
+    else:
+        bad.append("print/bin-labels.md missing (mkdocs build writes it)")
     # "N bins" / "N containers" in prose: the table checks above never see a bare count
     # (a new sub-bin left "26 bins" standing in three files). 00-index's corrections log
     # is history and exempt, as in check_plate_ids.

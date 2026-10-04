@@ -97,14 +97,14 @@ reprinted part gets the new plate id with an **R** after it, plus the extrusion 
 — `B03-P1R 94.5%`. The [run schedule](#run-schedule) and the [spool ledger](#spool-ledger) are the lookup:
 plate id → date, spool and slicer settings, so a part that fits badly next year can be traced to the run
 that made it, and one bad run can be reprinted without guessing which parts came off it. The scheme lives in `slicer/bins.py` (the diagrams, the `bin` column in
-`docs/manual/assets/parts/MANIFEST.csv`, the [bin labels](../../print/bin-labels.md) and the bin map are all
+`docs/manual/assets/parts/MANIFEST.csv`, the [bin labels](../../print/bin-labels.md) and their [bag and box index](../../print/bin-labels.md#bin-map) are all
 generated from it); `python3 slicer/check_docs.py` cross-checks this table, the batch chapters and the
 manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front-left) and Z2 (rear-right),
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
 29 bins, 279 printed pieces: 218 from the ASA run, 53 from B11 and 8 from the two add-ons, which print
-after kit day and are on no plate (`13-scrubber`, `14-exhaust`). They travel in 24 of 24 A5 and 7 of 12 B5
+after kit day and are on no plate (`13-scrubber`, `14-exhaust`). They travel in 24 of 24 A5 and 8 of 12 B5
 mesh bags, plus 1 box.
 
 **Bag per bin** (the *bag* column), measured from the STLs by `python3 slicer/bin_bags.py`: a bag's
@@ -112,7 +112,7 @@ usable inside is its paper size (A5 148 × 210 mm, B5 176 × 250 mm) and about 2
 assumption; a thicker piece still fits if each millimetre over 25 comes off both flat sides. Pieces
 lie on a flat face, and a bag holds a bin when every piece fits and their bounding boxes add up to no
 more than half the bag's volume. A bin takes one A5 if it can, else one B5, else two or three bags; a
-bin needing more goes in a box (`11-skirts`, the skirt ring). Every label prints at half US Letter
+bin needing more goes in a box (`11-skirts`, the skirt ring). A bin split across bags may take one more than the minimum so each bag fills from its own print plates (`09-ducts`: P1–P2, P3, P4, P5); `bin_bags.py --check` tests every bag of a split on its own. Every label prints at half US Letter
 and trims to fit inside an A5 bag, so a bag label reads through the mesh and a box label tapes on.
 
 | bin | label | chapter · steps | bag | parts (qty) | from batches |
@@ -131,7 +131,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder + toolboard cover | Ch 08 · 08.3–08.20 (cover 08.51) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` | B02, B06 |
 | **09-bay** | Electronics bay: inlet, WAGO, PSU, USB, DIN clips | Ch 09 · 09.7–09.25 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16, USB 09.25) | A5 | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `usb_adapter_mount_partial_cover`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
-| **09-ducts** | Bay ducts and lids, B11 | Ch 09 · 09.6, 09.36 (AC lids 10.80, DC lids 11.52; coupon from B11.4) | B5 ×3 | 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B11 |
+| **09-ducts** | Bay ducts and lids, B11 | Ch 09 · 09.6, 09.36 (AC lids 10.80, DC lids 11.52; coupon from B11.4) | B5 ×4 | 52 duct, lid and coupon pieces, listed at [Step B11.8](B11-bay-ducting.md#step-b118-sort-into-bins) and [B11.14](B11-bay-ducting.md#step-b1114-sort-the-after-kit-plates-into-bins) | B11 |
 | **10-chains** | Z cable chain anchor, guide, retainer | Ch 10 · 10.62–10.64 (inserts at 10.35) | A5 | `[a]_z_chain_retainer_bracket` ×2, `z_chain_bottom_anchor`, `z_chain_guide` | B02, B05 |
 | **10-lights** | COB light-strip mounts | Ch 10 · 10.35–10.36 | A5 | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 | B07 |
 | **10-wiring** | Bay wiring: AC strip fin (B11) | Ch 10 · 10.80, appended with the B11 bay ducting | A5 | `V2L_STRIP_FIN` | B11 |
