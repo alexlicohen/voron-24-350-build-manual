@@ -11,95 +11,21 @@ Durable context: `PROJECT_MEMORY.md` at the repo root (publication: local-only �
 git-ignored, so it never ships with the manual). Operational facts, states, decisions and design
 rationale only.
 
-Check: `python3 scripts/lint_manual.py && python3 slicer/check_docs.py` (both must exit 0).
+Check: `make verify` (must exit 0). It runs the CI steps of `.github/workflows/check.yml` with the
+repo `.venv` (`mkdocs build --strict`, the tonight self-test and JS parity, callouts, `lint_manual.py`)
+plus `slicer/check_docs.py`. The build regenerates the tracked `docs/assets/tonight.json`.
 
 ## Standing rules
 - Check a transcribed step against the manual page image, the STL or the CAD — never against a
   reviewer's summary or a reviewer's replacement text.
 - Check a chapter at the iPad viewport (1024×768) before calling it done; the bench reader is an iPad.
 
-## Hardware
+## Build facts (untracked)
+Hardware, the Voron 2.4 plan decisions, materials, tools, open items, key numbers and order
+history live in `context/build-facts.md` and `context/orders.md`. Both are git-ignored (`context/`)
+because this repo is public; read them when a task needs those facts, and keep personal, order
+and household details out of every tracked file.
 
-- **Firmware line**: non-INDX CORE One+ tops out at Buddy 6.8.1 (2026-08-14; GT1.5/Gen 2 support, Settings → Hardware → Edition); 6.9.x builds are INDX-only; the manual's Gen 2 gate is ≥ 6.8.1.
-- **Prusa Core One+** — built with daughter, assembled 2026-09-06; commissioning closed 2026-09-13 (bed flat ±0.1 mm via printed Z-stop correction caps, cold-probe start G-code; Advanced Filtration attached permanently with Walter's bypass flaps — see `PROJECT_MEMORY.md › Core One+ belt tuning and bed` and `PROJECT_MEMORY.md › Core One+ operating notes`). Original kit purchased 2026-05-17 (Prusa order **1779051361**, $1,384.86: "CORE One+ kit Advanced Filtration + Camera BUNDLE" $1,109.00 + Prusament PLA Pearl Mouse 1kg clearance $24.99 + FedEx economy $179.99 + duties/tax; shipped 2026-05-18, FedEx). Nozzle: the stock HF (high-flow) 0.4 Nextruder nozzle (Alex, 2026-09-05) — use PrusaSlicer's HF Core One presets; no hardened nozzle needed for Prusament ASA; buy one identical spare for the ~157 h run. Frame is Gen 1; ordered the Gen 1→Gen 2 upgrade kit (order 1787919456, Aug 28, $212.43; shipped 2026-09-23; expansion joints + nozzle wiper go in before B00, belts at the INDX rebuild): GT1.5 belts/pulleys, Gen 2 heatbed expansion joints, nozzle wiper, spare nylon rivets; Gen 2 quick-release top cover sold separately, not included.
-- **INDX 8-Tool Conversion Kit** for Core One+ (Gen 2) — ordered Aug 21 (order 1787331673, $1,083.43, pre-order, $999). Supports PLA/PETG/ASA/ABS/PC/PCCF/PA/TPU/PVA/BVOH, any 1.75mm up to 300°C; nitrocarburized steel nozzles (~10kg PETG-CF / 5kg PC-CF before wear); optional 400°C HT hotend opens PEKK-CF/PPS-CF/PSU/PPA. "No build-volume compromise" claim is from a reseller, not Prusa's spec page — unverified.
-- **Advanced Filtration Kit** — corrected provenance: not a separate purchase. Bundled into the original kit order (Prusa order 1779051361, 2026-05-17, "CORE One+ kit Advanced Filtration + Camera BUNDLE") — Attached permanently 2026-09-12 with Walter's bypass-flap plate (Printables 1745702): Corrected 2026-09-15: Adv. Filtration mode zeroes the two rear chamber fans (KB; overheat ≥60 °C excepted), so the flaps only lift if G-code drives them — `M106 P3 S160` in PLA/PETG/PVB filament start G-code, `M106 P3 R` at end (P3 = chamber pair, P4 = blower, verified in Buddy source); or switch Chamber Filtration to None by hand for PLA/PETG. ASA/ABS: Adv. Filtration, blower pulls, flaps seal; M147 is redundant (ASA is auto-flagged). Settings: Print Filtration on, min power 40 %, post-print on, Filter All Materials OFF, Chamber Fans Limit 100 %. Details: `PROJECT_MEMORY.md › Core One+ operating notes`. Rear-exhaust HEPA+carbon backpack, ~600 print-hrs per cartridge (~6 Voron print sets). Stock reasoning: buy one spare cartridge now (1-2wk Prusa lead time).
-- **Sequencing decision** (revised 2026-10-01): **Gen 2 goes in in two parts.** Heatbed expansion joints + nozzle wiper are fitted before B00; the **GT1.5 belts stay deferred to the INDX rebuild** this winter (Prusa documents the combined install). The whole 157.0 h run prints on Gen 1 (GT2) belts; no mid-run pause. Firmware: switch the joints and the wiper on one by one, never Edition = Gen 2 (it also sets GT1.5 steps/mm). Before B00, in order: fit joints + wiper, re-check the bed to ±0.1 mm (the heatbed came off), belt pluck check, hot first-layer check at ASA bed temp on both start G-codes (cold, and heat-then-off: `slicer/checks/hot-first-layer-heat-off.3mf`); the winner goes into all 22 plates via `sync_start_gcode.py`. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint with the heater on and leaves a hold target, so a start G-code needs `M104 S0` after it. Supersedes the 09-23 all-deferred decision and the 09-14 Gen-2-first baseline.
-- Core One+ specs (per Prusa/INDX materials, largely unverified beyond memory-level): build volume 250×220×270mm; chamber via bed+fans to 55°C, no dedicated heater (adequate ASA/ABS, marginal PC/PA at scale). Stock Core One+ has NO built-in filter (chamber vents unfiltered) — correction made mid-chat to an earlier wrong claim.
-- Order history: context/orders.md
-
-## Voron 2.4 350 plan
-
-- **Kit ordered**: LDO Voron 2.4 R2 Rev D+, 350mm, blue frame, Revo HF hotend, touchscreen, Pi 4B — Fabreeko order **F6424626**, 2026-09-04 (today at time of order), $1,563.21, free shipping, pre-order. **ETA late November to late December 2026** (verified 2026-09-14: Fabreeko tracking page shows the V2.4/Trident batch still in manufacture in Shenzhen, LDO has serialized nothing since batch 2606, same SKU ran ~2 months late in 2025, 30–40 day ocean freight; watch for the status to flip to shipped, which starts a ~5-week clock). Line items: kit $1,399.99; titanium extrusion backers 350 $56.25 (25% bundle discount); Clicky-Clack door kit by LDO, 350/Blue, $49.99; acrylic panel for Clicky-Clack, 350, $23.99; precision hex driver set of 5, $32.99.
-- **Decision: print ALL functional + cosmetic parts self** (no PIF / Print-It-Forward purchase) — "for the fun of it." PIF was considered (functional set $149.99, cosmetic add-on $134.99 via Fabreeko-PIF collab) but rejected; savings from self-print ≈$190-200 (~$2/hr of Prusa time) were secondary to the stated goal of printing everything themselves.
-- **Trident rejected** as the platform (was the initial top recommendation) in favor of 2.4 350 once complexity was deprioritized and volume became a driver — Trident 300 would save ~10-15h build time at same quality but gives up 50mm and the fixed-bed advantage on tall prints.
-- **StealthChanger (toolchanger)**: available now via LDO's DraftShift kit (Base + Tool&Dock + Top Hat sub-kits; 350 supports up to 6 tools, 300 up to 5). Decision: build stock single-tool first, upgrade later — need a tuned baseline before adding toolchanger calibration complexity, and INDX already covers multi-material needs.
-- **Beacon (eddy-current probe) and Nevermore StealthMax**: deferred, not part of current build — explicitly excluded ("not doing the beacon or the nevermore stealthmax right now"). Probe: kit ships BOTH the Omron inductive probe (QGL-only, wired to PROBE, primary per LDO config) and a Klicky kit (alternative, hand-made cable), plus the LDO nozzle-probe PCB for Z=0. Also in the kit: Nevermore Micro V5 Duo parts, Nitehawk-SB V2 toolboard (the "+" = Nitehawk-SB V2; verified in docs/voron-build-instructions-survey.md).
-- **Leviathan MCU (contested):** F446 per the Rev D wiring guide/kit Klipper config; LDO's Leviathan README changed to STM32H743 on 2025-10-30. Read the silkscreen — don't assume from paperwork (manual Ch 12 step 12.13).
-- **Bed magnet sheet is user-applied, not pre-laminated** — a separate BOM line (`Magnetic Pad 2.4-350`), fitted during the build (docs/manual/03-build-plate.md), unlike the heater/thermal fuse which are pre-applied.
-- **Rev D+ = Rev D + Nitehawk-SB V2** (electrical + one STL: `usb_adapter_mount_partial_cover`) — confirmed, not electrical-only; LDO documented the V2 ESD/grounding scheme 2026-07-10 (manual Ch 10 step 10.58).
-- **1 tool to start** on the 350 (not the 300) — locked in.
-- **Print order** (revised 2026-09-14): the ENTIRE run — 11 batches, 22 plates, 157.0 h — prints before kit day, in plain numeric order on Gen 1 belts: B00 → B01 → B02 → … → B10. **Early Gate B** makes this possible, and nothing is bought for it (ruling 2026-09-14): the insert row uses seven M3×H5 from the KADRICK kit already on the bench, set with the X-Tronic's stock conical tip, and the bore row is a caliper against the STL nominal (`z_drive_retainer_a`'s 625-2RS pocket = **16.30 mm**; A/B drive-frame F695 flange seats = **15.00 mm**). The **625-2RS press** and the **MGN12 rail check** wait for kit day; the rail row gates nothing but a 20-min reprint of the ASA rail-guide jig. Gate A (the cube) still gates everything downstream. Spool ledger recomputed for numeric order: #1 → B05-P1, #2 starts fresh at B06-P1 (bores), #3 takes over mid-plate in B09-P1.
-- Only ~18–19% of the build (by time; per docs/voron-build-instructions-survey.md, corrected from the chat's 15%) is possible before any printed parts exist: frame squaring/assembly, Z linear rails on vertical extrusions, firmware flashing (Klipper on Pi/Leviathan/Nitehawk), harness inventory/DIN rail install.
-- **Chamber/material spec**: Voron spec ABS/ASA only, 4 perimeters, 5 top/bottom, 40% grid/cubic infill, 0.2mm layers, 0.4 nozzle, no supports, seam aligned rear, smooth/satin sheet (not textured — ASA adheres poorly on textured, no glue needed on smooth). Stock chamber ~50-60°C passive; heater retrofit to 65-70°C possible later but not planned now.
-- **Vendor**: Fabreeko chosen over MatterHackers/Levendigs (same LDO kit), Fysetc (cheaper, worse QC/support), Formbot/Siboor (skip) — reference reseller for the Voron community, best component QC (LDO motors/rails, pre-crimped harness).
-- **Assembly docs** (layered, not a single manual): Voron 2.4r2 official Assembly Manual (vorondesign.com) + Stealthburner manual as primary; LDO supplements at docs.ldomotors.com/en/voron/voron2 (Build Notes/FAQ, Printed Parts Guide, Wiring Guide, Klipper config) as deviations/overlay. LDO docs currently only cover Rev D, not D+ — Rev D+ = Rev D + Nitehawk-SB V2 (electrical + one STL: `usb_adapter_mount_partial_cover`), not electrical-only.
-
-## Materials & filament
-
-- **Prusa order 1788547486** (2026-09-04, $291.66, incl. $57.99 FedEx Economy): Prusament ASA Galaxy Black 800g ×3, Prusament ASA Prusa Orange 800g ×1 (**superseded 2026-09-14** as the accent — now the spare), Prusament PVB Natural 500g, Prusa USS Drybox ×2. ASA came in at $26.99/spool (well under earlier ~$35-49.99 estimates from web searches).
-- **Color scheme (updated 2026-09-14)**: Galaxy Black primary (metallic fleck hides layer lines/artifacts on skirts) + **Prusament ASA Blue accent** (bought on Amazon, arrived ~2026-09-12; exact colour name to verify on the spool; 800 g assumed; hex used in docs #1F4E9C) — blue accents matching the blue LDO frame and the blue Clicky-Clack door, over the black body. **Superseded 2026-09-14:** the earlier Prusa Orange accent decision ("orange was intentional to contrast blue+orange over the black base material"); the orange spool is now the spare and no plate is printed in it.
-- **Spool count — final = 3 black + 1 accent, 800g each** (accent is the blue spool since 2026-09-14; the orange one is the superseded spare). History: first estimate was 5 spools (4 black + 1 accent) assuming Beacon mount + Nevermore StealthMax included; once those were dropped, revised black need ≈2.0kg (incl. ~0.3kg reprint allowance) → 3 spools (2.4kg) is sufficient with margin. Confirmed by the actual order (3 black + 1 accent). Estimated need breakdown at the 5-spool stage: functional set ~1.0kg, cosmetic set ~0.9kg, mods (Beacon mount/Clicky-Clack/Nevermore) ~0.35kg, reprints ~15%/~0.35kg.
-- **Build sheet**: use the **smooth/satin sheet** (ships with kit) for all Voron ASA parts — textured sheet is for PLA/PETG and was separately purchased for that use (confirmed, not a mix-up).
-- **Drybox/drying conclusions per material**: PLA — no drybox needed, dry only if open for months/stringing. PETG — not required, helps in humid Boston summer if mounted for weeks. ASA — not required if spool fresh/used within 1-2 weeks; dry at 80°C/4h if open longer or bubbling/matte striping appears (Voron parts are structural, so this is the material to watch). PVB — yes, needs drybox, absorbs moisture quickly, ruins clarity. Rule of thumb: printer-mounted drybox earns its place for PVB/TPU/PC Blend/nylon; PLA/PETG/ASA just need a heat-dry before use + sealed bag after. Practical setup: one USS Drybox on the active ASA spool during the ~2-week continuous Voron print run, not eight boxes.
-- **Materials-of-interest ranking for Core One+** (beyond PLA/PETG already owned), from Prusament's lineup: 1) PVB — translucent, vapor-smoothable, best "wow" for daughter, ~$30. 2) PC Blend — real engineering plastic (~110°C HDT), ~$60. 3) PA11 (Natural) — bio-based nylon, low-warp, needs dry box, ~$50. 4) TPU — flexible, showcases INDX multi-material later, ~$40. 5) PC Blend CF / PA11 CF — stiff/matte, needs hardened nozzle (wait for INDX), $72-100. 6) PETG Tungsten — niche radiation-shielding novelty, ~$100+. 7) PP — skip, hard to bed-adhere. 8) PEI — skip, needs 400°C HT hotend + hotter chamber than Core One+ supports. Practical first order alongside ASA: one PVB, one PC Blend, one TPU.
-
-## Tools & metrology
-
-Ranked by effect on finished build quality (not assembly speed):
-1. Flat reference surface (granite plate or float glass) — squareness is set here.
-2. Machinist square (150mm, DIN 875/2+) + steel rule.
-3. Digital caliper, 150mm.
-4. Hex drivers, ball-end 1.5/2/2.5/3/4/5mm.
-5. Torque screwdriver, 0.5-3 Nm adjustable.
-6. Temp-controlled soldering iron for heat-set inserts (~150 inserts in the build) — X-Tronic owned; its stock conical tip sets the early Gate B inserts, the LDO brass 900M-T tip lands with the kit.
-7. Insert-setting press/jig.
-8. Rail alignment jig for MGN12 on 2020 (printed, free).
-9. Dial indicator + magnetic base (optional; Beacon would replace this for bed, but Beacon deferred).
-10. Loctite 243, Super Lube 21030, isopropyl, flush cutters, JST crimper (mods only).
-
-**Bought**: Fabreeko precision hex driver set of 5 (in kit order F6424626, $32.99); iGaging Absolute Origin caliper, PEC 6 in machinist square, X-Tronic 3020-XTS soldering station (900M-T tips), Hakko CHP-170 flush cutters (all 2026-09-07); Super Lube 21030 (09-11); 520-pc generic M2–M5 heat-set insert kit (09-07, verify M3 = 5 mm OD × 4 mm before Voron use).
-**Still needed**: torque screwdriver (optional), rail alignment jig (print it in ASA on B00), dial indicator (optional), Loctite 243, 32 GB A1 microSD + reader. **Owned** (Alex, 2026-10-01): multimeter, extinguisher, smoke alarm, surge strip. **Not needed** (ruling 2026-09-14, "I am not buying equipment or parts that are already in the kit"): 625-2RS or F695 bearings, 8 mm rod, the LDO Heat Insert Tool Kit or a separate 900M-T M3 tip, a spool scale.
-**Flat-reference decision**: use the kitchen stone counter (granite/quartz) for the frame-squaring step — verified flat with a straightedge/feeler-gauge test across the working area in both directions and diagonals — rather than buying float glass or a granite tile/plate specifically for this. (Prior candidates considered and priced: Grizzly G9650 12×18×3in granite ~$80-110/~60lb; ½in annealed float glass 18×24 ~$40-70/~19lb — both superseded by the counter-top solution once confirmed usable.) A dedicated 12×18 granite plate may still be worth buying later for precise caliper/insert work, per the tool list above, but no purchase confirmed.
-
-## Open items / to-buy
-
-- Super Lube 21030 synthetic grease — bought 2026-09-11. Note: 21030 is NLGI 2 — LDO's guide asks for 0/1 but names 21030 by part number; buy 21030.
-- Filament dryer: Sunlu SP2 bought 2026-09-11 (70 °C cap: ASA 70 °C/6 h, port plugs out while drying), second SP2 ordered 09-13.
-- Spare Advanced Filtration cartridge (1-2wk Prusa lead time; don't want printer idle mid-Voron-batch).
-- Clicky-Clack "Blue" option = the door's aluminium extrusion frame color, matching the blue printer frame; visible trim, intentional, RESOLVED (survey).
-- Caliper, square, soldering station, flush cutters bought 09-07. Still open: torque screwdriver (optional). The 900M-T M3 insert tip is **no longer on the list** (2026-09-14) — the LDO brass tip is in the kit and early Gate B uses the X-Tronic's stock conical tip on KADRICK M3×H5 inserts.
-- Soldering iron must accept Hakko-style 900M-T tips — the kit already includes LDO's brass heat-set tip in that format; a Pinecil won't fit it. **Nothing is bought to bring Gate B forward** (ruling 2026-09-14: "I am not buying equipment or parts that are already in the kit"): its early insert row uses the KADRICK kit's M3×H5 inserts and the iron's stock tip, its bore row is a caliper reading, and the 625-2RS press and MGN12 rail rows wait for kit day.
-- 5 mm hex driver — not needed — every BOM fastener is 3 or 4 mm drive.
-- Nevermore carbon/Boost filter media — deferred along with StealthMax; will be needed once Nevermore is built.
-- LDO documented the V2 ESD/grounding scheme 2026-07-10 (manual Ch 10 step 10.58).
-
-## Key facts & numbers
-
-| Item | Value |
-|---|---|
-| Core One+ kit assembly time | ~9-11h total; ~4.5-6h hands-on remained at Ch.6 step 33/58 |
-| Voron 2.4 350 build time | ~40-60h hands-on + ~100h unattended printing (first build); experienced builders ~20h |
-| Voron self-print filament cost | ~$70-90 (vs. $284.98 buying PIF functional+cosmetic sets) |
-| Prusa vs. LDO kit price delta (300 vs 350) | ~$100-150 originally estimated; actual Fabreeko listing had 300/350 at same price |
-| VFA (vertical fine artifacts) | Fine periodic vertical ripple (0.5-2mm spacing) from belt-tooth engagement ripple on pulleys; cosmetic only, no strength/dimensional effect. Distinct from ringing (frame/toolhead resonance, fixed by input shaping). |
-| GT1.5 belt fix (Gen 2) | Replaces Core One's GT2 (2mm pitch) belts/pulleys with GT1.5 (1.5mm pitch); raises ripple frequency ~1/3 and reduces amplitude, reducing VFA — a productized community fix. Pulleys, steps/mm, and firmware all change together; must re-tension/re-square after. |
-| Fabreeko order | F6424626 — 2026-09-04, $1,563.21 |
-| Prusa filament/drybox order | 1788547486 — 2026-09-04, $291.66 |
-| Prusa Gen 1→Gen 2 upgrade order | 1787919456 — 2026-08-28, $212.43 |
-| Prusa INDX order | 1787331673 — 2026-08-21, $1,083.43 |
-| Gen 2 upgrade KB guide | help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435 |
-| Prusa Core One+ original kit order | 1779051361 — 2026-05-17, $1,384.86, shipped 2026-05-18 |
 
 ## Source
 
