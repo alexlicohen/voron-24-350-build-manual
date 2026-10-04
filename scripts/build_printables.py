@@ -278,15 +278,53 @@ def _inline(text):
     return re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
 
 
-def _density(n_items):
-    """List density class by line count, so the longest list (09-ducts) still fits the frame."""
-    if n_items <= 7:
-        return "roomy"
-    if n_items <= 12:
-        return "snug"
-    if n_items <= 18:
-        return "two"
-    return "three"
+DENSE_ABOVE = 24   # distinct parts in a bin; above it a part's cover/lid shares its part's tile
+_COVER_RE = re.compile(r"_(?:COVER|LID)(?=_|$)")
+_VERSION_RE = re.compile(r"^(?:CMD_V\d_\w{2}_|CMD_Remix-V3_)")
+
+
+def _tiles(contents):
+    """Tiles for a label's parts: [{name, n, made, note, geom, cover}] in bin order.
+
+    A bin with more than DENSE_ABOVE distinct parts (09-ducts: 31) is too dense for one picture
+    each at >= 8 mm, so a `*_COVER` / `*_LID` that matches a part in the same bin (same name apart
+    from the cover token and the CMD version stamp, same quantity) folds into that part's tile as
+    "+ cover" and gets no picture of its own. Every other part keeps its own tile."""
+    entries = list(contents.values())
+    for e in entries:
+        e["cover"] = False
+    if len(entries) <= DENSE_ABOVE:
+        return entries
+
+    def stem(e):
+        return Path(e["geom"][1]).stem
+
+    def key(e):
+        return _VERSION_RE.sub("", _COVER_RE.sub("", stem(e)))
+
+    bases = {key(e): e for e in entries if not _COVER_RE.search(stem(e))}
+    out = []
+    for e in entries:
+        base = bases.get(key(e)) if _COVER_RE.search(stem(e)) else None
+        if base is not None and base["n"] == e["n"] and not base["cover"]:
+            base["cover"] = True
+            base["made"] = base["made"] + [m for m in e["made"] if m not in base["made"]]
+        else:
+            out.append(e)
+    return out
+
+
+def _tier(n_tiles):
+    """Picture size tier by tile count (extra.css `.bin-label__parts--t1..t4`: 14 / 12 / 10 / 8 mm)."""
+    return 1 if n_tiles <= 6 else 2 if n_tiles <= 12 else 3 if n_tiles <= 18 else 4
+
+
+def _thumb_rel(geom):
+    """Part picture for a label (scripts/render_label_thumbs.py), relative to docs/print/."""
+    rel = Path("assets") / "parts" / f"{Path(geom[1]).stem}.png"
+    if not (PRINT_DIR / rel).exists():
+        _fail([f"bin label picture missing: {rel} (run python3 scripts/render_label_thumbs.py)"])
+    return rel.as_posix()
 
 
 def _label_html(bin_id, meta, contents, qr_rel):
@@ -302,13 +340,23 @@ def _label_html(bin_id, meta, contents, qr_rel):
         bag_note = f"this label in bag 1; write {bin_id} {others}"
     else:
         bag_note = "slide this label in, facing out"
+    tiles = _tiles(contents)
+    tier = _tier(len(tiles))
     items = []
-    for e in contents.values():
-        qty = f" ×{e['n']}" if e["n"] > 1 else ""
+    for e in tiles:
+        qty = f"×{e['n']}" if e["n"] > 1 else ""
+        qty = f"{qty} + cover" if e["cover"] and qty else ("+ cover" if e["cover"] else qty)
         made = ", ".join(e["made"])
-        note = f'<span class="bin-label__note"> · {_inline(e["note"])}</span>' if e["note"] else ""
-        items.append(f'<li>{_inline(e["name"])}{qty} <span class="bin-label__from">{_inline(made)}</span>{note}</li>')
-    listing = (f'<ul class="bin-label__list bin-label__list--{_density(len(items))}">{"".join(items)}</ul>'
+        # Notes only where there is room (up to 12 tiles); a denser bin's notes live in the chapters.
+        note = (f'<span class="bin-label__note">{_inline(e["note"])}</span>'
+                if e["note"] and tier <= 2 else "")
+        img = (f'<img class="bin-label__part-img" loading="eager" decoding="sync" '
+               f'src="../{_thumb_rel(e["geom"])}" alt="">')
+        items.append(f'<li>{img}<span class="bin-label__part-text"><span class="bin-label__part-name">'
+                     f'{_inline(e["name"]).replace("_", "_<wbr>")}</span>'
+                     f'<span class="bin-label__from">{html.escape(qty)}{" · " if qty else ""}{_inline(made)}</span>'
+                     f'{note}</span></li>')
+    listing = (f'<ul class="bin-label__parts bin-label__parts--t{tier}">{"".join(items)}</ul>'
                if items else '<p class="bin-label__empty">(empty: nothing in the plan feeds this bin)</p>')
     # Raw HTML is not re-linked by MkDocs: the page is served at print/bin-labels/ (directory
     # URLs), so a docs/print/-relative path needs one more `../`.

@@ -1105,19 +1105,25 @@ body.step-is-done .md-typeset .step-done-label {
 .md-typeset img.bin-label__qr-img { width: 6.5rem; height: 6.5rem; background: #fff; padding: .2rem; border-radius: .15rem; }
 .md-typeset .bin-label__contents { grid-area: contents; min-width: 0; }
 .md-typeset .bin-label__contains { font-size: .72rem; margin-bottom: .15rem; }
-.md-typeset ul.bin-label__list { margin: 0; padding-left: 1rem; font-size: .68rem; line-height: 1.35; }
-.md-typeset ul.bin-label__list li { margin: 0 0 .1rem; break-inside: avoid; }
-.md-typeset ul.bin-label__list--two,
-.md-typeset ul.bin-label__list--three { columns: 2; column-gap: 1.6rem; }
-@media screen and (min-width: 60em) {
-  .md-typeset ul.bin-label__list--three { columns: 3; }
+/* Parts as tiles: a picture (scripts/render_label_thumbs.py) beside the name, ×qty and plate id. */
+.md-typeset ul.bin-label__parts {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .4rem .8rem;
 }
+.md-typeset ul.bin-label__parts li { margin: 0; display: flex; gap: .45rem; align-items: center; min-width: 0; }
+.md-typeset img.bin-label__part-img {
+  flex: none; width: 3.2rem; height: 3.2rem; max-width: none; object-fit: contain; background: #fff;
+  border: 1px solid var(--md-default-fg-color--lightest); border-radius: .2rem; padding: .1rem;
+}
+.md-typeset .bin-label__part-text { display: flex; flex-direction: column; min-width: 0; font-size: .68rem; line-height: 1.25; }
+.md-typeset .bin-label__part-name { overflow-wrap: anywhere; font-weight: 600; }
+.md-typeset .bin-label__part-name code { font-family: inherit; font-size: 1em; padding: 0; background: none; font-weight: inherit; }
+.md-typeset .bin-label__note { font-style: italic; }
 @media screen and (max-width: 44.99em) {
   .md-typeset .bin-label__frame { padding: .6rem .7rem; gap: .3rem .7rem; }
   .md-typeset .bin-label__id { font-size: 1.5rem; }
   .md-typeset img.bin-label__qr-img { width: 4.5rem; height: 4.5rem; }
-  .md-typeset ul.bin-label__list--two,
-  .md-typeset ul.bin-label__list--three { columns: 1; }
+  .md-typeset ul.bin-label__parts { grid-template-columns: 1fr; }
 }
 
 @media print {
@@ -1191,12 +1197,27 @@ body.step-is-done .md-typeset .step-done-label {
   }
   .md-typeset .bin-label__contents { align-self: start; }
   .md-typeset .bin-label__contains { font-size: 4mm; margin-bottom: 1mm; }
-  .md-typeset ul.bin-label__list { padding-left: 4mm; line-height: 1.28; }
-  .md-typeset ul.bin-label__list li { margin: 0 0 .5mm; }
-  .md-typeset ul.bin-label__list--roomy { font-size: 4.1mm; }
-  .md-typeset ul.bin-label__list--snug { font-size: 3.5mm; }
-  .md-typeset ul.bin-label__list--two { font-size: 3.3mm; columns: 2; column-gap: 6mm; }
-  .md-typeset ul.bin-label__list--three { font-size: 2.9mm; columns: 3; column-gap: 4mm; }
+  /* Part tiles: picture + name/qty/plate. Four size tiers by tile count (build_printables._tier):
+   * 14 / 12 / 10 / 8 mm pictures in 3 / 3 / 4 / 5 columns; the frame is 182 mm of content wide. */
+  .md-typeset ul.bin-label__parts {
+    display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    gap: var(--rgap) 3mm;
+  }
+  .md-typeset ul.bin-label__parts li { gap: 1.6mm; }
+  /* print.css hides every image unless .print-images is on; these are the label's content. */
+  .md-typeset img.bin-label__part-img {
+    display: block !important; width: var(--pic) !important; height: var(--pic) !important;
+    max-width: none !important; padding: 0; border: .2mm solid #bbb; border-radius: .6mm; background: #fff;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .md-typeset .bin-label__part-text { font-size: var(--fs); line-height: 1.2; }
+  .md-typeset .bin-label__part-name { font-weight: 700; }
+  .md-typeset .bin-label__part-name code { font-family: inherit; font-weight: inherit; }
+  .md-typeset .bin-label__note { font-size: .9em; }
+  .md-typeset ul.bin-label__parts--t1 { --cols: 3; --pic: 20mm; --fs: 3.6mm; --rgap: 2.4mm; }
+  .md-typeset ul.bin-label__parts--t2 { --cols: 3; --pic: 15mm; --fs: 3.4mm; --rgap: 1.8mm; }
+  .md-typeset ul.bin-label__parts--t3 { --cols: 4; --pic: 12mm; --fs: 2.9mm; --rgap: 1.6mm; }
+  .md-typeset ul.bin-label__parts--t4 { --cols: 5; --pic: 10mm; --fs: 2.6mm; --rgap: 1.2mm; }
   .md-typeset .bin-label code { font-size: 1em; padding: 0; background: none; color: #000; }
 
   /* The bin map: one page after the labels. Material's scroll wrapper hangs .8rem outside the
