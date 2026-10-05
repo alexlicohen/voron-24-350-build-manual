@@ -365,6 +365,6 @@ no geometry is copied. The ultra-light construction takes its ideas from **HuMa*
 Bins* (Printables 627719, CC BY-NC-SA); ideas only, no geometry used. The Gridfinity system is **Zack Freedman**'s; the base and lip here are built from
 the published spec numbers, not from any Gridfinity model file.
 
-Licence: the same as the rest of this repository's own content. None has been chosen yet (root README ›
-Attribution and licences), so treat it as all rights reserved until one is added. The Gridfinity design
-reference graphic asks derived projects to use CC BY-NC-SA; settle that when a licence is chosen.
+Licence: **CC BY-NC-SA 4.0** (<https://creativecommons.org/licenses/by-nc-sa/4.0/>), the same as the rest of
+this repository's own content (root `LICENSE`), which also matches what the Gridfinity design reference asks of
+derived projects.
