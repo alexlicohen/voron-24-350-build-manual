@@ -1,7 +1,7 @@
 # Hardware trays (bench print)
 
-Three Gridfinity bins on one common footprint (5 × 5 units), each only as tall as its contents need, that
-hold the LDO Voron 2.4 350 kit's fastener bags: one
+Three ultra-light Gridfinity bins on one common footprint (5 × 5 units), each only as tall as its contents
+need, that hold the LDO Voron 2.4 350 kit's fastener bags: one
 compartment per hardware row of the kit BOM, two raised label lines (size; type and kit count) on a ledge
 behind each row, and a scoop cove along each compartment's front wall. They sit on any Gridfinity baseplate
 (Clickfinity included), and any of them stacks on any other. The bags are emptied into them on kit day,
@@ -12,8 +12,8 @@ A bench print: on no plate, in no batch, run total or spool ledger
 | Tray | Holds |
 |---|---|
 | A | M2 and M3 screws: SHCS by length, BHCS, FHCS, wafer, captive, M2 self-tappers, M3 set screws |
-| B | M4 and M5 screws (M5 SHCS, M4 and M5 BHCS, M4 set screws) and the roll-in T-nuts |
-| C | the small parts (hex nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets) and the hammer-head T-nuts, in a low bin |
+| B | M4 and M5 screws (M5 SHCS, M4 and M5 BHCS, M4 set screws) and the hammer-head T-nuts |
+| C | the small parts (hex nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets) and the roll-in T-nuts, in a low bin |
 
 The kit's hand tools (hex keys, the 2 mm drill bit, the slot screwdriver, the brass insert tip) are not
 stored in the trays. Renders (blue = the layers above the label ledges, i.e. the colour-change layers):
@@ -34,6 +34,8 @@ stored in the trays. Renders (blue = the layers above the label ledges, i.e. the
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py            # STLs, renders, 3MFs, slice, README blocks
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --plan     # groupings and fill table only, writes nothing
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --compare 3  # build and slice the 3 best groupings, print h and g
+venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --lever-study  # slice with the plastic levers added one by one
+venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --levers none  # the plain (solid-base, 2.6 mm wall) bins
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --no-slice
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --holes magnet   # or screw; default none
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --validate REF.stl   # profile check, below
@@ -69,7 +71,8 @@ scoop, and the script fails if one does not. Per hardware row:
     shingle).
   - hex nuts, knurled nuts: 0.58; magnets: 0.60 (they chain and stack).
 - **Usable volume** = compartment floor area × depth from the floor to the rim (the divider tops), less the
-  rounded vertical corners (R2.8) and the scoop cove (R12, or 0.4 × the compartment length on short rows).
+  rounded vertical corners (R2.9), the scoop cove (R12, or 0.4 × the compartment length on short rows), and
+  on a side against the outer wall the 1.74 × 1.74 mm 45° sliver of the lip support.
 - **Fill** = bulk ÷ usable. Compartments are sized from the 70 % rule, with a floor of 25 mm wide × 18 mm long
   so a finger fits, and wider where the label (or a screw lying along X) needs it; spare space is shared out
   in proportion.
@@ -109,12 +112,12 @@ willtree8) and the constants in
 | Base, per unit | from the bottom: 0.8 at 45°, 1.8 vertical, 2.15 at 45° (4.75 high); bottom 35.6 square r0.8, top 41.5 r3.75 |
 | Height | 7 mm units; bin height 7 u includes the 7 mm base (profile + bridge) and excludes the lip (6U = 42 mm) |
 | Stacking lip | from its inner tip at the bin height: 0.7 at 45°, 1.8 vertical, 1.9 at 45° (2.6 deep, 4.4 high) |
-| Interior | floor at 7.0 (top of the base); dividers and labels stop 1.2 below the bin height (rebuilt's lip support height), so a bin stacked on top never touches them |
+| Interior | floor at 5.8 (a floor plate on top of hollow feet, below); dividers and labels stop 1.2 below the bin height (rebuilt's lip support height), so a bin stacked on top never touches them |
 | Holes (option) | magnet Ø6.5 × 2.4, or M3 Ø3 × 6, 8 mm in from each side of every unit; none by default (Clickfinity baseplates hold bins without magnets) |
 
-Two deliberate differences: the outer wall is 2.6 mm (the lip depth) all the way up, so the lip sits on solid
-wall and needs no support chamfer; and the lip's knife-edge top is cut back to a 0.3 mm flat, so the bin is
-0.3 mm under the spec's 46.4 mm overall (rebuilt rounds the same edge with r0.6 instead).
+Deliberate differences: the lip's knife-edge top is cut back to a 0.3 mm flat, so the bin is 0.3 mm under
+the spec's height (rebuilt rounds the same edge with r0.6 instead); the inside is ultra-light (§ Ultra-light
+below). The outside, feet and lip included, is unchanged, and the validation below is of these bins.
 
 **Validation** (`--validate`, section through the unit centre, a plain 1 × 1 × 6U bin from this script
 against a reference STL, both centred and bottom-aligned):
@@ -135,8 +138,9 @@ Core One+, textured sheet, any PLA, door open. Each project carries its config, 
 PrusaSlicer 2.9.6 system presets `0.20mm BALANCED @COREONE HF0.4` + `Prusament PLA @COREONE HF0.4` +
 `Prusa CORE One HF0.4 nozzle` (`slicer/resolve_preset.py`), with this repo's printer-wide lines: the vendored
 cold start (`slicer/coreone-cold-start.gcode`) and `M106 P3 S160` / `M106 P3 R` in the filament start/end
-G-code (AFS bypass flaps, as `slicer/bay-ducts-petg.ini` does for PETG). Supports off. Nothing else is
-overridden (2 perimeters, 15 % infill, 0.2 mm layers). The base's 45° steps print without support.
+G-code (AFS bypass flaps, as `slicer/bay-ducts-petg.ini` does for PETG). Supports off. Ultra-light settings:
+2 perimeters, 3 top and 3 bottom layers (minimum-thickness rules off, so it is 3 layers), 10 % infill; nothing
+else is overridden (0.2 mm layers, 0.45 mm lines). The base's 45° steps print without support.
 
 **Two-colour labels (optional):** the labels, the top 0.6 mm of the dividers and the stacking lip are
 everything above the label ledges. In PrusaSlicer's layer slider, add a colour change (M600) at the tray's
@@ -152,90 +156,141 @@ the bins sit on any Gridfinity baseplate. Which trays stack, and which fit the o
 hammer-head T-nuts, small parts) into at most three trays on one common footprint, each tray at its lowest
 height: fewest trays, then the fewest bin units (Σ n·m·U, a plastic proxy). The lowest height also keeps every
 piece lying flat at least 2 mm below the rim, so the 8 mm knurled nuts rule out 2U. Only 5 × 5 holds the M2/M3
-screws (205 of 209.5 mm at 6U), so 5 × 5 is the common footprint. Three groupings fit; all three were sliced
-(`--compare 3`, 2026-10-05), and the proxy's order held:
+screws, so 5 × 5 is the common footprint. Three groupings fit; all three were sliced (`--compare 3`,
+ultra-light, 2026-10-05), and the proxy's order held:
 
 | Grouping (A / B / C) | Bin units | Time | PLA |
 |---|---:|---|---:|
-| M2/M3 6U / M4/M5 + roll-in T-nuts 6U / hammer-head T-nuts + small parts 3U (**built**) | 375 | 23.8 h | 915 g |
-| M2/M3 6U / M4/M5 + hammer-head T-nuts 6U / roll-in T-nuts + small parts 4U | 400 | 24.5 h | 945 g |
-| M2/M3 6U / M4/M5 5U / all T-nuts + small parts 5U | 400 | 24.8 h | 956 g |
+| M2/M3 6U / M4/M5 + hammer-head T-nuts 5U / roll-in T-nuts + small parts 3U (**built**) | 350 | 18.2 h | 636 g |
+| M2/M3 6U / M4/M5 + roll-in T-nuts 6U / hammer-head T-nuts + small parts 3U | 375 | 18.6 h | 652 g |
+| M2/M3 6U / M4/M5 5U / all T-nuts + small parts 4U | 375 | 18.9 h | 662 g |
 
-Putting all the T-nuts with the M4/M5 screws does not fit: that group needs 232 mm of depth in a 5 × 5 × 6U
-bin. Splitting the T-nut families by thread finds nothing under 375 bin units either.
+The thinner walls are what let tray B drop to 5U with the hammer-head T-nuts and the roll-in T-nuts join the
+small parts at 3U. Putting all the T-nuts with the M4/M5 screws still does not fit a 6U bin.
+
+## Ultra-light
+
+Ideas from **HuMa**, *Gridfinity Ultra Light Bins* ([Printables 627719](https://www.printables.com/model/627719),
+CC BY-NC-SA: 37 % less filament than a standard bin, a 3 × 4 × 6 bin 62 g instead of 98 g at 2 walls, 3 top
+and bottom layers, 10 % infill). Ideas only; no geometry is used. Each lever, sliced with the others before it
+(`--lever-study`, 2026-10-05; grouping and heights re-chosen at each step):
+
+| Lever | A | B | C | All | Change | Kept |
+|---|---:|---:|---:|---:|---:|---|
+| none (the bins as approved: solid 7 mm base, 2.6 mm wall, 1.8 mm dividers) | 359 g 6U | 329 g 6U | 227 g 3U | 915 g, 23.8 h | | |
+| `settings`: 2 perimeters, 3 top / 3 bottom, 10 % infill | 306 | 278 | 187 | 771 g, 20.3 h | −144 g | yes |
+| `thin`: outer wall and dividers 0.86 mm (exactly 2 perimeters); lip on a 45° support | 271 | 214 (5U) | 207 (4U) | 692 g, 18.8 h | −79 g | yes |
+| `ledges`: hollow under each label ledge, 45° roof | 269 | 219 | 219 | 707 g, 20.2 h | +15 g | **no** |
+| `coves`: hollow inside each scoop cove, 45° roof | 274 | 225 | 225 | 724 g, 20.9 h | +17 g | **no** |
+| `base`: hollow feet under a floor plate (with the two above still on) | 259 | 212 | 184 (3U) | 655 g, 19.8 h | −69 g | yes |
+| **built**: `settings` + `thin` + `base` | 262 | 207 | 167 | **636 g, 18.2 h** | **−279 g (−30 %)** | |
+
+- **Settings** pays most: the trays are almost all wall, so cutting top layers and infill takes plastic off
+  every floor and ledge. All three trays slice with **0 gap-fill extrusions**.
+- **Thin walls**: a 0.45 mm line at 0.2 mm layers spaces at 0.407, so two perimeters make a 0.86 mm wall
+  with nothing between them. With a wall thinner than the 2.6 mm lip, the lip's inner tip sits on a 45° ring
+  (from the wall face 1.74 mm below the rim up to the tip line at the rim, then straight up to the bin
+  height): the same support gridfinity-rebuilt uses, and the load path for a stacked bin. The lip itself
+  is left as the spec draws it: its 6.8 mm² section is at most ~5 g a tray, and it carries the stack. The
+  tray name on the front face is dropped: a cut into a 0.86 mm wall leaves less than two perimeters.
+- **Hollow ledges and coves cost plastic.** At 10 % infill a void inside a 13 mm ledge or a cove adds two
+  perimeters round it on every layer, more than the sparse infill it replaces, and more print time. Both are
+  implemented (`--levers settings,thin,ledges,coves,base`) and off.
+- **Hollow base**: each foot is a shell, 0.86 mm walls following the foot profile and a 3-layer (0.6 mm)
+  pocket floor, closed on top by a 1.05 mm floor plate at the base top (z 4.75–5.8); the compartment floor
+  is flat at 5.8, 1.2 mm lower than before. The call: a **flat floor over closed feet**, not floors dipping
+  into the feet as HuMa's bins do. Dipped floors would leave a 5 mm ridge every 42 mm across every
+  compartment, wells with 45° sides where washers, magnets and set screws collect, and V-notches where a
+  divider crosses a well; the coves would hang over the wells. The flat floor costs a 40 mm bridge over
+  each foot pocket (PrusaSlicer's stability check lists it with the base grooves as "Long bridging
+  extrusions"; no supports) and some of the plastic dipping would save. No tray drops a height unit from
+  the lower floor alone: A still needs 6U, and C (the knurled nuts) cannot go to 2U. Holes (`--holes`) need
+  solid feet, so the option turns the hollow base off.
+
+**Strength.** Tray A full is about 0.5 kg of steel.
+- *Lifted by one end*: the tray is a box 209.5 × 209.5 × 42 mm with 0.86 mm walls. Every 25–80 mm a 0.86 mm
+  divider is fused to the outer wall, and every row ends in a solid 13.2 mm label ledge running wall to wall
+  (ribs). The floor is a 1.05 mm plate on 25 foot shells. The worst case, held at one edge with the steel
+  spread evenly, puts about 0.5 N·m of bending on that section: well under 1 MPa in PLA, which yields near
+  50 MPa. The lip is solid, so it is a sound place to grip.
+- *Two full trays stacked*: about 5 N rests on the lower tray's lip ring, about 820 mm long, carried by the
+  45° support into the walls: a few kPa.
+- *Floor*: a 1.05 mm plate spans each 40 mm foot pocket, edges fixed, carrying a fraction of a newton per pocket.
+- Every wall and divider is at least 2 perimeters, the floors at least 3 layers. Nothing here is close to
+  a limit; the limit in use is a drop, not a load.
 
 <!-- BEGIN generated:layout -->
 Generated from `scripts/data/ldo-350-bom.yml` (box *Fasteners, Tools & Misc*, fetched 2026-09-24). Each tray is sized on its own: the smallest footprint, then the lowest height, that holds its group at ≤ 70% fill with the finger floor.
 
 3 groupings of whole families fit ≤ 3 trays on one common footprint, each tray at its lowest height. Best five by bin units (Σ n·m·U, the plastic proxy):
 
-1. 3 trays, 375 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + roll-in T-nuts 5×5×6U | hammer-head T-nuts + small parts 5×5×3U ← chosen
-2. 3 trays, 400 bin units: M2/M3 screws 5×5×6U | M4/M5 screws 5×5×5U | roll-in T-nuts + hammer-head T-nuts + small parts 5×5×5U
-3. 3 trays, 400 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + hammer-head T-nuts 5×5×6U | roll-in T-nuts + small parts 5×5×4U
+1. 3 trays, 350 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + hammer-head T-nuts 5×5×5U | roll-in T-nuts + small parts 5×5×3U ← chosen
+2. 3 trays, 375 bin units: M2/M3 screws 5×5×6U | M4/M5 screws 5×5×5U | roll-in T-nuts + hammer-head T-nuts + small parts 5×5×4U
+3. 3 trays, 375 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + roll-in T-nuts 5×5×6U | hammer-head T-nuts + small parts 5×5×3U
 
-Usable depth (floor to rim) by height: 2U 5.8 mm, 3U 12.8 mm, 4U 19.8 mm, 5U 26.8 mm, 6U 33.8 mm.
+Usable depth (floor to rim) by height: 2U 7.0 mm, 3U 14.0 mm, 4U 21.0 mm, 5U 28.0 mm, 6U 35.0 mm.
 
 | tray | bin | thickest piece lying flat (mm) | lowest height the fill allows |
 |---|---|---:|---|
 | A | 5 × 5 × 6U | 8 | 6U |
-| B | 5 × 5 × 6U | 9.5 | 6U |
+| B | 5 × 5 × 5U | 9.5 | 5U |
 | C | 5 × 5 × 3U | 8 | 3U |
 
 Stacking: a bin rests on another bin's stacking lip only if both have the same footprint (the lip runs round the rim, so a smaller bin's feet would drop inside). A, B and C share a footprint: any of them stacks on any other.
 None of the trays fits the 5 × 4 rugged case.
 
-**Tray A — M2 · M3 SCREWS:** Gridfinity 5 × 5 × 6U (209.5 × 209.5 × 42 mm + lip), 17 compartments in 4 rows (row 1 is the front); fullest M3×40 SHCS at 69%.
+**Tray A — M2 · M3 SCREWS:** Gridfinity 5 × 5 × 6U (209.5 × 209.5 × 42 mm + lip), 17 compartments in 4 rows (row 1 is the front); fullest M3×40 SHCS at 67%.
 
 | row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
 |---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M3×8 · SHCS 283 | 283 | cyl 5.68 × 11 | 0.55 | 143.4 | 106 × 59 × 33.8 | 209.6 | 68% |
-| 1 | M3×12 · SHCS 50 | 50 | cyl 5.68 × 15 | 0.54 | 35.2 | 29 × 59 × 33.8 | 57.6 | 61% |
-| 1 | M3×16 · SHCS 30 | 30 | cyl 5.68 × 19 | 0.53 | 27.4 | 30 × 59 × 33.8 | 58.0 | 47% |
-| 1 | M3×20 · SHCS 40 | 40 | cyl 5.68 × 23 | 0.52 | 45.2 | 34 × 59 × 33.8 | 66.0 | 68% |
-| 2 | M3×25 · SHCS 12 | 12 | cyl 5.68 × 28 | 0.50 | 17.0 | 35 × 28 × 33.8 | 31.3 | 54% |
-| 2 | M3×30 · SHCS 44 | 44 | cyl 5.68 × 33 | 0.49 | 75.6 | 121 × 28 × 33.8 | 110.1 | 69% |
-| 2 | M3×35 · SHCS 6 | 6 | cyl 5.68 × 38 | 0.47 | 12.2 | 45 × 28 × 33.8 | 40.5 | 30% |
-| 3 | M3×40 · SHCS 34 | 34 | cyl 5.68 × 43 | 0.46 | 81.0 | 77 × 46 × 33.8 | 117.2 | 69% |
-| 3 | M3×50 · SHCS 4 | 4 | cyl 5.68 × 53 | 0.45 | 11.9 | 60 × 46 × 33.8 | 90.8 | 13% |
-| 3 | M3×6 · BHCS 14 | 14 | cyl 5.7 × 7.65 | 0.55 | 5.0 | 29 × 46 × 33.8 | 44.0 | 11% |
-| 3 | M3×25 · BHCS 6 | 6 | cyl 5.7 × 26.65 | 0.51 | 8.1 | 33 × 46 × 33.8 | 50.1 | 16% |
-| 4 | M3×6 · FHCS 42 | 42 | cyl 6 × 6 | 0.55 | 13.0 | 31 × 19 × 33.8 | 19.0 | 68% |
-| 4 | M3×10 · FHCS 8 | 8 | cyl 6 × 10 | 0.55 | 4.1 | 30 × 19 × 33.8 | 18.0 | 23% |
-| 4 | M3×25 · WAFER 3 | 3 | cyl 8 × 26.5 | 0.53 | 7.6 | 33 × 19 × 33.8 | 20.3 | 37% |
-| 4 | M3×6 · CAPTIVE 2 | 2 | cyl 5.68 × 9 | 0.55 | 0.8 | 35 × 19 × 33.8 | 21.3 | 4% |
-| 4 | M2×10 · SELF-TAP 43 | 43 | cyl 4 × 11.6 | 0.54 | 11.7 | 41 × 19 × 33.8 | 24.8 | 47% |
-| 4 | M3×2 · SET 5 | 5 | cyl 3 × 2 | 0.55 | 0.1 | 26 × 19 × 33.8 | 15.6 | 1% |
+| 1 | M3×8 · SHCS 283 | 283 | cyl 5.68 × 11 | 0.55 | 143.4 | 109 × 59 × 35.0 | 221.5 | 65% |
+| 1 | M3×12 · SHCS 50 | 50 | cyl 5.68 × 15 | 0.54 | 35.2 | 31 × 59 × 35.0 | 63.1 | 56% |
+| 1 | M3×16 · SHCS 30 | 30 | cyl 5.68 × 19 | 0.53 | 27.4 | 31 × 59 × 35.0 | 63.6 | 43% |
+| 1 | M3×20 · SHCS 40 | 40 | cyl 5.68 × 23 | 0.52 | 45.2 | 34 × 59 × 35.0 | 69.7 | 65% |
+| 2 | M3×25 · SHCS 12 | 12 | cyl 5.68 × 28 | 0.50 | 17.0 | 38 × 28 × 35.0 | 36.5 | 47% |
+| 2 | M3×30 · SHCS 44 | 44 | cyl 5.68 × 33 | 0.49 | 75.6 | 119 × 28 × 35.0 | 115.1 | 66% |
+| 2 | M3×35 · SHCS 6 | 6 | cyl 5.68 × 38 | 0.47 | 12.2 | 49 × 28 × 35.0 | 46.8 | 26% |
+| 3 | M3×40 · SHCS 34 | 34 | cyl 5.68 × 43 | 0.46 | 81.0 | 78 × 45 × 35.0 | 120.9 | 67% |
+| 3 | M3×50 · SHCS 4 | 4 | cyl 5.68 × 53 | 0.45 | 11.9 | 62 × 45 × 35.0 | 95.9 | 12% |
+| 3 | M3×6 · BHCS 14 | 14 | cyl 5.7 × 7.65 | 0.55 | 5.0 | 30 × 45 × 35.0 | 46.4 | 11% |
+| 3 | M3×25 · BHCS 6 | 6 | cyl 5.7 × 26.65 | 0.51 | 8.1 | 36 × 45 × 35.0 | 55.7 | 14% |
+| 4 | M3×6 · FHCS 42 | 42 | cyl 6 × 6 | 0.55 | 13.0 | 32 × 20 × 35.0 | 21.5 | 60% |
+| 4 | M3×10 · FHCS 8 | 8 | cyl 6 × 10 | 0.55 | 4.1 | 31 × 20 × 35.0 | 20.9 | 20% |
+| 4 | M3×25 · WAFER 3 | 3 | cyl 8 × 26.5 | 0.53 | 7.6 | 35 × 20 × 35.0 | 23.5 | 32% |
+| 4 | M3×6 · CAPTIVE 2 | 2 | cyl 5.68 × 9 | 0.55 | 0.8 | 36 × 20 × 35.0 | 24.7 | 3% |
+| 4 | M2×10 · SELF-TAP 43 | 43 | cyl 4 × 11.6 | 0.54 | 11.7 | 42 × 20 × 35.0 | 28.7 | 41% |
+| 4 | M3×2 · SET 5 | 5 | cyl 3 × 2 | 0.55 | 0.1 | 28 × 20 × 35.0 | 19.3 | 1% |
 
-**Tray B — M4 · M5 SCREWS · T-NUTS:** Gridfinity 5 × 5 × 6U (209.5 × 209.5 × 42 mm + lip), 10 compartments in 3 rows (row 1 is the front); fullest M5×30 BHCS at 68%.
-
-| row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
-|---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M5×40 · SHCS 26 | 26 | cyl 8.72 × 45 | 0.50 | 140.5 | 149 × 42 × 33.8 | 207.6 | 68% |
-| 1 | M4×6 · BHCS 8 | 8 | cyl 7.6 × 8.2 | 0.55 | 5.4 | 26 × 42 × 33.8 | 35.8 | 15% |
-| 1 | M5×6 · BHCS 1 | 1 | cyl 9.5 × 8.75 | 0.55 | 1.1 | 26 × 42 × 33.8 | 35.8 | 3% |
-| 2 | M5×10 · BHCS 54 | 54 | cyl 9.5 × 12.75 | 0.55 | 88.7 | 79 × 51 × 33.8 | 131.7 | 67% |
-| 2 | M5×14 · BHCS 4 | 4 | cyl 9.5 × 16.75 | 0.55 | 8.6 | 30 × 51 × 33.8 | 50.3 | 17% |
-| 2 | M5×16 · BHCS 43 | 43 | cyl 9.5 × 18.75 | 0.55 | 103.9 | 92 × 51 × 33.8 | 154.2 | 67% |
-| 3 | M5×30 · BHCS 26 | 26 | cyl 9.5 × 32.75 | 0.53 | 114.8 | 71 × 72 × 33.8 | 169.2 | 68% |
-| 3 | M4×4 · SET 32 | 32 | cyl 4 × 4 | 0.55 | 2.9 | 26 × 72 × 33.8 | 61.7 | 5% |
-| 3 | M3 T-NUT · ROLL-IN 135 | 135 | box 12.5 × 7.7 × 4.3 | 0.55 | 101.6 | 62 × 72 × 33.8 | 149.7 | 68% |
-| 3 | M5 T-NUT · ROLL-IN 80 | 80 | box 13 × 7.7 × 4.3 | 0.55 | 62.6 | 40 × 72 × 33.8 | 95.9 | 65% |
-
-**Tray C — NUTS · INSERTS · WASHERS · MAGNETS · T-NUTS:** Gridfinity 5 × 5 × 3U (209.5 × 209.5 × 21 mm + lip), 11 compartments in 4 rows (row 1 is the front); fullest M3 T-NUT HAMMER at 55%.
+**Tray B — M4 · M5 SCREWS · T-NUTS:** Gridfinity 5 × 5 × 5U (209.5 × 209.5 × 35 mm + lip), 10 compartments in 3 rows (row 1 is the front); fullest M3 T-NUT HAMMER at 69%.
 
 | row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
 |---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M3 NUT · HEX 14 | 14 | cyl 6.35 × 2.4 | 0.58 | 1.8 | 42 × 39 × 12.8 | 20.2 | 9% |
-| 1 | M5 NUT · HEX 30 | 30 | cyl 9.24 × 4.7 | 0.58 | 16.3 | 63 × 39 × 12.8 | 30.3 | 54% |
-| 1 | M3 INSERT · HEAT-SET 153 | 153 | cyl 5.35 × 4 | 0.55 | 25.0 | 96 × 39 × 12.8 | 46.5 | 54% |
-| 2 | M3 WASHER · 6 | 6 | cyl 7 × 0.55 | 0.55 | 0.2 | 101 × 25 × 12.8 | 30.0 | 1% |
-| 2 | M5 WASHER · 1 mm · 9 | 9 | cyl 10 × 1 | 0.55 | 1.3 | 101 × 25 × 12.8 | 30.0 | 4% |
-| 3 | M5 SPACER · 1 mm · 46 | 46 | cyl 10 × 1 | 0.55 | 6.6 | 48 × 25 × 12.8 | 14.3 | 46% |
-| 3 | M5 LOCK · WASHER 2 | 2 | cyl 9.2 × 2.4 | 0.55 | 0.6 | 39 × 25 × 12.8 | 11.5 | 5% |
-| 3 | M4 KNURLED · NUT 4 | 4 | cyl 14.08 × 8 | 0.58 | 8.6 | 56 × 25 × 12.8 | 16.4 | 52% |
-| 3 | 6×3 MAGNET · 16 | 16 | cyl 6 × 3 | 0.60 | 2.3 | 56 × 25 × 12.8 | 16.6 | 14% |
-| 4 | M3 T-NUT · HAMMER 75 | 75 | box 10.92 × 9.14 × 4.85 | 0.55 | 66.0 | 152 × 63 × 12.8 | 120.6 | 55% |
-| 4 | M5 T-NUT · HAMMER 16 | 16 | box 11 × 9.2 × 5 | 0.55 | 14.7 | 50 × 63 × 12.8 | 40.0 | 37% |
+| 1 | M5×40 · SHCS 26 | 26 | cyl 8.72 × 45 | 0.50 | 140.5 | 153 × 49 × 28.0 | 203.6 | 69% |
+| 1 | M4×6 · BHCS 8 | 8 | cyl 7.6 × 8.2 | 0.55 | 5.4 | 25 × 49 × 28.0 | 33.5 | 16% |
+| 1 | M5×6 · BHCS 1 | 1 | cyl 9.5 × 8.75 | 0.55 | 1.1 | 27 × 49 × 28.0 | 35.8 | 3% |
+| 2 | M5×10 · BHCS 54 | 54 | cyl 9.5 × 12.75 | 0.55 | 88.7 | 51 × 92 × 28.0 | 128.9 | 69% |
+| 2 | M5×14 · BHCS 4 | 4 | cyl 9.5 × 16.75 | 0.55 | 8.6 | 29 × 92 × 28.0 | 74.9 | 12% |
+| 2 | M5×16 · BHCS 43 | 43 | cyl 9.5 × 18.75 | 0.55 | 103.9 | 59 × 92 × 28.0 | 151.1 | 69% |
+| 2 | M5×30 · BHCS 26 | 26 | cyl 9.5 × 32.75 | 0.53 | 114.8 | 66 × 92 × 28.0 | 166.8 | 69% |
+| 3 | M4×4 · SET 32 | 32 | cyl 4 × 4 | 0.55 | 2.9 | 27 × 26 × 28.0 | 18.7 | 16% |
+| 3 | M3 T-NUT · HAMMER 75 | 75 | box 10.92 × 9.14 × 4.85 | 0.55 | 66.0 | 137 × 26 × 28.0 | 95.6 | 69% |
+| 3 | M5 T-NUT · HAMMER 16 | 16 | box 11 × 9.2 × 5 | 0.55 | 14.7 | 42 × 26 × 28.0 | 28.9 | 51% |
+
+**Tray C — NUTS · INSERTS · WASHERS · MAGNETS · T-NUTS:** Gridfinity 5 × 5 × 3U (209.5 × 209.5 × 21 mm + lip), 11 compartments in 4 rows (row 1 is the front); fullest M3 INSERT HEAT-SET at 68%.
+
+| row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
+|---:|---|---:|---|---:|---:|---|---:|---:|
+| 1 | M3 NUT · HEX 14 | 14 | cyl 6.35 × 2.4 | 0.58 | 1.8 | 56 × 19 × 14.0 | 14.1 | 13% |
+| 1 | M5 NUT · HEX 30 | 30 | cyl 9.24 × 4.7 | 0.58 | 16.3 | 151 × 19 × 14.0 | 38.1 | 43% |
+| 2 | M3 INSERT · HEAT-SET 153 | 153 | cyl 5.35 × 4 | 0.55 | 25.0 | 102 × 27 × 14.0 | 36.9 | 68% |
+| 2 | M3 WASHER · 6 | 6 | cyl 7 × 0.55 | 0.55 | 0.2 | 51 × 27 × 14.0 | 18.4 | 1% |
+| 2 | M5 WASHER · 1 mm · 9 | 9 | cyl 10 × 1 | 0.55 | 1.3 | 53 × 27 × 14.0 | 19.0 | 7% |
+| 3 | M5 SPACER · 1 mm · 46 | 46 | cyl 10 × 1 | 0.55 | 6.6 | 51 × 19 × 14.0 | 12.8 | 51% |
+| 3 | M5 LOCK · WASHER 2 | 2 | cyl 9.2 × 2.4 | 0.55 | 0.6 | 39 × 19 × 14.0 | 9.9 | 6% |
+| 3 | M4 KNURLED · NUT 4 | 4 | cyl 14.08 × 8 | 0.58 | 8.6 | 56 × 19 × 14.0 | 14.2 | 60% |
+| 3 | 6×3 MAGNET · 16 | 16 | cyl 6 × 3 | 0.60 | 2.3 | 59 × 19 × 14.0 | 14.8 | 15% |
+| 4 | M3 T-NUT · ROLL-IN 135 | 135 | box 12.5 × 7.7 × 4.3 | 0.55 | 101.6 | 128 × 88 × 14.0 | 154.1 | 66% |
+| 4 | M5 T-NUT · ROLL-IN 80 | 80 | box 13 × 7.7 × 4.3 | 0.55 | 62.6 | 79 × 88 × 14.0 | 94.9 | 66% |
 
 Piece data and sources:
 
@@ -266,8 +321,8 @@ Piece data and sources:
 | Machine Screw, BHCS, M5x16 | 509 | 1329 | 0.21 | ISO 7380 |
 | Machine Screw, BHCS, M5x30 | 784 | 2321 | 0.18 | ISO 7380 |
 | Set Screw, M4x4, Pre-applied Threadlocker | 50 | 50 | 0.55 | ISO 4026 (d × L) |
-| T-nut, Roll-in, 2020, M3 | 286 | 414 | 0.38 | CAD |
-| T-nut, Roll-in, 2020, M5 | 272 | 430 | 0.35 | CAD |
+| T-nut, Hammer Head, 2020, M3 | 185 | 484 | 0.21 | CAD |
+| T-nut, Hammer Head, 2020, M5 | 190 | 506 | 0.21 | EST |
 | Hexnut, M3 | 46 | 76 | 0.35 | ISO 4032 s, m |
 | Hexnut, M5 | 168 | 315 | 0.31 | ISO 4032 s, m |
 | Heatset Insert, Brass, M3x5x4 | 62 | 90 | 0.38 | NAME; CAD knurl 5.35 |
@@ -277,8 +332,8 @@ Piece data and sources:
 | Locking Washer, M5 | 56 | 160 | 0.19 | EST (DIN 127 split, twisted) |
 | Knurled Nut, M4 | 747 | 1246 | 0.35 | CAD (DIN 466-B) |
 | 6x3mm Neodymium Magnet | 85 | 85 | 0.60 | NAME; CAD |
-| T-nut, Hammer Head, 2020, M3 | 185 | 484 | 0.21 | CAD |
-| T-nut, Hammer Head, 2020, M5 | 190 | 506 | 0.21 | EST |
+| T-nut, Roll-in, 2020, M3 | 286 | 414 | 0.38 | CAD |
+| T-nut, Roll-in, 2020, M5 | 272 | 430 | 0.35 | CAD |
 
 Not in a compartment: Teflon Tube (4mm OD 3mm ID) - 1.2m; Zip Ties, 3x150mm; Brass Heatset Insert tool (for M3 Brass Inserts); Drill bit, 2mm; Hex Wrench, 1.5mm; Hex Wrench, 2mm; Hex Wrench, 2.5mm; Hex Wrench, 3mm; Hex Wrench, 4mm; Slot head screwdriver, 2.5mm; Aluminium Handle.
 <!-- END generated:layout -->
@@ -286,18 +341,19 @@ Not in a compartment: Teflon Tube (4mm OD 3mm ID) - 1.2m; Zip Ties, 3x150mm; Bra
 <!-- BEGIN generated:slice -->
 | file | bin | time | g PLA | colour change Z | extents on the bed, mm | supports |
 |---|---|---|---:|---:|---|---|
-| `tray-A.3mf` | 5 × 5 × 6U | 9h 20m 34s | 359 | 40.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 46.00 | none |
-| `tray-B.3mf` | 5 × 5 × 6U | 8h 19m 54s | 329 | 40.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 46.00 | none |
-| `tray-C.3mf` | 5 × 5 × 3U | 6h 5m 9s | 227 | 19.40 | X 20.4–229.6, Y 5.3–214.6, Z ≤ 25.20 | none |
+| `tray-A.3mf` | 5 × 5 × 6U | 7h 28m 43s | 262 | 40.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 46.00 | none |
+| `tray-B.3mf` | 5 × 5 × 5U | 5h 49m 48s | 207 | 33.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 39.00 | none |
+| `tray-C.3mf` | 5 × 5 × 3U | 4h 55m 11s | 167 | 19.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 25.20 | none |
 
-All trays: **23.8 h, 915 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 15% infill; slicer stability notes: Long bridging extrusions (the base grooves, expected). The colour-change Z is the first label layer, checked against each G-code.
+All trays: **18.2 h, 636 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 3 top / 3 bottom layers, 10% infill; 0 gap-fill extrusions; slicer stability notes: Long bridging extrusions (the base grooves and the hollow feet's 40 mm roofs, expected). The colour-change Z is the first label layer, checked against each G-code.
 <!-- END generated:slice -->
 
 ## Credit and licence
 
 Inspired by **r0bdawg11**, *INDX Upgrade Hardware Organizer*, <https://www.printables.com/model/1794124>
 (CC BY): one flat tray, a compartment per hardware type, raised labels, a scoop fillet. Inspiration only;
-no geometry is copied. The Gridfinity system is **Zack Freedman**'s; the base and lip here are built from
+no geometry is copied. The ultra-light construction takes its ideas from **HuMa**, *Gridfinity Ultra Light
+Bins* (Printables 627719, CC BY-NC-SA); ideas only, no geometry used. The Gridfinity system is **Zack Freedman**'s; the base and lip here are built from
 the published spec numbers, not from any Gridfinity model file.
 
 Licence: the same as the rest of this repository's own content. None has been chosen yet (root README ›

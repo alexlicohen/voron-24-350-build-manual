@@ -75,10 +75,42 @@ HOLE_FROM_SIDE = 8.0        # hole centre from each side of a unit (d_hole_from_
 
 # ------------------------------------------------------------------ tray geometry (mm)
 BED_X, BED_Y = 250.0, 220.0
-WALL = LIP_DEPTH            # outer wall = lip depth, so the lip sits on solid wall (no overhang)
-FLOOR_Z = BASE_HEIGHT       # compartment floor
-DIVIDER = 1.8               # wall between compartments in a row (four 0.45 mm lines)
-R_CAV = 2.8                 # cavity corner radius (rebuilt r_f2)
+# Plastic levers (ideas from HuMa's "Gridfinity Ultra Light Bins", Printables 627719; no
+# geometry used). All on by default; `--levers` picks a subset for the per-lever comparison.
+LEVER_NAMES = ("settings", "thin", "ledges", "coves", "base")
+# Hollow ledges and coves cost plastic at 10 % infill (each void adds two perimeters per layer,
+# more than the sparse infill it replaces; README § Ultra-light), so they are off by default.
+DEFAULT_LEVERS = ("settings", "thin", "base")
+LEVERS: set[str] = set(DEFAULT_LEVERS)
+# Two perimeters of the HF0.4 BALANCED preset: width w = 0.45 at 0.2 mm layers, spacing
+# w - h(1 - pi/4) = 0.407, so two lines make w + spacing = 0.857 mm: a 0.86 wall slices as
+# exactly two perimeters, no gap fill.
+T2 = 0.86
+FLOOR_PLATE_TOP = 5.8       # hollow base: floor plate from the base top (4.75) to 5.8 (5 layers)
+POCKET_FLOOR = 0.6          # hollow base: the foot pocket's floor, three 0.2 mm layers
+SHELF = 1.0                 # solid under a label ledge's top, above its hollow
+WALL = LIP_DEPTH            # outer wall (T2 with the `thin` lever; the lip then sits on a 45° support)
+FLOOR_Z = BASE_HEIGHT       # compartment floor (FLOOR_PLATE_TOP with the `base` lever)
+DIVIDER = 1.8               # wall between compartments in a row (T2 with `thin`)
+R_CAV = 2.8                 # cavity corner radius (rebuilt r_f2; 2.9 with `thin`, so the
+                            # outer wall keeps its thickness round the r3.75 corners)
+
+
+def apply_levers(levers: set[str]) -> None:
+    global WALL, FLOOR_Z, DIVIDER, R_CAV
+    LEVERS.clear()
+    LEVERS.update(levers)
+    thin = "thin" in levers
+    WALL = T2 if thin else LIP_DEPTH
+    DIVIDER = T2 if thin else 1.8
+    R_CAV = 2.9 if thin else 2.8
+    FLOOR_Z = FLOOR_PLATE_TOP if "base" in levers else BASE_HEIGHT
+    _PLAN.clear()
+
+
+def ring_band() -> float:
+    """Height of the 45° support under the lip's inner tip when the wall is thinner than it."""
+    return LIP_DEPTH - WALL
 SCOOP_R = 12.0              # cove along each compartment's front wall
 MIN_W, MIN_H = 25.0, 18.0   # finger floor: compartment width (X) x row length (Y)
 FILL_MAX = 0.70             # bulk / usable volume, at most
@@ -350,9 +382,11 @@ class Cell:
     def scoop(self) -> float:
         return scoop_r(self.h, self.depth)
 
+    wall_len: float = 0.0
+
     @property
     def usable(self) -> float:
-        return usable_volume(self.w, self.h, self.depth)
+        return usable_volume(self.w, self.h, self.depth) - ring_band() ** 2 / 2 * self.wall_len
 
     @property
     def fill(self) -> float:
@@ -422,13 +456,27 @@ def row_widths(items: list[Item], h: float, depth: float) -> list[float]:
     r = scoop_r(h, depth)
     per_w = depth * h - (1 - math.pi / 4) * r * r
     fixed = depth * (4 - math.pi) * R_CAV ** 2
-    return [max(min_w(it), (it.need + fixed) / per_w) for it in items]
+    return [max(min_w(it) + edge_extra(k, len(items)), (it.need + fixed) / per_w)
+            for k, it in enumerate(items)]
+
+
+def edge_extra(k: int, n: int) -> float:
+    """A compartment against a side wall needs its label clear of the lip's support band,
+    LIP_DEPTH in from the outside rather than WALL: this much more width."""
+    return (LIP_DEPTH - WALL) * ((k == 0) + (k == n - 1))
+
+
+def label_x(c: "Cell", W_outer: float) -> float:
+    """Label centre: the middle of the compartment's span clear of the lip support band."""
+    lo = max(c.x0, LIP_DEPTH)
+    hi = min(c.x1, W_outer - LIP_DEPTH)
+    return (lo + hi) / 2
 
 
 def row_min_h(items: list[Item], depth: float, nx: int) -> float | None:
     W = inner_w(nx)
     gaps = DIVIDER * (len(items) - 1)
-    if sum(min_w(it) for it in items) + gaps > W:
+    if sum(min_w(it) + edge_extra(k, len(items)) for k, it in enumerate(items)) + gaps > W:
         return None
     lo = MIN_H
     if sum(row_widths(items, lo, depth)) + gaps <= W:
@@ -480,7 +528,7 @@ def needed_y(items: list[Item], u: int, nx: int = UNITS_X) -> float:
     plan = plan_rows(items, usable_depth(u), nx)
     if plan is None:
         return math.inf
-    return 2 * WALL + sum(h + LEDGE for h in plan[1])
+    return WALL + LIP_DEPTH + sum(h + LEDGE for h in plan[1])
 
 
 DEPTH_MARGIN = 2.0          # a piece lying flat stays this far below the rim
@@ -528,7 +576,7 @@ def layout(tray: Tray) -> None:
     if plan is None:
         raise SystemExit(f"tray {tray.letter}: no row partition fits {tray.nx} units wide")
     rows, hs = plan
-    slack = tray.D - (2 * WALL + sum(h + LEDGE for h in hs))
+    slack = tray.D - (WALL + LIP_DEPTH + sum(h + LEDGE for h in hs))
     if slack < -1e-6:
         raise SystemExit(f"tray {tray.letter}: rows need {-slack:.1f} mm more depth")
     total = sum(hs)
@@ -543,7 +591,13 @@ def layout(tray: Tray) -> None:
         x = WALL
         cells = []
         for it, w in zip(items, ws):
-            cells.append(Cell(it, x, x + w, y, y + h, depth))
+            c = Cell(it, x, x + w, y, y + h, depth)
+            # the lip's 45° support takes a ring_band() x ring_band() / 2 sliver off the top of
+            # every cavity side that is the outer wall
+            c.wall_len = ((h if abs(x - WALL) < 1e-6 else 0.0)
+                          + (h if abs(x + w - (WALL + W)) < 1e-6 else 0.0)
+                          + (w if abs(y - WALL) < 1e-6 else 0.0))
+            cells.append(c)
             x += w + DIVIDER
         tray.rows.append(cells)
         tray.ledges.append((y + h, y + h + LEDGE))
@@ -597,45 +651,103 @@ def lip_cut(tray: Tray):
     return profile_loft(tray.W / 2, tray.D / 2, tray.W, tray.D, BASE_TOP_R, secs)
 
 
+def foot_pocket(cx: float, cy: float):
+    """The void inside a hollow foot: the base profile inset T2, from POCKET_FLOOR up to the base
+    top, where the floor plate closes it. Its walls follow the 45° foot profile."""
+    top = GRID - GAP
+    outer = lambda z: (2.95 - z) if z <= 0.8 else 2.15 if z <= 2.6 else 2.15 - (z - 2.6)
+    zs = (POCKET_FLOOR, 0.8, 2.6, BASE_PROFILE[-1][1])
+    return profile_loft(cx, cy, top, top, BASE_TOP_R, [(outer(z) + T2, z) for z in zs])
+
+
 def build_shell(tray: Tray, holes: str = "none", hollow: bool = False):
-    """The Gridfinity bin without compartments: bases, body, the stacking lip, the empty space
-    above the rim inside the walls, and optional holes. `hollow` also clears the interior down
-    to the floor (the plain bin `--validate` compares with a reference)."""
+    """The Gridfinity bin without compartments: bases (hollow with the `base` lever), body, the
+    stacking lip, the empty space above the rim inside the lip, and optional holes. `hollow`
+    also clears the interior down to the floor (the plain bin `--validate` compares)."""
     import cadquery as cq
     W, D, u = tray.W, tray.D, tray.u
     zb = UNIT_H * u
     top = zb + LIP_H - LIP_TOP_FLAT          # lip cut back to a flat LIP_TOP_FLAT wide
     zf = BASE_PROFILE[-1][1]
     body = rr_prism(W, D, BASE_TOP_R, 0, 0, zf, top - zf)
-    feet = [base_unit(GRID / 2 - GAP / 2 + GRID * i, GRID / 2 - GAP / 2 + GRID * j)
-            for i in range(tray.nx) for j in range(tray.ny)]
+    centres = [(GRID / 2 - GAP / 2 + GRID * i, GRID / 2 - GAP / 2 + GRID * j)
+               for i in range(tray.nx) for j in range(tray.ny)]
+    feet = [base_unit(cx, cy) for cx, cy in centres]
+    if "base" in LEVERS and holes == "none":
+        feet = [f.cut(foot_pocket(cx, cy)) for f, (cx, cy) in zip(feet, centres)]
     z0 = FLOOR_Z if hollow else rim_z(u)
-    cuts = [rr_prism(W - 2 * WALL, D - 2 * WALL, BASE_TOP_R - WALL, WALL, WALL, z0, zb - z0),
+    inset = WALL if hollow else LIP_DEPTH
+    cuts = [rr_prism(W - 2 * inset, D - 2 * inset, BASE_TOP_R - inset, inset, inset, z0, zb - z0),
             lip_cut(tray)]
     if holes != "none":
         dia, depth = (MAGNET_D, MAGNET_DEPTH) if holes == "magnet" else (SCREW_D, SCREW_DEPTH)
         off = GRID / 2 - HOLE_FROM_SIDE
-        for i in range(tray.nx):
-            for j in range(tray.ny):
-                ux, uy = GRID / 2 - GAP / 2 + GRID * i, GRID / 2 - GAP / 2 + GRID * j
-                for sx, sy in itertools.product((-1, 1), repeat=2):
-                    cuts.append(cq.Workplane("XY").center(ux + sx * off, uy + sy * off)
-                                .circle(dia / 2).extrude(depth).translate((0, 0, -0.01)).val())
+        for ux, uy in centres:
+            for sx, sy in itertools.product((-1, 1), repeat=2):
+                cuts.append(cq.Workplane("XY").center(ux + sx * off, uy + sy * off)
+                            .circle(dia / 2).extrude(depth).translate((0, 0, -0.01)).val())
     return body.fuse(*feet).cut(*cuts)
+
+
+def lip_support(tray: Tray):
+    """With a wall thinner than the lip, the solid that carries the lip's inner tip: a 45° ring
+    from the wall face (WALL in) at rim - band up to the tip line (LIP_DEPTH in) at the rim,
+    then straight up to the bin height. None when the wall is as deep as the lip."""
+    band = ring_band()
+    if band < 1e-6:
+        return None
+    rim, zb = rim_z(tray.u), UNIT_H * tray.u
+    outer = rr_prism(tray.W, tray.D, BASE_TOP_R, 0, 0, rim - band, zb - rim + band)
+    void = profile_loft(tray.W / 2, tray.D / 2, tray.W, tray.D, BASE_TOP_R,
+                        [(WALL - 0.01, rim - band - 0.01), (LIP_DEPTH, rim), (LIP_DEPTH, zb + 0.01)])
+    return outer.cut(void)
+
+
+def ledge_void(tray: Tray, ly0: float, ly1: float):
+    """Hollow under a label ledge: T2 walls front and back, vertical sides, a 45° roof (no
+    support) to an apex SHELF below the ledge top. None if there is no room."""
+    import cadquery as cq
+    rim = rim_z(tray.u)
+    y0, y1 = ly0 + T2, ly1 - T2
+    half = (y1 - y0) / 2
+    apex = rim - EMBOSS - SHELF
+    za = apex - half
+    if half < 1.0 or za < FLOOR_Z + 1.0:
+        return None
+    pts = [(y0, FLOOR_Z), (y1, FLOOR_Z), (y1, za), (y0 + half, apex), (y0, za)]
+    return (cq.Workplane("YZ").workplane(offset=WALL).polyline(pts).close()
+            .extrude(tray.W - 2 * WALL)).val()
+
+
+def cove_void(c: Cell):
+    """Hollow inside a scoop cove: a right triangle on the floor against the front face, its 45°
+    hypotenuse kept T2 inside the cove's arc, T2 behind the front face. None if too small."""
+    import cadquery as cq
+    r = c.scoop
+    s = 2 * r - math.sqrt(2) * (r + T2) - T2
+    if s < 1.5 or c.w - 2 * R_CAV < 2:
+        return None
+    y0 = c.y0 + T2
+    pts = [(y0, FLOOR_Z), (y0 + s, FLOOR_Z), (y0, FLOOR_Z + s)]
+    return (cq.Workplane("YZ").workplane(offset=c.x0 + R_CAV).polyline(pts).close()
+            .extrude(c.w - 2 * R_CAV)).val()
 
 
 def build_tray(tray: Tray, holes: str = "none"):
     import cadquery as cq
     W, u = tray.W, tray.u
-    zb = UNIT_H * u
     rim = rim_z(u)
-    cuts, adds = [], []
+    cuts, adds, voids = [], [], []
     for row, (ly0, ly1) in zip(tray.rows, tray.ledges):
         cuts.append(cq.Workplane("XY").box(W - 2 * WALL, ly1 - ly0, EMBOSS + 0.01,
                                            centered=False)
                     .translate((WALL, ly0, rim - EMBOSS)).val())
+        if "ledges" in LEVERS:
+            v = ledge_void(tray, ly0, ly1)
+            if v is not None:
+                voids.append(v)
         for c in row:
-            cav = rr_prism(c.w, c.h, R_CAV, c.x0, c.y0, FLOOR_Z, zb + LIP_H)
+            cav = rr_prism(c.w, c.h, R_CAV, c.x0, c.y0, FLOOR_Z, rim - FLOOR_Z + 0.01)
             cuts.append(cav)
             r = c.scoop
             wedge = cq.Workplane("XY").box(c.w, r, r, centered=False).translate(
@@ -643,15 +755,27 @@ def build_tray(tray: Tray, holes: str = "none"):
             roll = (cq.Workplane("YZ").workplane(offset=c.x0 - 1)
                     .center(c.y0 + r, FLOOR_Z + r).circle(r).extrude(c.w + 2))
             adds.append(wedge.cut(roll).intersect(cq.Workplane().add(cav)).val())
-            cx = (c.x0 + c.x1) / 2
+            if "coves" in LEVERS:
+                v = cove_void(c)
+                if v is not None:
+                    voids.append(v)
+            cx = label_x(c, W)
             for txt, cap, yy in ((c.item.line1, CAP1, ly1 - 1.2 - CAP1 / 2),
                                  (c.item.line2, CAP2, ly0 + 1.2 + CAP2 / 2)):
                 adds.extend(text_solid(txt, cap, EMBOSS + 0.2)
                             .translate((cx, yy, rim - EMBOSS - 0.2)).vals())
     solid = build_shell(tray, holes).cut(*cuts).fuse(*adds)
-    zf = BASE_PROFILE[-1][1]
-    name = front_text(f"TRAY {tray.letter} · {tray.title}", NAME_CAP, W / 2, (zf + zb) / 2)
-    return solid.cut(*name.vals()).clean()
+    if voids:
+        solid = solid.cut(*voids)
+    ring = lip_support(tray)
+    if ring is not None:
+        solid = solid.fuse(ring)
+    if WALL >= NAME_SINK + 2 * 0.45:     # the name needs two perimeters of wall behind it
+        zf = BASE_PROFILE[-1][1]
+        name = front_text(f"TRAY {tray.letter} · {tray.title}", NAME_CAP, W / 2,
+                          (zf + UNIT_H * u) / 2)
+        solid = solid.cut(*name.vals())
+    return solid.clean()
 
 
 def section_crossings(tris, x0: float, z: float) -> list[float]:
@@ -767,6 +891,11 @@ def write_ini(path: Path) -> None:
         ("support_material", "0"),
         ("support_material_auto", "0"),
     ])
+    if "settings" in LEVERS:
+        # Ultra-light print settings: the trays are walls, so perimeters carry them.
+        cfg.update([("perimeters", "2"), ("top_solid_layers", "3"), ("bottom_solid_layers", "3"),
+                    ("top_solid_min_thickness", "0"), ("bottom_solid_min_thickness", "0"),
+                    ("fill_density", "10%")])
     cfg["print_settings_id"] = PRINT
     cfg["filament_settings_id"] = f"{FILAMENT} - bench trays"
     cfg["printer_settings_id"] = BASE_PRINTER
@@ -828,12 +957,37 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
     if missing:
         raise SystemExit(f"{project.name}: layers {missing} missing - the colour-change Z in "
                          "README.md would be wrong")
-    return dict(hours=hours, grams=grams, raw=raw, log=log, issues=issues, xmin=min(xs), xmax=max(xs),
+    gap = text.count(";TYPE:Gap fill")
+    return dict(hours=hours, grams=grams, raw=raw, log=log, issues=issues, gapfill=gap,
+                top=cfg.get("top_solid_layers"), bottom=cfg.get("bottom_solid_layers"),
+                xmin=min(xs), xmax=max(xs),
                 ymin=min(ys), ymax=max(ys), zmax=max(zs), perimeters=cfg.get("perimeters"),
                 fill=cfg.get("fill_density"), support=cfg.get("support_material"))
 
 
 # ------------------------------------------------------------------ render
+def split_at_z(tris, z0: float):
+    """Cut every triangle that crosses the plane z = z0 into pieces wholly above or below it."""
+    import numpy as np
+    d = tris[:, :, 2] - z0
+    cross = (d.max(1) > 0) & (d.min(1) < 0)
+    keep = [tris[~cross]]
+    new = []
+    for t, dd in zip(tris[cross], d[cross]):
+        # rotate so vertex 0 is alone on its side
+        for k in range(3):
+            if (dd[k] > 0) != (dd[(k + 1) % 3] > 0) and (dd[k] > 0) != (dd[(k + 2) % 3] > 0):
+                break
+        a, b, c = t[k], t[(k + 1) % 3], t[(k + 2) % 3]
+        da, db, dc = dd[k], dd[(k + 1) % 3], dd[(k + 2) % 3]
+        p = a + (b - a) * (da / (da - db))
+        q = a + (c - a) * (da / (da - dc))
+        new += [(a, p, q), (p, b, c), (p, c, q)]
+    if new:
+        keep.append(np.array(new))
+    return np.concatenate(keep)
+
+
 def render(stl: Path, out: Path, azim: float, elev: float, accent_z: float,
            px: int = 2000) -> None:
     """Orthographic z-buffer render (scripts/cad_render/render.py). Everything above the label
@@ -847,15 +1001,37 @@ def render(stl: Path, out: Path, azim: float, elev: float, accent_z: float,
     tris = np.array(read_stl(stl), dtype=np.float64)
     # Split long slivers (wall strips fan-triangulated over 200 mm) before rasterising: the
     # rasteriser's depth interpolation over them let a hidden strip show through the front wall.
-    for _ in range(8):
-        e = np.linalg.norm(tris - np.roll(tris, 1, axis=1), axis=2).max(1)
-        big = e > 6.0
-        if not big.any():
+    # Edges are split by their own length, so both triangles on an edge split it the same way
+    # (no T-junction cracks).
+    for _ in range(12):
+        L = np.linalg.norm(tris[:, [1, 2, 0]] - tris, axis=2) > 6.0     # edge i: vertex i -> i+1
+        if not L.any():
             break
-        a, b, c = tris[big, 0], tris[big, 1], tris[big, 2]
-        ab, bc, ca = (a + b) / 2, (b + c) / 2, (c + a) / 2
-        tris = np.concatenate([tris[~big], np.stack([a, ab, ca], 1), np.stack([ab, b, bc], 1),
-                               np.stack([ca, bc, c], 1), np.stack([ab, bc, ca], 1)])
+        pieces = [tris[~L.any(1)]]
+        for mask_key in range(1, 8):
+            pat = L[:, 0] * 1 + L[:, 1] * 2 + L[:, 2] * 4
+            sel = pat == mask_key
+            if not sel.any():
+                continue
+            t = tris[sel]
+            # rotate so the pattern starts at edge 0
+            n_long = bin(mask_key).count("1")
+            if n_long == 3:
+                a, b, c = t[:, 0], t[:, 1], t[:, 2]
+                ab, bc, ca = (a + b) / 2, (b + c) / 2, (c + a) / 2
+                pieces += [np.stack(q, 1) for q in ((a, ab, ca), (ab, b, bc), (ca, bc, c), (ab, bc, ca))]
+                continue
+            k = {1: 0, 2: 1, 4: 2, 3: 0, 6: 1, 5: 2}[mask_key]
+            t = np.roll(t, -k, axis=1)       # long edge(s) now start at edge 0
+            a, b, c = t[:, 0], t[:, 1], t[:, 2]
+            ab = (a + b) / 2
+            if n_long == 1:
+                pieces += [np.stack((a, ab, c), 1), np.stack((ab, b, c), 1)]
+            else:                            # edges 0 and 1 long
+                bc = (b + c) / 2
+                pieces += [np.stack((ab, b, bc), 1), np.stack((a, ab, bc), 1), np.stack((a, bc, c), 1)]
+        tris = np.concatenate(pieces)
+    tris = split_at_z(tris, accent_z + 0.001)       # a clean colour boundary on the walls
     V = tris.reshape(-1, 3)
     T = np.arange(len(V)).reshape(-1, 3)
     top = tris[:, :, 2].mean(1) > accent_z + 0.01
@@ -1031,9 +1207,12 @@ def slice_md(results: list[tuple[str, dict]]) -> str:
                    f"{'none' if r['support'] == '0' else r['support']} |")
     warned = sorted({i for _n, r in results for i in r["issues"]})
     note = ("no slicer warnings" if not warned else
-            "slicer stability notes: " + ", ".join(warned) + " (the base grooves, expected)")
+            "slicer stability notes: " + ", ".join(warned)
+            + " (the base grooves and the hollow feet's 40 mm roofs, expected)")
+    gaps = sum(r["gapfill"] for _n, r in results)
     out += ["", f"All trays: **{th:.1f} h, {tg:.0f} g**. PrusaSlicer 2.9.6 CLI estimates, one "
-            f"tray per bed, not GUI-arranged; {r['perimeters']} perimeters, {r['fill']} infill; "
+            f"tray per bed, not GUI-arranged; {r['perimeters']} perimeters, {r['top']} top / "
+            f"{r['bottom']} bottom layers, {r['fill']} infill; {gaps} gap-fill extrusions; "
             f"{note}. The colour-change Z is the first label layer, checked against each G-code."]
     return "\n".join(out)
 
@@ -1161,6 +1340,42 @@ def compare(items: list[Item], n: int) -> int:
     return 0
 
 
+def lever_study() -> int:
+    """Slice all trays with the levers switched on one at a time, cumulatively (the grouping and
+    heights are re-chosen each time, so a lever that frees a height unit shows it)."""
+    import tempfile as _t
+    global HERE
+    here0 = HERE
+    steps = [[]] + [list(LEVER_NAMES[:k + 1]) for k in range(len(LEVER_NAMES))]
+    for levers in steps:
+        apply_levers(set(levers))
+        items, _s = load_items()
+        trays, _c, _r = choose(items)
+        tmp = Path(_t.mkdtemp(prefix="trays-lever-"))
+        HERE = tmp
+        try:
+            ini = tmp / "x.ini"
+            write_ini(ini)
+            th = tg = 0.0
+            parts = []
+            for t in trays:
+                layout(t)
+                stl = tmp / f"tray-{t.letter}.stl"
+                export_stl(build_tray(t), stl)
+                proj, _log = make_project(stl, ini, stl.stem)
+                r = slice_project(proj, tmp, [rim_z(t.u) - EMBOSS, colour_z(t), rim_z(t.u)])
+                th += r["hours"]
+                tg += r["grams"]
+                parts.append(f"{t.letter} {t.nx}×{t.ny}×{t.u}U {r['grams']:.0f} g {r['hours']:.2f} h"
+                             f" gap-fill {r['gapfill']}")
+            print(f"+{levers[-1] if levers else 'none'}: {tg:.0f} g, {th:.2f} h | "
+                  + "; ".join(parts), flush=True)
+        finally:
+            HERE = here0
+            shutil.rmtree(tmp, ignore_errors=True)
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--plan", action="store_true", help="print options and fill, write nothing")
@@ -1168,6 +1383,11 @@ def main() -> int:
     ap.add_argument("--holes", choices=("none", "magnet", "screw"), default="none",
                     help="Gridfinity base holes (default none: Clickfinity holds bins without)")
     ap.add_argument("--copy-renders", type=Path, help="also copy the PNGs here")
+    ap.add_argument("--levers", default=",".join(DEFAULT_LEVERS),
+                    help="plastic levers to apply (comma list of " + ", ".join(LEVER_NAMES)
+                    + "; 'none' for the plain bins)")
+    ap.add_argument("--lever-study", action="store_true",
+                    help="slice the trays with the levers added one at a time, print g and h, stop")
     ap.add_argument("--rank", type=int, default=0,
                     help="build the n-th best grouping instead of the best (0)")
     ap.add_argument("--compare", type=int, metavar="N",
@@ -1175,6 +1395,9 @@ def main() -> int:
     ap.add_argument("--validate", type=Path, metavar="REF_STL",
                     help="compare a plain 1x1x6U bin with a reference Gridfinity bin and stop")
     args = ap.parse_args()
+    apply_levers(set() if args.levers == "none" else set(args.levers.split(",")) - {""})
+    if args.lever_study:
+        return lever_study()
     if args.validate:
         for line in validate(args.validate):
             print(line)
