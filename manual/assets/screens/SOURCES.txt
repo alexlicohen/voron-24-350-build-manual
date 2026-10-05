@@ -1,0 +1,148 @@
+# Own screenshots for Ch 12-13 (wave 4 subtask 2D, 2026-09-24, claude).
+# Each entry: file, caption class, how it was made, the step it is for, sha256.
+# 'simulated printer' entries MUST be captioned 'simulated printer: your numbers differ'.
+# 2x device pixel ratio throughout. Sim compose + configs were kept outside the repo (scratchpad).
+
+imager-os-3d-printing.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.2 Do 2 — Other specific-purpose OS list, '3D printing' highlighted
+  date    : 2026-09-24
+  licence : own work
+  sha256  : b014ab2df3bfe8856623bec3aad112dc22809514032bd78ab3adc46ed83fea7f
+
+imager-os-mainsailos.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.2 Do 2 — 3D printing list, 'Mainsail OS' highlighted
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 02783b7eff9adc621732061cab2b152f32628c11b5e2ff43f2841830bfe61652
+
+imager-os-mainsailos-64bit.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.2 Do 2 — 'MainsailOS 3.0.0 - Raspberry Pi (64-bit)', the one entry offered for a Pi 4
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 17f4637f20fcc54f895e10f6f1f7b47a2604fa1bfeb2099cda3b3ee13f2e452e
+
+imager-write-summary.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.2 Check / 12.3 Do 3 — Write image summary (Pi 4, MainsailOS 64-bit). Storage reads 'Apple read/write Media' (the RAM disk stand-in); yours names your card reader
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 96e5d93bff3f79e547a44b35b42e71e47fd6bba3f0ad25d8f423f65aaf843a3e
+
+imager-hostname.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.3 Do 1 — Customisation: hostname voron
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 46df397b0281d7cc31c889e3855207b8e2ed7c2dbe9a28a4b8078c4bf5ca2517
+
+imager-localisation.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.3 Do 1 — Customisation: localisation (Washington D.C. / America/New_York / us)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : e96d870e71c7832c4bb5d868ab54a6d64240d349c4186784f15d539117951dbd
+
+imager-user.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.3 Do 2 — Customisation: username + password (placeholder user)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 40318647ae8a91f6a1464bc3611e5cce4f9a3e231af01dbddbb4a266954d9e1f
+
+imager-wifi.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.3 Do 2 — Customisation: Wi-Fi SSID + password (placeholder SSID 'example')
+  date    : 2026-09-24
+  licence : own work
+  sha256  : d6e8232733aff8b3bcfe41c207af3e362346fbdc4025c5316c4cb1c661fb81a1
+
+imager-ssh.png
+  caption : real app, own screenshot
+  made    : Raspberry Pi Imager 2.0.11.1 on macOS (Homebrew cask), Qt scale 2; placeholders only: hostname voron, user pi, SSID example, dummy passwords; target = a 2 GB RAM disk, nothing written
+  for     : 12.3 Do 3 — Customisation: Enable SSH, password authentication
+  date    : 2026-09-24
+  licence : own work
+  sha256  : df7b2e35d3c67bef6b99bd2274542fce5de154f3fa6c1380263ec49afd4ce248
+
+mainsail-dashboard.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 12.5 — what Mainsail looks like on first reach (dashboard, 1024x768 CSS)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 0ae5952d441b28264e342bd593fa18e563bd569902d45720818a1d7c2afaeaeb
+
+mainsail-machine-config-files.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 12.21 Check / 12.22 Check — Machine page: printer.cfg beside mainsail.cfg and moonraker.conf
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 8596dd863d14a6044941cb6a891baf4c264951546980ed97e21c1d585fce9c5c
+
+mainsail-editor-include.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 12.22 Do/Check — editor, line 1 '[include mainsail.cfg]'; also 12.37 (SAVE & RESTART button). File = LDO leviathan-printer-rev-d-sbv2.cfg @667521d with 12.22-12.27 edits
+  date    : 2026-09-24
+  licence : own work
+  sha256  : ac13785e474e07fafbdf93869aeba00cb80ba94f21d65a351ad216ceffaa9b3d
+
+mainsail-editor-stepper-x-350.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 12.24 — editor at [stepper_x], 350 pair uncommented, 250/300 left commented
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 80a47c9a5c0ee9167e134984902e07309784fa76150ab3e051d8f4f9ad4324ce
+
+mainsail-console-status.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 13.4 — Console: STATUS -> 'Klipper state: Ready'
+  date    : 2026-09-24
+  licence : own work
+  sha256  : f46caf26f42a194bdf757aa17ded636e1e3ac1861beeafb769c18cab1ead2414
+
+mainsail-temperatures-room.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 13.6 — Temperatures panel: extruder, heater_bed, chamber_temp at room temperature, flat graph (sim ADC scaled to ~22 C)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 795c84a826bc6c7fb8a73bb77e9658ac992346c4ed5f2e21844aecf1ed69e3ba
+
+mainsail-console-query-endstops.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 13.17 — Console: QUERY_ENDSTOPS all open (current Klipper names them stepper_x/stepper_y/stepper_z)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 8db0d5ad255c68f6153e709b04160a4dd31e0f374b68060e1ced5b45776f8098
+
+mainsail-machine-endstops.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 13.17 (alt) — Machine page Endstops panel: all OPEN, probe OPEN
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 72342bad1b16466e99c3784f76cd08fe73cfebdb29e929a2375a6ad247d4c13f
+
+mainsail-console-query-probe.png
+  caption : simulated printer: your numbers differ
+  made    : Klipper ce7002b + Moonraker + Mainsail in Docker (ghcr.io/mainsail-crew/virtual-klipper-printer, ghcr.io/mainsail-crew/mainsail, both :latest 2026-09-24), simulavr atmega644p MCU
+  for     : 13.21 — Console: QUERY_PROBE -> 'probe: open' (first, no-metal reading)
+  date    : 2026-09-24
+  licence : own work
+  sha256  : 196f7dcbe11c638c5cb49f1feac7f38e20cd5daad9e327f9cf92eaed56aab482

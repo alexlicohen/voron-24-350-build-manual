@@ -1,0 +1,61 @@
+# docs/manual/assets/video — build-video references (links only, no media)
+#
+# channel      : Steve Builds
+# channel url  : https://www.youtube.com/channel/UC8VsL6u5PiOgy6n4I4b4Ufw
+# playlist     : LDO Voron 2.4 Kit Build
+#                https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY
+# contents     : 11 videos, 37 h 15 m total, published 2021-12-19 .. 2022-01-23
+# subject      : the PRE-RELEASE "feedback" LDO Voron 2.4 R2 kit that LDO sent Steve to
+#                review before the kit went on sale. Not a Rev D or Rev D+ kit — see
+#                MANIFEST.md for the per-row "differs from this kit" notes.
+# retrieved    : 2026-09-05
+#
+# LICENCE
+# -------
+# Standard YouTube Licence on all eleven videos — NOT Creative Commons.
+# Verified 2026-09-05 from the per-video metadata: yt-dlp reports `license: null`
+# and `license_url: null` for every video, and populates those fields only when
+# YouTube declares a CC BY licence; no video page or description claims CC.
+# Re-check with:  python3 scripts/video_map.py --refresh  then grep '"license"' playlist.json
+#
+# THE RULE (Alex's standing decision for this material)
+# ----------------------------------------------------
+#   Links and timestamps only. No stills, no frame grabs, no clips, no thumbnails,
+#   no re-hosting, no transcript excerpts pasted into a chapter.
+#   The manual may cite a moment; it may not reproduce it.
+#   This is stricter than the LDO image ruling in CONVENTIONS.md ("Image licensing")
+#   because that ruling covers LDO's own documentation, not third-party video.
+#   Only Alex can change this rule; until he does, a chapter link looks like:
+#     Video: [Steve Builds, Part 4 — Z joints](https://www.youtube.com/watch?v=...&t=3352s)
+#
+# WHAT IS AND IS NOT STORED HERE
+# ------------------------------
+#   MANIFEST.md    generated  step -> video/timestamp table with confidence and
+#                             divergence notes. Do not hand-edit; edit video_map.yml.
+#   video_map.yml  hand-written  the mapping itself: one entry per video segment
+#                             (video id, time range, manual chapter, step range) plus
+#                             per-step caption keywords. This is the file to edit.
+#   playlist.json  generated  raw yt-dlp metadata for the playlist and all 11 videos —
+#                             title, duration, upload date, channel, description,
+#                             YouTube chapter markers, licence, caption-track lists.
+#                             Pruned of formats/thumbnails/heatmap/live-chat.
+#   (not stored)   captions   ~4 MB of auto-generated English VTT, cached OUTSIDE the
+#                             repo at ~/.cache/voron-video-map/. They are YouTube's
+#                             machine transcription of someone else's speech; they are
+#                             re-fetchable and are not committed.
+#   (not stored)   video      nothing is ever downloaded. --skip-download is always set.
+#
+# TOOLING
+# -------
+# yt-dlp is deliberately NOT in requirements*.txt. Use a scratch venv:
+#   uv venv /tmp/ytdl && uv pip install --python /tmp/ytdl/bin/python yt-dlp
+#   python3 scripts/video_map.py --refresh --ytdlp /tmp/ytdl/bin/yt-dlp
+#   python3 scripts/video_map.py            # regenerate MANIFEST.md only
+# Fetched with yt-dlp 2026.08.19. YouTube rate-limits (HTTP 429) a full-playlist
+# caption pull; re-running --refresh fills in whatever was skipped.
+#
+# ATTRIBUTION
+# -----------
+# Any chapter that links a timestamp names the channel in the link text
+# ("Steve Builds, Part N"). The README attribution list should name Steve Builds
+# alongside LDO Motors when the first video link lands in a chapter.

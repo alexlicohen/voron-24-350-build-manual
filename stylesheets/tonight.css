@@ -1,0 +1,17 @@
+/* Tonight overlay (docs/javascripts/tonight.js). The static plan needs none
+ * of this; it only styles the "N segments done on this device" note the
+ * script un-hides once it has re-planned the buckets from this device's ticks. */
+.md-typeset .tonight-live {
+  margin: 1em 0;
+  padding: .6em .9em;
+  border-left: .25rem solid var(--md-accent-fg-color);
+  border-radius: .2rem;
+  background: var(--md-accent-fg-color--transparent);
+  font-size: .95rem;
+}
+.md-typeset .tonight-live[hidden] { display: none; }
+.md-typeset .tonight-live__start { font-weight: 700; }
+
+/* Bucket lines are long (a leave-state each); keep the per-bucket total on
+ * its own line under the last item, as the static page renders it. */
+.md-typeset .tonight-plan li > small { display: block; margin-top: .25em; }

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 668" width="1200" height="668" role="img" aria-label="Leviathan voltage-selection jumpers after Part H" style="color:#14181D">
+<title>Leviathan voltage-selection jumpers after Part H</title>
+<defs>
+<marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14181D"/></marker>
+<marker id="arwm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C6675"/></marker>
+<marker id="arwa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0E8F86"/></marker>
+<marker id="arwb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7A4FD6"/></marker>
+<marker id="arwo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#E8751A"/></marker>
+<marker id="arwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C0392B"/></marker>
+<marker id="arwg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E7D32"/></marker>
+<pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="7" stroke="#9AA3AF" stroke-width="2.6"/></pattern>
+</defs>
+<rect width="1200" height="668" fill="#FBFAF8"/>
+<text x="40.0" y="44.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Leviathan jumpers after Part H: three at 24 V</text>
+<text x="40.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">FAN0 now carries the exhaust fan and a third 24 V jumper. Fan2 and Fan3 are unchanged from</text>
+<text x="40.0" y="87.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Step 10.28; Probe and Fan1 stay bare.</text>
+<text x="1160.0" y="68.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="500" text-anchor="end" fill="#5C6675" letter-spacing="0">Ch 14, Step 14.31 · Ch 10, Step 10.28</text>
+<line x1="40.0" y1="110.0" x2="1160.0" y2="110.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
+<rect x="40.0" y="128.0" width="700.0" height="280.0" rx="10" fill="#FFFFFF" stroke="#3E4550" stroke-width="2.6"/>
+<text x="60.0" y="160.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">LDO Leviathan V1.3 — bottom edge, left end</text>
+<text x="60.0" y="180.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">as in LDO's photos: the ports along the edge, each port's selection</text>
+<text x="60.0" y="196.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">header just above it, its 24 V pin at the top</text>
+<rect x="116.0" y="232.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="116.0" y="256.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="116.0" y="280.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<text x="108.0" y="246.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">24V</text>
+<text x="108.0" y="294.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="600" text-anchor="end" fill="#5C6675" letter-spacing="0">5V</text>
+<text x="144.0" y="260.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="126.0" y="326.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">Z-PROBE</text>
+<text x="126.0" y="342.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="96.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PF1</text>
+<text x="126.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">GND</text>
+<text x="156.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PWR</text>
+<rect x="78.0" y="368.0" width="96.0" height="40.0" rx="3" fill="#FFFFFF" stroke="#14181D" stroke-width="2"/>
+<circle cx="96.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="126.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="156.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<rect x="192.0" y="210.0" width="124.0" height="288.0" rx="8" fill="none" stroke="#E8751A" stroke-width="2.2" stroke-dasharray="7 5"/>
+<rect x="246.0" y="232.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="246.0" y="256.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="246.0" y="280.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="241.0" y="227.0" width="28.0" height="52.0" rx="4" fill="#2E7D32" stroke="#2E7D32" stroke-width="2"/>
+<text x="255.0" y="258.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">24V</text>
+<text x="256.0" y="326.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">FAN0</text>
+<text x="256.0" y="342.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">exhaust fan · NEW</text>
+<text x="226.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">T</text>
+<text x="256.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PB7</text>
+<text x="286.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">+</text>
+<rect x="208.0" y="368.0" width="96.0" height="40.0" rx="3" fill="#FFFFFF" stroke="#14181D" stroke-width="2"/>
+<circle cx="226.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="256.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="286.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<rect x="238.0" y="410.0" width="66.0" height="24.0" rx="3" fill="#FBE6D2" stroke="#E8751A" stroke-width="2"/>
+<text x="271.0" y="426.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">2-pin plug</text>
+<line x1="256.0" y1="434.0" x2="256.0" y2="478.0" stroke="#14181D" stroke-width="2.6" stroke-linecap="round"/>
+<line x1="286.0" y1="434.0" x2="286.0" y2="478.0" stroke="#C0392B" stroke-width="2.6" stroke-linecap="round"/>
+<text x="292.0" y="460.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="600" text-anchor="start" fill="#C0392B" letter-spacing="0">red on +</text>
+<text x="271.0" y="494.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">exhaust fan lead</text>
+<rect x="376.0" y="232.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="376.0" y="256.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="376.0" y="280.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<text x="404.0" y="260.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="start" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="386.0" y="326.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">FAN1</text>
+<text x="386.0" y="342.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="356.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">T</text>
+<text x="386.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PB3</text>
+<text x="416.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">+</text>
+<rect x="338.0" y="368.0" width="96.0" height="40.0" rx="3" fill="#FFFFFF" stroke="#14181D" stroke-width="2"/>
+<circle cx="356.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="386.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="416.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<rect x="506.0" y="232.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="506.0" y="256.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="506.0" y="280.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="501.0" y="227.0" width="28.0" height="52.0" rx="4" fill="#2E7D32" stroke="#2E7D32" stroke-width="2"/>
+<text x="515.0" y="258.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">24V</text>
+<text x="516.0" y="326.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">FAN2</text>
+<text x="516.0" y="342.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">2 x 6020 bay fans</text>
+<text x="486.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">T</text>
+<text x="516.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PF7</text>
+<text x="546.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">+</text>
+<rect x="468.0" y="368.0" width="96.0" height="40.0" rx="3" fill="#FFFFFF" stroke="#14181D" stroke-width="2"/>
+<circle cx="486.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="516.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="546.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<rect x="636.0" y="232.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="636.0" y="256.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="636.0" y="280.0" width="18.0" height="18.0" rx="2" fill="#E7E9EC" stroke="#7E8794" stroke-width="1.6"/>
+<rect x="631.0" y="227.0" width="28.0" height="52.0" rx="4" fill="#2E7D32" stroke="#2E7D32" stroke-width="2"/>
+<text x="645.0" y="258.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="0">24V</text>
+<text x="646.0" y="326.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">FAN3</text>
+<text x="646.0" y="342.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">Nevermore filter fan</text>
+<text x="616.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">T</text>
+<text x="646.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">PF9</text>
+<text x="676.0" y="360.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" text-anchor="middle" fill="currentColor" letter-spacing="0">+</text>
+<rect x="598.0" y="368.0" width="96.0" height="40.0" rx="3" fill="#FFFFFF" stroke="#14181D" stroke-width="2"/>
+<circle cx="616.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="646.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<circle cx="676.0" cy="388.0" r="5.0" fill="#B6BDC6" stroke="#7E8794" stroke-width="1.4"/>
+<text x="450.0" y="434.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Silkscreen under each port: T · signal · +;</text>
+<text x="450.0" y="450.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Z-PROBE reads signal · GND · PWR.</text>
+<rect x="770.0" y="128.0" width="390.0" height="236.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="788.0" y="158.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">After Part H</text>
+<text x="788.0" y="192.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">FAN0</text>
+<text x="870.0" y="192.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="500" text-anchor="start" fill="#5C6675" letter-spacing="0">PB7</text>
+<text x="920.0" y="192.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">24 V</text>
+<text x="968.0" y="192.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">exhaust 6020, Step 14.31</text>
+<text x="788.0" y="218.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">FAN1</text>
+<text x="870.0" y="218.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="500" text-anchor="start" fill="#5C6675" letter-spacing="0">PB3</text>
+<text x="920.0" y="218.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="968.0" y="218.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">unused</text>
+<text x="788.0" y="244.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">FAN2</text>
+<text x="870.0" y="244.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="500" text-anchor="start" fill="#5C6675" letter-spacing="0">PF7</text>
+<text x="920.0" y="244.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">24 V</text>
+<text x="968.0" y="244.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">bay fans, Step 10.28</text>
+<text x="788.0" y="270.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">FAN3</text>
+<text x="870.0" y="270.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="500" text-anchor="start" fill="#5C6675" letter-spacing="0">PF9</text>
+<text x="920.0" y="270.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="700" text-anchor="start" fill="#2E7D32" letter-spacing="0">24 V</text>
+<text x="968.0" y="270.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">filter fan, Step 10.28</text>
+<text x="788.0" y="296.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Z-PROBE</text>
+<text x="870.0" y="296.0" font-family="'SF Mono', ui-monospace, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12.3" font-weight="500" text-anchor="start" fill="#5C6675" letter-spacing="0">PF1</text>
+<text x="920.0" y="296.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="700" text-anchor="start" fill="#5C6675" letter-spacing="0">bare</text>
+<text x="968.0" y="296.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.8" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">unused</text>
+<text x="788.0" y="336.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">3 fitted · 2 bare · 5 headers</text>
+<text x="788.0" y="355.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Ch 10's 'exactly two' is the machine without Part H.</text>
+<rect x="770.0" y="382.0" width="390.0" height="186.0" rx="10" fill="#FFFFFF" stroke="#D6DAE0" stroke-width="1.5"/>
+<text x="788.0" y="412.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">Before power-on</text>
+<text x="788.0" y="442.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#C0392B" letter-spacing="0">A jumper on 5 V, or a 5 V fan on 24 V, destroys</text>
+<text x="788.0" y="460.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#C0392B" letter-spacing="0">the fan or the board. The exhaust fan is a 24 V</text>
+<text x="788.0" y="478.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#C0392B" letter-spacing="0">part: check its label before the plug goes on.</text>
+<text x="788.0" y="506.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#14181D" letter-spacing="0">Red goes on the + pin, where FAN2's red already</text>
+<text x="788.0" y="524.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#14181D" letter-spacing="0">is. FAN0 here is the Leviathan's, not the</text>
+<text x="788.0" y="542.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.3" font-weight="400" text-anchor="start" fill="#14181D" letter-spacing="0">toolboard's.</text>
+<line x1="40.0" y1="594.0" x2="1160.0" y2="594.0" stroke="#D6DAE0" stroke-width="1.5" stroke-linecap="round"/>
+<text x="40.0" y="616.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Header order, the T · signal · + pin labels and the 24 V-top / 5 V-bottom selection pins are read from LDO's voltageselection_V1.3 photo</text>
+<text x="40.0" y="633.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">(MotorDynamicsLab/Leviathan @878c3c4); spacing is schematic. Read your board's silkscreen before fitting. Diagram 7 (Ch 10) shows the same five</text>
+<text x="40.0" y="650.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">headers before this add-on.</text>
+</svg>

@@ -1,0 +1,79 @@
+# Mirrored step images for docs/manual/00-before-you-start.md
+# Mirrored 2026-09-05 (wave-3 chapter pass) from the local LDO cache
+# (docs/manual/assets/ldo/, gitignored). Supersedes the wave-2 "NOT MIRRORED"
+# note: CONVENTIONS.md "Image licensing" (Alex's ruling, 2026-09-05 evening)
+# allows LDO documentation images to be mirrored for this non-commercial,
+# attributed manual. Each step keeps the original URL on its Source: line.
+# Attribution: LDO Motors.
+
+heatsettoolcomponents.jpg
+  used at : Step 00.13
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : fd200ab64b6a8080cc2343731f3e10ccc4175472e8a7b8bb8c6349c96fd36c43
+
+tongueflush.jpg
+  used at : Step 00.13
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 648364428daa6abd8f3449e474acbd2708f0c1e020ea6abc4a548d73c90ead19
+
+heatset_dim.png
+  used at : Step 00.7
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/heatset_dim.png
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/heatset_dim.png
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : c4ab3e4fba2a4e19d6ee2adc87e5fe5bbd3c0b8326940fe3806ea26c9ddde06d
+
+insertinstall.jpg
+  used at : Step 00.14
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg
+  fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : 55a241e5a6f50f16891e0b632213fe84ffd2d91c6508dbcb6838d3ab8694d580
+
+soaking_rails3.jpg
+  used at : Step 00.18
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/soaking_rails3.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : a8635e477e7c099c03042e1a8d97ea3a25e428d0e51fd978506af5f24a9c3ebb
+
+grease_prep.jpg
+  used at : Step 00.19
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/grease_prep.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : b1141d54fb8f6fb0f6bbb29734d1b7a1f1003993f876d20766f95e144aa5fbae
+
+grease_pack.jpg
+  used at : Step 00.19
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg
+  fetched : https://docs.ldomotors.com/rail_grease_guide/grease_pack.jpg
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : e7348ee6a59f0a3ab1d5765a6cb7ea84af8eb8ba63d825d113618f491fc8c703
+
+nhsbv2_pcb_pinout.jpg
+  used at : Step 00.5
+  owner   : LDO Motors (MotorDynamicsLab/Nitehawk-SB-V2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/Images/nhsbv2_pcb_pinout.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/nhsbv2_pcb_pinout.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/Nitehawk-SB-V2/LICENSE)
+  sha256  : 0a209602bf34b96d7e38f00974b827be6bce0c5b2f4ed1bd829b1d7e7faa262b
