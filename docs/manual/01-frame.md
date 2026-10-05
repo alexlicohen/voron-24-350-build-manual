@@ -132,8 +132,8 @@ Source: [Voron manual p.13](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- tool: M5 roll-in T-nut, fit test, back in its bag
-- tool: M3 roll-in T-nut, fit test, back in its bag
+- tool: M5 roll-in T-nut, fit test, back in its tray
+- tool: M3 roll-in T-nut, fit test, back in its tray
 - tool: machinist square
 
 **Do:**

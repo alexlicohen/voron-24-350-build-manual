@@ -317,3 +317,20 @@ has checked the back of the machine, as two jobs: the housing in Galaxy Black wi
 (66 g, 5 h 03 m), then the fan grill, access cover and two mounts in the blue accent with
 `slicer/voron-accent-blue.ini` (35 g, 2 h 04 m). As oriented, no supports, smooth sheet; PrusaSlicer 2.9.6 CLI
 estimates, not GUI-arranged. The grams come out of the spares, not the ledger above.
+
+## Bench prints (outside the plates)
+
+Workshop aids for the bench, not machine parts: on no plate, in no batch, in no run total and not in the
+spool ledgers above. PLA, so the ASA spools are untouched. Print them any time the Core One+ is free before kit day.
+
+| bench print | parts | hours | g PLA | sheet | feeds | files |
+|---|---:|---:|---:|---|---|---|
+| Hardware trays A–C with drop-on lids | 6 | 20.3 | 823 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+
+**The hardware trays** take the kit's fastener bags on kit day
+([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):
+tray A the M2 and M3 screws, tray B the M4 and M5 screws, nuts, inserts, washers, spacers and magnets, tray C the
+T-nuts and the kit's hand tools. Six jobs, one part per bed, each project as committed: `0.20mm BALANCED @COREONE HF0.4`
+with Prusament PLA, no supports, door open. Trays 4 h 22 m to 5 h 31 m each, lids 1 h 38 m each; PrusaSlicer 2.9.6 CLI
+estimates. For two-colour labels, add a colour change at **21.8 mm** in the layer slider. The generator, the
+compartment map and the settings are in that folder's README.

@@ -21,7 +21,7 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 - Print batch **B02** (Accent parts, blue) plates P1 and P3 — the five `[a]_` parts below.
 - Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf long before kit day, so do them the moment the Motor Kit box is open, and label the motor cables then.
 - **Chapter 00** complete: all seven rails cleaned, flip-and-packed with grease, wiped and labelled (Steps 00.18–00.21). The four marked Z0–Z3 are used here.
-- Kit boxes open: Motion, Linear Rail Kit, Motor Kit, the M3/M5 fastener bags.
+- Kit boxes open: Motion, Linear Rail Kit, Motor Kit; hardware trays A–C out.
 
 **Tools**
 

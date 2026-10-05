@@ -103,7 +103,7 @@ Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - staged: build plate
 - consumable: masking tape
-- staged: M3×20 SHCS ×1, fit test, back in its bag
+- staged: M3×20 SHCS ×1, fit test, back in its tray
 
 **Do:**
 

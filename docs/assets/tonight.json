@@ -1447,19 +1447,19 @@
      "first_step": "00.12",
      "last_step": "00.13",
      "href": "../manual/steps/00-before-you-start/00-12/",
-     "minutes": 15,
+     "minutes": 35,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.",
+     "leave_state": "kit day: the fastener bags are emptied into trays A–C with the lids on, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray B. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.",
      "helpers": [
       [
        "00.12",
-       "Reads each bag's size aloud while you tick it off the fastener list."
+       "Reads each bag's label aloud and points to the compartment with the same label."
       ]
      ],
-     "text": "Step 00.12 → Step 00.13 · ~15 min · leave-state: kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17."
+     "text": "Step 00.12 → Step 00.13 · ~35 min · leave-state: kit day: the fastener bags are emptied into trays A–C with the lids on, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray B. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17."
     },
     {
      "id": "00-before-you-start#4",

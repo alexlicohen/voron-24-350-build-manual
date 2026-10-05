@@ -55,8 +55,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×H5 from the KADRICK kit already on the bench, not the Voron kit — the STL pockets are 5.0 mm deep with a ~4 mm bore; shank ~4 mm `(verify on bench)` | 7 | the practice coupon's seven pockets, set at Gate B (Step B00.7) months before the kit — Steps 00.14–00.15 are that session. All 153 kit inserts stay for the build; Step 00.13 borrows one as a tongue gauge and bags it again |
-| — no other kit hardware is consumed in this chapter — | 0 | every rail, fastener and PCB goes back in its bag |
+| Heat-set insert, brass, M3×H5 from the KADRICK kit already on the bench, not the Voron kit — the STL pockets are 5.0 mm deep with a ~4 mm bore; shank ~4 mm `(verify on bench)` | 7 | the practice coupon's seven pockets, set at Gate B (Step B00.7) months before the kit — Steps 00.14–00.15 are that session. All 153 kit inserts stay for the build; Step 00.13 borrows one as a tongue gauge and puts it back in tray B |
+| — no other kit hardware is consumed in this chapter — | 0 | every rail and PCB goes back in its bag; the fasteners go into the printed trays (Step 00.12) |
 
 **Read first**
 
@@ -89,11 +89,11 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ## Before the kit ships
 
-Do these the week batch B00 prints and passes Gate A, months before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+Do these the week batch B00 prints and passes Gate A, months before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
 
 ## Kit day
 
-The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed months ago), then **00.2–00.7** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts, kit tools), **00.12** (fastener bags stay closed) and **00.17–00.22** (rail prep — the grease and IPA from Step 00.9 must already be on the bench). Nothing goes on the Prusa: all 22 plates are printed and in their bins. The log from Step 00.30 gets the deck thickness and the inventory result today — and if the deck panel calipers 4 mm rather than 3 mm, the `deck_support_4mm` reprint is the one plate the build still owes (8 g, 30 min). Rail prep is the one kit-day job with a wait state — the IPA dry — so start it as soon as the inventory is done.
+The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed months ago), then **00.2–00.7** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts, kit tools), **00.12** (fastener bags emptied into the printed trays) and **00.17–00.22** (rail prep — the grease and IPA from Step 00.9 must already be on the bench). Nothing goes on the Prusa: all 22 plates are printed and in their bins. The log from Step 00.30 gets the deck thickness and the inventory result today — and if the deck panel calipers 4 mm rather than 3 mm, the `deck_support_4mm` reprint is the one plate the build still owes (8 g, 30 min). Rail prep is the one kit-day job with a wait state — the IPA dry — so start it as soon as the inventory is done.
 
 ```mascot
 pose: carry
@@ -381,6 +381,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
 | Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
 | Chamber exhaust add-on: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — only for the optional exhaust fan** (Ch 14 Part H), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
+| Printed hardware trays A–C with lids | **Print** — PLA bench print before kit day, [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) | Ch 00, kit day (00.12) |
 | Dial indicator + magnetic base | Optional, skip for now | — |
 
 **Check:** Every "Buy" row has an order placed or a decision to skip written down.
@@ -506,27 +507,32 @@ Pause: ~25 min since the last pause (pre-kit) — the tool and consumable decisi
 
 ---
 
-### Step 00.12 — Leave the fasteners in their bags
+<a id="step-0012-leave-the-fasteners-in-their-bags"></a>
+
+### Step 00.12 — Empty the fastener bags into the hardware trays
 
 (no image — see text)
 
-**What you're looking at:** The *Fasteners, Tools & Misc* box, unopened bags. Every bag is one size of screw or nut; mixing them is easy and un-mixing them is not, because M3×8, M3×12 and M3×16 differ only by a few millimetres of shank.
+**What you're looking at:** The *Fasteners, Tools & Misc* box and the three printed hardware trays. Each compartment's label gives size, head and kit count. Mixing sizes is easy and un-mixing them is not: M3×8, M3×12 and M3×16 differ only by a few millimetres of shank.
 
 **Parts:**
 
-- staged: *Fasteners, Tools & Misc* box, bags closed
-- tool: small parts tray
+- staged: *Fasteners, Tools & Misc* box
+- tool: printed hardware trays A, B and C, with lids
 
 **Do:**
 
-1. Keep every fastener bag closed and labelled; do not decant 283 M3×8 SHCS into a tray.
-2. Decant only what one chapter calls for, and tip the remainder back into its bag at the end of the session.
+1. Read each bag against a compartment label: thread, length and head must all match.
+2. Tip the whole bag in, corners included.
+3. Flatten the empty bag and keep it in the kit box as a spare.
 
-**Check:** Every fastener bag still closed and legible. One small tray, empty, staged for Ch 01.
+**Check:** Every compartment holds one size, matching its label. Every bag is empty, flat and in the kit box. The hand tools lie in tray C.
 
-**Helper:** Reads each bag's size aloud while you tick it off the fastener list.
+**Helper:** Reads each bag's label aloud and points to the compartment with the same label.
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
+Tip: lids go on whenever the bench is left. The Motion bags stay sealed in their box: bearings, pulleys, idlers and shafts have no compartment.
+
+Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
 
 ---
@@ -545,7 +551,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 - tool: LDO brass M3 heat-set tip
 - tool: soldering iron, cold
-- tool: one M3×5×4 kit insert as the tongue gauge, back in its bag after
+- tool: one M3×5×4 kit insert as the tongue gauge, back in tray B after
 
 **Do:**
 
@@ -554,13 +560,13 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Check:** With an insert on the tongue, the tongue tip and the insert's far face are level.
 
-⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran months earlier at Gate B, on the iron's stock conical tip. The gauge insert goes back in its bag, and Ch 02 re-checks the temperature on this tip.
+⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran months earlier at Gate B, on the iron's stock conical tip. The gauge insert goes back in tray B, and Ch 02 re-checks the temperature on this tip.
 
 Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
 
-Pause: ~15 min since the last pause — kit day: every fastener bag is still closed, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in its bag. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.
+Pause: ~35 min since the last pause — kit day: the fastener bags are emptied into trays A–C with the lids on, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray B. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.
 
 ---
 
@@ -1094,6 +1100,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
+- [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; lids on.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
@@ -1110,7 +1117,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - **Lubricating before the IPA has fully evaporated.** The residue emulsifies with the grease and you get a milky paste with none of the film strength. Give the rails longer to dry than you think they need.
 - **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is lying on its extrusion at the install step (Ch 02 Step 02.06, Ch 05 Steps 05.11/05.33).
 - **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 153 kit inserts.
-- **Decanting the fastener bags on day one.** M3×8, M3×12 and M3×16 are indistinguishable in a mixed tray, and there are 283 of the first one.
+- **Tipping a bag into the wrong compartment.** M3×8, M3×12 and M3×16 are indistinguishable once mixed, and there are 283 of the first one. Read the bag against the label before you tip it, and keep the lids on between sessions.
 - **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it. B01 printed the 3 mm clips on the BOM's word; if the deck calipers 4 mm, print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02.
 
 ## Next

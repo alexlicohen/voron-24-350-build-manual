@@ -704,8 +704,9 @@ def build_bag_index_markdown():
         ("Greased rails", "one bin",
          "The seven rails, bagged and labelled by destination, carriages taped. "
          "Ch 00 Steps 00.17–00.22 (label and bag at 00.21)."),
-        ("Kit fastener bags", "kit box",
-         "Stay closed in the <em>Fasteners, Tools &amp; Misc</em> box until a step calls for one. "
+        ("Hardware trays A–C", "printed trays",
+         "The kit's fastener bags, emptied into labelled compartments on kit day; the empty bags "
+         "stay flat in the <em>Fasteners, Tools &amp; Misc</em> box as spares. A PLA bench print. "
          "Ch 00 Step 00.12."),
         ("Bought consumables", "bench",
          "Grease, IPA, Loctite 243, gloves, cloth, tape, marker: on the bench, not in a bin. Ch 00 Step 00.9."),
