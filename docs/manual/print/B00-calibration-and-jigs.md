@@ -149,7 +149,7 @@ so nothing here gets hand-typed.
   parts are by design — see them and move on.
 - Spacing looks even; nothing touching or crossing.
 - The three accent plates (B02-P1–P3) are on the blue preset, everything else on black.
-- B11's five plates are on the PETG V0 preset and the **textured** sheet, not smooth/satin.
+- B11's five plates are on the PETG V0 preset and the **textured** sheet, not the smooth one.
 - B11-P4 and B11-P5 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
   them now for arrangement and settings anyway; reprint only if kit day changes a duct length.
 

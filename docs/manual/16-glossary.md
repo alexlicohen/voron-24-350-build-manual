@@ -121,7 +121,7 @@ Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against
 | **Ferrule** | A crimped metal sleeve on a stranded wire end so a **screw** terminal clamps a solid tube instead of loose strands. The kit ships VE0508 | [00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule) |
 | **FFC** | Flat Flexible Cable — a thin ribbon with bare contacts at each end, held by a latch in each socket. Half-latched is the usual failure | [10 — Wiring](10-wiring.md) |
 | **FHCS** | Flat Head Cap Screw — countersunk cone head, flat top. The titanium backers use them, and they cam out easily in a countersink | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
-| **Flex plate** | The removable spring-steel print surface that sits on the magnetic pad. Smooth/satin side for ASA on this build | [03.20](03-build-plate.md#step-0320-fit-the-flex-plate-then-cover-the-bed) |
+| **Flex plate** | The removable spring-steel print surface that sits on the magnetic pad. Smooth PEI for ASA on this build, satin for PLA, textured for PETG ([print sheet](print/00-slicer-setup.md#print-sheet)) | [03.20](03-build-plate.md#step-0320-fit-the-flex-plate-then-cover-the-bed) |
 | **Flip-and-pack** | LDO's rail-greasing method: carriage down, grease forced through a mounting hole until it oozes past the bearings. Needs the **back** of the rail, so it only works before installation | [00.19](00-before-you-start.md#step-0019-flip-and-pack) |
 
 Source: [Ch 00 Steps 00.19](00-before-you-start.md#step-0019-flip-and-pack), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 00a Step 00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule)
@@ -256,7 +256,7 @@ Source: [Ch 09 Step 09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-me
 | Term | What it is | First matters at |
 |---|---|---|
 | **PE (protective earth)** | The green/yellow conductor that makes the machine safe to **touch**. Five branches here: supply, WAGO bus, PSU, frame, bed | [00a.6](00a-mains-safety.md#step-00a6-learn-the-protective-earth-chain-in-this-build) |
-| **PEI sheet** | The coated spring-steel print surface. Smooth/satin for ASA on this build; a good first layer still shows individual lines, not a featureless gloss | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
+| **PEI sheet** | The coated spring-steel print surface. Smooth PEI for ASA on this build, satin for PLA, textured for PETG; a good first layer still shows individual lines, not a featureless gloss | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | **PID tune** | Klipper's automatic heater-control calibration. Run **before** QGL, because a drifting probe gives a QGL that reports success and is wrong | [13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c) |
 | **PIF (Print It Forward)** | The Voron programme that sells printed part sets. Explicitly **not** used on this build — every part is printed here | [00.23](00-before-you-start.md#step-0023-print-guidelines-p4) |
 | **Precision spacer** | The brass M5 1 mm spacer the kit supplies wherever the manual says *M5 shim*. A controlled thickness, not a washer — 46 in the kit | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |

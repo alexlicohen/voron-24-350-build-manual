@@ -325,7 +325,7 @@ spool ledgers above. PLA, so the ASA spools are untouched. Print them any time t
 
 | bench print | parts | hours | g PLA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 5 grid: A 6U, B 5U, C 4U | 3 | 18.6 | 652 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 5 grid: A 6U, B 5U, C 4U | 3 | 18.6 | 652 | satin | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
 
 **The hardware trays** take the kit's fastener bags on kit day
 ([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):

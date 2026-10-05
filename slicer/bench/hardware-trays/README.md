@@ -134,7 +134,7 @@ baseplate; these trays follow the current spec numbers.
 
 ## Print
 
-Core One+, textured sheet, any PLA, door open. Each project carries its config, flattened from the
+Core One+, satin sheet (the PLA sheet, per `docs/manual/print/00-slicer-setup.md` § Print sheet), any PLA, door open. Each project carries its config, flattened from the
 PrusaSlicer 2.9.6 system presets `0.20mm BALANCED @COREONE HF0.4` + `Prusament PLA @COREONE HF0.4` +
 `Prusa CORE One HF0.4 nozzle` (`slicer/resolve_preset.py`), with this repo's printer-wide lines: the vendored
 cold start (`slicer/coreone-cold-start.gcode`) and `M106 P3 S160` / `M106 P3 R` in the filament start/end

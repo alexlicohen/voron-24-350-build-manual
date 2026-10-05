@@ -184,10 +184,19 @@ material where wet filament actually costs strength. ([Prusa ASA KB](https://hel
 Decided, and written on the sheet's edge tape; every batch's pre-print step then says "sheet per
 00-slicer-setup" and nothing more.
 
-- **Which sheet:** the smooth/satin PEI sheet that shipped with the Core One+. The textured sheets are for
-  PLA/PETG and were bought for that; ASA adheres poorly to textured and the smooth sheet needs no glue to
-  hold it — the glue below is a release layer, not an adhesion aid.
-- **Glue stick on either.** ASA bonds to PEI hard enough that a big flat part (the 66 mm Z-drive bodies,
+- **Which sheet, by material.** Three sheets, one job each; the sheet follows the material, never the
+  part:
+
+  | Material | Sheet | Why |
+  |---|---|---|
+  | ASA (every Voron plate, the add-on prints) | **smooth PEI**, with the glue film below | Prusa's ASA sheet; on satin ASA grips less and often needs a brim, and textured holds it poorly |
+  | PLA (bench prints: hardware trays, gauges, jigs) | **satin** | Prusa: satin gives "optimal adhesion, especially when printing PLA and PETG" ([satin sheet KB](https://help.prusa3d.com/article/satin-steel-sheet_196526)) |
+  | PETG, PETG V0 (B11) | **textured** | PETG bonds too hard to smooth PEI and can tear it; textured releases it cleanly |
+
+  Any other material: check Prusa's material table before the first print, and add a row here.
+  On the printer, select the matching sheet profile before the first layer, because Live Adjust Z
+  is kept per sheet `(verify on bench)`.
+- **Glue stick under ASA on the smooth sheet.** ASA bonds to PEI hard enough that a big flat part (the 66 mm Z-drive bodies,
   the 182 mm rear skirt) can pull the coating off a smooth sheet; the glue is a *separation* layer, not an
   adhesion aid. Thin, even film over the printed area, re-applied every 2–3 plates.
 - **Cleaning:** wash the old glue off with warm water and dish soap, then IPA on the smooth sheet. **Never
