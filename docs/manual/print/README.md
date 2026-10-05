@@ -325,12 +325,13 @@ spool ledgers above. PLA, so the ASA spools are untouched. Print them any time t
 
 | bench print | parts | hours | g PLA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Hardware trays A–C with drop-on lids | 6 | 20.3 | 823 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+| Hardware trays A–C, Gridfinity bins: A 5 × 5 × 6U, B and C 5 × 4 × 6U | 3 | 24.5 | 943 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
 
 **The hardware trays** take the kit's fastener bags on kit day
 ([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):
-tray A the M2 and M3 screws, tray B the M4 and M5 screws, nuts, inserts, washers, spacers and magnets, tray C the
-T-nuts and the kit's hand tools. Six jobs, one part per bed, each project as committed: `0.20mm BALANCED @COREONE HF0.4`
-with Prusament PLA, no supports, door open. Trays 4 h 22 m to 5 h 31 m each, lids 1 h 38 m each; PrusaSlicer 2.9.6 CLI
-estimates. For two-colour labels, add a colour change at **21.8 mm** in the layer slider. The generator, the
-compartment map and the settings are in that folder's README.
+tray A the M2 and M3 screws, tray B the M4 and M5 screws, tray C the nuts, inserts, washers, spacers, magnets
+and T-nuts. Each is a standard Gridfinity bin sized to its contents, so it sits on any Gridfinity
+baseplate; B and C share a footprint and stack on each other. No lids. Three jobs, one tray per bed, each project as committed: `0.20mm BALANCED @COREONE HF0.4`
+with Prusament PLA, no supports, door open, 7 h 08 m to 9 h 21 m each (PrusaSlicer 2.9.6 CLI estimates);
+943 g is most of a 1 kg spool. For two-colour labels, add a colour change at **40.4 mm** in the layer
+slider. The generator, the fill check per compartment and the settings are in that folder's README.
