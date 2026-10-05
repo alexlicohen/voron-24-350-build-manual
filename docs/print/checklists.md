@@ -11,7 +11,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
-- [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; tray C stacked on tray B.
+- [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; trays stacked.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.

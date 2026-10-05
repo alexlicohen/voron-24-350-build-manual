@@ -530,7 +530,7 @@ Pause: ~25 min since the last pause (pre-kit) — the tool and consumable decisi
 
 **Helper:** Reads each bag's label aloud and points to the compartment with the same label.
 
-Tip: between sessions, stack tray C on tray B to close it. Motion bags stay sealed in their box: bearings, pulleys, idlers and shafts have no compartment.
+Tip: between sessions, stack the trays; each closes the one below. Motion bags stay sealed in their box: bearings, pulleys, idlers and shafts have no compartment.
 
 Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
@@ -566,7 +566,7 @@ Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](h
 
 Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
 
-Pause: ~35 min since the last pause — kit day: the fastener bags are emptied into trays A–C and tray C is stacked on tray B, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray C. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.
+Pause: ~35 min since the last pause — kit day: the fastener bags are emptied into trays A–C and the trays are stacked, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray C. Steps 00.14–00.16 ran months ago at Gate B, so the next kit-day work is rail prep at Step 00.17.
 
 ---
 
@@ -1100,7 +1100,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
-- [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; tray C stacked on tray B.
+- [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; trays stacked.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
@@ -1117,7 +1117,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - **Lubricating before the IPA has fully evaporated.** The residue emulsifies with the grease and you get a milky paste with none of the film strength. Give the rails longer to dry than you think they need.
 - **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is lying on its extrusion at the install step (Ch 02 Step 02.06, Ch 05 Steps 05.11/05.33).
 - **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 153 kit inserts.
-- **Tipping a bag into the wrong compartment.** M3×8, M3×12 and M3×16 are indistinguishable once mixed, and there are 283 of the first one. Read the bag against the label before you tip it, and stack tray C on tray B between sessions.
+- **Tipping a bag into the wrong compartment.** M3×8, M3×12 and M3×16 are indistinguishable once mixed, and there are 283 of the first one. Read the bag against the label before you tip it, and stack the trays between sessions.
 - **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it. B01 printed the 3 mm clips on the BOM's word; if the deck calipers 4 mm, print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02.
 
 ## Next

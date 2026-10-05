@@ -325,13 +325,14 @@ spool ledgers above. PLA, so the ASA spools are untouched. Print them any time t
 
 | bench print | parts | hours | g PLA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Hardware trays A–C, Gridfinity bins: A 5 × 5 × 6U, B and C 5 × 4 × 6U | 3 | 24.5 | 943 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+| Hardware trays A–C, Gridfinity bins on a 5 × 5 grid: A and B 6U, C 3U | 3 | 23.8 | 915 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
 
 **The hardware trays** take the kit's fastener bags on kit day
 ([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):
-tray A the M2 and M3 screws, tray B the M4 and M5 screws, tray C the nuts, inserts, washers, spacers, magnets
-and T-nuts. Each is a standard Gridfinity bin sized to its contents, so it sits on any Gridfinity
-baseplate; B and C share a footprint and stack on each other. No lids. Three jobs, one tray per bed, each project as committed: `0.20mm BALANCED @COREONE HF0.4`
-with Prusament PLA, no supports, door open, 7 h 08 m to 9 h 21 m each (PrusaSlicer 2.9.6 CLI estimates);
-943 g is most of a 1 kg spool. For two-colour labels, add a colour change at **40.4 mm** in the layer
-slider. The generator, the fill check per compartment and the settings are in that folder's README.
+tray A the M2 and M3 screws, tray B the M4 and M5 screws and the roll-in T-nuts, tray C the nuts, inserts,
+washers, spacers, magnets and hammer-head T-nuts. Each is a standard Gridfinity bin on the same 5 × 5 footprint,
+only as tall as its contents need, so it sits on any Gridfinity baseplate and any tray stacks on any other. No
+lids. Three jobs, one tray per bed, each project as committed: `0.20mm BALANCED @COREONE HF0.4` with Prusament
+PLA, no supports, door open: A 9 h 21 m, B 8 h 20 m, C 6 h 05 m (PrusaSlicer 2.9.6 CLI estimates); 915 g is most
+of a 1 kg spool. For two-colour labels, add a colour change in the layer slider at **40.4 mm** on A and B and
+**19.4 mm** on C. The generator, the fill check per compartment and the settings are in that folder's README.

@@ -155,6 +155,11 @@ class Item:
     min_w: float = MIN_W
 
     @property
+    def thick(self) -> float:
+        """Smallest envelope dimension: how high one piece stands lying flat."""
+        return min(float(v) for v in re.findall(r"[\d.]+", self.env_desc))
+
+    @property
     def bulk(self) -> float:
         """Loose volume of all pieces, mm3."""
         return self.qty * self.env / self.phi
@@ -478,8 +483,19 @@ def needed_y(items: list[Item], u: int, nx: int = UNITS_X) -> float:
     return 2 * WALL + sum(h + LEDGE for h in plan[1])
 
 
+DEPTH_MARGIN = 2.0          # a piece lying flat stays this far below the rim
 UNITS_MAX = 5               # 5 x 42 - 0.5 = 209.5 mm fits both bed axes (250 x 220)
 HEIGHT_RANGE = (2, 3, 4, 5, 6)
+
+
+def lowest_u(items: list[Item], nx: int, ny: int) -> int | None:
+    """Lowest height at which the group fits an nx x ny bin: fill and finger floor, and every
+    piece lying flat sits DEPTH_MARGIN below the rim (so a stacked bin cannot catch it)."""
+    floor = max(i.thick for i in items) + DEPTH_MARGIN
+    for u in HEIGHT_RANGE:
+        if usable_depth(u) >= floor and needed_y(items, u, nx) <= GRID * ny - GAP:
+            return u
+    return None
 
 
 def size_group(items: list[Item]) -> tuple[int, int, int] | None:
@@ -829,6 +845,17 @@ def render(stl: Path, out: Path, azim: float, elev: float, accent_z: float,
     from render import basis, compose, project, shade
     from geom import read_stl
     tris = np.array(read_stl(stl), dtype=np.float64)
+    # Split long slivers (wall strips fan-triangulated over 200 mm) before rasterising: the
+    # rasteriser's depth interpolation over them let a hidden strip show through the front wall.
+    for _ in range(8):
+        e = np.linalg.norm(tris - np.roll(tris, 1, axis=1), axis=2).max(1)
+        big = e > 6.0
+        if not big.any():
+            break
+        a, b, c = tris[big, 0], tris[big, 1], tris[big, 2]
+        ab, bc, ca = (a + b) / 2, (b + c) / 2, (c + a) / 2
+        tris = np.concatenate([tris[~big], np.stack([a, ab, ca], 1), np.stack([ab, b, bc], 1),
+                               np.stack([ca, bc, c], 1), np.stack([ab, bc, ca], 1)])
     V = tris.reshape(-1, 3)
     T = np.arange(len(V)).reshape(-1, 3)
     top = tris[:, :, 2].mean(1) > accent_z + 0.01
@@ -889,11 +916,13 @@ def candidates(items: list[Item], n: int = 5) -> list[tuple[int, int, int]]:
 def sizes_md(trays: list[Tray]) -> str:
     out = ["Usable depth (floor to rim) by height: "
            + ", ".join(f"{u}U {usable_depth(u):.1f} mm" for u in HEIGHT_RANGE) + ".", "",
-           "| tray | chosen | other footprints that hold it (lowest U each) |", "|---|---|---|"]
+           "| tray | bin | thickest piece lying flat (mm) | lowest height the fill allows |",
+           "|---|---|---:|---|"]
     for t in trays:
-        others = [c for c in candidates(t.items) if c != (t.nx, t.ny, t.u)][:4]
-        out.append(f"| {t.letter} | {t.nx} × {t.ny} × {t.u}U | "
-                   + ", ".join(f"{a} × {b} × {u}U" for a, b, u in others) + " |")
+        thick = max(i.thick for i in t.items)
+        fill_u = next((u for u in HEIGHT_RANGE
+                       if needed_y(t.items, u, t.nx) <= t.D), None)
+        out.append(f"| {t.letter} | {t.nx} × {t.ny} × {t.u}U | {thick:g} | {fill_u}U |")
     return "\n".join(out)
 
 
@@ -939,7 +968,8 @@ def stacking(trays: list[Tray]) -> str:
     txt = ("Stacking: a bin rests on another bin's stacking lip only if both have the same footprint "
            "(the lip runs round the rim, so a smaller bin's feet would drop inside). ")
     if same:
-        txt += "; ".join(" and ".join(v) for v in same) + " stack on each other"
+        txt += "; ".join((", ".join(v[:-1]) + " and " + v[-1]) for v in same)
+        txt += " share a footprint: any of them stacks on any other"
         lone = [v[0] for v in groups.values() if len(v) == 1]
         txt += (f"; {', '.join(lone)} stack{'s' if len(lone) == 1 else ''} with nothing."
                 if lone else ".")
@@ -1009,21 +1039,37 @@ def slice_md(results: list[tuple[str, dict]]) -> str:
 
 
 # ------------------------------------------------------------------ driver
-def group_split(items: list[Item]) -> list[int]:
-    """The default split: M2/M3 screws | M4/M5 screws | everything else."""
-    return [k for k in range(1, len(items)) if (items[k].group, items[k].order[0])
-            != (items[k - 1].group, items[k - 1].order[0])]
+MAX_TRAYS = 3
+
+# Hardware families: the units a tray is made of. A family stays whole.
+FAMILIES = (
+    ("M2/M3 screws", lambda i: i.group == "screw" and i.order[0] == 0),
+    ("M4/M5 screws", lambda i: i.group == "screw" and i.order[0] == 1),
+    ("roll-in T-nuts", lambda i: i.order[1] == FAMILY["ROLL-IN"] and i.group == "other"),
+    ("hammer-head T-nuts", lambda i: i.order[1] == FAMILY["HAMMER"] and i.group == "other"),
+    ("small parts", lambda i: i.group == "other"
+     and i.order[1] not in (FAMILY["ROLL-IN"], FAMILY["HAMMER"])),
+)
 
 
-def sized(items: list[Item], cs: list[int]) -> list[tuple[list[Item], tuple]] | None:
-    bounds = [0, *cs, len(items)]
-    out = []
-    for a, b in zip(bounds, bounds[1:]):
-        size = size_group(items[a:b])
-        if size is None:
-            return None
-        out.append((items[a:b], size))
-    return out
+def families(items: list[Item]) -> list[tuple[str, list[Item]]]:
+    out = [(name, [i for i in items if pred(i)]) for name, pred in FAMILIES]
+    if sorted(i.bom for _n, f in out for i in f) != sorted(i.bom for i in items):
+        raise SystemExit("FAMILIES must place every item exactly once")
+    return [(n, f) for n, f in out if f]
+
+
+def set_partitions(xs: list, k_max: int):
+    """Every partition of xs into at most k_max blocks."""
+    if not xs:
+        yield []
+        return
+    first, rest = xs[0], xs[1:]
+    for part in set_partitions(rest, k_max):
+        for i in range(len(part)):
+            yield part[:i] + [[first] + part[i]] + part[i + 1:]
+        if len(part) < k_max:
+            yield [[first]] + part
 
 
 def bin_units(groups) -> int:
@@ -1031,46 +1077,88 @@ def bin_units(groups) -> int:
     return sum(nx * ny * u for _g, (nx, ny, u) in groups)
 
 
-def choose(items: list[Item], least_units: bool = False) -> tuple[list[Tray], str]:
-    """Each tray sized on its own (size_group). The group split stays unless another contiguous
-    split (cut only between screw bands or between families of the rest) needs fewer trays;
-    the split with the fewest bin units (any tray count) is reported, and `least_units` picks
-    it instead."""
-    default = sized(items, group_split(items))
-    if default is None:
-        raise SystemExit("a group does not fit a 5 x 5 x 6U bin: check the BOM counts")
-    fewer, lean = None, None
-    for k in range(1, 6):
-        for cs in itertools.combinations(cut_points(items), k - 1):
-            if list(cs) == group_split(items):
-                continue
-            g = sized(items, list(cs))
-            if g is None:
-                continue
-            if len(g) < len(default) and (fewer is None or
-                                          (len(g), bin_units(g)) < (len(fewer), bin_units(fewer))):
-                fewer = g
-            if bin_units(g) < bin_units(default) and (lean is None or
-                                                      (bin_units(g), len(g)) < (bin_units(lean), len(lean))):
-                lean = g
+def size_partition(part, nx: int, ny: int) -> list | None:
+    out = []
+    for block in part:
+        its = sorted((i for _n, f in block for i in f), key=lambda i: i.order)
+        u = lowest_u(its, nx, ny)
+        if u is None:
+            return None
+        out.append((its, (nx, ny, u), [n for n, _f in block]))
+    out.sort(key=lambda g: g[0][0].order)            # tray A holds the first BOM rows
+    return out
 
-    def desc(g) -> str:
-        return (f"{len(g)} trays, {bin_units(g)} bin units: "
-                + " + ".join(f"{tray_title(it)} {nx}×{ny}×{u}U" for it, (nx, ny, u) in g))
-    lines = [f"Group split (A = M2/M3 screws, B = M4/M5 screws, C = the rest): {desc(default)}. "
-             "Bin units = Σ n·m·U, a plastic proxy."]
-    lines.append(f"Fewer trays: {desc(fewer)}." if fewer else
-                 "No split needs fewer trays.")
-    lines.append(f"Fewest bin units: {desc(lean)}." if lean else
-                 "No split needs fewer bin units.")
-    chosen = fewer or default
-    if least_units and lean:
-        chosen = lean
-    lines.append("Chosen: " + ("the group split." if chosen is default else
-                               "the fewest-units split (--least-units)." if chosen is lean else
-                               "the split with fewer trays."))
-    trays = [Tray(chr(ord("A") + i), it, nx, ny, u) for i, (it, (nx, ny, u)) in enumerate(chosen)]
-    return trays, " ".join(lines)
+
+def ranked_partitions(items: list[Item]) -> list[list]:
+    """Every grouping of whole families into at most MAX_TRAYS trays on one common footprint
+    (any n x m up to 5 x 5), each tray at its lowest height, that fits; best first: fewest
+    trays, then fewest bin units, then the smallest footprint."""
+    fams = families(items)
+    parts = list(set_partitions(fams, MAX_TRAYS))
+    found = []
+    for nx in range(1, UNITS_MAX + 1):
+        for ny in range(1, UNITS_MAX + 1):
+            for part in parts:
+                g = size_partition(part, nx, ny)
+                if g:
+                    found.append(g)
+    found.sort(key=lambda g: (len(g), sum(nx * ny * u for _i, (nx, ny, u), _n in g),
+                              g[0][1][0] * g[0][1][1], -g[0][1][0]))
+    return found
+
+
+def partition_desc(g) -> str:
+    units = sum(nx * ny * u for _i, (nx, ny, u), _n in g)
+    return (f"{len(g)} trays, {units} bin units: "
+            + " | ".join(f"{' + '.join(names)} {nx}×{ny}×{u}U" for _i, (nx, ny, u), names in g))
+
+
+def choose(items: list[Item], rank: int = 0) -> tuple[list[Tray], str, list]:
+    """Group whole families into at most MAX_TRAYS trays: fewest trays, then least plastic (bin
+    units). `rank` picks a lower-ranked grouping (the slicing comparison uses it)."""
+    ranked = ranked_partitions(items)
+    if not ranked:
+        raise SystemExit(f"no grouping of whole families fits {MAX_TRAYS} trays: check the counts")
+    chosen = ranked[rank]
+    trays = [Tray(chr(ord("A") + i), its, nx, ny, u)
+             for i, (its, (nx, ny, u), _n) in enumerate(chosen)]
+    lines = [f"{len(ranked)} groupings of whole families fit ≤ {MAX_TRAYS} trays on one common "
+             "footprint, each tray at its lowest height. Best five by bin units (Σ n·m·U, the "
+             "plastic proxy):", ""]
+    lines += [f"{k + 1}. {partition_desc(g)}" + (" ← chosen" if g is chosen else "")
+              for k, g in enumerate(ranked[:5])]
+    return trays, "\n".join(lines), ranked
+
+
+def compare(items: list[Item], n: int) -> int:
+    """Real slicing of the n best groupings: confirms the bin-unit proxy."""
+    import tempfile as _t
+    ranked = ranked_partitions(items)[:n]
+    tmp = Path(_t.mkdtemp(prefix="trays-cmp-"))
+    ini = tmp / "x.ini"
+    write_ini(ini)
+    global HERE
+    here0, HERE = HERE, tmp
+    try:
+        for k, g in enumerate(ranked):
+            th = tg = 0.0
+            parts = []
+            for i, (its, (nx, ny, u), names) in enumerate(g):
+                t = Tray(chr(ord("A") + i), its, nx, ny, u)
+                layout(t)
+                stl = tmp / f"tray-{k}{t.letter}.stl"
+                export_stl(build_tray(t), stl)
+                proj, _log = make_project(stl, ini, stl.stem)
+                r = slice_project(proj, tmp, [rim_z(u) - EMBOSS, colour_z(t), rim_z(u)])
+                th += r["hours"]
+                tg += r["grams"]
+                parts.append(f"{t.letter} {nx}×{ny}×{u}U {r['raw']} {r['grams']:.0f} g")
+            print(f"{k + 1}. {partition_desc(g)}\n   " + "; ".join(parts)
+                  + f"\n   total {th:.2f} h, {tg:.0f} g")
+    finally:
+        HERE = here0
+        shutil.rmtree(tmp, ignore_errors=True)
+    return 0
 
 
 def main() -> int:
@@ -1080,8 +1168,10 @@ def main() -> int:
     ap.add_argument("--holes", choices=("none", "magnet", "screw"), default="none",
                     help="Gridfinity base holes (default none: Clickfinity holds bins without)")
     ap.add_argument("--copy-renders", type=Path, help="also copy the PNGs here")
-    ap.add_argument("--least-units", action="store_true",
-                    help="use the split with the fewest bin units even if it adds a tray")
+    ap.add_argument("--rank", type=int, default=0,
+                    help="build the n-th best grouping instead of the best (0)")
+    ap.add_argument("--compare", type=int, metavar="N",
+                    help="build and slice the N best groupings in a temp dir, print time and grams, stop")
     ap.add_argument("--validate", type=Path, metavar="REF_STL",
                     help="compare a plain 1x1x6U bin with a reference Gridfinity bin and stop")
     args = ap.parse_args()
@@ -1091,7 +1181,9 @@ def main() -> int:
         return 0
 
     items, skipped = load_items()
-    trays, choice = choose(items, args.least_units)
+    trays, choice, ranked = choose(items, args.rank)
+    if args.compare:
+        return compare(items, args.compare)
     print(choice)
     for t in trays:
         layout(t)
