@@ -438,7 +438,12 @@ def inner_w(nx: int = UNITS_X) -> float:
 
 
 def scoop_r(h: float, depth: float) -> float:
-    return min(SCOOP_R, 0.4 * h, depth - 4)
+    """The scoop cove is always SCOOP_R (Alex: the rounded front edge is for hard-to-pick-up
+    parts; never shrink it to save room). MIN_H and MIN_U keep every compartment longer and
+    deeper than it."""
+    if h < SCOOP_R + 4 or depth < SCOOP_R + 4:
+        raise SystemExit(f"a {h:.1f} x {depth:.1f} mm compartment cannot take the R{SCOOP_R:g} cove")
+    return SCOOP_R
 
 
 def usable_volume(w: float, h: float, depth: float) -> float:
@@ -533,7 +538,8 @@ def needed_y(items: list[Item], u: int, nx: int = UNITS_X) -> float:
 
 DEPTH_MARGIN = 2.0          # a piece lying flat stays this far below the rim
 UNITS_MAX = 5               # 5 x 42 - 0.5 = 209.5 mm fits both bed axes (250 x 220)
-HEIGHT_RANGE = (2, 3, 4, 5, 6)
+MIN_U = 4                   # no tray lower than this (Alex: parts must not spill when it tilts)
+HEIGHT_RANGE = tuple(range(MIN_U, 7))
 
 
 def lowest_u(items: list[Item], nx: int, ny: int) -> int | None:
@@ -966,6 +972,51 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
 
 
 # ------------------------------------------------------------------ render
+def section_png(stl: Path, x0: float, out: Path, title: str, res: float = 0.05) -> None:
+    """A Y-Z section of the STL at x = x0, filled from the mesh itself (crossing parity per
+    height), front of the tray on the left."""
+    import numpy as np
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from geom import read_stl
+    t = np.array(read_stl(stl), dtype=np.float64)
+    d = t[:, :, 0] - x0
+    # each crossing triangle contributes exactly two edge points: pair them per triangle
+    cross = ((d > 0).any(1)) & ((d < 0).any(1))
+    pts = []
+    for tri, dd in zip(t[cross], d[cross]):
+        q = []
+        for i, j in ((0, 1), (1, 2), (2, 0)):
+            if (dd[i] > 0) != (dd[j] > 0):
+                q.append(tri[i] + dd[i] / (dd[i] - dd[j]) * (tri[j] - tri[i]))
+        if len(q) == 2:
+            pts.append((q[0][1], q[0][2], q[1][1], q[1][2]))
+    S = np.array(pts)
+    ymax, zmax = t[:, :, 1].max(), t[:, :, 2].max()
+    zs = np.arange(res / 2, zmax, res)
+    ys = np.arange(0, ymax, res)
+    img = np.zeros((len(zs), len(ys)), bool)
+    lo, hi = np.minimum(S[:, 1], S[:, 3]), np.maximum(S[:, 1], S[:, 3])
+    for k, z in enumerate(zs):
+        m = (lo <= z) & (hi > z)
+        if not m.any():
+            continue
+        s_ = S[m]
+        yc = np.sort(s_[:, 0] + (z - s_[:, 1]) / (s_[:, 3] - s_[:, 1]) * (s_[:, 2] - s_[:, 0]))
+        for a, b in zip(yc[0::2], yc[1::2]):
+            img[k, int(a / res):int(b / res) + 1] = True
+    fig = plt.figure(figsize=(16, 16 * zmax / ymax + 1.2), dpi=150)
+    ax = fig.add_axes([0.04, 0.12, 0.94, 0.78])
+    ax.imshow(img, origin="lower", extent=(0, ymax, 0, zmax), cmap="Blues", vmin=0, vmax=1.6,
+              interpolation="nearest", aspect="equal")
+    ax.set_xlabel("y, mm (front of the tray at 0)")
+    ax.set_ylabel("z, mm")
+    ax.set_title(title)
+    fig.savefig(out)
+    plt.close(fig)
+
+
 def split_at_z(tris, z0: float):
     """Cut every triangle that crosses the plane z = z0 into pieces wholly above or below it."""
     import numpy as np
@@ -1309,17 +1360,17 @@ def choose(items: list[Item], rank: int = 0) -> tuple[list[Tray], str, list]:
     return trays, "\n".join(lines), ranked
 
 
-def compare(items: list[Item], n: int) -> int:
-    """Real slicing of the n best groupings: confirms the bin-unit proxy."""
+def slice_groupings(groupings: list) -> list[tuple[float, float, list[str]]]:
+    """Build and slice each grouping in a temp dir: (grams, hours, per-tray notes) each."""
     import tempfile as _t
-    ranked = ranked_partitions(items)[:n]
     tmp = Path(_t.mkdtemp(prefix="trays-cmp-"))
     ini = tmp / "x.ini"
     write_ini(ini)
     global HERE
     here0, HERE = HERE, tmp
+    out = []
     try:
-        for k, g in enumerate(ranked):
+        for k, g in enumerate(groupings):
             th = tg = 0.0
             parts = []
             for i, (its, (nx, ny, u), names) in enumerate(g):
@@ -1332,12 +1383,37 @@ def compare(items: list[Item], n: int) -> int:
                 th += r["hours"]
                 tg += r["grams"]
                 parts.append(f"{t.letter} {nx}×{ny}×{u}U {r['raw']} {r['grams']:.0f} g")
-            print(f"{k + 1}. {partition_desc(g)}\n   " + "; ".join(parts)
-                  + f"\n   total {th:.2f} h, {tg:.0f} g")
+            out.append((tg, th, parts))
     finally:
         HERE = here0
         shutil.rmtree(tmp, ignore_errors=True)
+    return out
+
+
+def compare(items: list[Item], n: int) -> int:
+    """Real slicing of the n best groupings: confirms the bin-unit proxy."""
+    ranked = ranked_partitions(items)[:n]
+    for k, (g, (tg, th, parts)) in enumerate(zip(ranked, slice_groupings(ranked))):
+        print(f"{k + 1}. {partition_desc(g)}\n   " + "; ".join(parts)
+              + f"\n   total {th:.2f} h, {tg:.0f} g")
     return 0
+
+
+def group_key(g) -> tuple:
+    return (len(g), sum(nx * ny * u for _i, (nx, ny, u), _n in g))
+
+
+def resolve_tie(ranked: list) -> tuple[int, str]:
+    """When the best groupings tie on trays and bin units, slice them and keep the lightest."""
+    tied = [g for g in ranked if group_key(g) == group_key(ranked[0])]
+    if len(tied) < 2:
+        return 0, ""
+    res = slice_groupings(tied)
+    best = min(range(len(tied)), key=lambda k: res[k][0])
+    note = (f"{len(tied)} groupings tie at {group_key(tied[0])[1]} bin units; sliced: "
+            + "; ".join(f"{k + 1}. {res[k][0]:.0f} g, {res[k][1]:.1f} h" for k in range(len(tied)))
+            + f". Chosen: {best + 1}, the lightest.")
+    return best, note
 
 
 def lever_study() -> int:
@@ -1407,6 +1483,11 @@ def main() -> int:
     trays, choice, ranked = choose(items, args.rank)
     if args.compare:
         return compare(items, args.compare)
+    if not args.plan and args.rank == 0:
+        best, note = resolve_tie(ranked)
+        if note:
+            trays, choice, ranked = choose(items, best)
+            choice += "\n\n" + note
     print(choice)
     for t in trays:
         layout(t)
@@ -1434,6 +1515,15 @@ def main() -> int:
         export_stl(build_tray(t, args.holes), path)
         stls[name] = path
         print(f"wrote {path.relative_to(REPO)}")
+        sec = RENDERS / f"{name}-section.png"
+        section_png(path, t.W / 3, sec,
+                    f"Tray {t.letter}, {t.nx} × {t.ny} × {t.u}U: Y–Z section at x = {t.W / 3:.0f} mm "
+                    f"(the R{SCOOP_R:g} scoop coves on each compartment's front wall)")
+        print(f"wrote {sec.relative_to(REPO)}")
+        if args.copy_renders:
+            args.copy_renders.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(sec, args.copy_renders / sec.name)
+            shutil.copy2(sec, args.copy_renders / f"section-{t.letter}.png")
         for view, az, el in (("top", -90.0, 90.0), ("34", -60.0, 38.0)):
             out = RENDERS / f"{name}-{view}.png"
             render(path, out, az, el, rim_z(t.u) - EMBOSS)
@@ -1441,7 +1531,7 @@ def main() -> int:
             if args.copy_renders:
                 args.copy_renders.mkdir(parents=True, exist_ok=True)
                 for stale in args.copy_renders.glob("*.png"):
-                    if not (RENDERS / stale.name).exists():
+                    if not (RENDERS / stale.name).exists() and not stale.name.startswith("section-"):
                         stale.unlink()
                 shutil.copy2(out, args.copy_renders / out.name)
     put_block("layout", layout_md(trays, skipped, choice))

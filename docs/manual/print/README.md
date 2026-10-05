@@ -325,7 +325,7 @@ spool ledgers above. PLA, so the ASA spools are untouched. Print them any time t
 
 | bench print | parts | hours | g PLA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 5 grid: A 6U, B 5U, C 3U | 3 | 18.2 | 636 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 5 grid: A 6U, B 5U, C 4U | 3 | 18.6 | 652 | textured | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
 
 **The hardware trays** take the kit's fastener bags on kit day
 ([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):
@@ -334,6 +334,7 @@ washers, spacers, magnets and roll-in T-nuts. Each is a standard Gridfinity bin 
 only as tall as its contents need, built ultra-light (hollow feet, two-perimeter walls), so it sits on any
 Gridfinity baseplate and any tray stacks on any other. No lids. Three jobs, one tray per bed, each project as
 committed: `0.20mm BALANCED @COREONE HF0.4` with Prusament PLA, 2 perimeters, 3 top and bottom layers, 10 %
-infill, no supports, door open: A 7 h 29 m, B 5 h 50 m, C 4 h 55 m (PrusaSlicer 2.9.6 CLI estimates). For
+infill, no supports, door open: A 7 h 28 m, B 5 h 50 m, C 5 h 17 m (PrusaSlicer 2.9.6 CLI estimates); none is lower than 4U, so nothing spills
+when a tray tilts. For
 two-colour labels, add a colour change in the layer slider at **40.4 mm** on A, **33.4 mm** on B and
-**19.4 mm** on C. The generator, the fill check per compartment and the settings are in that folder's README.
+**26.4 mm** on C. The generator, the fill check per compartment and the settings are in that folder's README.
