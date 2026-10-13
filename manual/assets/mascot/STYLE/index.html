@@ -1,0 +1,2790 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/manual/assets/mascot/STYLE/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Mascot — construction and style - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/print.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/tonight.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mascot-construction-and-style" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mascot — construction and style
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (blue)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../steps/b11-bay-ducting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B11 — Bay ducting (PETG V0)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/plate-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate board
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../print/bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../mascot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mascot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Construction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plumage-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plumage detail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#juvenile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Juvenile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-three-quarter-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three-quarter view
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-front-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The front view
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-wing-per-side-the-wing-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One wing per side — the wing state
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-spread-wing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The spread wing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-champions-cues-revali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Champion's cues — Revali
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#halo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Halo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layers-and-their-animation-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layers and their animation roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Palette
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sizing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humour-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humour rule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File naming
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-each-pose-belongs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where each pose belongs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regenerating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regenerating
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mascot-construction-and-style">Mascot — construction and style<a class="headerlink" href="#mascot-construction-and-style" title="Permanent link">¶</a></h1>
+<p><em>Voron</em> is Russian for raven, so the manual's mascot is a raven (<em>Corvus corax</em>), drawn from real
+bird anatomy rather than from a circle-and-oval cartoon. Twenty files in <strong>three views</strong>, generated
+by <code>scripts/gen_mascot.py</code> — edit the script, not the SVGs.</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>When</th>
+<th>Constructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Profile</strong></td>
+<td>the bird is looking at something; the page is about that thing</td>
+<td><code>bird()</code></td>
+</tr>
+<tr>
+<td><strong>Three-quarter</strong></td>
+<td>the bird is <em>doing</em> something and wants you to see it</td>
+<td><code>bird_3q()</code></td>
+</tr>
+<tr>
+<td><strong>Front</strong></td>
+<td>the bird is addressing the reader directly</td>
+<td><code>bird_front()</code></td>
+</tr>
+</tbody>
+</table>
+<p>All three share the palette, the halo pass, the feather-row helper, the friendly expression
+(<code>eyelid</code> / gape hook / cheek catch), the <code>.m-*</code> animation classes and the reduced-motion gate.
+<code>spread_wing</code> works in every view; a fan seen from the front is just a mirrored pair.</p>
+<h2 id="construction">Construction<a class="headerlink" href="#construction" title="Permanent link">¶</a></h2>
+<p>The bird is built from feather <strong>rows</strong>, not blobs. <code>row(n, base0, base1, angle0, angle1, len0,
+len1, w0, w1)</code> shingles <code>n</code> lanceolate feathers along a baseline, interpolating direction and
+length; every plumage group in every pose comes out of that one call.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>What it is</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skull</td>
+<td>rounded wedge, flat crown, x 300–398</td>
+<td>crown sheen runs crown → nape</td>
+</tr>
+<tr>
+<td>Bill</td>
+<td>heavy, hooked at the tip, as long as the skull</td>
+<td>upper mandible <code>K1</code>, lower <code>K0</code>, gape line between</td>
+</tr>
+<tr>
+<td>Nasal bristles</td>
+<td>six tapers over the base of the culmen</td>
+<td>the detail that says raven and not crow</td>
+</tr>
+<tr>
+<td>Throat hackles</td>
+<td>five pointed feathers that <strong>project past</strong> the throat line</td>
+<td>the front silhouette is serrated, never smooth</td>
+</tr>
+<tr>
+<td>Folded wing</td>
+<td>envelope filled <code>K0</code>, then five rows: primaries → secondaries → greater → median → lesser coverts</td>
+<td>sheen rides the median and lesser coverts only</td>
+</tr>
+<tr>
+<td>Spread wing</td>
+<td>a fan, not the folded wing rotated — see below</td>
+<td>one construction, every extended-wing pose</td>
+</tr>
+<tr>
+<td>Tail</td>
+<td>five rectrices, alternating tones, graduated</td>
+<td>wedge tail, longest feathers central</td>
+</tr>
+<tr>
+<td>Legs</td>
+<td>tarsus with four scale bands, three toes forward + hallux, claws</td>
+<td>far leg <code>K0</code>, near leg <code>K1</code></td>
+</tr>
+<tr>
+<td>Breast</td>
+<td>two faint scallop rows at 0.2 opacity</td>
+<td>texture, never a bib</td>
+</tr>
+</tbody>
+</table>
+<h3 id="plumage-detail">Plumage detail<a class="headerlink" href="#plumage-detail" title="Permanent link">¶</a></h3>
+<p>Detail is spent where it survives 256 px, and nowhere else:</p>
+<ul>
+<li><strong><code>long_feather()</code></strong> draws a flight feather or rectrix, then <code>plume()</code> adds a <strong>rachis</strong> line and
+  <strong>three barb strokes</strong> on the wide side. A few strokes, never a hatch — a hatch turns to noise at
+  256 px. Primaries and rectrices get three barbs, secondaries two.</li>
+<li><strong><code>shingle()</code></strong> draws a covert row twice: the full shape in a lighter rim tone, then an inner copy
+  at 0.84 scale in the base tone. The pale fringe that leaves is what makes a covert row read as
+  feathers instead of scales.</li>
+<li><strong><code>jitter(i)</code></strong> wobbles ruff and hackle lengths deterministically. A smooth length interpolation
+  gives a row of lozenges; the wobble gives a shaggy mass.</li>
+<li><strong>Eye</strong> carries a thin pale ring (<code>#5A6780</code> at 0.55) outside the disc, inside the socket.</li>
+<li><strong>Feet</strong> are three toes plus the hallux in every view, each with three scute bands and a claw. The
+  three-quarter near foot has its toes separated rather than fanned as one mass.</li>
+</ul>
+<h3 id="juvenile">Juvenile<a class="headerlink" href="#juvenile" title="Permanent link">¶</a></h3>
+<p><code>bird_3q(juv=True)</code> is the fledgling, used by <code>helper</code>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Adult</th>
+<th>Fledgling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Head</td>
+<td>scale 1.0</td>
+<td><strong>1.16</strong> about the neck pivot, halo included</td>
+</tr>
+<tr>
+<td>Bill</td>
+<td><code>BILL_3Q</code>, hooked</td>
+<td><code>BILL_3Q_JUV</code>, stubby, no hook</td>
+</tr>
+<tr>
+<td>Gape</td>
+<td>closed, hooked up at the hinge</td>
+<td><strong>slightly open</strong>, with a pale <code>#6B7689</code> flange</td>
+</tr>
+<tr>
+<td>Eye</td>
+<td>r 19 / 11</td>
+<td><strong>×1.2</strong> — larger relative to the head</td>
+</tr>
+<tr>
+<td>Ruff</td>
+<td>pointed, jitter 0.24</td>
+<td><strong>×1.22, blunter</strong>, fluffier</td>
+</tr>
+<tr>
+<td>Tail</td>
+<td><code>TAIL_3Q</code></td>
+<td><code>TAIL_3Q_JUV</code>, shorter</td>
+</tr>
+<tr>
+<td>Legs</td>
+<td>full tarsus</td>
+<td>stubbier, shorter toes</td>
+</tr>
+</tbody>
+</table>
+<p>Feather rows must <strong>tile</strong>, not stack: a row whose bases sit closer together than its feather width
+collapses into one smooth mass. The hackles use alternating lengths for the same reason — a smooth
+length lerp gives a teardrop, not a fringe.</p>
+<h3 id="the-three-quarter-view">The three-quarter view<a class="headerlink" href="#the-three-quarter-view" title="Permanent link">¶</a></h3>
+<p><code>bird_3q()</code>. The body is angled toward the reader and the <strong>head is turned further than the body</strong>,
+so both eyes read:</p>
+<ul>
+<li><strong>Near eye</strong> r 19 at (300, 142), full, with the catchlight. <strong>Far eye</strong> r 11 at (222, 148), near
+  the head's edge, with the base of the bill across its lower corner. Equal-sized eyes read as an
+  owl, not a turned head — the size difference is what sells the turn.</li>
+<li><strong>Bill</strong> foreshortened to ~0.8 of the profile length and given a <strong>culmen ridge</strong> line with a lit
+  far facet on one side of it. The ridge is the single strongest cue that the head is turned.</li>
+<li><strong>Wings</strong> are seen near edge-on, so they are a dark mass: primaries at the tip and a short covert
+  patch at the shoulder. The full profile rows compress into vertical stripes in this view and read
+  as suspenders — that was the first thing to go wrong.</li>
+<li><strong>Ruff</strong> of five long hackle points across the throat in <code>#3B465C</code> / <code>K2</code>, much shaggier than the
+  profile's serration, because in this view the throat faces the reader.</li>
+<li>Head and shoulders <strong>merge</strong> — no neck pinch. A pinch makes a ball-headed penguin.</li>
+</ul>
+<h3 id="the-front-view">The front view<a class="headerlink" href="#the-front-view" title="Permanent link">¶</a></h3>
+<p><code>bird_front()</code>. <strong>Not quite symmetric</strong> — about ten degrees of yaw toward the reader's right, so the
+bird stops being a blob while still reading as facing you. The far (right) side of the face is
+compressed, the far eye is r 17 against the near eye's r 20, the bill and its ridge sit ~7 units
+right of centre, and the bird's left shoulder is marginally forward. <code>warn</code> keeps symmetric shoulder
+origins and equal spans so its spread wings still read as a stop sign.</p>
+<ul>
+<li><strong>Bill</strong> is the identity here and is drawn large — a wedge from y 142 to 254 with a vertical
+  culmen ridge, one darker facet, and a hooked tip. A small front bill reads as a chick.</li>
+<li><strong>Both eyes</strong> r 19 at (206, 134) and (306, 134), each with its own lid.</li>
+<li><strong>Bristles</strong> as a tuft spraying down both sides from the top of the bill.</li>
+<li><strong>Gape</strong> is two short lines under the bill whose outer ends rise — the smile, mirrored.</li>
+<li><strong>Folded wings</strong> hang at the flanks with the <strong>primaries crossing low over the tail</strong>, which is
+  what a perched corvid looks like head-on.</li>
+<li><strong>Feet</strong> splayed, three toes each, short because they are foreshortened.</li>
+<li>Idle head motion is a slow <strong>sway</strong> (<code>mascot-sway</code>, ±1.8°) rather than the profile's look.</li>
+</ul>
+<h3 id="one-wing-per-side-the-wing-state">One wing per side — the wing state<a class="headerlink" href="#one-wing-per-side-the-wing-state" title="Permanent link">¶</a></h3>
+<p>Each view's constructor takes a <strong>per-side wing state</strong>, and draws that side either folded or
+spread, never both:</p>
+<div class="highlight"><pre><span></span><code><span class="n">bird</span><span class="p">(</span><span class="n">near</span><span class="o">=</span><span class="n">SP</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">146</span><span class="p">),</span> <span class="n">far</span><span class="o">=</span><span class="n">FOLDED</span><span class="p">)</span>          <span class="c1"># profile:  near/far</span>
+<span class="n">bird_3q</span><span class="p">(</span><span class="n">near</span><span class="o">=</span><span class="n">SP</span><span class="p">(</span><span class="o">-</span><span class="mi">52</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">far</span><span class="o">=</span><span class="n">FOLDED</span><span class="p">)</span>      <span class="c1"># 3Q:       near/far</span>
+<span class="n">bird_front</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">SP</span><span class="p">(</span><span class="mi">186</span><span class="p">,</span> <span class="mi">172</span><span class="p">),</span> <span class="n">right</span><span class="o">=</span><span class="n">SP</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">172</span><span class="p">))</span>   <span class="c1"># front: left/right</span>
+</code></pre></div>
+<p><code>FOLDED</code> draws that side's folded wing, <code>SP(angle, span, droop, origin)</code> draws a spread one from the
+same shoulder, and <code>None</code> omits the side entirely. The halo pass switches with it, so a spread wing
+takes its side's envelope out of the silhouette too.</p>
+<p><strong>Why this exists.</strong> The first version of the three-quarter and front views drew the folded wings
+unconditionally and added the spread ones on top, so <code>pass</code>, <code>warn</code>, <code>fail</code>, <code>kitday</code> and every
+action pose had <em>four</em> wings — a raised pair and a folded pair. Routing all of it through one
+per-side state is what makes that unrepresentable.</p>
+<p>The spread wing's shoulder matches the folded one's (profile (296, 232); 3Q (338, 218) / (198, 234);
+front (192, 230) / (320, 230)) and its halo deliberately excludes the arm bar, so the limb reads as
+the same wing moved rather than a second one stuck on.</p>
+<p>In the <strong>profile</strong> view a folded <code>far</code> is only the sliver that clears the body — the envelope
+redrawn behind the torso, offset up and back — never a second full wing. The strict-profile poses
+(<code>base</code>, <code>pause</code>, <code>print</code>, <code>screen</code>) leave <code>far=None</code>: from the side the other wing is genuinely
+hidden, and poking a sliver out would be wrong.</p>
+<p>The tally's markers are <strong>derived from the wing path constants</strong>, not retyped: hand-copied prefixes
+went stale the moment an envelope was re-drawn, and the guard silently passed a wingless front view.</p>
+<p><code>gen_mascot.py</code> <strong>tallies the wings of every file it writes</strong> and exits non-zero if a pose has more
+than two, or has a spread wing without exactly two in total. <code>helper</code> (two birds) and <code>badge</code> (a
+head crop) are the two declared exceptions.</p>
+<h3 id="the-spread-wing">The spread wing<a class="headerlink" href="#the-spread-wing" title="Permanent link">¶</a></h3>
+<p><code>spread_wing(angle, span, flip, origin, droop)</code> builds an <strong>extended</strong> wing, and every pose that
+holds, raises or spreads a wing calls it. Rotating the folded wing was the earlier approach and it
+read as a striped sleeve: covert stripes running along a constant-width tube.</p>
+<ul>
+<li><strong>Arm bar</strong> from shoulder → elbow → wrist, tapering, at the leading edge.</li>
+<li><strong>Primaries</strong> fan out of the <em>wrist</em> over ~75°, with the angular spacing wider than the feather
+  width so the tips have <strong>visible gaps</strong>. The fan is what makes the wing broaden toward the tip.</li>
+<li><strong>Secondaries</strong> fill the inner trailing edge between elbow and wrist, blunt-tipped, behind the
+  primaries.</li>
+<li><strong>Coverts</strong> are a short shingled band on the <strong>leading edge only</strong> — three rows, greater → median
+  → lesser. The sheen rides the median and lesser band and nothing else.</li>
+<li><strong>Alula</strong> at the wrist on the leading edge, a small <code>K3</code> lobe.</li>
+<li><code>flip</code> puts the trailing edge on whichever side points downward; it is derived from the angle
+  (<code>cos(angle) &gt;= 0</code>) unless overridden. <code>droop</code> adds degrees to the primaries so the tips hang —
+  that is what makes the <code>fail</code> shrug rueful.</li>
+<li>The fan's halo is the <strong>thin</strong> width (6) and covers primaries, secondaries and alula but <strong>not</strong>
+  the arm bar: the bar has to merge into the shoulder, and a halo around it makes the wing look
+  detached.</li>
+<li><code>origin</code> moves the shoulder. <code>fail</code> uses it to set the far wing back and up so both wings read in
+  a side profile, where a truly symmetric shrug would hide one behind the body.</li>
+</ul>
+<p><code>wing_tip(angle, span)</code> returns where the outermost primary lands, for hanging a prop on it.</p>
+<h3 id="expression">Expression<a class="headerlink" href="#expression" title="Permanent link">¶</a></h3>
+<p>The bird is friendly, not stern. Four pieces, all in <code>head_art</code> / <code>eyelid</code>:</p>
+<ul>
+<li><strong>Gape</strong> — the mouth line runs back along the jaw and <strong>hooks up</strong> at the hinge (<code>M326 202 … 392
+  181</code>), so the bill reads as a slight smile rather than a straight slot.</li>
+<li><strong>Upper lid</strong> — a shallow <code>K1</code> crescent crops the top ~20 % of the eye disc. Enough to soften the
+  stare; any deeper and the bird looks sleepy. No rim line on it — a stroke there reads as a monocle.</li>
+<li><strong>Cheek catch</strong> — a small <code>#3A4559</code> lozenge behind the gape at 0.5 opacity. Small: at illustration
+  size a larger one reads as a bruise.</li>
+<li><strong>Head tilt</strong> — <code>bird(tilt=N)</code> rotates the head N degrees bill-up about the neck pivot (300, 200),
+  and rotates the head's <strong>halo shapes with it</strong> so the rim stays aligned. Positive is up.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tilt</th>
+<th>Poses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1 … +7 up</td>
+<td>base, gather, check, print, screen, base-3q, pass, tip, helper, hexkey, caliper, point, carry, cable, badge</td>
+</tr>
+<tr>
+<td>0</td>
+<td>warn (serious), pause (asleep), the front view (no tilt hook — it sways instead)</td>
+</tr>
+<tr>
+<td>−5 down</td>
+<td>fail (rueful)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-champions-cues-revali">The Champion's cues — Revali<a class="headerlink" href="#the-champions-cues-revali" title="Permanent link">¶</a></h3>
+<p>The bird is named <strong>Revali</strong>, after the Rito Champion in <em>Breath of the Wild</em>. Two cues carry the
+lineage, drawn into the shared constructions so every adult pose inherits them; the anatomy under
+them (feather rows, bristles, hackles, wedge tail) is untouched, and it is a homage, not a copy — no
+emblem, no bow, no arrows, nothing traced.</p>
+<table>
+<thead>
+<tr>
+<th>Cue</th>
+<th>Construction</th>
+<th>Where it lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Champion's scarf</strong></td>
+<td><code>scarf_band()</code> — the loop round the neck, base <code>SCARF</code> with a lit upper fold and one shadow crease; <code>tail()</code> — two strips from a <code>knot()</code>, each a <code>flow()</code> polyline (a bow plus one S-wave) tapered by <code>ribbon()</code></td>
+<td><code>SCARF_PROFILE</code> / <code>SCARF_3Q</code> / <code>SCARF_FRONT</code> and their <code>*_TAILS</code> tables</td>
+</tr>
+<tr>
+<td><strong>Braided nape feathers</strong></td>
+<td><code>braid()</code> — a tapered <code>K2</code> strand rimmed <code>#46536C</code>, four chevrons for the weave, a <code>SCARF</code> tie at 86 % and a three-feather tuft past it</td>
+<td><code>BRAIDS_PROFILE</code> / <code>BRAIDS_3Q</code> / <code>BRAIDS_FRONT</code>, drawn first in each <code>head_*()</code> so the skull hides the roots</td>
+</tr>
+</tbody>
+</table>
+<p>Per view:</p>
+<ul>
+<li><strong>Profile.</strong> The band sits on the side of the neck and goes down <strong>before</strong> the wing, so the
+  shoulder coverts overlap its back end; the tails go down <strong>after</strong> the wing and stream back over
+  the mantle, rising, with the knot at the back of the neck under the braid tips. Asleep
+  (<code>closed=True</code>, the <code>pause</code> pose) there is no updraft: <code>SCARF_TAILS_ASLEEP</code> droops them, short,
+  clear of the nightcap's tassel.</li>
+<li><strong>Three-quarter.</strong> The band wraps the base of the neck <strong>over</strong> the ruff, whose points spill out
+  below it (the band is kept narrow for that reason). The knot and tails leave from the far
+  shoulder, where the back of the neck is in this view. Braids hang beside the far cheek. The
+  fledgling (<code>juv=True</code>) gets neither cue — it is not the champion.</li>
+<li><strong>Front.</strong> Head-on the tails cannot stream behind, so they hang from a knot beside the bill,
+  short, over the breast; braid tips show either side of the neck. <code>warn</code> keeps them: a scarf is
+  not a gag prop, and the stop-sign silhouette is unchanged.</li>
+<li><strong>Badge.</strong> The band only, as one blue stroke under the chin, and a single braid with the weave
+  dropped (<code>braid(simple=True)</code>). The tails would be sub-pixel at 30 px, so the badge has none.</li>
+</ul>
+<p>The tails are the one nod to Revali's Gale — his self-made updraft — in cloth rather than in
+swirl lines. They take the <strong>thin</strong> halo (6), like the legs and the spread-wing fans: at their width
+the body rim would turn them into pale sausages. Braid halos rotate with the head (<code>rotg</code>) so the
+rim stays on the art under <code>tilt</code>.</p>
+<p><strong>Voice.</strong> Captions may lean toward Revali's self-assured, slightly smug register — proud of his
+own work, never at the reader's expense, and still dry and ≤ 18 words. The humour rule below is
+unchanged: he is never funny on <code>⚠</code>, and FAIL stays sympathetic.</p>
+<h3 id="halo">Halo<a class="headerlink" href="#halo" title="Permanent link">¶</a></h3>
+<p>The bird has no dark outline. A <code>halo</code> pass draws the outer silhouette shapes (torso, skull, bill,
+wing envelope, primaries, tail, hackle points, legs) filled and stroked in <code>#EDF0F4</code> <strong>before</strong> the
+art, so the union reads as a pale rim on Material's slate (<code>#1e2129</code>). Stroke is 10.5 for the body,
+6 for the legs — wider and the bird looks like a sticker, narrower and it vanishes on dark.</p>
+<p>Only groups that move relative to the halo may rotate, and only by a degree or two, otherwise the
+art slides off its own rim.</p>
+<h2 id="layers-and-their-animation-roles">Layers and their animation roles<a class="headerlink" href="#layers-and-their-animation-roles" title="Permanent link">¶</a></h2>
+<p>Every animated group carries an invisible full-viewBox <code>&lt;rect&gt;</code> first. That fixes its <code>fill-box</code>
+bounding box to the viewBox, which is what makes <code>transform-origin</code> px values mean user-space
+coordinates. Remove the rect and the origin silently moves.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Holds</th>
+<th>Idle motion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.m-body</code></td>
+<td>everything</td>
+<td>breathe, <code>scaleY</code> 1.013 over 4.2 s, origin at the feet</td>
+</tr>
+<tr>
+<td><code>.m-head</code></td>
+<td>skull, bill, bristles, eye</td>
+<td>slow look, ±2.2° over 9 s</td>
+</tr>
+<tr>
+<td><code>.m-eye</code></td>
+<td>eye disc and highlights</td>
+<td>blink, <code>scaleY</code> .08 for ~70 ms every 5.4 s</td>
+</tr>
+<tr>
+<td><code>.m-tail</code></td>
+<td>rectrices</td>
+<td>tail-set, 1.4° over 11 s</td>
+</tr>
+<tr>
+<td><code>.m-wing</code></td>
+<td>folded wing rows</td>
+<td>static when idle; the <code>.wave</code> one-shot rotates it</td>
+</tr>
+<tr>
+<td>(spread wings)</td>
+<td><code>spread_wing</code> fans</td>
+<td>static — they sit outside <code>.m-wing</code> so the fan never slides off its rim</td>
+</tr>
+<tr>
+<td><code>.m-leg-lift</code></td>
+<td>near leg, <code>pass</code> only</td>
+<td>foot lift every 7.6 s</td>
+</tr>
+<tr>
+<td><code>.m-prop</code></td>
+<td>tray, magnifier, caliper, reprint arrow</td>
+<td>per-pose bob / raise / turn</td>
+</tr>
+<tr>
+<td><code>.m-zz</code></td>
+<td>the three sleep marks</td>
+<td>drift up and fade, 4.6 s</td>
+</tr>
+<tr>
+<td><code>.m-bulb</code></td>
+<td>the <code>tip</code> bulb</td>
+<td>flicker</td>
+</tr>
+<tr>
+<td><code>.m-chick</code></td>
+<td>the fledgling</td>
+<td>hop</td>
+</tr>
+<tr>
+<td><code>.m-layer</code></td>
+<td>the printer's first layer</td>
+<td><code>scaleX</code> .04 → 1</td>
+</tr>
+<tr>
+<td><code>.m-tick</code>, <code>.m-flap</code></td>
+<td>PASS tick, carton flaps</td>
+<td>pop, wobble</td>
+</tr>
+</tbody>
+</table>
+<p>All of it is inside <code>@media (prefers-reduced-motion: no-preference)</code>; with motion off every file is
+static and complete. <code>.still</code> on the root kills animation regardless. <code>.wave</code> is a one-shot greeting
+(wing + head) for a page that wants the bird to say hello on load.</p>
+<p><strong>Never put an animated class and a <code>transform</code> attribute on the same element.</strong> A CSS transform
+animation overrides the attribute outright and the element jumps to the origin. <code>place()</code> exists to
+keep positioning on an outer group and animation on an inner one.</p>
+<h2 id="palette">Palette<a class="headerlink" href="#palette" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Hex</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>K0</code></td>
+<td><code>#0E1116</code></td>
+<td>primaries, lower mandible, far leg, deepest separations</td>
+</tr>
+<tr>
+<td><code>K1</code></td>
+<td><code>#161A21</code></td>
+<td>body base, skull, near leg</td>
+</tr>
+<tr>
+<td><code>K2</code></td>
+<td><code>#222A38</code></td>
+<td>mantle, greater coverts, hackles</td>
+</tr>
+<tr>
+<td><code>K3</code></td>
+<td><code>#30394B</code></td>
+<td>nape, crown, median and lesser coverts, breast edge</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td><code>#2B3341</code> / <code>#3C465A</code></td>
+<td>feather separation strokes — the brighter one only in the dark tail/primary mass</td>
+</tr>
+<tr>
+<td>Sheen</td>
+<td><code>#4C7FD3</code> → <code>#2A6FB5</code></td>
+<td><strong>the one permitted gradient</strong>, id <code>sheen</code>, crown and wing coverts only</td>
+</tr>
+<tr>
+<td>Halo</td>
+<td><code>#EDF0F4</code></td>
+<td>the silhouette rim, closed eyelid</td>
+</tr>
+<tr>
+<td>Eye</td>
+<td><code>#0E1116</code> + <code>#FFFFFF</code></td>
+<td>dark eye, white highlight — the brightest thing in the file</td>
+</tr>
+<tr>
+<td>Prop blue</td>
+<td><code>#2A6FB5</code> / <code>#DCE9F6</code></td>
+<td>spool band, lens, nightcap, printer window, bulb</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td><code>#5C6675</code> / <code>#E7E9EC</code> / <code>#B6BDC6</code></td>
+<td>tray, caliper, carton, magnifier ring, bulb base</td>
+</tr>
+<tr>
+<td>Feather rim</td>
+<td><code>#333D50</code> / <code>#46536C</code></td>
+<td>the lighter fringe on a covert, drawn by <code>shingle()</code></td>
+</tr>
+<tr>
+<td>Barb / rachis</td>
+<td><code>#3C465A</code></td>
+<td><code>plume()</code> strokes on flight feathers, at 0.5 opacity</td>
+</tr>
+<tr>
+<td>Gape flange</td>
+<td><code>#6B7689</code></td>
+<td>the fledgling's pale gape, nothing else</td>
+</tr>
+<tr>
+<td>Amber</td>
+<td><code>#D98324</code> / <code>#FBEBD3</code></td>
+<td>hard hat and the reprint arrow. <strong>Warn and fail only.</strong></td>
+</tr>
+<tr>
+<td>Green</td>
+<td><code>#2E7D32</code></td>
+<td>the PASS tick, nothing else</td>
+</tr>
+<tr>
+<td>Scarf</td>
+<td><code>#1F4E9C</code> base / <code>#3A6DC4</code> lit fold / <code>#163B7A</code> crease, knot, edge</td>
+<td>Revali's Champion scarf and the braid ties, nothing else. The base is the manual's accent blue — the printer's frame — so the character and the build share one colour. Flat, no gradient. Contrast: base 8.0:1 on white, 2.2:1 on the body and on slate — the lit fold (3.6:1 on the body) and the halo rim are what carry it on the dark theme; checked at 30 px on both</td>
+</tr>
+</tbody>
+</table>
+<p>No other colour, no second gradient, no filters, no raster, no fonts, no scripts. Props carry
+finish but stay flat: hex drives on the screw heads, a tick scale on the caliper beam, a bevel ring
+and a knurled grip on the magnifier, and <strong>brand-neutral</strong> labels on the bin and carton — bars and
+blocks, never lettering, since the files carry no fonts.</p>
+<p>Per-file budget is <strong>80 KB</strong>; the set currently peaks at 61 KB (<code>helper</code>, which holds two birds).</p>
+<h2 id="sizing">Sizing<a class="headerlink" href="#sizing" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Size</th>
+<th>Use</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≥ 160 px</td>
+<td>page illustration</td>
+<td>the detailed poses in all three views; feather rows and props resolve here</td>
+</tr>
+<tr>
+<td>30–48 px</td>
+<td>inline badge</td>
+<td><code>mascot-badge.svg</code> <strong>only</strong> — head and shoulders, three hackle scallops, one big eye, the scarf band as one blue stroke</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed poses do not survive 48 px: the feather rows mush and the props become grey specks.
+That is what the badge file is for. Keep the square viewBox; scale with <code>width</code>/<code>height</code>, never
+crop, never re-colour with a CSS filter.</p>
+<h2 id="humour-rule">Humour rule<a class="headerlink" href="#humour-rule" title="Permanent link">¶</a></h2>
+<p>Dry and kind, and rationed.</p>
+<ul>
+<li><strong>The bird never makes the mistake.</strong> It watches, checks, shrugs alongside you, points at a
+  lightbulb. It never breaks a part, never drops a screw, and is never the butt of the joke.</li>
+<li><strong>Never funny on <code>⚠</code>.</strong> Mains, hot end, blade, magnets, anything that can hurt a person or scrap a
+  part: the hard-hat pose only — no smile, no gag prop, no tilt. If a page's warning is serious
+  enough to need the bird, the bird is serious too.</li>
+<li><strong>FAIL is sympathetic.</strong> A shrug and a spool to print again. No tears, no facepalm, no red, no
+  "oops". The gate failed, not the builder.</li>
+<li><strong>No speech.</strong> No bubbles, no captions, no puns in <code>&lt;title&gt;</code>. The manual's words carry the
+  meaning; the bird is punctuation.</li>
+<li>One mascot per page maximum, and no mascot at all on a page whose job is a number.</li>
+</ul>
+<h2 id="file-naming">File naming<a class="headerlink" href="#file-naming" title="Permanent link">¶</a></h2>
+<p><code>mascot-&lt;pose&gt;.svg</code>, lowercase, pose in one word. Previews are <code>preview/mascot-&lt;pose&gt;-light.png</code> and
+<code>-dark.png</code> at 512 px, plus <code>preview/mascot-badge-48.png</code>. A new meaning is a new file — never
+repurpose an existing pose, because the map below is how the next pass will place them.</p>
+<hr>
+<h2 id="where-each-pose-belongs">Where each pose belongs<a class="headerlink" href="#where-each-pose-belongs" title="Permanent link">¶</a></h2>
+<p>A proposal for the next pass. Nothing in the manual references these files yet. <code>VIEW_OF</code> in the
+generator is the authority on which view a pose is in, and it asserts against <code>POSES</code> at build time.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>View</th>
+<th>The moment</th>
+<th>Proposed placement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mascot-base.svg</code></td>
+<td>profile</td>
+<td>the manual itself</td>
+<td>Home, beside the title</td>
+</tr>
+<tr>
+<td><code>mascot-badge.svg</code></td>
+<td>3Q head</td>
+<td>the manual speaking, inline</td>
+<td>48 px in the site header and beside field labels</td>
+</tr>
+<tr>
+<td><code>mascot-check.svg</code></td>
+<td>profile</td>
+<td>verifying before moving on</td>
+<td>the Check field's badge, and a chapter that ends in a measurement</td>
+</tr>
+<tr>
+<td><code>mascot-gather.svg</code></td>
+<td>profile</td>
+<td>staging parts before a run of steps</td>
+<td>the generated <strong>Gather for this segment</strong> block</td>
+</tr>
+<tr>
+<td><code>mascot-pause.svg</code></td>
+<td>profile</td>
+<td>stopping for the night</td>
+<td><code>Pause:</code> boxes, the Tonight planner, overnight plates</td>
+</tr>
+<tr>
+<td><code>mascot-print.svg</code></td>
+<td>profile</td>
+<td>watching a first layer</td>
+<td>print-batch overview headers, slicer setup</td>
+</tr>
+<tr>
+<td><code>mascot-screen.svg</code></td>
+<td>profile</td>
+<td>firmware and software</td>
+<td>Ch 12 flashing, Ch 13 first startup</td>
+</tr>
+<tr>
+<td><code>mascot-base-3q.svg</code></td>
+<td>3Q</td>
+<td>the bird, turned to you</td>
+<td>any page about the two of you rather than the machine</td>
+</tr>
+<tr>
+<td><code>mascot-pass.svg</code></td>
+<td>3Q</td>
+<td>a gate clears</td>
+<td>the gate-calculator PASS verdict panel</td>
+</tr>
+<tr>
+<td><code>mascot-fail.svg</code></td>
+<td>3Q</td>
+<td>a gate does not clear</td>
+<td>the same panel's FAIL state</td>
+</tr>
+<tr>
+<td><code>mascot-tip.svg</code></td>
+<td>3Q</td>
+<td>a shortcut worth knowing</td>
+<td><code>Tip:</code> boxes, one per chapter at most</td>
+</tr>
+<tr>
+<td><code>mascot-helper.svg</code></td>
+<td>3Q</td>
+<td>a step that wants two pairs of hands</td>
+<td>the <code>**Helper:**</code> badge, the "With a helper" section</td>
+</tr>
+<tr>
+<td><code>mascot-hexkey.svg</code></td>
+<td>3Q</td>
+<td>tightening a fastener</td>
+<td>Ch 01 squaring, and any step whose verb is <em>tighten</em></td>
+</tr>
+<tr>
+<td><code>mascot-caliper.svg</code></td>
+<td>3Q</td>
+<td>reading a measurement</td>
+<td>test cubes, belt spacing, gate numbers</td>
+</tr>
+<tr>
+<td><code>mascot-point.svg</code></td>
+<td>3Q</td>
+<td>"look at this one"</td>
+<td>Do lines that single out a part, diagram callouts</td>
+</tr>
+<tr>
+<td><code>mascot-carry.svg</code></td>
+<td>3Q</td>
+<td>sorting</td>
+<td>the bin-label page, per-chapter sorting diagrams</td>
+</tr>
+<tr>
+<td><code>mascot-cable.svg</code></td>
+<td>3Q</td>
+<td>low-voltage wiring</td>
+<td>Ch 10. Signal connectors only</td>
+</tr>
+<tr>
+<td><code>mascot-base-front.svg</code></td>
+<td>front</td>
+<td>the bird greeting you</td>
+<td>Home; carries the <code>.wave</code> one-shot</td>
+</tr>
+<tr>
+<td><code>mascot-warn.svg</code></td>
+<td>front</td>
+<td>safety, not caution</td>
+<td>Ch 00a mains safety, and the one or two <code>⚠</code> boxes that can hurt someone</td>
+</tr>
+<tr>
+<td><code>mascot-kitday.svg</code></td>
+<td>front</td>
+<td>the day a carton lands</td>
+<td>Home's kit-day step, the B00 Gen-2-first note, Ch 00 unpacking</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deliberately absent.</strong> There is no pose for mains, soldering iron, blade or hot chamber. Those
+steps get no mascot at all — see the humour rule. <code>mascot-cable.svg</code> is low-voltage signal wiring
+only: a connector and its tail, never a stripped conductor, never a mains lead.</p>
+<p><strong>How to place them, when that pass happens.</strong> Step pages under <code>docs/manual/steps/</code> are generated
+by <code>scripts/build_steps.py</code>; never edit them. Art goes into the chapter markdown, or into the hook
+that renders the block it belongs to (<code>hooks/callouts.py</code> for the callout badges,
+<code>hooks/gatecalc.py</code> for the verdict panels) so every generated copy inherits it. Placement must not
+touch step ids, and a mascot image line must stay outside the budgeted fields — it is not part of a
+Do or Check run. Add one <code>.mascot</code> / <code>.mascot--badge</code> rule to <code>docs/stylesheets/extra.css</code> rather
+than sizing each image inline.</p>
+<p>Reference the SVG, not the preview PNG: CSS animations inside an SVG do run when it is loaded
+through <code>&lt;img&gt;</code>, which is how a Markdown image line loads it.</p>
+<h2 id="regenerating">Regenerating<a class="headerlink" href="#regenerating" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>scripts/gen_mascot.py<span class="w"> </span>docs/manual/assets/mascot<span class="w"> </span>--preview
+</code></pre></div>
+<p>Rewrites all twenty SVGs and re-renders the preview PNGs (512 px light and dark, plus the badge at
+48 px) with <code>rsvg-convert</code>. <code>#1e2129</code> is Material's slate page colour. Check a new pose at 48 px on
+both backgrounds before committing it; that is the size that fails first.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../javascripts/wakelock.js"></script>
+      
+        <script src="../../../../javascripts/progress.js"></script>
+      
+        <script src="../../../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../../../javascripts/stepnav.js"></script>
+      
+        <script src="../../../../javascripts/gatecalc.js"></script>
+      
+        <script src="../../../../javascripts/taptree.js"></script>
+      
+        <script src="../../../../javascripts/boards.js"></script>
+      
+        <script src="../../../../javascripts/tonight.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

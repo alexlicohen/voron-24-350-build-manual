@@ -1,0 +1,46 @@
+# Mirrored step images for docs/manual/00a-mains-safety.md
+# Mirrored 2026-09-05 (wave-3 chapter pass) from the local LDO cache
+# (docs/manual/assets/ldo/, gitignored), under CONVENTIONS.md "Image
+# licensing" — non-commercial, attributed. Attribution: LDO Motors.
+# These steps previously carried "(no image — see <url>)" pointers or no image
+# at all; the image is now local and the URL stays on the step's Source: line.
+
+VS9_Final.jpg
+  used at : Step 00a.6 — the finished bay, showing every branch of the earth chain in one frame
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/VS9_Final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 77dec4f6a2d2e1875fe9a58f30d9b002c0a892e600ababe087f623fad2bc6bbe
+
+SSR_Close_Up.jpg
+  used at : Step 00a.7 — the "EARTH THE MOUNTING RAIL" marking is legible on the relay body
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 19a0eefd2d89ad6edb873246fdb61a373722c1888a7fa677487a5028001b5089
+  note    : Rev C photo — the relay in it is the 20 A G3NB-220B-1 and the bus is
+            DIN terminal blocks, where the Rev D kit ships the 10 A G3NB-210B-1
+            and WAGO 221 blocks. Used for the marking and the ferrules, not the
+            part number; the chapter caption says so.
+
+S3_wago_PSU.jpg
+  used at : Step 00a.8 — ferrules landing in the Meanwell's screw block, WAGO 221 levers below
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S3_wago_PSU.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S3_wago_PSU.jpg
+  date    : 2026-09-05
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  sha256  : 514c18db68fccde45b0a7cc2285a6bf92717c10d916ab0a19c252a35c02ae7a0
+
+inlet_layout.png
+  used at : Step 00a.10
+  owner   : LDO Motors (docs.ldomotors.com)
+  cited-as: https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png
+  fetched : https://docs.ldomotors.com/v01_wire_guide/inlet_layout.png
+  date    : 2026-09-05
+  licence : © LDO Motors — wiki content marked all-rights-reserved; mirrored with attribution, non-commercial (coordinator ruling 2026-09-05)
+  sha256  : bbd1197cd98b4cfe2c5aa08b774dd813e1045cd2b89acff1e8e0b7ad9dd5dc1f
