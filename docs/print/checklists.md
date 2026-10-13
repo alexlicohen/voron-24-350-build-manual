@@ -205,7 +205,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
-- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out and 1.5 mm clear of the plate; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
+- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 1.5 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.

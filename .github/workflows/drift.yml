@@ -27,9 +27,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -o pipefail
+          # The default shell is `bash -e`: without set +e a CHANGED exit kills the
+          # step here and the issue step never runs.
+          set +e
           python3 scripts/sources_verify.py --git-only | tee drift-report.txt
-          status=$?
+          status=${PIPESTATUS[0]}
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit 0
 

@@ -3697,7 +3697,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in.",
+     "leave_state": "USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge; the printer is still on its head. Nothing plugged in.",
      "helpers": [
       [
        "09.27",
@@ -3716,7 +3716,7 @@
        "Slides the 1.5 mm hex key between pin and plate and says whether it just fits."
       ]
      ],
-     "text": "Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin in the plate's rear cut-out; the printer is still on its head. Nothing plugged in."
+     "text": "Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge; the printer is still on its head. Nothing plugged in."
     },
     {
      "id": "09-electronics-bay#6",
