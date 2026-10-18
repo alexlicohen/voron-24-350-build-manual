@@ -26,7 +26,7 @@ file exist and they are not the same file:
   inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
   reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
 - `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
-  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.11 (2026-10-02, HT hotend support for the CORE One/L; 2.5.10 on 2026-09-17 added Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks). Resolved through `inherits`, the CORE One HF0.4 printer, its start G-code, the 0.20mm STRUCTURAL print, Prusament ASA and Prusament PETG V0 carry the same values in both; 2.5.11 only rewrites Prusament ASA's compatibility conditions to keep it off HT-hotend profiles, and it still matches the HF0.4 printer. The update is safe to take.
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.12 (2026-10-15: INDX tool-change script, Generic PVA, INDX firmware notice; 2.5.11 on 2026-10-02 added HT hotend support for the CORE One/L; 2.5.10 on 2026-09-17 added Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks). Resolved through `inherits`, the CORE One HF0.4 printer, its start G-code, the 0.20mm STRUCTURAL print, Prusament ASA and Prusament PETG V0 carry the same values in both, and 2.5.12 leaves them and Prusament PETG unchanged; 2.5.11 only rewrites Prusament ASA's compatibility conditions to keep it off HT-hotend profiles, and it still matches the HF0.4 printer. The update is safe to take.
 
 They differ on one key that reaches these plates: 2.5.8+'s CORE One `start_gcode` bumps the firmware
 check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be
@@ -225,8 +225,9 @@ expansion joints and nozzle wiper go in first (ruling 2026-10-01); only the belt
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~157 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
-2. **Firmware ≥ 6.8.1** on the Core One+ — the current non-INDX build, required either way. It already
-   carries the Settings → Hardware → Edition selector the Gen 2 + INDX rebuild will use later.
+2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 7.0.0 (2026-10-05). 6.8.1
+   carries the Settings → Hardware → Edition selector and the individual Gen 2 toggles the rebuild
+   will use; that 7.0.0 keeps both is `(verify on bench)`.
 3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
    Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling. Judge
    B00-P1's first layer by Ellis' smooth-bottom rule: no gaps between beads, no ridging. If it needs a

@@ -9,7 +9,8 @@ Three kinds of source (slicer/plates.py):
   REPOS       GitHub, raw file at a pinned commit.
   PRINTABLES  B11's stock MSS pieces: Printables' GraphQL `getDownloadLink` for one file
               id (the id is the pin; a re-upload gets a new one). Needs a browser UA and
-              the printables.com origin/referer, or the API refuses.
+              the printables.com origin/referer, or the API refuses. Model 502306 was
+              withdrawn by 2026-10-18, so its files are committed and only hashed here.
   TRACKED     committed files (B11's remixes under slicer/stl/; the scrubber add-on's source
               STEP and default STLs under slicer/addons/, plates.py ROOTS/ADDONS): hashed,
               never downloaded. --verify fails if one has changed since the manifest was written.

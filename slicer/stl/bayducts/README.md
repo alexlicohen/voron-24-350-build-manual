@@ -7,7 +7,8 @@ Print page: `docs/manual/print/B11-bay-ducting.md`. Plates: `slicer/plates.py` (
 GPL-3.0. Every file here is, or is derived from:
 
 - **MyStoopidStuff**, *Remix of RyanDam's Cable Management Duct for Voron Printers, Version 3.2*,
-  <https://www.printables.com/model/502306> (GPL 3.0), itself a remix of
+  <https://www.printables.com/model/502306> (GPL 3.0; withdrawn from Printables by 2026-10-18, the
+  copies here are byte-for-byte as fetched on 2026-09-23), itself a remix of
 - **RyanDam**, *Cable Management Duct* for Voron printers.
 
 The files under `remix/` are **remixed for the LDO Rev D+ bay** (Voron 2.4 R2 350) in this repo,
@@ -19,7 +20,7 @@ text is at <https://www.gnu.org/licenses/gpl-3.0.html>.
 
 | Folder | What | In git? | How it gets here |
 |---|---|---|---|
-| `mss/502306/` | MSS stock pieces, byte-for-byte | no (gitignored) | `python3 slicer/fetch_stls.py`, by Printables file id (`slicer/plates.py` `PRINTABLES`) |
+| `mss/502306/` | MSS stock pieces, byte-for-byte | yes (since 2026-10-18) | committed: Printables 502306 no longer serves them; `fetch_stls.py` only hashes them |
 | `remix/` | the V2L_* / V3L_* remixes | yes | committed; `fetch_stls.py` only hashes them |
 
 `slicer/stl/MANIFEST.sha256` pins both. `python3 slicer/fetch_stls.py --verify` fails if a file here

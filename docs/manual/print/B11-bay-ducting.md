@@ -304,7 +304,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and ben
 
 ```bash
 # once: python3 -m venv ~/.venv-remix && ~/.venv-remix/bin/pip install trimesh manifold3d numpy
-# the MSS parents are gitignored: run python3 slicer/fetch_stls.py first if slicer/stl/bayducts/mss/502306/ is empty
+# the MSS parents are committed in slicer/stl/bayducts/mss/502306/ (Printables 502306 was withdrawn)
 # L = new length, 22, 34, 46 … (10 + 12n). P = parent: 82 for L up to 70, 142 up to 130, else 154.
 REPO=$PWD L=22 P=82
 S=$(mktemp -d); mkdir -p $S/mods/layout-v2 $S/mods/layout-v3/remix

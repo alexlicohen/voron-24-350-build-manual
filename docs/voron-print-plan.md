@@ -179,7 +179,7 @@ material where wet filament actually costs you strength.
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so there is nothing to install here. You're
    about to run ~157 h of ASA in an enclosure: on the first ASA plate confirm the blower runs and the bypass
    flaps seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
-2. **Firmware ≥ 6.8.1** on the Core One+ (6.9.x is INDX-only until the INDX kit is fitted).
+2. **Firmware ≥ 6.8.1** on the Core One+. It runs 7.0.0 (2026-10-05), the first non-INDX release after 6.8.1.
 3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
    Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling
    ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)). Judge B00-P1's
@@ -640,7 +640,7 @@ Ch 10 fits the strip fin. Layout v3, adopted 2026-09-23 — design record
 **Not in any run total above or below.** Prusament PETG V0 Jet Black on the textured sheet, sliced with
 `slicer/bay-ducts-petg.ini` (3 perimeters, 4/4 solid, 20 % grid, no supports: ducts carry no load, so not
 Voron spec). STLs: MyStoopidStuff's remix of RyanDam's Cable Management Duct (Printables 502306, GPL-3.0),
-stock pieces fetched into `slicer/stl/bayducts/mss/502306/`, remixes for the Rev D+ bay committed in
+stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables model was withdrawn by 2026-10-18), remixes for the Rev D+ bay committed in
 `slicer/stl/bayducts/remix/`. The parts table with per-copy grams is on the batch page; per plate:
 
 - **Plate B11-P1** (0.4 h, 4 g) — before kit, printed first and alone: `V3L_COUPON_22N_DUCT` + cover, the

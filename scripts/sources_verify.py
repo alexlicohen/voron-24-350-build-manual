@@ -39,14 +39,22 @@ import sources_common as sc
 
 def check_printables(s, write=False):
     """One sources.yml entry with a `printables:` block -> (status, lines).
-    status: 'OK', 'CHANGED' or 'ERROR'. With write=True a changed pin is refreshed
-    (the CHANGED lines still print, as for a moved git sha)."""
+    status: 'OK', 'CHANGED', 'ERROR' or 'WITHDRAWN' (a pin marked `withdrawn: <date>` that
+    Printables no longer serves; not a failure, and CHANGED if the model comes back).
+    With write=True a changed pin is refreshed (the CHANGED lines still print, as for a
+    moved git sha)."""
     pin = s["printables"]
     tag = f"printables:{pin['print_id']}"
     try:
         current = sc.printables_fingerprint(pin["print_id"])
     except RuntimeError as e:
+        if pin.get("withdrawn"):
+            # gone from Printables; the build uses the committed copies (MANIFEST.sha256)
+            return "WITHDRAWN", [f"WITHDRAWN {tag} since {pin['withdrawn']}: {e}"]
         return "ERROR", [f"ERROR {tag}: {e}"]
+    if pin.get("withdrawn"):
+        return "CHANGED", [f"CHANGED {tag} is back on Printables ({s['url']}): "
+                           f"drop `withdrawn` from its sources.yml pin and re-check it"]
     diffs = sc.printables_diff(pin, current) + sc.printables_local_check(pin)
     if not diffs:
         n = len(current["files"])
@@ -105,7 +113,7 @@ def verify_git_only():
         if "printables" in s:
             state, lines = check_printables(s)
             print("\n".join(lines))
-            changed |= state != "OK"
+            changed |= state not in ("OK", "WITHDRAWN")
 
     return 1 if changed else 0
 
@@ -122,7 +130,7 @@ def verify_all(write, today):
             printables_lines += lines
             if state == "ERROR":
                 non200.append((s["id"], s["url"], "printables API"))
-            else:
+            elif state != "WITHDRAWN":
                 s["last_verified"] = today
                 if state == "CHANGED":
                     sha_changes.append((s["id"], "printables", s["printables"]["print_id"], "see below"))
