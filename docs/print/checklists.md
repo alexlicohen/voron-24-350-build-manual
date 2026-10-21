@@ -325,7 +325,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Gate A — before B02 and B07**
 
-- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, hot first-layer check `(verify on bench)`
+- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, loadcell heater-noise test, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm

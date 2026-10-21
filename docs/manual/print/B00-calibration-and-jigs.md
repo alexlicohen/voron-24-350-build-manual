@@ -79,10 +79,11 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the two
-checks — belt tuning was never formally closed, and the bed has only been proved flat at 60 °C, not at ASA
-temperature. They sit here, after Step B00.0, because the hot check opens a project on the presets B00.0
-installs; they run before Step B00.8 and before any plate.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the three
+checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
+09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
+here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
+before Step B00.8 and before any plate.
 
 **0. Fit the Gen 2 expansion joints and nozzle wiper** `(verify on bench)`
 
@@ -90,6 +91,7 @@ installs; they run before Step B00.8 and before any plate.
 - [ ] Chapter **4. Heatbed upgrade**, all of it: expansion joints, heatbed spacer and aligner, nozzle wiper, panels back on
 - [ ] Chapter 5: skip Belt tensioning and Changing the printer edition; run the Selftest
 - [ ] Settings → Hardware → **Expansion Joints Gen 2** on, → **Nozzle Wiper** on, **GT1.5 Belts** left off. Never pick Edition = CORE One+ Gen2: it also sets GT1.5 steps/mm, wrong for the GT2 belts still fitted
+- [ ] Switch Expansion Joints on only once the joints are fitted. The firmware then halves the "Absorbing heat" wait before the mesh and skips it for beds ≤ 85 °C ([Buddy source, `temperature.cpp`](https://github.com/prusa3d/Prusa-Firmware-Buddy/blob/master/lib/Marlin/Marlin/src/module/temperature.cpp)); on rigid mounts that short wait lets the bed keep moving after the mesh. Firmware 7.0.0 has no published source: confirm both toggles are still under Settings → Hardware
 - [ ] The heatbed came off, so the closed ±0.1 mm bed is open again: repeat the six-point bed check and re-fit the Z-stop correction caps until it is back inside ±0.1 mm
 
 **1. Belt pluck check** `(verify on bench)`
@@ -99,17 +101,36 @@ installs; they run before Step B00.8 and before any plate.
 - [ ] Upper belt ≈96 Hz (≤98 Hz), lower belt ≈92 Hz (≥92 Hz), ≤8 Hz apart
 - [ ] Out of range: Control → Calibrations & Tests → Belt Tuning (fw ≥ 6.8.1), tensioner screws half a turn, both evenly and alternately — left = upper, right = lower
 
-**2. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
+**2. Loadcell heater-noise test, from the printer panel** `(verify on bench)`
+
+The 22 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
+decides whether that workaround is still needed. Menu names are from firmware 6.8.1; 7.0.0 reorganized some.
+
+- [ ] Control → Auto Home, then Control → Move Axis → Z to **50**, so the nozzle is clear of the bed
+- [ ] Info → Sensor Info → **Loadcell Value**. Cold, hands off, 30 s: note the lowest and highest reading. Wander over ±10 g = something presses on the loadcell
+- [ ] Gently move the Nextruder cable bundle while watching. A jump over 100 g = the cable pulls on the loadcell
+- [ ] Control → Temperature → Nozzle → **200** (same as `M104 S200`). Back to Sensor Info; watch through the heat-up and 30 s at 200 °C
+- [ ] Swing under ±20 g: the stock start G-code is safe again. Over ±40 g: heater noise is real, keep the cold-probe start. In between: undecided, keep the cold-probe start for now
+- [ ] Nozzle back to 0 (Cooldown). Write down the three readings
+
+**3. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
 
 - [ ] Step B00.0 done; Galaxy Black ASA loaded as in Step B00.1; the sheet glued and Adv. Filtration set as in Step B00.3
 - [ ] **File → Open Project**: `slicer/checks/hot-first-layer.3mf` — five 30×30×0.2 mm squares, four corners plus centre, one layer, on B00-P1's presets (bed **110 °C**, the vendored cold start G-code); the printer box reads `(modified)`. Slice (~5 min print after the chamber heat-up) and print it
-- [ ] No "bed not aligned" / Z-alignment prompt during the print
+- [ ] No "bed not aligned" / Z-alignment prompt during the print. Firmware 7.0.0 added automatic Z alignment on an uneven bed, so the prompt may never appear: write down whether it ran an alignment on its own
+- [ ] "Absorbing heat" is noticeably shorter than before the expansion joints (item 0). Same wait as before = the Expansion Joints toggle is off or 7.0.0 behaves differently
+- [ ] Chamber filter blower runs and the bypass flaps close for the print (first ASA print on 7.0.0)
 - [ ] Every square calipers 0.17–0.23 mm
 - [ ] Spread across all five squares ≤ 0.05 mm
 - [ ] Print it again from `slicer/checks/hot-first-layer-heat-off.3mf`, the same plate on the heat-then-off start G-code: nozzle to 170 °C, retract, heater off, wipe, heater off again, then the mesh. Caliper its five squares the same way
+- [ ] If either print needed a Live Adjust Z nudge, check at the start of the next print whether it is still set. Kept = Live Adjust Z is stored per sheet; reset to 0 = it is not. This settles § Calibration sequence item 3 in 00-slicer-setup
 - [ ] Write down which start passed with the smaller spread and no prompt. If heat-then-off wins, stop here: all 22 plates must be re-synced to it and Live Adjust Z re-tuned before B00
 
-Both pass → Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck. Hot check fails on
+Both pass → Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck. Loadcell swing
+under ±20 g → stop before item 3 and record the readings: the 22 plates switch to the stock start
+(`python3 slicer/sync_start_gcode.py`) and the hot-check project needs a stock-start copy (`hot_check.py`
+builds only the cold and heat-then-off ones), then item 3 runs on it and Live Adjust Z is re-tuned about
++0.05 mm. Hot check fails on
 both starts → back to the bed check in item 0, then re-run it.
 
 - [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
@@ -384,7 +405,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 
 **Gate A — before B02 and B07**
 
-- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, hot first-layer check `(verify on bench)`
+- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, loadcell heater-noise test, hot first-layer check `(verify on bench)`
 - [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
