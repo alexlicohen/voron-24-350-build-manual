@@ -216,9 +216,9 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
 **deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.0 h
-run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
+run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
-open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
+open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
 its committed project right after Step B00.0 installs the presets. The Gen 2
 expansion joints and nozzle wiper go in first (ruling 2026-10-01); only the belts wait for INDX.
 
@@ -231,8 +231,8 @@ expansion joints and nozzle wiper go in first (ruling 2026-10-01); only the belt
 3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
    Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling. Judge
    B00-P1's first layer by Ellis' smooth-bottom rule: no gaps between beads, no ridging. If it needs a
-   nudge, long-press the knob during the first layer → **Live Adjust Z**. That nudge is **not remembered**
-   for the next print, so if you needed one, fix the cause (sheet not seated, debris under it, nozzle not
+   nudge, long-press the knob during the first layer → **Live Adjust Z**. Whether that nudge is kept for the
+   next print is `(verify on bench)`: B00 § Before B00, item 3 settles it. Either way, if you needed one, fix the cause (sheet not seated, debris under it, nozzle not
    fully seated, glue film uneven) before the next plate rather than nudging every plate.
    ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) ·
    [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html))
@@ -390,14 +390,17 @@ because nothing changes the machine under the parts.
 and a start-G-code re-sync of all 22 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
-**Two checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
+**Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
 the full tick list `(verify on bench)`:
 
 1. **Belt pluck check.** Belt tuning was never formally closed. Pluck mid-belt (motors disabled, head front,
    X centred) via belt.connect.prusa3d.com or the Prusa app; targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart.
    Out of range → Control → Calibrations & Tests → Belt Tuning, tensioner screws half a turn, evenly and
    alternately.
-2. **Hot first-layer check, at ASA bed temperature.** The bed has only been verified flat at 60 °C, not at
+2. **Loadcell heater-noise test, from the printer panel.** At Z 50, Info → Sensor Info → Loadcell Value:
+   cold wander over ±10 g or a cable-wiggle jump over 100 g = mechanical; at a 200 °C nozzle a swing under
+   ±20 g = the stock start G-code is safe again, over ±40 g = keep the cold-probe start.
+3. **Hot first-layer check, at ASA bed temperature.** The bed has only been verified flat at 60 °C, not at
    the Voron ASA batches' 50–60 °C chamber / hotter bed. Its project is committed:
    `slicer/checks/hot-first-layer.3mf`, five 30×30×0.2 mm squares (four corners + centre, one layer) in
    Galaxy Black ASA on B00-P1's presets, 110 °C bed, cold start G-code. It runs after Step B00.0, whose wizard
