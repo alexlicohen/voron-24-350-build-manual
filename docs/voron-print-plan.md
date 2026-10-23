@@ -710,7 +710,8 @@ less — margin you gain, not a budget to spend.
 | **ASA Blue** | **279 g** | 800 g (1 × 800 g) | **521 g** | **187 %** |
 | Total | 2092 g | 3200 g | 1108 g | — |
 
-**Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates. Typical
+**Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates, and the four
+optional add-ons would take about 239 g of it (blue: 120 g of 521 g). Typical
 first-build reprint rate is 10–15 %, so you should land fine — but:
 
 - Don't burn black on the optional extras (`bed_hole_marking_template`, `bottom_panel_template`, purge-bucket
@@ -813,7 +814,8 @@ pre-drilled), `bottom_panel_template`, `Purge Bucket/brush_holder_sheet_stop` + 
 [Printables 796563](https://www.printables.com/model/796563), an add-on outside the plates, **never printed ahead of kit day**: Ch 13 Part L
 measures the machine, `slicer/addons/scrubber-796563/remix.py` generates the parts from those numbers (or says
 no-go), and only then are they printed — about 3 parts, 38 g black ASA, 2 h 30 m; the kit's brass brush is a
-hand tool),
+hand tool), the Ch 11 Part C side spool holder and HappyCam camera mount (Printables 608769 remixed for Prusa's
+puck from 1605113, and 488020: 6 parts, about 220 g, 14 h, printed after Step 11.68 measures; `slicer/addons/`),
 `[a]_fan_grill_open_optional_x2`, `z_belt_cover_a_led` (LDO variant if you route the LED strip through the
 Z-belt opening), extra `ldo_bestagon_insert`s.
 

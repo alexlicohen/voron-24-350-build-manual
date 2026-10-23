@@ -54,6 +54,25 @@ EXTRA_SOURCES = [
         "kind": "community",
         "title": "Voron 2.4 Silicone Nozzle Scrubber w/ Sheet Stops (Beacon / Carto Compatible)",
     },
+    # The Ch 11 Part C add-ons (pinned by file id, size and sha256 like 796563).
+    {
+        "id": "printables-608769-voron-side-spool",
+        "url": "https://www.printables.com/model/608769",
+        "kind": "community",
+        "title": "Voron 2.4 (350 bed) Side mounted spool",
+    },
+    {
+        "id": "printables-1605113-prusa-uss-drybox-accessories",
+        "url": "https://www.printables.com/model/1605113",
+        "kind": "prusa",
+        "title": "Prusa USS Drybox printable accessories",
+    },
+    {
+        "id": "printables-488020-happycam-ov5640",
+        "url": "https://www.printables.com/model/488020",
+        "kind": "community",
+        "title": "HappyCam, Voron 2.4 OV5640 camera mount",
+    },
     {
         "id": "prusa-prusaslicer-settings-prusa-fff",
         "url": "https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff",

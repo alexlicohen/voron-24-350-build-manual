@@ -17,7 +17,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted above the deck on the left bed extrusion, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
 - **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
 - **Print batch B11**: `V2L_STRIP_FIN` and the AC conduit lids, both in bin 10-lids-AC, at Step 10.80.
-- **Camera add-on:** its 2 m USB cable in hand for Step 10.81, before the slot covers at 10.38. Nothing is printed for it yet; the mount comes in Ch 11 Part C.
+- **Camera add-on:** its 3 m USB cable in hand for Step 10.81, before the slot covers at 10.38. Nothing is printed for it yet; the mount comes in Ch 11 Part C.
 
 **Tools**
 
@@ -1025,23 +1025,23 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 ![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
 
-**What you're looking at:** The camera add-on hangs a small USB camera inside the top front extrusion, fitted in Ch 11 Part C. Its cable shares the LED lead's covered slots, so it goes in now, before the next step closes them.
+**What you're looking at:** The camera add-on hangs a small USB camera inside the top front extrusion, fitted in Ch 11 Part C. Its cable runs in covered slots like the LED lead, so it goes in now, before the next step closes them.
 
 **Parts:**
 
-- camera USB cable, 2 m ×1 — from the camera add-on order
+- camera USB cable, 3 m ×1 — from the camera add-on order
 - consumable: masking tape
 
 **Do:**
 
-1. Lay it in the top front extrusion's lower slot, centre to right corner, then the top right extrusion's to the rear.
-2. Run it down the rear-right vertical, into the deck, to a Pi USB 2.0 port.
+1. Tape a 10 cm tail 5 cm left of front centre; run it along the top front and top right lower slots.
+2. Down the rear-right vertical and the Z-chain notch; coil the tagged plug end at the Pi.
 
-**Check:** A 10 cm tail taped at the front centre, the cable below every slot lip, and the bay end plugged in.
+**Check:** The tail taped left of the front centre, the cable below every slot lip, and the plug end tagged at the Pi, unplugged.
 
 **Helper:** Feeds the cable along each slot from the corner while the adult seats it.
 
-⚠ Camera add-on only: skip this step without it. The camera's cable leaves its mount at the printer-right end, hence the right-hand route. A lower slot already in use: take another free slot on the same extrusion, inside the frame and clear of the gantry's Z travel `(verify on bench)`.
+⚠ Camera add-on only: skip this step without it. The cable leaves the camera at its left end, hence the tail left of centre. Lay the whole run before taping; if it falls short of the Pi, get a longer cable. Lower slot taken: another free slot on that extrusion, never the top front inner slot, clear of Z travel `(verify on bench)`.
 
 Source: [HappyCam, Printables 488020](https://www.printables.com/model/488020) · `slicer/addons/happycam-488020/README.md` · [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips)
 
@@ -1090,7 +1090,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: Part 9 @1:36:20](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5780s)
 
-Pause: ~45 min since the last pause — eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead and camera cable routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.
+Pause: ~35 min since the last pause, ~45 with the camera cable — eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed, the camera cable too if fitted, and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.
 
 ---
 
@@ -1802,7 +1802,7 @@ Source: [LDO Rev D photo VS9 finished bay](https://raw.githubusercontent.com/Mot
 
 - consumable: zip ties, 3 to 4
 
-**Do:** Tie each bundle to the deck support or the frame just below its opening: bed L, N and PE at the hole; umbilical, XY endstop, A, B, LED, bed TH, nozzle probe and filter fan at the notch.
+**Do:** Tie each bundle to the deck support or the frame just below its opening: bed L, N and PE at the hole; umbilical, XY endstop, A, B, LED, bed TH, nozzle probe, filter fan, any camera USB at the notch.
 
 **Check:** Lift each bundle above deck: the strain stops at its tie. No connector below deck moves.
 
@@ -1822,7 +1822,7 @@ Source: [LDO wiring guide § Below-deck wiring](https://docs.ldomotors.com/en/vo
 
 - consumable: cable tags, for whatever is missing
 
-**Do:** Walk every cable that reaches the Leviathan, the PSU, the SSR or the USB adapter and read its tag aloud: what it is, where its far end goes. Tag anything that has none.
+**Do:** Walk every cable that reaches the Leviathan, the PSU, the SSR, the USB adapter or the Pi and read its tag aloud: what it is, where its far end goes. Tag anything that has none.
 
 **Check:** You could disconnect the whole board and put it back tomorrow from the tags alone.
 

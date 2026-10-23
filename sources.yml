@@ -837,8 +837,8 @@ sources:
       Cameradoor_120.stl: e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f
       HappyCam_main-350.stl: d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd
     on_change: re-fetch the 350 body and the door (slicer/plates.py PRINTABLES file ids), re-check the
-      board pegs (two 1.7 mm, 50 mm apart) against Ch 11 Step 11.68's calculator and the cable exit at
-      the printer-right end against Ch 10 Step 10.81; re-slice Step 11.69 job 2
+      board pegs (three 1.7 mm: two 4 mm apart across one end, one 50 mm along) against Ch 11 Step 11.68's
+      calculator and the cable exit at the printer-left end against Ch 10 Step 10.81; re-slice Step 11.69 job 2
 - id: printables-502306-cable-duct-remix
   url: https://www.printables.com/model/502306
   kind: community

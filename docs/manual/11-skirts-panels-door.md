@@ -9,7 +9,7 @@ pose: helper
 caption: Panels and a door, with four hands. Every printer looks finished the moment the door arrives.
 ```
 
-**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13). The optional add-ons in **Part C**, a side spool holder and a camera, add ~1.5 h hands-on plus ~14 h of Core One+ printing.
+**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13). The optional add-ons in **Part C**, a side spool holder and a camera, add ~1 h 40 min hands-on plus ~14 h of Core One+ printing.
 
 **Sessions:** 17 × ~30 min (12 in Part A, 5 in Part B), 20 with Part C (every minute figure in this chapter is a first-build estimate derived from the Time split and the step count).
 
@@ -106,14 +106,14 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3×12 SHCS | 2 | exhaust grill to exhaust cover, into its two inserts (p.254, `exhaust_cover` STL) |
 | M3×12 SHCS | 2 | Nevermore plenum to the bed extrusions |
 | M3×6 BHCS | 4 | Z belt covers (p.234) |
-| M3×20 SHCS | 6 | Part C side spool: puck to frame 4, frame to the extrusions 2 (`slicer/addons/side-spool-608769/remix.scad`) |
-| M3×16 SHCS | 2 | Part C camera: HappyCam body to the top front extrusion ([Printables 488020](https://www.printables.com/model/488020)) |
+| M3×20 SHCS | 8 | Part C: puck to frame 4, frame to the extrusions 2 (`slicer/addons/side-spool-608769/remix.scad`), HappyCam body 2 (14.96 mm of plastic under the head, read from the [Printables 488020](https://www.printables.com/model/488020) STL) |
 | M3×8 SHCS | 2 | Part C: tube holder 1, HappyCam door 1 |
-| M3 roll-in T-nut, 2020 | 5 | Part C: side spool frame 2, tube holder 1, HappyCam body 2 |
+| M3 roll-in T-nut, 2020 | 4 | Part C: side spool frame 2, HappyCam body 2 |
 | M3×6 BHCS | 2 | Nevermore plenum lid and cartridge lid (LDO's optional M3×4 BHCS is not a kit row) |
 | M3 hammerhead T-nut, 2020 | 47 | panel clips: 11 back, 24 side, 12 top (p.239, p.241, p.243) |
 | M3 hammerhead T-nut, 2020 | 4 | Z belt covers (p.234) |
 | M3 hammerhead T-nut, 2020 | 1 | bowden retainer (p.257) |
+| M3 hammerhead T-nut, 2020 | 1 | Part C tube holder: its two pegs leave 12 mm, too short for a roll-in |
 | M3 roll-in T-nut, 2020 | 3 | BTT TFT4.3 mount |
 | M3 roll-in T-nut, 2020 | 12 | skirt ring: 4 front (p.218), 4 rear (p.222), 2 per side (p.226, p.229) |
 | M3 roll-in T-nut, 2020 | 2 | Nevermore plenum |
@@ -163,7 +163,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | PTFE tube, 4 mm OD, 3 mm ID, 2 m — from the side spool add-on order | 1 | Part C, replaces the kit's reverse-bowden run at 11.72 |
 | Spindle O-ring — from a USS Drybox box | 1 | Part C, on Prusa's spindle at 11.73 |
 
-Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
+Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short; with Part C and the Ch 13–14 add-ons fitted, about 3 roll-in and 2 hammerhead M3 T-nuts are left over. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
 
 **The LDO panel stack for a 350** — read this table before you cut a single strip of foam tape. Thicknesses are from the [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D); the clip assignment is derived in 11.53/11.57/11.59.
 
@@ -1505,7 +1505,7 @@ Ch 12 Part 2 (12.11–12.37) is already done — the boards were flashed and con
 
 Come back here at **11.52** once Ch 13's Finish page is done. The rest of this chapter is about 1.0–2.0 h.
 
-**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61–11.65 (Clicky-Clack door hung on the machine), 11.66 (final seal check).
+**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61–11.65 (Clicky-Clack door hung on the machine), 11.66 (final seal check), then the optional Part C add-ons (11.68–11.76).
 
 ---
 
@@ -1933,7 +1933,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Runs a finger round every panel seam and calls out any gap found.
 
-Tip: trim and press the optional 6 mm slot cover into any empty extrusion slots you want to hide.
+Tip: optional 6 mm slot covers hide empty slots. For Part C, leave open the top front inner slot, the right side's outer slots and the top right's top slot.
 
 Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=241) · [Voron manual p.243](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=243) · [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [survey §5.2 W11](../voron-build-instructions-survey.md)
 
@@ -1951,7 +1951,7 @@ Both add-ons are optional and come after Part B. The **side spool holder** is a 
 
 (no image — see text)
 
-**What you're looking at:** The side spool frame stands on two feet, one on the top right extrusion and one on the front right vertical, drawn 6.5 mm tall for a 3 mm panel on 3 mm foam. The camera board sits on two pegs in HappyCam's pocket.
+**What you're looking at:** The side spool frame stands on two feet, one on the top right extrusion and one on the front right vertical, drawn 6.5 mm tall for a 3 mm panel on 3 mm foam. The camera board sits on three pegs in HappyCam's pocket.
 
 **Parts:**
 
@@ -1961,7 +1961,7 @@ Both add-ons are optional and come after Part B. The **side spool holder** is a 
 **Do:**
 
 1. Beside a right side-panel clip, caliper from the extrusion face up to the panel's outer face.
-2. Caliper the camera board's length and the distance between its two mounting-hole centres.
+2. Caliper the camera board's length and its mounting-hole centres, and check a hole sits over each HappyCam peg.
 
 **Check:** Every calculator row below answered and passing, or the add-on it belongs to stopped.
 
@@ -1971,16 +1971,21 @@ title: Part C add-ons — do the frame and the camera mount fit this machine
 inputs:
   - key: stack
     label: Right side panel, extrusion face to the panel's outer face, beside a clip (mm)
-    max: 6.3
+    max: 6.2
     high: The frame's 6.5 mm feet would leave its body on the panel. Before printing, re-run remix.scad with -D stack= this reading plus 0.3.
     why: The body must stand clear of the panel so the two screws pull the feet onto aluminium, not the frame onto the PC.
   - key: holes
-    label: Camera board, mounting-hole centre to centre (mm)
+    label: Camera board, mounting-hole centre to centre along the board (mm)
     nominal: 50
     tol: 0.5
     low: HappyCam's pegs are 50 mm apart. This board needs a different mount; stop the camera here.
     high: HappyCam's pegs are 50 mm apart. This board needs a different mount; stop the camera here.
-    why: The board locates on two 1.7 mm pegs 50.0 mm apart, read from the HappyCam STL.
+    why: The board locates on 1.7 mm pegs 50.0 mm apart along it, read from the HappyCam STL.
+  - key: pegs
+    label: The board has a hole over each of HappyCam's three pegs, two of them 4 mm apart across one end and the third 50 mm along
+    kind: yesno
+    no: A peg with no hole holds the board off its seat. Stop the camera here.
+    why: HappyCam's STL carries three 1.7 mm pegs, as its author's page says, not two.
   - key: length
     label: Camera board, overall length (mm)
     max: 75
@@ -2020,7 +2025,7 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 2. Job 2, same profile: tube holder flat side down, HappyCam body on its top face, door outer face down; build-plate supports.
 3. Job 3: puck and spindle, as oriented, `voron-accent-blue.ini`.
 
-**Check:** Slices of about 7.1 h, 1.9 h and 5.0 h, no supports in jobs 1 and 3, and each part bagged in 11-side-spool or 11-camera.
+**Check:** Slices of about 7.2 h, 1.9 h and 5.0 h, no supports in jobs 1 and 3, and each part bagged in 11-side-spool or 11-camera.
 
 **Helper:** Checks each part in the slicer against this step's list and ticks it.
 
@@ -2052,7 +2057,7 @@ Pause: ~20 min since the last pause — three add-on jobs on the Core One+, abou
 1. Turn the puck to sit as the Core One+'s puck sits, seen from outside each machine.
 2. From the frame's back, drive four M3×20 into the puck's pilot holes, snug.
 
-**Check:** The puck flat on the boss, every screw head below the frame's back face, and an empty USS Drybox hanging upright on it.
+**Check:** The puck flat on the boss, every screw head below the frame's back face, and any empty USS Drybox hanging upright on it.
 
 **Helper:** Hangs the empty Drybox on the puck and says whether it sits upright.
 
@@ -2080,11 +2085,11 @@ Source: [Printables 1605113 — Universal puck](https://www.printables.com/model
 1. Roll a T-nut into the outer slot of the top right extrusion and one into the front right vertical's.
 2. Offer the frame up, puck outward, slide each nut under its hole, and drive both M3×20 snug.
 
-**Check:** Both feet flat on the aluminium, the body clear of the panel all along, and the frame solid when pulled.
+**Check:** Both feet on bare aluminium, not the panel edge, the body clear of the panel all along, and the frame solid when pulled.
 
 **Helper:** Holds the frame against the extrusions while the adult starts both screws.
 
-⚠ Dry-fit first with the empty Drybox on the puck. Modelled, it hangs 2 mm behind the front face and 1 mm under the top, clear of the door and touchscreen, and stands 120 mm out from the side. The author drew the frame for the right side only; mirrored for the left, the spool does not turn well.
+⚠ Dry-fit with the empty Drybox on the puck, then open and latch the door by its handle. Modelled, the box sits 2 mm behind the front face, 1 mm under the top and 120 mm out from the side. The frame is drawn for the right side only.
 
 Source: [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769) · [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=241) · `slicer/addons/side-spool-608769/README.md`
 
@@ -2099,7 +2104,7 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 **Parts:**
 
 - tube holder ×1 — from bin 11-side-spool
-- M3 roll-in T-nut ×1
+- M3 hammerhead T-nut ×1
 - M3×8 SHCS ×1
 - PTFE tube, 4 mm OD, 3 mm ID, 2 m ×1 — from the side spool add-on order
 - reused: the bowden retainer and the exhaust cover's coupler
@@ -2107,13 +2112,13 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 
 **Do:**
 
-1. Bolt the holder, pegs in the top right extrusion's top slot above the frame: one T-nut, one M3×8.
-2. Swap the kit's PTFE for the new tube: CW2, coupler, retainer, holder, spool.
+1. Bolt the holder, pegs in the top right's top slot 22 cm behind the front: one hammerhead, one M3×8.
+2. Swap in the new tube: CW2, coupler, retainer, holder, spool.
 3. Cut it square at the spool.
 
 **Check:** One tube from spool to CW2, no kink or joint, sliding freely through the holder, retainer and coupler.
 
-⚠ Cut with the toolhead at the front left and Z at its top, so the tube never pulls tight. The stock rear spool arm stays fitted: with the kit's tube back in, the old route works again.
+⚠ Cut with the toolhead at the front left and the gantry at its lowest, so the tube never pulls tight; leave 10 cm spare if Ch 14 Part H may follow. The holder sits behind the Drybox and clear of the top-panel clips `(verify on bench)`. With the kit's tube back in, the stock rear spool arm works again.
 
 Source: [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769) · [Voron manual p.257](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=257) · [Voron manual p.258](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=258) · `slicer/addons/side-spool-608769/README.md`
 
@@ -2155,7 +2160,7 @@ Pause: ~40 min since the last pause — puck screwed to the frame, frame on the 
 
 (no image — see text)
 
-**What you're looking at:** HappyCam is a printed housing that holds the camera board on two pegs, aimed at the bed centre. It bolts to the inner face of the top front extrusion, above the door, where the Step 10.81 cable tail waits.
+**What you're looking at:** HappyCam is a printed housing that holds the camera board on three pegs, aimed at the bed centre. It bolts to the inner face of the top front extrusion, above the door, where the Step 10.81 cable tail waits.
 
 **Parts:**
 
@@ -2163,14 +2168,14 @@ Pause: ~40 min since the last pause — puck screwed to the frame, frame on the 
 - HappyCam door ×1 — from bin 11-camera
 - OV5640 USB camera board ×1 — from bin 11-camera, bought at Ch 00
 - M3 roll-in T-nut ×2
-- M3×16 SHCS ×2
+- M3×20 SHCS ×2
 - M3×8 SHCS ×1
 - tool: 2.5 mm hex key
 
 **Do:**
 
 1. Seat the board on its pegs, plug in the cable tail, and close the door with the M3×8.
-2. Roll two T-nuts into the top front extrusion's inner slot; bolt the body centred with two M3×16.
+2. Roll two T-nuts into the top front extrusion's inner slot; bolt the body centred with two M3×20.
 
 **Check:** The body flat on the extrusion and centred, the lens looking down at the bed, and no cable loop hanging below the extrusion.
 
@@ -2186,14 +2191,14 @@ Source: [Printables 488020 — HappyCam](https://www.printables.com/model/488020
 
 (no image — see text)
 
-**What you're looking at:** The camera hangs below the top front extrusion, inside the gantry's reach at the top of Z. Walk the toolhead past it slowly once, before any print can hit it at speed.
+**What you're looking at:** The camera stands about 19 mm into the chamber from the top front extrusion, inside the gantry's reach at the top of Z. Walk the toolhead past it slowly once, before any print can hit it at speed.
 
 **Parts:** none.
 
 **Do:**
 
 1. `G28`, `QUAD_GANTRY_LEVEL`, `G28 Z`, then raise Z to 5 mm under its `position_max`.
-2. At 10 mm/s, jog Y to its minimum, then X across the full width.
+2. At 10 mm/s, jog Y to its minimum, then X across the full width; repeat at `position_max`.
 
 **Check:** Nothing touches the camera or its cable anywhere along the front, the umbilical included.
 
@@ -2215,8 +2220,9 @@ Source: [Klipper G-Codes](https://www.klipper3d.org/G-Codes.html) · [Printables
 
 **Do:**
 
-1. In Mainsail, edit `crowsnest.conf` to the one section below and restart crowsnest.
-2. Interface Settings, Webcams, Add Webcam: the stream and snapshot URLs below, service Adaptive MJPEG-Streamer.
+1. Through the bottom panel, plug the tagged camera plug into a free Pi USB port.
+2. In Mainsail, replace `crowsnest.conf`'s `[cam 1]` with the one below, keep `[crowsnest]`, restart crowsnest.
+3. Mainsail's Webcams settings: add the URLs below as Adaptive MJPEG-Streamer.
 
 ```ini
 [cam 1]

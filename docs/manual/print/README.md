@@ -45,7 +45,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 All 22 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
 **Filament margin:** Black 1813 g needed / 2400 g on hand → **587 g margin (32 %)**. Blue 279 g needed /
-800 g on hand → **521 g margin (187 %)**. Setup and the full override table:
+800 g on hand → **521 g margin (187 %)**. The optional add-ons draw on these margins: about 239 g black and 120 g blue if all four are printed. Setup and the full override table:
 [00-slicer-setup.md](00-slicer-setup.md).
 
 ## Run schedule
@@ -155,7 +155,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **11-nevermore** | Nevermore plenum + cartridge | Ch 11 · 11.26–11.40 | B5 | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)` | B09 |
 | **11-spool** | Spool holder + bowden retainer | Ch 11 · 11.42–11.43 | A5 | `spool_holder`, `bowden_retainer` | B09 |
 | **11-door** | Clicky-Clack door | Ch 11 · 11.44–11.50, 11.62–11.64 | A5 | `Handle`, `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` | B02, B10 |
-| **11-side-spool** | Side spool add-on: frame, puck, spindle, tube holder | Ch 11 · 11.68–11.73, Part C (printed 11.69, fitted 11.70–11.72) | box | side spool frame, puck boss; tube holder; Prusa Universal Puck; Prusa 1 kg spindle | add-on, on no plate |
+| **11-side-spool** | Side spool add-on: frame, puck, spindle, tube holder | Ch 11 · 11.68–11.73, Part C (printed 11.69, fitted 11.70–11.73) | box | side spool frame, puck boss; tube holder; Prusa Universal Puck; Prusa 1 kg spindle | add-on, on no plate |
 | **11-camera** | Camera add-on: HappyCam body + door, camera board | Ch 11 · 11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74) | A5 | HappyCam body, 350; HappyCam door; bought: OV5640 USB camera board | add-on, on no plate |
 | **13-scrubber** | Nozzle scrubber add-on: brackets + bucket | Ch 13 · 13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50) | A5 | brush bracket, stop bracket, purge bucket (file names from `measured/`, Step 13.47); bought: Bambu A1 nozzle wiper ×3 | add-on, on no plate |
 | **14-exhaust** | Chamber exhaust add-on: housing, grill, cover, mounts | Ch 14 · 14.25–14.36, Part H (printed 14.26, built 14.27–14.29) | B5 ×2 | `exhaust_filter_housing`, `[a]_exhaust_fan_grill`, `[a]_filter_access_cover`, `[a]_exhaust_filter_mount` ×2; bought: 24 V 6020 fan; 1 m JST-XH 2-pin extension lead; carbon-mat piece ×2 | add-on, on no plate |

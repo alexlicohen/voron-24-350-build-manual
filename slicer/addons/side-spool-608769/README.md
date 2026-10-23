@@ -9,7 +9,7 @@ filament leaves over the top: through the tube holder on the top right extrusion
 retainer at the rear, in through the exhaust cover's coupler. The stock rear spool arm stays fitted as a
 second spool position.
 
-Fit, modelled 2026-10-23 with a 3D scan of the USS Drybox (Scott, Printables 1783654, CC BY: 217 × 219 × 91 mm, centre hole on the puck axis): the box's front edge sits 2 mm behind the frame's front face and its top 1 mm under the top extrusion, so the door and touchscreen are clear; it stands about 120 mm out from the right side's extrusion face, a bare 1 kg spool about the same.
+Fit, modelled 2026-10-23 with a 3D scan of the USS Drybox (Scott, Printables 1783654, CC BY: 217 × 219 × 91 mm, centre hole on the puck axis): the box's front edge sits 2 mm behind the frame's front face and its top 1 mm under the top extrusion, so the touchscreen is clear (the door handle is checked on the machine at Step 11.71); it stands about 120 mm out from the right side's extrusion face, a bare 1 kg spool about the same. The tube holder hangs 5 mm into the box's space, so it goes in the top slot about 22 cm behind the front face, behind the box.
 
 ## Licence and credit
 
@@ -38,7 +38,7 @@ byte for byte. Changes from the author's frame, all asserted in the script:
 | extrusion-screw counterbores deepened to a seat 8.5 mm above the back face | an M3×20 SHCS ends 5 mm below the extrusion face, in a roll-in T-nut, short of the extrusion core |
 | output turned to print orientation, front face on the bed | 212 × 212 mm footprint, 21.5 mm tall, no supports |
 
-Re-run with `-D stack=<reading + 0.3>` if Step 11.68 measures the stack over 6.3 mm; the seat moves with
+Re-run with `-D stack=<reading + 0.3>` if Step 11.68 measures the stack over 6.2 mm; the seat moves with
 it, so the M3×20 still lands in the nut.
 
 ## Print (Step 11.69)
@@ -59,7 +59,8 @@ bin `11-side-spool` (`slicer/bins.py` `ADDON_PARTS`), a box: the frame fits no m
 
 ## Hardware (kit spares except where named)
 
-6 × M3×20 SHCS (4 puck, 2 frame), 1 × M3×8 SHCS (tube holder: its pegs key into the slot), 3 × M3 roll-in T-nut, the spindle's rubber
+6 × M3×20 SHCS (4 puck, 2 frame), 1 × M3×8 SHCS (tube holder: its pegs key into the slot), 2 × M3 roll-in T-nut (frame), 1 × M3 hammerhead
+T-nut (tube holder: its pegs leave 12 mm, too short for a roll-in), the spindle's rubber
 O-ring (one ships with every USS Drybox), and one new 2 m length of 4 mm OD × 3 mm ID PTFE, bought (Ch 00
 Step 00.8), replacing the kit's reverse-bowden run.
 

@@ -3,7 +3,7 @@
 //
 //     cd slicer/addons/side-spool-608769 && openscad -q --export-format binstl \
 //         -o side_spool_frame_puck.stl remix.scad
-//     ... -D stack=6.8 ...      only if Step 11.68 measured the panel stack over 6.3 mm
+//     ... -D stack=6.8 ...      only if Step 11.68 measured the panel stack over 6.2 mm
 //
 // Source: Maltasrc, "Voron 2.4 (350 bed) Side mounted spool", Printables 608769,
 // source/"Reel Mount 2_Frame v1.stl" unchanged (CC BY-NC-SA 4.0; this file and its output are
@@ -18,7 +18,7 @@
 //   3. the two extrusion-screw counterbores deepened so an M3x20 SHCS reaches a roll-in T-nut;
 //   4. output turned to its print orientation, the front face (x 15) on the bed.
 
-stack     = 6.5;              // foot height: 3 mm PC + 3 mm foam + 0.5 clearance
+stack     = 6.5;              // foot height: a measured stack up to 6.2 mm + 0.3 clearance
 foot0     = 3.5;              // the source's foot height
 body_t    = 15;               // body, x 0..15
 hole      = 3.4;              // M3 clearance (the source's)
@@ -41,9 +41,12 @@ assert(screw - (body_t - puck_cb) >= 8, "puck screws engage under 8 mm");
 module src() { import("source/Reel Mount 2_Frame v1.stl", convexity = 10); }
 
 // The source feet, copied out by (stack - foot0). The box stops 0.5 short of x 0 so the
-// body's back face is not dragged along as a zero-thickness sheet.
+// body's back face is not dragged along as a zero-thickness sheet. The copied slab is 3 mm
+// thick, so a shift over 3 mm adds copies every 3 mm to keep the foot solid.
+assert(stack >= foot0, "stack below the source's feet");
 module feet_extension() {
-  translate([-(stack - foot0), 0, 0])
+  shift = stack - foot0;
+  for (d = concat([for (k = [3 : 3 : shift - 0.001]) k], [shift])) translate([-d, 0, 0])
     intersection() { src(); translate([-foot0 - 1, -200, -200]) cube([foot0 + 0.5, 400, 400]); }
 }
 

@@ -15,7 +15,7 @@ Four bins hold add-on parts that are on no plate (11-side-spool, 11-camera, 13-s
 ADDON_PARTS lists them,
 so they reach the labels and the bag sizing but never a plate, a diagram, an estimate or a total.
 FALLBACK_PARTS (B11's stock middle joints, printed only instead of B11-P5) and BOUGHT_PARTS (the
-add-ons' bought fan, lead, mat and wipers) reach the labels and the bag sizing the same way and count
+add-ons' bought fan, lead, mat, wipers and camera board) reach the labels and the bag sizing the same way and count
 toward no piece total.
 
 A bin is keyed to the step that opens it: one bin holds the parts first needed at one point in the
@@ -96,7 +96,7 @@ BINS: dict[str, dict[str, str]] = {
     "11-door": dict(label="Clicky-Clack door", chapter="Ch 11", steps="11.44–11.50, 11.62–11.64", colour="#ff7043"),
     # Add-on bins: their parts are on no plate (ADDON_PARTS below), printed after kit day.
     "11-side-spool": dict(label="Side spool add-on: frame, puck, spindle, tube holder", chapter="Ch 11",
-                          steps="11.68–11.73, Part C (printed 11.69, fitted 11.70–11.72)", colour="#457b9d"),
+                          steps="11.68–11.73, Part C (printed 11.69, fitted 11.70–11.73)", colour="#457b9d"),
     "11-camera": dict(label="Camera add-on: HappyCam body + door, camera board", chapter="Ch 11",
                       steps="11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74)", colour="#e9c46a"),
     "13-scrubber": dict(label="Nozzle scrubber add-on: brackets + bucket", chapter="Ch 13",
@@ -455,7 +455,7 @@ FALLBACK_PARTS: dict[str, list[dict]] = {
 BOUGHT_MADE = "bought, Step 00.8"
 BOUGHT_PARTS: dict[str, list[dict]] = {
     "11-camera": [
-        # The board alone: its 2 m USB cable is laid in the frame at Step 10.81, long before this bin opens.
+        # The board alone: its 3 m USB cable is laid in the frame at Step 10.81, long before this bin opens.
         dict(name="OV5640 USB camera board", short="camera board", qty=1, size=(62.0, 15.0, 12.0),
              note="its cable went in at 10.81"),
     ],

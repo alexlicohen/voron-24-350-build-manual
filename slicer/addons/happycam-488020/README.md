@@ -14,13 +14,16 @@ the only geometry.
 
 ## Fit, read from the STLs
 
-- The body bolts to the **inner face of the top front extrusion**, centred, with 2 × M3×16 SHCS into roll-in
-  T-nuts (the page says M3×16 or M3×18); the door closes the board pocket with 1 × M3×8 SHCS.
-- Board pocket: two Ø1.7 mm locating pegs **50.0 mm apart**, pocket about 75 mm long. That is the bar-shaped
-  OV5640 USB board (about 62 × 9 mm, e.g. the Pi Hut's 5MP OV5640 auto-focus USB board). Step 11.68's
+- The body bolts to the **inner face of the top front extrusion**, centred, with 2 × M3×20 SHCS into roll-in
+  T-nuts: 14.96 mm of plastic sits under the head, so the page's M3×16 or M3×18 ends 1–3 mm past the face,
+  short of or barely into the nut. The door closes the board pocket with 1 × M3×8 SHCS.
+- Board pocket: **three** Ø1.7 mm locating pegs, two 4.0 mm apart across the closed end and the third
+  **50.0 mm** along (the author's page: "3 little pegs"); pocket about 75 mm long, open at the cable end.
+  That is a bar-shaped OV5640 USB board; check a seller's drawing has a hole over every peg. Step 11.68's
   calculator checks a bought board against these numbers before anything is printed.
-- The cable leaves the body at its **printer-right end**, so the 10.81 route runs along the top right side
-  extrusion and down the rear-right vertical.
+- The cable leaves the body at its **printer-left end** (the pocket's open end wall; the door screw is at the
+  right). Step 10.81 leaves the tail 5 cm left of centre, then runs right along the top front and top right
+  extrusions and down the rear-right vertical; the route is about 2 m, hence a 3 m cable.
 - Lens: builders on 350 frames report a ~68–72° lens shows the whole bed; 95° and wider look too far
   away from this height (page comments, 2024–2026).
 
@@ -29,7 +32,7 @@ the only geometry.
 With the side spool's tube holder, Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, smooth sheet. The
 files are drawn as installed: lay the body on its top face and the door on its large flat face
 (PrusaSlicer's Place on face). Build-plate-only supports, for the cable exit. Job estimate with the tube holder: 28.7 g, 1 h 54 m (PrusaSlicer
-2.9.6 CLI, 2026-10-23); the two camera parts alone are about 20 g. Bin `11-camera`, with the bought board.
+2.9.6 CLI, 2026-10-23); the two camera parts alone are about 21 g. Bin `11-camera`, with the bought board.
 
 ## Software
 
