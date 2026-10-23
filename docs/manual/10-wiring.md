@@ -17,6 +17,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - **Ch 09 — Electronics bay.** DIN rails, the B11 conduits (DC loop at 09.6, AC conduit at 09.36, every lid off; layout v3), Leviathan on its brackets, Raspberry Pi mounted on its standoffs with the HAT power adapter, nozzle-probe PCB assembled and mounted, bed WAGO mount fitted above the deck on the left bed extrusion, SSR on its DIN bracket, USB-adapter PCB on its DIN clip — **and the inlet panel with its IEC module fitted and mounted on the rear extrusion (Steps 09.10–09.12), plus the mains WAGO block built and mounted (Step 09.13).** Nothing in this chapter builds those; 10.4–10.7 only confirm and label them.
 - **Print batches: B05** (Z joints + Z chain), **B07** (electronics bay + lighting — the eight COB mounts and the 3×5 WAGO mount), which also carries `power_inlet_IECGS_1mm` on **plate B07-P1** (moved out of B08 — index correction #11). One B08 part is needed early: `mount.stl` (plate B08-P3) plus the B02 `[a]_faceplate`, at Step 10.50 — the touchscreen module has to exist before its ribbon is latched, so Ch 11 Steps 11.5–11.6 are done from there. Both are pre-kit prints. Nothing else from B08 is needed before Ch 11.
 - **Print batch B11**: `V2L_STRIP_FIN` and the AC conduit lids, both in bin 10-lids-AC, at Step 10.80.
+- **Camera add-on:** its 2 m USB cable in hand for Step 10.81, before the slot covers at 10.38. Nothing is printed for it yet; the mount comes in Ch 11 Part C.
 
 **Tools**
 
@@ -1020,6 +1021,32 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 ---
 
+### Step 10.81 — Add-on: lay the camera's USB cable before the slots close
+
+![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
+
+**What you're looking at:** The camera add-on hangs a small USB camera inside the top front extrusion, fitted in Ch 11 Part C. Its cable shares the LED lead's covered slots, so it goes in now, before the next step closes them.
+
+**Parts:**
+
+- camera USB cable, 2 m ×1 — from the camera add-on order
+- consumable: masking tape
+
+**Do:**
+
+1. Lay it in the top front extrusion's lower slot, centre to right corner, then the top right extrusion's to the rear.
+2. Run it down the rear-right vertical, into the deck, to a Pi USB 2.0 port.
+
+**Check:** A 10 cm tail taped at the front centre, the cable below every slot lip, and the bay end plugged in.
+
+**Helper:** Feeds the cable along each slot from the corner while the adult seats it.
+
+⚠ Camera add-on only: skip this step without it. The camera's cable leaves its mount at the printer-right end, hence the right-hand route. A lower slot already in use: take another free slot on the same extrusion, inside the frame and clear of the gantry's Z travel `(verify on bench)`.
+
+Source: [HappyCam, Printables 488020](https://www.printables.com/model/488020) · `slicer/addons/happycam-488020/README.md` · [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#routing-the-led-strips)
+
+---
+
 ### Step 10.38 — Route the LED lead down to the deck and close the slots
 
 ![LDO LED strip routing](assets/remote/10-wiring/ldo-led-route.png)
@@ -1035,7 +1062,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 **Do:**
 
 1. Run the junction PCB's third lead along the top rear extrusion slot, down a rear vertical extrusion, and into the deck.
-2. Press the 6 mm slot covers over every slot the cable occupies. Do this **now**.
+2. Press the 6 mm slot covers over every slot a cable occupies. Do this **now**.
 
 **Check:** No cable is visible outside a covered slot, and nothing crosses the gantry's Z travel.
 
@@ -1063,7 +1090,7 @@ Source: [LDO wiring guide § Routing the LED strips](https://docs.ldomotors.com/
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: Part 9 @1:36:20](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5780s)
 
-Pause: ~35 min since the last pause — eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.
+Pause: ~45 min since the last pause — eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead and camera cable routed and **every occupied extrusion slot covered**. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.
 
 ---
 

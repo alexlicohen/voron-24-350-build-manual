@@ -7,12 +7,14 @@ committed so a mid-build reprint is provably the same geometry.
 
 Three kinds of source (slicer/plates.py):
   REPOS       GitHub, raw file at a pinned commit.
-  PRINTABLES  B11's stock MSS pieces: Printables' GraphQL `getDownloadLink` for one file
-              id (the id is the pin; a re-upload gets a new one). Needs a browser UA and
-              the printables.com origin/referer, or the API refuses. Model 502306 was
-              withdrawn by 2026-10-18, so its files are committed and only hashed here.
+  PRINTABLES  B11's stock MSS pieces and Ch 11 Part C's unchanged add-on files: Printables'
+              GraphQL `getDownloadLink` for one file id (the id is the pin; a re-upload gets a
+              new one). Needs a browser UA and the printables.com origin/referer, or the API
+              refuses. Model 502306 was withdrawn by 2026-10-18, so its files are committed and
+              only hashed here.
   TRACKED     committed files (B11's remixes under slicer/stl/; the scrubber add-on's source
-              STEP and default STLs under slicer/addons/, plates.py ROOTS/ADDONS): hashed,
+              STEP and default STLs, the side spool frame's source and remix, under slicer/addons/,
+              plates.py ROOTS/ADDONS): hashed,
               never downloaded. --verify fails if one has changed since the manifest was written.
 
     python3 slicer/fetch_stls.py            # fetch what is missing/changed
@@ -99,10 +101,10 @@ def write_manifest(entries: dict[str, str]) -> None:
     ]
     for key, (owner_name, branch, sha) in sorted(REPOS.items()):
         lines.append(f"#   {key:10s} {owner_name} @ {branch} = {sha}")
-    prints = sorted({pid for pid, _fid in PRINTABLES.values()})
     lines.append("# Printables (file ids in slicer/plates.py PRINTABLES; the file id is the pin):")
-    for pid in prints:
-        lines.append(f"#   bayducts   printables.com/model/{pid} -> bayducts/mss/{pid}/")
+    for pid, folder in sorted({(pid, local_path(repo, path).rsplit("/", 1)[0])
+                               for (repo, path), (pid, _fid) in PRINTABLES.items()}):
+        lines.append(f"#   printables.com/model/{pid} -> {folder}/")
     lines.append("# Committed in git, hashed only: " +
                  ", ".join(f"{r}/{pre}" for r, pre in TRACKED))
     lines.append("")

@@ -787,6 +787,58 @@ sources:
   title: Voron PrintItForward
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
+- id: printables-1605113-prusa-uss-drybox-accessories
+  url: https://www.printables.com/model/1605113
+  kind: prusa
+  title: Prusa USS Drybox printable accessories
+  first_seen: '2026-10-23'
+  last_verified: '2026-10-23'
+  printables:
+    print_id: '1605113'
+    watch_only: true
+    files:
+      Universal-puck-R1.stl:
+        id: '6754814'
+        size: 491684
+      Universal-spoolholder-1kg-R1.stl:
+        id: '6754815'
+        size: 677284
+    file_sha256:
+      Universal-puck-R1.stl: 0725d3c8228318a64cebd69942249bfd753339c80bf255fbb624db49cd96ad52
+      Universal-spoolholder-1kg-R1.stl: 3d48dc7b67b15c8239f13487d302f3c5018ce6c28281caa39672c133494bbbc8
+    on_change: re-fetch (python3 slicer/fetch_stls.py; the new file id goes in slicer/plates.py PRINTABLES),
+      check the puck's four pilot holes still sit at +-13 mm about its axis (remix.scad puck_sq in
+      slicer/addons/side-spool-608769/), re-slice Step 11.69 job 3; print nothing until done
+- id: printables-488020-happycam-ov5640
+  url: https://www.printables.com/model/488020
+  kind: community
+  title: HappyCam, Voron 2.4 OV5640 camera mount
+  first_seen: '2026-10-23'
+  last_verified: '2026-10-23'
+  printables:
+    print_id: '488020'
+    files:
+      Cameradoor_120.stl:
+        id: '2101022'
+        size: 40284
+      Cameradoor_120.step:
+        id: '2101023'
+        size: 3772
+      HappyCam_main-350.stl:
+        id: '2101024'
+        size: 484984
+      HappyCam_main300.stl:
+        id: '2101053'
+        size: 485184
+      HappyCam_main250.stl:
+        id: '2101052'
+        size: 480984
+    file_sha256:
+      Cameradoor_120.stl: e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f
+      HappyCam_main-350.stl: d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd
+    on_change: re-fetch the 350 body and the door (slicer/plates.py PRINTABLES file ids), re-check the
+      board pegs (two 1.7 mm, 50 mm apart) against Ch 11 Step 11.68's calculator and the cable exit at
+      the printer-right end against Ch 10 Step 10.81; re-slice Step 11.69 job 2
 - id: printables-502306-cable-duct-remix
   url: https://www.printables.com/model/502306
   kind: community
@@ -859,6 +911,40 @@ sources:
       for every remix cut from an MSS parent (slicer/stl/bayducts/README.md § What each remix is: all
       V2L_*/V3L_* except V2L_STRIP_FIN) and diff them against slicer/stl/bayducts/remix/; reprint nothing
       in B11 until then'
+- id: printables-608769-voron-side-spool
+  url: https://www.printables.com/model/608769
+  kind: community
+  title: Voron 2.4 (350 bed) Side mounted spool
+  first_seen: '2026-10-23'
+  last_verified: '2026-10-23'
+  printables:
+    print_id: '608769'
+    files:
+      Reel Mount 2_Frame v1.stl:
+        id: '2569106'
+        size: 112084
+      Reel Mount 2 - Peg v2.stl:
+        id: '2569105'
+        size: 163984
+      Bowden Tube Holder_Long.stl:
+        id: '2569104'
+        size: 136684
+      Reel Mount 2 - Peg v2.f3d:
+        id: '2569107'
+        size: 134838
+      Reel Mount 2_Frame v1.f3d:
+        id: '2569108'
+        size: 366043
+      Bowden Tube Holder_Long.f3d:
+        id: '2569109'
+        size: 482275
+    local:
+      slicer/addons/side-spool-608769/source/Reel Mount 2_Frame v1.stl: 7efa10b2f3c8e64270d50200bfd364f7ccd8d14f698eee699044bf99b766da4f
+    file_sha256:
+      Reel Mount 2_Frame v1.stl: 7efa10b2f3c8e64270d50200bfd364f7ccd8d14f698eee699044bf99b766da4f
+      Bowden Tube Holder_Long.stl: 4b355c5267b956a7e85939e0fa2c02148518f2c483700c18cd156ec491d459f5
+    on_change: download the changed frame, diff it against slicer/addons/side-spool-608769/source/,
+      re-run remix.scad (its README) and re-fetch the tube holder; print nothing until done
 - id: printables-796563-nozzle-scrubber
   url: https://www.printables.com/model/796563
   kind: community

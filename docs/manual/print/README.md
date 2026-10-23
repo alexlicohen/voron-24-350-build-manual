@@ -106,18 +106,18 @@ manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
-33 bins, 279 printed pieces: 218 from the ASA run, 53 from B11 and 8 from the two add-ons, which print
-after kit day and are on no plate (`13-scrubber`, `14-exhaust`). They travel in 29 of 48 A5 and 6 of 12 B5
-mesh bags, plus 1 box. The A5 figure counts one more pack of A5 bags, 24 to a pack, still to buy
+35 bins, 285 printed pieces: 218 from the ASA run, 53 from B11 and 14 from the four add-ons, which print
+after kit day and are on no plate (`11-side-spool`, `11-camera`, `13-scrubber`, `14-exhaust`). They travel in
+30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes. The A5 figure counts one more pack of A5 bags, 24 to a pack, still to buy
 (Ch 00 Step 00.11). Two kinds of entry count toward no piece total: B11's fallback middle joints, printed only
-instead of B11-P5, and the add-ons' bought parts (A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
+instead of B11-P5, and the add-ons' bought parts (camera board, A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
 
 **Bag per bin** (the *bag* column), measured from the STLs by `python3 slicer/bin_bags.py`: a bag's
 usable inside is its paper size (A5 148 × 210 mm, B5 176 × 250 mm) and about 25 mm deep, an
 assumption; a thicker piece still fits if each millimetre over 25 comes off both flat sides. Pieces
 lie on a flat face, and a bag holds a bin when every piece fits and their bounding boxes add up to no
 more than half the bag's volume. A bin takes one A5 if it can, else one B5, else two or three bags; a
-bin needing more goes in a box (`11-skirts`, the skirt ring). A bin in several bags has all of them opened at
+bin needing more goes in a box (`11-skirts`, the skirt ring), as does one holding a piece no bag takes (`11-side-spool`, its 212 mm frame). A bin in several bags has all of them opened at
 the same step; `09-ducts-DC` (three A5) and `14-exhaust` (two B5) are split by size, and `bin_bags.py --check`
 tests every bag of a split on its own. A bin with fallback parts is sized for the worse of its two cases, and a
 bought part is packed at a nominal size. Every label prints at half US Letter
@@ -155,6 +155,8 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **11-nevermore** | Nevermore plenum + cartridge | Ch 11 · 11.26–11.40 | B5 | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)` | B09 |
 | **11-spool** | Spool holder + bowden retainer | Ch 11 · 11.42–11.43 | A5 | `spool_holder`, `bowden_retainer` | B09 |
 | **11-door** | Clicky-Clack door | Ch 11 · 11.44–11.50, 11.62–11.64 | A5 | `Handle`, `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` | B02, B10 |
+| **11-side-spool** | Side spool add-on: frame, puck, spindle, tube holder | Ch 11 · 11.68–11.73, Part C (printed 11.69, fitted 11.70–11.72) | box | side spool frame, puck boss; tube holder; Prusa Universal Puck; Prusa 1 kg spindle | add-on, on no plate |
+| **11-camera** | Camera add-on: HappyCam body + door, camera board | Ch 11 · 11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74) | A5 | HappyCam body, 350; HappyCam door; bought: OV5640 USB camera board | add-on, on no plate |
 | **13-scrubber** | Nozzle scrubber add-on: brackets + bucket | Ch 13 · 13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50) | A5 | brush bracket, stop bracket, purge bucket (file names from `measured/`, Step 13.47); bought: Bambu A1 nozzle wiper ×3 | add-on, on no plate |
 | **14-exhaust** | Chamber exhaust add-on: housing, grill, cover, mounts | Ch 14 · 14.25–14.36, Part H (printed 14.26, built 14.27–14.29) | B5 ×2 | `exhaust_filter_housing`, `[a]_exhaust_fan_grill`, `[a]_filter_access_cover`, `[a]_exhaust_filter_mount` ×2; bought: 24 V 6020 fan; 1 m JST-XH 2-pin extension lead; carbon-mat piece ×2 | add-on, on no plate |
 | **spare-alt** | Spares / alternates (not fitted) | — · not fitted (Klicky set bagged at 08.54) | A5 | `[a]_pcb_spacer`, `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2`, `usb_adapter_mount` | B02, B06, B07 |
@@ -302,6 +304,8 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 |---|---:|---:|---:|---|---|---|
 | Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
 | Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 7.1 | 101 | smooth | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
+| Side spool holder (Maltasrc frame remixed for a Prusa puck): frame and tube holder black, Prusa puck and spindle blue | 4 | 12.7 | 199 | smooth | Ch 11 Part C | `slicer/addons/side-spool-608769/` |
+| HappyCam camera mount (Voxel3D_NL, 350): body and door, black | 2 | 1.3 | 21 | smooth | Ch 11 Part C | `slicer/addons/happycam-488020/` |
 
 **The scrubber is not printed ahead.** Its parts are generated from this machine's measurements at
 [Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
@@ -317,6 +321,16 @@ has checked the back of the machine, as two jobs: the housing in Galaxy Black wi
 (66 g, 5 h 03 m), then the fan grill, access cover and two mounts in the blue accent with
 `slicer/voron-accent-blue.ini` (35 g, 2 h 04 m). As oriented, no supports, smooth sheet; PrusaSlicer 2.9.6 CLI
 estimates, not GUI-arranged. The grams come out of the spares, not the ledger above.
+
+**The side spool holder and the camera mount** print together at
+[Ch 11 Step 11.69](../11-skirts-panels-door.md#step-1169-print-the-add-on-parts-on-the-core-one), after
+Step 11.68 has measured the side-panel stack and the camera board, as three jobs: the frame alone (Galaxy
+Black, `slicer/voron-coreone-asa.ini`, 106.7 g, 7 h 09 m); the tube holder, HappyCam body and door
+(same profile, supports on build plate only for the camera's cable exit, 28.7 g, 1 h 54 m); Prusa's puck and
+spindle in the blue accent (`slicer/voron-accent-blue.ini`, 84.7 g, 5 h 00 m). PrusaSlicer 2.9.6 CLI
+estimates, laid out by hand, not GUI-arranged; the per-add-on figures in the table split job 2 by part. The
+frame is the committed remix in `slicer/addons/side-spool-608769/`; the other five files are fetched from
+Printables by `python3 slicer/fetch_stls.py`. The grams come out of the spares, not the ledger above.
 
 ## Bench prints (outside the plates)
 

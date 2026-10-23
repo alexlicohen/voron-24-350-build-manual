@@ -11,13 +11,18 @@
 #   voron2     VoronDesign/Voron-2 @ Voron2.4 = a192410e27ea345644ae5c4b29b4c9c40cbe1a73
 #   whopping   tanaes/whopping_Voron_mods @ main = 62268ed817878e54d6a1186882060aa8368d4f0f
 # Printables (file ids in slicer/plates.py PRINTABLES; the file id is the pin):
-#   bayducts   printables.com/model/502306 -> bayducts/mss/502306/
-# Committed in git, hashed only: bayducts/remix/, addons/scrubber-796563/
+#   printables.com/model/1605113 -> printables/1605113/
+#   printables.com/model/488020 -> printables/488020/
+#   printables.com/model/502306 -> bayducts/mss/502306/
+#   printables.com/model/608769 -> printables/608769/
+# Committed in git, hashed only: bayducts/remix/, addons/scrubber-796563/, addons/side-spool-608769/
 
 77e7d49c1b63ff173b87ee155ee4fa96f4dc72d94cdfd0e24b8a0272c86afb5b  ../addons/scrubber-796563/brush_bracket_L1.5_MIRROR.stl
 2988befa85b17d666f96a4652045dbc44632446a879ea00b98ddd380489d9b28  ../addons/scrubber-796563/bucket350_T1.5_MIRROR.stl
 64c88c0a3bc9dda1bc6bcfc9f958f10b1b4e32f413ab20ecb1c58e22a790fb9c  ../addons/scrubber-796563/source/10mm Bed.stp
 57ffc8fbc021551602086518395b9f2873995ba8be616c7d753f7426d37b635d  ../addons/scrubber-796563/stop_bracket.stl
+3119cef04a388aa0f21dc4c87632681d2c9444fad76a586773be7d3e105ff535  ../addons/side-spool-608769/side_spool_frame_puck.stl
+7efa10b2f3c8e64270d50200bfd364f7ccd8d14f698eee699044bf99b766da4f  ../addons/side-spool-608769/source/Reel Mount 2_Frame v1.stl
 dba3eabf448a0ff7c961661d4cf4024c193a4a67ad5f31a1773290fa0f430436  bayducts/mss/502306/CMD_Remix-V3_DUCT-1M_ENDCAP.stl
 7b2bbc653c1a93f88b5f999941e63604e3dada2bee60f21393c988791cde8522  bayducts/mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl
 887d50566c8eabd9cd820528155904ada8702c03b163252ea6a5da741b7db986  bayducts/mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl
@@ -83,6 +88,11 @@ c92c2f3c22e0bec1d1c0cc7705d855aa37a2c59d40335e931dd1faf031d4489f  nevermore/V5_D
 b55f11b0dcb16caa7047e64c69d664a4f4ef2d9a0537cbb454c27661a2e87592  nitehawk/STLs/cw2_captive_pcb_cover.stl
 73ecd98a28e2fdd14004b9ea4c390beb65aef01e7899c4c66f53273d32606947  nitehawk/STLs/usb_adapter_mount.stl
 49c35d3559eec688688789a38beaab699b04c325304eeb3af78a117e202f4d14  nitehawk2/STLs/usb_adapter_mount_partial_cover.stl
+0725d3c8228318a64cebd69942249bfd753339c80bf255fbb624db49cd96ad52  printables/1605113/Universal-puck-R1.stl
+3d48dc7b67b15c8239f13487d302f3c5018ce6c28281caa39672c133494bbbc8  printables/1605113/Universal-spoolholder-1kg-R1.stl
+e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f  printables/488020/Cameradoor_120.stl
+d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd  printables/488020/HappyCam_main-350.stl
+4b355c5267b956a7e85939e0fa2c02148518f2c483700c18cd156ec491d459f5  printables/608769/Bowden Tube Holder_Long.stl
 b117ec9e8a6ffea62d2da534b7b97d9ee5d6e5c6e0a054f3a2c2130c122e811f  sb/STLs/Clockwork2/Direct_Drive/[a]_guidler_a.stl
 039a7215df8a341dcf5473cb97f213c04421874b155d8e9811e868d22cbb3e1d  sb/STLs/Clockwork2/Direct_Drive/[a]_guidler_b.stl
 0c19de5661d4fc9666ce5a45e1f15d5a783f6ca17a35c2d6960625cc51fa57e5  sb/STLs/Clockwork2/Direct_Drive/[a]_latch.stl

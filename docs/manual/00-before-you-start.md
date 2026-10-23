@@ -381,6 +381,8 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
 | Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
 | Chamber exhaust add-on: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — only for the optional exhaust fan** (Ch 14 Part H), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
+| Camera add-on: a bar-shaped OV5640 USB camera board, autofocus, ~68–72° lens, two mounting holes 50 mm apart, with a 2 m USB cable for its socket | **Buy — only for the optional camera** (Ch 10 at 10.81, Ch 11 Part C). The cable goes into the frame at Ch 10, so it has to be in hand by then; Part C's first step checks the board against the HappyCam mount before anything is printed | Ch 10 (10.81) |
+| Side spool add-on: 2 m of 4 mm OD × 3 mm ID PTFE tube | **Buy — only for the optional side spool holder** (Ch 11 Part C); it replaces the kit's reverse-bowden run. The spindle's O-ring comes with every Prusa USS Drybox | Ch 11 (11.72) |
 | Printed hardware trays A–C, Gridfinity bins | **Print** — PLA bench print before kit day, [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) | Ch 00, kit day (00.12) |
 | Dial indicator + magnetic base | Optional, skip for now | — |
 
@@ -466,9 +468,9 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- consumable: A5 mesh zip bag ×29
+- consumable: A5 mesh zip bag ×30
 - consumable: B5 mesh zip bag ×6
-- consumable: box for the skirt ring ×1
+- consumable: box for the skirt ring and the side spool frame ×2
 - consumable: spare bins for the LDO-supplied parts and the greased rails
 - consumable: masking tape
 - tool: scissors
@@ -477,7 +479,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), two per sheet. Cut, trim each to its frame, slide it into its bag.
-2. [**33 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 29 of 48 A5 and 6 of 12 B5 mesh bags, plus 1 box.
+2. [**35 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes.
 
 | Print batch | Bins it fills |
 |---|---|
@@ -493,13 +495,13 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-finish, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
 | B11 — Bay ducting (PETG V0) | 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC |
-| Add-ons after kit day, on no plate | 13-scrubber, 14-exhaust |
+| Add-ons after kit day, on no plate | 11-side-spool, 11-camera, 13-scrubber, 14-exhaust |
 
-**Check:** 33 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 35 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
 **Helper:** Trims each label to its frame and slides it into the bag it names.
 
-Tip: 29 A5 bags are needed and 24 are on hand: buy one more pack of A5 mesh bags, 24 to a pack. The B5 stock covers its 6.
+Tip: 30 A5 bags are needed and 24 are on hand: buy one more pack of A5 mesh bags, 24 to a pack. The B5 stock covers its 6.
 
 Source: [print plan](../voron-print-plan.md) · [survey](../voron-build-instructions-survey.md)
 
@@ -1106,7 +1108,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 33 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
+- [ ] 35 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 

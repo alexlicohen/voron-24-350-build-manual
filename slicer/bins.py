@@ -11,7 +11,8 @@ This is the single source for:
   * docs/manual/print/README.md § Bins (hand-maintained; slicer/check_docs.py cross-checks it,
     the `bag` column included)
 
-Two bins hold add-on parts that are on no plate (13-scrubber, 14-exhaust): ADDON_PARTS lists them,
+Four bins hold add-on parts that are on no plate (11-side-spool, 11-camera, 13-scrubber, 14-exhaust):
+ADDON_PARTS lists them,
 so they reach the labels and the bag sizing but never a plate, a diagram, an estimate or a total.
 FALLBACK_PARTS (B11's stock middle joints, printed only instead of B11-P5) and BOUGHT_PARTS (the
 add-ons' bought fan, lead, mat and wipers) reach the labels and the bag sizing the same way and count
@@ -94,6 +95,10 @@ BINS: dict[str, dict[str, str]] = {
     "11-spool": dict(label="Spool holder + bowden retainer", chapter="Ch 11", steps="11.42–11.43", colour="#78909c"),
     "11-door": dict(label="Clicky-Clack door", chapter="Ch 11", steps="11.44–11.50, 11.62–11.64", colour="#ff7043"),
     # Add-on bins: their parts are on no plate (ADDON_PARTS below), printed after kit day.
+    "11-side-spool": dict(label="Side spool add-on: frame, puck, spindle, tube holder", chapter="Ch 11",
+                          steps="11.68–11.73, Part C (printed 11.69, fitted 11.70–11.72)", colour="#457b9d"),
+    "11-camera": dict(label="Camera add-on: HappyCam body + door, camera board", chapter="Ch 11",
+                      steps="11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74)", colour="#e9c46a"),
     "13-scrubber": dict(label="Nozzle scrubber add-on: brackets + bucket", chapter="Ch 13",
                         steps="13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50)", colour="#b5838d"),
     "14-exhaust": dict(label="Chamber exhaust add-on: housing, grill, cover, mounts", chapter="Ch 14",
@@ -108,7 +113,8 @@ BAG: dict[str, str] = {
     "07-X": "A5", "08-SB": "B5", "08-CW2": "A5", "10-tft": "B5", "11-finish": "A5", "09-bay": "A5", "09-ducts-DC": "A5 ×3",
     "09-ducts-AC": "A5", "10-chains": "A5", "10-lights": "A5", "10-lids-AC": "A5", "11-skirts": "box",
     "11-fans": "A5", "11-panels": "A5", "11-lids-DC": "A5", "11-clips-4mm": "A5", "11-clips-6mm": "A5",
-    "11-nevermore": "B5", "11-spool": "A5", "11-door": "A5", "13-scrubber": "A5",
+    "11-nevermore": "B5", "11-spool": "A5", "11-door": "A5", "11-side-spool": "box",
+    "11-camera": "A5", "13-scrubber": "A5",
     "14-exhaust": "B5 ×2", "spare-alt": "A5",
 }
 for _b, _meta in BINS.items():
@@ -373,6 +379,24 @@ NOTES: dict[str, str] = {
 # scrubber, the committed default set: the real files come out of `measured/` at Step 13.47 and
 # differ by at most a few mm in height); `made` is where the part comes from instead of a plate id.
 ADDON_PARTS: dict[str, list[dict]] = {
+    "11-side-spool": [
+        dict(name="side spool frame, puck boss", qty=1,
+             geom=("addons", "side-spool-608769/side_spool_frame_puck.stl"),
+             made="add-on print, Step 11.69 job 1", note="black"),
+        dict(name="tube holder", qty=1, geom=("printables", "608769/Bowden Tube Holder_Long.stl"),
+             made="add-on print, Step 11.69 job 2", note="black"),
+        dict(name="Prusa Universal Puck", qty=1, geom=("printables", "1605113/Universal-puck-R1.stl"),
+             made="add-on print, Step 11.69 job 3", note="blue"),
+        dict(name="Prusa 1 kg spindle", qty=1,
+             geom=("printables", "1605113/Universal-spoolholder-1kg-R1.stl"),
+             made="add-on print, Step 11.69 job 3", note="blue"),
+    ],
+    "11-camera": [
+        dict(name="HappyCam body, 350", qty=1, geom=("printables", "488020/HappyCam_main-350.stl"),
+             made="add-on print, Step 11.69 job 2", note="black"),
+        dict(name="HappyCam door", qty=1, geom=("printables", "488020/Cameradoor_120.stl"),
+             made="add-on print, Step 11.69 job 2", note="black"),
+    ],
     "13-scrubber": [
         dict(name="brush bracket, mirrored", qty=1,
              geom=("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
@@ -430,6 +454,11 @@ FALLBACK_PARTS: dict[str, list[dict]] = {
 # that slicer/bin_bags.py packs like a printed piece; `made` places it in a split bin's bag.
 BOUGHT_MADE = "bought, Step 00.8"
 BOUGHT_PARTS: dict[str, list[dict]] = {
+    "11-camera": [
+        # The board alone: its 2 m USB cable is laid in the frame at Step 10.81, long before this bin opens.
+        dict(name="OV5640 USB camera board", short="camera board", qty=1, size=(62.0, 15.0, 12.0),
+             note="its cable went in at 10.81"),
+    ],
     "13-scrubber": [
         # Three wipers, one fitted (13.49); the Ch 13 Part L buy row is the 3-pack.
         dict(name="Bambu A1 nozzle wiper", short="A1 wiper", qty=3, size=(37.0, 8.0, 4.0),

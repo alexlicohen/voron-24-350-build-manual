@@ -17,7 +17,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 33 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
+- [ ] 35 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
 
@@ -248,6 +248,12 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Clips test-fitted for thickness before all 31 were committed: 4 mm on back + top with M3×8, 6 mm on both sides with M3×12, two screws in every corner clip; none left over, none short. Foam tape correct per panel: 1 mm back and top, 3 mm both sides.
 - [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel, cover tabs bolted to the top rear extrusion, the PTFE through the cover's coupler; no Voron filter housing fitted. Both handlebars on their printed spacers.
 - [ ] No stock door parts fitted; the Clicky-Clack latches with a click and draws the door onto the 3 mm foam; no daylight at any seam; thread locker on the panel-clip hammerhead nuts.
+
+**Part C — add-ons, if fitted**
+
+- [ ] Step 11.68's calculator passed for each add-on fitted before anything was printed; a high panel stack re-ran `remix.scad` first.
+- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2 with no kink or joint.
+- [ ] HappyCam centred inside the top front extrusion, nothing touching it along the front at Z max, the stream live in Mainsail on the iPad.
 
 <div class="print-page-break"></div>
 

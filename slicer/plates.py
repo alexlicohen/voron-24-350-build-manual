@@ -53,19 +53,31 @@ PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
     ("bayducts", "mss/502306/CMD_V3_1H_142mm_DUCT.stl"): ("502306", "5252451"),
     ("bayducts", "mss/502306/CMD_V2_6B_142mm_DUCT_COVER.stl"): ("502306", "4285495"),
     ("bayducts", "mss/502306/CMD_V3_1H_WIRE_BOX.stl"): ("502306", "5252449"),
+    # Ch 11 Part C add-ons, unchanged authors' files, fetched to slicer/stl/printables/<print id>/:
+    # Prusa's Universal Puck and 1 kg spindle (OCL v1), the side mount's tube holder (Maltasrc,
+    # CC BY-NC-SA) and HappyCam's 350 body and door (Voxel3D_NL, CC BY-NC).
+    ("printables", "1605113/Universal-puck-R1.stl"): ("1605113", "6754814"),
+    ("printables", "1605113/Universal-spoolholder-1kg-R1.stl"): ("1605113", "6754815"),
+    ("printables", "608769/Bowden Tube Holder_Long.stl"): ("608769", "2569104"),
+    ("printables", "488020/HappyCam_main-350.stl"): ("488020", "2101024"),
+    ("printables", "488020/Cameradoor_120.stl"): ("488020", "2101022"),
 }
 # Committed sources: (repo, path prefix). fetch_stls.py hashes them and never downloads.
-TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scrubber-796563/"))
+TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scrubber-796563/"),
+                                         ("addons", "side-spool-608769/"))
 
 # Committed files that live outside slicer/stl/: repo key -> folder relative to slicer/stl/.
 ROOTS: dict[str, str] = {"addons": "../addons"}
 
 # Pinned but on no plate: the nozzle-scrubber add-on (Ch 13 Part L), printed only after its
 # decision step, and the chamber-exhaust add-on (Ch 14 Part H, slicer/addons/exhaust-voron2/),
-# the stock Voron housing set at the pinned Voron-2 commit, printed only after Step 14.25.
+# the stock Voron housing set at the pinned Voron-2 commit, printed only after Step 14.25, and Ch 11
+# Part C's side spool holder (the committed remix in slicer/addons/side-spool-608769/ plus the
+# Printables files above) and camera mount, printed after Step 11.68 has measured.
 # Listed here so MANIFEST.sha256 pins them. They are not in PLATES, so no plate, estimate or total;
-# slicer/bins.py ADDON_PARTS gives them their own bins (13-scrubber, 14-exhaust) and checks every
-# file it names is in this list. exhaust_filter_grill.stl is already pinned through B09-P3.
+# slicer/bins.py ADDON_PARTS gives them their own bins (11-side-spool, 11-camera, 13-scrubber,
+# 14-exhaust) and checks every file it names is in this list. exhaust_filter_grill.stl is already
+# pinned through B09-P3.
 ADDONS: tuple[tuple[str, str], ...] = (
     ("addons", "scrubber-796563/source/10mm Bed.stp"),
     ("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
@@ -75,6 +87,13 @@ ADDONS: tuple[tuple[str, str], ...] = (
     ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl"),
     ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl"),
     ("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl"),
+    ("addons", "side-spool-608769/source/Reel Mount 2_Frame v1.stl"),
+    ("addons", "side-spool-608769/side_spool_frame_puck.stl"),
+    ("printables", "1605113/Universal-puck-R1.stl"),
+    ("printables", "1605113/Universal-spoolholder-1kg-R1.stl"),
+    ("printables", "608769/Bowden Tube Holder_Long.stl"),
+    ("printables", "488020/HappyCam_main-350.stl"),
+    ("printables", "488020/Cameradoor_120.stl"),
 )
 
 # Print orientation for files that are not drawn print-ready (MSS keeps the parent's
