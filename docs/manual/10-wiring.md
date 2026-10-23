@@ -1987,7 +1987,7 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 - tool: multimeter on Ω
 
-**Do:** Measure at the Pi's 40-pin GPIO header, at the end nearest the microSD slot: **pin 2 or 4, 5 V, to pin 6, GND**, the outer row's first three pins.
+**Do:** The HAT adapter covers GPIO pins 2, 4 and 6; leave it seated. Probe its top pads instead: over **pin 2**, 5 V, to over **pin 6**, GND, the edge row's first and third at the microSD end `(verify on bench)`.
 
 **Check:** Finite, and **not** 0 Ω. Exactly two jumpers on the board, Fan2 and Fan3, both on the 24 V pins.
 
@@ -1995,7 +1995,9 @@ Source: [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron
 
 ⚠ Rev D+ / LDO: LDO notes p.152, p.172 and p.190 are all **SKIP** — the manual's 5 V PSU does not exist in this kit and the Pi is never powered over its own USB-C. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.5)
+Tip: the same rail is on the Leviathan's Pi power port J9: pins 1–2 are 5 V, pin 6 GND. EXP1's 5 V is a separate regulator. [src](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf)
+
+Source: [LDO Build Notes p.152, p.172, p.190](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.5) · [LDO photo `rpi4_installed_V1.3.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/rpi4_installed_V1.3.jpg), the adapter over pins 1–24 · [Leviathan V1.3 schematic](https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf), J9 PWR/UART
 
 ---
 

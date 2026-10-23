@@ -15,7 +15,7 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 
 **Prerequisites:**
 
-- **Print batch B00 — Calibration & jigs** ([print/B00-calibration-and-jigs.md](print/B00-calibration-and-jigs.md)). B00 prints months before the Voron kit lands, and its gate is in two parts. **Gate A** (the cube, Step B00.5) and **Gate B** (Step B00.7 — the 625-2RS bearing in the `z_drive_retainer_a` bore and all seven inserts in the `Heatset_Practice` coupon, on the bearings and inserts ordered at Step 00.9) are both long passed by kit day, and all 22 plates are printed and binned. Steps 00.13–00.16 *are* Gate B's insert item. **One row of Gate B is left for kit day**: the `MGN12_rail_guide` on a real MGN12 rail, run out of carton 1 before the inventory starts. This chapter needs the `Heatset_Practice` coupon and both rail-guide sizes off that plate; nothing else from B00.
+- **Print batch B00 — Calibration & jigs** ([print/B00-calibration-and-jigs.md](print/B00-calibration-and-jigs.md)). B00 prints months before the Voron kit lands, and its gate is in two parts. **Gate A** (the cube, Step B00.5) and Gate B's caliper and insert rows (Step B00.7 — the `z_drive_retainer_a` 625-2RS pocket calipered against its 16.30 mm nominal, and seven KADRICK inserts from the kit already on the bench in the `Heatset_Practice` coupon; nothing bought) are long passed by kit day, and all 22 plates are printed and binned. Steps 00.14–00.16 *are* Gate B's insert row. **Two rows of Gate B are left for kit day**: a real 625-2RS thumbed into `z_drive_retainer_a` and the `MGN12_rail_guide` on a real MGN12 rail, both out of carton 1 before the inventory starts. This chapter needs the `Heatset_Practice` coupon and both rail-guide sizes off that plate; nothing else from B00.
 - The kit itself, unopened — for the *Kit day* steps only. Fabreeko order **F6424626**, pre-order, ETA **late November to late December 2026** (Fabreeko tracking page 2026-09-14: batch still in manufacture; watch for the status to flip to shipped, which starts a ~5-week clock).
 - Nothing else. This chapter has no assembly prerequisites — it is the first thing you do.
 
@@ -379,6 +379,15 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 10 (mandatory — Checkpoint #1) |
 | Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
+| Rubber or nylon mallet | **Buy if not owned** | Ch 01 (nudging the frame square) |
+| Steel tape measure ≥ 2.2 m | **Buy if not owned** — the 600 mm straightedge is too short for the frame diagonals and the 2000 mm belt cut | Ch 01 (diagonals), Ch 07 (07.8) |
+| Sharp craft knife with fresh blades; plastic scraper or an old credit card | **Buy if not owned** | Ch 03 (03.9, the magnetic pad) |
+| Needle-nose pliers and tweezers | **Buy if not owned** | Ch 06 (Z belt routing), Ch 07 (A/B belt threading) |
+| Hacksaw or fine-tooth saw; small flat file | **Buy if not owned** — no DIN rail length is published, so a rail may need shortening | Ch 08 (file, 5015 fan ears), Ch 09 (09.5, DIN rails) |
+| PH1 and PH2 Phillips screwdrivers | **Buy if not owned** — the kit's drivers are hex and one 2.5 mm slot | Ch 09 (PH1 M2 self-tapping screws, PH2 PSU and SSR terminals) |
+| Small hammer | **Buy if not owned** | Ch 11 (Clicky-Clack dowel pins and bushings) |
+| SD card reader for the laptop | **Buy if not owned** — the kit ships the 32 GB microSD, not a reader | Ch 12 (12.2) |
+| Fire extinguisher, ABC dry chemical (rated for electrical fires) | **Buy** — within arm's reach at every power-on, then kept by the machine, Ch 00a | Ch 12 (12.11) |
 | Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
 | Chamber exhaust add-on: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — only for the optional exhaust fan** (Ch 14 Part H), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
 | Camera add-on: a bar-shaped OV5640 USB camera board, autofocus, ~68–72° lens, holes for HappyCam's three pegs (two 4 mm apart across one end, the third 50 mm along), with a 3 m USB cable for its socket | **Buy — only for the optional camera** (Ch 10 at 10.81, Ch 11 Part C). The cable goes into the frame at Ch 10, so it has to be in hand by then; Part C's first step checks the board against the HappyCam mount before anything is printed | Ch 10 (10.81) |
@@ -411,6 +420,8 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 | IPA ≥ 90% | enough to fill a rail's own shipping bag seven times over — the bag is the soak tray |
 | **Loctite 243** blue threadlocker | Ch 02, Ch 04, Ch 05 |
 | Nitrile gloves, lint-free cloth, masking tape, permanent marker | — |
+| Solder, electronics grade | Ch 11 (11.33, the Nevermore bridge PCB) |
+| Super glue | Ch 11 (magnets in the Nevermore and the Clicky-Clack door) |
 | *(nothing to buy for Gate B)* | its insert row uses seven M3×H5 from the **KADRICK kit already on the bench** — shank must caliper ~4 mm `(verify on bench)` — set with the X-Tronic iron's stock conical tip; its bore row is a caliper reading. The 625-2RS bearing and the MGN12 rail are kit parts and their rows wait for kit day |
 
 **Check:** Grease and IPA are on the bench before you touch a rail; rail prep cannot start without them.

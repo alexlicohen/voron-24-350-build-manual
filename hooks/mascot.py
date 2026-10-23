@@ -102,7 +102,8 @@ class MascotError(Exception):
 # STYLE.md § "Humour rule", CONVENTIONS.md § "Where the bird may and may not
 # go": no mascot on mains, soldering-iron, blade or hot-chamber content.  A step
 # is listed when its Do puts the reader at that hazard: mains wiring, metering
-# or power-on (all of Ch 00a); the iron, for a heat-set insert or a solder
+# or power-on (all of Ch 00a), or work beside a machine left live with the bay
+# open (12.11-12.37, 00a.2's adult-only window); the iron, for a heat-set insert or a solder
 # joint; a blade or cutter as the step's main action; a heater at temperature
 # with hands at the open machine.  `A.B-A.C` is a range inside one chapter.
 # Step ids never change (CONVENTIONS: never split or renumber): an appended
@@ -112,7 +113,7 @@ class MascotError(Exception):
 # line inside a listed step (the Helper safety rule forbids the same steps).
 NO_MASCOT_STEPS: dict[str, str] = {
     "mains": "00a.1-00a.12 09.11-09.18 09.34-09.36 10.1-10.23 10.68 10.69 "
-             "10.73 10.77 10.78 10.80 11.67 12.11 13.2 13.3 13.8 14.30-14.32",
+             "10.73 10.77 10.78 10.80 11.52 11.67 12.11-12.37 13.2 13.3 13.8 14.30-14.32",
     "iron": "00.13-00.16 02.03-02.04 04.3-04.4 07.6 08.3-08.7 08.36 09.10 09.34 "
             "10.35 10.50 11.2 11.3 11.5 11.28 11.33 11.49 11.54 14.27 B00.7",
     "blade": "00.1 03.10 06.4 06.21 07.8 08.2 08.32 08.33 08.34 10.59 10.66 11.27 11.29 "
@@ -663,7 +664,8 @@ if __name__ == "__main__":
           ", ".join(bad_helpers))
 
     for sid in ("00.1", "00.14", "00a.2", "00a.4", "08.3", "08.7", "09.10", "09.11",
-                "09.13", "09.34", "10.5", "10.23", "10.35", "10.50", "10.80", "08.34", "11.2", "11.3",
+                "09.13", "09.34", "10.5", "10.23", "10.35", "10.50", "10.80", "12.12", "12.37",
+                "08.34", "11.2", "11.3",
                 "11.28", "11.33", "02.03", "B00.7", "b00.7"):
         check(f"{sid} carries no mascot", no_mascot_reason(sid) is not None)
     for sid in ("01.1", "01.14", "05.2", "10.4x", "10.24", "10.81", "11.1", "B00.5", "Ch"):

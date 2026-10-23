@@ -27,7 +27,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 - Raspberry Pi Imager (download from [raspberrypi.com/software](https://www.raspberrypi.com/software/))
 - Ethernet cable (use wired for the flashing session; Wi-Fi is the fallback)
 - USB cable, Pi ↔ Leviathan (supplied with the kit; connector type `(verify on bench)`)
-- A USB-C 5 V/3 A supply if you are bench-doing the Pi half before the bay is live
+- A USB-C 5 V/3 A supply for the Pi half on the bench (Steps 12.1–12.10)
 
 **Consumables:** the supplied 32 GB microSD card. Nothing else.
 
@@ -77,13 +77,13 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Do:**
 
-1. Bay not yet wired: take the Pi off its mount and feed it from a USB-C 5 V/3 A supply.
-2. Checkpoint #1 passed: leave the Pi on the board and power the bay.
+1. Work on the Pi alone, on the bench, not on the Leviathan.
+2. Feed it from a USB-C 5 V/3 A supply.
 3. Plug in Ethernet.
 
 **Check:** You can identify the Pi's SD slot and its Ethernet port, and you have a way to power it that is not the printer's mains.
 
-⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer". That is why this chapter is gated on Checkpoint #1 (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
+⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer", and that first happens at Step 12.11, after Checkpoint #1. The Pi half, 12.1 to 12.10, never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
 Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
 
@@ -278,7 +278,7 @@ Source: [KlipperScreen installation](https://klipperscreen.github.io/KlipperScre
 
 **Parts:** none.
 
-**Do:** Nothing plugs in here; Ch 10 connected the panel. Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; add it if missing. Second, `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line, no line breaks:
+**Do:** Nothing plugs in yet; Ch 10 latches the panel. Two edits now, with the Pi still on the bench. First, confirm `display_auto_detect=1` is present in `/boot/firmware/config.txt`; add it if missing. Second, `sudo nano /boot/firmware/cmdline.txt` and append to the single existing line, no line breaks:
 
 ```
 video=DSI-1:800x480@60,rotate=180
@@ -312,7 +312,7 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 **Do:**
 
 1. **Stop unless LDO Checkpoint #1 has passed.** Clear tools from the bay.
-2. Printer upright, two people, hands out: cord into inlet, then wall.
+2. Printer upright, one adult only, hands out: cord into inlet, then wall.
 3. Stand aside, hand on the rocker, switch on ten seconds, then over SSH:
 
 ```bash
@@ -345,6 +345,8 @@ The text after the USB ID reads `Klipper 3d-Printer Firmware` or an MCU name suc
 
 ⚠ **Rev D+ / LDO:** the Nitehawk-SB V2 adds a **USB hub and a secondary USB port** the V1 lacks, so expect one more device than any Rev D photo shows. The machine now stays powered with the bay open through the flashing steps, the one time this is allowed: to touch anything in the bay, switch off first. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult, standing to the side, hand on the switch; nobody else within reach. She is out of the room from here through Checkpoint 12, and until [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) has proved the machine dead.
+
 Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Nitehawk-SB-V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497) · [Ch 10 Step 10.23](10-wiring.md#step-1023-first-power-on-then-off-again) · [Ch 00a Step 00a.11](00a-mains-safety.md)
 
 ---
@@ -374,8 +376,6 @@ Copy both lines into a scratch file. Identify them by MCU family, not by order:
 If you are unsure, unplug one board's USB, re-run the command, and see which line disappears. Mainsail's **Machine** → open a config file → **DEVICES** → **SERIAL** → **REFRESH** shows the same list under *Path by ID*.
 
 **Check:** Exactly two Klipper devices, one toolboard `stm32g0b1xx` and one mainboard `stm32f446xx` or `stm32h743xx`, and you know which physical board each belongs to.
-
-**Helper:** Reads each serial ID off the screen and names its board from the table.
 
 ⚠ **Rev D+ / LDO:** the wiring guide states the toolboard ID will look like `usb-Klipper_rp2040_…`. **It will not.** Rev D+ ships the STM32G0B1 Nitehawk-SB V2. Matching `rp2040` assigns the *mainboard's* ID to `[mcu nhk]` or finds nothing (survey §4.1 ②). The guide also writes `stmf446xx`; the real string is `stm32f446xx`. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://docs.ldomotors.com/guides/klipper_id) · [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12)
 
@@ -973,8 +973,6 @@ grep -c '^    G0 X175 Y175 Z30' printer.cfg     # 1  (G32)
 
 Expect `2 / 1 / 1 / 1 / 1`. A `0` is a block still commented; a `2` where `1` is expected is a second size uncommented as well.
 
-**Helper:** Reads each count off the screen against the expected 2, 1, 1, 1, 1.
-
 **Naming note:** the config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block; homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]` — an incorrect one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L418-440) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L601-620) · [Klipper docs § resonance_tester](https://www.klipper3d.org/Config_Reference.html#resonance_tester)
@@ -1452,8 +1450,6 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 **Do:** In Mainsail's editor press **SAVE & RESTART**. Then, if anything at all looks wrong, run `FIRMWARE_RESTART` from the console, which restarts the MCUs as well as the host. Read the whole console output, not just the last line.
 
 **Check:** all four rows of the table, and nothing less.
-
-**Helper:** Reads each row of the table off Mainsail and ticks it only when it matches.
 
 | where | expect |
 |---|---|

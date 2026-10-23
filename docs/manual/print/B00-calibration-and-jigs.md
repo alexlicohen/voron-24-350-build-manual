@@ -124,14 +124,21 @@ decides whether that workaround is still needed. Menu names are from firmware 6.
 - [ ] Spread across all five squares ≤ 0.05 mm
 - [ ] Print it again from `slicer/checks/hot-first-layer-heat-off.3mf`, the same plate on the heat-then-off start G-code: nozzle to 170 °C, retract, heater off, wipe, heater off again, then the mesh. Caliper its five squares the same way
 - [ ] If either print needed a Live Adjust Z nudge, check at the start of the next print whether it is still set. Kept = Live Adjust Z is stored per sheet; reset to 0 = it is not. This settles § Calibration sequence item 3 in 00-slicer-setup
-- [ ] Write down which start passed with the smaller spread and no prompt. If heat-then-off wins, stop here: all 22 plates must be re-synced to it and Live Adjust Z re-tuned before B00
+- [ ] Write down which start passed with the smaller spread and no prompt. If heat-then-off wins, stop here: every plate, the 22 and B11's five, must be switched to it (procedure below) and Live Adjust Z re-tuned before B00
 
 Both pass → Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck. Loadcell swing
-under ±20 g → stop before item 3 and record the readings: the 22 plates switch to the stock start
-(`python3 slicer/sync_start_gcode.py`) and the hot-check project needs a stock-start copy (`hot_check.py`
-builds only the cold and heat-then-off ones), then item 3 runs on it and Live Adjust Z is re-tuned about
-+0.05 mm. Hot check fails on
+under ±20 g → stop before item 3 and record the readings: every plate switches to the stock start, and the
+hot-check project needs a stock-start copy (`hot_check.py` builds only the cold and heat-then-off ones), then
+item 3 runs on it and Live Adjust Z is re-tuned about +0.05 mm. Hot check fails on
 both starts → back to the bed check in item 0, then re-run it.
+
+Switching the start G-code, either way: `python3 slicer/sync_start_gcode.py` on its own changes nothing,
+because it copies the start from the inis and the inis hold the cold start. First point `COLD_START` in
+`slicer/build_config.py` at the winning block (`slicer/coreone-heat-off-start.gcode`; a stock start must be
+vendored into its own `.gcode` file first) and run `python3 slicer/build_config.py`; then
+`python3 slicer/sync_start_gcode.py` (all 27 plates), `python3 slicer/build_plates.py --from-3mf` and
+`python3 slicer/check_docs.py`. Full procedure:
+[00-slicer-setup § Gen 2](00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild).
 
 - [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
 

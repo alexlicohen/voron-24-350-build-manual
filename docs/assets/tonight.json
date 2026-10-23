@@ -3713,7 +3713,7 @@
       ],
       [
        "09.30",
-       "Slides the 1.5 mm hex key between pin and plate and says whether it just fits."
+       "Tries the 2 mm and 3 mm hex keys between pin and plate and says which one fits."
       ]
      ],
      "text": "Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge; the printer is still on its head. Nothing plugged in."
@@ -4187,12 +4187,7 @@
      "print_hours": null,
      "run": null,
      "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.",
-     "helpers": [
-      [
-       "12.12",
-       "Reads each serial ID off the screen and names its board from the table."
-      ]
-     ],
+     "helpers": [],
      "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting."
     },
     {
@@ -4279,12 +4274,7 @@
      "print_hours": null,
      "run": null,
      "leave_state": "every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.",
-     "helpers": [
-      [
-       "12.27",
-       "Reads each count off the screen against the expected 2, 1, 1, 1, 1."
-      ]
-     ],
+     "helpers": [],
      "text": "Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly."
     },
     {
@@ -4329,12 +4319,7 @@
      "print_hours": null,
      "run": null,
      "leave_state": "`[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.",
-     "helpers": [
-      [
-       "12.37",
-       "Reads each row of the table off Mainsail and ticks it only when it matches."
-      ]
-     ],
+     "helpers": [],
      "text": "Step 12.33 → Step 12.37 · ~20 min · leave-state: `[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13."
     }
    ]
@@ -5248,10 +5233,6 @@
      "run": null,
      "leave_state": "back panel foam-taped, its seven clips on, exhaust cover and grill sealed into the cut-out, panel hung and screwed down, cover tabs bolted, the PTFE through the cover's coupler. A panel is either fully clipped or off the machine — never leave one hanging on half its clips.",
      "helpers": [
-      [
-       "11.52",
-       "Holds the back panel steady and peels the tape backing ahead of you."
-      ],
       [
        "11.53",
        "Counts out eleven screws and eleven hammerhead nuts, two per corner clip and one per midspan."
@@ -7525,9 +7506,6 @@
      "10-wiring#10",
      "10-wiring#11",
      "10-wiring#12",
-     "12-software#2",
-     "12-software#6",
-     "12-software#8",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",
@@ -7775,9 +7753,6 @@
      "10-wiring#10",
      "10-wiring#11",
      "10-wiring#12",
-     "12-software#2",
-     "12-software#6",
-     "12-software#8",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",
@@ -8120,9 +8095,6 @@
      "10-wiring#10",
      "10-wiring#11",
      "10-wiring#12",
-     "12-software#2",
-     "12-software#6",
-     "12-software#8",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",

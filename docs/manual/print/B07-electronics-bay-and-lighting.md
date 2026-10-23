@@ -41,7 +41,7 @@ supplied printed).
 **Read first**
 
 - Checkpoint after B07: COB mount halves flat on the reference and closing flush on their 2× M3×6 FHCS. The
-  Wago mount's heat-set bosses get their inserts on kit day (Ch 09), not here.
+  inlet panel's three insert bores get their inserts on kit day (Ch 09 Step 09.10), not here; the Wago mount takes none.
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
   with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (127 g on P2 alone).
@@ -111,8 +111,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:**
 
 1. Lay each COB mount pair on the granite reference and dry-fit the two halves by hand.
-2. Check the Wago mount's heat-set bosses are crisp and round.
-**Check:** No rocking on the flat reference; halves close flush; bosses undamaged.
+2. Check the inlet panel's three insert bores are crisp and round.
+**Check:** No rocking on the flat reference; halves close flush; insert bores undamaged.
 
 Pause: ~15 min since the last pause — every mount checked on the reference, brims snapped off, nothing assembled.
 
@@ -151,7 +151,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Checkpoint B07
 - [ ] COB mount halves close flush on 2× M3×6 FHCS, all eight assemblies
 - [ ] COB mounts checked flat on granite reference — no rocking
-- [ ] Wago mount heat-set bosses crisp (inserts go in at Ch 09)
+- [ ] Inlet-panel insert bores crisp (inserts go in at Ch 09 Step 09.10)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
 - [ ] `power_inlet_IECGS_1mm` off B07-P1 flat, brim snapped off cleanly, binned for Ch 09
 

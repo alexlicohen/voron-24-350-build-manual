@@ -447,7 +447,7 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
         "",
         "That self-sufficiency cuts both ways: opening a plate project **overrides the reader's",
         "selected presets** with the config baked into it. So a key added here does not reach the",
-        "22 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are",
+        "27 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are",
         "and never re-injects the config, and a full re-pack would throw away the GUI arrangement",
         "that is the QC authority.",
         "",

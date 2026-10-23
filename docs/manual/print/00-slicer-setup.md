@@ -55,7 +55,8 @@ and then raises perimeter 70→150, external 50→200 and small-perimeter 50→1
 solid layers to 3.
 
 **High flow raises the ceiling, not the speeds.** Every speed below stays exactly as the table says.
-At those speeds the peak volumetric flow is 110 mm/s solid infill × 0.4 × 0.2 = **8.8 mm³/s**, well under the
+At those speeds the peak volumetric flow is first-layer solid infill, 100 mm/s × 0.5 × 0.2 = **10 mm³/s**
+(above the first layer, solid infill peaks at 110 × 0.4 × 0.2 = 8.8 mm³/s), well under the
 15 mm³/s the non-HF profile allows, let alone 26 — so the HF base changes the melt temperature and the
 start G-code and nothing else about these plates.
 
@@ -68,7 +69,7 @@ with the arrangement, the per-object brims and the full configuration already in
 |---|---|
 | One project per plate, 22 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
-| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/sync_start_gcode.py` keeps the inis and the 22 projects in step) |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 27 projects, B11's included) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -153,10 +154,12 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Infill speed | 120 | **100** | interior quality and less pressure variation into the perimeters | judgment |
 | Solid infill speed | 140 | **110** | flatter top/bottom faces on the skirts | judgment |
 | Top solid infill | 80 | **keep 80** | already conservative | — |
-| First layer speed | 45 | **25** | ASA on smooth PEI is the single biggest failure mode; slow the first layer (and see §Print sheet) | Prusa ASA KB; judgment |
+| First layer speed | 45 | **25** | ASA on smooth PEI is the single biggest failure mode; slow the first layer (and see §Print sheet). This slows the first layer's perimeters, skirt and brim only: PrusaSlicer prints first-layer solid infill at **First layer infill speed** (`first_layer_infill_speed`), which stays at the profile's **100** mm/s, with first-layer acceleration 500 | Prusa ASA KB; judgment |
 | External perimeters first | off | **keep off** | inside-out gives better dimensional accuracy on holes; only flip it if you see external-perimeter bulging | judgment |
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
+
+First-layer infill at 25 mm/s as well would be one more override, `first_layer_infill_speed = 25`. It is not set: it would change every plate's time estimate, and as a print-setting change it is tested on its own, one variable at a time, before it goes into the plates.
 
 ### Filament settings (Prusament ASA @COREONE HF0.4)
 
@@ -169,7 +172,7 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate | profile |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
-| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 8.8 mm³/s | profile (HF0.4) |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 10 mm³/s, on first-layer solid infill | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 ### Drying
@@ -416,8 +419,14 @@ switches "for printers that have been retrofitted with only some of the accessor
 would also set GT1.5 steps/mm on GT2 belts. Taking the heatbed off reopens the closed
 ±0.1 mm bed, so the six-point bed check and the Z-stop correction caps are redone before the hot check.
 The hot check then runs twice, on the cold start and on the heat-then-off start
-(`slicer/checks/hot-first-layer-heat-off.3mf`), and the better one goes into all 22 plates with
-`slicer/sync_start_gcode.py`. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
+(`slicer/checks/hot-first-layer-heat-off.3mf`), and the better one goes into every plate. `sync_start_gcode.py`
+only copies the ini's start G-code, and the inis hold the cold start, so the switch starts one step earlier:
+point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
+start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
+`python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
+`python3 slicer/sync_start_gcode.py` (all 27 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
+without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater
 off again before the mesh for that reason.
 

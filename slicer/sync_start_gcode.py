@@ -25,7 +25,14 @@ would strip the keys the GUI added, which is why this is a single-line edit.
     python3 slicer/sync_start_gcode.py --key filament_colour --value "#1F4E9C" B02-P1
 
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
-`voron-accent-blue.ini` for the blue accent plates), so the inis stay the single source of truth.
+`voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's), so the
+inis stay the single source of truth. With no plate ids it runs over every plate in
+plates.py: the 22 of the ASA run and B11's five.
+
+It never changes an ini. Switching every plate to another start G-code is therefore two
+steps: change the source that `build_config.py` reads (`COLD_START`, the vendored block) and
+run `python3 slicer/build_config.py` to regenerate the inis, then run this. Run on its own,
+it reports every plate "already current".
 Re-run `python3 slicer/build_plates.py --from-3mf` afterwards to refresh the G-code
 and estimates.csv.
 """
@@ -42,7 +49,8 @@ ROOT = Path(__file__).resolve().parent
 PLATE_DIR = ROOT / "plates"
 CONFIG_MEMBER = "Metadata/Slic3r_PE.config"
 INI = {"black": ROOT / "voron-coreone-asa.ini",
-       "blue": ROOT / "voron-accent-blue.ini"}
+       "blue": ROOT / "voron-accent-blue.ini",
+       "petg": ROOT / "bay-ducts-petg.ini"}     # B11, the bay ducts
 
 
 def ini_value(ini: Path, key: str) -> str:
@@ -114,9 +122,11 @@ def main() -> int:
         path = PLATE_DIR / f"{pid}.3mf"
         if not path.exists():
             raise SystemExit(f"{pid}: {path} does not exist")
+        colour = PLATES[pid]["colour"]
+        if override is None and colour not in INI:
+            raise SystemExit(f"{pid}: no ini bundle for colour {colour!r} - add it to INI")
         for key in keys:
-            value = override if override is not None else \
-                ini_value(INI[PLATES[pid]["colour"]], key)
+            value = override if override is not None else ini_value(INI[colour], key)
             if patch(path, key, value, check):
                 n += 1
                 print(f"{pid:8s} {key} {'differs' if check else 'updated'}")

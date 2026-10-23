@@ -126,7 +126,7 @@ owners:
   - item: "E3D Revo Hotend (HF)"
     at: {"08.28": 1}
     staged: ["00.3", "08.27"]
-    evidence: 'Ch 08 Step 08.28 (seated in the rear printhead half)'
+    evidence: 'Ch 08 Step 08.28 (seated in the printhead front half)'
   - item: "DIN Rails (35mm W)"
     at: {"09.5": 2}
     staged: ["00.3"]

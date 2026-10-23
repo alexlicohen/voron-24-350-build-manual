@@ -147,7 +147,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 | Infill speed | 120 | **100** | interior quality and less pressure variation into the perimeters | judgment |
 | Solid infill speed | 140 | **110** | flatter top/bottom faces on the skirts | judgment |
 | Top solid infill | 80 | **keep 80** | already conservative | — |
-| First layer speed | 45 | **25** | ASA on smooth PEI is the single biggest failure mode; slow the first layer | [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); judgment |
+| First layer speed | 45 | **25** | ASA on smooth PEI is the single biggest failure mode; slow the first layer; perimeters, skirt and brim only, first-layer infill stays at 100 mm/s | [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809); judgment |
 | External perimeters first | off | **keep off** | inside-out gives better dimensional accuracy on holes; only flip it if you see external-perimeter bulging | judgment |
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
@@ -163,7 +163,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
 | Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* your preheat gate | profile |
 | Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
-| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈8.8 mm³/s) | profile |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈10 mm³/s, first-layer solid infill) | profile |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 #### Drying
@@ -784,7 +784,7 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | **B04** | Test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before you commit heat-sets. XY joint bores must accept the shafts without reaming. | `xy_joint_*_lower_MGN12` |
 | **B05** | Z joints: `z_joint_lower`'s four M3 holes caliper 3.4 mm on a 15 × 16 mm pattern; `z_joint_upper` must sit square on the extrusion. | `z_joint_lower_x4` |
 | **B06** | Revo Voron hotend must sit flat in the printhead front with 4× M3×8. Klicky: magnets pressed **below** the plastic surface, polarity consistent, and the probe must attach/detach cleanly from the AB mount. | `KlickyProbe_v2` (that's why you print two) |
-| **B07** | Wago mount heat-sets; COB mount halves must close flush on their 2× M3×6 FHCS. | `cob_light_strip_mount_100mm` (warps at the ends — check flatness on glass) |
+| **B07** | Inlet-panel insert bores (3, Ch 09.10; the mains Wago mount takes none); COB mount halves must close flush on their 2× M3×6 FHCS. | `cob_light_strip_mount_100mm` (warps at the ends — check flatness on glass) |
 | **B08** | **Lay every skirt segment on a flat reference (your granite counter) and check for rocking.** A bowed skirt is the most visible defect on a finished Voron. Also dry-fit the ring: front + TFT mount + front, rear + inlet + keystone, sides + fan supports. | `rear_center_skirt_350` (182 mm — the worst warp candidate in the set) |
 | **B09** | Panel clips: snap one onto an extrusion with a 3 mm offcut to confirm 4 mm vs 6 mm choice **before** printing all 31. Nevermore: plenum lid must slide in its groove; cartridge must snap onto the plenum. | the 6 mm corner clips, if the foam tape choice changes |
 | **B10** | Sleeve bearings must tap into the hinge sleeves without splitting the part; M5×45 pin into the "solid" half should be a **very** tight hammer fit with ~20 mm proud. | `Hinge-L-solid-2X` (split risk on the pin press) |

@@ -418,8 +418,6 @@ Source: [Voron manual p.167](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ⚠ **Rev D+ / LDO:** the manual titles p.165 *"ALTERNATE MAINS DISTRIBUTION — WAGO"*. For this kit it is not an alternate — it is the only path. The BOM ships three 221-415 clamps, and Ch 10 uses them as the L / N / PE distribution nodes. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
-⚠ **Rev D+ / LDO:** if your printed mount has insert bosses, heat-set them in the same pass as 09.10 — **(verify on bench)**; the stock Voron part is snap-fit only.
-
 Source: [Voron manual p.165](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=165) · [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
 
 Pause: ~30 min since the last pause — Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet.
@@ -538,11 +536,11 @@ Source: [Voron manual p.157](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** SSR latched square with no rocking, both terminal pairs reachable with a PH2 driver, roughly 30 mm of clear rail between SSR and PSU.
 
-⚠ **Rev D+ / LDO:** the SSR body is stamped **"EARTH THE MOUNTING RAIL"**. Your DIN rails bolt through the deck panel into the aluminium bed extrusions (09.5), so they are earthed once the frame PE lands in Ch 10. Verify rail-to-frame continuity with the multimeter at Checkpoint #1 — do not assume it. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
+⚠ **Rev D+ / LDO:** the SSR body is stamped **"EARTH THE MOUNTING RAIL"**. LDO's build runs no PE conductor to the rail: it touches the frame only through steel screws into anodised extrusion, which is not a PE bond. Do not count the rail as earthed; who decides whether that is acceptable was settled at [00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not). [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe)
 
 Tip: LDO flags the SSR wiring as *"critical — an incorrect connection can cause catastrophic damage"*. Getting the orientation right now makes Ch 10 unambiguous (survey §4.4 #8).
 
-Source: [Voron manual p.171](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=171) · [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
+Source: [Voron manual p.171](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=171) · [LDO wiring guide § Frame PE](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-ffc-cable-ethernet-cable-usb-cable-and-fame-pe) · [Ch 00a Step 00a.7](00a-mains-safety.md#step-00a7-the-ssr-is-marked-earth-the-mounting-rail-and-this-build-does-not)
 
 Pause: ~30 min since the last pause — PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged.
 
@@ -640,9 +638,9 @@ Source: [Voron manual p.155](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 2. Screw the standoffs in, sit the Pi on them with USB and Ethernet facing **outward, away from the connector banks**, and fasten.
 3. Slide the SD card in now.
 
-**Check:** Pi flat on all standoffs, Ethernet and one USB-A port clear of the Leviathan's headers, SD card seated, nothing shorting underneath.
+**Check:** Pi flat on all standoffs; Ethernet and two USB-A ports clear of the Leviathan, three with the camera add-on; SD card seated; nothing shorting underneath.
 
-⚠ **Rev D+ / LDO:** *"Some ports of the Raspberry Pi may not be usable due to interference with the Leviathan ports."* Check which ones you lose **now**, while you can still rotate the Pi, because Ch 10 needs the Ethernet port and Ch 12 needs a USB port for the toolboard. [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
+⚠ **Rev D+ / LDO:** *"Some ports of the Raspberry Pi may not be usable due to interference with the Leviathan ports."* Check which ones you lose **now**, while you can still rotate the Pi. Ch 10 needs Ethernet and two USB ports, Leviathan and toolboard USB adapter, plus a third for the camera add-on. [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
 
 Source: [LDO Leviathan V1.3 board guide](https://ldomotion.com/guides/voron-leviathan-v1-3) · [LDO wiring guide § General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement) · image [`S0General_Placement.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg) · [Video: Part 7 @1:10:35](https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4235s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
@@ -824,7 +822,7 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![LDO build-plate mapping, seen from above, rear at the top: the nozzle probe on the right bed extrusion's inner face, pin just behind the plate's rear edge, above the deck](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 ![LDO — finished probe (bench); mounting is p.161](assets/remote/09-electronics-bay/nozzle-probe-installed.jpg)
 
-**What you're looking at:** The probe sits **above** the deck, on the chamber side: the bed extrusions carry the plate, and the deck hangs under them. It bolts to the right extrusion's inner face, its pin standing 1.5 mm behind the plate's rear edge.
+**What you're looking at:** The probe sits **above** the deck, on the chamber side: the bed extrusions carry the plate, and the deck hangs under them. It bolts to the right extrusion's inner face, its pin 2–3 mm behind the plate's rear edge, the gap Step 13.24 checks.
 
 **Parts:**
 
@@ -838,9 +836,11 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 2. Probe on that face, pin away from the deck, M3×25 snug.
 3. Slide the pin just behind the plate's rear edge.
 
-**Check:** A 1.5 mm hex key just fits between pin and plate. The pin clicks the switch and returns. Body square, connector reachable.
+**Check:** A 2 mm hex key slides between pin and plate, a 3 mm does not. Pin clicks the switch and returns; body square, connector reachable.
 
-**Helper:** Slides the 1.5 mm hex key between pin and plate and says whether it just fits.
+**Helper:** Tries the 2 mm and 3 mm hex keys between pin and plate and says which one fits.
+
+Tip: p.161 draws this gap as 1.5 mm; its rule is only that the shaft never touches the plate, and 2–3 mm meets it. [src](https://docs.vorondesign.com/build/startup/startup.html#bed-locating)
 
 ⚠ **Rev D+ / LDO:** the manual calls for **M3×20 SHCS**. LDO's nozzle probe needs **M3×25 SHCS ×2** — the printed body is thicker. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe)
 
@@ -848,7 +848,7 @@ Tip: Un-notched shaft? Bag and label it `probe shaft — refit before 13.24`.
 
 ⚠ **Probe lead:** it stays in the chamber until Ch 10. **Layout v3** drops it through the rear notch at 10.34; **LDO layout** through the round deck hole. Nothing goes through the deck here.
 
-Source: [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
+Source: [Voron manual p.161](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe) · image [`z_stop_final.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [Voron startup guide § Bed locating](https://docs.vorondesign.com/build/startup/startup.html#bed-locating)
 
 Pause: ~30 min since the last pause — USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge; the printer is still on its head. Nothing plugged in.
 
@@ -1028,7 +1028,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
 - [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
-- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 1.5 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
+- [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.

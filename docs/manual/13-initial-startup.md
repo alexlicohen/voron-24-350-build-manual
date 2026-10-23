@@ -51,7 +51,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 - **PID tuning comes before QGL, and QGL is run hot.** A thermally unstable machine will not QGL repeatably. Do not reorder this. (survey §3.3, §4.4 #16)
 - **Do not trust a QGL until `PROBE_ACCURACY` shows σ < 0.003 mm with no trend across the 10 samples.** From cold, that takes 10–20 minutes of soak at temperature. (survey §4.4 #16)
-- **Never unplug or re-plug a stepper with the power on.** Every "swap the A and B connectors" instruction in this chapter means: power down, swap, power up. (survey §4.4 #10)
+- **Never unplug or re-plug a stepper with the power on.** Every connector swap or re-pin at a board in this chapter means the touch rule of [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives): Pi shut down, rocker off, unplug wall then inlet, cord out of the room; on its side, open the bottom panel and meter +V to −V at 0 V held ten seconds, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead). Then swap, close the panel, and power on as at [13.3](#step-133-power-on-again-hand-on-the-switch): one adult, nobody else within reach. (survey §4.4 #10)
 - **The stock LDO config ships every build-size option commented out and `[safe_z_home] home_xy_position` set to the placeholder `-10,-10`.** A full `G28` will refuse to run until you replace it with a real coordinate — that is Step 13.26, not a fault. (survey §4.4 #15)
 - **If Ch 12 loaded `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`, stop now.** Every `nhk:` pin differs. Klipper refuses the V1 file on this toolboard (`Pin 'gpio23' is not a valid pin name on mcu 'nhk'`), so you will not mis-drive anything — but you will not get past Step 13.4 either. The check is not the serial ID (you pasted that yourself, and it is right in both files); it is `grep -c gpio ~/printer_data/config/printer.cfg` over SSH: **0** is the V2 file, **20** is the V1 file. (survey §4.1 ①, §5.2 W13)
 - **`M112` is the stop. `RESTART` is not.** Have `M112` typed — alone on the line — and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.
@@ -132,13 +132,13 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 **Do:**
 
-1. Two people: one on the switch, one watching with hands out.
+1. One adult at the switch; nobody else within reach.
 2. Plug the mains lead in, stand to the side, switch on at the IEC inlet rocker.
 3. Keep your hand on it ten seconds. Listen and smell.
 
 **Check:** PSU green LED, Pi power and activity LEDs, the toolboard's **3V3** and **24V** LEDs all lit, with no clicking, buzzing, hot smell or humming stepper.
 
-⚠ If any of that is wrong, switch off at the inlet immediately and go back to Ch 10.
+⚠ If any of that is wrong, rocker off at once, then unplug at the wall, and go back to Ch 10.
 
 Tip: a stepper that is warm to the touch after a minute of idling is normal (they hold at `run_current`); a stepper that is *hot* in a minute is not.
 
@@ -448,8 +448,8 @@ Source: [Voron startup wizard § Stepper motor check](https://docs.vorondesign.c
 | Symptom | Fix |
 |---|---|
 | Nothing moved | Check `enable_pin` and `step_pin`, and that the driver has power |
-| Buzzed but did not travel 1 mm cleanly | Coil pairs transposed in the connector. **Power down**, then re-pin it so each coil is a pair |
-| The wrong motor answered | Motors in the wrong ports. **Power the machine down** before moving any stepper connector |
+| Buzzed but did not travel 1 mm cleanly | Coil pairs transposed in the connector. **Unplug and meter 0 V for ten seconds** as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), then re-pin it so each coil is a pair |
+| The wrong motor answered | Motors in the wrong ports. **Unplug and meter 0 V for ten seconds** as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead) before moving any stepper connector |
 | It moved the wrong way | Invert that stepper's `dir_pin`: add a `!` so `dir_pin: PD3` becomes `dir_pin: !PD3`, or remove an existing `!`. `RESTART` and re-run the buzz |
 
 **Check:** All seven motors answer the right command and move cleanly; the four Z motors turn the right way. Do not proceed with a known-bad axis.
@@ -646,7 +646,7 @@ Source: [Voron docs image mainsail_controls.png](https://raw.githubusercontent.c
 | Observation | Fix |
 |---|---|
 | Matches a column in the **upper** block of the chart | Invert `dir_pin` on the stepper that column marks *Inverted*. `[stepper_x]` is motor **B**, `[stepper_y]` is motor **A** |
-| Matches the **lower (orange)** block | The motors themselves are swapped: **power down**, exchange the A and B connectors at the board, power up, re-test |
+| Matches the **lower (orange)** block | The motors themselves are swapped: **unplug and meter 0 V for ten seconds** as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), exchange the A and B connectors at the board, close the bay, power on as at [13.3](#step-133-power-on-again-hand-on-the-switch), re-test |
 | Gantry moves *downward* first instead of sideways | Z stepper directions are reversed. Go back to Step 13.16 |
 
 Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/V2-motor-configuration-guide.png) · [Voron startup wizard § XY homing check](https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check)
@@ -969,7 +969,7 @@ Pause: ~10 min since the last pause — you are handed off to **Ch 06b**: A/B te
 
 **Check:** QGL converges in fewer passes and from a smaller range than before. If not, the squaring did not take: go back to Ch 06b.
 
-Tip: Ch 06b's `RESTART` put `[idle_timeout]` back to 1800 s. Stay hot: the remaining steps run in this same session.
+Tip: Ch 06b's `RESTART` put `[idle_timeout]` back to 1800 s. Stay hot through 13.36; its `SAVE_CONFIG` turns the heaters off, and 13.39 re-heats.
 
 Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level)
 
@@ -1072,7 +1072,11 @@ Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.ht
 
 **Parts:** none.
 
-**Do:** Still hot and still levelled: `G28`, `QUAD_GANTRY_LEVEL`, `G28`, then `BED_MESH_CALIBRATE`. 49 probe points takes a few minutes.
+**Do:**
+
+1. `SAVE_CONFIG` at 13.36 and `FIRMWARE_RESTART` at 13.38 turned the heaters off. Send `SET_IDLE_TIMEOUT TIMEOUT=7200`, bed 100 °C, hotend 150 °C.
+2. Soak the time you wrote down at 13.32.
+3. `G28`, `QUAD_GANTRY_LEVEL`, `G28`, then `BED_MESH_CALIBRATE`: 49 points, a few minutes.
 
 ```
 Send: BED_MESH_CALIBRATE
@@ -1714,15 +1718,15 @@ Pause: ~30 min since the last pause — the scrubber runs inside `PRINT_START`, 
 |---|---|---|
 | A temperature climbs with nothing commanded | Heater energised through a wiring fault | Cut power at the switch. Back to Ch 10 — do not "just watch it" |
 | Thermistor reads a wild or jumping value | Crimp, or a PH2.0 housing half-seated / in the wrong header | Re-seat, check continuity. Rev D+: uses **PH2.0**, not the guide's XH2.5 |
-| Hotend heats when you command the bed (or vice versa) | Thermistor pair or heater pair swapped | Swap at the board, power off first |
+| Hotend heats when you command the bed (or vice versa) | Thermistor pair or heater pair swapped | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), then swap at the board |
 | Bed does not heat, SSR LED **on** | Fault on the mains side of the SSR | Check LOAD 1 / LOAD 2 and the bed L/N |
 | Bed does not heat, SSR LED **off** | Control polarity reversed | Leviathan **+** → SSR **INPUT 3**, **−** → INPUT 4 |
 | A fan never starts | Wrong port, wrong voltage jumper, or the keyed 2×5 (10-pin) toolhead header seated backwards | Check the port against the config; Rev D+: header is keyed — if it will not drop in, it is backwards. BLDC fans do not spin backwards on reversed polarity, they do nothing or burn out |
 | **The wrong toolhead fan answers** — the top (5015) fan follows the hotend, the bottom (4010) fan follows `M106` | Fan adapter HEF/PCF assignment is the reverse of the config (the Ch 08 Step 08.46 source conflict) | Swap `pin: nhk:PD0` and `pin: nhk:PA15` between `[heater_fan hotend_fan]` and `[fan]`, `RESTART`, re-run 13.9–13.10. Do not re-plug or re-crimp |
 | `STEPPER_BUZZ` moves nothing | `enable_pin`/`step_pin`, or no driver power | Check the pins; check the HV/24 V rail |
-| `STEPPER_BUZZ` buzzes without travelling 1 mm | Stepper coil pairs transposed in the connector | Re-pin the connector so each coil is a pair. Power off first |
+| `STEPPER_BUZZ` buzzes without travelling 1 mm | Stepper coil pairs transposed in the connector | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), then re-pin the connector so each coil is a pair |
 | **A motor moves the wrong way** | `dir_pin` polarity | Add or remove `!` on that stepper's `dir_pin`, `RESTART`, re-buzz |
-| The wrong motor answers | Motors in the wrong ports | Power **off**, move the connector, power on. Never hot-swap a stepper |
+| The wrong motor answers | Motors in the wrong ports | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), move the connector, power on as at [13.3](#step-133-power-on-again-hand-on-the-switch). Never hot-swap a stepper |
 | `G28 X` sends the gantry *down* first | Z stepper directions reversed | Fix Z `dir_pin`s before touching A/B |
 | X and Y both move, but the toolhead goes diagonally / the wrong axis | A and B swapped, or one inverted | Read the V2 configuration chart; upper block → invert a `dir_pin`; lower (orange) block → physically swap A and B |
 | An endstop reads `TRIGGERED` untouched | Wiring, not polarity | Stock Voron endstops are N.C. to ground — a needed `!` usually means a wiring fault. Fix the wiring |
@@ -1782,7 +1786,7 @@ Tick every line before you start Ch 14.
 - **Running QGL before PID, or cold.** A drifting probe gives a QGL that reports success and leaves the gantry unlevel; you then chase it through first-layer tuning for a week. PID first, soak to temperature, and gate on `PROBE_ACCURACY` σ < 0.003 mm. (survey §3.3, §4.4 #16)
 - **Setting the Z offset and the bed mesh before squaring the gantry.** Ch 06b fully releases A/B tension and drops the Z joints — everything measured before it is scrap. Square first, re-tension, re-QGL, *then* Z=0 and mesh.
 - **Adding a `!` to an endstop pin to make a `TRIGGERED` reading go away.** Every stock Voron endstop is normally-closed to ground. If it needs inverting, you almost certainly have a wiring fault that will fail intermittently later.
-- **Moving a stepper connector with the power on.** Back-EMF from a spinning or hot-swapped motor kills drivers, and you will not find out until the next homing move. Power down for every connector change. (survey §4.4 #10)
+- **Moving a stepper connector with the power on.** Back-EMF from a spinning or hot-swapped motor kills drivers, and you will not find out until the next homing move. For every connector change, unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead). (survey §4.4 #10)
 - **Using `RESTART` as an emergency stop.** It waits its turn behind the move you are trying to stop. `M112` typed alone on the line (or the red button) is sent as Mainsail's emergency-stop call and goes round the queue; `M112 ; stop`, or `M112` after another command on the line, is just a queued command. `FIRMWARE_RESTART` afterwards.
 - **"Correcting" the paper test for temperature.** The paper test leaves the nozzle one paper-thickness (~0.1 mm) high by design, hot or cold; Step 13.42's babystepping closes that gap on the real first layer. An extra `TESTZ Z=-0.1` puts Z=0 on the PEI and makes 13.37's check fail by construction.
 - **`SAVE_CONFIG` during the first print.** It restarts Klipper and kills the print at layer one. Babystep, note the total, let the cube finish, then `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`.

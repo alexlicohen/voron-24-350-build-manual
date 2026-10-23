@@ -1535,19 +1535,17 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 
 **Do:**
 
-1. Open the bottom panel and snap every DC loop lid on. Close it.
-2. Peel the protective film from both faces of the back panel.
-3. Run **1 mm** foam tape on the frame-side contact areas, corners butted.
+1. Unplug wall, then inlet. On its side, open the bottom panel; meter +V to −V.
+2. Snap every DC lid on, close it, peel the back-panel films.
+3. Run **1 mm** foam tape on the frame contacts, corners butted.
 
-**Check:** Every DC lid seated, no wire pinched under one. Continuous 1 mm tape on all four edges, none where a clip sits, film off.
-
-**Helper:** Holds the back panel steady and peels the tape backing ahead of you.
+**Check:** Meter held 0 V for ten seconds first. DC lids seated, nothing pinched. 1 mm tape on all four edges, clear of clips, film off.
 
 ⚠ **DC lids:** left off at [Step 10.71](10-wiring.md#step-1071-leave-the-duct-covers-off) for the meter. Ch 13 has now run every motor, heater and fan, so they close now, before any panel. Fallback middle run: its lids instead of the 154N and T_REG_N ones. **LDO layout:** snap the PVC duct covers on.
 
 ⚠ Back and top panels get **1 mm** foam. Side panels get **3 mm**. Mixing them up either lets the gantry rub a side panel or leaves the back panel proud of its clips.
 
-Source: [Voron manual p.238](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=238) · [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=239)
+Source: [Voron manual p.238](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=238) · [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=239) · [Ch 11 Step 11.67 — prove it dead](#step-1167-shut-down-unplug-and-prove-it-dead) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives)
 
 ---
 

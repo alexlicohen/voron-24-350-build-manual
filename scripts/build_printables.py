@@ -940,12 +940,13 @@ def build_plate_review_markdown():
             colour, _parts, hours, grams = estimates[pid]
             asa = run_of(pid) == "asa"
             material = "ASA" if asa else "PETG V0"
-            sheet = "smooth/satin" if asa else "textured"
+            # sheet follows the material (00-slicer-setup § Print sheet): ASA smooth PEI + glue
+            sheet = "smooth PEI sheet + glue" if asa else "textured sheet"
             # `colour` is "petg" for every B11 plate (slicer/plates.py's colour key doubles
             # as its ini/profile selector there) — the actual filament is Jet Black PETG V0.
             shown_colour = "black" if colour == "petg" else colour
             lines.append(
-                f"- [ ] {pid} — {material}, {sheet} sheet, {shown_colour} · "
+                f"- [ ] {pid} — {material}, {sheet}, {shown_colour} · "
                 f"{hours:.1f} h · {grams:.0f} g"
             )
         lines.append("")

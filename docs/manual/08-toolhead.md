@@ -58,7 +58,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×5×4 | 18 | 4 CW2 main body, 7 CW2 motor plate, 1 latch shuttle, 1 guidler arm, 3 chain anchor, 2 printhead rear — all `(verify on bench)`, the SB manual highlights locations, not counts; the latch takes none (SB p.15, and its STL has a plain Ø3.4 bore) |
+| Heat-set insert, brass, M3×5×4 | 18 | 4 CW2 main body, 7 CW2 motor plate, 1 latch shuttle, 1 guidler arm, 3 chain anchor, 2 printhead front — all `(verify on bench)`, the SB manual highlights locations, not counts; the latch takes none (SB p.15, and its STL has a plain Ø3.4 bore) |
 | M3×8 SHCS | 10 | 1 motor, 1 cable bridge, 4 tool cartridge, 2 toolboard, 2 CW2→carriage |
 | M3×16 SHCS | 3 | 1 joins the guidler halves, 2 tool cartridge |
 | M3×20 SHCS | 1 | chain anchor |
@@ -261,20 +261,20 @@ Source: [SB manual p.14](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ---
 
-### Step 08.7 — Inserts: rear printhead half — and the two you skip
+### Step 08.7 — Inserts: front printhead half — and the two you skip
 
 ![Stealthburner manual p.38](assets/sb-pages/sb-p038.png){ crop="0.33 0.28 0.88 0.68" }
 
-**What you're looking at:** The rear printhead half is the back of the tool cartridge, where the hotend sits. Two of the four holes SB p.38 highlights mount an [ADXL345](16-glossary.md#a) accelerometer; the [Nitehawk-SB V2](16-glossary.md#n) has one on board, so those two stay bare.
+**What you're looking at:** The front printhead half is the large half of the tool cartridge, the one the hotend sits in. Two of the four holes SB p.38 highlights mount an [ADXL345](16-glossary.md#a) accelerometer; the [Nitehawk-SB V2](16-glossary.md#n) has one on board, so those two stay bare.
 
 **Parts:**
 
-- `stealthburner_printhead_revo_voron_rear_cw2` ×1
+- `stealthburner_printhead_revo_voron_front` ×1
 - heat-set inserts M3×5×4 ×2
 
-**Do:** SB p.38 highlights four holes on the face it shows. Fit only the **upper two**, just below the top edge, pressing in sideways, not down through the top face. The **circled pair is the ADXL mount**: leave it empty.
+**Do:** SB p.38 highlights four holes on the face the rear half meets. Fit only the **upper two**, just below the top edge, pressing in sideways, not through the top face. The **circled pair is the ADXL mount**: leave it empty.
 
-**Check:** Two inserts in the upper holes of that face; the top face and the circled pair are bare plastic. Count: 2 `(verify on bench)`.
+**Check:** Two inserts in the upper holes of the back face; top face, circled pair and the thin rear half stay bare. Count: 2 `(verify on bench)`.
 
 ⚠ Rev D+ / LDO: the Nitehawk-SB V2 carries an ADXL345 on board with `[resonance_tester] accel_per_hz: 100` already configured. There is no toolhead accelerometer to mount, now or later. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
 
@@ -699,19 +699,19 @@ Source: [SB manual p.39](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ---
 
-### Step 08.28 — Seat the hotend in the rear printhead half
+### Step 08.28 — Seat the hotend in the front printhead half
 
 ![Stealthburner manual p.39](assets/sb-pages/sb-p039.png){ crop="0.15 0.24 0.75 0.80" }
 ![Stealthburner manual p.40](assets/sb-pages/sb-p040.png){ crop="0.14 0.30 0.70 0.86" }
 
-**What you're looking at:** The rear printhead half is the pocket the hotend lives in. The heatsink's groove locates on a moulded rib that stops the hotend rotating when you hand-tighten the nozzle. SB p.40 draws the hotend in this half: it goes in before the wires are routed.
+**What you're looking at:** The front printhead half is the pocket the hotend lives in. The heatsink's groove locates on a moulded rib that stops the hotend rotating when you hand-tighten the nozzle. SB p.40 draws the hotend in this half: it goes in before the wires are routed.
 
 **Parts:**
 
-- reused: the rear printhead half with its inserts
+- reused: the front printhead half with its inserts
 - E3D Revo HF hotend, assembled ×1
 
-**Do:** Drop the Revo Voron heatsink into the rear printhead half so the heatsink's groove locates on the printed rib, with the HeaterCore's wires pointing up the side p.40 draws them on. Do not bend anything yet.
+**Do:** Drop the Revo Voron heatsink into the front printhead half so the heatsink's groove locates on the printed rib, with the HeaterCore's wires pointing up the side p.40 draws them on. Do not bend anything yet.
 
 **Check:** The heatsink cannot rotate in the pocket, and the nozzle protrudes centrally.
 
@@ -727,11 +727,11 @@ Source: [SB manual p.39](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Parts:**
 
-- reused: the Revo in the rear half
+- reused: the Revo in the front half
 
 **Do:**
 
-1. Route the hotend wires up the side of the rear half as SB p.40 shows.
+1. Route the hotend wires up the side of the front half as SB p.40 shows.
 2. Bend the HeaterCore's stainless strain relief clear of the printed part, holding the HeaterCore firmly so no load goes on the nozzle.
 
 **Check:** The relief clears its wall, the nozzle still turns the last part-turn home by hand, and the wires exit rearwards clear of the nozzle.
@@ -744,14 +744,14 @@ Source: [SB manual p.40](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ![Stealthburner manual p.41](assets/sb-pages/sb-p041.png){ crop="0.17 0.26 0.84 0.84" }
 
-**What you're looking at:** Front half on, two bolts, and the **tool cartridge** now exists as an object: hotend, both printhead halves and, next, the PTFE, as one unit that later slides up into the toolhead. Any movement here is movement of the nozzle.
+**What you're looking at:** Rear half on, two bolts, and the **tool cartridge** now exists as an object: hotend, both printhead halves and, next, the PTFE, as one unit that later slides up into the toolhead. Any movement here is movement of the nozzle.
 
 **Parts:**
 
-- `stealthburner_printhead_revo_voron_front` ×1
+- `stealthburner_printhead_revo_voron_rear_cw2` ×1
 - M3×16 SHCS ×2
 
-**Do:** Bring the front half onto the rear half around the hotend and fix with two M3×16 SHCS.
+**Do:** Bring the thin rear half onto the front half around the hotend and drive two M3×16 SHCS through it into the front half's inserts.
 
 **Check:** The two halves close with no gap and the hotend has zero play in any direction.
 

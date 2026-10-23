@@ -31,8 +31,8 @@ and the G-code is checked: one layer, five objects, bed 110 C, the cold start in
     python3 slicer/hot_check.py           # write both 3MFs, slice them, check them
     python3 slicer/hot_check.py --check   # slice and check the committed 3MFs only
 
-Re-run it (no flag) after `sync_start_gcode.py` changes the start G-code in the inis: that
-script patches the 22 plates only, and the cold project takes the ini's value when rebuilt.
+Re-run it (no flag) after `build_config.py` changes the start G-code in the inis
+(`sync_start_gcode.py` then patches every plate); the cold project takes the ini's value when rebuilt.
 """
 from __future__ import annotations
 
