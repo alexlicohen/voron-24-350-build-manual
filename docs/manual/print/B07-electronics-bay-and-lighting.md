@@ -5,9 +5,9 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 16.1 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 16.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.9 / 8.2 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.8 / 8.2 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
@@ -62,7 +62,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `wago_221-415_mount_3by5` · `lrs_200_psu_bracket_x2` ×2 · `PSU_stabilizer_50mm` · `usb_adapter_mount` · `usb_adapter_mount_partial_cover` ×1 (ground-lug mount, est.) · `pcb_din_clip_x3` ×3 · `handlebar_spacer_x4` ×4 · `power_inlet_IECGS_1mm` · 8 files, 14 objects — 7.9 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `wago_221-415_mount_3by5` and `power_inlet_IECGS_1mm` (the long-flat list), already in the project.
+**Parts:** `wago_221-415_mount_3by5` · `lrs_200_psu_bracket_x2` ×2 · `PSU_stabilizer_50mm` · `usb_adapter_mount` · `usb_adapter_mount_partial_cover` ×1 (ground-lug mount, est.) · `pcb_din_clip_x3` ×3 · `handlebar_spacer_x4` ×4 · `power_inlet_IECGS_1mm` · 8 files, 14 objects — 7.8 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `wago_221-415_mount_3by5` and `power_inlet_IECGS_1mm` (the long-flat list), already in the project.
 **Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the Wago mount and the inlet.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.

@@ -332,13 +332,14 @@ PLATES: dict[str, dict] = {
     # hours balanced) from the committed projects with platearrange.merge_3mf, arranged at 6 mm.
     "B09-P1": dict(
         batch="B09", colour="black",
-        note="The whole Nevermore: V2_Duo_Plenum and Regular_Cartridge each have a built-in "
-             "support to push out.",
+        note="The whole Nevermore, plus the seven 4 mm midspan panel clips. V2_Duo_Plenum and "
+             "Regular_Cartridge each have a built-in support to push out.",
         parts=[
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum.stl", 1),
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum_LID.stl", 1),
             ("nevermore", "V5_Duo/V2/Regular_Cartridge_Lid(contributed_by_Bucknova).3mf", 1),
             ("nevermore", "V5_Duo/V2/Regular_Cartridge(contributed_by_Bucknova).3mf", 1),
+            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 7),
         ]),
     "B09-P2": dict(
         batch="B09", colour="black",
@@ -353,14 +354,14 @@ PLATES: dict[str, dict] = {
         ]),
     "B09-P3": dict(
         batch="B09", colour="black",
-        note="4 mm panel clips, with the exhaust cover and grill and the spool holder.",
+        note="Exhaust cover and grill centred, spool holder, bowden retainer and the eight 4 mm "
+             "corner panel clips.",
         parts=[
             ("ldov2", "STLs/exhaust_cover.stl", 1),
             ("voron2", "STLs/Exhaust_Filter/exhaust_filter_grill.stl", 1),
             ("voron2", "STLs/Spool_Management/spool_holder.stl", 1),
             ("voron2", "STLs/Spool_Management/bowden_retainer.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 8),
-            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 7),
         ]),
     "B10-P1": dict(
         batch="B10", colour="black",

@@ -79,7 +79,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the three
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.9 h run prints on the current **Gen 1 GT2** belts. Then run the three
 checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
 09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
 here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run

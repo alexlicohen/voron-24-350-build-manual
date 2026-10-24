@@ -225,3 +225,39 @@ def test_first_layer_brim_only_around_the_base():
     parts = [placed_part(part_from_mesh(v, t, 5.0), p.rot_deg, p.x, p.y) for p in two.placements]
     d, _ = min_gap(parts)
     assert 2.0 - 1e-6 <= d < 2.0 + 3.0   # caps nest at the gap, not gap + 2 brims
+
+
+def _big_and_small():
+    sizes = [(150, 60), (120, 30)] + [(22, 18)] * 28
+    brims = [3, 3] + [0] * 28
+    items = [Item(i, *box(w, h), brim=b) for i, ((w, h), b) in enumerate(zip(sizes, brims))]
+    return sizes, brims, items
+
+
+def _centre_dist(w, h, pl: Placement, bed):
+    xs, ys = zip(*_corners(w, h, pl))
+    return math.hypot((min(xs) + max(xs)) / 2 - bed[0] / 2, (min(ys) + max(ys)) / 2 - bed[1] / 2)
+
+
+def test_large_centre_puts_the_big_parts_in_the_middle():
+    sizes, brims, items = _big_and_small()
+    bed, gap, margin = (250, 220), 6.0, 4.0
+    plain = arrange_detailed(items, bed=bed, gap=gap, edge_margin=margin)
+    lc = arrange_detailed(items, bed=bed, gap=gap, edge_margin=margin, large_centre=1.0)
+    assert plain.beds == lc.beds == 1
+    _check_boxes(sizes, brims, lc.placements, gap, bed, margin)     # independent geometry
+    d_plain = [_centre_dist(*sizes[i], plain.placements[i], bed) for i in (0, 1)]
+    d_lc = [_centre_dist(*sizes[i], lc.placements[i], bed) for i in (0, 1)]
+    assert d_lc[0] <= 15.0, d_lc                    # the largest part sits on the bed centre
+    assert d_lc[0] <= d_plain[0] + 1e-6, (d_lc, d_plain)
+    assert lc.params["large_centre"] == 1.0
+
+
+def test_large_centre_deterministic_and_off_by_default():
+    sizes, brims, items = _big_and_small()
+    a = arrange_detailed(items, gap=6.0, edge_margin=4.0, large_centre=1.0)
+    clear_cache()
+    b = arrange_detailed(items, gap=6.0, edge_margin=4.0, large_centre=1.0)
+    assert a.placements == b.placements and a.strategy == b.strategy
+    plain = arrange_detailed(items, gap=6.0, edge_margin=4.0)
+    assert "anchored" not in plain.strategy and not plain.strategy.startswith("ring")

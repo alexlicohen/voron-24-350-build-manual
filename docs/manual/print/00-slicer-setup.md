@@ -219,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.0 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.9 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -385,7 +385,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 157.0 h / 20-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 156.9 h / 20-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

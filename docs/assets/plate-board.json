@@ -158,7 +158,7 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 7.9,
+   "hours": 7.8,
    "grams": 102,
    "colour": "black",
    "slot": "overnight",
@@ -248,13 +248,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 7.9,
-   "grams": 101,
+   "hours": 9.0,
+   "grams": 114,
    "colour": "black",
    "slot": "overnight",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 727,
+   "remaining": 714,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -269,7 +269,7 @@
    "slot": "overnight",
    "note": "",
    "spool": "#3",
-   "remaining": 628,
+   "remaining": 615,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -278,8 +278,8 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 6.9,
-   "grams": 96,
+   "hours": 5.8,
+   "grams": 83,
    "colour": "black",
    "slot": "day",
    "note": "",
@@ -384,7 +384,7 @@
   {
    "run": "asa",
    "plates": 20,
-   "hours": 157.0,
+   "hours": 156.9,
    "label": "20-plate run"
   },
   {
@@ -396,9 +396,9 @@
  ],
  "totals": {
   "plates": 25,
-  "hours": 181.9,
+  "hours": 181.8,
   "overnight": 14,
   "run_plates": 20,
-  "run_hours": 157.0
+  "run_hours": 156.9
  }
 }

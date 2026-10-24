@@ -111,6 +111,23 @@ run again with rotations limited to {0, 180}, then to {0, 90, 180, 270}. A greed
 turn every part can wall off the slot a later part needed. Four 120 × 100 boxes on a
 250 × 220 bed are the test case for this.
 
+### Large parts in the middle (`large_centre`)
+
+`large_centre=W` (off by default; this repo uses 1.0) is for warp-prone prints: the large
+parts should sit in the middle of the bed, away from its cooler edges, and the small ones
+around them. It changes three things:
+
+- the strategy metric gains `W · Σ a²·d / Σ a² / hd`, where a is a part's footprint area
+  and d its distance from the pile centre. The square makes the largest parts dominate.
+- a `ring` objective (each part as near the bed centre as it fits, largest first) joins
+  the strategies, at the centre sink only.
+- anchored variants: the parts of at least `large_frac` (default 0.03) of the usable bed are
+  packed alone into a pile about the centre, then every strategy fills the rest in around
+  that fixed pile.
+
+Bed count still ranks first, so a plate that only fits one way keeps that layout. A
+near-full bed cannot put its big parts in the middle; move small parts to another plate.
+
 `improve=N` adds N passes that lift each part and re-place it on the rest of the pile,
 keeping a move only when the pile metric improves. It is off by default: on the repo
 plates it gained under 1 % for twice the time.

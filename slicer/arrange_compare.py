@@ -8,6 +8,7 @@ the committed 3MF) go under --out only, with --out/compare.json and a stdout tab
     python3 slicer/arrange_compare.py --out /tmp/arr                 # all plates
     python3 slicer/arrange_compare.py --out /tmp/arr B02-P3 B06-P1   # named plates
     options: --gaps 3,6  --consolidate-gap 3  --no-consolidate  --rot-step 5  --res 0.5
+             --large-centre W  (platearrange large_centre: big parts in the middle; 0 = off)
 
 Every number is measured on the geometry read back from a 3MF (the committed one, or the
 candidate re-read with threemf.py), with platearrange.measure's exact segment geometry, not
@@ -95,7 +96,7 @@ def candidate(pid, objs, bed, fl, gap, args, out: Path, failures: list) -> dict:
     res = arrange_detailed(items, bed=[(bed[0], bed[1]), (bed[2], bed[1]), (bed[2], bed[3]),
                                        (bed[0], bed[3])],
                            gap=gap, rot_step=args["rot_step"], edge_margin=EDGE_MARGIN,
-                           res=args["res"], first_layer=fl)
+                           res=args["res"], first_layer=fl, large_centre=args["large_centre"])
     secs = time.time() - t0
     row = dict(beds=res.beds, fits=res.beds == 1, strategy=res.strategy, secs=round(secs, 2),
                rotations={objs[p.item_id][0]: p.rot_deg for p in res.placements})
@@ -147,7 +148,8 @@ def _fmt(r: dict) -> str:
 
 
 def main(argv) -> int:
-    args = dict(rot_step=5.0, res=0.5, gaps=(3.0, 6.0), cgap=3.0, consolidate=True)
+    args = dict(rot_step=5.0, res=0.5, gaps=(3.0, 6.0), cgap=3.0, consolidate=True,
+                large_centre=0.0)
     out, ids, i = None, [], 0
     while i < len(argv):
         a = argv[i]
@@ -172,6 +174,8 @@ def main(argv) -> int:
             args["rot_step"] = float(take())
         elif a == "--res":
             args["res"] = float(take())
+        elif a == "--large-centre":
+            args["large_centre"] = float(take())
         elif a in ("-h", "--help"):
             print(__doc__)
             return 0
@@ -247,7 +251,8 @@ def main(argv) -> int:
             res = arrange_detailed(items, bed=[(bed[0], bed[1]), (bed[2], bed[1]),
                                                (bed[2], bed[3]), (bed[0], bed[3])],
                                    gap=args["cgap"], rot_step=args["rot_step"],
-                                   edge_margin=EDGE_MARGIN, res=args["res"], first_layer=max(fls))
+                                   edge_margin=EDGE_MARGIN, res=args["res"], first_layer=max(fls),
+                                   large_centre=args["large_centre"])
             secs = time.time() - t0
             per_bed: dict = {}
             for p in res.placements:

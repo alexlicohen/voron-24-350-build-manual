@@ -1,6 +1,6 @@
 # Print batches — overview
 
-20 plates, **157.0 h**, **1811 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
+20 plates, **156.9 h**, **1811 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -19,7 +19,7 @@ caption: Twenty plates, start to finish. The printer works while the kit is stil
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
 Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
-— 157.0 h. Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 156.9 h. Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -37,11 +37,11 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.6 | 117 | 0 | Ch 05 Gantry | Gate B |
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.3 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 1 | 12.2 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
-| [B07](B07-electronics-bay-and-lighting.md) | 2 | 16.1 | 226 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
+| [B07](B07-electronics-bay-and-lighting.md) | 2 | 16.0 | 226 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
 | [B08](B08-skirts-and-front-modules.md) | 4 | 29.2 | 398 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 3 | 21.9 | 296 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 76 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **20** | **157.0** | **1811** | **279** | | |
+| **TOTAL** | **20** | **156.9** | **1811** | **279** | | |
 
 All 20 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
@@ -68,18 +68,18 @@ is watched, and let it run into the night. Spool column is the [ledger](#spool-l
 | 8 | B04-P1 | 8.6 | black | overnight | #1 |
 | 9 | B05-P1 | 6.3 | black | day | #1 |
 | 10 | B06-P1 | 12.2 | black | overnight | #2 (fresh) |
-| 11 | B07-P1 | 7.9 | black | overnight | #2 |
+| 11 | B07-P1 | 7.8 | black | overnight | #2 |
 | 12 | B07-P2 | 8.2 | black | overnight | #2 |
 | 13 | B08-P1 | 6.3 | black | day | #2 |
 | 14 | B08-P2 | 8.4 | black | overnight | #2 |
 | 15 | B08-P3 | 9.5 | black | overnight | #2 |
 | 16 | B08-P4 | 5.0 | black | day | #2 |
-| 17 | B09-P1 | 7.9 | black | overnight | #2 → #3 |
+| 17 | B09-P1 | 9.0 | black | overnight | #2 → #3 |
 | 18 | B09-P2 | 7.1 | black | overnight | #3 |
-| 19 | B09-P3 | 6.9 | black | day | #3 |
+| 19 | B09-P3 | 5.8 | black | day | #3 |
 | 20 | B10-P1 | 5.7 | black | day | #3 |
 
-Fourteen overnight plates and six day plates, 157.0 h in all: about 16 printer-days, three to four weeks at
+Fourteen overnight plates and six day plates, 156.9 h in all: about 16 printer-days, three to four weeks at
 two swaps a day.
 
 ## Bins
@@ -186,7 +186,7 @@ plate lands on its slicer number. Rows are in **print order** — numeric, B00 �
 bearing seat: the Core One+ runout sensor pauses, you load the next spool and it resumes. One runout is
 predicted, on such a plate:
 
-- **B09-P1** (the whole Nevermore: plenum, cartridge and their lids) — spool #2 has about 28 g left when it starts.
+- **B09-P1** (the whole Nevermore: plenum, cartridge and their lids, plus seven midspan 4 mm clips; 114 g) — spool #2 has about 28 g left when it starts.
 
 Four rules that override the ledger:
 
@@ -219,9 +219,9 @@ Four rules that override the ledger:
 | B08-P2 | 108 | | #2 | 219 |
 | B08-P3 | 121 | | #2 | 98 |
 | B08-P4 | 70 | | #2 | 28 |
-| B09-P1 | 101 | | **#2 → #3 mid-plate** | 727 |
-| B09-P2 | 99 | | #3 | 628 |
-| B09-P3 | 96 | | #3 | 532 |
+| B09-P1 | 114 | | **#2 → #3 mid-plate** | 714 |
+| B09-P2 | 99 | | #3 | 615 |
+| B09-P3 | 83 | | #3 | 532 |
 | B10-P1 | 76 | | #3 | 456 |
 | **TOTAL black** | **1811** | | 3 × 800 g | **589 g margin** (456 on #3 + 133 on #1) |
 | **TOTAL blue** | **279** | | 1 × 800 g | **521 g margin** |

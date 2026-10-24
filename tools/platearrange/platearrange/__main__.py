@@ -34,6 +34,8 @@ def main(argv=None) -> int:
     ap.add_argument("--res", type=float, default=0.5, help="raster cell, mm (0.5)")
     ap.add_argument("--exclude", type=_rect, action="append", default=[],
                     metavar="X0,Y0,X1,Y1", help="bed area to keep clear (repeatable)")
+    ap.add_argument("--large-centre", type=float, default=0.0, metavar="W",
+                    help="weight > 0 puts the largest parts in the middle of the bed (0 = off)")
     ap.add_argument("--report", help="write a JSON report here")
     a = ap.parse_args(argv)
 
@@ -54,7 +56,7 @@ def main(argv=None) -> int:
     try:
         res = arrange_detailed(pr.to_items(), bed=bed, gap=a.gap, rot_step=a.rot_step,
                                edge_margin=a.edge_margin, exclusions=a.exclude, res=a.res,
-                               first_layer=pr.first_layer_height)
+                               first_layer=pr.first_layer_height, large_centre=a.large_centre)
     except NoFit as e:
         print(f"does not fit: {pr.items[e.item_id].name}: {e}", file=sys.stderr)
         return 2

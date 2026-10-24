@@ -7,7 +7,7 @@ caption: Panels, filtration and a spool holder. Three long plates, back to back,
 
 **Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 6.9–7.9 h unattended) + ~15 min inspect and bin, plus the
+**Sessions:** 3 plate starts (~5 min hands-on each, 5.8–9.0 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
 **Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10
@@ -80,8 +80,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B09-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Leave the plenum's and the cartridge's built-in supports in place.
-**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `V2_Duo_Plenum_LID`, no brim · `Regular_Cartridge_Lid`, no brim · `Regular_Cartridge` (3mf), 3 mm brim — 7.9 h, 101 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Both built-in supports visible in preview, not suppressed; brim outline on the plenum and the cartridge only.
+**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `V2_Duo_Plenum_LID`, no brim · `Regular_Cartridge_Lid`, no brim · `Regular_Cartridge` (3mf), 3 mm brim · `midspan_panel_clip_4mm` ×7 · 5 files, 11 pieces — 9.0 h, 114 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Both built-in supports visible in preview, not suppressed; brim outline on the plenum and the cartridge only; 7 midspan clips.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -132,8 +132,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `exhaust_cover`, 3 mm brim · `exhaust_filter_grill`, 3 mm brim · `spool_holder`, no brim · `bowden_retainer`, no brim · `corner_panel_clip_4mm` ×8 · `midspan_panel_clip_4mm` ×7 · 6 files, 19 pieces — 6.9 h, 96 g (PrusaSlicer 2.9.6 estimate) · both brims already in the project.
-**Check:** Counts match: 8 corner and 7 midspan clips; no face re-orientation; brim outline on the cover and the grill only.
+**Parts:** `exhaust_cover`, 3 mm brim · `exhaust_filter_grill`, 3 mm brim · `spool_holder`, no brim · `bowden_retainer`, no brim · `corner_panel_clip_4mm` ×8 · 5 files, 12 pieces — 5.8 h, 83 g (PrusaSlicer 2.9.6 estimate) · both brims already in the project.
+**Check:** Counts match: 8 corner clips; no face re-orientation; brim outline on the cover and the grill only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -171,6 +171,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `midspan_panel_clip_4mm` ×7 |
 | **11-nevermore** — Nevermore plenum + cartridge | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)` |
 
 **B09-P2**
@@ -184,7 +185,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×8, `midspan_panel_clip_4mm` ×7 |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×8 |
 | **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_cover`, `exhaust_filter_grill` |
 | **11-spool** — Spool holder + bowden retainer | `spool_holder`, `bowden_retainer` |
 

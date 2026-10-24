@@ -26,7 +26,11 @@ from .footprint import (Kernels, MeshFootprints, irfft2, mesh_triangles, next_fa
 OBJECTIVES = {
     "box": dict(area=1.0, side=0.5, dist=0.1, rad=0.0),     # tight rectangle
     "round": dict(area=1.0, side=0.5, dist=0.1, rad=0.5),   # tight and round about the centre
+    # centre-out: each part as near the bed centre as it fits (largest first); tried only
+    # with large_centre > 0, where it puts the big parts in the middle of a full bed
+    "ring": dict(area=0.0, side=0.0, dist=1.0, rad=0.0),
 }
+DEFAULT_OBJECTIVES = ("box", "round")
 # Strategy choice and improvement moves: the pile's area and side terms, plus the mean and
 # the largest distance of part centres from the pile centre.
 SELECT = dict(area=1.0, side=0.5, mean=0.1, max=0.5)
@@ -392,10 +396,12 @@ def _box(bed: _Bed, p: _Prep, r: int, gx: int, gy: int):
     return (e[0] + tx, e[1] + ty, e[2] + tx, e[3] + ty)
 
 
-def pile_metric(bed: _Bed, placed) -> float:
+def pile_metric(bed: _Bed, placed, large_centre: float = 0.0) -> float:
     """Translation-invariant pile quality (lower is better, weights in SELECT): pile bbox
     area / bed area, larger pile side / bed side, and the mean (/ bed diagonal) and largest
     (/ half diagonal) distance of the parts' bbox centres from the pile's bbox centre.
+    `large_centre` adds that weight times the (footprint area)²-weighted mean distance
+    (/ half diagonal), so layouts with the large parts in the middle win.
     Picks between strategies and accepts improvement moves."""
     boxes = np.array([_box(bed, p, r, gx, gy) for p, r, gx, gy in placed])
     x0, y0 = boxes[:, 0].min(), boxes[:, 1].min()
@@ -405,9 +411,14 @@ def pile_metric(bed: _Bed, placed) -> float:
     cy = (boxes[:, 1] + boxes[:, 3]) / 2 - (y0 + y1) / 2
     diag = math.hypot(bed.uw, bed.uh)
     d = np.hypot(cx, cy)
-    return float(SELECT["area"] * W * H / (bed.uw * bed.uh)
-                 + SELECT["side"] * max(W / bed.uw, H / bed.uh)
-                 + SELECT["mean"] * d.mean() / diag + SELECT["max"] * d.max() / (diag / 2))
+    m = (SELECT["area"] * W * H / (bed.uw * bed.uh)
+         + SELECT["side"] * max(W / bed.uw, H / bed.uh)
+         + SELECT["mean"] * d.mean() / diag + SELECT["max"] * d.max() / (diag / 2))
+    if large_centre:
+        a = np.array([p.area for p, _r, _gx, _gy in placed], dtype=float)
+        a = a * a      # area-squared weights: the largest parts dominate the term
+        m += large_centre * float((a * d).sum() / a.sum()) / (diag / 2)
+    return float(m)
 
 
 def _rebuild(bed: _Bed, placed, sink) -> "_BedState":
@@ -417,7 +428,8 @@ def _rebuild(bed: _Bed, placed, sink) -> "_BedState":
     return st
 
 
-def _improve(bed: _Bed, st: "_BedState", sink, w, passes: int, allowed=None):
+def _improve(bed: _Bed, st: "_BedState", sink, w, passes: int, allowed=None,
+             large_centre: float = 0.0):
     """Lift each part (last placed first) and re-place it on the rest of the pile; keep
     the move only if the pile metric improves. Deterministic."""
     for _ in range(passes):
@@ -434,7 +446,8 @@ def _improve(bed: _Bed, st: "_BedState", sink, w, passes: int, allowed=None):
             if hit is None or (hit[1], hit[2], hit[3]) == (r, gx, gy):
                 continue
             cand = placed[:idx] + [(p, hit[1], hit[2], hit[3])] + placed[idx + 1:]
-            if pile_metric(bed, cand) < pile_metric(bed, placed) - 1e-12:
+            if (pile_metric(bed, cand, large_centre)
+                    < pile_metric(bed, placed, large_centre) - 1e-12):
                 st = _rebuild(bed, cand, sink)
                 moved = True
         if not moved:
@@ -453,10 +466,12 @@ def _order(preps, ordering: str):
 
 
 def _run(bed: _Bed, preps, ordering, sink_name, objective, max_beds, improve: int,
-         allowed=None):
+         allowed=None, large_centre: float = 0.0, seed=None):
+    """One greedy strategy. `seed`: placements already fixed on the first bed (the anchored
+    large parts); `preps` are then only the parts still to place."""
     w = OBJECTIVES[objective]
     sink = (bed.cx, bed.cy) if sink_name == "centre" else (bed.x0 + bed.m, bed.y0 + bed.m)
-    states: List[_BedState] = []
+    states: List[_BedState] = [_rebuild(bed, seed, sink)] if seed else []
     for p in _order(preps, ordering):
         khat = _kernel_hat(bed, p.k)
         okmaps = _bed_ok_maps(bed, p.k)
@@ -481,7 +496,7 @@ def _run(bed: _Bed, preps, ordering, sink_name, objective, max_beds, improve: in
             _commit(bed, st, p, *hit[1:], sink)
             states.append(st)
     if improve:
-        states = [_improve(bed, st, sink, w, improve, allowed) for st in states]
+        states = [_improve(bed, st, sink, w, improve, allowed, large_centre) for st in states]
     return states
 
 
@@ -532,10 +547,11 @@ def arrange_detailed(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0
                      rot_step: float = 5.0, edge_margin: float = 0.0, exclusions=(),
                      res: float = 0.5, first_layer: float = 0.2,
                      orderings: Sequence[str] = ORDERINGS, sinks: Sequence[str] = SINKS,
-                     objectives: Sequence[str] = tuple(OBJECTIVES),
+                     objectives: Optional[Sequence[str]] = None,
                      max_beds: Optional[int] = None,
                      rotations: Optional[Sequence[float]] = None,
-                     improve: int = 0, threads: Optional[int] = None) -> Result:
+                     improve: int = 0, threads: Optional[int] = None,
+                     large_centre: float = 0.0, large_frac: float = 0.03) -> Result:
     """Arrange `items` on as few beds as possible; see `arrange`."""
     if not items:
         return Result([], 0, "", [], {})
@@ -556,12 +572,44 @@ def arrange_detailed(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0
     for fam in FALLBACK_ROTATIONS:
         allowed = [rots.index(a) for a in fam if a in rots]
         families.append(("/rot" + "-".join(f"{a:g}" for a in fam), allowed))
-    tasks = list(itertools.product(objectives, orderings, sinks))
+    if objectives is None:
+        objectives = DEFAULT_OBJECTIVES + (("ring",) if large_centre > 0 else ())
+    tasks = [t for t in itertools.product(objectives, orderings, sinks)
+             if not (t[0] == "ring" and t[2] != "centre")]
+
+    # Anchored variants (large_centre > 0): the parts whose footprint is at least
+    # large_frac of the usable bed are first packed alone into a pile about the bed centre;
+    # every strategy then also runs once more with that pile fixed, filling the small parts
+    # in around it. Selection (bed count, then the metric with its large_centre term)
+    # decides between anchored and plain layouts.
+    anchor = None
+    if large_centre > 0:
+        thr = large_frac * b.uw * b.uh
+        big = [p for p in preps if p.area >= thr]
+        if 0 < len(big) < len(preps):
+            best1 = None
+            for obj in tuple(OBJECTIVES):
+                for ordering in orderings:
+                    try:
+                        st1 = _run(b, big, ordering, "centre", obj, 1, 0, None)
+                    except NoFit:
+                        continue
+                    m1 = pile_metric(b, st1[0].placed, large_centre)
+                    if best1 is None or m1 < best1[0] - 1e-12:
+                        best1 = (m1, list(st1[0].placed))
+            if best1 is not None:
+                anchor = (best1[1], [p for p in preps if p.area < thr])
+    if anchor is not None:
+        tasks = tasks + [t + ("anchor",) for t in tasks]
 
     def one(task, allowed):
-        objective, ordering, sink = task
+        objective, ordering, sink = task[:3]
         try:
-            return _run(b, preps, ordering, sink, objective, max_beds, improve, allowed)
+            if len(task) > 3:
+                return _run(b, anchor[1], ordering, sink, objective, max_beds, improve,
+                            allowed, large_centre, seed=anchor[0])
+            return _run(b, preps, ordering, sink, objective, max_beds, improve, allowed,
+                        large_centre)
         except NoFit as e:
             return e
 
@@ -571,15 +619,17 @@ def arrange_detailed(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0
             if fi > 0 and best is not None and best[0][0] <= lower:
                 break           # the full rotation search already reached the area bound
             # strategies are independent; results are taken in task order (deterministic)
-            for (objective, ordering, sink), states in zip(
-                    tasks, pool.map(lambda t: one(t, allowed), tasks)):
+            for task, states in zip(tasks, pool.map(lambda t: one(t, allowed), tasks)):
+                objective, ordering, sink = task[:3]
+                atag = "/anchored" if len(task) > 3 else ""
                 if isinstance(states, NoFit):
                     last_err = states
                     n += 1
                     continue
-                score = (len(states), round(sum(pile_metric(b, s.placed) for s in states), 9), n)
+                score = (len(states),
+                         round(sum(pile_metric(b, s.placed, large_centre) for s in states), 9), n)
                 if best is None or score < best[0]:
-                    best = (score, f"{objective}/{ordering}/{sink}{tag}", states)
+                    best = (score, f"{objective}/{ordering}/{sink}{atag}{tag}", states)
                 n += 1
     if best is None:
         raise last_err  # type: ignore[misc]
@@ -601,6 +651,7 @@ def arrange_detailed(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0
         q = st.pile
         piles.append((q[0] + dx, q[1] + dy, q[2] + dx, q[3] + dy))
     params = dict(gap=gap, rot_step=rot_step, rotations=len(rots), edge_margin=edge_margin,
+                  large_centre=large_centre, large_frac=large_frac,
                   res=res, first_layer=first_layer, exclusions=[list(e) for e in exclusions or ()])
     return Result(out, len(states), name, piles, params)  # type: ignore[arg-type]
 
@@ -619,6 +670,9 @@ def arrange(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0,
                  at most about one cell per part
     Extra keywords go to arrange_detailed: first_layer (mm of base the brim grows from),
     orderings, sinks, objectives, max_beds, rotations (explicit angle list), improve (passes),
+    large_centre (weight > 0 favours layouts with the largest footprints nearest the centre,
+    and adds anchored layouts: parts of at least large_frac (default 0.03) of the bed packed
+    first about the centre, the rest filled in around them),
     threads (strategies run in parallel; default half the CPUs; the result does not depend on it).
     """
     return arrange_detailed(items, bed, gap, rot_step, edge_margin, exclusions, res,
