@@ -1,0 +1,3 @@
+# tools/platearrange (slicer/arrange_compare.py, build_plates.py --packer=platearrange)
+numpy>=1.21
+# scipy>=1.7    # optional: multi-threaded float32 FFTs, about 3x faster

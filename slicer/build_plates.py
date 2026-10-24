@@ -18,6 +18,9 @@ For each plate in `plates.py` (the 22 of the ASA run and B11's bay-ducting plate
                                                   # they are (edited in the GUI or not), refresh
                                                   # estimates.csv and redraw the diagrams
     python3 slicer/build_plates.py --nest B01-P1  # pack with slicer/nest.py (outlines) instead
+    python3 slicer/build_plates.py --packer=platearrange --out /tmp/x B01-P1
+                                                  # pack with tools/platearrange (outlines, any
+                                                  # Z rotation, centred); needs numpy
     python3 slicer/build_plates.py --out /tmp/x   # write the 3MF, PNG and CSV under /tmp/x
                                                   # instead of the committed trees
 
@@ -60,10 +63,15 @@ INI = {"black": ROOT / "voron-coreone-asa.ini",
        "petg": ROOT / "bay-ducts-petg.ini"}     # B11 only; not Voron spec (ducts carry no load)
 
 # "geom" packs bounding boxes (geom.py), "nest" packs the real outlines (nest.py) and
-# fits appreciably more on a plate. `--nest` sets it for one run; this one line is the
-# permanent switch. nest.pack replaces build()'s bounding-box overlap assertion with a
-# stricter outline check of its own, so that assertion is skipped when it is in use.
+# fits appreciably more on a plate, "platearrange" packs outlines at any Z rotation toward
+# the bed centre (tools/platearrange, needs numpy). `--nest` / `--packer=NAME` set it for one
+# run; this one line is the permanent switch. The outline packers replace build()'s
+# bounding-box overlap assertion with a stricter outline check of their own, so that
+# assertion runs for "geom" only.
 PACKER = "geom"
+PACKERS = ("geom", "nest", "platearrange")
+PA_GAP = 6.0                  # platearrange: mm between brims (PrusaSlicer's default) ...
+PA_GAP_LADDER = (5.0, 4.0, 3.0)   # ... relaxed only if the plate does not fit
 
 _hull_cache: dict[str, tuple[list[tuple[float, float]], tuple]] = {}
 
@@ -125,6 +133,62 @@ def run(cmd: list[str]) -> subprocess.CompletedProcess:
         raise RuntimeError(f"command failed ({p.returncode}): {' '.join(cmd)}\n"
                            f"{p.stdout[-2000:]}\n{p.stderr[-2000:]}")
     return p
+
+
+def _ini_value(ini: Path, key: str, default: float) -> float:
+    for raw in ini.read_text().splitlines():
+        k, _, v = raw.partition("=")
+        if k.strip() == key:
+            try:
+                return float(v.strip().rstrip("%"))
+            except ValueError:
+                break
+    return default
+
+
+def platearrange_pack(pieces: list[Piece], ini: Path,
+                      bed: tuple[float, float] = (BED_X, BED_Y)) -> tuple[bool, list[str]]:
+    """geom.pack's contract on tools/platearrange: set each piece's `rot` and `x`, `y` (its
+    rotated mesh bbox corner, brim excluded) or return (False, [what did not fit]).
+
+    Brim reach = brim width + the ini's brim_separation (what PrusaSlicer prints); the bed
+    edge margin is geom.EDGE_MARGIN (skirt room); the gap is PA_GAP, relaxed down
+    PA_GAP_LADDER only if the plate does not fit, and the relaxation is reported on stderr.
+    """
+    import numpy as np
+    sys.path.insert(0, str(REPO / "tools" / "platearrange"))
+    from geom import EDGE_MARGIN
+    from platearrange import Item, NoFit, arrange_detailed
+
+    sep = _ini_value(ini, "brim_separation", 0.0)
+    first_layer = _ini_value(ini, "first_layer_height", 0.2)
+    meshes: dict[str, np.ndarray] = {}
+    items = []
+    for i, p in enumerate(pieces):
+        if p.key not in meshes:
+            meshes[p.key] = np.asarray(read_stl(STL / p.key), dtype=np.float64).reshape(-1, 3)
+        v = meshes[p.key]
+        items.append(Item(i, v, np.arange(len(v)).reshape(-1, 3),
+                          brim=(p.brim + sep) if p.brim > 0 else 0.0, key=p.key))
+    res = None
+    for gap in (PA_GAP,) + tuple(g for g in PA_GAP_LADDER if g < PA_GAP):
+        try:
+            res = arrange_detailed(items, bed=bed, gap=gap, edge_margin=EDGE_MARGIN,
+                                   first_layer=first_layer)
+        except NoFit as e:
+            return False, [f"{pieces[e.item_id].name}: {e}"]
+        if res.beds == 1:
+            if gap != PA_GAP:
+                print(f"platearrange: relaxed the gap to {gap:g} mm - the plate does not fit "
+                      f"at {PA_GAP:g} mm", file=sys.stderr)
+            break
+    if res is None or res.beds != 1:
+        return False, [p.name for p, pl in zip(pieces, res.placements) if pl.bed != 0]
+    for p, pl in zip(pieces, res.placements):
+        xy = pl.apply(meshes[p.key][:, :2])
+        p.rot = pl.rot_deg
+        p.x, p.y = float(xy[:, 0].min()), float(xy[:, 1].min())
+    return True, []
 
 
 # ------------------------------------------------------------- mesh writing
@@ -316,6 +380,8 @@ def build(plate_id: str) -> dict:
     packer = pack
     if PACKER == "nest":
         from nest import pack as packer  # noqa: F811
+    elif PACKER == "platearrange":
+        packer = lambda ps: platearrange_pack(ps, ini)  # noqa: E731
     fits, overflow = packer(pieces)
     if not fits:
         raise SystemExit(
@@ -325,8 +391,8 @@ def build(plate_id: str) -> dict:
             "(docs/voron-print-plan.md §3) rather than scaling anything down.")
 
     # belt-and-braces: geom.pack works on bounding boxes, so an overlap is a bug there.
-    # nest.pack interleaves them deliberately and has already checked the outlines.
-    if PACKER != "nest":
+    # nest.pack and platearrange interleave them deliberately and check the outlines.
+    if PACKER == "geom":
         for i, a in enumerate(pieces):
             ax0, ay0 = a.x, a.y
             aw, ah = a.size()
@@ -449,11 +515,18 @@ def main() -> int:
         if argv[i] == "--out":
             out_dir, i = Path(argv[i + 1]), i + 2
             continue
-        if argv[i].startswith("--out="):
+        if argv[i] == "--packer":
+            PACKER, i = argv[i + 1], i + 2
+            continue
+        if argv[i].startswith("--packer="):
+            PACKER = argv[i].split("=", 1)[1]
+        elif argv[i].startswith("--out="):
             out_dir = Path(argv[i].split("=", 1)[1])
         else:
             args.append(argv[i])
         i += 1
+    if PACKER not in PACKERS:
+        raise SystemExit(f"--packer must be one of {', '.join(PACKERS)}, not {PACKER!r}")
     if out_dir:
         OUT_3MF = out_dir / "plates"
         OUT_PNG = out_dir / "assets" / "plates"
