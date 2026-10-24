@@ -36,7 +36,7 @@
    "batch": "B01",
    "batch_title": "Z drive assemblies",
    "run": "asa",
-   "hours": 7.6,
+   "hours": 7.5,
    "grams": 100,
    "colour": "black",
    "slot": "overnight",
@@ -66,7 +66,7 @@
    "batch": "B02",
    "batch_title": "Accent parts (blue)",
    "run": "asa",
-   "hours": 7.3,
+   "hours": 7.2,
    "grams": 93,
    "colour": "blue",
    "slot": "overnight",
@@ -127,7 +127,7 @@
    "batch": "B05",
    "batch_title": "Z joints + Z chain",
    "run": "asa",
-   "hours": 6.4,
+   "hours": 6.3,
    "grams": 78,
    "colour": "black",
    "slot": "day",
@@ -142,7 +142,7 @@
    "batch": "B06",
    "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
    "run": "asa",
-   "hours": 12.1,
+   "hours": 12.2,
    "grams": 148,
    "colour": "black",
    "slot": "overnight",
@@ -173,7 +173,7 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 8.1,
+   "hours": 8.2,
    "grams": 124,
    "colour": "black",
    "slot": "overnight",
@@ -219,12 +219,12 @@
    "batch_title": "Skirts and front modules",
    "run": "asa",
    "hours": 9.5,
-   "grams": 122,
+   "grams": 121,
    "colour": "black",
    "slot": "overnight",
    "note": "",
    "spool": "#2",
-   "remaining": 97,
+   "remaining": 98,
    "diagram": "../../manual/assets/plates/B08-P3.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -239,7 +239,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 27,
+   "remaining": 28,
    "diagram": "../../manual/assets/plates/B08-P4.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -254,7 +254,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 764,
+   "remaining": 765,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -269,7 +269,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 697,
+   "remaining": 698,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -284,7 +284,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 642,
+   "remaining": 643,
    "diagram": "../../manual/assets/plates/B09-P3.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -299,7 +299,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 586,
+   "remaining": 587,
    "diagram": "../../manual/assets/plates/B09-P4.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -314,7 +314,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 530,
+   "remaining": 531,
    "diagram": "../../manual/assets/plates/B09-P5.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -329,7 +329,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 454,
+   "remaining": 455,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
    "milestone": "Last ASA plate off the bed: all 22 plates of the run are done."
@@ -354,7 +354,7 @@
    "batch": "B11",
    "batch_title": "Bay ducting (PETG V0)",
    "run": "bay",
-   "hours": 6.9,
+   "hours": 6.8,
    "grams": 96,
    "colour": "petg",
    "slot": "day",
@@ -399,7 +399,7 @@
    "batch": "B11",
    "batch_title": "Bay ducting (PETG V0)",
    "run": "bay",
-   "hours": 6.8,
+   "hours": 6.9,
    "grams": 93,
    "colour": "petg",
    "slot": "day",
@@ -414,7 +414,7 @@
   {
    "run": "asa",
    "plates": 22,
-   "hours": 156.9,
+   "hours": 156.8,
    "label": "22-plate run"
   },
   {
@@ -426,9 +426,9 @@
  ],
  "totals": {
   "plates": 27,
-  "hours": 181.9,
+  "hours": 181.8,
   "overnight": 12,
   "run_plates": 22,
-  "run_hours": 156.9
+  "run_hours": 156.8
  }
 }

@@ -354,16 +354,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B01-P2",
-     "print_hours": 7.6,
+     "print_hours": 7.5,
      "run": "asa",
-     "leave_state": "plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B01.5",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b01-z-drive-assemblies#2",
@@ -458,16 +458,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B02-P2",
-     "print_hours": 7.3,
+     "print_hours": 7.2,
      "run": "asa",
-     "leave_state": "plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B02-P2 running, 7.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B02.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.2 h unattended · leave-state: plate B02-P2 running, 7.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b02-accent-parts-orange#2",
@@ -707,16 +707,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B05-P1",
-     "print_hours": 6.4,
+     "print_hours": 6.3,
      "run": "asa",
-     "leave_state": "plate B05-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B05-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B05.2",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.4 h unattended · leave-state: plate B05-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B05-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b05-z-joints-and-z-chain#1",
@@ -782,16 +782,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B06-P1",
-     "print_hours": 12.1,
+     "print_hours": 12.2,
      "run": "asa",
-     "leave_state": "plate B06-P1 running, 12.1 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B06-P1 running, 12.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B06.2",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 12.1 h unattended · leave-state: plate B06-P1 running, 12.1 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 12.2 h unattended · leave-state: plate B06-P1 running, 12.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b06-toolhead-sb-cw2-klicky#1",
@@ -881,16 +881,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P2",
-     "print_hours": 8.1,
+     "print_hours": 8.2,
      "run": "asa",
-     "leave_state": "plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P2 running, 8.1 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B07-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#2",
@@ -5966,11 +5966,11 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P2",
-     "print_hours": 6.9,
+     "print_hours": 6.8,
      "run": "bay",
-     "leave_state": "plate B11-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B11-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#3",
@@ -6136,11 +6136,11 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P5",
-     "print_hours": 6.8,
+     "print_hours": 6.9,
      "run": "bay",
-     "leave_state": "plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P5 running, 6.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B11-P5 running, 6.9 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#11",

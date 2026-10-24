@@ -69,8 +69,8 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each "
      "plate 3MF for exactly the parts the doc names",
      "Print row 14 + section Orientation & brim"),
-    ("brim_separation", "0.1", "print",
-     "PrusaSlicer default, kept so the brim snaps off", "section Orientation & brim"),
+    ("brim_separation", "0.2", "print",
+     "Alex 2026-10-23: 0.1 fuses to the part, 0.2 snaps off", "section Orientation & brim"),
     ("xy_size_compensation", "0", "print",
      'Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing '
      'fits and screw holes too large"', "Print row 15 (docs.vorondesign.com/materials.html)"),

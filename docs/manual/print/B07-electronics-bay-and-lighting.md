@@ -5,9 +5,9 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 16.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 16.1 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.9 / 8.1 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.9 / 8.2 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
@@ -88,7 +88,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×6 · `cob_light_strip_mount_50mm` ×2, eight mounts total, each a 2-piece assembly — 8.1 h, 124 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the six 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the two 50 mm mounts.
+**Parts:** `cob_light_strip_mount_100mm` ×6 · `cob_light_strip_mount_50mm` ×2, eight mounts total, each a 2-piece assembly — 8.2 h, 124 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the six 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the two 50 mm mounts.
 **Check:** Brim outline on the six 100 mm mounts only; eight mounts on the plate and nothing else.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

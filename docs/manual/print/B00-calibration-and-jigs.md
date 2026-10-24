@@ -79,7 +79,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.9 h run prints on the current **Gen 1 GT2** belts. Then run the three
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.8 h run prints on the current **Gen 1 GT2** belts. Then run the three
 checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
 09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
 here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
@@ -435,7 +435,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Reaching for negative XY compensation to fix an oversized cube — wrecks bearing fits everywhere else; use extrusion multiplier instead.
 - Hunting the printer's menus for a first-layer calibration wizard — the Core One+ has none; the loadcell does it, and Live Adjust Z is a per-print nudge that is not saved.
 - Rushing the `Heatset_Practice` coupon — technique (iron temp/speed) matters more than any slicer setting here.
-- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.8 h of Z-drive bodies.
+- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.7 h of Z-drive bodies.
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 
 ## Next

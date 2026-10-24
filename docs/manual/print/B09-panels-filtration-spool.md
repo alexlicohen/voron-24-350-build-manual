@@ -66,7 +66,7 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 27 g left, so the build's one predicted runout lands inside that plate; **P2** to **P5** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
+**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 28 g left, so the build's one predicted runout lands inside that plate; **P2** to **P5** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; spool #3 unsealed and within reach for the runout-sensor pause.
 

@@ -10,7 +10,7 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.7 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.3 / 7.5 h unattended) + ~20 min inspect and bin.
 
@@ -122,7 +122,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **8 files, 13 objects**, the **5 mm brim on `Handle` already in the project**.
 3. Never add a brim by hand or touch the global brim setting.
-**Parts:** `Handle` · `[a]_fan_grill_a` ×2 · `[a]_fan_grill_b` ×2 · `[a]_fan_grill_retainer` ×2 · `[a]_belt_guard_a` ×2 · `[a]_belt_guard_b` ×2 · `[a]_tensioner_left` · `[a]_tensioner_right` — 7.3 h, 93 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `Handle` · `[a]_fan_grill_a` ×2 · `[a]_fan_grill_b` ×2 · `[a]_fan_grill_retainer` ×2 · `[a]_belt_guard_a` ×2 · `[a]_belt_guard_b` ×2 · `[a]_tensioner_left` · `[a]_tensioner_right` — 7.2 h, 93 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The preview shows the brim outline on `Handle` only, none on the flat fan grills, retainers, belt guards or tensioners.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

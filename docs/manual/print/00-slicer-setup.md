@@ -219,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.9 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.8 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -344,7 +344,7 @@ Separately, the projects **brim the long flat parts** — not because they're ta
 on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
 `side_fan_support_x2`, `keystone_panel`, `power_inlet_IECGS_1mm`, `exhaust_cover`, `V2_Duo_Plenum`,
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`. Brim
-separation stays at PrusaSlicer's 0.1 mm so it snaps off.
+separation is 0.2 mm: PrusaSlicer's 0.1 mm fuses to ASA, 0.2 mm snaps off.
 
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
@@ -385,7 +385,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 156.9 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 156.8 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -439,7 +439,7 @@ off again before the mesh for that reason.
 2. Re-tension both belts and re-square the gantry.
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changes with the pulleys, so the
-   dimensional gate must be re-passed before you print 399 g of skirts (B08) or anything else on the rebuilt
+   dimensional gate must be re-passed before you print 398 g of skirts (B08) or anything else on the rebuilt
    machine. Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 

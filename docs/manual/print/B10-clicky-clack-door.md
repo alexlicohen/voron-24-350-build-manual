@@ -55,7 +55,7 @@ rather than against them.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B09: the ledger has 530 g on it here and 454 g after, the last plate of
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 531 g on it here and 455 g after, the last plate of
 the run. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥76 g on spool #3.
 

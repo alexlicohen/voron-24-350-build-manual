@@ -39,7 +39,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 | `min_skirt_length` | `4` | `4` | min length 4 mm (already the base value) | Print row 13 |
 | `brim_type` | `*(PrusaSlicer built-in default)*`  | `outer_only` | outer_only keeps the brim off internal holes | Print row 14 |
 | `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF for exactly the parts the doc names | Print row 14 + section Orientation & brim |
-| `brim_separation` | `0.1` | `0.1` | PrusaSlicer default, kept so the brim snaps off | section Orientation & brim |
+| `brim_separation` | `0.1`  | `0.2` | Alex 2026-10-23: 0.1 fuses to the part, 0.2 snaps off | section Orientation & brim |
 | `xy_size_compensation` | `*(PrusaSlicer built-in default)*`  | `0` | Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing fits and screw holes too large" | Print row 15 (docs.vorondesign.com/materials.html) |
 | `elefant_foot_compensation` | `0.2` | `0.2` | kept at the profile value for now, verify on the cube | Print row 16 |
 | `external_perimeter_speed` | `50`  | `35` | surface finish and corner accuracy on the visible skirts | Print row 17 |
@@ -119,7 +119,7 @@ recorded.
 
 That self-sufficiency cuts both ways: opening a plate project **overrides the reader's
 selected presets** with the config baked into it. So a key added here does not reach the
-22 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are
+27 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are
 and never re-injects the config, and a full re-pack would throw away the GUI arrangement
 that is the QC authority.
 
