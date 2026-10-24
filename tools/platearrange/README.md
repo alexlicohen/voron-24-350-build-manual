@@ -13,7 +13,7 @@ python3 -m platearrange project.3mf -o arranged.3mf [--gap 6 --rot-step 5 --edge
 Run it from this directory, or `pip install .` first. The output is a copy of the project
 in which only each build item's `transform` attribute changes. When the parts need more
 than one bed, nothing is written. The report and stderr list which part goes on which bed,
-and the exit status is 3. Splitting a project across beds is out of scope for v1.
+and the exit status is 3. To spread parts over several projects, use `split` (below).
 
 If the project prints a skirt, set `--edge-margin` to at least `skirt_distance` plus the
 skirt width. The CLI prints a note when it is too small.
@@ -40,6 +40,35 @@ write_3mf("p.3mf", "out.3mf", res.placements)
 - Parts with identical meshes share their footprints, wherever they sit on the bed.
 - `NoFit` is raised when a part does not fit an empty bed in any rotation, or when
   `max_beds` is too small.
+
+## Splitting across beds
+
+```
+python3 -m platearrange split a.3mf b.3mf c.3mf --beds 4 -o 'out/plate-{n}.3mf'
+        [--gap 6 --edge-margin 5 --large-centre 1 --pin NAME=N --report split.json]
+```
+
+Pools every build item of the sources and writes N projects of similar load, each arranged
+on its own bed. Use it when one plate is too full to keep parts off the edge or centred:
+re-split the whole batch onto the same number of plates, or one more.
+
+- **Load** is a part's first-layer convex hull grown by its brim plus half the gap, in mm².
+  Parts are dealt largest first to the least-loaded bed, so the largest parts land on
+  different beds and each can sit in the middle.
+- **Overflow repair:** a bed that does not fit (with `max_beds=1`) passes its smallest
+  unpinned part to the least-loaded other bed, and the split is tried again. It stops
+  with `NoFit` when the repairs cycle or no part can move. Nothing is written then.
+- **Pins:** `--pin NAME=N` keeps every item whose name starts with NAME on bed N (1-based).
+- **Config:** the outputs carry the first source's print config, brims included, so the
+  sources should share one ini. Duplicate object names get one `#k` copy index across the
+  pool.
+
+```python
+from platearrange import split_beds, split_3mf
+sp = split_beds(items, beds=3, bed=(250, 220), gap=6, edge_margin=5, large_centre=1,
+                pins={0: 0})       # .groups, .results (one per bed), .loads, .moves
+split_3mf(["a.3mf", "b.3mf"], ["p1.3mf", "p2.3mf"], gap=6, edge_margin=5)
+```
 
 ## How it works
 
@@ -162,3 +191,5 @@ uses exact vector geometry on the projected outline segments. They also cover ex
 rotation, a small part placed in a C-shaped part's notch, a single part centred,
 determinism, overflow to a second bed, exclusions, a polygon bed, a brim that grows from
 the first layer only, and a 3MF round trip with every non-transform member byte-identical.
+`test_split.py` covers balanced splits, the overflow repair, pins, impossible splits,
+determinism, and a two-project split through the CLI with brims read under the output config.
