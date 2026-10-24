@@ -14,44 +14,44 @@
 <line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
 <text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
 <text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
-<path d="M378.0,304.5 486.5,304.0 487.0,412.5 379.5,413.0 378.0,411.5Z M428.5,335.0 427.5,336.0 424.5,336.0 418.5,339.0 413.0,344.5 413.5,345.0 452.0,344.5 446.5,339.0 440.5,336.0 437.5,336.0 436.5,335.0Z M414.5,372.0 414.0,372.5 415.5,375.0 416.5,375.0 419.5,378.0 426.5,381.0 439.5,381.0 445.5,378.0 451.0,373.5 450.5,372.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#3 Voron_Design_Cube_v7.stl → 00-jigs</title></path>
-<path d="M266.0,289.5 361.5,289.0 368.0,294.5 368.0,393.5 363.5,398.0 264.5,398.0 260.0,393.5 259.0,391.5 259.0,296.5 260.0,295.5 260.0,293.5 263.5,290.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#1 Heatset_Practice.stl → 00-jigs</title></path>
-<path d="M275.0,408.5 352.5,408.0 353.5,409.0 356.5,409.0 360.5,411.0 361.0,412.5 365.0,415.5 368.0,421.5 368.0,424.5 369.0,425.5 369.0,496.5 366.5,499.0 352.5,499.0 350.0,496.5 350.0,464.5 348.5,463.0 338.5,463.0 336.5,462.0 335.0,459.5 334.5,433.0 293.5,433.0 293.0,459.5 292.0,461.5 289.5,463.0 279.5,463.0 278.0,464.5 278.0,496.5 275.5,499.0 261.5,499.0 259.0,496.5 259.0,425.5 260.0,424.5 260.0,421.5 263.0,415.5 265.5,413.0 266.5,413.0 267.5,411.0 271.5,409.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#6 MGN12_rail_guide_x2.stl → 00-jigs</title></path>
-<path d="M529.0,372.5 536.5,372.0 556.5,382.0 558.5,382.0 571.5,389.0 573.5,389.0 586.5,396.0 588.5,396.0 601.5,403.0 603.5,403.0 610.5,407.0 616.0,415.5 616.0,417.5 617.0,418.5 617.0,423.5 616.0,424.5 616.0,427.5 611.0,436.5 611.0,438.5 604.0,451.5 604.0,453.5 596.0,468.5 596.0,470.5 589.0,483.5 589.0,485.5 586.0,491.5 582.5,494.0 580.5,492.0 576.5,491.0 569.0,486.5 569.0,481.5 582.0,455.5 582.0,453.5 580.5,452.0 573.5,450.0 571.0,447.5 571.0,444.5 573.0,441.5 573.0,439.5 582.0,421.5 582.0,419.5 579.5,418.0 577.5,418.0 558.5,408.0 556.5,408.0 544.5,402.0 543.0,403.5 537.0,415.5 537.0,417.5 533.0,425.5 530.5,428.0 526.5,428.0 519.5,424.0 517.0,424.5 504.0,452.5 501.5,455.0 499.5,455.0 490.5,450.0 488.5,450.0 486.0,446.5 492.0,435.5 492.0,433.5 498.0,422.5 498.0,420.5 504.0,409.5 504.0,407.5 510.0,396.5 510.0,394.5 517.0,380.5 522.5,375.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#4 MGN12_rail_guide_x2.stl → 00-jigs</title></path>
-<path d="M614.0,381.5 676.5,381.0 677.5,382.0 681.5,383.0 686.0,387.5 686.0,388.5 688.0,390.5 688.0,393.5 689.0,394.5 689.0,461.5 688.0,462.5 688.0,466.5 682.5,473.0 681.5,473.0 679.5,475.0 676.5,475.0 675.5,476.0 614.0,475.5 614.5,464.0 649.5,464.0 650.0,445.5 651.5,444.0 674.0,443.5 674.0,412.5 650.5,412.0 649.5,393.0 614.5,393.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#5 MGN9_rail_guide_x2.stl → 00-jigs</title></path>
-<path d="M515.0,293.5 521.5,293.0 522.5,294.0 528.5,294.0 529.5,295.0 539.5,295.0 540.5,296.0 560.5,297.0 561.5,298.0 571.5,298.0 572.5,299.0 584.5,299.0 585.5,300.0 587.5,300.0 593.0,304.5 596.0,309.5 596.0,323.5 595.0,324.5 595.0,335.5 594.0,336.5 594.0,346.5 593.0,347.5 592.0,370.5 591.0,371.5 590.5,375.0 588.5,374.0 580.0,373.5 581.0,353.5 582.0,352.5 582.0,341.5 583.0,340.5 583.0,338.5 580.5,337.0 570.5,337.0 569.5,336.0 563.5,336.0 563.0,333.5 564.0,332.5 564.0,321.5 565.0,320.5 565.0,313.5 561.5,312.0 555.5,312.0 554.5,311.0 533.5,310.0 533.0,317.5 532.0,318.5 532.0,329.5 530.5,333.0 511.5,331.0 511.0,339.5 510.0,340.5 510.0,351.5 509.0,352.5 509.0,363.5 508.0,364.5 508.0,367.5 506.5,368.0 505.5,367.0 497.0,366.5 498.0,348.5 499.0,347.5 499.0,337.5 500.0,336.5 500.0,326.5 501.0,325.5 501.0,316.5 502.0,315.5 502.0,305.5 505.0,299.5 508.5,296.0 509.5,296.0 511.5,294.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#2 MGN9_rail_guide_x2.stl → 00-jigs</title></path>
-<path d="M290.0,489.5 313.5,489.0 314.5,509.0 372.5,509.0 374.0,510.5 374.0,539.5 372.0,541.5 374.5,543.0 377.5,541.0 382.5,541.0 385.0,543.5 385.0,562.5 382.5,564.0 366.5,564.0 364.5,565.0 360.0,570.5 360.0,578.5 364.5,583.0 368.5,584.0 369.5,585.0 383.5,585.0 385.0,586.5 385.0,605.5 383.5,607.0 376.5,607.0 374.5,605.0 372.0,606.5 374.0,609.5 374.0,637.5 371.5,640.0 350.5,640.0 349.5,659.0 325.5,659.0 325.0,642.5 327.0,639.5 326.5,638.0 324.5,638.0 320.5,640.0 295.5,640.0 293.0,637.5 293.0,601.5 269.5,601.0 268.0,599.5 268.0,576.5 269.5,575.0 289.0,574.5 289.0,490.5Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#8 pulley_jig.stl → 00-jigs</title></path>
-<path d="M393.0,466.5 532.5,466.0 533.0,478.5 534.0,479.5 534.0,482.5 539.0,490.5 542.5,494.0 543.5,494.0 548.5,498.0 550.5,498.0 555.5,501.0 558.5,501.0 562.5,503.0 570.5,504.0 574.5,506.0 577.5,506.0 578.5,507.0 581.5,507.0 582.5,508.0 585.5,508.0 586.5,509.0 589.5,509.0 590.5,510.0 593.5,510.0 594.5,511.0 602.5,512.0 606.5,514.0 617.5,516.0 623.5,519.0 629.0,524.5 632.0,531.5 632.0,672.5 629.0,677.5 626.5,679.0 438.5,679.0 438.0,681.5 435.5,683.0 418.5,683.0 415.5,679.0 393.5,679.0 391.0,676.5 391.0,649.5 393.5,648.0 397.0,643.5 399.0,639.5 399.0,636.5 400.0,635.5 400.0,607.5 396.0,603.5 396.0,538.5 400.0,533.5 400.0,505.5 399.0,504.5 397.0,497.5 391.0,491.5 391.0,468.5Z M428.5,485.0 427.0,487.5 427.0,653.5 429.5,657.0 496.5,657.0 499.0,654.5 499.0,486.5 497.5,485.0Z M411.5,527.0 409.0,530.5 409.0,534.5 412.5,538.0 416.5,538.0 418.5,537.0 420.0,534.5 420.0,529.5 417.5,527.0Z M509.5,527.0 507.5,528.0 506.0,530.5 506.0,534.5 509.5,538.0 514.5,538.0 517.0,535.5 517.0,529.5 514.5,527.0Z M537.5,527.0 536.5,528.0 533.5,528.0 528.5,531.0 525.0,536.5 525.0,639.5 526.0,640.5 526.0,642.5 528.5,646.0 534.5,649.0 597.5,649.0 603.0,642.5 603.0,549.5 601.0,545.5 595.5,541.0 592.5,541.0 591.5,540.0 585.5,539.0 584.5,538.0 579.5,538.0 576.5,536.0 569.5,535.0 565.5,533.0 561.5,533.0 560.5,532.0 557.5,532.0 556.5,531.0 553.5,531.0 552.5,530.0 549.5,530.0 548.5,529.0 545.5,529.0 544.5,528.0 539.5,528.0Z M613.5,527.0 611.0,529.5 611.0,535.5 614.5,538.0 618.5,538.0 622.0,533.5 622.0,530.5 619.5,527.0Z M413.5,603.0 409.0,606.5 409.0,611.5 411.5,614.0 415.5,615.0 420.0,611.5 420.0,606.5 416.5,603.0Z M510.5,603.0 506.0,606.5 506.0,611.5 508.5,614.0 512.5,615.0 517.0,612.5 517.0,605.5 513.5,603.0Z M615.5,603.0 612.0,604.5 611.0,606.5 611.0,611.5 612.5,614.0 616.5,615.0 617.5,614.0 619.5,614.0 621.0,612.5 622.0,610.5 622.0,607.5 619.5,604.0Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#7 z_drive_retainer_a_x2.stl → 02-Z0</title></path>
-<rect x="467.5" y="577.0" width="42.0" height="31.0" rx="3.0" fill="#ffffff"/>
-<text x="488.5" y="595.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">7</text>
-<text x="488.5" y="606.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z0</text>
-<text x="317.0" y="560.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold" transform="rotate(-90 317.0 554.5)">8</text>
-<text x="331.5" y="558.8" font-size="12" fill="#1a1a1e" text-anchor="middle" transform="rotate(-90 331.5 554.5)">00-jigs</text>
-<text x="313.5" y="345.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">1</text>
-<text x="313.5" y="356.0" font-size="12" fill="#1a1a1e" text-anchor="middle">00-jigs</text>
-<rect x="409.0" y="342.0" width="47.0" height="33.0" rx="3.0" fill="#ffffff"/>
-<text x="432.5" y="360.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">3</text>
-<text x="432.5" y="371.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
-<line x1="276.5" y1="441.5" x2="256.0" y2="441.5" stroke="#333336" stroke-width="1.2"/>
-<rect x="209.0" y="431.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
-<text x="232.5" y="445.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
-<rect x="269.0" y="433.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
-<text x="276.5" y="447.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">6</text>
-<line x1="596.5" y1="422.5" x2="619.0" y2="422.5" stroke="#333336" stroke-width="1.2"/>
-<rect x="619.0" y="418.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
-<text x="642.5" y="432.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
-<rect x="588.5" y="414.5" width="16.0" height="16.0" rx="3.0" fill="#8a8f98"/>
-<text x="596.5" y="428.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">4</text>
-<line x1="666.5" y1="458.5" x2="666.5" y2="478.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="641.0" y="478.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
-<text x="664.5" y="492.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
-<rect x="659.0" y="450.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
-<text x="666.5" y="464.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">5</text>
-<line x1="579.5" y1="320.5" x2="579.5" y2="291.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="554.0" y="274.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
-<text x="577.5" y="288.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
-<rect x="572.0" y="312.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
-<text x="579.5" y="326.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">2</text>
+<path d="M552.0,449.5 660.5,449.0 661.0,556.5 659.5,558.0 552.5,558.0Z M601.5,480.0 600.5,481.0 595.5,482.0 590.5,485.0 587.0,489.5 587.5,490.0 626.0,489.5 619.5,483.0 617.5,483.0 614.5,481.0 612.5,481.0 611.5,480.0Z M588.5,517.0 588.0,517.5 589.0,519.5 591.5,522.0 600.5,526.0 612.5,526.0 613.5,525.0 615.5,525.0 617.5,523.0 619.5,523.0 625.0,517.5Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#6 Voron_Design_Cube_v7.stl → 00-jigs</title></path>
+<path d="M558.0,317.5 654.5,317.0 660.0,321.5 661.0,323.5 661.0,419.5 655.5,426.0 557.5,426.0 553.0,422.5 552.0,420.5 552.0,322.5 556.5,318.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#4 Heatset_Practice.stl → 00-jigs</title></path>
+<path d="M526.0,580.5 601.5,580.0 603.0,581.5 603.0,596.5 599.5,599.0 567.5,599.0 567.0,610.5 564.5,613.0 537.0,613.5 537.0,655.5 564.5,656.0 567.0,658.5 567.5,670.0 600.5,670.0 603.0,672.5 603.0,687.5 601.5,689.0 527.5,689.0 520.5,686.0 515.0,680.5 514.0,676.5 512.0,673.5 512.0,595.5 513.0,594.5 514.0,589.5 517.0,586.5 517.0,585.5 521.5,582.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#7 MGN12_rail_guide_x2.stl → 00-jigs</title></path>
+<path d="M454.0,382.5 529.5,382.0 531.0,383.5 531.0,398.5 527.5,401.0 495.5,401.0 495.0,412.5 492.5,415.0 465.0,415.5 465.0,457.5 492.5,458.0 495.0,460.5 495.5,472.0 528.5,472.0 531.0,474.5 531.0,489.5 529.5,491.0 455.5,491.0 448.5,488.0 443.0,482.5 442.0,478.5 440.0,475.5 440.0,397.5 441.0,396.5 442.0,391.5 445.0,388.5 445.0,387.5 449.5,384.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#3 MGN12_rail_guide_x2.stl → 00-jigs</title></path>
+<path d="M437.0,283.5 448.0,283.5 448.0,318.5 466.5,319.0 468.0,320.5 468.5,343.0 499.5,343.0 500.0,319.5 520.0,318.5 520.0,283.5 530.5,283.0 531.0,346.5 529.0,350.5 523.5,356.0 519.5,357.0 518.5,358.0 449.5,358.0 448.5,357.0 444.5,356.0 440.0,352.5 439.0,349.5 437.0,347.5Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#1 MGN9_rail_guide_x2.stl → 00-jigs</title></path>
+<path d="M637.0,594.5 697.5,594.0 699.0,595.5 699.0,604.5 697.5,606.0 662.5,606.0 661.5,626.0 639.0,626.5 639.0,657.5 661.5,658.0 662.5,678.0 698.5,678.0 698.5,689.0 635.5,689.0 629.5,686.0 625.0,680.5 625.0,678.5 624.0,677.5 624.0,605.5 626.0,601.5 631.5,596.0Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#8 MGN9_rail_guide_x2.stl → 00-jigs</title></path>
+<path d="M303.0,335.5 322.5,335.0 324.0,336.5 324.0,351.5 325.0,352.5 325.0,354.5 326.5,357.0 332.5,360.0 336.5,360.0 343.0,356.5 344.0,352.5 345.0,351.5 345.0,336.5 346.5,335.0 365.5,335.0 367.0,336.5 367.0,343.5 366.0,344.5 366.5,347.0 368.5,347.0 370.5,345.0 397.5,345.0 400.0,347.5 400.0,368.5 418.5,369.0 420.0,370.5 420.0,393.5 418.5,395.0 402.5,395.0 400.5,393.0 398.0,393.5 398.0,395.5 400.0,397.5 400.0,425.5 398.5,427.0 361.5,427.0 360.5,451.0 335.5,451.0 334.5,431.0 250.5,431.0 249.0,429.5 249.0,406.5 250.5,405.0 269.0,404.5 269.0,347.5 271.5,345.0 298.5,345.0 300.5,347.0 302.5,347.0 303.0,344.5 302.0,343.5 302.0,336.5Z" fill-rule="evenodd" fill="#8a8f98" stroke="#4c4f54" stroke-width="1.0" stroke-linejoin="round"><title>#2 pulley_jig.stl → 00-jigs</title></path>
+<path d="M252.0,472.5 390.5,472.0 392.0,473.5 392.0,486.5 393.0,487.5 393.0,489.5 395.0,493.5 405.5,503.0 409.5,505.0 411.5,505.0 414.5,507.0 419.5,508.0 420.5,509.0 423.5,509.0 424.5,510.0 427.5,510.0 428.5,511.0 431.5,511.0 432.5,512.0 435.5,512.0 436.5,513.0 440.5,513.0 444.5,515.0 447.5,515.0 448.5,516.0 451.5,516.0 452.5,517.0 455.5,517.0 456.5,518.0 459.5,518.0 460.5,519.0 463.5,519.0 464.5,520.0 468.5,520.0 471.5,522.0 474.5,522.0 475.5,523.0 480.5,524.0 482.5,526.0 483.5,526.0 489.0,532.5 490.0,534.5 490.0,539.5 491.0,540.5 491.0,677.5 490.0,678.5 489.0,682.5 485.5,685.0 297.5,685.0 295.5,689.0 276.5,689.0 275.0,687.5 274.5,685.0 251.5,685.0 249.0,681.5 249.0,657.5 251.0,655.5 251.0,654.5 254.0,652.5 259.0,642.5 259.0,614.5 255.0,609.5 255.0,543.5 257.5,542.0 259.0,539.5 259.0,511.5 256.0,504.5 249.0,496.5 249.0,475.5Z M287.5,491.0 286.0,492.5 286.0,660.5 287.5,663.0 355.5,663.0 358.0,660.5 358.0,493.5 356.5,491.0Z M270.5,533.0 268.0,535.5 268.0,541.5 270.5,544.0 276.5,544.0 279.0,541.5 279.0,536.5 278.0,534.5 275.5,533.0Z M367.5,533.0 365.0,535.5 365.0,541.5 367.5,544.0 373.5,544.0 376.0,541.5 376.0,536.5 375.0,534.5 372.5,533.0Z M472.5,533.0 470.0,534.5 470.0,536.5 469.0,537.5 470.0,542.5 472.5,544.0 477.5,544.0 480.0,541.5 481.0,537.5 477.5,533.0Z M393.5,534.0 387.5,537.0 383.0,544.5 383.0,643.5 384.0,644.5 384.0,647.5 385.0,649.5 388.5,653.0 395.5,656.0 453.5,656.0 454.5,655.0 456.5,655.0 462.0,648.5 462.0,556.5 461.0,555.5 461.0,553.5 456.5,549.0 449.5,546.0 446.5,546.0 445.5,545.0 442.5,545.0 441.5,544.0 438.5,544.0 437.5,543.0 434.5,543.0 433.5,542.0 430.5,542.0 429.5,541.0 425.5,541.0 421.5,539.0 414.5,538.0 413.5,537.0 407.5,536.0 406.5,535.0 403.5,535.0 402.5,534.0Z M270.5,610.0 268.0,612.5 268.0,618.5 271.5,621.0 275.5,621.0 277.5,620.0 279.0,617.5 279.0,612.5 276.5,610.0Z M367.5,610.0 365.0,612.5 365.0,618.5 368.5,621.0 372.5,621.0 374.5,620.0 376.0,617.5 376.0,612.5 373.5,610.0Z M472.5,610.0 470.0,611.5 469.0,613.5 469.0,616.5 471.5,620.0 473.5,621.0 477.5,621.0 480.0,618.5 480.0,616.5 481.0,615.5 480.0,611.5 477.5,610.0Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#5 z_drive_retainer_a_x2.stl → 02-Z0</title></path>
+<rect x="326.5" y="583.0" width="42.0" height="31.0" rx="3.0" fill="#ffffff"/>
+<text x="347.5" y="601.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">5</text>
+<text x="347.5" y="612.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z0</text>
+<text x="314.5" y="397.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">2</text>
+<text x="314.5" y="408.0" font-size="12" fill="#1a1a1e" text-anchor="middle">00-jigs</text>
+<text x="606.5" y="373.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">4</text>
+<text x="606.5" y="384.0" font-size="12" fill="#1a1a1e" text-anchor="middle">00-jigs</text>
+<rect x="583.0" y="487.0" width="47.0" height="33.0" rx="3.0" fill="#ffffff"/>
+<text x="606.5" y="505.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">6</text>
+<text x="606.5" y="516.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
+<line x1="545.5" y1="596.5" x2="545.5" y2="616.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="544.0" y="616.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
+<text x="567.5" y="630.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
+<rect x="538.0" y="588.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
+<text x="545.5" y="602.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">7</text>
+<line x1="473.5" y1="398.5" x2="473.5" y2="418.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="472.0" y="418.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
+<text x="495.5" y="432.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
+<rect x="466.0" y="390.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
+<text x="473.5" y="404.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">3</text>
+<line x1="645.5" y1="611.5" x2="645.5" y2="588.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="620.0" y="571.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
+<text x="643.5" y="585.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
+<rect x="638.0" y="603.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
+<text x="645.5" y="617.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">8</text>
+<line x1="453.5" y1="334.5" x2="453.5" y2="360.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="428.0" y="360.0" width="47.0" height="17.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#8a8f98" stroke-width="1.4"/>
+<text x="451.5" y="374.0" font-size="12" fill="#1e1e20" text-anchor="middle">00-jigs</text>
+<rect x="446.0" y="326.5" width="15.0" height="16.0" rx="3.0" fill="#8a8f98"/>
+<text x="453.5" y="340.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">1</text>
 <text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
 <rect x="950.0" y="48.0" width="52.0" height="18.0" rx="4.0" fill="#8a8f98"/>
 <text x="976.0" y="61.3" font-size="12" fill="#1a1a1e" text-anchor="middle" font-weight="bold">00-jigs</text>
@@ -59,28 +59,28 @@
 <text x="1031.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">02-Z0</text>
 <text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
 <rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#8a8f98"/>
-<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1</text>
-<text x="996.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Heatset_Practice.stl</text>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1, 8</text>
+<text x="996.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">MGN9_rail_guide_x2.stl  ×2</text>
 <text x="996.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">00-jigs · Jigs and coupons · Ch 00 · 00.14–00.22</text>
 <rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#8a8f98"/>
-<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2, 5</text>
-<text x="996.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">MGN9_rail_guide_x2.stl  ×2</text>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
+<text x="996.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">pulley_jig.stl</text>
 <text x="996.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">00-jigs · Jigs and coupons · Ch 00 · 00.14–00.22</text>
 <rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#8a8f98"/>
-<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3</text>
-<text x="996.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Voron_Design_Cube_v7.stl</text>
+<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3, 7</text>
+<text x="996.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">MGN12_rail_guide_x2.stl  ×2</text>
 <text x="996.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">00-jigs · Jigs and coupons · Ch 00 · 00.14–00.22</text>
 <rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#8a8f98"/>
-<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">4, 6</text>
-<text x="996.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">MGN12_rail_guide_x2.stl  ×2</text>
+<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">4</text>
+<text x="996.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Heatset_Practice.stl</text>
 <text x="996.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">00-jigs · Jigs and coupons · Ch 00 · 00.14–00.22</text>
 <rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
-<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">7</text>
+<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5</text>
 <text x="996.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_drive_retainer_a_x2.stl</text>
 <text x="996.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
 <rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#8a8f98"/>
-<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8</text>
-<text x="996.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">pulley_jig.stl</text>
+<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">6</text>
+<text x="996.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Voron_Design_Cube_v7.stl</text>
 <text x="996.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">00-jigs · Jigs and coupons · Ch 00 · 00.14–00.22</text>
 <text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
 <text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B00-P1.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>

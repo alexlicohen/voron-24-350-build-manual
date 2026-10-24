@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty two plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
@@ -80,12 +80,12 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 27 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 25 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
 all 27 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
-⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 22 projects and both `.ini`
+⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 20 projects and both `.ini`
 bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
 at 0 °C through homing and the whole mesh, and the `G29 P9` nozzle wipe is removed because a cold tip
 cannot be wiped. Clean the tip by hand while it is hot, after each print. Opening a project therefore shows
@@ -219,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.8 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.0 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -385,7 +385,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 156.8 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 157.0 h / 20-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -426,7 +426,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 27 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 25 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater

@@ -18,7 +18,7 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
 hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
-**Step B00.8** — reviewing all 27 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Step B00.8** — reviewing all 25 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -66,7 +66,7 @@ the kit's own 153 inserts stay untouched.
 
 **Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
-⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 22 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
+⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 20 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
 ⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
@@ -79,7 +79,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.8 h run prints on the current **Gen 1 GT2** belts. Then run the three
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the three
 checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
 09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
 here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
@@ -103,7 +103,7 @@ before Step B00.8 and before any plate.
 
 **2. Loadcell heater-noise test, from the printer panel** `(verify on bench)`
 
-The 22 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
+The 20 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
 decides whether that workaround is still needed. Menu names are from firmware 6.8.1; 7.0.0 reorganized some.
 
 - [ ] Control → Auto Home, then Control → Move Axis → Z to **50**, so the nozzle is clear of the bed
@@ -136,7 +136,7 @@ Switching the start G-code, either way: `python3 slicer/sync_start_gcode.py` on 
 because it copies the start from the inis and the inis hold the cold start. First point `COLD_START` in
 `slicer/build_config.py` at the winning block (`slicer/coreone-heat-off-start.gcode`; a stock start must be
 vendored into its own `.gcode` file first) and run `python3 slicer/build_config.py`; then
-`python3 slicer/sync_start_gcode.py` (all 27 plates), `python3 slicer/build_plates.py --from-3mf` and
+`python3 slicer/sync_start_gcode.py` (all 25 plates), `python3 slicer/build_plates.py --from-3mf` and
 `python3 slicer/check_docs.py`. Full procedure:
 [00-slicer-setup § Gen 2](00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild).
 
@@ -145,7 +145,7 @@ vendored into its own `.gcode` file first) and run `python3 slicer/build_config.
 The check's project is not a plate of the run and sits outside every total. `python3 slicer/hot_check.py`
 rebuilds both projects from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
 a 110 °C bed and the heater off before every probe tap; `--check` only re-slices the committed files. The
-22 plates carry the cold start until the comparison above says otherwise.
+20 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
 
@@ -157,16 +157,16 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 27 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
+1. Open each of the 25 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
-The 3MFs are `slicer/plates/<id>.3mf` — the 22 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
+The 3MFs are `slicer/plates/<id>.3mf` — the 20 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
 plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.
 
-**Check:** All 27 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+**Check:** All 25 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
 
 **Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 
@@ -435,7 +435,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Reaching for negative XY compensation to fix an oversized cube — wrecks bearing fits everywhere else; use extrusion multiplier instead.
 - Hunting the printer's menus for a first-layer calibration wizard — the Core One+ has none; the loadcell does it, and Live Adjust Z is a per-print nudge that is not saved.
 - Rushing the `Heatset_Practice` coupon — technique (iron temp/speed) matters more than any slicer setting here.
-- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.7 h of Z-drive bodies.
+- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.8 h of Z-drive bodies.
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 
 ## Next

@@ -8,7 +8,7 @@ nothing else.
 
     python3 slicer/build_config.py
 
-Three bundles: voron-coreone-asa.ini and voron-accent-blue.ini (the 22-plate ASA run)
+Three bundles: voron-coreone-asa.ini and voron-accent-blue.ini (the 20-plate ASA run)
 and bay-ducts-petg.ini (batch B11, the PETG V0 bay ducts; its own base filament and
 print overrides, the same printer settings and cold start).
 """
@@ -447,7 +447,7 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
         "",
         "That self-sufficiency cuts both ways: opening a plate project **overrides the reader's",
         "selected presets** with the config baked into it. So a key added here does not reach the",
-        "27 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are",
+        "25 committed plates on its own - `build_plates.py --from-3mf` re-slices them as they are",
         "and never re-injects the config, and a full re-pack would throw away the GUI arrangement",
         "that is the QC authority.",
         "",

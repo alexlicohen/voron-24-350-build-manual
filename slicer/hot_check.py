@@ -17,7 +17,7 @@ the `M302 S155` retraction, `M104 S0`, `G29 P9`, `M104 S0` again, then the mesh,
 deretraction before the purge. Homing and the chamber soak stay cold. The second `M104 S0`
 matters once the Gen 2 nozzle wiper is fitted: in Buddy 6.8.1 the wiper's `G29 P9` heats the
 nozzle itself and leaves a hold target (cleaning temp - 20) for the mesh. Neither the inis
-nor the 22 plates carry this start; it lives in this one project until the bench picks it.
+nor the 20 plates carry this start; it lives in this one project until the bench picks it.
 
 Neither is a plate of the run: they are not in plates.py, estimates.csv or any total.
 

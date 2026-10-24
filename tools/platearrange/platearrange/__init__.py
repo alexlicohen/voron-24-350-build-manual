@@ -5,6 +5,6 @@
 """
 from .core import (NoFit, Item, Placement, Result, arrange, arrange_detailed,  # noqa: F401
                       clear_cache)
-from .io3mf import Project, ProjectItem, read_3mf, write_3mf  # noqa: F401
+from .io3mf import Project, ProjectItem, merge_3mf, read_3mf, write_3mf  # noqa: F401
 
 __version__ = "0.1.0"

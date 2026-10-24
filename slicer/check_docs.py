@@ -11,7 +11,7 @@ and every A5/B5/box count stated in print/README, Ch 00 and the index (slicer/bi
 
     python3 slicer/check_docs.py        # exits non-zero on any mismatch
 
-B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the 22-plate ASA
+B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the 20-plate ASA
 run: every run total above excludes it, and § 8 checks B11's own numbers the same way (batch
 page, print/README's B11 tables, plan §3 header and §9 B11 CSV, 00-index.md's two B11 rows).
 

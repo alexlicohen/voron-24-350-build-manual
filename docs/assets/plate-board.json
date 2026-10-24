@@ -36,7 +36,7 @@
    "batch": "B01",
    "batch_title": "Z drive assemblies",
    "run": "asa",
-   "hours": 7.5,
+   "hours": 7.6,
    "grams": 100,
    "colour": "black",
    "slot": "overnight",
@@ -150,7 +150,8 @@
    "spool": "#2 (fresh)",
    "remaining": 652,
    "diagram": "../../manual/assets/plates/B06-P1.png",
-   "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/"
+   "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/",
+   "milestone": "Halfway: plate 10 of 20."
   },
   {
    "id": "B07-P1",
@@ -165,8 +166,7 @@
    "spool": "#2",
    "remaining": 550,
    "diagram": "../../manual/assets/plates/B07-P1.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
-   "milestone": "Halfway: plate 11 of 22."
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
   {
    "id": "B07-P2",
@@ -248,13 +248,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 4.5,
-   "grams": 63,
+   "hours": 7.9,
+   "grams": 101,
    "colour": "black",
-   "slot": "day",
+   "slot": "overnight",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 765,
+   "remaining": 727,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -263,13 +263,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 4.9,
-   "grams": 67,
+   "hours": 7.1,
+   "grams": 99,
    "colour": "black",
-   "slot": "day",
+   "slot": "overnight",
    "note": "",
    "spool": "#3",
-   "remaining": 698,
+   "remaining": 628,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -278,44 +278,14 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 3.9,
-   "grams": 55,
+   "hours": 6.9,
+   "grams": 96,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 643,
+   "remaining": 532,
    "diagram": "../../manual/assets/plates/B09-P3.png",
-   "chapter": "../../manual/steps/b09-panels-filtration-spool/"
-  },
-  {
-   "id": "B09-P4",
-   "batch": "B09",
-   "batch_title": "Panels, filtration, spool",
-   "run": "asa",
-   "hours": 4.2,
-   "grams": 56,
-   "colour": "black",
-   "slot": "day",
-   "note": "",
-   "spool": "#3",
-   "remaining": 587,
-   "diagram": "../../manual/assets/plates/B09-P4.png",
-   "chapter": "../../manual/steps/b09-panels-filtration-spool/"
-  },
-  {
-   "id": "B09-P5",
-   "batch": "B09",
-   "batch_title": "Panels, filtration, spool",
-   "run": "asa",
-   "hours": 4.3,
-   "grams": 56,
-   "colour": "black",
-   "slot": "day",
-   "note": "",
-   "spool": "#3",
-   "remaining": 531,
-   "diagram": "../../manual/assets/plates/B09-P5.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
   {
@@ -329,10 +299,10 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 455,
+   "remaining": 456,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
-   "milestone": "Last ASA plate off the bed: all 22 plates of the run are done."
+   "milestone": "Last ASA plate off the bed: all 20 plates of the run are done."
   },
   {
    "id": "B11-P1",
@@ -399,7 +369,7 @@
    "batch": "B11",
    "batch_title": "Bay ducting (PETG V0)",
    "run": "bay",
-   "hours": 6.9,
+   "hours": 6.8,
    "grams": 93,
    "colour": "petg",
    "slot": "day",
@@ -413,22 +383,22 @@
  "runs": [
   {
    "run": "asa",
-   "plates": 22,
-   "hours": 156.8,
-   "label": "22-plate run"
+   "plates": 20,
+   "hours": 157.0,
+   "label": "20-plate run"
   },
   {
    "run": "bay",
    "plates": 5,
-   "hours": 25.0,
+   "hours": 24.9,
    "label": "B11"
   }
  ],
  "totals": {
-  "plates": 27,
-  "hours": 181.8,
-  "overnight": 12,
-  "run_plates": 22,
-  "run_hours": 156.8
+  "plates": 25,
+  "hours": 181.9,
+  "overnight": 14,
+  "run_plates": 20,
+  "run_hours": 157.0
  }
 }

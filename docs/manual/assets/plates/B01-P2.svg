@@ -2,7 +2,7 @@
 <title>Plate B01-P2 — sorting diagram</title>
 <rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
 <text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B01-P2</text>
-<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">16 parts  ·  7.5 h  ·  100 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">16 parts  ·  7.6 h  ·  100 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
 <rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
 <line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
 <line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
@@ -14,90 +14,90 @@
 <line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
 <text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
 <text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
-<path d="M314.0,567.5 341.5,567.0 344.0,569.5 344.0,628.5 345.0,629.5 346.0,634.5 349.0,639.5 355.5,645.0 362.5,648.0 491.5,648.0 495.0,650.5 495.0,676.5 493.5,678.0 315.5,678.0 314.0,676.5 314.0,614.5 311.0,611.5 311.0,594.5 314.0,591.5Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#15 z_motor_mount_a_x2.stl → 02-Z0</title></path>
-<path d="M396.0,369.5 411.5,369.0 414.5,373.0 439.5,373.0 440.0,400.5 436.5,403.0 377.5,403.0 368.5,407.0 363.0,412.5 360.0,417.5 360.0,419.5 359.0,420.5 359.0,424.5 358.0,425.5 358.0,551.5 355.5,554.0 330.5,554.0 329.0,552.5 329.0,374.5 330.5,373.0 392.5,373.0Z" fill-rule="evenodd" fill="#7b4fc4" stroke="#442b6c" stroke-width="1.0" stroke-linejoin="round"><title>#5 z_motor_mount_a_x2.stl → 02-Z2</title></path>
-<path d="M658.0,567.5 686.0,567.5 686.0,591.5 690.0,595.5 690.0,610.5 686.0,614.5 686.0,676.5 684.5,678.0 506.5,678.0 505.0,676.5 505.0,651.5 508.5,648.0 637.5,648.0 647.5,643.0 652.0,638.5 654.0,634.5 655.0,629.5 656.0,628.5 656.0,570.5Z" fill-rule="evenodd" fill="#1a9c8c" stroke="#0e564d" stroke-width="1.0" stroke-linejoin="round"><title>#16 z_motor_mount_b_x2.stl → 02-Z1</title></path>
-<path d="M601.0,355.5 617.5,355.0 621.5,359.0 683.5,359.0 685.0,360.5 685.0,537.5 682.5,540.0 659.5,540.0 655.0,536.5 655.0,407.5 651.0,398.5 642.5,391.0 638.5,390.0 637.5,389.0 633.5,389.0 632.5,388.0 575.5,388.0 573.0,384.5 573.0,359.5 598.5,359.0Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#8 z_motor_mount_b_x2.stl → 02-Z3</title></path>
-<path d="M460.0,483.5 617.5,483.0 619.5,484.0 625.0,490.5 625.0,493.5 626.0,494.5 626.0,507.5 639.5,508.0 643.0,510.5 644.0,512.5 644.0,525.5 641.5,530.0 626.0,530.5 626.0,543.5 625.0,544.5 625.0,548.5 620.5,554.0 616.5,556.0 462.5,556.0 456.5,553.0 453.0,547.5 453.0,490.5 455.0,488.5 455.0,487.5Z M501.5,510.0 500.5,511.0 498.5,511.0 495.0,514.5 495.0,516.5 494.0,517.5 494.0,521.5 497.5,527.0 499.5,528.0 502.5,528.0 503.5,529.0 504.5,528.0 507.5,528.0 511.0,525.5 513.0,521.5 513.0,517.5 512.0,516.5 512.0,514.5 508.5,511.0 506.5,511.0 505.5,510.0Z M572.5,510.0 571.5,511.0 569.5,511.0 566.0,515.5 566.0,523.5 570.5,528.0 573.5,528.0 574.5,529.0 576.5,528.0 579.5,528.0 584.0,522.5 584.0,516.5 579.5,511.0 577.5,510.0Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#13 z_tensioner_bracket_a_x2.stl → 02-Z0</title></path>
-<path d="M381.0,424.5 431.5,424.0 432.5,425.0 436.5,425.0 442.0,430.5 442.0,432.5 443.0,433.5 443.0,588.5 441.0,592.5 438.5,595.0 434.5,597.0 417.5,597.0 417.0,612.5 414.5,615.0 398.5,615.0 396.0,612.5 395.5,597.0 377.5,597.0 372.0,592.5 370.0,588.5 370.0,433.5 371.0,432.5 371.0,430.5 375.5,426.0Z M403.5,466.0 398.0,470.5 398.0,472.5 397.0,473.5 398.0,479.5 399.0,481.5 402.5,484.0 410.5,484.0 412.5,482.0 413.5,482.0 415.0,479.5 415.0,477.5 416.0,476.5 415.0,470.5 409.5,466.0Z M404.5,537.0 399.0,540.5 397.0,544.5 397.0,548.5 400.5,554.0 404.5,556.0 408.5,556.0 414.0,552.5 416.0,548.5 416.0,544.5 412.5,539.0 408.5,537.0Z" fill-rule="evenodd" fill="#7b4fc4" stroke="#442b6c" stroke-width="1.0" stroke-linejoin="round"><title>#10 z_tensioner_bracket_a_x2.stl → 02-Z2</title></path>
-<path d="M460.0,566.5 617.5,566.0 619.5,567.0 625.0,572.5 625.0,576.5 626.0,577.5 626.0,590.5 640.5,591.0 643.0,593.5 644.0,595.5 644.0,608.5 640.5,613.0 626.0,613.5 626.0,626.5 625.0,627.5 625.0,631.5 620.5,637.0 616.5,638.0 615.5,639.0 463.5,639.0 462.5,638.0 459.5,638.0 454.0,632.5 453.0,630.5 453.0,573.5 454.0,571.5 458.5,567.0Z M500.5,593.0 495.0,597.5 495.0,599.5 494.0,600.5 494.0,604.5 498.5,610.0 500.5,611.0 506.5,611.0 512.0,606.5 513.0,604.5 513.0,600.5 512.0,599.5 512.0,597.5 508.5,594.0 506.5,593.0Z M571.5,593.0 569.5,594.0 566.0,598.5 566.0,606.5 571.5,611.0 577.5,611.0 578.5,610.0 580.5,610.0 584.0,605.5 584.0,599.5 583.0,597.5 577.5,593.0Z" fill-rule="evenodd" fill="#1a9c8c" stroke="#0e564d" stroke-width="1.0" stroke-linejoin="round"><title>#14 z_tensioner_bracket_b_x2.stl → 02-Z1</title></path>
-<path d="M461.0,400.5 616.5,400.0 617.5,401.0 619.5,401.0 625.0,407.5 625.0,410.5 626.0,411.5 626.0,425.5 641.5,426.0 643.0,427.5 643.0,429.5 644.0,430.5 644.0,442.5 643.0,443.5 643.0,445.5 641.5,447.0 626.0,447.5 626.0,461.5 625.0,462.5 625.0,465.5 619.5,472.0 617.5,472.0 616.5,473.0 461.5,473.0 460.5,472.0 458.5,472.0 455.0,468.5 453.0,464.5 453.0,408.5 455.0,404.5 458.5,401.0Z M501.5,427.0 496.0,430.5 494.0,434.5 494.0,438.5 495.0,439.5 495.0,441.5 497.5,444.0 501.5,445.0 502.5,446.0 505.5,446.0 509.5,444.0 512.0,441.5 512.0,439.5 513.0,438.5 513.0,434.5 509.5,429.0 505.5,427.0Z M573.5,427.0 572.5,428.0 568.5,429.0 566.0,432.5 566.0,440.5 567.0,442.5 570.5,445.0 576.5,446.0 580.5,444.0 583.0,441.5 584.0,439.5 584.0,433.5 579.5,428.0Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#11 z_tensioner_bracket_b_x2.stl → 02-Z3</title></path>
-<path d="M505.0,337.5 527.5,337.0 538.0,347.5 537.5,352.0 527.0,352.5 527.5,359.0 530.5,359.0 531.5,358.0 561.5,358.0 564.0,361.5 564.0,386.5 563.0,388.5 561.5,390.0 541.5,390.0 538.0,384.5 533.5,381.0 531.5,381.0 530.5,380.0 523.5,380.0 519.5,382.0 512.5,390.0 493.5,390.0 491.0,387.5 491.0,360.5 493.5,358.0 501.5,358.0 502.5,359.0 505.0,358.5 504.5,352.0 495.0,351.5 495.0,347.5 498.0,344.5 498.0,343.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#7 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M414.0,308.5 432.5,308.0 439.5,316.0 443.5,318.0 452.5,318.0 456.5,316.0 460.0,312.5 461.0,309.5 463.5,308.0 481.5,308.0 484.0,310.5 484.0,338.5 480.5,341.0 474.5,341.0 473.5,340.0 470.0,340.5 470.0,346.5 479.5,347.0 480.0,351.5 470.5,361.0 446.5,361.0 437.0,351.5 437.0,347.5 447.5,347.0 447.5,340.0 444.5,340.0 443.5,341.0 415.5,341.0 413.5,340.0 411.0,336.5 411.0,312.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#6 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M322.0,308.5 340.5,308.0 343.0,309.5 344.0,312.5 347.5,316.0 351.5,318.0 360.5,318.0 364.5,316.0 371.5,308.0 389.5,308.0 393.0,312.5 393.0,336.5 392.0,338.5 388.5,341.0 382.5,341.0 381.5,340.0 378.0,340.5 378.5,347.0 388.5,347.0 389.0,350.5 378.5,361.0 355.5,361.0 345.0,350.5 345.5,347.0 355.5,347.0 355.5,340.0 352.5,340.0 351.5,341.0 323.5,341.0 321.5,340.0 320.0,338.5 320.0,310.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#4 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M525.0,294.5 544.5,294.0 551.5,302.0 555.5,303.0 556.5,304.0 562.5,304.0 563.5,303.0 567.5,302.0 574.5,294.0 593.5,294.0 596.0,296.5 596.0,323.5 593.5,326.0 585.5,326.0 584.5,325.0 581.0,325.5 581.0,331.5 591.5,332.0 592.0,336.5 581.5,347.0 559.5,347.0 557.5,345.0 556.5,345.0 549.0,336.5 549.5,332.0 559.0,331.5 558.5,325.0 556.5,325.0 555.5,326.0 525.5,326.0 523.0,323.5 523.0,296.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#1 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M608.0,294.5 627.5,294.0 634.5,302.0 638.5,304.0 645.5,304.0 646.5,303.0 650.5,302.0 657.5,294.0 676.5,294.0 679.0,297.5 679.0,322.5 676.5,326.0 668.5,326.0 667.5,325.0 664.0,325.5 664.0,331.5 673.5,332.0 675.0,333.5 675.0,336.5 664.5,347.0 641.5,347.0 631.0,336.5 631.0,333.5 632.5,332.0 642.0,331.5 641.5,325.0 638.5,325.0 637.5,326.0 608.5,326.0 606.0,323.5 606.0,296.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#2 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M268.0,483.5 295.5,483.0 298.0,486.5 298.0,492.5 297.0,493.5 297.5,498.0 304.0,497.5 304.5,487.0 308.5,487.0 319.0,497.5 319.0,519.5 308.5,530.0 304.0,529.5 303.5,519.0 297.0,519.5 297.0,523.5 298.0,524.5 298.0,552.5 294.5,556.0 268.5,556.0 266.0,553.5 266.0,533.5 267.5,532.0 270.5,531.0 273.0,528.5 276.0,521.5 276.0,516.5 275.0,515.5 274.0,511.5 266.0,504.5 266.0,485.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#12 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M297.0,313.5 298.5,313.0 302.0,316.5 303.0,322.5 304.0,323.5 304.0,326.5 305.0,327.5 305.0,330.5 306.0,331.5 306.0,334.5 300.0,341.5 300.0,350.5 303.5,357.0 308.5,360.0 311.5,360.0 314.0,362.5 315.0,364.5 315.0,367.5 316.0,368.5 316.0,371.5 317.0,372.5 317.0,375.5 319.0,379.5 315.5,384.0 308.5,385.0 307.5,386.0 301.5,387.0 300.5,388.0 294.5,389.0 293.5,390.0 289.5,390.0 287.0,387.5 287.0,384.5 286.0,383.5 286.0,378.5 284.5,377.0 281.5,377.0 279.0,378.5 279.0,382.5 280.0,383.5 281.0,388.5 278.5,390.0 276.5,390.0 264.0,382.5 264.0,379.5 262.0,375.5 261.0,368.5 260.0,367.5 259.0,361.5 258.0,360.5 263.0,353.5 264.0,350.5 268.5,347.0 269.5,347.0 271.0,349.5 271.0,352.5 272.0,353.5 272.5,357.0 275.5,357.0 279.0,355.5 279.0,352.5 277.0,350.5 277.0,347.5 276.0,346.5 276.0,343.5 274.0,339.5 274.0,336.5 273.0,335.5 273.0,332.5 271.0,328.5 270.0,322.5 272.5,320.0 278.5,319.0 282.5,317.0 285.5,317.0 286.5,316.0 289.5,316.0 290.5,315.0Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#3 deck_support_3mm_x8.stl → 02-deck</title></path>
-<path d="M268.0,400.5 295.5,400.0 298.0,403.5 298.0,410.5 297.0,411.5 297.5,415.0 304.0,414.5 304.5,404.0 308.5,404.0 319.0,414.5 319.0,436.5 308.5,447.0 304.0,446.5 303.5,437.0 297.0,437.5 297.0,440.5 298.0,441.5 298.0,469.5 295.5,473.0 268.5,473.0 266.0,470.5 266.0,451.5 273.0,445.5 276.0,439.5 276.0,433.5 273.0,427.5 266.0,421.5 266.0,402.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#9 deck_support_3mm_x8.stl → 02-deck</title></path>
-<text x="539.5" y="605.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">14</text>
-<text x="539.5" y="616.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z1</text>
-<text x="539.5" y="522.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">13</text>
-<text x="539.5" y="533.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z0</text>
-<text x="400.0" y="516.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 400.0 510.5)">10</text>
-<text x="413.5" y="514.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 413.5 510.5)">02-Z2</text>
-<text x="538.5" y="439.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">11</text>
-<text x="538.5" y="450.0" font-size="12" fill="#1a1a1e" text-anchor="middle">02-Z3</text>
-<line x1="666.5" y1="658.5" x2="666.5" y2="685.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="643.5" y="685.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#1a9c8c" stroke-width="1.4"/>
-<text x="664.5" y="699.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z1</text>
-<rect x="654.5" y="650.5" width="24.0" height="16.0" rx="3.0" fill="#1a9c8c"/>
-<text x="666.5" y="664.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">16</text>
-<line x1="333.5" y1="658.5" x2="333.5" y2="685.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="310.5" y="685.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#2457c5" stroke-width="1.4"/>
-<text x="331.5" y="699.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z0</text>
-<rect x="321.5" y="650.5" width="24.0" height="16.0" rx="3.0" fill="#2457c5"/>
-<text x="333.5" y="664.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">15</text>
-<line x1="665.5" y1="378.5" x2="690.5" y2="378.5" stroke="#333336" stroke-width="1.2"/>
-<rect x="690.5" y="369.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#3fa9e0" stroke-width="1.4"/>
-<text x="711.5" y="383.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z3</text>
-<rect x="658.0" y="370.5" width="15.0" height="16.0" rx="3.0" fill="#3fa9e0"/>
-<text x="665.5" y="384.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">8</text>
-<line x1="348.5" y1="392.5" x2="379.5" y2="407.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="379.5" y="407.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7b4fc4" stroke-width="1.4"/>
-<text x="400.5" y="421.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z2</text>
-<rect x="341.0" y="384.5" width="15.0" height="16.0" rx="3.0" fill="#7b4fc4"/>
-<text x="348.5" y="398.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
-<line x1="428.5" y1="328.5" x2="428.5" y2="304.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="399.5" y="289.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="426.5" y="303.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="421.0" y="320.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="428.5" y="334.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">6</text>
-<line x1="336.5" y1="328.5" x2="336.5" y2="304.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="307.5" y="289.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="334.5" y="303.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="328.5" y="320.5" width="16.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="336.5" y="334.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">4</text>
-<line x1="621.5" y1="313.5" x2="621.5" y2="289.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="592.5" y="274.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="619.5" y="288.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="614.0" y="305.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="621.5" y="319.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">2</text>
-<line x1="547.5" y1="370.5" x2="500.5" y2="280.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="446.5" y="265.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="473.5" y="279.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="540.0" y="362.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="547.5" y="376.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">7</text>
-<line x1="538.5" y1="313.5" x2="538.5" y2="289.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="509.5" y="274.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="536.5" y="288.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="531.0" y="305.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="538.5" y="319.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">1</text>
-<line x1="299.5" y1="372.5" x2="258.5" y2="375.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="204.5" y="375.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="231.5" y="389.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="292.0" y="364.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="299.5" y="378.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">3</text>
-<line x1="285.5" y1="456.5" x2="268.5" y2="444.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="214.5" y="429.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="241.5" y="443.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="278.0" y="448.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="285.5" y="462.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">9</text>
-<line x1="285.5" y1="539.5" x2="285.5" y2="560.0" stroke="#333336" stroke-width="1.2"/>
-<rect x="256.5" y="560.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
-<text x="283.5" y="574.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
-<rect x="273.5" y="531.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
-<text x="285.5" y="545.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">12</text>
+<path d="M690.0,312.5 715.5,312.0 717.0,313.5 717.0,491.5 715.5,493.0 653.5,493.0 649.5,497.0 634.5,497.0 630.5,493.0 605.5,493.0 605.0,467.5 607.5,464.0 609.5,463.0 668.5,463.0 678.5,458.0 682.0,454.5 685.0,449.5 685.0,447.5 687.0,443.5 687.0,315.5Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#6 z_motor_mount_a_x2.stl → 02-Z0</title></path>
+<path d="M456.0,268.5 633.5,268.0 635.0,269.5 635.0,331.5 639.0,335.5 639.0,350.5 635.0,354.5 635.0,379.5 608.5,380.0 606.0,377.5 605.0,375.5 605.0,316.5 600.0,306.5 591.5,300.0 589.5,300.0 585.5,298.0 457.5,298.0 455.5,297.0 454.0,294.5 454.0,270.5Z" fill-rule="evenodd" fill="#7b4fc4" stroke="#442b6c" stroke-width="1.0" stroke-linejoin="round"><title>#2 z_motor_mount_a_x2.stl → 02-Z2</title></path>
+<path d="M250.0,415.5 276.5,415.0 279.0,418.5 279.0,546.5 280.0,547.5 281.0,552.5 290.5,563.0 292.5,563.0 295.5,565.0 298.5,565.0 299.5,566.0 357.5,566.0 361.0,569.5 361.0,594.5 359.5,596.0 335.5,596.0 333.5,597.0 332.5,599.0 316.5,599.0 313.5,596.0 250.5,596.0 249.0,594.5 249.0,416.5Z" fill-rule="evenodd" fill="#1a9c8c" stroke="#0e564d" stroke-width="1.0" stroke-linejoin="round"><title>#7 z_motor_mount_b_x2.stl → 02-Z1</title></path>
+<path d="M609.0,518.5 635.0,518.5 635.0,543.5 639.0,547.5 639.0,562.5 635.0,566.5 635.0,628.5 633.5,630.0 455.5,630.0 454.0,628.5 454.0,603.5 457.5,600.0 585.5,600.0 586.5,599.0 589.5,599.0 596.5,595.0 601.0,590.5 602.0,587.5 604.0,585.5 604.0,582.5 605.0,581.5 605.0,522.5 606.0,520.5Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#10 z_motor_mount_b_x2.stl → 02-Z3</title></path>
+<path d="M401.0,413.5 557.5,413.0 564.0,418.5 566.0,422.5 566.0,438.5 581.5,439.0 583.0,440.5 584.0,442.5 584.0,456.5 581.5,460.0 566.0,460.5 566.0,476.5 564.0,480.5 557.5,486.0 401.5,486.0 399.5,485.0 394.0,479.5 394.0,477.5 393.0,476.5 393.0,421.5 397.0,416.5 397.0,415.5Z M441.5,440.0 436.5,443.0 435.0,445.5 435.0,453.5 437.5,457.0 441.5,458.0 442.5,459.0 445.5,459.0 446.5,458.0 448.5,458.0 452.0,454.5 453.0,452.5 453.0,446.5 449.5,442.0 445.5,440.0Z M513.5,440.0 509.5,442.0 507.0,444.5 506.0,446.5 506.0,452.5 510.5,458.0 516.5,459.0 517.5,458.0 519.5,458.0 524.0,453.5 524.0,445.5 519.5,441.0Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#8 z_tensioner_bracket_a_x2.stl → 02-Z0</title></path>
+<path d="M307.0,355.5 364.5,355.0 366.5,356.0 372.0,362.5 372.0,519.5 370.0,521.5 370.0,522.5 364.5,527.0 347.5,527.0 347.0,542.5 344.5,545.0 327.5,545.0 325.0,542.5 325.0,527.5 307.5,527.0 302.0,523.5 302.0,522.5 300.0,520.5 300.0,517.5 299.0,516.5 299.0,365.5 300.0,364.5 300.0,361.5 302.0,359.5 302.0,358.5Z M334.5,396.0 333.5,397.0 329.5,398.0 327.0,401.5 327.0,408.5 331.5,414.0 334.5,414.0 336.5,415.0 337.5,414.0 341.5,413.0 344.0,410.5 345.0,408.5 345.0,401.5 340.5,397.0Z M335.5,467.0 334.5,468.0 331.5,468.0 328.0,471.5 327.0,473.5 327.0,480.5 329.5,484.0 333.5,485.0 334.5,486.0 337.5,486.0 338.5,485.0 340.5,485.0 345.0,480.5 345.0,473.5 341.5,469.0Z" fill-rule="evenodd" fill="#7b4fc4" stroke="#442b6c" stroke-width="1.0" stroke-linejoin="round"><title>#4 z_tensioner_bracket_a_x2.stl → 02-Z2</title></path>
+<path d="M400.0,507.5 558.5,507.0 563.0,510.5 566.0,516.5 566.0,531.5 580.5,532.0 584.0,535.5 584.0,550.5 583.0,552.5 580.5,554.0 566.0,554.5 566.0,569.5 565.0,570.5 565.0,572.5 560.5,578.0 556.5,579.0 555.5,580.0 403.5,580.0 402.5,579.0 399.5,579.0 394.0,573.5 394.0,571.5 393.0,570.5 393.0,515.5 394.0,514.5 394.0,512.5Z M440.5,534.0 438.5,535.0 435.0,539.5 435.0,547.5 440.5,552.0 446.5,552.0 451.0,549.5 453.0,545.5 453.0,540.5 447.5,534.0Z M511.5,534.0 509.5,536.0 508.5,536.0 506.0,539.5 506.0,546.5 507.0,548.5 511.5,552.0 518.5,552.0 524.0,547.5 524.0,539.5 523.0,537.5 518.5,534.0Z" fill-rule="evenodd" fill="#1a9c8c" stroke="#0e564d" stroke-width="1.0" stroke-linejoin="round"><title>#9 z_tensioner_bracket_b_x2.stl → 02-Z1</title></path>
+<path d="M403.0,319.5 555.5,319.0 556.5,320.0 560.5,321.0 565.0,326.5 565.0,328.5 566.0,329.5 566.0,344.5 580.5,345.0 583.0,346.5 584.0,348.5 584.0,363.5 580.5,367.0 566.0,367.5 566.0,382.5 563.0,388.5 558.5,392.0 400.5,392.0 395.0,387.5 393.0,383.5 393.0,328.5 394.0,327.5 394.0,325.5 399.5,320.0Z M440.5,347.0 435.0,351.5 435.0,359.5 436.0,361.5 440.5,365.0 446.5,365.0 451.0,362.5 453.0,358.5 453.0,352.5 451.0,350.5 451.0,349.5 447.5,347.0Z M511.5,347.0 509.5,348.0 506.0,352.5 506.0,358.5 507.0,359.5 507.0,361.5 508.5,363.0 512.5,365.0 517.5,365.0 523.0,361.5 524.0,359.5 524.0,352.5 523.0,350.5 518.5,347.0Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#5 z_tensioner_bracket_b_x2.stl → 02-Z3</title></path>
+<path d="M416.0,601.5 420.5,601.0 422.0,602.5 422.0,604.5 424.0,607.5 425.0,612.5 427.0,615.5 428.0,620.5 431.0,626.5 431.0,628.5 428.5,631.0 424.5,632.0 423.5,633.0 419.5,633.0 418.0,634.5 420.5,641.0 421.5,640.0 426.5,639.0 429.5,637.0 431.0,638.5 431.0,640.5 432.0,641.5 429.0,646.5 429.0,648.5 427.0,652.5 424.5,655.0 422.5,655.0 419.5,657.0 411.5,659.0 405.5,662.0 400.5,661.0 392.5,657.0 390.0,653.5 391.5,651.0 393.5,651.0 394.5,650.0 400.0,648.5 399.0,647.5 397.5,642.0 394.5,642.0 390.5,645.0 388.5,645.0 382.5,648.0 380.5,648.0 377.5,650.0 372.5,651.0 367.5,654.0 364.5,654.0 362.0,651.5 360.0,644.5 359.0,643.5 359.0,641.5 357.0,638.5 355.0,630.5 353.0,627.5 353.0,626.5 356.5,623.0 364.5,621.0 372.5,617.0 380.5,622.0 390.5,622.0 397.0,616.5 399.0,612.5 399.0,609.5 402.5,606.0 404.5,606.0 407.5,604.0 409.5,604.0 410.5,603.0Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#13 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M234.0,301.5 259.5,301.0 263.0,303.5 263.5,316.0 270.0,315.5 270.5,305.0 273.5,305.0 284.0,315.5 284.0,338.5 273.5,349.0 270.0,348.5 270.0,338.5 263.0,338.5 263.0,372.5 261.5,374.0 233.5,374.0 231.0,371.5 231.0,352.5 239.0,346.5 240.0,342.5 241.0,341.5 241.0,333.5 239.0,329.5 235.5,326.0 232.5,325.0 231.0,322.5 231.0,304.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#3 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M270.0,616.5 293.5,616.0 304.0,626.5 303.5,631.0 293.0,631.5 293.5,638.0 296.5,638.0 297.5,637.0 325.5,637.0 327.5,638.0 329.0,639.5 329.0,666.5 328.0,668.5 325.5,670.0 308.5,670.0 306.0,668.5 305.0,665.5 300.5,661.0 298.5,660.0 295.5,660.0 294.5,659.0 291.5,659.0 290.5,660.0 287.5,660.0 282.5,663.0 280.0,667.5 277.5,670.0 259.5,670.0 256.0,666.5 256.0,640.5 259.5,637.0 266.5,637.0 267.5,638.0 271.0,637.5 270.5,631.0 260.0,630.5 260.0,626.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#12 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M661.0,607.5 686.5,607.0 690.0,610.5 690.0,617.5 689.0,618.5 689.5,622.0 696.0,621.5 696.0,612.5 697.5,611.0 700.5,611.0 711.0,621.5 711.0,644.5 700.5,655.0 697.5,655.0 696.0,653.5 695.5,644.0 689.0,644.5 689.0,647.5 690.0,648.5 690.0,677.5 687.5,680.0 659.5,680.0 658.0,678.5 658.0,658.5 666.0,651.5 667.0,647.5 668.0,646.5 668.0,641.5 667.0,640.5 667.0,637.5 666.0,635.5 662.5,632.0 659.5,631.0 658.0,629.5 658.0,609.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#16 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M466.0,651.5 489.5,651.0 491.5,653.0 492.5,653.0 500.0,661.5 500.0,664.5 489.5,665.0 489.5,672.0 492.5,672.0 493.5,671.0 521.5,671.0 523.5,672.0 525.0,673.5 525.0,701.5 522.5,704.0 504.5,704.0 502.0,702.5 501.0,699.5 497.5,696.0 493.5,694.0 484.5,694.0 480.5,696.0 473.5,704.0 455.5,704.0 452.0,699.5 452.0,675.5 453.0,673.5 456.5,671.0 462.5,671.0 463.5,672.0 467.0,671.5 466.5,665.0 456.0,664.5 456.0,661.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#14 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M560.0,651.5 583.5,651.0 593.0,660.5 592.5,665.0 583.0,665.5 583.5,672.0 586.5,672.0 587.5,671.0 615.5,671.0 619.0,674.5 619.0,700.5 615.5,704.0 597.5,704.0 591.5,696.0 587.5,694.0 577.5,694.0 572.5,697.0 570.0,701.5 567.5,704.0 549.5,704.0 546.0,700.5 546.0,674.5 549.5,671.0 556.5,671.0 557.5,672.0 561.0,671.5 560.5,665.0 550.0,664.5 550.0,660.5 557.5,653.0Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#15 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M326.0,270.5 329.5,270.0 333.5,272.0 336.5,272.0 337.5,273.0 339.5,273.0 342.0,275.5 342.0,277.5 340.5,279.0 334.0,282.5 337.5,289.0 342.5,285.0 347.5,283.0 349.5,281.0 352.5,280.0 354.5,278.0 357.5,277.0 364.5,272.0 368.5,272.0 371.0,274.5 373.0,279.5 375.0,281.5 377.0,286.5 379.0,288.5 381.0,293.5 383.0,295.5 383.0,297.5 379.5,301.0 376.5,302.0 374.5,304.0 369.5,306.0 365.5,309.0 359.5,306.0 349.5,306.0 345.5,308.0 342.0,312.5 342.0,314.5 341.0,315.5 341.0,321.5 340.0,323.5 336.5,325.0 334.5,327.0 327.5,330.0 325.5,332.0 321.5,333.0 319.0,330.5 318.0,327.5 316.0,325.5 314.0,320.5 312.0,318.5 310.0,313.5 307.0,309.5 307.0,306.5 309.5,304.0 316.5,301.0 318.0,298.5 314.5,294.0 309.5,296.0 307.5,298.0 305.5,298.0 303.0,294.5 304.0,293.5 304.0,290.5 305.0,289.5 305.0,286.5 306.0,285.5 307.0,281.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#1 deck_support_3mm_x8.stl → 02-deck</title></path>
+<path d="M684.0,514.5 711.5,514.0 714.0,516.5 714.0,535.5 706.0,542.5 705.0,546.5 704.0,547.5 704.0,552.5 707.0,559.5 709.5,562.0 712.5,563.0 714.0,564.5 714.0,584.5 710.5,587.0 685.5,587.0 682.0,583.5 682.0,576.5 683.0,575.5 682.5,572.0 676.5,572.0 676.0,581.5 674.5,583.0 671.5,583.0 661.0,572.5 661.0,549.5 671.5,539.0 674.5,539.0 676.0,540.5 676.5,550.0 683.0,549.5 683.0,546.5 682.0,545.5 682.0,516.5Z" fill-rule="evenodd" fill="#7f95c9" stroke="#46526f" stroke-width="1.0" stroke-linejoin="round"><title>#11 deck_support_3mm_x8.stl → 02-deck</title></path>
+<text x="479.5" y="546.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">9</text>
+<text x="479.5" y="557.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z1</text>
+<text x="479.5" y="358.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">5</text>
+<text x="479.5" y="369.0" font-size="12" fill="#1a1a1e" text-anchor="middle">02-Z3</text>
+<text x="479.5" y="452.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">8</text>
+<text x="479.5" y="463.0" font-size="12" fill="#ffffff" text-anchor="middle">02-Z0</text>
+<text x="329.0" y="446.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 329.0 440.5)">4</text>
+<text x="342.5" y="444.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 342.5 440.5)">02-Z2</text>
+<line x1="615.5" y1="287.5" x2="615.5" y2="263.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="592.5" y="248.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7b4fc4" stroke-width="1.4"/>
+<text x="613.5" y="262.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z2</text>
+<rect x="608.0" y="279.5" width="15.0" height="16.0" rx="3.0" fill="#7b4fc4"/>
+<text x="615.5" y="293.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<line x1="697.5" y1="473.5" x2="722.5" y2="473.5" stroke="#333336" stroke-width="1.2"/>
+<rect x="722.5" y="464.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#2457c5" stroke-width="1.4"/>
+<text x="743.5" y="478.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z0</text>
+<rect x="690.0" y="465.5" width="15.0" height="16.0" rx="3.0" fill="#2457c5"/>
+<text x="697.5" y="479.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">6</text>
+<line x1="615.5" y1="610.5" x2="615.5" y2="637.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="592.5" y="637.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#3fa9e0" stroke-width="1.4"/>
+<text x="613.5" y="651.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z3</text>
+<rect x="603.5" y="602.5" width="24.0" height="16.0" rx="3.0" fill="#3fa9e0"/>
+<text x="615.5" y="616.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">10</text>
+<line x1="267.5" y1="576.5" x2="262.5" y2="603.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="220.5" y="603.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#1a9c8c" stroke-width="1.4"/>
+<text x="241.5" y="617.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z1</text>
+<rect x="260.0" y="568.5" width="15.0" height="16.0" rx="3.0" fill="#1a9c8c"/>
+<text x="267.5" y="582.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">7</text>
+<line x1="271.5" y1="650.5" x2="271.5" y2="677.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="242.5" y="677.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="269.5" y="691.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="259.5" y="642.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="271.5" y="656.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">12</text>
+<line x1="508.5" y1="683.5" x2="508.5" y2="710.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="479.5" y="710.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="506.5" y="724.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="496.0" y="675.5" width="25.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="508.5" y="689.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">14</text>
+<line x1="602.5" y1="683.5" x2="602.5" y2="710.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="573.5" y="710.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="600.5" y="724.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="590.5" y="675.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="602.5" y="689.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">15</text>
+<line x1="677.5" y1="664.5" x2="677.5" y2="685.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="648.5" y="685.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="675.5" y="699.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="665.5" y="656.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="677.5" y="670.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">16</text>
+<line x1="694.5" y1="529.5" x2="694.5" y2="511.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="665.5" y="496.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="692.5" y="510.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="682.5" y="521.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="694.5" y="535.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">11</text>
+<line x1="250.5" y1="316.5" x2="250.5" y2="298.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="221.5" y="283.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="248.5" y="297.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="243.0" y="308.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="250.5" y="322.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">3</text>
+<line x1="372.5" y1="634.5" x2="372.5" y2="661.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="337.5" y="661.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="364.5" y="675.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="360.5" y="626.5" width="24.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="372.5" y="640.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">13</text>
+<line x1="331.5" y1="300.5" x2="331.5" y2="264.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="302.5" y="249.0" width="54.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7f95c9" stroke-width="1.4"/>
+<text x="329.5" y="263.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-deck</text>
+<rect x="324.0" y="292.5" width="15.0" height="16.0" rx="3.0" fill="#7f95c9"/>
+<text x="331.5" y="306.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">1</text>
 <text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
 <rect x="950.0" y="48.0" width="46.0" height="18.0" rx="4.0" fill="#2457c5"/>
 <text x="973.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">02-Z0</text>
@@ -111,41 +111,41 @@
 <text x="1188.0" y="61.3" font-size="12" fill="#1a1a1e" text-anchor="middle" font-weight="bold">02-deck</text>
 <text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
 <rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#7f95c9"/>
-<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1–4, 6, 7, 9, 12</text>
-<text x="1056.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">deck_support_3mm_x8.stl  ×8</text>
-<text x="1056.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">02-deck · Deck panel clips · Ch 02 · 02.11–02.15</text>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1, 3, 11–16</text>
+<text x="1037.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">deck_support_3mm_x8.stl  ×8</text>
+<text x="1037.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">02-deck · Deck panel clips · Ch 02 · 02.11–02.15</text>
 <rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#7b4fc4"/>
-<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5</text>
-<text x="1056.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_a_x2.stl</text>
-<text x="1056.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z2 · Z2 corner (rear-right, _a hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#3fa9e0"/>
-<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8</text>
-<text x="1056.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_b_x2.stl</text>
-<text x="1056.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z3 · Z3 corner (front-right, _b hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#7b4fc4"/>
-<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">10</text>
-<text x="1056.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_a_x2.stl</text>
-<text x="1056.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z2 · Z2 corner (rear-right, _a hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#3fa9e0"/>
-<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">11</text>
-<text x="1056.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_b_x2.stl</text>
-<text x="1056.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z3 · Z3 corner (front-right, _b hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
-<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">13</text>
-<text x="1056.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_a_x2.stl</text>
-<text x="1056.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="332.0" width="12.0" height="12.0" rx="2.0" fill="#1a9c8c"/>
-<text x="968.0" y="341.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">14</text>
-<text x="1056.0" y="342.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_b_x2.stl</text>
-<text x="1056.0" y="356.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z1 · Z1 corner (rear-left, _b hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="368.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
-<text x="968.0" y="377.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">15</text>
-<text x="1056.0" y="378.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_a_x2.stl</text>
-<text x="1056.0" y="392.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
-<rect x="950.0" y="404.0" width="12.0" height="12.0" rx="2.0" fill="#1a9c8c"/>
-<text x="968.0" y="413.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">16</text>
-<text x="1056.0" y="414.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_b_x2.stl</text>
-<text x="1056.0" y="428.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z1 · Z1 corner (rear-left, _b hand) · Ch 02 · 02.01–02.44</text>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2</text>
+<text x="1037.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_a_x2.stl</text>
+<text x="1037.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z2 · Z2 corner (rear-right, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#7b4fc4"/>
+<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">4</text>
+<text x="1037.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_a_x2.stl</text>
+<text x="1037.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z2 · Z2 corner (rear-right, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#3fa9e0"/>
+<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5</text>
+<text x="1037.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_b_x2.stl</text>
+<text x="1037.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z3 · Z3 corner (front-right, _b hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
+<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">6</text>
+<text x="1037.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_a_x2.stl</text>
+<text x="1037.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#1a9c8c"/>
+<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">7</text>
+<text x="1037.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_b_x2.stl</text>
+<text x="1037.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z1 · Z1 corner (rear-left, _b hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="332.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
+<text x="968.0" y="341.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8</text>
+<text x="1037.0" y="342.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_a_x2.stl</text>
+<text x="1037.0" y="356.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="368.0" width="12.0" height="12.0" rx="2.0" fill="#1a9c8c"/>
+<text x="968.0" y="377.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">9</text>
+<text x="1037.0" y="378.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_tensioner_bracket_b_x2.stl</text>
+<text x="1037.0" y="392.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z1 · Z1 corner (rear-left, _b hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="404.0" width="12.0" height="12.0" rx="2.0" fill="#3fa9e0"/>
+<text x="968.0" y="413.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">10</text>
+<text x="1037.0" y="414.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_motor_mount_b_x2.stl</text>
+<text x="1037.0" y="428.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z3 · Z3 corner (front-right, _b hand) · Ch 02 · 02.01–02.44</text>
 <text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
 <text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B01-P2.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
 </svg>

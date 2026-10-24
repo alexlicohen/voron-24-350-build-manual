@@ -8,7 +8,7 @@ Produces:
                                one checkbox per plate (batch, material, sheet,
                                time, grams from slicer/plates.py + estimates.csv)
                                for Step B00.8 in the B00 batch chapter, so that
-                               step never hand-types the 27 plate ids.
+                               step never hand-types the 25 plate ids.
   docs/print/bin-labels.md  — one label per sorting bin from slicer/bins.py
                                (bin id, bag, label, chapter · steps, the parts it
                                should contain with qty and the plates or add-on
@@ -30,7 +30,7 @@ Produces:
                                its cumulative CAD render, for the "what you have
                                built so far" block on Home (docs/javascripts/boards.js).
 
-  docs/assets/plate-board.json — the 22 plates of the ASA run in run order, then
+  docs/assets/plate-board.json — the 20 plates of the ASA run in run order, then
                                B11's PETG V0 plates, with hours, grams,
                                colour, slot, spool and predicted remaining, for
                                the plate board (docs/print/plate-board.md). Hours
@@ -911,7 +911,7 @@ def build_plate_plans_markdown():
 def build_plate_review_markdown():
     """`## Plate review (B00.8)` — one checkbox per plate, appended to
     docs/print/checklists.md for Step B00.8 (docs/manual/print/B00-calibration-and-jigs.md):
-    "Review every plate in PrusaSlicer, together". Never hand-write the 27 plate ids in the
+    "Review every plate in PrusaSlicer, together". Never hand-write the 25 plate ids in the
     chapter — this is the generated list they tick against, batch/colour/material/sheet from
     `slicer/plates.py` (`run_of`), hours/grams from `slicer/estimates.csv` via `_load_estimates`,
     same sources `build_plate_plans_markdown` above reads."""
@@ -1080,7 +1080,7 @@ def _milestones(plates):
 
 
 def build_plate_board_json():
-    """The 22 plates of the ASA run in run order, then B11's, for docs/print/plate-board.md.
+    """The 20 plates of the ASA run in run order, then B11's, for docs/print/plate-board.md.
 
     Hours, grams and colour are the CSV's (rounded the same additive way as every
     other page); slot, spool and predicted remaining come from README.md's two
@@ -1170,7 +1170,7 @@ def build_plate_board_json():
     for pid, text in _milestones(plates).items():
         next(p for p in plates if p["id"] == pid)["milestone"] = text
 
-    # One header line per run (sweep G8-24): the 22-plate ASA run and B11 are never summed.
+    # One header line per run (sweep G8-24): the 20-plate ASA run and B11 are never summed.
     runs = []
     for p in plates:
         if not runs or runs[-1]["run"] != p["run"]:
@@ -1192,7 +1192,7 @@ def build_plate_board_json():
             "plates": len(plates),
             "hours": round(sum(p["hours"] for p in plates), 1),
             "overnight": sum(1 for p in plates if p["slot"] == "overnight"),
-            # the ASA run alone (22 plates, 157.0 h); B11 is the remainder
+            # the ASA run alone (20 plates, 157.0 h); B11 is the remainder
             "run_plates": sum(1 for p in plates if p["run"] == "asa"),
             "run_hours": round(sum(p["hours"] for p in plates if p["run"] == "asa"), 1),
         },

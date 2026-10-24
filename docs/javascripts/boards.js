@@ -5,7 +5,7 @@
  *                     run's printed plates and the next step, which is where
  *                     Tonight's plans start (tonight.js's planner over
  *                     docs/assets/tonight.json).
- *   .plate-board      on Print › Plate board — the 22 plates in run order with
+ *   .plate-board      on Print › Plate board — the 20 plates in run order with
  *                     printed / sorted toggles.
  *
  * Both read a JSON written at build time by scripts/build_printables.py

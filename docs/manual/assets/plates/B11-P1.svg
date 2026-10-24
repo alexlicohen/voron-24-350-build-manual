@@ -14,15 +14,15 @@
 <line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
 <text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
 <text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
-<path d="M482.0,446.5 494.5,446.0 495.5,449.0 542.5,449.0 543.5,446.0 555.5,446.0 557.0,448.5 559.0,449.5 559.0,478.5 557.0,479.5 555.5,483.0 553.0,483.5 553.0,488.5 555.5,489.0 557.0,492.5 559.0,493.5 559.0,521.5 557.0,522.5 555.5,526.0 543.5,526.0 542.5,522.0 495.5,522.0 494.5,526.0 482.0,525.5 481.0,522.5 479.0,521.5 479.0,493.5 481.0,492.5 482.5,489.0 485.0,488.5 485.0,483.5 482.5,483.0 481.0,479.5 479.0,478.5 479.0,449.5 480.5,449.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#2 V3L_COUPON_22N_DUCT.stl → 09-ducts-DC</title></path>
-<path d="M389.0,446.5 468.0,446.5 467.5,526.0 389.0,525.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#1 V3L_COUPON_22N_DUCT_COVER.stl → 09-ducts-DC</title></path>
-<text x="428.5" y="488.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
-<text x="428.5" y="498.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts-DC</text>
-<line x1="518.5" y1="485.5" x2="518.5" y2="443.5" stroke="#333336" stroke-width="1.2"/>
-<rect x="477.0" y="427.5" width="79.0" height="16.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#9c6a12" stroke-width="1.4"/>
-<text x="516.5" y="441.5" font-size="12" fill="#1e1e20" text-anchor="middle">09-ducts-DC</text>
-<rect x="511.0" y="477.5" width="15.0" height="16.0" rx="3.0" fill="#9c6a12"/>
-<text x="518.5" y="491.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<path d="M487.0,446.5 499.5,446.0 500.5,449.0 548.5,449.0 549.5,446.0 562.0,446.5 562.0,448.5 565.0,450.5 565.0,478.5 562.5,479.0 562.0,481.5 560.5,483.0 558.0,483.5 558.0,488.5 560.5,489.0 562.0,490.5 562.0,492.5 565.0,493.5 565.0,521.5 562.0,522.5 561.5,526.0 549.5,526.0 548.5,522.0 500.5,522.0 499.5,526.0 487.0,525.5 487.0,522.5 484.0,521.5 484.0,493.5 486.5,493.0 487.0,490.5 490.0,488.5 490.0,483.5 487.0,481.5 486.5,479.0 484.0,478.5 484.0,450.5 487.0,448.5Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#2 V3L_COUPON_22N_DUCT.stl → 09-ducts-DC</title></path>
+<path d="M383.0,446.5 462.5,446.0 463.0,525.5 383.5,526.0Z" fill-rule="evenodd" fill="#9c6a12" stroke="#563a0a" stroke-width="1.0" stroke-linejoin="round"><title>#1 V3L_COUPON_22N_DUCT_COVER.stl → 09-ducts-DC</title></path>
+<text x="422.5" y="488.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">1</text>
+<text x="422.5" y="498.5" font-size="12" fill="#ffffff" text-anchor="middle">09-ducts-DC</text>
+<line x1="523.5" y1="485.5" x2="523.5" y2="443.5" stroke="#333336" stroke-width="1.2"/>
+<rect x="482.0" y="427.5" width="79.0" height="16.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#9c6a12" stroke-width="1.4"/>
+<text x="521.5" y="441.5" font-size="12" fill="#1e1e20" text-anchor="middle">09-ducts-DC</text>
+<rect x="516.0" y="477.5" width="15.0" height="16.0" rx="3.0" fill="#9c6a12"/>
+<text x="523.5" y="491.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
 <text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
 <rect x="950.0" y="48.0" width="86.0" height="18.0" rx="4.0" fill="#9c6a12"/>
 <text x="993.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">09-ducts-DC</text>

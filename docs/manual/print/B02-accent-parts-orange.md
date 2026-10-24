@@ -12,7 +12,7 @@ caption: Every accent part in one session. One blue spool, and yes, it matches m
 
 **Time:** 21.7 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.3 / 7.5 h unattended) + ~20 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.2 / 7.5 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing

@@ -354,16 +354,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B01-P2",
-     "print_hours": 7.5,
+     "print_hours": 7.6,
      "run": "asa",
-     "leave_state": "plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B01.5",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b01-z-drive-assemblies#2",
@@ -1103,16 +1103,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P1",
-     "print_hours": 4.5,
+     "print_hours": 7.9,
      "run": "asa",
-     "leave_state": "plate B09-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P1 running, 7.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.2",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B09-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 7.9 h unattended · leave-state: plate B09-P1 running, 7.9 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#1",
@@ -1127,16 +1127,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P2",
-     "print_hours": 4.9,
+     "print_hours": 7.1,
      "run": "asa",
-     "leave_state": "plate B09-P2 running, 4.9 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P2 running, 7.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.4",
-       "Names the bin colour of each part on the sorting diagram while you open the project."
+       "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 4.9 h unattended · leave-state: plate B09-P2 running, 4.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B09-P2 running, 7.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#2",
@@ -1151,67 +1151,19 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P3",
-     "print_hours": 3.9,
+     "print_hours": 6.9,
      "run": "asa",
-     "leave_state": "plate B09-P3 running, 3.9 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P3 running, 6.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.6",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P3 running, 3.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B09-P3 running, 6.9 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#3",
-     "chapter": "b09-panels-filtration-spool",
-     "kind": "print",
-     "steps": [
-      "B09.8"
-     ],
-     "first_step": "B09.8",
-     "last_step": "B09.8",
-     "href": "../manual/steps/b09-panels-filtration-spool/b09-8/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B09-P4",
-     "print_hours": 4.2,
-     "run": "asa",
-     "leave_state": "plate B09-P4 running, 4.2 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [
-      [
-       "B09.8",
-       "Counts the parts on the sorting diagram and checks the total against the object count."
-      ]
-     ],
-     "text": "Start plate B09-P4 (Step B09.8) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B09-P4 running, 4.2 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b09-panels-filtration-spool#4",
-     "chapter": "b09-panels-filtration-spool",
-     "kind": "print",
-     "steps": [
-      "B09.10"
-     ],
-     "first_step": "B09.10",
-     "last_step": "B09.10",
-     "href": "../manual/steps/b09-panels-filtration-spool/b09-10/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B09-P5",
-     "print_hours": 4.3,
-     "run": "asa",
-     "leave_state": "plate B09-P5 running, 4.3 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [
-      [
-       "B09.10",
-       "Names the bin colour of each part on the sorting diagram while you open the project."
-      ]
-     ],
-     "text": "Start plate B09-P5 (Step B09.10) · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B09-P5 running, 4.3 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b09-panels-filtration-spool#5",
      "chapter": "b09-panels-filtration-spool",
      "kind": "build",
      "steps": [
@@ -1230,7 +1182,7 @@
      "text": "Step B09.12 · ~10 min · leave-state: Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness."
     },
     {
-     "id": "b09-panels-filtration-spool#6",
+     "id": "b09-panels-filtration-spool#4",
      "chapter": "b09-panels-filtration-spool",
      "kind": "build",
      "steps": [
@@ -1244,14 +1196,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all five plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.",
+     "leave_state": "all three plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.",
      "helpers": [
       [
        "B09.13",
        "Writes the bin id and the date on the inside face of each part."
       ]
      ],
-     "text": "Step B09.13 · ~15 min · leave-state: all five plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued."
+     "text": "Step B09.13 · ~15 min · leave-state: all three plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued."
     }
    ]
   },
@@ -6136,11 +6088,11 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P5",
-     "print_hours": 6.9,
+     "print_hours": 6.8,
      "run": "bay",
-     "leave_state": "plate B11-P5 running, 6.9 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B11-P5 running, 6.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#11",
@@ -6249,9 +6201,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6356,9 +6306,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6457,9 +6405,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6551,9 +6497,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6645,9 +6589,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6742,9 +6684,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -6869,9 +6809,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "b11-bay-ducting#5"
@@ -6960,9 +6898,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -7103,9 +7039,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
@@ -7224,10 +7158,6 @@
      "B09.5",
      "B09.6",
      "B09.7",
-     "B09.8",
-     "B09.9",
-     "B09.10",
-     "B09.11",
      "B09.12",
      "B09.13"
     ],
@@ -7277,7 +7207,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 69,
+    "done": 67,
     "gate_closed": true,
     "start": null,
     "sections": [
@@ -7425,9 +7355,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#0",
@@ -7672,9 +7600,7 @@
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
-     "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#4",
-     "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
      "00-before-you-start#0",
@@ -7935,10 +7861,6 @@
      "B09.5",
      "B09.6",
      "B09.7",
-     "B09.8",
-     "B09.9",
-     "B09.10",
-     "B09.11",
      "B09.12",
      "B09.13"
     ],
@@ -7953,7 +7875,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 62,
+    "done": 60,
     "gate_closed": true,
     "start": "12.1",
     "sections": [
@@ -8945,10 +8867,6 @@
      "B09.5",
      "B09.6",
      "B09.7",
-     "B09.8",
-     "B09.9",
-     "B09.10",
-     "B09.11",
      "B09.12",
      "B09.13"
     ],
@@ -8979,7 +8897,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 219,
+    "done": 217,
     "gate_closed": true,
     "start": null,
     "sections": [

@@ -5,7 +5,7 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 25.0 h (5 plates) — PrusaSlicer 2.9.6 estimates: 11.8 h before kit (B11-P1 to P3, 173 g), 13.2 h after the kit-day measurements (B11-P4 and B11-P5, 175 g). 348 g of Jet Black PETG V0 in all. **Not part of the 156.8 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 24.9 h (5 plates) — PrusaSlicer 2.9.6 estimates: 11.8 h before kit (B11-P1 to P3, 173 g), 13.1 h after the kit-day measurements (B11-P4 and B11-P5, 175 g). 348 g of Jet Black PETG V0 in all. **Not part of the 157.0 h ASA run**, and none of its numbers are in the run's totals.
 
 **Sessions:** 5 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~15 min to inspect and bin; ~35 min of bay measuring on kit day, before P4 and P5, and ~15 min for the A/B lead check after Checkpoint 06.
 
@@ -362,7 +362,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
 
 **Do:** Print this plate only if the coupon passed and the gap measured 25 mm or more. Otherwise print the fallback listed under Options instead.
-**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 4 files, 8 objects — 6.9 h, 93 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 4 files, 8 objects — 6.8 h, 93 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** Both narrowed 154s and both narrowed Ts base down, lids flat.
 
 ⚠ **Fallback:** stock `CMD_V3_1H_T_REG` and `CMD_V3_1H_82mm_DUCT` are drawn base up. Load them with `slicer/bay-ducts-petg.ini`, place each on its wide flat base, and print their covers as they come.

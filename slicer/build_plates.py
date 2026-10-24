@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build one PrusaSlicer project per plate, slice it, and record the numbers.
 
-For each plate in `plates.py` (the 22 of the ASA run and B11's bay-ducting plates):
+For each plate in `plates.py` (the 20 of the ASA run and B11's bay-ducting plates):
   1. arrange the parts on the 250 x 220 bed (see geom.py - the CLI cannot),
   2. write the arranged meshes and merge them into `slicer/plates/<id>.3mf`,
   3. inject the print/filament/printer config and the per-object brim widths
@@ -445,7 +445,7 @@ CSV_HEADER = ["plate", "batch", "colour", "parts", "raw_time", "hours", "grams",
               "prev_model_hours", "prev_model_grams",
               "delta_hours", "delta_grams", "brim_mm", "size_kb"]
 # One total row per run, after the plate rows. Consumers skip every row whose plate cell
-# starts with "TOTAL". "TOTAL" keeps its old meaning: the 22-plate ASA run only.
+# starts with "TOTAL". "TOTAL" keeps its old meaning: the 20-plate ASA run only.
 TOTAL_LABEL = {"asa": "TOTAL", "bay": "TOTAL B11"}
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Single source of truth for what goes on each plate: the 22 plates of the ASA run
+"""Single source of truth for what goes on each plate: the 20 plates of the ASA run
 (B00-B10) and the separate PETG V0 bay-ducting batch B11.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
@@ -7,7 +7,7 @@ packing lists) and §5.1 (orientation and brim). Every path here was verified to
 exist in the pinned repo tree — see `slicer/stl/MANIFEST.sha256`.
 
 A plate's `run` is "asa" unless it says otherwise. Every total the manual prints
-for "the run" (22 plates, 157.0 h) is over the "asa" plates only; B11 ("bay") is
+for "the run" (20 plates, 157.0 h) is over the "asa" plates only; B11 ("bay") is
 added up on its own (slicer/check_docs.py § B11).
 """
 from __future__ import annotations
@@ -328,41 +328,39 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
             ("voron2", "STLs/Skirts/keystone_panel.stl", 1),
         ]),
+    # B09 was five plates until 2026-10-23, then merged into three (each bin whole on one plate,
+    # hours balanced) from the committed projects with platearrange.merge_3mf, arranged at 6 mm.
     "B09-P1": dict(
-        batch="B09", colour="black", note="V2_Duo_Plenum has a built-in support to push out.",
+        batch="B09", colour="black",
+        note="The whole Nevermore: V2_Duo_Plenum and Regular_Cartridge each have a built-in "
+             "support to push out.",
         parts=[
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum.stl", 1),
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum_LID.stl", 1),
             ("nevermore", "V5_Duo/V2/Regular_Cartridge_Lid(contributed_by_Bucknova).3mf", 1),
+            ("nevermore", "V5_Duo/V2/Regular_Cartridge(contributed_by_Bucknova).3mf", 1),
         ]),
     "B09-P2": dict(
-        batch="B09", colour="black", note="Regular_Cartridge has a built-in support to push out.",
+        batch="B09", colour="black",
+        note="6 mm panel clips, with the bottom-panel clips and hinges and the Z belt covers.",
         parts=[
-            ("nevermore", "V5_Duo/V2/Regular_Cartridge(contributed_by_Bucknova).3mf", 1),
-            ("ldov2", "STLs/exhaust_cover.stl", 1),
+            ("voron2", "STLs/Panel_Mounting/z_belt_cover_a_x2.stl", 2),
+            ("voron2", "STLs/Panel_Mounting/z_belt_cover_b_x2.stl", 2),
+            ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 2),
+            ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 4),
+            ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 8),
+            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_6mm_x8.stl", 8),
         ]),
     "B09-P3": dict(
-        batch="B09", colour="black", note="",
+        batch="B09", colour="black",
+        note="4 mm panel clips, with the exhaust cover and grill and the spool holder.",
         parts=[
+            ("ldov2", "STLs/exhaust_cover.stl", 1),
             ("voron2", "STLs/Exhaust_Filter/exhaust_filter_grill.stl", 1),
             ("voron2", "STLs/Spool_Management/spool_holder.stl", 1),
             ("voron2", "STLs/Spool_Management/bowden_retainer.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/z_belt_cover_a_x2.stl", 2),
-            ("voron2", "STLs/Panel_Mounting/z_belt_cover_b_x2.stl", 2),
-        ]),
-    "B09-P4": dict(
-        batch="B09", colour="black", note="4 mm panel clips.",
-        parts=[
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 8),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 7),
-            ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 2),
-            ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 4),
-        ]),
-    "B09-P5": dict(
-        batch="B09", colour="black", note="6 mm panel clips.",
-        parts=[
-            ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 8),
-            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_6mm_x8.stl", 8),
         ]),
     "B10-P1": dict(
         batch="B10", colour="black",
@@ -449,8 +447,9 @@ MODEL_ESTIMATE: dict[str, tuple[float, int]] = {
     "B07-P1": (5.7, 96), "B07-P2": (7.5, 127),
     "B08-P1": (6.1, 105), "B08-P2": (7.0, 120), "B08-P3": (8.0, 136),
     "B08-P4": (4.4, 76),
-    "B09-P1": (4.1, 71), "B09-P2": (4.3, 73), "B09-P3": (3.5, 60),
-    "B09-P4": (3.6, 59), "B09-P5": (3.6, 59), "B10-P1": (5.1, 80),
+    "B10-P1": (5.1, 80),
+    # B09: the model sized five plates (19.1 h, 322 g); none of them survives the 2026-10-23
+    # merge, so the three B09 plates have no model figure and the TOTAL row no model delta.
 }
 
 
@@ -470,7 +469,7 @@ def all_sources() -> list[tuple[str, str]]:
 
 
 def run_of(plate_id: str) -> str:
-    """"asa" for the 22-plate run, "bay" for B11."""
+    """"asa" for the 20-plate run, "bay" for B11."""
     return PLATES[plate_id].get("run", "asa")
 
 

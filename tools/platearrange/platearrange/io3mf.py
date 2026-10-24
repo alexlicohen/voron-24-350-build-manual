@@ -13,6 +13,14 @@ Write
   Translate(x, y) . RotZ(rot) . old. Every other byte of 3dmodel.model and every other zip
   member is copied unchanged (same name, order, date and compression method).
 
+Merge (`merge_3mf`)
+  Concatenates the build items of several projects into one. Objects are renumbered 1..n in
+  source order, consistently in 3dmodel.model (<object id>, <component objectid>, <item
+  objectid>) and Slic3r_PE_model.config (<object id>). Each object keeps its mesh, item
+  transform and attributes, name, volumes and per-object settings (brim_width, ...). The
+  print config and every other member come from one source (`config_from`, default the
+  first); thumbnails are dropped, since they would show only that source's parts.
+
 Transforms are the 3MF core 4x3 matrix in row-vector order "m00 m01 m02 m10 m11 m12 m20 m21
 m22 m30 m31 m32": x' = x*m00 + y*m10 + z*m20 + m30.
 """
@@ -269,3 +277,156 @@ def write_3mf(src, dst, placements: Sequence[Placement]) -> None:
             zi.create_system = i.create_system
             out.writestr(zi, data[i.filename])
     tmp.replace(dst)
+
+
+# ------------------------------------------------------------------ merge
+
+_OBJ_OPEN_RE = re.compile(r'<object\b[^>]*>')
+_ID_ATTR_RE = re.compile(r'(\sid=")(\d+)(")')
+_OBJID_ATTR_RE = re.compile(r'(\sobjectid=")(\d+)(")')
+_CFG_BLOCK_RE = re.compile(r'[ \t]*<object id="(\d+)"[^>]*>.*?</object>[ \t]*\n?', re.S)
+_CFG_NAME_RE = re.compile(r'(<metadata type="object" key="name" value=")([^"]*)(")')
+_COPY_RE = re.compile(r"^(.*)#(\d+)$")
+
+
+def _split_model(model: str):
+    """(head up to <resources>, {id: object xml}, [ids in order], [item tags], tail)."""
+    r0 = model.index("<resources>") + len("<resources>")
+    r1 = model.index("</resources>")
+    b0 = model.index("<build", r1)
+    b1 = model.index("</build>", b0)
+    objs, order = {}, []
+    for mo in re.finditer(r'<object\b[^>]*>.*?</object>', model[r0:r1], re.S):
+        xml = mo.group(0)
+        oid = int(_attrs(_OBJ_OPEN_RE.match(xml).group(0))["id"])
+        objs[oid] = xml
+        order.append(oid)
+    items = _ITEM_RE.findall(model[b0:b1])
+    return model[:r0], objs, order, items, model[b1:]
+
+
+def _needed(objs: dict, oid: int, out: list) -> None:
+    """`oid` and every object its components reference, children first, each once."""
+    if oid in out:
+        return
+    for a in _COMPONENT_RE.findall(objs[oid]):
+        _needed(objs, int(_attrs(a)["objectid"]), out)
+    out.append(oid)
+
+
+def merge_3mf(sources: Sequence, dst, select: Optional[Sequence[Tuple[int, int]]] = None,
+              title: Optional[str] = None, config_from: int = 0) -> List[Tuple[int, int]]:
+    """Write `dst`: one PrusaSlicer project holding the build items of every source.
+
+    sources      project paths; their print configs should agree (same ini), since only
+                 `sources[config_from]` contributes Slic3r_PE.config and the other members
+    select       (source index, build-item index) pairs, in output order; default every item
+                 of every source in order. Only objects the selected items use are written
+    title        replaces the model's Title and Description metadata (e.g. the new plate id)
+
+    Item transforms are kept as they are (arrange afterwards with write_3mf). An object name
+    that would occur twice is renumbered `name#1..#k` across the merged project, so a copy
+    index stays unique; every other name is unchanged. Returns, per output build item, the
+    (source index, item index) it came from.
+    """
+    srcs = [Path(s) for s in sources]
+    dst = Path(dst)
+    if not srcs:
+        raise ValueError("merge_3mf needs at least one source")
+    if any(s.resolve() == dst.resolve() for s in srcs):
+        raise ValueError("refusing to overwrite a source project")
+    parsed, cfgs, infos, data = [], [], None, None
+    for si, s in enumerate(srcs):
+        with zipfile.ZipFile(s) as z:
+            if si == config_from:
+                infos = z.infolist()
+                data = {i.filename: z.read(i) for i in infos}
+            model = z.read(MODEL).decode("utf-8")
+            names = set(z.namelist())
+            mcfg = z.read(MODEL_CFG).decode("utf-8") if MODEL_CFG in names else ""
+        parsed.append(_split_model(model))
+        cfgs.append({int(oid): mo.group(0) for mo in _CFG_BLOCK_RE.finditer(mcfg)
+                     for oid in [mo.group(1)]})
+    if select is None:
+        select = [(si, ii) for si, p in enumerate(parsed) for ii in range(len(p[3]))]
+    select = [(int(a), int(b)) for a, b in select]
+    if len(set(select)) != len(select):
+        raise ValueError("an item is selected twice")
+
+    # new object ids: every object a selected item needs, in source then file order
+    remap: Dict[Tuple[int, int], int] = {}
+    for si, p in enumerate(parsed):
+        want: list = []
+        for ssi, ii in select:
+            if ssi == si:
+                if not 0 <= ii < len(p[3]):
+                    raise ValueError(f"{srcs[si].name}: no build item {ii}")
+                _needed(p[1], int(_attrs(p[3][ii])["objectid"]), want)
+        for oid in p[2]:
+            if oid in want:
+                remap[(si, oid)] = len(remap) + 1
+
+    def renum(si, xml, rx):
+        return rx.sub(lambda m: m.group(1) + str(remap[(si, int(m.group(2)))]) + m.group(3), xml)
+
+    objects_xml, cfg_blocks = [], []
+    for (si, oid), new in sorted(remap.items(), key=lambda kv: kv[1]):
+        xml = parsed[si][1][oid]
+        head_tag = _OBJ_OPEN_RE.match(xml).group(0)
+        xml = renum(si, head_tag, _ID_ATTR_RE) + xml[len(head_tag):]
+        objects_xml.append(renum(si, xml, _OBJID_ATTR_RE))
+        blk = cfgs[si].get(oid)
+        if blk is not None:
+            cfg_blocks.append((new, _ID_ATTR_RE.sub(lambda m: m.group(1) + str(new) + m.group(3),
+                                                    blk, count=1)))
+    items_xml = [renum(si, parsed[si][3][ii], _OBJID_ATTR_RE) for si, ii in select]
+
+    # names: a base name whose full names would repeat is renumbered base#1..#k
+    def base(n):
+        m = _COPY_RE.match(n)
+        return m.group(1) if m else n
+    named = [(i, mo.group(2)) for i, (_n, blk) in enumerate(cfg_blocks)
+             for mo in [_CFG_NAME_RE.search(blk)] if mo]
+    by_base: Dict[str, List[Tuple[int, str]]] = {}
+    for i, n in named:
+        by_base.setdefault(base(n), []).append((i, n))
+    for b, members in by_base.items():
+        if len({n for _i, n in members}) == len(members):
+            continue
+        for k, (i, _n) in enumerate(members, 1):
+            new, blk = cfg_blocks[i]
+            cfg_blocks[i] = (new, _CFG_NAME_RE.sub(
+                lambda mo, k=k: mo.group(1) + f"{b}#{k}" + mo.group(3), blk, count=1))
+
+    head, _o, _ord, _it, tail = parsed[config_from]
+    if title is not None:
+        esc = (title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+        for key in ("Title", "Description"):
+            head = re.sub(rf'(<metadata name="{key}">)[^<]*(</metadata>)',
+                          lambda m: m.group(1) + esc + m.group(2), head, count=1)
+    ind = "\n  "
+    model = (head + ind + ind.join(objects_xml) + "\n </resources>\n <build>" + ind
+             + ind.join(items_xml) + "\n " + tail)
+    data[MODEL] = model.encode("utf-8")
+    src_cfg = data.get(MODEL_CFG, b"").decode("utf-8")
+    if cfg_blocks or src_cfg:
+        first = _CFG_BLOCK_RE.search(src_cfg)
+        pre = src_cfg[:first.start()] if first else '<?xml version="1.0" encoding="UTF-8"?>\n<config>\n'
+        post = src_cfg[src_cfg.rindex("</object>") + len("</object>"):].lstrip(" \t\n") \
+            if first else "</config>\n"
+        data[MODEL_CFG] = (pre + "".join(b if b.endswith("\n") else b + "\n"
+                                         for _n, b in cfg_blocks) + post).encode("utf-8")
+        if MODEL_CFG not in {i.filename for i in infos}:
+            infos.append(zipfile.ZipInfo(MODEL_CFG, date_time=infos[0].date_time))
+    keep = [i for i in infos if not re.match(r"Metadata/thumbnail.*\.png$", i.filename)]
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dst.with_name(dst.name + ".part")
+    with zipfile.ZipFile(tmp, "w") as out:
+        for i in keep:
+            zi = zipfile.ZipInfo(i.filename, date_time=i.date_time)
+            zi.compress_type = i.compress_type
+            zi.external_attr = i.external_attr
+            zi.create_system = i.create_system
+            out.writestr(zi, data[i.filename])
+    tmp.replace(dst)
+    return list(select)

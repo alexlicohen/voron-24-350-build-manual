@@ -690,7 +690,7 @@ def compare(plate_ids: list[str] | None = None) -> int:
 
 
 def selftest(plate_ids: list[str] | None = None) -> int:
-    ids = plate_ids or ["B00-P1", "B01-P1", "B06-P1", "B07-P2", "B08-P1", "B09-P4", "B10-P1"]
+    ids = plate_ids or ["B00-P1", "B01-P1", "B06-P1", "B07-P2", "B08-P1", "B09-P2", "B10-P1"]
     for pid in ids:
         pieces = pieces_for(pid)
         used = nest(pieces)

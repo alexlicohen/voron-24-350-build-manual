@@ -637,7 +637,7 @@ def build_tonight_markdown(model=None):
     total_hours = sum(c["hours"] for c in build_chapters)
     print_chapters = [c for c in chapters.values() if c["is_print"]]
     # The ASA run's plates, and separately those of a batch outside it (B11, slicer/plates.py
-    # run != "asa"), so the run's 157.0 h / 22 plates reads the same here as everywhere else.
+    # run != "asa"), so the run's 157.0 h / 20 plates reads the same here as everywhere else.
     plate_segs = [s for c in print_chapters for s in c["segments"] if s["kind"] == "print"]
     outside = [s for s in plate_segs if s["plate"] in PLATES and run_of(s["plate"]) != "asa"]
     run_segs = [s for s in plate_segs if s not in outside]
