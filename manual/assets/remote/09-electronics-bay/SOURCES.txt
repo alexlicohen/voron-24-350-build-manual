@@ -1,0 +1,96 @@
+# Mirrored step images for docs/manual/09-electronics-bay.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, the URL as cited in the
+# chapter, the pinned-commit URL actually downloaded, the owner, and the licence.
+# LDO images are mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image
+# licensing"): non-commercial, attributed use. Attribution: LDO Motors.
+
+din-rails-and-wire-ducts.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0_Din_Raill.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S0_Din_Raill.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : 264ef2fa151e6c965fe35223ad0788f56a7f72b482cd2331da6561a418f2a836
+
+iec-inlet-module-fitted.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S2_inlet.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S2_inlet.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : d066f48031e7c6e078527458c1275e686ab8bfa271d0072ef77b52cd0d84c727
+
+bay-general-placement.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/RevD/S0General_Placement.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S0General_Placement.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : f6f8be37cb9843ce5a5938b839bc3b0c8bd0b5e6baf3c36544f393fe8ed0ed15
+
+psu-voltage-selector.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/psu_switch.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : d3b5d4743cf79771804ea6a7b4b30cd2837b362e0fb5d55c2c93cdad4b0c932e
+
+nozzle-probe-parts.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_parts.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_parts.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : 33ff2efe934c155f736bdb183e4f3a3e6333d3aa7defeae76d3e27decad884db
+
+
+
+nozzle-probe-installed.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_final.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_final.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-05
+  sha256  : a093455058c6c09f6479c8d45839e89eb27fecc1aff6ffe2fb5fa4c130579e4e
+
+usb-adapter-grounding.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/master/Images/usb_adapter_gnd.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Nitehawk-SB-V2/42ae497/Images/usb_adapter_gnd.jpg
+  owner   : LDO Motors (MotorDynamicsLab/Nitehawk-SB-V2)
+  licence : no LICENSE file in the repo — mirrored under Alex's 2026-09-05 ruling, attributed, non-commercial
+  date    : 2026-09-05
+  sha256  : f668af6cb3fb3466d155c56f6edeed9054e7387f8a036960426f49af12bb8e92
+
+bed-wago-mount.jpg
+  cited-as: https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg
+  fetched : https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg
+  owner   : LDO Motors (docs.ldomotors.com wiki)
+  licence : wiki content marked all-rights-reserved — mirrored under Alex's 2026-09-05 ruling, attributed, non-commercial
+  date    : 2026-09-05
+  sha256  : 2b88c3ad0034ea7627af2e29c88ce278d8bb24266c9ce56796f9f6cd9e03dcda
+
+voltageselection_V1.3.jpg
+  cited-as: https://ldomotion.com/guides/voron-leviathan-v1-3
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/voltageselection_V1.3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/Leviathan)
+  licence : mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image licensing") — attributed, non-commercial
+  date    : 2026-09-05
+  used-at : Step 09.19 (the five voltage-selection jumpers)
+
+rpi4_installed_V1.3.jpg
+  cited-as: https://ldomotion.com/guides/voron-leviathan-v1-3
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4893ea353552c957f574509f9890e1e37a/Media/rpi4_installed_V1.3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/Leviathan)
+  licence : mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image licensing") — attributed, non-commercial
+  date    : 2026-09-05
+  used-at : Step 09.23 (Pi 4B on the Leviathan with its 3/4 HAT power lead)
+
+nozzle-probe-pcb-fitting.jpg
+  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/z_stop_install_3.jpg
+  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/z_stop_install_3.jpg
+  owner   : LDO Motors (MotorDynamicsLab/LDOVoron2)
+  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
+  date    : 2026-09-06
+  sha256  : 3bb8cfea9c03a9d239a243d46cdc2246479122731a5751c8ec11934af8837e53
+  used-at : Step 09.28 (the Z endstop PCB actually going onto the printed body)
