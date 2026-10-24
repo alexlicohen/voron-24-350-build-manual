@@ -1,6 +1,6 @@
 # Print batches — overview
 
-22 plates, **157.0 h**, **1813 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
+22 plates, **156.9 h**, **1813 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -17,9 +17,10 @@ pose: print
 caption: Twenty two plates, start to finish. The printer works while the kit is still in transit.
 ```
 
-**Print order.** The Voron kit is not expected before **late November 2026**, so the whole run goes down
-first, in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
-— all 157.0 h, finished before the cartons land. **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
+**Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
+Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
+— 156.9 h. Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+(the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
 bearing press and the MGN12 rail check wait for the kit, and the rail check gates nothing but a reprint of
@@ -31,7 +32,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 |---|---:|---:|---:|---:|---|---|
 | [B00](B00-calibration-and-jigs.md) | 1 | 4.0 | 52 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
 | [B01](B01-z-drive-assemblies.md) | 2 | 22.8 | 301 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore, inserts) |
-| [B02](B02-accent-parts-orange.md) | 3 | 21.9 | 0 | 279 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
+| [B02](B02-accent-parts-orange.md) | 3 | 21.8 | 0 | 279 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 1 | 8.5 | 119 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.6 | 117 | 0 | Ch 05 Gantry | Gate B |
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.4 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
@@ -40,7 +41,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B08](B08-skirts-and-front-modules.md) | 4 | 29.2 | 399 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 5 | 21.8 | 297 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 76 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **22** | **157.0** | **1813** | **279** | | |
+| **TOTAL** | **22** | **156.9** | **1813** | **279** | | |
 
 All 22 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
@@ -62,7 +63,7 @@ is watched, and let it run into the night. Spool column is the [ledger](#spool-l
 | 3 | B01-P2 | 7.6 | black | overnight | #1 |
 | 4 | B02-P1 | 7.0 | blue | overnight | A1 |
 | 5 | B02-P2 | 7.3 | blue | overnight | A1 |
-| 6 | B02-P3 | 7.6 | blue | overnight | A1 |
+| 6 | B02-P3 | 7.5 | blue | overnight | A1 |
 | 7 | B03-P1 | 8.5 | black | overnight | #1 |
 | 8 | B04-P1 | 8.6 | black | overnight | #1 |
 | 9 | B05-P1 | 6.4 | black | day | #1 |
@@ -80,7 +81,7 @@ is watched, and let it run into the night. Spool column is the [ledger](#spool-l
 | 21 | B09-P5 | 4.3 | black | day | #3 |
 | 22 | B10-P1 | 5.7 | black | day | #3 |
 
-Twelve overnight plates and ten day plates, 157.0 h in all: about 16 printer-days, three to four weeks at
+Twelve overnight plates and ten day plates, 156.9 h in all: about 16 printer-days, three to four weeks at
 two swaps a day.
 
 ## Bins
@@ -181,7 +182,7 @@ and no plate in this build is printed in it.
 
 Spool numbering: **#1 · #2 · #3** are the three 800 g Galaxy Black spools, **A1** the single 800 g accent
 spool. *Remaining* is what should be left on the active spool once that plate is off the bed, if every
-plate lands on its slicer number. Rows are in **print order** — numeric, B00 → B10, all before kit day.
+plate lands on its slicer number. Rows are in **print order** — numeric, B00 → B10, overlapping the build.
 
 **When to swap.** Never mid-plate on purpose — but a runout *during* a plate is fine on a part with no
 bearing seat: the Core One+ runout sensor pauses, you load the next spool and it resumes. One runout is

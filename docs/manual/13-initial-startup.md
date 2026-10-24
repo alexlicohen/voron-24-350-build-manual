@@ -18,7 +18,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 - **Ch 10 — Wiring.** **Checkpoint #1 passed** with a multimeter, machine unplugged. This is a hard gate: if you have not done it, stop and do it. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 - **Ch 12 — Software.** Klipper, Moonraker and Mainsail installed; `leviathan-printer-rev-d-sbv2.cfg` fetched as `printer.cfg` (`grep -c gpio printer.cfg` → 0); both MCU serial IDs filled in; the 350 mm options uncommented. The boards were energised for the first time at Ch 12 Step 12.11, with the hand-on-switch drill; Step 13.3 repeats it.
 - **[Ch 06 Part A — Z axis](06-z-axis-and-gantry-squaring.md)** (gantry installed, Z belts on) and **[Ch 07 — A/B belts](07-ab-belts.md)** at provisional tension. The gantry is *not* squared yet — that is Ch 06 Part B (06b), which runs out of the middle of this chapter at Step 13.34: cold squaring and a provisional A/B re-tension only. Final tension, the closed-chamber soak and the hot Z-joint lock are Ch 14 Steps 14.4–14.6.
-- **Ch 11 — Skirts and panels:** bottom panel and skirts on (Ch 11 Part A). **Back, side and top panels off** and left off (Ch 11 Part B comes after this chapter, before Ch 14) — you need access to the gantry for Ch 06b, and you want to see and smell everything on power-up. The heat soaks in this chapter therefore run with the front open; their gate is probe repeatability, not a chamber temperature.
+- **Ch 11 — Skirts and panels:** bottom panel and skirts on (Ch 11 Part A). The bottom door swings down once, dead, at Step 13.2 for an eyes-only look at the bay's LEDs, and closes, dead, at 13.8. **Back, side and top panels off** and left off (Ch 11 Part B comes after this chapter, before Ch 14) — you need access to the gantry for Ch 06b, and you want to see and smell everything on power-up. The heat soaks in this chapter therefore run with the front open; their gate is probe repeatability, not a chamber temperature.
 - **Print batches:** none. You will *print* `Voron_Design_Cube_v7` at the end of this chapter, on the new machine. Part L only: one Bambu A1 nozzle wiper in hand. The scrubber parts are **not** printed ahead: Step 13.47 decides them from this machine's numbers, Step 13.48 prints them on the Core One+.
 
 **Tools**
@@ -51,7 +51,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 - **PID tuning comes before QGL, and QGL is run hot.** A thermally unstable machine will not QGL repeatably. Do not reorder this. (survey §3.3, §4.4 #16)
 - **Do not trust a QGL until `PROBE_ACCURACY` shows σ < 0.003 mm with no trend across the 10 samples.** From cold, that takes 10–20 minutes of soak at temperature. (survey §4.4 #16)
-- **Never unplug or re-plug a stepper with the power on.** Every connector swap or re-pin at a board in this chapter means the touch rule of [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives): Pi shut down, rocker off, unplug wall then inlet, cord out of the room; on its side, open the bottom panel and meter +V to −V at 0 V held ten seconds, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead). Then swap, close the panel, and power on as at [13.3](#step-133-power-on-again-hand-on-the-switch): one adult, nobody else within reach. (survey §4.4 #10)
+- **Never unplug or re-plug a stepper with the power on.** Every connector swap or re-pin at a board in this chapter means the touch rule of [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives): Pi shut down, rocker off, unplug wall then inlet, cord out of the room; on its side, open the bottom panel and meter +V to −V at 0 V held ten seconds, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead). Then swap, close the panel, and power on as at [13.9](#step-139-hotend-fan-stealthburner-bottom-fan): door shut, one adult, nobody else within reach. (survey §4.4 #10)
 - **The stock LDO config ships every build-size option commented out and `[safe_z_home] home_xy_position` set to the placeholder `-10,-10`.** A full `G28` will refuse to run until you replace it with a real coordinate — that is Step 13.26, not a fault. (survey §4.4 #15)
 - **If Ch 12 loaded `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`, stop now.** Every `nhk:` pin differs. Klipper refuses the V1 file on this toolboard (`Pin 'gpio23' is not a valid pin name on mcu 'nhk'`), so you will not mis-drive anything — but you will not get past Step 13.4 either. The check is not the serial ID (you pasted that yourself, and it is right in both files); it is `grep -c gpio ~/printer_data/config/printer.cfg` over SSH: **0** is the V2 file, **20** is the V1 file. (survey §4.1 ①, §5.2 W13)
 - **`M112` is the stop. `RESTART` is not.** Have `M112` typed — alone on the line — and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.
@@ -83,7 +83,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 
 **Do:** Clear the chamber: tools, offcuts, zip-tie tails, spare fasteners, filament spool. Pull off any rubber rail stoppers. Put a fire extinguisher within reach, clear the bench of paper and IPA, and confirm the side and top panels are off.
 
-**Check:** You can see the toolhead, all four Z drives, the electronics bay and the PSU without moving anything.
+**Check:** You can see the toolhead and all four Z drives without moving anything. The bay opens, dead, at 13.2.
 
 Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/v2render.png) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation)
 
@@ -99,18 +99,18 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 
 **Do:**
 
-1. Switch off at the inlet rocker and **pull the cord out of the inlet**.
-2. Confirm the PSU's 115/230 V selector matches your mains.
-3. Confirm the SSR terminals and the Leviathan jumpers against the table.
+1. Cord out of the room; on its side, bay toward you; door swung down; 0 V held ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead).
+2. Re-read the PSU selector, the SSR terminals and the Leviathan jumpers against the table.
 
 | Item | Must be |
 |---|---|
+| PSU 115/230 V selector | matches your mains |
 | SSR INPUT 3 / INPUT 4 | control red **+** / control black **−** |
 | SSR LOAD 1 / LOAD 2 | bed live / mains brown |
 | Leviathan jumpers | exactly two: **Fan2** and **Fan3**, both on the **24 V** pins |
 | Probe, Fan0, Fan1 | bare, no jumper |
 
-**Check:** Selector correct. No bare copper anywhere. Every DC duct still open so you can watch the bay; the AC lids stay on. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+**Check:** Meter held 0 V. Table matches, no bare copper, AC lids on, rocker in reach. Door and machine stay as they are until 13.8.
 
 ⚠ LDO: *"Mixing voltage will permanantly damage the controller and attached components."*
 
@@ -118,7 +118,7 @@ Source: [Voron docs image v2render.png](https://raw.githubusercontent.com/VoronD
 
 Source: [LDO wiring photo VS9 finished bay](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/VS9_Final.jpg) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [LDO wiring guide § Preparing the power supply unit](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit)
 
-Pause: ~15 min since the last pause — bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.
+Pause: ~15 min since the last pause — bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.
 
 ---
 
@@ -134,15 +134,17 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 1. One adult at the switch; nobody else within reach.
 2. Plug the mains lead in, stand to the side, switch on at the IEC inlet rocker.
-3. Keep your hand on it ten seconds. Listen and smell.
+3. Hand on it ten seconds. Look into the bay, listen, smell.
 
 **Check:** PSU green LED, Pi power and activity LEDs, the toolboard's **3V3** and **24V** LEDs all lit, with no clicking, buzzing, hot smell or humming stepper.
 
 ⚠ If any of that is wrong, rocker off at once, then unplug at the wall, and go back to Ch 10.
 
-Tip: a stepper that is warm to the touch after a minute of idling is normal (they hold at `run_current`); a stepper that is *hot* in a minute is not.
+⚠ **Live, bay open: eyes only until 13.8 proves it dead, [00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives).** No hand, tool or probe in the bay; do not move, tilt or close it. She stays out of the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall). Anything to touch: rocker off, unplug, 0 V held ten seconds first.
 
-Source: [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate)
+Tip: Klipper enables no stepper until something moves, so every motor should sit at room temperature here. Feel one only after 13.8 has the machine dead.
+
+Source: [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Klipper `stepper_enable.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/stepper_enable.py) (motors disabled until the first move)
 
 ---
 
@@ -193,8 +195,6 @@ Then confirm in Mainsail's config editor that these are uncommented: `[stepper_x
 
 **Check:** The browser shows `"axis_maximum": [350.0, 350.0, 330.0, 0.0]` from the *running* config; `250` or `300` in the first two slots means the wrong size pair is live.
 
-**Helper:** Reads the four axis_maximum numbers off the browser and checks them against 350, 350, 330, 0.
-
 Tip: with every size commented out Klipper refuses to start, so if it is running one pair is live. Step 13.23 proves it: `M114` must read `X:350.000 Y:350.000`. (survey §5.2 W14)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-235) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Moonraker API § Query printer object status](https://moonraker.readthedocs.io/en/latest/external_api/printer/)
@@ -217,8 +217,6 @@ Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab
 **Do:** Look at the temperature panel. You should have exactly three sensors: `extruder`, `heater_bed` and `chamber_temp`. Read them and do nothing else for thirty seconds.
 
 **Check:** Extruder, bed and chamber all read within a couple of degrees of room temperature, and **none of them is climbing**.
-
-**Helper:** Reads the three temperatures off the Mainsail screen and calls them out.
 
 ⚠ A temperature rising with nothing commanded means a heater is energised through a wiring fault: cut power at the switch.
 
@@ -256,13 +254,19 @@ Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDe
 
 **Parts:** none.
 
-**Do:** Lift the machine onto blocks or lay it on its side so the bay is visible. Hand back on the switch. Set the **Bed** target to 50 and watch the SSR's indicator LED as well as the graph.
+**Do:**
 
-**Check:** The SSR LED comes on and the bed temperature climbs; set the target to **Off**.
+1. Eyes only: **Bed** target 50; watch the SSR's LED and the graph.
+2. Bed **Off**; Mainsail **Shutdown**, Pi LED dark, rocker off, unplug, cord out.
+3. 0 V held ten seconds, then close the door and stand it upright.
+
+**Check:** The SSR LED comes on and the bed climbs. The meter held 0 V, as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), before the door closed.
+
+⚠ **The eyes-only window ends here.** No hand goes into the bay, and the machine is not stood up, until the meter has held 0 V. From here the bay stays closed for the rest of the chapter; the next power-on is 13.9's, door shut. She may come back in once the cord is out.
 
 Tip: `[heater_bed] max_power: 0.6` in the LDO config is deliberate — it limits warp on a 350 plate. Do not raise it because 100 °C feels slow.
 
-Source: [LDO wiring photo SSR_Close_Up.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Voron startup wizard § Verify heaters](https://docs.vorondesign.com/build/startup/startup.html#verify-heaters) · [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307) · [Video: Part 9 @1:36:02](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5762s)
+Source: [LDO wiring photo SSR_Close_Up.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevC/SSR_Close_Up.jpg) · [Voron startup wizard § Verify heaters](https://docs.vorondesign.com/build/startup/startup.html#verify-heaters) · [LDO wiring guide § Connecting 24V](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-24v) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307) · [Video: Part 9 @1:36:02](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5762s) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Ch 11 Step 11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead)
 
 ---
 
@@ -274,7 +278,7 @@ Source: [LDO wiring photo SSR_Close_Up.jpg](https://raw.githubusercontent.com/Mo
 
 **Parts:** none.
 
-**Do:** Set the Extruder target to 50 again and leave it there for this step and the next.
+**Do:** Door shut, upright: power on with 13.3's hand on the switch, one adult, nobody else within reach. At **Ready**, set the Extruder target to 50 again and leave it there for this step and the next.
 
 **Check:** The **bottom** fan spins up as soon as the hotend is active and stays on above 50 °C.
 
@@ -282,7 +286,7 @@ Source: [LDO wiring photo SSR_Close_Up.jpg](https://raw.githubusercontent.com/Mo
 
 Tip: this fan is `[heater_fan hotend_fan]` on `nhk:PD0` with `heater_temp: 50.0`. A hotend fan that does not run will clog the hotend on your first print.
 
-Source: [Voron startup wizard § Hotend fan](https://docs.vorondesign.com/build/startup/startup.html#hotend-fan) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L337-347)
+Source: [Voron startup wizard § Hotend fan](https://docs.vorondesign.com/build/startup/startup.html#hotend-fan) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L337-347) · [Step 13.3](#step-133-power-on-again-hand-on-the-switch) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives)
 
 ---
 
@@ -646,7 +650,7 @@ Source: [Voron docs image mainsail_controls.png](https://raw.githubusercontent.c
 | Observation | Fix |
 |---|---|
 | Matches a column in the **upper** block of the chart | Invert `dir_pin` on the stepper that column marks *Inverted*. `[stepper_x]` is motor **B**, `[stepper_y]` is motor **A** |
-| Matches the **lower (orange)** block | The motors themselves are swapped: **unplug and meter 0 V for ten seconds** as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), exchange the A and B connectors at the board, close the bay, power on as at [13.3](#step-133-power-on-again-hand-on-the-switch), re-test |
+| Matches the **lower (orange)** block | The motors themselves are swapped: **unplug and meter 0 V for ten seconds** as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), exchange the A and B connectors at the board, close the bay, power on as at [13.9](#step-139-hotend-fan-stealthburner-bottom-fan), re-test |
 | Gantry moves *downward* first instead of sideways | Z stepper directions are reversed. Go back to Step 13.16 |
 
 Source: [Voron docs image V2-motor-configuration-guide.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/V2-motor-configuration-guide.png) · [Voron startup wizard § XY homing check](https://docs.vorondesign.com/build/startup/startup.html#xy-homing-check)
@@ -1244,11 +1248,11 @@ Source: [Voron docs image voron_cereal.png](https://raw.githubusercontent.com/Vo
 **Do:**
 
 1. Commit the config: `cd ~/printer_data/config && git add -A && git commit -m "Ch 13 done: PID, Z endstop, mesh, rotation_distance"`, then `scp` the directory to the laptop.
-2. Use the web interface's **Shutdown**, wait for the Pi's activity LED to go dark, then switch the machine off at the inlet.
+2. Use the web interface's **Shutdown**, wait a minute after Mainsail loses the printer, then switch off at the inlet.
 
 **Check:** `git log` on the Pi lists the Ch 12 baseline and every `SAVE_CONFIG` since, and a copy of the directory is off the Pi's SD card.
 
-**Helper:** Watches the Pi's green activity LED and says when it has stayed dark.
+**Helper:** Watches Mainsail, says when it loses the printer, and times the minute.
 
 ⚠ Pulling power on a running Pi corrupts the SD card and costs you Ch 12 all over again.
 
@@ -1719,14 +1723,14 @@ Pause: ~30 min since the last pause — the scrubber runs inside `PRINT_START`, 
 | A temperature climbs with nothing commanded | Heater energised through a wiring fault | Cut power at the switch. Back to Ch 10 — do not "just watch it" |
 | Thermistor reads a wild or jumping value | Crimp, or a PH2.0 housing half-seated / in the wrong header | Re-seat, check continuity. Rev D+: uses **PH2.0**, not the guide's XH2.5 |
 | Hotend heats when you command the bed (or vice versa) | Thermistor pair or heater pair swapped | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), then swap at the board |
-| Bed does not heat, SSR LED **on** | Fault on the mains side of the SSR | Check LOAD 1 / LOAD 2 and the bed L/N |
-| Bed does not heat, SSR LED **off** | Control polarity reversed | Leviathan **+** → SSR **INPUT 3**, **−** → INPUT 4 |
+| Bed does not heat at 13.8, SSR LED **on** | Fault on the mains side of the SSR | Finish 13.8's shut-down: nothing is touched before the meter holds 0 V. Then LOAD 1 / LOAD 2 and the bed L/N, as mains work for the person named at [00a.1](00a-mains-safety.md#step-00a1-decide-who-is-doing-the-mains-work) |
+| Bed does not heat at 13.8, SSR LED **off** | Control polarity reversed | Finish 13.8's shut-down to 0 V first, then Leviathan **+** → SSR **INPUT 3**, **−** → INPUT 4 |
 | A fan never starts | Wrong port, wrong voltage jumper, or the keyed 2×5 (10-pin) toolhead header seated backwards | Check the port against the config; Rev D+: header is keyed — if it will not drop in, it is backwards. BLDC fans do not spin backwards on reversed polarity, they do nothing or burn out |
 | **The wrong toolhead fan answers** — the top (5015) fan follows the hotend, the bottom (4010) fan follows `M106` | Fan adapter HEF/PCF assignment is the reverse of the config (the Ch 08 Step 08.46 source conflict) | Swap `pin: nhk:PD0` and `pin: nhk:PA15` between `[heater_fan hotend_fan]` and `[fan]`, `RESTART`, re-run 13.9–13.10. Do not re-plug or re-crimp |
 | `STEPPER_BUZZ` moves nothing | `enable_pin`/`step_pin`, or no driver power | Check the pins; check the HV/24 V rail |
 | `STEPPER_BUZZ` buzzes without travelling 1 mm | Stepper coil pairs transposed in the connector | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), then re-pin the connector so each coil is a pair |
 | **A motor moves the wrong way** | `dir_pin` polarity | Add or remove `!` on that stepper's `dir_pin`, `RESTART`, re-buzz |
-| The wrong motor answers | Motors in the wrong ports | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), move the connector, power on as at [13.3](#step-133-power-on-again-hand-on-the-switch). Never hot-swap a stepper |
+| The wrong motor answers | Motors in the wrong ports | Unplug and meter 0 V for ten seconds as at [11.67](11-skirts-panels-door.md#step-1167-shut-down-unplug-and-prove-it-dead), move the connector, power on as at [13.9](#step-139-hotend-fan-stealthburner-bottom-fan). Never hot-swap a stepper |
 | `G28 X` sends the gantry *down* first | Z stepper directions reversed | Fix Z `dir_pin`s before touching A/B |
 | X and Y both move, but the toolhead goes diagonally / the wrong axis | A and B swapped, or one inverted | Read the V2 configuration chart; upper block → invert a `dir_pin`; lower (orange) block → physically swap A and B |
 | An endstop reads `TRIGGERED` untouched | Wiring, not polarity | Stock Voron endstops are N.C. to ground — a needed `!` usually means a wiring fault. Fix the wiring |
@@ -1762,7 +1766,7 @@ Tick every line before you start Ch 14.
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0 — the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
 - [ ] Extruder, bed and chamber (three sensors) all report room temperature at rest and none of them drifts upward untouched.
-- [ ] Both heaters heat and cool on command; the SSR LED tracks the bed, the toolboard HE0 LED tracks the hotend.
+- [ ] Both heaters heat and cool on command; the toolboard HE0 LED tracks the hotend, and at 13.8 the SSR LED, watched eyes-only, tracked the bed, and the meter held 0 V before the bottom door closed.
 - [ ] All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
 - [ ] All seven motors pass `STEPPER_BUZZ` — correct motor, clean motion; correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
 - [ ] `QUERY_ENDSTOPS` reads `stepper_x:open stepper_y:open stepper_z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.

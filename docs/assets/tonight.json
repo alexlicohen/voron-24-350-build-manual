@@ -482,16 +482,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B02-P3",
-     "print_hours": 7.6,
+     "print_hours": 7.5,
      "run": "asa",
-     "leave_state": "plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B02-P3 running, 7.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B02.6",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B02-P3 running, 7.5 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b02-accent-parts-orange#3",
@@ -4207,9 +4207,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.",
+     "leave_state": "the Leviathan passed the factory-firmware test or is running your own Klipper build, and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.",
      "helpers": [],
-     "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard."
+     "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard."
     },
     {
      "id": "12-software#4",
@@ -4736,9 +4736,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.",
+     "leave_state": "bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.",
      "helpers": [],
-     "text": "Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free."
+     "text": "Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free."
     },
     {
      "id": "13-initial-startup#1",
@@ -4766,14 +4766,6 @@
      "run": null,
      "leave_state": "the machine has been powered, Klipper reports `Ready` with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.",
      "helpers": [
-      [
-       "13.5",
-       "Reads the four axis_maximum numbers off the browser and checks them against 350, 350, 330, 0."
-      ],
-      [
-       "13.6",
-       "Reads the three temperatures off the Mainsail screen and calls them out."
-      ],
       [
        "13.12",
        "Presses the light buttons in Mainsail and says which lamps came on."
@@ -5018,7 +5010,7 @@
      "helpers": [
       [
        "13.43",
-       "Watches the Pi's green activity LED and says when it has stayed dark."
+       "Watches Mainsail, says when it loses the printer, and times the minute."
       ]
      ],
      "text": "Step 13.40 → Step 13.43 · ~30 min · leave-state: extruder rotation distance set, the Voron cube sliced, printed and its first-layer squish dialled, and the machine shut down properly. Ready for Checkpoint 13, then Ch 11 Part B."

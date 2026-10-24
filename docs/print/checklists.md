@@ -26,7 +26,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00a — Mains safety: read before Chapter 09
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67 and Ch 13 Step 13.3; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
@@ -34,7 +34,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
 - [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
 - [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
-- [ ] Both power-on rituals read end to end; the two steps where the machine may be live with the bay open (10.23, 12.11) are known, and the hand-on-the-switch ritual is understood to apply at 12.11 as well as 13.3.
+- [ ] Both power-on rituals read end to end; the three eyes-only windows where the machine may be live with the bay open (10.23, 12.11 to Checkpoint 12, 13.3 to 13.8) and LDO's recovery-only SW1/SW2 exception at 12.15–12.16 are known, and the hand-on-the-switch ritual is understood to apply at 12.11, 13.3 and 13.9.
 - [ ] The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.
 
 <div class="print-page-break"></div>
@@ -260,10 +260,10 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
 
 - [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
-- [ ] The Klipper version string from Step 12.7 is written down, and **both** MCUs were flashed from that same working copy.
+- [ ] The Klipper version string from Step 12.7 is written down. The Nitehawk was flashed from that working copy; the Leviathan was too, or its factory firmware passed 12.14's test and 12.37.
 - [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices: one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan). No `katapult` entries.
 - [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20).
-- [ ] `config.leviathan` and `config.nitehawk` are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
+- [ ] `config.nitehawk`, and `config.leviathan` if 12.14 built one, are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
 - [ ] Line 1 is `[include mainsail.cfg]`, and Mainsail shows no missing-configuration panel.
 - [ ] All six 350 mm sites are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.
 - [ ] `[bed_mesh]` exists and carries `zero_reference_position: 175, 175`.
@@ -284,7 +284,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `grep -c gpio ~/printer_data/config/printer.cfg` returns 0 — the `-sbv2` config.
 - [ ] `M112` tested once (Step 13.22) and typed-and-unsent, alone on the line, before every first move; everyone in the room knows it is the stop and `RESTART` is not.
 - [ ] Extruder, bed and chamber (three sensors) all report room temperature at rest and none of them drifts upward untouched.
-- [ ] Both heaters heat and cool on command; the SSR LED tracks the bed, the toolboard HE0 LED tracks the hotend.
+- [ ] Both heaters heat and cool on command; the toolboard HE0 LED tracks the hotend, and at 13.8 the SSR LED, watched eyes-only, tracked the bed, and the meter held 0 V before the bottom door closed.
 - [ ] All four fan outputs verified and on the right fan: hotend (SB bottom), part cooling (SB top), bay PCB fan pair, Nevermore filter fan; plus the chamber LEDs and all three Stealthburner LEDs.
 - [ ] All seven motors pass `STEPPER_BUZZ` — correct motor, clean motion; correct direction for the four Z motors (A/B at 13.22–13.23, extruder at 13.40).
 - [ ] `QUERY_ENDSTOPS` reads `stepper_x:open stepper_y:open stepper_z:open` at rest and each endstop triggers alone; the nozzle probe shaft springs back freely.
@@ -332,7 +332,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 **Gate A — before B02 and B07**
 
 - [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, loadcell heater-noise test, hot first-layer check `(verify on bench)`
-- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
+- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on the printer and print boxes, a `B00-P1.3mf (… - Voron black)` filament box, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
 - [ ] First-layer-vs-mid-height X delta ≤0.15 mm
@@ -483,7 +483,7 @@ _Generated by `scripts/build_printables.py` from `slicer/plates.py` and `slicer/
 
 - [ ] B02-P1 — ASA, smooth PEI sheet + glue, blue · 7.0 h · 90 g
 - [ ] B02-P2 — ASA, smooth PEI sheet + glue, blue · 7.3 h · 93 g
-- [ ] B02-P3 — ASA, smooth PEI sheet + glue, blue · 7.6 h · 96 g
+- [ ] B02-P3 — ASA, smooth PEI sheet + glue, blue · 7.5 h · 96 g
 
 **Batch B03**
 

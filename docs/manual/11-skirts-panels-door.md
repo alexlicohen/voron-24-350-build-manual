@@ -216,7 +216,7 @@ Everything in Part A is done with the machine open, **unplugged**, and, in the b
 
 (no image — see text)
 
-**What you're looking at:** Checkpoint 12 left the machine live with the bay open. Part A reaches into the bay, tips the printer on its side and plugs a fan lead into the Leviathan, so it starts dead. The PSU's green LED sits beside its voltage-adjust pot.
+**What you're looking at:** Checkpoint 12 left the machine live with the bay open. Part A reaches into the bay and plugs a fan lead into the Leviathan, so it starts dead. The PSU's green LED sits beside its voltage-adjust pot.
 
 **Parts:**
 
@@ -232,7 +232,7 @@ Everything in Part A is done with the machine open, **unplugged**, and, in the b
 
 ⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine, bay open and live, until this Check passes. She stays out of the room until the meter holds 0 V and the cord is gone.
 
-⚠ **Stays dead through Part A.** Nothing here needs power. If a step tempts you to check something live, stop: the next plug-in is Ch 13's hand-on-the-switch power-on at 13.3, with the bay closed. At every Pause, the cord stays out of the room. [src](https://docs.vorondesign.com/build/electrical/)
+⚠ **Stays dead through Part A.** Nothing here needs power. If a step tempts you to check something live, stop: the next plug-in is Ch 13's hand-on-the-switch power-on at 13.3, set up dead at 13.2, eyes only into the bay. At every Pause, the cord stays out of the room. [src](https://docs.vorondesign.com/build/electrical/)
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron docs — Electrical Wiring](https://docs.vorondesign.com/build/electrical/) · [Mean Well LRS-200 datasheet — LED beside +V ADJ.](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives)
 

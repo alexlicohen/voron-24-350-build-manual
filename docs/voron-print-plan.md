@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 22 plates · **157.0 h** print time · **1813 g Galaxy Black + 279 g ASA Blue** ·
+**Totals at a glance:** 22 plates · **156.9 h** print time · **1813 g Galaxy Black + 279 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 5 plates · 25.0 h · 348 g Jet Black PETG V0 (§3, §9).
@@ -225,8 +225,8 @@ starting the next plate, don't print 100 g on top of a known problem.
 ## 2. Which parts gate the frame and Z-drive steps
 
 **Frame** (Assembly Manual ch. *Frame*, p.12–21): **no printed part is required.** The frame is extrusion,
-corner brackets and hardware. You can square the frame the day the kit lands — and by then every plate in
-the build is already printed and binned.
+corner brackets and hardware. You can square the frame the day the kit lands; Ch 02 follows once B01 and B02 are
+printed and binned, while later batches print.
 
 **Z rails** (p.24–27, inside ch. *Z Drives and Idlers*): the only printed items are the optional-but-worth-it
 alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both are on plate **B00-P1**.
@@ -240,12 +240,13 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 + B02-P3** ≈ 34 h of printing.
 Everything else can be printed while you build.
 
-**What prints before the kit: all of it.** Fabreeko's kit is not expected before late November 2026 (§8),
-and with Gate B's caliper and insert rows run early on what is already on the bench (§1.4) nothing is left
-to gate a batch.
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 156.9 h run has finished,
+so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
+(§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 157.0 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. On kit day the frame (no printed part) and
-Ch 00 start at once with every bin full, and no assembly chapter ever waits on a plate. The only print job
+**B00 → B01 → B02 → … → B10**, 156.9 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. When the kit lands, the frame (no printed part) and
+Ch 00 start at once; start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+(the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 → Ch 11. The only print job
 the build may still owe is the `deck_support_4mm` reprint, if the deck panel calipers 4 mm (§6).
 
 **Tall parts (> 150 mm in Z): none.** The tallest part in the whole set is the Clicky-Clack `Handle` at
@@ -310,13 +311,13 @@ measures 4 mm when it arrives, reprint `deck_support_4mm_x8` — 8 g, 30 minutes
 
 ---
 
-### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.9 h · 279 g blue**
+### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.8 h · 279 g blue**
 **Unlocks:** the accent half of *Z Drives and Idlers*, *A/B Drives and Idlers*, *Gantry*, *Stealthburner*,
 *Skirts* and the Clicky-Clack door.
 
 All 49 accent parts are printed in one continuous blue session so the accent spool is mounted exactly
 once. **Two colour changes in the whole build: black → blue here, blue → black after.**
-Everything is printed before the kit arrives anyway, so nothing waits on this.
+B02 is the third batch, so both colour changes fall in the first days of the run and nothing waits on them.
 
 | STL | Repo path | Qty | g ea | h ea |
 |---|---|---:|---:|---:|
@@ -682,7 +683,7 @@ extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams us
 1.07 g/cm³ ASA density.
 
 **What replaced what.** The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
-wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.0 h / 2092 g** —
+wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **156.9 h / 2092 g** —
 **+17 % time, −7 % filament**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
 override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
 layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
@@ -696,7 +697,7 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 157.0 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 156.9 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
@@ -856,12 +857,12 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 **Where things stand (2026-09-23).** The Core One+ is built and commissioned — commissioning closed
 2026-09-13 on **Gen 1 (GT2) belts**, bed flat to ±0.1 mm on printed Z-stop correction caps. The
 Gen 1 → Gen 2 upgrade kit (Prusa order 1787919456) has shipped. The LDO Voron kit has not: realistic
-delivery is **late November to late December 2026**.
+delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early November 2026**.
 
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 157.0 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 156.9 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -918,7 +919,7 @@ mechanical chapters need).
 |---|---|---:|---:|---:|---:|---|---|
 | B00 | Calibration & jigs | 1 | 4.0 | 52 | 0 | Frame | — |
 | B01 | Z drive assemblies | 2 | 22.8 | 301 | 0 | Z Drives and Idlers | B00;B02 |
-| B02 | Accent parts (blue) | 3 | 21.9 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
+| B02 | Accent parts (blue) | 3 | 21.8 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
 | B03 | A/B drive units + front idlers | 1 | 8.5 | 119 | 0 | A/B Drives and Idlers | B00;B02 |
 | B04 | XY joints + X carriage | 1 | 8.6 | 117 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.4 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
@@ -927,13 +928,13 @@ mechanical chapters need).
 | B08 | Skirts + front modules | 4 | 29.2 | 399 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 21.8 | 297 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 76 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **22** | **157.0** | **1813** | **279** | | |
+| **TOTAL** | | **22** | **156.9** | **1813** | **279** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
 B00,Calibration & jigs,1,4.0,52,0,Frame,
 B01,Z drive assemblies,2,22.8,301,0,Z Drives and Idlers,B00;B02
-B02,Accent parts (blue),3,21.9,0,279,Multiple (accent),B00
+B02,Accent parts (blue),3,21.8,0,279,Multiple (accent),B00
 B03,A/B drive units + front idlers,1,8.5,119,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.6,117,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.4,78,0,Z Axis;A/B Belts,B00;B02;B04
@@ -942,7 +943,7 @@ B07,Electronics bay + lighting,2,16.0,226,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,4,29.2,398,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,21.8,297,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,76,0,Panels (front door),B00;B02;B09
-TOTAL,,22,157.0,1813,279,,
+TOTAL,,22,156.9,1813,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -954,7 +955,7 @@ B01-P1,B01,15.2,201,black
 B01-P2,B01,7.6,100,black
 B02-P1,B02,7.0,90,blue
 B02-P2,B02,7.3,93,blue
-B02-P3,B02,7.6,96,blue
+B02-P3,B02,7.5,96,blue
 B03-P1,B03,8.5,119,black
 B04-P1,B04,8.6,117,black
 B05-P1,B05,6.4,78,black

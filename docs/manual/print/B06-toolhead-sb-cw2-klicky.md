@@ -154,4 +154,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Building Klicky because the parts are on the bench — the kit's config, wiring and pre-terminated cable are all for the inductive probe (Ch 08.54).
 
 ## Next
-Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual) — months from now, when the kit lands; the Klicky bag and the SB parts go into bins 08-SB, 08-CW2 and spare-alt today. Printing: [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md), then B08–B10.
+Assembly: *Stealthburner* (p.146–147, then the separate Stealthburner manual) — when the kit lands; the Klicky bag and the SB parts go into bins 08-SB, 08-CW2 and spare-alt today. Printing: [B07 — Electronics bay + lighting](B07-electronics-bay-and-lighting.md), then B08–B10.

@@ -77,7 +77,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:**
 
 1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: profile `0.20mm STRUCTURAL @COREONE 0.4 (modified)`, **5 files, 7 objects**, no brim outline.
+2. Confirm: profile `0.20mm STRUCTURAL (modified)`, **5 files, 7 objects**, no brim outline.
 3. Do not change which face sits on the bed.
 **Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 15.2 h, 201 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Estimated plate time is **15 h 13 m**; if far off, re-verify profile/overrides before committing an overnight print.

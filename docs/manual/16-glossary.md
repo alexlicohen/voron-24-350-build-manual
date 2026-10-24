@@ -89,7 +89,7 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 | Term | What it is | First matters at |
 |---|---|---|
 | **Deck panel** | The acrylic floor of the chamber, above the electronics bay. Its thickness (3 or 4 mm) is disputed between LDO's own documents — caliper it | [02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness) |
-| **DFU** | STM32's built-in USB bootloader mode, entered with the RESET/BOOT0 buttons. The recovery route when Katapult has been overwritten | [12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) |
+| **DFU** | STM32's built-in USB bootloader mode, entered by a request from a running Klipper or, as recovery, with the board's buttons. The way in when Katapult is missing or has been overwritten | [12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) |
 | **DIN rail** | The standard 35 mm steel mounting rail. This bay has two, running **left to right** across both bed extrusions, as manual p.29 and LDO both draw them | [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) |
 | **Drag chain** | The articulated plastic chain carrying cables to a moving part. Three here: X, Y and Z. Cables inside must stay **loose** | [10.59](10-wiring.md#step-1059-fit-the-x-drag-chain) |
 | **Drying** | Heating filament to drive out absorbed moisture. ASA needs it only if the spool has been open a while or shows bubbling | [print/00-slicer-setup — Drying](print/00-slicer-setup.md#drying) |
@@ -187,7 +187,7 @@ Source: [Ch 10 Step 10.55](10-wiring.md#step-1055-connector-types-on-the-v2-tool
 
 | Term | What it is | First matters at |
 |---|---|---|
-| **Katapult** | The CAN/USB bootloader on both MCUs, letting you reflash without touching the boards. Building Klipper with the wrong bootloader **offset** erases it | [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) |
+| **Katapult** | A CAN/USB bootloader that lets you reflash without touching the board. Ch 12 installs it where a board lacks it; whether LDO's factory Leviathan carries it, the board shows at 12.15. Building Klipper with the wrong bootloader **offset** erases it | [12.15](12-software.md#step-1215-flash-the-leviathan-through-katapult) |
 | **KIAUH** | Klipper Installation And Update Helper — an installer for the Klipper ecosystem, used here only to add KlipperScreen; MainsailOS already has the rest | [12.8](12-software.md#step-128-install-kiauh) |
 | **Klicky** | A dockable microswitch probe. Its parts are printed (B06-P1) and bagged on this build as the alternative probe, **not fitted** and no magnets pressed — the kit's config, wiring and cable are for the inductive probe | [B06.4](print/B06-toolhead-sb-cw2-klicky.md#step-b064-inspect); [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set) |
 | **Klipper** | The firmware: a host process on the Raspberry Pi plus thin firmware on each MCU. Configuration lives in `printer.cfg` on the Pi, not on the boards | [12 — Software](12-software.md) |

@@ -99,19 +99,20 @@ the Printer box as `Prusa CORE One HF0.4 nozzle (modified)` — that modificatio
    printer profile when you open a plate, and the wrong answer maps the plate onto whatever printer is
    active. The estimate check in every Load step would catch that, but only after a wasted quarter hour.
 2. **File → Open Project → `slicer/plates/B00-P1.3mf`.** If a dialog offers to install a printer
-   profile, accept.
+   profile, accept. If one asks whether to open the file as a project or import its geometry only, choose
+   **Open as project**.
 3. **Read the three preset boxes on the Plater tab.** They will *not* show the bare names above:
 
    | Box | What it shows | Why |
    |---|---|---|
    | Printer | `Prusa CORE One HF0.4 nozzle` — **always with (modified)** | the project replaces `start_gcode` with the cold-probe block and adds one printer key, `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview). Both are expected; the "(modified)" is the cold start and must stay |
-   | Print | `0.20mm STRUCTURAL @COREONE 0.4 (modified)` | the project's overrides sit on the system preset |
-   | Filament | `Prusament ASA @COREONE HF0.4 - Voron black` (` - Voron blue` on the three B02 plates) | the project's renamed filament preset, shrinkage zeroed |
+   | Print | `0.20mm STRUCTURAL (modified)` | the project's overrides sit on the system preset `0.20mm STRUCTURAL @COREONE 0.4`; the box drops the `@COREONE` suffix |
+   | Filament | `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`, never with "(modified)" (` - Voron blue)` on the three B02 plates). A plate re-saved from the GUI repeats the file name: `B03-P1.3mf (B03-P1.3mf (Prusament …` (seen 2026-10-23). The box truncates; hover it for the whole name | PrusaSlicer names a preset that arrives in a project after the project file; it is the project's renamed filament preset, shrinkage zeroed |
 
    "(modified)" on the printer box is **not** a fault and is not the signal to look for — it is the
    cold-probe start G-code, and a printer box *without* it means the project did not load. The other two
    signals that it did not load are a **print** box without "(modified)" and a **filament**
-   box reading the bare `Prusament ASA @COREONE HF0.4` — any of those, or an estimate that does not
+   box reading the bare `Prusament ASA @COREONE HF0.4`, with no `.3mf (` in front — any of those, or an estimate that does not
    match the Load step's numbers, means do not slice; reopen the project. A printer box naming a
    different printer entirely (not just "(modified)") is the wizard problem in step 1.
 
@@ -218,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.0 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.9 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -310,8 +311,9 @@ pre-oriented for support-free printing. Rotating a part **about Z** (in the plan
 is fine — it does not change the layer orientation. Two exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
-   21 mm-wide footprint, unlike the stock part which lies flat. Check it in the preview before slicing — if
-   it isn't sitting on a flat face, lay it down to match the stock `[a]_xy_joint_cable_bridge_2hole`.
+   21 mm-wide footprint, unlike the stock part which lies flat. The committed B02-P3 project already lays it
+   flat to match the stock `[a]_xy_joint_cable_bridge_2hole` (fixed in the GUI 2026-10-23); a plate rebuilt
+   from the STLs would stand it up again.
 2. The two Clicky-Clack `Hinge-L-*` parts. As designed the hinges are on the **left** and the door opens from
    the right; mirror both hinge files (2.9.6 only — the 3.0 preview has no mirror tool) if the printer's
    left side will be against a wall. The handle and latch are symmetric.
@@ -378,12 +380,12 @@ accent `[a]_xy_joint_cable_bridge_2hole`).
 **Where things stand (2026-09-23).** The Core One+ is built and commissioned — commissioning closed
 2026-09-13 on **Gen 1 (GT2) belts**, bed flat to ±0.1 mm on printed Z-stop correction caps. The Gen 1→Gen 2
 upgrade kit (Prusa order 1787919456) has shipped. The LDO Voron kit has not: Fabreeko's tracking page still
-shows the V2.4/Trident batch in manufacture, so realistic delivery is **late November to late December 2026**.
+shows the V2.4/Trident batch in manufacture, so realistic delivery looked like late 2026; Alex's ruling of 2026-10-23 puts it at **early November 2026**.
 
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 157.0 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 156.9 h / 22-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

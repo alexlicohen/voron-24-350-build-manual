@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~59.9 h hands-on across 16 build chapters; 157.0 h of printing across 22 plates, plus 25.0 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~59.9 h hands-on across 16 build chapters; 156.9 h of printing across 22 plates, plus 25.0 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -62,7 +62,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B02.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.4 — Names the bin colour of each part on the sorting diagram while you open the project.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B02-P3 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.6 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
     - Step B02.9 — Matches each part's number to the diagram legend and drops it in its bin.
@@ -158,7 +158,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 ### 5 · Print — B02 — Accent parts, the accent day
 - <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.0 h unattended · leave-state: plate B02-P1 running, 7.0 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P2 running, 7.3 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B02-P3 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B02-P3 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.8">Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.</span>
 - <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
 
@@ -328,7 +328,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 
 ### 26 · Build — Ch 12 Part 2 — flash both MCUs, `printer.cfg` for a 350 Rev D+
 - <span data-first-step="12.11">Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.</span>
-- <span data-first-step="12.14">Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan is running your own Klipper build and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.</span>
+- <span data-first-step="12.14">Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.</span>
 - <span data-first-step="12.17">Step 12.17 → Step 12.20 · ~20 min · leave-state: both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.</span>
 - <span data-first-step="12.21">Step 12.21 → Step 12.23 · ~15 min · leave-state: `printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.</span>
 - <span data-first-step="12.24">Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.</span>
@@ -350,7 +350,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="11.48">Step 11.48 → Step 11.51 · ~20 min · leave-state: **end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.</span>
 
 ### 28 · Build — Ch 13 — Initial startup
-- <span data-first-step="13.1">Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the inlet.** The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.</span>
+- <span data-first-step="13.1">Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.</span>
 - <span data-first-step="13.3">Step 13.3 → Step 13.12 · ~40 min · leave-state: the machine has been powered, Klipper reports `Ready` with both MCUs, all three temperatures read room ambient, both heaters proved they climb and stop, and every fan and light has been commanded on and off. Nothing has moved yet. Heaters off, machine idle.</span>
 - <span data-first-step="13.13">Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed **at the connector, not in the config**. The machine still has not homed.</span>
 - <span data-first-step="13.17">Step 13.17 → Step 13.21 · ~20 min · leave-state: all three endstops and the inductive probe respond correctly to `QUERY_ENDSTOPS` / `QUERY_PROBE`, tested by hand with nothing homed. Do not stop halfway through the endstop set: the value of this pass is seeing all four in one sitting.</span>

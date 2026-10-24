@@ -3,16 +3,16 @@
 Every accent part in the whole build, printed in one continuous session so the accent spool is mounted
 exactly once. The accent is **Prusament ASA Blue**, matching the blue LDO frame and the blue Clicky-Clack
 door over the black body. **Two colour changes in the whole build: black → blue here, blue → black after.**
-Nothing here has a press fit, so it needs Gate A only. Like every batch, it prints before the kit arrives.
+Nothing here has a press fit, so it needs Gate A only. Like every batch, it prints in numeric order, overlapping the build.
 
 ```mascot
 pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.3 / 7.6 h unattended) + ~20 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.3 / 7.5 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing
@@ -91,7 +91,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:**
 
 1. Open `slicer/plates/B02-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: filament box `Prusament ASA @COREONE HF0.4 - Voron blue`, **5 files, 7 objects**, no rotation, no brim.
+2. Confirm: filament box ending `- Voron blue)`, **5 files, 7 objects**, no rotation, no brim.
 3. Leave the SB main body's built-in supports; never suppress them.
 **Parts:** `[a]_stealthburner_main_body` · `[a]_faceplate` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` ×2 · `[a]_z_drive_baseplate_b` ×2 — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
 **Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
@@ -150,9 +150,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **16 files, 29 objects**, no brim.
-3. In preview, if `XY_cable_chain_bridge-Igus-3mm_backer` stands 44 mm tall, lay it flat to match the stock bridge.
-**Parts:** the remaining accent parts, `[a]_belt_tensioner_a` ×2 · `[a]_belt_tensioner_b` ×2 · `[a]_z_tensioner_9mm` ×4 · `[a]_z_chain_retainer_bracket` ×2 · `[a]_endstop_pod_D2F_switch` · `[a]_xy_joint_cable_bridge_2hole` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_z_belt_clip_lower` ×4 · `[a]_z_belt_clip_upper` ×4 · `[a]_guidler_a` · `[a]_guidler_b` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_pcb_spacer` · `[a]_keystone_blank_insert` ×2 · `ldo_bestagon_insert` — 7.6 h, 96 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Cable-chain bridge sitting flat, not standing, before slicing.
+**Parts:** the remaining accent parts, `[a]_belt_tensioner_a` ×2 · `[a]_belt_tensioner_b` ×2 · `[a]_z_tensioner_9mm` ×4 · `[a]_z_chain_retainer_bracket` ×2 · `[a]_endstop_pod_D2F_switch` · `[a]_xy_joint_cable_bridge_2hole` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_z_belt_clip_lower` ×4 · `[a]_z_belt_clip_upper` ×4 · `[a]_guidler_a` · `[a]_guidler_b` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_pcb_spacer` · `[a]_keystone_blank_insert` ×2 · `ldo_bestagon_insert` — 7.5 h, 96 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Both cable-chain bridges lying flat, as the project carries them.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -253,4 +252,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: accent half of *Z Drives and Idlers*, *A/B Drives and Idlers*, *Gantry*, *Stealthburner*, *Skirts*
-and the Clicky-Clack door — as their black counterparts complete. Printing: back to Galaxy Black for [B03 — A/B drive units + front idlers](B03-ab-drive-units-and-front-idlers.md), and on through B10 in numeric order — the whole run is finished before the kit lands.
+and the Clicky-Clack door — as their black counterparts complete. Printing: back to Galaxy Black for [B03 — A/B drive units + front idlers](B03-ab-drive-units-and-front-idlers.md), and on through B10 in numeric order — the whole run follows that order, overlapping the build.

@@ -71,7 +71,7 @@ OUT = MANUAL / "00-tonight.md"
 
 PLATE_START_MIN = 5  # open the project, confirm the estimate, start, watch the first layer
 
-# The Voron kit is not here yet (expected late Nov - late Dec 2026), so "Before
+# The Voron kit is not here yet (expected early Nov 2026), so "Before
 # the kit" is the section that gets read and it renders first. Flip this to True
 # on kit day and the two planner sections swap back.
 KIT_ARRIVED = False

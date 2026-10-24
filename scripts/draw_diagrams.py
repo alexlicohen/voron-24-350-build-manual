@@ -1859,7 +1859,7 @@ def d11_timeline() -> Doc:
     # print total from print/README.md; the rest from 00-index.md § Critical path.
     facts = [(f"{total_print:.1f} h", f"print, {len(rows)} rows / 11 batches (sliced)"),
              (f"{facts_src['hands_on']} h", "hands-on"),
-             (f"~{facts_src['print_days']} printer-days", "printing, all before kit day"),
+             (f"~{facts_src['print_days']} printer-days", "printing, overlaps the build"),
              (f"~{facts_src['build_weeks']} weeks", f"building, at {facts_src['build_rate']}"),
              (f"≈ {facts_src['after_kit']}", "after the kit arrives")]
     x = 84

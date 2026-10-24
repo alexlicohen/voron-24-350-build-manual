@@ -210,7 +210,7 @@ Pause segments, at least one each. Two `**Built:**` lines in one Checkpoint fail
 Without one the caption is "Checkpoint NN passed. N gummy worms.", and lint check 8 fails
 (`BUILT_REQUIRED`, on since wave 4 phase 5). Print-batch Checkpoints take no `**Built:**` line (it fails
 the build): their caption is generated from `slicer/plates.py` ("Batch Bnn printed: plates … of
-22, … of 157.0 h."), one worm per plate. Checkpoint 00a's reward is the caption
+22, … of 156.9 h."), one worm per plate. Checkpoint 00a's reward is the caption
 alone, no bird (`REWARD_TEXT_ONLY` in `hooks/mascot.py`); Checkpoint 10 gets the bird.
 
 ## Bench photos (added 2026-09-05, evening)

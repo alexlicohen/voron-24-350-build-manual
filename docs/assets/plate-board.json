@@ -81,7 +81,7 @@
    "batch": "B02",
    "batch_title": "Accent parts (blue)",
    "run": "asa",
-   "hours": 7.6,
+   "hours": 7.5,
    "grams": 96,
    "colour": "blue",
    "slot": "overnight",
@@ -414,7 +414,7 @@
   {
    "run": "asa",
    "plates": 22,
-   "hours": 157.0,
+   "hours": 156.9,
    "label": "22-plate run"
   },
   {
@@ -426,9 +426,9 @@
  ],
  "totals": {
   "plates": 27,
-  "hours": 182.0,
+  "hours": 181.9,
   "overnight": 12,
   "run_plates": 22,
-  "run_hours": 157.0
+  "run_hours": 156.9
  }
 }

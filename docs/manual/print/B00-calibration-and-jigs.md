@@ -35,7 +35,7 @@ hot-bed checks**, right after Step B00.0; the hot check opens a project on the p
 **Hardware:** none printed here. Gate B (Step B00.7) needs seven M3×H5 [heat-set inserts](../16-glossary.md#h)
 (the coupon has seven pockets), which come from the KADRICK kit already on the bench (Ch 00 Step 00.9), plus
 a [625-2RS](../16-glossary.md#f) bearing and an MGN12 rail, which only the Voron kit supplies. So the insert
-row and the caliper row run months before the kit; the bearing press and the rail slide run on kit day, and
+row and the caliper row run before the kit; the bearing press and the rail slide run on kit day, and
 the kit's own 153 inserts stay untouched.
 
 **Read first**
@@ -64,11 +64,11 @@ the kit's own 153 inserts stay untouched.
 2. Tick the **0.4 HF** nozzle even with plain 0.4 ticked; filament **Prusament ASA**; Finish.
 3. **File → Open Project**: `slicer/plates/B00-P1.3mf`; accept any profile dialog.
 
-**Check:** All three preset boxes read `(modified)`: `Prusa CORE One HF0.4 nozzle (modified)`, `0.20mm STRUCTURAL @COREONE 0.4 (modified)`, `Prusament ASA @COREONE HF0.4 - Voron black`.
+**Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
 ⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 22 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
-⚠ The project did **not** load if any box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4`, the estimate at Step B00.2 is wrong, or the printer box names another printer.
+⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
 Source: [00-slicer-setup § One-time PrusaSlicer setup](00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [PrusaSlicer releases](https://github.com/prusa3d/PrusaSlicer/releases)
 
@@ -79,7 +79,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.0 h run prints on the current **Gen 1 GT2** belts. Then run the three
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.9 h run prints on the current **Gen 1 GT2** belts. Then run the three
 checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
 09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
 here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
@@ -413,7 +413,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 **Gate A — before B02 and B07**
 
 - [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, loadcell heater-noise test, hot first-layer check `(verify on bench)`
-- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on all three boxes, ` - Voron black` filament, and 3 h 58 m / 51.7 g
+- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on the printer and print boxes, a `B00-P1.3mf (… - Voron black)` filament box, and 3 h 58 m / 51.7 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
 - [ ] First-layer-vs-mid-height X delta ≤0.15 mm
@@ -439,4 +439,4 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 
 ## Next
-Printing: Gate B (Step B00.7) on the caliper and the KADRICK inserts, then [B01 — Z drive assemblies](B01-z-drive-assemblies.md) and on through B02 → B10 in numeric order, all before the kit. Assembly: Ch 00 needs this plate's rail guides on kit day; its `Heatset_Practice` is spent at Gate B, which is Ch 00's insert practice (Steps 00.14–00.15). Ch 01 Frame needs no printed part.
+Printing: Gate B (Step B00.7) on the caliper and the KADRICK inserts, then [B01 — Z drive assemblies](B01-z-drive-assemblies.md) and on through B02 → B10 in numeric order, overlapping the build. Assembly: Ch 00 needs this plate's rail guides on kit day; its `Heatset_Practice` is spent at Gate B, which is Ch 00's insert practice (Steps 00.14–00.15). Ch 01 Frame needs no printed part.
