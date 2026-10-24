@@ -604,4 +604,4 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02-P1 + B02-P3**, all of which print early in the run (batches B00–B02) and sit in bins 02-Z0 … 02-deck. Nothing waits (print plan §2).
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02**, all of which print early in the run (batches B00–B02) and sit in bins 02-Z0 … 02-deck. Nothing waits (print plan §2).

@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty-one plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
@@ -85,7 +85,7 @@ diagrams. `--from-3mf` with no ids does the same for all 25 plates, which is saf
 all 27 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
-⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 20 projects and both `.ini`
+⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 21 projects and both `.ini`
 bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
 at 0 °C through homing and the whole mesh, and the `G29 P9` nozzle wipe is removed because a cold tip
 cannot be wiped. Clean the tip by hand while it is hot, after each print. Opening a project therefore shows
@@ -219,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 156.9 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.1 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -331,9 +331,8 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 
 The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
 orientation, and the plate diagram in each chapter shows the result (drawn from the committed project itself, so a plate you re-arrange in the GUI and save is redrawn by `python3 slicer/build_plates.py --from-3mf`). That is the allowed kind of rotation:
-it never changes which face is on the bed. Example: B08-P1 stands the 182 mm `rear_center_skirt_350`
-front-to-back (turned 90° from the STL) beside an unturned `side_fan_support`, because side by side as
-shipped the pair needs 254 mm of X on a 250 mm bed.
+it never changes which face is on the bed. Example: the B08 skirt plates, where the long skirt segments
+are turned about Z to interleave on the bed with 5 mm kept clear of every edge.
 
 These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
 hand, and a part that is not on one of these two lists gets no brim even when it shares a plate with
@@ -385,7 +384,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 156.9 h / 20-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 157.1 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -439,7 +438,7 @@ off again before the mesh for that reason.
 2. Re-tension both belts and re-square the gantry.
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changes with the pulleys, so the
-   dimensional gate must be re-passed before you print 398 g of skirts (B08) or anything else on the rebuilt
+   dimensional gate must be re-passed before you print 399 g of skirts (B08) or anything else on the rebuilt
    machine. Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 

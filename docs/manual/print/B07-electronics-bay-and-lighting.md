@@ -5,9 +5,9 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 16.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 16.1 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.8 / 8.2 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 8.1 / 8.0 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
@@ -44,11 +44,11 @@ supplied printed).
   inlet panel's three insert bores get their inserts on kit day (Ch 09 Step 09.10), not here; the Wago mount takes none.
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
-  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (127 g on P2 alone).
+  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (112 g on P2 alone).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B06. The ledger has 652 g on it here, 550 g after P1 and 426 g after P2, so no [runout](../16-glossary.md#r) in this batch.
+**Do:** Galaxy Black, spool #2 after B06. The ledger has 652 g on it here, 538 g after P1 and 426 g after P2, so no [runout](../16-glossary.md#r) in this batch.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥226 g on spool #2 for the two plates.
 
@@ -62,8 +62,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `wago_221-415_mount_3by5` · `lrs_200_psu_bracket_x2` ×2 · `PSU_stabilizer_50mm` · `usb_adapter_mount` · `usb_adapter_mount_partial_cover` ×1 (ground-lug mount, est.) · `pcb_din_clip_x3` ×3 · `handlebar_spacer_x4` ×4 · `power_inlet_IECGS_1mm` · 8 files, 14 objects — 7.8 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `wago_221-415_mount_3by5` and `power_inlet_IECGS_1mm` (the long-flat list), already in the project.
-**Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the Wago mount and the inlet.
+**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `cob_light_strip_mount_50mm` · `wago_221-415_mount_3by5` · `usb_adapter_mount_partial_cover` · `PSU_stabilizer_50mm` · `pcb_din_clip` ×2 · `handlebar_spacer` ×2 · 8 files, 11 objects — 8.1 h, 114 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount and the two 100 mm mounts (the long-flat list), already in the project.
+**Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the inlet, the Wago mount and both 100 mm mounts only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -88,8 +88,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×6 · `cob_light_strip_mount_50mm` ×2, eight mounts total, each a 2-piece assembly — 8.2 h, 124 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the six 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the two 50 mm mounts.
-**Check:** Brim outline on the six 100 mm mounts only; eight mounts on the plate and nothing else.
+**Parts:** `cob_light_strip_mount_100mm` ×4 · `cob_light_strip_mount_50mm` · `lrs_200_psu_bracket` ×2 · `usb_adapter_mount` · `pcb_din_clip` · `handlebar_spacer` ×2 · 6 files, 11 objects — 8.0 h, 112 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the rest.
+**Check:** Brim outline on the four 100 mm mounts only; five COB mounts on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
@@ -127,17 +127,20 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | bin | parts off this plate |
 |---|---|
 | **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` |
-| **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×4 |
-| **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `power_inlet_IECGS_1mm`, `wago_221-415_mount_3by5`, `PSU_stabilizer_50mm`, `pcb_din_clip` ×2 |
+| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×2, `cob_light_strip_mount_50mm` |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×2 |
 
 **B07-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×6, `cob_light_strip_mount_50mm` ×2 |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `lrs_200_psu_bracket` ×2, `pcb_din_clip` |
+| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×4, `cob_light_strip_mount_50mm` |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×2 |
+| **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |
 
-**Check:** COB mounts counted, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
+**Check:** COB mounts counted across both plates, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 

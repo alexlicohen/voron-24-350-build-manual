@@ -79,7 +79,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
 **heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
 deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 156.9 h run prints on the current **Gen 1 GT2** belts. Then run the three
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.1 h run prints on the current **Gen 1 GT2** belts. Then run the three
 checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
 09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
 here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
@@ -103,7 +103,7 @@ before Step B00.8 and before any plate.
 
 **2. Loadcell heater-noise test, from the printer panel** `(verify on bench)`
 
-The 20 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
+The 21 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
 decides whether that workaround is still needed. Menu names are from firmware 6.8.1; 7.0.0 reorganized some.
 
 - [ ] Control → Auto Home, then Control → Move Axis → Z to **50**, so the nozzle is clear of the bed
@@ -145,7 +145,7 @@ vendored into its own `.gcode` file first) and run `python3 slicer/build_config.
 The check's project is not a plate of the run and sits outside every total. `python3 slicer/hot_check.py`
 rebuilds both projects from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
 a 110 °C bed and the heater off before every probe tap; `--check` only re-slices the committed files. The
-20 plates carry the cold start until the comparison above says otherwise.
+21 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
 
@@ -161,7 +161,7 @@ step inside B00's own plate. Do it before B00-P1 starts.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
-The 3MFs are `slicer/plates/<id>.3mf` — the 20 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
+The 3MFs are `slicer/plates/<id>.3mf` — the 21 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
 plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.

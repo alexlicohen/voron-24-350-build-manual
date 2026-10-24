@@ -158,7 +158,7 @@ Source: [Voron manual p.83](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - `[a]_xy_joint_cable_bridge_2hole.stl` ×1 (blue)
 
-**Do:** You printed the 2-hole bridge and its raised alternate on plate B02-P3, and no 3-hole part. Confirm the bridge has two holes on the raised pad. Set it beside the raised alternate.
+**Do:** You printed the 2-hole bridge on plate B02-P2 and its raised alternate on B02-P3, and no 3-hole part. Confirm the bridge has two holes on the raised pad. Set it beside the raised alternate.
 
 ⚠ **Rev D+ / LDO:** *"Our cable chain ends use the 2 hole configuration. When printing parts that interface with cable chains, always use the 2hole version instead of 3hole (e.g. xy_joint_cable_bridge_2hole instead of xy_joint_cable_bridge_3hole)."* [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 

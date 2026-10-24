@@ -5,9 +5,9 @@ pose: print
 caption: Panels, filtration and a spool holder. Three long plates, back to back, and none of them dramatic.
 ```
 
-**Time:** 21.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 22.0 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 5.8–9.0 h unattended) + ~15 min inspect and bin, plus the
+**Sessions:** 4 plate starts (~5 min hands-on each, 3.9–7.4 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
 **Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10
@@ -47,7 +47,7 @@ You are **not** building the Voron exhaust filter (76 g, 4.5 h saved). Use `exha
 `exhaust_filter_grill.stl` (Voron) to seal the back panel. Skip `exhaust_filter_housing`,
 `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`.
 
-**Nevermore, exactly which files:** the plenum/lid are STLs; the cartridge and its lid are **3MF files** in
+**Nevermore, exactly which files:** it prints across P2, P3 and P4 (cartridge, plenum with the cartridge lid, plenum lid). The plenum/lid are STLs; the cartridge and its lid are **3MF files** in
 the same folder (PrusaSlicer imports them fine). Use the **Regular** cartridge, not XL — XL wants carbon
 pellets and a faster/louder fan. 8× 6×3 mm magnets, 6× M3 heat-sets. The cartridge has a **built-in support
 you push out**, not cut.
@@ -58,15 +58,15 @@ you push out**, not cut.
 
 - Checkpoint after B09: Nevermore plenum lid must slide in its groove; cartridge must snap onto the plenum
   (both testable now). Panel clips: the 4 mm vs 6 mm test waits for kit day (Step B09.12).
-- Brims already in the projects: 3 mm on `V2_Duo_Plenum` and `Regular_Cartridge` (P1), `exhaust_cover` and
-  `exhaust_filter_grill` (P3); none on P2. Verify the outline in the preview; never add one.
+- Brims already in the projects: 3 mm on `exhaust_cover` (P1), `Regular_Cartridge` (P2), `V2_Duo_Plenum` (P3) and
+  `exhaust_filter_grill` (P4); none on anything else. Verify the outline in the preview; never add one.
 - Most commonly reprinted here: the 6 mm corner clips, if the foam tape choice changes.
 - Back and top panels use 1 mm foam tape (3 mm panel + 1 mm tape = 4 mm); side panels use 3 mm foam tape
   (3+3 = 6 mm, "to prevent the gantry from rubbing on the panels").
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 28 g left, so the build's one predicted runout lands inside that plate; **P2** and **P3** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
+**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 27 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; spool #3 unsealed and within reach for the runout-sensor pause.
 
@@ -79,18 +79,18 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
-are already in it. Leave the plenum's and the cartridge's built-in supports in place.
-**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `V2_Duo_Plenum_LID`, no brim · `Regular_Cartridge_Lid`, no brim · `Regular_Cartridge` (3mf), 3 mm brim · `midspan_panel_clip_4mm` ×7 · 5 files, 11 pieces — 9.0 h, 114 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Both built-in supports visible in preview, not suppressed; brim outline on the plenum and the cartridge only; 7 midspan clips.
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `exhaust_cover`, 3 mm brim already in the project · `z_belt_cover_a` ×2 · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 13 pieces — 4.6 h, 72 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Brim outline on the exhaust cover only; two belt covers and eight clips, two of each type.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
-Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro) · [LDO Nevermore V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ## Step B09.3 — Print plate B09-P1
 
 **Do:** Print with standing overrides.
-**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Plenum lid groove and all eight 6×3 mm cartridge magnet pockets print crisp.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Clean first layer under the exhaust cover; no corner lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -105,9 +105,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
-are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `z_belt_cover_a` ×2 · `z_belt_cover_b` ×2 · `bottom_panel_hinge` ×2 · `bottom_panel_clip` ×4 · `corner_panel_clip_6mm` ×8 · `midspan_panel_clip_6mm` ×8 · 6 files, 26 pieces — 7.1 h, 99 g (PrusaSlicer 2.9.6 estimate) · no brim in the project.
-**Check:** Counts match: 4 belt covers, 2 hinges, 4 bottom clips, 8 corner and 8 midspan clips; no brim outline anywhere.
+are already in it. Leave the cartridge's built-in support in place.
+**Parts:** `Regular_Cartridge` (3mf), 3 mm brim already in the project · `spool_holder` · `bowden_retainer` · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 9 files, 13 pieces — 7.4 h, 91 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Built-in support visible in preview, not suppressed; brim outline on the cartridge only; eight clips, two of each type.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -116,7 +116,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B09.5 — Print plate B09-P2
 
 **Do:** Print with standing overrides.
-**Check:** Clean first layer.
+**Check:** Clean first layer. All eight 6×3 mm cartridge magnet pockets print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -131,9 +131,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
 
 **Do:** Open `slicer/plates/B09-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
-are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `exhaust_cover`, 3 mm brim · `exhaust_filter_grill`, 3 mm brim · `spool_holder`, no brim · `bowden_retainer`, no brim · `corner_panel_clip_4mm` ×8 · 5 files, 12 pieces — 5.8 h, 83 g (PrusaSlicer 2.9.6 estimate) · both brims already in the project.
-**Check:** Counts match: 8 corner clips; no face re-orientation; brim outline on the cover and the grill only.
+are already in it. Leave the plenum's built-in support in place.
+**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `Regular_Cartridge_Lid` (3mf) · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 12 pieces — 6.1 h, 81 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Built-in support visible in preview, not suppressed; brim outline on the plenum only; eight clips, two of each type.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -142,7 +142,33 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B09.7 — Print plate B09-P3
 
 **Do:** Print with standing overrides.
-**Check:** Clean first layer.
+**Check:** Clean first layer. The lid groove in the plenum prints crisp.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
+## Step B09.14 — Load plate B09-P4
+
+![Plate B09-P4 — sorting diagram](../assets/plates/B09-P4.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B09.13.*
+
+**Do:** Open `slicer/plates/B09-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `V2_Duo_Plenum_LID` · `exhaust_filter_grill`, 3 mm brim already in the project · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` · `midspan_panel_clip_6mm` ×2 · 8 files, 11 pieces — 3.9 h, 53 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Brim outline on the grill only; seven clips, one of them the last 4 mm midspan.
+
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Nevermore Micro README](https://github.com/nevermore3d/Nevermore_Micro) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
+
+## Step B09.15 — Print plate B09-P4
+
+**Do:** Print with standing overrides.
+**Check:** Clean first layer; the plenum lid's groove edges print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -171,23 +197,39 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `midspan_panel_clip_4mm` ×7 |
-| **11-nevermore** — Nevermore plenum + cartridge | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)` |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `z_belt_cover_a` ×2, `bottom_panel_hinge`, `bottom_panel_clip` |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×2, `midspan_panel_clip_4mm` ×2 |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_cover` |
+| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×2, `midspan_panel_clip_6mm` ×2 |
 
 **B09-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4 |
-| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8 |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `z_belt_cover_b`, `bottom_panel_clip` |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×2, `midspan_panel_clip_4mm` ×2 |
+| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×2, `midspan_panel_clip_6mm` ×2 |
+| **11-nevermore** — Nevermore plenum + cartridge | `Regular_Cartridge(contributed_by_Bucknova)` |
+| **11-spool** — Spool holder + bowden retainer | `spool_holder`, `bowden_retainer` |
 
 **B09-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×8 |
-| **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_cover`, `exhaust_filter_grill` |
-| **11-spool** — Spool holder + bowden retainer | `spool_holder`, `bowden_retainer` |
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `bottom_panel_hinge`, `bottom_panel_clip` |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×2, `midspan_panel_clip_4mm` ×2 |
+| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×2, `midspan_panel_clip_6mm` ×2 |
+| **11-nevermore** — Nevermore plenum + cartridge | `V2_Duo_Plenum`, `Regular_Cartridge_Lid(contributed_by_Bucknova)` |
+
+**B09-P4**
+
+| bin | parts off this plate |
+|---|---|
+| **11-panels** — Bottom-panel clips/hinges, Z belt covers | `z_belt_cover_b`, `bottom_panel_clip` |
+| **11-clips-4mm** — Panel clips, 4 mm (back + top panels) | `corner_panel_clip_4mm` ×2, `midspan_panel_clip_4mm` |
+| **11-finish** — Exhaust cover + grill, handlebar spacers | `exhaust_filter_grill` |
+| **11-clips-6mm** — Panel clips, 6 mm (side panels) | `corner_panel_clip_6mm` ×2, `midspan_panel_clip_6mm` ×2 |
+| **11-nevermore** — Nevermore plenum + cartridge | `V2_Duo_Plenum_LID` |
 
 **Check:** 31 panel clips counted: 15 in 11-clips-4mm, 16 in 11-clips-6mm; the Nevermore set complete in 11-nevermore; exhaust cover and grill in 11-finish.
 
@@ -196,7 +238,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 Tip: mark both clip bins "test one on kit day before use" — the 4 mm and 6 mm clips look alike off the plate.
 
 
-Pause: ~15 min since the last pause — all three plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.
+Pause: ~15 min since the last pause — all four plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

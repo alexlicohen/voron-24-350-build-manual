@@ -90,7 +90,7 @@ def rotated_extent(hull: list[tuple[float, float]], deg: float
 # ---------------------------------------------------------------- packing
 
 BED_X, BED_Y = 250.0, 220.0
-EDGE_MARGIN = 4.0  # room for the 1-loop skirt at its 3 mm gap, all four sides
+EDGE_MARGIN = 5.0  # part+brim to bed edge, all four sides (Alex 2026-10-24; was 4.0 = skirt room)
 
 
 class Piece:

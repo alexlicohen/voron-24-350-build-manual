@@ -337,6 +337,19 @@ ASSIGN: dict[str, str | list[str]] = {
 PLATE_ASSIGN: dict[tuple[str, str], list[str]] = {
     ("B00-P1", "z_drive_retainer_a_x2.stl"): ["02-Z0"],
     ("B01-P1", "z_drive_retainer_a_x2.stl"): ["02-Z2"],
+    # B02 per-corner parts split across plates by the 5 mm edge repack (2026-10-24). Each list
+    # follows the 3MF copy suffix (#n -> the batch-wide corner list's n-th entry), indexed n-1 mod len.
+    ("B02-P1", "[a]_z_drive_baseplate_b_x2.stl"): ["02-Z3"],
+    ("B02-P2", "[a]_z_drive_baseplate_b_x2.stl"): ["02-Z1"],
+    ("B02-P2", "[a]_z_drive_baseplate_a_x2.stl"): ["02-Z2"],
+    ("B02-P3", "[a]_z_drive_baseplate_a_x2.stl"): ["02-Z0"],
+    ("B02-P1", "[a]_belt_tensioner_a_x2.stl"): ["02-Z0"],
+    ("B02-P3", "[a]_belt_tensioner_a_x2.stl"): ["02-Z2"],
+    ("B02-P1", "[a]_belt_tensioner_b_x2.stl"): ["02-Z3"],
+    ("B02-P2", "[a]_belt_tensioner_b_x2.stl"): ["02-Z1"],
+    ("B02-P1", "[a]_z_tensioner_9mm_x4.stl"): ["02-Z0", "02-Z3"],   # copies #1 and #4
+    ("B02-P2", "[a]_z_tensioner_9mm_x4.stl"): ["02-Z1"],
+    ("B02-P3", "[a]_z_tensioner_9mm_x4.stl"): ["02-Z2"],
 }
 
 # Per-part notes that belong on the label / sort table (not on the diagram).

@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 20 plates · **156.9 h** print time · **1811 g Galaxy Black + 279 g ASA Blue** ·
+**Totals at a glance:** 21 plates · **157.1 h** print time · **1813 g Galaxy Black + 279 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 5 plates · 24.9 h · 348 g Jet Black PETG V0 (§3, §9).
@@ -237,14 +237,14 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 - these accent parts from **Batch 2**: `[a]_z_drive_baseplate_a/b` ×2 each, `[a]_belt_tensioner_a/b` ×2 each,
   `[a]_z_tensioner_9mm_x4` ×4.
 
-So the minimum to start building is **B00 + B01 + B02-P1 + B02-P3** ≈ 34 h of printing.
+So the minimum to start building is **B00 + B01 + B02-P1 + B02-P2 + B02-P3** ≈ 49 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 156.9 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 157.1 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 156.9 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. When the kit lands, the frame (no printed part) and
+**B00 → B01 → B02 → … → B10**, 157.1 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. When the kit lands, the frame (no printed part) and
 Ch 00 start at once; start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 → Ch 11. The only print job
 the build may still owe is the `deck_support_4mm` reprint, if the deck panel calipers 4 mm (§6).
@@ -311,7 +311,7 @@ measures 4 mm when it arrives, reprint `deck_support_4mm_x8` — 8 g, 30 minutes
 
 ---
 
-### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.7 h · 279 g blue**
+### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.8 h · 279 g blue**
 **Unlocks:** the accent half of *Z Drives and Idlers*, *A/B Drives and Idlers*, *Gantry*, *Stealthburner*,
 *Skirts* and the Clicky-Clack door.
 
@@ -351,9 +351,11 @@ B02 is the third batch, so both colour changes fall in the first days of the run
 | `ldo_bestagon_insert.stl` | LDOVoron2 `STLs/` | 1 | 3.0 | 0.18 |
 | `Handle.stl` | whopping\_Voron\_mods `clickyclacky_door/STLs/` | 1 | 33.7 | 2.03 |
 
-- **Plate B02-P1** (7.0 h, 90 g): `[a]_stealthburner_main_body`, `[a]_faceplate`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a` ×2, `[a]_z_drive_baseplate_b` ×2.
-- **Plate B02-P2** (7.2 h, 93 g): `Handle`, `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2, `[a]_tensioner_left`, `[a]_tensioner_right`.
-- **Plate B02-P3** (7.5 h, 96 g): everything else — the 29 small accent parts.
+- **Plate B02-P1** (7.3 h, 97 g): `[a]_faceplate` centred, `Handle` (5 mm brim), and accent parts: `[a]_fan_grill_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_guard_a/b`, `[a]_endstop_pod_D2F_switch`, `[a]_z_tensioner_9mm` ×2, `[a]_z_belt_clip_upper/lower`, `[a]_belt_tensioner_a/b`, `[a]_guidler_b`, `[a]_keystone_blank_insert`, `[a]_z_chain_retainer_bracket`.
+- **Plate B02-P2** (8.6 h, 108 g): `[a]_stealthburner_main_body` centred, `[a]_fan_grill_a` ×2, `[a]_z_drive_baseplate_a/b`, `[a]_belt_guard_b`, `[a]_xy_joint_cable_bridge_2hole`, `[a]_tensioner_left`, `[a]_z_tensioner_9mm`, `[a]_z_belt_clip_upper/lower`, `[a]_belt_tensioner_b`, `[a]_guidler_a`, `ldo_bestagon_insert`, `[a]_pcb_spacer`, `[a]_z_chain_retainer_bracket`.
+- **Plate B02-P3** (5.9 h, 74 g): `[a]_fan_grill_retainer` ×2, `[a]_fan_grill_b`, `[a]_cable_cover`, `[a]_z_drive_baseplate_a`, `[a]_belt_guard_a`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_tensioner_right`, `[a]_z_tensioner_9mm`, `[a]_latch`, `[a]_latch_shuttle`, `[a]_z_belt_clip_upper/lower` ×2 each, `[a]_belt_tensioner_a`, `[a]_keystone_blank_insert`.
+
+Copies of the ×2 and ×4 Z-drive parts are split across the three plates, so no plate carries a whole set.
 
 Notes: the SB main body has **built-in supports** — snap them out, don't cut
 ([SB manual, "Remove built-in supports"](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)).
@@ -471,7 +473,7 @@ Notes:
 
 ---
 
-### Batch B07 — Electronics bay + lighting · **2 plates · 16.0 h · 226 g black**
+### Batch B07 — Electronics bay + lighting · **2 plates · 16.1 h · 226 g black**
 **Unlocks:** *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211).
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -487,14 +489,14 @@ Notes:
 | `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 | 0.55 |
 | `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, p.156/167, not the skirts chapter; rides on B07-P1)* | Black | 36.2 | 2.11 |
 
-- **Plate B07-P1** (7.8 h, 102 g): wago mount, PSU brackets ×2, PSU stabilizer, USB adapter mount, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), DIN clips, handlebar spacers ×4, `power_inlet_IECGS_1mm`.
-- **Plate B07-P2** (8.2 h, 124 g): the eight COB light-strip mounts, brimmed. Nothing else fits.
+- **Plate B07-P1** (8.1 h, 114 g): `power_inlet_IECGS_1mm` centred, wago mount, `cob_light_strip_mount_100mm` ×2, `cob_light_strip_mount_50mm`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), PSU stabilizer, DIN clips ×2, handlebar spacers ×2.
+- **Plate B07-P2** (8.0 h, 112 g): `cob_light_strip_mount_100mm` ×4, `cob_light_strip_mount_50mm`, `lrs_200_psu_bracket` ×2, `usb_adapter_mount`, DIN clip, handlebar spacers ×2.
 
 Notes:
 - COB counts are LDO's own for a 2.4-350: **6× 100 mm + 2× 50 mm**
   ([COB README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip)).
   Each STL contains a 2-piece assembly joined with 2× M3 heat-sets + 2× M3×6 FHCS. This is the heaviest
-  single group of "small" parts in the build — 127 g.
+  single group of "small" parts in the build — 127 g across the two plates.
 - `PSU_stabilizer_50mm` is marked **(verify)**: LDO Build Notes say *"PAGE 169 SKIP — the kit does not use a
   support bracket"*, which most likely refers to this part. It is 4 g; print it and only fit it if it's needed.
 - **Do not print** `raspberrypi_bracket.stl`, `beefy_raspberry_bracket.stl` or `rs25_psu_bracket.stl` — Leviathan
@@ -502,13 +504,13 @@ Notes:
   ([Build Notes p.150, p.152](https://docs.ldomotors.com/voron/voron2/build-faq)).
 - **Do not print** the Leviathan bracket set or the bed WAGO mount — both supplied printed.
 - `power_inlet_IECGS_1mm` lives here, not in B08, because it's fitted in Ch 09 (p.156/167) — see `docs/manual/09-electronics-bay.md`.
-- It cannot ride on **B07-P2**: with the mandated 3 mm brims the eight COB mounts plus the 118 × 66.8 mm inlet
-  come to 46 280 mm², 84 % of the 250 × 220 bed, and no placement exists. It had a plate to itself until
-  2026-09-06, when the outline packer proved it fits on **B07-P1** at a 6 mm gap, saving a swap.
+- The inlet and all eight COB mounts do not fit one plate (with the mandated 3 mm brims they come to 46 280 mm²,
+  84 % of the 250 × 220 bed). The inlet rides on **B07-P1** with three of the mounts and the other five go on
+  **B07-P2**, so both plates keep 5 mm clear of the bed edge.
 
 ---
 
-### Batch B08 — Skirts and front modules · **4 plates · 29.2 h · 398 g black**
+### Batch B08 — Skirts and front modules · **4 plates · 29.1 h · 399 g black**
 **Unlocks:** *Skirts* (p.212–239).
 
 The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
@@ -527,10 +529,10 @@ each side = `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
 | `keystone_panel.stl` | Voron-2 `STLs/Skirts/` | 1 | Black | 38.6 | 2.26 |
 | `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 | 1.80 |
 
-- **B08-P1** (6.3 h, 99 g): `rear_center_skirt_350`, `side_fan_support` ×1
-- **B08-P2** (8.4 h, 108 g): `front_skirt_a_350`, `front_skirt_b_350`, `side_skirt_a_350` ×1
-- **B08-P3** (9.5 h, 121 g): `side_fan_support` ×1, `side_skirt_a_350` ×1, `side_skirt_b_350` ×1, `mount.stl`
-- **B08-P4** (5.0 h, 70 g): `side_skirt_b_350` ×1, `keystone_panel`
+- **B08-P1** (6.7 h, 103 g): `rear_center_skirt_350`, `side_skirt_a_350` ×1
+- **B08-P2** (7.2 h, 95 g): `side_fan_support` ×1, `side_skirt_b_350` ×2
+- **B08-P3** (7.1 h, 99 g): `side_fan_support` ×1, `side_skirt_a_350` ×1, `keystone_panel`
+- **B08-P4** (8.1 h, 102 g): `front_skirt_a_350`, `front_skirt_b_350`, `mount.stl`
 
 Every one of these is 117–182 mm on its long axis and 67–72 mm deep. Packed on bounding boxes that meant two
 per plate; packed on the real outlines (`slicer/nest.py`, 6 mm between silhouettes plus each part's brim) the
@@ -552,7 +554,7 @@ Notes:
 
 ---
 
-### Batch B09 — Panels, filtration, spool · **3 plates · 21.9 h · 296 g black**
+### Batch B09 — Panels, filtration, spool · **4 plates · 22.0 h · 297 g black**
 **Unlocks:** *Panels* (p.240–259) and the Nevermore install.
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -574,12 +576,14 @@ Notes:
 | `spool_holder.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 16.6 | 0.98 |
 | `bowden_retainer.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 5.6 | 0.33 |
 
-- **B09-P1** (9.0 h, 114 g): `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid`, `Regular_Cartridge`, `midspan_panel_clip_4mm` ×7
-- **B09-P2** (7.1 h, 99 g): `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `bottom_panel_hinge` ×2, `bottom_panel_clip` ×4, `corner_panel_clip_6mm` ×8, `midspan_panel_clip_6mm` ×8
-- **B09-P3** (5.8 h, 83 g): `exhaust_cover`, `exhaust_filter_grill`, `spool_holder`, `bowden_retainer`, `corner_panel_clip_4mm` ×8
+- **B09-P1** (4.6 h, 72 g): `exhaust_cover`, `z_belt_cover_a` ×2, `bottom_panel_hinge`, `bottom_panel_clip`, and two each of the four panel-clip types
+- **B09-P2** (7.4 h, 91 g): `Regular_Cartridge`, `spool_holder`, `bowden_retainer`, `z_belt_cover_b`, `bottom_panel_clip`, and two each of the four panel-clip types
+- **B09-P3** (6.1 h, 81 g): `V2_Duo_Plenum`, `Regular_Cartridge_Lid`, `bottom_panel_hinge`, `bottom_panel_clip`, and two each of the four panel-clip types
+- **B09-P4** (3.9 h, 53 g): `V2_Duo_Plenum_LID`, `exhaust_filter_grill`, `z_belt_cover_b`, `bottom_panel_clip`, 2 + 2 corner clips (4 mm, 6 mm), 1 midspan 4 mm and 2 midspan 6 mm clips
 
-Three plates, merged from five on 2026-10-23: each bin's parts come off one plate except the 4 mm clips (midspan on P1, corner on P3), and the plate
-hours run 9.0 / 7.1 / 5.8 h.
+Four plates (five until 2026-10-23, three until 2026-10-24): the batch was re-split as a whole so every part, brim included, sits 5 mm or more
+from the bed edge. The Nevermore spreads over P2 to P4 and the panel clips are shared out across all four plates; the plate
+hours run 4.6 / 7.4 / 6.1 / 3.9 h.
 
 **Why both 4 mm and 6 mm panel clips.** The manual mounts back and top panels with **1 mm foam tape**
 (3 mm panel + 1 mm tape = 4 mm) and side panels with **3 mm foam tape** (3 + 3 = 6 mm, *"to prevent the gantry
@@ -684,11 +688,11 @@ extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams us
 1.07 g/cm³ ASA density.
 
 **What replaced what.** The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
-wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **156.9 h / 2090 g** —
+wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build is **157.1 h / 2092 g** —
 **+17 % time, −7 % filament**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
 override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
 layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
-varies the beads. Every plate moved the same direction — the largest single change is B07-P1 at +2.2 h — so
+varies the beads. Every plate moved the same direction — the largest single change is B08-P4 at +3.7 h — so
 the *shape* of the plan (which plates are long, which are short, what to start in the morning) is unchanged.
 
 **Still calibrate on the first plate.** These are estimates from a slicer, not measurements from a printer.
@@ -698,21 +702,21 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 156.9 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 157.1 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
 
-PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g blue; slicing gives 129 g and 29 g
+PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g blue; slicing gives 127 g and 29 g
 less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
 |---|---:|---:|---:|---:|
-| **Galaxy Black** | **1811 g** | 2400 g (3 × 800 g) | **589 g** | **33 %** |
+| **Galaxy Black** | **1813 g** | 2400 g (3 × 800 g) | **587 g** | **32 %** |
 | **ASA Blue** | **279 g** | 800 g (1 × 800 g) | **521 g** | **187 %** |
-| Total | 2090 g | 3200 g | 1110 g | — |
+| Total | 2092 g | 3200 g | 1108 g | — |
 
-**Black margin is comfortable, but not unlimited.** 589 g is about three of the largest plates, and the four
+**Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates, and the four
 optional add-ons would take about 239 g of it (blue: 120 g of 521 g). Typical
 first-build reprint rate is 10–15 %, so you should land fine — but:
 
@@ -726,14 +730,14 @@ first-build reprint rate is 10–15 %, so you should land fine — but:
 ### 4.3 Spool changes
 
 Cumulative black consumed after each batch: B00 **52** · B01 **353** · B03 **472** · B04 **589** · B05 **667** ·
-B06 **815** · B07 **1041** · B08 **1439** · B09 **1735** · B10 **1811 g**.
+B06 **815** · B07 **1041** · B08 **1440** · B09 **1737** · B10 **1813 g**.
 
 With 800 g spools and the numeric print order, spool **#1** carries B00 through **B05-P1** and ends with
 ~133 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
-hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P4** with ~28 g left, and
-**spool #3 takes over mid-plate inside B09-P1** — the Nevermore plenum, cartridge and their lids plus seven midspan 4 mm clips, no bearing
+hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P4** with ~27 g left, and
+**spool #3 takes over mid-plate inside B09-P1** — the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips, no bearing
 seat or bore, so the Core One+ runout sensor pausing and resuming there is fine. #3 finishes the build
-with ~456 g spare. Same fresh-spool rule as B06 applies to B01-P1 (the 15.2 h, 201 g plate): a resume seam on
+with ~454 g spare. Same fresh-spool rule as B06 applies to B01-P1 (the 15.2 h, 201 g plate): a resume seam on
 a Z-drive body is not worth the risk, so it wants ≥201 g on the spool at the start — it has 748 g. Record
 what is *actually* consumed in the spool ledger in
 [`manual/print/README.md`](manual/print/README.md#spool-ledger); the prediction above is only as good as the
@@ -747,7 +751,7 @@ first few weighings.
 
 **Do not change which face sits on the bed.** Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships
 pre-oriented for support-free printing. Rotating a part **about Z** (in the plane of the bed) to make it fit is
-fine — it does not change the layer orientation, and plate B08-P1 needs it (`side_fan_support` turned 90°).
+fine — it does not change the layer orientation, and several plates rely on it (the arranger turns parts in 5° steps).
 Two exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
@@ -804,8 +808,8 @@ black margin against those.
 | Deck support thickness | LDO's guide says 4 mm, LDO's **350** BOM says the deck panel is 3 mm | Print `deck_support_3mm_x8` ×8 now (the size-specific BOM wins); measure the panel on arrival; 8 g to reprint at 4 mm |
 | `PSU_stabilizer_50mm` | LDO says "SKIP p.169 — no support bracket" | Print it (4 g), fit only if the PSU needs it |
 | Probe retainer bracket | 8 mm vs 9 mm probe barrel | Measure the Omron on arrival; the `_9mm` variant is 0.5 g |
-| Cable-chain bridge with Ti backers | Fabreeko's backers ship pre-drilled with **pilot** holes for the cable-chain end link (drill 2.5 mm, tap M3 to use them), which may make the printed bridge unnecessary; the backer-aware remix exists in 3 mm and 6.5 mm | Both the stock `[a]_xy_joint_cable_bridge_2hole` and `XY_cable_chain_bridge-Igus-3mm_backer` are on plate B02-P3 (18 g total). Fit whichever clears. "Igus" = the **2-hole** chain pattern, which is what LDO ships. |
-| Keystone blanks | Panel has **2** slots; LDO supplies 1 CAT6 keystone | 1 blank used, 1 spare — both on B02-P3 |
+| Cable-chain bridge with Ti backers | Fabreeko's backers ship pre-drilled with **pilot** holes for the cable-chain end link (drill 2.5 mm, tap M3 to use them), which may make the printed bridge unnecessary; the backer-aware remix exists in 3 mm and 6.5 mm | Both the stock `[a]_xy_joint_cable_bridge_2hole` and `XY_cable_chain_bridge-Igus-3mm_backer` are on plates B02-P2 and B02-P3 (18 g total). Fit whichever clears. "Igus" = the **2-hole** chain pattern, which is what LDO ships. |
+| Keystone blanks | Panel has **2** slots; LDO supplies 1 CAT6 keystone | 1 blank used, 1 spare — one on B02-P1, one on B02-P3 |
 | Clicky-Clack "Blue" | Fabreeko doesn't state what the colour governs | Ask before it ships |
 | Rev D+ printed-parts guide | Doesn't exist; only Rev A/B, C, D | **Resolved:** D+ changes one printed part (§0). The remaining Discord question is only whether a D+ guide will be published. |
 | `mount.stl` vs `mount_thick.stl` | LDO links the folder, not a file | `mount.stl` chosen (30 g vs 74 g); swap if you want brightness-button access |
@@ -863,7 +867,7 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 156.9 h / 20-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 157.1 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -892,7 +896,7 @@ heatbed expansion joints and the nozzle wiper from the same kit are fitted befor
 belts and pulleys still wait for INDX, so the run stays on GT2. The firmware switches for the joints and the
 wiper are set one by one (Edition = Gen 2 would also set GT1.5 steps/mm), the bed is re-checked to ±0.1 mm
 because the heatbed came off, and the hot check runs on both start G-codes (cold, and heat-then-off) to pick
-the one all 20 plates carry. Tick list: [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks).
+the one all 21 plates carry. Tick list: [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks).
 
 **After the eventual INDX + GT1.5 belt rebuild, before restarting prints:**
 
@@ -920,31 +924,31 @@ mechanical chapters need).
 |---|---|---:|---:|---:|---:|---|---|
 | B00 | Calibration & jigs | 1 | 4.0 | 52 | 0 | Frame | — |
 | B01 | Z drive assemblies | 2 | 22.8 | 301 | 0 | Z Drives and Idlers | B00;B02 |
-| B02 | Accent parts (blue) | 3 | 21.7 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
+| B02 | Accent parts (blue) | 3 | 21.8 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
 | B03 | A/B drive units + front idlers | 1 | 8.5 | 119 | 0 | A/B Drives and Idlers | B00;B02 |
 | B04 | XY joints + X carriage | 1 | 8.6 | 117 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.3 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
 | B06 | Toolhead (SB + CW2 + Klicky) | 1 | 12.2 | 148 | 0 | Stealthburner | B00;B02;B04 |
-| B07 | Electronics bay + lighting | 2 | 16.0 | 226 | 0 | Electronics; Controller; Wiring | B00 |
-| B08 | Skirts + front modules | 4 | 29.2 | 398 | 0 | Skirts | B00;B02;B07 |
-| B09 | Panels, filtration, spool | 3 | 21.9 | 296 | 0 | Panels | B00;B08 |
+| B07 | Electronics bay + lighting | 2 | 16.1 | 226 | 0 | Electronics; Controller; Wiring | B00 |
+| B08 | Skirts + front modules | 4 | 29.1 | 399 | 0 | Skirts | B00;B02;B07 |
+| B09 | Panels, filtration, spool | 4 | 22.0 | 297 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 76 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **20** | **156.9** | **1811** | **279** | | |
+| **TOTAL** | | **21** | **157.1** | **1813** | **279** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
 B00,Calibration & jigs,1,4.0,52,0,Frame,
 B01,Z drive assemblies,2,22.8,301,0,Z Drives and Idlers,B00;B02
-B02,Accent parts (blue),3,21.7,0,279,Multiple (accent),B00
+B02,Accent parts (blue),3,21.8,0,279,Multiple (accent),B00
 B03,A/B drive units + front idlers,1,8.5,119,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.6,117,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.3,78,0,Z Axis;A/B Belts,B00;B02;B04
 B06,Toolhead (SB + CW2 + Klicky),1,12.2,148,0,Stealthburner,B00;B02;B04
-B07,Electronics bay + lighting,2,16.0,226,0,Electronics;Controller;Wiring,B00
-B08,Skirts + front modules,4,29.2,398,0,Skirts,B00;B02;B07
-B09,"Panels, filtration, spool",3,21.9,296,0,Panels,B00;B08
+B07,Electronics bay + lighting,2,16.1,226,0,Electronics;Controller;Wiring,B00
+B08,Skirts + front modules,4,29.1,399,0,Skirts,B00;B02;B07
+B09,"Panels, filtration, spool",4,22.0,297,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,76,0,Panels (front door),B00;B02;B09
-TOTAL,,20,156.9,1811,279,,
+TOTAL,,21,157.1,1813,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -954,22 +958,23 @@ plate_id,batch_id,hours,grams,colour
 B00-P1,B00,4.0,52,black
 B01-P1,B01,15.2,201,black
 B01-P2,B01,7.6,100,black
-B02-P1,B02,7.0,90,blue
-B02-P2,B02,7.2,93,blue
-B02-P3,B02,7.5,96,blue
+B02-P1,B02,7.3,97,blue
+B02-P2,B02,8.6,108,blue
+B02-P3,B02,5.9,74,blue
 B03-P1,B03,8.5,119,black
 B04-P1,B04,8.6,117,black
 B05-P1,B05,6.3,78,black
 B06-P1,B06,12.2,148,black
-B07-P1,B07,7.8,102,black
-B07-P2,B07,8.2,124,black
-B08-P1,B08,6.3,99,black
-B08-P2,B08,8.4,108,black
-B08-P3,B08,9.5,121,black
-B08-P4,B08,5.0,70,black
-B09-P1,B09,9.0,114,black
-B09-P2,B09,7.1,99,black
-B09-P3,B09,5.8,83,black
+B07-P1,B07,8.1,114,black
+B07-P2,B07,8.0,112,black
+B08-P1,B08,6.7,103,black
+B08-P2,B08,7.2,95,black
+B08-P3,B08,7.1,99,black
+B08-P4,B08,8.1,102,black
+B09-P1,B09,4.6,72,black
+B09-P2,B09,7.4,91,black
+B09-P3,B09,6.1,81,black
+B09-P4,B09,3.9,53,black
 B10-P1,B10,5.7,76,black
 ```
 

@@ -10,9 +10,9 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.7 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 7.0 / 7.2 / 7.5 h unattended) + ~20 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 7.3 / 8.6 / 5.9 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing
@@ -67,7 +67,7 @@ chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joi
 - Most commonly reprinted here: `[a]_stealthburner_main_body` — the most-looked-at part in the build.
 - `[a]_stealthburner_main_body` has **built-in supports** — snap them out, don't cut.
 - `Handle.stl` is 60 mm tall on a 68×19 footprint — the project already carries its 5 mm brim, and nothing
-  else on B02-P2 has one (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). You verify it in
+  else on B02 has one (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). You verify it in
   the preview; you do not add it.
 - `[a]_keystone_blank_insert` ×2 covers a panel with 2 slots against 1 LDO-supplied CAT6 keystone — 1 used, 1 spare.
 
@@ -91,10 +91,10 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:**
 
 1. Open `slicer/plates/B02-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: filament box ending `- Voron blue)`, **5 files, 7 objects**, no rotation, no brim.
-3. Leave the SB main body's built-in supports; never suppress them.
-**Parts:** `[a]_stealthburner_main_body` · `[a]_faceplate` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` ×2 · `[a]_z_drive_baseplate_b` ×2 — 7.0 h, 90 g (PrusaSlicer 2.9.6 estimate).
-**Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
+2. Confirm: **15 files, 16 objects**, the **5 mm brim on `Handle` already in the project**.
+3. Never add a brim by hand.
+**Parts:** `[a]_faceplate` · `Handle` · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_a` · `[a]_belt_guard_b` · `[a]_endstop_pod_D2F_switch` · `[a]_z_tensioner_9mm` ×2 · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_a` · `[a]_belt_tensioner_b` · `[a]_guidler_b` · `[a]_keystone_blank_insert` · `[a]_z_chain_retainer_bracket` — 7.3 h, 97 g (PrusaSlicer 2.9.6 estimate).
+**Check:** Filament box ends `- Voron blue)`; the preview shows a brim outline on `Handle` only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -103,7 +103,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B02.3 — Print plate B02-P1
 
 **Do:** Print with standing overrides, no brim on this plate's parts.
-**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; SB body prints without support failure.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; `Handle` stands with no lean and its brim shows no lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -120,10 +120,10 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:**
 
 1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: **8 files, 13 objects**, the **5 mm brim on `Handle` already in the project**.
-3. Never add a brim by hand or touch the global brim setting.
-**Parts:** `Handle` · `[a]_fan_grill_a` ×2 · `[a]_fan_grill_b` ×2 · `[a]_fan_grill_retainer` ×2 · `[a]_belt_guard_a` ×2 · `[a]_belt_guard_b` ×2 · `[a]_tensioner_left` · `[a]_tensioner_right` — 7.2 h, 93 g (PrusaSlicer 2.9.6 estimate).
-**Check:** The preview shows the brim outline on `Handle` only, none on the flat fan grills, retainers, belt guards or tensioners.
+2. Confirm: **15 files, 16 objects**, no brim.
+3. Leave the SB main body's built-in supports; never suppress them.
+**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.6 h, 108 g (PrusaSlicer 2.9.6 estimate).
+**Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
@@ -132,7 +132,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B02.5 — Print plate B02-P2
 
 **Do:** Print with standing overrides.
-**Check:** `Handle` stands through the full print with no lean; brim shows no lift.
+**Check:** First layer clean; the SB body prints without support failure.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -149,9 +149,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:**
 
 1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: **16 files, 29 objects**, no brim.
-**Parts:** the remaining accent parts, `[a]_belt_tensioner_a` ×2 · `[a]_belt_tensioner_b` ×2 · `[a]_z_tensioner_9mm` ×4 · `[a]_z_chain_retainer_bracket` ×2 · `[a]_endstop_pod_D2F_switch` · `[a]_xy_joint_cable_bridge_2hole` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_z_belt_clip_lower` ×4 · `[a]_z_belt_clip_upper` ×4 · `[a]_guidler_a` · `[a]_guidler_b` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_pcb_spacer` · `[a]_keystone_blank_insert` ×2 · `ldo_bestagon_insert` — 7.5 h, 96 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Both cable-chain bridges lying flat, as the project carries them.
+2. Confirm: **14 files, 17 objects**, no brim.
+**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_belt_tensioner_a` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 5.9 h, 74 g (PrusaSlicer 2.9.6 estimate).
+**Check:** The cable-chain bridge lying flat, as the project carries it.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -191,37 +191,46 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_z_drive_baseplate_a` |
-| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_z_drive_baseplate_b` |
-| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_z_drive_baseplate_a` |
-| **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_z_drive_baseplate_b` |
-| **07-X** — X carriage halves, probe bracket, cable cover | `[a]_cable_cover` |
-| **08-SB** — Stealthburner body, printhead, LEDs | `[a]_stealthburner_main_body` |
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_a` |
+| **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_z_drive_baseplate_b`, `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_b` |
+| **05-XY** — XY joints, endstop pod, upper Z belt clips | `[a]_endstop_pod_D2F_switch`, `[a]_z_belt_clip_upper` |
+| **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_guidler_b` |
+| **10-chains** — Z cable chain anchor, guide, retainer | `[a]_z_chain_retainer_bracket` |
 | **10-tft** — Touchscreen faceplate + mount | `[a]_faceplate` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `[a]_keystone_blank_insert` |
+| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_b`, `[a]_belt_guard_a`, `[a]_belt_guard_b` |
+| **11-door** — Clicky-Clack door | `Handle` |
 
 **B02-P2**
 
 | bin | parts off this plate |
 |---|---|
-| **04-A** — A drive unit + A (right) front idler | `[a]_tensioner_right` |
+| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_z_drive_baseplate_b`, `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_b` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_z_drive_baseplate_a` |
 | **04-B** — B drive unit + B (left) front idler | `[a]_tensioner_left` |
-| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_a` ×2, `[a]_fan_grill_b` ×2, `[a]_fan_grill_retainer` ×2, `[a]_belt_guard_a` ×2, `[a]_belt_guard_b` ×2 |
-| **11-door** — Clicky-Clack door | `Handle` |
+| **05-XY** — XY joints, endstop pod, upper Z belt clips | `[a]_xy_joint_cable_bridge_2hole`, `[a]_z_belt_clip_upper` |
+| **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` |
+| **08-SB** — Stealthburner body, printhead, LEDs | `[a]_stealthburner_main_body` |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_guidler_a` |
+| **10-chains** — Z cable chain anchor, guide, retainer | `[a]_z_chain_retainer_bracket` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `ldo_bestagon_insert` |
+| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_a` ×2, `[a]_belt_guard_b` |
+| **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
 
 **B02-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` |
-| **02-Z1** — Z1 corner (rear-left, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
-| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm` |
-| **02-Z3** — Z3 corner (front-right, `_b` hand) | `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm` |
-| **05-XY** — XY joints, endstop pod, upper Z belt clips | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×4 |
-| **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` ×4 |
-| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle` |
-| **10-chains** — Z cable chain anchor, guide, retainer | `[a]_z_chain_retainer_bracket` ×2 |
-| **11-skirts** — Skirt ring, keystone panel and inserts | `[a]_keystone_blank_insert` ×2, `ldo_bestagon_insert` |
-| **spare-alt** — Spares / alternates (not fitted) | `[a]_pcb_spacer` |
+| **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_z_drive_baseplate_a` |
+| **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_a` |
+| **04-A** — A drive unit + A (right) front idler | `[a]_tensioner_right` |
+| **05-XY** — XY joints, endstop pod, upper Z belt clips | `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×2 |
+| **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` ×2 |
+| **07-X** — X carriage halves, probe bracket, cable cover | `[a]_cable_cover` |
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_latch`, `[a]_latch_shuttle` |
+| **11-skirts** — Skirt ring, keystone panel and inserts | `[a]_keystone_blank_insert` |
+| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_retainer` ×2, `[a]_fan_grill_b`, `[a]_belt_guard_a` |
 
 **Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
 
@@ -230,7 +239,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). `_a` parts go to Z0 and Z2, `_b` to Z1 and Z3. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05.
 
 
-Pause: ~15 min since the last pause — all three plates sorted into their eleven bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
+Pause: ~15 min since the last pause — all three plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -240,7 +249,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] SB main body built-in supports removed clean; LED pockets crisp
 - [ ] Cable-chain bridge fit decision made (stock 2-hole vs Ti-backer remix) once Ti backers are in hand
 - [ ] `Handle` brim removed cleanly, no visible scarring
-- [ ] All 29 small accent parts present and in their bins (B02.9), ids written on the `_a` / `_b` parts
+- [ ] Every accent part present and in their bins (B02.9), ids written on the `_a` / `_b` parts
 - [ ] Blue spool re-sealed/dry-stored — no more blue prints in the build
 
 ## Common mistakes
