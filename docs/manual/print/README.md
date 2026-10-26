@@ -175,8 +175,8 @@ by more than about 5 g means the flow is off, not that the estimate is wrong —
 before the next plate rather than after five more. Write each new spool's scale reading on its flange;
 remaining = reading − (new reading − 800).
 
-The accent spool is **Prusament ASA Blue** (Amazon, arrived 2026-09-12; exact colour name *(verify on the
-spool)*), **superseded 2026-09-14**: the 800 g Prusament ASA Prusa Orange bought 2026-09-04 is now the spare,
+The accent spool is **Prusament ASA Blue** (Sapphire Blue, 800 g; Amazon, arrived 2026-09-12). It
+**superseded** orange on 2026-09-14: the 800 g Prusament ASA Prusa Orange bought 2026-09-04 is now the spare,
 and no plate in this build is printed in it.
 
 Spool numbering: **#1 · #2 · #3** are the three 800 g Galaxy Black spools, **A1** the single 800 g accent
