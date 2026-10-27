@@ -91,6 +91,10 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores",
      "Filament row 1"),
     ("filament_shrinkage_compensation_z", "0%", "filament", "same reason", "Filament row 2"),
+    ("chamber_minimal_temperature", "50", "filament",
+     "Alex 2026-10-27: hold the print until the chamber reads 50 C, not the preset's 40, so the "
+     "first layers (where corners lift) go down in warm air; stays under the firmware's 55 C cap",
+     "Filament row 6"),
     # --- Thumbnails (needed for the plate previews in docs/manual/assets/plates/) ---
     ("thumbnails", "16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG", "printer",
      "stock CORE One list plus a 640x480 PNG, so a G-code export from the GUI carries a "
@@ -386,7 +390,7 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
         ("temperature", "Filament row 3 - HF base is 265 C, not the 260 C the non-HF preset gives"),
         ("first_layer_temperature", "Filament row 3 - HF base, 265 C"),
         ("bed_temperature", "Filament row 4"), ("first_layer_bed_temperature", "Filament row 4"),
-        ("chamber_temperature", "Filament row 5"), ("chamber_minimal_temperature", "Filament row 6"),
+        ("chamber_temperature", "Filament row 5"),
         ("min_fan_speed", "Filament row 7"), ("max_fan_speed", "Filament row 7"),
         ("disable_fan_first_layers", "Filament row 7"),
         ("filament_max_volumetric_speed", "Filament row 8 - HF base is 26, not 15"),

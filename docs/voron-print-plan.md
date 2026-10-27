@@ -116,7 +116,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 [00-slicer-setup](manual/print/00-slicer-setup.md) owns the full reasoning:
 
 - Printer: **`Prusa CORE One HF0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed `250×220`, max height `270`, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off. The projects carry the cold-probe start G-code, so the Plater shows it as `(modified)`.
-- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle 265 °C, bed 110 °C, **chamber 55 °C** (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 26 mm³/s. The projects save it as `Prusament ASA @COREONE HF0.4 - Voron black` (accent: `- Voron blue`).
+- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle 265 °C, bed 110 °C, **chamber 55 °C** (minimum 50 °C, raised from the preset's 40 on 2026-10-27), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 26 mm³/s. The projects save it as `Prusament ASA @COREONE HF0.4 - Voron black` (accent: `- Voron blue`).
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. There is no HF0.4 STRUCTURAL at 0.20 mm; this non-HF print preset is offered on the HF printer and is the one the projects use. STRUCTURAL is already the quality-biased profile
   (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
 
@@ -161,7 +161,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for the HF nozzle on this machine | profile |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809) |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
-| Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* your preheat gate | profile |
+| Chamber minimal temperature | 40 °C | **50** | printer will not start until the chamber reaches 50 °C — this *is* your preheat gate (raised from 40; the firmware caps the chamber at 55 °C) | Alex 2026-10-27 |
 | Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
 | Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈10 mm³/s, first-layer solid infill) | profile |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |

@@ -120,7 +120,7 @@ decides whether that workaround is still needed. Menu names are from firmware 6.
 - [ ] No "bed not aligned" / Z-alignment prompt during the print. Firmware 7.0.0 added automatic Z alignment on an uneven bed, so the prompt may never appear: write down whether it ran an alignment on its own
 - [ ] "Absorbing heat" is noticeably shorter than before the expansion joints (item 0). Same wait as before = the Expansion Joints toggle is off or 7.0.0 behaves differently
 - [ ] Chamber filter blower runs and the bypass flaps close for the print (first ASA print on 7.0.0)
-- [ ] Every square calipers 0.17–0.23 mm
+- [ ] Every square calipers 0.17–0.23 mm. Thinner = the nozzle is too close: raise Live Adjust Z by the shortfall (0.14 mm → +0.06) and print it again. Thicker = lower it the same way. Item 4 prints at the value you end on
 - [ ] Spread across all five squares ≤ 0.05 mm
 - [ ] Print it again from `slicer/checks/hot-first-layer-heat-off.3mf`, the same plate on the heat-then-off start G-code: nozzle to 170 °C, retract, heater off, wipe, heater off again, then the mesh. Caliper its five squares the same way
 - [ ] If either print needed a Live Adjust Z nudge, check at the start of the next print whether it is still set. Kept = Live Adjust Z is stored per sheet; reset to 0 = it is not. This settles § Calibration sequence item 3 in 00-slicer-setup
@@ -142,9 +142,23 @@ vendored into its own `.gcode` file first) and run `python3 slicer/build_config.
 
 - [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
 
-The check's project is not a plate of the run and sits outside every total. `python3 slicer/hot_check.py`
-rebuilds both projects from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
-a 110 °C bed and the heater off before every probe tap; `--check` only re-slices the committed files. The
+**4. Brim-gap ladder: the gap that breaks off by hand** `(verify on bench)`
+
+The plates' brims sit 0.20 mm off the part. That value has not been printed on ASA yet, and the right
+gap depends on the squish item 3 just set, so this runs after it.
+
+- [ ] Same sheet, glue film and spool as item 3; Live Adjust Z left where item 3 ended
+- [ ] **File → Open Project**: `slicer/checks/brim-gap-ladder.3mf` — six 25×25×3 mm squares around the bed centre, each with a 5 mm brim at its own gap. Back row, left to right: **0.10 / 0.15 / 0.20 mm**; front row: **0.25 / 0.30 / 0.40 mm**. About 40 min after the chamber heat-up, 11 g
+- [ ] During the print: write down any brim that comes loose from its square or lifts
+- [ ] Cool, flex the sheet and lift each square with its brim. By hand only, no cutters: snap the brim off each one and sort it into **breaks off clean**, **needs cutting** or **came off by itself**
+- [ ] Run a fingernail along each square's bottom edge: a lip left behind counts as needs cutting
+- [ ] The answer is the **smallest gap that breaks off clean**. A brim that came off by itself holds nothing, so wider than that buys nothing
+- [ ] Not 0.20: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
+
+The check projects are not plates of the run and sit outside every total. `python3 slicer/hot_check.py`
+rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
+a 110 °C bed and the heater off before every probe tap, and that each ladder square's sliced gap matches
+its setting; `--check` only re-slices the committed files. The
 21 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
@@ -236,9 +250,9 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:**
 
 1. Fit [the print sheet](00-slicer-setup.md#print-sheet), cleaned since the last print, with a thin glue-stick film over the printed area.
-2. Let the chamber reach 40 °C; never override the profile's gate.
+2. Let the chamber reach 50 °C; never override the profile's gate.
 3. Set **Settings → Chamber Filtration → Adv. Filtration**.
-**Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
+**Check:** Chamber temp reads ≥50 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
 
 ⚠ ASA off-gasses styrene. Chamber Filtration on Adv. Filtration, also under Tune mid-print: on None the
 AFS blower never runs and the plate vents unfiltered. Door shut for the whole print, room ventilated
@@ -308,7 +322,7 @@ inputs:
   - key: snap
     label: Corner snap tears across the layers, not along one
     kind: yesno
-    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 40 °C chamber gate, and reprint before any structural plate.
+    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 50 °C chamber gate, and reprint before any structural plate.
     why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
 pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B in the same week before B01 and B03 to B06.
 ```

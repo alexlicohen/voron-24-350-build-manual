@@ -55,6 +55,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 |---|---|---|---|---|
 | `filament_shrinkage_compensation_xy` | `0.22%`  | `0%` | THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores | Filament row 1 |
 | `filament_shrinkage_compensation_z` | `0.22%`  | `0%` | same reason | Filament row 2 |
+| `chamber_minimal_temperature` | `40`  | `50` | Alex 2026-10-27: hold the print until the chamber reads 50 C, not the preset's 40, so the first layers (where corners lift) go down in warm air; stays under the firmware's 55 C cap | Filament row 6 |
 
 ## Printer settings
 
@@ -83,7 +84,6 @@ These are named in the override table as *keep*, so they are asserted here rathe
 | `bed_temperature` | `110` | Filament row 4 |
 | `first_layer_bed_temperature` | `110` | Filament row 4 |
 | `chamber_temperature` | `55` | Filament row 5 |
-| `chamber_minimal_temperature` | `40` | Filament row 6 |
 | `min_fan_speed` | `20` | Filament row 7 |
 | `max_fan_speed` | `25` | Filament row 7 |
 | `disable_fan_first_layers` | `4` | Filament row 7 |

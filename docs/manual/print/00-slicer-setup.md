@@ -41,7 +41,7 @@ The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wh
   `Prusa CORE One 0.4 nozzle` preset *inherits from this one* and only sets `nozzle_high_flow = 0`;
   every mechanical value is identical.
 - Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle **265 °C**, bed 110 °C, chamber 55 °C
-  (minimum 40 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
+  (minimum **50 °C**, raised from the preset's 40), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
   [volumetric flow](../16-glossary.md#v) **26 mm³/s**. (The non-HF `Prusament ASA @COREONE` is 260 °C / 15 mm³/s.)
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased
   profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
@@ -171,7 +171,7 @@ First-layer infill at 25 mm/s as well would be one more override, `first_layer_i
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
-| Chamber minimal temperature | 40 °C | **keep 40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate | profile |
+| Chamber minimal temperature | 40 °C | **50** | printer will not start until the chamber reaches 50 °C — this *is* the preheat gate. Raised from 40 so the first layers, where corners lift, go down in warm air; the firmware caps the chamber at 55 °C. From cold the wait is 20–25 min in a 25 °C room, longer in a cold basement | Alex 2026-10-27 |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
 | Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 10 mm³/s, on first-layer solid infill | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |

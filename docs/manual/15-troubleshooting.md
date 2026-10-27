@@ -42,7 +42,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - A corner peels along one layer line at the snap test
 
-            The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 40 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+            The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 50 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
 
     - A bore or a boss fails Gate B
         - A 625-2RS or F695 seat is tight or loose
@@ -506,7 +506,7 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 | Cube 0.1–0.3 mm oversize in X and Y | shrinkage compensation or XY compensation not zero, or flow high | confirm 0 % / 0, then extrusion multiplier down in 1 % steps — never negative XY compensation | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube), [B00.5](print/B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed) |
 | Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/glue/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
 | First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
-| Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 40 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
+| Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 50 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
 | A long flat part lifts at the ends partway through | glue film missing or old, chamber started cold, or a reprint without its brim | sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting | [Print sheet](print/00-slicer-setup.md#print-sheet), [Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 | The preview shows a brim on flat grills or clips that should have none | the global brim was set by hand | clear Print Settings → Skirt and brim; brims live per object in the committed projects | [Orientation & brim](print/00-slicer-setup.md#orientation-brim), [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2) |
 | 625-2RS or F695 bore too tight or too loose | flow, or shrinkage compensation not zero — the seats are drawn for 100 % | tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect), [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect) |
