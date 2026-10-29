@@ -41,7 +41,7 @@ The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wh
   `Prusa CORE One 0.4 nozzle` preset *inherits from this one* and only sets `nozzle_high_flow = 0`;
   every mechanical value is identical.
 - Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle **265 °C**, bed 110 °C, chamber 55 °C
-  (minimum **50 °C**, raised from the preset's 40), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
+  (minimum **40 °C**: 50 never starts in the basement, which tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
   [volumetric flow](../16-glossary.md#v) **26 mm³/s**. (The non-HF `Prusament ASA @COREONE` is 260 °C / 15 mm³/s.)
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased
   profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
@@ -55,10 +55,10 @@ and then raises perimeter 70→150, external 50→200 and small-perimeter 50→1
 solid layers to 3.
 
 **High flow raises the ceiling, not the speeds.** Every speed below stays exactly as the table says.
-At those speeds the peak volumetric flow is first-layer solid infill, 100 mm/s × 0.5 × 0.2 = **10 mm³/s**
-(above the first layer, solid infill peaks at 110 × 0.4 × 0.2 = 8.8 mm³/s), well under the
-15 mm³/s the non-HF profile allows, let alone 26 — so the HF base changes the melt temperature and the
-start G-code and nothing else about these plates.
+Measured on the sliced G-code (E-length × filament area ÷ move length × feed rate, moves over 1 mm), the plates
+peak at **21 mm³/s**, on internal solid infill at 150 mm/s (B05-P1; beads widen to ~0.75 mm in narrow solid
+regions); gyroid infill at 200 mm/s peaks at 14 mm³/s. That is over the 15 mm³/s the non-HF profile allows
+and under the HF profile's 26, so the HF base is what keeps the slicer from throttling these speeds.
 
 ## Committed projects — open the plate, don't rebuild it
 
@@ -105,7 +105,7 @@ the Printer box as `Prusa CORE One HF0.4 nozzle (modified)` — that modificatio
 
    | Box | What it shows | Why |
    |---|---|---|
-   | Printer | `Prusa CORE One HF0.4 nozzle` — **always with (modified)** | the project replaces `start_gcode` with the cold-probe block and adds one printer key, `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview). Both are expected; the "(modified)" is the cold start and must stay |
+   | Printer | `Prusa CORE One HF0.4 nozzle` — **always with (modified)** | the project replaces `start_gcode` with the cold-probe block (its flow line set to `M221 S95` for the first layer), sets `z_offset` **+0.08**, adds `M221 S100` to `layer_gcode` and adds `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview). All are expected; the "(modified)" is the cold start and must stay |
    | Print | `0.20mm STRUCTURAL (modified)` | the project's overrides sit on the system preset `0.20mm STRUCTURAL @COREONE 0.4`; the box drops the `@COREONE` suffix |
    | Filament | `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`, never with "(modified)" (` - Voron blue)` on the three B02 plates). A plate re-saved from the GUI repeats the file name: `B03-P1.3mf (B03-P1.3mf (Prusament …` (seen 2026-10-23). The box truncates; hover it for the whole name | PrusaSlicer names a preset that arrives in a project after the project file; it is the project's renamed filament preset, shrinkage zeroed |
 
@@ -139,23 +139,23 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Top solid layers | 5 | **keep 5** | Voron spec | Manual p.4 |
 | Bottom solid layers | 4 | **5** | Voron spec says 5 top **and** bottom | Manual p.4 |
 | Fill density | 15 % | **40 %** | Voron spec | Manual p.4 |
-| Fill pattern | Grid | **keep Grid** | Voron allows grid/gyroid/honeycomb/triangle/cubic | Manual p.4 |
+| Fill pattern | Grid | **Gyroid** | Voron allows grid/gyroid/honeycomb/triangle/cubic; gyroid never self-crosses, so no crossing-speed cap or nozzle strikes at speed (Alex 2026-10-28) | Manual p.4 |
 | Extrusion width (default, perimeter, external, infill, solid) | 0.45 | **0.40** | Voron: "Extrusion width — Recommended: Forced 0.4 mm". Ribs, bosses and bearing seats were drawn around a 0.4 bead. | Manual p.4 |
 | First layer extrusion width | 0.50 | **keep 0.50** | wider first bead = better ASA adhesion | judgment |
 | Top infill extrusion width | 0.42 | **0.40** | consistency | judgment |
 | Perimeter generator | [Arachne](../16-glossary.md#a) | **keep Arachne** | Voron's "forced 0.4" predates Arachne. Arachne varies bead width on purpose and handles Voron's thin ribs better than Classic. Setting nominal width to 0.4 gives Arachne the right target. | judgment |
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
 | [Seam](../16-glossary.md#s) position | Aligned | **Rear** | keeps the seam off the visible outward faces of skirts and the toolhead | build spec |
-| [Skirt](../16-glossary.md#s) loops | 0 | **1 loop, 3 mm gap, min length 4 mm** | primes after the long ASA purge; lets you abort in the first 60 s if the first layer is wrong | judgment |
+| [Skirt](../16-glossary.md#s) loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
 | [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; judgment |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
-| Perimeter speed | 70 | **55** | more time at temperature per bead = better interlayer bond at 4 walls | judgment |
-| Infill speed | 120 | **100** | interior quality and less pressure variation into the perimeters | judgment |
-| Solid infill speed | 140 | **110** | flatter top/bottom faces on the skirts | judgment |
+| Perimeter speed | 70 | **80** | inner walls only; the ASA speed sweep printed outer walls clean to 200 mm/s, and the external wall (35) sets the dimensions | ASA sweep, Alex 2026-10-28 |
+| Infill speed | 120 | **200** | the ASA speed sweep printed gyroid 40 % clean to 210 mm/s | ASA sweep, Alex 2026-10-28 |
+| Solid infill speed | 140 | **150** | raised with infill; visible top faces stay at the top solid infill speed | ASA sweep, Alex 2026-10-28 |
 | Top solid infill | 80 | **keep 80** | already conservative | — |
-| First layer speed | 45 | **25** | ASA on smooth PEI is the single biggest failure mode; slow the first layer (and see §Print sheet). This slows the first layer's perimeters, skirt and brim only: PrusaSlicer prints first-layer solid infill at **First layer infill speed** (`first_layer_infill_speed`), which stays at the profile's **100** mm/s, with first-layer acceleration 500 | Prusa ASA KB; judgment |
+| First layer speed | 45 | **25** | ASA first-layer adhesion is the single biggest failure mode; slow the first layer (and see §Print sheet). This slows the first layer's perimeters, skirt and brim only: PrusaSlicer prints first-layer solid infill at **First layer infill speed** (`first_layer_infill_speed`), which stays at the profile's **100** mm/s, with first-layer acceleration 500 | Prusa ASA KB; judgment |
 | External perimeters first | off | **keep off** | inside-out gives better dimensional accuracy on holes; only flip it if you see external-perimeter bulging | judgment |
 | Dynamic overhang speeds | on (15/25/45/90 %) | **keep on** | Prusa tuned these for the Core One's part fan | — |
 | Ironing | off | **keep off** | — | — |
@@ -171,9 +171,9 @@ First-layer infill at 25 mm/s as well would be one more override, `first_layer_i
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
-| Chamber minimal temperature | 40 °C | **50** | printer will not start until the chamber reaches 50 °C — this *is* the preheat gate. Raised from 40 so the first layers, where corners lift, go down in warm air; the firmware caps the chamber at 55 °C. From cold the wait is 20–25 min in a 25 °C room, longer in a cold basement | Alex 2026-10-27 |
+| Chamber minimal temperature | 40 °C | **40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate. 50 (tried 10-27) never starts here: the basement chamber tops out at 44 °C on the bed alone; the firmware caps it at 55 °C | Alex 2026-10-28 |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
-| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 10 mm³/s, on first-layer solid infill | profile (HF0.4) |
+| Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 21 mm³/s, on internal solid infill at 150 mm/s | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
 
 ### Drying
@@ -193,20 +193,20 @@ Decided, and written on the sheet's edge tape; every batch's pre-print step then
 
   | Material | Sheet | Why |
   |---|---|---|
-  | ASA (every Voron plate, the add-on prints) | **smooth PEI**, with the glue film below | Prusa's ASA sheet; on satin ASA grips less and often needs a brim, and textured holds it poorly |
+  | ASA (every Voron plate, the add-on prints) | **satin**, no glue, with the brims | Alex 2026-10-28: no glue. Smooth PEI without glue risks ASA tearing the film; textured needs glue for ASA. On satin ASA grips less and needs a brim: the brim-free test lifted at the corners, the brimmed part did not |
   | PLA (bench prints: hardware trays, gauges, jigs) | **satin** | Prusa: satin gives "optimal adhesion, especially when printing PLA and PETG" ([satin sheet KB](https://help.prusa3d.com/article/satin-steel-sheet_196526)) |
   | PETG, PETG V0 (B11) | **textured** | PETG bonds too hard to smooth PEI and can tear it; textured releases it cleanly |
 
   Any other material: check Prusa's material table before the first print, and add a row here.
-  On the printer, select the matching sheet profile before the first layer, because Live Adjust Z
-  is kept per sheet `(verify on bench)`.
-- **Glue stick under ASA on the smooth sheet.** ASA bonds to PEI hard enough that a big flat part (the 66 mm Z-drive bodies,
-  the 182 mm rear skirt) can pull the coating off a smooth sheet; the glue is a *separation* layer, not an
-  adhesion aid. Thin, even film over the printed area, re-applied every 2–3 plates.
-- **Cleaning:** wash the old glue off with warm water and dish soap, then IPA on the smooth sheet. **Never
+  Live Adjust Z is not kept between prints on the Core One+ (Alex 2026-10-28), so the first-layer
+  correction for ASA on satin lives in the plates: Z offset +0.08 and a 95 % first layer (item 3 below).
+- **No glue under ASA on satin.** Prusa lists no separation layer for ASA on satin, and the parts release
+  on their own once the sheet cools. Not on smooth PEI without glue: ASA bonds hard enough that a big flat
+  part (the 66 mm Z-drive bodies, the 182 mm rear skirt) can pull the film off.
+- **Cleaning:** IPA before every plate, warm water and dish soap when IPA stops working. **Never
   acetone or ASA juice on a powder-coated sheet** — it strips the coating.
 
-Tip: Prusa's own ASA article is the source for the sheet, the glue stick and the acetone warning — *"use the smooth or powder-coated PEI sheet with a glue stick"*, *"ASA sticks very well to our print sheets"*. [help.prusa3d.com/article/asa_1809](https://help.prusa3d.com/article/asa_1809)
+Tip: Prusa's satin article: *"Prints from ASA and PC Blend have a lower adhesion on satin compared to on the smooth sheet"*, often needing a brim, and parts *"automatically detach after the sheet cools down"*. Prusa's ASA article calls for glue on smooth or powder-coated PEI; this build skips glue and takes the brim instead. [help.prusa3d.com/article/satin-steel-sheet_196526](https://help.prusa3d.com/article/satin-steel-sheet_196526) · [help.prusa3d.com/article/asa_1809](https://help.prusa3d.com/article/asa_1809)
 
 ## Calibration sequence — run before B00, and again after any toolchain change
 
@@ -219,25 +219,28 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 157.1 h
-run stays on the current **Gen 1 GT2** belts. Run this sequence after three pre-B00 checks instead — see
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.2 h
+run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
-open), a loadcell heater-noise test from the printer panel (decides whether the cold-probe start stays) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
-its committed project right after Step B00.0 installs the presets. The Gen 2
-expansion joints and nozzle wiper go in first (ruling 2026-10-01); only the belts wait for INDX.
+open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
+its committed project right after Step B00.0 installs the presets. The Gen 2 expansion joints and nozzle
+wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28).
 
-1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~157 h of ASA is
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~150 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
 2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 7.0.0 (2026-10-05). 6.8.1
    carries the Settings → Hardware → Edition selector and the individual Gen 2 toggles the rebuild
    will use; that 7.0.0 keeps both is `(verify on bench)`.
-3. **First layer: there is nothing to run.** The Core One+ has no first-layer calibration wizard — the
-   Nextruder loadcell sets Z automatically before every print, as part of mesh bed levelling. Judge
-   B00-P1's first layer by Ellis' smooth-bottom rule: no gaps between beads, no ridging. If it needs a
-   nudge, long-press the knob during the first layer → **Live Adjust Z**. Whether that nudge is kept for the
-   next print is `(verify on bench)`: B00 § Before B00, item 3 settles it. Either way, if you needed one, fix the cause (sheet not seated, debris under it, nozzle not
-   fully seated, glue film uneven) before the next plate rather than nudging every plate.
+3. **First layer: set in the plates.** The Nextruder loadcell sets Z before every print, but with the
+   cold-probe start the hot nozzle sits lower than the cold probe found, and Live Adjust Z is not kept
+   between prints. So the plates carry the correction: **Z offset +0.08** (printer settings) and the first
+   layer at **95 % flow** (the start G-code's `M221 S95`; layer 2 on goes back to 100 %). B00 § Before B00,
+   item 3 found both on satin (Alex 2026-10-28/29): Z 0 and +0.04 crested, +0.08 closed; at +0.08, 95 %
+   closed with no pinholes, 90 % pinholed, 80 % gapped. Judge B00-P1's first layer by Ellis' smooth-bottom
+   rule: no gaps between beads, no ridging. If it is off, change `z_offset` or the flow line in
+   `slicer/build_config.py` and re-run the pipeline (B00 item 3) rather than nudging Live Adjust Z on every
+   plate; first rule out a sheet not seated, debris under it, a nozzle not fully seated or a dirty sheet.
    ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) ·
    [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html))
 4. **Print plate B00-P1.** It carries the coupons for both gates.
@@ -343,7 +346,7 @@ Separately, the projects **brim the long flat parts** — not because they're ta
 on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
 `side_fan_support_x2`, `keystone_panel`, `power_inlet_IECGS_1mm`, `exhaust_cover`, `V2_Duo_Plenum`,
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`. Brim
-separation is 0.2 mm: PrusaSlicer's 0.1 mm fuses to ASA, 0.2 mm snaps off.
+separation is 0.15 mm, set by the brim-gap ladder (B00 item 4): 0.10–0.25 peel off by hand, 0.40 falls off.
 
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
@@ -384,7 +387,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 157.1 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.2 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -394,21 +397,24 @@ because nothing changes the machine under the parts.
 and a start-G-code re-sync of all 22 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
-**Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
+**Two checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
 the full tick list `(verify on bench)`:
 
 1. **Belt pluck check.** Belt tuning was never formally closed. Pluck mid-belt (motors disabled, head front,
    X centred) via belt.connect.prusa3d.com or the Prusa app; targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart.
    Out of range → Control → Calibrations & Tests → Belt Tuning, tensioner screws half a turn, evenly and
    alternately.
-2. **Loadcell heater-noise test, from the printer panel.** At Z 50, Info → Sensor Info → Loadcell Value:
-   cold wander over ±10 g or a cable-wiggle jump over 100 g = mechanical; at a 200 °C nozzle a swing under
-   ±20 g = the stock start G-code is safe again, over ±40 g = keep the cold-probe start.
+2. **Loadcell heater-noise test: dropped** (Alex 2026-10-28). It only decided whether the cold-probe start
+   stays, and the plates keep it.
 3. **Hot first-layer check, at ASA bed temperature.** The bed has only been verified flat at 60 °C, not at
-   the Voron ASA batches' 50–60 °C chamber / hotter bed. Its project is committed:
+   the Voron ASA batches' 40–55 °C chamber / hotter bed. Its project is committed:
    `slicer/checks/hot-first-layer.3mf`, five 30×30×0.2 mm squares (four corners + centre, one layer) in
    Galaxy Black ASA on B00-P1's presets, 110 °C bed, cold start G-code. It runs after Step B00.0, whose wizard
    installs those presets. Pass: no "bed not aligned" prompt, every square 0.17–0.23 mm, spread ≤0.05 mm.
+
+**Superseded 2026-10-28 (Alex): neither the expansion joints nor the nozzle wiper is fitted, the plates keep
+the cold-probe start, and the hot check runs once, on that start.** The 2026-10-01 plan, kept for reference
+if either is ever fitted:
 
 **Revised 2026-10-01: the expansion joints and the nozzle wiper go in before B00; only the belts wait.**
 Both parts are fitted in one chapter of [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435), **4. Heatbed upgrade**
@@ -438,7 +444,7 @@ off again before the mesh for that reason.
 2. Re-tension both belts and re-square the gantry.
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changes with the pulleys, so the
-   dimensional gate must be re-passed before you print 399 g of skirts (B08) or anything else on the rebuilt
+   dimensional gate must be re-passed before you print 398 g of skirts (B08) or anything else on the rebuilt
    machine. Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 

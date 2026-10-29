@@ -9,9 +9,9 @@ pose: pause
 caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakfast. Even champions need their sleep.
 ```
 
-**Time:** 12.2 h (1 plate) — PrusaSlicer 2.9.6 estimates.
+**Time:** 11.6 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 1 plate start (~5 min hands-on, 12.2 h unattended) + ~15 min inspect and bin.
+**Sessions:** 1 plate start (~5 min hands-on, 11.6 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the CW2 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
 main body, faceplate, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
@@ -64,9 +64,9 @@ Chain Anchor Tilted" printed).
 
 ## Step B06.1 — Filament prep
 
-**Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 133 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
+**Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 137 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #2 mounted and ≥148 g on it.
+**Check:** Clean purge; spool #2 mounted and ≥147 g on it.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -79,7 +79,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B06-P1.3mf` with **File → Open Project**. Do not rebuild the arrangement.
 Confirm the loaded objects match the Parts list and that the printhead files came from the `revo_voron`
 folder.
-**Parts:** 18 files, 19 objects, no brim in the project — 12.2 h, 148 g (PrusaSlicer 2.9.6 estimate);
+**Parts:** 18 files, 19 objects, no brim in the project — 11.6 h, 147 g (PrusaSlicer 2.9.6 estimate);
 `stealthburner_printhead_revo_voron_front`; `stealthburner_printhead_revo_voron_rear_cw2`;
 `[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body` (CW2);
 `motor_plate` (CW2); `cw2_captive_pcb_cover`; then the Klicky set — `KlickyProbe_v2` ×2;

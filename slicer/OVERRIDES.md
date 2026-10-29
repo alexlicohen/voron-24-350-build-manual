@@ -24,6 +24,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 | `perimeters` | `2`  | `4` | Voron spec; wall count carries load in these parts | Print row 2 (Manual p.4) |
 | `bottom_solid_layers` | `4`  | `5` | Voron spec says 5 top and bottom | Print row 4 (Manual p.4) |
 | `fill_density` | `15%`  | `40%` | Voron spec | Print row 5 (Manual p.4) |
+| `fill_pattern` | `grid`  | `gyroid` | Alex 2026-10-28: Voron spec allows gyroid; isotropic and never self-crosses, so no crossing-speed cap and no nozzle strikes at speed | Print row 6 |
 | `extrusion_width` | `0.45`  | `0.4` | Voron: "Extrusion width - Recommended: Forced 0.4 mm" | Print row 7 (Manual p.4) |
 | `perimeter_extrusion_width` | `0.45`  | `0.4` | same forced-0.4 rule | Print row 7 |
 | `external_perimeter_extrusion_width` | `0.45`  | `0.4` | same forced-0.4 rule | Print row 7 |
@@ -33,20 +34,17 @@ so the HF base changes the temperature and the start G-code but not the time est
 | `support_material` | `1`  | `0` | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports | Print row 11 |
 | `support_material_auto` | `0` | `0` | same | Print row 11 |
 | `seam_position` | `aligned`  | `rear` | keeps the seam off the visible outward faces of skirts and toolhead | Print row 12 |
-| `skirts` | `0`  | `1` | primes after the long ASA purge; lets you abort in the first 60 s | Print row 13 |
-| `skirt_distance` | `*(PrusaSlicer built-in default)*`  | `3` | 3 mm gap | Print row 13 |
-| `skirt_height` | `*(PrusaSlicer built-in default)*`  | `1` | one loop, first layer only | Print row 13 |
-| `min_skirt_length` | `4` | `4` | min length 4 mm (already the base value) | Print row 13 |
+| `skirts` | `0` | `0` | Alex 2026-10-28: no skirts (was 1 loop); the start G-code's purge line primes the nozzle | Print row 13 |
 | `brim_type` | `*(PrusaSlicer built-in default)*`  | `outer_only` | outer_only keeps the brim off internal holes | Print row 14 |
 | `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF for exactly the parts the doc names | Print row 14 + section Orientation & brim |
-| `brim_separation` | `0.1`  | `0.2` | Alex 2026-10-23: 0.1 fuses to the part, 0.2 snaps off | section Orientation & brim |
+| `brim_separation` | `0.1`  | `0.15` | Alex 2026-10-29 brim-gap ladder (Z +0.08, 95 % first layer): 0.10-0.25 peel by hand, 0.30 barely holds, 0.40 falls off; 0.15 = one step of margin over 0.10 (fused 10-23) | section Orientation & brim |
 | `xy_size_compensation` | `*(PrusaSlicer built-in default)*`  | `0` | Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing fits and screw holes too large" | Print row 15 (docs.vorondesign.com/materials.html) |
 | `elefant_foot_compensation` | `0.2` | `0.2` | kept at the profile value for now, verify on the cube | Print row 16 |
 | `external_perimeter_speed` | `50`  | `35` | surface finish and corner accuracy on the visible skirts | Print row 17 |
-| `perimeter_speed` | `70`  | `55` | more time at temperature per bead = better interlayer bond at 4 walls | Print row 18 |
-| `infill_speed` | `120`  | `100` | interior quality and less pressure variation into the perimeters | Print row 19 |
-| `solid_infill_speed` | `140`  | `110` | flatter top/bottom faces on the skirts | Print row 20 |
-| `first_layer_speed` | `45`  | `25` | ASA on smooth PEI is the biggest failure mode; slow the first layer | Print row 22 |
+| `perimeter_speed` | `70`  | `80` | Alex 2026-10-28 after the ASA speed sweep (outer wall clean to 200); inner walls only, the external wall stays 35 and sets the dimensions | Print row 18 |
+| `infill_speed` | `120`  | `200` | Alex 2026-10-28: ASA sweep, gyroid 40 % clean to 210 mm/s | Print row 19 |
+| `solid_infill_speed` | `140`  | `150` | Alex 2026-10-28: raised with infill; top faces stay at top_solid_infill_speed | Print row 20 |
+| `first_layer_speed` | `45`  | `25` | ASA first-layer adhesion is the biggest failure mode; slow the first layer | Print row 22 |
 | `ironing` | `*(PrusaSlicer built-in default)*`  | `0` | kept off | Print row 25 |
 
 ## Filament settings
@@ -55,14 +53,16 @@ so the HF base changes the temperature and the start G-code but not the time est
 |---|---|---|---|---|
 | `filament_shrinkage_compensation_xy` | `0.22%`  | `0%` | THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores | Filament row 1 |
 | `filament_shrinkage_compensation_z` | `0.22%`  | `0%` | same reason | Filament row 2 |
-| `chamber_minimal_temperature` | `40`  | `50` | Alex 2026-10-27: hold the print until the chamber reads 50 C, not the preset's 40, so the first layers (where corners lift) go down in warm air; stays under the firmware's 55 C cap | Filament row 6 |
+| `chamber_minimal_temperature` | `40` | `40` | Alex 2026-10-28: hold the print until the chamber reads 40 C; 50 (10-27) never starts, the basement chamber tops out at 44 C on the bed alone | Filament row 6 |
 
 ## Printer settings
 
 | ini key | Flattened preset value | Set to | Why | Doc line |
 |---|---|---|---|---|
 | `thumbnails` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG`  | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG` | stock CORE One list plus a 640x480 PNG, so a G-code export from the GUI carries a doc-sized preview. The CLI writes no thumbnail data at all (see the last section), so the committed plate previews are drawn by slicer/render_plate.py instead. | added for R6 P4 |
-| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`)* | the stock CORE One start heats the nozzle to 170 C for homing and MBL and runs `G29 P9` to wipe it; on this machine that loads the loadcell with a hot, oozing tip and raises 'bed not aligned' prompts mid-probe. This block probes cold - `M104 S0` held through G28, chamber soak and MBL, `G29 P9` dropped (wipe the tip by hand while hot), heat to `first_layer_temperature` only for the purge line. It also carries `M115 U6.8.1+16182`, the firmware this was verified on, in place of the preset's 6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`. | printer preset `Prusa CORE One HF0.4 nozzle - coldstart` |
+| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`, flow line `M221 S95`)* | the stock CORE One start heats the nozzle to 170 C for homing and MBL and runs `G29 P9` to wipe it; on this machine that loads the loadcell with a hot, oozing tip and raises 'bed not aligned' prompts mid-probe. This block probes cold - `M104 S0` held through G28, chamber soak and MBL, `G29 P9` dropped (wipe the tip by hand while hot), heat to `first_layer_temperature` only for the purge line. It also carries `M115 U6.8.1+16182`, the firmware this was verified on, in place of the preset's 6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`; the one change is its flow line, `M221 S95` for the first layer (Alex 2026-10-29 flow ladder: 95 % closed with no crests or pinholes, 90 % pinholed, 80 % gapped; upper layers were clean at 100 % in the ASA sweep). | printer preset `Prusa CORE One HF0.4 nozzle - coldstart` |
+| `z_offset` | `*(PrusaSlicer built-in default)*`  | `0.08` | the cold probe leaves the hot nozzle low: Z offset 0 and +0.04 printed crested first layers, +0.08 closed. The Core One keeps no Live Adjust Z between prints, so it lives in the G-code | 00-slicer-setup § Calibration sequence item 3 |
+| `layer_gcode` | `;AFTER_LAYER_CHANGE\n;[layer_z]`  | `;AFTER_LAYER_CHANGE\n;[layer_z]\nM221 S100 ; flow back to 100 % after the 95 % first layer` | the start G-code prints the first layer at 95 % flow; this runs from layer 2 on (neither layer hook runs on layer 1) | 00-slicer-setup § Calibration sequence item 3 |
 
 ## Kept at the preset value on purpose
 
@@ -73,7 +73,6 @@ These are named in the override table as *keep*, so they are asserted here rathe
 | `layer_height` | `0.2` | Print row 1 |
 | `first_layer_height` | `0.2` | Print row 1 |
 | `top_solid_layers` | `5` | Print row 3 |
-| `fill_pattern` | `grid` | Print row 6 |
 | `first_layer_extrusion_width` | `0.5` | Print row 8 |
 | `perimeter_generator` | `arachne` | Print row 10 |
 | `top_solid_infill_speed` | `80` | Print row 21 |
@@ -155,7 +154,7 @@ suspects of lifting strands. Every key that differs from those flattened presets
 | `start_filament_gcode` | *(preset block)* | *(preset block)* + `M106 P3 S160` | the preset's start block plus `M106 P3 S160` - lifts the AFS bypass flaps for PETG |
 | `end_filament_gcode` | *(preset block)* | *(preset block)* + `M106 P3 R` | the preset's end block plus `M106 P3 R` |
 | `thumbnails` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG` | `16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG` | same as the ASA bundles |
-| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`)* | the vendored cold-probe start, same as the ASA bundles |
+| `start_gcode` | *(the stock CORE One start block)* | *(the block in `slicer/coreone-cold-start.gcode`, flow line `M221 S95`)* | the vendored cold-probe start, same as the ASA bundles |
 
 Kept at the preset value: nozzle 230 C, bed 85/90 C, chamber 35 C, fan 30-60 %,
 `filament_max_volumetric_speed` 16, `extrusion_multiplier` 1.04, seam aligned, no skirt,

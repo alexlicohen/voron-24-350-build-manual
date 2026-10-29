@@ -11,9 +11,9 @@ pose: pause
 caption: The parts visitors will comment on. Four plates, one quiet weekend, and my updraft stays switched off.
 ```
 
-**Time:** 29.1 h (4 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 26.7 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 4 plate starts (~5 min hands-on each, 6.7–8.1 h unattended) + ~20 min inspect and bin.
+**Sessions:** 4 plate starts (~5 min hands-on each, 6.3–7.4 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A** (Step B00.5; no bearing seat here, so Gate B is not needed), on the current
 GT2 belts. B02 (accent belt guards, fan grills, faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same
@@ -64,9 +64,9 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
 
 ## Step B08.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B07: 426 g at the start of P1, 27 g after P4, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
-renewing the glue film.
-**Check:** Spool #2 has ≥399 g for the four plates before the 6.7 h P1 plate starts.
+**Do:** Galaxy Black, spool #2 after B07: 429 g at the start of P1, 31 g after P4, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
+wiped with IPA.
+**Check:** Spool #2 has ≥398 g for the four plates before the 6.3 h P1 plate starts.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -79,7 +79,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B08-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm the rear skirt is turned 90° about Z, its 182 mm axis running front-to-back along
 Y, beside the `side_skirt_a_350`.
-**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.7 h, 103 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.3 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Both parts flat on their shipped faces, long axes front-to-back, brim outline on both in the
 preview, plate matching the image above.
 
@@ -106,7 +106,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_fan_support` ×1 · `side_skirt_b_350` ×2 — 7.2 h, 95 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
+**Parts:** `side_fan_support` ×1 · `side_skirt_b_350` ×2 — 6.5 h, 95 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
 **Check:** Brim outline shows on all three in the preview.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -132,7 +132,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_fan_support` ×1 · `side_skirt_a_350` ×1 · `keystone_panel` — 7.1 h, 99 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
+**Parts:** `side_fan_support` ×1 · `side_skirt_a_350` ×1 · `keystone_panel` — 6.5 h, 99 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
 **Check:** Brim outline shows on all three in the preview.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -158,12 +158,12 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `front_skirt_a_350` · `front_skirt_b_350` · `mount.stl` — 8.1 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both front skirts, none on the TFT mount, all as shipped in the project.
+**Parts:** `front_skirt_a_350` · `front_skirt_b_350` · `mount.stl` — 7.4 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both front skirts, none on the TFT mount, all as shipped in the project.
 **Check:** Brim outline on both front skirts, none on the mount; confirm `mount.stl`, not `mount_thick.stl`.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
-⚠ Spool #2 should hold about 129 g here and this plate needs 102 g. Six plates of slicer error on #2 can eat that cushion, and a runout on a front skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~120 g left, start this plate on spool #3; keep #2's stub.
+⚠ Spool #2 should hold about 133 g here and this plate needs 102 g. Six plates of slicer error on #2 can eat that cushion, and a runout on a front skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~120 g left, start this plate on spool #3; keep #2's stub.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 

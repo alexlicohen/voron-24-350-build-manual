@@ -23,6 +23,7 @@ would strip the keys the GUI added, which is why this is a single-line edit.
     python3 slicer/sync_start_gcode.py --key filament_settings_id --key filament_colour \
         B02-P1 B02-P2 B02-P3            # --key repeats; each value comes from the ini
     python3 slicer/sync_start_gcode.py --key filament_colour --value "#1F4E9C" B02-P1
+    python3 slicer/sync_start_gcode.py --add-missing --key z_offset B00-P1   # key absent: insert
 
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
 `voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's), so the
@@ -62,8 +63,10 @@ def ini_value(ini: Path, key: str) -> str:
     return hits[0]
 
 
-def patch(path: Path, key: str, value: str, check: bool) -> bool:
-    """Return True if the member needed the change. Writes unless `check`."""
+def patch(path: Path, key: str, value: str, check: bool, add: bool = False) -> bool:
+    """Return True if the member needed the change. Writes unless `check`.
+    `add`: a config without the key gets it, in sorted position (z_offset 2026-10-29: the
+    CLI-injected configs omit keys left at PrusaSlicer's built-in default)."""
     with zipfile.ZipFile(path) as z:
         infos = z.infolist()
         members = [(i, z.read(i.filename)) for i in infos]
@@ -74,6 +77,12 @@ def patch(path: Path, key: str, value: str, check: bool) -> bool:
         if info.filename == CONFIG_MEMBER:
             lines = data.decode("utf-8").split("\n")
             hits = [n for n, ln in enumerate(lines) if ln.startswith(f"; {key} = ")]
+            if not hits and add:
+                keyed = [n for n, ln in enumerate(lines) if ln.startswith("; ") and " = " in ln]
+                after = [n for n in keyed if lines[n][2:].split(" = ", 1)[0] > key]
+                at = after[0] if after else keyed[-1] + 1
+                lines.insert(at, f"; {key} = ")
+                hits = [at]
             if len(hits) != 1:
                 raise SystemExit(f"{path.name}: expected one `; {key} = ` line, found {len(hits)}")
             want = f"; {key} = {value}"
@@ -102,6 +111,7 @@ def patch(path: Path, key: str, value: str, check: bool) -> bool:
 def main() -> int:
     args = sys.argv[1:]
     check = "--check" in args
+    add = "--add-missing" in args
     keys: list[str] = []
     override: str | None = None
     while "--key" in args:
@@ -127,7 +137,7 @@ def main() -> int:
             raise SystemExit(f"{pid}: no ini bundle for colour {colour!r} - add it to INI")
         for key in keys:
             value = override if override is not None else ini_value(INI[colour], key)
-            if patch(path, key, value, check):
+            if patch(path, key, value, check, add):
                 n += 1
                 print(f"{pid:8s} {key} {'differs' if check else 'updated'}")
             else:

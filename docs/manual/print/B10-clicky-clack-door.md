@@ -55,9 +55,9 @@ rather than against them.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B09: the ledger has 531 g on it here and 455 g after, the last plate of
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 536 g on it here and 461 g after, the last plate of
 the run. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; ≥76 g on spool #3.
+**Check:** Clean purge; ≥75 g on spool #3.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -68,7 +68,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
 **Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.6** only if the door must open the other way; the 3.0 preview has no mirror tool.
-**Parts:** `Handle-Hinge_Bottom`, no brim · `Handle-Hinge_Top`, no brim · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 76 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `Handle-Hinge_Bottom`, no brim · `Handle-Hinge_Top`, no brim · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The preview shows the brim outline on the four hinge parts and `Latch`, and on nothing else;
 swing decision made before slicing, not after.
 
@@ -79,7 +79,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B10.3 — Pre-print checks
 
 **Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
-**Check:** Chamber ≥50 °C; Settings → Chamber Filtration reads **Adv. Filtration**.
+**Check:** Chamber ≥40 °C; Settings → Chamber Filtration reads **Adv. Filtration**.
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 

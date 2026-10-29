@@ -1132,7 +1132,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 - consumable: Galaxy Black ASA, about 70 g
 - consumable: blue accent ASA, about 35 g
-- tool: the Core One+ with the smooth sheet
+- tool: the Core One+ with the satin sheet
 
 **Do:**
 

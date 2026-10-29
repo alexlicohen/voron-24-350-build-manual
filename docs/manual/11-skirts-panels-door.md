@@ -2015,7 +2015,7 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 
 - consumable: Galaxy Black ASA, about 135 g
 - consumable: blue accent ASA, about 85 g
-- tool: the Core One+ with the smooth sheet
+- tool: the Core One+ with the satin sheet
 
 **Do:**
 

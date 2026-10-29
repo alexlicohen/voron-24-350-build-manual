@@ -38,11 +38,11 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Z is off, or the first layer is wider than mid height
 
-            Squish or elephant-foot compensation. For Z, fix the sheet, the glue film or the nozzle seat rather than saving a nudge, because the Core One+ keeps none. For the first layer, elephant foot in 0.05 mm steps. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+            Squish or elephant-foot compensation. For Z, fix the sheet seating, a dirty sheet or the nozzle seat rather than saving a nudge, because the Core One+ keeps none. For the first layer, elephant foot in 0.05 mm steps. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
 
         - A corner peels along one layer line at the snap test
 
-            The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 50 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+            The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 40 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
 
     - A bore or a boss fails Gate B
         - A 625-2RS or F695 seat is tight or loose
@@ -56,11 +56,11 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
     - Something went wrong on the bed
         - A long flat part lifted at the ends partway through
 
-            Missing or old glue film, a chamber that started cold, or a reprint without its brim. Sheet per the print-sheet section, hold the chamber gate, and put the brim on that object only. [Print sheet](print/00-slicer-setup.md#print-sheet) · [Orientation & brim](print/00-slicer-setup.md#orientation-brim)
+            A dirty sheet, a chamber that started cold, or a reprint without its brim. Sheet per the print-sheet section, hold the chamber gate, and put the brim on that object only. [Print sheet](print/00-slicer-setup.md#print-sheet) · [Orientation & brim](print/00-slicer-setup.md#orientation-brim)
 
         - The first layer is glassy and featureless, or gappy and ridged
 
-            The loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
+            The loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
 
         - A brim appeared on flat grills or clips that should have none
 
@@ -94,7 +94,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Spaghetti: a part came loose
 
-            Stop the print and let everything cool before you touch it, then clear the sheet. Fix the glue film, the brim or the chamber start, and reprint the whole plate. [When the printer stops](print/README.md#when-the-printer-stops) · [Print sheet](print/00-slicer-setup.md#print-sheet)
+            Stop the print and let everything cool before you touch it, then clear the sheet. Clean the sheet, fix the brim or the chamber start, and reprint the whole plate. [When the printer stops](print/README.md#when-the-printer-stops) · [Print sheet](print/00-slicer-setup.md#print-sheet)
 
 - Frame and motion, with nothing powered
     - A carriage or the toolhead binds
@@ -504,10 +504,10 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 |---|---|---|---|
 | PrusaSlicer shows a bare `Prusament ASA @COREONE HF0.4`, no "(modified)" on the print preset, or B00-P1 estimates far from 3 h 58 m | the project's configuration did not load — wizard not run, HF nozzle variant not installed | run the Configuration Wizard with the 0.4 HF nozzle ticked, reopen the project | [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup), [00-slicer-setup — one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) |
 | Cube 0.1–0.3 mm oversize in X and Y | shrinkage compensation or XY compensation not zero, or flow high | confirm 0 % / 0, then extrusion multiplier down in 1 % steps — never negative XY compensation | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube), [B00.5](print/B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed) |
-| Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/glue/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
-| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a lumpy glue film, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
-| Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 50 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
-| A long flat part lifts at the ends partway through | glue film missing or old, chamber started cold, or a reprint without its brim | sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting | [Print sheet](print/00-slicer-setup.md#print-sheet), [Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
+| Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
+| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
+| Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 40 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
+| A long flat part lifts at the ends partway through | dirty sheet, chamber started cold, or a reprint without its brim | sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting | [Print sheet](print/00-slicer-setup.md#print-sheet), [Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 | The preview shows a brim on flat grills or clips that should have none | the global brim was set by hand | clear Print Settings → Skirt and brim; brims live per object in the committed projects | [Orientation & brim](print/00-slicer-setup.md#orientation-brim), [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2) |
 | 625-2RS or F695 bore too tight or too loose | flow, or shrinkage compensation not zero — the seats are drawn for 100 % | tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect), [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect) |
 | Heat-set boss bulges or the insert sits crooked | iron too hot or pushed too fast — technique, not the slicer | practise on the coupon until two in a row are flush | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush) |
@@ -515,7 +515,7 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 | The power went out mid-plate | — | resume only if the printer offers it and the part is still firmly stuck; otherwise clear the sheet and reprint the plate | [When the printer stops](print/README.md#when-the-printer-stops) |
 | A "bed not aligned" / Z-alignment prompt at a plate start | on this machine usually loadcell noise or a dirty tip, not a moved bed | cancel, run the printer's Z alignment, start again; if it returns, brush the hot tip clean and check under the sheet | [When the printer stops](print/README.md#when-the-printer-stops) |
 | The nozzle taps the same probe point again and again | ooze on the tip, or heater noise on the loadcell | cancel, brush the hot tip clean, restart the plate; a second loop stops the run | [When the printer stops](print/README.md#when-the-printer-stops) |
-| Spaghetti: a part came loose mid-plate | glue film, brim or a cold chamber start | stop, cool, clear the sheet, fix the cause, reprint the whole plate | [When the printer stops](print/README.md#when-the-printer-stops), [Print sheet](print/00-slicer-setup.md#print-sheet) |
+| Spaghetti: a part came loose mid-plate | dirty sheet, brim or a cold chamber start | stop, cool, clear the sheet, fix the cause, reprint the whole plate | [When the printer stops](print/README.md#when-the-printer-stops), [Print sheet](print/00-slicer-setup.md#print-sheet) |
 
 Source: [print/00-slicer-setup.md — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [B00 Common mistakes](print/B00-calibration-and-jigs.md#common-mistakes) · [B01 Common mistakes](print/B01-z-drive-assemblies.md#common-mistakes) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)
 

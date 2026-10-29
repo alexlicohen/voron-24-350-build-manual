@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~59.9 h hands-on across 16 build chapters; 157.1 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~59.9 h hands-on across 16 build chapters; 150.2 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -50,19 +50,19 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B00.8 — Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 - **B00 — Calibration & jigs** — <span data-first-step="B00.5">Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.</span>
     - Step B00.5 — Reads each caliper number back aloud and types it into the Gate A calculator.
-- **B01 — Z drive assemblies** — <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 15.2 h unattended · leave-state: plate B01-P1 running, 15.2 h unattended — door shut; come back for the next step when it ends</span>
+- **B01 — Z drive assemblies** — <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.8 h unattended · leave-state: plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends</span>
     - Step B01.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B01 — Z drive assemblies** — <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B01 — Z drive assemblies** — <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B01.5 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.7">Step B01.7 · ~15 min · leave-state: every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.</span>
     - Step B01.7 — Reads each caliper number back aloud and writes it into the log.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.8">Step B01.8 · ~10 min · leave-state: both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.</span>
     - Step B01.8 — Reads each bin label aloud and checks the count against the diagram.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P1 running, 7.3 h unattended — door shut; come back for the next step when it ends</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B02-P1 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.6 h unattended · leave-state: plate B02-P2 running, 8.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.4 — Names the bin colour of each part on the sorting diagram while you open the project.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.9 h unattended · leave-state: plate B02-P3 running, 5.9 h unattended — door shut; come back for the next step when it ends</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.6 h unattended · leave-state: plate B02-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.6 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
     - Step B02.9 — Matches each part's number to the diagram legend and drops it in its bin.
@@ -70,41 +70,41 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B03.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B03 — A/B drive units + front idlers** — <span data-first-step="B03.5">Step B03.5 · ~10 min · leave-state: both bins sorted and labelled, A-side and B-side parts kept apart. Nothing is pressed or bolted; Ch 04 builds from the bins.</span>
     - Step B03.5 — Writes the bin id and the date on the inside face of each part.
-- **B04 — XY joints + X carriage** — <span data-first-step="B04.2">Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.6 h unattended · leave-state: plate B04-P1 running, 8.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B04 — XY joints + X carriage** — <span data-first-step="B04.2">Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.7 h unattended · leave-state: plate B04-P1 running, 8.7 h unattended — door shut; come back for the next step when it ends</span>
     - Step B04.2 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B04 — XY joints + X carriage** — <span data-first-step="B04.6">Step B04.6 · ~10 min · leave-state: the plate sorted into 05-XY and 07-X, bin ids on the parts. `probe_retainer_bracket` stays loose until the Omron barrel is measured; no inserts set.</span>
     - Step B04.6 — Reads each bin label aloud and checks the count against the diagram.
-- **B05 — Z joints + Z chain** — <span data-first-step="B05.2">Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B05-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
+- **B05 — Z joints + Z chain** — <span data-first-step="B05.2">Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.2 h unattended · leave-state: plate B05-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B05.2 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B05 — Z joints + Z chain** — <span data-first-step="B05.5">Step B05.5 · ~10 min · leave-state: joints in 06-Z-joints, anchor and guide in 10-chains, bin ids written. Nothing is pressed and the rail stops stay bagged.</span>
     - Step B05.5 — Matches each part's number to the diagram legend and drops it in its bin.
-- **B06 — Toolhead: SB, CW2, Klicky** — <span data-first-step="B06.2">Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 12.2 h unattended · leave-state: plate B06-P1 running, 12.2 h unattended — door shut; come back for the next step when it ends</span>
+- **B06 — Toolhead: SB, CW2, Klicky** — <span data-first-step="B06.2">Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 11.6 h unattended · leave-state: plate B06-P1 running, 11.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B06.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B06 — Toolhead: SB, CW2, Klicky** — <span data-first-step="B06.5">Step B06.5 · ~10 min · leave-state: toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.</span>
     - Step B06.5 — Writes the bin id and the date on the inside face of each part.
-- **B07 — Electronics bay + lighting** — <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P1 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
+- **B07 — Electronics bay + lighting** — <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.7 h unattended · leave-state: plate B07-P1 running, 7.7 h unattended — door shut; come back for the next step when it ends</span>
     - Step B07.2 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B07 — Electronics bay + lighting** — <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.0 h unattended · leave-state: plate B07-P2 running, 8.0 h unattended — door shut; come back for the next step when it ends</span>
+- **B07 — Electronics bay + lighting** — <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B07.4 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
-- **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B08-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends</span>
+- **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B08 — Skirts and front modules** — <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 7.2 h unattended · leave-state: plate B08-P2 running, 7.2 h unattended — door shut; come back for the next step when it ends</span>
+- **B08 — Skirts and front modules** — <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P2 running, 6.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.4 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B08 — Skirts and front modules** — <span data-first-step="B08.6">Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B08-P3 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
+- **B08 — Skirts and front modules** — <span data-first-step="B08.6">Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P3 running, 6.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.6 — Names the bin colour of each part on the sorting diagram while you open the project.
-- **B08 — Skirts and front modules** — <span data-first-step="B08.8">Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B08-P4 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
+- **B08 — Skirts and front modules** — <span data-first-step="B08.8">Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 7.4 h unattended · leave-state: plate B08-P4 running, 7.4 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.8 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.11">Step B08.11 · ~15 min · leave-state: every skirt segment in 11-skirts, stacked by ring position, brims off and ids written. The ring is apart, nothing bolted.</span>
     - Step B08.11 — Matches each part's number to the diagram legend and drops it in its bin.
-- **B09 — Panels, filtration, spool** — <span data-first-step="B09.2">Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B09-P1 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B09 — Panels, filtration, spool** — <span data-first-step="B09.2">Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.4 h unattended · leave-state: plate B09-P1 running, 4.4 h unattended — door shut; come back for the next step when it ends</span>
     - Step B09.2 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B09 — Panels, filtration, spool** — <span data-first-step="B09.4">Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 7.4 h unattended · leave-state: plate B09-P2 running, 7.4 h unattended — door shut; come back for the next step when it ends</span>
+- **B09 — Panels, filtration, spool** — <span data-first-step="B09.4">Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B09-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends</span>
     - Step B09.4 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B09 — Panels, filtration, spool** — <span data-first-step="B09.6">Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 6.1 h unattended · leave-state: plate B09-P3 running, 6.1 h unattended — door shut; come back for the next step when it ends</span>
+- **B09 — Panels, filtration, spool** — <span data-first-step="B09.6">Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 5.6 h unattended · leave-state: plate B09-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B09.6 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B09 — Panels, filtration, spool** — <span data-first-step="B09.14">Start plate B09-P4 (Step B09.14) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P4 running, 3.9 h unattended — door shut; come back for the next step when it ends</span>
+- **B09 — Panels, filtration, spool** — <span data-first-step="B09.14">Start plate B09-P4 (Step B09.14) · ~5 min hands-on, then 3.6 h unattended · leave-state: plate B09-P4 running, 3.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B09.14 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B09 — Panels, filtration, spool** — <span data-first-step="B09.13">Step B09.13 · ~15 min · leave-state: all four plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.</span>
     - Step B09.13 — Writes the bin id and the date on the inside face of each part.
@@ -138,7 +138,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B00.8">Step B00.8 · ~35 min · leave-state: B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.</span>
 - <span data-first-step="B00.8">Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.</span>
 - <span data-first-step="B00.1">Step B00.1 · ~10 min · leave-state: ASA loaded and purged clean, B00-P1 still open in PrusaSlicer. Nothing printing.</span>
-- <span data-first-step="B00.2">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B00-P1 running, 4.0 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B00.2">Start plate B00-P1 (Step B00.2) · ~5 min hands-on, then 3.8 h unattended · leave-state: plate B00-P1 running, 3.8 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B00.5">Step B00.5 · ~15 min · leave-state: Gate A is measured and written down; B02 and B07 are released. The Gate B coupons (`Heatset_Practice`, one `MGN12_rail_guide`, `z_drive_retainer_a`) are not tested yet — do not bin them with the jigs.</span>
 - <span data-first-step="B00.6">Step B00.6 · ~10 min · leave-state: plate sorted into 00-jigs, 02-Z0 labelled, the GATE B bag closed and marked. Step B00.7 is next, on the caliper and the KADRICK inserts; its bearing and rail rows wait for the kit.</span>
 - <span data-first-step="B00.7">Step B00.7 · ~15 min · leave-state: Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.</span>
@@ -148,15 +148,15 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="00a.6">Step 00a.6 → Step 00a.12 · ~25 min · leave-state: the chapter is read and nothing is half-done, because nothing was started. The only durable outputs are the posted room rule, the labelled breaker, a tested meter and five agreed responses. Do not carry on into Ch 09 in the same session if you are tired; Ch 09 ends with the machine on its back and the bay open.</span>
 
 ### 4 · Print — B01 — Z drive assemblies
-- <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 15.2 h unattended · leave-state: plate B01-P1 running, 15.2 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B01-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.8 h unattended · leave-state: plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B01.7">Step B01.7 · ~15 min · leave-state: every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.</span>
 - <span data-first-step="B01.8">Step B01.8 · ~10 min · leave-state: both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.</span>
 
 ### 5 · Print — B02 — Accent parts, the accent day
-- <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.3 h unattended · leave-state: plate B02-P1 running, 7.3 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.6 h unattended · leave-state: plate B02-P2 running, 8.6 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.9 h unattended · leave-state: plate B02-P3 running, 5.9 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B02-P1 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.6 h unattended · leave-state: plate B02-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.8">Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.</span>
 - <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>
 
@@ -166,39 +166,39 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B03.5">Step B03.5 · ~10 min · leave-state: both bins sorted and labelled, A-side and B-side parts kept apart. Nothing is pressed or bolted; Ch 04 builds from the bins.</span>
 
 ### 7 · Print — B04 — XY joints + X carriage
-- <span data-first-step="B04.2">Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.6 h unattended · leave-state: plate B04-P1 running, 8.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B04.2">Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.7 h unattended · leave-state: plate B04-P1 running, 8.7 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B04.5">Step B04.5 · ~10 min · leave-state: holes calipered and the halves separated again; no inserts set, and the real carriage is a kit-day row (Ch 05 sets the inserts).</span>
 - <span data-first-step="B04.6">Step B04.6 · ~10 min · leave-state: the plate sorted into 05-XY and 07-X, bin ids on the parts. `probe_retainer_bracket` stays loose until the Omron barrel is measured; no inserts set.</span>
 
 ### 8 · Print — B05 — Z joints + Z chain
-- <span data-first-step="B05.2">Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B05-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B05.2">Start plate B05-P1 (Step B05.2) · ~5 min hands-on, then 6.2 h unattended · leave-state: plate B05-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B05.4">Step B05.4 · ~10 min · leave-state: joints calipered and squared on the flat, then set down again; nothing pressed, and the carriage fit is a kit-day row.</span>
 - <span data-first-step="B05.5">Step B05.5 · ~10 min · leave-state: joints in 06-Z-joints, anchor and guide in 10-chains, bin ids written. Nothing is pressed and the rail stops stay bagged.</span>
 
 ### 9 · Print — B06 — Toolhead: SB, CW2, Klicky
-- <span data-first-step="B06.2">Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 12.2 h unattended · leave-state: plate B06-P1 running, 12.2 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B06.2">Start plate B06-P1 (Step B06.2) · ~5 min hands-on, then 11.6 h unattended · leave-state: plate B06-P1 running, 11.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B06.4">Step B06.4 · ~10 min · leave-state: seat calipered, Klicky bag closed. Nothing pressed, no magnets, and the real heatsink is a kit-day row.</span>
 - <span data-first-step="B06.5">Step B06.5 · ~10 min · leave-state: toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.</span>
 
 ### 10 · Print — B07 — Electronics bay + lighting
-- <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B07-P1 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 8.0 h unattended · leave-state: plate B07-P2 running, 8.0 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.7 h unattended · leave-state: plate B07-P1 running, 7.7 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B07.6">Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled.</span>
 - <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
 
 ### 11 · Print — B08 — Skirts and front modules
-- <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B08-P1 running, 6.7 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 7.2 h unattended · leave-state: plate B08-P2 running, 7.2 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B08.6">Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B08-P3 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B08.8">Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 8.1 h unattended · leave-state: plate B08-P4 running, 8.1 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P2 running, 6.5 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B08.6">Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P3 running, 6.5 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B08.8">Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 7.4 h unattended · leave-state: plate B08-P4 running, 7.4 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B08.10">Step B08.10 · ~20 min · leave-state: every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted.</span>
 - <span data-first-step="B08.11">Step B08.11 · ~15 min · leave-state: every skirt segment in 11-skirts, stacked by ring position, brims off and ids written. The ring is apart, nothing bolted.</span>
 
 ### 12 · Print — B09 — Panels, filtration, spool
-- <span data-first-step="B09.2">Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B09-P1 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B09.4">Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 7.4 h unattended · leave-state: plate B09-P2 running, 7.4 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B09.6">Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 6.1 h unattended · leave-state: plate B09-P3 running, 6.1 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B09.14">Start plate B09-P4 (Step B09.14) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P4 running, 3.9 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B09.2">Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 4.4 h unattended · leave-state: plate B09-P1 running, 4.4 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B09.4">Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B09-P2 running, 6.9 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B09.6">Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 5.6 h unattended · leave-state: plate B09-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B09.14">Start plate B09-P4 (Step B09.14) · ~5 min hands-on, then 3.6 h unattended · leave-state: plate B09-P4 running, 3.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B09.12">Step B09.12 · ~10 min · leave-state: Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.</span>
 - <span data-first-step="B09.13">Step B09.13 · ~15 min · leave-state: all four plates sorted, the 4 mm and 6 mm clips in separate bins and each bin marked to test one clip on kit day. Nevermore parts apart, nothing glued.</span>
 

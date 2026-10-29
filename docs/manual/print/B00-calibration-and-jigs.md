@@ -11,9 +11,9 @@ pose: gather
 caption: Jigs and one gate cube. The cube decides whether anything else prints. Hope is not a dimension.
 ```
 
-**Time:** 4.0 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
+**Time:** 3.8 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
-**Sessions:** ~15 min one-time slicer and filament setup, then Step B00.8's plate review (~25+20+35+20 min, four sessions, done with a helper) before B00-P1 starts, then 1 plate start (~5 min hands-on, then 4.0 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
+**Sessions:** ~15 min one-time slicer and filament setup, then Step B00.8's plate review (~25+20+35+20 min, four sessions, done with a helper) before B00-P1 starts, then 1 plate start (~5 min hands-on, then 3.8 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
@@ -76,23 +76,21 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 ## Before B00: belt and hot-bed checks
 
-The Gen 2 kit (Prusa order 1787919456, on the shelf) goes in **in two parts** (ruling 2026-10-01). The
-**heatbed expansion joints and the nozzle wiper are fitted now, before B00**. The **GT1.5 belts stay
-deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 157.1 h run prints on the current **Gen 1 GT2** belts. Then run the three
-checks — belt tuning was never formally closed, the loadcell's heater noise was never re-tested after the
-09-08 nut and screw fixes, and the bed has only been proved flat at 60 °C, not at ASA temperature. They sit
-here, after Step B00.0, because the hot check opens a project on the presets B00.0 installs; they run
-before Step B00.8 and before any plate.
+The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
+heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.2 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
+leaves two checks: belt tuning was never formally closed, and the bed has only been proved flat at 60 °C,
+not at ASA temperature. They sit here, after Step B00.0, because the hot check opens a project on the
+presets B00.0 installs; they run before Step B00.8 and before any plate.
 
-**0. Fit the Gen 2 expansion joints and nozzle wiper** `(verify on bench)`
+**0. Gen 2 expansion joints and nozzle wiper: skipped**
 
-- [ ] [Prusa's Gen 2 upgrade guide](https://help.prusa3d.com/manual/prusa-core-one-to-gen-2-upgrade_2435): chapter 2 for the panels only, with the Nextruder left on. Skip chapter 3, Belts upgrade
-- [ ] Chapter **4. Heatbed upgrade**, all of it: expansion joints, heatbed spacer and aligner, nozzle wiper, panels back on
-- [ ] Chapter 5: skip Belt tensioning and Changing the printer edition; run the Selftest
-- [ ] Settings → Hardware → **Expansion Joints Gen 2** on, → **Nozzle Wiper** on, **GT1.5 Belts** left off. Never pick Edition = CORE One+ Gen2: it also sets GT1.5 steps/mm, wrong for the GT2 belts still fitted
-- [ ] Switch Expansion Joints on only once the joints are fitted. The firmware then halves the "Absorbing heat" wait before the mesh and skips it for beds ≤ 85 °C ([Buddy source, `temperature.cpp`](https://github.com/prusa3d/Prusa-Firmware-Buddy/blob/master/lib/Marlin/Marlin/src/module/temperature.cpp)); on rigid mounts that short wait lets the bed keep moving after the mesh. Firmware 7.0.0 has no published source: confirm both toggles are still under Settings → Hardware
-- [ ] The heatbed came off, so the closed ±0.1 mm bed is open again: repeat the six-point bed check and re-fit the Z-stop correction caps until it is back inside ±0.1 mm
+Not fitted (Alex 2026-10-28). The bed stays closed at ±0.1 mm on its rigid mounts. Their documented gain is a
+shorter "Absorbing heat" wait at every print start. The nozzle wiper is not fitted either: the cold-probe
+start never wipes (clean the tip by hand while hot).
+
+- [ ] Settings → Hardware → **Expansion Joints Gen 2** stays **off**: on it halves the "Absorbing heat" wait, which on rigid mounts lets the bed keep moving after the mesh ([Buddy source, `temperature.cpp`](https://github.com/prusa3d/Prusa-Firmware-Buddy/blob/master/lib/Marlin/Marlin/src/module/temperature.cpp))
 
 **1. Belt pluck check** `(verify on bench)`
 
@@ -101,59 +99,47 @@ before Step B00.8 and before any plate.
 - [ ] Upper belt ≈96 Hz (≤98 Hz), lower belt ≈92 Hz (≥92 Hz), ≤8 Hz apart
 - [ ] Out of range: Control → Calibrations & Tests → Belt Tuning (fw ≥ 6.8.1), tensioner screws half a turn, both evenly and alternately — left = upper, right = lower
 
-**2. Loadcell heater-noise test, from the printer panel** `(verify on bench)`
+**2. Loadcell heater-noise test: skipped**
 
-The 21 plates carry the cold-probe start because the nozzle heater disturbed the loadcell on 09-08. This
-decides whether that workaround is still needed. Menu names are from firmware 6.8.1; 7.0.0 reorganized some.
-
-- [ ] Control → Auto Home, then Control → Move Axis → Z to **50**, so the nozzle is clear of the bed
-- [ ] Info → Sensor Info → **Loadcell Value**. Cold, hands off, 30 s: note the lowest and highest reading. Wander over ±10 g = something presses on the loadcell
-- [ ] Gently move the Nextruder cable bundle while watching. A jump over 100 g = the cable pulls on the loadcell
-- [ ] Control → Temperature → Nozzle → **200** (same as `M104 S200`). Back to Sensor Info; watch through the heat-up and 30 s at 200 °C
-- [ ] Swing under ±20 g: the stock start G-code is safe again. Over ±40 g: heater noise is real, keep the cold-probe start. In between: undecided, keep the cold-probe start for now
-- [ ] Nozzle back to 0 (Cooldown). Write down the three readings
+It decided whether the cold-probe start was still needed. The plates keep it (Alex 2026-10-28), so the test
+is not run.
 
 **3. Hot first-layer check, at ASA bed temperature** `(verify on bench)`
 
-- [ ] Step B00.0 done; Galaxy Black ASA loaded as in Step B00.1; the sheet glued and Adv. Filtration set as in Step B00.3
-- [ ] **File → Open Project**: `slicer/checks/hot-first-layer.3mf` — five 30×30×0.2 mm squares, four corners plus centre, one layer, on B00-P1's presets (bed **110 °C**, the vendored cold start G-code); the printer box reads `(modified)`. Slice (~5 min print after the chamber heat-up) and print it
+- [ ] Step B00.0 done; Galaxy Black ASA loaded as in Step B00.1; the satin sheet clean and Adv. Filtration set as in Step B00.3
+- [ ] **File → Open Project**: `slicer/checks/hot-first-layer.3mf` — five 30×30×0.2 mm squares, four corners plus centre, one layer, on B00-P1's presets (bed **110 °C**, the vendored cold start G-code, Z offset +0.08, first layer at 95 % flow); the printer box reads `(modified)`. Slice (~5 min print after the chamber heat-up) and print it
 - [ ] No "bed not aligned" / Z-alignment prompt during the print. Firmware 7.0.0 added automatic Z alignment on an uneven bed, so the prompt may never appear: write down whether it ran an alignment on its own
-- [ ] "Absorbing heat" is noticeably shorter than before the expansion joints (item 0). Same wait as before = the Expansion Joints toggle is off or 7.0.0 behaves differently
 - [ ] Chamber filter blower runs and the bypass flaps close for the print (first ASA print on 7.0.0)
-- [ ] Every square calipers 0.17–0.23 mm. Thinner = the nozzle is too close: raise Live Adjust Z by the shortfall (0.14 mm → +0.06) and print it again. Thicker = lower it the same way. Item 4 prints at the value you end on
-- [ ] Spread across all five squares ≤ 0.05 mm
-- [ ] Print it again from `slicer/checks/hot-first-layer-heat-off.3mf`, the same plate on the heat-then-off start G-code: nozzle to 170 °C, retract, heater off, wipe, heater off again, then the mesh. Caliper its five squares the same way
-- [ ] If either print needed a Live Adjust Z nudge, check at the start of the next print whether it is still set. Kept = Live Adjust Z is stored per sheet; reset to 0 = it is not. This settles § Calibration sequence item 3 in 00-slicer-setup
-- [ ] Write down which start passed with the smaller spread and no prompt. If heat-then-off wins, stop here: every plate, the 22 and B11's five, must be switched to it (procedure below) and Live Adjust Z re-tuned before B00
+- [ ] Every square smooth and closed: beads touching, no gaps between rows, no crests you can feel with a fingernail, no pinholes where the infill meets the outline. On calipers a good square reads about 0.24–0.26 mm across the middle (the plates print the first layer at Z 0.28); a crested one reads high because the jaws sit on the crests
+- [ ] Spread across all five squares: they all look the same
+- [ ] Crests = the nozzle is too close: raise `z_offset` in `slicer/build_config.py` by 0.02–0.04. Gaps between round beads = too high: lower it the same way. Pinholes at the outline with the rows closed = flow: `slicer/checks/hot-first-layer-flow-ladder.gcode` prints the squares at 100 / 95 / 90 / 85 / 80 % in one go (print the file as it is, not through PrusaSlicer) and the flow goes in the start's `M221` line (`FLOW_FIRST` in build_config). Then `python3 slicer/build_config.py`, `python3 slicer/sync_start_gcode.py --add-missing --key z_offset --key start_gcode` on the 21 plates, `python3 slicer/hot_check.py`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`, and print it again
+- [ ] Live Adjust Z (long-press the knob on the first layer) is not kept for the next print on the Core One+ (Alex 2026-10-28), so a correction always goes in the slicer, never on the knob
+- [ ] Found 2026-10-28/29 on satin with Galaxy Black: Z offset 0 and +0.04 crested, −0.09 far worse, +0.08 closed; the flow ladder at +0.08 closed at 95 % (90 % pinholed, 80 % gapped). The plates carry **+0.08** and **95 %**
 
-Both pass → Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck. Loadcell swing
-under ±20 g → stop before item 3 and record the readings: every plate switches to the stock start, and the
-hot-check project needs a stock-start copy (`hot_check.py` builds only the cold and heat-then-off ones), then
-item 3 runs on it and Live Adjust Z is re-tuned about +0.05 mm. Hot check fails on
-both starts → back to the bed check in item 0, then re-run it.
+Both pass → item 4, then Step B00.8, and B00 prints on GT2. Belt check fails → retension and re-pluck.
+Hot check fails → repeat the six-point bed check, re-fit the Z-stop correction caps until the bed is back
+inside ±0.1 mm, then re-run it.
 
-Switching the start G-code, either way: `python3 slicer/sync_start_gcode.py` on its own changes nothing,
-because it copies the start from the inis and the inis hold the cold start. First point `COLD_START` in
-`slicer/build_config.py` at the winning block (`slicer/coreone-heat-off-start.gcode`; a stock start must be
-vendored into its own `.gcode` file first) and run `python3 slicer/build_config.py`; then
-`python3 slicer/sync_start_gcode.py` (all 25 plates), `python3 slicer/build_plates.py --from-3mf` and
-`python3 slicer/check_docs.py`. Full procedure:
-[00-slicer-setup § Gen 2](00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild).
+The start G-code stays the cold-probe start. `slicer/checks/hot-first-layer-heat-off.3mf` and the
+switching procedure in [00-slicer-setup § Gen 2](00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild)
+are kept for reference only.
 
-- [ ] Firmware **≥ 6.8.1** (printer menu → Info) — required either way
+- [ ] Firmware **≥ 6.8.1** (printer menu → Info)
 
 **4. Brim-gap ladder: the gap that breaks off by hand** `(verify on bench)`
 
-The plates' brims sit 0.20 mm off the part. That value has not been printed on ASA yet, and the right
-gap depends on the squish item 3 just set, so this runs after it.
+The plates' brims sit **0.15 mm** off the part, the value this ladder picked on 2026-10-29 (Galaxy Black,
+satin, Z +0.08, 95 % first layer). The right gap depends on the first layer item 3 just set, so this runs
+after it, and again after any change to item 3.
 
-- [ ] Same sheet, glue film and spool as item 3; Live Adjust Z left where item 3 ended
+- [ ] Same sheet and spool as item 3; the ladder carries the plates' Z offset and first-layer flow
 - [ ] **File → Open Project**: `slicer/checks/brim-gap-ladder.3mf` — six 25×25×3 mm squares around the bed centre, each with a 5 mm brim at its own gap. Back row, left to right: **0.10 / 0.15 / 0.20 mm**; front row: **0.25 / 0.30 / 0.40 mm**. About 40 min after the chamber heat-up, 11 g
 - [ ] During the print: write down any brim that comes loose from its square or lifts
 - [ ] Cool, flex the sheet and lift each square with its brim. By hand only, no cutters: snap the brim off each one and sort it into **breaks off clean**, **needs cutting** or **came off by itself**
 - [ ] Run a fingernail along each square's bottom edge: a lip left behind counts as needs cutting
-- [ ] The answer is the **smallest gap that breaks off clean**. A brim that came off by itself holds nothing, so wider than that buys nothing
-- [ ] Not 0.20: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
+- [ ] The answer is the **smallest gap that breaks off clean**. A brim that came off by itself holds nothing, so wider than that buys nothing. Take one step above it when the smallest gap has fused before: the squares sit near the bed centre, the plates' parts reach the edges
+- [ ] 2026-10-29: 0.10 / 0.15 / 0.20 / 0.25 peeled by hand with very minor residue, 0.30 came off easily, 0.40 fell off by itself → **0.15** (0.10 fused on 10-23)
+- [ ] Not 0.15: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
 
 The check projects are not plates of the run and sit outside every total. `python3 slicer/hot_check.py`
 rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
@@ -240,8 +226,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 2. Confirm **6 files, 8 objects** on the bed and no [brim](../16-glossary.md#b).
 3. Do not change which face a part sits on; rotating about Z is fine.
 
-**Parts:** 6 files, 8 objects — 4.0 h, 52 g (PrusaSlicer 2.9.6 estimate); `Voron_Design_Cube_v7`; `Heatset_Practice`; `MGN12_rail_guide_x2` ×2; `MGN9_rail_guide_x2` ×2; `pulley_jig`; `z_drive_retainer_a_x2` ×1.
-**Check:** The slicer reads **3 h 58 m / 51.7 g**, and the filament preset shows shrinkage compensation XY and Z at 0 %.
+**Parts:** 6 files, 8 objects — 3.8 h, 51 g (PrusaSlicer 2.9.6 estimate); `Voron_Design_Cube_v7`; `Heatset_Practice`; `MGN12_rail_guide_x2` ×2; `MGN9_rail_guide_x2` ×2; `pulley_jig`; `z_drive_retainer_a_x2` ×1.
+**Check:** The slicer reads **3 h 50 m / 51.3 g**, and the filament preset shows shrinkage compensation XY and Z at 0 %.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 
@@ -249,17 +235,17 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:**
 
-1. Fit [the print sheet](00-slicer-setup.md#print-sheet), cleaned since the last print, with a thin glue-stick film over the printed area.
-2. Let the chamber reach 50 °C; never override the profile's gate.
+1. Fit [the print sheet](00-slicer-setup.md#print-sheet), the satin sheet, wiped with IPA since the last print. No glue.
+2. Let the chamber reach 40 °C; never override the profile's gate.
 3. Set **Settings → Chamber Filtration → Adv. Filtration**.
-**Check:** Chamber temp reads ≥50 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
+**Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
 
 ⚠ ASA off-gasses styrene. Chamber Filtration on Adv. Filtration, also under Tune mid-print: on None the
 AFS blower never runs and the plate vents unfiltered. Door shut for the whole print, room ventilated
 between plates. The bed (110 °C) and nozzle (265 °C) stay hot for ~20 min after the print ends — a helper
 handles cooled parts, not the printer.
 
-Tip: on the smooth or powder-coated PEI sheet Prusa prints ASA over a glue-stick layer so the part cannot pull the coating off; never acetone on the powder-coated sheet. [help.prusa3d.com/article/asa_1809](https://help.prusa3d.com/article/asa_1809)
+Tip: ASA grips satin less than smooth PEI, so the brims stay on; the parts release once the sheet cools. Never acetone on the powder-coated sheet. [help.prusa3d.com/article/satin-steel-sheet_196526](https://help.prusa3d.com/article/satin-steel-sheet_196526)
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -273,7 +259,7 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 
 **Check:** First layer smooth, no gaps between beads, no ridging, and either no Live Adjust Z nudge or its cause written in the log.
 
-Tip: expect 15–25 minutes of chamber heating before the purge (verify on bench), not in the 4.0 h. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
+Tip: expect 15–25 minutes of chamber heating before the purge (verify on bench), not in the 3.8 h. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
 
 Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427) · [Ellis — first layer squish](https://ellis3dp.com/Print-Tuning-Guide/articles/first_layer_squish.html) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -311,7 +297,7 @@ inputs:
     label: Cube Z (mm)
     nominal: 30.00
     tol: 0.10
-    low: Under means the first layer is over-squished. Nudge Live Adjust Z up on the next print, then fix the cause, a sheet not seated, debris under it, an uneven glue film or a nozzle not fully seated.
+    low: Under means the first layer is over-squished. Nudge Live Adjust Z up on the next print, then fix the cause, a sheet not seated, debris under it, a dirty sheet or a nozzle not fully seated.
     high: Over means the first layer is under-squished. Nudge Live Adjust Z down on the next print, then fix the cause rather than nudging every plate, because the Core One+ does not save the nudge.
     why: Z is the first layer's report card, and the Core One+ has no first-layer wizard and does not remember a Live Adjust Z nudge, so an out-of-range Z is a cause to find before the next plate rather than a number to dial in.
   - key: fl
@@ -322,7 +308,7 @@ inputs:
   - key: snap
     label: Corner snap tears across the layers, not along one
     kind: yesno
-    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 50 °C chamber gate, and reprint before any structural plate.
+    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 40 °C chamber gate, and reprint before any structural plate.
     why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
 pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B in the same week before B01 and B03 to B06.
 ```
@@ -426,8 +412,8 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 
 **Gate A — before B02 and B07**
 
-- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, loadcell heater-noise test, hot first-layer check `(verify on bench)`
-- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on the printer and print boxes, a `B00-P1.3mf (… - Voron black)` filament box, and 3 h 58 m / 51.7 g
+- [ ] Pre-B00 checks passed (B00 § Before B00): belt pluck check, hot first-layer check, brim-gap ladder `(verify on bench)`
+- [ ] PrusaSlicer wizard run with the 0.4 HF nozzle; B00-P1 opened and showed `(modified)` on the printer and print boxes, a `B00-P1.3mf (… - Voron black)` filament box, and 3 h 50 m / 51.3 g
 - [ ] Cube X and Y both within 30.00 mm ±0.15 mm
 - [ ] Cube Z within 30.00 mm ±0.10 mm
 - [ ] First-layer-vs-mid-height X delta ≤0.15 mm

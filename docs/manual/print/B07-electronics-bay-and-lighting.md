@@ -5,9 +5,9 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 16.1 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 15.3 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 8.1 / 8.0 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.7 / 7.6 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
@@ -44,13 +44,13 @@ supplied printed).
   inlet panel's three insert bores get their inserts on kit day (Ch 09 Step 09.10), not here; the Wago mount takes none.
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
-  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (112 g on P2 alone).
+  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (111 g on P2 alone).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B06. The ledger has 652 g on it here, 538 g after P1 and 426 g after P2, so no [runout](../16-glossary.md#r) in this batch.
+**Do:** Galaxy Black, spool #2 after B06. The ledger has 653 g on it here, 540 g after P1 and 429 g after P2, so no [runout](../16-glossary.md#r) in this batch.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; ≥226 g on spool #2 for the two plates.
+**Check:** Clean purge; ≥224 g on spool #2 for the two plates.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -62,7 +62,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `cob_light_strip_mount_50mm` · `wago_221-415_mount_3by5` · `usb_adapter_mount_partial_cover` · `PSU_stabilizer_50mm` · `pcb_din_clip` ×2 · `handlebar_spacer` ×2 · 8 files, 11 objects — 8.1 h, 114 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount and the two 100 mm mounts (the long-flat list), already in the project.
+**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `cob_light_strip_mount_50mm` · `wago_221-415_mount_3by5` · `usb_adapter_mount_partial_cover` · `PSU_stabilizer_50mm` · `pcb_din_clip` ×2 · `handlebar_spacer` ×2 · 8 files, 11 objects — 7.7 h, 113 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount and the two 100 mm mounts (the long-flat list), already in the project.
 **Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the inlet, the Wago mount and both 100 mm mounts only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -88,7 +88,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×4 · `cob_light_strip_mount_50mm` · `lrs_200_psu_bracket` ×2 · `usb_adapter_mount` · `pcb_din_clip` · `handlebar_spacer` ×2 · 6 files, 11 objects — 8.0 h, 112 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the rest.
+**Parts:** `cob_light_strip_mount_100mm` ×4 · `cob_light_strip_mount_50mm` · `lrs_200_psu_bracket` ×2 · `usb_adapter_mount` · `pcb_din_clip` · `handlebar_spacer` ×2 · 6 files, 11 objects — 7.6 h, 111 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the rest.
 **Check:** Brim outline on the four 100 mm mounts only; five COB mounts on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

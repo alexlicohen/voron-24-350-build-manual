@@ -31,6 +31,20 @@ COLD_START = ROOT / "coreone-cold-start.gcode"
 def cold_start_gcode() -> str:
     return COLD_START.read_text().rstrip("\n").replace("\n", "\\n")
 
+
+# First layer at 95 % flow (Alex 2026-10-29 flow ladder). PrusaSlicer runs neither layer hook
+# on the first layer, so the start's own flow line, the last before layer 1, carries it and
+# layer_gcode puts 100 % back from layer 2. ASA bundles only; B11 keeps the plain cold start.
+FLOW_100 = "M221 S100 ; set flow to 100%"
+FLOW_FIRST = "M221 S95 ; first layer at 95 % flow (layer_gcode sets 100 % from layer 2)"
+
+
+def asa_start_gcode() -> str:
+    start = cold_start_gcode()
+    if start.count(FLOW_100) != 1:
+        raise SystemExit(f"{COLD_START.name}: expected one `{FLOW_100}` line")
+    return start.replace(FLOW_100, FLOW_FIRST)
+
 BASE_PRINT = "0.20mm STRUCTURAL @COREONE 0.4"
 BASE_FILAMENT = "Prusament ASA @COREONE HF0.4"
 BASE_PRINTER = "Prusa CORE One HF0.4 nozzle"
@@ -45,6 +59,9 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
     ("bottom_solid_layers", "5", "print",
      "Voron spec says 5 top and bottom", "Print row 4 (Manual p.4)"),
     ("fill_density", "40%", "print", "Voron spec", "Print row 5 (Manual p.4)"),
+    ("fill_pattern", "gyroid", "print",
+     "Alex 2026-10-28: Voron spec allows gyroid; isotropic and never self-crosses, so no "
+     "crossing-speed cap and no nozzle strikes at speed", "Print row 6"),
     ("extrusion_width", "0.4", "print",
      'Voron: "Extrusion width - Recommended: Forced 0.4 mm"', "Print row 7 (Manual p.4)"),
     ("perimeter_extrusion_width", "0.4", "print", "same forced-0.4 rule", "Print row 7"),
@@ -58,19 +75,19 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
     ("support_material_auto", "0", "print", "same", "Print row 11"),
     ("seam_position", "rear", "print",
      "keeps the seam off the visible outward faces of skirts and toolhead", "Print row 12"),
-    ("skirts", "1", "print",
-     "primes after the long ASA purge; lets you abort in the first 60 s", "Print row 13"),
-    ("skirt_distance", "3", "print", "3 mm gap", "Print row 13"),
-    ("skirt_height", "1", "print", "one loop, first layer only", "Print row 13"),
-    ("min_skirt_length", "4", "print", "min length 4 mm (already the base value)", "Print row 13"),
+    ("skirts", "0", "print",
+     "Alex 2026-10-28: no skirts (was 1 loop); the start G-code's purge line primes the nozzle",
+     "Print row 13"),
     ("brim_type", "outer_only", "print",
      "outer_only keeps the brim off internal holes", "Print row 14"),
     ("brim_width", "0", "print",
      "off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each "
      "plate 3MF for exactly the parts the doc names",
      "Print row 14 + section Orientation & brim"),
-    ("brim_separation", "0.2", "print",
-     "Alex 2026-10-23: 0.1 fuses to the part, 0.2 snaps off", "section Orientation & brim"),
+    ("brim_separation", "0.15", "print",
+     "Alex 2026-10-29 brim-gap ladder (Z +0.08, 95 % first layer): 0.10-0.25 peel by hand, "
+     "0.30 barely holds, 0.40 falls off; 0.15 = one step of margin over 0.10 (fused 10-23)",
+     "section Orientation & brim"),
     ("xy_size_compensation", "0", "print",
      'Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing '
      'fits and screw holes too large"', "Print row 15 (docs.vorondesign.com/materials.html)"),
@@ -78,22 +95,24 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "kept at the profile value for now, verify on the cube", "Print row 16"),
     ("external_perimeter_speed", "35", "print",
      "surface finish and corner accuracy on the visible skirts", "Print row 17"),
-    ("perimeter_speed", "55", "print",
-     "more time at temperature per bead = better interlayer bond at 4 walls", "Print row 18"),
-    ("infill_speed", "100", "print",
-     "interior quality and less pressure variation into the perimeters", "Print row 19"),
-    ("solid_infill_speed", "110", "print", "flatter top/bottom faces on the skirts", "Print row 20"),
+    ("perimeter_speed", "80", "print",
+     "Alex 2026-10-28 after the ASA speed sweep (outer wall clean to 200); inner walls only, "
+     "the external wall stays 35 and sets the dimensions", "Print row 18"),
+    ("infill_speed", "200", "print",
+     "Alex 2026-10-28: ASA sweep, gyroid 40 % clean to 210 mm/s", "Print row 19"),
+    ("solid_infill_speed", "150", "print",
+     "Alex 2026-10-28: raised with infill; top faces stay at top_solid_infill_speed", "Print row 20"),
     ("first_layer_speed", "25", "print",
-     "ASA on smooth PEI is the biggest failure mode; slow the first layer", "Print row 22"),
+     "ASA first-layer adhesion is the biggest failure mode; slow the first layer", "Print row 22"),
     ("ironing", "0", "print", "kept off", "Print row 25"),
     # --- Filament settings (§ Overrides > Filament settings) ---
     ("filament_shrinkage_compensation_xy", "0%", "filament",
      "THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores",
      "Filament row 1"),
     ("filament_shrinkage_compensation_z", "0%", "filament", "same reason", "Filament row 2"),
-    ("chamber_minimal_temperature", "50", "filament",
-     "Alex 2026-10-27: hold the print until the chamber reads 50 C, not the preset's 40, so the "
-     "first layers (where corners lift) go down in warm air; stays under the firmware's 55 C cap",
+    ("chamber_minimal_temperature", "40", "filament",
+     "Alex 2026-10-28: hold the print until the chamber reads 40 C; 50 (10-27) never starts, "
+     "the basement chamber tops out at 44 C on the bed alone",
      "Filament row 6"),
     # --- Thumbnails (needed for the plate previews in docs/manual/assets/plates/) ---
     ("thumbnails", "16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG", "printer",
@@ -102,22 +121,35 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "the committed plate previews are drawn by slicer/render_plate.py instead.",
      "added for R6 P4"),
     # --- Start G-code (cold-probe / loadcell workaround, 2026-09-14) ---
-    ("start_gcode", cold_start_gcode(), "printer",
+    ("start_gcode", asa_start_gcode(), "printer",
      "the stock CORE One start heats the nozzle to 170 C for homing and MBL and runs "
      "`G29 P9` to wipe it; on this machine that loads the loadcell with a hot, oozing tip "
      "and raises 'bed not aligned' prompts mid-probe. This block probes cold - `M104 S0` "
      "held through G28, chamber soak and MBL, `G29 P9` dropped (wipe the tip by hand while "
      "hot), heat to `first_layer_temperature` only for the purge line. It also carries "
      "`M115 U6.8.1+16182`, the firmware this was verified on, in place of the preset's "
-     "6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`.",
+     "6.5.3. Vendored byte-for-byte as `slicer/coreone-cold-start.gcode`; the one change is "
+     "its flow line, `M221 S95` for the first layer (Alex 2026-10-29 flow ladder: 95 % closed "
+     "with no crests or pinholes, 90 % pinholed, 80 % gapped; upper layers were clean at "
+     "100 % in the ASA sweep).",
      "printer preset `Prusa CORE One HF0.4 nozzle - coldstart`"),
+    # --- First layer (hot first-layer checks on satin, Alex 2026-10-28/29) ---
+    ("z_offset", "0.08", "printer",
+     "the cold probe leaves the hot nozzle low: Z offset 0 and +0.04 printed crested first "
+     "layers, +0.08 closed. The Core One keeps no Live Adjust Z between prints, so it lives "
+     "in the G-code", "00-slicer-setup § Calibration sequence item 3"),
+    ("layer_gcode",
+     ";AFTER_LAYER_CHANGE\\n;[layer_z]\\nM221 S100 ; flow back to 100 % after the 95 % first layer",
+     "printer",
+     "the start G-code prints the first layer at 95 % flow; this runs from layer 2 on (neither "
+     "layer hook runs on layer 1)", "00-slicer-setup § Calibration sequence item 3"),
 ]
 
 # Values too long to sit in a markdown cell: what OVERRIDES.md prints instead of
 # the raw before/after strings. Keyed by ini key -> (flattened preset, set to).
 MD_CELLS = {
     "start_gcode": ("*(the stock CORE One start block)*",
-                    "*(the block in `slicer/coreone-cold-start.gcode`)*"),
+                    "*(the block in `slicer/coreone-cold-start.gcode`, flow line `M221 S95`)*"),
 }
 
 HEADER = """\
@@ -383,7 +415,7 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
     ]
     for key, doc in [
         ("layer_height", "Print row 1"), ("first_layer_height", "Print row 1"),
-        ("top_solid_layers", "Print row 3"), ("fill_pattern", "Print row 6"),
+        ("top_solid_layers", "Print row 3"),
         ("first_layer_extrusion_width", "Print row 8"), ("perimeter_generator", "Print row 10"),
         ("top_solid_infill_speed", "Print row 21"), ("external_perimeters_first", "Print row 23"),
         ("enable_dynamic_overhang_speeds", "Print row 24"),

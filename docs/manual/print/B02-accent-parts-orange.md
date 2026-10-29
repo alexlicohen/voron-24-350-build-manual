@@ -10,9 +10,9 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.8 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 20.9 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 7.3 / 8.6 / 5.9 h unattended) + ~20 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 7.3 / 8.6 / 5.6 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing
@@ -93,7 +93,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 1. Open `slicer/plates/B02-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **15 files, 16 objects**, the **5 mm brim on `Handle` already in the project**.
 3. Never add a brim by hand.
-**Parts:** `[a]_faceplate` · `Handle` · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_a` · `[a]_belt_guard_b` · `[a]_endstop_pod_D2F_switch` · `[a]_z_tensioner_9mm` ×2 · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_a` · `[a]_belt_tensioner_b` · `[a]_guidler_b` · `[a]_keystone_blank_insert` · `[a]_z_chain_retainer_bracket` — 7.3 h, 97 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `[a]_faceplate` · `Handle` · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_a` · `[a]_belt_guard_b` · `[a]_endstop_pod_D2F_switch` · `[a]_z_tensioner_9mm` ×2 · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_a` · `[a]_belt_tensioner_b` · `[a]_guidler_b` · `[a]_keystone_blank_insert` · `[a]_z_chain_retainer_bracket` — 7.1 h, 96 g (PrusaSlicer 2.9.6 estimate).
 **Check:** Filament box ends `- Voron blue)`; the preview shows a brim outline on `Handle` only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -122,7 +122,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **15 files, 16 objects**, no brim.
 3. Leave the SB main body's built-in supports; never suppress them.
-**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.6 h, 108 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.2 h, 108 g (PrusaSlicer 2.9.6 estimate).
 **Check:** SB main body oriented as shipped with its supports visible in preview, and no brim outline anywhere on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -150,7 +150,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **14 files, 17 objects**, no brim.
-**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_belt_tensioner_a` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 5.9 h, 74 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_belt_tensioner_a` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 5.6 h, 73 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The cable-chain bridge lying flat, as the project carries it.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.

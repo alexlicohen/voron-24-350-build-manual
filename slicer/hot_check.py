@@ -65,6 +65,15 @@ OUT_HEAT_OFF = ROOT / "checks" / "hot-first-layer-heat-off.3mf"
 OUT_BRIM = ROOT / "checks" / "brim-gap-ladder.3mf"
 HEAT_OFF_START = ROOT / "coreone-heat-off-start.gcode"
 INI_BLACK = INI["black"]
+# The first-layer values now come from the ini (build_config, Alex 10-28/29): z_offset +0.08
+# and layer_gcode's `M221 S95` on the first layer. History: satin, cold-probe start, Z 0 and
+# +0.04 crested (the caliper read the crests, 0.28-0.30), -0.09 worse (0.5-0.6), +0.08 closed;
+# the flow ladder at +0.08 picked 95 % (90 pinholed, 80 gapped).
+Z_OFFSET = ini_value(INI_BLACK, "z_offset")
+OUT_FLOW = ROOT / "checks" / "hot-first-layer-flow-ladder.gcode"
+# square name -> M221 flow %; the centre is the control
+FLOW_LADDER = {"centre": 100, "front-left": 95, "front-right": 90, "back-left": 85,
+               "back-right": 80}
 
 SIDE, HEIGHT = 30.0, 0.2
 MARGIN = 15.0          # square edge to bed edge; the 3 mm skirt then sits 12 mm in
@@ -287,6 +296,15 @@ def check(out: Path = OUT) -> int:
             bad.append(f"{key} = {cfg.get(key)!r}, ini has {want!r}")
     if cfg.get("first_layer_bed_temperature") != "110":
         bad.append("first-layer bed is not 110 C")
+    if float(cfg.get("z_offset", "0")) != float(Z_OFFSET):
+        bad.append(f"z_offset = {cfg.get('z_offset')!r}, expected {Z_OFFSET}")
+    if out == OUT and not re.search(r"^M221 S95 ; first layer.*\n(?:(?!;LAYER_CHANGE).*\n)*;LAYER_CHANGE",
+                                    text, re.M):
+        bad.append("no `M221 S95` first-layer flow line before layer 1")
+    first_z = re.search(r"^;Z:([\d.]+)$", text, re.M)
+    want_z = float(ini_value(INI_BLACK, "first_layer_height")) + float(Z_OFFSET)
+    if not first_z or abs(float(first_z.group(1)) - want_z) > 1e-6:
+        bad.append(f"first layer at Z {first_z and first_z.group(1)}, expected {want_z:.2f}")
     bad += start_faults(text, heat_off=out == OUT_HEAT_OFF)
     layers = text.count(";LAYER_CHANGE")
     if layers != 1:
@@ -303,11 +321,98 @@ def check(out: Path = OUT) -> int:
     return 1 if bad else 0
 
 
+def _e_only(line: str) -> bool:
+    """A retract or unretract: a G1 with an E word and no X/Y."""
+    w = line.split(";")[0].split()
+    return bool(w) and w[0] == "G1" and any(t[0] == "E" for t in w[1:]) \
+        and not any(t[0] in "XY" for t in w[1:])
+
+
+def flow_ladder_gcode(text: str) -> str:
+    """Put each square at its own M221 flow. Retracts and unretracts run at 100 % so every
+    square starts primed the same; the per-square flow is restored after each one."""
+    ids = {int(m.group(1)): m.group(2).removeprefix("square-")
+           for m in re.finditer(r"^M486 S(\d+)\nM486 A(\S+)$", text, re.M)}
+    out, cur, body = [], 100, False
+    for line in text.split("\n"):
+        if line.startswith(";LAYER_CHANGE"):
+            body = True
+        m = re.match(r"^M486 S(-?\d+)$", line)
+        if body and m:
+            n = int(m.group(1))
+            cur = 100 if n < 0 else FLOW_LADDER[ids[n]]
+            out.append(line)
+            out.append(f"M221 S{cur} ; flow ladder: {ids.get(n, 'between squares')}")
+            continue
+        if body and _e_only(line) and cur != 100:
+            out += ["M221 S100", line, f"M221 S{cur}"]
+            continue
+        if re.match(r"^M486 A(\S+)$", line):
+            name = line.split()[1].removeprefix("Asquare-")
+            if name in FLOW_LADDER:
+                line = f"M486 Asquare-{name}-{FLOW_LADDER[name]}pct"
+        out.append(line)
+    return "\n".join(out)
+
+
+def build_flow_ladder() -> None:
+    tmp = Path(tempfile.mkdtemp(prefix="hot-check-"))
+    try:
+        gcode = tmp / "plain.gcode"
+        run([PRUSA, "--dont-arrange", "--binary-gcode=0",
+             "--export-gcode", "-o", str(gcode), str(OUT)])
+        OUT_FLOW.write_text(flow_ladder_gcode(gcode.read_text(errors="replace")))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    print(f"wrote {OUT_FLOW.relative_to(ROOT.parent)}")
+
+
+def check_flow_ladder() -> int:
+    if not OUT_FLOW.exists():
+        raise SystemExit(f"{OUT_FLOW} does not exist - run without --check to create it")
+    text = OUT_FLOW.read_text()
+    bad = start_faults(text, heat_off=False)
+    first_z = re.search(r"^;Z:([\d.]+)$", text, re.M)
+    want_z = float(ini_value(INI_BLACK, "first_layer_height")) + float(Z_OFFSET)
+    if not first_z or abs(float(first_z.group(1)) - want_z) > 1e-6:
+        bad.append(f"first layer at Z {first_z and first_z.group(1)}, expected {want_z:.2f}")
+    # every extruding XY move inside square n runs at that square's flow; E-only moves at 100
+    flow, seen, cur_sq = 100, {}, None
+    names = {int(m.group(1)): m.group(2) for m in
+             re.finditer(r"^M486 S(\d+)\nM486 Asquare-(\S+)-\d+pct$", text, re.M)}
+    body = False
+    for line in text.split("\n"):
+        if line.startswith(";LAYER_CHANGE"):
+            body = True
+        if not body:
+            continue
+        if m := re.match(r"^M221 S(\d+)", line):
+            flow = int(m.group(1))
+        elif m := re.match(r"^M486 S(-?\d+)$", line):
+            cur_sq = names.get(int(m.group(1)))
+        elif line.startswith("G1") and " E" in line:
+            if _e_only(line):
+                if flow != 100:
+                    bad.append(f"retract at {flow} %: {line}")
+            elif cur_sq is not None:
+                seen.setdefault(cur_sq, set()).add(flow)
+    for name, pct in FLOW_LADDER.items():
+        if seen.get(name) != {pct}:
+            bad.append(f"square {name}: flows {sorted(seen.get(name, []))}, expected {pct}")
+    print(f"{OUT_FLOW.name}: first layer Z {first_z and first_z.group(1)}, "
+          + ", ".join(f"{n} {p} %" for n, p in FLOW_LADDER.items()))
+    for b in bad:
+        print(f"  FAIL {b}")
+    print("PASS" if not bad else "FAIL")
+    return 1 if bad else 0
+
+
 def main() -> int:
     if "--check" not in sys.argv[1:]:
         build()
+        build_flow_ladder()
         build_brim()
-    return max(check(OUT), check(OUT_HEAT_OFF), check_brim())
+    return max(check(OUT), check(OUT_HEAT_OFF), check_flow_ladder(), check_brim())
 
 
 if __name__ == "__main__":

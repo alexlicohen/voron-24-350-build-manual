@@ -5,9 +5,9 @@ pose: print
 caption: Z joints and chain links. Small, numerous, identical. Count them now, not halfway through the chain.
 ```
 
-**Time:** 6.3 h (1 plate) — PrusaSlicer 2.9.6 estimate.
+**Time:** 6.2 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
-**Sessions:** 1 plate start (~5 min hands-on, 6.3 h unattended) + ~10 min inspect and bin.
+**Sessions:** 1 plate start (~5 min hands-on, 6.2 h unattended) + ~10 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the printed bores and the insert bosses; the caliper and insert rows run early, on what is already on the bench). B02 and B04 feed
 the same assembly chapters; neither is a print prerequisite.
@@ -37,7 +37,7 @@ hall-effect XY endstops, which this kit does not use.
 
 ## Step B05.1 — Filament prep
 
-**Do:** Galaxy Black, still spool #1. The ledger has 211 g on it here and 133 g after, which is the stub B06 leaves behind. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Galaxy Black, still spool #1. The ledger has 215 g on it here and 137 g after, which is the stub B06 leaves behind. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥78 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -49,7 +49,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B05.5.*
 
 **Do:** Open `slicer/plates/B05-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation, no brim. Do **not** include `z_joint_upper_hall_effect.stl`.
-**Parts:** the fourteen pieces above — 6.3 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4.
+**Parts:** the fourteen pieces above — 6.2 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4.
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

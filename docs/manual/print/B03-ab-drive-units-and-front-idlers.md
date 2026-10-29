@@ -42,7 +42,7 @@ already in 04-A / 04-B.
 ## Step B03.1 — Filament prep
 
 **Do:** Swap the accent spool for Galaxy Black: Unload, Load Filament → ASA, purge until no blue shows.
-The ledger has B03 on spool #1 with 447 g, leaving 328 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+The ledger has B03 on spool #1 with 449 g, leaving 331 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Purge clean black, no blue streak.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -54,7 +54,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.5.*
 
 **Do:** Open `slicer/plates/B03-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it. No rotation, no brim in the project.
-**Parts:** 8 objects — 8.5 h, 119 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper`; `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper`.
+**Parts:** 8 objects — 8.5 h, 118 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper`; `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper`.
 **Check:** Parts sit flat as shipped; no brim outline in the preview.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.

@@ -1444,13 +1444,13 @@ Pause: ~35 min since the last pause — H, w, d, G and O measured and written do
 **Parts:**
 
 - consumable: Galaxy Black ASA, about 40 g
-- tool: the Core One+ with the smooth sheet
+- tool: the Core One+ with the satin sheet
 
 **Do:**
 
 1. In PrusaSlicer 2.9.6, load the files from `measured/` with `voron-coreone-asa.ini`, as oriented, no supports.
 2. Leave the stop bracket out if the calculator said so.
-3. Print on the smooth sheet. Once cool, bag the parts in bin `13-scrubber`.
+3. Print on the satin sheet. Once cool, bag the parts in bin `13-scrubber`.
 
 **Check:** The bed holds exactly the files the printout named, and the slice comes to about 2.5 h and 40 g.
 
