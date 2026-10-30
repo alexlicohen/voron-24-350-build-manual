@@ -155,8 +155,11 @@ TNUT_BOX = {("ROLL-IN", 3): ((12.5, 7.7, 4.3), 286.0, "CAD"),   # Voron "2020 Dr
             ("ROLL-IN", 5): ((13.0, 7.7, 4.3), 272.0, "CAD"),
             ("HAMMER", 3): ((10.92, 9.14, 4.85), 185.0, "CAD"),  # Voron "M3 Hammerhead T-Nut"
             ("HAMMER", 5): ((11.0, 9.2, 5.0), 190.0, "EST")}     # not in the Voron CAD
-# Random-loose packing fraction of the bounding envelope (README § Fill check).
-PHI_SCREW_SHORT, PHI_SCREW_LONG = 0.55, 0.45   # envelope length/diameter <= 2 ... >= 8
+# Random-loose packing fraction of the bounding envelope (README § Fill check). Screws: the
+# 2026-10-30 pour simulation measured 1.07-1.83 on stable short screws (heads nest against
+# shanks, so > 1 on the envelope); 1.0 short, 0.8 long (long screws did not settle in the sim:
+# a guess at the M3x20 run's 0.91-1.01). Alex 2026-10-30 chose these smaller trays.
+PHI_SCREW_SHORT, PHI_SCREW_LONG = 1.0, 0.8     # envelope length/diameter <= 2 ... >= 8
 PHI = {"SET": 0.55, "NUT": 0.58, "INSERT": 0.55, "WASHER": 0.55, "SPACER": 0.55,
        "LOCK": 0.55, "KNURL": 0.58, "MAGNET": 0.60, "ROLL-IN": 0.55, "HAMMER": 0.55}
 
@@ -896,6 +899,9 @@ def write_ini(path: Path) -> None:
         ("end_filament_gcode", _append_gcode(fil["end_filament_gcode"], FLAPS_OFF)),
         ("support_material", "0"),
         ("support_material_auto", "0"),
+        # Cold-probe start: the hot nozzle sits lower than the cold probe found. ASA on satin
+        # needed +0.08 (260 °C), PETG +0.05; PLA at 230 °C takes +0.05 (Alex 2026-10-30).
+        ("z_offset", "0.05"),
     ])
     if "settings" in LEVERS:
         # Ultra-light print settings: the trays are walls, so perimeters carry them.
@@ -938,7 +944,7 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
     hours, grams, raw, cfg = read_footer(gcode)
     text = gcode.read_text(errors="replace")
     for key, want in (("support_material", "0"), ("layer_height", "0.2"),
-                      ("filament_type", "PLA"), ("print_settings_id", PRINT)):
+                      ("filament_type", "PLA"), ("print_settings_id", PRINT), ("z_offset", "0.05")):
         if cfg.get(key) != want:
             raise SystemExit(f"{project.name}: sliced with {key} = {cfg.get(key)!r}, want {want!r}")
     if "M106 P3 S160" not in text:
@@ -958,7 +964,9 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
     for m in re.finditer(r"^G1 (?:[^;\n]*?)X([-\d.]+) Y([-\d.]+)[^;\n]*E[\d.]", text, re.M):
         xs.append(float(m.group(1)))
         ys.append(float(m.group(2)))
-    zs = {round(float(z), 2) for z in re.findall(r"^;Z:([\d.]+)", text, re.M)}
+    # ;Z: carries z_offset; the GUI layer slider shows the model's layer heights without it
+    dz = float(cfg.get("z_offset") or 0)
+    zs = {round(float(z) - dz, 2) for z in re.findall(r"^;Z:([\d.]+)", text, re.M)}
     missing = [z for z in colour_z if round(z, 2) not in zs]
     if missing:
         raise SystemExit(f"{project.name}: layers {missing} missing - the colour-change Z in "
@@ -1322,7 +1330,8 @@ def size_partition(part, nx: int, ny: int) -> list | None:
 def ranked_partitions(items: list[Item]) -> list[list]:
     """Every grouping of whole families into at most MAX_TRAYS trays on one common footprint
     (any n x m up to 5 x 5), each tray at its lowest height, that fits; best first: fewest
-    trays, then fewest bin units, then the smallest footprint."""
+    bin units, then fewest trays, then the smallest footprint (least plastic first: Alex
+    2026-10-30 took three 5 x 4 trays over two 5 x 5)."""
     fams = families(items)
     parts = list(set_partitions(fams, MAX_TRAYS))
     found = []
@@ -1332,7 +1341,7 @@ def ranked_partitions(items: list[Item]) -> list[list]:
                 g = size_partition(part, nx, ny)
                 if g:
                     found.append(g)
-    found.sort(key=lambda g: (len(g), sum(nx * ny * u for _i, (nx, ny, u), _n in g),
+    found.sort(key=lambda g: (sum(nx * ny * u for _i, (nx, ny, u), _n in g), len(g),
                               g[0][1][0] * g[0][1][1], -g[0][1][0]))
     return found
 
@@ -1344,8 +1353,8 @@ def partition_desc(g) -> str:
 
 
 def choose(items: list[Item], rank: int = 0) -> tuple[list[Tray], str, list]:
-    """Group whole families into at most MAX_TRAYS trays: fewest trays, then least plastic (bin
-    units). `rank` picks a lower-ranked grouping (the slicing comparison uses it)."""
+    """Group whole families into at most MAX_TRAYS trays: least plastic (bin units), then
+    fewest trays. `rank` picks a lower-ranked grouping (the slicing comparison uses it)."""
     ranked = ranked_partitions(items)
     if not ranked:
         raise SystemExit(f"no grouping of whole families fits {MAX_TRAYS} trays: check the counts")

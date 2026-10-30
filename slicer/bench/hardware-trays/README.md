@@ -1,6 +1,6 @@
 # Hardware trays (bench print)
 
-Three ultra-light Gridfinity bins on one common footprint (5 × 5 units), each only as tall as its contents
+Three ultra-light Gridfinity bins on one common footprint (5 × 4 units), each only as tall as its contents
 need, that hold the LDO Voron 2.4 350 kit's fastener bags: one
 compartment per hardware row of the kit BOM, two raised label lines (size; type and kit count) on a ledge
 behind each row, and a scoop cove along each compartment's front wall. They sit on any Gridfinity baseplate
@@ -12,8 +12,8 @@ A bench print: on no plate, in no batch, run total or spool ledger
 | Tray | Holds |
 |---|---|
 | A | M2 and M3 screws: SHCS by length, BHCS, FHCS, wafer, captive, M2 self-tappers, M3 set screws |
-| B | M4 and M5 screws (M5 SHCS, M4 and M5 BHCS, M4 set screws) and the hammer-head T-nuts |
-| C | the small parts (hex nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets) and the roll-in T-nuts, in a low bin |
+| B | M4 and M5 screws (M5 SHCS, M4 and M5 BHCS, M4 set screws) and the roll-in T-nuts |
+| C | the small parts (hex nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets) and the hammer-head T-nuts, in a low bin |
 
 The kit's hand tools (hex keys, the 2 mm drill bit, the slot screwdriver, the brass insert tip) are not
 stored in the trays. Renders (blue = the layers above the label ledges, i.e. the colour-change layers):
@@ -64,9 +64,10 @@ scoop, and the script fails if one does not. Per hardware row:
   diameter × thickness for washers, spacers, inserts and magnets, a box for T-nuts. Shank diameter is the
   nominal thread.
 - **Bulk volume** = count × envelope ÷ φ, the random-loose packing fraction of that envelope:
-  - screws: 0.55 at envelope length/diameter ≤ 2 down to 0.45 at ≥ 8, linear between. Random packings of
-    cylinders loosen as they get longer, and the bounding cylinder already pads the shank out to the head
-    diameter.
+  - screws: 1.0 at envelope length/diameter ≤ 2 down to 0.8 at ≥ 8, linear between (from the pour
+    simulation below; Alex 2026-10-30, was 0.55 → 0.45). Above 1 because the bounding cylinder pads the
+    shank out to the head diameter and heads nest against shanks; random packings still loosen as screws
+    get longer.
   - set screws, inserts, washers, spacers, T-nuts: 0.55 (short, blocky or flat pieces that interlock or
     shingle).
   - hex nuts, knurled nuts: 0.58; magnets: 0.60 (they chain and stack).
@@ -91,9 +92,22 @@ Sources for the piece dimensions (column *source* in the generated table):
 - EST, no drawing found: the M3×25 wafer head (Ø8 × 1.5), the M3×6 captive screw (as an ISO 4762 head),
   the M5 hammer-head T-nut (as the M3 one, 11 × 9.2 × 5), the twisted M5 split lock washer (9.2 × 2.4).
 
-**Validation of the packing method: none.** No published loose-bulk figure for small screws was found (a
+**Validation (2026-10-30, rigid-body pour simulation, MuJoCo 3.17).** Each BOM line was poured loose
+into its compartment's footprint (steel, friction 0.35 and 0.7) and the bulk read as the volume under the
+settled pile. Steel balls came out at 0.63–0.64 (real loose pours ≈ 0.60), so the method packs about 6 %
+dense. Short screws that settled cleanly (M3×6 FHCS, M3×12, M2×10, M5×10/16 BHCS) gave an envelope φ of
+1.1–1.8 against this script's 0.54–0.55: heads nest against shanks, so those compartments are 2–3× the
+room the pieces need. The hammer-head T-nut boxes gave 0.57–0.84 against 0.55: about right, ~70 % full.
+Long screws (M3×25 and up, M5×30/40) and the 283 M3×8 did not settle stably and give no number; the
+unstable M3×20 run (0.91–1.01) and M5×40 runs (0.77–0.90) are the only hints. Rev D+ fastener counts
+equal the pinned Rev D rows (checked 2026-10-30). Taken (Alex 2026-10-30, before any tray was printed):
+screws 1.0 → 0.8, which shrinks the set from three 5 × 5 trays (375 bin units, 18.6 h, 652 g) to three
+5 × 4 (280). The two-tray 5 × 5 grouping (300 bin units, 16.4 h, 575 g) lost on plastic. Risk: the long
+screws; at the M5×40 runs' low 0.77 that compartment is about 80 % full instead of 70 %.
+
+**Packing method before the simulation.** No published loose-bulk figure for small screws was found (a
 search for loose bulk density of M3 screws or small fasteners turned up only solid density and per-piece
-masses), so the φ values are judgement within the brief's ranges, not measured. The implied solid fraction
+masses), so the φ values (screws 0.55 → 0.45) were judgement within the brief's ranges, not measured. The implied solid fraction
 of the loose pile (count × solid volume ÷ bulk, column *solid/bulk* below) runs from about 0.1 for long
 screws to about 0.5 for washers; loose screws in a tray likely lie flatter than that, so the method errs
 roomy for long screws. Kit day is the cheap calibration: tip the 283 M3×8 into their compartment and read the
@@ -137,7 +151,8 @@ baseplate; these trays follow the current spec numbers.
 Core One+, satin sheet (the PLA sheet, per `docs/manual/print/00-slicer-setup.md` § Print sheet), any PLA, door open. Each project carries its config, flattened from the
 PrusaSlicer 2.9.6 system presets `0.20mm BALANCED @COREONE HF0.4` + `Prusament PLA @COREONE HF0.4` +
 `Prusa CORE One HF0.4 nozzle` (`slicer/resolve_preset.py`), with this repo's printer-wide lines: the vendored
-cold start (`slicer/coreone-cold-start.gcode`) and `M106 P3 S160` / `M106 P3 R` in the filament start/end
+cold start (`slicer/coreone-cold-start.gcode`), Z offset +0.05 (the hot nozzle sits lower than the cold
+probe found; ASA on satin needed +0.08, Alex 2026-10-30) and `M106 P3 S160` / `M106 P3 R` in the filament start/end
 G-code (AFS bypass flaps, as `slicer/bay-ducts-petg.ini` does for PETG). Supports off. Ultra-light settings:
 2 perimeters, 3 top and 3 bottom layers (minimum-thickness rules off, so it is 3 layers), 10 % infill; nothing
 else is overridden (0.2 mm layers, 0.45 mm lines). The base's 45° steps print without support.
@@ -154,20 +169,21 @@ the bins sit on any Gridfinity baseplate. Which trays stack, and which fit the o
 
 **Grouping.** The generator groups whole hardware families (M2/M3 screws, M4/M5 screws, roll-in T-nuts,
 hammer-head T-nuts, small parts) into at most three trays on one common footprint, each tray at its lowest
-height: fewest trays, then the fewest bin units (Σ n·m·U, a plastic proxy); groupings that tie on bin units
-are sliced and the lightest wins. No tray is lower than **`MIN_U` = 4** (Alex: parts must not spill when a
-tray tilts), and every piece lying flat stays at least 2 mm below the rim. Only 5 × 5 holds the M2/M3 screws,
-so 5 × 5 is the common footprint. With `MIN_U` = 4 the best three groupings, all sliced (`--compare 3`,
+height: the fewest bin units (Σ n·m·U, a plastic proxy), then the fewest trays (Alex 2026-10-30: three 5 × 4
+over two 5 × 5); groupings that tie on bin units are sliced and the lightest wins. No tray is lower than **`MIN_U` = 4** (Alex: parts must not spill when a
+tray tilts), and every piece lying flat stays at least 2 mm below the rim. At the screw φ of 1.0 → 0.8 the
+result is the generated block below: three 5 × 4 trays, 15.2 h, 531 g. History: at the earlier φ of 0.55 → 0.45
+only 5 × 5 held the M2/M3 screws; with `MIN_U` = 4 the best three groupings then, all sliced (`--compare 3`,
 ultra-light, 2026-10-05):
 
 | Grouping (A / B / C) | Bin units | Time | PLA |
 |---|---:|---|---:|
-| M2/M3 6U / M4/M5 + hammer-head T-nuts 5U / roll-in T-nuts + small parts 4U (**built**) | 375 | 18.6 h | 652 g |
+| M2/M3 6U / M4/M5 + hammer-head T-nuts 5U / roll-in T-nuts + small parts 4U (built to 2026-10-30, never printed) | 375 | 18.6 h | 652 g |
 | M2/M3 6U / M4/M5 5U / all T-nuts + small parts 4U | 375 | 18.9 h | 663 g |
 | M2/M3 6U / M4/M5 + roll-in T-nuts 6U / hammer-head T-nuts + small parts 4U | 400 | 19.2 h | 676 g |
 
 The 4U floor costs 16 g and 0.4 h against the 3U small-parts tray it replaces (636 g, 18.2 h). The extra depth
-moves nothing: the first two tie on bin units, so the slice decides, and the grouping already built is the
+moves nothing: the first two tie on bin units, so the slice decides, and the grouping then built was the
 lighter by 11 g. Putting all the T-nuts with the M4/M5 screws still does not fit a 6U bin.
 
 Every compartment has the full R12 scoop cove on its front wall, solid. `renders/tray-{A,B,C}-section.png`
@@ -211,7 +227,7 @@ each step):
   divider crosses a well; the coves would hang over the wells. The flat floor costs a 40 mm bridge over
   each foot pocket (PrusaSlicer's stability check lists it with the base grooves as "Long bridging
   extrusions"; no supports) and some of the plastic dipping would save. No tray drops a height unit from
-  the lower floor alone: A still needs 6U, and `MIN_U` keeps C at 4U. Holes (`--holes`) need
+  the lower floor alone (2026-10-05, at the old φ): A still needed 6U, and `MIN_U` keeps C at 4U. Holes (`--holes`) need
   solid feet, so the option turns the hollow base off.
 
 **Strength.** Tray A full is about 0.5 kg of steel.
@@ -229,109 +245,111 @@ each step):
 <!-- BEGIN generated:layout -->
 Generated from `scripts/data/ldo-350-bom.yml` (box *Fasteners, Tools & Misc*, fetched 2026-09-24). Each tray is sized on its own: the smallest footprint, then the lowest height, that holds its group at ≤ 70% fill with the finger floor.
 
-3 groupings of whole families fit ≤ 3 trays on one common footprint, each tray at its lowest height. Best five by bin units (Σ n·m·U, the plastic proxy):
+20 groupings of whole families fit ≤ 3 trays on one common footprint, each tray at its lowest height. Best five by bin units (Σ n·m·U, the plastic proxy):
 
-1. 3 trays, 375 bin units: M2/M3 screws 5×5×6U | M4/M5 screws 5×5×5U | roll-in T-nuts + hammer-head T-nuts + small parts 5×5×4U
-2. 3 trays, 375 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + hammer-head T-nuts 5×5×5U | roll-in T-nuts + small parts 5×5×4U ← chosen
-3. 3 trays, 400 bin units: M2/M3 screws 5×5×6U | M4/M5 screws + roll-in T-nuts 5×5×6U | hammer-head T-nuts + small parts 5×5×4U
+1. 3 trays, 280 bin units: M2/M3 screws 5×4×5U | M4/M5 screws + roll-in T-nuts 5×4×5U | hammer-head T-nuts + small parts 5×4×4U ← chosen
+2. 3 trays, 280 bin units: M2/M3 screws 5×4×5U | M4/M5 screws + hammer-head T-nuts 5×4×5U | roll-in T-nuts + small parts 5×4×4U
+3. 2 trays, 300 bin units: M2/M3 screws + roll-in T-nuts 5×5×6U | M4/M5 screws + hammer-head T-nuts + small parts 5×5×6U
+4. 3 trays, 300 bin units: M2/M3 screws 5×4×5U | M4/M5 screws 5×4×4U | roll-in T-nuts + hammer-head T-nuts + small parts 5×4×6U
+5. 3 trays, 300 bin units: M2/M3 screws 4×5×6U | M4/M5 screws 4×5×4U | roll-in T-nuts + hammer-head T-nuts + small parts 4×5×5U
 
-2 groupings tie at 375 bin units; sliced: 1. 663 g, 18.9 h; 2. 652 g, 18.6 h. Chosen: 2, the lightest.
+2 groupings tie at 280 bin units; sliced: 1. 531 g, 15.2 h; 2. 548 g, 15.8 h. Chosen: 1, the lightest.
 
 Usable depth (floor to rim) by height: 4U 21.0 mm, 5U 28.0 mm, 6U 35.0 mm.
 
 | tray | bin | thickest piece lying flat (mm) | lowest height the fill allows |
 |---|---|---:|---|
-| A | 5 × 5 × 6U | 8 | 6U |
-| B | 5 × 5 × 5U | 9.5 | 5U |
-| C | 5 × 5 × 4U | 8 | 4U |
+| A | 5 × 4 × 5U | 8 | 5U |
+| B | 5 × 4 × 5U | 9.5 | 5U |
+| C | 5 × 4 × 4U | 8 | 4U |
 
 Stacking: a bin rests on another bin's stacking lip only if both have the same footprint (the lip runs round the rim, so a smaller bin's feet would drop inside). A, B and C share a footprint: any of them stacks on any other.
-None of the trays fits the 5 × 4 rugged case.
+Trays A, B, C fit the 5 × 4, 6U rugged case, but not all at once.
 
-**Tray A — M2 · M3 SCREWS:** Gridfinity 5 × 5 × 6U (209.5 × 209.5 × 42 mm + lip), 17 compartments in 4 rows (row 1 is the front); fullest M3×40 SHCS at 67%.
-
-| row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
-|---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M3×8 · SHCS 283 | 283 | cyl 5.68 × 11 | 0.55 | 143.4 | 109 × 59 × 35.0 | 221.2 | 65% |
-| 1 | M3×12 · SHCS 50 | 50 | cyl 5.68 × 15 | 0.54 | 35.2 | 31 × 59 × 35.0 | 62.9 | 56% |
-| 1 | M3×16 · SHCS 30 | 30 | cyl 5.68 × 19 | 0.53 | 27.4 | 31 × 59 × 35.0 | 63.4 | 43% |
-| 1 | M3×20 · SHCS 40 | 40 | cyl 5.68 × 23 | 0.52 | 45.2 | 34 × 59 × 35.0 | 69.6 | 65% |
-| 2 | M3×25 · SHCS 12 | 12 | cyl 5.68 × 28 | 0.50 | 17.0 | 38 × 29 × 35.0 | 36.8 | 46% |
-| 2 | M3×30 · SHCS 44 | 44 | cyl 5.68 × 33 | 0.49 | 75.6 | 119 × 29 × 35.0 | 115.4 | 66% |
-| 2 | M3×35 · SHCS 6 | 6 | cyl 5.68 × 38 | 0.47 | 12.2 | 49 × 29 × 35.0 | 47.2 | 26% |
-| 3 | M3×40 · SHCS 34 | 34 | cyl 5.68 × 43 | 0.46 | 81.0 | 78 × 45 × 35.0 | 120.8 | 67% |
-| 3 | M3×50 · SHCS 4 | 4 | cyl 5.68 × 53 | 0.45 | 11.9 | 62 × 45 × 35.0 | 95.7 | 12% |
-| 3 | M3×6 · BHCS 14 | 14 | cyl 5.7 × 7.65 | 0.55 | 5.0 | 30 × 45 × 35.0 | 46.3 | 11% |
-| 3 | M3×25 · BHCS 6 | 6 | cyl 5.7 × 26.65 | 0.51 | 8.1 | 36 × 45 × 35.0 | 55.6 | 15% |
-| 4 | M3×6 · FHCS 42 | 42 | cyl 6 × 6 | 0.55 | 13.0 | 32 × 20 × 35.0 | 20.9 | 62% |
-| 4 | M3×10 · FHCS 8 | 8 | cyl 6 × 10 | 0.55 | 4.1 | 31 × 20 × 35.0 | 20.4 | 20% |
-| 4 | M3×25 · WAFER 3 | 3 | cyl 8 × 26.5 | 0.53 | 7.6 | 35 × 20 × 35.0 | 22.9 | 33% |
-| 4 | M3×6 · CAPTIVE 2 | 2 | cyl 5.68 × 9 | 0.55 | 0.8 | 36 × 20 × 35.0 | 24.0 | 3% |
-| 4 | M2×10 · SELF-TAP 43 | 43 | cyl 4 × 11.6 | 0.54 | 11.7 | 42 × 20 × 35.0 | 27.9 | 42% |
-| 4 | M3×2 · SET 5 | 5 | cyl 3 × 2 | 0.55 | 0.1 | 28 × 20 × 35.0 | 18.8 | 1% |
-
-**Tray B — M4 · M5 SCREWS · T-NUTS:** Gridfinity 5 × 5 × 5U (209.5 × 209.5 × 35 mm + lip), 10 compartments in 3 rows (row 1 is the front); fullest M5×40 SHCS at 69%.
+**Tray A — M2 · M3 SCREWS:** Gridfinity 5 × 4 × 5U (209.5 × 167.5 × 35 mm + lip), 17 compartments in 4 rows (row 1 is the front); fullest M3×40 SHCS at 68%.
 
 | row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
 |---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M5×40 · SHCS 26 | 26 | cyl 8.72 × 45 | 0.50 | 140.5 | 154 × 48 × 28.0 | 203.3 | 69% |
-| 1 | M4×6 · BHCS 8 | 8 | cyl 7.6 × 8.2 | 0.55 | 5.4 | 25 × 48 × 28.0 | 33.4 | 16% |
-| 1 | M5×6 · BHCS 1 | 1 | cyl 9.5 × 8.75 | 0.55 | 1.1 | 27 × 48 × 28.0 | 35.7 | 3% |
-| 2 | M5×10 · BHCS 54 | 54 | cyl 9.5 × 12.75 | 0.55 | 88.7 | 51 × 92 × 28.0 | 128.7 | 69% |
-| 2 | M5×14 · BHCS 4 | 4 | cyl 9.5 × 16.75 | 0.55 | 8.6 | 29 × 92 × 28.0 | 74.6 | 12% |
-| 2 | M5×16 · BHCS 43 | 43 | cyl 9.5 × 18.75 | 0.55 | 103.9 | 59 × 92 × 28.0 | 150.9 | 69% |
-| 2 | M5×30 · BHCS 26 | 26 | cyl 9.5 × 32.75 | 0.53 | 114.8 | 66 × 92 × 28.0 | 166.5 | 69% |
-| 3 | M4×4 · SET 32 | 32 | cyl 4 × 4 | 0.55 | 2.9 | 27 × 26 × 28.0 | 18.7 | 16% |
-| 3 | M3 T-NUT · HAMMER 75 | 75 | box 10.92 × 9.14 × 4.85 | 0.55 | 66.0 | 137 × 26 × 28.0 | 95.5 | 69% |
-| 3 | M5 T-NUT · HAMMER 16 | 16 | box 11 × 9.2 × 5 | 0.55 | 14.7 | 42 × 26 × 28.0 | 28.9 | 51% |
+| 1 | M3×8 · SHCS 283 | 283 | cyl 5.68 × 11 | 1.00 | 78.9 | 109 × 40 × 28.0 | 119.3 | 66% |
+| 1 | M3×12 · SHCS 50 | 50 | cyl 5.68 × 15 | 0.98 | 19.4 | 30 × 40 × 28.0 | 33.1 | 59% |
+| 1 | M3×16 · SHCS 30 | 30 | cyl 5.68 × 19 | 0.96 | 15.1 | 31 × 40 × 28.0 | 33.3 | 45% |
+| 1 | M3×20 · SHCS 40 | 40 | cyl 5.68 × 23 | 0.93 | 25.0 | 35 × 40 × 28.0 | 37.8 | 66% |
+| 2 | M3×25 · SHCS 12 | 12 | cyl 5.68 × 28 | 0.90 | 9.4 | 38 × 20 × 28.0 | 19.6 | 48% |
+| 2 | M3×30 · SHCS 44 | 44 | cyl 5.68 × 33 | 0.87 | 42.1 | 120 × 20 × 28.0 | 63.4 | 67% |
+| 2 | M3×35 · SHCS 6 | 6 | cyl 5.68 × 38 | 0.84 | 6.8 | 48 × 20 × 28.0 | 25.2 | 27% |
+| 3 | M3×40 · SHCS 34 | 34 | cyl 5.68 × 43 | 0.81 | 45.5 | 79 × 32 × 28.0 | 67.1 | 68% |
+| 3 | M3×50 · SHCS 4 | 4 | cyl 5.68 × 53 | 0.80 | 6.7 | 61 × 32 × 28.0 | 51.8 | 13% |
+| 3 | M3×6 · BHCS 14 | 14 | cyl 5.7 × 7.65 | 1.00 | 2.7 | 30 × 32 × 28.0 | 25.0 | 11% |
+| 3 | M3×25 · BHCS 6 | 6 | cyl 5.7 × 26.65 | 0.91 | 4.5 | 36 × 32 × 28.0 | 30.0 | 15% |
+| 4 | M3×6 · FHCS 42 | 42 | cyl 6 × 6 | 1.00 | 7.1 | 32 × 20 × 28.0 | 16.0 | 44% |
+| 4 | M3×10 · FHCS 8 | 8 | cyl 6 × 10 | 1.00 | 2.3 | 31 × 20 × 28.0 | 15.6 | 14% |
+| 4 | M3×25 · WAFER 3 | 3 | cyl 8 × 26.5 | 0.96 | 4.2 | 35 × 20 × 28.0 | 17.6 | 24% |
+| 4 | M3×6 · CAPTIVE 2 | 2 | cyl 5.68 × 9 | 1.00 | 0.5 | 36 × 20 × 28.0 | 18.4 | 2% |
+| 4 | M2×10 · SELF-TAP 43 | 43 | cyl 4 × 11.6 | 0.97 | 6.5 | 42 × 20 × 28.0 | 21.5 | 30% |
+| 4 | M3×2 · SET 5 | 5 | cyl 3 × 2 | 0.55 | 0.1 | 28 × 20 × 28.0 | 14.4 | 1% |
 
-**Tray C — NUTS · INSERTS · WASHERS · MAGNETS · T-NUTS:** Gridfinity 5 × 5 × 4U (209.5 × 209.5 × 28 mm + lip), 11 compartments in 3 rows (row 1 is the front); fullest M3 INSERT HEAT-SET at 58%.
+**Tray B — M4 · M5 SCREWS · T-NUTS:** Gridfinity 5 × 4 × 5U (209.5 × 167.5 × 35 mm + lip), 10 compartments in 2 rows (row 1 is the front); fullest M5×40 SHCS at 70%.
 
 | row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
 |---:|---|---:|---|---:|---:|---|---:|---:|
-| 1 | M3 NUT · HEX 14 | 14 | cyl 6.35 × 2.4 | 0.58 | 1.8 | 41 × 35 × 21.0 | 29.0 | 6% |
-| 1 | M5 NUT · HEX 30 | 30 | cyl 9.24 × 4.7 | 0.58 | 16.3 | 40 × 35 × 21.0 | 28.2 | 58% |
-| 1 | M3 INSERT · HEAT-SET 153 | 153 | cyl 5.35 × 4 | 0.55 | 25.0 | 62 × 35 × 21.0 | 43.3 | 58% |
-| 1 | M3 WASHER · 6 | 6 | cyl 7 × 0.55 | 0.55 | 0.2 | 62 × 35 × 21.0 | 43.6 | 1% |
-| 2 | M5 WASHER · 1 mm · 9 | 9 | cyl 10 × 1 | 0.55 | 1.3 | 56 × 25 × 21.0 | 27.7 | 5% |
-| 2 | M5 SPACER · 1 mm · 46 | 46 | cyl 10 × 1 | 0.55 | 6.6 | 50 × 25 × 21.0 | 24.9 | 26% |
-| 2 | M5 LOCK · WASHER 2 | 2 | cyl 9.2 × 2.4 | 0.55 | 0.6 | 40 × 25 × 21.0 | 20.0 | 3% |
-| 2 | M4 KNURLED · NUT 4 | 4 | cyl 14.08 × 8 | 0.58 | 8.6 | 59 × 25 × 21.0 | 29.5 | 29% |
-| 3 | 6×3 MAGNET · 16 | 16 | cyl 6 × 3 | 0.60 | 2.3 | 70 × 106 × 21.0 | 152.9 | 1% |
-| 3 | M3 T-NUT · ROLL-IN 135 | 135 | box 12.5 × 7.7 × 4.3 | 0.55 | 101.6 | 84 × 106 × 21.0 | 184.8 | 55% |
-| 3 | M5 T-NUT · ROLL-IN 80 | 80 | box 13 × 7.7 × 4.3 | 0.55 | 62.6 | 52 × 106 × 21.0 | 113.8 | 55% |
+| 1 | M5×40 · SHCS 26 | 26 | cyl 8.72 × 45 | 0.89 | 78.1 | 76 × 54 × 28.0 | 111.9 | 70% |
+| 1 | M4×6 · BHCS 8 | 8 | cyl 7.6 × 8.2 | 1.00 | 3.0 | 25 × 54 × 28.0 | 37.0 | 8% |
+| 1 | M5×6 · BHCS 1 | 1 | cyl 9.5 × 8.75 | 1.00 | 0.6 | 25 × 54 × 28.0 | 37.0 | 2% |
+| 1 | M5×10 · BHCS 54 | 54 | cyl 9.5 × 12.75 | 1.00 | 48.8 | 47 × 54 × 28.0 | 70.0 | 70% |
+| 1 | M5×14 · BHCS 4 | 4 | cyl 9.5 × 16.75 | 1.00 | 4.7 | 31 × 54 × 28.0 | 45.4 | 10% |
+| 2 | M5×16 · BHCS 43 | 43 | cyl 9.5 × 18.75 | 1.00 | 57.1 | 36 × 84 × 28.0 | 82.0 | 70% |
+| 2 | M5×30 · BHCS 26 | 26 | cyl 9.5 × 32.75 | 0.95 | 63.4 | 40 × 84 × 28.0 | 91.1 | 70% |
+| 2 | M4×4 · SET 32 | 32 | cyl 4 × 4 | 0.55 | 2.9 | 25 × 84 × 28.0 | 57.9 | 5% |
+| 2 | M3 T-NUT · ROLL-IN 135 | 135 | box 12.5 × 7.7 × 4.3 | 0.55 | 101.6 | 63 × 84 × 28.0 | 145.9 | 70% |
+| 2 | M5 T-NUT · ROLL-IN 80 | 80 | box 13 × 7.7 × 4.3 | 0.55 | 62.6 | 41 × 84 × 28.0 | 93.9 | 67% |
+
+**Tray C — NUTS · INSERTS · WASHERS · MAGNETS · T-NUTS:** Gridfinity 5 × 4 × 4U (209.5 × 167.5 × 28 mm + lip), 11 compartments in 3 rows (row 1 is the front); fullest M3 T-NUT HAMMER at 58%.
+
+| row | label | count | piece envelope mm | φ | bulk cm³ | size mm | usable cm³ | fill |
+|---:|---|---:|---|---:|---:|---|---:|---:|
+| 1 | M3 NUT · HEX 14 | 14 | cyl 6.35 × 2.4 | 0.58 | 1.8 | 42 × 36 × 21.0 | 30.6 | 6% |
+| 1 | M5 NUT · HEX 30 | 30 | cyl 9.24 × 4.7 | 0.58 | 16.3 | 40 × 36 × 21.0 | 29.1 | 56% |
+| 1 | M3 INSERT · HEAT-SET 153 | 153 | cyl 5.35 × 4 | 0.55 | 25.0 | 60 × 36 × 21.0 | 44.0 | 57% |
+| 1 | M3 WASHER · 6 | 6 | cyl 7 × 0.55 | 0.55 | 0.2 | 63 × 36 × 21.0 | 46.1 | 1% |
+| 2 | M5 WASHER · 1 mm · 9 | 9 | cyl 10 × 1 | 0.55 | 1.3 | 56 × 26 × 21.0 | 28.8 | 4% |
+| 2 | M5 SPACER · 1 mm · 46 | 46 | cyl 10 × 1 | 0.55 | 6.6 | 50 × 26 × 21.0 | 25.8 | 25% |
+| 2 | M5 LOCK · WASHER 2 | 2 | cyl 9.2 × 2.4 | 0.55 | 0.6 | 40 × 26 × 21.0 | 20.7 | 3% |
+| 2 | M4 KNURLED · NUT 4 | 4 | cyl 14.08 × 8 | 0.58 | 8.6 | 59 × 26 × 21.0 | 30.6 | 28% |
+| 3 | 6×3 MAGNET · 16 | 16 | cyl 6 × 3 | 0.60 | 2.3 | 66 × 62 × 21.0 | 83.5 | 3% |
+| 3 | M3 T-NUT · HAMMER 75 | 75 | box 10.92 × 9.14 × 4.85 | 0.55 | 66.0 | 90 × 62 × 21.0 | 113.9 | 58% |
+| 3 | M5 T-NUT · HAMMER 16 | 16 | box 11 × 9.2 × 5 | 0.55 | 14.7 | 50 × 62 × 21.0 | 62.7 | 23% |
 
 Piece data and sources:
 
 | BOM item | solid mm³ | envelope mm³ | solid/bulk | source |
 |---|---:|---:|---:|---|
-| Machine Screw, SHCS, M3x8 | 133 | 279 | 0.26 | ISO 4762 |
-| Machine Screw, SHCS, M3x12 | 161 | 380 | 0.23 | ISO 4762 |
-| Machine Screw, SHCS, M3x16 | 189 | 481 | 0.21 | ISO 4762 |
-| Machine Screw, SHCS, M3x20 | 217 | 583 | 0.19 | ISO 4762 |
-| Machine Screw, SHCS, M3x25 | 253 | 709 | 0.18 | ISO 4762 |
-| Machine Screw, SHCS, M3x30 | 288 | 836 | 0.17 | ISO 4762 |
-| Machine Screw, SHCS, M3x35 | 323 | 963 | 0.16 | ISO 4762 |
-| Machine Screw, SHCS, M3x40 | 359 | 1090 | 0.15 | ISO 4762 |
-| Machine Screw, SHCS, M3x50 | 429 | 1343 | 0.14 | ISO 4762 |
-| Machine Screw, BHCS, M3x6 | 85 | 195 | 0.24 | ISO 7380 |
-| Machine Screw, BHCS, M3x25 | 219 | 680 | 0.16 | ISO 7380 |
-| Machine Screw, FHCS, M3x6 | 58 | 170 | 0.19 | ISO 10642 |
-| Machine Screw, FHCS, M3x10 | 87 | 283 | 0.17 | ISO 10642 |
-| Machine Screw, Wafer head, M3x25 | 252 | 1332 | 0.10 | EST (wafer head 8 × 1.5) |
-| Machine Screw, Captive, M3x6 | 118 | 228 | 0.29 | EST (as ISO 4762 head) |
-| Self-tapping Screw, M2x10 | 52 | 146 | 0.19 | ISO 14583 pan head; CAD 4.0 × 11.6 |
+| Machine Screw, SHCS, M3x8 | 133 | 279 | 0.48 | ISO 4762 |
+| Machine Screw, SHCS, M3x12 | 161 | 380 | 0.41 | ISO 4762 |
+| Machine Screw, SHCS, M3x16 | 189 | 481 | 0.38 | ISO 4762 |
+| Machine Screw, SHCS, M3x20 | 217 | 583 | 0.35 | ISO 4762 |
+| Machine Screw, SHCS, M3x25 | 253 | 709 | 0.32 | ISO 4762 |
+| Machine Screw, SHCS, M3x30 | 288 | 836 | 0.30 | ISO 4762 |
+| Machine Screw, SHCS, M3x35 | 323 | 963 | 0.28 | ISO 4762 |
+| Machine Screw, SHCS, M3x40 | 359 | 1090 | 0.27 | ISO 4762 |
+| Machine Screw, SHCS, M3x50 | 429 | 1343 | 0.26 | ISO 4762 |
+| Machine Screw, BHCS, M3x6 | 85 | 195 | 0.43 | ISO 7380 |
+| Machine Screw, BHCS, M3x25 | 219 | 680 | 0.29 | ISO 7380 |
+| Machine Screw, FHCS, M3x6 | 58 | 170 | 0.34 | ISO 10642 |
+| Machine Screw, FHCS, M3x10 | 87 | 283 | 0.31 | ISO 10642 |
+| Machine Screw, Wafer head, M3x25 | 252 | 1332 | 0.18 | EST (wafer head 8 × 1.5) |
+| Machine Screw, Captive, M3x6 | 118 | 228 | 0.52 | EST (as ISO 4762 head) |
+| Self-tapping Screw, M2x10 | 52 | 146 | 0.34 | ISO 14583 pan head; CAD 4.0 × 11.6 |
 | Set Screw, M3x2, Pre-applied Threadlocker | 14 | 14 | 0.55 | ISO 4026 (d × L) |
-| Machine Screw, SHCS, M5x40 | 1084 | 2687 | 0.20 | ISO 4762 |
-| Machine Screw, BHCS, M4x6 | 175 | 372 | 0.26 | ISO 7380 |
-| Machine Screw, BHCS, M5x6 | 313 | 620 | 0.28 | ISO 7380 |
-| Machine Screw, BHCS, M5x10 | 391 | 904 | 0.24 | ISO 7380 |
-| Machine Screw, BHCS, M5x14 | 470 | 1187 | 0.22 | ISO 7380 |
-| Machine Screw, BHCS, M5x16 | 509 | 1329 | 0.21 | ISO 7380 |
-| Machine Screw, BHCS, M5x30 | 784 | 2321 | 0.18 | ISO 7380 |
+| Machine Screw, SHCS, M5x40 | 1084 | 2687 | 0.36 | ISO 4762 |
+| Machine Screw, BHCS, M4x6 | 175 | 372 | 0.47 | ISO 7380 |
+| Machine Screw, BHCS, M5x6 | 313 | 620 | 0.50 | ISO 7380 |
+| Machine Screw, BHCS, M5x10 | 391 | 904 | 0.43 | ISO 7380 |
+| Machine Screw, BHCS, M5x14 | 470 | 1187 | 0.40 | ISO 7380 |
+| Machine Screw, BHCS, M5x16 | 509 | 1329 | 0.38 | ISO 7380 |
+| Machine Screw, BHCS, M5x30 | 784 | 2321 | 0.32 | ISO 7380 |
 | Set Screw, M4x4, Pre-applied Threadlocker | 50 | 50 | 0.55 | ISO 4026 (d × L) |
-| T-nut, Hammer Head, 2020, M3 | 185 | 484 | 0.21 | CAD |
-| T-nut, Hammer Head, 2020, M5 | 190 | 506 | 0.21 | EST |
+| T-nut, Roll-in, 2020, M3 | 286 | 414 | 0.38 | CAD |
+| T-nut, Roll-in, 2020, M5 | 272 | 430 | 0.35 | CAD |
 | Hexnut, M3 | 46 | 76 | 0.35 | ISO 4032 s, m |
 | Hexnut, M5 | 168 | 315 | 0.31 | ISO 4032 s, m |
 | Heatset Insert, Brass, M3x5x4 | 62 | 90 | 0.38 | NAME; CAD knurl 5.35 |
@@ -341,8 +359,8 @@ Piece data and sources:
 | Locking Washer, M5 | 56 | 160 | 0.19 | EST (DIN 127 split, twisted) |
 | Knurled Nut, M4 | 747 | 1246 | 0.35 | CAD (DIN 466-B) |
 | 6x3mm Neodymium Magnet | 85 | 85 | 0.60 | NAME; CAD |
-| T-nut, Roll-in, 2020, M3 | 286 | 414 | 0.38 | CAD |
-| T-nut, Roll-in, 2020, M5 | 272 | 430 | 0.35 | CAD |
+| T-nut, Hammer Head, 2020, M3 | 185 | 484 | 0.21 | CAD |
+| T-nut, Hammer Head, 2020, M5 | 190 | 506 | 0.21 | EST |
 
 Not in a compartment: Teflon Tube (4mm OD 3mm ID) - 1.2m; Zip Ties, 3x150mm; Brass Heatset Insert tool (for M3 Brass Inserts); Drill bit, 2mm; Hex Wrench, 1.5mm; Hex Wrench, 2mm; Hex Wrench, 2.5mm; Hex Wrench, 3mm; Hex Wrench, 4mm; Slot head screwdriver, 2.5mm; Aluminium Handle.
 <!-- END generated:layout -->
@@ -350,11 +368,11 @@ Not in a compartment: Teflon Tube (4mm OD 3mm ID) - 1.2m; Zip Ties, 3x150mm; Bra
 <!-- BEGIN generated:slice -->
 | file | bin | time | g PLA | colour change Z | extents on the bed, mm | supports |
 |---|---|---|---:|---:|---|---|
-| `tray-A.3mf` | 5 × 5 × 6U | 7h 27m 41s | 262 | 40.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 46.00 | none |
-| `tray-B.3mf` | 5 × 5 × 5U | 5h 50m 21s | 208 | 33.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 39.00 | none |
-| `tray-C.3mf` | 5 × 5 × 4U | 5h 16m 33s | 182 | 26.40 | X 20.4–229.6, Y 5.4–214.6, Z ≤ 32.00 | none |
+| `tray-A.3mf` | 5 × 4 × 5U | 5h 58m 10s | 207 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
+| `tray-B.3mf` | 5 × 4 × 5U | 4h 40m 28s | 166 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
+| `tray-C.3mf` | 5 × 4 × 4U | 4h 35m 48s | 158 | 26.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 32.00 | none |
 
-All trays: **18.6 h, 652 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 3 top / 3 bottom layers, 10% infill; 0 gap-fill extrusions; slicer stability notes: Long bridging extrusions (the base grooves and the hollow feet's 40 mm roofs, expected). The colour-change Z is the first label layer, checked against each G-code.
+All trays: **15.2 h, 531 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 3 top / 3 bottom layers, 10% infill; 0 gap-fill extrusions; slicer stability notes: Long bridging extrusions (the base grooves and the hollow feet's 40 mm roofs, expected). The colour-change Z is the first label layer, checked against each G-code.
 <!-- END generated:slice -->
 
 ## Credit and licence

@@ -1,7 +1,7 @@
 # Printables listing — draft (not posted)
 
 Post after the first tray is printed and fitted, so the listing carries a real photo and the design is
-proven: start with tray C (about 5 h). Fields below map to Printables' upload form.
+proven: start with tray C (about 4 h 36 m). Fields below map to Printables' upload form.
 
 ## Name
 
@@ -10,7 +10,7 @@ LDO Voron 2.4 Kit Hardware Trays (Gridfinity, labelled, ultra-light)
 ## Summary
 
 Three labelled Gridfinity trays that hold every fastener in the LDO Voron 2.4 R2 kit, each compartment
-sized to its part count. 652 g PLA for the set.
+sized to its part count. 531 g PLA for the set.
 
 ## Files to upload
 
@@ -55,14 +55,14 @@ These trays hold every fastener type in the **LDO Voron 2.4 R2 kit** (Rev D/D+ B
 labelled compartment per type, so a kit's hardware bags can be emptied into them on day one and each
 screw size stays where you can see it.
 
-**Three trays, one 5 × 5 Gridfinity footprint.** Every tray stacks on every other and sits on any
-Gridfinity baseplate.
+**Three trays, one 5 × 4 Gridfinity footprint.** Every tray stacks on every other and sits on any
+Gridfinity baseplate; each fits Akio's 5 × 4 Gridfinity rugged case (Voron Edition), one at a time.
 
 | Tray | Holds | Height | PLA | Time (Core One+) |
 |---|---|---|---:|---|
-| A | M2 and M3 screws (SHCS 8–50, BHCS, FHCS, wafer, captive, M2 self-tappers, set screws) | 6U | 262 g | 7 h 28 m |
-| B | M4/M5 screws, M3/M5 hammer-head T-nuts | 5U | 208 g | 5 h 50 m |
-| C | Nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets, M3/M5 roll-in T-nuts | 4U | 182 g | 5 h 17 m |
+| A | M2 and M3 screws (SHCS 8–50, BHCS, FHCS, wafer, captive, M2 self-tappers, set screws) | 5U | 207 g | 5 h 58 m |
+| B | M4/M5 screws, M3/M5 roll-in T-nuts | 5U | 166 g | 4 h 40 m |
+| C | Nuts, heat-set inserts, washers, spacers, lock washers, knurled nuts, magnets, M3/M5 hammer-head T-nuts | 4U | 158 g | 4 h 36 m |
 
 **Sized to the kit's counts.** Each compartment is sized from the part's dimensions and the kit quantity
 (283 × M3×8, 153 inserts, 135 roll-in T-nuts …) so that a full kit fills it to at most 70 %, leaving room
@@ -70,7 +70,7 @@ to scoop. Every compartment is at least finger-sized and has a 12 mm rounded sco
 the hard-to-pick-up parts.
 
 **Labels.** Raised labels (size, type, kit count) on a ledge behind each row. For two-colour labels, change
-filament at Z 40.4 mm (A), 33.4 mm (B) or 26.4 mm (C).
+filament at Z 33.4 mm (A), 33.4 mm (B) or 26.4 mm (C).
 
 **Ultra-light.** Two-perimeter 0.86 mm walls and dividers, and hollow feet under a flat floor (no ridges for
 washers and magnets to hide in). The outside of the feet and the stacking lip follow the Gridfinity spec.
