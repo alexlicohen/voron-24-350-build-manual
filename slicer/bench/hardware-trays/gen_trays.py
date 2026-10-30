@@ -77,17 +77,19 @@ HOLE_FROM_SIDE = 8.0        # hole centre from each side of a unit (d_hole_from_
 BED_X, BED_Y = 250.0, 220.0
 # Plastic levers (ideas from HuMa's "Gridfinity Ultra Light Bins", Printables 627719; no
 # geometry used). All on by default; `--levers` picks a subset for the per-lever comparison.
-LEVER_NAMES = ("settings", "thin", "ledges", "coves", "base")
+LEVER_NAMES = ("settings", "thin", "ledges", "coves", "base", "pockets")
 # Hollow ledges and coves cost plastic at 10 % infill (each void adds two perimeters per layer,
 # more than the sparse infill it replaces; README § Ultra-light), so they are off by default.
+# Hollow feet (`pockets`) are off too (Alex 2026-10-30): a closed pocket gets no infill and its
+# floor plate bridges ~40 mm; solid feet take the 10 % infill and the floor lands on it.
 DEFAULT_LEVERS = ("settings", "thin", "base")
 LEVERS: set[str] = set(DEFAULT_LEVERS)
 # Two perimeters of the HF0.4 BALANCED preset: width w = 0.45 at 0.2 mm layers, spacing
 # w - h(1 - pi/4) = 0.407, so two lines make w + spacing = 0.857 mm: a 0.86 wall slices as
 # exactly two perimeters, no gap fill.
 T2 = 0.86
-FLOOR_PLATE_TOP = 5.8       # hollow base: floor plate from the base top (4.75) to 5.8 (5 layers)
-POCKET_FLOOR = 0.6          # hollow base: the foot pocket's floor, three 0.2 mm layers
+FLOOR_PLATE_TOP = 5.8       # `base`: compartment floor 1.2 mm lower, at 5.8 (5 layers over the 4.75 base top)
+POCKET_FLOOR = 0.6          # `pockets`: the foot pocket's floor, three 0.2 mm layers
 SHELF = 1.0                 # solid under a label ledge's top, above its hollow
 WALL = LIP_DEPTH            # outer wall (T2 with the `thin` lever; the lip then sits on a 45° support)
 FLOOR_Z = BASE_HEIGHT       # compartment floor (FLOOR_PLATE_TOP with the `base` lever)
@@ -670,7 +672,7 @@ def foot_pocket(cx: float, cy: float):
 
 
 def build_shell(tray: Tray, holes: str = "none", hollow: bool = False):
-    """The Gridfinity bin without compartments: bases (hollow with the `base` lever), body, the
+    """The Gridfinity bin without compartments: bases (hollow with the `pockets` lever), body, the
     stacking lip, the empty space above the rim inside the lip, and optional holes. `hollow`
     also clears the interior down to the floor (the plain bin `--validate` compares)."""
     import cadquery as cq
@@ -682,7 +684,7 @@ def build_shell(tray: Tray, holes: str = "none", hollow: bool = False):
     centres = [(GRID / 2 - GAP / 2 + GRID * i, GRID / 2 - GAP / 2 + GRID * j)
                for i in range(tray.nx) for j in range(tray.ny)]
     feet = [base_unit(cx, cy) for cx, cy in centres]
-    if "base" in LEVERS and holes == "none":
+    if "pockets" in LEVERS and holes == "none":
         feet = [f.cut(foot_pocket(cx, cy)) for f, (cx, cy) in zip(feet, centres)]
     z0 = FLOOR_Z if hollow else rim_z(u)
     inset = WALL if hollow else LIP_DEPTH
@@ -877,6 +879,8 @@ def export_stl(shape, path: Path, tol: float = 0.05, ang: float = 0.3) -> None:
 
 
 # ------------------------------------------------------------------ slicer
+CHANGE_XML = "Metadata/Prusa_Slicer_custom_gcode_per_print_z.xml"
+LABEL_COLOUR = "#000000"     # preview colour only: the label filament is whatever you load at the stop
 PRINT = "0.20mm BALANCED @COREONE HF0.4"
 FILAMENT = "Prusament PLA @COREONE HF0.4"
 
@@ -926,17 +930,29 @@ def bed_centre(ini: Path) -> tuple[float, float, float, float]:
     return (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2, max(xs) - min(xs), max(ys) - min(ys)
 
 
-def make_project(stl: Path, ini: Path, name: str) -> tuple[Path, str]:
+def make_project(stl: Path, ini: Path, name: str,
+                 change_z: float | None = None) -> tuple[Path, str]:
     from build_plates import PRUSA, inject_3mf, run
+    import zipfile
     cx, cy, _bw, _bd = bed_centre(ini)
     dst = HERE / f"{name}.3mf"
     p = run([PRUSA, "--load", str(ini), "--dont-arrange", "--center", f"{cx:g},{cy:g}",
              "--export-3mf", "-o", str(dst), str(stl)])
     inject_3mf(dst, ini, {}, {stl.name: name})
+    if change_z is not None:
+        # A colour change (M600) at the first label layer, as the GUI's layer slider would save
+        # it, so the printer stops for the label filament by itself (Alex 2026-10-30).
+        xml = ('<?xml version="1.0" encoding="utf-8"?>\n<custom_gcodes_per_print_z>\n'
+               f'<code print_z="{change_z:.2f}" type="0" extruder="1" color="{LABEL_COLOUR}" '
+               'extra="" gcode="M600"/>\n<mode value="SingleExtruder"/>\n'
+               '</custom_gcodes_per_print_z>\n')
+        with zipfile.ZipFile(dst, "a") as z:
+            z.writestr(CHANGE_XML, xml)
     return dst, (p.stdout + p.stderr).strip()
 
 
-def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
+def slice_project(project: Path, tmp: Path, colour_z: list[float],
+                  change_z: float | None = None) -> dict:
     from build_plates import PRUSA, read_footer, run
     gcode = tmp / (project.stem + ".gcode")
     p = run([PRUSA, "--dont-arrange", "--binary-gcode=0", "--export-gcode", "-o", str(gcode),
@@ -971,6 +987,13 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float]) -> dict:
     if missing:
         raise SystemExit(f"{project.name}: layers {missing} missing - the colour-change Z in "
                          "README.md would be wrong")
+    if change_z is not None:
+        # the M600 must open the first label layer: the next ;Z: before it is change_z
+        i = text.find("\nM600")
+        zs_before = re.findall(r"^;Z:([\d.]+)", text[:i], re.M) if i >= 0 else []
+        if i < 0 or text.count("\nM600") != 1 or round(float(zs_before[-1]) - dz, 2) != round(change_z, 2):
+            raise SystemExit(f"{project.name}: expected one M600 at the start of layer {change_z}, "
+                             f"found {text.count(chr(10) + 'M600')} (last Z {zs_before[-1:] })")
     gap = text.count(";TYPE:Gap fill")
     return dict(hours=hours, grams=grams, raw=raw, log=log, issues=issues, gapfill=gap,
                 top=cfg.get("top_solid_layers"), bottom=cfg.get("bottom_solid_layers"),
@@ -1267,7 +1290,7 @@ def slice_md(results: list[tuple[str, dict]]) -> str:
     warned = sorted({i for _n, r in results for i in r["issues"]})
     note = ("no slicer warnings" if not warned else
             "slicer stability notes: " + ", ".join(warned)
-            + " (the base grooves and the hollow feet's 40 mm roofs, expected)")
+            + " (the base grooves and the floor's first layer over the feet's sparse infill, expected)")
     gaps = sum(r["gapfill"] for _n, r in results)
     out += ["", f"All trays: **{th:.1f} h, {tg:.0f} g**. PrusaSlicer 2.9.6 CLI estimates, one "
             f"tray per bed, not GUI-arranged; {r['perimeters']} perimeters, {r['top']} top / "
@@ -1554,9 +1577,10 @@ def main() -> int:
         _cx, _cy, bw, bd = bed_centre(ini)
         results = []
         for name in stls:
-            proj, log = make_project(stls[name], ini, name)
             t = next(t for t in trays if f"tray-{t.letter}" == name)
-            r = slice_project(proj, tmp, [rim_z(t.u) - EMBOSS, colour_z(t), rim_z(t.u)])
+            proj, log = make_project(stls[name], ini, name, colour_z(t))
+            r = slice_project(proj, tmp, [rim_z(t.u) - EMBOSS, colour_z(t), rim_z(t.u)],
+                              colour_z(t))
             r["colour_z"], r["size"] = colour_z(t), f"{t.nx} × {t.ny} × {t.u}U"
             if not (0 <= r["xmin"] and r["xmax"] <= bw and 0 <= r["ymin"] and r["ymax"] <= bd):
                 raise SystemExit(f"{name}: extrusion outside the {bw:g} x {bd:g} bed: {r}")

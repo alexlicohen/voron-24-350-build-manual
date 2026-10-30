@@ -126,7 +126,7 @@ willtree8) and the constants in
 | Base, per unit | from the bottom: 0.8 at 45°, 1.8 vertical, 2.15 at 45° (4.75 high); bottom 35.6 square r0.8, top 41.5 r3.75 |
 | Height | 7 mm units; bin height 7 u includes the 7 mm base (profile + bridge) and excludes the lip (6U = 42 mm) |
 | Stacking lip | from its inner tip at the bin height: 0.7 at 45°, 1.8 vertical, 1.9 at 45° (2.6 deep, 4.4 high) |
-| Interior | floor at 5.8 (a floor plate on top of hollow feet, below); dividers and labels stop 1.2 below the bin height (rebuilt's lip support height), so a bin stacked on top never touches them |
+| Interior | floor at 5.8 (a floor over solid, infilled feet, below); dividers and labels stop 1.2 below the bin height (rebuilt's lip support height), so a bin stacked on top never touches them |
 | Holes (option) | magnet Ø6.5 × 2.4, or M3 Ø3 × 6, 8 mm in from each side of every unit; none by default (Clickfinity baseplates hold bins without magnets) |
 
 Deliberate differences: the lip's knife-edge top is cut back to a 0.3 mm flat, so the bin is 0.3 mm under
@@ -157,10 +157,11 @@ G-code (AFS bypass flaps, as `slicer/bay-ducts-petg.ini` does for PETG). Support
 2 perimeters, 3 top and 3 bottom layers (minimum-thickness rules off, so it is 3 layers), 10 % infill; nothing
 else is overridden (0.2 mm layers, 0.45 mm lines). The base's 45° steps print without support.
 
-**Two-colour labels (optional):** the labels, the top 0.6 mm of the dividers and the stacking lip are
-everything above the label ledges. In PrusaSlicer's layer slider, add a colour change (M600) at the tray's
-*colour change Z* in the slice table below (the first layer above the ledges), then load the label colour
-when the printer asks.
+**Two-colour labels:** the labels, the top 0.6 mm of the dividers and the stacking lip are everything above
+the label ledges. Each 3MF carries a colour change (M600) at the tray's *colour change Z* in the slice table
+below (the first layer above the ledges; Alex 2026-10-30), so the printer stops there by itself: load the
+label colour when it asks. For one colour, delete the change in the layer slider or just reload the same
+spool.
 
 **No lids.** A bin stacked on a tray of the same footprint closes it (its base sits in the stacking lip), and
 the bins sit on any Gridfinity baseplate. Which trays stack, and which fit the optional closed carry box,
@@ -172,7 +173,7 @@ hammer-head T-nuts, small parts) into at most three trays on one common footprin
 height: the fewest bin units (Σ n·m·U, a plastic proxy), then the fewest trays (Alex 2026-10-30: three 5 × 4
 over two 5 × 5); groupings that tie on bin units are sliced and the lightest wins. No tray is lower than **`MIN_U` = 4** (Alex: parts must not spill when a
 tray tilts), and every piece lying flat stays at least 2 mm below the rim. At the screw φ of 1.0 → 0.8 the
-result is the generated block below: three 5 × 4 trays, 15.2 h, 531 g. History: at the earlier φ of 0.55 → 0.45
+result is the generated block below: three 5 × 4 trays, 15.1 h, 547 g (solid feet). History: at the earlier φ of 0.55 → 0.45
 only 5 × 5 held the M2/M3 screws; with `MIN_U` = 4 the best three groupings then, all sliced (`--compare 3`,
 ultra-light, 2026-10-05):
 
@@ -188,7 +189,7 @@ lighter by 11 g. Putting all the T-nuts with the M4/M5 screws still does not fit
 
 Every compartment has the full R12 scoop cove on its front wall, solid. `renders/tray-{A,B,C}-section.png`
 are Y–Z sections through each tray at a third of its width, drawn from the STL, showing the coves, the label
-ledges, the hollow feet and the lip.
+ledges, the infilled feet and the lip.
 
 ## Ultra-light
 
@@ -219,31 +220,32 @@ each step):
 - **Hollow ledges and coves cost plastic.** At 10 % infill a void inside a 13 mm ledge or a cove adds two
   perimeters round it on every layer, more than the sparse infill it replaces, and more print time. Both are
   implemented (`--levers settings,thin,ledges,coves,base`) and off.
-- **Hollow base**: each foot is a shell, 0.86 mm walls following the foot profile and a 3-layer (0.6 mm)
-  pocket floor, closed on top by a 1.05 mm floor plate at the base top (z 4.75–5.8); the compartment floor
-  is flat at 5.8, 1.2 mm lower than before. The call: a **flat floor over closed feet**, not floors dipping
+- **Low floor (`base`)**: the compartment floor is flat at 5.8, 1.05 mm over the base top (z 4.75), 1.2 mm
+  lower than before. The feet under it are **solid** and slice with the 10 % infill (Alex 2026-10-30): as
+  closed shells (`pockets`, now off: 0.86 mm walls, a 0.6 mm pocket floor) they got no infill and the floor
+  bridged about 40 mm over each pocket; solid, the floor's first layer spans one 10 % grid cell (~9 mm).
+  Solid feet cost 16 g (547 against 531 g) and no time. The call: a **flat floor**, not floors dipping
   into the feet as HuMa's bins do. Dipped floors would leave a 5 mm ridge every 42 mm across every
   compartment, wells with 45° sides where washers, magnets and set screws collect, and V-notches where a
-  divider crosses a well; the coves would hang over the wells. The flat floor costs a 40 mm bridge over
-  each foot pocket (PrusaSlicer's stability check lists it with the base grooves as "Long bridging
-  extrusions"; no supports) and some of the plastic dipping would save. No tray drops a height unit from
+  divider crosses a well; the coves would hang over the wells. PrusaSlicer's stability check lists the floor's first
+  layer over sparse infill with the base grooves as "Long bridging extrusions" (no supports). No tray drops a height unit from
   the lower floor alone (2026-10-05, at the old φ): A still needed 6U, and `MIN_U` keeps C at 4U. Holes (`--holes`) need
-  solid feet, so the option turns the hollow base off.
+  solid feet, which is now the default.
 
 **Strength.** Tray A full is about 0.5 kg of steel.
 - *Lifted by one end*: the tray is a box 209.5 × 209.5 × 42 mm with 0.86 mm walls. Every 25–80 mm a 0.86 mm
   divider is fused to the outer wall, and every row ends in a solid 13.2 mm label ledge running wall to wall
-  (ribs). The floor is a 1.05 mm plate on 25 foot shells. The worst case, held at one edge with the steel
+  (ribs). The floor sits on 20 infilled feet. The worst case, held at one edge with the steel
   spread evenly, puts about 0.5 N·m of bending on that section: well under 1 MPa in PLA, which yields near
   50 MPa. The lip is solid, so it is a sound place to grip.
 - *Two full trays stacked*: about 5 N rests on the lower tray's lip ring, about 820 mm long, carried by the
   45° support into the walls: a few kPa.
-- *Floor*: a 1.05 mm plate spans each 40 mm foot pocket, edges fixed, carrying a fraction of a newton per pocket.
+- *Floor*: carried by the feet's 10 % grid; the longest span is one ~9 mm cell.
 - Every wall and divider is at least 2 perimeters, the floors at least 3 layers. Nothing here is close to
   a limit; the limit in use is a drop, not a load.
 
 <!-- BEGIN generated:layout -->
-Generated from `scripts/data/ldo-350-bom.yml` (box *Fasteners, Tools & Misc*, fetched 2026-09-24). Each tray is sized on its own: the smallest footprint, then the lowest height, that holds its group at ≤ 70% fill with the finger floor.
+Generated from `scripts/data/ldo-350-bom.yml` (box *Fasteners, Tools & Misc*, fetched 2026-10-30). Each tray is sized on its own: the smallest footprint, then the lowest height, that holds its group at ≤ 70% fill with the finger floor.
 
 20 groupings of whole families fit ≤ 3 trays on one common footprint, each tray at its lowest height. Best five by bin units (Σ n·m·U, the plastic proxy):
 
@@ -253,7 +255,7 @@ Generated from `scripts/data/ldo-350-bom.yml` (box *Fasteners, Tools & Misc*, fe
 4. 3 trays, 300 bin units: M2/M3 screws 5×4×5U | M4/M5 screws 5×4×4U | roll-in T-nuts + hammer-head T-nuts + small parts 5×4×6U
 5. 3 trays, 300 bin units: M2/M3 screws 4×5×6U | M4/M5 screws 4×5×4U | roll-in T-nuts + hammer-head T-nuts + small parts 4×5×5U
 
-2 groupings tie at 280 bin units; sliced: 1. 531 g, 15.2 h; 2. 548 g, 15.8 h. Chosen: 1, the lightest.
+2 groupings tie at 280 bin units; sliced: 1. 547 g, 15.1 h; 2. 563 g, 15.5 h. Chosen: 1, the lightest.
 
 Usable depth (floor to rim) by height: 4U 21.0 mm, 5U 28.0 mm, 6U 35.0 mm.
 
@@ -368,11 +370,11 @@ Not in a compartment: Teflon Tube (4mm OD 3mm ID) - 1.2m; Zip Ties, 3x150mm; Bra
 <!-- BEGIN generated:slice -->
 | file | bin | time | g PLA | colour change Z | extents on the bed, mm | supports |
 |---|---|---|---:|---:|---|---|
-| `tray-A.3mf` | 5 × 4 × 5U | 5h 58m 10s | 207 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
-| `tray-B.3mf` | 5 × 4 × 5U | 4h 40m 28s | 166 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
-| `tray-C.3mf` | 5 × 4 × 4U | 4h 35m 48s | 158 | 26.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 32.00 | none |
+| `tray-A.3mf` | 5 × 4 × 5U | 5h 51m 3s | 211 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
+| `tray-B.3mf` | 5 × 4 × 5U | 4h 40m 25s | 172 | 33.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 39.00 | none |
+| `tray-C.3mf` | 5 × 4 × 4U | 4h 32m 18s | 164 | 26.40 | X 20.4–229.6, Y 26.4–193.6, Z ≤ 32.00 | none |
 
-All trays: **15.2 h, 531 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 3 top / 3 bottom layers, 10% infill; 0 gap-fill extrusions; slicer stability notes: Long bridging extrusions (the base grooves and the hollow feet's 40 mm roofs, expected). The colour-change Z is the first label layer, checked against each G-code.
+All trays: **15.1 h, 547 g**. PrusaSlicer 2.9.6 CLI estimates, one tray per bed, not GUI-arranged; 2 perimeters, 3 top / 3 bottom layers, 10% infill; 0 gap-fill extrusions; slicer stability notes: Long bridging extrusions (the base grooves and the floor's first layer over the feet's sparse infill, expected). The colour-change Z is the first label layer, checked against each G-code.
 <!-- END generated:slice -->
 
 ## Credit and licence
