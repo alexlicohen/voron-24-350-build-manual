@@ -88,6 +88,8 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B07.4 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
+- **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
+    - Step B11.8 — Reads each bin label aloud and checks the count against the diagram.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
     - Step B08.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B08 — Skirts and front modules** — <span data-first-step="B08.4">Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P2 running, 6.5 h unattended — door shut; come back for the next step when it ends</span>
@@ -119,8 +121,6 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step 00.25 — Picks one of each fastener out of the bags and lays it beside its name on the page.
 - **Ch 00 — Before you start** — <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01.</span>
     - Step 00.30 — Rules the log columns and writes in each number you call out.
-- **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
-    - Step B11.8 — Reads each bin label aloud and checks the count against the diagram.
 
 </div>
 
@@ -185,6 +185,14 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B07.6">Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled.</span>
 - <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.</span>
+
+### 32 · Print — B11 — Bay ducting, part 1
+- <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.</span>
+- <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate.</span>
+- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
 
 ### 11 · Print — B08 — Skirts and front modules
 - <span data-first-step="B08.2">Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
@@ -395,14 +403,6 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="14.30">Step 14.30 → Step 14.32 · ~45 min · leave-state: FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet.</span>
 - <span data-first-step="14.33">Step 14.33 → Step 14.34 · ~35 min · leave-state: the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800.</span>
 - <span data-first-step="14.35">Step 14.35 → Step 14.36 · ~30 min · leave-state: PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly.</span>
-
-### 32 · Print — B11 — Bay ducting, part 1
-- <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.</span>
-- <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate.</span>
-- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
 
 ### 33 · Print — B11 — Bay ducting, part 2, after the kit-day measurements
 - <span data-first-step="B11.9">Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected.</span>

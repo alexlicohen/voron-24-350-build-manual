@@ -938,6 +938,133 @@
    ]
   },
   {
+   "n": 32,
+   "label": "B11 — Bay ducting, part 1",
+   "kind": "Print",
+   "kit": false,
+   "segments": [
+    {
+     "id": "b11-bay-ducting#0",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.3"
+     ],
+     "first_step": "B11.3",
+     "last_step": "B11.3",
+     "href": "../manual/steps/b11-bay-ducting/b11-3/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P1",
+     "print_hours": 0.4,
+     "run": "bay",
+     "leave_state": "plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#1",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.4"
+     ],
+     "first_step": "B11.4",
+     "last_step": "B11.4",
+     "href": "../manual/steps/b11-bay-ducting/b11-4/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.",
+     "helpers": [],
+     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day."
+    },
+    {
+     "id": "b11-bay-ducting#2",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.5"
+     ],
+     "first_step": "B11.5",
+     "last_step": "B11.5",
+     "href": "../manual/steps/b11-bay-ducting/b11-5/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P2",
+     "print_hours": 6.8,
+     "run": "bay",
+     "leave_state": "plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#3",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.6"
+     ],
+     "first_step": "B11.6",
+     "last_step": "B11.6",
+     "href": "../manual/steps/b11-bay-ducting/b11-6/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P3",
+     "print_hours": 4.6,
+     "run": "bay",
+     "leave_state": "plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#4",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.7"
+     ],
+     "first_step": "B11.7",
+     "last_step": "B11.7",
+     "href": "../manual/steps/b11-bay-ducting/b11-7/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the P1 to P3 parts inspected and bagged by plate.",
+     "helpers": [],
+     "text": "Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate."
+    },
+    {
+     "id": "b11-bay-ducting#5",
+     "chapter": "b11-bay-ducting",
+     "kind": "build",
+     "steps": [
+      "B11.8"
+     ],
+     "first_step": "B11.8",
+     "last_step": "B11.8",
+     "href": "../manual/steps/b11-bay-ducting/b11-8/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
+     "helpers": [
+      [
+       "B11.8",
+       "Reads each bin label aloud and checks the count against the diagram."
+      ]
+     ],
+     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
+    }
+   ]
+  },
+  {
    "n": 11,
    "label": "B08 — Skirts and front modules",
    "kind": "Print",
@@ -5873,133 +6000,6 @@
    ]
   },
   {
-   "n": 32,
-   "label": "B11 — Bay ducting, part 1",
-   "kind": "Print",
-   "kit": false,
-   "segments": [
-    {
-     "id": "b11-bay-ducting#0",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.3"
-     ],
-     "first_step": "B11.3",
-     "last_step": "B11.3",
-     "href": "../manual/steps/b11-bay-ducting/b11-3/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P1",
-     "print_hours": 0.4,
-     "run": "bay",
-     "leave_state": "plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#1",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.4"
-     ],
-     "first_step": "B11.4",
-     "last_step": "B11.4",
-     "href": "../manual/steps/b11-bay-ducting/b11-4/",
-     "minutes": 10,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.",
-     "helpers": [],
-     "text": "Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day."
-    },
-    {
-     "id": "b11-bay-ducting#2",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.5"
-     ],
-     "first_step": "B11.5",
-     "last_step": "B11.5",
-     "href": "../manual/steps/b11-bay-ducting/b11-5/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P2",
-     "print_hours": 6.8,
-     "run": "bay",
-     "leave_state": "plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#3",
-     "chapter": "b11-bay-ducting",
-     "kind": "print",
-     "steps": [
-      "B11.6"
-     ],
-     "first_step": "B11.6",
-     "last_step": "B11.6",
-     "href": "../manual/steps/b11-bay-ducting/b11-6/",
-     "minutes": 5,
-     "pre_kit": false,
-     "plate": "B11-P3",
-     "print_hours": 4.6,
-     "run": "bay",
-     "leave_state": "plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends",
-     "helpers": [],
-     "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends"
-    },
-    {
-     "id": "b11-bay-ducting#4",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.7"
-     ],
-     "first_step": "B11.7",
-     "last_step": "B11.7",
-     "href": "../manual/steps/b11-bay-ducting/b11-7/",
-     "minutes": 10,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "the P1 to P3 parts inspected and bagged by plate.",
-     "helpers": [],
-     "text": "Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate."
-    },
-    {
-     "id": "b11-bay-ducting#5",
-     "chapter": "b11-bay-ducting",
-     "kind": "build",
-     "steps": [
-      "B11.8"
-     ],
-     "first_step": "B11.8",
-     "last_step": "B11.8",
-     "href": "../manual/steps/b11-bay-ducting/b11-8/",
-     "minutes": 10,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
-     "helpers": [
-      [
-       "B11.8",
-       "Reads each bin label aloud and checks the count against the diagram."
-      ]
-     ],
-     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
-    }
-   ]
-  },
-  {
    "n": 33,
    "label": "B11 — Bay ducting, part 2, after the kit-day measurements",
    "kind": "Print",
@@ -6204,6 +6204,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6218,8 +6219,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6310,6 +6310,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6324,8 +6325,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6410,6 +6410,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6424,8 +6425,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6503,6 +6503,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6517,8 +6518,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6596,6 +6596,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6610,8 +6611,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6692,6 +6692,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6706,8 +6707,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -6818,6 +6818,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6829,8 +6830,7 @@
      "b09-panels-filtration-spool#3",
      "b09-panels-filtration-spool#5",
      "b10-clicky-clack-door#0",
-     "b10-clicky-clack-door#2",
-     "b11-bay-ducting#5"
+     "b10-clicky-clack-door#2"
     ]
    }
   },
@@ -6908,6 +6908,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6922,8 +6923,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -7050,6 +7050,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7064,8 +7065,7 @@
      "b10-clicky-clack-door#2",
      "00-before-you-start#2",
      "00-before-you-start#7",
-     "00-before-you-start#8",
-     "b11-bay-ducting#5"
+     "00-before-you-start#8"
     ]
    }
   },
@@ -7369,6 +7369,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7490,7 +7491,6 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
     ]
@@ -7615,6 +7615,7 @@
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#3",
+     "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7736,7 +7737,6 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
     ]
@@ -7903,7 +7903,7 @@
    "expect": {
     "done": 61,
     "gate_closed": true,
-    "start": "12.1",
+    "start": "B11.3",
     "sections": [
      {
       "id": "tonight",
@@ -7914,8 +7914,8 @@
         "budget": 30,
         "total": 30,
         "items": [
-         "12-software#0",
-         "b11-bay-ducting#0"
+         "b11-bay-ducting#0",
+         "12-software#0"
         ],
         "next": null
        },
@@ -7923,9 +7923,9 @@
         "budget": 60,
         "total": 50,
         "items": [
+         "b11-bay-ducting#0",
          "12-software#0",
-         "12-software#1",
-         "b11-bay-ducting#0"
+         "12-software#1"
         ],
         "next": null
        },
@@ -7933,11 +7933,11 @@
         "budget": 90,
         "total": 90,
         "items": [
+         "b11-bay-ducting#0",
          "12-software#0",
          "12-software#1",
          "12-software#2",
-         "12-software#3",
-         "b11-bay-ducting#0"
+         "12-software#3"
         ],
         "next": null
        }
@@ -7976,6 +7976,7 @@
      }
     ],
     "helpers": [
+     "b11-bay-ducting#5",
      "12-software#1",
      "01-frame#0",
      "01-frame#1",
@@ -8077,7 +8078,6 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#5",
      "b11-bay-ducting#7",
      "b11-bay-ducting#11"
     ]

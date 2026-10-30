@@ -1746,14 +1746,17 @@ def timeline_rows() -> list[dict]:
             "n": r["n"], "kind": _TL_KIND[r["kind"]], "label": label,
             "marker": marker, "seg": seg, "needs": nm.group(1) if nm else "",
         })
-    by_batch = {}
+    # Dependencies follow the rows' order in the index, not their numbers: B11's part 1
+    # (row 32) sits right after B07 (row 10). A batch split over two rows maps to its first.
+    by_batch, order = {}, {row["n"]: i for i, row in enumerate(rows)}
     for row in rows:
         m = re.match(r"(B\d\d)\b", row["label"])
         if m:
-            by_batch[m.group(1)] = row["n"]
+            by_batch.setdefault(m.group(1), row["n"])
     for row in rows:
         row["deps"] = sorted({by_batch[b] for b in re.findall(r"\bB\d\d\b", row["needs"])
-                              if b in by_batch and by_batch[b] < row["n"]})
+                              if b in by_batch and order[by_batch[b]] < order[row["n"]]},
+                             key=order.get)
     return rows
 
 

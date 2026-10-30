@@ -20,7 +20,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 
 **The run prints in numeric order and overlaps the build.** Rows 1–13 cover the pre-B00 checks and every batch in numeric order, B00 → B10 (row 3 is Ch 00a): 150.2 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. The bench work under them is Ch 00a and Ch 00's own pre-kit steps (00.23–00.32: the manual's front matter, the measurement log, the Discord questions — marked `(pre-kit)` so [Tonight](00-tonight.md) offers them), plus reading a chapter and sorting a batch into its bins as each plate comes off. Rows 14–31 are the build: start each once the bins in its "needs" list are full. Numeric order fills them in the order the chapters use them (B01 + B02 for Ch 02, B03 Ch 04, B04 Ch 05, B05 Ch 06, B06 + B07 Ch 08, B07 Ch 09, B08–B10 Ch 11), so the later batches print under the early chapters. B11, which Ch 09 also needs, cuts in after B07 (rows 32–33).
 
-**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 5 plates of PETG V0, 24.9 h, outside the run and its 150.2 h. Their row numbers are not their place in the order; their needs are. Row 32 prints right after B07 (row 10), before B08; row 33 prints at the next free slot after the kit-day bay measurements (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting, and must be off the bed before Ch 09 (row 24) fits the ducts. B08–B10 wait at no cost: Ch 10.50 and Ch 11 Part A are the first steps that need them. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
+**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 5 plates of PETG V0, 24.9 h, outside the run and its 150.2 h. Their row numbers are not their place in the order; their needs are. Row 32 is listed, and prints, right after B07 (row 10), before B08; row 33 prints at the next free slot after the kit-day bay measurements (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting, and must be off the bed before Ch 09 (row 24) fits the ducts. B08–B10 wait at no cost: Ch 10.50 and Ch 11 Part A are the first steps that need them. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
 
 - **1 · Both** — **Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts** · ~3 h · needs: the Gen 2 kit on the shelf
     - *While it prints:* Nothing prints yet. Open the first black spool into the USS drybox, read [00-slicer-setup](print/00-slicer-setup.md), confirm the satin sheet (no glue)
@@ -62,6 +62,10 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *While it prints:* Read Ch 08; sort B06 into 08-SB, 08-CW2 and spare-alt
     - *Gate:* COB mounts flat on the reference; this batch carries `power_inlet_IECGS_1mm` and the **V2** `usb_adapter_mount_partial_cover`. Its heat-set bosses get inserts on kit day (Ch 09)
     - *Sessions:* 2 plate starts
+- **32 · Print** — [B11 — Bay ducting, part 1](print/B11-bay-ducting.md#before-kit) · 11.8 h print · needs: B07 off the bed (row 10); the PETG V0 spool and the textured sheet. Print it between B07 and B08
+    - *While it prints:* Whatever build row is current; then the satin sheet and Adv. Filtration back on for B08 (Step B11.8)
+    - *Gate:* The coupon's lid snaps home and holds (Step B11.4); without that, row 33 prints the fallback middle run instead of B11-P5
+    - *Sessions:* 3 plate starts
 - **11 · Print** — [B08 — Skirts and front modules](print/B08-skirts-and-front-modules.md) · 26.7 h print · needs: Gate A; B02 and B07 to hand for the ring dry-fit; B11-P1 to P3 (row 32) off the bed first
     - *While it prints:* Read Ch 09–10; sort B07 into 08-CW2, 09-bay, 10-lights and 11-finish; stage spool #3 — it takes over inside B09-P1
     - *Gate:* Skirt faces flat with no lift; the ring dry-fits (power inlet from B07)
@@ -129,10 +133,6 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 - **31 · Build** — [Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune](14-calibration.md) **KIT** · 2.5–4.0 over 6½–8½ h (+ ~3.5 h optional chamber exhaust, Part H; Step 14.25 opens the chapter, so its ~6½ h Core One+ print runs during Parts A–G) · needs: Ch 12, Ch 13, Ch 06b, Ch 11 Part B (the chamber has to close for the soak); the B00 reference cube
     - *Gate:* The 1½–2 h heat soak with the panels on, Z joints tightened hot, A/B and Z belts at final tension, QGL and probe accuracy re-checked — then Checkpoint 14 and the tuning log filled in
     - *Sessions:* 14 × ~30 min
-- **32 · Print** — [B11 — Bay ducting, part 1](print/B11-bay-ducting.md#before-kit) · 11.8 h print · needs: B07 off the bed (row 10); the PETG V0 spool and the textured sheet. Print it between B07 and B08
-    - *While it prints:* Whatever build row is current; then the satin sheet and Adv. Filtration back on for B08 (Step B11.8)
-    - *Gate:* The coupon's lid snaps home and holds (Step B11.4); without that, row 33 prints the fallback middle run instead of B11-P5
-    - *Sessions:* 3 plate starts
 - **33 · Print** — [B11 — Bay ducting, part 2, after the kit-day measurements](print/B11-bay-ducting.md#after-the-kit-day-measurements) **KIT** · 13.1 h print · needs: row 32 and Steps B11.10–B11.11 (kit day); print it at the next free slot after them, ahead of any B08–B10 plate still waiting; must finish before Ch 09 (row 24). The A/B lead check (Step B11.9) runs after Checkpoint 06 (row 21) and does not gate it
     - *While it prints:* Ch 00–08 build rows
     - *Gate:* none from the A/B leads — P4 and P5 print either way, a short lead gets a longer replacement lead instead; B11-P5 only if the Leviathan-to-PSU gap is ≥ 25 mm
