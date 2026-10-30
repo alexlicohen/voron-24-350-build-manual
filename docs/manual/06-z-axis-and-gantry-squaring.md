@@ -58,7 +58,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M5×30 BHCS | 4 | one per corner, same stack, p.111. The second belt end clamps under the Ch 05 M5×16 pair instead |
 | M3×20 SHCS | 16 | four per `z_joint_lower` into the MGN9 carriage, p.115 |
 | M5×40 SHCS | 4 | one per Z joint, up from the lower joint into the block's M5 nut, p.115 |
-| Gates open belt, 2GT, 9 mm | 4 × **~1400 mm** (manual minimum ≥1200 mm) | manual p.111 minimum for the 350; the kit ships **6 m** of 9 mm belt, so 4 × 1400 mm leaves ~400 mm spare for a mis-cut ([LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)) |
+| Gates open belt, 2GT, 9 mm | 4 × **~1400 mm** (manual minimum ≥1200 mm) | manual p.111 minimum for the 350; the kit ships **6 m** of 9 mm belt, so 4 × 1400 mm leaves ~400 mm spare for a mis-cut ([LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)) |
 | 6×3 mm magnet | **0** | hall-effect option only — not used |
 | Zip tie, 3×150 mm (belt tails) | 4 | manual p.120 |
 | Zip tie, long (gantry support) | 0–4 | only if you skip the rubber-rail-stopper trick |

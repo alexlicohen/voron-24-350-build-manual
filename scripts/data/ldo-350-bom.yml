@@ -1,11 +1,11 @@
 # LDO Voron 2.4 350 kit BOM, vendored by scripts/kit_bom.py (scripts/parts.py reads it).
 # Hand edits are fine (kit-day re-pin) but a re-fetch overwrites them; aliases live in
 # kit_bom.ALIASES, keyed by item text.
-# source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D
-# fetched: 2026-09-24 (curl)
+# source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+
+# fetched: 2026-10-30 (curl)
 # Kit day: re-pin to the batch sheet shipped with the kit (Step 00.2).
-source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D
-fetched: '2026-09-24'
+source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+
+fetched: '2026-10-30'
 notes:
 - '*EU Customers may receive the Meanwhile RSP-200-24 in order to comply with local regulations'
 rows:
@@ -201,12 +201,6 @@ rows:
   aliases:
   - \b221-415\b|\bwago\b.*\b5-way\b
 - carton: 1
-  box: Electronics 1
-  item: SD Card, 32GB
-  qty: 1
-  aliases:
-  - \b(?:micro ?)?sd card\b
-- carton: 1
   box: Electronics 2
   item: XY Endstop PCB
   qty: 1
@@ -260,6 +254,24 @@ rows:
   qty: 1
   aliases:
   - \bsteppy\b
+- carton: 1
+  box: Electronics 2
+  item: DC Ground Wire
+  qty: 1
+  aliases:
+  - \bdc ground wire\b
+- carton: 1
+  box: Electronics 2
+  item: Extruder Motor Ground Wire
+  qty: 1
+  aliases:
+  - \bextruder motor ground wire\b
+- carton: 1
+  box: Electronics 2
+  item: Extrusion Blind Joint Seal
+  qty: 20
+  aliases:
+  - \bblind[- ]joint seals?\b
 - carton: 1
   box: Electronics 2
   item: Tape, 3M VHB

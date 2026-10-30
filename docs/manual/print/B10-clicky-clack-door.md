@@ -124,7 +124,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.
+Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -144,5 +144,5 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Next
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
 this is the last plate of the ASA run. All 22 are done and binned.
-[B11](B11-bay-ducting.md)'s P1–P3 (PETG V0) can print now; P4 and P5 wait for the kit-day bay measurements.
+[B11](B11-bay-ducting.md)'s P1–P3 (PETG V0) printed after B07; P4 and P5 print once the kit-day bay measurements are in.
 The only ASA job left is a `deck_support_4mm` reprint if the deck panel calipers 4 mm.

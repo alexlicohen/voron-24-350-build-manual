@@ -6,7 +6,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 00 — Before you start
 
-- [ ] Both cartons inventoried against **your batch's** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
+- [ ] Both cartons inventoried against the **Rev D+** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
@@ -19,7 +19,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 35 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
-- [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
+- [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; the gating question posted.
 
 <div class="print-page-break"></div>
 
@@ -53,6 +53,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Bed extrusions 65 mm each side of the centreline, 130 mm clear gap, checked at both ends; all four M5×10 and four M5×16 bracket bolts tight
 - [ ] Titanium backers still bagged and labelled for Ch 05
 - [ ] Frame log table filled in
+- [ ] 16 blind-joint seals in, one per joint in the vertical's slot hard against the horizontal on the chamber side; 4 spares bagged
 
 <div class="print-page-break"></div>
 
@@ -203,7 +204,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
-- [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
+- [ ] USB adapter on the front rail with the partial cover and the DC Ground Wire attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
@@ -222,7 +223,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
+- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the DC Ground Wire fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
 - [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open
@@ -233,7 +234,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 **Part A — before Ch 13**
 
-- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
+- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
 - [ ] All twelve skirt segments checked for rock on the flat reference; the ring is closed with flush, tight joints all round, and no mini12864 parts exist anywhere on the machine.
 - [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
 - [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support's grills on the two retainers.
@@ -262,7 +263,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
 - [ ] The Klipper version string from Step 12.7 is written down. The Nitehawk was flashed from that working copy; the Leviathan was too, or its factory firmware passed 12.14's test and 12.37.
 - [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices: one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan). No `katapult` entries.
-- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20).
+- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20), and no `printer-350.cfg` is left beside it.
 - [ ] `config.nitehawk`, and `config.leviathan` if 12.14 built one, are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
 - [ ] Line 1 is `[include mainsail.cfg]`, and Mainsail shows no missing-configuration panel.
 - [ ] All six 350 mm sites are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.
@@ -306,7 +307,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
 - [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
 - [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched
-- [ ] Closed-chamber soak of 1½–2 h done with panels and door on; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
+- [ ] One closed-chamber soak of 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
 - [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend
 - [ ] `rotation_distance` verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; `22.6789511` nowhere in `printer.cfg`
 - [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with `CHAMBER=0`
@@ -323,7 +324,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every fastener the shaper run could have loosened re-checked
 - [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
 - [ ] Tuning log filled in, with initials
-- [ ] Part H, if fitted: Step 14.25's calculator passed; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
+- [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
 
 <div class="print-page-break"></div>
 
@@ -461,7 +462,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe, filter-fan and bed L leads confirmed against layout v3 in Ch 09/10, not on kit day
 - [ ] Every lid snaps onto its duct; bodies in 09-ducts-DC and 09-ducts-AC, lids in 10-lids-AC with the strip fin and 11-lids-DC
-- [ ] Smooth sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
+- [ ] Satin sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
 - [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
 
 <div class="print-page-break"></div>

@@ -42,7 +42,6 @@ unreconciled:
   "Hex Wrench, 4mm": 'tool'
   "Slot head screwdriver, 2.5mm": 'tool'
   "Brass Brush": 'tool'
-  "SD Card, 32GB": 'software medium (Ch 12)'
 
 # One BOM line, several different parts: reconciled per chapter, but the
 # kit-wide "consumed > BOM qty" test is skipped (the qty counts bags).

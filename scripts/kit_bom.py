@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Vendor LDO's pinned V2.4 350 BOM (Rev. D) into `scripts/data/ldo-350-bom.yml`.
+"""Vendor LDO's pinned V2.4 350 BOM (Rev. D+) into `scripts/data/ldo-350-bom.yml`.
 
 The BOM is the source of truth for which kit box (bag) a Parts item comes from.
 `scripts/parts.py` reads the yml; nothing reads the web page at build time.
@@ -31,7 +31,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "scripts" / "data" / "ldo-350-bom.yml"
-URL = "https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D"   # sources.yml pin
+URL = "https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+"  # sources.yml pin (the kit is Rev D+)
 
 # BOM item text -> regexes (see module docstring). Keep each one specific
 # enough that it cannot match another row's item.
@@ -58,6 +58,9 @@ ALIASES: dict[str, list[str]] = {
     "Shaft, 5x60mm": [r"\b5 ?x ?60 ?mm\b.*\bshaft|\bshaft\b.*\b5 ?x ?60\b"],
     "Shaft, for Nozzle Probe": [r"\bnozzle[- ]probe shaft\b|\bprobe shaft\b"],
     "Thumb Screw Kit": [r"\bthumb ?screw\b"],
+    "DC Ground Wire": [r"\bdc ground wire\b"],
+    "Extruder Motor Ground Wire": [r"\bextruder motor ground wire\b"],
+    "Extrusion Blind Joint Seal": [r"\bblind[- ]joint seals?\b"],
     "MR85 Bearing": [r"\bmr85\b"],
     "Bondtech IDGA Gear Set": [r"\bidga\b|\bbondtech\b.*\bgear"],
     "4mm Bowden Coupler": [r"\bbowden coupler\b"],
@@ -77,7 +80,6 @@ ALIASES: dict[str, list[str]] = {
     "Fiberglass Tape, 2x12cm": [r"\bfib(?:er|re)glass tape\b"],
     "Genuine Wago 221-412 Splicing Connector": [r"\b221-412\b|\bwago\b.*\b2-way\b"],
     "Genuine Wago 221-415 Splicing Connector": [r"\b221-415\b|\bwago\b.*\b5-way\b"],
-    "SD Card, 32GB": [r"\b(?:micro ?)?sd card\b"],
     "XY Endstop PCB": [r"\bxy endstop (?:pcb|board)\b"],
     "3x2 XH Splicer PCB": [r"\b3 ?x ?2 xh splicer\b"],
     "2x2 XH Splicer PCB": [r"\b2 ?x ?2 xh splicer\b"],

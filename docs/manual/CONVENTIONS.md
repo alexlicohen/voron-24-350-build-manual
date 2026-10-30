@@ -155,7 +155,7 @@ and `lint_manual.py` only call it. Assembly chapters (00–14) write every `**Pa
 - **Sourced.** Each counted item is a kit BOM row, a printed STL in backticks (bin from
   `assets/parts/MANIFEST.csv`), or ends `— from <source>` (anything the kit does not ship). **The
   kit box is never typed**: it resolves from `scripts/data/ldo-350-bom.yml`, LDO's pinned 350
-  Rev D BOM vendored by `scripts/kit_bom.py`; re-pin it to the batch sheet on kit day (Step 00.2).
+  Rev D+ BOM (the kit's revision) vendored by `scripts/kit_bom.py`; re-pin it to the batch sheet on kit day (Step 00.2).
   Spelling aliases live in `kit_bom.ALIASES`; fasteners, nuts, T-nuts and inserts need none.
 - **Roles** (prefix): `staged:` taken out and set aside for a later step (unpack, inspect, set,
   trim, bag); `reused:` fitted earlier and touched again. Neither is summed, and neither cites a

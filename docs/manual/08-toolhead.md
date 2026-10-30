@@ -18,7 +18,7 @@ caption: Small fasteners, tight spaces. Build over a tray, because carpet eats M
 - **Ch 05 — Gantry.** X carriage halves (`x_frame_V2TR_MGN12_left/right`) built, heat-set inserts and M3 nuts already in them, carriage running the full X travel with no bind.
 - **Ch 07 — A/B belts.** Belts clamped into the carriage and tensioned. The carriage must be finished before anything hangs off it.
 - **Print batches: B02** (the blue accent parts: `[a]_stealthburner_main_body`, `[a]_guidler_a/b`, `[a]_latch`, `[a]_latch_shuttle`, spare `[a]_pcb_spacer`), **B06** (Stealthburner `revo_voron` printheads, Clockwork 2 black parts, `cw2_captive_pcb_cover`, the Klicky set), and **B04** for the carriage. Batch ids from `docs/voron-print-plan.md`.
-- **LDO-supplied printed parts, no print needed:** CW2 Chain Anchor Tilted ×1, CW2 PCB Spacer ×1, Stealthburner LED Diffuser ×1 (clear PETG), LDO Nozzle Probe ×1, NH Adapter Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+- **LDO-supplied printed parts, no print needed:** CW2 Chain Anchor Tilted ×1, CW2 PCB Spacer ×1, Stealthburner LED Diffuser ×1 (clear PETG), LDO Nozzle Probe ×1, NH Adapter Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 **Tools**
 
@@ -82,7 +82,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | Stealthburner Fan Adapter PCB (SBurnerFanAdapter_V2.0) | 1 | |
 | Toolhead cable, USB and 24 V, XT30(2+2) | 1 | from the Toolhead PCB Cables bag |
 | M3×10 SHCS — from the kit, no 350 BOM row | 3 | USB adapter stack (assembled here, mounted in Ch 09); LDO's printed-parts guide names the size, the 350 BOM lists no M3×10 SHCS `(verify on bench)` |
-| Grounding cable, toolboard to extruder motor — from the LDO kit, no BOM row | 1 | LDO: new kits provide it; board end under a toolboard M3×8 at Step 08.43, motor end at Step 08.53 |
+| Extruder Motor Ground Wire | 1 | toolboard to extruder motor (Rev D+ BOM, *Electronics 2*); board end under a toolboard M3×8 at Step 08.43, motor end at Step 08.53 |
 | M3 screw, motor end of the grounding cable — from the LDO kit, no BOM row | 1 | length not published `(verify on bench)` |
 | CW2 Chain Anchor Tilted | 1 | LDO-supplied printed; inserts at Step 08.6, fitted at 08.25 |
 | CW2 PCB Spacer | 1 | LDO-supplied printed; under the toolboard at Step 08.43 |
@@ -105,7 +105,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - [Voron 2.4r2 assembly manual](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129), pinned commit `de7e89d` — pp. 129–130 (carriage prep), 144 (probe), 146–147 (the hand-off to and from the SB manual).
 - LDO Rev D wiring guide — [§ Wiring the Toolhead PCB](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb) and [§ Assembling the Nozzle Probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d).
 - [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — which parts LDO supplies printed and which are on the do-not-print list.
-- [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) — fan voltages, supplied printed parts.
+- [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) — fan voltages, supplied printed parts.
 - [LDO Build Notes / build FAQ](https://docs.ldomotors.com/voron/voron2/build-faq) — the per-page deviations for pp. 129–130, 144, 146–147.
 - [LDO Nitehawk-SB V2 board doc § ESD Hardening](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening) — the grounding scheme (Step 08.53).
 - [Nitehawk-SB-V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2) — board [pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg), [fan-adapter pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/sbv2_fan_adapter_pcb_pinout.jpg), [grounding scheme](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/grounding_scheme.jpg), [ground routing](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/toolboard_ground_routing.jpg), [chain ties](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/cable_chain_ties.jpg), [USB-adapter ground](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/usb_adapter_gnd.jpg), [`STLs/`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs). The repo carries no LICENSE file (re-checked 2026-09-05); the six board images this chapter needs are nevertheless mirrored into `assets/remote/08-toolhead/` under Alex's 2026-09-05 image-licensing ruling (CONVENTIONS.md — LDO / Nitehawk-SB V2 / Leviathan / LDOVoron2 material, attributed, non-commercial), with the original URLs kept in every Source line. See that folder's `SOURCES.txt`.
@@ -1255,7 +1255,7 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 **Parts:**
 
-- grounding cable, toolboard to extruder motor ×1 — from the LDO kit, no BOM row
+- Extruder Motor Ground Wire ×1
 - M3 screw, motor end of the grounding cable ×1 — from the LDO kit, no BOM row
 
 **Do:**
@@ -1267,10 +1267,10 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 **Boundary:** this step is the source of record for the ESD grounding scheme. Ch 10 Step 10.58 fits the frame-side leg and re-checks the path; if LDO changes the procedure, correct it here first and make Ch 10 point back.
 
-⚠ Rev D+ / LDO: **use the supplied grounding cable** — LDO warns that larger ring-lug connectors can short
-the PCB. **If your kit did not include the grounding cables**, stop and ask in `#ldo_motors` before
-improvising a ground connection; this scheme was undocumented prose until LDO's board doc was updated
-2026-07-10 (survey §4.1 ⑤).
+⚠ Rev D+ / LDO: **use the supplied cable**: LDO warns that larger ring lugs can short the PCB. Both cables
+are Rev D+ BOM rows (*Electronics 2*): the **Extruder Motor Ground Wire** here, the **DC Ground Wire** at
+Ch 09–10. **If either is missing**, report it to Fabreeko and ask in `#ldo_motors`; do not improvise a ground
+(survey §4.1 ⑤).
 
 Source: [`grounding_scheme.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/grounding_scheme.jpg) · [`toolboard_ground_routing.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/toolboard_ground_routing.jpg)
 

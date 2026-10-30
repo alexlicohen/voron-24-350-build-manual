@@ -9,15 +9,15 @@ pose: screen
 caption: Nothing moves this chapter. The machine is reading its own manual, slowly, and will not be rushed.
 ```
 
-**Time:** 2.0–3.0 h hands-on, first build (survey §7.2). Add ~30 min if you have to reinstall Katapult on either board.
+**Time:** 2.0–3.0 h hands-on, first build (survey §7.2): about 1.5 h on the bench in Part 1, about 1 h live in Part 2. Add ~30 min if you have to reinstall Katapult on either board.
 
-**Sessions:** 9 × ~30 min (Pause segments below; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).
+**Sessions:** 8 × ~30 min (Pause segments below: five on the bench, three live; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).
 
 **Prerequisites:**
 
 - **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at **Step 12.11**, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
-- The Pi-side half (Steps 12.1–12.10) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one").
-- **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Steps 12.11–12.37 (index rows 24–26). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
+- **Part 1** (Steps 12.1–12.10, then the `printer.cfg` edits 12.21–12.22 and 12.24–12.36) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one"). None of those edits needs a board: they change a text file.
+- **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Part 2, Steps 12.11–12.20, 12.23 and 12.37 (index rows 24–26). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
 - **Printed parts: none.** No print batch gates this chapter.
 - Do **not** start Ch 13 until Checkpoint 12 below passes.
 
@@ -27,9 +27,9 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 - Raspberry Pi Imager (download from [raspberrypi.com/software](https://www.raspberrypi.com/software/))
 - Ethernet cable (use wired for the flashing session; Wi-Fi is the fallback)
 - USB cable, Pi ↔ Leviathan (supplied with the kit; connector type `(verify on bench)`)
-- A USB-C 5 V/3 A supply for the Pi half on the bench (Steps 12.1–12.10)
+- A USB-C 5 V/3 A supply for the Pi on the bench (Part 1)
 
-**Consumables:** the supplied 32 GB microSD card. Nothing else.
+**Consumables:** a 32 GB microSD card, bought before kit day (Rev D+ ships none; Step 00.8). Nothing else.
 
 **Printed parts**
 
@@ -48,7 +48,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 - **Use `leviathan-printer-rev-d-sbv2.cfg`, never `leviathan-printer-rev-d.cfg`.** The Rev D wiring guide links the wrong one. Every `nhk:` pin differs because the toolboard MCU changed family. Klipper checks every pin name against the board it is sent to, so the V1 file does not mis-drive anything — it refuses to start at Step 12.37 with `Pin 'gpio23' is not a valid pin name on mcu 'nhk'`. The one-line identity check is `grep -c gpio printer.cfg`: **0** on the V2 file, **20** on the V1 file (survey §4.1 ①).
 - **The toolboard is an STM32G0B1, not an RP2040.** The wiring guide's sentence *"The Nitehawk uses an RP2040 MCU"* is stale. Its USB ID will read `usb-Klipper_stm32g0b1xx_…`. Match on that string, not on `rp2040` (survey §4.1 ②).
-- **The stock config ships with every build-size option commented out and no `[bed_mesh]` at all.** Six separate places need the 350 mm lines uncommented, and the mesh section has to be written from scratch (survey §4.4 #15).
+- **The stock config ships with every build-size option commented out and no `[bed_mesh]` at all.** Six separate places need the 350 mm lines uncommented, and the mesh section has to be written from scratch (survey §4.4 #15). You do all of it on the bench as **`printer-350.cfg`**: 12.14 writes its own test `printer.cfg`, and 12.23 renames yours over it, so the test can never overwrite your edits.
 - **Confirm which Leviathan you have before you run `make menuconfig`.** LDO shipped an **STM32F446** Leviathan (V1.1/V1.2) and later an **STM32H743** one (V1.3). Processor model, clock reference and bootloader offset all differ; the wrong combination produces firmware that will not run. Step 12.13 settles it from the board itself.
 - **The Leviathan arrives pre-programmed.** LDO ships it running Klipper over USB. Step 12.14 connects the host to it first and builds and flashes only on `MCU Protocol error`; when a flash is needed it goes over USB with no button, and LDO's SW1/SW2 presses are kept for recovery.
 - **Nothing moves and nothing heats in this chapter.** The chapter ends at "Klipper reports Ready with both MCUs connected". Homing, heaters, fans and motion are Ch 13.
@@ -69,6 +69,8 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 ---
 
+## Part 1 — on the bench, the Pi alone
+
 ### Step 12.1 — Decide where you are doing the Pi half
 
 ![Raspberry Pi 4 Model B: Ethernet and USB at one end, the microSD slot underneath at the other](assets/remote/12-software/rpi-4-model-b.jpg)
@@ -85,7 +87,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Check:** You can identify the Pi's SD slot and its Ethernet port, and you have a way to power it that is not the printer's mains.
 
-⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer", and that first happens at Step 12.11, after Checkpoint #1. The Pi half, 12.1 to 12.10, never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
+⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer", and that first happens at Step 12.11, after Checkpoint #1. Part 1 never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
 Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
 
@@ -102,7 +104,7 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 
 **Parts:**
 
-- consumable: the kit's 32 GB microSD card
+- consumable: 32 GB microSD card, bought (Rev D+ ships none)
 - tool: SD card reader
 
 **Do:**
@@ -254,9 +256,9 @@ Source: [KIAUH README](https://github.com/dw-0/kiauh) · [Video: Extras! @1:30:0
 
 ### Step 12.9 — Install KlipperScreen
 
-![KIAUH's Installation menu — option 5 is KlipperScreen](assets/remote/12-software/KIAUH_install_opt.png)
+![An older KIAUH's Installation menu, where KlipperScreen was option 5; current KIAUH lists it as 7](assets/remote/12-software/KIAUH_install_opt.png)
 
-**What you're looking at:** KlipperScreen is the touchscreen front end: the same printer, driven from the 4.3" panel instead of a browser. It installs into its own Python environment and runs as a service alongside Mainsail. The screenshot is KIAUH's Installation menu, where it is option 5.
+**What you're looking at:** KlipperScreen is the touchscreen front end: the same printer, driven from the 4.3" panel instead of a browser, running as a service beside Mainsail. The screenshot is an older KIAUH, where it was option 5; current KIAUH lists it as 7. Choose it by name.
 
 **Parts:** none.
 
@@ -299,6 +301,739 @@ Source: [KlipperScreen rotation](https://klipperscreen.github.io/KlipperScreen/T
 Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.
 
 ---
+
+### Step 12.21 — Download the correct config file
+
+![LDO: Mainsail config devices panel](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
+![Simulated printer: Mainsail's Config Files list with printer.cfg beside mainsail.cfg and moonraker.conf](assets/screens/mainsail-machine-config-files.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
+
+**What you're looking at:** `printer.cfg` is the single text file that describes this machine to Klipper: which pin drives which motor, what shape the bed is, what every heater, sensor and fan is. LDO publishes one per kit variant and the `-sbv2` suffix is the Rev D+ one.
+
+**Parts:** none.
+
+**Do:** Still on the bench Pi, fetch **`leviathan-printer-rev-d-sbv2.cfg`** as `printer-350.cfg`, from the pinned raw URL; a GitHub `blob/` page saves as HTML. The name keeps 12.14's test file off your edits until 12.23 renames it.
+
+```bash
+wget -O ~/printer_data/config/printer-350.cfg \
+  https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
+grep -c 'nhk:PB8' ~/printer_data/config/printer-350.cfg
+grep -c gpio ~/printer_data/config/printer-350.cfg
+```
+
+**Check:** The first `grep` prints **1** and the second **0**, and the file appears as `printer-350.cfg` in Mainsail's **Machine** page.
+
+A `0` then `20` means you fetched the Rev D (RP2040) file: re-run the `wget` with the `-sbv2` name.
+
+⚠ **Rev D+ / LDO:** the Rev D wiring guide's "pre-made configuration file" link points at `leviathan-printer-rev-d.cfg`, the **RP2040** toolboard config: every `nhk:` pin in it is wrong for your board, and it defines a `[temperature_sensor nh_temp]` on a pin the V2 does not have. Do not add that section back (survey §4.1 ①, §4.3). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md)
+
+Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [LDOVoron2 `Firmware/README.md`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md) · [Video: Part 9 @2:35:54](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9354s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
+
+---
+
+### Step 12.22 — Add the Mainsail include at the top of `printer.cfg`
+
+![Simulated printer: Mainsail's editor with line 1 reading include mainsail.cfg](assets/screens/mainsail-editor-include.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
+
+**What you're looking at:** An `[include]` line pulls another config file in at that point. `mainsail.cfg` is already on the card and supplies the sections and macros the web interface needs: virtual SD card, display status, pause, resume, cancel.
+
+**Parts:** none.
+
+**Do:** In Mainsail, **Machine** → open `printer-350.cfg` in the editor. It is already on the Pi, so no upload. Add one line at the very top, above the header comments, and **Save**:
+
+```ini
+[include mainsail.cfg]
+```
+
+**Check:** `printer-350.cfg` sits next to `mainsail.cfg` and `moonraker.conf` in the config list, and line 1 is the include.
+
+**Why:** Mainsail needs `[virtual_sdcard]`, `[display_status]`, `[pause_resume]` and the `PAUSE`/`RESUME`/`CANCEL_PRINT` macros. `mainsail.cfg` is already on the SD card and bundles all six. Do not edit `mainsail.cfg` itself — it is a read-only include; override it later with a `_CLIENT_VARIABLE` macro in `printer.cfg` if you need to. [src](https://docs.mainsail.xyz/configuration/mainsail-cfg/)
+
+Source: [Mainsail `mainsail.cfg`](https://docs.mainsail.xyz/configuration/mainsail-cfg/) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L1-17)
+
+---
+
+### Step 12.24 — 350 mm: `[stepper_x]` and `[stepper_y]`
+
+![Simulated printer: Mainsail's editor at stepper_x, the 350 pair live and the 250 and 300 pairs commented](assets/screens/mainsail-editor-stepper-x-350.png)
+
+(no image of your own printer yet — simulated printer: your numbers differ)
+
+**What you're looking at:** A `[stepper_x]` section describes one axis motor and its limit switch: how far one revolution moves the axis, how finely the driver subdivides a step, which pin the endstop is on, and where the axis ends. All three build sizes ship commented out.
+
+**Parts:** none.
+
+**Do:** In **both** `[stepper_x]` and `[stepper_y]`, uncomment the 350 pair and leave the 250 and 300 pairs commented. `[stepper_x]` after editing, with `[stepper_y]` identical below the header:
+
+```ini
+##  B Stepper - Left
+##  Connected to HV STEPPER 0
+##  Endstop connected to X-ENDSTOP
+[stepper_x]
+step_pin: PB10
+dir_pin: !PB11
+enable_pin: !PG0
+rotation_distance: 40
+microsteps: 32
+full_steps_per_rotation:400  #set to 200 for 1.8 degree stepper
+endstop_pin: PC1
+position_min: 0
+##--------------------------------------------------------------------
+
+##  Uncomment below for 250mm build
+#position_endstop: 250
+#position_max: 250
+
+##  Uncomment for 300mm build
+#position_endstop: 300
+#position_max: 300
+
+##  Uncomment for 350mm build
+position_endstop: 350        # CHANGED — uncommented for 350
+position_max: 350            # CHANGED — uncommented for 350
+
+##--------------------------------------------------------------------
+homing_speed: 25   #Max 100
+homing_retract_dist: 5
+homing_positive_dir: true
+```
+
+**Check:** Exactly two live `position_endstop`/`position_max` pairs in the file's X/Y sections, one per stepper.
+
+Klipper's parser is non-strict: a second live `position_max` in the same section is silently accepted and the *last* one wins.
+
+⚠ **Rev D+ / LDO:** the kit config ships with **every** build size commented out. This is the first of six places that need the 350 lines uncommented (survey §4.4 #15). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132) · [Klipper docs § stepper](https://www.klipper3d.org/Config_Reference.html#stepper)
+
+---
+
+### Step 12.25 — 350 mm: `[stepper_z]`
+
+(no image — see text)
+
+**What you're looking at:** `position_max` is how high the gantry may be driven. It is 330 rather than 350 because the gantry runs out of frame before it runs out of nominal build volume. `position_endstop` here is a placeholder: Ch 13 measures the real value and `SAVE_CONFIG` writes it.
+
+**Parts:** none.
+
+**Do:** Uncomment the 350 line only. Z max is **330**, not 350: the gantry cannot reach the last 20 mm.
+
+```ini
+position_endstop: -0.5
+##--------------------------------------------------------------------
+
+##  Uncomment below for 250mm build
+#position_max: 230
+
+##  Uncomment below for 300mm build
+#position_max: 280
+
+##  Uncomment below for 350mm build
+position_max: 330            # CHANGED — uncommented for 350
+
+##--------------------------------------------------------------------
+position_min: -5
+homing_speed: 8
+second_homing_speed: 3
+homing_retract_dist: 3
+```
+
+**Check:** `position_max: 330` is live; `position_endstop: -0.5` is untouched, the placeholder `Z_ENDSTOP_CALIBRATE` overwrites in Ch 13 via `SAVE_CONFIG`.
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L133-235) · [Klipper docs § stepper](https://www.klipper3d.org/Config_Reference.html#stepper)
+
+---
+
+### Step 12.26 — 350 mm: `[quad_gantry_level]`
+
+(no image — see text)
+
+**What you're looking at:** [QGL](16-glossary.md#q), quad gantry level, probes four points and drives each of the four Z motors independently until the gantry is parallel to the bed. `gantry_corners` says where the gantry's pivots are and `points` where to probe, both specific to a 350.
+
+**Parts:** none.
+
+**Do:** Uncomment the 350 `gantry_corners` and `points` blocks. Both keys need their continuation lines uncommented too, and the indentation must survive.
+
+```ini
+[quad_gantry_level]
+
+#--------------------------------------------------------------------
+##  Gantry Corners for 250mm Build
+##  Uncomment for 250mm build
+#gantry_corners:
+#   -60,-10
+#   310, 320
+##  Probe points
+#points:
+#   50,25
+#   50,175
+#   200,175
+#   200,25
+
+##  Gantry Corners for 300mm Build
+##  Uncomment for 300mm build
+#gantry_corners:
+#   -60,-10
+#   360,370
+##  Probe points
+#points:
+#   50,25
+#   50,225
+#   250,225
+#   250,25
+
+##  Gantry Corners for 350mm Build
+##  Uncomment for 350mm build
+gantry_corners:              # CHANGED — uncommented for 350
+   -60,-10                   # CHANGED
+   410,420                   # CHANGED
+##  Probe points
+points:                      # CHANGED — uncommented for 350
+   50,25                     # CHANGED
+   50,275                    # CHANGED
+   300,275                   # CHANGED
+   300,25                    # CHANGED
+
+#--------------------------------------------------------------------
+speed: 100
+horizontal_move_z: 10
+retries: 5
+retry_tolerance: 0.0075
+max_adjust: 10
+```
+
+**Check:** `gantry_corners` has exactly two coordinate lines and `points` exactly four, all indented by three spaces.
+
+Klipper errors loudly if a continuation line loses its indent, so a bad edit here fails at Step 12.37 rather than silently.
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Klipper docs § quad_gantry_level](https://www.klipper3d.org/Config_Reference.html#quad_gantry_level) · [Video: Part 9 @1:24:59](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5099s)
+
+---
+
+### Step 12.27 — 350 mm: resonance probe point and the G32 homing end position
+
+(no image — see text)
+
+**What you're looking at:** `[resonance_tester]` names the spot on the bed where Ch 14's accelerometer measurements are taken. `G32` is the macro that homes, runs QGL and re-homes, and its final move parks the toolhead over bed centre. Both carry hard-coded coordinates that only make sense for one build size.
+
+**Parts:** none.
+
+**Do:** Two more 350 blocks that the survey's checklist does not mention. In `[resonance_tester]`:
+
+```ini
+[resonance_tester]
+accel_chip: adxl345
+accel_per_hz: 100
+sweeping_accel: 400
+sweeping_period: 0
+##--------------------------------------------------------------------
+## Uncomment below for 350mm build
+probe_points:                # CHANGED — uncommented for 350
+    175, 175, 20             # CHANGED
+##--------------------------------------------------------------------
+```
+
+and in `[gcode_macro G32]`:
+
+```ini
+[gcode_macro G32]
+gcode:
+    SAVE_GCODE_STATE NAME=STATE_G32
+    G90
+    G28
+    QUAD_GANTRY_LEVEL
+    G28
+    ##  Uncomment for for your size printer:
+    #--------------------------------------------------------------------
+    ##  Uncomment for 350mm build
+    G0 X175 Y175 Z30 F3600   ; CHANGED — uncommented for 350
+    #--------------------------------------------------------------------
+    RESTORE_GCODE_STATE NAME=STATE_G32
+```
+
+**Check:** Count the live lines; each command prints one number, and the still-commented 250/300 blocks do not count:
+
+```bash
+cd ~/printer_data/config
+grep -c '^position_max: 350' printer-350.cfg        # 2  (stepper_x, stepper_y)
+grep -c '^position_max: 330' printer-350.cfg        # 1  (stepper_z)
+grep -c '^points:' printer-350.cfg                  # 1  (quad_gantry_level)
+grep -c '^probe_points:' printer-350.cfg            # 1  (resonance_tester)
+grep -c '^    G0 X175 Y175 Z30' printer-350.cfg     # 1  (G32)
+```
+
+Expect `2 / 1 / 1 / 1 / 1`. A `0` is a block still commented; a `2` where `1` is expected is a second size uncommented as well.
+
+**Naming note:** the config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block; homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]` — an incorrect one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L418-440) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L601-620) · [Klipper docs § resonance_tester](https://www.klipper3d.org/Config_Reference.html#resonance_tester)
+
+---
+
+### Step 12.28 — Verify the 0.9° A/B motor setting
+
+(no image — see text)
+
+**What you're looking at:** `full_steps_per_rotation` is how many full steps the motor takes per revolution. A/B motors are 0.9° units, 400 steps; the Z and extruder motors are 1.8° units at 200. Nothing warns you if this is wrong: every X and Y dimension comes out doubled or halved.
+
+**Parts:** none.
+
+**Do:** Confirm, do not change, that `[stepper_x]` and `[stepper_y]` both read:
+
+```ini
+full_steps_per_rotation:400  #set to 200 for 1.8 degree stepper
+```
+
+and that `[extruder]` reads `full_steps_per_rotation: 200`.
+
+**Check:** X/Y = 400, extruder = 200, and none of the four `[stepper_z*]` sections has a `full_steps_per_rotation` line; they inherit the 200 default.
+
+**Why:** the Rev D+ A/B motors are `LDO-42STH48-2004MAH(VRN)`, **0.9°** — 400 full steps per revolution. The Z motors (`LDO-42STH48-2004AC(VRN)`) and the extruder motor (`LDO-36STH20-1004AHG(VRN)`) are 1.8°. LDO already sets this correctly in the `-sbv2` config; the value is on this checklist only because it is the one thing that will silently halve or double every X/Y dimension if someone "fixes" it. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+
+Pause: ~25 min since the last pause — still on the bench: `printer-350.cfg` is the `-sbv2` file with the Mainsail include, every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. Save, do not restart: Klipper does not read this file until 12.23, so Mainsail's missing-`printer.cfg` error is expected.
+
+---
+
+### Step 12.29 — Probe: Omron active, Klicky written but commented
+
+(no image — see text)
+
+**What you're looking at:** A `[probe]` section describes what the machine uses to measure bed height. This kit has two: the Omron [inductive probe](16-glossary.md#i), for gantry levelling only, and the Klicky dockable microswitch. Klipper allows exactly one live `[probe]`, so the unused one is parked as commented text.
+
+**Parts:** none.
+
+**Do:** The kit ships both probes. Build stock: Omron inductive for QGL only, LDO nozzle probe for Z0, Klicky parts bagged. Replace the `[probe]` section with the following, which keeps LDO's live values and parks a Klicky block beside them:
+
+```ini
+[probe]
+##  Inductive Probe (Omron) — ACTIVE
+##  Connected to PROBE on the Nitehawk-SB V2 (the Leviathan's Z-PROBE header stays empty)
+##  This probe is not used for Z height, only Quad Gantry Leveling
+pin: nhk:PC15
+x_offset: 0
+y_offset: 25.0
+z_offset: 0
+speed: 10.0
+samples: 3
+samples_result: median
+sample_retract_dist: 3.0
+samples_tolerance: 0.006
+samples_tolerance_retries: 3
+
+##  ---- Klicky alternative — NOT ACTIVE ----------------------------------
+##  Comment out the [probe] block above before uncommenting this one.
+##  Klicky also needs the klicky-probe macro set, a printed dock, and its own
+##  attach/dock sequence inside QUAD_GANTRY_LEVEL. On the toolhead PCB the
+##  Klicky cable goes to the same PROBE port, but the 24V pin is not connected.
+##  Confirm the sense of the switch with QUERY_PROBE before ANY Z move: if it
+##  reports TRIGGERED with the probe off the dock, add a leading "!" to the pin.
+#[probe]
+#pin: ^nhk:PC15             # (verify on bench) — microswitch needs a pull-up
+#x_offset: 0                # (verify on bench) — depends on your dock/mount
+#y_offset: 19.75            # (verify on bench) — klicky default, measure yours
+#z_offset: 6.42             # (verify on bench) — set by PROBE_CALIBRATE
+#speed: 10.0
+#samples: 3
+#samples_result: median
+#sample_retract_dist: 3.0
+#samples_tolerance: 0.006
+#samples_tolerance_retries: 3
+```
+
+**Check:** exactly one live `[probe]` section. `grep -c '^\[probe\]' printer-350.cfg` returns 1.
+
+⚠ **Rev D+ / LDO:** the PROBE port on the Nitehawk-SB **V2** is **JST-PH2.0**, not the JST-XH2.5 the wiring guide describes; a pigtail crimped to XH2.5 will not fit (survey §4.1 ③). The fibreglass tape goes on the **front and sides** of the Omron only, never the back or bottom, or it will not sense. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326) · [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: More Extras! @3:24:00](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12240s) (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)
+
+---
+
+### Step 12.30 — Hotend: E3D Revo HF
+
+(no image — see text)
+
+**What you're looking at:** The `[extruder]` section carries both the hotend heater and its temperature sensor. `sensor_type` names the thermistor's resistance curve and `pullup_resistor` the fixed resistor on the board it is measured against. Get either wrong and the printer reads a plausible but false temperature.
+
+**Parts:** none.
+
+**Do:** Confirm the `[extruder]` heater and sensor block matches your hotend. For the kit's Revo HF, LDO's shipped values are already correct, so verify rather than edit:
+
+```ini
+heater_pin: nhk:PA7
+## Check what thermistor type you have.
+sensor_type: ATC Semitec 104NT-4-R025H42G   # correct for the Revo 60 W 104NT HeaterCore
+sensor_pin: nhk:PB12
+pullup_resistor: 2200                        # Nitehawk TH0 port has 2k2 pull-ups
+min_temp: 10
+max_temp: 270                                # Revo HF core is rated 300 C; 270 is LDO's cap
+max_power: 1.0
+min_extrude_temp: 170
+control = pid
+pid_kp = 26.213
+pid_ki = 1.304
+pid_kd = 131.721
+```
+
+**Check:** `sensor_type` reads `ATC Semitec 104NT-4-R025H42G` and `pullup_resistor: 2200` is present. Leave the PID values alone; `PID_CALIBRATE HEATER=extruder TARGET=245` in Ch 13 replaces them.
+
+**Sourcing:** E3D publishes the Revo 60 W 104NT HeaterCore as *Thermistor Type: Semitec 104NT-4-R025H42G*, *Klipper Setting: "ATC Semitec 104NT-4-R025H42G"*, *60W*, *Max Printing Temperature: 300°C*. Use the Revo's **integrated** thermistor lead into TH0; the loose Semitec 104NT in the kit bag is a spare. [src](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore)
+
+⚠ **Rev D+ / LDO:** the wiring guide says the TH0 connector is *"JST-XH2.5 two pin"*. On the V2 board it is **JST-PH2.0** (survey §4.1 ③). The heater screw terminal and the E0508 ferrule spec are unchanged. If you fitted a Rapido HF instead of the Revo, its thermistor is a different part — re-check `sensor_type` against its datasheet before power-up. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-287) · [Klipper docs § extruder](https://www.klipper3d.org/Config_Reference.html#extruder) · [E3D Revo 60 W heatercore / 104NT thermistor](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore)
+
+---
+
+### Step 12.31 — Bed heater and chamber sensor
+
+(no image — see text)
+
+**What you're looking at:** `[heater_bed]` is the SSR output and the bed thermistor you wired in Ch 10; `[temperature_sensor chamber_temp]` is a sensor with no heater attached, so it only reports. `max_power: 0.6` deliberately caps how hard the 355 mm heat pad is driven.
+
+**Parts:** none.
+
+**Do:** Verify, do not edit:
+
+```ini
+[heater_bed]
+##  SSR Pin - HEATBED
+##  Thermistor - TH1
+heater_pin: PG11
+sensor_type: ATC Semitec 104NT-4-R025H42G
+sensor_pin: PA2
+pullup_resistor: 2200                  # Leviathan thermistor ports are 2k2
+max_power: 0.6
+min_temp: 0
+max_temp: 120
+control: pid
+pid_kp: 58.437
+pid_ki: 2.347
+pid_kd: 363.769
+
+[temperature_sensor chamber_temp]
+## Chamber Temperature — plugs into the CT port on the toolhead PCB
+sensor_type: ATC Semitec 104NT-4-R025H42G
+sensor_pin: nhk:PB2
+min_temp: 0
+max_temp: 100
+gcode_id: chamber_th
+```
+
+**Check:** After Step 12.37, Mainsail's temperature panel shows **bed** and **chamber** within ~2 °C of room temperature.
+
+If the chamber reads wrong while the bed and hotend read correctly, suspect the CT port's pull-up: LDO's board-level config for that port specifies `pullup_resistor: 4700`, Klipper's default, which is why the kit config omits the line. Add an explicit value only if the reading is wrong.
+
+**Note:** `max_power: 0.6` on the bed is deliberate — a 355×355 heatpad at full power warps the plate. Do not raise it. The Leviathan README specifies *"4x Thermistor ports with 2k2 ohm pullup resistors"*, which is where the bed's `2200` comes from. [src](https://github.com/MotorDynamicsLab/Leviathan) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Configs/nitehawk-sbv2.cfg)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454) · [Klipper docs § heater_bed](https://www.klipper3d.org/Config_Reference.html#heater_bed) · [Nitehawk-SB V2 `nitehawk-sbv2.cfg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg)
+
+---
+
+### Step 12.32 — Fans and lighting: Nevermore, COB strips, bay fans
+
+![LDO Rev D: fan and LED strip connections](assets/remote/12-software/ldo-revd-s7-fans-wired.jpg)
+
+**What you're looking at:** Klipper has four fan section types and the difference is the point of this step: `[fan]` is the slicer-controlled part-cooling fan, `[heater_fan]` runs automatically whenever its heater is on, `[controller_fan]` follows the steppers and bed, and `[fan_generic]` is one a macro can command directly.
+
+**Parts:** none.
+
+**Do:** The kit's mainboard fan/LED mapping, per the wiring guide's own table, is: **PCB Fan → FAN2/PF7**, **LED Strip → LED-Strip/PE6**, **Filter Fan → FAN3/PF9**. Note what LDO's config calls FAN3 and what is actually plugged into it. Edit as follows:
+
+```ini
+[fan]
+##  Print Cooling Fan - FAN0 (toolhead, 5015 blower on fan adapter P4)
+pin: nhk:PA15
+##tachometer_pin: nhk:PD2
+kick_start_time: 0.5
+off_below: 0.10
+
+[heater_fan hotend_fan]
+##  Hotend Fan - FAN1 (toolhead, 4010 axial on fan adapter P2)
+pin: nhk:PD0
+#tachometer_pin: nhk:PD1
+max_power: 1.0
+kick_start_time: 0.5
+heater: extruder
+heater_temp: 50.0
+
+[controller_fan controller_fan]
+##  Electronics bay fans — 2x 6020 joined by the 3x2 splicer PCB. FAN2 / "PCB FAN"
+pin: PF7
+##tachometer_pin: PF6
+kick_start_time: 0.5
+heater: heater_bed
+
+##  ---- REPLACES LDO's [heater_fan exhaust_fan] ---------------------------
+##  FAN3 is labelled "FILTER FAN" in the harness and feeds the Nevermore
+##  Micro V5 Duo. LDO's stock config declares it as a [heater_fan] slaved to
+##  the bed at 60 C, which cannot be commanded from the slicer or a macro.
+##  fan_generic lets PRINT_START run it for the materials that need filtering
+##  and PRINT_END run it on for a scrub afterwards (the macros come at 12.36).
+[fan_generic nevermore]                # CHANGED — was [heater_fan exhaust_fan]
+pin: PF9
+max_power: 1.0
+shutdown_speed: 0.0
+kick_start_time: 5.0
+
+##  ---- LDO stock, kept for reference — NOT ACTIVE -----------------------
+#[heater_fan exhaust_fan]
+#pin: PF9
+#max_power: 1.0
+#shutdown_speed: 0.0
+#kick_start_time: 5.0
+#heater: heater_bed
+#heater_temp: 60
+#fan_speed: 1.0
+
+## Chamber Lighting — 2x COB strips joined by the 2x3 splitter PCB, LED-STRIP port
+[output_pin caselight]
+pin: PE6
+pwm: true
+hardware_pwm: False
+value: 0.20                   # startup brightness
+shutdown_value: 0
+#value:1                      # CHANGED — commented out; see note below
+cycle_time: 0.00025
+```
+
+**Check:** `grep -c '^\[heater_fan exhaust_fan\]' printer-350.cfg` returns 0, `grep -c '^\[fan_generic nevermore\]' printer-350.cfg` returns 1, and `[output_pin caselight]` contains exactly one live `value:` line.
+
+**Why the caselight edit:** LDO's stanza declares `value` **twice** — `value: 0.20` and then `value:1`. Klipper builds its parser with `RawConfigParser(strict=False)`, so duplicate keys are accepted silently and the **last one wins**: the COB strips come up at full brightness on every boot, and the 0.20 you thought you set is dead text. The same duplicate is present in LDO's Leviathan-repo configs, so it is not a transcription error in your file. [src](https://github.com/Klipper3d/klipper/blob/master/klippy/configfile.py)
+
+⚠ **Rev D+ / LDO:** the stock exhaust-filter fan is **not included** in the Rev D kit, so nothing else wants FAN3. The Nevermore Micro V5 Duo is built in Ch 11 and is the only thing on that port. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+
+Source: [LDO Rev D photo S7 fans wired](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L327-410) · [Klipper docs § fan](https://www.klipper3d.org/Config_Reference.html#fan) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip) · [Video: Extras! @4:00:25](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14425s)
+
+Pause: ~15 min since the last pause — probe, hotend, bed, chamber sensor, fans and lighting are all declared in `printer-350.cfg`, saved. Nothing checks it until 12.37; the printer itself is still unpowered.
+
+---
+
+### Step 12.33 — Z endstop: leave `safe_z_home` deliberately unreachable
+
+(no image — see text)
+
+**What you're looking at:** `[safe_z_home]` is the XY position the toolhead moves to before homing Z, which here must be directly over the nozzle-probe pin. The shipped `-10,-10` sits outside the machine's travel limits on purpose, so Klipper refuses the move rather than guessing.
+
+**Parts:** none.
+
+**Do:** Do **not** guess the nozzle-probe coordinates. Leave the section as LDO ships it and add a marker:
+
+```ini
+[safe_z_home]
+##  XY Location of the Z Endstop Switch
+##  Update -10,-10 to the XY coordinates of your endstop pin
+##  after going through the "Z Endstop Pin Location Definition" step.
+home_xy_position:-10,-10      # TODO Ch 13 — measured on the machine, NOT a 350 preset
+speed:100
+z_hop:10
+```
+
+**Check:** `home_xy_position` is still `-10,-10`, and you understand that `G28 Z` will fail in Ch 13 with **"Move out of range"** until you replace it.
+
+**Why leave it broken:** `-10,-10` is outside `position_min: 0` for both X and Y, so Klipper refuses the move rather than attempting it. That refusal *is* the safety interlock. Substituting a plausible-looking value — bed centre, say — makes `G28 Z` drive the nozzle down at a spot where there is no pin, into the build plate. The LDO nozzle probe's real XY location is read off the machine during the startup wizard's *Z Endstop* page in Ch 13. [src](https://docs.vorondesign.com/build/startup/) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L458-470) · [Klipper docs § safe_z_home](https://www.klipper3d.org/Config_Reference.html#safe_z_home) · [Voron startup wizard](https://docs.vorondesign.com/build/startup/)
+
+---
+
+### Step 12.34 — Add a `[bed_mesh]` section
+
+(no image — see text)
+
+**What you're looking at:** A [bed mesh](16-glossary.md#b) is a grid of probed heights Klipper applies as a small Z correction while printing, compensating for a bed that is not flat. `mesh_min`/`mesh_max` are **probe** coordinates, not nozzle coordinates, and `zero_reference_position` pins the mesh to one point.
+
+**Parts:** none.
+
+**Do:** There is **no `[bed_mesh]` anywhere in the LDO config**. Add this block anywhere above the macros; next to `[quad_gantry_level]` reads well:
+
+```ini
+#####################################################################
+#   Bed Mesh  — ADDED, not present in the LDO config
+#####################################################################
+
+[bed_mesh]
+speed: 300
+horizontal_move_z: 10
+##  mesh_min / mesh_max are PROBE coordinates, not nozzle coordinates.
+##  The Omron sits at y_offset +25, so the toolhead goes to (X, Y-25):
+##  mesh_min Y 40 -> toolhead Y 15;  mesh_max Y 310 -> toolhead Y 285. Both legal.
+##  40/310 is the Voron reference inset for a 350 (keeps probe points off the bed clips).
+mesh_min: 40, 40
+mesh_max: 310, 310
+probe_count: 7, 7
+algorithm: bicubic
+##  Z0 comes from the nozzle-probe endstop, and [probe] z_offset is 0 because
+##  the Omron is a QGL-only probe. Without a zero reference the whole mesh
+##  would be offset by the Omron's trigger height. Pin it to bed centre:
+zero_reference_position: 175, 175
+fade_start: 1.0
+fade_end: 10.0
+fade_target: 0
+adaptive_margin: 5
+```
+
+**Check:** `mesh_max` minus the probe's 25 mm `y_offset` stays ≤ `position_max` on Y, and `mesh_min` Y minus 25 stays ≥ `position_min`. Both hold.
+
+**Why `zero_reference_position` is not optional here:** `[probe] z_offset: 0` — LDO's own comment says *"This probe is not used for Z height, only Quad Gantry Leveling"*. A mesh built with an uncalibrated probe carries the probe's trigger height as a constant offset on every point. `zero_reference_position` subtracts the mesh value at the named point from the whole mesh, making it purely relative and safe to apply on top of a nozzle-probe Z0. [src](https://www.klipper3d.org/Config_Reference.html#bed_mesh)
+
+**Note:** 7×7 with `[probe] samples: 3` is 147 probes and takes a while. Use `BED_MESH_CALIBRATE SAMPLES=2` for routine meshes, and `ADAPTIVE=1` (as PRINT_START does below) to mesh only the area the print actually covers — which is what makes a per-print mesh practical on a 350 (survey §4.4 #15). [src](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
+
+Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.html#bed_mesh) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
+
+---
+
+### Step 12.35 — Add `[input_shaper]` and `[exclude_object]`
+
+(no image — see text)
+
+**What you're looking at:** [Input shaping](16-glossary.md#i) is Klipper's anti-ringing filter, fitted to the machine's measured resonance in Ch 14; the empty section here is somewhere for those numbers to land. `[exclude_object]` is what lets one failed part be cancelled mid-print without abandoning the rest of the plate.
+
+**Parts:** none.
+
+**Do:** Add both. `[input_shaper]` goes in as a disabled placeholder so Ch 14 has somewhere to write:
+
+```ini
+#####################################################################
+#   Input shaper  — ADDED, placeholder. Values come from Ch 14.
+#####################################################################
+
+[input_shaper]
+##  Leave both frequencies commented until you have run SHAPER_CALIBRATE
+##  on a machine that has already produced a good first print (survey §3.3).
+##  The ADXL345 is on the toolboard; [resonance_tester] is already configured.
+#shaper_freq_x: 0
+#shaper_freq_y: 0
+#shaper_type: mzv
+
+#####################################################################
+#   Object exclusion  — ADDED
+#####################################################################
+
+[exclude_object]
+```
+
+**Check:** Klipper accepts a bare `[input_shaper]` with no frequencies: a valid "shaping disabled" state, not an error. `[exclude_object]` takes no parameters.
+
+**Also:** for cancel-object to actually work, the G-code needs object labels. Either turn on PrusaSlicer's **Output options → Label objects → Firmware-specific**, or set `enable_object_processing: True` under `[file_manager]` in `moonraker.conf` and let Moonraker inject them. Slicer-side is cheaper — Moonraker's preprocessor is file-I/O heavy. Decide this in the slicer chapter, not here. [src](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [src](https://moonraker.readthedocs.io/en/latest/configuration/)
+
+Source: [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [Klipper docs § exclude_object](https://www.klipper3d.org/Config_Reference.html#exclude_object) · [Moonraker configuration](https://moonraker.readthedocs.io/en/latest/configuration/)
+
+---
+
+### Step 12.36 — Replace `PRINT_START` with a skeleton that waits on the chamber
+
+(no image — see text)
+
+**What you're looking at:** `PRINT_START` is the macro the slicer calls at the top of every print. It holds the warm-up sequence: home, heat the bed, soak the chamber, level the gantry, mesh the bed, then bring the hotend up. A machine still expanding will not level repeatably.
+
+**Parts:** none.
+
+**Do:** LDO's stock `PRINT_START` is three lines and takes no parameters: replace it with the first block. Paste the second block under `PRINT_END`, and add the third line under `M107` inside `PRINT_END`. Keep the rest of `PRINT_END`.
+
+```ini
+[gcode_macro PRINT_START]
+#   Slicer start G-code:  PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}
+#   CHAMBER=0 (the default) skips the chamber wait entirely and does a timed soak instead.
+#   FILAMENT= is the slicer's filament type. The Nevermore runs only for the types in
+#   `filtered`; a hand-run PRINT_START with no FILAMENT filters too.
+gcode:
+    {% set bed      = params.BED|default(100)|float %}
+    {% set extruder = params.EXTRUDER|default(240)|float %}
+    {% set chamber  = params.CHAMBER|default(0)|float %}
+    {% set soak     = params.SOAK|default(8)|int %}
+    {% set filament = params.FILAMENT|default("")|string|upper %}
+    {% set filtered = ["ABS", "ASA", "HIPS", "PC", "PA", "PP", "FLEX"] %}
+    {% set filter   = filament == "" or filament in filtered %}
+
+    CLEAR_PAUSE
+    BED_MESH_CLEAR
+    SET_GCODE_OFFSET Z=0
+
+    SET_DISPLAY_TEXT MSG="Homing"
+    G28                                    ; cold home; Z on the nozzle-probe pin
+    G90
+    G0 X175 Y175 Z30 F3600                 ; park over centre  <-- 350 only
+
+    SET_DISPLAY_TEXT MSG="Bed {bed}C"
+    {% if filter %}
+      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION=0
+      SET_FAN_SPEED FAN=nevermore SPEED=1  ; filtered material: filter from the start of the soak
+    {% endif %}
+    M140 S{bed}
+    M190 S{bed}                            ; wait for the bed
+
+    {% if chamber > 0 %}
+      SET_DISPLAY_TEXT MSG="Chamber {chamber}C"
+      M106 S255                            ; part fan stirs the chamber while soaking
+      TEMPERATURE_WAIT SENSOR="temperature_sensor chamber_temp" MINIMUM={chamber}
+      M107
+    {% else %}
+      SET_DISPLAY_TEXT MSG="Soak {soak} min"
+      G4 P{soak * 60000}
+    {% endif %}
+
+    SET_DISPLAY_TEXT MSG="QGL"
+    M104 S150                              ; 150C for QGL: hot enough to be dimensionally
+    TEMPERATURE_WAIT SENSOR=extruder MINIMUM=145   ; honest, cold enough not to ooze
+    QUAD_GANTRY_LEVEL
+    G28 Z                                  ; re-home Z hot; this is the Z0 that counts
+
+    SET_DISPLAY_TEXT MSG="Meshing"
+    BED_MESH_CALIBRATE ADAPTIVE=1
+
+    SET_DISPLAY_TEXT MSG="Hotend {extruder}C"
+    G0 X5 Y5 Z10 F3600                     ; park at the purge-line start, so ooze lands there, not under the part
+    M109 S{extruder}
+
+    ##  TODO Ch 14: purge / prime line goes here, once the nozzle is calibrated.
+
+    G21
+    G90
+    M83                                    ; relative extrusion
+    G92 E0
+    SET_DISPLAY_TEXT MSG="Printing"
+```
+
+```ini
+[gcode_macro _NEVERMORE_SCRUB]
+description: PRINT_END calls it. After a filtered print the Nevermore runs on for scrub_min, then stops.
+variable_scrub_min: 10         # minutes; 0 stops it at the end of the print
+gcode:
+    {% if printer["fan_generic nevermore"].speed > 0 and scrub_min > 0 %}
+      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION={scrub_min * 60}
+    {% else %}
+      SET_FAN_SPEED FAN=nevermore SPEED=0
+    {% endif %}
+
+[delayed_gcode _NEVERMORE_OFF]
+gcode:
+    SET_FAN_SPEED FAN=nevermore SPEED=0
+```
+
+```ini
+    _NEVERMORE_SCRUB
+```
+
+**Check:** The macro parses at the config check. Do not run it: `G28` will fail until Step 12.33's TODO is closed in Ch 13.
+
+⚠ **`TEMPERATURE_WAIT` has no timeout.** If the chamber never reaches `CHAMBER`, the macro blocks forever and the only way out is cancelling the print. Keep `CHAMBER=0` (timed soak) until you have measured what your chamber actually reaches with the door shut and the bed at your print temperature. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
+
+**Filter note:** `FILAMENT=` comes from the slicer profile Ch 13 makes. `filtered` is Prusa's own filtration list for the Core One (ASA, ABS, HIPS, PC, PP, FLEX) plus PA; PLA, PETG and PVB print with the Nevermore off and its carbon spared. After a filtered print `PRINT_END` keeps the Nevermore running for `scrub_min` minutes, then stops it; the next filtered print cancels that timer, and an unfiltered one leaves it to finish. `PRINT_END` already ends with `BED_MESH_CLEAR`, which pairs with the mesh you just added.
+
+**Ordering note:** bed heat and soak come first, then QGL hot, then the mesh — matching the Voron wizard's own order and the rule that a thermally unstable machine will not QGL repeatably (survey §3.3, §4.4 #16). `SET_DISPLAY_TEXT` needs `[display_status]`, which arrived with `[include mainsail.cfg]`. [src](https://docs.vorondesign.com/build/startup/)
+
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628) · [Klipper docs § TEMPERATURE_WAIT](https://www.klipper3d.org/G-Codes.html#temperature_wait) · [Voron startup wizard](https://docs.vorondesign.com/build/startup/)
+
+Pause: ~15 min since the last pause — Part 1 is done: `printer-350.cfg` is complete except the two serial paths, which need the live boards at 12.23. Leave it named `printer-350.cfg` until then; the Pi waits for Part 2.
+
+---
+
+## Part 2 — live, bay open: both boards and the serial paths
 
 ### Step 12.11 — Gate: power the bay and confirm both MCUs enumerate
 
@@ -357,9 +1092,9 @@ Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron
 
 ### Step 12.12 — Read the two serial IDs and work out which is which
 
-![LDO: ls /dev/serial/by-id output](assets/remote/12-software/ldo-revd-serial-by-id-output.png)
+![LDO Rev D: ls /dev/serial/by-id output, with a Nitehawk V1 rp2040 on top; yours reads stm32g0b1xx](assets/remote/12-software/ldo-revd-serial-by-id-output.png)
 
-**What you're looking at:** The screenshot is `ls /dev/serial/by-id/`, Linux's stable naming for USB serial devices. Each entry carries the MCU family and that chip's unique id, so a board keeps the same path across reboots. These two strings go into `printer.cfg` and tell Klipper which board is which.
+**What you're looking at:** The screenshot is LDO's Rev D `ls /dev/serial/by-id/`. Its top line is a Nitehawk **V1**, `rp2040`; your toolboard line reads `stm32g0b1xx`, never `rp2040`. Each entry carries the MCU family and that chip's unique id, so a board keeps its path across reboots.
 
 **Parts:** none.
 
@@ -443,7 +1178,7 @@ grep -E "Loaded MCU|Protocol error|mismatch|Unknown command|Unable to" ~/printer
 | `MCU Protocol error`, with `mcu` under *MCU(s) which should be updated* and a last line `mcu 'mcu': Command format mismatch` or `Unknown command` | build below, flash at 12.15 |
 | `Unable to connect`, or 12.12 found no `usb-Klipper_` Leviathan line | build below, flash at 12.15 |
 
-`printer.cfg` is replaced whole at 12.21. To build: stop Klipper so it releases the serial ports, then configure. `KCONFIG_CONFIG=` keeps this board's settings in `~/klipper/config.leviathan` instead of the shared `.config`, so the toolboard build cannot overwrite them:
+This test file never touches your bench `printer-350.cfg`; 12.23 renames that over it. To build: stop Klipper so it releases the serial ports, then configure. `KCONFIG_CONFIG=` keeps this board's settings in `~/klipper/config.leviathan` instead of the shared `.config`, so the toolboard build cannot overwrite them:
 
 ```bash
 sudo systemctl stop klipper
@@ -705,62 +1440,6 @@ Copy both full paths — including the `-if00` suffix — somewhere you can past
 
 Source: [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · [LDO wiring guide § Determining the USB ID of your mainboard and toolboards](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards)
 
-Pause: ~20 min since the last pause — both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.
-
----
-
-### Step 12.21 — Download the correct config file
-
-![LDO: Mainsail config devices panel](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
-![Simulated printer: Mainsail's Config Files list with printer.cfg beside mainsail.cfg and moonraker.conf](assets/screens/mainsail-machine-config-files.png)
-
-(no image of your own printer yet — simulated printer: your numbers differ)
-
-**What you're looking at:** `printer.cfg` is the single text file that describes this machine to Klipper: which pin drives which motor, what shape the bed is, what every heater, sensor and fan is. LDO publishes one per kit variant and the `-sbv2` suffix is the Rev D+ one.
-
-**Parts:** none.
-
-**Do:** Fetch **`leviathan-printer-rev-d-sbv2.cfg`** onto the Pi as `printer.cfg`, from the pinned commit. A GitHub page is not the file: "Save as" on the `blob/` page gives you HTML, so use the raw URL over SSH:
-
-```bash
-wget -O ~/printer_data/config/printer.cfg \
-  https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
-grep -c 'nhk:PB8' ~/printer_data/config/printer.cfg
-grep -c gpio ~/printer_data/config/printer.cfg
-```
-
-**Check:** The first `grep` prints **1** and the second **0**, and the file appears as `printer.cfg` in Mainsail's **Machine** page.
-
-A `0` then `20` means you fetched the Rev D (RP2040) file: re-run the `wget` with the `-sbv2` name.
-
-⚠ **Rev D+ / LDO:** the Rev D wiring guide's "pre-made configuration file" link points at `leviathan-printer-rev-d.cfg`, the **RP2040** toolboard config: every `nhk:` pin in it is wrong for your board, and it defines a `[temperature_sensor nh_temp]` on a pin the V2 does not have. Do not add that section back (survey §4.1 ①, §4.3). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md)
-
-Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [LDOVoron2 `Firmware/README.md`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md) · [Video: Part 9 @2:35:54](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9354s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
-
----
-
-### Step 12.22 — Add the Mainsail include at the top of `printer.cfg`
-
-![Simulated printer: Mainsail's editor with line 1 reading include mainsail.cfg](assets/screens/mainsail-editor-include.png)
-
-(no image of your own printer yet — simulated printer: your numbers differ)
-
-**What you're looking at:** An `[include]` line pulls another config file in at that point. `mainsail.cfg` is already on the card and supplies the sections and macros the web interface needs: virtual SD card, display status, pause, resume, cancel.
-
-**Parts:** none.
-
-**Do:** In Mainsail, **Machine** → open `printer.cfg` in the editor. It is already there under the right name, so no upload and no rename. Add one line at the very top, above the header comments:
-
-```ini
-[include mainsail.cfg]
-```
-
-**Check:** `printer.cfg` sits next to `mainsail.cfg` and `moonraker.conf` in the config list, and line 1 is the include.
-
-**Why:** Mainsail needs `[virtual_sdcard]`, `[display_status]`, `[pause_resume]` and the `PAUSE`/`RESUME`/`CANCEL_PRINT` macros. `mainsail.cfg` is already on the SD card and bundles all six. Do not edit `mainsail.cfg` itself — it is a read-only include; override it later with a `_CLIENT_VARIABLE` macro in `printer.cfg` if you need to. [src](https://docs.mainsail.xyz/configuration/mainsail-cfg/)
-
-Source: [Mainsail `mainsail.cfg`](https://docs.mainsail.xyz/configuration/mainsail-cfg/) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L1-17)
-
 ---
 
 ### Step 12.23 — Paste the two serial paths
@@ -771,7 +1450,11 @@ Source: [Mainsail `mainsail.cfg`](https://docs.mainsail.xyz/configuration/mainsa
 
 **Parts:** none.
 
-**Do:** Replace both `{REPLACE WITH YOUR SERIAL}` placeholders. `[mcu]` is the **mainboard**; `[mcu nhk]` is the **toolboard**.
+**Do:** Move your bench `printer-350.cfg` over 12.14's test file, then open `printer.cfg` and replace both `{REPLACE WITH YOUR SERIAL}` placeholders. `[mcu]` is the **mainboard**; `[mcu nhk]` is the **toolboard**.
+
+```bash
+cd ~/printer_data/config && mv printer-350.cfg printer.cfg
+```
 
 ```ini
 [mcu]
@@ -794,683 +1477,6 @@ restart_method: command
 ⚠ **Rev D+ / LDO:** swapping these two is the most common Rev D+ mistake: the guide primes you to look for `rp2040`, and there isn't one. `[mcu nhk]` gets the **`stm32g0b1xx`** path. At Step 12.37: `Pin 'PG0' is not a valid pin name on mcu 'mcu'` means the two serial paths are swapped (the toolboard has no port G); `Pin 'gpio23' is not a valid pin name on mcu 'nhk'` means you loaded `leviathan-printer-rev-d.cfg`, not the `-sbv2` file. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py)
 
 Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L18-31) · [LDO wiring guide § Klipper configuration](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#klipper-configuration)
-
-Pause: ~15 min since the last pause — `printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.
-
----
-
-### Step 12.24 — 350 mm: `[stepper_x]` and `[stepper_y]`
-
-![Simulated printer: Mainsail's editor at stepper_x, the 350 pair live and the 250 and 300 pairs commented](assets/screens/mainsail-editor-stepper-x-350.png)
-
-(no image of your own printer yet — simulated printer: your numbers differ)
-
-**What you're looking at:** A `[stepper_x]` section describes one axis motor and its limit switch: how far one revolution moves the axis, how finely the driver subdivides a step, which pin the endstop is on, and where the axis ends. All three build sizes ship commented out.
-
-**Parts:** none.
-
-**Do:** In **both** `[stepper_x]` and `[stepper_y]`, uncomment the 350 pair and leave the 250 and 300 pairs commented. `[stepper_x]` after editing, with `[stepper_y]` identical below the header:
-
-```ini
-##  B Stepper - Left
-##  Connected to HV STEPPER 0
-##  Endstop connected to X-ENDSTOP
-[stepper_x]
-step_pin: PB10
-dir_pin: !PB11
-enable_pin: !PG0
-rotation_distance: 40
-microsteps: 32
-full_steps_per_rotation:400  #set to 200 for 1.8 degree stepper
-endstop_pin: PC1
-position_min: 0
-##--------------------------------------------------------------------
-
-##  Uncomment below for 250mm build
-#position_endstop: 250
-#position_max: 250
-
-##  Uncomment for 300mm build
-#position_endstop: 300
-#position_max: 300
-
-##  Uncomment for 350mm build
-position_endstop: 350        # CHANGED — uncommented for 350
-position_max: 350            # CHANGED — uncommented for 350
-
-##--------------------------------------------------------------------
-homing_speed: 25   #Max 100
-homing_retract_dist: 5
-homing_positive_dir: true
-```
-
-**Check:** Exactly two live `position_endstop`/`position_max` pairs in the file's X/Y sections, one per stepper.
-
-Klipper's parser is non-strict: a second live `position_max` in the same section is silently accepted and the *last* one wins.
-
-⚠ **Rev D+ / LDO:** the kit config ships with **every** build size commented out. This is the first of six places that need the 350 lines uncommented (survey §4.4 #15). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132) · [Klipper docs § stepper](https://www.klipper3d.org/Config_Reference.html#stepper)
-
----
-
-### Step 12.25 — 350 mm: `[stepper_z]`
-
-(no image — see text)
-
-**What you're looking at:** `position_max` is how high the gantry may be driven. It is 330 rather than 350 because the gantry runs out of frame before it runs out of nominal build volume. `position_endstop` here is a placeholder: Ch 13 measures the real value and `SAVE_CONFIG` writes it.
-
-**Parts:** none.
-
-**Do:** Uncomment the 350 line only. Z max is **330**, not 350: the gantry cannot reach the last 20 mm.
-
-```ini
-position_endstop: -0.5
-##--------------------------------------------------------------------
-
-##  Uncomment below for 250mm build
-#position_max: 230
-
-##  Uncomment below for 300mm build
-#position_max: 280
-
-##  Uncomment below for 350mm build
-position_max: 330            # CHANGED — uncommented for 350
-
-##--------------------------------------------------------------------
-position_min: -5
-homing_speed: 8
-second_homing_speed: 3
-homing_retract_dist: 3
-```
-
-**Check:** `position_max: 330` is live; `position_endstop: -0.5` is untouched, the placeholder `Z_ENDSTOP_CALIBRATE` overwrites in Ch 13 via `SAVE_CONFIG`.
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L133-235) · [Klipper docs § stepper](https://www.klipper3d.org/Config_Reference.html#stepper)
-
----
-
-### Step 12.26 — 350 mm: `[quad_gantry_level]`
-
-(no image — see text)
-
-**What you're looking at:** [QGL](16-glossary.md#q), quad gantry level, probes four points and drives each of the four Z motors independently until the gantry is parallel to the bed. `gantry_corners` says where the gantry's pivots are and `points` where to probe, both specific to a 350.
-
-**Parts:** none.
-
-**Do:** Uncomment the 350 `gantry_corners` and `points` blocks. Both keys need their continuation lines uncommented too, and the indentation must survive.
-
-```ini
-[quad_gantry_level]
-
-#--------------------------------------------------------------------
-##  Gantry Corners for 250mm Build
-##  Uncomment for 250mm build
-#gantry_corners:
-#   -60,-10
-#   310, 320
-##  Probe points
-#points:
-#   50,25
-#   50,175
-#   200,175
-#   200,25
-
-##  Gantry Corners for 300mm Build
-##  Uncomment for 300mm build
-#gantry_corners:
-#   -60,-10
-#   360,370
-##  Probe points
-#points:
-#   50,25
-#   50,225
-#   250,225
-#   250,25
-
-##  Gantry Corners for 350mm Build
-##  Uncomment for 350mm build
-gantry_corners:              # CHANGED — uncommented for 350
-   -60,-10                   # CHANGED
-   410,420                   # CHANGED
-##  Probe points
-points:                      # CHANGED — uncommented for 350
-   50,25                     # CHANGED
-   50,275                    # CHANGED
-   300,275                   # CHANGED
-   300,25                    # CHANGED
-
-#--------------------------------------------------------------------
-speed: 100
-horizontal_move_z: 10
-retries: 5
-retry_tolerance: 0.0075
-max_adjust: 10
-```
-
-**Check:** `gantry_corners` has exactly two coordinate lines and `points` exactly four, all indented by three spaces.
-
-Klipper errors loudly if a continuation line loses its indent, so a bad edit here fails at Step 12.37 rather than silently.
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L471-524) · [Klipper docs § quad_gantry_level](https://www.klipper3d.org/Config_Reference.html#quad_gantry_level) · [Video: Part 9 @1:24:59](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5099s)
-
----
-
-### Step 12.27 — 350 mm: resonance probe point and the G32 homing end position
-
-(no image — see text)
-
-**What you're looking at:** `[resonance_tester]` names the spot on the bed where Ch 14's accelerometer measurements are taken. `G32` is the macro that homes, runs QGL and re-homes, and its final move parks the toolhead over bed centre. Both carry hard-coded coordinates that only make sense for one build size.
-
-**Parts:** none.
-
-**Do:** Two more 350 blocks that the survey's checklist does not mention. In `[resonance_tester]`:
-
-```ini
-[resonance_tester]
-accel_chip: adxl345
-accel_per_hz: 100
-sweeping_accel: 400
-sweeping_period: 0
-##--------------------------------------------------------------------
-## Uncomment below for 350mm build
-probe_points:                # CHANGED — uncommented for 350
-    175, 175, 20             # CHANGED
-##--------------------------------------------------------------------
-```
-
-and in `[gcode_macro G32]`:
-
-```ini
-[gcode_macro G32]
-gcode:
-    SAVE_GCODE_STATE NAME=STATE_G32
-    G90
-    G28
-    QUAD_GANTRY_LEVEL
-    G28
-    ##  Uncomment for for your size printer:
-    #--------------------------------------------------------------------
-    ##  Uncomment for 350mm build
-    G0 X175 Y175 Z30 F3600   ; CHANGED — uncommented for 350
-    #--------------------------------------------------------------------
-    RESTORE_GCODE_STATE NAME=STATE_G32
-```
-
-**Check:** Count the live lines; each command prints one number, and the still-commented 250/300 blocks do not count:
-
-```bash
-cd ~/printer_data/config
-grep -c '^position_max: 350' printer.cfg        # 2  (stepper_x, stepper_y)
-grep -c '^position_max: 330' printer.cfg        # 1  (stepper_z)
-grep -c '^points:' printer.cfg                  # 1  (quad_gantry_level)
-grep -c '^probe_points:' printer.cfg            # 1  (resonance_tester)
-grep -c '^    G0 X175 Y175 Z30' printer.cfg     # 1  (G32)
-```
-
-Expect `2 / 1 / 1 / 1 / 1`. A `0` is a block still commented; a `2` where `1` is expected is a second size uncommented as well.
-
-**Naming note:** the config header calls this *"Homing end position — `[gcode_macro G32]` section"*. This kit does **not** use a `[homing_override]` block; homing behaviour lives in `[safe_z_home]` (Step 12.33) and this G32 macro. Do not add a `[homing_override]` — an incorrect one drives the nozzle into the bed. [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/leviathan-printer-rev-d-sbv2.cfg)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L418-440) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L601-620) · [Klipper docs § resonance_tester](https://www.klipper3d.org/Config_Reference.html#resonance_tester)
-
----
-
-### Step 12.28 — Verify the 0.9° A/B motor setting
-
-(no image — see text)
-
-**What you're looking at:** `full_steps_per_rotation` is how many full steps the motor takes per revolution. A/B motors are 0.9° units, 400 steps; the Z and extruder motors are 1.8° units at 200. Nothing warns you if this is wrong: every X and Y dimension comes out doubled or halved.
-
-**Parts:** none.
-
-**Do:** Confirm, do not change, that `[stepper_x]` and `[stepper_y]` both read:
-
-```ini
-full_steps_per_rotation:400  #set to 200 for 1.8 degree stepper
-```
-
-and that `[extruder]` reads `full_steps_per_rotation: 200`.
-
-**Check:** X/Y = 400, extruder = 200, and none of the four `[stepper_z*]` sections has a `full_steps_per_rotation` line; they inherit the 200 default.
-
-**Why:** the Rev D+ A/B motors are `LDO-42STH48-2004MAH(VRN)`, **0.9°** — 400 full steps per revolution. The Z motors (`LDO-42STH48-2004AC(VRN)`) and the extruder motor (`LDO-36STH20-1004AHG(VRN)`) are 1.8°. LDO already sets this correctly in the `-sbv2` config; the value is on this checklist only because it is the one thing that will silently halve or double every X/Y dimension if someone "fixes" it. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L47-132) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
-
-Pause: ~15 min since the last pause — every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.
-
----
-
-### Step 12.29 — Probe: Omron active, Klicky written but commented
-
-(no image — see text)
-
-**What you're looking at:** A `[probe]` section describes what the machine uses to measure bed height. This kit has two: the Omron [inductive probe](16-glossary.md#i), for gantry levelling only, and the Klicky dockable microswitch. Klipper allows exactly one live `[probe]`, so the unused one is parked as commented text.
-
-**Parts:** none.
-
-**Do:** The kit ships both probes. Build stock: Omron inductive for QGL only, LDO nozzle probe for Z0, Klicky parts bagged. Replace the `[probe]` section with the following, which keeps LDO's live values and parks a Klicky block beside them:
-
-```ini
-[probe]
-##  Inductive Probe (Omron) — ACTIVE
-##  Connected to PROBE on the Nitehawk-SB V2 (the Leviathan's Z-PROBE header stays empty)
-##  This probe is not used for Z height, only Quad Gantry Leveling
-pin: nhk:PC15
-x_offset: 0
-y_offset: 25.0
-z_offset: 0
-speed: 10.0
-samples: 3
-samples_result: median
-sample_retract_dist: 3.0
-samples_tolerance: 0.006
-samples_tolerance_retries: 3
-
-##  ---- Klicky alternative — NOT ACTIVE ----------------------------------
-##  Comment out the [probe] block above before uncommenting this one.
-##  Klicky also needs the klicky-probe macro set, a printed dock, and its own
-##  attach/dock sequence inside QUAD_GANTRY_LEVEL. On the toolhead PCB the
-##  Klicky cable goes to the same PROBE port, but the 24V pin is not connected.
-##  Confirm the sense of the switch with QUERY_PROBE before ANY Z move: if it
-##  reports TRIGGERED with the probe off the dock, add a leading "!" to the pin.
-#[probe]
-#pin: ^nhk:PC15             # (verify on bench) — microswitch needs a pull-up
-#x_offset: 0                # (verify on bench) — depends on your dock/mount
-#y_offset: 19.75            # (verify on bench) — klicky default, measure yours
-#z_offset: 6.42             # (verify on bench) — set by PROBE_CALIBRATE
-#speed: 10.0
-#samples: 3
-#samples_result: median
-#sample_retract_dist: 3.0
-#samples_tolerance: 0.006
-#samples_tolerance_retries: 3
-```
-
-**Check:** exactly one live `[probe]` section. `grep -c '^\[probe\]' printer.cfg` returns 1.
-
-⚠ **Rev D+ / LDO:** the PROBE port on the Nitehawk-SB **V2** is **JST-PH2.0**, not the JST-XH2.5 the wiring guide describes; a pigtail crimped to XH2.5 will not fit (survey §4.1 ③). The fibreglass tape goes on the **front and sides** of the Omron only, never the back or bottom, or it will not sense. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L308-326) · [Klipper docs § probe](https://www.klipper3d.org/Config_Reference.html#probe) · [Nitehawk-SB V2 doc § Port and pin definitions](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Video: More Extras! @3:24:00](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12240s) (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)
-
----
-
-### Step 12.30 — Hotend: E3D Revo HF
-
-(no image — see text)
-
-**What you're looking at:** The `[extruder]` section carries both the hotend heater and its temperature sensor. `sensor_type` names the thermistor's resistance curve and `pullup_resistor` the fixed resistor on the board it is measured against. Get either wrong and the printer reads a plausible but false temperature.
-
-**Parts:** none.
-
-**Do:** Confirm the `[extruder]` heater and sensor block matches your hotend. For the kit's Revo HF, LDO's shipped values are already correct, so verify rather than edit:
-
-```ini
-heater_pin: nhk:PA7
-## Check what thermistor type you have.
-sensor_type: ATC Semitec 104NT-4-R025H42G   # correct for the Revo 60 W 104NT HeaterCore
-sensor_pin: nhk:PB12
-pullup_resistor: 2200                        # Nitehawk TH0 port has 2k2 pull-ups
-min_temp: 10
-max_temp: 270                                # Revo HF core is rated 300 C; 270 is LDO's cap
-max_power: 1.0
-min_extrude_temp: 170
-control = pid
-pid_kp = 26.213
-pid_ki = 1.304
-pid_kd = 131.721
-```
-
-**Check:** `sensor_type` reads `ATC Semitec 104NT-4-R025H42G` and `pullup_resistor: 2200` is present. Leave the PID values alone; `PID_CALIBRATE HEATER=extruder TARGET=245` in Ch 13 replaces them.
-
-**Sourcing:** E3D publishes the Revo 60 W 104NT HeaterCore as *Thermistor Type: Semitec 104NT-4-R025H42G*, *Klipper Setting: "ATC Semitec 104NT-4-R025H42G"*, *60W*, *Max Printing Temperature: 300°C*. Use the Revo's **integrated** thermistor lead into TH0; the loose Semitec 104NT in the kit bag is a spare. [src](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore)
-
-⚠ **Rev D+ / LDO:** the wiring guide says the TH0 connector is *"JST-XH2.5 two pin"*. On the V2 board it is **JST-PH2.0** (survey §4.1 ③). The heater screw terminal and the E0508 ferrule spec are unchanged. If you fitted a Rapido HF instead of the Revo, its thermistor is a different part — re-check `sensor_type` against its datasheet before power-up. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L236-287) · [Klipper docs § extruder](https://www.klipper3d.org/Config_Reference.html#extruder) · [E3D Revo 60 W heatercore / 104NT thermistor](https://e3d-online.com/pages/revo-support-60w-104nt-heatercore)
-
----
-
-### Step 12.31 — Bed heater and chamber sensor
-
-(no image — see text)
-
-**What you're looking at:** `[heater_bed]` is the SSR output and the bed thermistor you wired in Ch 10; `[temperature_sensor chamber_temp]` is a sensor with no heater attached, so it only reports. `max_power: 0.6` deliberately caps how hard the 355 mm heat pad is driven.
-
-**Parts:** none.
-
-**Do:** Verify, do not edit:
-
-```ini
-[heater_bed]
-##  SSR Pin - HEATBED
-##  Thermistor - TH1
-heater_pin: PG11
-sensor_type: ATC Semitec 104NT-4-R025H42G
-sensor_pin: PA2
-pullup_resistor: 2200                  # Leviathan thermistor ports are 2k2
-max_power: 0.6
-min_temp: 0
-max_temp: 120
-control: pid
-pid_kp: 58.437
-pid_ki: 2.347
-pid_kd: 363.769
-
-[temperature_sensor chamber_temp]
-## Chamber Temperature — plugs into the CT port on the toolhead PCB
-sensor_type: ATC Semitec 104NT-4-R025H42G
-sensor_pin: nhk:PB2
-min_temp: 0
-max_temp: 100
-gcode_id: chamber_th
-```
-
-**Check:** After Step 12.37, Mainsail's temperature panel shows **bed** and **chamber** within ~2 °C of room temperature.
-
-If the chamber reads wrong while the bed and hotend read correctly, suspect the CT port's pull-up: LDO's board-level config for that port specifies `pullup_resistor: 4700`, Klipper's default, which is why the kit config omits the line. Add an explicit value only if the reading is wrong.
-
-**Note:** `max_power: 0.6` on the bed is deliberate — a 355×355 heatpad at full power warps the plate. Do not raise it. The Leviathan README specifies *"4x Thermistor ports with 2k2 ohm pullup resistors"*, which is where the bed's `2200` comes from. [src](https://github.com/MotorDynamicsLab/Leviathan) · [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Configs/nitehawk-sbv2.cfg)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L288-307) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L441-454) · [Klipper docs § heater_bed](https://www.klipper3d.org/Config_Reference.html#heater_bed) · [Nitehawk-SB V2 `nitehawk-sbv2.cfg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg)
-
----
-
-### Step 12.32 — Fans and lighting: Nevermore, COB strips, bay fans
-
-![LDO Rev D: fan and LED strip connections](assets/remote/12-software/ldo-revd-s7-fans-wired.jpg)
-
-**What you're looking at:** Klipper has four fan section types and the difference is the point of this step: `[fan]` is the slicer-controlled part-cooling fan, `[heater_fan]` runs automatically whenever its heater is on, `[controller_fan]` follows the steppers and bed, and `[fan_generic]` is one a macro can command directly.
-
-**Parts:** none.
-
-**Do:** The kit's mainboard fan/LED mapping, per the wiring guide's own table, is: **PCB Fan → FAN2/PF7**, **LED Strip → LED-Strip/PE6**, **Filter Fan → FAN3/PF9**. Note what LDO's config calls FAN3 and what is actually plugged into it. Edit as follows:
-
-```ini
-[fan]
-##  Print Cooling Fan - FAN0 (toolhead, 5015 blower on fan adapter P4)
-pin: nhk:PA15
-##tachometer_pin: nhk:PD2
-kick_start_time: 0.5
-off_below: 0.10
-
-[heater_fan hotend_fan]
-##  Hotend Fan - FAN1 (toolhead, 4010 axial on fan adapter P2)
-pin: nhk:PD0
-#tachometer_pin: nhk:PD1
-max_power: 1.0
-kick_start_time: 0.5
-heater: extruder
-heater_temp: 50.0
-
-[controller_fan controller_fan]
-##  Electronics bay fans — 2x 6020 joined by the 3x2 splicer PCB. FAN2 / "PCB FAN"
-pin: PF7
-##tachometer_pin: PF6
-kick_start_time: 0.5
-heater: heater_bed
-
-##  ---- REPLACES LDO's [heater_fan exhaust_fan] ---------------------------
-##  FAN3 is labelled "FILTER FAN" in the harness and feeds the Nevermore
-##  Micro V5 Duo. LDO's stock config declares it as a [heater_fan] slaved to
-##  the bed at 60 C, which cannot be commanded from the slicer or a macro.
-##  fan_generic lets PRINT_START run it for the materials that need filtering
-##  and PRINT_END run it on for a scrub afterwards (the macros come at 12.36).
-[fan_generic nevermore]                # CHANGED — was [heater_fan exhaust_fan]
-pin: PF9
-max_power: 1.0
-shutdown_speed: 0.0
-kick_start_time: 5.0
-
-##  ---- LDO stock, kept for reference — NOT ACTIVE -----------------------
-#[heater_fan exhaust_fan]
-#pin: PF9
-#max_power: 1.0
-#shutdown_speed: 0.0
-#kick_start_time: 5.0
-#heater: heater_bed
-#heater_temp: 60
-#fan_speed: 1.0
-
-## Chamber Lighting — 2x COB strips joined by the 2x3 splitter PCB, LED-STRIP port
-[output_pin caselight]
-pin: PE6
-pwm: true
-hardware_pwm: False
-value: 0.20                   # startup brightness
-shutdown_value: 0
-#value:1                      # CHANGED — commented out; see note below
-cycle_time: 0.00025
-```
-
-**Check:** `grep -c '^\[heater_fan exhaust_fan\]' printer.cfg` returns 0, `grep -c '^\[fan_generic nevermore\]' printer.cfg` returns 1, and `[output_pin caselight]` contains exactly one live `value:` line.
-
-**Why the caselight edit:** LDO's stanza declares `value` **twice** — `value: 0.20` and then `value:1`. Klipper builds its parser with `RawConfigParser(strict=False)`, so duplicate keys are accepted silently and the **last one wins**: the COB strips come up at full brightness on every boot, and the 0.20 you thought you set is dead text. The same duplicate is present in LDO's Leviathan-repo configs, so it is not a transcription error in your file. [src](https://github.com/Klipper3d/klipper/blob/master/klippy/configfile.py)
-
-⚠ **Rev D+ / LDO:** the stock exhaust-filter fan is **not included** in the Rev D kit, so nothing else wants FAN3. The Nevermore Micro V5 Duo is built in Ch 11 and is the only thing on that port. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
-
-Source: [LDO Rev D photo S7 fans wired](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S7_fan.jpg) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L327-410) · [Klipper docs § fan](https://www.klipper3d.org/Config_Reference.html#fan) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip) · [Video: Extras! @4:00:25](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14425s)
-
-Pause: ~15 min since the last pause — probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.
-
----
-
-### Step 12.33 — Z endstop: leave `safe_z_home` deliberately unreachable
-
-(no image — see text)
-
-**What you're looking at:** `[safe_z_home]` is the XY position the toolhead moves to before homing Z, which here must be directly over the nozzle-probe pin. The shipped `-10,-10` sits outside the machine's travel limits on purpose, so Klipper refuses the move rather than guessing.
-
-**Parts:** none.
-
-**Do:** Do **not** guess the nozzle-probe coordinates. Leave the section as LDO ships it and add a marker:
-
-```ini
-[safe_z_home]
-##  XY Location of the Z Endstop Switch
-##  Update -10,-10 to the XY coordinates of your endstop pin
-##  after going through the "Z Endstop Pin Location Definition" step.
-home_xy_position:-10,-10      # TODO Ch 13 — measured on the machine, NOT a 350 preset
-speed:100
-z_hop:10
-```
-
-**Check:** `home_xy_position` is still `-10,-10`, and you understand that `G28 Z` will fail in Ch 13 with **"Move out of range"** until you replace it.
-
-**Why leave it broken:** `-10,-10` is outside `position_min: 0` for both X and Y, so Klipper refuses the move rather than attempting it. That refusal *is* the safety interlock. Substituting a plausible-looking value — bed centre, say — makes `G28 Z` drive the nozzle down at a spot where there is no pin, into the build plate. The LDO nozzle probe's real XY location is read off the machine during the startup wizard's *Z Endstop* page in Ch 13. [src](https://docs.vorondesign.com/build/startup/) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L458-470) · [Klipper docs § safe_z_home](https://www.klipper3d.org/Config_Reference.html#safe_z_home) · [Voron startup wizard](https://docs.vorondesign.com/build/startup/)
-
----
-
-### Step 12.34 — Add a `[bed_mesh]` section
-
-(no image — see text)
-
-**What you're looking at:** A [bed mesh](16-glossary.md#b) is a grid of probed heights Klipper applies as a small Z correction while printing, compensating for a bed that is not flat. `mesh_min`/`mesh_max` are **probe** coordinates, not nozzle coordinates, and `zero_reference_position` pins the mesh to one point.
-
-**Parts:** none.
-
-**Do:** There is **no `[bed_mesh]` anywhere in the LDO config**. Add this block anywhere above the macros; next to `[quad_gantry_level]` reads well:
-
-```ini
-#####################################################################
-#   Bed Mesh  — ADDED, not present in the LDO config
-#####################################################################
-
-[bed_mesh]
-speed: 300
-horizontal_move_z: 10
-##  mesh_min / mesh_max are PROBE coordinates, not nozzle coordinates.
-##  The Omron sits at y_offset +25, so the toolhead goes to (X, Y-25):
-##  mesh_min Y 40 -> toolhead Y 15;  mesh_max Y 310 -> toolhead Y 285. Both legal.
-##  40/310 is the Voron reference inset for a 350 (keeps probe points off the bed clips).
-mesh_min: 40, 40
-mesh_max: 310, 310
-probe_count: 7, 7
-algorithm: bicubic
-##  Z0 comes from the nozzle-probe endstop, and [probe] z_offset is 0 because
-##  the Omron is a QGL-only probe. Without a zero reference the whole mesh
-##  would be offset by the Omron's trigger height. Pin it to bed centre:
-zero_reference_position: 175, 175
-fade_start: 1.0
-fade_end: 10.0
-fade_target: 0
-adaptive_margin: 5
-```
-
-**Check:** `mesh_max` minus the probe's 25 mm `y_offset` stays ≤ `position_max` on Y, and `mesh_min` Y minus 25 stays ≥ `position_min`. Both hold.
-
-**Why `zero_reference_position` is not optional here:** `[probe] z_offset: 0` — LDO's own comment says *"This probe is not used for Z height, only Quad Gantry Leveling"*. A mesh built with an uncalibrated probe carries the probe's trigger height as a constant offset on every point. `zero_reference_position` subtracts the mesh value at the named point from the whole mesh, making it purely relative and safe to apply on top of a nozzle-probe Z0. [src](https://www.klipper3d.org/Config_Reference.html#bed_mesh)
-
-**Note:** 7×7 with `[probe] samples: 3` is 147 probes and takes a while. Use `BED_MESH_CALIBRATE SAMPLES=2` for routine meshes, and `ADAPTIVE=1` (as PRINT_START does below) to mesh only the area the print actually covers — which is what makes a per-print mesh practical on a 350 (survey §4.4 #15). [src](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
-
-Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.html#bed_mesh) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate)
-
----
-
-### Step 12.35 — Add `[input_shaper]` and `[exclude_object]`
-
-(no image — see text)
-
-**What you're looking at:** [Input shaping](16-glossary.md#i) is Klipper's anti-ringing filter, fitted to the machine's measured resonance in Ch 14; the empty section here is somewhere for those numbers to land. `[exclude_object]` is what lets one failed part be cancelled mid-print without abandoning the rest of the plate.
-
-**Parts:** none.
-
-**Do:** Add both. `[input_shaper]` goes in as a disabled placeholder so Ch 14 has somewhere to write:
-
-```ini
-#####################################################################
-#   Input shaper  — ADDED, placeholder. Values come from Ch 14.
-#####################################################################
-
-[input_shaper]
-##  Leave both frequencies commented until you have run SHAPER_CALIBRATE
-##  on a machine that has already produced a good first print (survey §3.3).
-##  The ADXL345 is on the toolboard; [resonance_tester] is already configured.
-#shaper_freq_x: 0
-#shaper_freq_y: 0
-#shaper_type: mzv
-
-#####################################################################
-#   Object exclusion  — ADDED
-#####################################################################
-
-[exclude_object]
-```
-
-**Check:** Klipper accepts a bare `[input_shaper]` with no frequencies: a valid "shaping disabled" state, not an error. `[exclude_object]` takes no parameters.
-
-**Also:** for cancel-object to actually work, the G-code needs object labels. Either turn on PrusaSlicer's **Output options → Label objects → Firmware-specific**, or set `enable_object_processing: True` under `[file_manager]` in `moonraker.conf` and let Moonraker inject them. Slicer-side is cheaper — Moonraker's preprocessor is file-I/O heavy. Decide this in the slicer chapter, not here. [src](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [src](https://moonraker.readthedocs.io/en/latest/configuration/)
-
-Source: [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [Klipper docs § exclude_object](https://www.klipper3d.org/Config_Reference.html#exclude_object) · [Moonraker configuration](https://moonraker.readthedocs.io/en/latest/configuration/)
-
----
-
-### Step 12.36 — Replace `PRINT_START` with a skeleton that waits on the chamber
-
-(no image — see text)
-
-**What you're looking at:** `PRINT_START` is the macro the slicer calls at the top of every print. It holds the warm-up sequence: home, heat the bed, soak the chamber, level the gantry, mesh the bed, then bring the hotend up. A machine still expanding will not level repeatably.
-
-**Parts:** none.
-
-**Do:** LDO's stock `PRINT_START` is three lines and takes no parameters: replace it with the first block. Paste the second block under `PRINT_END`, and add the third line under `M107` inside `PRINT_END`. Keep the rest of `PRINT_END`.
-
-```ini
-[gcode_macro PRINT_START]
-#   Slicer start G-code:  PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}
-#   CHAMBER=0 (the default) skips the chamber wait entirely and does a timed soak instead.
-#   FILAMENT= is the slicer's filament type. The Nevermore runs only for the types in
-#   `filtered`; a hand-run PRINT_START with no FILAMENT filters too.
-gcode:
-    {% set bed      = params.BED|default(100)|float %}
-    {% set extruder = params.EXTRUDER|default(240)|float %}
-    {% set chamber  = params.CHAMBER|default(0)|float %}
-    {% set soak     = params.SOAK|default(8)|int %}
-    {% set filament = params.FILAMENT|default("")|string|upper %}
-    {% set filtered = ["ABS", "ASA", "HIPS", "PC", "PA", "PP", "FLEX"] %}
-    {% set filter   = filament == "" or filament in filtered %}
-
-    CLEAR_PAUSE
-    BED_MESH_CLEAR
-    SET_GCODE_OFFSET Z=0
-
-    SET_DISPLAY_TEXT MSG="Homing"
-    G28                                    ; cold home; Z on the nozzle-probe pin
-    G90
-    G0 X175 Y175 Z30 F3600                 ; park over centre  <-- 350 only
-
-    SET_DISPLAY_TEXT MSG="Bed {bed}C"
-    {% if filter %}
-      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION=0
-      SET_FAN_SPEED FAN=nevermore SPEED=1  ; filtered material: filter from the start of the soak
-    {% endif %}
-    M140 S{bed}
-    M190 S{bed}                            ; wait for the bed
-
-    {% if chamber > 0 %}
-      SET_DISPLAY_TEXT MSG="Chamber {chamber}C"
-      M106 S255                            ; part fan stirs the chamber while soaking
-      TEMPERATURE_WAIT SENSOR="temperature_sensor chamber_temp" MINIMUM={chamber}
-      M107
-    {% else %}
-      SET_DISPLAY_TEXT MSG="Soak {soak} min"
-      G4 P{soak * 60000}
-    {% endif %}
-
-    SET_DISPLAY_TEXT MSG="QGL"
-    M104 S150                              ; 150C for QGL: hot enough to be dimensionally
-    TEMPERATURE_WAIT SENSOR=extruder MINIMUM=145   ; honest, cold enough not to ooze
-    QUAD_GANTRY_LEVEL
-    G28 Z                                  ; re-home Z hot; this is the Z0 that counts
-
-    SET_DISPLAY_TEXT MSG="Meshing"
-    BED_MESH_CALIBRATE ADAPTIVE=1
-
-    SET_DISPLAY_TEXT MSG="Hotend {extruder}C"
-    G0 X5 Y5 Z10 F3600                     ; park at the purge-line start, so ooze lands there, not under the part
-    M109 S{extruder}
-
-    ##  TODO Ch 14: purge / prime line goes here, once the nozzle is calibrated.
-
-    G21
-    G90
-    M83                                    ; relative extrusion
-    G92 E0
-    SET_DISPLAY_TEXT MSG="Printing"
-```
-
-```ini
-[gcode_macro _NEVERMORE_SCRUB]
-description: PRINT_END calls it. After a filtered print the Nevermore runs on for scrub_min, then stops.
-variable_scrub_min: 10         # minutes; 0 stops it at the end of the print
-gcode:
-    {% if printer["fan_generic nevermore"].speed > 0 and scrub_min > 0 %}
-      UPDATE_DELAYED_GCODE ID=_NEVERMORE_OFF DURATION={scrub_min * 60}
-    {% else %}
-      SET_FAN_SPEED FAN=nevermore SPEED=0
-    {% endif %}
-
-[delayed_gcode _NEVERMORE_OFF]
-gcode:
-    SET_FAN_SPEED FAN=nevermore SPEED=0
-```
-
-```ini
-    _NEVERMORE_SCRUB
-```
-
-**Check:** The macro parses at the config check. Do not run it: `G28` will fail until Step 12.33's TODO is closed in Ch 13.
-
-⚠ **`TEMPERATURE_WAIT` has no timeout.** If the chamber never reaches `CHAMBER`, the macro blocks forever and the only way out is cancelling the print. Keep `CHAMBER=0` (timed soak) until you have measured what your chamber actually reaches with the door shut and the bed at your print temperature. [src](https://www.klipper3d.org/G-Codes.html#temperature_wait)
-
-**Filter note:** `FILAMENT=` comes from the slicer profile Ch 13 makes. `filtered` is Prusa's own filtration list for the Core One (ASA, ABS, HIPS, PC, PP, FLEX) plus PA; PLA, PETG and PVB print with the Nevermore off and its carbon spared. After a filtered print `PRINT_END` keeps the Nevermore running for `scrub_min` minutes, then stops it; the next filtered print cancels that timer, and an unfiltered one leaves it to finish. `PRINT_END` already ends with `BED_MESH_CLEAR`, which pairs with the mesh you just added.
-
-**Ordering note:** bed heat and soak come first, then QGL hot, then the mesh — matching the Voron wizard's own order and the rule that a thermally unstable machine will not QGL repeatably (survey §3.3, §4.4 #16). `SET_DISPLAY_TEXT` needs `[display_status]`, which arrived with `[include mainsail.cfg]`. [src](https://docs.vorondesign.com/build/startup/)
-
-Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L621-628) · [Klipper docs § TEMPERATURE_WAIT](https://www.klipper3d.org/G-Codes.html#temperature_wait) · [Voron startup wizard](https://docs.vorondesign.com/build/startup/)
 
 ---
 
@@ -1508,11 +1514,11 @@ Commit again after each `SAVE_CONFIG` (`git add -A && git commit -m "13.29 bed P
 
 ⚠ If you get *MCU Protocol error* ending *"mcu 'nhk': Command format mismatch"*, the toolboard firmware and the host Klipper were built from different commits, so rebuild the toolboard firmware from the current `~/klipper`. A `Pin '…' is not a valid pin name on mcu '…'` error is Step 12.23's ⚠: the wrong config file (`gpio…` on `nhk`) or swapped serial paths (`PG0` on `mcu`). [src](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
-⚠ **Ending `mcu 'mcu': …` instead, after 12.14 kept the factory firmware:** the full config uses commands the six-line test never asked for, and the factory build lacks one. Build and flash the Leviathan at [12.14](#step-1214-build-klipper-firmware-for-the-leviathan)–12.15, then come back here. [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py#L96-L122)
+⚠ **Ending `mcu 'mcu': …` instead, after 12.14 kept the factory firmware:** the full config uses commands the six-line test never asked for, and the factory build lacks one. Build and flash the Leviathan at [12.14](#step-1214-build-klipper-firmware-for-the-leviathan)–12.15, starting at its `systemctl stop`: its test file would overwrite this `printer.cfg`. Then come back here. [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py#L96-L122)
 
 Source: [Klipper docs § Config checks](https://www.klipper3d.org/Config_checks.html) · [Klipper `error_mcu.py`, the `MCU Protocol error` text](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py#L96-L122) · [Mainsail FAQ — command format mismatch](https://docs.mainsail.xyz/faq/klipper_errors/command-format-mismatch/)
 
-Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.
+Pause: ~30 min since the last pause — both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down.
 
 ---
 
@@ -1523,7 +1529,7 @@ Pause: ~20 min since the last pause — `[bed_mesh]`, `[input_shaper]`, `[exclud
 - [ ] MainsailOS boots, is reachable at your hostname, and every component in the Update Manager is up to date.
 - [ ] The Klipper version string from Step 12.7 is written down. The Nitehawk was flashed from that working copy; the Leviathan was too, or its factory firmware passed 12.14's test and 12.37.
 - [ ] `ls /dev/serial/by-id/` shows exactly two Klipper devices: one `stm32g0b1xx` (Nitehawk-SB V2) and one `stm32f446xx` **or** `stm32h743xx` (Leviathan). No `katapult` entries.
-- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20).
+- [ ] `printer.cfg` is the **`-sbv2`** file — `grep -c 'nhk:PB8' printer.cfg` returns 1 and `grep -c gpio printer.cfg` returns 0 (the V1 file returns 20), and no `printer-350.cfg` is left beside it.
 - [ ] `config.nitehawk`, and `config.leviathan` if 12.14 built one, are in `~/printer_data/config/`, and `~/printer_data/config` is a git repo with the Ch 12 baseline committed.
 - [ ] Line 1 is `[include mainsail.cfg]`, and Mainsail shows no missing-configuration panel.
 - [ ] All six 350 mm sites are uncommented: `[stepper_x]`, `[stepper_y]`, `[stepper_z]`, `[quad_gantry_level]`, `[resonance_tester]`, `[gcode_macro G32]`.

@@ -9,7 +9,8 @@ sums of the rounded plate figures, so they can differ from that file's TOTAL row
 `python3 slicer/check_docs.py` re-checks every number on this page against it.
 
 **B11**, the PETG V0 bay ducting, is a separate batch outside this run: 5 plates, 24.9 h, 348 g of Jet Black
-PETG V0 on its own spool. None of its numbers are in the run's totals; it has its own table, run schedule
+PETG V0 on its own spool, cut into the order after B07 (P1–P3) and after the kit-day bay measurements (P4, P5).
+None of its numbers are in the run's totals; it has its own table, run schedule
 and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
 
 ```mascot
@@ -19,7 +20,7 @@ caption: Twenty-one plates, start to finish. The printer works while the kit is 
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
 Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
-— 150.2 h. Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 150.2 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -54,7 +55,8 @@ All 21 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 All 21 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
 runs overnight; anything shorter is a day plate, so two of them fit between breakfast and bedtime. The
 longest plate in the build, B01-P1 at 14.8 h, is the exception — start it in the morning so its first layer
-is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger).
+is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 print
+between #12 and #13 ([B11 run schedule](#b11-run-schedule)).
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
@@ -262,29 +264,32 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---|---|
-| [B11](B11-bay-ducting.md) before kit | 3 | 11.8 | 173 | Ch 09 ducts; Ch 10 strip fin | none; the coupon, B11-P1, prints first |
-| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day bay measurements; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
+| [B11](B11-bay-ducting.md) before kit | 3 | 11.8 | 173 | Ch 09 ducts; Ch 10 strip fin | B07 off the bed, before B08; the coupon, B11-P1, prints first |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 plate still waiting; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
 | **B11 total** | **5** | **24.9** | **348** | | |
 
 **Filament:** 348 g needed from one 1 kg spool, **V1**, not yet bought → **652 g margin** if B11-P5 prints.
 
 ## B11 run schedule
 
-Print whenever the Core One+ is free: all five are day plates. P1 to P3 need nothing measured; P4 and P5 wait
-for the kit-day measurements. The # column carries on from the run schedule above.
+All five are day plates. **P1 to P3 print right after B07-P2 (#12), before B08-P1 (#13)**: Ch 09 needs them, and
+nothing needs B08–B10 until Ch 10.50. **P4 and P5 print at the next free slot after the kit-day bay measurements**
+(Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting. The # column carries on from the run schedule
+above so the plate board counts 1 to 26; the slot column gives the place in the order.
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
-| 22 | B11-P1 | 0.4 | petg | day (the coupon, first) | V1 |
+| 22 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P2) | V1 |
 | 23 | B11-P2 | 6.8 | petg | day | V1 |
-| 24 | B11-P3 | 4.6 | petg | day | V1 |
-| 25 | B11-P4 | 6.3 | petg | day (after kit-day measurements) | V1 |
+| 24 | B11-P3 | 4.6 | petg | day (then B08-P1) | V1 |
+| 25 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
 | 26 | B11-P5 | 6.8 | petg | day (only if gap ≥ 25 mm) | V1 |
 
 ## B11 spool ledger
 
 Spool **V1** is one 1 kg Prusament PETG V0 Jet Black spool, not yet bought; weigh it the same way as the ASA
-spools. Nothing else in the build prints from it.
+spools. Nothing else in the build prints from it. Swapping to it after B07-P2 takes ASA spool #2 off the printer
+and back on for B08-P1: put #2 in the drybox meanwhile; the ASA ledger's figures do not change.
 
 | plate | slicer g | actual g (weigh) | spool # | remaining |
 |---|---:|---:|---|---:|
@@ -301,10 +306,10 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 
 | add-on | parts | hours | g ASA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | smooth | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
-| Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 7.1 | 101 | smooth | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
-| Side spool holder (Maltasrc frame remixed for a Prusa puck): frame and tube holder black, Prusa puck and spindle blue | 4 | 12.7 | 199 | smooth | Ch 11 Part C | `slicer/addons/side-spool-608769/` |
-| HappyCam camera mount (Voxel3D_NL, 350): body and door, black | 2 | 1.3 | 21 | smooth | Ch 11 Part C | `slicer/addons/happycam-488020/` |
+| Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | satin | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
+| Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 6.4 | 101 | satin | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
+| Side spool holder (Maltasrc frame remixed for a Prusa puck): frame and tube holder black, Prusa puck and spindle blue | 4 | 12.7 | 199 | satin | Ch 11 Part C | `slicer/addons/side-spool-608769/` |
+| HappyCam camera mount (Voxel3D_NL, 350): body and door, black | 2 | 1.3 | 21 | satin | Ch 11 Part C | `slicer/addons/happycam-488020/` |
 
 **The scrubber is not printed ahead.** Its parts are generated from this machine's measurements at
 [Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
@@ -317,8 +322,8 @@ Step 13.45 measures it.
 `python3 slicer/fetch_stls.py`. It is printed only after
 [Ch 14 Step 14.25](../14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought)
 has checked the back of the machine, as two jobs: the housing in Galaxy Black with `slicer/voron-coreone-asa.ini`
-(66 g, 5 h 03 m), then the fan grill, access cover and two mounts in the blue accent with
-`slicer/voron-accent-blue.ini` (35 g, 2 h 04 m). As oriented, no supports, satin sheet; PrusaSlicer 2.9.6 CLI
+(66 g, 4 h 31 m, 3 mm brim), then the fan grill, access cover and two mounts in the blue accent with
+`slicer/voron-accent-blue.ini` (35 g, 1 h 54 m, 3 mm brim on the access cover). As oriented, no supports, satin sheet; PrusaSlicer 2.9.6 CLI
 estimates, not GUI-arranged. The grams come out of the spares, not the ledger above.
 
 **The side spool holder and the camera mount** print together at
@@ -338,16 +343,16 @@ spool ledgers above. PLA, so the ASA spools are untouched. Print them any time t
 
 | bench print | parts | hours | g PLA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
-| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 4 grid: A 5U, B 5U, C 4U | 3 | 15.2 | 531 | satin | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
+| Hardware trays A–C, ultra-light Gridfinity bins on a 5 × 4 grid: A 5U, B 5U, C 4U | 3 | 15.1 | 547 | satin | Ch 00 Step 00.12 | `slicer/bench/hardware-trays/` |
 
 **The hardware trays** take the kit's fastener bags on kit day
 ([Ch 00 Step 00.12](../00-before-you-start.md#step-0012-empty-the-fastener-bags-into-the-hardware-trays)):
 tray A the M2 and M3 screws, tray B the M4 and M5 screws and the roll-in T-nuts, tray C the nuts, inserts,
 washers, spacers, magnets and hammer-head T-nuts. Each is a standard Gridfinity bin on the same 5 × 4 footprint,
-only as tall as its contents need, built ultra-light (hollow feet, two-perimeter walls), so it sits on any
+only as tall as its contents need, built ultra-light (two-perimeter walls, 10 % infill), so it sits on any
 Gridfinity baseplate and any tray stacks on any other. No lids. Three jobs, one tray per bed, each project as
 committed: `0.20mm BALANCED @COREONE HF0.4` with Prusament PLA, 2 perimeters, 3 top and bottom layers, 10 %
-infill, no supports, door open: A 5 h 58 m, B 4 h 40 m, C 4 h 36 m (PrusaSlicer 2.9.6 CLI estimates); none is lower than 4U, so nothing spills
-when a tray tilts. For
-two-colour labels, add a colour change in the layer slider at **33.4 mm** on A, **33.4 mm** on B and
-**26.4 mm** on C. The generator, the fill check per compartment and the settings are in that folder's README.
+infill, no supports, door open: A 5 h 51 m, B 4 h 40 m, C 4 h 32 m (PrusaSlicer 2.9.6 CLI estimates); none is lower than 4U, so nothing spills
+when a tray tilts. Each project
+stops by itself for the label colour (an M600 at **33.4 mm** on A and B, **26.4 mm** on C): load the second
+spool when the printer asks. The generator, the fill check per compartment and the settings are in that folder's README.

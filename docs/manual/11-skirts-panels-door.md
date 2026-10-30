@@ -165,7 +165,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short; with Part C and the Ch 13–14 add-ons fitted, about 3 roll-in and 2 hammerhead M3 T-nuts are left over. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
 
-**The LDO panel stack for a 350** — read this table before you cut a single strip of foam tape. Thicknesses are from the [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D); the clip assignment is derived in 11.53/11.57/11.59.
+**The LDO panel stack for a 350** — read this table before you cut a single strip of foam tape. Thicknesses are from the [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+); the clip assignment is derived in 11.53/11.57/11.59.
 
 | Panel | Material | Size (mm) | Thickness | Foam tape | Clips | Screw |
 |---|---|---|---|---|---|---|
@@ -179,11 +179,11 @@ Every count above is off the page, STL or source named in its row; rows marked *
 
 Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` + `midspan_panel_clip_4mm_x7`. 6 mm → 8 corner + 8 midspan = exactly `corner_panel_clip_6mm_x8` + `midspan_panel_clip_6mm_x8`. Nothing left over, nothing short. A corner clip takes **two** screws and two hammerhead nuts, a midspan one (p.239, p.241, p.243).
 
-⚠ **Deck panel thickness — unresolved conflict.** LDO's Build Notes for p.29–30 say *"The LDO deck panel has a 4mm nominal thickness, use deck_support_4mm instead of its 3mm counterpart"*, but LDO's own 350 Rev D BOM lists the deck panel as **469×469×3 mm** (and the *bottom* panel as 4 mm). One of the two documents is wrong. **Caliper the deck panel; do not resolve this from documents** (print plan §6). This is a **Ch 02** decision — if you fitted `deck_support_4mm_x8` under a 3 mm panel, the deck rattles and the skirt ring will not sit flat, and you fix it now, before the ring goes on, not later. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Deck panel thickness — unresolved conflict.** LDO's Build Notes for p.29–30 say *"The LDO deck panel has a 4mm nominal thickness, use deck_support_4mm instead of its 3mm counterpart"*, but LDO's own 350 Rev D+ BOM lists the deck panel as **469×469×3 mm** (and the *bottom* panel as 4 mm). One of the two documents is wrong. **Caliper the deck panel; do not resolve this from documents** (print plan §6). This is a **Ch 02** decision — if you fitted `deck_support_4mm_x8` under a 3 mm panel, the deck rattles and the skirt ring will not sit flat, and you fix it now, before the ring goes on, not later. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 **Read first**
 
-- **Do not start until Checkpoint #1 has passed and Ch 12 Part 2 is done.** The skirt ring and bottom panel close the electronics bay, and 12.11–12.37 need it open. Reopening it costs an hour plus the safety risk of having skipped the check (survey §5.2 W8).
+- **Do not start until Checkpoint #1 has passed and Ch 12 Part 2 is done.** The skirt ring and bottom panel close the electronics bay, and Ch 12 Part 2 needs it open. Reopening it costs an hour plus the safety risk of having skipped the check (survey §5.2 W8).
 - **Only Part A happens now.** The back, side and top panels and the door go on in **Part B, after Ch 13** — the startup wizard's motor, endstop and probe checks and the Ch 06b gantry-squaring pass all need the machine open on every face.
 - **The Clicky-Clack replaces the entire stock front-door assembly**, not the front skirt. `front_skirt_a_350` + the TFT module + `front_skirt_b_350` still go on. Manual p.245–249 are dead pages.
 - **The BTT 4.3" DSI touchscreen replaces the mini12864 module.** Manual p.211, p.214–216 and p.220–221 are dead pages; the mount STL lives in the **Trident** repo, not the Voron-2 repo. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
@@ -194,7 +194,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 
 - [Voron 2.4r2 Assembly Manual](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf), pinned commit `de7e89d` — p.210–259 (the whole Skirts/Panels/Doors/Spool section; the dead pages listed below are shown but not followed)
 - [LDO Build Notes (build FAQ)](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) — the dead-page list for p.211, p.214–216, p.220–221, p.245–249, p.250–253 and p.256
-- [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) — panel sizes and thicknesses, bay fans; [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+- [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) — panel sizes and thicknesses, bay fans; [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 - [LDO wiring guide, Rev D](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) — bay fans, LED strip, touchscreen; [BTT 4.3" screen guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
 - [LDO BTT Pi TFT4.3 mount](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/5b0496a/STLs/BTT%20Pi%20TFT4.3%20Mount) at commit `5b0496a` — the mount lives in the **Trident** repo, not Voron-2
 - [LDO Nevermore Micro V5 Duo guide](https://ldomotion.com/guides/nevermore-v5-duo---v24) (link-only, no stated licence) and the [Nevermore Micro repo](https://github.com/nevermore3d/Nevermore_Micro/tree/8740b34)
@@ -307,9 +307,9 @@ Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Sixteen inserts flush and square, four per fan on its intake face and four per retainer. No fan frame cracked.
 
-⚠ **Rev D+ / LDO:** the kit ships exactly **two** 60×60×20 mm 24 V fans and **one** 3×2 XH splicer PCB, which joins them into a single "PCB FAN" run. Do not expect four. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+⚠ **Rev D+ / LDO:** the kit ships exactly **two** 60×60×20 mm 24 V fans and **one** 3×2 XH splicer PCB, which joins them into a single "PCB FAN" run. Do not expect four. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
-Source: [Voron manual p.213](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=213) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+Source: [Voron manual p.213](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=213) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 
 ---
 
@@ -528,11 +528,11 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Reads each fan's airflow arrow aloud and checks both point into the bay.
 
-⚠ **Rev D+ / LDO:** the kit contains **two** 60×20 fans, **two** retainers, **four** grills and **one** 3×2 splicer PCB. p.228 is the fan support, p.225 the retainer support. LDO's Rev D bay photos S1, S4, S6 put the fans beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+⚠ **Rev D+ / LDO:** the kit contains **two** 60×20 fans, **two** retainers, **four** grills and **one** 3×2 splicer PCB. p.228 is the fan support, p.225 the retainer support. LDO's Rev D bay photos S1, S4, S6 put the fans beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 
 Tip: `[a]_fan_grill_open_optional_x2` is an alternate grill with more open area and less filtering, if the bay runs warm. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Skirts)
 
-Source: [Voron manual p.225](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=225) · [Voron manual p.228](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=228) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Voron-2 `STLs/Skirts/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Skirts)
+Source: [Voron manual p.225](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=225) · [Voron manual p.228](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=228) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Voron-2 `STLs/Skirts/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Skirts)
 
 ---
 
@@ -802,11 +802,11 @@ Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Holds the panel square to the frame while you press it onto the pads.
 
-⚠ **Rev D+ / LDO:** the bottom panel is the **4 mm** acrylic, not the 3 mm deck panel. If you are holding a 469×469 panel and cannot tell which is which, caliper it — 3 mm is the deck (fitted back in Ch 02), 4 mm is this one. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** the bottom panel is the **4 mm** acrylic, not the 3 mm deck panel. If you are holding a 469×469 panel and cannot tell which is which, caliper it — 3 mm is the deck (fitted back in Ch 02), 4 mm is this one. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Tip: swing the door with the machine still on its side or up on blocks; confirm every duct is reachable, then close it.
 
-Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=232) · [Voron manual p.233](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=233) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · CAD: Voron 2.4r2 STEP @ de7e89d
+Source: [Voron manual p.232](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=232) · [Voron manual p.233](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=233) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · CAD: Voron 2.4r2 STEP @ de7e89d
 
 Pause: ~20 min since the last pause — bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.
 
@@ -1129,7 +1129,7 @@ Source: [LDO Nevermore V5 Duo guide § Nevermore Assembly](https://ldomotion.com
 - consumable: super glue
 - tool: a marker
 
-**Do:** Stick each magnet to the assembled plenum, mark the exposed face, and keep that orientation. Then glue them into the cartridge pockets one at a time, marked face out.
+**Do:** Stick each magnet to the assembled plenum, mark the exposed face, and keep that orientation. Then glue them into the cartridge pockets one at a time, **marked face down** in the pocket: the face that touched the plenum faces out.
 
 **Check:** Cartridge offers up to the plenum and snaps home; it holds against a firm shake; all four magnets flush.
 
@@ -1501,7 +1501,7 @@ Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and han
 
 **Everything above is done with the machine open. Do not fit the back, side or top panels or hang the door yet.**
 
-Ch 12 Part 2 (12.11–12.37) is already done — the boards were flashed and configured with the bay open, before this part closed it. Go now to **Ch 13** (initial startup) — which includes the Ch 06b gantry-squaring pass and a QGL re-run. All of it needs the machine reachable from every face: `STEPPER_BUZZ` per motor, the XY endstop and homing checks, bed locating and the 0,0 point, `PROBE_ACCURACY`, dropping the Z joints and releasing the A/B tensioners for squaring.
+Ch 12 Part 2 (12.11–12.20, 12.23, 12.37) is already done — the boards were flashed and configured with the bay open, before this part closed it. Go now to **Ch 13** (initial startup) — which includes the Ch 06b gantry-squaring pass and a QGL re-run. All of it needs the machine reachable from every face: `STEPPER_BUZZ` per motor, the XY endstop and homing checks, bed locating and the 0,0 point, `PROBE_ACCURACY`, dropping the Z joints and releasing the A/B tensioners for squaring.
 
 Come back here at **11.52** once Ch 13's Finish page is done. The rest of this chapter is about 1.0–2.0 h.
 
@@ -1776,9 +1776,9 @@ Source: [Voron manual p.243](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Holds each handle square on its spacers while you drive the screws.
 
-⚠ **Rev D+ / LDO:** *"This optional part offsets the top panel thickness and helps mount the included aluminium handle bar."* The 350 Rev D BOM ships two aluminium handles and four M5×14 BHCS. [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** *"This optional part offsets the top panel thickness and helps mount the included aluminium handle bar."* The 350 Rev D+ BOM ships two aluminium handles and four M5×14 BHCS. [src](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs) · [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [LDOVoron2 `STLs/`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 ---
 
@@ -2001,7 +2001,7 @@ pass: Both add-ons fit. Print their parts at the next step.
 
 ⚠ The rows are independent: a failing camera row stops only the camera, and a high stack only changes the frame file. Re-run `openscad -q --export-format binstl -o side_spool_frame_puck.stl -D stack=… remix.scad` in `slicer/addons/side-spool-608769/` before printing.
 
-Source: [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769) · [Printables 488020 — HappyCam](https://www.printables.com/model/488020) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · `slicer/addons/side-spool-608769/README.md` · `slicer/addons/happycam-488020/README.md`
+Source: [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769) · [Printables 488020 — HappyCam](https://www.printables.com/model/488020) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · `slicer/addons/side-spool-608769/README.md` · `slicer/addons/happycam-488020/README.md`
 
 ---
 
@@ -2251,7 +2251,7 @@ Pause: ~40 min since the last pause — camera bolted in, the toolhead proven cl
 
 **Part A — before Ch 13**
 
-- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
+- [ ] Checkpoint #1 passed and Ch 12 Part 2 (12.11–12.20, 12.23, 12.37, Checkpoint 12) done **before** any of this started; deck panel calipered and the Ch 02 deck supports match it.
 - [ ] All twelve skirt segments checked for rock on the flat reference; the ring is closed with flush, tight joints all round, and no mini12864 parts exist anywhere on the machine.
 - [ ] BTT TFT4.3 module in the front-centre position; FFC seated at both ends in the correct orientation (contacts up at the screen, forward at the Pi) with a service loop.
 - [ ] Two 60×20 bay fans, both in the **right-hand** fan support, both blowing the same way, joined by the 3×2 splicer PCB **on its printed spacer**, landing on FAN2/PF7; the left support's grills on the two retainers.

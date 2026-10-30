@@ -64,12 +64,12 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **A rail carriage will slide off its rail and spill its bearing balls, and dropping one ruins it.** Tape every carriage in place the moment you unbag a rail — the MGN12 comes out first, at Gate B (Step B00.7), so tape it there — and fit the two end-stop bands before the soak (Step 00.17; manual p.24, p.26).
 - **Heat-set inserts go in per print batch, before the part enters any assembly.** One missed insert in an XY joint costs a gantry teardown (survey §5.2 W3).
 - **Caliper the deck panel during inventory.** LDO's guides say 4 mm, LDO's own BOM says 3 mm. This decides which `deck_support_*` you print, and it is a Ch 02 step, not a Ch 11 one (survey §4.3).
-- **Post the two Discord questions on day one** (Step 00.32). Both have multi-day answer latency and both gate work in Ch 08–Ch 10.
+- **Post the Discord question on day one** (Step 00.32). It has multi-day answer latency and gates batches B06 and B07.
 
 **Sources for this chapter:**
 
 - [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) — find your batch tile from the kit serial
-- [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) — the inventory checklist and every count in this chapter
+- [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) — the inventory checklist and every count in this chapter
 - [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — which parts LDO supplies printed
 - [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) — the Rev D+ toolboard identification markers
 - [LDO XY endstop cable guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) — the mislabelled XY endstop cable batch
@@ -89,7 +89,7 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ## Before the kit ships
 
-Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the two gating questions, which gate batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the gating question, which gates batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
 
 ## Kit day
 
@@ -122,7 +122,7 @@ caption: One bin per chapter now. The alternative is meeting every screw again a
 
 Tip: a good lamp, 1.5 × 1.5 m of clear floor, and one bin for all packaging. Check the bin for parts before it goes out.
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [survey](../voron-build-instructions-survey.md)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [survey](../voron-build-instructions-survey.md)
 
 ---
 
@@ -130,7 +130,7 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 (no image — see text)
 
-**What you're looking at:** The printed label on carton 1. Its serial ties your kit to the right **batch BOM**, LDO's per-batch bill of materials and the inventory checklist for the next two steps. Quantities and substitutions change between batches, so the generic page is no stand-in.
+**What you're looking at:** The printed label on carton 1. Its serial ties your kit to a **batch BOM**, LDO's per-batch bill of materials. LDO's tiles still open the Rev D page, so the Rev D+ page is the inventory checklist for the next two steps.
 
 **Parts:** none.
 
@@ -138,15 +138,15 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 1. The serial reads `V2-YYMMDD####`: batch, pack date, four-digit kit number.
 2. Open [350_BOM/HOME](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) and open the batch tile whose `Kit#:` range contains your serial.
-3. Print it or open it on the iPad: this is your inventory checklist.
+3. Print the [Rev D+ page](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) or open it on the iPad: your checklist.
 
-**Check:** The page you land on is headed `V2.4 350 BOM (Rev. D)`; every Rev D batch tile from 2406 onward resolves to that one page, as expected.
+**Check:** The tile opens `V2.4 350 BOM (Rev. D)`, as every tile does; you inventory against the Rev D+ page instead.
 
 **Helper:** Reads the serial off the carton label and finds the batch tile that holds it.
 
-⚠ **Rev D+ / LDO:** the index tops out at batch **2606**. A November/December 2026 kit will be a batch LDO has not listed yet. If your serial is not in any tile, use the Rev_D page above and ask Fabreeko for your batch sheet — do not assume quantities from an older batch. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME)
+⚠ **Rev D+ / LDO:** the index lists batches up to **2609** (2026-10-30), every tile linking the Rev D page. This kit's BOM is the separate [Rev D+ page](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+): Rev D minus the SD card, plus two ground wires and 20 blind-joint seals. Serial in no tile: use the Rev D+ page and ask Fabreeko for your batch sheet. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME)
 
-Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 ---
 
@@ -199,7 +199,7 @@ Source: [LDO batch BOM index](https://docs.ldomotors.com/en/voron/voron2/350_BOM
 
 ⚠ **Rev D+ / LDO:** in the *Cable Kit* box, read the labels on the XY endstop cable now. LDO documents a batch where they read **"X Stop / Y Stop"** instead of **"XES / YES"** and need re-pinning before they will work. Finding this in Ch 10 with the bay half-closed is much worse than finding it now. [src](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO XY endstop cable guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) · [Video: Part 1 @0:03:01](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=181s) (differs: pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO XY endstop cable guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) · [Video: Part 1 @0:03:01](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=181s) (differs: pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D)
 
 ---
 
@@ -232,9 +232,9 @@ Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/R
 
 **Helper:** Counts the eight panels against the BOM and writes the deck thickness on the tape.
 
-⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D BOM says **3 mm**. B01-P2 printed `deck_support_3mm_x8` months ago. If the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md): print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D+ BOM says **3 mm**. B01-P2 printed `deck_support_3mm_x8` months ago. If the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md): print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ---
 
@@ -349,7 +349,7 @@ Pause: ~40 min since the last pause — both cartons inventoried and repacked, e
 
 Tip: no 5 mm hex driver is needed. The M5 BHCS the frame uses is a 3 mm drive.
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
 Pause: ~10 min since the last pause — kit day: the kit tools are laid out on the bench and the handles are bagged for Ch 11. Steps 00.8–00.11 were done before the kit shipped; the next kit-day step is 00.12.
 
@@ -386,7 +386,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Hacksaw or fine-tooth saw; small flat file | **Buy if not owned** — no DIN rail length is published, so a rail may need shortening | Ch 08 (file, 5015 fan ears), Ch 09 (09.5, DIN rails) |
 | PH1 and PH2 Phillips screwdrivers | **Buy if not owned** — the kit's drivers are hex and one 2.5 mm slot | Ch 09 (PH1 M2 self-tapping screws, PH2 PSU and SSR terminals) |
 | Small hammer | **Buy if not owned** | Ch 11 (Clicky-Clack dowel pins and bushings) |
-| SD card reader for the laptop | **Buy if not owned** — the kit ships the 32 GB microSD, not a reader | Ch 12 (12.2) |
+| 32 GB microSD card (A1) and an SD card reader for the laptop | **Buy the card** — Rev D+ ships none (Rev D did); the reader if not owned | Ch 09 (09.22), Ch 12 (12.2) |
 | Fire extinguisher, ABC dry chemical (rated for electrical fires) | **Buy** — within arm's reach at every power-on, then kept by the machine, Ch 00a | Ch 12 (12.11) |
 | Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
 | Chamber exhaust add-on: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — only for the optional exhaust fan** (Ch 14 Part H), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
@@ -397,7 +397,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 
 **Check:** Every "Buy" row has an order placed or a decision to skip written down.
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [survey](../voron-build-instructions-survey.md)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [survey](../voron-build-instructions-survey.md)
 
 ---
 
@@ -545,7 +545,7 @@ Pause: ~25 min since the last pause (pre-kit) — the tool and consumable decisi
 
 Tip: between sessions, stack the trays; each closes the one below. Motion bags stay sealed in their box: bearings, pulleys, idlers and shafts have no compartment.
 
-Source: [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
 
 ---
@@ -664,7 +664,7 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 ⚠ **Rev D+ / LDO:** LDO does not state whether 153 includes spares. The practice seven are KADRICK inserts, so all 153 are load-bearing.
 
-Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Pause: ~25 min since the last pause (pre-kit) — Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
 
@@ -810,7 +810,7 @@ Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_gu
 
 **Helper:** Writes the seven rail labels X, Y1, Y2 and Z0 to Z3, and checks each bag.
 
-Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @1:54:30](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s)
+Source: [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 1 @1:54:30](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s)
 
 ---
 
@@ -1035,7 +1035,7 @@ Pause: ~25 min since the last pause (pre-kit) — you have read the manual's fro
 **Do:**
 
 1. Start a log with one line per measurement: what you measured, the number, the date, and the step it came from. Your daughter owns it.
-2. Four matter most, plus the date of the two gating questions.
+2. Four matter most, plus the date of the gating question.
 
 | Measurement | Where it comes from |
 |---|---|
@@ -1074,33 +1074,32 @@ Source: [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-
 
 ---
 
-### Step 00.32 — Post the two questions that gate later chapters
+### Step 00.32 — Post the question that gates later chapters
 
 (no image — see text)
 
-**What you're looking at:** No parts, two questions with slow answers. Both concern gaps in LDO's published documentation for Rev D+: the toolboard grounding scheme, and whether any STL changed. Both gate printing or wiring work several weeks out.
+**What you're looking at:** No parts, one question with a slow answer. It concerns a gap in LDO's published documentation for Rev D+: whether any STL changed. It gates printing several weeks out.
 
 **Parts:** none.
 
 **Do:**
 
-1. Post both questions today; each has days of answer latency.
-2. Quote the Fabreeko order number **F6424626**; neither needs the kit serial.
+1. Post the question today; it has days of answer latency.
+2. Quote the Fabreeko order number **F6424626**; it does not need the kit serial.
 
 | Ask for | Where | Gates |
 |---|---|---|
-| the written Nitehawk-SB V2 grounding procedure: what bonds to what, with what wire, and at which mounting point on `usb_adapter_mount_partial_cover` | `#ldo_motors` | **Ch 10** |
 | confirmation that **no STL changed between Rev D and Rev D+ apart from the USB-adapter cover**, and whether a D+ wiring guide has been posted | Fabreeko Discord | **batches B06 and B07**, the toolhead and electronics-bay parts |
 
-**Check:** Both questions posted and the date noted in the log; if either is unanswered when batch B06 is due, ask again rather than assume.
+**Check:** Question posted and the date noted in the log; if it is unanswered when batch B06 is due, ask again rather than assume.
 
-⚠ The V2 repo ships `Images/grounding_scheme.jpg`, `Images/toolboard_ground_routing.jpg` and `Images/usb_adapter_gnd.jpg` with **no accompanying prose in any LDO document**, while the V2 change list claims "vastly improved ESD performance". Treat the grounding as a required build step in Ch 08 and Ch 10, not an option.
+⚠ The grounding is no longer a question: LDO's Nitehawk-SB V2 doc documents it (*ESD Hardening*, 2026-07-10) and the Rev D+ BOM lists both cables, the **Extruder Motor Ground Wire** (toolboard to motor, Ch 08) and the **DC Ground Wire** (USB adapter to frame, Ch 09–10). It is a required build step, not an option.
 
-⚠ LDO publishes Printed Parts Guides for Rev A/B, C and D only; `printed_part_guide_rev_d_plus` returns 404, and the whole print plan runs on Fabreeko's statement that D+ is an electrical change.
+⚠ LDO publishes Printed Parts Guides for Rev A/B, C and D only; `printed_part_guide_rev_d_plus` and `wiring_guide_rev_d_plus` return 404 (re-checked 2026-10-30), and the whole print plan runs on Fabreeko's statement that D+ is an electrical change.
 
-Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [survey](../voron-build-instructions-survey.md)
+Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [survey](../voron-build-instructions-survey.md)
 
-Pause: ~20 min since the last pause (pre-kit) — measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.
+Pause: ~20 min since the last pause (pre-kit) — measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01.
 
 ---
 
@@ -1108,7 +1107,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 
 **Built:** a counted kit, a verified bench and seven greased rails
 
-- [ ] Both cartons inventoried against **your batch's** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
+- [ ] Both cartons inventoried against the **Rev D+** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
 - [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
@@ -1121,7 +1120,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 35 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
-- [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; both gating questions posted.
+- [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; the gating question posted.
 
 ## Common mistakes
 

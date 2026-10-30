@@ -123,6 +123,30 @@ sources:
   title: V2.4 350 BOM (Rev. D) | LDO Documentation
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
+- id: docs-ldomotors-com-en-voron-voron2-350-bom-rev-d-plus
+  url: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+
+  kind: ldo-guide
+  title: V2.4 350 BOM (Rev. D+) | LDO Documentation
+  first_seen: '2026-10-30'
+  last_verified: '2026-10-30'
+- id: docs-ldomotors-com-en-voron-voron2-faq
+  url: https://docs.ldomotors.com/en/voron/voron2/faq
+  kind: ldo-guide
+  title: LDO Voron 2.4 Kit FAQ | LDO Documentation
+  first_seen: '2026-10-30'
+  last_verified: '2026-10-30'
+- id: docs-ldomotors-com-en-voron-voron2-kit-errata
+  url: https://docs.ldomotors.com/en/voron/voron2/kit-errata
+  kind: ldo-guide
+  title: Voron 2.4 Kit Addendum & Errata | LDO Documentation
+  first_seen: '2026-10-30'
+  last_verified: '2026-10-30'
+- id: west3d-com-extrusion-blind-joint-seals
+  url: https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors
+  kind: vendor
+  title: Extrusion Blind Joint Seals 20 pieces by LDO Motors – West3D
+  first_seen: '2026-10-30'
+  last_verified: '2026-10-30'
 - id: docs-ldomotors-com-en-voron-voron2-build-faq
   url: https://docs.ldomotors.com/en/voron/voron2/build-faq
   kind: ldo-guide
@@ -837,7 +861,7 @@ sources:
       Cameradoor_120.stl: e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f
       HappyCam_main-350.stl: d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd
     on_change: re-fetch the 350 body and the door (slicer/plates.py PRINTABLES file ids), re-check the
-      board pegs (three 1.7 mm: two 4 mm apart across one end, one 50 mm along) against Ch 11 Step 11.68's
+      board pegs (three 1.7 mm; two 4 mm apart across one end, one 50 mm along) against Ch 11 Step 11.68's
       calculator and the cable exit at the printer-left end against Ch 10 Step 10.81; re-slice Step 11.69 job 2
 - id: printables-502306-cable-duct-remix
   url: https://www.printables.com/model/502306

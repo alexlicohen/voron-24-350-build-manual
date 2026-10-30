@@ -245,7 +245,10 @@ Everything else can be printed while you build.
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 150.2 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. When the kit lands, the frame (no printed part) and
+**B00 → B01 → B02 → … → B10**, 150.2 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. B11, the PETG V0
+bay ducting (outside the totals), cuts in twice: P1–P3 right after B07, before B08, and P4/P5 at the next free slot
+after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all five and
+nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
 Ch 00 start at once; start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 → Ch 11. The only print job
 the build may still owe is the `deck_support_4mm` reprint, if the deck panel calipers 4 mm (§6).
@@ -606,7 +609,7 @@ support you push out**. ([Nevermore README](https://github.com/nevermore3d/Never
 with the stock exhaust grill to seal the back panel"* — that is `exhaust_cover.stl` (LDO) + `exhaust_filter_grill.stl`
 (Voron). Skip `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. They come back
 only with the optional chamber exhaust fan (added 2026-10-03, Ch 14 Part H): an add-on print outside the plates,
-made after Step 14.25 has checked the machine — 101 g, 7.1 h in two jobs, `slicer/addons/exhaust-voron2/`.
+made after Step 14.25 has checked the machine — 101 g, 6.4 h in two jobs, `slicer/addons/exhaust-voron2/`.
 
 ---
 
@@ -650,7 +653,7 @@ Voron spec). STLs: MyStoopidStuff's remix of RyanDam's Cable Management Duct (Pr
 stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables model was withdrawn by 2026-10-18), remixes for the Rev D+ bay committed in
 `slicer/stl/bayducts/remix/`. The parts table with per-copy grams is on the batch page; per plate:
 
-- **Plate B11-P1** (0.4 h, 4 g) — before kit, printed first and alone: `V3L_COUPON_22N_DUCT` + cover, the
+- **Plate B11-P1** (0.4 h, 4 g) — before kit (no kit part needed; prints right after B07), first and alone: `V3L_COUPON_22N_DUCT` + cover, the
   lid-snap test for the narrowed middle run.
 - **Plate B11-P2** (6.8 h, 96 g) — before kit: DC front run (`CMD_V3_1H_154mm_DUCT` ×2 + covers) and the
   three 90° corners (`CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, + covers).
@@ -665,6 +668,8 @@ stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables mode
 
 Notes:
 - Before kit, 3 plates, 11.8 h, 173 g; after the kit-day measurements, 2 plates, 13.1 h, 175 g.
+- Order: P1–P3 between B07 and B08; P4 and P5 at the next free slot after Steps B11.10–B11.11, ahead of any
+  B08–B10 plate still waiting. Satin sheet and Adv. Filtration back on before the next ASA plate.
 - Kit-day confirmation: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Either way, P4 and
   P5 print on schedule; a short lead gets a longer replacement (4-pin JST-XH) rather than a drop to layout v1.
 - All five arrangements are provisional (`nest.py`), GUI QC pending.

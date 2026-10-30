@@ -47,6 +47,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 | M5×10 BHCS | 4 | bed extrusions down to the frame (p.19) |
 | **M5 precision spacer, brass** | 4 | under each M5×10 head — replaces the manual's "M5 shim" |
 | M5 T-nut, roll-in | 4 | bottom rails, under the bed extrusions (p.19) |
+| Extrusion Blind Joint Seal | 16 | one per blind joint, in the vertical's slot against the horizontal (01.23); LDO ships 20, 4 are spares |
 
 C, D and E extrusions are sorted here but **not used** in this chapter — they are the gantry (manual p.85, p.88, p.101 → Ch 05).
 
@@ -55,6 +56,7 @@ C, D and E extrusions are sorted here but **not used** in this chapter — they 
 - **Frame squaring is the one irreversible quality decision in this build.** Re-check after every tightening pass. Gantry racking, quad-gantry-level and bed mesh all inherit what you set here (survey §4.4 #1).
 - Extrusion and roll-in T-nut tolerances are tight in this kit. LDO: *"Due to the tight tolerances of the extrusions and roll-in t-nuts it is advisable to either test fit before assembly to identify the sides of the extrusions that fits the best or to pre-load the t-nuts into the extrusions."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - Every **"M5 shim"** in the official manual is a **brass M5 precision spacer** in this kit — here and for the rest of the build.
+- **Rev D+ / LDO: 20 Extrusion Blind Joint Seals** (*Electronics 2*) are black rubber plugs that stop chamber air leaking along the extrusion slots. One goes in each blind joint, in the vertical's slot hard against the horizontal, at Step 01.23 once the frame is square and before the Z rails cover four of those slots. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [listing](https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors)
 - **Titanium extrusion backers are NOT installed in this chapter.** They go onto the gantry's X and Y extrusions during **Ch 05**, on the face opposite the rail. Leave them bagged; fitting them to frame extrusions now would be wrong and fitting them after the gantry is assembled costs a teardown (survey §4.4 #3, §5.2 W2). This is the only place this note appears.
 - Nothing here is printed. Build it the day the kit lands; the printer may be busy with later batches, and this chapter needs none of them.
 
@@ -572,7 +574,36 @@ Source: [whopping_Voron_mods — `extrusion_backers`](https://github.com/tanaes/
 
 Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [survey](../voron-build-instructions-survey.md)
 
-Pause: ~25 min since the last pause — final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.
+---
+
+### Step 01.23 — Seal the blind joints
+
+![LDO's drawing: the blind-joint seal (blue) in the vertical's slot, hard against the horizontal (© LDO Motors)](assets/remote/01-frame/blind-joint-seal-iso.png)
+![Top view: the seal fills the vertical's slot where the horizontal meets it (© LDO Motors)](assets/remote/01-frame/blind-joint-seal-top.png)
+
+**What you're looking at:** LDO's drawing of one blind joint. The vertical's slot that each horizontal butts into runs on past the joint to the vertical's open end: a leak out of the chamber. A rubber **Extrusion Blind Joint Seal** plugs it, hard against the horizontal.
+
+**Parts:**
+
+- Extrusion Blind Joint Seal ×16
+
+**Do:**
+
+1. Work on each joint's chamber side: above a bottom horizontal, below a top horizontal.
+2. Roll a seal into the vertical's slot behind the horizontal, boss toward it.
+3. Slide it until it stops against the horizontal. All 16.
+
+**Check:** 16 seals, each hard against its horizontal on the chamber side, none proud of the vertical's face. Four spares bagged.
+
+**Helper:** Hands over seals one at a time and ticks off each joint.
+
+Tip: At the four bottom joints where the side rails meet the verticals, the Z rail covers this slot from Step 02.06. After that a seal cannot go in.
+
+⚠ **Rev D+ / LDO:** the seals are new in Rev D+ and LDO's guides do not mention them; LDO's product drawing above shows the placement. LDO publishes no seal dimensions: check the Z rail and Z belt cover T-nuts clear them in Ch 02 `(verify on bench)`. [src](https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal)
+
+Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO seal listing (DREMC)](https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal) · [LDO seal listing (West3D)](https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors)
+
+Pause: ~35 min since the last pause — final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter.
 
 ---
 
@@ -592,6 +623,7 @@ Pause: ~25 min since the last pause — final squareness pass done, backers conf
 - [ ] Bed extrusions 65 mm each side of the centreline, 130 mm clear gap, checked at both ends; all four M5×10 and four M5×16 bracket bolts tight
 - [ ] Titanium backers still bagged and labelled for Ch 05
 - [ ] Frame log table filled in
+- [ ] 16 blind-joint seals in, one per joint in the vertical's slot hard against the horizontal on the chamber side; 4 spares bagged
 
 ## Common mistakes
 

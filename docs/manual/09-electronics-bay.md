@@ -53,7 +53,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/V3L_154N_DUCT.png){ width=96 } | B11 middle run, 09.6: `V3L_154N_DUCT` ×2, `V3L_T_REG_N` ×2, or B11's fallback set | 09-ducts-DC | 4 | Black |
 | ![](assets/parts/V3L_WIRE_BOX_PORT.png){ width=96 } | B11 AC conduit, 09.36: `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `V3L_34mm_DUCT_HOLE`, `CMD_V3_1H_T_SHORT`, `V3L_10mm_DUCT` ×2, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 | 09-ducts-AC | 9 | Black |
 
-**Supplied printed by LDO — do not print these:** Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+**Supplied printed by LDO — do not print these:** Leviathan Bracket Left ×1, Leviathan Bracket Right ×1, NH Adapter Mount ×1, DIN Clip ×4, LDO Nozzle Probe ×1, Bed WAGO Mount ×1. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 **Hardware** (chapter totals)
 
@@ -83,6 +83,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | Leviathan Bracket Left | 1 | LDO-supplied printed |
 | Leviathan Bracket Right | 1 | LDO-supplied printed |
 | DIN Clip | 3 | 2 Leviathan brackets, 1 USB adapter; LDO ships 4, the 4th is a spare (LDO printed-parts guide) |
+| DC Ground Wire | 1 | USB adapter's exposed mounting point (09.25); frame end landed in Ch 10 Step 10.58 |
 | Raspberry Pi 4B | 1 | reseller-optional line item |
 | Raspberry Pi heatsink | 1 | |
 | Pi standoff — from the Leviathan box | 4 | **(verify on bench)** |
@@ -110,7 +111,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - [LDO wiring guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) — the placement this chapter actually builds: [General Placement](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#general-placement), [DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts), [Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet), [Preparing the PSU](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit), [Preparing the mainboard](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-mainboard-ldo-voron-leviathan-board), [Assembling the nozzle probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#assembling-the-nozzle-probe), [Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater), [Checkpoint #1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 - [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) — every page in p.148–172 that this kit skips or replaces
 - [LDO Leviathan V1.3 board guide](https://ldomotion.com/guides/voron-leviathan-v1-3) — voltage-selection jumpers and Pi mounting (link-only; no licence)
-- [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) and [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) — which brackets to print, what the kit supplies
+- [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) and [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) — which brackets to print, what the kit supplies
 - [Nitehawk-SB V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2) — the USB adapter stack and its grounding wire
 - [LDO XY-endstop repin guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) — connector order on the XY endstop PCB
 - Mirrored images in this chapter are LDO Motors' (docs.ldomotors.com, LDOVoron2, Nitehawk-SB V2), used with attribution; see `assets/remote/09-electronics-bay/SOURCES.txt`
@@ -195,9 +196,9 @@ Source: [Voron manual p.166](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Reads the caliper at the deck edge aloud and writes the thickness down.
 
-⚠ **Rev D+ / LDO:** if Ch 02 fitted `deck_support_4mm_x8` and your panel calipers at 3 mm, swap them for `deck_support_3mm_x8` now — the deck is about to carry the DIN rails and everything on them. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** if Ch 02 fitted `deck_support_4mm_x8` and your panel calipers at 3 mm, swap them for `deck_support_3mm_x8` now — the deck is about to carry the DIN rails and everything on them. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28) · [LDO wiring guide § Installing the DIN rails and wire ducts](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#installing-the-din-rails-and-wire-ducts) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 ---
 
@@ -416,9 +417,9 @@ Source: [Voron manual p.167](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** All three clamps seated with no step between clamp and mount, every lever free to lift, mount solid within reach of the inlet's leads.
 
-⚠ **Rev D+ / LDO:** the manual titles p.165 *"ALTERNATE MAINS DISTRIBUTION — WAGO"*. For this kit it is not an alternate — it is the only path. The BOM ships three 221-415 clamps, and Ch 10 uses them as the L / N / PE distribution nodes. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** the manual titles p.165 *"ALTERNATE MAINS DISTRIBUTION — WAGO"*. For this kit it is not an alternate — it is the only path. The BOM ships three 221-415 clamps, and Ch 10 uses them as the L / N / PE distribution nodes. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.165](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=165) · [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.165](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=165) · [LDO wiring guide § Preparing the inlet](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-inlet) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Pause: ~30 min since the last pause — Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet.
 
@@ -462,9 +463,9 @@ Source: [LDO wiring guide § Preparing the power supply unit](https://docs.ldomo
 
 **Check:** Both hooks parallel and coplanar, terminal block on the edge that will face the SSR. On a rail offcut, both hooks engage at once.
 
-⚠ **Rev D+ / LDO:** the manual's "24 V PSU" here is a generic block. Yours is the **Meanwell LRS-200-24** and these two printed brackets are the *whole* mounting system for it. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** the manual's "24 V PSU" here is a generic block. Yours is the **Meanwell LRS-200-24** and these two printed brackets are the *whole* mounting system for it. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.153](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=153) · [LDO wiring guide § Preparing the power supply unit](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 8 @0:37:04](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2224s)
+Source: [Voron manual p.153](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=153) · [LDO wiring guide § Preparing the power supply unit](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#preparing-the-power-supply-unit) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 8 @0:37:04](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2224s)
 
 ---
 
@@ -630,13 +631,13 @@ Source: [Voron manual p.155](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - Raspberry Pi 4B ×1
 - Raspberry Pi heatsink ×1
 - Pi standoff ×4 **(verify on bench)** — from the Leviathan box
-- consumable: 32 GB SD card ×1
+- reused: the microSD card imaged on the bench Pi
 
 **Do:**
 
 1. Stick the heatsink on the Pi's SoC first.
 2. Screw the standoffs in, sit the Pi on them with USB and Ethernet facing **outward, away from the connector banks**, and fasten.
-3. Slide the SD card in now.
+3. Check the microSD card is seated.
 
 **Check:** Pi flat on all standoffs; Ethernet and two USB-A ports clear of the Leviathan, three with the camera add-on; SD card seated; nothing shorting underneath.
 
@@ -701,13 +702,13 @@ Pause: ~30 min since the last pause — every voltage-selection jumper off the L
 - reused: the bagged USB adapter stack, three M3×10 SHCS and the partial cover
 - DIN Clip ×1
 - M2×10 self-tapping ×2 **(verify on bench)**
-- Nitehawk grounding cable, long ×1 **(verify on bench)** — from the Nitehawk-SB V2 box
+- DC Ground Wire ×1
 
 **Do:**
 
 1. Confirm the bagged stack: three M3×10 SHCS, and the **partial** cover.
 2. Fit a DIN clip to the base's back with the M2×10 self-tappers.
-3. Bolt the supplied grounding cable's ring terminal to the exposed mounting point.
+3. Bolt the DC Ground Wire's ring terminal to the exposed mounting point.
 
 **Check:** PCB captive, the 4-pin Micro-Fit 3.0 socket and USB connector both accessible, cover on, ring terminal on the one bare mounting point.
 
@@ -946,7 +947,7 @@ Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ⚠ **Rev D+ / LDO:** a Rev C+ addition with no manual page. LDO's build-plate mapping puts it above the deck on the left bed extrusion, so the plate detaches from the top: two 2-way WAGOs break out bed L and N, the splicer PCB the thermistor. Nothing goes below the deck here; terminating is Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
-Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · image [`bed_wago_mount.jpg`](https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg)
+Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · image [`bed_wago_mount.jpg`](https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg)
 
 Pause: ~25 min since the last pause — XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.
 
@@ -1026,7 +1027,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
 - [ ] Leviathan on the front rail with the Pi 4B mounted on it, heatsink fitted, SD card in, and the **3/4** HAT power adapter seated.
-- [ ] USB adapter on the front rail with the partial cover and the supplied grounding cable attached to its exposed point; frame end left loose for Ch 10.
+- [ ] USB adapter on the front rail with the partial cover and the DC Ground Wire attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
 - [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.

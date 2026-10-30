@@ -110,16 +110,16 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B09.13 — Writes the bin id and the date on the inside face of each part.
 - **B10 — Clicky-Clack door** — <span data-first-step="B10.2">Start plate B10-P1 (Step B10.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
     - Step B10.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B10 — Clicky-Clack door** — <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.</span>
+- **B10 — Clicky-Clack door** — <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
     - Step B10.6 — Reads each bin label aloud and checks the count against the diagram.
 - **Ch 00 — Before you start** — <span data-first-step="00.8">Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.</span>
     - Step 00.10 — Reads the thickest leaf that slides under aloud and writes it in the log.
     - Step 00.11 — Trims each label to its frame and slides it into the bag it names.
 - **Ch 00 — Before you start** — <span data-first-step="00.23">Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</span>
     - Step 00.25 — Picks one of each fastener out of the bags and lays it beside its name on the page.
-- **Ch 00 — Before you start** — <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.</span>
+- **Ch 00 — Before you start** — <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01.</span>
     - Step 00.30 — Rules the log columns and writes in each number you call out.
-- **B11 — Bay ducting, before kit** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next.</span>
+- **B11 — Bay ducting, part 1** — <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
     - Step B11.8 — Reads each bin label aloud and checks the count against the diagram.
 
 </div>
@@ -205,7 +205,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 ### 13 · Print — B10 — Clicky-Clack door
 - <span data-first-step="B10.2">Start plate B10-P1 (Step B10.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B10.5">Step B10.5 · ~10 min · leave-state: brims off, parts bagged; the bushing and pin tests wait for the kit.</span>
-- <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.</span>
+- <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
 
 ### 14 · Build — Ch 00 — Before you start
 - <span data-first-step="00.1">Step 00.1 → Step 00.6 · ~40 min · leave-state: both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Do not start unbagging rails before you have the grease and IPA on the bench.</span>
@@ -216,17 +216,20 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="00.17">Step 00.17 → Step 00.18 · ~30 min · leave-state: all seven rails are soaked, end stops on, and laid out on a towel to dry. This is a genuine wait state: the IPA must evaporate completely (an hour at least, overnight is better) before grease goes in, so stopping here costs nothing. Do not start packing grease into a rail that is still damp.</span>
 - <span data-first-step="00.19">Step 00.19 → Step 00.22 · ~40 min · leave-state: all seven rails greased, wiped back to bare steel, labelled X / Y1 / Y2 / Z0–Z3 and bagged, and both jig sizes test-fitted. Rail prep is per-rail work, so if you have to stop earlier, stop after a rail is packed, wiped and bagged — never with a carriage half-packed.</span>
 - <span data-first-step="00.23">Step 00.23 → Step 00.29 · ~25 min · leave-state: you have read the manual's front matter (p.4–11) and can read a filename, a fastener name and an exploded view. Nothing physical is in progress.</span>
-- <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.</span>
+- <span data-first-step="00.30">Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01.</span>
 
-### 15 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail
+### 15 · Build — Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail, edit `printer.cfg` on the bench
 - <span data-first-step="12.1">Step 12.1 → Step 12.6 · ~25 min · leave-state: MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.</span>
 - <span data-first-step="12.7">Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet.</span>
+- <span data-first-step="12.21">Step 12.21 → Step 12.28 · ~25 min · leave-state: still on the bench: `printer-350.cfg` is the `-sbv2` file with the Mainsail include, every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. Save, do not restart: Klipper does not read this file until 12.23, so Mainsail's missing-`printer.cfg` error is expected.</span>
+- <span data-first-step="12.29">Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared in `printer-350.cfg`, saved. Nothing checks it until 12.37; the printer itself is still unpowered.</span>
+- <span data-first-step="12.33">Step 12.33 → Step 12.36 · ~15 min · leave-state: Part 1 is done: `printer-350.cfg` is complete except the two serial paths, which need the live boards at 12.23. Leave it named `printer-350.cfg` until then; the Pi waits for Part 2.</span>
 
 ### 16 · Build — Ch 01 — Frame
 - <span data-first-step="01.1">Step 01.1 → Step 01.5 · ~40 min · leave-state: extrusions sorted and labelled A–E, all end faces deburred, 16 M5×16 BHCS started finger-loose in eight A extrusions, and one blind joint dry-run understood. Nothing is assembled. The next segment is the long one — the frame goes from loose extrusions to squared-and-torqued in ~65 min and cannot safely be broken in the middle, so start it with the time to finish it.</span>
 - <span data-first-step="01.6">Step 01.6 → Step 01.15 · ~65 min · leave-state: the frame is assembled, squared on both squares and all four vertical faces, all 16 blind joints fully torqued, and it sits on the stone with no rock. This is the first genuinely safe stop in the chapter: a frame left snug-but-untorqued keeps whatever error was in it, so never walk away between squaring and the torque pass. Leave the frame on the reference surface, covered.</span>
 - <span data-first-step="01.16">Step 01.16 → Step 01.19 · ~35 min · leave-state: both bed extrusions are bracketed, spaced with brass M5 precision spacers, set 65 mm each side of the centreline, their four M5×10 and four M5×16 tightened. Nothing is half-fastened. Do not fit the titanium backers, and do not move the frame off the stone yet — Step 01.20 re-checks squareness there.</span>
-- <span data-first-step="01.20">Step 01.20 → Step 01.22 · ~25 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.</span>
+- <span data-first-step="01.20">Step 01.20 → Step 01.23 · ~35 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter.</span>
 
 ### 17 · Build — Ch 02 — Z drives, Z idlers, Z rails, deck
 - <span data-first-step="02.01">Step 02.01 → Step 02.04 · ~40 min · leave-state: printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the coupon, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.</span>
@@ -323,14 +326,10 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="10.68">Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt.</span>
 - <span data-first-step="10.73">Step 10.73 → Step 10.79 · ~20 min · leave-state: the dead meter sweep is complete and every reading is in band. The machine is unplugged, open and ready for Checkpoint 10. Do not plug the cord in again until Ch 12 Step 12.11 — the next power-on, done with the same hand-on-the-switch ritual as 10.23.</span>
 
-### 26 · Build — Ch 12 Part 2 — flash both MCUs, `printer.cfg` for a 350 Rev D+
+### 26 · Build — Ch 12 Part 2 — flash both MCUs, paste the serial paths, config check
 - <span data-first-step="12.11">Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.</span>
 - <span data-first-step="12.14">Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard.</span>
-- <span data-first-step="12.17">Step 12.17 → Step 12.20 · ~20 min · leave-state: both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.</span>
-- <span data-first-step="12.21">Step 12.21 → Step 12.23 · ~15 min · leave-state: `printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.</span>
-- <span data-first-step="12.24">Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.</span>
-- <span data-first-step="12.29">Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.</span>
-- <span data-first-step="12.33">Step 12.33 → Step 12.37 · ~20 min · leave-state: `[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.</span>
+- <span data-first-step="12.17">Step 12.17 → Step 12.37 · ~30 min · leave-state: both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down.</span>
 
 ### 27 · Build — Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges
 - <span data-first-step="11.67">Step 11.67 → Step 11.4 · ~25 min · leave-state: machine unplugged and proved dead at 11.67, every skirt segment dry-fitted and checked for rock, inserts melted into the segments, both bay fans and the two grill retainers, and the mini12864 parts set aside unbuilt. Nothing is bolted to the frame yet.</span>
@@ -377,10 +376,11 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="11.74">Step 11.74 → Step 11.76 · ~40 min · leave-state: camera bolted in, the toolhead proven clear of it at Z max, the stream live in Mainsail. Ready for Checkpoint 11.</span>
 
 ### 31 · Build — Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune
-- <span data-first-step="14.1">Step 14.1 → Step 14.3 · ~25 min · leave-state: config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.</span>
+- <span data-first-step="14.25">Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G.</span>
+- <span data-first-step="14.1">Step 14.1 → Step 14.2 · ~15 min · leave-state: config pre-flighted against the `-sbv2` file and both PID stanzas confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.</span>
 - <span data-first-step="14.4">Step 14.4 · ~20 min · leave-state: **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.</span>
 - <span data-first-step="14.5">Step 14.5 → Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.</span>
-- <span data-first-step="14.8">Step 14.8 → Step 14.9 · ~15 min · leave-state: chamber behaviour measured and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.</span>
+- <span data-first-step="14.8">Step 14.8 → Step 14.9 · ~10 min · leave-state: chamber behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.</span>
 - <span data-first-step="14.10">Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers.</span>
 - <span data-first-step="14.12">Step 14.12 · ~15 min · leave-state: accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet.</span>
 - <span data-first-step="14.13">Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them.</span>
@@ -388,30 +388,29 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="14.17">Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next.</span>
 - <span data-first-step="14.19">Step 14.19 → Step 14.20 · ~25 min · leave-state: both extrusion-multiplier passes done and the final number written into the filament profile. It was chosen by the top surface, not by a caliper.</span>
 - <span data-first-step="14.21">Step 14.21 · ~10 min · leave-state: first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed.</span>
-- <span data-first-step="14.22">Step 14.22 → Step 14.23 · ~15 min · leave-state: mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.</span>
+- <span data-first-step="14.22">Step 14.22 → Step 14.23 · ~10 min · leave-state: the soak's mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.</span>
 - <span data-first-step="14.24">Step 14.24 · ~20 min · leave-state: the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges.</span>
-- <span data-first-step="14.25">Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed.</span>
 - <span data-first-step="14.27">Step 14.27 → Step 14.28 · ~40 min · leave-state: eight inserts set, and the fan, its grill, the mat and the access cover on the housing. The Voron is untouched and still has its exhaust cover.</span>
 - <span data-first-step="14.29">Step 14.29 · ~30 min · leave-state: the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing.</span>
 - <span data-first-step="14.30">Step 14.30 → Step 14.32 · ~45 min · leave-state: FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet.</span>
 - <span data-first-step="14.33">Step 14.33 → Step 14.34 · ~35 min · leave-state: the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800.</span>
 - <span data-first-step="14.35">Step 14.35 → Step 14.36 · ~30 min · leave-state: PLA printed under the ceiling with the chamber logged, the purge run and stopped, the config committed and copied off the Pi, and the machine shut down properly.</span>
 
-### 32 · Print — B11 — Bay ducting, before kit
+### 32 · Print — B11 — Bay ducting, part 1
 - <span data-first-step="B11.3">Start plate B11-P1 (Step B11.3) · ~5 min hands-on, then 0.4 h unattended · leave-state: plate B11-P1 running, 0.4 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.4">Step B11.4 · ~10 min · leave-state: coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.</span>
 - <span data-first-step="B11.5">Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.6">Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: before-kit parts inspected and bagged by plate.</span>
-- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next.</span>
+- <span data-first-step="B11.7">Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate.</span>
+- <span data-first-step="B11.8">Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.</span>
 
-### 33 · Print — B11 — Bay ducting, after the kit-day measurements
+### 33 · Print — B11 — Bay ducting, part 2, after the kit-day measurements
 - <span data-first-step="B11.9">Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected.</span>
 - <span data-first-step="B11.10">Step B11.10 · ~20 min · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened.</span>
 - <span data-first-step="B11.11">Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green.</span>
 - <span data-first-step="B11.12">Start plate B11-P4 (Step B11.12) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B11.13">Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B11.14">Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Smooth sheet back on, Chamber Filtration on Adv. Filtration.</span>
+- <span data-first-step="B11.14">Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.</span>
 
 ---
 

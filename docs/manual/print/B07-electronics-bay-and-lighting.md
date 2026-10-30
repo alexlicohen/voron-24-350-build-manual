@@ -164,4 +164,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211) — on kit day, out of
-bins 09-bay and 10-lights; the USB adapter cover waits in 08-CW2 for Ch 08 and the handlebar spacers in 11-finish. Printing: straight on to [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).
+bins 09-bay and 10-lights; the USB adapter cover waits in 08-CW2 for Ch 08 and the handlebar spacers in 11-finish. Printing: [B11](B11-bay-ducting.md)'s P1–P3 (PETG V0, textured sheet), then [B08 — Skirts and front modules](B08-skirts-and-front-modules.md).

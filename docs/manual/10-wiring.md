@@ -88,7 +88,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - [Voron 2.4r2 Assembly Manual](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf), pinned commit `de7e89d` — p.143, p.156, p.181, p.194–195, p.197–204
 - [LDO wiring guide, Rev D](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) — every connector step below cites its own section anchor
 - [LDO Build Notes (build FAQ)](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) — the per-page SKIP notes for p.152, p.162–163, p.169, p.172, p.190, p.194–198
-- [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) and [Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+- [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) and [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 - [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) — board silkscreen, jumper block, port map
 - [Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) and the [Nitehawk-SB-V2 repo](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497) at commit `42ae497` (pinout, grounding and cable-chain images)
 - [LDO XY endstop reconnecting guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) and [BTT 4.3" screen rotate guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide)
@@ -414,13 +414,13 @@ A dead short means the pad is damaged and must not be connected. `OL` on L → N
 
 ??? note "Why 'tens of ohms', and how to compute your own target"
 
-    LDO does not publish the pad's wattage on the Rev D BOM, so derive the number
+    LDO does not publish the pad's wattage on the Rev D+ BOM, so derive the number
     yourself: **R = V² ÷ P**, using the mains voltage the pad is wound for and the
     wattage printed on the pad's own label. Worked examples — *not* your value:
     750 W at 120 V → 19.2 Ω; 750 W at 230 V → 70.5 Ω. Read your own label, do the
     division, and expect the meter to land within a few ohms of it.
 
-Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [LDO wiring guide image `bed_heater_wires_revd.jpg`](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
+Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO wiring guide image `bed_heater_wires_revd.jpg`](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater)
 
 ---
 
@@ -791,9 +791,9 @@ Source: [LDO Rev D photo S4 24 V/SSR mapping](https://raw.githubusercontent.com/
 
 **Check:** Exactly two jumpers on the board, both on the 24 V pins, on Fan2 and Fan3. Count them.
 
-⚠ Rev D+ / LDO: on a Nitehawk build the hotend, part fan and probe all live on the toolboard, so the Leviathan's probe and Fan0/Fan1 ports stay unused — that is why they stay unjumpered. [src](https://ldomotion.com/guides/voron-leviathan-v1-3) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ Rev D+ / LDO: on a Nitehawk build the hotend, part fan and probe all live on the toolboard, so the Leviathan's probe and Fan0/Fan1 ports stay unused — that is why they stay unjumpered. [src](https://ldomotion.com/guides/voron-leviathan-v1-3) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.7) · [LDO Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Leviathan repo `wiring_V1.3.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4/Media/wiring_V1.3.jpg)
+Source: [LDO Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) (manual p.7) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Leviathan repo `wiring_V1.3.jpg`](https://raw.githubusercontent.com/MotorDynamicsLab/Leviathan/878c3c4/Media/wiring_V1.3.jpg)
 
 ---
 
@@ -982,7 +982,7 @@ Source: [LDOVoron2 `STLs/COB Light Strip`](https://github.com/MotorDynamicsLab/L
 
 **Parts:**
 
-- COB LED strip ×2 — from the LDO kit, box not in the Rev D BOM
+- COB LED strip ×2 — from the LDO kit, box not in the Rev D+ BOM
 - reused: the eight assembled COB mounts
 - M3×8 SHCS ×16
 - M3 hammerhead T-nut ×16
@@ -1524,7 +1524,7 @@ Detail photos: [toolboard ground routing](assets/remote/10-wiring/nitehawk-sb-v2
 
 **Parts:**
 
-- reused: the long supplied grounding cable, ring already on the USB adapter
+- reused: the DC Ground Wire, ring already on the USB adapter
 - M3×8 SHCS ×1 (verify on bench)
 - M3 roll-in T-nut ×1 (verify on bench)
 - tool: multimeter
@@ -1538,7 +1538,7 @@ Detail photos: [toolboard ground routing](assets/remote/10-wiring/nitehawk-sb-v2
 
 ⚠ Rev D+ / LDO: **use the supplied grounding cable.** LDO: *"using larger O ring connectors may cause inadvertent shorting of the PCB boards."*
 
-⚠ **If your kit did not include the grounding cables**, or your board doc predates the update: stop, post the three images above in `#ldo_motors` on the Voron Discord and wait for LDO's answer before improvising. The scheme was undocumented until the board doc was updated **2026-07-10**. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening) — survey §4.1 ⑤
+⚠ **If the DC Ground Wire or the Extruder Motor Ground Wire is missing from the *Electronics 2* box**: report it to Fabreeko, post the three images above in `#ldo_motors` on the Voron Discord and wait for LDO's answer before improvising. The scheme was undocumented until the board doc was updated **2026-07-10**. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening) — survey §4.1 ⑤
 
 Source: [Nitehawk-SB-V2 repo `grounding_scheme.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/grounding_scheme.jpg) · [Nitehawk-SB-V2 repo `toolboard_ground_routing.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/toolboard_ground_routing.jpg) · [Nitehawk-SB V2 doc § ESD hardening](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#esd-hardening)
 
@@ -2137,7 +2137,7 @@ Do not start Ch 11 until every line is ticked.
 - [ ] No 24 V node and no 5 V node reads 0 Ω; **+24 V → PE** reads about the same as +V → −V, never 0 Ω, and **−V → PE** reads a few Ω through the ESD bond; exactly two jumpers on the Leviathan, Fan2 and Fan3, both at 24 V (10.28, 10.74, 10.75)
 - [ ] Bed thermistor reads within ±15 % of the room-temperature table (10.44, 10.76)
 - [ ] Six steppers on their mapped ports, tagged; `STEPPER-4` and `Z-PROBE` empty (10.40–10.43, 10.46)
-- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the grounding cable fitted (10.55–10.58)
+- [ ] All three Rev D+ toolhead deviations verified: PH2.0 sensor connectors, keyed 2×5 (10-pin) fan header seated with no gap, V2 partial cover with the DC Ground Wire fitted (10.55–10.58)
 - [ ] Every cable in every chain can be slid by hand; all six chain ends zip-tied; gantry moves through full X, Y and Z travel with no snag (10.65, 10.66)
 - [ ] Strip fin between PSU **3 FG** and **4 −V**, AC lids **on**; DC lids **off**, skirts **off**, bottom panel **off** (10.71, 10.80); touchscreen module built (Ch 11 Steps 11.5–11.6) with its DSI ribbon latched at both ends, once, and taped to the front extrusion for Ch 11 Step 11.7 (10.50)
 - [ ] Bay walked against LDO's finished photo with every difference explained (10.72); cord out of the room, next plug-in is Ch 12 Step 12.11 — with the bay still open

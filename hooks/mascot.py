@@ -103,7 +103,7 @@ class MascotError(Exception):
 # go": no mascot on mains, soldering-iron, blade or hot-chamber content.  A step
 # is listed when its Do puts the reader at that hazard: mains wiring, metering
 # or power-on (all of Ch 00a), or work beside a machine left live with the bay
-# open (12.11-12.37 and Ch 13's eyes-only window 13.2-13.9, 00a.2's adult-only
+# open (12.11-12.20, 12.23, 12.37 and Ch 13's eyes-only window 13.2-13.9, 00a.2's adult-only
 # windows); the iron, for a heat-set insert or a solder
 # joint; a blade or cutter as the step's main action; a heater at temperature
 # with hands at the open machine.  `A.B-A.C` is a range inside one chapter.
@@ -114,7 +114,7 @@ class MascotError(Exception):
 # line inside a listed step (the Helper safety rule forbids the same steps).
 NO_MASCOT_STEPS: dict[str, str] = {
     "mains": "00a.1-00a.12 09.11-09.18 09.34-09.36 10.1-10.23 10.68 10.69 "
-             "10.73 10.77 10.78 10.80 11.52 11.67 12.11-12.37 13.2-13.9 14.30-14.32",
+             "10.73 10.77 10.78 10.80 11.52 11.67 12.11-12.20 12.23 12.37 13.2-13.9 14.30-14.32",
     "iron": "00.13-00.16 02.03-02.04 04.3-04.4 07.6 08.3-08.7 08.36 09.10 09.34 "
             "10.35 10.50 11.2 11.3 11.5 11.28 11.33 11.49 11.54 14.27 B00.7",
     "blade": "00.1 03.10 06.4 06.21 07.8 08.2 08.32 08.33 08.34 10.59 10.66 11.27 11.29 "

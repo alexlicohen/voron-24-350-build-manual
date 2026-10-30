@@ -1295,14 +1295,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit.",
+     "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.",
      "helpers": [
       [
        "B10.6",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full and the printer is free for B11; the bushing and pin tests wait for the kit."
+     "text": "Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit."
     }
    ]
   },
@@ -1561,20 +1561,20 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01.",
+     "leave_state": "measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01.",
      "helpers": [
       [
        "00.30",
        "Rules the log columns and writes in each number you call out."
       ]
      ],
-     "text": "Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and both gating questions posted. Work through Checkpoint 00 before you open Ch 01."
+     "text": "Step 00.30 → Step 00.32 · ~20 min · leave-state: measurement log started, all three Discord channels joined and the gating question posted. Work through Checkpoint 00 before you open Ch 01."
     }
    ]
   },
   {
    "n": 15,
-   "label": "Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail",
+   "label": "Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail, edit `printer.cfg` on the bench",
    "kind": "Build",
    "kit": true,
    "segments": [
@@ -1628,6 +1628,75 @@
       ]
      ],
      "text": "Step 12.7 → Step 12.10 · ~20 min · leave-state: KIAUH and KlipperScreen installed, the DSI auto-detect and rotation lines in place for the panel 12.11 will show, and the Klipper version you are building against is written down. The Pi boots and answers on the network; there is no screen on the bench yet."
+    },
+    {
+     "id": "12-software#2",
+     "chapter": "12-software",
+     "kind": "build",
+     "steps": [
+      "12.21",
+      "12.22",
+      "12.24",
+      "12.25",
+      "12.26",
+      "12.27",
+      "12.28"
+     ],
+     "first_step": "12.21",
+     "last_step": "12.28",
+     "href": "../manual/steps/12-software/12-21/",
+     "minutes": 25,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "still on the bench: `printer-350.cfg` is the `-sbv2` file with the Mainsail include, every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. Save, do not restart: Klipper does not read this file until 12.23, so Mainsail's missing-`printer.cfg` error is expected.",
+     "helpers": [],
+     "text": "Step 12.21 → Step 12.28 · ~25 min · leave-state: still on the bench: `printer-350.cfg` is the `-sbv2` file with the Mainsail include, every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. Save, do not restart: Klipper does not read this file until 12.23, so Mainsail's missing-`printer.cfg` error is expected."
+    },
+    {
+     "id": "12-software#3",
+     "chapter": "12-software",
+     "kind": "build",
+     "steps": [
+      "12.29",
+      "12.30",
+      "12.31",
+      "12.32"
+     ],
+     "first_step": "12.29",
+     "last_step": "12.32",
+     "href": "../manual/steps/12-software/12-29/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "probe, hotend, bed, chamber sensor, fans and lighting are all declared in `printer-350.cfg`, saved. Nothing checks it until 12.37; the printer itself is still unpowered.",
+     "helpers": [],
+     "text": "Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared in `printer-350.cfg`, saved. Nothing checks it until 12.37; the printer itself is still unpowered."
+    },
+    {
+     "id": "12-software#4",
+     "chapter": "12-software",
+     "kind": "build",
+     "steps": [
+      "12.33",
+      "12.34",
+      "12.35",
+      "12.36"
+     ],
+     "first_step": "12.33",
+     "last_step": "12.36",
+     "href": "../manual/steps/12-software/12-33/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "Part 1 is done: `printer-350.cfg` is complete except the two serial paths, which need the live boards at 12.23. Leave it named `printer-350.cfg` until then; the Pi waits for Part 2.",
+     "helpers": [],
+     "text": "Step 12.33 → Step 12.36 · ~15 min · leave-state: Part 1 is done: `printer-350.cfg` is complete except the two serial paths, which need the live boards at 12.23. Leave it named `printer-350.cfg` until then; the Pi waits for Part 2."
     }
    ]
   },
@@ -1764,17 +1833,18 @@
      "steps": [
       "01.20",
       "01.21",
-      "01.22"
+      "01.22",
+      "01.23"
      ],
      "first_step": "01.20",
-     "last_step": "01.22",
+     "last_step": "01.23",
      "href": "../manual/steps/01-frame/01-20/",
-     "minutes": 25,
+     "minutes": 35,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter.",
+     "leave_state": "final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter.",
      "helpers": [
       [
        "01.20",
@@ -1783,9 +1853,13 @@
       [
        "01.22",
        "Writes the four diagonals and the final torque into the frame log."
+      ],
+      [
+       "01.23",
+       "Hands over seals one at a time and ticks off each joint."
       ]
      ],
-     "text": "Step 01.20 → Step 01.22 · ~25 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, and the frame log table complete. Work through Checkpoint 01, then the frame can come off the counter."
+     "text": "Step 01.20 → Step 01.23 · ~35 min · leave-state: final squareness pass done, backers confirmed still bagged for Ch 05, the frame log table complete and every blind joint sealed. Work through Checkpoint 01, then the frame can come off the counter."
     }
    ]
   },
@@ -4141,12 +4215,12 @@
   },
   {
    "n": 26,
-   "label": "Ch 12 Part 2 — flash both MCUs, `printer.cfg` for a 350 Rev D+",
+   "label": "Ch 12 Part 2 — flash both MCUs, paste the serial paths, config check",
    "kind": "Build",
    "kit": true,
    "segments": [
     {
-     "id": "12-software#2",
+     "id": "12-software#5",
      "chapter": "12-software",
      "kind": "build",
      "steps": [
@@ -4167,7 +4241,7 @@
      "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting."
     },
     {
-     "id": "12-software#3",
+     "id": "12-software#6",
      "chapter": "12-software",
      "kind": "build",
      "steps": [
@@ -4188,115 +4262,28 @@
      "text": "Step 12.14 → Step 12.16 · ~20 min · leave-state: the Leviathan passed the factory-firmware test or is running your own Klipper build, and still enumerates by its serial ID. Never stop between `make` and the flash: `out/` is shared between the two boards, so a built binary that never reaches its board is rebuilt from `config.leviathan` before you go on — one `make`, but do it before touching the toolboard."
     },
     {
-     "id": "12-software#4",
+     "id": "12-software#7",
      "chapter": "12-software",
      "kind": "build",
      "steps": [
       "12.17",
       "12.18",
       "12.19",
-      "12.20"
-     ],
-     "first_step": "12.17",
-     "last_step": "12.20",
-     "href": "../manual/steps/12-software/12-17/",
-     "minutes": 20,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet.",
-     "helpers": [],
-     "text": "Step 12.17 → Step 12.20 · ~20 min · leave-state: both boards flashed, both serial paths re-read and recorded, and both come back after a reboot. This is the safest stopping point in the chapter: hardware and firmware agree and nothing is edited yet."
-    },
-    {
-     "id": "12-software#5",
-     "chapter": "12-software",
-     "kind": "build",
-     "steps": [
-      "12.21",
-      "12.22",
-      "12.23"
-     ],
-     "first_step": "12.21",
-     "last_step": "12.23",
-     "href": "../manual/steps/12-software/12-21/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "`printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start.",
-     "helpers": [],
-     "text": "Step 12.21 → Step 12.23 · ~15 min · leave-state: `printer.cfg` is the `-sbv2` file with the Mainsail include and both real serial paths pasted in. Klipper connects to both MCUs. Do not stop with only one serial path filled in; Klipper will not start."
-    },
-    {
-     "id": "12-software#6",
-     "chapter": "12-software",
-     "kind": "build",
-     "steps": [
-      "12.24",
-      "12.25",
-      "12.26",
-      "12.27",
-      "12.28"
-     ],
-     "first_step": "12.24",
-     "last_step": "12.28",
-     "href": "../manual/steps/12-software/12-24/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly.",
-     "helpers": [],
-     "text": "Step 12.24 → Step 12.28 · ~15 min · leave-state: every 350 mm dimension is set (X/Y/Z limits, QGL corners, resonance point, G32 end position) and the 0.9° A/B motor setting verified. `SAVE & RESTART` completes cleanly."
-    },
-    {
-     "id": "12-software#7",
-     "chapter": "12-software",
-     "kind": "build",
-     "steps": [
-      "12.29",
-      "12.30",
-      "12.31",
-      "12.32"
-     ],
-     "first_step": "12.29",
-     "last_step": "12.32",
-     "href": "../manual/steps/12-software/12-29/",
-     "minutes": 15,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved.",
-     "helpers": [],
-     "text": "Step 12.29 → Step 12.32 · ~15 min · leave-state: probe, hotend, bed, chamber sensor, fans and lighting are all declared and the config still restarts without error. Klipper is bootable; the machine has still never moved."
-    },
-    {
-     "id": "12-software#8",
-     "chapter": "12-software",
-     "kind": "build",
-     "steps": [
-      "12.33",
-      "12.34",
-      "12.35",
-      "12.36",
+      "12.20",
+      "12.23",
       "12.37"
      ],
-     "first_step": "12.33",
+     "first_step": "12.17",
      "last_step": "12.37",
-     "href": "../manual/steps/12-software/12-33/",
-     "minutes": 20,
+     "href": "../manual/steps/12-software/12-17/",
+     "minutes": 30,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "`[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13.",
+     "leave_state": "both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down.",
      "helpers": [],
-     "text": "Step 12.33 → Step 12.37 · ~20 min · leave-state: `[bed_mesh]`, `[input_shaper]`, `[exclude_object]` and the new `PRINT_START` skeleton are in, and the config compiles with no error and no warning. Ready for Checkpoint 12 and then Ch 13."
+     "text": "Step 12.17 → Step 12.37 · ~30 min · leave-state: both boards flashed and re-read, your bench `printer-350.cfg` is now `printer.cfg` with both serial paths pasted in, and the config compiles with no error and no warning. Ready for Checkpoint 12, then 11.67 shuts the machine down."
     }
    ]
   },
@@ -5442,29 +5429,57 @@
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
-      "14.1",
-      "14.2",
-      "14.3"
+      "14.25",
+      "14.26"
      ],
-     "first_step": "14.1",
-     "last_step": "14.3",
-     "href": "../manual/steps/14-calibration/14-1/",
-     "minutes": 25,
+     "first_step": "14.25",
+     "last_step": "14.26",
+     "href": "../manual/steps/14-calibration/14-25/",
+     "minutes": 35,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched.",
+     "leave_state": "the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G.",
+     "helpers": [
+      [
+       "14.25",
+       "Holds the string along the route and reads its length off the rule."
+      ],
+      [
+       "14.26",
+       "Ticks each file on the bed against the list in the add-on folder."
+      ]
+     ],
+     "text": "Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G."
+    },
+    {
+     "id": "14-calibration#1",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.1",
+      "14.2"
+     ],
+     "first_step": "14.1",
+     "last_step": "14.2",
+     "href": "../manual/steps/14-calibration/14-1/",
+     "minutes": 15,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "config pre-flighted against the `-sbv2` file and both PID stanzas confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.",
      "helpers": [
       [
        "14.1",
        "Reads each Must hold value aloud while the adult finds it in printer.cfg."
       ]
      ],
-     "text": "Step 14.1 → Step 14.3 · ~25 min · leave-state: config pre-flighted against the `-sbv2` file, both heaters confirmed PID-tuned and holding, and the machine re-QGL'd hot with σ in range. Heaters can go off. Nothing mechanical has been touched."
+     "text": "Step 14.1 → Step 14.2 · ~15 min · leave-state: config pre-flighted against the `-sbv2` file and both PID stanzas confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts."
     },
     {
-     "id": "14-calibration#1",
+     "id": "14-calibration#2",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5488,11 +5503,12 @@
      "text": "Step 14.4 · ~20 min · leave-state: **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed."
     },
     {
-     "id": "14-calibration#2",
+     "id": "14-calibration#3",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
       "14.5",
+      "14.3",
       "14.6",
       "14.7"
      ],
@@ -5514,7 +5530,7 @@
      "text": "Step 14.5 → Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot."
     },
     {
-     "id": "14-calibration#3",
+     "id": "14-calibration#4",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5524,17 +5540,17 @@
      "first_step": "14.8",
      "last_step": "14.9",
      "href": "../manual/steps/14-calibration/14-8/",
-     "minutes": 15,
+     "minutes": 10,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "chamber behaviour measured and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.",
+     "leave_state": "chamber behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean.",
      "helpers": [],
-     "text": "Step 14.8 → Step 14.9 · ~15 min · leave-state: chamber behaviour measured and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean."
+     "text": "Step 14.8 → Step 14.9 · ~10 min · leave-state: chamber behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean."
     },
     {
-     "id": "14-calibration#4",
+     "id": "14-calibration#5",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5563,7 +5579,7 @@
      "text": "Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers."
     },
     {
-     "id": "14-calibration#5",
+     "id": "14-calibration#6",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5587,7 +5603,7 @@
      "text": "Step 14.12 · ~15 min · leave-state: accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet."
     },
     {
-     "id": "14-calibration#6",
+     "id": "14-calibration#7",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5613,7 +5629,7 @@
      "text": "Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them."
     },
     {
-     "id": "14-calibration#7",
+     "id": "14-calibration#8",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5632,7 +5648,7 @@
      "text": "Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print."
     },
     {
-     "id": "14-calibration#8",
+     "id": "14-calibration#9",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5657,7 +5673,7 @@
      "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next."
     },
     {
-     "id": "14-calibration#9",
+     "id": "14-calibration#10",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5677,7 +5693,7 @@
      "text": "Step 14.19 → Step 14.20 · ~25 min · leave-state: both extrusion-multiplier passes done and the final number written into the filament profile. It was chosen by the top surface, not by a caliper."
     },
     {
-     "id": "14-calibration#10",
+     "id": "14-calibration#11",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5696,7 +5712,7 @@
      "text": "Step 14.21 · ~10 min · leave-state: first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed."
     },
     {
-     "id": "14-calibration#11",
+     "id": "14-calibration#12",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5706,17 +5722,17 @@
      "first_step": "14.22",
      "last_step": "14.23",
      "href": "../manual/steps/14-calibration/14-22/",
-     "minutes": 15,
+     "minutes": 10,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.",
+     "leave_state": "the soak's mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace.",
      "helpers": [],
-     "text": "Step 14.22 → Step 14.23 · ~15 min · leave-state: mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace."
+     "text": "Step 14.22 → Step 14.23 · ~10 min · leave-state: the soak's mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace."
     },
     {
-     "id": "14-calibration#12",
+     "id": "14-calibration#13",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5738,35 +5754,6 @@
       ]
      ],
      "text": "Step 14.24 · ~20 min · leave-state: the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges."
-    },
-    {
-     "id": "14-calibration#13",
-     "chapter": "14-calibration",
-     "kind": "build",
-     "steps": [
-      "14.25",
-      "14.26"
-     ],
-     "first_step": "14.25",
-     "last_step": "14.26",
-     "href": "../manual/steps/14-calibration/14-25/",
-     "minutes": 35,
-     "pre_kit": false,
-     "plate": null,
-     "print_hours": null,
-     "run": null,
-     "leave_state": "the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed.",
-     "helpers": [
-      [
-       "14.25",
-       "Holds the string along the route and reads its length off the rule."
-      ],
-      [
-       "14.26",
-       "Ticks each file on the bed against the list in the add-on folder."
-      ]
-     ],
-     "text": "Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 5 h, with the blue job, about 2 h, after it. Nothing on the Voron has changed."
     },
     {
      "id": "14-calibration#14",
@@ -5887,7 +5874,7 @@
   },
   {
    "n": 32,
-   "label": "B11 — Bay ducting, before kit",
+   "label": "B11 — Bay ducting, part 1",
    "kind": "Print",
    "kit": false,
    "segments": [
@@ -5982,9 +5969,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "before-kit parts inspected and bagged by plate.",
+     "leave_state": "the P1 to P3 parts inspected and bagged by plate.",
      "helpers": [],
-     "text": "Step B11.7 · ~10 min · leave-state: before-kit parts inspected and bagged by plate."
+     "text": "Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate."
     },
     {
      "id": "b11-bay-ducting#5",
@@ -6001,20 +5988,20 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next.",
+     "leave_state": "B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
      "helpers": [
       [
        "B11.8",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B11.8 · ~10 min · leave-state: the before-kit half of B11 is binned. Swap the smooth sheet back on and set Adv. Filtration if an ASA plate is next."
+     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
     }
    ]
   },
   {
    "n": 33,
-   "label": "B11 — Bay ducting, after the kit-day measurements",
+   "label": "B11 — Bay ducting, part 2, after the kit-day measurements",
    "kind": "Print",
    "kit": true,
    "segments": [
@@ -6133,14 +6120,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all of B11 is binned for Ch 09. Smooth sheet back on, Chamber Filtration on Adv. Filtration.",
+     "leave_state": "all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration.",
      "helpers": [
       [
        "B11.14",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Smooth sheet back on, Chamber Filtration on Adv. Filtration."
+     "text": "Step B11.14 · ~10 min · leave-state: all of B11 is binned for Ch 09. Satin sheet back on, Chamber Filtration on Adv. Filtration."
     }
    ]
   }
@@ -7494,11 +7481,11 @@
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
-     "14-calibration#4",
+     "14-calibration#3",
      "14-calibration#5",
      "14-calibration#6",
-     "14-calibration#8",
-     "14-calibration#12",
+     "14-calibration#7",
+     "14-calibration#9",
      "14-calibration#13",
      "14-calibration#15",
      "14-calibration#17",
@@ -7740,11 +7727,11 @@
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
-     "14-calibration#4",
+     "14-calibration#3",
      "14-calibration#5",
      "14-calibration#6",
-     "14-calibration#8",
-     "14-calibration#12",
+     "14-calibration#7",
+     "14-calibration#9",
      "14-calibration#13",
      "14-calibration#15",
      "14-calibration#17",
@@ -7948,7 +7935,8 @@
         "items": [
          "12-software#0",
          "12-software#1",
-         "01-frame#0",
+         "12-software#2",
+         "12-software#3",
          "b11-bay-ducting#0"
         ],
         "next": null
@@ -8080,11 +8068,11 @@
      "14-calibration#0",
      "14-calibration#1",
      "14-calibration#2",
-     "14-calibration#4",
+     "14-calibration#3",
      "14-calibration#5",
      "14-calibration#6",
-     "14-calibration#8",
-     "14-calibration#12",
+     "14-calibration#7",
+     "14-calibration#9",
      "14-calibration#13",
      "14-calibration#15",
      "14-calibration#17",
@@ -8169,7 +8157,8 @@
      "01.19",
      "01.20",
      "01.21",
-     "01.22"
+     "01.22",
+     "01.23"
     ],
     "02-z-drives": [
      "02.01",
@@ -8691,19 +8680,8 @@
      "12.8",
      "12.9",
      "12.10",
-     "12.11",
-     "12.12",
-     "12.13",
-     "12.14",
-     "12.15",
-     "12.16",
-     "12.17",
-     "12.18",
-     "12.19",
-     "12.20",
      "12.21",
      "12.22",
-     "12.23",
      "12.24",
      "12.25",
      "12.26",
@@ -8717,6 +8695,17 @@
      "12.34",
      "12.35",
      "12.36",
+     "12.11",
+     "12.12",
+     "12.13",
+     "12.14",
+     "12.15",
+     "12.16",
+     "12.17",
+     "12.18",
+     "12.19",
+     "12.20",
+     "12.23",
      "12.37"
     ],
     "13-initial-startup": [
@@ -8776,11 +8765,13 @@
      "13.54"
     ],
     "14-calibration": [
+     "14.25",
+     "14.26",
      "14.1",
      "14.2",
-     "14.3",
      "14.4",
      "14.5",
+     "14.3",
      "14.6",
      "14.7",
      "14.8",
@@ -8800,8 +8791,6 @@
      "14.22",
      "14.23",
      "14.24",
-     "14.25",
-     "14.26",
      "14.27",
      "14.28",
      "14.29",
@@ -8938,7 +8927,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 218,
+    "done": 217,
     "gate_closed": true,
     "start": null,
     "sections": [

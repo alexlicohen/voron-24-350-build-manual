@@ -2,7 +2,7 @@
 
 Optional. On no plate, in no batch (B00–B11), in no run total. **Printed only after Ch 14 Step 14.25 has
 checked the back of the real machine** (stock notch, free depth behind it, extrusion slot, lead route,
-spare jumper); never ahead of kit day.
+spare jumper); never ahead of kit day. Step 14.25 opens Ch 14, so both jobs print while the Voron runs Parts A–G.
 
 ## Licence and credit
 
@@ -28,15 +28,21 @@ remixed, so nothing is committed here; the files are fetched like every other st
 
 ## Print
 
-Two jobs on the Core One+, smooth sheet, as oriented, **no supports**, Voron spec (4 walls, 5 top/bottom,
-40 % grid, 0.2 mm):
+Two jobs on the Core One+, satin sheet, no glue, as oriented, **no supports**, the inis' Voron settings (4 walls,
+5 top/bottom, 40 % gyroid, 0.2 mm). **3 mm brim on the two large flat parts**, the housing (143.7 × 154.8 mm
+footprint) and the access cover (73.2 × 134.8 mm), set per object (right-click → Add settings → Skirt and brim →
+Brim width), as `docs/manual/print/00-slicer-setup.md` § Orientation & brim does for the 155 mm grill. The inis
+keep the global brim at 0 and `brim_separation` at 0.15; the fan grill and the two mounts print without one.
 
 | Job | Profile | PrusaSlicer 2.9.6 CLI estimate |
 |---|---|---|
-| 1 — housing | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 66.0 g, 5 h 03 m |
-| 2 — fan grill, access cover, 2 mounts | `slicer/voron-accent-blue.ini`, blue accent ASA | 34.6 g, 2 h 04 m |
+| 1 — housing, 3 mm brim | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 66.1 g, 4 h 31 m |
+| 2 — fan grill, access cover with a 3 mm brim, 2 mounts | `slicer/voron-accent-blue.ini`, blue accent ASA | 34.8 g, 1 h 54 m |
 
-Estimates were sliced with the parts laid side by side, not GUI-arranged (2026-10-03). All five
+Estimates are normal-mode, re-sliced 2026-10-30 with the current inis (Z +0.08, 95 % first-layer flow, the
+10-29 speeds), the parts laid side by side, not GUI-arranged. The CLI sets a brim per job, so job 2 is the
+three parts sliced bare (34.5 g, 1 h 52 m) plus the cover's brim from its own slice (+0.24 g, +1.6 min); the
+housing's brim costs 0.27 g and 2 min. All five
 pieces go in bin `14-exhaust` (`slicer/bins.py` `ADDON_PARTS`); `exhaust_filter_grill` stays in `11-nevermore`,
 where B09 sorted it, since it is fitted at Step 11.54 and reused in place at Step 14.29.
 

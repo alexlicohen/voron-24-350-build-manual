@@ -41,7 +41,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Build plate, cast 5083, 355×355×10 mm, heatpad and 125 °C fuse pre-applied | 1 | [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) |
+| Build plate, cast 5083, 355×355×10 mm, heatpad and 125 °C fuse pre-applied | 1 | [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
 | Magnetic Pad 2.4-350 | 1 | applied in this chapter |
 | Spring Steel Flex Plate 2.4-350 | 1 | drops on, no fasteners |
 | M3×20 SHCS | 4 | **not** the manual's M3×16 |
@@ -63,7 +63,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 - [Voron 2.4r2 assembly manual (pinned `de7e89d`)](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf) pages 52–61 — plate orientation, magnet, bed-extrusion verification, spacers, the DON'T TIGHTEN rule
 - [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) — p.55 and p.56 skipped (heater and fuse pre-applied), M4×6 PE screw, M3×20 instead of M3×16, trim the magnet now
-- [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) — plate, magnetic pad, flex plate and thermal-fuse line items
+- [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) — plate, magnetic pad, flex plate and thermal-fuse line items
 - [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) — where the three bed cables actually terminate (Ch 10)
 - [magnet lamination demo](https://voron.link/rm6tpld) — the lamination demo the manual links from p.54
 - [survey](../voron-build-instructions-survey.md) §5.2 W6
@@ -89,7 +89,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 **Check:** Three cables leave the plate at the back-centre edge, with the M4×6 PE screw beside them. Washer type (verify on bench).
 
-Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [Video: Part 1 @0:44:56](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2696s)
+Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 1 @0:44:56](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2696s)
 
 ---
 
@@ -229,9 +229,9 @@ Pause: ~30 min since the last pause — the plate is unpacked and identified top
 
 **Helper:** Holds a torch behind the straightedge and says if any light shows under it.
 
-Tip: a cast, Blanchard-ground 5083 plate is deliberately thick and stress-relieved; a visible dish here does not get corrected by mesh or QGL later. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Tip: a cast, Blanchard-ground 5083 plate is deliberately thick and stress-relieved; a visible dish here does not get corrected by mesh or QGL later. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=53) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.53](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=53) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 ---
 
@@ -284,9 +284,9 @@ Tip: lift the first strip immediately if it lands crooked; past a few centimetre
 
 Tip: The liner side is the adhesive; the plain rubber face is the magnet. Keep the unlaid pad lifted so adhesive never touches ahead of the squeegee.
 
-⚠ **Rev D+ / LDO:** the magnetic pad is a **separate line item** in the 350 Rev D BOM — it is not laminated at the factory, unlike the heater and fuse. If your plate did arrive with the magnet already on, skip to 03.10 and check whether the four bolt holes are already cut. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** the magnetic pad is a **separate line item** in the 350 Rev D+ BOM — it is not laminated at the factory, unlike the heater and fuse. If your plate did arrive with the magnet already on, skip to 03.10 and check whether the four bolt holes are already cut. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [magnet lamination demo](https://voron.link/rm6tpld)
+Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [magnet lamination demo](https://voron.link/rm6tpld)
 
 ---
 
@@ -552,9 +552,9 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Flex plate sits flat with no rocking and does not overhang the magnet on any side. Bed covered.
 
-⚠ **Rev D+ / LDO:** the flex plate is an LDO kit item; the official manual's PRINT BED section ends at p.60 and p.61 carries no build content. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+⚠ **Rev D+ / LDO:** the flex plate is an LDO kit item; the official manual's PRINT BED section ends at p.60 and p.61 carries no build content. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.61](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=61) · [LDO 350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)
+Source: [Voron manual p.61](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=61) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Pause: ~20 min since the last pause — the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.
 

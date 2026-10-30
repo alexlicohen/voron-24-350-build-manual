@@ -1,6 +1,6 @@
 # Plate board
 
-The 20 plates of the ASA run in run order, then the five PETG V0 plates of B11 (the bay ducting, outside the run's 157.0 h), one tile each: hours, grams, filament, whether it is a day plate or an overnight one, the spool it comes off and what should be left on that spool afterwards. Tap **Printed** when it leaves the bed and **Sorted** once the parts are in their bins. The first plate you have not printed is marked *next*, and the header keeps the running count, the hours still to go and the spool you should have loaded.
+The 21 plates of the ASA run in run order, then the five PETG V0 plates of B11 (the bay ducting, outside the run's 150.2 h; P1–P3 print after B07), one tile each: hours, grams, filament, whether it is a day plate or an overnight one, the spool it comes off and what should be left on that spool afterwards. Tap **Printed** when it leaves the bed and **Sorted** once the parts are in their bins. The first plate you have not printed is marked *next*, and the header keeps the running count, the hours still to go and the spool you should have loaded.
 
 Ticks are per device, in this browser, and separate from the step ticks in the Build tab. The numbers are the ones in [print/README](../manual/print/README.md) and `slicer/estimates.csv`; the diagram behind each thumbnail is the same one the batch chapter shows at its Load step. All the diagrams on one page: [plate plans](plate-plans.md).
 

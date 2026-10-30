@@ -409,9 +409,11 @@ def d01_bearing_stacks() -> Doc:
         d.text(x0 + 18, y0 + ch - 40, bolt, size=12.3, fill=MUTED)
         d.text(x0 + 18, y0 + ch - 21, note, size=12.3, fill=MUTED)
 
+    # Listed top-down, the order stack() draws: flange up on the upper bearing, down on the
+    # lower one, so the flanges sit outside the pair (p.68, p.97; review 2026-10-30 G2-01).
     PAIR = [("s", "M5 precision spacer"),
-            ("b", "F695 — flange down"),
             ("b", "F695 — flange up"),
+            ("b", "F695 — flange down"),
             ("s", "M5 precision spacer")]
     DOUBLE = PAIR + PAIR
 
