@@ -778,7 +778,7 @@ chapters:
   context: ["04"]        # grey = Ch 04's four assemblies, now bolted into it
   title: "End of Chapter 05 - the gantry, on the bench"
   subtitle: "Orange: added in this chapter. Grey: Chapter 04's drives and idlers, now bolted into it. The CAD has no titanium backers - they are a mod."
-  caption: "The whole gantry as one unit, off the machine: both Y extrusions, the X extrusion, both XY joints with the cable bridge; the X carriage halves are only staged, for Ch 07, with Chapter 04's drive units and idlers closing its four corners. Shown the right way up for comparison with Chapter 06 - Checkpoint 05 leaves it upside down on the bench, and Step 06.11 is where it is turned over and hung on the Z joints."
+  caption: "The whole gantry as one unit, off the machine: both Y extrusions, the X extrusion, both XY joints with the cable bridge and the XY endstop pod (Step 05.49); the X carriage halves are only staged, for Ch 07, with Chapter 04's drive units and idlers closing its four corners. Shown the right way up for comparison with Chapter 06 - Checkpoint 05 leaves it upside down on the bench, and Step 06.11 is where it is turned over and hung on the Z joints."
   note_350: "CAD gantry is the 250: 350 mm Y extrusions and a 330 mm X extrusion. Yours are longer. The titanium backers are not in the CAD."
   select:
     - label: "the two Y extrusions"  # 63 parts
@@ -800,6 +800,9 @@ chapters:
     - label: "the MGN12H block"  # 9 parts
       resolve: "Gantry:1/X Axis:1/X Carriage:1/MGN12H"
       ids: [69, 70, 71, 72, 73, 74, 75, 76, 77]
+    - label: "XY endstop pod on the right XY joint (Step 05.49)"  # 14 parts
+      resolve: "XY Joint - Right:1/D2F Microswitch Pod"
+      ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
 - chapter: "06"
   out: ch-06-after
   title: "End of Chapter 06 - gantry on the Z joints, Z belts run"
@@ -850,7 +853,7 @@ chapters:
   out: ch-09-after
   title: "End of Chapter 09 - the bay populated"
   subtitle: "Orange: added in this chapter. The bay is under the deck panel, so only the edges of it show from outside. Grey: already built."
-  caption: "The two DIN rails, the 24 V PSU, the SSR, the mains WAGO mount and the power inlet panel, plus the XY endstop pod that goes on the gantry."
+  caption: "The two DIN rails, the 24 V PSU, the SSR, the mains WAGO mount and the power inlet panel."
   note_350: "Nothing here is size-dependent. Most of what this chapter adds sits under the deck, out of this camera's view: use the layout v3 overlay at Step 09.6 for the bay. The CAD also has no Leviathan and no LDO nozzle probe, so the front rail is emptier here than yours will be; it does model a separate Pi bracket, which Step 09.8 tells you to skip on this kit."
   select:
     - label: "the two DIN rails and their bolts"  # 8 parts
@@ -866,9 +869,6 @@ chapters:
       resolve: "Skirt:1/Rear:1/Left_Power_Inlet"
       ids: [955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971,
             972, 973, 974, 975, 976, 977, 978, 979, 980]
-    - label: "XY endstop pod (kept back in Ch 05)"  # 14 parts
-      resolve: "XY Joint - Right:1/D2F Microswitch Pod"
-      ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
     - label: "frame T-nuts this chapter's parts bolt into"  # 9 parts
       ids: [1036, 1037, 1038, 1039, 1051, 1137, 1138, 1146, 1147]
 # Chapter 10 (wiring) has no render of its own - nothing it adds reads at this
