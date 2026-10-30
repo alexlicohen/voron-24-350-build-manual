@@ -208,9 +208,9 @@ owners:
     at: {"09.17": 1}
     evidence: 'Ch 09 Step 09.17'
   - item: "XY Endstop PCB"
-    at: {"09.32": 1}
-    reused: ["10.33"]
-    evidence: 'Voron p.164 (pod) and Ch 09 Step 09.32'
+    at: {"05.49": 1}
+    reused: ["09.32", "10.33"]
+    evidence: 'Voron p.163–164; fitted in its pod on the right XY joint at Ch 05 Step 05.49 (moved from 09.32 on 2026-10-30, review G3-30-11); 09.32 only checks it'
   - item: "Z Endstop PCB"
     at: {"09.28": 1}
     evidence: 'Ch 09 Step 09.28 (M2×10 self-tapping ×2); 08.56 only names it'
@@ -254,9 +254,6 @@ owners:
 # staging chapter's Hardware table carries it. The staging step lists it
 # `staged:`; the consuming step lists it as a counted part; the consuming
 # chapter's table leaves it out (or writes `0: bagged at Step …`).
-carries:
-  - item: "Machine Screw, SHCS, M3x30"
-    qty: 2
-    staged: "05.46"
-    consumed: "09.33"
-    evidence: 'Voron p.164 (2× M3×30 SHCS through the XY endstop pod into the right XY joint); Ch 05 Step 05.46 bags them with the pod'
+# The one carry it held (2× M3×30 for the XY endstop pod, 05.46 → 09.33) ended
+# on 2026-10-30, when the pod moved to Ch 05 Step 05.49.
+carries: []

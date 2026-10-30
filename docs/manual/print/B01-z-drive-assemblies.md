@@ -8,9 +8,9 @@ pose: print
 caption: The first real parts. They hold bearings, so Gate B has opinions and the final say.
 ```
 
-**Time:** 22.3 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 23.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 14.8 h and 7.5 h unattended) + ~15 min inspect + ~10 min sort into bins.
+**Sessions:** 2 plate starts (~5 min hands-on each, 14.8 h and 8.2 h unattended) + ~15 min inspect + ~10 min sort into bins.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the 625-2RS pocket calipered and seven real inserts set,
 both run early on what is already on the bench; Gate B's bearing press and MGN12 rail row wait for the kit
@@ -33,13 +33,14 @@ kit — plan §9 lists hard prerequisites `B00;B02` for that chapter.
 | `z_tensioner_bracket_a_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 | 02-Z0, 02-Z2 (one each) |
 | `z_tensioner_bracket_b_x2.stl` | Voron-2 `STLs/Z_Idlers/` | 2 | Black | 13.0 | 02-Z1, 02-Z3 (one each) |
 | `deck_support_3mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 | 02-deck |
+| `deck_support_4mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.0 | 02-deck |
 
-⚠ **Deck-support thickness (verify):** LDO's Rev D printed-parts guide says "our kit ships with 4 mm deck
+⚠ **Deck-support thickness:** LDO's Rev D printed-parts guide says "our kit ships with 4 mm deck
 panels, use 4 mm deck support clips," but the Rev D+ 350 BOM lists the deck panel as **3 mm** acrylic (the
-4 mm panel is the *bottom* panel). The size-specific BOM wins: print `deck_support_3mm_x8` ×8 now, and
-measure the deck panel at Ch 00 Step 00.4 — if it measures 4 mm, reprint `deck_support_4mm_x8` (8 g, 30 min).
-The panel only exists on kit day, after this plate, so the 3 mm set is printed on the BOM's word and
-the reprint is the one plate the build may still owe when the cartons land.
+4 mm panel is the *bottom* panel). The panel only exists on kit day, after this plate, so B01-P2 prints
+**both sets**: `deck_support_3mm_x8` ×8 and `deck_support_4mm_x8` ×8 (8 g, about 45 min of the plate). The
+kit-day caliper at Ch 00 Step 00.4 picks which set to fit; the other set is a spare, and Ch 02 never waits
+on a print.
 
 **Hardware:** none.
 
@@ -51,18 +52,18 @@ the reprint is the one plate the build may still owe when the cartons land.
 - Checkpoint after B01: caliper each `z_drive_main` and `z_drive_retainer` 625-2RS pocket, **16.30 mm ±0.15**
   (measured off the STL, as at Gate B). The bearings arrive with the kit, so pressing a real 625-2RS (16 mm OD)
   in by thumb, no rocking, is a kit-day row. No inserts now: the kit's own go in at Ch 02 Steps 02.03–02.04. Check
-  the 4 mm/3 mm deck-support call above.
+  the 4 mm/3 mm deck-support note above: both sets are printed, the caliper picks one.
 - Most commonly reprinted here: `z_drive_main_*` — the largest single parts in the batch, most exposed to
   warp at the corners.
 - Plate B01-P1 is the longest single plate in the whole build (14.8 h) — start it in the morning, not at bedtime.
-  If Gate B passes after the morning swap, run B01-P2 (7.5 h) that evening and B01-P1 the next morning.
+  If Gate B passes after the morning swap, run B01-P2 (8.2 h) that evening and B01-P1 the next morning.
 
 ## Step B01.1 — Filament prep
 
 **Do:**
 
 1. Confirm the Galaxy Black spool is loaded and dried within the last 2 weeks, or fresh.
-2. Spool #1 came off B00 with 749 g by the ledger. This batch alone is 300 g.
+2. Spool #1 came off B00 with 749 g by the ledger. This batch alone is 308 g.
 **Check:** B01-P1 needs **≥ 200 g** on the spool at start; the [README ledger](README.md#spool-ledger) has spool #1 at 749 g.
 
 Tip: A kitchen scale, if you own one, turns the ledger into a check. It is optional; the ledger works from the slicer grams.
@@ -115,7 +116,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B01-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **5 files, 16 objects**, no brim.
-**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 — 7.5 h, 100 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 · `deck_support_4mm` ×8 — 8.2 h, 108 g (PrusaSlicer 2.9.6 estimate).
 **Check:** All 8 clips on the plate, 3 mm per the BOM; the kit-day caliper decides a 4 mm reprint.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -172,15 +173,15 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | **02-Z1** — Z1 corner (rear-left, `_b` hand) | `z_motor_mount_b`, `z_tensioner_bracket_b` |
 | **02-Z2** — Z2 corner (rear-right, `_a` hand) | `z_motor_mount_a`, `z_tensioner_bracket_a` |
 | **02-Z3** — Z3 corner (front-right, `_b` hand) | `z_motor_mount_b`, `z_tensioner_bracket_b` |
-| **02-deck** — Deck panel clips | `deck_support_3mm` ×8 |
+| **02-deck** — Deck panel clips | `deck_support_3mm` ×8, `deck_support_4mm` ×8 |
 
-**Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids written on the parts; 02-deck holds 8 clips.
+**Check:** 02-Z0 to 02-Z3 each hold one `z_drive_main`, one `z_drive_retainer`, one `z_motor_mount` and one `z_tensioner_bracket` of the right hand, ids on the parts; 02-deck holds both clip sets.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 ⚠ 02-Z0's `z_drive_retainer_a` is the Gate B coupon printed on B00, so it is not on these plates. B02's blue baseplates and tensioners join these bins next batch.
 
-Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). Mark the 02-deck bin "3 mm clips, confirm against the calipered panel".
+Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). The two clip sets look alike: bag the 4 mm set apart inside 02-deck and label it "4 mm".
 
 Pause: ~10 min since the last pause — both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.
 
@@ -209,14 +210,14 @@ write the bin labels you are still missing.
 - [ ] Every `z_drive_main_a/b` and `z_drive_retainer_a/b` 625-2RS pocket calipers 16.30 mm ±0.15
 - [ ] *(kit day)* a real 625-2RS presses into every `z_drive_main_a/b` seat by thumb, no rocking
 - [ ] *(kit day)* a real 625-2RS presses into every `z_drive_retainer_a/b` seat by thumb, no rocking
-- [ ] *(kit day)* Deck panel measured; correct deck-support thickness confirmed or `deck_support_4mm_x8` reprinted
+- [ ] *(kit day)* Deck panel measured; the matching deck-support set picked, the other kept as a spare
 - [ ] No corner lift or delamination on any `z_drive_main` body
-- [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
+- [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 16 clips in 02-deck, the 4 mm set bagged apart
 
 ## Common mistakes
 - Starting the 14.8 h P1 plate late in the day and having it finish unattended overnight with no chance to
   abort a bad first layer.
-- Starting B01 on Gate A alone — Gate B's bore caliper is what protects these 22.3 h.
+- Starting B01 on Gate A alone — Gate B's bore caliper is what protects these 23.0 h.
 - Trying to make four identical sets from two `a` and two `b` of each part — the sets are mirrored; the corner bins are not interchangeable.
 - Assuming the deck-support thickness without measuring the actual panel.
 - Forcing a tight bearing seat with a press instead of reducing extrusion multiplier for the reprint.

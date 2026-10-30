@@ -54,8 +54,8 @@ before assembly.
 | `Handle.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Blue | 33.7 | 11-door |
 
 ⚠ **Cable-chain bridge, conditional:** one long titanium backer and the short X backer carry pilot holes for
-the cable chain's end links (drill 2.5 mm, tap M3, per the backer README; whether Fabreeko taps them is
-`(verify on bench)`), which may make the printed bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
+the cable chain's end links, drilled and tapped M3 by LDO `(verify on bench)`, which may make the printed
+bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
 `XY_cable_chain_bridge-Igus-3mm_backer` (18 g total) and fit whichever clears at assembly. "Igus" = the
 2-hole chain pattern, which is what LDO ships.
 

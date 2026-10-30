@@ -102,3 +102,11 @@ Closes Ruling 2's open item. Line numbers are post-edit.
 - `00-tonight.md:331` and `docs/assets/tonight.json`: the 12.14→12.16 leave-state comes from the changed Pause line. Regenerated at build.
 - `docs/print/checklists.md` (generated): Checkpoint 12 lines.
 - Not in this ruling: the 12.19 Nitehawk fallback presses RESET/BOOT0 on the live toolboard (24 V, outside the bay). 00a.11 names SW1/SW2 as the only live touch.
+
+## Ruling 5 (Alex 2026-10-30): the Nitehawk's RESET/BOOT0 on the live toolboard is allowed
+
+Closes the item Ruling 4 left open (12.19). Review 2026-10-30 asked; Alex: "Yes".
+
+- `00a-mains-safety.md` 00a.11: the exception bullet is now "Exception 1 of 2 · LDO's Leviathan buttons"; new bullet "Exception 2 of 2 · the Nitehawk's buttons, recovery only" (24 V toolboard on the toolhead, outside the bay; toolhead moved and cover opened first; one fingertip, the other hand behind the back, nothing else touched, hand straight out; nothing else live). Check, ⚠, the :83 adult-only list and the Checkpoint 00a line name both exceptions. Source adds the Nitehawk-SB V2 doc § Installing the Katapult bootloader.
+- `12-software.md`: 12.11 eyes-only ⚠ lists both exceptions (12.15–12.16 and 12.19); 12.15 ⚠ "one of two live touches"; 12.19 gains a ⚠ pointing to 00a.11's second exception.
+- `hooks/mascot.py`: unchanged (12.11–12.37 already mains, no Helper).

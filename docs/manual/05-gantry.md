@@ -29,7 +29,6 @@ caption: Build the gantry on the bench, not in the frame. Clear the whole table,
 - Steel rule 300 mm and a caliper — to equalise the rail overhang at both ends
 - Masking tape (carriage retention) and the kit's rubber rail stoppers
 - 2.5 mm flat screwdriver (cable-chain latches, if you dry-fit the chain end)
-- 2.5 mm drill bit and an M3 tap, only if the chain backer's pilot holes are not already threaded (Step 05.16) *(verify on bench)*
 
 **Printed parts**
 
@@ -46,7 +45,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/x_frame_V2TR_MGN12_left.png){ width=96 } | `x_frame_V2TR_MGN12_left.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07* |
 | ![](assets/parts/x_frame_V2TR_MGN12_right.png){ width=96 } | `x_frame_V2TR_MGN12_right.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07* |
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `probe_retainer_bracket.stl` | 07-X | 1 | Black — *staged here, fitted in Ch 07/08* |
-| ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Blue — *staged here, fitted at endstop wiring* |
+| ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch.stl` | 05-XY | 1 | Blue — *fitted here, Step 05.49* |
 | ![](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png){ width=96 } | `[a]_z_belt_clip_upper_x4.stl` | 05-XY | 4 | Blue — *fitted here under the idler and drive M5×16 (p.91, p.93, p.95), loaded with belt in Ch 06* |
 
 Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3hole.stl`, or any `xy_joint_*_MGN9` — wrong variants for this kit ([print plan §7](../voron-print-plan.md)).
@@ -67,9 +66,10 @@ Do **not** print `[a]_endstop_pod_hall_effect.stl`, `[a]_xy_joint_cable_bridge_3
 | M5×16 BHCS | 10 | 4 front idlers, through the upper Z-belt clips (p.91, p.93), 4 rear drive joints, same (p.95), 2 right XY joint + cable bridge (p.104) |
 | M5×30 BHCS | 2 | XY joints from below (p.104) |
 | M5×40 SHCS | 8 | 4 per XY joint (p.97–100) |
-| M3×8 SHCS | 25: 18 Y rails, 7 X rail | one per marked rail hole (p.88, p.101): every other hole from the second, both end holes empty |
+| M3×8 SHCS | 27: 18 Y rails, 7 X rail, 2 XY endstop PCB | one per marked rail hole (p.88, p.101): every other hole from the second, both end holes empty; 2 hold the PCB in its pod (p.163) |
 | M3×16 SHCS | 6 | XY joints to the Y carriages (p.106): 4 left joint, 2 right joint; all six fitted, none spare |
-| M3×30 SHCS | 2: bagged with the endstop pod at 05.46, fitted at 09.33 | p.164 fits the pod through its body with 2× M3×30, not the M3×16 of p.106 |
+| M3×30 SHCS | 2 | XY endstop pod to the right XY joint at 05.49: p.164 fits it through its body with 2× M3×30, not the M3×16 of p.106 |
+| XY endstop PCB | 1 | in the pod (p.163), at 05.49; its cable plugs in at Ch 10 |
 | M5 nut | 6 | 3 per XY joint (p.96) |
 | **M5 precision spacer, brass** | 4 | 2 per XY joint stack — one below and one above the F695 pair (p.97, p.99) — replaces the manual's "M5 shim" |
 | **M5 washer, black** | 2 | under the M5×30 heads (p.104) — replaces the manual's "M5 shim" |
@@ -97,6 +97,7 @@ The West3D/Fabreeko titanium set ships **22× M3×8 FHCS and 10× M3×6 FHCS**, 
 - [Voron 2.4r2 assembly manual, p.82–107](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=82) — the page sequence this chapter transcribes, pinned at commit `de7e89d`
 - [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) — Rev D kit deviations, T-nut pre-loading, rail stoppers
 - [LDO printed-parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) — 2-hole cable bridge, D2F endstop pod
+- [Voron 2.4r2 assembly manual, p.163–164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) — the XY endstop pod, fitted early at Step 05.49 so the right XY joint has all four screws before Ch 06
 - [LDO rail-grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) — rail clean-and-pack, done in Ch 00
 - [LDO cable-chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) — chain-end clearance over the backers
 - [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) — which face the backers go on, and why; source of the two backer images (GPL-3.0)
@@ -446,18 +447,17 @@ Pause: ~30 min since the last pause — both Y rails down and tightened, end M5/
 - staged: titanium X backer ×1 — from Ti backer set
 - staged: M3×8 FHCS ×20 — from Ti backer set
 - staged: M3×6 FHCS ×9 — from Ti backer set
-- tool: 2.5 mm drill bit and M3 tap, only for unthreaded pilots
 
 **Do:**
 
-1. Sort: the short one is **X**. Of the two long **Y**, the one with **four pilot holes** goes on the right.
-2. Pilots unthreaded? Drill those under a chain end link 2.5 mm, tap M3 (verify on bench).
+1. Sort: the short one is **X**; the long one with **four pilot holes** goes on the right.
+2. Its pilots come tapped M3 (verify on bench). Unthreaded: ask Fabreeko or LDO before Ch 10; never drill titanium.
 
-**Check:** Three backers sorted, the pilot one marked right; screw holes 10 per Y, 9 on X; 29 M3 T-nuts set aside.
+**Check:** Three backers sorted, the pilot one marked right, its pilots threaded; screw holes 10 per Y, 9 on X; 29 M3 T-nuts set aside.
 
 **Helper:** Sorts the backers by length and finds the one with the four small pilot holes.
 
-Tip: A slightly bowed backer straightens as you clamp it down. Tapping titanium is *"not fun"*, says the backers README: take it slowly.
+Tip: A slightly bowed backer straightens as you clamp it down.
 
 Source: [Ti extrusion-backers README (tanaes)](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [Fabreeko backer set](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers) · [West3D backer set](https://west3d.com/products/titanium-backers-for-voron-2-4-trident-3-pack) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -1026,7 +1026,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.106](assets/manual-pages/manual-p106.png){ crop="0.11 0.45 0.95 0.88" }
 
-**What you're looking at:** M3×16 down through each XY joint into the threaded holes in the Y carriage below it. The right joint gets only two: the XY endstop pod fitted at wiring shares its other two holes. The pod's own bolts are **M3×30**.
+**What you're looking at:** M3×16 down through each XY joint into the threaded holes in the Y carriage below it. The right joint gets only two: the XY endstop pod, fitted next, takes its other two holes on its own **M3×30**.
 
 **Parts:**
 
@@ -1034,9 +1034,38 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:** The **left** joint takes all four M3×16 SHCS. The **right** joint takes **two only**: *"2X BOLT ONLY: the remaining bolts will be installed during the end-stop installation."* Tighten all six firm: nothing later tightens them.
 
-**Check:** 4 on one joint, 2 on the other, no M3×16 left over. The two empty holes take the pod's M3×30 in Ch 09.
+**Check:** 4 on one joint, 2 on the other, no M3×16 left over. The two empty holes take the pod's M3×30 in the next step.
 
 Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
+
+---
+
+### Step 05.49 — Fit the XY endstop pod to the right joint
+
+![Voron manual p.163](assets/manual-pages/manual-p163.png){ crop="0.08 0.17 0.48 0.90" }
+![Voron manual p.164](assets/manual-pages/manual-p164.png){ crop="0.17 0.18 0.46 0.74" }
+
+**What you're looking at:** The XY endstop PCB carries both limit switches, so `G28` has a repeatable origin. It bolts into the blue pod, and the pod fills the right joint's two empty holes, so that joint has all four screws before Ch 06 and Ch 07 load it.
+
+**Parts:**
+
+- `[a]_endstop_pod_D2F_switch` ×1
+- XY endstop PCB ×1
+- M3×8 SHCS ×2
+- M3×30 SHCS ×2
+
+**Do:**
+
+1. p.163's left-hand option only: board on the pod as drawn, two M3×8 SHCS.
+2. Pod under the **right** XY joint, the bridge one, on your left: two M3×30 SHCS through it into the empty holes, firm.
+
+**Check:** Board flat, both switches click; pod solid with no rotation; the right joint now holds four screws.
+
+**Helper:** Presses both switches on the fitted board and says whether each one clicks cleanly.
+
+⚠ **Rev D+ / LDO:** LDO: *"Follow only the step for the XY Endstop board."* Ignore the hall-effect half of p.163; this kit has no hall-effect endstops. The cable stays bagged until Ch 10. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+
+Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) · [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=164) · [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 6 @1:30:12](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5412s) (differs: fitted with the gantry in the frame)
 
 ---
 
@@ -1056,7 +1085,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106)
 
-Pause: ~30 min since the last pause — gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.
+Pause: ~40 min since the last pause — gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.
 
 ---
 
@@ -1089,18 +1118,13 @@ Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![CAD render — the two Rev D+ variant choices, pulled apart](assets/cad/05-46-a.png)
 ![CAD render — where the two parts you keep end up](assets/cad/05-46-b.png)
 
-**What you're looking at:** The [XY endstop pod](16-glossary.md#x) is the blue box holding the X and Y limit switches. The renders show both either/or choices: keep the D2F pod and a 2-hole bridge, the raised one included; never the hall-effect pod or a 3-hole bridge.
+**What you're looking at:** The renders show both either/or choices: the D2F [XY endstop pod](16-glossary.md#x) you fitted, never the hall-effect pod; a 2-hole bridge, the raised one included, never a 3-hole bridge.
 
 **Parts:**
 
-- staged: M3×30 SHCS ×2
-- staged: `[a]_endstop_pod_D2F_switch` ×1
 - staged: `[a]_cable_cover` ×1
 
-**Do:**
-
-1. Bag the endstop pod with its **2× M3×30 SHCS**, labelled.
-2. Bag the `[a]_cable_cover` and the unused bridge variant separately.
+**Do:** Bag the `[a]_cable_cover` and the unused bridge variant separately, labelled.
 
 ⚠ **Rev D+ / LDO:** *"Our kit includes the XY microswitch PCB, print [a]_endstop_pod_D2F_switch instead of [a]_endstop_pod_hall_effect."* [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1148,7 +1172,7 @@ Source: [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 | Inside Y-to-Y spacing at the bridge | — | | |
 | Inside Y-to-Y spacing at the idlers | = at bridge | | |
 | Backer face — Y1 / Y2 / X | top / top / rear | | |
-| M3×30 SHCS bagged for the endstop pod (p.164) | 2 | | |
+| Endstop pod on the right joint, M3×30 SHCS (p.164) | 2 | | |
 
 **Check:** Numbers written down, not "looked fine". You will want the Y-to-Y spacings when the gantry is squared in Ch 06.
 
@@ -1174,7 +1198,7 @@ Pause: ~25 min since the last pause — gantry complete and still upside down (m
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
 - [ ] Raised cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
-- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; **2× M3×30 SHCS bagged** with the endstop pod (p.164) for the right joint's two empty holes
+- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; the XY endstop pod on the right joint's two other holes with **2× M3×30 SHCS** (p.164)
 - [ ] X axis runs the full Y travel with no tight spot
 - [ ] A/B belts still unopened; nothing squared, nothing torqued down
 - [ ] Gantry is **upside down** (motors up, rails up) with the right joint (bridge, endstop channel) on the A-drive side; it is turned back at Ch 06 Step 06.11

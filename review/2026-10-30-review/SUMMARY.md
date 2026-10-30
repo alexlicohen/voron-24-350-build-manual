@@ -117,8 +117,25 @@ exit 0, pages checked at 1024x768. Worker reports: not tracked (session scratch)
   G8-09 flow part (B00.8 review stays before B00 per the bring-up order), G8-21 ("plate 11 of 21" is right).
 - G7-01 uses 0.4 mm (Ellis: "0.4 with a 0.4mm nozzle"; matches the ASA inis), not the reviewer's 0.45.
 - Cable cover: routed 10.64, bolted 10.66 (p.204). Part renders re-rendered at true aspect (render_parts.py).
-- Open for Alex: Ti backer drill/tap (G3-30-02); B09-P1 fresh spool vs runout pause (G8-05); RESET/BOOT0 on
-  the live toolboard at 12.19; pre-load 09.30/09.34 T-nuts at 03.12 (G4-16); endstop pod after 05.43;
-  `deck_support_4mm_x8` beside B01-P2 (G1-12); 13.41 pre-kit vs 13.31 soak (G8-12).
+- Alex 10-30 answers, applied:
+  1. Ti backer pilots (G3-30-02): written as drilled and tapped M3 by LDO `(verify on bench)`. Drill bit and tap
+     gone from Ch 05 Tools and 05.16; 05.16 says "unthreaded: ask Fabreeko or LDO before Ch 10; never drill
+     titanium". 10.60 ⚠, B02, plan §1/§6 and diagram 12 match.
+  2. B09-P1 runout (G8-05): the planned mid-plate runout stays. Index row 12, README, plan §4.3 and B09.1 agree
+     and now give the pause as about 2 h into the 4.4 h plate. Ledger unchanged (31 g on #2).
+  3. 12.19 RESET/BOOT0 on the live Nitehawk: allowed. 00a.11 has two exceptions; the 00a Check, ⚠, adult-only
+     list and Checkpoint, and the 12.11/12.15 ⚠s say "two". 12.19 has a ⚠ to it. RULINGS-SAFETY Ruling 5.
+  4. G4-16: 03.12 now loads eight T-nuts: four top-slot M3 plus two M3 (right inner slot, probe) and two M5 (left
+     inner slot, bed WAGO mount), parked for Ch 09. 09.30/09.34 list them `reused:`; Ch 03/09 tables updated.
+     Faces checked on p.161, LDO's build-plate mapping and the wiring guide (bed WAGO mount: two M5×10 BHCS).
+  5. Endstop pod: new Step 05.49 after 05.43 fits the PCB (2× M3×8) into the pod and the pod (2× M3×30) to the
+     right joint. 09.32 now checks the board and the cable labels; 09.33 checks the pod through full travel.
+     Ownership map: XY Endstop PCB at 05.49, the M3×30 carry removed. 05.46 bags only the cable cover and the spare
+     bridge; render 05-46-b relabelled. The pod's bin 05-XY already opens in Ch 05 (B02-P1 prints before Ch 05).
+  6. `deck_support_4mm_x8`: added to B01-P2 (8 objects in free bed space, the 16 existing objects untouched,
+     ≥6.45 mm gaps, ≥6.7 mm from the edges). B01-P2 is 8.2 h / 108 g (was 7.5 h / 100 g); run 150.9 h /
+     1810 g black. The ledger shifts by 8 g through B05-P1 (#1 stub 129 g, margin 590 g). Every "reprint if 4 mm"
+     line now says both sets are printed and the caliper picks one. **B01-P2 needs GUI QC.**
+  7. 13.41: stays in the 13.31 soak (13.31 Tip, 13.41 and Tonight agree). No change.
 - Unreferenced now, left in the tree: assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg and CAD
   renders 05-16-a, 05-35-a/b, 07-39-a/b. sources.yml lacks ~390 cited URLs (stale since 10-18).

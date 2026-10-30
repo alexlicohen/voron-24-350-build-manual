@@ -2,7 +2,7 @@
 
 Fits out the space under the deck panel: two DIN rails and the two printed B11 conduits that replace LDO's five wire ducts, the Meanwell 24 V PSU, the Omron SSR, the Leviathan mainboard carrying the Raspberry Pi 4B, the Nitehawk USB adapter, the mains inlet and WAGO blocks, and both endstops. Everything is mounted and nothing is wired — that unlocks Ch 10, which is one continuous harness job ending at Checkpoint #1.
 
-**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** that runs round the front of both rails from the rear-left Z motor to the Z-chain notch, open at both rear ends, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. Both endstops — the **nozzle probe** that sets Z zero and the **XY endstop PCB** in its pod on the gantry — are built and mounted here too. Two bed-extrusion parts go **above** the deck, under the plate: the nozzle probe, on the right extrusion with its pin just behind the plate's rear edge, and the **bed WAGO breakout** on the left one, where the plate's own three leads end.
+**What you're building in this chapter.** The bay is the space under the deck panel, and this chapter fits it out without connecting a single wire. Two **DIN rails** — the standard 35 mm slotted steel rail that industrial gear clips onto — run left to right across the deck. Two printed **conduits** from batch B11 carry the harness Ch 10 will lay in: a **DC loop** that runs round the front of both rails from the rear-left Z motor to the Z-chain notch, open at both rear ends, and a separate **AC conduit** that joins the mains WAGO bus, the SSR, the PSU and the bed-lead hole. They replace LDO's five PVC wire ducts (layout v3). On the rear rail go the **PSU** (the Meanwell supply that turns mains into the 24 V everything runs on) and the **SSR** (a solid-state relay: the contactless electronic switch that lets a low-voltage board turn the mains bed heater on and off). On the front rail go the **Leviathan** — this kit's mainboard, driving all five steppers, both heaters, the fans and the endstops, with the Raspberry Pi bolted on top of it — and the **USB adapter** that terminates the toolhead umbilical. Round the rear frame go the **IEC inlet** module (socket, switch and fuse in one) and three **WAGO** lever connectors that distribute live, neutral and earth. The **nozzle probe** that sets Z zero is built and mounted here too; the **XY endstop PCB** went on the gantry in its pod at Ch 05 and is only checked here. Two bed-extrusion parts go **above** the deck, under the plate: the nozzle probe, on the right extrusion with its pin just behind the plate's rear edge, and the **bed WAGO breakout** on the left one, where the plate's own three leads end.
 
 ```mascot
 pose: point
@@ -19,7 +19,8 @@ caption: Mount everything before wiring anything. A board you move later takes s
 
 - **Ch 00a — Mains safety.** Who does the mains work and the SSR rail-earth question (00a.7) settled before the inlet, PSU and SSR go in.
 - **Ch 01–03.** Frame squared, deck panel and deck supports in (manual p.28–30), build plate on with its three leads loose **above** the deck, none through it (Ch 03 Step 03.14).
-- **Ch 06.** Gantry installed — step 09.33 mounts the XY endstop pod to it.
+- **Ch 03.** The four T-nuts parked in the bed extrusions' inner slots: two M3 right for the probe, two M5 left for the bed WAGO mount.
+- **Ch 05–06.** Gantry installed, the XY endstop pod on its right joint since Ch 05; steps 09.32–09.33 check it.
 - **Ch 08.** The USB-adapter stack bagged at Step 08.64 is clipped on at 09.25.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall. The COB light-strip mounts on plates B07-P1 and B07-P2 are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
 - **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
@@ -48,7 +49,6 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/wago_221-415_mount_3by5.png){ width=96 } | `Electronics_Bay/wago_221-415_mount_3by5` | 09-bay | 1 | Black |
 | ![](assets/parts/pcb_din_clip_x3.png){ width=96 } | `Electronics_Bay/pcb_din_clip_x3` | 09-bay | 3 (spares — the kit supplies 4 printed, this chapter fits 3) | Black |
 | ![](assets/parts/PSU_stabilizer_50mm.png){ width=96 } | `Electronics_Bay/PSU_stabilizer_50mm` | 09-bay | 1 — **fit only if needed**, see 09.16 | Black |
-| ![](assets/parts/%5Ba%5D_endstop_pod_D2F_switch.png){ width=96 } | `[a]_endstop_pod_D2F_switch` | 05-XY | 1 | Blue — staged in Ch 05 Step 05.46, fitted at 09.32 |
 | ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `Nitehawk-SB-V2/usb_adapter_mount_partial_cover` | 08-CW2 | 1 | Black — fitted in Ch 08 Step 08.64, bagged with the adapter |
 | ![](assets/parts/power_inlet_IECGS_1mm.png){ width=96 } | `Skirts/power_inlet_IECGS_1mm` | 09-bay | 1 (batch B07-P1) | Black |
 | ![](assets/parts/V2L_90DEG_MIRROR.png){ width=96 } | B11 DC loop, 09.6: `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, `V2L_58mm_DUCT` ×3, `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `V3L_10mm_DUCT` | 09-ducts-DC | 13 | Black |
@@ -65,14 +65,14 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | DIN rail plastic end cap | 4 | 2 per rail |
 | PVC wire duct, 20 W × 25 H | 5 | **LDO layout only** (3 across, 2 front-to-back). Layout v3 uses one, as the middle run, only if B11.10's gap row failed. Cut lengths **(verify on bench)** |
 | M5×10 BHCS | 8 | 4 DIN rails, 2 mains WAGO mount, 2 bed WAGO mount |
-| M5 T-nut | 4 | 2 mains WAGO mount, 2 bed WAGO mount **(verify on bench for the bed WAGO mount)** — the 4 DIN-rail T-nuts are placed in Ch 02 Step 02.11, 0 new here |
+| M5 T-nut | 2 | 2 mains WAGO mount — the 4 DIN-rail T-nuts are placed in Ch 02 Step 02.11 and the 2 bed WAGO mount T-nuts are parked in Ch 03 Step 03.12, 0 new here |
 | M4×6 BHCS | 6 | 4 PSU brackets **(verify)**, 2 SSR to its metal bracket |
-| M3×8 SHCS | 8 | 4 Leviathan to brackets **(verify)**, 2 inlet panel, 2 XY endstop PCB |
+| M3×8 SHCS | 6 | 4 Leviathan to brackets **(verify)**, 2 inlet panel; the XY endstop PCB's 2 are Ch 05's |
 | M3×6 BHCS | 2 | 2×2 XH splicer PCB to the bed WAGO mount, per LDO's wiring guide; its printed-parts guide says 2× M3×8 SHCS `(verify on bench)` |
 | M3×10 FHCS | 0 | p.156's two fix the filtered inlet; the IEC-GS module snaps into `power_inlet_IECGS_1mm` on its 1 mm tabs, no screws (CAD, STL) |
 | M3×25 SHCS | 2 | nozzle probe to the bed extrusion — **not** the manual's M3×20 |
-| M3×30 SHCS | 0: bagged with the pod at Step 05.46 | 2 fitted at 09.33, XY endstop pod to the gantry (manual p.164); counted in Ch 05's table |
-| M3 T-nut | 4 | 2 inlet panel, 2 nozzle probe |
+| M3×30 SHCS | 0: fitted in Ch 05 | XY endstop pod to the gantry (manual p.164), fitted at Step 05.49 and counted in Ch 05's table |
+| M3 T-nut | 2 | 2 inlet panel; the nozzle probe's 2 are parked in Ch 03 Step 03.12 |
 | M2×10 self-tapping | 8 (LDO's BOM lists 43) | 4 DIN clips to Leviathan brackets (09.20), 2 the USB adapter's DIN clip (09.25), 2 Z endstop PCB (09.28) — the adapter stack itself is held by 3× M3×10 SHCS fitted in Ch 08 Step 08.64 |
 | M3×5×4 heat-set insert | 5: 3 inlet panel + 2 bed WAGO mount | inlet panel: 1 in the rail's bottom face for the bottom-panel hinge (Ch 11), 2 in the cut-out for the p.222 belt guard (three Ø4.7 bores in `power_inlet_IECGS_1mm.stl`; p.156 draws five because the filtered variant adds two for its inlet screws); the mains WAGO mount has none, only two M5 holes |
 | Meanwell LRS-200-24 PSU | 1 | 115/230 V selector switch on the side |
@@ -90,7 +90,6 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | Raspberry Pi heatsink | 1 | |
 | Pi standoff — from the Leviathan box | 4 | **(verify on bench)** |
 | Raspberry Pi 3/4 HAT power adapter — from the Leviathan box | 1 | the Pi 5 adapter stays bagged **(verify on bench)** |
-| XY endstop PCB | 1 | |
 | Z endstop PCB | 1 | |
 | 2×2 XH splicer PCB | 1 | bed thermistor breakout |
 | LDO Nozzle Probe, collar pre-pressed | 1 | LDO-supplied printed; the collar is part of it `(verify on bench)` |
@@ -833,11 +832,11 @@ Source: [Voron manual p.159](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 - reused: the nozzle probe assembly
 - M3×25 SHCS ×2
-- M3 T-nut ×2
+- reused: the two M3 T-nuts parked in the right extrusion's inner slot
 
 **Do:**
 
-1. Reach in between deck and plate: two M3 T-nuts into the right extrusion's inner slot `(verify on bench)`.
+1. Slide the two M3 T-nuts parked in the right extrusion's inner slot toward its rear end.
 2. Probe on that face, pin away from the deck, M3×25 snug.
 3. Slide the pin just behind the plate's rear edge.
 
@@ -877,50 +876,45 @@ Source: [Voron manual p.162](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ---
 
-### Step 09.32 — Fit the XY endstop PCB to the pod
+### Step 09.32 — Check the XY endstop board and its cable labels
 
 ![Voron manual p.163](assets/manual-pages/manual-p163.png){ crop="0.08 0.17 0.48 0.90" }
 
-**What you're looking at:** The XY endstop PCB carries both the X and Y limit switches, which tell the machine where each axis physically ends and give `G28` a repeatable origin. It bolts into the blue pod printed for Ch 05, which puts the switches in the toolhead's path.
+**What you're looking at:** The XY endstop PCB carries both the X and Y limit switches, which tell the machine where each axis physically ends and give `G28` a repeatable origin. It went into its blue pod on the right XY joint in Ch 05; only its cable is loose.
 
 **Parts:**
 
-- `[a]_endstop_pod_D2F_switch` ×1
-- XY endstop PCB ×1
-- M3×8 SHCS ×2
+- reused: the endstop pod with its XY endstop PCB
 
-**Do:** Follow the **left-hand** option only. Seat the XY endstop board on the pod so both switches face the directions the toolhead and the frame will hit them, and fasten with two M3×8 SHCS.
+**Do:** Press each switch on the board once. Then find the XY endstop cable in the kit and read the labels on its plug end.
 
-**Check:** Board flat on the pod, both switches proud and clicking cleanly, connector accessible from below.
+**Check:** Both switches click cleanly, the connector is reachable from below, and the cable reads *XES / YES*.
 
 **Helper:** Presses both switches on the fitted board and says whether each one clicks cleanly.
 
-⚠ **Rev D+ / LDO:** LDO: *"Follow only the step for the XY Endstop board."* Ignore the hall-effect half of the page. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
-
 ⚠ **Rev D+ / LDO:** check the cable labels before Ch 10. LDO documents a batch whose XY endstop cable is labelled *"X Stop / Y Stop"* instead of *"XES / YES"* and needs re-pinning. [XY endstop repin guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
 
-Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO XY-endstop repin guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
+Source: [Voron manual p.163](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=163) · [Ch 05 Step 05.49](05-gantry.md#step-0549-fit-the-xy-endstop-pod-to-the-right-joint) · [LDO XY-endstop repin guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
 
 ---
 
-### Step 09.33 — Mount the endstop pod to the gantry
+### Step 09.33 — Check the endstop pod through full travel
 
 ![Voron manual p.164](assets/manual-pages/manual-p164.png){ crop="0.17 0.18 0.46 0.74" }
 
-**What you're looking at:** The pod bolts up into the right-hand XY joint on two **M3×30 SHCS**, long enough to pass through the pod body; the M3×16 of p.106 cannot reach the joint through it. With the printer inverted the joint's underside faces up.
+**What you're looking at:** The pod has hung from the right-hand XY joint's underside on two **M3×30 SHCS** since Ch 05. With the gantry now in the frame, this is the first time it travels past the frame, the Z rails and the chains.
 
 **Parts:**
 
-- reused: the pod assembly
-- M3×30 SHCS ×2
+- reused: the endstop pod on its two M3×30 SHCS
 
-**Do:** Hold the pod against the underside of the **right-hand XY joint**, facing up with the printer inverted. Drive the two M3×30 SHCS bagged with it at 05.46 through it into the joint's two free holes.
+**Do:** Check the two M3×30 are still firm. Then move the toolhead slowly through full X and Y travel, watching the pod.
 
 **Check:** Pod solid with no rotation. Through full X and Y travel it fouls nothing: frame, Z rail, chain or toolhead.
 
 **Helper:** Watches the pod while the adult moves the toolhead through X and Y, and calls out any touch.
 
-Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=164) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 6 @1:30:12](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5412s)
+Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=164) · [Ch 05 Step 05.49](05-gantry.md#step-0549-fit-the-xy-endstop-pod-to-the-right-joint) · [Video: Part 6 @1:30:12](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5412s)
 
 ---
 
@@ -939,13 +933,13 @@ Source: [Voron manual p.164](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - M3×6 BHCS ×2
 - WAGO 221-412 (2-way) ×2
 - M5×10 BHCS ×2
-- M5 T-nut ×2 **(verify on bench)**
+- reused: the two M5 T-nuts parked in the left extrusion's inner slot
 
 **Do:**
 
 1. Heat-set two inserts into the **front** face; let cool.
 2. Screw on the splicer PCB; snap in both WAGOs.
-3. Bolt it to the **left** bed extrusion's inner side slot, above the deck under the plate's rear half `(verify on bench)`.
+3. Bolt it to the **left** bed extrusion's parked M5 T-nuts, under the plate's rear half.
 
 **Check:** Inserts flush, splicer PCB solid, both levers free. Mount above the deck, clear of the plate underside; the plate's three leads reach it with slack.
 
@@ -955,7 +949,7 @@ Tip: LDO's wiring guide fixes the splicer PCB with M3×6 BHCS, its printed-parts
 
 Source: [LDO wiring guide § Wiring the bed heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · image [`bed_wago_mount.jpg`](https://docs.ldomotors.com/v2_wire_guide/bed_wago_mount.jpg)
 
-Pause: ~25 min since the last pause — XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.
+Pause: ~20 min since the last pause — XY endstop pod checked and its cable labels read, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.
 
 ---
 
@@ -1036,7 +1030,7 @@ Source: [LDO wiring guide § Checkpoint #1](https://docs.ldomotors.com/en/voron/
 - [ ] USB adapter on the front rail with the partial cover and the DC Ground Wire attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
-- [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
+- [ ] XY endstop pod from Ch 05 tight on the right XY joint, its cable labels read XES / YES or repinned, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
 

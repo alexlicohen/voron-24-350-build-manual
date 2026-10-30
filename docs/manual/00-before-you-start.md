@@ -63,7 +63,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - **The rails ship dry and must be cleaned and packed before they go on an extrusion.** The flip-and-pack method needs access to the *back* of the rail. Once a rail is bolted to a 2020 you cannot do this (survey §5.2 W9). [src](https://docs.ldomotors.com/guides/rail_grease_guide)
 - **A rail carriage will slide off its rail and spill its bearing balls, and dropping one ruins it.** Tape every carriage in place the moment you unbag a rail — the MGN12 comes out first, at Gate B (Step B00.7), so tape it there — and fit the two end-stop bands before the soak (Step 00.17; manual p.24, p.26).
 - **Heat-set inserts go in per print batch, before the part enters any assembly.** One missed insert in an XY joint costs a gantry teardown (survey §5.2 W3).
-- **Caliper the deck panel during inventory.** LDO's guides say 4 mm, LDO's own BOM says 3 mm. This decides which `deck_support_*` you print, and it is a Ch 02 step, not a Ch 11 one (survey §4.3).
+- **Caliper the deck panel during inventory.** LDO's guides say 4 mm, LDO's own BOM says 3 mm. B01-P2 prints both `deck_support_*` sets; this decides which one you fit, and it is a Ch 02 step, not a Ch 11 one (survey §4.3).
 - **Post the Discord question on day one** (Step 00.32). It has multi-day answer latency and gates batches B06 and B07.
 
 **Sources for this chapter:**
@@ -93,7 +93,7 @@ Do these the week batch B00 prints and passes Gate A, before the cartons arrive 
 
 ## Kit day
 
-The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed before the kit), then **00.2–00.6** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts), then **00.17–00.18** to start the rail soak (the grease and IPA from Step 00.9 must already be on the bench). The IPA dry takes an hour or more, and it is the one kit-day wait: fill it with **00.7** (kit tools) and **00.12–00.13** (fastener bags into the printed trays, the LDO tip into the cold iron), then, time allowing, Ch 12 Part 1 or Ch 01 Steps 01.1–01.5, none of which needs a rail. Finish with **00.19–00.22** (grease, wipe, label) before Ch 02. Nothing new goes on the Prusa for this chapter; any later batches still printing are not needed yet. The log from Step 00.30 gets the deck thickness and the inventory result today — and if the deck panel calipers 4 mm rather than 3 mm, the `deck_support_4mm` reprint is the one plate the build still owes (8 g, 30 min).
+The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed before the kit), then **00.2–00.6** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts), then **00.17–00.18** to start the rail soak (the grease and IPA from Step 00.9 must already be on the bench). The IPA dry takes an hour or more, and it is the one kit-day wait: fill it with **00.7** (kit tools) and **00.12–00.13** (fastener bags into the printed trays, the LDO tip into the cold iron), then, time allowing, Ch 12 Part 1 or Ch 01 Steps 01.1–01.5, none of which needs a rail. Finish with **00.19–00.22** (grease, wipe, label) before Ch 02. Nothing new goes on the Prusa for this chapter; any later batches still printing are not needed yet. The log from Step 00.30 gets the deck thickness and the inventory result today. Both deck-support sets were printed on B01-P2, so the caliper only picks which set Ch 02 fits.
 
 ```mascot
 pose: carry
@@ -234,7 +234,7 @@ Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/
 
 **Helper:** Counts the eight panels against the BOM and writes the deck thickness on the tape.
 
-⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D+ BOM says **3 mm**. B01-P2 carries `deck_support_3mm_x8`, printed on the BOM's word. If the caliper reads **4 mm**, follow the [B01 deck note](print/B01-z-drive-assemblies.md): print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** LDO's Build Notes p.29–30 and Printed Parts Guide say **4 mm**; LDO's own Rev D+ BOM says **3 mm**. B01-P2 carries both sets, `deck_support_3mm_x8` and `deck_support_4mm_x8` ([B01 deck note](print/B01-z-drive-assemblies.md)). The caliper picks the set Ch 02 fits; the other is a spare. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1041,7 +1041,7 @@ Pause: ~25 min since the last pause (pre-kit) — you have read the manual's fro
 
 | Measurement | Where it comes from |
 |---|---|
-| deck panel thickness | Step 00.4, on kit day; 3 mm was already printed in B01, and 4 mm means an 8 g reprint |
+| deck panel thickness | Step 00.4, on kit day; B01 printed both clip sets, so it only picks one |
 | frame diagonals | Ch 01 |
 | belt frequency | Ch 07, and again in Ch 14 |
 | `PROBE_ACCURACY` sigma | Ch 13 |
@@ -1110,7 +1110,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 **Built:** a counted kit, a verified bench and seven greased rails
 
 - [ ] Both cartons inventoried against the **Rev D+** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
-- [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 carries the 3 mm set, printed on the BOM's word.
+- [ ] Deck panel calipered on kit day and the matching `deck_support_*` set picked; B01-P2 printed both, the other set is a spare.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
@@ -1132,7 +1132,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - **Letting a carriage run off the end of a rail.** The balls fall out and the carriage is scrap. Tape it the moment the bag is open, and fit the two end stops before the soak — they stay on until the rail is lying on its extrusion at the install step (Ch 02 Step 02.06, Ch 05 Steps 05.11/05.33).
 - **Practising heat-set inserts on PLA.** ASA softens at a different temperature; the setting you find on a PLA scrap will run too cold or too hot on all 153 kit inserts.
 - **Tipping a bag into the wrong compartment.** M3×8, M3×12 and M3×16 are indistinguishable once mixed, and there are 283 of the first one. Read the bag against the label before you tip it, and stack the trays between sessions.
-- **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it. B01 printed the 3 mm clips on the BOM's word; if the deck calipers 4 mm, print `deck_support_4mm_x8` (8 g, 30 min) before Ch 02.
+- **Resolving the deck thickness from the documents.** LDO's guide and LDO's BOM contradict each other. Only the caliper settles it. B01 printed both clip sets, so the caliper picks one and nothing is reprinted.
 
 ## Next
 

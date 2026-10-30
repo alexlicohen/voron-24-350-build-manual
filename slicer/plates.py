@@ -180,6 +180,8 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Z_Idlers/z_tensioner_bracket_a_x2.stl", 2),
             ("voron2", "STLs/Z_Idlers/z_tensioner_bracket_b_x2.stl", 2),
             ("voron2", "STLs/Panel_Mounting/deck_support_3mm_x8.stl", 8),
+            # Both deck-support sets print (Alex 2026-10-30): the kit-day caliper (00.4) picks one.
+            ("voron2", "STLs/Panel_Mounting/deck_support_4mm_x8.stl", 8),
         ]),
     "B02-P1": dict(
         batch="B02", colour="blue",

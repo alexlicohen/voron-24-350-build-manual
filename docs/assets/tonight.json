@@ -354,16 +354,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B01-P2",
-     "print_hours": 7.5,
+     "print_hours": 8.2,
      "run": "asa",
-     "leave_state": "plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B01.5",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b01-z-drive-assemblies#2",
@@ -2400,12 +2400,12 @@
      "first_step": "03.11",
      "last_step": "03.17",
      "href": "../manual/steps/03-build-plate/03-11/",
-     "minutes": 35,
+     "minutes": 40,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.",
+     "leave_state": "the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.",
      "helpers": [
       [
        "03.11",
@@ -2420,7 +2420,7 @@
        "Reads the rule at each corner and calls the number back to you."
       ]
      ],
-     "text": "Step 03.11 → Step 03.17 · ~35 min · leave-state: the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts."
+     "text": "Step 03.11 → Step 03.17 · ~40 min · leave-state: the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts."
     },
     {
      "id": "03-build-plate#3",
@@ -2965,17 +2965,18 @@
       "05.41",
       "05.42",
       "05.43",
+      "05.49",
       "05.44"
      ],
      "first_step": "05.41",
      "last_step": "05.44",
      "href": "../manual/steps/05-gantry/05-41/",
-     "minutes": 30,
+     "minutes": 40,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.",
+     "leave_state": "gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.",
      "helpers": [
       [
        "05.41",
@@ -2986,11 +2987,15 @@
        "Holds one XY joint on its carriage while you land the other."
       ],
       [
+       "05.49",
+       "Presses both switches on the fitted board and says whether each one clicks cleanly."
+      ],
+      [
        "05.44",
        "Slides the X carriage slowly end to end and reports any rough spot."
       ]
      ],
-     "text": "Step 05.41 → Step 05.44 · ~30 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone."
+     "text": "Step 05.41 → Step 05.44 · ~40 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone."
     },
     {
      "id": "05-gantry#11",
@@ -3926,12 +3931,12 @@
      "first_step": "09.31",
      "last_step": "09.34",
      "href": "../manual/steps/09-electronics-bay/09-31/",
-     "minutes": 25,
+     "minutes": 20,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.",
+     "leave_state": "XY endstop pod checked and its cable labels read, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.",
      "helpers": [
       [
        "09.32",
@@ -3942,7 +3947,7 @@
        "Watches the pod while the adult moves the toolhead through X and Y, and calls out any touch."
       ]
      ],
-     "text": "Step 09.31 → Step 09.34 · ~25 min · leave-state: XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated."
+     "text": "Step 09.31 → Step 09.34 · ~20 min · leave-state: XY endstop pod checked and its cable labels read, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated."
     },
     {
      "id": "09-electronics-bay#7",
@@ -8327,6 +8332,7 @@
      "05.41",
      "05.42",
      "05.43",
+     "05.49",
      "05.44",
      "05.45",
      "05.46",

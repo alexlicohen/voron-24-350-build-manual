@@ -1019,7 +1019,7 @@ Source: [Voron manual p.197](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ⚠ Rev D+ / LDO: ignore p.198's separate X and Y endstop wiring — the kit uses one 4-pin XY endstop PCB (LDO notes p.162, p.163, p.169). [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-⚠ **Ti backers:** only the right Y backer has the chain's pilot holes, and it covers the slot a T-nut would need. Pilots still untapped: drill 2.5 mm and tap M3 with the rail and bed covered, then vacuum the swarf `(verify on bench)`. [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
+⚠ **Ti backers:** only the right Y backer has the chain's pilot holes, and it covers the slot a T-nut would need. LDO's set comes with them drilled and tapped M3 `(verify on bench)`, checked at 05.16. A pilot that will not take the screw: stop and ask Fabreeko or LDO. Never drill titanium on the machine. [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers)
 
 Source: [Voron manual p.199](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=199) · [Voron manual p.198](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=198) · [LDO Build Notes p.198](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · [Video: Part 6 @0:39:55](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2395s)
 

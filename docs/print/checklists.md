@@ -7,7 +7,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00 — Before you start
 
 - [ ] Both cartons inventoried against the **Rev D+** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
-- [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 carries the 3 mm set, printed on the BOM's word.
+- [ ] Deck panel calipered on kit day and the matching `deck_support_*` set picked; B01-P2 printed both, the other set is a spare.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
@@ -34,7 +34,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] The five PE branches can be named from memory, and the M4×6 bed PE screw was confirmed present at Ch 03 Step 03.6.
 - [ ] The SSR "earth the mounting rail" gap is understood and, if local rules require an earthed rail, it has been raised with whoever signs off the mains work.
 - [ ] VE0508 ferrules located in the kit; the pull-and-look test at Ch 10 Step 10.8 is understood.
-- [ ] Both power-on rituals read end to end; the three eyes-only windows where the machine may be live with the bay open (10.23, 12.11 to Checkpoint 12, 13.3 to 13.8) and LDO's recovery-only SW1/SW2 exception at 12.15–12.16 are known, and the hand-on-the-switch ritual is understood to apply at 12.11, 13.3 and 13.9.
+- [ ] Both power-on rituals read end to end; the three eyes-only windows where the machine may be live with the bay open (10.23, 12.11 to Checkpoint 12, 13.3 to 13.8) and the two recovery-only button exceptions, Leviathan SW1/SW2 at 12.15–12.16 and Nitehawk RESET/BOOT0 at 12.19, are known, and the hand-on-the-switch ritual is understood to apply at 12.11, 13.3 and 13.9.
 - [ ] The five failure responses are agreed out loud; extinguisher in reach; nobody re-energises a tripped circuit without a cause.
 
 <div class="print-page-break"></div>
@@ -83,7 +83,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
 - [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
 - [ ] M4×6 BHCS and serrated washer present on the plate as the PE point; nothing wired to it.
-- [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers.
+- [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers; two M3 T-nuts parked in the right extrusion's inner slot and two M5 in the left's, for Ch 09.
 - [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
 - [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.
@@ -123,7 +123,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
 - [ ] Raised cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
-- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; **2× M3×30 SHCS bagged** with the endstop pod (p.164) for the right joint's two empty holes
+- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; the XY endstop pod on the right joint's two other holes with **2× M3×30 SHCS** (p.164)
 - [ ] X axis runs the full Y travel with no tight spot
 - [ ] A/B belts still unopened; nothing squared, nothing torqued down
 - [ ] Gantry is **upside down** (motors up, rails up) with the right joint (bridge, endstop channel) on the A-drive side; it is turned back at Ch 06 Step 06.11
@@ -208,7 +208,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] USB adapter on the front rail with the partial cover and the DC Ground Wire attached to its exposed point; frame end left loose for Ch 10.
 - [ ] IEC inlet module (one part, not two) in `power_inlet_IECGS_1mm`, panel bolted to the rear extrusion hard against the rear-left Z-motor mount; three WAGO 221-415 clamps in the mains WAGO mount to its right.
 - [ ] Nozzle probe assembled — collar home, PCB on two M2×10, shaft free — and mounted on **M3×25 SHCS** above the deck on the right bed extrusion's inner slot, pin 2–3 mm behind the plate's straight rear edge; its lead not yet through the deck. If the 5 mm shaft is out (un-notched, 09.29), it is bagged and labelled `probe shaft — refit before 13.24`.
-- [ ] XY endstop PCB on the pod, pod on the gantry, full X and Y travel with no fouling.
+- [ ] XY endstop pod from Ch 05 tight on the right XY joint, its cable labels read XES / YES or repinned, full X and Y travel with no fouling.
 - [ ] Bed WAGO breakout built and mounted **above** the deck on the left bed extrusion, under the plate's rear half; the plate's three leads reach it with slack and the plate still lifts off from above.
 - [ ] Nothing wired. Nothing plugged in. Duct lids off, skirts and bottom panel off. Multimeter on the bench.
 
@@ -361,9 +361,9 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every `z_drive_main_a/b` and `z_drive_retainer_a/b` 625-2RS pocket calipers 16.30 mm ±0.15
 - [ ] *(kit day)* a real 625-2RS presses into every `z_drive_main_a/b` seat by thumb, no rocking
 - [ ] *(kit day)* a real 625-2RS presses into every `z_drive_retainer_a/b` seat by thumb, no rocking
-- [ ] *(kit day)* Deck panel measured; correct deck-support thickness confirmed or `deck_support_4mm_x8` reprinted
+- [ ] *(kit day)* Deck panel measured; the matching deck-support set picked, the other kept as a spare
 - [ ] No corner lift or delamination on any `z_drive_main` body
-- [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 8 clips in 02-deck
+- [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 16 clips in 02-deck, the 4 mm set bagged apart
 
 <div class="print-page-break"></div>
 
@@ -481,7 +481,7 @@ _Generated by `scripts/build_printables.py` from `slicer/plates.py` and `slicer/
 **Batch B01**
 
 - [ ] B01-P1 — ASA, satin sheet, no glue, black · 14.8 h · 200 g
-- [ ] B01-P2 — ASA, satin sheet, no glue, black · 7.5 h · 100 g
+- [ ] B01-P2 — ASA, satin sheet, no glue, black · 8.2 h · 108 g
 
 **Batch B02**
 

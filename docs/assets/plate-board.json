@@ -36,13 +36,13 @@
    "batch": "B01",
    "batch_title": "Z drive assemblies",
    "run": "asa",
-   "hours": 7.5,
-   "grams": 100,
+   "hours": 8.2,
+   "grams": 108,
    "colour": "black",
    "slot": "overnight",
    "note": "",
    "spool": "#1",
-   "remaining": 449,
+   "remaining": 441,
    "diagram": "../../manual/assets/plates/B01-P2.png",
    "chapter": "../../manual/steps/b01-z-drive-assemblies/"
   },
@@ -103,7 +103,7 @@
    "slot": "overnight",
    "note": "after Gate B",
    "spool": "#1",
-   "remaining": 331,
+   "remaining": 323,
    "diagram": "../../manual/assets/plates/B03-P1.png",
    "chapter": "../../manual/steps/b03-ab-drive-units-and-front-idlers/"
   },
@@ -118,7 +118,7 @@
    "slot": "overnight",
    "note": "after Gate B",
    "spool": "#1",
-   "remaining": 215,
+   "remaining": 207,
    "diagram": "../../manual/assets/plates/B04-P1.png",
    "chapter": "../../manual/steps/b04-xy-joints-and-x-carriage/"
   },
@@ -133,7 +133,7 @@
    "slot": "day",
    "note": "after Gate B",
    "spool": "#1",
-   "remaining": 137,
+   "remaining": 129,
    "diagram": "../../manual/assets/plates/B05-P1.png",
    "chapter": "../../manual/steps/b05-z-joints-and-z-chain/"
   },
@@ -399,7 +399,7 @@
   {
    "run": "asa",
    "plates": 21,
-   "hours": 150.2,
+   "hours": 150.9,
    "label": "21-plate run"
   },
   {
@@ -411,9 +411,9 @@
  ],
  "totals": {
   "plates": 26,
-  "hours": 175.1,
+  "hours": 175.8,
   "overnight": 10,
   "run_plates": 21,
-  "run_hours": 150.2
+  "run_hours": 150.9
  }
 }

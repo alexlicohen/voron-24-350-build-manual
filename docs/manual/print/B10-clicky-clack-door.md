@@ -145,4 +145,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
 this is the last plate of the ASA run. All 21 are done and binned.
 [B11](B11-bay-ducting.md)'s P1–P3 (PETG V0) printed after B07; P4 and P5 print once the kit-day bay measurements are in.
-The only ASA job left is a `deck_support_4mm` reprint if the deck panel calipers 4 mm.
+No ASA job is left: both deck-support sets came off B01-P2, so the deck caliper owes no reprint.

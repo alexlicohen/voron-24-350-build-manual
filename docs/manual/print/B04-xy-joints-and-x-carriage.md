@@ -43,7 +43,7 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, spool #1 after B03. The ledger has 331 g on it at the start of this plate and 215 g after, so no spool change here.
+**Do:** Galaxy Black, spool #1 after B03. The ledger has 323 g on it at the start of this plate and 207 g after, so no spool change here.
 **Check:** Clean purge; ≥116 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)

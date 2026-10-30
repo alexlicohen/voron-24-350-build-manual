@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.2 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.9 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -52,7 +52,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B00.5 — Reads each caliper number back aloud and types it into the Gate A calculator.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.8 h unattended · leave-state: plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends</span>
     - Step B01.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B01 — Z drive assemblies** — <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
+- **B01 — Z drive assemblies** — <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B01.5 — Counts the parts on the sorting diagram and checks the total against the object count.
 - **B01 — Z drive assemblies** — <span data-first-step="B01.7">Step B01.7 · ~15 min · leave-state: every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Steps 02.03–02.04 seat the inserts with the parts sorted.</span>
     - Step B01.7 — Reads each caliper number back aloud and writes it into the log.
@@ -149,7 +149,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 
 ### 4 · Print — B01 — Z drive assemblies
 - <span data-first-step="B01.2">Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.8 h unattended · leave-state: plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B01-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B01.5">Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B01.7">Step B01.7 · ~15 min · leave-state: every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Steps 02.03–02.04 seat the inserts with the parts sorted.</span>
 - <span data-first-step="B01.8">Step B01.8 · ~10 min · leave-state: both plates sorted into 02-Z0 … 02-Z3 and 02-deck, bin ids written on the inside face of every part. Nothing is pressed or inserted; Ch 02 does that from the bins.</span>
 
@@ -255,7 +255,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 ### 18 · Build — Ch 03 — Build plate
 - <span data-first-step="03.1">Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination.</span>
 - <span data-first-step="03.7">Step 03.7 → Step 03.10 · ~30 min · leave-state: the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it.</span>
-- <span data-first-step="03.11">Step 03.11 → Step 03.17 · ~35 min · leave-state: the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.</span>
+- <span data-first-step="03.11">Step 03.11 → Step 03.17 · ~40 min · leave-state: the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.</span>
 - <span data-first-step="03.18">Step 03.18 → Step 03.20 · ~20 min · leave-state: the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.</span>
 
 ### 19 · Build — Ch 04 — A/B drives and front idlers
@@ -278,7 +278,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="05.30">Step 05.30 → Step 05.31 · ~20 min · leave-state: both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet.</span>
 - <span data-first-step="05.32">Step 05.32 → Step 05.35 · ~35 min · leave-state: MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.</span>
 - <span data-first-step="05.36">Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone.</span>
-- <span data-first-step="05.41">Step 05.41 → Step 05.44 · ~30 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.</span>
+- <span data-first-step="05.41">Step 05.41 → Step 05.44 · ~40 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.</span>
 - <span data-first-step="05.45">Step 05.45 → Step 05.48 · ~25 min · leave-state: gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.</span>
 
 ### 21 · Build — Ch 06 Part A — Z axis: hang the gantry, Z belts
@@ -317,7 +317,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="09.14">Step 09.14 → Step 09.18 · ~30 min · leave-state: PSU voltage selector confirmed at 115 V, PSU and SSR both on their DIN brackets and clipped to the rear rail. Mains terminals still bare; leave the PSU cover on and the cord bagged.</span>
 - <span data-first-step="09.19">Step 09.19 → Step 09.24 · ~30 min · leave-state: every voltage-selection jumper off the Leviathan and bagged, board on its brackets with the Pi and its HAT adapter, the whole stack clipped to the front rail. Do not put a jumper back: they go in one at a time in Ch 10.</span>
 - <span data-first-step="09.25">Step 09.25 → Step 09.30 · ~30 min · leave-state: USB adapter stack confirmed and clipped, nozzle probe assembled (collar, PCB, 5 mm shaft) and mounted above the deck on the right bed extrusion's inner slot, pin just behind the plate's rear edge; the printer is still on its head. Nothing plugged in.</span>
-- <span data-first-step="09.31">Step 09.31 → Step 09.34 · ~25 min · leave-state: XY endstop PCB in its pod and the pod on the gantry, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.</span>
+- <span data-first-step="09.31">Step 09.31 → Step 09.34 · ~20 min · leave-state: XY endstop pod checked and its cable labels read, bed WAGO breakout built and mounted above the deck on the left bed extrusion. The plate's three leads reach it with slack; none of them terminated.</span>
 - <span data-first-step="09.35">Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.</span>
 
 ### 25 · Build — Ch 10 — Wiring

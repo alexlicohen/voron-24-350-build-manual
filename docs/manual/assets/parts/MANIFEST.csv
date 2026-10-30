@@ -6,6 +6,7 @@ Voron_Design_Cube_v7.stl,B00,primary,docs/manual/assets/parts/Voron_Design_Cube_
 pulley_jig.stl,B00,primary,docs/manual/assets/parts/pulley_jig.png,docs/manual/assets/parts/sheet-B00.png,,"47.0,32.2,3.2",2.52,00-jigs
 z_drive_retainer_a_x2.stl,B00,primary,docs/manual/assets/parts/z_drive_retainer_a_x2.png,docs/manual/assets/parts/sheet-B00.png,docs/manual/assets/parts/pair-z_drive_retainer_x2.png,"66.7,60.0,16.2",20.00,02-Z0;02-Z2
 deck_support_3mm_x8.stl,B01,primary,docs/manual/assets/parts/deck_support_3mm_x8.png,docs/manual/assets/parts/sheet-B01.png,,"20.0,14.5,5.8",1.07,02-deck
+deck_support_4mm_x8.stl,B01,primary,docs/manual/assets/parts/deck_support_4mm_x8.png,docs/manual/assets/parts/sheet-B01.png,,"19.0,14.5,5.8",1.02,02-deck
 z_drive_main_a_x2.stl,B01,primary,docs/manual/assets/parts/z_drive_main_a_x2.png,docs/manual/assets/parts/sheet-B01.png,docs/manual/assets/parts/pair-z_drive_main_x2.png,"66.7,59.0,26.8",49.03,02-Z0;02-Z2
 z_drive_main_b_x2.stl,B01,primary,docs/manual/assets/parts/z_drive_main_b_x2.png,docs/manual/assets/parts/sheet-B01.png,docs/manual/assets/parts/pair-z_drive_main_x2.png,"66.7,59.0,26.8",49.03,02-Z1;02-Z3
 z_drive_retainer_b_x2.stl,B01,primary,docs/manual/assets/parts/z_drive_retainer_b_x2.png,docs/manual/assets/parts/sheet-B01.png,docs/manual/assets/parts/pair-z_drive_retainer_x2.png,"66.7,60.0,16.2",20.00,02-Z1;02-Z3

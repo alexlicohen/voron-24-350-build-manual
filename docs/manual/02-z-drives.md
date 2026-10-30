@@ -54,8 +54,8 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
 | ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
 | ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Blue |
-| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D+ 350 BOM), see Step 02.12 |
-| *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | — | 8 | Black — fallback if the panel measures 4 mm |
+| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — for a 3 mm panel (Rev D+ 350 BOM); Step 02.12 picks the set |
+| ![](assets/parts/deck_support_4mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_4mm_x8.stl` | 02-deck | 8 | Black — for a 4 mm panel; both sets are printed, the other is a spare |
 | ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 00-jigs | 2 | Black |
 | ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Black — batch **B05**, fitted at Step 02.10 |
 
@@ -408,16 +408,16 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - staged: deck panel ×1
 - staged: `deck_support_3mm_x8` ×8
-- staged: `deck_support_4mm_x8` ×8, only if the panel measures 4 mm
+- staged: `deck_support_4mm_x8` ×8
 - tool: caliper
 
-**Do:** Read the deck thickness taped on the panel film at kit day and confirm it on one edge with the caliper. Lay out the eight clips of that thickness; they go in after the panel.
+**Do:** Read the deck thickness taped on the panel film at kit day and confirm it on one edge with the caliper. Lay out the eight clips of that thickness and bag the other set as spares.
 
 **Check:** Caliper agrees with the taped number within 0.1 mm, number logged, eight clips of the matching thickness on the bench.
 
 **Helper:** Reads the caliper display aloud so you can check it against the tape.
 
-⚠ **Rev D+ / LDO:** LDO's p.29–30 note says the deck panel is **4 mm nominal, use `deck_support_4mm`**; the Rev D+ 350 BOM lists *469×469×**3 mm***. B01 prints the **3 mm** set. The kit-day caliper at Step 00.4 decides and triggers any reprint; this is the confirmation. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+⚠ **Rev D+ / LDO:** LDO's p.29–30 note says the deck panel is **4 mm nominal, use `deck_support_4mm`**; the Rev D+ 350 BOM lists *469×469×**3 mm***. B01-P2 prints **both** sets. The kit-day caliper at Step 00.4 picks one; this is the confirmation, and the other set is a spare. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
 

@@ -46,7 +46,8 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 | Spring Steel Flex Plate 2.4-350 | 1 | drops on, no fasteners |
 | M3×20 SHCS | 4 | **not** the manual's M3×16 |
 | M4 knurled thumb nut | 4 | used as the spacer, not as a nut |
-| M3 roll-in T-nut, 2020 | 4 | bed extrusion top slots |
+| M3 roll-in T-nut, 2020 | 6: 4 top slots + 2 parked | 4 in the bed extrusion top slots; 2 parked in the right bed extrusion's inner slot for the Ch 09 nozzle probe |
+| M5 roll-in T-nut, 2020 | 2: parked | in the left bed extrusion's inner slot for the Ch 09 bed WAGO mount (LDO wiring guide: two M5×10 BHCS) |
 | M4×6 BHCS (bed PE) | 0: pre-fitted to the plate | verify only, do not remove; serrated washer under it |
 
 **Read first**
@@ -67,7 +68,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 - [LDO wiring guide § Wiring the Bed Heater](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) — where the three bed cables actually terminate (Ch 10)
 - [magnet lamination demo](https://voron.link/rm6tpld) — the lamination demo the manual links from p.54
 - [survey](../voron-build-instructions-survey.md) §5.2 W6
-- The two mirrored images in this chapter, the plate's underside at Step 03.4 and the build-plate mapping at Steps 03.14 and 03.19, are LDO Motors', used with attribution; see `assets/remote/03-build-plate/SOURCES.txt` and `assets/remote/10-wiring/SOURCES.txt`. Each original URL stays on its step's `Source:` line.
+- The two mirrored images in this chapter, the plate's underside at Step 03.4 and the build-plate mapping at Steps 03.12, 03.14 and 03.19, are LDO Motors', used with attribution; see `assets/remote/03-build-plate/SOURCES.txt` and `assets/remote/10-wiring/SOURCES.txt`. Each original URL stays on its step's `Source:` line.
 
 **Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):** [Part 1 @0:45:02](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2702s) (+5m)
 
@@ -341,24 +342,30 @@ Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ---
 
-### Step 03.12 — Load the four M3 T-nuts
+### Step 03.12 — Load the eight bed extrusion T-nuts
 
 ![Voron manual p.58](assets/manual-pages/manual-p058.png){ crop="0.15 0.18 0.51 0.71" }
 ![Voron manual p.58, plan view: the front T-nuts 25 mm behind the front rail](assets/manual-pages/manual-p058.png){ crop="0.46 0.68 0.84 0.90" }
+![LDO build-plate mapping, seen from above, rear at the top: the nozzle probe on the right bed extrusion's inner face and the bed WAGO mount on the left one's, both in the rear half](assets/remote/10-wiring/ldo-build-plate-mapping.png)
 
-**What you're looking at:** Manual p.58: four M3 roll-in T-nuts in the top slots of the bed extrusions, two per extrusion. Each is the thread one corner bolt picks up. The plan view places the front pair.
+**What you're looking at:** Manual p.58: four M3 roll-in T-nuts in the bed extrusions' top slots, one per plate corner bolt. Four more go in the inner side slots now, while no plate covers them: the Ch 09 nozzle probe and bed WAGO mount bolt there.
 
 **Parts:**
 
-- M3 roll-in T-nut, 2020 ×4
+- M3 roll-in T-nut, 2020 ×6
+- M5 roll-in T-nut ×2
 
-**Do:** Roll two T-nuts into the **top** slot of each bed extrusion. Centre the front pair 25 mm behind the front rail's inner face, the rear pair under the plate's rear corner holes. Leave them loose to slide.
+**Do:**
 
-**Check:** Four T-nuts, all in the top slot, all rotated so their threads face up and they cannot fall out.
+1. Top slots, two M3 each: front pair 25 mm behind the front rail's inner face, rear pair under the plate's rear corner holes.
+2. Inner side slots, rear half: two M3 right, two M5 left.
+3. All eight loose.
+
+**Check:** Four T-nuts in the top slots, two M3 in the right extrusion's inner slot, two M5 in the left's; none can fall out.
 
 ⚠ **Rev D+ / LDO:** extrusion and roll-in T-nut tolerances on this kit are tight. Test-fit each nut and, if a slot is stiff, pick the extrusion face that accepts it best — do not force one and gall the slot. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
-Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq)
+Source: [Voron manual p.58](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=58) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Voron manual p.161: probe T-nuts](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=161) · [LDO wiring guide § Wiring the bed heater: two M5×10 BHCS](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-bed-heater) · [LDO wiki build-plate mapping](https://docs.ldomotors.com/v2_wire_guide/build_plate_mapping.png)
 
 ---
 
@@ -479,7 +486,7 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 Source: [Voron manual p.59](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=59)
 
-Pause: ~35 min since the last pause — the plate is on its four thumb-nut spacers, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.
+Pause: ~40 min since the last pause — the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.
 
 ---
 
@@ -569,7 +576,7 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the p
 - [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
 - [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
 - [ ] M4×6 BHCS and serrated washer present on the plate as the PE point; nothing wired to it.
-- [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers.
+- [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers; two M3 T-nuts parked in the right extrusion's inner slot and two M5 in the left's, for Ch 09.
 - [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
 - [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.

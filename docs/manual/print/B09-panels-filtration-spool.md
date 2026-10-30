@@ -66,9 +66,9 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 30 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
+**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 31 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #3 unsealed and within reach; P1 started so someone is home about 2 h in, when the sensor pauses it and waits.
+**Check:** Clean purge; spool #3 unsealed and within reach; P1 started so you are home about 2 h into its 4.4 h, when it pauses.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 

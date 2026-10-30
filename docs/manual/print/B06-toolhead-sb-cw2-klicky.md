@@ -64,7 +64,7 @@ Chain Anchor Tilted" printed).
 
 ## Step B06.1 — Filament prep
 
-**Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 137 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
+**Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 129 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; spool #2 mounted and ≥147 g on it.
 

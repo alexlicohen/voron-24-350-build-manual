@@ -263,7 +263,7 @@ All twelve are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 - The three titanium backers of the 350 set to scale: the plain Y backer, the Y backer with four cable-chain pilot holes, and the X backer, with every screw hole.
 - Where each goes: plain Y on the left Y extrusion's top face, the pilot Y backer on the right Y's top face with the pilot end at the rear, X on the X extrusion's rear face.
-- A zoom on the pilot end: four Ø2.0 pilots 20–32 mm from the end, drilled 2.5 mm and tapped M3 where the Y chain's fixed end link sits.
+- A zoom on the pilot end: four pilots 20–32 mm from the end (Ø2.0 in the DXF), which LDO's set has drilled and tapped M3, where the Y chain's fixed end link sits.
 
 **Insert at**
 

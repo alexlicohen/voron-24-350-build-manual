@@ -1999,8 +1999,8 @@ def d12_ti_backers() -> Doc:
     d.text(zx1 + 14, cy - 28, "REAR end, by the A drive", size=13, weight=700)
     d.text(zx0 - 40, cy + 5, f"zoom ×{z / k:.1f}", size=12, anchor="end", fill=MUTED)
     d.wrap(zx1 + 14, cy - 4,
-           "Ø2.0 pilots, laser-cut undersize. Unthreaded? Drill the ones under the chain "
-           "end link 2.5 mm and tap M3 (verify on bench).",
+           "Pilots come drilled and tapped M3 from LDO (verify on bench). Unthreaded? "
+           "Ask Fabreeko or LDO before Ch 10; never drill titanium.",
            size=12.5, width_chars=44, lh=17, fill=INK)
     # leader from the full-size strip's pilot end down to the zoom
     d.path(f"M {right - 26 * k} {ypil + wpx + 4} L {right - 26 * k} {ypil + wpx + 20}",
@@ -2342,8 +2342,8 @@ DIAGRAMS = [
             "Where each goes: plain Y on the left Y extrusion's top face, the pilot Y backer "
             "on the right Y's top face with the pilot end at the rear, X on the X extrusion's "
             "rear face.",
-            "A zoom on the pilot end: four Ø2.0 pilots 20–32 mm from the end, drilled 2.5 mm "
-            "and tapped M3 where the Y chain's fixed end link sits.",
+            "A zoom on the pilot end: four pilots 20–32 mm from the end (Ø2.0 in the DXF), which "
+            "LDO's set has drilled and tapped M3, where the Y chain's fixed end link sits.",
         ],
         "insert": [
             ("05-gantry.md", "Step 05.16", "as the sorting picture"),

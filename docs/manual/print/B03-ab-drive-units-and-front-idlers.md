@@ -43,7 +43,7 @@ prerequisite: its accent `[a]_tensioner_left/right` printed one batch earlier an
 ## Step B03.1 — Filament prep
 
 **Do:** Swap the accent spool for Galaxy Black: Unload, Load Filament → ASA, purge until no blue shows.
-The ledger has B03 on spool #1 with 449 g, leaving 331 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+The ledger has B03 on spool #1 with 441 g, leaving 323 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Purge clean black, no blue streak.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)

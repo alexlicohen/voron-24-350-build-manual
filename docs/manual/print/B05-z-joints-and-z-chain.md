@@ -38,7 +38,7 @@ hall-effect XY endstops, which this kit does not use.
 
 ## Step B05.1 — Filament prep
 
-**Do:** Galaxy Black, still spool #1. The ledger has 215 g on it here and 137 g after, which is the stub B06 leaves behind. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Galaxy Black, still spool #1. The ledger has 207 g on it here and 129 g after, which is the stub B06 leaves behind. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥78 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
