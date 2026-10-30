@@ -18,11 +18,12 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 - **Ch 10 — Wiring**, complete, including LDO **Checkpoint #1** (multimeter, unplugged). This is a hard gate: once the skirts and bottom panel go on, the bay is closed and re-opening costs an hour (survey §5.2 W8).
 - **Ch 10** must also have finished LED routing and the extrusion covers — a skirt over an unrouted LED wire means the skirt comes off again (survey §5.2 W5).
 - **Ch 12 Part 2 complete** — [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) to Checkpoint 12: the bay powered once, both MCUs flashed, `printer.cfg` in. It runs with the bay **open**, before this part closes it; the touchscreen module (11.5–11.6) was already built from Ch 10 Step 10.50 and its panel proved at 12.11.
-- **Print batch B08** — skirts and front modules (6 plates, 29.2 h).
-- **Print batch B09** — panels, filtration, spool (5 plates, 21.8 h).
+- **Print batch B08** — skirts and front modules (4 plates, 26.7 h).
+- **Print batch B09** — panels, filtration, spool (4 plates, 20.5 h).
 - **Print batch B10** — Clicky-Clack door (1 plate, 5.7 h) + `Handle.stl` from **B02**.
 - **Print batch B02** — the blue accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
 - **Print batch B07** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
+- **Print batch B11** — the DC loop lids for 11.52 (bin 11-lids-DC; P4/P5 print after the kit-day bay measurements).
 - **Part B additionally requires Ch 13 — Initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
 - **Part C (add-ons) additionally requires Part B**, and for the camera the USB cable laid at [Ch 10 Step 10.81](10-wiring.md#step-1081-add-on-lay-the-cameras-usb-cable-before-the-slots-close). Its parts are **not** printed ahead: Step 11.68 measures, Step 11.69 prints them on the Core One+.
 
@@ -89,7 +90,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 **Part C add-on parts** are on no plate and in no batch: the side spool frame, tube holder, Prusa puck and spindle (bin 11-side-spool) and the HappyCam body and door (bin 11-camera), printed at Step 11.69 ([print plan § Add-on prints](print/README.md#add-on-prints-outside-the-plates)).
 
-**Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7).
+**Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` (back only as the optional [Ch 14 Part H](14-calibration.md) add-on). Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7).
 
 **Hardware** (chapter totals)
 
@@ -119,7 +120,6 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3 roll-in T-nut, 2020 | 2 | Nevermore plenum |
 | M3 heat-set insert, brass M3×5×4 | 11 | skirt segments: three in each front skirt and the keystone panel, one in each fan support (p.212) |
 | M3 heat-set insert, brass M3×5×4 | 16 | bay fans and grill retainers, four each (p.213) |
-| M3 heat-set insert, brass M3×5×4 | 2 | BTT TFT4.3 mount |
 | M3 heat-set insert, brass M3×5×4 | 6 | Nevermore: 4 fans, 1 plenum, 1 cartridge ([LDO guide](https://ldomotion.com/guides/nevermore-v5-duo---v24)) |
 | M3 heat-set insert, brass M3×5×4 | 2 | exhaust cover, for the grill screws (`exhaust_cover` STL) |
 | M5×10 BHCS | 2 | fan supports to the frame (p.227, p.230) |
@@ -130,6 +130,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M5 roll-in T-nut, 2020 | 2 | fan supports (p.226, p.229) |
 | M5 roll-in T-nut, 2020 | 2 | exhaust cover tabs, top rear extrusion back slot (p.254) |
 | M5 hammerhead T-nut, 2020 | 4 | aluminium handlebars |
+| 60×60×20 fan | 2 | bay fans: inserts at 11.3, into the right-hand support at 11.11, plugged into the Ch 10 splicer at 11.16 |
 | 4.3" capacitive DSI display | 1 | the BTT Pi TFT4.3, into its mount at 11.6 |
 | 5015 fan, Nevermore | 2 | the kit's "Nevermore Micro V5 Parts" bag |
 | Nevermore bridge PCB | 1 | the kit's "Nevermore Micro V5 Parts" bag |
@@ -143,7 +144,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | Foam tape, 1 mm | back panel + top panel perimeters | supplied, 1 roll |
 | Foam tape, 3 mm | both side panels + the Clicky-Clack door opening | supplied, 1 roll |
 | 3M VHB tape | 6 pads | bottom-panel clips and hinges (p.232) |
-| Extrusion slot cover, 6 mm | 2 × 9 m | optional cosmetic finish (LDO) |
+| Extrusion slot cover, 6 mm | what Ch 10 left of the kit's 9 `(verify on bench)` | optional, empty slots only (11.66) |
 | M2.5×6 screw — from BTT screen packaging | 4 | BTT screen into its mount |
 | FFC ribbon — from BTT screen packaging | 1 | screen to the Pi's DSI port |
 | M3×16 BHCS — from the Nevermore parts bag | 4 | Nevermore fans to the plenum; the kit's fastener box has no M3×16 BHCS *(verify on bench)* |
@@ -210,13 +211,13 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 
 ## Part A — before Ch 13, machine unplugged
 
-Everything in Part A is done with the machine open, **unplugged**, and, in the build order, **after Ch 12 Part 2**, which left it powered with the bay open. So Part A opens with 11.67: shut down, unplug and prove it dead before any hand goes into the bay. Nothing in Part A needs power; the next power-on is Ch 13's 13.3, the first time the machine moves and heats. Work through it, then stop at the marker before 11.52. Three runs are off-machine: the touchscreen module (11.5–11.6) is built **from Ch 10 Step 10.50**, before its ribbon is latched; the Nevermore (11.26–11.41, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) can be done any time after their batch has printed — for instance while Ch 12 flashes images.
+Everything in Part A is done with the machine open, **unplugged**, and, in the build order, **after Ch 12 Part 2**, which left it powered with the bay open. So Part A opens with 11.67: shut down, unplug and prove it dead before any hand goes into the bay. Nothing in Part A needs power; the next power-on is Ch 13's 13.3, the first time the machine moves and heats. Work through it, then stop at the marker before 11.52. Three runs are off-machine: the touchscreen module (11.5–11.6) is built **from Ch 10 Step 10.50**, before its ribbon is latched; the Nevermore (11.26–11.37, after B09) and the Clicky-Clack sub-assembly (11.44–11.50, after B10) can be done any time after their batch has printed — for instance while Ch 12 flashes images.
 
 ### Step 11.67 — Shut down, unplug and prove it dead
 
 (no image — see text)
 
-**What you're looking at:** Checkpoint 12 left the machine live with the bay open. Part A reaches into the bay and plugs a fan lead into the Leviathan, so it starts dead. The PSU's green LED sits beside its voltage-adjust pot.
+**What you're looking at:** Checkpoint 12 left the machine live with the bay open. Part A reaches into the bay and plugs the bay fans into their splicer, so it starts dead. The PSU's green LED sits beside its voltage-adjust pot.
 
 **Parts:**
 
@@ -285,7 +286,7 @@ Source: [Voron manual p.210](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Every insert flush or just below, none proud, no bulge on the show face. An M3×8 SHCS turns in freely by hand.
 
-Tip: iron hot, do the rest: fans and retainers ×16 at 11.3, TFT mount ×2 at 11.5, Nevermore ×6 at 11.28, latch ×1 at 11.49, exhaust cover ×2 at 11.54. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Tip: iron hot, do the rest: fans and retainers ×16 at 11.3, Nevermore ×6 at 11.28, latch ×1 at 11.49, exhaust cover ×2 at 11.54. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=212) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -299,7 +300,7 @@ Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- reused: the two bay fans
+- staged: 60×60×20 fan ×2
 - `[a]_fan_grill_retainer` ×2
 - M3×5×4 heat-set insert ×16
 
@@ -307,7 +308,7 @@ Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Sixteen inserts flush and square, four per fan on its intake face and four per retainer. No fan frame cracked.
 
-⚠ **Rev D+ / LDO:** the kit ships exactly **two** 60×60×20 mm 24 V fans and **one** 3×2 XH splicer PCB, which joins them into a single "PCB FAN" run. Do not expect four. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
+⚠ **Rev D+ / LDO:** the kit ships exactly **two** 60×60×20 mm 24 V fans, joined by one of its two 3×2 XH splicer PCBs into a single "PCB FAN" run; the other splicer is the LED junction. Do not expect four fans. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d)
 
 Source: [Voron manual p.213](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=213) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [LDO wiring guide § Connecting the fans and the LED strip](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 
@@ -350,12 +351,11 @@ Pause: ~25 min since the last pause — machine unplugged and proved dead at 11.
 
 - `mount` ×1
 - `[a]_faceplate` ×1
-- M3×5×4 heat-set insert ×2
 - M3×8 SHCS ×2
 
 **Do:**
 
-1. Press one heat-set insert into each of the two faceplate bosses in the mount.
+1. Check the two faceplate-boss inserts set in Ch 10 sit flush; melt them in now if the mount came late.
 2. Offer the blue faceplate up to the mount and drive an M3×8 SHCS into each side, snug only.
 
 **Check:** Faceplate sits flush all round with no gap at the top edge; the screen aperture is square to the mount's top rail.
@@ -511,7 +511,7 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- reused: the two bay fans, inserts fitted
+- 60×60×20 fan ×2
 - reused: the two grill retainers, inserts fitted
 - `side_fan_support` ×2
 - `[a]_fan_grill_a` ×2
@@ -528,7 +528,7 @@ Source: [Voron manual p.217](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Helper:** Reads each fan's airflow arrow aloud and checks both point into the bay.
 
-⚠ **Rev D+ / LDO:** the kit contains **two** 60×20 fans, **two** retainers, **four** grills and **one** 3×2 splicer PCB. p.228 is the fan support, p.225 the retainer support. LDO's Rev D bay photos S1, S4, S6 put the fans beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
+⚠ **Rev D+ / LDO:** **two** 60×20 fans share one of the kit's two 3×2 splicers; the other is the LED junction. p.228 is the fan support, p.225 the retainer support. LDO's Rev D bay photos S1, S4, S6 put the fans beside the PSU. No airflow direction is given; both extracting also works if matched. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-the-fans-and-the-led-strip)
 
 Tip: `[a]_fan_grill_open_optional_x2` is an alternate grill with more open area and less filtering, if the bay runs warm. [src](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Skirts)
 
@@ -668,11 +668,11 @@ Source: [Voron manual p.226](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Slide the support into the gap from outside, grills out, leads into the bay.
+1. Slide the support in from outside, grills out, leads into the bay.
 2. Push the skirts against it to close both joints.
-3. Drive the M5×10 BHCS up into the M5 T-nut, then tighten this run.
+3. M5×10 BHCS up into the T-nut, tighten the run, plug both fans into the splicer.
 
-**Check:** The whole side one band with flush joints, both fans spinning freely, no lead trapped between the support and the extrusion.
+**Check:** The whole side one band with flush joints, both fans spinning freely and plugged in, no lead trapped between the support and the extrusion.
 
 **Helper:** Holds the fan support in the gap, grills out, while you drive the M5 screw.
 
@@ -713,7 +713,7 @@ Pause: ~20 min since the last pause — front, rear and both side skirt runs mou
 ![Voron manual p.228](assets/manual-pages/manual-p228.png)
 ![Voron manual p.231](assets/manual-pages/manual-p231.png)
 
-**What you're looking at:** The two manual pages describe a BTT Octopus controller this kit does not have. You are confirming Ch 10's wiring instead: both fans on one 3×2 splicer PCB, that PCB on its printed spacer, and the run landing on the Leviathan's `FAN2` port.
+**What you're looking at:** The two manual pages describe a BTT Octopus controller this kit does not have. You are confirming this kit's wiring instead: both fans on one 3×2 splicer PCB, that PCB on its printed spacer, and the run landing on the Leviathan's `FAN2` port.
 
 **Parts:**
 
@@ -721,9 +721,9 @@ Pause: ~20 min since the last pause — front, rear and both side skirt runs mou
 
 **Do:**
 
-1. Ignore p.228 and p.231.
-2. Confirm Ch 10's wiring: both fans on the 3×2 splicer, the splicer on its **printed spacer**, the run on **FAN2 / PF7**.
-3. Dress the leads into the duct, clear of the blades.
+1. Ignore p.228 and p.231; confirm the splicer on its **printed spacer**, its run on **FAN2 / PF7**.
+2. Dress the leads into the duct, clear of the blades.
+3. Camera add-on: tagged plug into a free Pi USB port.
 
 **Check:** Both fans on one splicer; splicer on its spacer, not touching aluminium; PCB FAN plugged into FAN2/PF7; no lead within reach of a blade.
 
@@ -1218,9 +1218,9 @@ Source: [LDO Nevermore V5 Duo guide § Installation for Voron V2.4](https://ldom
 
 - reused: the kit's FILTER FAN extension lead
 
-**Do:** Mate the Nevermore's pigtail with the FILTER FAN extension and follow it back to the Leviathan. It lands on **FAN3 / PF9**. With the machine still unplugged, confirm that header's voltage-selection jumper is set for **24 V**.
+**Do:** Mate the Nevermore's pigtail with the FILTER FAN extension, tagged at its board end for **FAN3 / PF9**. Its 24 V jumper was set at 10.28 and walked at 10.72; the bay stays shut.
 
-**Check:** Filter fan on FAN3/PF9; 24 V jumper confirmed; the lead is routed in the duct and cannot be caught by the bed or the gantry.
+**Check:** Filter fan lead mated and tagged FAN3/PF9; the lead cannot be caught by the bed or the gantry.
 
 **Helper:** Finds the FILTER FAN tag on the coiled lead and reads it aloud.
 
@@ -1234,13 +1234,13 @@ Source: [LDO wiring guide § Connecting the fans and the LED strip](https://docs
 
 (no image — see [LDO Nevermore guide § Configuration printer.cfg](https://ldomotion.com/guides/nevermore-v5-duo---v24))
 
-**What you're looking at:** Nothing to build: you are writing down a pin number so Ch 12 does not have to re-derive it. LDO's published config section is right in shape but names the wrong board's pin.
+**What you're looking at:** Nothing to build: you tag the plenum with its pin, to match against the config Ch 12 already wrote. LDO's published config section is right in shape but names the wrong board's pin.
 
 **Parts:** none.
 
 **Do:** Write the pin on a tag and tape it to the plenum. LDO's `[heater_fan exhaust_fan]` section is right in shape but its `pin: PD13` is the Octopus pin and must become the Leviathan's **PF9**. Step 12.32 replaces it with `[fan_generic nevermore]` on the same pin.
 
-**Check:** Tag on the plenum reading "FILTER FAN → FAN3 / PF9". Ch 12's config checklist has the Nevermore section on it.
+**Check:** Tag on the plenum reading "FILTER FAN → FAN3 / PF9". Checkpoint 12's `printer.cfg` has `[fan_generic nevermore]` on `PF9`.
 
 **Helper:** Writes the tag and tapes it to the plenum.
 
@@ -1264,9 +1264,9 @@ Source: [LDO Nevermore V5 Duo guide § Configuration printer.cfg](https://ldomot
 
 **Do:**
 
-1. Nut in its recess, M3×8 started; slide onto the top rear extrusion beside the notch.
+1. Nut in its recess, M3×8 started; slide onto the top rear extrusion as p.257 shows.
 2. Cut two 86 mm spool-holder lengths off the PTFE.
-3. Run the rest from the round hole to the Clockwork 2 inlet; tighten.
+3. Rest of the tube down through the retainer to the CW2 inlet; tighten.
 
 **Check:** Retainer solid on the extrusion; the PTFE passes through with light drag only; no sharp bend where the tube leaves the retainer.
 
@@ -1328,7 +1328,7 @@ Pause: ~15 min since the last pause — Nevermore mounted in the chamber, cartri
 
 ⚠ You are using the plain acrylic panel from Fabreeko, not the NanoNest stack the KB3D guide illustrates. Skip the KB3D guide's NanoNest taping section entirely; the panel goes straight into the frame slot. [src](https://www.fabreeko.com/products/acrylic-pannel-for-clicky-clacky-door)
 
-Tip: hinges go on the **left** seen from the front, latch on the right. Mirror every left and right in 11.57 and 11.62–11.64 to reverse the swing.
+Tip: hinges go on the **left** seen from the front, latch on the right. Only if B10 printed the `Hinge-L-*` parts mirrored, mirror every left and right in 11.57 and 11.62–11.64.
 
 Source: [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [Clicky-Clack mod README](https://github.com/tanaes/whopping_Voron_mods/tree/62268ed/clickyclacky_door) · [Fabreeko acrylic panel](https://www.fabreeko.com/products/acrylic-pannel-for-clicky-clacky-door)
 
@@ -1503,9 +1503,9 @@ Pause: ~20 min since the last pause — **end of Part A.** Handle, latch and han
 
 Ch 12 Part 2 (12.11–12.20, 12.23, 12.37) is already done — the boards were flashed and configured with the bay open, before this part closed it. Go now to **Ch 13** (initial startup) — which includes the Ch 06b gantry-squaring pass and a QGL re-run. All of it needs the machine reachable from every face: `STEPPER_BUZZ` per motor, the XY endstop and homing checks, bed locating and the 0,0 point, `PROBE_ACCURACY`, dropping the Z joints and releasing the A/B tensioners for squaring.
 
-Come back here at **11.52** once Ch 13's Finish page is done. The rest of this chapter is about 1.0–2.0 h.
+Come back here at **11.52** once Checkpoint 13 is ticked. The rest of this chapter is about 1.0–2.0 h.
 
-**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61–11.65 (Clicky-Clack door hung on the machine), 11.66 (final seal check), then the optional Part C add-ons (11.68–11.76).
+**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61 (stock doors skipped), 11.62–11.64 (Clicky-Clack door hung), 11.65 (thread-lock), 11.66 (final seal check), then the optional Part C add-ons (11.68–11.76).
 
 ---
 
@@ -1535,9 +1535,9 @@ Come back here at **11.52** once Ch 13's Finish page is done. The rest of this c
 
 **Do:**
 
-1. Unplug wall, then inlet. On its side, open the bottom panel; meter +V to −V.
-2. Snap every DC lid on, close it, peel the back-panel films.
-3. Run **1 mm** foam tape on the frame contacts, corners butted.
+1. Unplug wall, then inlet. Cartridge and spool off; on its side, open the bottom panel, meter +V to −V.
+2. DC lids on, panel shut; upright, cartridge back, films off.
+3. **1 mm** foam on frame contacts, corners butted.
 
 **Check:** Meter held 0 V for ten seconds first. DC lids seated, nothing pinched. 1 mm tape on all four edges, clear of clips, film off.
 
@@ -2218,7 +2218,7 @@ Source: [Klipper G-Codes](https://www.klipper3d.org/G-Codes.html) · [Printables
 
 **Do:**
 
-1. Through the bottom panel, plug the tagged camera plug into a free Pi USB port.
+1. Run `ls /dev/v4l/by-id/` on the Pi: it lists the camera, plugged in dead at 11.18.
 2. In Mainsail, replace `crowsnest.conf`'s `[cam 1]` with the one below, keep `[crowsnest]`, restart crowsnest.
 3. Mainsail's Webcams settings: add the URLs below as Adaptive MJPEG-Streamer.
 
@@ -2258,7 +2258,7 @@ Pause: ~40 min since the last pause — camera bolted in, the toolhead proven cl
 - [ ] Bottom panel bonded on six VHB pads to two rear hinges and four clips, opened and closed once after the VHB cured; four Z belt covers on, correct variant per corner, belts clear through full Z travel.
 - [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, cartridge closed with its fill state written on the lid.
 - [ ] Spool holder and bowden retainer fitted; a full spool spins freely with no kink in the PTFE.
-- [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side decided (left unless you chose otherwise at 11.44); 3 mm foam on the front face of the front opening.
+- [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side as printed at B10 (left unless the `Hinge-L-*` parts were mirrored there); 3 mm foam on the front face of the front opening.
 
 **Part B — after Ch 13**
 

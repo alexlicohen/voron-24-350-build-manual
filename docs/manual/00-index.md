@@ -4,7 +4,7 @@ This is the single track for building an **LDO Voron 2.4 R2 Rev D+, 350 mm, blue
 
 Every printed part is made here, on a **Prusa Core One+** on Gen 1 GT2 belts (the Gen 2 belt upgrade is deferred to the INDX rebuild this winter), in Prusament ASA Galaxy Black with a Prusament ASA Blue accent: 21 plates, 150.2 h, 1802 g black + 277 g blue — see [Plate plans](../print/plate-plans.md) for every diagram at a glance.
 
-Begin with the [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — a belt pluck check and a hot first-layer check, on the current Gen 1 belts and the cold-probe start — and until then with [slicer setup](print/00-slicer-setup.md) and the `(pre-kit)` steps of Ch 00 — the [home page](../index.md) lists the order. The Voron kit is expected in **early November 2026**, before the 150.2 h run (all eleven batches, 21 plates) has finished. Keep printing in numeric order, B00 → B10; start Ch 01–03 when the kit lands while later batches print, and start each chapter once the bins its row's "needs" list names are full. [**Ch 00 — Before you start**](00-before-you-start.md) opens the day the cartons land and needs only the B00 bins.
+Begin with the [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — a belt pluck check, a hot first-layer check and the brim-gap ladder, on the current Gen 1 belts and the cold-probe start — and until then with [slicer setup](print/00-slicer-setup.md) and the `(pre-kit)` steps of Ch 00 — the [home page](../index.md) lists the order. The Voron kit is expected in **early November 2026**, before the 150.2 h run (all eleven batches, 21 plates) has finished. Keep printing in numeric order, B00 → B10; start Ch 01–03 when the kit lands while later batches print, and start each chapter once the bins its row's "needs" list names are full. [**Ch 00 — Before you start**](00-before-you-start.md) opens the day the cartons land and needs only the B00 bins.
 
 Keep two pages open at the bench: [**Tonight**](00-tonight.md), a fresh 30/60/90-minute session planner built from every chapter's `Time:` and `Pause:` lines and every plate's print time, for deciding what fits in the time you have — including "start plate X, then …" when the printer is free; and the print pages — [checklists](../print/checklists.md) and [bin labels with QR codes](../print/bin-labels.md) — for the garage bench where a tablet doesn't survive.
 
@@ -18,25 +18,25 @@ Rows are in execution order. Do a row only when its **needs** are satisfied; do 
 
 Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people · **2P lift** = the gantry lift, genuinely two people. Batches are B00–B10; plates are `B00-P1` too (two-digit batch, plate number unpadded).
 
-**The run prints in numeric order and overlaps the build.** Rows 1–13 cover the pre-B00 checks and every batch in numeric order, B00 → B10 (row 3 is Ch 00a): 150.2 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. The bench work under them is Ch 00a and Ch 00's own pre-kit steps (00.23–00.32: the manual's front matter, the measurement log, the Discord questions — marked `(pre-kit)` so [Tonight](00-tonight.md) offers them), plus reading a chapter and sorting a batch into its bins as each plate comes off. Rows 14–31 are the build: start each once the bins in its "needs" list are full. Numeric order fills them in the order the chapters use them (B01 + B02 for Ch 02, B03 Ch 04, B04 Ch 05, B05 Ch 06, B06 + B07 Ch 08, B07 Ch 09, B08–B10 Ch 11), so the later batches print under the early chapters. B11, which Ch 09 also needs, cuts in after B07 (rows 32–33).
+**The run prints in numeric order and overlaps the build.** Rows 1–13 cover the pre-B00 checks and every batch in numeric order, B00 → B10 (row 3 is Ch 00a): 150.2 h ≈ 15 printer-days ≈ 2–2½ weeks at two plate swaps a day. The hardware trays (PLA, 15.1 h, [print/README § Bench prints](print/README.md#bench-prints-outside-the-plates)) print before B00. The bench work under them is Ch 00a and Ch 00's own pre-kit steps (00.8–00.11: tools, flat reference and bins; 00.14–00.16: Gate B's insert row; 00.23–00.32: the manual's front matter, the measurement log, the gating question; and Ch 12 Steps 12.2–12.3, writing MainsailOS to the bought microSD — marked `(pre-kit)` so [Tonight](00-tonight.md) offers them), plus reading a chapter and sorting a batch into its bins as each plate comes off. Rows 14–31 are the build: start each once the bins in its "needs" list are full. From kit day on, the build rows are what runs while the remaining batches print; the reading in rows 4–13's *While it prints* is for the plates before the kit. Numeric order fills them in the order the chapters use them (B01 + B02 for Ch 02, B03 Ch 04, B04 Ch 05, B05 Ch 06, B06 + B07 Ch 08, B07 Ch 09, B08–B10 Ch 11), so the later batches print under the early chapters. B11, which Ch 09 also needs, cuts in after B07 (rows 32–33).
 
 **Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 5 plates of PETG V0, 24.9 h, outside the run and its 150.2 h. Their row numbers are not their place in the order; their needs are. Row 32 is listed, and prints, right after B07 (row 10), before B08; row 33 prints at the next free slot after the kit-day bay measurements (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting, and must be off the bed before Ch 09 (row 24) fits the ducts. B08–B10 wait at no cost: Ch 10.50 and Ch 11 Part A are the first steps that need them. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
 
-- **1 · Both** — **Gen 2 joints and wiper, then pre-B00 checks, Gen 1 belts** · ~3 h · needs: the Gen 2 kit on the shelf
+- **1 · Both** — **Pre-B00 checks on Gen 1 belts: belt pluck, hot first layer, brim-gap ladder** · ~2 h · needs: Step B00.0 (PrusaSlicer set up)
     - *While it prints:* Nothing prints yet. Open the first black spool into the USS drybox, read [00-slicer-setup](print/00-slicer-setup.md), confirm the satin sheet (no glue)
-    - *Gate:* Tick list on its own page: [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — belt pluck check (targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart), then a hot first-layer check at ASA bed temperature (five 30×30×0.2 mm squares, 0.17–0.23 mm each, spread ≤0.05 mm) and the brim-gap ladder. No Gen 2 expansion joints or nozzle wiper, and the plates keep the cold-probe start (Alex 2026-10-28). All pass → B00 on GT2 `(verify on bench)`
+    - *Gate:* Tick list on its own page: [pre-B00 checks](print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) — belt pluck check (targets upper ≈96 Hz, lower ≈92 Hz, ≤8 Hz apart), then a hot first-layer check at ASA bed temperature (five 30×30×0.2 mm squares, every one smooth and closed, about 0.24–0.26 mm on calipers, all five alike) and the brim-gap ladder. No Gen 2 expansion joints or nozzle wiper, and the plates keep the cold-probe start (Alex 2026-10-28). All pass → B00 on GT2 `(verify on bench)`
     - *Sessions:* —
-- **2 · Print** — [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) · 3.8 h print · needs: the pre-B00 checks passed (row 1); Step B00.8 (review every plate, together) done before B00-P1 starts
+- **2 · Print** — [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) · 3.8 h print · needs: the pre-B00 checks passed (row 1); the hardware trays off the bed; Step B00.8 (review every plate, together) done before B00-P1 starts
     - *While it prints:* Print the [bin labels](../print/bin-labels.md) (35 bins, [scheme](print/README.md#bins)) and bag them: 30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes
-    - *Gate:* **Gate A** (Step B00.5, cube only): X/Y ±0.15 mm, Z ±0.10 mm, first-layer-vs-mid delta ≤ 0.15 mm, corner snap. **Gate B** (Step B00.7) runs the same week on a caliper across the printed bore and seven KADRICK inserts; its bearing press and MGN12 rail check wait for the kit
+    - *Gate:* **Gate A** (Step B00.5, cube only): X/Y ±0.15 mm, Z ±0.10 mm, first-layer-vs-mid delta ≤ 0.15 mm, corner snap. **Gate B** (Step B00.7) runs the same day, before the next plate swap, on a caliper across the printed bore (its insert row is iron practice and holds no plate); its bearing press and MGN12 rail check wait for the kit
     - *Sessions:* Step B00.8's plate review (4 sessions, with a helper), then 1 plate start
 - **3 · Build** — [Ch 00a — Mains safety](00a-mains-safety.md) · 0.75–1.0 · needs: Ch 00 Steps 00.8 and 00.30 as reading (the tool table and the log) — no kit part is touched
     - *While it prints:* B00, then B01
     - *Gate:* Checkpoint 00a: mains-work owner and room rule written down, meter tested live and dead, "what to do when it smokes/trips/bites" decided
     - *Sessions:* 2 × ~30 min
-- **4 · Print** — [B01 — Z drive assemblies](print/B01-z-drive-assemblies.md) · 22.3 h print · needs: Gate A and Gate B (bore, inserts)
+- **4 · Print** — [B01 — Z drive assemblies](print/B01-z-drive-assemblies.md) · 22.3 h print · needs: Gate A and Gate B's bore row
     - *While it prints:* Ch 00a (row 3); read Ch 00
-    - *Gate:* Batch gate on the bearing seats, calipered. `deck_support_3mm` ×8 is printed to the Rev D 350 BOM — caliper the deck panel on kit day and reprint the 4 mm set if it measures 4 mm (8 g, 30 min)
+    - *Gate:* Batch gate on the bearing seats, calipered. `deck_support_3mm` ×8 is printed to the Rev D+ 350 BOM — caliper the deck panel on kit day and reprint the 4 mm set if it measures 4 mm (8 g, 30 min)
     - *Sessions:* 2 plate starts
 - **5 · Print** — [B02 — Accent parts, the accent day](print/B02-accent-parts-orange.md) · 20.9 h print · needs: Gate A
     - *While it prints:* Read Ch 01; sort B01 into bins 02-Z0 … 02-deck
@@ -44,7 +44,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Sessions:* 3 plate starts
 - **6 · Print** — [B03 — A/B drive units + front idlers](print/B03-ab-drive-units-and-front-idlers.md) · 8.5 h print · needs: Gate B
     - *While it prints:* Read Ch 02; sort B02's three plates into their bins
-    - *Gate:* F695 flange seats caliper 15.00 mm; the real bearing drops in on kit day
+    - *Gate:* Each drive unit's two frame halves close flat with no gap; on kit day the F695 stacks spin free on their posts (the frames have no bearing seats)
     - *Sessions:* 1 plate start
 - **7 · Print** — [B04 — XY joints + X carriage](print/B04-xy-joints-and-x-carriage.md) · 8.7 h print · needs: Gate B
     - *While it prints:* Read Ch 03–04; sort B03 into 04-A and 04-B
@@ -55,7 +55,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Gate:* `z_joint_lower`'s four M3 holes caliper 3.40 mm on a 15.0 × 16.0 mm pattern
     - *Sessions:* 1 plate start
 - **9 · Print** — [B06 — Toolhead: SB, CW2, Klicky](print/B06-toolhead-sb-cw2-klicky.md) · 11.6 h print · needs: Gate B; starts spool #2
-    - *While it prints:* Read Ch 06–07; sort B05 into 06-Z-joints and 10-chains
+    - *While it prints:* Read Ch 06–07; sort B05 into 02-Z0 … 02-Z3 (rail stops), 06-Z-joints and 10-chains
     - *Gate:* Hotend seat calipers 20.0 mm, the real heatsink sits in it on kit day; the Klicky set counted and **bagged as the alternative probe** (Ch 08.54), no magnets pressed
     - *Sessions:* 1 plate start
 - **10 · Print** — [B07 — Electronics bay + lighting](print/B07-electronics-bay-and-lighting.md) · 15.3 h print · needs: Gate A
@@ -67,28 +67,28 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Gate:* The coupon's lid snaps home and holds (Step B11.4); without that, row 33 prints the fallback middle run instead of B11-P5
     - *Sessions:* 3 plate starts
 - **11 · Print** — [B08 — Skirts and front modules](print/B08-skirts-and-front-modules.md) · 26.7 h print · needs: Gate A; B02 and B07 to hand for the ring dry-fit; B11-P1 to P3 (row 32) off the bed first
-    - *While it prints:* Read Ch 09–10; sort B07 into 08-CW2, 09-bay, 10-lights and 11-finish; stage spool #3 — it takes over inside B09-P1
+    - *While it prints:* Read Ch 09–10; sort B07 into 08-CW2, 09-bay, 10-lights, 11-finish and spare-alt; stage spool #3 — it takes over inside B09-P1
     - *Gate:* Skirt faces flat with no lift; the ring dry-fits (power inlet from B07)
     - *Sessions:* 4 plate starts
 - **12 · Print** — [B09 — Panels, filtration, spool](print/B09-panels-filtration-spool.md) · 20.5 h print · needs: B08
-    - *While it prints:* Read Ch 11; sort B08 into 10-tft and 11-skirts. The one predicted runout lands mid-plate on B09-P1 — the exhaust-cover plate, no bearing seat — and the printer resumes on its own
+    - *While it prints:* Read Ch 11; sort B08 into 10-tft and 11-skirts. The one predicted runout lands mid-plate on B09-P1 — the exhaust-cover plate, no bearing seat — about 2 h in: the printer pauses until you load spool #3 and press **Continue** ([When the printer stops](print/README.md#when-the-printer-stops)), so start it when someone is home then
     - *Gate:* Nevermore lid slides, cartridge snaps; the panel-clip test (extrusion, panel offcut, foam tape) waits for kit day
     - *Sessions:* 4 plate starts
 - **13 · Print** — [B10 — Clicky-Clack door](print/B10-clicky-clack-door.md) · 5.7 h print · needs: B02 (`Handle`), B09; door swing decided
-    - *While it prints:* Read Ch 12–14; sort B09 into its six bins. Every bin is now full and the printer is free
+    - *While it prints:* Read Ch 12–14; sort B09 into its six bins. Every ASA bin is now full; the Core One+ still owes the Voron B11-P4/P5 if row 33 has not printed, and the optional add-on jobs at Steps 11.69, 13.48 and 14.26. Other jobs may run overnight from here, but keep a day slot free when one of those three comes up: they sit on the build's path
     - *Gate:* Brims off clean; the bushing and dowel tests wait for the Clicky-Clack hardware
     - *Sessions:* 1 plate start
-- **14 · Build** — [Ch 00 — Before you start](00-before-you-start.md) **KIT** · 2.5–4.0 · needs: the kit; bins for Ch 00 full (B00 both rail guides; `Heatset_Practice` is already spent at Gate B)
-    - *While it prints:* Whatever batches are still on the Prusa — sort each plate into its bins as it comes off. Finish **Gate B's kit-day rows** (Step B00.7: the 625-2RS press and `MGN12_rail_guide` on the real MGN12) out of carton 1, then start the inventory
-    - *Gate:* Checkpoint 00: deck panel calipered, all seven rails cleaned and greased, both Discord questions posted
+- **14 · Build** — [Ch 00 — Before you start](00-before-you-start.md) **KIT** · 3.0–4.5 · needs: the kit; bins for Ch 00 full (B00 both rail guides; `Heatset_Practice` is already spent at Gate B)
+    - *While it prints:* Whatever batches are still on the Prusa — sort each plate into its bins as it comes off. Finish **Gate B's kit-day rows** (Step B00.7: the 625-2RS press and `MGN12_rail_guide` on the real MGN12) out of carton 1, then start the inventory. Start the rail IPA soak (Steps 00.17–00.18) as soon as the inventory (00.2–00.6) is done; while the rails dry, do Steps 00.7 and 00.12–00.13, then B11.10–B11.11, Ch 12 Part 1 (row 15) or Ch 01 Steps 01.1–01.5 (no rail needed), and finish 00.19–00.22 before Ch 02
+    - *Gate:* Checkpoint 00: deck panel calipered, all seven rails cleaned and greased, the gating question posted
     - *Sessions:* 9 × ~30 min
-- **15 · Build** — [Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail, edit `printer.cfg` on the bench](12-software.md) **KIT** · ~1.5 of Ch 12's 2.0–3.0 · needs: the Pi from carton 2 only — no hardware gate
+- **15 · Build** — [Ch 12 Part 1 — image the Pi, install Klipper/Moonraker/Mainsail, edit `printer.cfg` on the bench](12-software.md) **KIT** · ~1.5 of Ch 12's 2.0–3.0 · needs: the Pi from carton 1 (*Electronics 1*), the bought microSD card and a USB-C supply — no hardware gate
     - *Gate:* Pi on the network, web UI up, bench-powered from USB-C
-    - *Sessions:* 2 × ~30 min
+    - *Sessions:* 6 × ~30 min (the first, Steps 12.2–12.3, before the kit)
 - **16 · Build** — [Ch 01 — Frame](01-frame.md) **KIT 2P** · 2.5–4.0 · needs: Ch 00
     - *Gate:* Checkpoint 01: diagonals equal, frame square on the verified-flat counter
     - *Sessions:* 4 × ~40 min
-- **17 · Build** — [Ch 02 — Z drives, Z idlers, Z rails, deck](02-z-drives.md) **KIT** · 4.25–6.25 · needs: Ch 01; bins for Ch 02 full (B00, B01, **B02**)
+- **17 · Build** — [Ch 02 — Z drives, Z idlers, Z rails, deck](02-z-drives.md) **KIT** · 4.25–6.25 · needs: Ch 01; bins for Ch 02 full (B00, B01, **B02**; the `z_rail_stop` parts are optional at Step 02.10 and may come later — the tape covers until they arrive)
     - *Gate:* Checkpoint 02: four Z carriages move freely, deck in, every set screw threadlocked on the flat
     - *Sessions:* 11 × ~30 min
 - **18 · Build** — [Ch 03 — Build plate](03-build-plate.md) **KIT** · 1.5–2.5 · needs: Ch 01, Ch 02
@@ -117,30 +117,32 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *Sessions:* 14 × ~30 min
 - **26 · Build** — [Ch 12 Part 2 — flash both MCUs, paste the serial paths, config check](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) **KIT** · ~1.0 of 2.0–3.0 · needs: Ch 10
     - *Gate:* Checkpoint 12: toolboard ID reads `stm32g0b1xx` (survey W13); every 350 mm value uncommented (survey W14)
-    - *Sessions:* 7 × ~30 min
+    - *Sessions:* 3 × ~30 min
 - **27 · Build** — [Ch 11 Part A — skirts, bay fans, bottom panel, Z belt covers, Nevermore, spool, door hinges](11-skirts-panels-door.md#part-a-before-ch-13-machine-unplugged) **KIT** · 3.0–4.0 · needs: Ch 10 Checkpoint #1, Ch 12 Part 2; bins for Ch 11 full (B02, B07, B08, B09, B10)
     - *Gate:* Bay closed. **Back, side and top panels and the door stay off** — Ch 13 and Ch 06b need to reach the gantry
     - *Sessions:* 12 × ~30 min
 - **28 · Build** — [Ch 13 — Initial startup](13-initial-startup.md) **KIT** · 2.5–4.0 plus ~1 h cube print (+ ~2 h optional scrubber, Part L, with its ~2.5 h Core One+ print made after the Part L decision) · needs: Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12
     - *Gate:* Checkpoint 13: `PROBE_ACCURACY` σ < 0.003 mm, QGL converged, Z=0 set, cube printed and kept
-    - *Sessions:* 11 × ~30 min
+    - *Sessions:* 10 × ~30 min
 - **29 · Build** — [Ch 06b — Gantry squaring, cold, and provisional tension](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) **KIT 2P** · ~1.0 · needs: Ch 13 Step 13.34
     - *Gate:* Checkpoint 06b: gantry de-racked and the XY joints tightened **cold**; Z joints seated; A/B back to ~110 Hz provisional; Ch 13 Step 13.35 re-QGLs. No heat soak here — the chamber cannot close yet
-    - *Sessions:* 1 × ~30 min
+    - *Sessions:* 1 × ~60 min, unbroken
 - **30 · Build** — [Ch 11 Part B — back, side and top panels, Clicky-Clack door](11-skirts-panels-door.md#part-b-after-ch-13) **KIT** · 1.0–2.0 (+ ~1 h 40 min optional side spool holder and camera, Part C, with ~14 h of Core One+ prints made after Step 11.68 measures) · needs: Ch 13, Ch 06b; bins for Ch 11 Part B full (B02 `Handle`, B07 `handlebar_spacer_x4`, B09, B10, B11 DC lids)
     - *Gate:* Chamber reaches the 50–60 °C band with the door shut
     - *Sessions:* 5 × ~30 min
-- **31 · Build** — [Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune](14-calibration.md) **KIT** · 2.5–4.0 over 6½–8½ h (+ ~3.5 h optional chamber exhaust, Part H; Step 14.25 opens the chapter, so its ~6½ h Core One+ print runs during Parts A–G) · needs: Ch 12, Ch 13, Ch 06b, Ch 11 Part B (the chamber has to close for the soak); the B00 reference cube
+- **31 · Build** — [Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune](14-calibration.md) **KIT** · 3.0–4.5 over 9–11 h (+ ~3.5 h optional chamber exhaust, Part H; Step 14.25 opens the chapter, so its ~6½ h Core One+ print runs during Parts A–G) · needs: Ch 12, Ch 13, Ch 06b, Ch 11 Part B (the chamber has to close for the soak); the B00 reference cube
     - *Gate:* The 1½–2 h heat soak with the panels on, Z joints tightened hot, A/B and Z belts at final tension, QGL and probe accuracy re-checked — then Checkpoint 14 and the tuning log filled in
     - *Sessions:* 14 × ~30 min
-- **33 · Print** — [B11 — Bay ducting, part 2, after the kit-day measurements](print/B11-bay-ducting.md#after-the-kit-day-measurements) **KIT** · 13.1 h print · needs: row 32 and Steps B11.10–B11.11 (kit day); print it at the next free slot after them, ahead of any B08–B10 plate still waiting; must finish before Ch 09 (row 24). The A/B lead check (Step B11.9) runs after Checkpoint 06 (row 21) and does not gate it
+- **33 · Print** — [B11 — Bay ducting, part 2, after the kit-day measurements](print/B11-bay-ducting.md#after-the-kit-day-measurements) **KIT** · 13.1 h print · needs: row 32 and Steps B11.10–B11.11 (kit day); print it at the next free slot after them, ahead of any row 11–13 plate still waiting; must finish before Ch 09 (row 24). The A/B lead check (Step B11.9) runs after Checkpoint 06 (row 21) and does not gate it
     - *While it prints:* Ch 00–08 build rows
     - *Gate:* none from the A/B leads — P4 and P5 print either way, a short lead gets a longer replacement lead instead; B11-P5 only if the Leviathan-to-PSU gap is ≥ 25 mm
     - *Sessions:* 2 plate starts
 
-**Row 1, and why the whole run stays on Gen 1.** The Gen 2 belt upgrade (Prusa order 1787919456, shipped) is deferred to this winter, done together with the INDX 8-tool conversion — Prusa documents the combined install (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The printer is commissioned and printing well, the upgrade fixes neither open issue on the bench (loadcell/heater noise, PETG infill strands), and a heatbed swap now would put the closed bed calibration at risk and force a belt retune, XY-homing recal and a start-G-code re-sync of all 22 3MFs — one teardown instead of two. Row 1's two checks (belt pluck, hot first layer) confirm the machine is fit to carry the whole 150.2 h run. Revised 2026-10-01: the kit's expansion joints and nozzle wiper were to be fitted before those checks (correction #34); revised again 2026-10-28 (Alex): neither is fitted, the plates keep the cold-probe start, and only the GT1.5 belts wait for INDX.
+**No second person tonight?** A **2P** row (16, 20, 21, 29) can wait while bench work that touches no frame goes ahead, each once its bins are full: Ch 04's sub-assemblies (Steps 04.1–04.37), the Nevermore plenum and cartridge (Steps 11.26–11.37) and the Clicky-Clack door parts (Steps 11.44–11.50).
 
-**Dependencies inside B02.** The accent day prints once, but its parts are consumed at five different times: all three plates gate Ch 02 (the Z drive baseplates, belt tensioners and Z tensioners are shared out across them); the cable bridge (P2), its alternate (P3) and the endstop pod (P1) go to Ch 05; the Stealthburner accent parts (main body and guidler a on P2, guidler b on P1, latch and shuttle on P3) go to Ch 08; **B02-P2 and B02-P3** gate Ch 04 (the left and right A/B tensioners); the Z belt clips and chain retainers gate Ch 06 Part A; and the belt guards, fan grills, keystone blank, TFT faceplate and door `Handle` are not needed until Ch 11.
+**Row 1, and why the whole run stays on Gen 1.** The Gen 2 belt upgrade (Prusa order 1787919456, shipped) is deferred to this winter, done together with the INDX 8-tool conversion — Prusa documents the combined install (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The printer is commissioned and printing well, the upgrade fixes neither open issue on the bench (loadcell/heater noise, PETG infill strands), and a heatbed swap now would put the closed bed calibration at risk and force a belt retune, XY-homing recal and a start-G-code re-sync of all 26 3MFs — one teardown instead of two. Row 1's three checks (belt pluck, hot first layer, brim-gap ladder) confirm the machine is fit to carry the whole 150.2 h run. Revised 2026-10-01: the kit's expansion joints and nozzle wiper were to be fitted before those checks (correction #34); revised again 2026-10-28 (Alex): neither is fitted, the plates keep the cold-probe start, and only the GT1.5 belts wait for INDX.
+
+**Dependencies inside B02.** The accent day prints once, but its parts are consumed at five different times: all three plates gate Ch 02 (the Z drive baseplates, belt tensioners and Z tensioners are shared out across them); the cable bridge (P2), its alternate (P3) and the endstop pod (P1) go to Ch 05; the Stealthburner accent parts (main body and guidler a on P2, guidler b on P1, latch and shuttle on P3) go to Ch 08; **B02-P2 and B02-P3** gate Ch 04 (the left and right A/B tensioners); the upper Z belt clips (all three plates) go to Ch 05 and the lower ones to Ch 06 Part A; the cable cover (P3) goes to bin 07-X; the chain retainer brackets (P1, P2) to Ch 10, bagged with the chain at Step 06.26; the TFT faceplate (P1) to Ch 10 Step 10.50; and the belt guards, fan grills, keystone blanks and door `Handle` are not needed until Ch 11.
 
 ---
 
@@ -149,15 +151,15 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 | | |
 |---|---|
 | Print time | **150.2 h** across 21 plates in 11 batches (1802 g black, 277 g blue) — B00 → B10 in numeric order, overlapping the build |
-| Hands-on time | **59.9 h** — the sum of the chapter Time midpoints (Ch 06b's ~1 h cold squaring pass is on top of Ch 06's figure) |
-| Printing, elapsed | **~16 printer-days ≈ 3–4 weeks**, overlapping the build from Ch 02 on (swap-limited, ~10 print-hours/day; the floor is ~7 days if you change plates the minute each one ends) |
-| Building, elapsed | **~2.7 weeks ≈ 3 weeks** at 22 h/week |
-| **(a) After the Prusa is running** | **≈ 3–4 calendar weeks of printing** — the pre-B00 checks, then 21 plates back to back on Gen 1. Starting late October puts the last plate off the bed in mid/late November, a couple of weeks after the kit lands (early November) |
-| **(b) After the kit arrives** | **≈ 3 calendar weeks** — 59.9 h hands-on at 22 h/week, started when the kit lands and run alongside the last batches: a chapter waits on a plate only if the printer falls behind its bins, and Gate B's bearing press and MGN12 rail check are the only print-side jobs left on kit day |
+| Hands-on time | **60.9 h** — the sum of the chapter Time midpoints (Ch 06b's ~1 h cold squaring pass is on top of Ch 06's figure); the chapters' `Pause:` lines add up to about 65 h without the optional add-ons |
+| Printing, elapsed | **~15 printer-days ≈ 2–2½ weeks**, overlapping the build from Ch 02 on (swap-limited, ~10 print-hours/day; the floor is ~7 days if you change plates the minute each one ends) |
+| Building, elapsed | **~2.8 weeks ≈ 3 weeks** at 22 h/week |
+| **(a) After the Prusa is running** | **≈ 2–2½ calendar weeks of printing** — the pre-B00 checks, then 21 plates back to back on Gen 1, with B11's five PETG V0 plates (24.9 h) cut in. Starting about 1 November, after the hardware trays, puts the last plate off the bed in mid-November, one to two weeks after the kit lands (early November) |
+| **(b) After the kit arrives** | **≈ 3 calendar weeks** — 60.9 h hands-on at 22 h/week, started when the kit lands and run alongside the last batches: a chapter waits on a plate only if the printer falls behind its bins, and Gate B's bearing press and MGN12 rail check are the only print-side jobs left on kit day |
 
-**≈ 146 sessions of ~30 min** — the sum of every assembly chapter's `Sessions:` line (Ch 00, 00a–14, 06b and both parts of 11 and 12 counted once each) — plus 20 plate starts of ~5 min each and the inspect passes after each batch.
+**≈ 145 sessions of ~30 min** — the sum of every assembly chapter's `Sessions:` line (Ch 00, 00a–14, 06b and both parts of 11 and 12 counted once each) — plus 26 plate starts of ~5 min each (21 ASA, 5 B11) and the inspect passes after each batch.
 
-Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of two weekend days), the Core One+ printing unattended overnight with about two plate swaps a day, no reprints beyond the plan's 24 % filament margin, the whole run staying on Gen 1 belts (the Gen 2 upgrade deferred to the INDX rebuild), and the kit landing in early November 2026, while the last batches are still printing.
+Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of two weekend days), the Core One+ printing unattended overnight with about two plate swaps a day, no reprints beyond the 598 g black filament margin (33 % of the run's 1802 g), the whole run staying on Gen 1 belts (the Gen 2 upgrade deferred to the INDX rebuild), and the kit landing in early November 2026, while the last batches are still printing.
 
 ---
 
@@ -167,23 +169,23 @@ Assumptions: 22 h/week of hands-on (2 h on each of five weekdays, 6 h on each of
 
 | Chapter | Scope | Time (h) | Sessions | Prerequisites |
 |---|---|---|---|---|
-| [00 — Before you start](00-before-you-start.md) | Inventory against the BOM, tools, flat reference, heat-set practice, clean and grease all seven rails | 2.5–4.0 | 9 × ~30 min | The kit; B00 (both rail guides; `Heatset_Practice` is spent at Gate B before the kit). Gate B's **rail row** (Step B00.7) runs on kit day, out of carton 1 |
+| [00 — Before you start](00-before-you-start.md) | Inventory against the BOM, tools, flat reference, heat-set practice, clean and grease all seven rails | 3.0–4.5 | 9 × ~30 min | The kit; B00 (both rail guides; `Heatset_Practice` is spent at Gate B before the kit). Gate B's **rail row** (Step B00.7) runs on kit day, out of carton 1 |
 | [00a — Mains safety](00a-mains-safety.md) | Decide who does the mains work, buy and test the meter, agree the who's-in-the-room and smoke/trip/bite rules — read before Ch 09 | 0.75–1.0 | 2 × ~30 min | Ch 00 Steps 00.8 and 00.30 as reading. No kit part, no printed part — doable before the kit |
 | [01 — Frame](01-frame.md) | 2020 frame and the two bed extrusions, squared on a verified-flat surface | 2.5–4.0 | 4 × ~40 min | Ch 00. No printed part required |
-| [02 — Z drives, Z idlers, Z rails, deck](02-z-drives.md) | Four Z drives, four Z idlers, four Z rails, deck panel and supports | 4.25–6.25 | 11 × ~30 min | Ch 01; B00, B01, B02 |
+| [02 — Z drives, Z idlers, Z rails, deck](02-z-drives.md) | Four Z drives, four Z idlers, four Z rails, deck panel and supports | 4.25–6.25 | 11 × ~30 min | Ch 01; B00, B01, B02 (B05's rail stops optional, Step 02.10) |
 | [03 — Build plate](03-build-plate.md) | 355×355×10 mm plate, magnet sheet, bed leads left loose above deck for Ch 09's WAGO breakout | 1.5–2.5 | 4 × ~30 min | Ch 01, Ch 02. No printed part required |
 | [04 — A/B drives and front idlers](04-ab-drives.md) | The four CoreXY sub-assemblies that carry the A and B belts | 3.5–5.0 | 7 × ~30 min | Ch 01; B00 (`pulley_jig`), B02-P2, B02-P3, B03 |
 | [05 — Gantry](05-gantry.md) | X and Y axes, both XY joints, X carriage, titanium backers | 5.0–7.0 | 12 × ~30 min | Ch 00 rails, Ch 04; B00 (rail guides), B02, B04 |
 | [06 Part A — Z axis](06-z-axis-and-gantry-squaring.md#part-a-chapter-06-z-axis-mechanical) | Hang the gantry on the Z joints, belt all four Z corners | 3.5–5.0 | 8 × ~30 min | Ch 02, Ch 05; B02, B05 |
-| [06b — Gantry squaring](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) | The real squaring pass, **cold** — needs motor control, so it runs out of Ch 13; ends at provisional A/B tension. The hot soak and final tension are Ch 14 | ~1.0 | 1 × ~30 min | Ch 13 Step 13.34 |
+| [06b — Gantry squaring](06-z-axis-and-gantry-squaring.md#part-b-chapter-06b-gantry-squaring) | The real squaring pass, **cold** — needs motor control, so it runs out of Ch 13; ends at provisional A/B tension. The hot soak and final tension are Ch 14 | ~1.0 | 1 × ~60 min, unbroken | Ch 13 Step 13.34 |
 | [07 — A/B belts](07-ab-belts.md) | Cut, route and clamp both CoreXY belts; provisional tension; inductive probe on the carriage | 2.5–4.0 | 5 × ~30 min | Ch 04, Ch 05, Ch 06 Part A; B02, B03, B04 |
 | [08 — Toolhead](08-toolhead.md) | Stealthburner, Clockwork 2, Revo Voron (HF nozzle), Nitehawk-SB V2, hung on the carriage; Klicky bagged | 3.0–4.5 | 10 × ~30 min | Ch 05, Ch 07; B02, B04, B06 |
 | [09 — Electronics bay](09-electronics-bay.md) | DIN rails, ducts, PSU, SSR, Leviathan and Pi, mains inlet, WAGOs, both endstops — mounted, not wired | 3.0–4.5 | 8 × ~30 min | Ch 01–03, Ch 06, Ch 08 (USB-adapter stack), Ch 00a; B07, B11 (all five plates) |
 | [10 — Wiring](10-wiring.md) | Every harness, ending at LDO Checkpoint #1 | 5.0–7.0 | 14 × ~30 min | Ch 03, Ch 06, Ch 07, Ch 08, Ch 09; B05, B07, B08 (`mount.stl`), B02 (`[a]_faceplate`) — both at Step 10.50; B11 (strip fin, AC lids) at Step 10.80 |
 | [11 — Skirts, panels, door, filtration](11-skirts-panels-door.md) | Part A closes the bay and builds the door hinges and handle; Part B fits the back, side and top panels and hangs the Clicky-Clack door after Ch 06b; optional side spool holder and camera (Part C) | 3.0–4.0 + 1.0–2.0 | 12 + 5 × ~30 min (20 with Part C) | Part A: Ch 10 + Checkpoint #1; B02, B07, B08, B09, B10 (by Step 11.46). Part B also Ch 13, Ch 06b; B09, B10, B02 `Handle`, B07 `handlebar_spacer_x4` |
-| [12 — Software](12-software.md) | Pi image, Klipper/Moonraker/Mainsail, both MCUs flashed, `printer.cfg` for a 350 Rev D+ | 2.0–3.0 | 8 × ~30 min | Part 1: the Pi only. Part 2: Ch 10 + Checkpoint #1. No printed part required |
-| [13 — Initial startup](13-initial-startup.md) | First power-on through temps, fans, motors, endstops, homing, PID, QGL, Z=0, bed mesh and the first cube; optional nozzle scrubber (Part L) | 2.5–4.0 | 11 × ~30 min (15 with Part L) | Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12. No printed part required |
-| [14 — Calibration and tuning](14-calibration.md) | Hot soak with the chamber closed, Z joints tightened hot, final belt tension, squaring and QGL re-check; then rotation distance, chamber and `PRINT_START`, cube measurement, input shaper, PA, flow; optional chamber exhaust fan (Part H) | 2.5–4.0 | 14 × ~30 min (20 with Part H) | Ch 13, Ch 06b, Ch 11 Part B, Ch 12; the B00 reference cube and Ch 13's cube |
+| [12 — Software](12-software.md) | Pi image, Klipper/Moonraker/Mainsail, both MCUs flashed, `printer.cfg` for a 350 Rev D+ | 2.0–3.0 | 9 × ~30 min | Part 1: the Pi only. Part 2: Ch 10 + Checkpoint #1. No printed part required |
+| [13 — Initial startup](13-initial-startup.md) | First power-on through temps, fans, motors, endstops, homing, PID, QGL, Z=0, bed mesh and the first cube; optional nozzle scrubber (Part L) | 2.5–4.0 | 10 × ~30 min (14 with Part L) | Ch 06 Part A, Ch 07, Ch 10, Ch 11 Part A, Ch 12. No printed part required |
+| [14 — Calibration and tuning](14-calibration.md) | Hot soak with the chamber closed, Z joints tightened hot, final belt tension, squaring and QGL re-check; then rotation distance, chamber and `PRINT_START`, cube measurement, input shaper, PA, flow; optional chamber exhaust fan (Part H) | 3.0–4.5 | 14 × ~30 min (20 with Part H) | Ch 13, Ch 06b, Ch 11 Part B, Ch 12; the B00 reference cube and Ch 13's cube |
 
 ### Reference
 
@@ -198,8 +200,8 @@ Full table with grams and plate counts: [print/README.md](print/README.md). Prof
 
 | Batch | Scope | Plates · hours | Print gate |
 |---|---|---|---|
-| [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) | Test cube, heat-set coupon, rail guides, pulley jig, one Z-drive retainer as the bore coupon | 1 · 3.8 | None — it *is* the gate: Gate A on the day, Gate B the same week |
-| [B01 — Z drive assemblies](print/B01-z-drive-assemblies.md) | Z drive bodies, retainers, motor mounts, Z tensioner brackets, deck supports | 2 · 22.3 | **Gate B** (bore, inserts) |
+| [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) | Test cube, heat-set coupon, rail guides, pulley jig, one Z-drive retainer as the bore coupon | 1 · 3.8 | None — it *is* the gate: Gate A on the day, Gate B's bore row the same day |
+| [B01 — Z drive assemblies](print/B01-z-drive-assemblies.md) | Z drive bodies, retainers, motor mounts, Z tensioner brackets, deck supports | 2 · 22.3 | **Gate B** (bore) |
 | [B02 — Accent parts (blue)](print/B02-accent-parts-orange.md) | Every accent part in the build, in one session | 3 · 20.9 | Gate A |
 | [B03 — A/B drive units + front idlers](print/B03-ab-drive-units-and-front-idlers.md) | A and B drive frames, both front idler pairs | 1 · 8.5 | Gate B |
 | [B04 — XY joints + X carriage](print/B04-xy-joints-and-x-carriage.md) | MGN12 XY joint set, X carriage halves, `probe_retainer_bracket` | 1 · 8.7 | Gate B |
@@ -265,6 +267,7 @@ To add a row: append it with the next `#`, today's date, and fill "Source that w
 | 36 | 2026-10-23 | **B09 merged 5 → 3 plates; the run is 20 plates, every plate re-arranged at a 6 mm gap.** Quality-first re-pack: 6 mm of bare bed between brims on every plate but B07-P2 and B08-P3, which stay at 3 mm. B09-P1 is the whole Nevermore, B09-P2 the bottom-panel parts, Z belt covers and 6 mm clips, B09-P3 the exhaust cover and grill, spool holder and 4 mm clips; each bin comes off one plate. Steps B09.8–B09.11 are retired, the rest keep their ids. Run 157.0 h, 1811 g black + 279 g blue | — | [B09](print/B09-panels-filtration-spool.md); [print/README](print/README.md); [print plan §3](../voron-print-plan.md#3-the-batches) | `platearrange` merge and arrange of the committed projects, re-sliced (`slicer/estimates.csv`) |
 | 37 | 2026-10-24 | **Large pieces moved to the middle of the bed; the seven midspan 4 mm clips moved from B09-P3 to B09-P1.** B09-P1 is the Nevermore plus 7 midspan clips (9.0 h, 114 g), B09-P3 the exhaust cover and grill, spool holder, bowden retainer and 8 corner clips (5.8 h, 83 g); the 4 mm clips now come off two plates. Spool #3 still takes over inside B09-P1. Run 156.9 h, 1811 g black + 279 g blue | — | [B09](print/B09-panels-filtration-spool.md); [print/README](print/README.md#spool-ledger) | re-sliced `slicer/plates/*.3mf` (`slicer/estimates.csv`) |
 | 38 | 2026-10-24 | **B02, B07, B08 and B09 re-split so every part, brim included, sits 5 mm or more from the bed edge; the run is 21 plates (B09 has a fourth plate, B09-P4).** Each of the four batches was pooled and re-split into area-balanced plates at a 6 mm gap with large parts centred; same parts, same bins, different plate contents. B09-P1 is the exhaust cover and clips, P2 the Nevermore cartridge with the spool holder and bowden retainer, P3 the plenum and cartridge lid, P4 the plenum lid and exhaust grill. B09-P4 is Steps B09.14–B09.15, placed before the Inspect step; B09.8–B09.11 stay retired. Spool #3 still takes over inside B09-P1 (27 g left on #2). Run 157.1 h, 1813 g black + 279 g blue | — | [B02](print/B02-accent-parts-orange.md); [B07](print/B07-electronics-bay-and-lighting.md); [B08](print/B08-skirts-and-front-modules.md); [B09](print/B09-panels-filtration-spool.md); [print/README](print/README.md#spool-ledger) | re-packed `slicer/plates/*.3mf` (`slicer/estimates.csv`) |
+| 39 | 2026-10-30 | **The A/B drive frames have no F695 seats.** The F695 stacks ride on the M5×30 posts between the two frame halves (manual p.74, p.78) with radial clearance all round; there is no 15.00 mm × 4 mm pocket to caliper (row 29's figure). B03's batch gate is now: the two halves of each drive unit close flat with no gap; on kit day the stacks spin free on their posts (the M5 bolts thread into the plastic, p.74) | This manual's B03 chapter, Gate B tables, print plan §5.2 and the timeline, pre-fix | [B03](print/B03-ab-drive-units-and-front-idlers.md); [print/00-slicer-setup § Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) | STL faces of `a_drive_frame_upper`/`_lower` around each M5 post: the only Ø15 surface is a 90° arc, 4 mm deep, no closed pocket — review 2026-10-30 G2-02 |
 
 ---
 

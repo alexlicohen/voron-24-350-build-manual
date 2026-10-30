@@ -32,7 +32,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | batch | plates | hours | g black | g blue | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---:|---|---|
 | [B00](B00-calibration-and-jigs.md) | 1 | 3.8 | 51 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
-| [B01](B01-z-drive-assemblies.md) | 2 | 22.3 | 300 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore, inserts) |
+| [B01](B01-z-drive-assemblies.md) | 2 | 22.3 | 300 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore) |
 | [B02](B02-accent-parts-orange.md) | 3 | 20.9 | 0 | 277 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 1 | 8.5 | 118 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.7 | 116 | 0 | Ch 05 Gantry | Gate B |
@@ -82,8 +82,9 @@ between #12 and #13 ([B11 run schedule](#b11-run-schedule)).
 | 20 | B09-P4 | 3.6 | black | day | #3 |
 | 21 | B10-P1 | 5.7 | black | day | #3 |
 
-Ten overnight plates and eleven day plates, 150.2 h in all: about 16 printer-days, three to four weeks at
-two swaps a day.
+Ten overnight plates and eleven day plates, 150.2 h in all: about 15 printer-days, two to two and a half weeks
+at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (7.5 h) that
+evening and B01-P1 the next morning: B01-P1 then starts with ~649 g on spool #1, well over its 200 g rule.
 
 ## Bins
 
@@ -110,7 +111,7 @@ each of its two corners, a `_x4` file one in each corner.
 
 35 bins, 285 printed pieces: 218 from the ASA run, 53 from B11 and 14 from the four add-ons, which print
 after kit day and are on no plate (`11-side-spool`, `11-camera`, `13-scrubber`, `14-exhaust`). They travel in
-30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes. The A5 figure counts one more pack of A5 bags, 24 to a pack, still to buy
+30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes. The A5 figure counts the second pack of A5 bags, 24 to a pack, bought 2026-10-13
 (Ch 00 Step 00.11). Two kinds of entry count toward no piece total: B11's fallback middle joints, printed only
 instead of B11-P5, and the add-ons' bought parts (camera board, A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
 
@@ -127,7 +128,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 
 | bin | label | chapter · steps | bag | parts (qty) | from batches |
 |---|---|---|---|---|---|
-| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 04.24, 04.33; cube at 14.11) | A5 | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
+| **00-jigs** | Jigs and coupons | Ch 00 · 00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.11) | A5 | `Voron_Design_Cube_v7`, `Heatset_Practice`, `MGN12_rail_guide` ×2, `MGN9_rail_guide` ×2, `pulley_jig` | B00 |
 | **02-Z0** | Z0 corner (front-left, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_retainer_a`, `z_drive_main_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B00, B01, B02, B05 |
 | **02-Z1** | Z1 corner (rear-left, `_b` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_b`, `z_drive_retainer_b`, `z_motor_mount_b`, `z_tensioner_bracket_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_tensioner_b`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
 | **02-Z2** | Z2 corner (rear-right, `_a` hand) | Ch 02 · 02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43) | A5 | `z_drive_main_a`, `z_drive_retainer_a`, `z_motor_mount_a`, `z_tensioner_bracket_a`, `[a]_z_drive_baseplate_a`, `[a]_belt_tensioner_a`, `[a]_z_tensioner_9mm`, `z_rail_stop` | B01, B02, B05 |
@@ -137,7 +138,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **04-B** | B drive unit + B (left) front idler | Ch 04 · 04.1–04.33 (B idler 04.13–04.16, B drive 04.29–04.33) | A5 | `[a]_tensioner_left`, `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` | B02, B03 |
 | **05-XY** | XY joints, endstop pod, upper Z belt clips | Ch 05 · 05.3–05.38 (upper Z belt clips 05.19–05.23; endstop pod bagged at 05.46, fitted at 09.32–09.33) | B5 | `[a]_endstop_pod_D2F_switch`, `[a]_xy_joint_cable_bridge_2hole`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×4, `xy_joint_left_lower_MGN12`, `xy_joint_left_upper_MGN12`, `xy_joint_right_lower_MGN12`, `xy_joint_right_upper_MGN12` | B02, B04 |
 | **06-Z-joints** | Z joints and lower Z belt clips | Ch 06 · 06.3–06.9 | A5 | `[a]_z_belt_clip_lower` ×4, `z_joint_lower` ×4, `z_joint_upper` ×4 | B02, B05 |
-| **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39) | A5 | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
+| **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66) | A5 | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
 | **08-CW2** | Clockwork 2 extruder, toolboard + USB covers | Ch 08 · 08.3–08.20 (toolboard cover 08.51, USB adapter cover 08.64) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover`, `usb_adapter_mount_partial_cover` | B02, B06, B07 |
 | **09-bay** | Electronics bay: inlet, WAGO, PSU, DIN clips | Ch 09 · 09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16) | A5 | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
@@ -186,10 +187,10 @@ spool. *Remaining* is what should be left on the active spool once that plate is
 plate lands on its slicer number. Rows are in **print order** — numeric, B00 → B10, overlapping the build.
 
 **When to swap.** Never mid-plate on purpose — but a runout *during* a plate is fine on a part with no
-bearing seat: the Core One+ runout sensor pauses, you load the next spool and it resumes. One runout is
-predicted, on such a plate:
+bearing seat: the Core One+ runout sensor pauses the plate and waits until you load the next spool and press
+**Continue**. One runout is predicted, on such a plate:
 
-- **B09-P1** (the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips; 71 g) — spool #2 has about 30 g left when it starts.
+- **B09-P1** (the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips; 71 g) — spool #2 has about 30 g left when it starts, so the pause comes about 2 h in: start it when someone will be home then.
 
 Four rules that override the ledger:
 
@@ -268,7 +269,7 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 | [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 plate still waiting; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
 | **B11 total** | **5** | **24.9** | **348** | | |
 
-**Filament:** 348 g needed from one 1 kg spool, **V1**, not yet bought → **652 g margin** if B11-P5 prints.
+**Filament:** 348 g needed from one 1 kg spool, **V1**, bought 2026-10-13 → **652 g margin** if B11-P5 prints.
 
 ## B11 run schedule
 
@@ -287,7 +288,7 @@ above so the plate board counts 1 to 26; the slot column gives the place in the 
 
 ## B11 spool ledger
 
-Spool **V1** is one 1 kg Prusament PETG V0 Jet Black spool, not yet bought; weigh it the same way as the ASA
+Spool **V1** is one 1 kg Prusament PETG V0 Jet Black spool, bought 2026-10-13; weigh it the same way as the ASA
 spools. Nothing else in the build prints from it. Swapping to it after B07-P2 takes ASA spool #2 off the printer
 and back on for B08-P1: put #2 in the drybox meanwhile; the ASA ledger's figures do not change.
 

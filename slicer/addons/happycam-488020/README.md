@@ -29,7 +29,7 @@ the only geometry.
 
 ## Print (Step 11.69 job 2)
 
-With the side spool's tube holder, Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, smooth sheet. The
+With the side spool's tube holder, Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, satin sheet, no glue. The
 files are drawn as installed: lay the body on its top face and the door on its large flat face
 (PrusaSlicer's Place on face). Build-plate-only supports, for the cable exit. Job estimate with the tube holder: 28.7 g, 1 h 54 m (PrusaSlicer
 2.9.6 CLI, 2026-10-23); the two camera parts alone are about 21 g. Bin `11-camera`, with the bought board.

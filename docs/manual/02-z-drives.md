@@ -18,8 +18,10 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 - Chapter 01 complete: frame assembled, squared, bed extrusions positioned **65 mm each side of the printer centreline (130 mm clear gap between their inner faces, 150 mm centre-to-centre)** per Ch 01 Step 01.19, and the squareness re-checked after the final torque pass.
 - Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`.
 - Print batch **B01** (Z drive assemblies) — drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports.
-- Print batch **B02** (Accent parts, blue) plates P1 and P3 — the five `[a]_` parts below.
+- Print batch **B02** (Accent parts, blue), all three plates: the baseplates, belt tensioners and Z tensioners are spread across P1–P3.
+- Optional: batch **B05** for `z_rail_stop_x4` (Step 02.10). Skip them and keep the tape.
 - Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf as soon as B01 is printed, so do them the moment the Motor Kit box is open, and label the motor cables then.
+- Steps 02.17–02.28 and 02.39–02.40 are bench work that needs only B01, B02 and the Motion and Motor kits. Build all four drives, motor units and idler cages straight after Step 02.04 if you can, so the frame is inverted only for the deck and corner installs (02.11–02.16, 02.29–02.38).
 - **Chapter 00** complete: all seven rails cleaned, flip-and-packed with grease, wiped and labelled (Steps 00.18–00.21). The four marked Z0–Z3 are used here.
 - Kit boxes open: Motion, Linear Rail Kit, Motor Kit; hardware trays A–C out.
 
@@ -27,8 +29,8 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 
 - Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — good quality, *not* ball-end for set screws (p.32).
 - Temperature-controlled soldering iron + the LDO brass M3 heat-set tip.
-- Digital caliper (deck-panel thickness gate; 33 mm and 10.7 mm pulley dimensions).
-- Printed jig: `MGN9_rail_guide_x2` ×2.
+- Digital caliper (deck-panel thickness confirmation; 33 mm pulley position; 10.7 mm cross-check).
+- Printed jigs: `MGN9_rail_guide_x2` ×2; `pulley_jig` (16T height, Step 02.27).
 - Masking tape (carriage retention, rail hole marking, the FRONT label) and a marker. The 3 mm hex key doubles as the rail-gap feeler (Step 02.06).
 
 **Consumables:** Loctite 243 for any set screw that did *not* arrive with threadlocker pre-applied. (IPA, grease, soak tray, syringe and cloth were the Ch 00 rail-prep kit — nothing here needs them unless a rail was missed.)
@@ -52,7 +54,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/z_tensioner_bracket_a_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_a_x2.stl` | 02-Z0 · 02-Z2 | 2 | Black |
 | ![](assets/parts/z_tensioner_bracket_b_x2.png){ width=96 } | `Z_Idlers/z_tensioner_bracket_b_x2.stl` | 02-Z1 · 02-Z3 | 2 | Black |
 | ![](assets/parts/[a]_z_tensioner_9mm_x4.png){ width=96 } | `Z_Idlers/[a]_z_tensioner_9mm_x4.stl` | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Blue |
-| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D 350 BOM), see Step 02.12 |
+| ![](assets/parts/deck_support_3mm_x8.png){ width=96 } | `Panel_Mounting/deck_support_3mm_x8.stl` | 02-deck | 8 | Black — default (Rev D+ 350 BOM), see Step 02.12 |
 | *no render — same clip, slotted for a 4 mm panel* | `Panel_Mounting/deck_support_4mm_x8.stl` | — | 8 | Black — fallback if the panel measures 4 mm |
 | ![](assets/parts/MGN9_rail_guide_x2.png){ width=96 } | `Tools/MGN9_rail_guide_x2.stl` (jig, not consumed) | 00-jigs | 2 | Black |
 | ![](assets/parts/z_rail_stop_x4.png){ width=96 } | LDO `STLs/z_rail_stop_x4.stl` (optional) | 02-Z0 · 02-Z1 · 02-Z2 · 02-Z3 | 4 | Black — batch **B05**, fitted at Step 02.10 |
@@ -89,7 +91,7 @@ The `_xN` suffix is the quantity you need, not the number of copies in the file 
 | Rubber foot, 38×19 mm | 4 |
 | Deck panel, acrylic black 469×469 | 1 |
 
-Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D+](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)); the LDO kit ships 6× MGN9H-400 and 1× MGN12H-400 — four of the MGN9s are yours here, the other two are the gantry Y rails in Chapter 05.
+Quantities cross-checked against the LDO Rev D+ 350 BOM ([350_BOM/Rev_D+](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)); the LDO kit ships 6× MGN9H-400 and 1× MGN12H-400 — four of the MGN9s are yours here, the other two are the gantry Y rails in Chapter 05.
 
 **Read first**
 
@@ -98,7 +100,7 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D+](https:/
 - **Every set screw gets threadlocker and must land on the flat/D-cut of the shaft.** Loose set screws are the single most reported failure on this machine (p.32; §5.2 W12).
 - **Two corners take `_a` parts, two take `_b`, and diagonal corners share a hand** — `_a` at Z0 (front-left) and Z2 (rear-right), `_b` at Z1 (rear-left) and Z3 (front-right); map at Step 02.02, dry-fit at Step 02.29. A wrong-hand drive bolts on fine and is only found in Ch 06 when the Z belt goes on and the 20T is not under its idler.
 - **Heat-set inserts go into the drive parts before the drive is assembled.** A missed insert means taking a finished drive back apart (§4.4 #4, §5.2 W3).
-- **The deck panel and its supports go in now, at p.28–30 — not later with the panels.** Retro-fitting the deck means pulling the frame apart (LDO note p.29–30; §5.2 W4).
+- **The deck panel and its supports go in now, at p.28–30 — not later with the panels.** LDO places them here, and once Ch 09 bolts the DIN rails through it the panel stays in. The clips twist in, so a wrong set can be swapped later with the printer inverted (LDO note p.29–30; §5.2 W4).
 - Nothing in this chapter touches a probe or an endstop. The Rev D+ nozzle probe and the Omron inductive probe belong to Chapters 08–09; leave both bagged.
 
 **Sources for this chapter:**
@@ -132,7 +134,7 @@ Quantities cross-checked against the LDO Rev D 350 BOM ([350_BOM/Rev_D+](https:/
 
 **Parts:**
 
-- staged: all Chapter 02 printed parts from batches B00, B01 and B02
+- staged: all Chapter 02 printed parts from batches B00, B01 and B02, plus B05's optional rail stops
 
 **Do:**
 
@@ -221,7 +223,7 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 1. Seat 7 inserts per `z_drive_retainer` and 2 per `z_drive_main`, flush; the Gate B retainer takes 6 more. Let each part cool.
 2. Insert pockets are **Ø4.7 × 5 mm deep**. **Ø6 counterbores on the main's flat face take no insert.**
 
-**Check:** 36 inserts in, every one flush or a hair below, none cocked, no melted bulge, nothing in a counterbore.
+**Check:** 36 inserts in, every one flush to 0.2 mm proud, none cocked, no melted bulge, nothing in a counterbore.
 
 ⚠ Iron back in its stand between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
 
@@ -231,7 +233,7 @@ Tip: Count the Ø4.7 pockets on your own parts before you start; if a part shows
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
-Pause: ~40 min since the last pause — printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the coupon, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.
+Pause: ~40 min since the last pause — printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.
 
 ### Step 02.05 — Confirm the four Z rails are already cleaned and greased
 
@@ -409,13 +411,13 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - staged: `deck_support_4mm_x8` ×8, only if the panel measures 4 mm
 - tool: caliper
 
-**Do:** Measure the actual thickness of your deck panel with the caliper, in three places. **Do not resolve this from documents.** Pick the clip set that matches what you measured; the clips go in at Step 02.14, after the panel.
+**Do:** Read the deck thickness taped on the panel film at kit day and confirm it on one edge with the caliper. Lay out the eight clips of that thickness; they go in after the panel.
 
-**Check:** Three readings agree within 0.1 mm, the number is in your build log, and eight clips of the matching thickness are on the bench.
+**Check:** Caliper agrees with the taped number within 0.1 mm, number logged, eight clips of the matching thickness on the bench.
 
-**Helper:** Reads the caliper display aloud three times so you can pick the clip.
+**Helper:** Reads the caliper display aloud so you can check it against the tape.
 
-⚠ **Rev D+ / LDO:** LDO's build note for p.29–30 says the LDO deck panel is **4 mm nominal — use `deck_support_4mm`**, but the Rev D 350 BOM lists it as *469×469×**3 mm***. The size-specific 350 BOM wins, so B01 prints the **3 mm** set. Measure, fit whichever matches, reprint the other if you have to. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+⚠ **Rev D+ / LDO:** LDO's p.29–30 note says the deck panel is **4 mm nominal, use `deck_support_4mm`**; the Rev D+ 350 BOM lists *469×469×**3 mm***. B01 prints the **3 mm** set. The kit-day caliper at Step 00.4 decides and triggers any reprint; this is the confirmation. [src](https://docs.ldomotors.com/voron/voron2/build-faq) · [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=28) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
 
@@ -458,7 +460,7 @@ Source: [Voron manual p.28](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Eight ledges over the panel edge, all the same thickness variant; the panel cannot be lifted out of the frame.
 
-⚠ **Rev D+ / LDO:** this step is not in the official manual at all. LDO adds it here: *"This is a good time to install the deck supports."* Doing it later means the deck comes out and the frame comes partly apart (§5.2 W4). [src](https://docs.ldomotors.com/voron/voron2/build-faq)
+⚠ **Rev D+ / LDO:** this step is not in the official manual at all. LDO adds it here: *"This is a good time to install the deck supports."* The clips twist in, so a wrong set can still be swapped later with the printer inverted, as Ch 09 allows. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 Source: [Voron manual p.29](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=29) · [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Video: Part 2 @0:56:54](https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s)
 
@@ -580,7 +582,7 @@ Source: [Voron manual p.33](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - M4×4 set screws ×8
 
-**Do:** Two set screws per 80T pulley. Set the 80T pulley so a set screw meets the shaft's flat, fit both set screws with threadlocker, and tighten. Build all four stacks.
+**Do:** Two set screws per 80T pulley. Set the 80T pulley so a set screw meets the shaft's flat, fit both set screws, threadlocker pre-applied, and tighten. Build all four stacks.
 
 **Check:** Four complete shaft assemblies, all matching the graphic, none able to slip when you twist the 80T pulley against the shaft by hand.
 
@@ -730,16 +732,18 @@ Pause: ~35 min since the last pause — all four drives closed: shafts seated, r
 - NEMA17 Z motor `LDO-42STH48-2004AC` ×4
 - GT2 **16T** pulley ×4
 - M4×4 set screws ×8
+- tool: printed `pulley_jig`
+- tool: caliper
 
 **Do:**
 
-1. Check the tooth count: **the only 16T pulleys in the printer**.
-2. Slide one on each motor so motor face to pulley underside is **10.7 mm**.
-3. Rotate so a set screw meets the flat; tighten both with threadlocker.
+1. Check the tooth count: **the only 16T pulleys**.
+2. Stand `pulley_jig` on the motor face, **N** tab to the pulley; level the teeth underside with the tab's: **10.7 mm**.
+3. Set a screw on the flat; tighten both, threadlocker pre-applied.
 
-**Check:** On all four, 10.7 mm on the caliper, the tooth band level with the 80T it will drive, no slip under hand force.
+**Check:** All four: 10.7 mm on a caliper cross-check, tooth band level with the 80T it drives, no slip under hand force.
 
-**Helper:** Counts each pulley's teeth to 16 and reads the 10.7 mm caliper aloud.
+**Helper:** Counts each pulley's teeth to 16 and reads the 10.7 mm cross-check aloud.
 
 Tip: when all four are done, physically remove every remaining 16T pulley from the bench so one cannot end up on an A/B motor in Chapter 04. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
 
@@ -1122,7 +1126,7 @@ Pause: ~25 min since the last pause — all four Z idlers mounted, each aligned 
 - **Bolting a rail on dry.** Once a rail is on an extrusion you cannot use the flip-and-pack method, and a dry MGN9 wears out. Rails off again, or a compromised axis — check at Step 02.05 that Ch 00 really did all four (§5.2 W9).
 - **Missing a heat-set insert before the drive is closed.** Six M3×40 have to come out and the shaft assembly has to be lifted to reach it. Do the insert pass as a batch, count the pockets, and only then start assembling (§5.2 W3).
 - **A 20T pulley on a Z motor.** The 16T and 20T look nearly identical. The machine will home and move and be silently wrong on every Z dimension, because `gear_ratio: 80:16` is baked into the config. Count teeth, then clear the 16T pulleys off the bench (p.38).
-- **Skipping the deck supports "until the panels chapter".** The deck cannot be lifted once the gantry and electronics are in — the frame has to come partly apart. LDO puts this at p.29–30 for a reason (§5.2 W4).
+- **Skipping the deck panel "until the panels chapter".** Once Ch 09 bolts the DIN rails through it, the panel stays in. Fit it and its clips now, where LDO puts them, at p.29–30 (§5.2 W4).
 - **Tightening rail screws from one end.** The rail bows and the carriage develops a tight spot that no amount of greasing fixes. Always centre-outward (p.24).
 - **Set screws finger-tight or off the flat.** They loosen under Z load, the belt slips, and the gantry drops out of level. Threadlocker on all of them, one on the flat, tightened with a proper hex driver (p.32, §5.2 W12).
 - **Closing a drive with the halves upside down.** Screws started from above into the retainer's visible brass inserts thread only into that insert, clamp nothing, and pull the insert out of its boss. The M3×40 heads sink into the main's counterbores; the retainer's inserts are at the bottom of the stack (Step 02.24).

@@ -67,9 +67,9 @@ with the arrangement, the per-object brims and the full configuration already in
 
 | What | Where |
 |---|---|
-| One project per plate, 22 of them | `slicer/plates/B01-P1.3mf` … |
+| One project per plate, 26 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
-| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 27 projects, B11's included) |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 26 projects, B11's included) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -80,9 +80,9 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 25 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 26 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
-all 27 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+all 26 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
 ⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 21 projects and both `.ini`
@@ -267,14 +267,14 @@ so a change made here does not travel: re-enter it in every later project as you
 value on the sheet-edge tape so you know what it should be.
 
 **Gate A passed →** every batch with no press fit is released: **B02**, **B07**, and the cosmetics
-**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 58.4 h and 763 g of
-bearing-seat and shaft-bore parts printed against an unverified fit — run Gate B first, the same week.
+**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 57.4 h and 759 g of
+bearing-seat and shaft-bore parts printed against an unverified fit — run Gate B's bore row first, the same day.
 
 ### Gate B — bore and inserts now, rail on kit day
 
 | When | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|---|
-| **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part. Ch 00 Steps 00.14–00.15 are this row, same coupon, same session: the coupon's one use. |
+| **now** | `Heatset_Practice` | 7 × M3×H5 inserts from the KADRICK kit — all seven pockets. Shank must caliper ~4 mm `(verify on bench)` | insert sits flush to 0.2 mm proud, boss does not bulge > 0.2 mm | bulging → iron too hot or pushed too fast — a technique problem, not a slicer one. Do all seven before touching a real part. Ch 00 Steps 00.14–00.15 are this row, same coupon, same session: the coupon's one use. It holds no plate: B01 and B03–B06 print on the bore row, and this row passes before the first real insert (Ch 02 Step 02.03). |
 | **now** | `z_drive_retainer_a` 625-2RS pocket (same plate) | **16.30 mm**, measured off the STL; the concentric lip below it is 14.30 mm | caliper across the pocket reads 16.30 mm ±0.15 | over → confirm shrinkage compensation is 0 % and XY compensation is 0, then raise [extrusion multiplier](../16-glossary.md#e) 1 %. Under → reduce it 1 %. Never fix it with XY compensation. |
 | **kit day** | the same pocket, on a real 625-2RS (16 mm OD) | — | bearing presses in with thumb pressure, no rocking | this is the press fit the caliper is standing in for; a fail here reprints the retainer and the cube, and re-passes Gate A |
 | **kit day** | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
@@ -287,7 +287,7 @@ inserts stay for the build**.
 The same calculator covers Gate B at [Step B00.7](B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), with the two kit-day rows marked optional so they can stay blank until carton 1 is open.
 
 **Gate B passed →** start **B01**, then **B03–B06**. Gate B is Step B00.7; its two early rows take about
-15 minutes and unblock 58.4 h of printing, so run them in the same week as Gate A. If Gate B moves the
+15 minutes, and the bore row alone unblocks 57.4 h of printing, so run it the same day as Gate A, before the next plate swap. If Gate B moves the
 extrusion multiplier, re-print the cube and re-pass Gate A before B01.
 
 If the bore is still loose with shrinkage compensation already at 0 % and XY compensation at 0, **raise the
@@ -301,7 +301,7 @@ machine.
 |---|---|---|
 | B02, B07 | **A** | no bearing seats, no rail fit; their heat-set bosses get inserts on kit day |
 | B08, B09, B10 | **A** | cosmetic; the skirts are where VFA shows most, but they print on the same GT2 belts as the rest of the run — Galaxy Black's fleck hides the ripple, and GT1.5 lands with the INDX + Gen 2 rebuild |
-| B01, B03, B04, B05, B06 | **B** (bore + inserts, run early) | 625-2RS pockets, F695 flange seats, MGN12 carriage pattern, Z-joint bolt pattern |
+| B01, B03, B04, B05, B06 | **B** (bore, run early) | 625-2RS pockets, A/B drive frame halves that close flat, MGN12 carriage pattern, Z-joint bolt pattern |
 
 **Quality gate before every later batch:** look at the *last* plate pulled off. If any part shows
 (a) a lifted corner, (b) a delaminated layer, or (c) a bore/boss that failed a test fit — fix that before
@@ -394,10 +394,10 @@ because nothing changes the machine under the parts.
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now would put the closed bed calibration
 (±0.1 mm on the +2.8 front-left Z-stop correction cap) at risk and force a belt retune, an XY-homing recal
-and a start-G-code re-sync of all 22 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
+and a start-G-code re-sync of all 26 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
-**Two checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
+**Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
 the full tick list `(verify on bench)`:
 
 1. **Belt pluck check.** Belt tuning was never formally closed. Pluck mid-belt (motors disabled, head front,
@@ -410,7 +410,10 @@ the full tick list `(verify on bench)`:
    the Voron ASA batches' 40–55 °C chamber / hotter bed. Its project is committed:
    `slicer/checks/hot-first-layer.3mf`, five 30×30×0.2 mm squares (four corners + centre, one layer) in
    Galaxy Black ASA on B00-P1's presets, 110 °C bed, cold start G-code. It runs after Step B00.0, whose wizard
-   installs those presets. Pass: no "bed not aligned" prompt, every square 0.17–0.23 mm, spread ≤0.05 mm.
+   installs those presets. Pass: no "bed not aligned" prompt, every square smooth and closed, about 0.24–0.26 mm
+   on calipers (the plates print the first layer at Z 0.28), all five alike.
+4. **Brim-gap ladder.** `slicer/checks/brim-gap-ladder.3mf`, six squares at brim gaps 0.10–0.40 mm: the
+   smallest gap that breaks off clean by hand is the plates' `brim_separation` (0.15 since 2026-10-29).
 
 **Superseded 2026-10-28 (Alex): neither the expansion joints nor the nozzle wiper is fitted, the plates keep
 the cold-probe start, and the hot check runs once, on that start.** The 2026-10-01 plan, kept for reference
@@ -431,7 +434,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 25 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 26 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater

@@ -20,140 +20,142 @@
 <text x="48.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">A belt  —  A drive is rear RIGHT</text>
 <text x="48.0" y="177.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">two parallel runs on the right side, one on the left</text>
 <rect x="75.0" y="218.0" width="440.0" height="510.0" rx="4" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
-<rect x="147.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
-<rect x="461.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
-<rect x="159.0" y="479.0" width="302.0" height="18.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="79.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="499.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="91.0" y="479.0" width="408.0" height="18.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
 <text x="295.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">REAR</text>
 <text x="295.0" y="744.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">FRONT</text>
-<rect x="389.0" y="238.0" width="122.0" height="126.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="450.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A drive</text>
-<rect x="113.0" y="238.0" width="86.0" height="82.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="156.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B drive</text>
-<rect x="443.0" y="634.0" width="74.0" height="70.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="480.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A idler</text>
-<rect x="411.0" y="446.0" width="76.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="389.0" y="238.0" width="112.0" height="126.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="445.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A drive</text>
+<rect x="83.0" y="238.0" width="80.0" height="82.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="123.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B drive</text>
+<rect x="439.0" y="634.0" width="66.0" height="70.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="472.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A idler</text>
+<rect x="399.0" y="446.0" width="100.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
 <text x="449.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
-<rect x="119.0" y="446.0" width="76.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="157.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
+<rect x="91.0" y="446.0" width="100.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="141.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
 <rect x="251.0" y="446.0" width="88.0" height="84.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.5"/>
 <text x="295.0" y="468.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">X carriage</text>
 <text x="295.0" y="484.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">left half</text>
 <text x="295.0" y="498.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">right half</text>
-<circle cx="155.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="435.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="475.0" cy="334.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="475.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="155.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="427.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
-<circle cx="427.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
-<circle cx="435.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
-<circle cx="435.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+<circle cx="121.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="415.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="469.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="469.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="121.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="425.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="425.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
+<circle cx="429.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="429.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
 <text x="367.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">return turn: TEETH ON</text>
 <text x="367.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#E8751A" letter-spacing="0">the upper 20T idler here</text>
 <text x="187.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">leaving turn: smooth back</text>
 <text x="187.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">on the upper F695 pair</text>
-<path d="M 251.00 508.00 L 155.00 508.00 A 20.00 20.00 0 0 1 135.00 488.00 L 135.00 278.00 A 20.00 20.00 0 0 1 155.00 258.00 L 435.00 258.00 A 20.00 20.00 0 0 1 447.00 294.00 L 415.00 318.00 A 20.00 20.00 0 1 0 443.67 345.06 L 458.33 322.94 A 20.00 20.00 0 0 1 495.00 334.00 L 495.00 668.00 A 20.00 20.00 0 0 1 455.00 668.00 L 455.00 488.00 A 20.00 20.00 0 0 0 435.00 468.00 L 339.00 468.00" fill="none" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="235.5" y1="508.0" x2="235.5" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="219.2" y1="508.0" x2="219.2" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="203.0" y1="508.0" x2="203.0" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="186.8" y1="508.0" x2="186.8" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="170.5" y1="508.0" x2="170.5" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="155.0" y1="508.0" x2="155.0" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="147.3" y1="506.5" x2="145.1" y2="512.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="140.9" y1="502.1" x2="136.6" y2="506.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="136.5" y1="495.7" x2="131.0" y2="497.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="488.0" x2="129.0" y2="488.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="415.5" x2="129.0" y2="415.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="399.2" x2="129.0" y2="399.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="383.0" x2="129.0" y2="383.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="366.8" x2="129.0" y2="366.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="350.5" x2="129.0" y2="350.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="135.0" y1="278.0" x2="129.0" y2="278.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="136.5" y1="270.3" x2="131.0" y2="268.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="140.9" y1="263.9" x2="136.6" y2="259.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="147.3" y1="259.5" x2="145.1" y2="254.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="155.0" y1="258.0" x2="155.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="262.5" y1="258.0" x2="262.5" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="278.8" y1="258.0" x2="278.8" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="295.0" y1="258.0" x2="295.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="311.2" y1="258.0" x2="311.2" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="327.5" y1="258.0" x2="327.5" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="435.0" y1="258.0" x2="435.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="442.0" y1="259.3" x2="444.1" y2="253.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="448.1" y1="262.9" x2="452.0" y2="258.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="452.5" y1="268.4" x2="457.8" y2="265.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="454.8" y1="275.1" x2="460.7" y2="274.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="454.5" y1="282.2" x2="460.4" y2="283.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="451.8" y1="288.8" x2="456.9" y2="292.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="447.0" y1="294.0" x2="450.6" y2="298.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="443.8" y1="296.4" x2="447.4" y2="301.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="437.4" y1="301.2" x2="441.0" y2="306.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="431.0" y1="306.0" x2="434.6" y2="310.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="424.6" y1="310.8" x2="428.2" y2="315.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="418.2" y1="315.6" x2="421.8" y2="320.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="415.0" y1="318.0" x2="418.6" y2="322.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="410.3" y1="323.1" x2="415.3" y2="326.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="407.5" y1="329.4" x2="413.4" y2="330.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="407.1" y1="336.3" x2="413.1" y2="335.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="409.1" y1="343.0" x2="414.5" y2="340.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="413.3" y1="348.5" x2="417.4" y2="344.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="419.1" y1="352.4" x2="421.4" y2="346.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="425.8" y1="354.0" x2="426.2" y2="348.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="432.7" y1="353.2" x2="431.0" y2="347.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="438.9" y1="350.1" x2="435.3" y2="345.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="443.7" y1="345.1" x2="438.7" y2="341.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="445.9" y1="341.7" x2="440.9" y2="338.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="448.4" y1="337.9" x2="443.4" y2="334.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="451.0" y1="334.0" x2="446.0" y2="330.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="453.6" y1="330.1" x2="448.6" y2="326.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="456.1" y1="326.3" x2="451.1" y2="323.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="458.3" y1="322.9" x2="453.3" y2="319.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="463.4" y1="317.7" x2="459.9" y2="312.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="470.0" y1="314.6" x2="468.4" y2="308.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="477.2" y1="314.1" x2="477.9" y2="308.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="484.2" y1="316.2" x2="486.9" y2="310.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="489.9" y1="320.7" x2="494.4" y2="316.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="493.7" y1="326.9" x2="499.3" y2="324.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="334.0" x2="501.0" y2="334.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="468.5" x2="501.0" y2="468.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="484.8" x2="501.0" y2="484.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="501.0" x2="501.0" y2="501.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="517.2" x2="501.0" y2="517.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="533.5" x2="501.0" y2="533.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="495.0" y1="668.0" x2="501.0" y2="668.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="493.8" y1="674.8" x2="499.4" y2="676.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="490.3" y1="680.9" x2="494.9" y2="684.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="485.0" y1="685.3" x2="488.0" y2="690.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="478.5" y1="687.7" x2="479.5" y2="693.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="471.5" y1="687.7" x2="470.5" y2="693.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="465.0" y1="685.3" x2="462.0" y2="690.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="459.7" y1="680.9" x2="455.1" y2="684.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="456.2" y1="674.8" x2="450.6" y2="676.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="668.0" x2="449.0" y2="668.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="610.5" x2="449.0" y2="610.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="594.2" x2="449.0" y2="594.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="578.0" x2="449.0" y2="578.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="561.8" x2="449.0" y2="561.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="545.5" x2="449.0" y2="545.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="455.0" y1="488.0" x2="449.0" y2="488.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="453.5" y1="480.3" x2="447.9" y2="482.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="449.1" y1="473.9" x2="444.9" y2="478.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="442.7" y1="469.5" x2="440.4" y2="475.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="435.0" y1="468.0" x2="435.0" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="419.5" y1="468.0" x2="419.5" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="403.2" y1="468.0" x2="403.2" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="387.0" y1="468.0" x2="387.0" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="370.8" y1="468.0" x2="370.8" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="354.5" y1="468.0" x2="354.5" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
-<path d="M 135 398 L 135 366" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
+<path d="M 251.00 508.00 L 121.00 508.00 A 20.00 20.00 0 0 1 101.00 488.00 L 101.00 278.00 A 20.00 20.00 0 0 1 121.00 258.00 L 415.00 258.00 A 20.00 20.00 0 0 1 431.47 289.34 L 408.53 322.66 A 20.00 20.00 0 1 0 444.95 335.39 L 449.05 276.61 A 20.00 20.00 0 0 1 489.00 278.00 L 489.00 668.00 A 20.00 20.00 0 0 1 449.00 668.00 L 449.00 488.00 A 20.00 20.00 0 0 0 429.00 468.00 L 339.00 468.00" fill="none" stroke="#0E8F86" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="218.5" y1="508.0" x2="218.5" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="202.2" y1="508.0" x2="202.2" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="186.0" y1="508.0" x2="186.0" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="169.8" y1="508.0" x2="169.8" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="153.5" y1="508.0" x2="153.5" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="121.0" y1="508.0" x2="121.0" y2="514.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="113.3" y1="506.5" x2="111.1" y2="512.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="106.9" y1="502.1" x2="102.6" y2="506.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="102.5" y1="495.7" x2="97.0" y2="497.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="488.0" x2="95.0" y2="488.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="415.5" x2="95.0" y2="415.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="399.2" x2="95.0" y2="399.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="383.0" x2="95.0" y2="383.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="366.8" x2="95.0" y2="366.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="350.5" x2="95.0" y2="350.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="101.0" y1="278.0" x2="95.0" y2="278.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="102.5" y1="270.3" x2="97.0" y2="268.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="106.9" y1="263.9" x2="102.6" y2="259.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="113.3" y1="259.5" x2="111.1" y2="254.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="121.0" y1="258.0" x2="121.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="235.5" y1="258.0" x2="235.5" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="251.8" y1="258.0" x2="251.8" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="268.0" y1="258.0" x2="268.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="284.2" y1="258.0" x2="284.2" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="300.5" y1="258.0" x2="300.5" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="415.0" y1="258.0" x2="415.0" y2="252.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="422.1" y1="259.3" x2="424.2" y2="253.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="428.3" y1="263.0" x2="432.2" y2="258.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="432.7" y1="268.7" x2="438.0" y2="265.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="434.9" y1="275.6" x2="440.8" y2="274.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="434.4" y1="282.8" x2="440.2" y2="284.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="431.5" y1="289.3" x2="436.4" y2="292.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="429.2" y1="292.6" x2="434.1" y2="296.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="424.6" y1="299.3" x2="429.5" y2="302.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="420.0" y1="306.0" x2="424.9" y2="309.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="415.4" y1="312.7" x2="420.3" y2="316.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="410.8" y1="319.4" x2="415.7" y2="322.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="408.5" y1="322.7" x2="413.5" y2="326.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="405.7" y1="328.7" x2="411.5" y2="330.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="405.0" y1="335.3" x2="411.0" y2="334.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="406.6" y1="341.8" x2="412.1" y2="339.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="410.1" y1="347.4" x2="414.6" y2="343.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="415.4" y1="351.5" x2="418.2" y2="346.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="421.6" y1="353.7" x2="422.6" y2="347.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="428.3" y1="353.7" x2="427.3" y2="347.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="434.6" y1="351.6" x2="431.7" y2="346.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="439.8" y1="347.5" x2="435.4" y2="343.4" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="443.4" y1="341.9" x2="437.9" y2="339.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="445.0" y1="335.4" x2="439.0" y2="335.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="445.2" y1="331.4" x2="439.2" y2="331.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="446.1" y1="318.7" x2="440.1" y2="318.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="447.0" y1="306.0" x2="441.0" y2="305.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="447.9" y1="293.3" x2="441.9" y2="292.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="448.8" y1="280.6" x2="442.8" y2="280.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="276.6" x2="443.1" y2="276.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="450.7" y1="270.0" x2="445.2" y2="267.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="454.4" y1="264.3" x2="450.0" y2="260.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="459.8" y1="260.2" x2="457.1" y2="254.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="466.3" y1="258.2" x2="465.5" y2="252.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="473.1" y1="258.4" x2="474.3" y2="252.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="479.4" y1="260.9" x2="482.5" y2="255.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="484.5" y1="265.4" x2="489.2" y2="261.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="487.8" y1="271.3" x2="493.5" y2="269.3" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="278.0" x2="495.0" y2="278.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="440.5" x2="495.0" y2="440.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="456.8" x2="495.0" y2="456.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="473.0" x2="495.0" y2="473.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="489.2" x2="495.0" y2="489.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="505.5" x2="495.0" y2="505.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="489.0" y1="668.0" x2="495.0" y2="668.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="487.8" y1="674.8" x2="493.4" y2="676.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="484.3" y1="680.9" x2="488.9" y2="684.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="479.0" y1="685.3" x2="482.0" y2="690.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="472.5" y1="687.7" x2="473.5" y2="693.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="465.5" y1="687.7" x2="464.5" y2="693.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="459.0" y1="685.3" x2="456.0" y2="690.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="453.7" y1="680.9" x2="449.1" y2="684.7" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="450.2" y1="674.8" x2="444.6" y2="676.9" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="668.0" x2="443.0" y2="668.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="610.5" x2="443.0" y2="610.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="594.2" x2="443.0" y2="594.2" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="578.0" x2="443.0" y2="578.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="561.8" x2="443.0" y2="561.8" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="545.5" x2="443.0" y2="545.5" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="449.0" y1="488.0" x2="443.0" y2="488.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="447.5" y1="480.3" x2="441.9" y2="482.6" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="443.1" y1="473.9" x2="438.9" y2="478.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="436.7" y1="469.5" x2="434.4" y2="475.1" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="429.0" y1="468.0" x2="429.0" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="416.5" y1="468.0" x2="416.5" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="400.2" y1="468.0" x2="400.2" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="384.0" y1="468.0" x2="384.0" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="367.8" y1="468.0" x2="367.8" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="351.5" y1="468.0" x2="351.5" y2="474.0" stroke="#0E8F86" stroke-width="1.8" stroke-linecap="butt"/>
+<path d="M 101 398 L 101 366" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
 <path d="M 245 258 L 299 258" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
-<path d="M 495 518 L 495 560" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
-<path d="M 455 596 L 455 554" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
+<path d="M 489 518 L 489 560" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
+<path d="M 449 596 L 449 554" fill="none" stroke="#0E8F86" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwa)"/>
 <text x="305.0" y="400.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">S-wrap at this belt's OWN drive:</text>
-<text x="305.0" y="416.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack → 20T motor pulley → stack</text>
+<text x="305.0" y="416.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">near stack → 20T pulley → corner stack</text>
 <text x="233.0" y="340.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">90° turn only, on the</text>
-<text x="233.0" y="354.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">other drive's 4-bearing</text>
-<text x="233.0" y="368.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack</text>
+<text x="233.0" y="354.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">other drive's corner</text>
+<text x="233.0" y="368.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack (two pairs)</text>
 <text x="285.0" y="692.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">180° U-turn at the front idler —</text>
 <text x="285.0" y="706.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">smooth back on the stack, teeth</text>
 <text x="285.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">outward on both runs</text>
@@ -161,140 +163,142 @@
 <text x="628.0" y="156.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" text-anchor="start" fill="currentColor" letter-spacing="0">B belt  —  B drive is rear LEFT</text>
 <text x="628.0" y="177.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">two parallel runs on the left side, one on the right</text>
 <rect x="655.0" y="218.0" width="440.0" height="510.0" rx="4" fill="#DCE9F6" stroke="#2A6FB5" stroke-width="2.5"/>
-<rect x="1011.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
-<rect x="697.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
-<rect x="709.0" y="479.0" width="302.0" height="18.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="1079.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="659.0" y="296.0" width="12.0" height="356.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
+<rect x="671.0" y="479.0" width="408.0" height="18.0" rx="2" fill="#2A6FB5" stroke="#2A6FB5" stroke-width="1" opacity="0.3"/>
 <text x="875.0" y="212.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">REAR</text>
 <text x="875.0" y="744.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#2A6FB5" letter-spacing="0">FRONT</text>
-<rect x="659.0" y="238.0" width="122.0" height="126.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="720.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B drive</text>
-<rect x="971.0" y="238.0" width="86.0" height="82.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="1014.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A drive</text>
-<rect x="653.0" y="634.0" width="74.0" height="70.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="690.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B idler</text>
-<rect x="683.0" y="446.0" width="76.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="669.0" y="238.0" width="112.0" height="126.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="725.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B drive</text>
+<rect x="1007.0" y="238.0" width="80.0" height="82.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="1047.0" y="230.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">A drive</text>
+<rect x="665.0" y="634.0" width="66.0" height="70.0" rx="6" fill="#E2E4E8" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="698.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">B idler</text>
+<rect x="671.0" y="446.0" width="100.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
 <text x="709.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
-<rect x="975.0" y="446.0" width="76.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="1001.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
+<rect x="979.0" y="446.0" width="100.0" height="84.0" rx="6" fill="none" stroke="#3E4550" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="1017.0" y="438.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">XY joint</text>
 <rect x="831.0" y="446.0" width="88.0" height="84.0" rx="6" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.5"/>
 <text x="875.0" y="468.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" fill="currentColor" letter-spacing="0">X carriage</text>
 <text x="875.0" y="484.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">left half</text>
 <text x="875.0" y="498.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">right half</text>
-<circle cx="1015.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="735.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="695.0" cy="334.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="695.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="1015.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
-<circle cx="743.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
-<circle cx="743.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
-<circle cx="735.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
-<circle cx="735.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+<circle cx="1049.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="755.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="701.0" cy="278.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="701.0" cy="668.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="1049.0" cy="488.0" r="15.0" fill="#E7E9EC" stroke="#7E8794" stroke-width="2.2"/>
+<circle cx="745.0" cy="334.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="745.0" cy="334.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6"/>
+<circle cx="741.0" cy="488.0" r="15.0" fill="#FBE6D2" stroke="#E8751A" stroke-width="2.6"/>
+<circle cx="741.0" cy="488.0" r="8.0" fill="none" stroke="#E8751A" stroke-width="1.6" stroke-dasharray="2.5 2"/>
 <text x="803.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="700" text-anchor="middle" fill="#E8751A" letter-spacing="0">leaving turn: TEETH ON</text>
 <text x="803.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#E8751A" letter-spacing="0">the lower 20T idler here</text>
 <text x="983.0" y="562.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">return turn: smooth back</text>
 <text x="983.0" y="576.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">on the lower F695 pair</text>
-<path d="M 831.00 468.00 L 735.00 468.00 A 20.00 20.00 0 0 0 715.00 488.00 L 715.00 668.00 A 20.00 20.00 0 0 1 675.00 668.00 L 675.00 334.00 A 20.00 20.00 0 0 1 711.67 322.94 L 726.33 345.06 A 20.00 20.00 0 1 0 755.00 318.00 L 723.00 294.00 A 20.00 20.00 0 0 1 735.00 258.00 L 1015.00 258.00 A 20.00 20.00 0 0 1 1035.00 278.00 L 1035.00 488.00 A 20.00 20.00 0 0 1 1015.00 508.00 L 919.00 508.00" fill="none" stroke="#7A4FD6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="815.5" y1="468.0" x2="815.5" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="799.2" y1="468.0" x2="799.2" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="783.0" y1="468.0" x2="783.0" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="766.8" y1="468.0" x2="766.8" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="750.5" y1="468.0" x2="750.5" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="735.0" y1="468.0" x2="735.0" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="727.3" y1="469.5" x2="729.6" y2="475.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="720.9" y1="473.9" x2="725.1" y2="478.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="716.5" y1="480.3" x2="722.1" y2="482.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="488.0" x2="721.0" y2="488.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="545.5" x2="721.0" y2="545.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="561.8" x2="721.0" y2="561.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="578.0" x2="721.0" y2="578.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="594.2" x2="721.0" y2="594.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="610.5" x2="721.0" y2="610.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.0" y1="668.0" x2="721.0" y2="668.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="713.8" y1="674.8" x2="719.4" y2="676.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="710.3" y1="680.9" x2="714.9" y2="684.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="705.0" y1="685.3" x2="708.0" y2="690.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="698.5" y1="687.7" x2="699.5" y2="693.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="691.5" y1="687.7" x2="690.5" y2="693.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="685.0" y1="685.3" x2="682.0" y2="690.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="679.7" y1="680.9" x2="675.1" y2="684.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="676.2" y1="674.8" x2="670.6" y2="676.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="668.0" x2="669.0" y2="668.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="533.5" x2="669.0" y2="533.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="517.2" x2="669.0" y2="517.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="501.0" x2="669.0" y2="501.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="484.8" x2="669.0" y2="484.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="468.5" x2="669.0" y2="468.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="675.0" y1="334.0" x2="669.0" y2="334.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="676.3" y1="326.9" x2="670.7" y2="324.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="680.1" y1="320.7" x2="675.6" y2="316.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="685.8" y1="316.2" x2="683.1" y2="310.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="692.8" y1="314.1" x2="692.1" y2="308.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="700.0" y1="314.6" x2="701.6" y2="308.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="706.6" y1="317.7" x2="710.1" y2="312.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="711.7" y1="322.9" x2="716.7" y2="319.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="713.9" y1="326.3" x2="718.9" y2="323.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="716.4" y1="330.1" x2="721.4" y2="326.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="719.0" y1="334.0" x2="724.0" y2="330.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="721.6" y1="337.9" x2="726.6" y2="334.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="724.1" y1="341.7" x2="729.1" y2="338.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="726.3" y1="345.1" x2="731.3" y2="341.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="731.1" y1="350.1" x2="734.7" y2="345.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="737.3" y1="353.2" x2="739.0" y2="347.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="744.2" y1="354.0" x2="743.8" y2="348.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="750.9" y1="352.4" x2="748.6" y2="346.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="756.7" y1="348.5" x2="752.6" y2="344.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="760.9" y1="343.0" x2="755.5" y2="340.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="762.9" y1="336.3" x2="756.9" y2="335.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="762.5" y1="329.4" x2="756.6" y2="330.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="759.7" y1="323.1" x2="754.7" y2="326.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="755.0" y1="318.0" x2="751.4" y2="322.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="751.8" y1="315.6" x2="748.2" y2="320.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="745.4" y1="310.8" x2="741.8" y2="315.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="739.0" y1="306.0" x2="735.4" y2="310.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="732.6" y1="301.2" x2="729.0" y2="306.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="726.2" y1="296.4" x2="722.6" y2="301.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="723.0" y1="294.0" x2="719.4" y2="298.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="718.2" y1="288.8" x2="713.1" y2="292.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.5" y1="282.2" x2="709.6" y2="283.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="715.2" y1="275.1" x2="709.3" y2="274.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="717.5" y1="268.4" x2="712.2" y2="265.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="721.9" y1="262.9" x2="718.0" y2="258.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="728.0" y1="259.3" x2="725.9" y2="253.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="735.0" y1="258.0" x2="735.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="842.5" y1="258.0" x2="842.5" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="858.8" y1="258.0" x2="858.8" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="875.0" y1="258.0" x2="875.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="891.2" y1="258.0" x2="891.2" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="907.5" y1="258.0" x2="907.5" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1015.0" y1="258.0" x2="1015.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1022.7" y1="259.5" x2="1024.9" y2="254.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1029.1" y1="263.9" x2="1033.4" y2="259.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1033.5" y1="270.3" x2="1039.0" y2="268.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="278.0" x2="1041.0" y2="278.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="350.5" x2="1041.0" y2="350.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="366.8" x2="1041.0" y2="366.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="383.0" x2="1041.0" y2="383.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="399.2" x2="1041.0" y2="399.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="415.5" x2="1041.0" y2="415.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1035.0" y1="488.0" x2="1041.0" y2="488.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1033.5" y1="495.7" x2="1039.0" y2="497.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1029.1" y1="502.1" x2="1033.4" y2="506.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1022.7" y1="506.5" x2="1024.9" y2="512.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="1015.0" y1="508.0" x2="1015.0" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="999.5" y1="508.0" x2="999.5" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="983.2" y1="508.0" x2="983.2" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="967.0" y1="508.0" x2="967.0" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="950.8" y1="508.0" x2="950.8" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<line x1="934.5" y1="508.0" x2="934.5" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
-<path d="M 1035 366 L 1035 398" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
+<path d="M 831.00 468.00 L 741.00 468.00 A 20.00 20.00 0 0 0 721.00 488.00 L 721.00 668.00 A 20.00 20.00 0 0 1 681.00 668.00 L 681.00 278.00 A 20.00 20.00 0 0 1 720.95 276.61 L 725.05 335.39 A 20.00 20.00 0 1 0 761.47 322.66 L 738.53 289.34 A 20.00 20.00 0 0 1 755.00 258.00 L 1049.00 258.00 A 20.00 20.00 0 0 1 1069.00 278.00 L 1069.00 488.00 A 20.00 20.00 0 0 1 1049.00 508.00 L 919.00 508.00" fill="none" stroke="#7A4FD6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="818.5" y1="468.0" x2="818.5" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="802.2" y1="468.0" x2="802.2" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="786.0" y1="468.0" x2="786.0" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="769.8" y1="468.0" x2="769.8" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="753.5" y1="468.0" x2="753.5" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="741.0" y1="468.0" x2="741.0" y2="474.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="733.3" y1="469.5" x2="735.6" y2="475.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="726.9" y1="473.9" x2="731.1" y2="478.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="722.5" y1="480.3" x2="728.1" y2="482.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="488.0" x2="727.0" y2="488.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="545.5" x2="727.0" y2="545.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="561.8" x2="727.0" y2="561.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="578.0" x2="727.0" y2="578.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="594.2" x2="727.0" y2="594.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="610.5" x2="727.0" y2="610.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="668.0" x2="727.0" y2="668.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="719.8" y1="674.8" x2="725.4" y2="676.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="716.3" y1="680.9" x2="720.9" y2="684.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="711.0" y1="685.3" x2="714.0" y2="690.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="704.5" y1="687.7" x2="705.5" y2="693.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="697.5" y1="687.7" x2="696.5" y2="693.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="691.0" y1="685.3" x2="688.0" y2="690.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="685.7" y1="680.9" x2="681.1" y2="684.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="682.2" y1="674.8" x2="676.6" y2="676.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="668.0" x2="675.0" y2="668.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="505.5" x2="675.0" y2="505.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="489.2" x2="675.0" y2="489.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="473.0" x2="675.0" y2="473.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="456.8" x2="675.0" y2="456.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="440.5" x2="675.0" y2="440.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="681.0" y1="278.0" x2="675.0" y2="278.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="682.2" y1="271.3" x2="676.5" y2="269.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="685.5" y1="265.4" x2="680.8" y2="261.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="690.6" y1="260.9" x2="687.5" y2="255.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="696.9" y1="258.4" x2="695.7" y2="252.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="703.7" y1="258.2" x2="704.5" y2="252.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="710.2" y1="260.2" x2="712.9" y2="254.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="715.6" y1="264.3" x2="720.0" y2="260.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="719.3" y1="270.0" x2="724.8" y2="267.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.0" y1="276.6" x2="726.9" y2="276.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="721.2" y1="280.6" x2="727.2" y2="280.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="722.1" y1="293.3" x2="728.1" y2="292.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="723.0" y1="306.0" x2="729.0" y2="305.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="723.9" y1="318.7" x2="729.9" y2="318.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="724.8" y1="331.4" x2="730.8" y2="331.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="725.0" y1="335.4" x2="731.0" y2="335.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="726.6" y1="341.9" x2="732.1" y2="339.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="730.2" y1="347.5" x2="734.6" y2="343.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="735.4" y1="351.6" x2="738.3" y2="346.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="741.7" y1="353.7" x2="742.7" y2="347.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="748.4" y1="353.7" x2="747.4" y2="347.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="754.6" y1="351.5" x2="751.8" y2="346.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="759.9" y1="347.4" x2="755.4" y2="343.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="763.4" y1="341.8" x2="757.9" y2="339.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="765.0" y1="335.3" x2="759.0" y2="334.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="764.3" y1="328.7" x2="758.5" y2="330.3" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="761.5" y1="322.7" x2="756.5" y2="326.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="759.2" y1="319.4" x2="754.3" y2="322.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="754.6" y1="312.7" x2="749.7" y2="316.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="750.0" y1="306.0" x2="745.1" y2="309.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="745.4" y1="299.3" x2="740.5" y2="302.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="740.8" y1="292.6" x2="735.9" y2="296.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="738.5" y1="289.3" x2="733.6" y2="292.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="735.6" y1="282.8" x2="729.8" y2="284.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="735.1" y1="275.6" x2="729.2" y2="274.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="737.3" y1="268.7" x2="732.0" y2="265.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="741.7" y1="263.0" x2="737.8" y2="258.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="747.9" y1="259.3" x2="745.8" y2="253.7" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="755.0" y1="258.0" x2="755.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="869.5" y1="258.0" x2="869.5" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="885.8" y1="258.0" x2="885.8" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="902.0" y1="258.0" x2="902.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="918.2" y1="258.0" x2="918.2" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="934.5" y1="258.0" x2="934.5" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1049.0" y1="258.0" x2="1049.0" y2="252.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1056.7" y1="259.5" x2="1058.9" y2="254.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1063.1" y1="263.9" x2="1067.4" y2="259.6" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1067.5" y1="270.3" x2="1073.0" y2="268.1" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="278.0" x2="1075.0" y2="278.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="350.5" x2="1075.0" y2="350.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="366.8" x2="1075.0" y2="366.8" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="383.0" x2="1075.0" y2="383.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="399.2" x2="1075.0" y2="399.2" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="415.5" x2="1075.0" y2="415.5" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1069.0" y1="488.0" x2="1075.0" y2="488.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1067.5" y1="495.7" x2="1073.0" y2="497.9" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1063.1" y1="502.1" x2="1067.4" y2="506.4" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1056.7" y1="506.5" x2="1058.9" y2="512.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1049.0" y1="508.0" x2="1049.0" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1016.5" y1="508.0" x2="1016.5" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="1000.2" y1="508.0" x2="1000.2" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="984.0" y1="508.0" x2="984.0" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="967.8" y1="508.0" x2="967.8" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<line x1="951.5" y1="508.0" x2="951.5" y2="514.0" stroke="#7A4FD6" stroke-width="1.8" stroke-linecap="butt"/>
+<path d="M 1069 366 L 1069 398" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
 <path d="M 871 258 L 925 258" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
-<path d="M 675 560 L 675 518" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
-<path d="M 715 554 L 715 596" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
+<path d="M 681 560 L 681 518" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
+<path d="M 721 554 L 721 596" fill="none" stroke="#7A4FD6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arwb)"/>
 <text x="865.0" y="400.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="600" text-anchor="middle" fill="#5C6675" letter-spacing="0">S-wrap at this belt's OWN drive:</text>
-<text x="865.0" y="416.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack → 20T motor pulley → stack</text>
+<text x="865.0" y="416.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">near stack → 20T pulley → corner stack</text>
 <text x="937.0" y="340.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">90° turn only, on the</text>
-<text x="937.0" y="354.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">other drive's 4-bearing</text>
-<text x="937.0" y="368.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack</text>
+<text x="937.0" y="354.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">other drive's corner</text>
+<text x="937.0" y="368.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">stack (two pairs)</text>
 <text x="885.0" y="692.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">180° U-turn at the front idler —</text>
 <text x="885.0" y="706.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">smooth back on the stack, teeth</text>
 <text x="885.0" y="720.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="10.8" font-weight="400" text-anchor="middle" fill="#5C6675" letter-spacing="0">outward on both runs</text>
@@ -322,6 +326,6 @@
 <text x="40.0" y="934.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">Clamp points: one end of BOTH belts goes into the left X carriage half, one into the upper slot and one into the lower, teeth facing the front of</text>
 <text x="40.0" y="951.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">the machine (Step 07.9); both tails are captured by the right half (Step 07.24). The toothed face never changes sides: smooth back on every plain</text>
 <text x="40.0" y="968.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">F695 stack, teeth into the motor pulley and into this belt's one toothed XY-joint idler (A: right joint, B: left). Both X runs physically lie in</text>
-<text x="40.0" y="985.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">front of the X extrusion — each panel draws one behind it so the two lanes read apart. Lane spacing inside each drive unit is schematic — the</text>
-<text x="40.0" y="1002.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">chapter fixes the order of the wraps, not their top-view coordinates.</text>
+<text x="40.0" y="985.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">front of the X extrusion — each panel draws one behind it so the two lanes read apart. Side lanes follow the CAD: all runs inboard of the Y</text>
+<text x="40.0" y="1002.0" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12.5" font-weight="400" text-anchor="start" fill="#5C6675" letter-spacing="0">extrusions, the other belt's single run stacked on this belt's outer run; spacing is schematic.</text>
 </svg>

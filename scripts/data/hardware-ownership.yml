@@ -226,9 +226,9 @@ owners:
     reused: ["11.18"]
     evidence: 'LDO wiring guide ("the two 6020 fans are joined using the 3x2 splicing PCB"; LED junction); 11.3''s own ⚠ says the kit ships the splicers, 11.18 only verifies'
   - item: "60x60x20 Fan (24V)"
-    at: {"10.47": 2}
-    reused: ["11.3", "11.11"]
-    evidence: 'LDO wiring guide § Connecting the fans (plugged at 10.47, the first step that connects them); mounted in the supports at 11.11'
+    at: {"11.11": 2}
+    staged: ["11.3"]
+    evidence: 'Voron p.228 (screwed into the right-hand fan support at 11.11); 11.3 heat-sets their inserts; plugged into the 10.47 splicer at 11.16'
   - item: "Keystone CAT6 Insert"
     at: {"10.51": 1}
     reused: ["11.10"]

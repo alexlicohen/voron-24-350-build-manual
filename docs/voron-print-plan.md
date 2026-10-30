@@ -25,19 +25,19 @@ Everything below is from LDO's or Fabreeko's own pages, not from blogs.
 | What "Rev D+" changes vs Rev D | "Nitehawk SB update with USB passthrough for USB based eddy current probes" (Mar 2026). **Mostly electrical — one printed-part change:** the V2 board's USB-adapter cover is `MotorDynamicsLab/Nitehawk-SB-V2/STLs/usb_adapter_mount_partial_cover.stl` (ground-lug mount), not the V1 `usb_adapter_mount.stl` cover — see batch B07. | [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit) |
 | Mainboard | **LDO Leviathan** (5× TMC2209 + 2× TMC5160HV for A/B, 48 V capable, integrated Raspberry Pi mount) | [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit); [LDO wiring guide Rev D](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) |
 | Toolhead board | **Nitehawk-SB V2** (STM32G0B1; USB toolhead PCB, **integrated ADXL**) — the "+" in Rev D+ | [LDO Voron 2.4 kit page](https://docs.ldomotors.com/en/voron/voron2) |
-| Bed probe | **Omron inductive probe included AND a Klicky Probe Kit included** — you pick one. LDO: *"Instead of the included Omron inductive probe, we also provide the parts to build your machine using the optional Klicky mod by jlas1."* Wiring guide: *"Connect the inductive probe or Klicky cable to the PROBE port."* | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D wiring guide](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d); [Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) lists "Klicky Probe Kit ×1" |
+| Bed probe | **Omron inductive probe included AND a Klicky Probe Kit included** — you pick one. LDO: *"Instead of the included Omron inductive probe, we also provide the parts to build your machine using the optional Klicky mod by jlas1."* Wiring guide: *"Connect the inductive probe or Klicky cable to the PROBE port."* | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D wiring guide](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d); [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) lists "Klicky Probe Kit ×1" |
 | Z endstop | LDO **nozzle-probe PCB**; the printed part `nozzle_probe_ldo.stl` **is supplied printed in the kit** | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
 | XY endstop | **D2F microswitch PCB** — print `[a]_endstop_pod_D2F_switch`, *not* the hall-effect pod. No hall effect anywhere in this kit. | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [Build Notes p.145](https://docs.ldomotors.com/voron/voron2/build-faq) |
-| Screen | **BigTreeTech Pi TFT4.3** (4.3" capacitive DSI). Print the LDO **BTT Pi TFT4.3 Mount**; **do not print the mini12864 parts.** | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) |
-| Filtration | **Nevermore Micro V5 Duo** (6×3 mm magnets), *instead of* the stock Voron exhaust filter. Stock exhaust housing is NOT built; the back panel is sealed with LDO's `exhaust_cover` + the stock `exhaust_filter_grill`. Carbon not included. | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [LDO Nevermore guide](https://ldomotion.com/guides/nevermore-v5-duo---v24) |
+| Screen | **BigTreeTech Pi TFT4.3** (4.3" capacitive DSI). Print the LDO **BTT Pi TFT4.3 Mount**; **do not print the mini12864 parts.** | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
+| Filtration | **Nevermore Micro V5 Duo** (6×3 mm magnets), *instead of* the stock Voron exhaust filter. The stock exhaust housing is on no plate; the back panel is sealed with LDO's `exhaust_cover` + the stock `exhaust_filter_grill`. The housing is printed only as the optional chamber exhaust add-on, after the build (Ch 14 Part H). Carbon not included. | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [LDO Nevermore guide](https://ldomotion.com/guides/nevermore-v5-duo---v24) |
 | Hotend | E3D **Revo High-Flow (Revo Voron form factor)** → Stealthburner printhead files `revo_voron/*` | [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit); [SB printhead compatibility table](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md) ("E3D Revo Voron → E-RV") |
 | Cable chains | **2-hole** ends → always take the `_2hole` variants, never `_3hole` | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
 | Power inlet | 1.0 mm AC inlet with integrated switch → `power_inlet_IECGS_1mm.stl` | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
-| Panels | Deck 3 mm acrylic, back 3 mm acrylic, bottom 4 mm acrylic, doors/sides/top 3 mm PC. Foam tape 1 mm and 3 mm both supplied. | [Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) |
-| Rails | 1× stainless MGN12H 400 (X) + 6× stainless MGN9H 400 (2× Y, 4× Z) → print **both** rail guides | [Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) |
+| Panels | Deck 3 mm acrylic, back 3 mm acrylic, bottom 4 mm acrylic, doors/sides/top 3 mm PC. Foam tape 1 mm and 3 mm both supplied. | [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
+| Rails | 1× stainless MGN12H 400 (X) + 6× stainless MGN9H 400 (2× Y, 4× Z) → print **both** rail guides | [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
 | Printed parts included | **NOT** included with the kit — except the ten LDO parts listed in §7 | [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit) |
 | Clicky-Clack door kit | Hardware + extrusions only. **STLs come from GitHub**, panel bought separately (you did). | [Fabreeko Clicky-Clack page](https://www.fabreeko.com/products/clickyclackydoor-kit-by-ldo) |
-| Titanium backers | Gantry X/Y extrusion stiffeners; **no stock STL changes**. Fabreeko's set ships pre-tapped for the cable chain. See §6 note. | [Fabreeko backers](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers); [whoppingpochard backer README](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) |
+| Titanium backers | Gantry X/Y extrusion stiffeners; **no stock STL changes**. One long (Y) backer and the short X backer carry four Ø2 mm cable-chain pilot holes, sized in the backer README to drill 2.5 mm and tap M3; whether Fabreeko's set comes tapped is `(verify on bench)`. See §6 note. | [Fabreeko backers](https://www.fabreeko.com/products/v2-4-trident-titanium-extrusion-backers); [whoppingpochard backer README](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) |
 
 **Parts where the kit revision changes the STL** — all three already resolved above, but flag them if the kit
 that arrives is not Rev D/D+:
@@ -212,9 +212,10 @@ material where wet filament actually costs you strength.
 
 6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the whole run prints on the
    current Gen 1 GT2 belts — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
-   58.4 h and 763 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
+   57.4 h and 759 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
    Gate B forward: its insert row runs on the KADRICK inserts already on the bench and its bore row is a
-   caliper, so both run in the same week as Gate A. The **bearing press** and the **MGN12 rail row** wait
+   caliper, so both run the same day as Gate A, before the next plate swap. The insert row is iron practice and
+   holds no plate: it passes before the first real insert (Ch 02 Step 02.03). The **bearing press** and the **MGN12 rail row** wait
    for the kit, and the rail row gates nothing but a 20-minute reprint of the `MGN12_rail_guide` jig.
 
 **Quality gate before every later batch:** look at the *last* plate you pulled off. If any part shows
@@ -238,14 +239,14 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 - these accent parts from **Batch 2**: `[a]_z_drive_baseplate_a/b` ×2 each, `[a]_belt_tensioner_a/b` ×2 each,
   `[a]_z_tensioner_9mm_x4` ×4.
 
-So the minimum to start building is **B00 + B01 + B02-P1 + B02-P2 + B02-P3** ≈ 49 h of printing.
+So the minimum to start building is **B00 + B01 + B02-P1 + B02-P2 + B02-P3** ≈ 47 h of printing.
 Everything else can be printed while you build.
 
 **What prints, and when.** The kit is expected in early November 2026 (§8), before the 150.2 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 150.2 h ≈ 16 printer-days ≈ 3–4 weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10**, 150.2 h ≈ 15 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 right after B07, before B08, and P4/P5 at the next free slot
 after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all five and
 nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
@@ -308,10 +309,10 @@ will use, so nothing is wasted.
 - **Plate B01-P2** (7.5 h, 100 g): `z_motor_mount_a` ×2, `z_motor_mount_b` ×2, `z_tensioner_bracket_a` ×2, `z_tensioner_bracket_b` ×2, `deck_support_3mm` ×8.
 
 **Deck supports (verify):** LDO's Rev D printed-parts guide says *"Our kit ships with 4 mm deck panels, use 4 mm
-deck support clips"*, but the Rev D 350 BOM lists the deck panel as **3 mm** acrylic (the 4 mm panel is the
+deck support clips"*, but the Rev D+ 350 BOM lists the deck panel as **3 mm** acrylic (the 4 mm panel is the
 *bottom* panel). The size-specific 350 BOM wins: print `deck_support_3mm_x8` ×8, and if the deck panel
 measures 4 mm when it arrives, reprint `deck_support_4mm_x8` — 8 g, 30 minutes.
-([guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d), [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D), [Build Notes p.29-30](https://docs.ldomotors.com/voron/voron2/build-faq))
+([guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d), [BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+), [Build Notes p.29-30](https://docs.ldomotors.com/voron/voron2/build-faq))
 
 ---
 
@@ -466,7 +467,7 @@ Notes:
 - **Do not print an ADXL mount** — the Nitehawk-SB has one on board
   ([LDO Rev D guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)).
 - **Do not print the CW2 chain anchor** — the kit supplies "CW2 Chain Anchor Tilted" printed
-  ([Rev D 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D)).
+  ([Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)).
 - `cw2_captive_pcb_cover` is LDO's improved cable door (captive screw + external chamber thermistor); the stock
   alternative is `Clockwork2/cable_door_for_pcb.stl` if you'd rather.
 - Klicky dock: **fixed** mount chosen for simplicity. If you later add the Decontaminator purge bucket, you need
@@ -722,8 +723,8 @@ less — margin you gain, not a budget to spend.
 | **ASA Blue** | **277 g** | 800 g (1 × 800 g) | **523 g** | **189 %** |
 | Total | 2079 g | 3200 g | 1121 g | — |
 
-**Black margin is comfortable, but not unlimited.** 587 g is about three of the largest plates, and the four
-optional add-ons would take about 239 g of it (blue: 120 g of 521 g). Typical
+**Black margin is comfortable, but not unlimited.** 598 g is about three of the largest plates, and the four
+optional add-ons would take about 239 g of it (blue: 120 g of 523 g). Typical
 first-build reprint rate is 10–15 %, so you should land fine — but:
 
 - Don't burn black on the optional extras (`bed_hole_marking_template`, `bottom_panel_template`, purge-bucket
@@ -742,7 +743,8 @@ With 800 g spools and the numeric print order, spool **#1** carries B00 through 
 ~137 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
 hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P4** with ~30 g left, and
 **spool #3 takes over mid-plate inside B09-P1** — the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips, no bearing
-seat or bore, so the Core One+ runout sensor pausing and resuming there is fine. #3 finishes the build
+seat or bore, so a runout seam there is fine. The runout sensor pauses the plate about 2 h in and waits
+for you to load #3 and press **Continue**, so start it when someone will be home then. #3 finishes the build
 with ~461 g spare. Same fresh-spool rule as B06 applies to B01-P1 (the 14.8 h, 200 g plate): a resume seam on
 a Z-drive body is not worth the risk, so it wants ≥200 g on the spool at the start — it has 749 g. Record
 what is *actually* consumed in the spool ledger in
@@ -792,11 +794,11 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | **B00** | Gate A and Gate B in §1.4. Nothing proceeds until the rows you can run today pass; Gate B's bearing and rail rows sign off on kit day. | the cube, until the profile is right |
 | **B01** | Each `z_drive_main` and `z_drive_retainer` 625-2RS pocket calipers **16.30 mm ±0.15** now; on kit day a real 625-2RS (16 mm OD) must thumb in with no rocking. M3 inserts wait for the kit's own (Step 02.04). Check the 4 mm/3 mm deck-support call. | `z_drive_main_*` — largest single parts, most exposed to warp at the corners |
 | **B02** | Guidler and latch must move freely against the CW2 body once it exists (B06) — test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp. | `[a]_stealthburner_main_body` (most-photographed part in the build) |
-| **B03** | The F695 flange seats caliper **15.00 mm** now; on kit day the real **F695-2RS** (13 mm OD, flanged) bearing/spacer stacks must drop into them without reaming. Either way the two halves of each drive unit must close flat with no gap. (625-2RS is the Z-drive bearing — B01, not this batch.) | `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine |
+| **B03** | The two halves of each drive unit must close flat with no gap. The frames have no bearing seats: the **F695** bearing/shim stacks ride on the M5 posts between them (manual p.74), and on kit day they must spin free with the frames closed. (625-2RS is the Z-drive bearing — B01, not this batch.) | `a/b_drive_frame_lower` |
 | **B04** | Test the MGN12 carriage screw pattern against `x_frame_V2TR_MGN12_*` before you commit heat-sets. XY joint bores must accept the shafts without reaming. | `xy_joint_*_lower_MGN12` |
 | **B05** | Z joints: `z_joint_lower`'s four M3 holes caliper 3.4 mm on a 15 × 16 mm pattern; `z_joint_upper` must sit square on the extrusion. | `z_joint_lower_x4` |
-| **B06** | Revo Voron hotend must sit flat in the printhead front with 4× M3×8. Klicky: magnets pressed **below** the plastic surface, polarity consistent, and the probe must attach/detach cleanly from the AB mount. | `KlickyProbe_v2` (that's why you print two) |
-| **B07** | Inlet-panel insert bores (3, Ch 09.10; the mains Wago mount takes none); COB mount halves must close flush on their 2× M3×6 FHCS. | `cob_light_strip_mount_100mm` (warps at the ends — check flatness on glass) |
+| **B06** | Revo Voron hotend must sit flat in the printhead front. Klicky: magnets pressed **below** the plastic surface, polarity consistent, and the probe must attach/detach cleanly from the AB mount. | `KlickyProbe_v2` (that's why you print two) |
+| **B07** | Inlet-panel insert bores (3, Ch 09.10; the mains Wago mount takes none); COB mount halves must close flush by hand (screws at Ch 10.35). | `cob_light_strip_mount_100mm` (warps at the ends — check flatness on glass) |
 | **B08** | **Lay every skirt segment on a flat reference (your granite counter) and check for rocking.** A bowed skirt is the most visible defect on a finished Voron. Also dry-fit the ring: front + TFT mount + front, rear + inlet + keystone, sides + fan supports. | `rear_center_skirt_350` (182 mm — the worst warp candidate in the set) |
 | **B09** | Panel clips: snap one onto an extrusion with a 3 mm offcut to confirm 4 mm vs 6 mm choice **before** printing all 31. Nevermore: plenum lid must slide in its groove; cartridge must snap onto the plenum. | the 6 mm corner clips, if the foam tape choice changes |
 | **B10** | Sleeve bearings must tap into the hinge sleeves without splitting the part; M5×45 pin into the "solid" half should be a **very** tight hammer fit with ~20 mm proud. | `Hinge-L-solid-2X` (split risk on the pin press) |
@@ -857,7 +859,7 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 | `zipchain2_*` (Superceded) | Kit ships real drag chain |
 | `[a]_z_tensioner_x4_6mm` (Superceded) | Kit ships 9 mm-wide Z idlers |
 | `pinda_adapter`, `chain_anchor_3hole*`, `cable_door.stl`, `Bowden/*`, `ADXL345_Mounts/*` | Wrong variant for this kit |
-| `deck_support_4mm_x8`, `probe_retainer_bracket_9mm` | **Conditional, not excluded** — the caliper decides (§6). `deck_support_3mm_x8` is the printed default (Rev D 350 BOM); the 4 mm set is the reprint if the panel measures 4 mm. |
+| `deck_support_4mm_x8`, `probe_retainer_bracket_9mm` | **Conditional, not excluded** — the caliper decides (§6). `deck_support_3mm_x8` is the printed default (Rev D+ 350 BOM); the 4 mm set is the reprint if the panel measures 4 mm. |
 | `spool_holder`/`bowden_retainer` — *these ARE printed* (B09) | listed here only to avoid confusion with Spool_Management's other files |
 | Beacon, Nevermore StealthMax, StealthChanger parts | Explicitly out of scope for this build |
 
@@ -879,11 +881,11 @@ retired, because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now risks the closed bed calibration and forces
-a belt retune, XY-homing recal and a start-G-code re-sync of all 22 committed `.3mf` projects; GT1.5's only
+a belt retune, XY-homing recal and a start-G-code re-sync of all 26 committed `.3mf` projects; GT1.5's only
 benefit (less VFA) is cosmetic, and Galaxy Black's metallic fleck already hides it; one teardown, with INDX,
 beats two.
 
-**Two checks replace the upgrade, before B00** — full tick list at
+**Three checks replace the upgrade, before B00** — full tick list at
 [00-slicer-setup § Gen 2 belt upgrade](manual/print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild)
 and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks), both `(verify on bench)`:
 
@@ -894,7 +896,10 @@ and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b
 3. **Hot first-layer check, at ASA bed temperature** — the bed has only been verified flat at 60 °C. It runs
    after Step B00.0's wizard, on the committed project `slicer/checks/hot-first-layer.3mf`: five
    30×30×0.2 mm squares, corners + centre, one layer, in Galaxy Black ASA on B00-P1's presets (110 °C bed,
-   cold start G-code); pass with no Z-alignment prompt, 0.17–0.23 mm each, spread ≤0.05 mm.
+   cold start G-code); pass with no Z-alignment prompt, every square smooth and closed, about 0.24–0.26 mm on
+   calipers (first layer at Z 0.28), all five alike.
+4. **Brim-gap ladder** — `slicer/checks/brim-gap-ladder.3mf`: the smallest brim gap that breaks off clean by
+   hand is the plates' `brim_separation` (0.15 since 2026-10-29).
 
 **Superseded 2026-10-28 (Alex): no expansion joints, no nozzle wiper, cold-probe start kept; the hot check
 runs once.** The 2026-10-01 plan, for reference:
@@ -1020,7 +1025,7 @@ TOTAL B11,B11,all,24.9,348,petg
 - Rev D printed parts guide — <https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d>
 - Rev D wiring guide — <https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d>
 - Build Notes / FAQ (manual deviations by page) — <https://docs.ldomotors.com/voron/voron2/build-faq>
-- Rev D 350 BOM — <https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D>
+- Rev D+ 350 BOM — <https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+>
 - LDO Nevermore V5 Duo assembly guide — <https://ldomotion.com/guides/nevermore-v5-duo---v24>
 - LDOVoron2 STLs — <https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs>
 - COB light strip mount counts — <https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip>

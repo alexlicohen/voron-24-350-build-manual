@@ -7,7 +7,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00 — Before you start
 
 - [ ] Both cartons inventoried against the **Rev D+** BOM page; `Check1` ticked on every line; shortages written down and reported to Fabreeko.
-- [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 printed the 3 mm set months earlier, on the BOM's word.
+- [ ] Deck panel calipered on kit day; if it measures 4 mm, `deck_support_4mm_x8` reprinted (8 g, 30 min). B01-P2 carries the 3 mm set, printed on the BOM's word.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
 - [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
@@ -16,7 +16,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
-- [ ] Gate B's bore and insert rows passed months ago (Step B00.7), so B01–B06 are long since printed; its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
+- [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 35 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; the gating question posted.
@@ -26,7 +26,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint 00a — Mains safety: read before Chapter 09
 
 - [ ] Decided and written down who lands the mains conductors in Ch 10 Section 1, and whether that is a certified person.
-- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
+- [ ] The "who is in the room" rule is written and posted: adult-only for Ch 10 Steps 10.1–10.16 and 10.17–10.23, Ch 12 Step 12.11 through Checkpoint 12, Ch 11 Step 11.67, the exhaust add-on's 14.30, and Ch 13 Steps 13.3–13.8 and the 13.9 power-on; on the unplugged sweeps 10.74–10.78 she only records the readings while the adult holds the probes.
 - [ ] Multimeter on the bench with a printed CAT rating (CAT III 600 V or better), matching leads, continuity, Ω, DC V and AC V all found.
 - [ ] Meter proved live–dead–live once, probes shorted to a beep, both leads continuous, battery good.
 - [ ] Printer's outlet is RCD/GFCI protected, trips on its TEST button, and its breaker is identified and labelled.
@@ -78,11 +78,11 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 03 — Build plate
 
-- [ ] Protective film removed; top face clean, magnet applied with no bubbles or wrinkles.
+- [ ] Protective film removed; top face clean, magnet on (laminated here or pre-installed) with no bubbles or wrinkles.
 - [ ] All four bolt holes trimmed clear through the magnet; a 2.5 mm hex key reaches each bolt head.
 - [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
 - [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
-- [ ] M4×6 BHCS present on the plate as the PE point (washer: verify on bench); nothing wired to it.
+- [ ] M4×6 BHCS and serrated washer present on the plate as the PE point; nothing wired to it.
 - [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers.
 - [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
@@ -118,10 +118,10 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] MGN12 rail centred and tightened on holes **2, 4 … 14**, both end holes open, overhang equal at both ends
 - [ ] Every carriage retained by a stopper or tape; none dropped
 - [ ] At each of the four C-extrusion ends: 2× M5 in the top (backer) slot, 1× M5 + 1× M3 in the rail slot beyond the rail end
-- [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out
+- [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out; the pilot-hole Y backer on the right, pilots at the rear
 - [ ] Both front idlers and both rear drive joints flush with the extrusion ends, each with a blue upper Z-belt clip under its two M5×16, clip notch pointing away from the idler or drive assembly
 - [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
-- [ ] Cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
+- [ ] Raised cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
 - [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
 - [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; **2× M3×30 SHCS bagged** with the endstop pod (p.164) for the right joint's two empty holes
 - [ ] X axis runs the full Y travel with no tight spot
@@ -155,7 +155,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Both A/B joints checked for rotation against the good/bad reference images
 - [ ] At all four Z joints, the M5×40 starts by hand with the joint raised — no coaxing
 - [ ] **Four-point gantry-to-frame gap recorded**: same-side front/rear within 0.5 mm, left/right within 1 mm
-- [ ] Machinist square shows no light at **both** front corners, gantry forward and gantry back
+- [ ] Machinist square shows no light at **both** front corners (Y extrusions square to the frame, Step 06b.11)
+- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once; near the front, X extrusion to front frame extrusion equal at both ends
 - [ ] A/B belts re-tensioned to a provisional **110 Hz** over a 150 mm span, matched to each other — final value is Ch 14 Step 14.4
 - [ ] Four Z joint M5×40 bolts **still light** — they are tightened hot in Ch 14, not here
 - [ ] `RESTART` run at Step 06b.16; idle timeout back to default; next page is Ch 13 Step 13.35
@@ -192,14 +193,14 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] **Mechanical.** Extruder shaft turns freely by hand; gear mesh has a faint play; tension arm swings; latch closes; filament runs from the CW2 inlet through the PTFE to the nozzle with no catch.
 - [ ] **Probe height** still ~6 mm below the plastic and the insulation intact, front and sides only — set in Ch 07 Steps 07.34–07.37, re-checked at Step 08.55.
 - [ ] **Cable discipline.** Run X to both extremes by hand — the parked umbilical never goes taut, nothing rubs a belt, nothing touches the nozzle. The secondary USB port is still reachable. (Chain slack and the chain ties are Ch 10 Steps 10.59 and 10.66.)
-- [ ] The toolboard-to-motor ground wire (Steps 08.43 and 08.53) is fitted per LDO's ESD Hardening section, or — if the kit is missing the grounding cables — logged as an unanswered `#ldo_motors` question. Do not let Ch 10 close the bay with this unresolved.
+- [ ] The Extruder Motor Ground Wire (Steps 08.43 and 08.53) is fitted per LDO's ESD Hardening section, or, if it was missing from *Electronics 2*, reported to Fabreeko and asked in `#ldo_motors`. Do not let Ch 10 close the bay with this unresolved.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 09 — Electronics bay
 
 - [ ] Two DIN rails run **left-to-right**, each bolted with one M5×10 BHCS into each bed extrusion, all four plastic end caps fitted.
-- [ ] DC loop VHB'd at 09.36 as one closed loop, middle run 1.5 mm or more off the Leviathan and the PSU; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
+- [ ] DC loop VHB'd at 09.36 as one continuous run, rear-left Z motor to the notch, middle run 1.5 mm or more off the Leviathan and the PSU; AC conduit VHB'd against the WAGO bus, behind the SSR and over the round deck hole; notch clear; every lid off and bagged. LDO layout: five PVC ducts, the opening clear.
 - [ ] Meanwell LRS-200-24 selector set to **115 V**, on the rear rail via its two printed brackets, front-right corner 2 mm or more clear of the right T's rear fillet and left end 3 mm or more from the SSR run's open end — and **no** support bracket fitted.
 - [ ] Omron SSR on its metal bracket, latched to the rear rail left of the PSU, LOAD (1/2) and INPUT (3+/4−) identified and reachable.
 - [ ] **Every** Leviathan voltage-selection jumper removed and bagged.
@@ -241,7 +242,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Bottom panel bonded on six VHB pads to two rear hinges and four clips, opened and closed once after the VHB cured; four Z belt covers on, correct variant per corner, belts clear through full Z travel.
 - [ ] Nevermore built and installed: 6 heat-sets, both 5015 fans modified and bolted, bridge PCB **meter-checked for shorts**, magnets polarity-matched, plenum on the bed extrusions, filter fan on **FAN3/PF9** with the 24 V jumper confirmed, cartridge closed with its fill state written on the lid.
 - [ ] Spool holder and bowden retainer fitted; a full spool spins freely with no kink in the PTFE.
-- [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side decided (left unless you chose otherwise at 11.44); 3 mm foam on the front face of the front opening.
+- [ ] Clicky-Clack door frame square, acrylic retained, hinges and handle assembled, all magnet pairs attracting, hinge side as printed at B10 (left unless the `Hinge-L-*` parts were mirrored there); 3 mm foam on the front face of the front opening.
 
 **Part B — after Ch 13**
 
@@ -307,7 +308,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Bed and hotend PID tuned in Ch 13 and `SAVE_CONFIG`'d; both hold within ±0.5 °C at setpoint
 - [ ] A and B belts both at ~110 Hz over a measured 150 mm span, equal to each other after moving the gantry and returning
 - [ ] All four Z belts at ~140 Hz over a measured 150 mm span, even with each other — set at the Z idler tensioner bolts, belt clamps untouched
-- [ ] One closed-chamber soak of 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
+- [ ] One closed-chamber soak of at least 1½–2 h, Steps 14.3 and 14.6, panels and door on, with the settled `chamber_temp` and the hot mesh Variance logged from it; QGL run 3–5× hot with shrinking corrections; machinist square clean at both front corners hot; the four Z joint M5×40 bolts tightened **hot**, idle timeout set back with `SET_IDLE_TIMEOUT TIMEOUT=1800` after the last hot check
 - [ ] `QUAD_GANTRY_LEVEL` converges in ≤3 retries hot after the lock; `PROBE_ACCURACY` σ < 0.003 mm with no trend
 - [ ] `rotation_distance` verified on the Ch 13 value: 100 mm requested measures 99.5–100.5 mm; `22.6789511` nowhere in `printer.cfg`
 - [ ] `PRINT_START` (Ch 12 Step 12.36, with Step 14.9's purge line) homes, heats the bed, soaks, QGLs, re-homes Z, meshes, heats the nozzle and purges — tested standalone from the console with `CHAMBER=0`
@@ -318,12 +319,14 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] `[input_shaper]` saved for X and Y; neither axis below 25 Hz
 - [ ] `[printer] max_accel` reduced from the stock 10000 to at or below the calibration's suggestion, with margin
 - [ ] `max_z_velocity: 15` / `max_z_accel: 350` restored if Z shaping was attempted
+- [ ] `Voron ASA` filament preset saved: `CHAMBER` from its Minimal, below the settled chamber (Step 14.9), PLA and PETG still at Minimal 0
 - [ ] Pressure advance set per-filament for ASA and recorded
-- [ ] Extrusion multiplier set in the ASA filament profile and recorded
+- [ ] Extrusion multiplier set in `Voron ASA`, one cube per print, and recorded
 - [ ] First-layer squish re-checked *after* the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP`
 - [ ] Every fastener the shaper run could have loosened re-checked
 - [ ] `~/printer_data/config` committed (one commit per `SAVE_CONFIG`) and copied off the Pi
 - [ ] Tuning log filled in, with initials
+- [ ] Serial request posted to r/voroncorexy (Step 14.24); the nameplate goes on the front top rail once the serial arrives
 - [ ] Part H, if fitted: Step 14.25's calculator passed before Part A; exactly three jumpers, Fan0, Fan2 and Fan3, all at 24 V; the ASA soak still settles at 50–60 °C with the housing closed; a PLA print held `chamber_temp` at or under 37 °C, then purged and stopped; config committed
 
 <div class="print-page-break"></div>
@@ -345,7 +348,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 **Gate B — before B01 and B03–B06**
 
 - [ ] `z_drive_retainer_a` 625-2RS pocket calipers 16.30 mm ±0.15
-- [ ] `Heatset_Practice`: 7/7 KADRICK M3×H5 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm; all 153 kit inserts untouched
+- [ ] `Heatset_Practice`: 7/7 KADRICK M3×H5 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm; all 153 kit inserts untouched (holds no plate; passes before Ch 02 Step 02.03)
 - [ ] `z_drive_retainer_a` moved to bin 02-Z0
 - [ ] *(kit day)* a real 625-2RS presses into that pocket by thumb, no rocking
 - [ ] *(kit day)* `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
@@ -377,8 +380,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B03 — A/B drive units + front idlers
 
 - [ ] Gate B passed before B03-P1 started
-- [ ] F695 flange seats in `a/b_drive_frame_lower/upper` caliper 15.00 mm ±0.15
-- [ ] *(kit day)* a real F695-2RS sits in each seat with no rocking
+- [ ] M5 post holes in `a/b_drive_frame_lower/upper` round and clear
+- [ ] *(kit day)* each M5×30 passes one half by hand and threads into the other without force; the F695 stacks spin free with the frames closed
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
 - [ ] A-side parts in 04-A, B-side parts in 04-B
@@ -388,7 +391,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 ## Checkpoint B04 — XY joints + X carriage
 
 - [ ] Gate B passed before B04-P1 started
-- [ ] Printed M3 holes in both XY joints and both carriage halves caliper 3.40 mm ±0.10
+- [ ] Printed M3 holes in both lower XY joint bodies and both carriage halves caliper 3.40 mm ±0.10
 - [ ] *(kit day)* MGN12 carriage screw pattern confirmed against `x_frame_V2TR_MGN12_left/right` before heat-sets
 - [ ] *(kit day)* Omron probe barrel measured (8 mm vs 9 mm) — correct `probe_retainer_bracket` variant confirmed
 - [ ] Confirmed X-carriage is `x_frame_V2TR_MGN12_left/right` (V2TR/Clockwork-2), not the superseded MGN9 carriage
@@ -400,7 +403,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Gate B passed before B05-P1 started
 - [ ] Every `z_joint_lower`'s four M3 holes caliper 3.40 mm ±0.10 on a 15.0 × 16.0 mm pattern
 - [ ] *(kit day)* lower and upper joints fit a real Z carriage and extrusion end
-- [ ] Every `z_joint_upper` sits square on a test extrusion
+- [ ] Every `z_joint_upper` sits square on a flat face
 - [ ] Confirmed zero copies of `z_joint_upper_hall_effect.stl` were printed
 - [ ] `z_rail_stop_x4` fitted or bagged for fitting
 
@@ -410,14 +413,14 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 - [ ] Gate B (bore + inserts) passed before B06-P1 started
 - [ ] Hotend seat in `stealthburner_printhead_revo_voron_front` calipers 20.0 mm ±0.15
-- [ ] *(kit day)* Revo Voron heatsink sits flat in that seat, ready for 4× M3×8
+- [ ] *(kit day)* Revo Voron heatsink sits flat in that seat
 - [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged in spare-alt, labelled "alternative probe only — Ch 08.54", no magnets pressed
 
 <div class="print-page-break"></div>
 
 ## Checkpoint B07 — Electronics bay + lighting
 
-- [ ] COB mount halves close flush on 2× M3×6 FHCS, all eight assemblies
+- [ ] COB mount halves close flush by hand, all eight assemblies (screws at Ch 10.35)
 - [ ] COB mounts checked flat on granite reference — no rocking
 - [ ] Inlet-panel insert bores crisp (inserts go in at Ch 09 Step 09.10)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)
@@ -438,7 +441,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 - [ ] 4 mm vs 6 mm clip-to-panel mapping confirmed against real panel + foam tape stock (kit day, before Ch 11)
 - [ ] Nevermore plenum lid slides freely in its groove
-- [ ] Nevermore cartridge snaps positively onto the plenum
+- [ ] Nevermore cartridge seats square on the plenum with no gap at the joint (magnets go in at Ch 11)
 - [ ] Cartridge built-in support pushed out clean
 - [ ] Exhaust sealed with `exhaust_cover` + `exhaust_filter_grill` only — no Voron exhaust-filter parts printed
 - [ ] All 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm

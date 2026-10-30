@@ -15,7 +15,7 @@ caption: Belts that sound alike are not alike. Measure both. My ears are excelle
 
 **Prerequisites:**
 
-- Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, X carriage on the rail, Ti backers), **Ch 06 Part A** (gantry installed on the Z joints, Z belts clamped).
+- Ch 04 (A/B drives and front idlers assembled, motor pulley set screws threadlocked), Ch 05 (gantry, XY joints, Ti backers, X-carriage halves bagged at Step 05.45), **Ch 06 Part A** (gantry installed on the Z joints, Z belts clamped).
 - Print batches **B02** (accent: `[a]_tensioner_left/right`, `[a]_cable_cover`), **B03** (front idlers), **B04** (XY joints + X carriage + `probe_retainer_bracket`).
 - The gantry must move freely by hand over its full travel with no belts on. Fix binding now, not after belting.
 
@@ -38,7 +38,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/probe_retainer_bracket.png){ width=96 } | `Gantry/X_Axis/X_Carriage/probe_retainer_bracket` | 07-X | 1 | Black |
 | ![](assets/parts/%5Ba%5D_tensioner_left.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_left` | 04-B | 1 | Blue — fitted in Ch 04, adjusted here |
 | ![](assets/parts/%5Ba%5D_tensioner_right.png){ width=96 } | `Gantry/Front_Idlers/[a]_tensioner_right` | 04-A | 1 | Blue — fitted in Ch 04, adjusted here |
-| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 07-X | 1 | Blue |
+| ![](assets/parts/%5Ba%5D_cable_cover.png){ width=96 } | `Gantry/AB_Drive_Units/[a]_cable_cover` | 07-X | 1 | Blue — dry-fitted here, fitted at Step 10.66 |
 
 **Hardware** (chapter totals)
 
@@ -69,7 +69,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — why this tension is provisional
 - [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) — X-carriage variant check, probe insulation, p.145 skipped
 - [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) and [onetwo3D's 350 BOM](https://www.onetwo3d.co.uk/voron-bill-of-material/voron-2-4-350mm-bill-of-material/) — belt supplied as 6.21 m bulk, 2000 mm per belt
-- [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units) — the `[a]_cable_cover` the manual has no page for
+- [Voron 2.4r2 assembly manual, p.204](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=204) — the `[a]_cable_cover` arch, screwed onto the A drive over the Z-chain wire bundle in Ch 10
 
 **Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):** [Part 4 @1:38:20](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5900s) (+6m), [Part 5 @1:52:44](https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6764s) (+8m), [Part 6 @0:01:10](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=70s) (+18m), [Part 8 @1:43:45](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6225s) (+6m)
 
@@ -784,7 +784,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.145](assets/manual-pages/manual-p145.png){ crop="0.15 0.26 0.52 0.80" }
 
-**What you're looking at:** A page you skip entirely. The pocket shown in the carriage takes a magnet for the hall-effect endstop option; this kit uses a microswitch PCB in the printed endstop pod fitted in Ch 05, so the pocket stays empty.
+**What you're looking at:** A page you skip entirely. The pocket shown in the carriage takes a magnet for the hall-effect endstop option; this kit uses a microswitch PCB in the printed endstop pod, bagged in Ch 05 and fitted in Ch 09, so the pocket stays empty.
 
 **Parts:** none.
 
@@ -792,26 +792,27 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** No magnet in the carriage pocket.
 
-⚠ **Rev D+ / LDO:** *"PAGE 145 SKIP — The kit does not use hall effect endstops."* This kit ships the XY microswitch PCB and the `[a]_endstop_pod_D2F_switch` printed part (fitted in Ch 05). Do not insert a 3×6 magnet. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.145), [survey §4.2](../voron-build-instructions-survey.md)
+⚠ **Rev D+ / LDO:** *"PAGE 145 SKIP — The kit does not use hall effect endstops."* This kit ships the XY microswitch PCB and the `[a]_endstop_pod_D2F_switch` printed part (bagged in Ch 05, fitted at Step 09.33). Do not insert a 3×6 magnet. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.145), [survey §4.2](../voron-build-instructions-survey.md)
 
 Source: [Voron manual p.145](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=145) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
-### Step 07.39 — Fit the A/B drive cable cover
+### Step 07.39 — Dry-fit the A/B drive cable cover
 
-![CAD render — the A/B drive cable cover](assets/cad/07-39-a.png)
-![CAD render — the A/B drive cable cover, in place](assets/cad/07-39-b.png)
+![Voron manual p.204](assets/manual-pages/manual-p204.png)
 
-**What you're looking at:** The `[a]_cable_cover` is the blue shroud that clips over a drive unit's cable exit and tidies the A/B motor leads. The two belts run past it, so it must never touch them. It goes on now while the rear of the gantry is still open.
+**What you're looking at:** The `[a]_cable_cover` is the blue arch in p.204's upper right. It screws onto the A drive, rear right, over the wire bundle that Ch 10 routes behind the Z belt. With the belts on, you can now check that it clears them.
 
 **Parts:**
 
-- `[a]_cable_cover` ×1
+- staged: `[a]_cable_cover` ×1
 
-**Do:** Clip the accent cable cover onto the drive-unit cable exit. If the A/B motor leads are not yet dressed, leave it off and fit it during the gantry cable routing in Ch 10 instead.
+**Do:** Offer the cover to the A drive, its two holes over the frame's two heat-set inserts. Check it clears both belts, then bag it for Step 10.66. Do not screw it on: the wire bundle goes under it first.
 
-**Check:** The cover does not touch either belt at any point of travel. Re-run the Step 07.29 rub inspection at that drive unit.
+**Check:** Both holes line up with the inserts; neither belt touches the arch. The cover is bagged and labelled for Ch 10.
 
-Source: [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units) · [Voron manual p.142](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=142) · CAD: Voron 2.4r2 STEP @ de7e89d
+Source: [Voron manual p.204](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=204) · [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Gantry/AB_Drive_Units) · CAD: Voron 2.4r2 STEP @ de7e89d
+
+Pause: ~30 min since the last pause — inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. Gantry is a working XY system. Do not tension further and do not square the gantry.
 
 ---
 
@@ -844,6 +845,3 @@ Source: [`STLs/Gantry/AB_Drive_Units/`](https://github.com/VoronDesign/Voron-2/t
 ## Next
 
 [Ch 08 — Toolhead](08-toolhead.md): Stealthburner, Clockwork 2 and the Nitehawk-SB V2, where all five Rev D+ deviations land.
-
-Pause: ~30 min since the last pause — inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; A/B cable cover on. Gantry is a working XY system. Do not tension further and do not square the gantry.
-

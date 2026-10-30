@@ -11,12 +11,12 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 
 **Time:** 2.5–4.0 h hands-on, first build, two people ([survey §5.1 P01 / §7.2](../voron-build-instructions-survey.md)).
 
-**Sessions:** 4 × ~40 min — the `Pause:` lines below break the chapter into 4 segments of 25–65 min; every minute figure is a first-build estimate.
+**Sessions:** 4 × ~40 min — the `Pause:` lines below break the chapter into 4 segments of 35–65 min; every minute figure is a first-build estimate.
 
 **Prerequisites:**
 
 - **Ch 00** — inventory, extrusions counted, tools to hand.
-- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Later batches may still be printing underneath it; Ch 02 needs only B00, B01 and B02-P1/P3, so start it once those bins are full.
+- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Later batches may still be printing underneath it; Ch 02 needs B00, B01 and all three B02 plates, whose Z-corner parts are spread across P1–P3, so start it once those are off the bed and sorted.
 
 **Tools**
 
@@ -268,7 +268,7 @@ Source: [Voron manual p.16](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.16](assets/manual-pages/manual-p016.png){ crop="0.42 0.20 0.86 0.84" }
 
-**What you're looking at:** Manual p.16 shows the closed bottom square with the machinist square standing in each inside corner. A machinist square is a precision-ground right angle; you are looking for light between its blade and the extrusion.
+**What you're looking at:** Manual p.16 again: the closed bottom square. The machinist square, a precision-ground right angle, goes in each inside corner; you are looking for light between its blade and the extrusion.
 
 **Parts:** none.
 
@@ -328,9 +328,9 @@ Source: [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 01.12 — Square the bottom square and lock it
 
-![Voron manual p.21](assets/manual-pages/manual-p021.png){ crop="0.16 0.22 0.56 0.75" }
+![Voron manual p.17](assets/manual-pages/manual-p017.png){ crop="0.20 0.22 0.58 0.80" }
 
-**What you're looking at:** Manual p.21 shows the squareness check, measuring both plan diagonals of the bottom square. A rectangle whose two diagonals are equal is square. The absolute number does not matter, only that the pair agree, so hook the tape the same way both times.
+**What you're looking at:** The closed cube of p.17, bed extrusions not yet in. Manual p.21's squareness check starts with both plan diagonals of the bottom square. Equal diagonals mean a square rectangle; only the pair matters, so hook the tape the same way both times.
 
 **Parts:** none.
 
@@ -344,15 +344,15 @@ Source: [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Holds the tape's far end on the corner and reads each diagonal aloud.
 
-Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [frame squaring video](https://voron.link/kdtpzam)
+Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17) · [frame squaring video](https://voron.link/kdtpzam)
 
 ---
 
 ### Step 01.13 — Square the top square and lock it
 
-![Voron manual p.21](assets/manual-pages/manual-p021.png){ crop="0.16 0.22 0.56 0.75" }
+![Voron manual p.17](assets/manual-pages/manual-p017.png){ crop="0.20 0.22 0.58 0.80" }
 
-**What you're looking at:** Manual p.21 again, applied to the top square. Both squares can be individually square and still be rotated relative to each other. That is a twisted frame, and it shows up later as a gantry that will not sit parallel to the bed.
+**What you're looking at:** The p.17 cube again, now its top square. Both squares can be individually square and still be rotated relative to each other. That is a twisted frame, and it shows up later as a gantry that will not sit parallel to the bed.
 
 **Parts:** none.
 
@@ -366,15 +366,15 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Reads both top diagonals aloud and says which one is longer.
 
-Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21)
+Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17)
 
 ---
 
 ### Step 01.14 — Check the four vertical faces
 
-![Voron manual p.21](assets/manual-pages/manual-p021.png){ crop="0.16 0.22 0.56 0.75" }
+![Voron manual p.17](assets/manual-pages/manual-p017.png){ crop="0.20 0.22 0.58 0.80" }
 
-**What you're looking at:** Manual p.21 shows the four upright faces of the cube, each measured across its own diagonals. This is the check the first two cannot make: it catches a frame leaning over like a square-based prism rather than a rectangular box.
+**What you're looking at:** The four upright faces of the p.17 cube, each measured across its own diagonals. This is the check the first two cannot make: it catches a frame leaning over like a square-based prism rather than a rectangular box.
 
 **Parts:** none.
 
@@ -387,7 +387,7 @@ Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Helper:** Holds the square flat against each upright and calls out any gap.
 
-Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Video: Part 1 @1:13:15](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4395s)
+Source: [Voron manual p.21](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=21) · [Voron manual p.17](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=17) · [Video: Part 1 @1:13:15](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4395s)
 
 ---
 
@@ -511,7 +511,7 @@ Pause: ~35 min since the last pause — both bed extrusions are bracketed, space
 
 ### Step 01.20 — Final squareness verification
 
-![Voron manual p.21](assets/manual-pages/manual-p021.png){ crop="0.16 0.22 0.56 0.75" }
+![Voron manual p.21](assets/manual-pages/manual-p021.png){ crop="0.15 0.22 0.84 0.76" }
 
 **What you're looking at:** Manual p.21 one last time, on the fully torqued frame with the bed extrusions in. Bolting the bed extrusions in can pull a square frame out of square, so this is the pass whose numbers go in the log.
 
@@ -636,4 +636,4 @@ Pause: ~35 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02**, all of which print early in the run (batches B00–B02) and sit in bins 02-Z0 … 02-deck. Nothing waits (print plan §2).
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02**, all three B02 plates, sorted into bins 02-Z0 … 02-deck (print plan §2).

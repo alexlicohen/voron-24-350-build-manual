@@ -48,16 +48,16 @@ You are **not** building the Voron exhaust filter (76 g, 4.5 h saved). Use `exha
 `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`.
 
 **Nevermore, exactly which files:** it prints across P2, P3 and P4 (cartridge, plenum with the cartridge lid, plenum lid). The plenum/lid are STLs; the cartridge and its lid are **3MF files** in
-the same folder (PrusaSlicer imports them fine). Use the **Regular** cartridge, not XL — XL wants carbon
-pellets and a faster/louder fan. 8× 6×3 mm magnets, 6× M3 heat-sets. The cartridge has a **built-in support
+the same folder (PrusaSlicer imports them fine). Use the **Regular** cartridge, not XL — XL wants a larger
+carbon charge and a faster, louder fan. 8× 6×3 mm magnets, 6× M3 heat-sets. The cartridge has a **built-in support
 you push out**, not cut.
 
 **Hardware:** none.
 
 **Read first**
 
-- Checkpoint after B09: Nevermore plenum lid must slide in its groove; cartridge must snap onto the plenum
-  (both testable now). Panel clips: the 4 mm vs 6 mm test waits for kit day (Step B09.12).
+- Checkpoint after B09: Nevermore plenum lid must slide in its groove; cartridge must seat square on the plenum
+  with no gap at the joint (it holds by magnets only after Ch 11; both testable now). Panel clips: the 4 mm vs 6 mm test waits for kit day (Step B09.12).
 - Brims already in the projects: 3 mm on `exhaust_cover` (P1), `Regular_Cartridge` (P2), `V2_Duo_Plenum` (P3) and
   `exhaust_filter_grill` (P4); none on anything else. Verify the outline in the preview; never add one.
 - Most commonly reprinted here: the 6 mm corner clips, if the foam tape choice changes.
@@ -68,7 +68,7 @@ you push out**, not cut.
 
 **Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 30 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #3 unsealed and within reach for the runout-sensor pause.
+**Check:** Clean purge; spool #3 unsealed and within reach; P1 started so someone is home about 2 h in, when the sensor pauses it and waits.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -116,7 +116,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B09.5 — Print plate B09-P2
 
 **Do:** Print with standing overrides.
-**Check:** Clean first layer. All eight 6×3 mm cartridge magnet pockets print crisp.
+**Check:** Clean first layer. The cartridge's four 6×3 mm magnet pockets print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -180,9 +180,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:**
 
-1. Snap the brims off. Check the plenum lid slides and the cartridge snaps on.
+1. Snap the brims off. Check the plenum lid slides and the cartridge seats square.
 2. On kit day, test a 4 mm and a 6 mm clip on an extrusion, 3 mm panel offcut plus foam tape.
-**Check:** Plenum lid slides freely, cartridge snaps on positively, and each clip grips the panel-plus-tape
+**Check:** Plenum lid slides freely, cartridge seats with no gap at the joint, and each clip grips the panel-plus-tape
 stack without rattling or jamming.
 
 Pause: ~10 min since the last pause — Nevermore dry-fitted and apart again, brims off; the clip test is deferred to kit day and the clips are bagged by thickness.
@@ -247,7 +247,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Checkpoint B09
 - [ ] 4 mm vs 6 mm clip-to-panel mapping confirmed against real panel + foam tape stock (kit day, before Ch 11)
 - [ ] Nevermore plenum lid slides freely in its groove
-- [ ] Nevermore cartridge snaps positively onto the plenum
+- [ ] Nevermore cartridge seats square on the plenum with no gap at the joint (magnets go in at Ch 11)
 - [ ] Cartridge built-in support pushed out clean
 - [ ] Exhaust sealed with `exhaust_cover` + `exhaust_filter_grill` only — no Voron exhaust-filter parts printed
 - [ ] All 31 panel clips counted — 15 in 11-clips-4mm, 16 in 11-clips-6mm
@@ -258,4 +258,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Cutting instead of pushing out the cartridge's built-in support.
 
 ## Next
-Assembly: *Panels* (p.240–259) and the Nevermore install. Printing: [B10 — Clicky-Clack door](B10-clicky-clack-door.md).
+Assembly: bottom panel and Z belt covers (p.232–236, Ch 11 Part A), the Nevermore install, then back, side and top panels and the spool holder (p.238–259, Part B). Printing: [B10 — Clicky-Clack door](B10-clicky-clack-door.md).

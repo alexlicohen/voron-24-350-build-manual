@@ -109,4 +109,16 @@ G4 15, G5 ~12, G6 2, G7 16, G8 2). Closed since 10-23: nozzle-probe gap (09.30 =
 2. Location: no step needed, moved as needed. 3–5: approved.
 Fixed by the orchestrator: G2-01/G3-30-01 (diagram 01), G5-01 (magnets), G9-01 (01.23 rewritten to LDO's
 placement, LDO drawings mirrored), G9-02, G9-03, G9-04, G9-05. Delegated: G8-01 + satin (G8-04/G4-01), G6-04
-(+ G6-02/03), G7-05/06/07. Not yet approved: the remaining majors and all minors.
+(+ G6-02/03), G7-05/06/07.
+Alex then approved the rest. Eight parallel fixers (one per chapter group + shared files) re-verified each
+finding against its primary source and fixed it, then one integrator applied the cross-file edits; `make verify`
+exit 0, pages checked at 1024x768. Worker reports: not tracked (session scratch).
+- Rejected with evidence: G2-10 (brims, Alex 10-30 ruling), G3-30-09 (CAD: no cover over the 06b.10 screw),
+  G8-09 flow part (B00.8 review stays before B00 per the bring-up order), G8-21 ("plate 11 of 21" is right).
+- G7-01 uses 0.4 mm (Ellis: "0.4 with a 0.4mm nozzle"; matches the ASA inis), not the reviewer's 0.45.
+- Cable cover: routed 10.64, bolted 10.66 (p.204). Part renders re-rendered at true aspect (render_parts.py).
+- Open for Alex: Ti backer drill/tap (G3-30-02); B09-P1 fresh spool vs runout pause (G8-05); RESET/BOOT0 on
+  the live toolboard at 12.19; pre-load 09.30/09.34 T-nuts at 03.12 (G4-16); endstop pod after 05.43;
+  `deck_support_4mm_x8` beside B01-P2 (G1-12); 13.41 pre-kit vs 13.31 soak (G8-12).
+- Unreferenced now, left in the tree: assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg and CAD
+  renders 05-16-a, 05-35-a/b, 07-39-a/b. sources.yml lacks ~390 cited URLs (stale since 10-18).

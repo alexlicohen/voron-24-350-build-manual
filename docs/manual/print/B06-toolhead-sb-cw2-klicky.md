@@ -11,10 +11,10 @@ caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakf
 
 **Time:** 11.6 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 1 plate start (~5 min hands-on, 11.6 h unattended) + ~15 min inspect and bin.
+**Sessions:** 1 plate start (~5 min hands-on, 11.6 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the CW2 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
-main body, faceplate, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
+main body, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
 are not print prerequisites; the toolhead chapter also needs `probe_retainer_bracket.stl` from B04, fitted
 in Ch 07/08, not in a batch.
 
@@ -50,8 +50,8 @@ Chain Anchor Tilted" printed).
 **Read first**
 
 - Checkpoint after B06: caliper the hotend seat in the printhead front now; the Revo Voron heatsink (the
-  glossary's *Revo HF* — same part, HF nozzle fitted) only arrives with the kit, so sitting it flat on its
-  4× M3×8 is a kit-day row. Klicky: **count and bag, do not build** — no magnets are pressed in this batch
+  glossary's *Revo HF* — same part, HF nozzle fitted) only arrives with the kit, so sitting it flat in
+  that seat is a kit-day row. Klicky: **count and bag, do not build** — no magnets are pressed in this batch
   or anywhere else in this manual (Ch 08 Step 08.54).
 - Most commonly reprinted here: `KlickyProbe_v2` — that's why two are printed, in case the option is ever taken up.
 - Hotend file choice is settled: E3D Revo Voron → the `revo_voron` folder, `..._rear_cw2` for Clockwork 2.
@@ -146,7 +146,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Checkpoint B06
 - [ ] Gate B (bore + inserts) passed before B06-P1 started
 - [ ] Hotend seat in `stealthburner_printhead_revo_voron_front` calipers 20.0 mm ±0.15
-- [ ] *(kit day)* Revo Voron heatsink sits flat in that seat, ready for 4× M3×8
+- [ ] *(kit day)* Revo Voron heatsink sits flat in that seat
 - [ ] Klicky set counted (12 pieces incl. the spare `KlickyProbe_v2`), bagged in spare-alt, labelled "alternative probe only — Ch 08.54", no magnets pressed
 
 ## Common mistakes

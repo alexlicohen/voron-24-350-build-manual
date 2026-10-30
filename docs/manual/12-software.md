@@ -11,12 +11,12 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 **Time:** 2.0–3.0 h hands-on, first build (survey §7.2): about 1.5 h on the bench in Part 1, about 1 h live in Part 2. Add ~30 min if you have to reinstall Katapult on either board.
 
-**Sessions:** 8 × ~30 min (Pause segments below: five on the bench, three live; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).
+**Sessions:** 9 × ~30 min (Pause segments below: one before the kit, five on the bench, three live; every minute figure in this chapter is a first-build estimate derived from the Time range and the step count).
 
 **Prerequisites:**
 
 - **Ch 10 — Electronics bay wiring**, complete, with **LDO Checkpoint #1 passed** (multimeter, unplugged) and the PSU powered on once at Step 10.23. The cord has been out since then; it goes back in at **Step 12.11**, which is the first time the Leviathan, the Pi and the toolboard are energised — with the same hand-on-switch drill as 10.23. Both MCUs must be powered and connected to the Pi over USB before Steps 12.11 onward.
-- **Part 1** (Steps 12.1–12.10, then the `printer.cfg` edits 12.21–12.22 and 12.24–12.36) has **no hardware prerequisite** and can be bench-done on day one — power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one"). None of those edits needs a board: they change a text file.
+- **Part 1** (Steps 12.1–12.10, then the `printer.cfg` edits 12.21–12.22 and 12.24–12.36) has **no hardware prerequisite** and can be bench-done on day one: power the Pi from its own USB-C supply instead of the Leviathan's Pi rail (survey §5.1, P12: "the whole flash+install can be bench-done on day one"). None of those edits needs a board: they change a text file. Steps 12.2–12.3 need only the laptop and the bought card, so they run before the kit.
 - **Ch 11 Part A comes after this chapter's Part 2**, not before: the bay stays open through Part 2, Steps 12.11–12.20, 12.23 and 12.37 (index rows 24–26). The touchscreen module is already built and its DSI ribbon latched at both ends (Ch 10 Step 10.50), so 12.11 is the first time the panel is seen.
 - **Printed parts: none.** No print batch gates this chapter.
 - Do **not** start Ch 13 until Checkpoint 12 below passes.
@@ -57,7 +57,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 - [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) at commit `667521d` — the config this chapter edits; every config step links the exact line range
 - [Klipper Config Reference](https://www.klipper3d.org/Config_Reference.html), [G-Codes](https://www.klipper3d.org/G-Codes.html), [Installation](https://www.klipper3d.org/Installation.html) and [Config checks](https://www.klipper3d.org/Config_checks.html)
-- [MainsailOS docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) (imaging, first boot) and [Mainsail docs](https://docs.mainsail.xyz/configuration/mainsail-cfg/) (`mainsail.cfg`, error FAQ)
+- [MainsailOS docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) (imaging, first boot) and [Mainsail docs](https://docs.mainsail.xyz/configuration/mainsail-cfg/) (`mainsail.cfg`, error FAQ)
 - [Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) — menuconfig, `make flash`, Katapult; repo images at commit `42ae497`
 - [LDO Leviathan V1.2 guide](https://ldomotion.com/p/guide/VORON-Leviathan-V12), [Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) and the [Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) — the contested MCU question in step 12.13
 - [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) and the [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id)
@@ -70,6 +70,62 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 ---
 
 ## Part 1 — on the bench, the Pi alone
+
+### Step 12.2 — Write MainsailOS with Raspberry Pi Imager
+
+![Raspberry Pi Imager: Other specific-purpose OS, 3D printing](assets/screens/imager-os-3d-printing.png)
+![Raspberry Pi Imager: the 3D printing list, Mainsail OS](assets/screens/imager-os-mainsailos.png)
+![Raspberry Pi Imager: MainsailOS 3.0.0, Raspberry Pi 64-bit, the one entry offered for a Pi 4](assets/screens/imager-os-mainsailos-64bit.png)
+
+**What you're looking at:** MainsailOS is a ready-made Pi disk image carrying **Klipper**, which runs the machine, **Moonraker**, the API in front of it, and [**Mainsail**](16-glossary.md#m), the web page you drive it from. The screenshots walk the Imager's menus to it.
+
+**Parts:**
+
+- consumable: 32 GB microSD card, bought (Rev D+ ships none)
+- tool: SD card reader
+
+**Do:**
+
+1. Insert the card, launch Raspberry Pi Imager, **Choose Device** → Raspberry Pi 4.
+2. **Choose OS** → **Other specific-purpose OS** → **3D printing** → **MainsailOS** → **64-bit**.
+3. **Choose Storage** → the SD card; read the description twice.
+
+**Check:** **Storage** lists the SD card at its own size, not your laptop's disk.
+
+⚠ **Rev D+ / LDO:** LDO's wiring guide tells you to install **Raspberry Pi OS Lite (32-bit)** and add Klipper/Moonraker/Mainsail with KIAUH. MainsailOS ships those plus Crowsnest, Sonar, Timelapse and the input-shaper dependencies, pre-wired: same end state, four fewer passes. Take the MainsailOS path; you need KIAUH in Step 12.8 for KlipperScreen, which MainsailOS does **not** include. [src](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)
+
+Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [Video: Part 8 @2:31:43](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9103s)
+
+---
+
+### Step 12.3 — Fill in the Imager customisation
+
+![Raspberry Pi Imager customisation: hostname voron](assets/screens/imager-hostname.png)
+![Raspberry Pi Imager customisation: localisation](assets/screens/imager-localisation.png)
+![Raspberry Pi Imager customisation: username and password, placeholder values](assets/screens/imager-user.png)
+![Raspberry Pi Imager customisation: Wi-Fi, placeholder SSID](assets/screens/imager-wifi.png)
+![Raspberry Pi Imager customisation: SSH enabled, password authentication](assets/screens/imager-ssh.png)
+![Raspberry Pi Imager: the Write image summary for a Pi 4 and MainsailOS 64-bit](assets/screens/imager-write-summary.png)
+
+**What you're looking at:** The Imager's customisation pages write settings into the image before it boots, so the Pi comes up named, on the network and reachable over SSH. The screenshots carry placeholder values; type your own. The hostname is the address you use from now on.
+
+**Parts:** none.
+
+**Do:**
+
+1. **Hostname**: `voron` gives you `http://voron.local`. **Localisation**: your timezone.
+2. **User**: a username and a real password, never the `pi`/`raspberry` default. **Wi-Fi**: SSID and password.
+3. **Remote access**: enable SSH. Write, confirming the erase prompt.
+
+**Check:** The **Write image** summary names Raspberry Pi 4, MainsailOS 64-bit and the SD card; Imager reports a successful write and verify. Eject the card.
+
+Tip: set both Wi-Fi *and* plug in Ethernet. Wi-Fi is the long-term link; Ethernet is what you fall back to when Wi-Fi is the thing that broke. [src](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/)
+
+Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [Video: Part 8 @2:25:16](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8716s)
+
+Pause: ~15 min since the last pause (pre-kit) — the bought microSD carries MainsailOS with your hostname, user, Wi-Fi and SSH, verified and ejected. Only the laptop was used; the Pi waits for the kit.
+
+---
 
 ### Step 12.1 — Decide where you are doing the Pi half
 
@@ -89,61 +145,7 @@ caption: Nothing moves this chapter. The machine is reading its own manual, slow
 
 ⚠ **Rev D+ / LDO:** the Leviathan supplies the Pi from its own dedicated Pi rail, so on the assembled machine "power the Pi" means "switch on the printer", and that first happens at Step 12.11, after Checkpoint #1. Part 1 never powers the printer: it is bench work on the Pi alone (survey §4.4 #8). [src](https://github.com/MotorDynamicsLab/Leviathan)
 
-Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
-
----
-
-### Step 12.2 — Write MainsailOS with Raspberry Pi Imager
-
-![Raspberry Pi Imager: MainsailOS 3.0.0, Raspberry Pi 64-bit, the one entry offered for a Pi 4](assets/screens/imager-os-mainsailos-64bit.png)
-![Raspberry Pi Imager: Other specific-purpose OS, 3D printing](assets/screens/imager-os-3d-printing.png)
-![Raspberry Pi Imager: the 3D printing list, Mainsail OS](assets/screens/imager-os-mainsailos.png)
-![Raspberry Pi Imager: the Write image summary for a Pi 4 and MainsailOS 64-bit](assets/screens/imager-write-summary.png)
-
-**What you're looking at:** MainsailOS is a ready-made Pi disk image carrying **Klipper**, which runs the machine, **Moonraker**, the API in front of it, and [**Mainsail**](16-glossary.md#m), the web page you drive it from. The screenshots walk the Imager's menus to it.
-
-**Parts:**
-
-- consumable: 32 GB microSD card, bought (Rev D+ ships none)
-- tool: SD card reader
-
-**Do:**
-
-1. Insert the card, launch Raspberry Pi Imager, **Choose Device** → Raspberry Pi 4.
-2. **Choose OS** → **Other specific-purpose OS** → **3D printing** → **MainsailOS** → **64-bit**.
-3. **Choose Storage** → the SD card; read the description twice.
-
-**Check:** The summary line names your Pi model, MainsailOS 64-bit, and the correct removable drive.
-
-⚠ **Rev D+ / LDO:** LDO's wiring guide tells you to install **Raspberry Pi OS Lite (32-bit)** and add Klipper/Moonraker/Mainsail with KIAUH. MainsailOS ships those plus Crowsnest, Sonar, Timelapse and the input-shaper dependencies, pre-wired: same end state, four fewer passes. Take the MainsailOS path; you need KIAUH in Step 12.8 for KlipperScreen, which MainsailOS does **not** include. [src](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup)
-
-Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [Video: Part 8 @2:31:43](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9103s)
-
----
-
-### Step 12.3 — Fill in the Imager customisation
-
-![Raspberry Pi Imager customisation: hostname voron](assets/screens/imager-hostname.png)
-![Raspberry Pi Imager customisation: localisation](assets/screens/imager-localisation.png)
-![Raspberry Pi Imager customisation: username and password, placeholder values](assets/screens/imager-user.png)
-![Raspberry Pi Imager customisation: Wi-Fi, placeholder SSID](assets/screens/imager-wifi.png)
-![Raspberry Pi Imager customisation: SSH enabled, password authentication](assets/screens/imager-ssh.png)
-
-**What you're looking at:** The Imager's customisation pages write settings into the image before it boots, so the Pi comes up named, on the network and reachable over SSH. The screenshots carry placeholder values; type your own. The hostname is the address you use from now on.
-
-**Parts:** none.
-
-**Do:**
-
-1. **Hostname**: `voron` gives you `http://voron.local`. **Localisation**: your timezone.
-2. **User**: a username and a real password, never the `pi`/`raspberry` default. **Wi-Fi**: SSID and password.
-3. **Remote access**: enable SSH. Write, confirming the erase prompt.
-
-**Check:** Imager reports a successful write and verify. Eject the card.
-
-Tip: set both Wi-Fi *and* plug in Ethernet. Wi-Fi is the long-term link; Ethernet is what you fall back to when Wi-Fi is the thing that broke. [src](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/)
-
-Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/raspberry-pi/) · [Video: Part 8 @2:25:16](https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8716s)
+Source: [MainsailOS install docs](https://docs.mainsail.xyz/mainsailos/getting-started/raspberry-pi/) · [LDO Leviathan repo](https://github.com/MotorDynamicsLab/Leviathan) · [Raspberry Pi docs image `4-model-b.jpg`](https://github.com/raspberrypi/documentation/blob/34dfb87/documentation/asciidoc/computers/raspberry-pi/images/4-model-b.jpg) (CC-BY-SA-4.0)
 
 ---
 
@@ -161,18 +163,18 @@ Source: [MainsailOS install docs](https://docs-os.mainsail.xyz/getting-started/r
 
 **Check:** Give the Pi a DHCP reservation in your router now, before you paste its address into anything.
 
-Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/first-boot/)
+Source: [MainsailOS first boot](https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/)
 
 ---
 
 ### Step 12.5 — Reach Mainsail and open an SSH session
 
-![LDO: Mainsail Machine page](assets/remote/12-software/ldo-revd-mainsail-machine-page.png)
+![LDO: Mainsail Machine page from another LDO kit; yours lists only mainsail.cfg and moonraker.conf at first](assets/remote/12-software/ldo-revd-mainsail-machine-page.png)
 ![Simulated printer: the Mainsail dashboard once a printer.cfg exists](assets/screens/mainsail-dashboard.png)
 
 (no image of your own printer yet — simulated printer: your numbers differ)
 
-**What you're looking at:** The first screenshot is Mainsail's **Machine** page, where every config file in this chapter gets edited. The second is the dashboard of a printer that already has a `printer.cfg`. Yours shows an error first: MainsailOS ships no `printer.cfg`.
+**What you're looking at:** The first screenshot is Mainsail's **Machine** page from another LDO kit; yours lists only `mainsail.cfg` and `moonraker.conf` until 12.21 adds `printer-350.cfg`. The second is a dashboard with a `printer.cfg`. Yours shows an error first.
 
 **Parts:** none.
 
@@ -180,7 +182,7 @@ Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/fir
 
 **Check:** Mainsail's UI renders, the error names the missing `printer.cfg`, and your SSH session lands at a shell prompt.
 
-Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_machine.png) · [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/first-boot/) · [Video: Part 9 @1:06:04](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3964s)
+Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_machine.png) · [MainsailOS first boot](https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/) · [Video: Part 9 @1:06:04](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3964s)
 
 ---
 
@@ -196,11 +198,11 @@ Source: [LDO Rev D photo, Mainsail Machine page](https://raw.githubusercontent.c
 
 **Check:** Every row in the Update Manager reads up to date.
 
-**Why now:** the version of Klipper you end up with here is the version you must build MCU firmware from in Steps 12.14 and 12.17. Update first, then flash — do it the other way round and you will re-flash both boards after the first update. [src](https://docs-os.mainsail.xyz/getting-started/first-boot/)
+**Why now:** the version of Klipper you end up with here is the version you must build MCU firmware from in Steps 12.14 and 12.17. Update first, then flash — do it the other way round and you will re-flash both boards after the first update. [src](https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/)
 
-Source: [MainsailOS first boot](https://docs-os.mainsail.xyz/getting-started/first-boot/) · [Mainsail docs image `first-boot-update-manager.png`](https://github.com/mainsail-crew/docs/blob/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png) (GPL-3.0) · [Video: Extras! @0:18:01](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1081s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
+Source: [MainsailOS first boot](https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/) · [Mainsail docs image `first-boot-update-manager.png`](https://github.com/mainsail-crew/docs/blob/e0b03f8/docs/images/mainsailos/first-boot-update-manager.png) (GPL-3.0) · [Video: Extras! @0:18:01](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1081s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
-Pause: ~25 min since the last pause — MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.
+Pause: ~15 min since the last pause — MainsailOS written, first boot done, the Pi is on the network and Mainsail answers on `voron.local`, and everything is updated. The printer is still unpowered. A good place to stop: nothing is half-flashed.
 
 ---
 
@@ -304,8 +306,7 @@ Pause: ~20 min since the last pause — KIAUH and KlipperScreen installed, the D
 
 ### Step 12.21 — Download the correct config file
 
-![LDO: Mainsail config devices panel](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
-![Simulated printer: Mainsail's Config Files list with printer.cfg beside mainsail.cfg and moonraker.conf](assets/screens/mainsail-machine-config-files.png)
+![Simulated printer: Mainsail's Config Files list; yours shows printer-350.cfg here, and printer.cfg only from 12.14](assets/screens/mainsail-machine-config-files.png)
 
 (no image of your own printer yet — simulated printer: your numbers differ)
 
@@ -326,9 +327,11 @@ grep -c gpio ~/printer_data/config/printer-350.cfg
 
 A `0` then `20` means you fetched the Rev D (RP2040) file: re-run the `wget` with the `-sbv2` name.
 
+Tip: before the kit, make 12.22 and 12.24–12.36 in a text editor on a laptop copy of the pinned file, then copy it here as `printer-350.cfg` and run the checks.
+
 ⚠ **Rev D+ / LDO:** the Rev D wiring guide's "pre-made configuration file" link points at `leviathan-printer-rev-d.cfg`, the **RP2040** toolboard config: every `nhk:` pin in it is wrong for your board, and it defines a `[temperature_sensor nh_temp]` on a pin the V2 does not have. Do not add that section back (survey §4.1 ①, §4.3). [src](https://github.com/MotorDynamicsLab/LDOVoron2/blob/main/Firmware/README.md)
 
-Source: [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [LDOVoron2 `Firmware/README.md`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md) · [Video: Part 9 @2:35:54](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9354s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
+Source: [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) · [LDOVoron2 `Firmware/README.md`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md) · [Video: Part 9 @2:35:54](https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9354s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
 ---
 
@@ -919,7 +922,7 @@ Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.ht
 
 **Check:** Klipper accepts a bare `[input_shaper]` with no frequencies: a valid "shaping disabled" state, not an error. `[exclude_object]` takes no parameters.
 
-**Also:** for cancel-object to actually work, the G-code needs object labels. Either turn on PrusaSlicer's **Output options → Label objects → Firmware-specific**, or set `enable_object_processing: True` under `[file_manager]` in `moonraker.conf` and let Moonraker inject them. Slicer-side is cheaper — Moonraker's preprocessor is file-I/O heavy. Decide this in the slicer chapter, not here. [src](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [src](https://moonraker.readthedocs.io/en/latest/configuration/)
+**Also:** for cancel-object to work, the G-code needs object labels. The Core One print presets the Voron profile uses at 13.41 already set **Output options → Label objects → Firmware-specific**, which PrusaSlicer writes as `EXCLUDE_OBJECT_DEFINE` under the Klipper flavour. Nothing to do in Moonraker; 13.41's Check confirms it. [src](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [src](https://moonraker.readthedocs.io/en/latest/configuration/)
 
 Source: [Klipper docs § input_shaper](https://www.klipper3d.org/Config_Reference.html#input_shaper) · [Klipper docs § exclude_object](https://www.klipper3d.org/Config_Reference.html#exclude_object) · [Moonraker configuration](https://moonraker.readthedocs.io/en/latest/configuration/)
 
@@ -1076,7 +1079,10 @@ grep -H . /sys/class/drm/card*-*/status | grep :connected
     `display_auto_detect=1` again. If both are right and the panel is still absent, add
     `dtoverlay=vc4-kms-dsi-7inch` to `config.txt` and reboot. Upside down for how the module
     is mounted: change `rotate=180` to `rotate=0` in `cmdline.txt` and reboot. Valid
-    rotations are 0, 90, 180 and 270.
+    rotations are 0, 90, 180 and 270. Console the right way up but KlipperScreen not: rotation
+    is the OS's job, so use the KlipperScreen rotation page's Xorg `90-monitor.conf`
+    (`Option "Rotate" "inverted"`) or Weston `transform=rotate-180`, then fix touch with
+    its touch-rotation matrix page.
 
 The text after the USB ID reads `Klipper 3d-Printer Firmware` or an MCU name such as `stm32f446xx`, depending on the Pi's USB ID database; match on `1d50:614e`. The Nitehawk's onboard USB hub is a separate hub device, normal on V2 and the "+" feature. Klipper has **no config yet**, so no heater or motor can be commanded by software: anything warming up now is a wiring fault, not a setting. A Leviathan listed as `1d50:6177`, Katapult, instead of `1d50:614e` is lit and wired but carries no Klipper: a firmware state, not a Ch 10 fault, so carry on; 12.14's test sends it to the flash.
 
@@ -1093,6 +1099,7 @@ Source: [LDO wiring guide § Software setup](https://docs.ldomotors.com/en/voron
 ### Step 12.12 — Read the two serial IDs and work out which is which
 
 ![LDO Rev D: ls /dev/serial/by-id output, with a Nitehawk V1 rp2040 on top; yours reads stm32g0b1xx](assets/remote/12-software/ldo-revd-serial-by-id-output.png)
+![LDO: the Mainsail editor's DEVICES button, on another kit's printer.cfg](assets/remote/12-software/ldo-revd-mainsail-config-devices.png)
 
 **What you're looking at:** The screenshot is LDO's Rev D `ls /dev/serial/by-id/`. Its top line is a Nitehawk **V1**, `rp2040`; your toolboard line reads `stm32g0b1xx`, never `rp2040`. Each entry carries the MCU family and that chip's unique id, so a board keeps its path across reboots.
 
@@ -1118,7 +1125,7 @@ A Leviathan listed as `usb-katapult_…` instead is waiting in its bootloader wi
 
 ⚠ **Rev D+ / LDO:** the wiring guide states the toolboard ID will look like `usb-Klipper_rp2040_…`. **It will not.** Rev D+ ships the STM32G0B1 Nitehawk-SB V2. Matching `rp2040` assigns the *mainboard's* ID to `[mcu nhk]` or finds nothing (survey §4.1 ②). The guide also writes `stmf446xx`; the real string is `stm32f446xx`. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#software-setup) · [src](https://docs.ldomotors.com/guides/klipper_id) · [src](https://ldomotion.com/p/guide/VORON-Leviathan-V12)
 
-Source: [LDO Rev D photo, `ls /dev/serial/by-id` output](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/serial_by_id_output.png) · [LDO wiring guide § Determining the USB ID of your mainboard and toolboards](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards) · [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · [Video: Extras! @0:24:38](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1478s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
+Source: [LDO Rev D photo, `ls /dev/serial/by-id` output](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/serial_by_id_output.png) · [LDO Rev D photo, Mainsail config devices](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/mainsail_cfg_devices.png) · [LDO wiring guide § Determining the USB ID of your mainboard and toolboards](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#determining-the-usb-id-of-your-mainboard-and-toolboards) · [LDO Klipper-ID guide](https://docs.ldomotors.com/guides/klipper_id) · [Video: Extras! @0:24:38](https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1478s) (differs: BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it)
 
 ---
 
@@ -1306,7 +1313,7 @@ Pause: ~20 min since the last pause — the Leviathan passed the factory-firmwar
 
 ![Nitehawk-SB V2 `make menuconfig` settings](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
 
-**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard: the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry drives the ACT LED pin low at MCU start-up, which LDO documents as the LED coming on **(verify on bench)**.
+**What you're looking at:** The screenshot is LDO's own `make menuconfig` screen for the toolboard: the same tool as step 12.14, but a different chip, offset and clock. The `!PC6` entry drives the ACT LED pin low at MCU start-up; the LED is active-low, so it comes on.
 
 **Parts:** none.
 
@@ -1343,9 +1350,9 @@ cp config.nitehawk ~/printer_data/config/
 
 ⚠ **Rev D+ / LDO:** this is the deviation that defines Rev D+. The Nitehawk-SB **V1** is an RP2040 and takes a different menuconfig; the **V2** is an STM32G0B1, and choosing RP2040 produces a binary the board cannot run. The **8 KiB bootloader offset is mandatory**: build with no offset and the Katapult flash erases the bootloader. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [menuconfig screenshot](assets/remote/12-software/nitehawk-sb-v2-make-menuconfig.png)
 
-⚠ **Rev D+ / LDO:** the ACT LED: `!PC6` turns it on at MCU start-up, but the kit config's `[output_pin pcb_led] pin: !nhk:PC6` with default `value: 0` may drive the pin the other way once Klipper connects, so the LED could go **dark** at `Ready` **(verify on bench)**. LDO's own `nitehawk-sbv2.cfg` uses `pin: nhk:PC6`; drop the `!` if you want it lit. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg)
+⚠ **Rev D+ / LDO:** the ACT LED is active-low. `!PC6` lights it at MCU start-up, but the kit config's `[output_pin pcb_led] pin: !nhk:PC6`, default `value: 0`, drives PC6 high once Klipper connects, so the LED goes **dark** at `Ready`. That is expected. LDO's own `nitehawk-sbv2.cfg` uses `pin: nhk:PC6`; drop the `!` to keep it lit. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg)
 
-Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#compiling-klipper-firmware) · [Nitehawk-SB-V2 `make_menuconfig.png`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/make_menuconfig.png)
+Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#compiling-klipper-firmware) · [Nitehawk-SB V2 doc § Port and pin definitions, ACT active low](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#port-and-pin-definitions) · [Nitehawk-SB-V2 `make_menuconfig.png`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/make_menuconfig.png)
 
 ---
 
@@ -1357,9 +1364,10 @@ Source: [Nitehawk-SB V2 doc § Compiling Klipper firmware](https://docs.ldomotor
 
 **Parts:** none.
 
-**Do:** The recommended path needs no buttons at all:
+**Do:** The recommended path needs no buttons. `make flash` hands the binary to Katapult through the system Python, which needs pyserial; the first line installs it:
 
 ```bash
+sudo apt install -y python3-serial
 cd ~/klipper
 sudo service klipper stop
 make KCONFIG_CONFIG=config.nitehawk flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_stm32g0b1xx_<id>-if00
@@ -1370,7 +1378,7 @@ Use the `stm32g0b1xx` ID you recorded in Step 12.12. (Every future toolboard upd
 
 **Check:** the flash completes without error, and `ls /dev/serial/by-id/` still shows `usb-Klipper_stm32g0b1xx_<id>-if00`. If the board does not come back, reboot the printer before assuming anything is broken.
 
-Source: [Nitehawk-SB V2 doc § Uploading Klipper via make flash](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#uploading-klipper-via-make-flash)
+Source: [Nitehawk-SB V2 doc § Uploading Klipper via make flash](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#uploading-klipper-via-make-flash) · [Klipper `scripts/flash_usb.py`, pyserial for the Katapult upload](https://github.com/Klipper3d/klipper/blob/f0892d8/scripts/flash_usb.py)
 
 ---
 
@@ -1458,14 +1466,14 @@ cd ~/printer_data/config && mv printer-350.cfg printer.cfg
 
 ```ini
 [mcu]
-##  Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
+##  Obtain definition by "ls -l /dev/serial/by-id/"; identify by MCU family (12.12), never by unplugging   # CHANGED
 ##--------------------------------------------------------------------
 serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_XXXXXXXXXXXX-if00   # CHANGED — Leviathan; stm32h743xx if V1.3
 restart_method: command
 ##--------------------------------------------------------------------
 
 [mcu nhk]
-##  Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
+##  Obtain definition by "ls -l /dev/serial/by-id/"; identify by MCU family (12.12), never by unplugging   # CHANGED
 ##--------------------------------------------------------------------
 serial: /dev/serial/by-id/usb-Klipper_stm32g0b1xx_XXXXXXXXXXXX-if00   # CHANGED — Nitehawk-SB V2, NOT rp2040
 restart_method: command

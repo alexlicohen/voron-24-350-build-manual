@@ -223,7 +223,7 @@ steps:
   chapter: 05-gantry.md
   modes: [a]
   title: "Step 05.16 - which backer is which, and which face it goes on"
-  subtitle_a: "Backers lifted off the faces they belong to: two matched long Y backers, one shorter X backer. Schematic - a mod, not in the Voron CAD."
+  subtitle_a: "Backers lifted off their faces: two long Y backers (the pilot-hole one goes right), one short X. Schematic - not in the Voron CAD."
   select:
     - label: "C extrusions (Y axes) - Y backer on the TOP face"
       resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/=>'
@@ -235,13 +235,13 @@ steps:
       resolve: 'Gantry Extrusions:1/HFSB5-2020-350[^/]*:1/MGN9 - 300mm[^/]*:1/=>|HFSB5-20-330:1/MGN12 rail[^/]*/=>'
       ids: [298, 414, 440]
   boxes:
-    - label: "Y backer x2 - matched long pair, onto the TOP face of each C (lifted off)"
+    - label: "Y backers - long; the one with four chain pilots on the RIGHT C, pilots at the rear; TOP faces (lifted off)"
       geom: '313,8,104,331,326,107;-77,8,104,-59,326,107'
     - label: "X backer x1 - the odd shorter one, onto the REAR face of D (lifted off)"
       geom: '-23,206,96,277,209,112'
   caption: "The three extrusions that take a backer, each with its backer drawn on the face opposite its rail."
-  looking_at: "The three backers laid on the extrusions they belong to - the two matching long ones on top of the Y (C) beams, the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail."
-  note_350: "Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by matched pair versus odd one, not by the lengths drawn here."
+  looking_at: "The three backers laid on the extrusions they belong to - the two long ones on top of the Y (C) beams (the one with chain pilot holes on the right), the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail."
+  note_350: "Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by long pair versus short one and by the pilot holes, not by the lengths drawn here."
   insert: true
 
 - step: "05.18"
@@ -310,10 +310,10 @@ steps:
       resolve: 'Gantry Extrusions:1/HFSB5-2020-350:1/=>'
       ids: [415]
   boxes:
-    - label: "titanium Y backer, 3 mm - the gap is its cable-chain pilot holes (schematic)"
-      geom: '313,8,88,331,281,91;313,295,88,331,326,91'
+    - label: "titanium Y backer, 3 mm - its tapped pilots take the end link (schematic)"
+      geom: '313,8,88,331,326,91'
   caption: "The cable chain's fixed end lifted off the Y beam, showing that its end link and the 3 mm titanium backer want the same extrusion face."
-  looking_at: "The fixed end of the Y cable chain, lifted off the beam it bolts to - that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link may now sit 3 mm proud."
+  looking_at: "The fixed end of the Y cable chain, lifted off the beam it bolts to - that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link sits 3 mm higher, on the backer's tapped pilot holes."
   note_350: "CAD chain and extrusion are the 250 machine's; a 350 chain run is longer. What transfers is which face the end link lands on."
   insert: true
 
@@ -323,14 +323,14 @@ steps:
   modes: [b]
   frame_b: '284,148,42,356,352,206'
   ghost_exclude: 'Panels|Skirt'
-  title: "Step 05.35 - which bridge, and the run it has to serve"
+  title: "Step 05.35 - the bridge and the run it has to serve"
   subtitle_b: "Whole Y chain run in place with both bridge variants; rest of the machine ghosted at 20 per cent."
   select:
     - label: "Y cable chain (Ch 10) - dry fit only at this step"
       resolve: 'Y Cable Chain:3/0[^/]*:1$'
       ids: [357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369,
             370, 371]
-    - label: "KEEP if its foot still sits flat: xy_joint_cable_bridge_2hole"
+    - label: "stock 2-hole bridge: the raised Igus-3mm_backer bridge (not in the CAD) takes its place"
       resolve: 'XY Cable Chain Bridge - 2 Hole:1'
       ids: [229]
     - label: "the stock 3-hole bridge (LDO ships the 2-hole pattern)"
@@ -341,7 +341,7 @@ steps:
     - label: "titanium Y backer, 3 mm (schematic)"
       geom: '313,8,88,331,326,91'
   caption: "The whole Y cable-chain run with both bridge variants and the Y backer, in place on the right-hand Y beam."
-  looking_at: "The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front - and both bridge variants, of which this kit uses the 2-hole one."
+  looking_at: "The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front. This build fits the raised Igus-3mm_backer bridge, 3 mm taller than the stock ones drawn, so both chain ends sit at the same height."
   note_350: "Run length is the 250 machine's; a 350 needs more links. Which bridge and which face do not change."
   insert: true
   insert_note: >-
@@ -533,7 +533,7 @@ steps:
   frame_a: '-88,126,22,14,208,108'
   context_scale: 1.5
   ghost_exclude: 'Panels|Skirt'
-  title: "Step 06b.14 - which bolts you tighten while holding the beam back"
+  title: "The XY joint bolts - two down from the top, one up from below, per joint"
   subtitle_a: "Left XY joint. Two bolts down from the top, one up from below - the ones Step 05.38-05.39 left slightly loose."
   subtitle_b: "Both joints and the two drive units they must bottom out against; rest of the machine ghosted at 20%."
   select:
@@ -593,11 +593,11 @@ steps:
   frame_a: '224,312,52,342,378,124'
   frame_b: '186,266,14,352,382,158'
   ghost_exclude: 'Panels|Skirt'
-  title: "Step 07.39 - the A/B drive cable cover"
-  subtitle_a: "The accent cover clipped over the drive unit's cable exit."
+  title: "Step 07.39 - the A/B drive cable cover, dry-fit"
+  subtitle_a: "The accent cover on the A drive's two inserts: two M3x12 SHCS at Step 10.66, over the Z-chain wire bundle."
   subtitle_b: "Same corner with the belts in place; rest of the machine ghosted at 20%."
   select:
-    - label: "[a]_cable_cover - clips over the drive-unit cable exit"
+    - label: "[a]_cable_cover - screws onto the A drive over the wire bundle (Step 10.66)"
       resolve: 'A Drive:1/Cable Cover:1$'
       ids: [30]
     - label: "A drive unit (rear right)"
@@ -606,8 +606,8 @@ steps:
     - label: "must not touch either belt at any point of travel"
       resolve: 'Gantry:1/(A|B) Belt:1$'
       ids: [377, 378]
-  caption: "The cable cover on the A drive unit, with the A and B belts it must clear."
-  looking_at: "The printed cable cover that clips over the cable exit on a drive unit, and the two belts running past it that it must never touch."
+  caption: "The cable cover on the A drive unit, with the A and B belts it must clear. Dry-fit only at Step 07.39."
+  looking_at: "The printed cable cover that screws onto the A drive over the Z-chain wire bundle, and the two belts running past it that it must never touch."
   note_350: null
   insert: true
   insert_note: >-
@@ -679,23 +679,20 @@ chapters:
   caption: "Everything Chapter 01 leaves standing: the eight horizontals, the four B verticals and the two bed support extrusions."
   note_350: "CAD frame is the 250 set (370 mm horizontals, 430 mm verticals). Yours is the 350 set - same joints, longer members."
   select:
-    - label: "bottom and top frame extrusions"  # 76 parts
-      resolve: "Frame:1/(Bottom|Top) Extrusions:1/"
-      ids: [981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997,
-            998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012,
-            1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026,
-            1027, 1028, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040,
-            1041, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054,
-            1055, 1056]
-    - label: "the four B verticals (Z rails come in Ch 02)"  # 40 parts
-      resolve: "Frame:1/Verticals Extrusions:1/(?!.*MGN9)"
-      ids: [1057, 1058, 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1075, 1076, 1077, 1078, 1079,
-            1080, 1081, 1082, 1083, 1084, 1094, 1095, 1096, 1097, 1098, 1099, 1100, 1101, 1102,
-            1103, 1113, 1114, 1115, 1116, 1117, 1118, 1119, 1120, 1121, 1122, 1132]
-    - label: "bed support extrusions and their corner brackets"  # 28 parts
-      resolve: "Frame:1/Bed Supports:1/"
-      ids: [1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146,
-            1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160]
+    - label: "bottom and top frame extrusions"  # 24 parts
+      resolve: "Frame:1/(Bottom|Top) Extrusions:1/(?!.*Drop-in T-nut)"
+      ids: [981, 982, 987, 988, 989, 994, 995, 996, 997, 998, 999, 1002, 1003, 1004, 1012,
+            1013, 1014, 1027, 1028, 1029, 1045, 1046, 1047, 1056]
+    - label: "the four M5 T-nuts Step 01.17 loads for the bed-extrusion brackets"  # 4 parts
+      resolve: "Frame:1/Bottom Extrusions:1/.*Drop-in T-nut, M5 \\((61|62|63|64)\\)"
+      ids: [1015, 1016, 1030, 1031]
+    - label: "the four B verticals (Z rails come in Ch 02)"  # 4 parts
+      resolve: "Frame:1/Verticals Extrusions:1/(?!.*MGN9)(?!.*Drop-in T-nut)"
+      ids: [1075, 1094, 1113, 1132]
+    - label: "bed support extrusions and their corner brackets"  # 18 parts
+      resolve: "Frame:1/Bed Supports:1/(?!.*Drop-in T-nut)"
+      ids: [1133, 1134, 1141, 1142, 1143, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155,
+            1156, 1157, 1158, 1159, 1160]
 - chapter: "02"
   out: ch-02-after
   title: "End of Chapter 02 - Z drives, idlers, rails and deck"
@@ -732,6 +729,12 @@ chapters:
     - label: "deck panel"  # 1 parts
       resolve: "Panels:1/Opaque Panels:1/Deck Panel"
       ids: [1227]
+    - label: "frame T-nuts this chapter's parts bolt into"  # 56 parts
+      ids: [983, 984, 985, 986, 990, 991, 992, 993, 1008, 1009, 1010, 1011, 1023, 1024,
+            1025, 1026, 1040, 1041, 1042, 1043, 1052, 1053, 1054, 1055, 1058, 1059, 1060,
+            1061, 1062, 1063, 1064, 1065, 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084,
+            1096, 1097, 1098, 1099, 1100, 1101, 1102, 1103, 1115, 1116, 1117, 1118, 1119,
+            1120, 1121, 1122]
 - chapter: "03"
   out: ch-03-after
   title: "End of Chapter 03 - the bed"
@@ -743,6 +746,8 @@ chapters:
       resolve: "Bed Components:1/"
       ids: [1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174,
             1175, 1176]
+    - label: "frame T-nuts this chapter's parts bolt into"  # 4 parts
+      ids: [1135, 1136, 1144, 1145]
 # Ch 04 and Ch 05 end with a subassembly on the bench: the machine itself is
 # exactly as Ch 03 left it (04: "All four assemblies are built on the bench and
 # bagged; none of them touches the printer until Ch 05"; Checkpoint 05: "Gantry
@@ -816,8 +821,8 @@ chapters:
 - chapter: "07"
   out: ch-07-after
   title: "End of Chapter 07 - A and B belts closed"
-  subtitle: "Orange: added in this chapter - the two belt loops, the probe and the drive cable cover. Grey: already built."
-  caption: "The A and B belt loops threaded through both idler stacks and closed at the X carriage, plus the inductive probe and the A/B drive cable cover."
+  subtitle: "Orange: added in this chapter - the two belt loops and the probe. Grey: already built."
+  caption: "The A and B belt loops threaded through both idler stacks and closed at the X carriage, plus the inductive probe. The A/B drive cable cover is only dry-fitted here; it goes on at Step 10.66."
   note_350: "The CAD belt loops are the 250 lengths and the only thing on this picture that is size-dependent. Cut yours to Chapter 07 Step 07.8, never to this render."
   select:
     - label: "the A and B belts"  # 2 parts
@@ -826,9 +831,6 @@ chapters:
     - label: "inductive probe on the X carriage"  # 3 parts
       resolve: "X Carriage:1/Omron TL_Q5MC2"
       ids: [63, 64, 65]
-    - label: "A/B drive cable cover"  # 1 parts
-      resolve: "A/B Drives:1/.*Cable Cover"
-      ids: [30]
 - chapter: "08"
   out: ch-08-after
   title: "End of Chapter 08 - toolhead on the carriage"
@@ -867,6 +869,8 @@ chapters:
     - label: "XY endstop pod (kept back in Ch 05)"  # 14 parts
       resolve: "XY Joint - Right:1/D2F Microswitch Pod"
       ids: [230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243]
+    - label: "frame T-nuts this chapter's parts bolt into"  # 9 parts
+      ids: [1036, 1037, 1038, 1039, 1051, 1137, 1138, 1146, 1147]
 # Chapter 10 (wiring) has no render of its own - nothing it adds reads at this
 # scale. Its parts ride into ch-11-after as already-built (grey) and are hidden
 # by the panels there.
@@ -885,6 +889,11 @@ chapters:
     - label: "chain retainer bracket on the A drive"  # 2 parts
       resolve: "A/B Drives:1/.*Chain Retainer Bracket"
       ids: [32, 33]
+    - label: "A/B drive cable cover, over the Z-chain bundle (Step 10.66)"  # 1 parts
+      resolve: "A/B Drives:1/.*Cable Cover"
+      ids: [30]
+    - label: "frame T-nuts this chapter's parts bolt into"  # 1 parts
+      ids: [1044]
 - chapter: "11"
   out: ch-11-after
   title: "End of Chapter 11 - the machine closed up"
@@ -927,3 +936,6 @@ chapters:
     - label: "exhaust grill on the back panel"  # 1 parts
       resolve: "Exhaust Filter Assembly:1/Exhaust Grill"
       ids: [1419]
+    - label: "frame T-nuts this chapter's parts bolt into"  # 15 parts
+      ids: [1005, 1006, 1007, 1019, 1020, 1021, 1022, 1032, 1033, 1034, 1035, 1048, 1049,
+            1050, 1057]

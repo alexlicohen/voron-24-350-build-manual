@@ -17,16 +17,16 @@ caption: Four corners agreeing on one height. Get this right and every print rem
 
 - **Ch 02 — Z drives, Z idlers, Z rails, deck.** Four Z drives built and bolted in, four Z idlers at the tops of the uprights, four MGN9 Z rails on the uprights with their carriages on, 16T/20T pulley stack verified, set screws threadlocked (survey §5.2 W12). The deck panel is in.
 - **Ch 05 — Gantry.** Complete gantry: X and Y extrusions, XY joints, X carriage, titanium backers already fitted (survey §5.2 W2 — backers after this point means a teardown). Left off the printer, as the manual leaves it at p.106–107.
-- **Print batch B05** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 6.4 h.
+- **Print batch B05** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 6.2 h.
 - **Print batch B02** — the single blue accent session, which carries the four lower Z belt clips and the Z chain retainer brackets. The four upper clips went on in Ch 05 (Steps 05.19–05.23).
-- Heat-set inserts already done for every part in both batches (survey §5.2 W3).
+- No heat-set inserts in Part A: the Z joints take M5 nuts (Step 06.3).
 
 **Tools**
 
 - Hex 2.5 mm, 3 mm and 4 mm; a ball-end 4 mm helps at the Z joints
 - Hex 2.5 mm, 3 mm and 4 mm for Part B
 - **Two people** for the gantry lift (survey §7.3, chapter 06 row) — Alex on one side, daughter on the other
-- Four rubber rail stoppers taken off the Z rails (the LDO trick, below), or long zip ties as the fallback
+- The four rubber rail stoppers from the Y rails (Step 05.15; the LDO trick, below), or long zip ties as the fallback
 - Needle-nose pliers or tweezers for belt routing (manual p.118)
 - Steel rule / tape for cutting belt; flush cutters
 - **Part B only:** 150 mm machinist square (DIN 875/2), digital caliper, 150 mm rule, phone with Spectroid (Android) / Sound Spectrum Analysis (iOS) / Gates Carbon Drive
@@ -62,12 +62,12 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | 6×3 mm magnet | **0** | hall-effect option only — not used |
 | Zip tie, 3×150 mm (belt tails) | 4 | manual p.120 |
 | Zip tie, long (gantry support) | 0–4 | only if you skip the rubber-rail-stopper trick |
-| Rubber rail stopper — from the Z rails | 4 | taken off the Z rails and re-fitted mid-rail — LDO note p.114–116 |
+| Rubber rail stopper — from the Y rails | 4 | taken off the Y rails (Step 05.15) and fitted mid-rail on the Z rails — LDO note p.114–116 |
 
 **Read first**
 
 - **Do manual p.115–116 before p.114.** LDO: *"We recommend completing steps on page 115-116 then use the rubber rail stopper under the Z joints mid rail. This will allow you to set the Gantry on page 114 on the joints without the need for long zipties."* Fit the four lower Z joints and park them at a known height first, then lower the gantry onto them. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
-- **Ignore every hall-effect option on p.110 and p.113.** LDO note p.145: *"SKIP The kit does not use hall effect endstops."* Four plain `z_joint_upper_x4`, no 6×3 magnets, no `z_joint_upper_hall_effect.stl`. The XY endstop on this kit is the D2F PCB pod fitted in Ch 05. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+- **Ignore every hall-effect option on p.110 and p.113.** LDO note p.145: *"SKIP The kit does not use hall effect endstops."* Four plain `z_joint_upper_x4`, no 6×3 magnets, no `z_joint_upper_hall_effect.stl`. The XY endstop on this kit is the D2F PCB pod, bagged in Ch 05 and fitted at Step 09.33. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - **The gantry lift is a two-person step and the manual says so** (p.114: *"An extra pair of hands helps with this step"*). Nobody holds a 350 gantry one-handed while fishing for an M5×40.
 - **The gantry alignment on p.122 is not the gantry squaring.** p.122 gets the gantry square enough to belt. The real procedure (Part B) starts by *fully releasing* A/B belt tension and dropping the lower Z joints, so it has to come after firmware is up. Ch 07's A/B tension is provisional, and so is Part B's (survey §5.2 W1, §4.4 #2). A/B tension is set three times on purpose: Ch 07 (provisional — enough to home and QGL), Ch 06b Step 06b.15 (provisional again, after squaring, machine cold and open) and Ch 14 Step 14.4 (final — panels on, machine cold, door open, immediately before the closed-chamber soak and hot Z-joint tighten of Step 14.6). Z belts: Ch 06b Step 06b.3 (so QGL converges for squaring), set for the last time at Ch 14 Step 14.5, in the same cold session.
 - **Belt tension targets:** Z belts **140 Hz** over a 150 mm span measured from the Z idler centres; A/B belts **110 Hz** over a 150 mm span. Both from [docs.vorondesign.com](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html). voronldo.com's 80–100 Hz (A/B) and 110–130 Hz (Z) numbers are discarded — survey §4.3.
@@ -288,7 +288,7 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- Rubber rail stopper ×4 — from the Z rails
+- Rubber rail stopper ×4 — from the Y rails
 - reused: the four `z_rail_stop_x4` on the rail tops, if fitted
 
 **Do:**
@@ -309,7 +309,7 @@ Pause: ~25 min since the last pause — four lower Z joints on the Z carriages a
 
 ### Step 06.11 — Turn the gantry over and stage the lift
 
-![Voron manual p.113](assets/manual-pages/manual-p113.png)
+![Voron manual p.114](assets/manual-pages/manual-p114.png){ crop="0.155 0.19 0.42 0.74" }
 
 **What you're looking at:** The gantry back the way it runs: A/B motors hanging **down** below the rear extrusion, Y rails on the underside, X rail facing the front, the four Z bearing blocks at the corners with their belt tails hanging. The frame is not front-to-back symmetric.
 
@@ -691,7 +691,7 @@ The procedure needs `SET_IDLE_TIMEOUT`, `G28`, `QUAD_GANTRY_LEVEL` and `SET_STEP
 
 **Why it is split out:** the procedure's first moves are to *fully release A/B belt tension* and *drop the lower Z joints*. Anything you tension before this gets undone (survey §5.2 W1, §4.4 #2). Ch 07's A/B tension and the one you set at step 06b.15 are both provisional; Ch 14 Step 14.4 sets the final value.
 
-**Part B is transcribed from:** [V2 Gantry Squaring, docs.vorondesign.com](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — 17 numbered steps. Steps 1–13 are transcribed below with the original number cited on each (plus one added Z-belt step); steps 14–17 (soak, hot QGL, hot Z-joint tighten, restart) are handed to Ch 14 at Step 06b.16. [Ellis' identical section](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html) is the same text. The manual's own p.122 QR ([voron.link/cekh81l](https://voron.link/cekh81l)) points here.
+**Part B is transcribed from:** [V2 Gantry Squaring, docs.vorondesign.com](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — 17 numbered steps. Steps 1–13 are transcribed below with the original number cited on each (plus one added Z-belt step); steps 14–16 (soak, hot QGL, hot Z-joint tighten) are handed to Ch 14 at Step 06b.16; step 17 (`RESTART`) runs at 06b.16. [Ellis' identical section](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html) is the same text. The manual's own p.122 QR ([voron.link/cekh81l](https://voron.link/cekh81l)) points here.
 
 **Extra tools for Part B:** 150 mm machinist square, digital caliper, 150 mm rule, phone spectrum app, hex 2.5/3/4 mm.
 
@@ -973,7 +973,7 @@ Only those six bolts; the drives, idlers and Z belt clamps stay as 06b.12 left t
 
 > Voron's own note on this step: *"Make sure to come back here afterwards! The following steps are still important."*
 
-**Check:** Pushed fully back, both X/Y joints contact their drives at the same instant; the square shows square at both front corners, forward and back.
+**Check:** Pushed back, both X/Y joints touch their drives at once. Near the front, X extrusion to front frame extrusion reads equal at both ends.
 
 ??? note "If one side still leads"
 
@@ -1007,21 +1007,23 @@ Source: [Voron docs § V2 Gantry Squaring, step 13](https://docs.vorondesign.com
 
 (no image — see text)
 
-**What you're looking at:** Voron's steps 14–17, the heat soak, the hot QGL runs and the hot tighten, need a chamber that closes, and the panels are not on yet. So squaring stops here, cold: gantry square and de-racked, Z joints light, A/B belts at a working tension.
+**What you're looking at:** Voron's steps 14–16, the heat soak, the hot QGL runs and the hot tighten, need a chamber that closes, and the panels are not on yet. So squaring stops here, cold: gantry square and de-racked, Z joints light, A/B belts at a working tension.
 
 **Parts:** none.
 
 **Do:**
 
-1. Run `RESTART`, so the idle timeout from 06b.1 returns to the config default.
+1. Hand under the gantry, run `RESTART`: the idle timeout from 06b.1 returns to default.
 2. Go back to [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) and finish Ch 13.
 3. Leave the four M5×40 **light**: nothing set in this part is final.
 
-Voron step 17, done now rather than in Ch 14 because the M5×40 stay light for days, not minutes. That step is `G28`, re-QGL, Z=0, bed mesh and the first cube. Then fit the back, side and top panels and the Clicky-Clack door ([Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)). Final A/B and Z belt tension, cold and door open at 14.4–14.5, then the heat soak, the 3–5 hot QGL runs and the hot tighten of the four M5×40 Z-joint bolts at 14.6, are [Ch 14 Part B](14-calibration.md#part-b-belts-final-tension).
+Voron step 17, done now rather than in Ch 14 because the M5×40 stay light for days, not minutes. Ch 13 resumes at 13.35 with `G28`, re-QGL, Z=0, bed mesh and the first cube. Then fit the back, side and top panels and the Clicky-Clack door ([Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)). Final A/B and Z belt tension, cold and door open at 14.4–14.5, then the heat soak, the 3–5 hot QGL runs and the hot tighten of the four M5×40 Z-joint bolts at 14.6, are [Ch 14 Part B](14-calibration.md#part-b-belts-final-tension).
 
-**Check:** `RESTART` completed, `SET_IDLE_TIMEOUT` back to the config default, the four M5×40 still light, and the gantry holding its height.
+**Check:** `RESTART` completed, `SET_IDLE_TIMEOUT` back to the config default, the four M5×40 still light, and the gantry let down by hand: `RESTART` releases the Z motors.
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Ch 14 Part B — Belts, final tension](14-calibration.md#part-b-belts-final-tension) · [Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)
+
+Pause: ~60 min since the last pause — gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).
 
 ---
 
@@ -1037,7 +1039,8 @@ Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesi
 - [ ] Both A/B joints checked for rotation against the good/bad reference images
 - [ ] At all four Z joints, the M5×40 starts by hand with the joint raised — no coaxing
 - [ ] **Four-point gantry-to-frame gap recorded**: same-side front/rear within 0.5 mm, left/right within 1 mm
-- [ ] Machinist square shows no light at **both** front corners, gantry forward and gantry back
+- [ ] Machinist square shows no light at **both** front corners (Y extrusions square to the frame, Step 06b.11)
+- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once; near the front, X extrusion to front frame extrusion equal at both ends
 - [ ] A/B belts re-tensioned to a provisional **110 Hz** over a 150 mm span, matched to each other — final value is Ch 14 Step 14.4
 - [ ] Four Z joint M5×40 bolts **still light** — they are tightened hot in Ch 14, not here
 - [ ] `RESTART` run at Step 06b.16; idle timeout back to default; next page is Ch 13 Step 13.35
@@ -1059,5 +1062,3 @@ Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesi
 **After Part A:** [Ch 07 — A/B belts and tensioning](07-ab-belts.md) (manual p.124–145) once Checkpoint 06 is clear; tension provisionally, because Part B will release it. **After Part B:** back to [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) (re-heat, re-QGL, Z=0, mesh, first cube); then [Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13) (panels and door); then [Ch 14 Steps 14.4–14.6](14-calibration.md#part-b-belts-final-tension) for final belt tension (cold), then the hot soak and the hot Z-joint tighten.
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
-
-Pause: ~60 min since the last pause — gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).

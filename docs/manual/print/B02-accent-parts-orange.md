@@ -53,8 +53,9 @@ before assembly.
 | `ldo_bestagon_insert.stl` | LDOVoron2 `STLs/` | 1 | Blue | 3.0 | 11-skirts |
 | `Handle.stl` | whopping_Voron_mods `clickyclacky_door/STLs/` | 1 | Blue | 33.7 | 11-door |
 
-⚠ **Cable-chain bridge, conditional:** Fabreeko's titanium extrusion backers ship pre-tapped for the cable
-chain, which may make the printed bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
+⚠ **Cable-chain bridge, conditional:** one long titanium backer and the short X backer carry pilot holes for
+the cable chain's end links (drill 2.5 mm, tap M3, per the backer README; whether Fabreeko taps them is
+`(verify on bench)`), which may make the printed bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
 `XY_cable_chain_bridge-Igus-3mm_backer` (18 g total) and fit whichever clears at assembly. "Igus" = the
 2-hole chain pattern, which is what LDO ships.
 

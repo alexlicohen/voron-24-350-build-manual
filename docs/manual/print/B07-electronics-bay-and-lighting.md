@@ -7,11 +7,11 @@ caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rar
 
 **Time:** 15.3 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.7 / 7.6 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.7 / 7.6 h unattended) + ~25 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
-depend on B01–B06 (the electronics bay is independent of the mechanical gantry); its heat-set bosses get
-their inserts on kit day, in Ch 09.
+depend on B01–B06 (the electronics bay is independent of the mechanical gantry); the inlet panel's inserts go
+in at Ch 09 Step 09.10, the COB mounts' at Ch 10 Step 10.35.
 
 **Printed parts**
 
@@ -23,7 +23,7 @@ their inserts on kit day, in Ch 09.
 | `PSU_stabilizer_50mm.stl` | Voron-2 `STLs/Electronics_Bay/` | 1 (verify) | Black | 4.1 | 09-bay |
 | `usb_adapter_mount.stl` | Nitehawk-SB `STLs/` | 1 *(spare — kit supplies one; → spare-alt)* | Black | 9.4 | spare-alt |
 | `usb_adapter_mount_partial_cover.stl` | Nitehawk-SB-V2 `STLs/` | 1 (ground-lug mount) | Black | 5.0 | 08-CW2 |
-| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies the 4 needed)* | Black | 5.9 | 09-bay |
+| `pcb_din_clip_x3.stl` | Voron-2 `STLs/Electronics_Bay/` | 3 *(spares — the kit supplies 4 printed; Ch 09 fits 3)* | Black | 5.9 | 09-bay |
 | `handlebar_spacer_x4.stl` | LDOVoron2 `STLs/` | 4 | Black | 2.1 | 11-finish |
 | `cob_light_strip_mount_100mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 6 | Black | 18.1 | 10-lights |
 | `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 | 10-lights |
@@ -40,11 +40,11 @@ supplied printed).
 
 **Read first**
 
-- Checkpoint after B07: COB mount halves flat on the reference and closing flush on their 2× M3×6 FHCS. The
+- Checkpoint after B07: COB mount halves flat on the reference and closing flush by hand (their 2× M3×6 FHCS go in at Ch 10 Step 10.35). The
   inlet panel's three insert bores get their inserts on kit day (Ch 09 Step 09.10), not here; the Wago mount takes none.
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
-  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (111 g on P2 alone).
+  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (about 82 g of P2's 111 g).
 
 ## Step B07.1 — Filament prep
 
@@ -120,7 +120,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ## Step B07.7 — Sort into bins
 
-**Do:** Sort off each plate diagram; the printed bin id names the bin. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). The inlet lives in **09-bay**, only borrowed for the skirt-ring dry-fit at Step 11.1.
+**Do:** Sort off each plate diagram; the printed bin id names the bin. Mark plate id and date on a hidden face. Labels: [bin-labels sheet](../../print/bin-labels.md). The inlet lives in **09-bay**, only borrowed for the skirt-ring dry-fit at Step B08.10.
 
 **B07-P1**
 
@@ -145,14 +145,14 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet; Ch 09 sets them on kit day.
+Pause: ~10 min since the last pause — both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
 ---
 
 ## Checkpoint B07
-- [ ] COB mount halves close flush on 2× M3×6 FHCS, all eight assemblies
+- [ ] COB mount halves close flush by hand, all eight assemblies (screws at Ch 10.35)
 - [ ] COB mounts checked flat on granite reference — no rocking
 - [ ] Inlet-panel insert bores crisp (inserts go in at Ch 09 Step 09.10)
 - [ ] `PSU_stabilizer_50mm` fit decision made (verify against actual PSU)

@@ -18,7 +18,7 @@ caption: Something is wrong and a step here already expected it. Start at the sy
 **Read first**
 
 - **Find the symptom, then go to the step. Do not fix it from this page.** The rows are compressed to fit a table; the step has the orientation, the picture and the exact numbers.
-- **This index does not invent fixes.** If your symptom is not here, it is not a symptom this manual has an answer for — go to [Not covered here](#not-covered-here-where-to-ask) and ask, with the four pieces of information listed there.
+- **This index does not invent fixes.** If your symptom is not here, it is not a symptom this manual has an answer for — go to [Not covered here](#not-covered-here-where-to-ask) and ask, with the five pieces of information listed there.
 - **Anything smelling, smoking or tripping a breaker is not a troubleshooting problem.** Cut power at the wall and go to [Ch 00a Step 00a.12](00a-mains-safety.md#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites).
 - **Ch 13's own [What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean) table is the primary source for first-start faults** and is more detailed than the rows here. This page indexes it; it does not replace it.
 - Order matters more than any single fix: PID → soak → probe accuracy → QGL → square → Z=0 → mesh. A symptom that appears out of that order is usually the order, not the part ([Ch 13 Common mistakes](13-initial-startup.md#common-mistakes)).
@@ -38,14 +38,14 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - Z is off, or the first layer is wider than mid height
 
-            Squish or elephant-foot compensation. For Z, fix the sheet seating, a dirty sheet or the nozzle seat rather than saving a nudge, because the Core One+ keeps none. For the first layer, elephant foot in 0.05 mm steps. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
+            Squish or elephant-foot compensation. For Z, fix the sheet seating, a dirty sheet or the nozzle seat rather than saving a nudge, because the Core One+ keeps none; with those ruled out, the correction is `z_offset` (or the `FLOW_FIRST` line) in `slicer/build_config.py`, re-run per calibration item 3. For the first layer, elephant foot in 0.05 mm steps. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
 
         - A corner peels along one layer line at the snap test
 
             The chamber is too cold or the part fan is too high. Drop min/max fan to 0 / 15 % and keep the 40 °C chamber gate. [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube)
 
     - A bore or a boss fails Gate B
-        - A 625-2RS or F695 seat is tight or loose
+        - A 625-2RS seat is tight or loose
 
             Flow, or shrinkage compensation that is not zero — the seats are drawn for 100 %. Tight means extrusion multiplier down 1 % and reprint; loose means confirm 0 % shrinkage. Never enlarge a bore with compensation. [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect) · [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect)
 
@@ -60,20 +60,20 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - The first layer is glassy and featureless, or gappy and ridged
 
-            The loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
+            The loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated. Fix the cause: a Live Adjust Z nudge is per print and is not saved. With the sheet, debris and nozzle seat ruled out, change `z_offset` (or the `FLOW_FIRST` line) in `slicer/build_config.py` and re-run the pipeline. [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) · [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change)
 
         - A brim appeared on flat grills or clips that should have none
 
             The global brim was set by hand. Clear Print Settings, Skirt and brim; brims live per object inside the committed projects. [Orientation & brim](print/00-slicer-setup.md#orientation-brim) · [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2)
 
     - The slicer or the spool
-        - The preset reads bare, or B00-P1 estimates far from 3 h 58 m
+        - The preset reads bare, or B00-P1 estimates far from 3 h 50 m
 
             The project's configuration did not load: the wizard was not run, or the 0.4 HF nozzle variant is not installed. Run the Configuration Wizard with HF ticked, then reopen the project. [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup) · [one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project)
 
         - The spool ran out mid-plate
 
-            One runout is predicted, on a plate with no bearing seat. Let the runout sensor pause, load the next spool and resume; never plan one on a bearing-seat plate. [Spool ledger](print/README.md#spool-ledger)
+            The runout sensor pauses the plate: load the next spool, check it extrudes clean, press Continue. A seam is fine on a part with no bearing seat; on a bearing-seat part, reprint it. Never plan a runout on a bearing-seat plate. [When the printer stops](print/README.md#when-the-printer-stops) · [Spool ledger](print/README.md#spool-ledger)
 
     - The printer stopped mid-plate
         - It paused and asks for filament
@@ -177,7 +177,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - A controller or attached component died after power-on
 
-            A Leviathan voltage-selection jumper was left in, or set to 5 V. Exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe, Fan0 and Fan1 bare. With the Ch 14 Part H exhaust fan fitted, three: Fan0 at 24 V as well. [09.19](09-electronics-bay.md#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan) · [10.28](10-wiring.md#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v)
+            A Leviathan voltage-selection jumper was left in, or set to 5 V. Exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe, Fan0 and Fan1 bare. With the Ch 14 Part H exhaust fan fitted, three: Fan0 at 24 V as well. [09.19](09-electronics-bay.md#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan) · [10.28](10-wiring.md#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v) · [14.31](14-calibration.md#step-1431-plug-the-lead-into-fan0-and-jumper-it-for-24-v)
 
         - A driver died after a connector change
 
@@ -253,11 +253,11 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - The bed does not heat and the SSR LED is on
 
-            The fault is on the mains side of the SSR. Check LOAD 1 and LOAD 2, and the bed L and N. [10.14](10-wiring.md#step-1014-bed-live-ssr-load-1) · [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)
+            The fault is on the mains side of the SSR. Rocker off, unplug, and hold 0 V for ten seconds before anything is touched ([10.73](10-wiring.md#step-1073-confirm-dead)). Then LOAD 1 and LOAD 2 and the bed L and N, as mains work for the person named at [00a.1](00a-mains-safety.md#step-00a1-decide-who-is-doing-the-mains-work). [10.14](10-wiring.md#step-1014-bed-live-ssr-load-1) · [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time)
 
         - The bed does not heat and the SSR LED is off
 
-            DC control polarity is reversed. Leviathan plus goes to SSR INPUT 3, minus to INPUT 4. [10.27](10-wiring.md#step-1027-leviathan-heatbed-ssr-input) · [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr)
+            DC control polarity is reversed. Rocker off, unplug, 0 V held ten seconds ([10.73](10-wiring.md#step-1073-confirm-dead)); then Leviathan plus goes to SSR INPUT 3, minus to INPUT 4. [10.27](10-wiring.md#step-1027-leviathan-heatbed-ssr-input) · [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr)
 
         - A thermistor reads a wild or jumping value
 
@@ -306,9 +306,9 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
             Ground, signal or 24 V, a wrong probe pin, or a voltage-select jumper. Check the wiring first. [13.21](13-initial-startup.md#step-1321-query_probe-on-the-inductive-probe) · [12.29](12-software.md#step-1229-probe-omron-active-klicky-written-but-commented)
 
-        - It triggers too early, or grazes the plate
+        - It triggers too early or too late, or grazes the plate
 
-            Too early means the probe sits too high in the retainer, or there is tape on the sensing face. Too late means it is mounted too low. Set it to trigger about 2 mm above the plate. [07.36](07-ab-belts.md#step-0736-set-the-probe-height) · [10.30](10-wiring.md#step-1030-insulate-the-inductive-probe)
+            Too early, with the nozzle still several mm up, or grazing the plate: the probe is mounted too low, so raise it in the bracket until it clears the plate and the clips at every mesh point. Too late, with the nozzle nearly touching: it is mounted too high, or there is tape on the sensing face. Lower it so it triggers with the nozzle about 2 mm above the plate; tape front and sides only. [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean) · [07.36](07-ab-belts.md#step-0736-set-the-probe-height) · [10.30](10-wiring.md#step-1030-insulate-the-inductive-probe)
 
         - Z drops out of level between prints
 
@@ -422,8 +422,8 @@ Source: [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-a
 | `PROBE_ACCURACY` values trending one way | frame still expanding, or Z pulley grub screws / uneven Z belts | soak longer; then check all four Z belts and the pulley set screws | [14.3](14-calibration.md#step-143-verify-thermal-stability-then-re-qgl), [14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) |
 | `Probe samples exceed samples_tolerance` | the same causes — `samples_tolerance: 0.006` is tight by design | fix the cause; do not widen the tolerance | [13.32](13-initial-startup.md#step-1332-probe_accuracy-hot-the-gate-on-everything-downstream) |
 | `QUERY_PROBE` stuck `open` or stuck `TRIGGERED` | ground / signal / 24 V, wrong `[probe] pin`, or a voltage-select jumper | check wiring first, then `pin: !nhk:PC15` | [13.21](13-initial-startup.md#step-1321-query_probe-on-the-inductive-probe), [12.29](12-software.md#step-1229-probe-omron-active-klicky-written-but-commented) |
-| Probe triggers too early (large gap at trigger) | probe too high in the retainer, or tape on the sensing face | lower it so it triggers ~2 mm above the plate; tape front and sides only | [07.36](07-ab-belts.md#step-0736-set-the-probe-height), [10.30](10-wiring.md#step-1030-insulate-the-inductive-probe) |
-| Probe triggers too late, or grazes the plate | probe mounted too low | raise it in the bracket; it must clear the plate and the clips at every mesh point | [07.36](07-ab-belts.md#step-0736-set-the-probe-height) |
+| Probe triggers too early (nozzle still several mm up at trigger, or the probe grazes the plate) | probe mounted too low in the retainer bracket | raise it in the bracket; it must clear the plate and the clips at every mesh point | [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean), [07.36](07-ab-belts.md#step-0736-set-the-probe-height) |
+| Probe triggers too late (nozzle nearly touching at trigger) | probe mounted too high in the retainer bracket, or fibreglass tape on the sensing face | lower it so it triggers with the nozzle ~2 mm above the plate; tape front and sides only | [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean), [07.36](07-ab-belts.md#step-0736-set-the-probe-height), [10.30](10-wiring.md#step-1030-insulate-the-inductive-probe) |
 | Z drops out of level between prints | Z pulley set screws loose or off the flat | threadlock, one screw on the flat, proper hex driver | [02.20](02-z-drives.md#step-0220-threadlock-the-80t-pulley-set-screws-and-check-your-work), [Ch 02 Common mistakes](02-z-drives.md#common-mistakes) |
 | Every Z dimension is silently wrong | a 20T pulley fitted to a Z motor instead of a 16T | count teeth — `gear_ratio: 80:16` is baked into the config | [02.27](02-z-drives.md#step-0227-fit-the-16t-pulley-to-a-z-motor-at-107-mm), [Ch 02 Common mistakes](02-z-drives.md#common-mistakes) |
 
@@ -442,7 +442,7 @@ Source: [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-a
 | Hotend heats when you command the bed, or vice versa | thermistor pair or heater pair swapped | swap at the board — power off first | [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean) |
 | Thermistor reads a wild or jumping value | crimp, or a PH2.0 housing half-seated / in the wrong header | re-seat and check continuity — Rev D+ uses **PH2.0**, not the guide's XH2.5 | [10.55](10-wiring.md#step-1055-connector-types-on-the-v2-toolboard), [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature) |
 | A temperature climbs with nothing commanded | heater energised through a wiring fault | cut power at the switch and go back to Ch 10 — do not watch it | [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean), [00a.12](00a-mains-safety.md#step-00a12-decide-now-what-you-do-when-it-smokes-trips-or-bites) |
-| Bed does not heat, SSR LED **on** | fault on the mains side of the SSR | rocker off, unplug, 0 V held ten seconds ([10.73](10-wiring.md#step-1073-confirm-dead)); then check LOAD 1 / LOAD 2 and the bed L and N | [10.14](10-wiring.md#step-1014-bed-live-ssr-load-1), [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time) |
+| Bed does not heat, SSR LED **on** | fault on the mains side of the SSR | rocker off, unplug, 0 V held ten seconds ([10.73](10-wiring.md#step-1073-confirm-dead)); then check LOAD 1 / LOAD 2 and the bed L and N, as mains work for the person named at [00a.1](00a-mains-safety.md#step-00a1-decide-who-is-doing-the-mains-work) | [10.14](10-wiring.md#step-1014-bed-live-ssr-load-1), [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time) |
 | Bed does not heat, SSR LED **off** | DC control polarity reversed | rocker off, unplug, 0 V held ten seconds; then Leviathan **+** → SSR `INPUT 3`, **−** → `INPUT 4` | [10.27](10-wiring.md#step-1027-leviathan-heatbed-ssr-input), [13.8](13-initial-startup.md#step-138-short-heat-test-bed-to-50-c-and-watch-the-ssr) |
 | PID tune of the hotend trips the temperature limit mid-run | tuning at 260 °C against `max_temp: 270` | tune at 245 °C, or raise `max_temp` to 290 first | [13.30](13-initial-startup.md#step-1330-pid-tune-the-hotend-at-245-c-with-the-part-fan-at-25), [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
 | Bed takes a long time to reach 110 °C | `[heater_bed] max_power` is deliberately limited to protect the 355 mm cast plate | wait — do not raise it | [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
@@ -460,7 +460,7 @@ Source: [Ch 08 Common mistakes](08-toolhead.md#common-mistakes) · [Ch 13 — Wh
 | A 24 V node beeps continuously against its ground | reversed ferrule or a stray strand | find it before power-on; every node must read finite and rising, never 0 Ω | [10.74](10-wiring.md#step-1074-24-v-rails), [10.29](10-wiring.md#step-1029-meter-the-24-v-rail-for-shorts) |
 | A PE row fails the bonding sweep | missing PE lead, or anodising under a washer | scrape the anodising; re-land the lead | [10.77](10-wiring.md#step-1077-protective-earth-bonding), [10.16](10-wiring.md#step-1016-frame-pe) |
 | SSR reads short LOAD 1 → LOAD 2 with nothing energised | the relay is dead; the bed would be permanently live | replace it — do not power the machine | [10.21](10-wiring.md#step-1021-the-ssr-is-open-when-unpowered), [10.78](10-wiring.md#step-1078-ssr-polarity-and-isolation-one-last-time) |
-| Controller or attached components destroyed after power-on | a Leviathan voltage-selection jumper left in, or set to 5 V | exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe/Fan0/Fan1 bare (three with the Ch 14 Part H exhaust: Fan0 at 24 V too) | [09.19](09-electronics-bay.md#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan), [10.28](10-wiring.md#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v) |
+| Controller or attached components destroyed after power-on | a Leviathan voltage-selection jumper left in, or set to 5 V | exactly two jumpers, Fan2 and Fan3, both at 24 V; Probe/Fan0/Fan1 bare (three with the Ch 14 Part H exhaust: Fan0 at 24 V too) | [09.19](09-electronics-bay.md#step-0919-strip-every-voltage-selection-jumper-off-the-leviathan), [10.28](10-wiring.md#step-1028-set-the-fan2-and-fan3-jumpers-to-24-v), [14.31](14-calibration.md#step-1431-plug-the-lead-into-fan0-and-jumper-it-for-24-v) |
 | A fan never starts | wrong port, wrong voltage jumper, or the keyed 2×5 toolhead header seated backwards | check the port against the config; the header is keyed — if it will not drop in, it is backwards | [10.56](10-wiring.md#step-1056-the-fan-adapter-header-is-keyed-and-reversed), [13.11](13-initial-startup.md#step-1311-bay-fan-and-filter-fan) |
 | Only one MCU enumerates, or none | firmware, serial path, or a USB cable | read both serial IDs and confirm which is which | [12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate), [12.20](12-software.md#step-1220-re-read-and-record-both-serial-paths) |
 | The toolboard enumerates as `rp2040` | you have a Nitehawk-SB **V1**, not a V2 — or the wrong firmware | Rev D+ must read `stm32g0b1xx`; the Rev D guide's `rp2040` line is wrong for this kit | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2), [12.12](12-software.md#step-1212-read-the-two-serial-ids-and-work-out-which-is-which) |
@@ -502,16 +502,16 @@ Weeks 1–2, before the Voron exists. The fix is always in `print/00-slicer-setu
 
 | Symptom | Likely cause | Fix | Owned by |
 |---|---|---|---|
-| PrusaSlicer shows a bare `Prusament ASA @COREONE HF0.4`, no "(modified)" on the print preset, or B00-P1 estimates far from 3 h 58 m | the project's configuration did not load — wizard not run, HF nozzle variant not installed | run the Configuration Wizard with the 0.4 HF nozzle ticked, reopen the project | [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup), [00-slicer-setup — one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) |
+| PrusaSlicer shows a bare `Prusament ASA @COREONE HF0.4`, no "(modified)" on the print preset, or B00-P1 estimates far from 3 h 50 m | the project's configuration did not load — wizard not run, HF nozzle variant not installed | run the Configuration Wizard with the 0.4 HF nozzle ticked, reopen the project | [B00.0](print/B00-calibration-and-jigs.md#step-b000-one-time-prusaslicer-setup), [00-slicer-setup — one-time setup](print/00-slicer-setup.md#one-time-prusaslicer-setup-before-the-first-project) |
 | Cube 0.1–0.3 mm oversize in X and Y | shrinkage compensation or XY compensation not zero, or flow high | confirm 0 % / 0, then extrusion multiplier down in 1 % steps — never negative XY compensation | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube), [B00.5](print/B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed) |
-| Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/nozzle seat, not a saved nudge — the Core One+ keeps none; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
-| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
+| Cube Z off, or the first layer wider than mid-height | squish (Live Adjust Z) or elephant-foot compensation | Z: fix the sheet/nozzle seat, not a saved nudge — the Core One+ keeps none; with those ruled out, `z_offset` (or `FLOW_FIRST`) in `slicer/build_config.py`, re-run per calibration item 3; first layer: elephant-foot in 0.05 mm steps | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube), [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
+| First layer glassy and featureless, or gappy and ridged, on the Core One+ | the loadcell zeroed Z on a sheet that is not seated, a dirty sheet, or a nozzle not fully seated | fix the cause; a Live Adjust Z nudge is per-print and not saved. Sheet, debris and nozzle seat ruled out: change `z_offset` (or `FLOW_FIRST`) in `slicer/build_config.py` and re-run the pipeline | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [00-slicer-setup — calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
 | Cube corner delaminates at the snap test | chamber too cold or part fan too high | drop min/max fan to 0 / 15 %, keep the 40 °C chamber gate | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube) |
 | A long flat part lifts at the ends partway through | dirty sheet, chamber started cold, or a reprint without its brim | sheet per §Print sheet; chamber gate; per-object brim on the reprint — never the global setting | [Print sheet](print/00-slicer-setup.md#print-sheet), [Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 | The preview shows a brim on flat grills or clips that should have none | the global brim was set by hand | clear Print Settings → Skirt and brim; brims live per object in the committed projects | [Orientation & brim](print/00-slicer-setup.md#orientation-brim), [B02.4](print/B02-accent-parts-orange.md#step-b024-load-plate-b02-p2) |
-| 625-2RS or F695 bore too tight or too loose | flow, or shrinkage compensation not zero — the seats are drawn for 100 % | tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect), [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect) |
+| 625-2RS seat too tight or too loose | flow, or shrinkage compensation not zero — the seats are drawn for 100 % | tight → extrusion multiplier −1 % and reprint; loose → confirm 0 % shrinkage; never enlarge with compensation | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [B01.7](print/B01-z-drive-assemblies.md#step-b017-inspect), [B03.4](print/B03-ab-drive-units-and-front-idlers.md#step-b034-inspect) |
 | Heat-set boss bulges or the insert sits crooked | iron too hot or pushed too fast — technique, not the slicer | practise on the coupon until two in a row are flush | [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day), [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush) |
-| The spool runs out mid-plate | predicted once, on B09-P1 | let the runout sensor pause, load the next spool, resume — never plan one on a bearing-seat plate | [Spool ledger](print/README.md#spool-ledger), [When the printer stops](print/README.md#when-the-printer-stops) |
+| The spool runs out mid-plate | the spool was shorter than the plate | the runout sensor pauses it: load the next spool, press Continue; reprint a bearing-seat part; never plan a runout on a bearing-seat plate | [Spool ledger](print/README.md#spool-ledger), [When the printer stops](print/README.md#when-the-printer-stops) |
 | The power went out mid-plate | — | resume only if the printer offers it and the part is still firmly stuck; otherwise clear the sheet and reprint the plate | [When the printer stops](print/README.md#when-the-printer-stops) |
 | A "bed not aligned" / Z-alignment prompt at a plate start | on this machine usually loadcell noise or a dirty tip, not a moved bed | cancel, run the printer's Z alignment, start again; if it returns, brush the hot tip clean and check under the sheet | [When the printer stops](print/README.md#when-the-printer-stops) |
 | The nozzle taps the same probe point again and again | ooze on the tip, or heater noise on the loadcell | cancel, brush the hot tip clean, restart the plate; a second loop stops the run | [When the printer stops](print/README.md#when-the-printer-stops) |
@@ -588,8 +588,8 @@ These have no symptom until they are expensive. They are in the chapters' *Commo
 | Closing the bay or fitting panels before Checkpoint #1 | an unverified mains bay behind a bottom panel, and an hour to undo | [10.71](10-wiring.md#step-1071-leave-the-duct-covers-off), [Ch 11 Common mistakes](11-skirts-panels-door.md#common-mistakes) |
 | Running `SHAPER_CALIBRATE` before the first good print or final belt tension | the result is stale before you use it; the same applies to pressure advance | [14.13](14-calibration.md#step-1413-run-shaper_calibrate), [Ch 14 Common mistakes](14-calibration.md#common-mistakes) |
 | Building Klicky because the parts are on the bench | the kit's config, wiring and cable are all for the inductive probe | [08.54](08-toolhead.md#step-0854-confirm-the-probe-decision-and-bag-the-klicky-set), [B06.4](print/B06-toolhead-sb-cw2-klicky.md#step-b064-inspect), [Ch 08 Common mistakes](08-toolhead.md#common-mistakes) |
-| Starting B01 or B03–B06 on Gate A alone | 58.5 h and 763 g of bearing-seat and shaft-bore parts printed against an unverified bore fit — Gate B's bore and insert rows run early on the ordered hardware, so there is nothing to wait for | [B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) |
-| Nudging Live Adjust Z on every plate instead of fixing the sheet | the Core One+ does not save the nudge; the first plate you forget lifts at hour 2 | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print) |
+| Starting B01 or B03–B06 on Gate A alone | 57.4 h and 759 g of bearing-seat and shaft-bore parts printed against an unverified bore fit — Gate B's bore and insert rows run early on the ordered hardware, so there is nothing to wait for | [B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), [Gate B](print/00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) |
+| Nudging Live Adjust Z on every plate instead of fixing the cause or the plates' `z_offset` | the Core One+ does not save the nudge; the first plate you forget lifts at hour 2 | [B00.4](print/B00-calibration-and-jigs.md#step-b004-print), [calibration item 3](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
 
 Source: the `Common mistakes` sections of [Ch 00](00-before-you-start.md#common-mistakes), [01](01-frame.md#common-mistakes), [02](02-z-drives.md#common-mistakes), [04](04-ab-drives.md#common-mistakes), [05](05-gantry.md#common-mistakes), [07](07-ab-belts.md#common-mistakes), [08](08-toolhead.md#common-mistakes), [11](11-skirts-panels-door.md#common-mistakes), [13](13-initial-startup.md#common-mistakes), [14](14-calibration.md#common-mistakes), [B00](print/B00-calibration-and-jigs.md#common-mistakes)
 

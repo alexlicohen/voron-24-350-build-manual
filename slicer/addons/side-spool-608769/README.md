@@ -43,7 +43,7 @@ it, so the M3×20 still lands in the nut.
 
 ## Print (Step 11.69)
 
-Core One+, smooth sheet, Voron spec (4 walls, 5 top/bottom, 40 % grid, 0.2 mm). Jobs 1 and 3 need **no supports**;
+Core One+, satin sheet, no glue, Voron spec (4 walls, 5 top/bottom, 40 % grid, 0.2 mm). Jobs 1 and 3 need **no supports**;
 job 2 uses build-plate-only supports for the camera body's cable exit.
 PrusaSlicer 2.9.6 CLI estimates, parts laid out by hand, not GUI-arranged (2026-10-23):
 

@@ -240,4 +240,4 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - Slicing `mount_thick.stl` by accident when the plan calls for `mount.stl`.
 
 ## Next
-Assembly: *Skirts* (Ch 11 Part A, p.212–239). Printing: [B09 — Panels, filtration, spool](B09-panels-filtration-spool.md).
+Assembly: *Skirts* (Ch 11 Part A, p.210–237). Printing: [B09 — Panels, filtration, spool](B09-panels-filtration-spool.md).

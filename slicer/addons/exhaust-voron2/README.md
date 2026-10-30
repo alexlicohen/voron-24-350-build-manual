@@ -43,7 +43,7 @@ Estimates are normal-mode, re-sliced 2026-10-30 with the current inis (Z +0.08, 
 10-29 speeds), the parts laid side by side, not GUI-arranged. The CLI sets a brim per job, so job 2 is the
 three parts sliced bare (34.5 g, 1 h 52 m) plus the cover's brim from its own slice (+0.24 g, +1.6 min); the
 housing's brim costs 0.27 g and 2 min. All five
-pieces go in bin `14-exhaust` (`slicer/bins.py` `ADDON_PARTS`); `exhaust_filter_grill` stays in `11-nevermore`,
+pieces go in bin `14-exhaust` (`slicer/bins.py` `ADDON_PARTS`); `exhaust_filter_grill` stays in `11-finish`,
 where B09 sorted it, since it is fitted at Step 11.54 and reused in place at Step 14.29.
 
 ## Hardware (all kit spares except the purchase)

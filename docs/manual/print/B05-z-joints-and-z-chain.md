@@ -30,8 +30,9 @@ hall-effect XY endstops, which this kit does not use.
 
 **Read first**
 
-- Checkpoint after B05: `z_joint_lower`'s four M3 holes caliper 3.40 mm on a 15.0 × 16.0 mm pattern — there
-  is no larger bore in this part. `z_joint_upper` must sit square on the extrusion.
+- Checkpoint after B05: `z_joint_lower`'s four M3 holes caliper 3.40 mm on a 15.0 × 16.0 mm pattern; its
+  tapered central bore (about Ø7.5 narrowing to Ø5.2) is the M5×40 clearance and needs no caliper gate.
+  `z_joint_upper` must sit square on a flat face.
 - Most commonly reprinted here: `z_joint_lower_x4`.
 - The LDO `z_rail_stop` is optional but stops a Z carriage from falling off the top of a rail and spilling its balls.
 
@@ -99,6 +100,8 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Helper:** Matches each part's number to the diagram legend and drops it in its bin.
 
+Tip: The rail stops are optional. If Ch 02 is already past Step 02.10, fit them before the gantry lift in Ch 06.
+
 
 Pause: ~10 min since the last pause — joints in 06-Z-joints, anchor and guide in 10-chains, bin ids written. Nothing is pressed and the rail stops stay bagged.
 
@@ -110,13 +113,13 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] Gate B passed before B05-P1 started
 - [ ] Every `z_joint_lower`'s four M3 holes caliper 3.40 mm ±0.10 on a 15.0 × 16.0 mm pattern
 - [ ] *(kit day)* lower and upper joints fit a real Z carriage and extrusion end
-- [ ] Every `z_joint_upper` sits square on a test extrusion
+- [ ] Every `z_joint_upper` sits square on a flat face
 - [ ] Confirmed zero copies of `z_joint_upper_hall_effect.stl` were printed
 - [ ] `z_rail_stop_x4` fitted or bagged for fitting
 
 ## Common mistakes
 - Accidentally slicing the hall-effect Z-joint variant instead of the D2F one.
-- Looking for an 8 mm shaft bore in `z_joint_lower`. There is none: the part's largest hole is 4.0 mm, and the M3 pattern is what a caliper checks.
+- Looking for an 8 mm shaft bore in `z_joint_lower`. There is none: the central bore tapers from about Ø7.5 to Ø5.2 for the M5×40, and the M3 pattern is what a caliper checks.
 
 ## Next
-Assembly: *Z Axis* (p.108–123) and *A/B Belts* (p.124–145). Printing: [B06 — Toolhead: Stealthburner, Clockwork 2, Klicky](B06-toolhead-sb-cw2-klicky.md).
+Assembly: *Z Axis* (p.108–123); the chain anchor and guide wait for Ch 10. Printing: [B06 — Toolhead: Stealthburner, Clockwork 2, Klicky](B06-toolhead-sb-cw2-klicky.md).

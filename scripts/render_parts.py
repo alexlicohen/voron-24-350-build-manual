@@ -52,6 +52,9 @@ COLOUR_PRIMARY = "#6a6a6a"   # mid-grey — no prefix
 COLOUR_ACCENT = "#1F4E9C"    # blue — [a]_
 COLOUR_OPAQUE = "#9a9a9a"    # light grey — [o]_
 COLOUR_CLEAR = "#bfe3f0"     # light blue — [c]_ (none actually printed)
+# Mirrored-pair renders exist to show the feature that tells left from right;
+# mid-grey shades too dark for that at pair size, so pairs draw it lighter.
+COLOUR_PRIMARY_PAIR = "#959595"
 BACKGROUND = "#ffffff"
 
 # Fraction of each axis's own extent added as margin when framing a part (not
@@ -246,6 +249,9 @@ def _draw_part(ax, tris, base_hex: str) -> tuple[float, float, float]:
     ax.set_xlim(lo[0], hi[0])
     ax.set_ylim(lo[1], hi[1])
     ax.set_zlim(lo[2], hi[2])
+    # mplot3d draws the limits box as a cube unless told otherwise, which
+    # stretches every non-cubic part: keep true proportions.
+    ax.set_box_aspect((hi - lo).tolist())
     return (dims[0], dims[1], dims[2])
 
 
@@ -309,7 +315,8 @@ def render_pair_png(name: str, left: dict, right: dict, out_path: Path) -> None:
         if "src" in part and part["src"].exists():
             try:
                 tris = load_mesh(part["src"])
-                dims = _draw_part(ax, tris, part["colour"])
+                colour = COLOUR_PRIMARY_PAIR if part["colour"] == COLOUR_PRIMARY else part["colour"]
+                dims = _draw_part(ax, tris, colour)
                 caption = f"{labels[i]}   {part['basename']}"
                 _scale_bar_and_caption(ax, fig, max(dims), caption, caption_x=0.02 + i * 0.5)
             except Exception as exc:  # noqa: BLE001

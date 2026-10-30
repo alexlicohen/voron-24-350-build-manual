@@ -2,8 +2,8 @@
 
 One plate: the dimensional gate for the whole build, plus the rail-alignment jigs and the pulley jig. The
 gate is in two parts — **Gate A** (the cube) releases B02, B07 and the cosmetics B08–B10 the day this plate
-comes off; **Gate B** releases B01 and B03–B06 and runs in the same week, on a caliper across the printed
-bore and seven M3×H5 inserts out of the KADRICK kit already on the bench `(verify on bench)`. Gate B's
+comes off; **Gate B** releases B01 and B03–B06 and runs the same day, before the next plate swap, on a caliper
+across the printed bore, with seven M3×H5 inserts out of the KADRICK kit already on the bench `(verify on bench)`. Gate B's
 **bearing press** and its **MGN12 rail row** wait for the kit; nothing is bought to bring them forward.
 
 ```mascot
@@ -18,7 +18,7 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
 hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
-**Step B00.8** — reviewing all 25 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Step B00.8** — reviewing all 26 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -66,7 +66,7 @@ the kit's own 153 inserts stay untouched.
 
 **Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
-⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 20 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
+⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 26 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
 ⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
@@ -80,8 +80,8 @@ The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this ru
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
 ([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.2 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
-leaves two checks: belt tuning was never formally closed, and the bed has only been proved flat at 60 °C,
-not at ASA temperature. They sit here, after Step B00.0, because the hot check opens a project on the
+leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
+not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the
 presets B00.0 installs; they run before Step B00.8 and before any plate.
 
 **0. Gen 2 expansion joints and nozzle wiper: skipped**
@@ -157,7 +157,7 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 25 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
+1. Open each of the 26 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
@@ -166,7 +166,7 @@ plates. The generated [plate review checklist](../../print/checklists.md#plate-r
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.
 
-**Check:** All 25 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+**Check:** All 26 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
 
 **Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 
@@ -187,7 +187,7 @@ so nothing here gets hand-typed.
    **Arrange Current Bed**. Save the 3MF. [src](https://help.prusa3d.com/article/auto-arrange-tool_1770)
 2. Rebuild only the plates you touched:
    `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]` — name every re-saved
-   plate. With no ids it re-slices all 27: safe, but slow. **Never drop `--from-3mf`**: that
+   plate. With no ids it re-slices all 26: safe, but slow. **Never drop `--from-3mf`**: that
    re-packs the plates and loses this arrangement.
 3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
    [print/README](README.md#spool-ledger) by hand.
@@ -310,7 +310,7 @@ inputs:
     kind: yesno
     no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 40 °C chamber gate, and reprint before any structural plate.
     why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
-pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B in the same week before B01 and B03 to B06.
+pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B's bore row the same day, before the next plate swap, so B01 can start on it.
 ```
 
 The 30 mm cube is a ruler for the printer. X and Y say whether walls come out the size the CAD drew, which
@@ -378,21 +378,22 @@ inputs:
   - key: inserts
     label: All seven inserts flush to 0.2 mm proud, no boss bulging over 0.2 mm
     kind: yesno
-    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Reprint Heatset_Practice, 6.5 g, and practise on it until two in a row land flush. Do not re-slice anything.
+    optional: true
+    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Reprint Heatset_Practice, 6.5 g, and practise on it until two in a row land flush. Do not re-slice anything. This row holds no plate, so leave it blank while you practise; B01 and B03 to B06 print on the bore row. Pass it before the first real insert in Ch 02.
     why: The kit's 153 inserts go into real parts from Ch 02 onwards, so seven flush, un-bulged ones on this coupon are how you learn the iron before a chapter part sees it. The coupon has no other use.
   - key: bearing
     label: Kit day. A real 625-2RS seats by thumb with no rocking
     kind: yesno
     optional: true
     no: Reprint the retainer and the cube against the corrected multiplier, then re-pass Gate A. This row waits for carton 1, so leave it blank until the kit lands.
-    why: This is the press fit the caliper has been standing in for all along, so it either confirms months of printing or sends the retainer and the cube back through Gate A.
+    why: This is the press fit the caliper has been standing in for all along, so it either confirms every bore printed since B00 or sends the retainer and the cube back through Gate A.
   - key: rail
     label: Kit day. MGN12_rail_guide slides on with light finger pressure
     kind: yesno
     optional: true
     no: Very tight means over-extrusion, loose means under-extrusion. This row gates nothing but a 20 minute reprint of the guide, so leave it blank until the kit lands.
     why: The guide is a 3 g jig rather than a machine part, so this row gates nothing but a 20 minute reprint and is the cheapest confirmation the profile is still right on kit day.
-pass: Gate B passed on the rows you can run today. B01 and B03 to B06 are released. The two kit-day rows sign off out of carton 1.
+pass: Gate B passed on the bore row. B01 and B03 to B06 are released. The insert row passes before Ch 02's first insert if it is still open; the two kit-day rows sign off out of carton 1.
 ```
 
 ⚠ A pocket outside 16.30 mm ±0.15 is the profile, not the part. Confirm shrinkage compensation is 0 %, then move extrusion multiplier 1 %, reprint the retainer and the cube, re-pass Gate A, and only then start B01. A bulging boss is technique, so practise rather than re-slice. The six MGN9 rails stay sealed until rail prep.
@@ -402,7 +403,7 @@ caliper now is standing in for that press: if the pocket is wrong, 22 h of Z-dri
 with it. Flush, un-bulged inserts mean the iron is right before any real part sees one. The adult sets the
 inserts; the helper never handles the iron.
 
-Pause: ~15 min since the last pause — Gate B's caliper and insert rows are measured and written down; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.
+Pause: ~15 min since the last pause — Gate B's caliper row is measured and written down, the insert row too unless it waits for more practice; B01 and B03–B06 are released. Put the retainer in bin 02-Z0 and keep the rail guide in 00-jigs for the kit-day rows.
 
 Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [print plan §1.4](../../voron-print-plan.md#14-calibration-sequence-run-this-before-b00-and-again-after-any-toolchain-change) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -425,7 +426,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 **Gate B — before B01 and B03–B06**
 
 - [ ] `z_drive_retainer_a` 625-2RS pocket calipers 16.30 mm ±0.15
-- [ ] `Heatset_Practice`: 7/7 KADRICK M3×H5 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm; all 153 kit inserts untouched
+- [ ] `Heatset_Practice`: 7/7 KADRICK M3×H5 inserts flush to ≤0.2 mm proud, no boss bulge >0.2 mm; all 153 kit inserts untouched (holds no plate; passes before Ch 02 Step 02.03)
 - [ ] `z_drive_retainer_a` moved to bin 02-Z0
 - [ ] *(kit day)* a real 625-2RS presses into that pocket by thumb, no rocking
 - [ ] *(kit day)* `MGN12_rail_guide` fits the real MGN12 rail with light finger pressure
@@ -435,7 +436,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Reaching for negative XY compensation to fix an oversized cube — wrecks bearing fits everywhere else; use extrusion multiplier instead.
 - Hunting the printer's menus for a first-layer calibration wizard — the Core One+ has none; the loadcell does it, and Live Adjust Z is a per-print nudge that is not saved.
 - Rushing the `Heatset_Practice` coupon — technique (iron temp/speed) matters more than any slicer setting here.
-- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.8 h of Z-drive bodies.
+- Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.3 h of Z-drive bodies.
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 
 ## Next

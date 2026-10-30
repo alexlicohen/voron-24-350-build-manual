@@ -2,17 +2,17 @@
 
 ```mascot
 pose: print
-caption: The corners the belts turn on. Flange seats again, which means Gate B votes first.
+caption: The corners the belts turn on. Gate B still votes first.
 ```
 
 **Time:** 8.5 h (1 plate) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.5 h unattended) + ~15 min inspect and bin.
 
-**Prerequisites:** **Gate B passed** (Step B00.7 — these are F695 flange seats; the caliper and insert rows
-run early, on what is already on the bench). B02 is not a print prerequisite: its accent `[a]_cable_cover`,
-`[a]_z_chain_retainer_bracket` and `[a]_tensioner_left/right` printed one batch earlier, at B02, and are
-already in 04-A / 04-B.
+**Prerequisites:** **Gate B passed** (Step B00.7 — the caliper and insert rows run early, on what is already
+on the bench). These frames hold the F695 stacks on M5 posts; they have no bearing seats. B02 is not a print
+prerequisite: its accent `[a]_tensioner_left/right` printed one batch earlier and are already in 04-A / 04-B
+(B02's `[a]_cable_cover` is in 07-X, the `[a]_z_chain_retainer_bracket` pair in 10-chains).
 
 **Printed parts**
 
@@ -32,10 +32,11 @@ already in 04-A / 04-B.
 
 **Read first**
 
-- Checkpoint after B03: the **F695 flange seats** caliper 15.00 mm now, and the two halves of each drive
-  unit must close flat with no gap. On kit day the real **F695-2RS** (13 mm OD, flanged) bearing/spacer
-  stacks must drop into those seats without reaming. (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
-- Most commonly reprinted here: `a/b_drive_frame_lower` — the bearing seats are the tightest fit in the machine.
+- Checkpoint after B03: the two halves of each drive unit close flat with no gap, and every M5 post hole is
+  round and clear. The **F695** bearings (13 mm OD, flanged) ride on the M5×30 posts between the two frames,
+  not in printed seats; on kit day the bearing/spacer stacks must spin freely with the frames closed.
+  (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
+- What to look for here: a warped `a/b_drive_frame_*` half — the two halves must close flat around the stacks.
 - A and B share one plate (merged 2026-09-06, one swap instead of two), so a failed plate costs both drive
   units. Watch the first layer before you walk away from an 8.5 h print.
 
@@ -76,14 +77,15 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:**
 
-1. Now: caliper each drive frame half's F695 flange seat, a 15.00 mm pocket 4.00 mm deep.
-2. Now: dry-fit each drive unit's two halves, which must close flat.
-3. Kit day: drop a real F695-2RS in, no rocking.
-**Check:** Every seat reads 15.00 mm ±0.15 and both halves close with no visible gap.
+1. Now: dry-fit each drive unit's halves; they must close flat.
+2. Now: check every M5 post hole is clear.
+3. Kit day: each M5×30 passes one half and threads into the other without force; the F695 stacks spin free.
 
-Pause: ~10 min since the last pause — seats calipered, halves dry-fitted and separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row.
+**Check:** Both halves close with no visible gap and every post hole is clear.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
+Pause: ~10 min since the last pause — halves dry-fitted, post holes checked, parts separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row.
+
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [Voron manual p.74](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=74) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [LDO Build Notes / FAQ](https://docs.ldomotors.com/voron/voron2/build-faq)
 
 ## Step B03.5 — Sort into bins
 
@@ -114,8 +116,8 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Checkpoint B03
 - [ ] Gate B passed before B03-P1 started
-- [ ] F695 flange seats in `a/b_drive_frame_lower/upper` caliper 15.00 mm ±0.15
-- [ ] *(kit day)* a real F695-2RS sits in each seat with no rocking
+- [ ] M5 post holes in `a/b_drive_frame_lower/upper` round and clear
+- [ ] *(kit day)* each M5×30 passes one half by hand and threads into the other without force; the F695 stacks spin free with the frames closed
 - [ ] Drive unit halves (upper+lower) close flat with no visible gap, both A and B
 - [ ] No corner warp on any of the eight parts
 - [ ] A-side parts in 04-A, B-side parts in 04-B
@@ -123,7 +125,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Common mistakes
 - Mixing A-side and B-side parts in one bag — they are not interchangeable.
 - Force-closing a warped drive-frame half instead of reprinting it.
-- Skipping the dry-fit and only discovering the bearing-seat gap during final assembly.
+- Skipping the dry-fit and only discovering a gap between the halves during final assembly.
 
 ## Next
 Assembly: *A/B Drives and Idlers* (p.62–81). Printing: [B04 — XY joints + X carriage](B04-xy-joints-and-x-carriage.md).

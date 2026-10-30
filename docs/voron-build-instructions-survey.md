@@ -34,7 +34,7 @@ Corroborating: LDO added `Firmware/leviathan-printer-rev-d-sbv2.cfg` to the kit 
 
 ### 1.2 Rev D+ contents (electronics, probe, motion)
 
-Sourced from the [Fabreeko SKU page](https://www.fabreeko.com/products/ldo-voron-v2-4-kit), the [LDO kit index](https://docs.ldomotors.com/en/voron/voron2), and the per-batch [LDO V2.4-350 Rev D BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) (BOM page updated 2026-02-05).
+Sourced from the [Fabreeko SKU page](https://www.fabreeko.com/products/ldo-voron-v2-4-kit), the [LDO kit index](https://docs.ldomotors.com/en/voron/voron2), and the [LDO V2.4-350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) (fetched 2026-10-30): the Rev D BOM minus the SD card, plus two ground wires and 20 extrusion blind-joint seals.
 
 | Subsystem | Rev D+ content | Note |
 |---|---|---|
@@ -51,7 +51,7 @@ Sourced from the [Fabreeko SKU page](https://www.fabreeko.com/products/ldo-voron
 | Bed | Cast 5083 Al, Blanchard-ground, 355×355×10 mm, LDO AC heatpad + 125 °C thermal fuse **pre-applied**, magnetic pad **NOT pre-applied** — separate BOM line `Magnetic Pad 2.4-350`, applied during the build (`docs/manual/03-build-plate.md`), spring-steel flex plate | Manual p.55/56 become no-ops (magnet still applied per manual) |
 | Power | Meanwell **LRS-200-24** (US 110 V build; EU may get RSP-200-24), Omron SSR + DIN bracket, AC inlet with integrated switch + fuse | 115/230 V selector switch on the PSU |
 | Screen | 4.3" capacitive DSI touchscreen + Pi ribbon cable | Mount STL lives in the **Trident** repo, not the V2 repo |
-| Host | Raspberry Pi 4B + heatsink + 32 GB SD (BOM marks the Pi "OPTIONAL — check with your reseller"; the Fabreeko SKU includes it) | |
+| Host | Raspberry Pi 4B + heatsink; no SD card on Rev D+ (bought separately, Ch 00 Step 00.8) (BOM marks the Pi "OPTIONAL — check with your reseller"; the Fabreeko SKU includes it) | |
 | Lighting | 2× **COB** LED strip + 2× splitter PCB (LDO ships the splitter spacers printed) | Rev D upgraded from discrete LEDs to COB |
 | Filtration | **Nevermore Micro V5 Duo** parts, no carbon (shipping restriction) | Stock exhaust filter parts are optional and the fan is not included |
 | Panels | Acrylic deck/back/bottom (black); PC clear doors/sides/top | See §4.3 — deck thickness is contested |
@@ -59,7 +59,7 @@ Sourced from the [Fabreeko SKU page](https://www.fabreeko.com/products/ldo-voron
 | Drag chain | 10×10 R18 × 2, 10×15 R28 × 1, **2-hole** chain ends | Print `*_2hole` parts, never `*_3hole` |
 | Printed parts **included** by LDO | Leviathan Bracket L/R, NH Adapter Mount, DIN Clip ×4, CW2 Chain Anchor Tilted, 2×3 Splitter Spacer ×2, LDO Nozzle Probe, Bed WAGO Mount, Stealthburner LED Diffuser (clear PETG), CW2 PCB Spacer | Do **not** re-print these |
 
-Bulk consumables that drive the build plan (Rev D 350 BOM): **153×** M3×5×4 brass heat-set inserts, **283×** M3×8 SHCS, 135× M3 roll-in T-nut, 80× M5 roll-in T-nut, 75× M3 hammerhead, 16× M5 hammerhead, 46× M5 1 mm precision spacer (used *instead of* every M5 shim in the manual), 44× M3×30, 43× M3×16-equivalent… plus 100 zip ties, 16× 6×3 mm magnets, VE0508 ferrules ×5, brass heat-set tip, 2 mm drill bit, 5 hex wrenches, 2.5 mm flat screwdriver, brass brush, 1 mm + 3 mm foam tape, 3M VHB.
+Bulk consumables that drive the build plan (Rev D+ 350 BOM, the same counts as Rev D): **153×** M3×5×4 brass heat-set inserts, **283×** M3×8 SHCS, 135× M3 roll-in T-nut, 80× M5 roll-in T-nut, 75× M3 hammerhead, 16× M5 hammerhead, 46× M5 1 mm precision spacer (used *instead of* every M5 shim in the manual), 44× M3×30, 43× M3×16-equivalent… plus 100 zip ties, 16× 6×3 mm magnets, VE0508 ferrules ×5, brass heat-set tip, 2 mm drill bit, 5 hex wrenches, 2.5 mm flat screwdriver, brass brush, 1 mm + 3 mm foam tape, 3M VHB.
 
 **Batch-specific BOM.** LDO publishes a *separate BOM page per production batch*, indexed by kit serial (`V2-YYMM…`). The index at [350_BOM/HOME](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) (updated 2026-06-26) currently tops out at batch **2606**. Order F6424626 (2026-09-04, ETA **early November 2026** (Alex, 2026-10-23; the 2026-09-14 tracking page showed the batch still in manufacture); watch for the status to flip to shipped, which starts a ~5-week clock) will be a later batch than 2606. **Action on arrival:** find the kit serial on the carton, open its batch BOM, and use *that* page as the inventory checklist — it has `Check1`/`Check2` columns designed for exactly this.
 
@@ -73,6 +73,7 @@ Bulk consumables that drive the build plan (Rev D 350 BOM): **153×** M3×5×4 b
 | **Printed Parts Guide Rev D** | [/en/voron/voron2/printed_part_guide_rev_d](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) | 2024-07-22 | 2025-07-14 | 20 |
 | 350 BOM index (per batch) | [/en/voron/voron2/350_BOM/HOME](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) | 2022-06-22 | 2026-06-26 | — |
 | 350 Rev D BOM | [/en/voron/voron2/350_BOM/Rev_D](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) | 2024-07-05 | 2026-02-05 | — |
+| 350 Rev D+ BOM (this kit) | [/en/voron/voron2/350_BOM/Rev_D+](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) | — | fetched 2026-10-30 | — |
 | **Nitehawk-SB V2 board doc** (pinout, changes) | [/en/Toolboard/nitehawk-sb-v2](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) | 2025-12-22 | 2026-07-10 | yes |
 | Nitehawk-SB **V1** board doc (do not use for D+) | [/en/Toolboard/nitehawk-sb](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb) | — | — | yes |
 | Rail grease guide | [/guides/rail_grease_guide](https://docs.ldomotors.com/guides/rail_grease_guide) | 2022-01-31 | 2023-09-16 | 3 |
@@ -246,7 +247,7 @@ Pre-load or test-fit roll-in T-nuts — LDO warns extrusion/T-nut tolerances are
 
 | Conflict | Positions | Recommendation |
 |---|---|---|
-| **Deck panel thickness** | LDO Build Notes p.29–30 and the Printed Parts Guide both say the deck is **4 mm** → print `deck_support_4mm_x8`. The Rev D 350 BOM lists "Deck Panel, Acrylic, Black, 469×469×**3** mm" (and Bottom Panel at 4 mm) | **Caliper the actual deck panel on arrival.** Print *both* `deck_support_3mm_x8` and `deck_support_4mm_x8` (16 small parts, minutes of print time) and fit whichever matches. Do not resolve this from documents |
+| **Deck panel thickness** | LDO Build Notes p.29–30 and the Printed Parts Guide both say the deck is **4 mm** → print `deck_support_4mm_x8`. The Rev D+ 350 BOM, like Rev D's, lists "Deck Panel, Acrylic, Black, 469×469×**3** mm" (and Bottom Panel at 4 mm) | **Caliper the actual deck panel on arrival.** Print *both* `deck_support_3mm_x8` and `deck_support_4mm_x8` (16 small parts, minutes of print time) and fit whichever matches. Do not resolve this from documents |
 | **A/B belt tension** | Official manual: no number at all — "cut both belts to the same length" (p.125). Voron docs: **110 Hz over a 150 mm span**, ≈2 lb, deliberately at the low end. voronldo.com: 80–100 Hz for a 350 | **Use 110 Hz / 150 mm span from docs.vorondesign.com.** It is the only sourced, official number and it names the span, which is what makes a frequency meaningful. Discard voronldo.com |
 | **Z belt tension** | Voron docs: **140 Hz** with the fixed side 150 mm from the Z idler centres. voronldo.com: "same as X/Y, 110–130 Hz" | 140 Hz / 150 mm, official. Also the QGL troubleshooting text points at uneven Z belts when σ is high — tension all four, evenly |
 | **Klicky vs. Omron** | Kit ships both. LDO config and wiring guide assume the Omron inductive probe (QGL only) with the LDO nozzle probe as the Z endstop. `CLAUDE.md` currently records "Stock kit ships Klicky … instead" | **Build stock: Omron inductive + LDO nozzle probe.** Klicky is an optional mod that adds a dock, macros and a calibration procedure. Keep the Klicky parts bagged for later. *This is a correction to `CLAUDE.md`* |
@@ -488,7 +489,7 @@ Each row is a chapter file. **Source** = what the writer transcribes from, with 
 | 09 | 2.5 mm flat screwdriver (supplied); PH2; hex 2/2.5/3 mm; multimeter | VHB tape (supplied); DIN end caps |
 | 10 | Multimeter (**mandatory**); 2.5 mm flat screwdriver; PH2 (PSU + SSR); flush cutters; small pliers; label maker or the supplied cable tags | Zip ties ×100; VE0508 ferrules; wire duct offcuts |
 | 11 | Hex 2/2.5/3/4 mm; small hammer (door hinge dowels + bushings); side cutters; soldering iron (door latch insert); scissors for foam tape | 1 mm and 3 mm foam tape; VHB; super glue (door magnets); 6×3 magnets ×16 |
-| 12 | Laptop; SD card reader; USB-A→USB-C/micro cable for board flashing; network cable | 32 GB SD (supplied) |
+| 12 | Laptop; SD card reader; USB-A→USB-C/micro cable for board flashing; network cable | 32 GB microSD (bought; Rev D+ ships none) |
 | 13 | — | A spool of ASA in the dryer, warmed up |
 | 14 | Caliper; ruler; marker (e-steps) | Test filament; Voron cube; Ellis' PA pattern |
 
@@ -584,7 +585,7 @@ Totals: **47.5–71.0 h** hands-on, midpoint ≈ 59 h. Zero-printed-part work (`
 
 **LDO**
 - [Kit index](https://docs.ldomotors.com/en/voron/voron2) · [Build Notes/FAQ (upd. 2026-02-10)](https://docs.ldomotors.com/voron/voron2/build-faq) · [Wiring Guide Rev D (upd. 2026-07-14)](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) · [Printed Parts Guide Rev D (upd. 2025-07-14)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [Printed Parts Rev C](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_c) · [Wiring Rev C](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_c)
-- [350 BOM index (upd. 2026-06-26)](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) · [350 Rev D BOM (upd. 2026-02-05)](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [300 BOM](https://docs.ldomotors.com/en/voron/voron2/300_BOM/HOME)
+- [350 BOM index (upd. 2026-06-26)](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) · [350 Rev D BOM (upd. 2026-02-05)](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D) · [350 Rev D+ BOM, this kit (fetched 2026-10-30)](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [300 BOM](https://docs.ldomotors.com/en/voron/voron2/300_BOM/HOME)
 - [Nitehawk-SB V2 board doc (upd. 2026-07-10)](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [Nitehawk-SB V1 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb)
 - [Rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) · [Heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [Cable chain guide](https://docs.ldomotors.com/guides/cable_chain_guide) · [Klipper USB ID guide](https://docs.ldomotors.com/guides/klipper_id) · [BTT 4.3 rotate guide](https://docs.ldomotors.com/en/guides/btt_43_rotate_guide) · [XY endstop cable repin guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide)
 - [ldomotion.com — VORON Leviathan V1.3 guide](https://ldomotion.com/guides/voron-leviathan-v1-3) · [Nevermore V5 Duo — V2.4](https://ldomotion.com/guides/nevermore-v5-duo---v24) · [guides index](https://ldomotion.com/guides)
@@ -599,7 +600,7 @@ Totals: **47.5–71.0 h** hands-on, midpoint ≈ 59 h. Zero-printed-part work (`
 - [github.com/tanaes/whopping_Voron_mods — extrusion_backers](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers) · [clickyclacky_door](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 - [KB3D wiki — LDO Clicky-Clacky Door Mod (upd. 2025-09-15)](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod)
 - [github.com/nevermore3d/Nevermore_Micro](https://github.com/nevermore3d/Nevermore_Micro) · [github.com/jlas1/Klicky-Probe](https://github.com/jlas1/Klicky-Probe)
-- [github.com/th33xitus/kiauh](https://github.com/th33xitus/kiauh) · [Mainsail docs](https://docs-os.mainsail.xyz/) · [Fluidd docs](https://docs.fluidd.xyz/)
+- [github.com/th33xitus/kiauh](https://github.com/th33xitus/kiauh) · [MainsailOS docs](https://docs.mainsail.xyz/mainsailos/) · [Fluidd docs](https://docs.fluidd.xyz/)
 - [mods.vorondesign.com — Extrusion Backers](https://mods.vorondesign.com/details/ewDI1Cntz7urtuq3Cm9wGQ)
 
 **Video (with the revision each one actually built)**

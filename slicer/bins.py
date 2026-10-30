@@ -56,7 +56,7 @@ BAG_THICK = 25.0
 BINS: dict[str, dict[str, str]] = {
     "00-jigs": dict(
         label="Jigs and coupons",
-        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.18, 04.24, 04.33; cube at 14.11)",
+        chapter="Ch 00", steps="00.14–00.22 (rail guides again at 02.06, 05.11, 05.33; pulley jig at 02.27, 04.24, 04.33; cube at 14.11)",
         colour="#8a8f98"),
     "02-Z0": dict(label="Z0 corner (front-left, `_a` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)", colour="#2457c5"),
     "02-Z1": dict(label="Z1 corner (rear-left, `_b` hand)", chapter="Ch 02", steps="02.01–02.44 (drive 02.17–02.38, idler 02.39–02.43)", colour="#1a9c8c"),
@@ -69,7 +69,7 @@ BINS: dict[str, dict[str, str]] = {
                   steps="05.3–05.38 (upper Z belt clips 05.19–05.23; endstop pod bagged at 05.46, fitted at 09.32–09.33)",
                   colour="#c2185b"),
     "06-Z-joints": dict(label="Z joints and lower Z belt clips", chapter="Ch 06", steps="06.3–06.9", colour="#a0522d"),
-    "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover 07.39)", colour="#cd853f"),
+    "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66)", colour="#cd853f"),
     "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
     "08-CW2": dict(label="Clockwork 2 extruder, toolboard + USB covers", chapter="Ch 08",
                    steps="08.3–08.20 (toolboard cover 08.51, USB adapter cover 08.64)", colour="#f28482"),

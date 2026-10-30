@@ -16,7 +16,7 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 **Prerequisites:**
 
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
-- **Print batch B03** — *A/B drive units + front idlers*, 1 plate, 8.5 h, 119 g black ([print plan](../voron-print-plan.md)). `front_idler_right_*` go with the A drive, `front_idler_left_*` with B (Step 04.2).
+- **Print batch B03** — *A/B drive units + front idlers*, 1 plate, 8.5 h, 118 g black ([print plan](../voron-print-plan.md)). `front_idler_right_*` go with the A drive, `front_idler_left_*` with B (Step 04.2).
 - **Print batch B02** — *the accent day*, plates **B02-P2** (`[a]_tensioner_left`) and **B02-P3** (`[a]_tensioner_right`).
 - **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 
@@ -51,7 +51,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/[a]_tensioner_right.png){ width=96 } | `[a]_tensioner_right.stl` | 04-A | 1 | Blue |
 | ![](assets/parts/[a]_tensioner_left.png){ width=96 } | `[a]_tensioner_left.stl` | 04-B | 1 | Blue |
 
-All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idlers/`. Two more parts sit in those same folders and are **not** used here: `[a]_cable_cover` (Ch 07) and `[a]_z_chain_retainer_bracket_x2` (Ch 06). Keep them bagged.
+All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idlers/`. Two more parts sit in those same folders and are **not** used here: `[a]_cable_cover` (bin 07-X) and `[a]_z_chain_retainer_bracket_x2` (bin 10-chains, fitted in Ch 10). Keep them bagged.
 
 **Hardware** (chapter totals)
 
@@ -112,7 +112,7 @@ All ten are in Voron-2 `STLs/Gantry/AB_Drive_Units/` and `STLs/Gantry/Front_Idle
 2. Put `a_drive_frame_upper` + `a_drive_frame_lower` in the first, `b_drive_frame_*` in the second, `front_idler_right_*` + `[a]_tensioner_right` in the third, `front_idler_left_*` + `[a]_tensioner_left` in the fourth.
 3. Open one area at a time; mirrors never mix.
 
-**Check:** Ten printed parts placed, none left over. An eleventh is `[a]_cable_cover` or `[a]_z_chain_retainer_bracket`; bag those for Ch 07 and Ch 06.
+**Check:** Ten printed parts placed, none left over. An eleventh is `[a]_cable_cover` or `[a]_z_chain_retainer_bracket`; those belong in bins 07-X and 10-chains.
 
 **Helper:** Counts the bearings and spacers into four labelled trays, one per assembly.
 
@@ -518,7 +518,7 @@ Pause: ~35 min since the last pause — the B (front left) idler is complete and
 
 **Do:**
 
-1. Frame flat face **up**: drop the two M5×30 BHCS in from that face, into the 5.4 mm holes either side of the motor bore, 37 mm apart.
+1. Frame flat face **up**: drop the two M5×30 BHCS in from that face, into the 5.4 mm holes beside the motor bore, 37 mm apart.
 2. Turn it over, holding the heads, so the threads stand up.
 
 **Check:** An A part: the **cutout** circled on p.73 and two heat-set inserts. Both bolts stand square, heads underneath and fully home in the plate.
@@ -607,7 +607,6 @@ Pause: ~25 min since the last pause — the A drive frames are closed snug over 
 
 ![Voron manual p.75](assets/manual-pages/manual-p075.png){ crop="0.08 0.54 0.43 0.86" }
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
-![`pulley_jig` — a 47 × 32 × 3.2 mm plate, rendered from a low angle so it reads as a block; the gauges are the undersides of the two end tabs, A top-right and B on the left edge](assets/parts/pulley_jig.png)
 
 **What you're looking at:** Manual p.75: the A motor and its **20T 6 mm-wide** GT2 pulley, set with the printed jig. The pulley height puts the belt in the same plane as the A idler's bearing channel; the underside of the jig's **A** tab repeats it without a caliper.
 
@@ -819,7 +818,6 @@ Source: [Voron manual p.78](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.79](assets/manual-pages/manual-p079.png){ crop="0.11 0.53 0.47 0.85" }
 ![A/B handedness and pulley height](assets/diagrams/02-ab-pulley-height-handedness.svg)
-![`pulley_jig` — the B tab is the ear on the left edge; its underside is the 6.5 mm gauge](assets/parts/pulley_jig.png)
 
 **What you're looking at:** Manual p.79: the B motor's pulley, fitted **the other way up** from the A drive's. The two pulley heights, 16.5 mm on A and 6.5 mm on B, separate the two belt planes; set them the same and the belts rub.
 

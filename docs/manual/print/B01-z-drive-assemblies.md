@@ -35,10 +35,10 @@ kit — plan §9 lists hard prerequisites `B00;B02` for that chapter.
 | `deck_support_3mm_x8.stl` | Voron-2 `STLs/Panel_Mounting/` | 8 | Black | 1.1 | 02-deck |
 
 ⚠ **Deck-support thickness (verify):** LDO's Rev D printed-parts guide says "our kit ships with 4 mm deck
-panels, use 4 mm deck support clips," but the Rev D 350 BOM lists the deck panel as **3 mm** acrylic (the
+panels, use 4 mm deck support clips," but the Rev D+ 350 BOM lists the deck panel as **3 mm** acrylic (the
 4 mm panel is the *bottom* panel). The size-specific BOM wins: print `deck_support_3mm_x8` ×8 now, and
 measure the deck panel at Ch 00 Step 00.4 — if it measures 4 mm, reprint `deck_support_4mm_x8` (8 g, 30 min).
-The panel only exists on kit day, months after this plate, so the 3 mm set is printed on the BOM's word and
+The panel only exists on kit day, after this plate, so the 3 mm set is printed on the BOM's word and
 the reprint is the one plate the build may still owe when the cartons land.
 
 **Hardware:** none.
@@ -50,11 +50,12 @@ the reprint is the one plate the build may still owe when the cartons land.
   the four corner bins 02-Z0–Z3 by hand, not four identical sets.
 - Checkpoint after B01: caliper each `z_drive_main` and `z_drive_retainer` 625-2RS pocket, **16.30 mm ±0.15**
   (measured off the STL, as at Gate B). The bearings arrive with the kit, so pressing a real 625-2RS (16 mm OD)
-  in by thumb, no rocking, is a kit-day row. No inserts now: the kit's own go in at Ch 02 Step 02.04. Check
+  in by thumb, no rocking, is a kit-day row. No inserts now: the kit's own go in at Ch 02 Steps 02.03–02.04. Check
   the 4 mm/3 mm deck-support call above.
 - Most commonly reprinted here: `z_drive_main_*` — the largest single parts in the batch, most exposed to
   warp at the corners.
 - Plate B01-P1 is the longest single plate in the whole build (14.8 h) — start it in the morning, not at bedtime.
+  If Gate B passes after the morning swap, run B01-P2 (7.5 h) that evening and B01-P1 the next morning.
 
 ## Step B01.1 — Filament prep
 
@@ -77,10 +78,10 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:**
 
 1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: profile `0.20mm STRUCTURAL (modified)`, **5 files, 7 objects**, no brim outline.
+2. Confirm: profile `0.20mm STRUCTURAL (modified)`, **4 files, 7 objects**, no brim outline.
 3. Do not change which face sits on the bed.
 **Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 14.8 h, 200 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Estimated plate time is **15 h 13 m**; if far off, re-verify profile/overrides before committing an overnight print.
+**Check:** Estimated plate time is **14 h 50 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -125,7 +126,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B01.6 — Print plate B01-P2
 
-**Do:** Start after P1 is pulled and inspected.
+**Do:** Start after P1 is pulled and inspected, or the evening before P1 if Gate B passed after the morning swap.
 **Check:** No warp at the corners of the motor mounts.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -143,7 +144,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Helper:** Reads each caliper number back aloud and writes it into the log.
 
-Pause: ~15 min since the last pause — every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Step 02.04 seats the inserts with the parts sorted.
+Pause: ~15 min since the last pause — every pocket calipered and logged. Nothing pressed or inserted: the bearings are a kit-day row, and Ch 02 Steps 02.03–02.04 seat the inserts with the parts sorted.
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-now-rail-on-kit-day) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)
 

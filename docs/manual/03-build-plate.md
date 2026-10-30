@@ -2,7 +2,7 @@
 
 Prepares the 355×355×10 mm heated plate and bolts it to the bed extrusions, so the frame has its datum surface and the plate's three leads lie loose above the deck, ready for the bed WAGO breakout in Ch 09.
 
-**What you're building in this chapter:** the heated bed, as a stack of four things. The **build plate** is a cast, ground aluminium slab with a mains-powered silicone **heater pad** and a 125 °C **thermal fuse** already bonded to its underside — both are factory-fitted on this kit, so two of the official manual's pages become inspections. On top of it you laminate the **magnetic pad**, an adhesive magnetised sheet, and onto that drops the **flex plate**: removable spring steel, the surface prints actually stick to and the reason you can pop a finished part off by flexing it. The whole stack sits on four **thumb-nut spacers** on the two bed extrusions from Ch 01, held by four bolts of which only one is ever tightened — the other three let a 355 mm aluminium plate expand as it heats instead of buckling. Nothing is wired here; the plate's three short leads stay loose **above** the deck, for the bed WAGO breakout Ch 09 fits on the left bed extrusion.
+**What you're building in this chapter:** the heated bed, as a stack of four things. The **build plate** is a cast, ground aluminium slab with a mains-powered silicone **heater pad** and a 125 °C **thermal fuse** already bonded to its underside — both are factory-fitted on this kit, so two of the official manual's pages become inspections. On top of it goes the **magnetic pad**, an adhesive magnetised sheet you laminate here unless it arrives already on, and onto that drops the **flex plate**: removable spring steel, the surface prints actually stick to and the reason you can pop a finished part off by flexing it. The whole stack sits on four **thumb-nut spacers** on the two bed extrusions from Ch 01, held by four bolts of which only one is ever tightened — the other three let a 355 mm aluminium plate expand as it heats instead of buckling. Nothing is wired here; the plate's three short leads stay loose **above** the deck, for the bed WAGO breakout Ch 09 fits on the left bed extrusion.
 
 ```mascot
 pose: check
@@ -42,12 +42,12 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 | Fastener / part | Qty | Note |
 |---|---|---|
 | Build plate, cast 5083, 355×355×10 mm, heatpad and 125 °C fuse pre-applied | 1 | [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
-| Magnetic Pad 2.4-350 | 1 | applied in this chapter |
+| Magnetic Pad 2.4-350 | 1 | laminated in this chapter, unless it arrives pre-installed |
 | Spring Steel Flex Plate 2.4-350 | 1 | drops on, no fasteners |
 | M3×20 SHCS | 4 | **not** the manual's M3×16 |
 | M4 knurled thumb nut | 4 | used as the spacer, not as a nut |
 | M3 roll-in T-nut, 2020 | 4 | bed extrusion top slots |
-| M4×6 BHCS (bed PE) | 0: pre-fitted to the plate | verify only, do not remove (washer: verify on bench) |
+| M4×6 BHCS (bed PE) | 0: pre-fitted to the plate | verify only, do not remove; serrated washer under it |
 
 **Read first**
 
@@ -87,7 +87,7 @@ caption: The bed is your datum. A wave you ignore today will introduce itself in
 
 **Do:** Take the plate out flat, never on edge; a dropped corner dents a 10 mm cast slab. Lay it on a clean towel. It ends up on the two bed extrusions, cables above the deck.
 
-**Check:** Three cables leave the plate at the back-centre edge, with the M4×6 PE screw beside them. Washer type (verify on bench).
+**Check:** Three cables leave the back-centre edge, the M4×6 PE screw and serrated washer beside them. Note whether the magnet is already on top.
 
 Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Video: Part 1 @0:44:56](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2696s)
 
@@ -190,7 +190,7 @@ Source: [Voron manual p.56](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.57](assets/manual-pages/manual-p057.png)
 
-**What you're looking at:** Manual p.57: the plate's cable exit. Three cables leave here: two thick braided AC leads, **N** and **Bed L**, and one thin two-pin **BED TH** thermistor cable. Beside them the **protective-earth** M4×6 BHCS bonds the plate to earth. Washer (verify on bench). See the [glossary](16-glossary.md#p).
+**What you're looking at:** Manual p.57: the plate's cable exit. Three cables leave here: two thick braided AC leads, **N** and **Bed L**, and one thin two-pin **BED TH** thermistor cable. Beside them the **protective-earth** M4×6 BHCS and its serrated washer bond the plate to earth. See the [glossary](16-glossary.md#p).
 
 **Parts:** none.
 
@@ -262,7 +262,7 @@ Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.54](assets/manual-pages/manual-p054.png)
 
-**What you're looking at:** Manual p.54 and the magnetic pad: a flexible sheet of magnetised rubber with a pressure-sensitive adhesive back under a liner. Laminated to the plate, it holds the spring-steel flex plate down. On this kit it is a separate BOM line, not factory-applied.
+**What you're looking at:** Manual p.54 and the magnetic pad: a flexible sheet of magnetised rubber with a pressure-sensitive adhesive back under a liner. Laminated to the plate, it holds the spring-steel flex plate down. LDO lists it as its own BOM row; Fabreeko says it ships pre-installed.
 
 **Parts:**
 
@@ -284,7 +284,7 @@ Tip: lift the first strip immediately if it lands crooked; past a few centimetre
 
 Tip: The liner side is the adhesive; the plain rubber face is the magnet. Keep the unlaid pad lifted so adhesive never touches ahead of the squeegee.
 
-⚠ **Rev D+ / LDO:** the magnetic pad is a **separate line item** in the 350 Rev D+ BOM — it is not laminated at the factory, unlike the heater and fuse. If your plate did arrive with the magnet already on, skip to 03.10 and check whether the four bolt holes are already cut. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+⚠ **Rev D+ / LDO:** LDO's 350 Rev D+ BOM lists the magnetic pad as its own row; Fabreeko's Rev D+ page says the magnet sheet ships pre-installed. If it is already on, skip to 03.10 and check whether the four bolt holes are already cut; if it is loose, laminate it here. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit)
 
 Source: [Voron manual p.54](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=54) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [magnet lamination demo](https://voron.link/rm6tpld)
 
@@ -535,9 +535,9 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ### Step 03.20 — Fit the flex plate, then cover the bed
 
-![Voron manual p.61](assets/manual-pages/manual-p061.png)
+![Voron manual p.52](assets/manual-pages/manual-p052.png)
 
-**What you're looking at:** Manual p.61: the **flex plate**, the removable spring-steel print surface that clicks onto the magnet. It goes on once to prove it sits flat, then straight back in its sleeve; the magnet is not something you can resurface.
+**What you're looking at:** Manual p.52: the finished bed with the **flex plate** on top, the removable spring-steel print surface that clicks onto the magnet. It goes on once to prove it sits flat, then straight back in its sleeve; the magnet is not something you can resurface.
 
 **Parts:**
 
@@ -552,9 +552,9 @@ Source: [Voron manual p.60](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** Flex plate sits flat with no rocking and does not overhang the magnet on any side. Bed covered.
 
-⚠ **Rev D+ / LDO:** the flex plate is an LDO kit item; the official manual's PRINT BED section ends at p.60 and p.61 carries no build content. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+⚠ **Rev D+ / LDO:** the flex plate is an LDO kit item; the official manual's PRINT BED section ends at p.60 and never fits it; p.52 shows the finished bed. [src](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Source: [Voron manual p.61](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=61) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
+Source: [Voron manual p.52](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=52) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
 Pause: ~20 min since the last pause — the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.
 
@@ -564,11 +564,11 @@ Pause: ~20 min since the last pause — the four-corner gap check is done, the p
 
 **Built:** the heated bed, floating level on four spacers
 
-- [ ] Protective film removed; top face clean, magnet applied with no bubbles or wrinkles.
+- [ ] Protective film removed; top face clean, magnet on (laminated here or pre-installed) with no bubbles or wrinkles.
 - [ ] All four bolt holes trimmed clear through the magnet; a 2.5 mm hex key reaches each bolt head.
 - [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
 - [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
-- [ ] M4×6 BHCS present on the plate as the PE point (washer: verify on bench); nothing wired to it.
+- [ ] M4×6 BHCS and serrated washer present on the plate as the PE point; nothing wired to it.
 - [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers.
 - [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
 - [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.

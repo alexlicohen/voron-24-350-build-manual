@@ -1,10 +1,10 @@
 # Diagram manifest
 
-Eleven generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in that script, not here.
+Twelve generated SVGs covering the things the official manual states in prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; the geometry and every label live in that script, not here.
 
 No chapter has been edited. The **Insert at** column is the proposal: the chapter file and the step whose image block the diagram belongs in.
 
-All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
+All twelve are 1200 px wide, legible at 800 px, and safe on a dark page — each carries its own light background rect and pins `color` on the `<svg>` root, so `currentColor` text stays dark whether the file is referenced with `<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent parts, blue for the frame and extrusions, grey for hardware, teal and violet for the A and B belts.
 
 ## Index
 
@@ -21,6 +21,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 | 9 | Racking, and how to measure it | [`09-gantry-racking.svg`](09-gantry-racking.svg) | `06-z-axis-and-gantry-squaring.md` — Step 06b.11 (+1 more) |
 | 10 | STEPPER_BUZZ motor-direction cheat sheet | [`10-stepper-buzz-directions.svg`](10-stepper-buzz-directions.svg) | `13-initial-startup.md` — Step 13.13 (+1 more) |
 | 11 | Build timeline — print batches against assembly chapters | [`11-build-timeline.svg`](11-build-timeline.svg) | `00-index.md` — The timeline |
+| 12 | Titanium backers — which is which | [`12-ti-backers.svg`](12-ti-backers.svg) | `05-gantry.md` — Step 05.16 |
 
 ---
 
@@ -78,7 +79,7 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **Drawn schematically / left unlabelled (verify)**
 
-- Lane spacing and the position of the two bearing stacks and the motor pulley *within* each drive unit are schematic. The chapters fix the order of the wraps (stack, pulley, stack) and which stack the other belt turns on, not their top-view coordinates.
+- Which post does what is from the Voron CAD (A/B drive F695 stacks and the A/B belt meshes, 2026-10-30): a belt enters its own drive on the inboard near post (one F695 pair), wraps the pulley, and leaves round the outboard corner post (two pairs); the other belt's 90° turn is on that corner post. All side runs lie inboard of the Y extrusions, and on each side the other belt's single run is stacked on this belt's outer run. Lane spacing and the exact top-view coordinates inside a drive unit are schematic.
 - The toothed face is stated by the chapter at four places — the carriage clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on the pulley, Step 07.13), the front idler (smooth back on the stack, teeth outward on both runs, Step 07.15) and the toothed XY joint (teeth on its 20T idler — A's return turn at the right joint, Step 07.16; B's first turn at the left joint, Step 07.17). The face drawn at the remaining stations follows from belt geometry: a belt cannot change which face is which along its length. Which joint stack a belt meets (F695 pair or 20T idler) is fixed by the belt's height and needs no decision.
 - The diagram does not say which X-carriage slot (upper or lower) each end goes into, because the chapter assigns the slots by belt plane rather than by side.
 - Both X runs physically lie in front of the X extrusion (p.131); each panel draws one of them behind it so the two lanes read apart in a top view.
@@ -196,10 +197,10 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **What it shows**
 
-- A racked gantry against a square one in exaggerated top view, with the four measurement points (front-left, rear-left, front-right, rear-right) marked on both.
-- The two tolerances: front and rear on the same side within 0.5 mm, left and right within 1 mm, plus the machinist-square check at each front corner.
+- Three exaggerated top views: racked (X extrusion skewed between two parallel Y extrusions, the X-to-front-frame gap unequal left and right), yawed (the whole gantry turned in the frame, the four Y-to-upright gaps unequal front to rear) and square.
+- The yaw tolerances of Step 06b.11 (same side within 0.5 mm, left vs right within 1 mm, machinist square at each front corner) and the racking check of Step 06b.14 (both X/Y joints touch their drives at once; X to front frame equal).
 - Which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B joints and front idlers — and the de-racking move itself.
-- The one thing not to over-loosen: an X/Y joint that also carries a Z belt clamp.
+- The one thing not to over-loosen: the A/B drive and front idler bolts, which also clamp the Z belts (the X/Y joints carry no Z belt clamp).
 
 **Insert at**
 
@@ -208,7 +209,8 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 **Drawn schematically / left unlabelled (verify)**
 
-- The racked view is deliberately exaggerated; real racking is a fraction of a millimetre. The skew shown is not a measurement.
+- The racked and yawed views are deliberately exaggerated; real racking is a fraction of a millimetre. The skew shown is not a measurement.
+- The two drives sit on one rigid E bridge, so racking cannot offset them: the racked view keeps both Y extrusions and drives square and skews only the X extrusion. The Z belt clamps are at the A/B drives and front idlers (p.111, p.117; CAD Z Belt Clamp Upper/Lower), not at the X/Y joints.
 
 ---
 
@@ -253,6 +255,27 @@ All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — each
 
 ---
 
+## 12. Titanium backers — which is which
+
+`docs/manual/assets/diagrams/12-ti-backers.svg`
+
+**What it shows**
+
+- The three titanium backers of the 350 set to scale: the plain Y backer, the Y backer with four cable-chain pilot holes, and the X backer, with every screw hole.
+- Where each goes: plain Y on the left Y extrusion's top face, the pilot Y backer on the right Y's top face with the pilot end at the rear, X on the X extrusion's rear face.
+- A zoom on the pilot end: four Ø2.0 pilots 20–32 mm from the end, drilled 2.5 mm and tapped M3 where the Y chain's fixed end link sits.
+
+**Insert at**
+
+- `docs/manual/05-gantry.md` — **Step 05.16**: as the sorting picture.
+
+**Drawn schematically / left unlabelled (verify)**
+
+- Hole positions are the tanaes DXFs' (commit 5be0c5b). That Fabreeko's cut matches them, and whether its pilots arrive threaded, is unverified: count the holes on the bench.
+- Right Y and rear come from the Voron CAD: the Y chain's fixed-end M3×6 FHCS goes into the right Y extrusion's top face about 54 mm from its rear end, which is where the pilots of a 390 mm backer centred on the 450 mm extrusion fall.
+
+---
+
 ## Markdown to paste in
 
 Diagrams sit in the step's image block, in the same position a manual page image would take:
@@ -266,7 +289,7 @@ From `00-index.md` the path is the same; from a print-batch chapter under `docs/
 ## Regenerating
 
 ```
-python3 scripts/draw_diagrams.py            # all eleven + this file
+python3 scripts/draw_diagrams.py            # all twelve + this file
 python3 scripts/draw_diagrams.py --only 3 7 # just those two
 ```
 

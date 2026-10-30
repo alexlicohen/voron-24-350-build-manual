@@ -9,9 +9,9 @@ pose: screen
 caption: First power on. Prove one subsystem at a time, so there is only ever one suspect.
 ```
 
-**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, ~15 min at the laptop for the PrusaSlicer printer profile (Step 13.41), plus ~1 h for the cube print at the end. The optional scrubber add-on (Part L) adds ~2 h hands-on, plus a ~2.5 h Core One+ print in the middle of it.
+**Time:** 2.5–4.0 h hands-on, first build (survey §5.1 P13 / §7.2). Add ~30 min of unattended PID runs and 10–20 min of heat-soak wall clock, plus ~1 h for the cube print at the end. The ~15 min PrusaSlicer printer profile (Step 13.41) fits inside the 13.31 soak. The optional scrubber add-on (Part L) adds ~2 h hands-on, plus a ~2.5 h Core One+ print in the middle of it.
 
-**Sessions:** 11 × ~30 min hands-on, 15 with Part L (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
+**Sessions:** 10 × ~30 min hands-on, 14 with Part L (Pause segments below; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes the unattended PID runs, the heat soak and the cube print).
 
 **Prerequisites:**
 
@@ -55,6 +55,7 @@ caption: First power on. Prove one subsystem at a time, so there is only ever on
 - **The stock LDO config ships every build-size option commented out and `[safe_z_home] home_xy_position` set to the placeholder `-10,-10`.** A full `G28` will refuse to run until you replace it with a real coordinate — that is Step 13.26, not a fault. (survey §4.4 #15)
 - **If Ch 12 loaded `leviathan-printer-rev-d.cfg` instead of `leviathan-printer-rev-d-sbv2.cfg`, stop now.** Every `nhk:` pin differs. Klipper refuses the V1 file on this toolboard (`Pin 'gpio23' is not a valid pin name on mcu 'nhk'`), so you will not mis-drive anything — but you will not get past Step 13.4 either. The check is not the serial ID (you pasted that yourself, and it is right in both files); it is `grep -c gpio ~/printer_data/config/printer.cfg` over SSH: **0** is the V2 file, **20** is the V1 file. (survey §4.1 ①, §5.2 W13)
 - **`M112` is the stop. `RESTART` is not.** Have `M112` typed — alone on the line — and unsent in a second console window before every first move — the homing steps say so each time. Test it once, at Step 13.22, before the machine ever moves under its own power.
+- **Every `RESTART`, `FIRMWARE_RESTART` and `SAVE_CONFIG` releases all seven motors, exactly as `M84` does, and turns the heaters off.** Once anything has moved, raise the nozzle to Z30 or higher first (`G0 Z30` when homed) and keep a hand under the gantry as you send it: it sinks when the Z motors release. Each step that sends one says so. [src](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/stepper_enable.py)
 
 **Sources for this chapter:**
 
@@ -124,9 +125,9 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 ### Step 13.3 — Power on again, hand on the switch
 
-![LDO PSU switch](assets/remote/13-initial-startup/ldo-psu-voltage-selector.jpg)
+(no image — see text)
 
-**What you're looking at:** The photo is the PSU's 115/230 V slide switch again. The rocker your hand is on is built into the C14 inlet module: the machine's only mains isolator. This is the first power-on with a live `printer.cfg` that can drive heaters and motors.
+**What you're looking at:** The rocker your hand is on is built into the C14 inlet module, beside the mains lead: the machine's only mains isolator. This is the first power-on with a live `printer.cfg` that can drive heaters and motors.
 
 **Parts:** none.
 
@@ -136,7 +137,7 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 2. Plug the mains lead in, stand to the side, switch on at the IEC inlet rocker.
 3. Hand on it ten seconds. Look into the bay, listen, smell.
 
-**Check:** PSU green LED, Pi power and activity LEDs, the toolboard's **3V3** and **24V** LEDs all lit, with no clicking, buzzing, hot smell or humming stepper.
+**Check:** PSU green, Pi power and activity, toolboard **3V3**/**24V** LEDs lit, unless the cover hides the last two. No clicking, buzzing, hot smell or stepper hum.
 
 ⚠ If any of that is wrong, rocker off at once, then unplug at the wall, and go back to Ch 10.
 
@@ -144,7 +145,7 @@ Pause: ~15 min since the last pause — bench cleared, tools and meter staged, C
 
 Tip: Klipper enables no stepper until something moves, so every motor should sit at room temperature here. Feel one only after 13.8 has the machine dead.
 
-Source: [LDO wiring photo psu_switch.jpg](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg) · [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Klipper `stepper_enable.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/stepper_enable.py) (motors disabled until the first move)
+Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1) · [Voron startup wizard § Preparation](https://docs.vorondesign.com/build/startup/startup.html#preparation) · [Ch 12 Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) · [Ch 00a Step 00a.11](00a-mains-safety.md#step-00a11-know-the-two-power-on-rituals-before-either-one-arrives) · [Klipper `stepper_enable.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/stepper_enable.py) (motors disabled until the first move)
 
 ---
 
@@ -236,11 +237,11 @@ Source: [Voron docs image mainsail_temp_graph.png](https://raw.githubusercontent
 
 **Parts:** none.
 
-**Do:** Hand back on the power switch. Set the **Extruder** target to 50 and press enter. Watch the graph and the toolboard's **HE0** LED.
+**Do:** Hand back on the power switch. Set the **Extruder** target to 50 and press enter. Watch the graph and, if the toolhead cover leaves it visible, the toolboard's **HE0** LED.
 
-**Check:** The extruder temperature climbs within about 10 s and the **HE0** LED is lit; set the target to **Off** and it decays toward room temperature.
+**Check:** The extruder climbs within about 10 s, **HE0** lit if visible; target **Off** and it decays toward room temperature.
 
-⚠ If a *different* sensor heats, the thermistor or heater pairs are swapped. **HE0** lit with no climb is the heater side: cartridge lead, ferrules, the HE0 screw terminal. **HE0** dark is the pin or config side: `[extruder] heater_pin: nhk:PA7`.
+⚠ If a *different* sensor heats, the thermistor or heater pairs are swapped. No climb: if you can see **HE0**, lit is the heater side (cartridge lead, ferrules, the HE0 screw terminal) and dark is the pin or config side (`[extruder] heater_pin: nhk:PA7`). Cover hiding it: check both.
 
 Source: [Voron docs image heaters.gif](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/heaters.gif) · [Voron startup wizard § Verify heaters](https://docs.vorondesign.com/build/startup/startup.html#verify-heaters)
 
@@ -491,7 +492,7 @@ Recv: // stepper_x:open stepper_y:open stepper_z:open
 
 **Helper:** Reads the endstop states off the screen and calls each one back.
 
-⚠ `M84` releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This, Step 13.24 and the QGL `max_adjust` What-if row are the only places `M84` is right; elsewhere disable just `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding.
+⚠ `M84` releases all seven motors, and the Z motors are the only thing holding the gantry: keep a hand under it. This, Step 13.24 and the QGL `max_adjust` What-if row are the only places to send `M84` on purpose; every restart does the same (Read first). Elsewhere disable just `stepper_x`/`stepper_y` with `SET_STEPPER_ENABLE` and leave Z holding.
 
 ⚠ Rev D+ / LDO: if your XY endstop cables are labelled **"X Stop / Y Stop"** instead of **"XES / YES"**, you have the mis-pinned batch and both X and Y will misbehave here. Re-pin per LDO's guide before going further. [src](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) (survey §4.4 #14)
 
@@ -701,7 +702,7 @@ Source: [LDO wiring photo z_stop_install_3.jpg](https://raw.githubusercontent.co
 | Nozzle too far **into** the bed | **Increase** `position_endstop` and `position_max` together, on that axis only. +2 mm on `[stepper_x]` moves 0,0 2 mm left |
 | Nozzle **beyond** the bed edge | **Decrease** both together |
 
-Tip: binding before the corner is racking or a mechanical fault, not a config problem. `FIRMWARE_RESTART` after any config edit, then re-check.
+Tip: binding before the corner is racking or a mechanical fault, not a config problem. After any config edit: hand under the gantry, `FIRMWARE_RESTART`, then re-check.
 
 Source: [Voron startup wizard § Define 0,0 point](https://docs.vorondesign.com/build/startup/startup.html#define-00-point)
 
@@ -722,7 +723,7 @@ Send: M114
 Recv: X:163.500 Y:350.000 Z:10.000 E:0.000
 ```
 
-Copy the X and Y values into `[safe_z_home] home_xy_position:` replacing the placeholder `-10,-10`. `FIRMWARE_RESTART`.
+Copy the X and Y values into `[safe_z_home] home_xy_position:` replacing the placeholder `-10,-10`. Hand under the gantry, then `FIRMWARE_RESTART`.
 
 **Check:** The values are yours, not the example above `(verify on bench)`.
 
@@ -813,10 +814,9 @@ Send: PID_CALIBRATE HEATER=heater_bed TARGET=100
 Recv: // PID parameters: pid_Kp=58.437 pid_Ki=2.347 pid_Kd=363.769
 Recv: // The SAVE_CONFIG command will update the printer config file
 Recv: // with these parameters and restart the printer.
-Send: SAVE_CONFIG
 ```
 
-**Check:** `SAVE_CONFIG` restarts Klipper and the new `pid_Kp/Ki/Kd` appear in the auto-generated block at the bottom of `printer.cfg`. Your numbers will differ from the example. [src](https://docs.vorondesign.com/build/startup/)
+**Check:** Klipper printed bed `pid_Kp/Ki/Kd`; your numbers will differ. Do **not** `SAVE_CONFIG` yet: 13.30 saves both tunes at once. [src](https://docs.vorondesign.com/build/startup/)
 
 Source: [Voron startup wizard § PID tune heated bed](https://docs.vorondesign.com/build/startup/startup.html#pid-tune-heated-bed) · [Klipper docs § PID_CALIBRATE](https://www.klipper3d.org/G-Codes.html#pid_calibrate) · [Klipper docs § SAVE_CONFIG](https://www.klipper3d.org/G-Codes.html#save_config)
 
@@ -830,23 +830,26 @@ Source: [Voron startup wizard § PID tune heated bed](https://docs.vorondesign.c
 
 **Parts:** none.
 
-**Do:** `G28` first, because `SAVE_CONFIG` restarted the printer. Then set the part fan to 25 % and run the hotend calibration; about 5 minutes.
+**Do:**
+
+1. Nozzle still over the bed centre from 13.29: part fan to 25 %, then the hotend calibration, about 5 minutes.
+2. `M107`, `G0 Z30`, hand under the gantry, then `SAVE_CONFIG`: it saves both tunes and restarts.
 
 ```
-Send: G28
 Send: M106 S64
 Send: PID_CALIBRATE HEATER=extruder TARGET=245
       ... ~5 min ...
 Recv: // PID parameters: pid_Kp=26.213 pid_Ki=1.304 pid_Kd=131.721
-Send: SAVE_CONFIG
 Send: M107
+Send: G0 Z30
+Send: SAVE_CONFIG
 ```
 
-**Check:** Saved and restarted, with the new `pid_Kp/Ki/Kd` written into the auto-generated block.
+**Check:** Klipper restarted, and the bed and hotend `pid_Kp/Ki/Kd` are both in the auto-generated block.
 
 Tip: running the hotend PID with the part fan at 25 % is deliberate; it tunes for the disturbance the fan actually causes in a print.
 
-Source: [Voron startup wizard § PID tune hotend](https://docs.vorondesign.com/build/startup/startup.html#pid-tune-hotend) · [Klipper docs § PID_CALIBRATE](https://www.klipper3d.org/G-Codes.html#pid_calibrate)
+Source: [Voron startup wizard § PID tune hotend](https://docs.vorondesign.com/build/startup/startup.html#pid-tune-hotend) · [Klipper docs § PID_CALIBRATE](https://www.klipper3d.org/G-Codes.html#pid_calibrate) · [Klipper `configfile.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/configfile.py) (`SAVE_CONFIG` writes every pending value at once, then restarts)
 
 ---
 
@@ -871,6 +874,8 @@ Source: [Voron startup wizard § PID tune hotend](https://docs.vorondesign.com/b
 ⚠ The LDO config ships `[idle_timeout] timeout: 1800`, and Klipper's idle timeout runs `TURN_OFF_HEATERS` then `M84` after 30 minutes without a move, which is exactly what a static soak looks like. `RESTART`, `FIRMWARE_RESTART` and every `SAVE_CONFIG` put it back to 1800.
 
 Tip: 150 °C is below `min_extrude_temp: 170` on purpose: hot enough to expand the toolhead, cold enough that nothing oozes. The soak gate at Step 13.32 is probe repeatability, not a chamber number.
+
+Tip: while it soaks, make 13.41's printer profile and slice the cube at the laptop, in the room; 13.41 then only checks it.
 
 Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber) · [Klipper docs § SET_IDLE_TIMEOUT](https://www.klipper3d.org/G-Codes.html#set_idle_timeout) · [`leviathan-printer-rev-d-sbv2.cfg`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L455-456)
 
@@ -973,7 +978,7 @@ Pause: ~10 min since the last pause — you are handed off to **Ch 06b**: A/B te
 
 **Check:** QGL converges in fewer passes and from a smaller range than before. If not, the squaring did not take: go back to Ch 06b.
 
-Tip: Ch 06b's `RESTART` put `[idle_timeout]` back to 1800 s. Stay hot through 13.36; its `SAVE_CONFIG` turns the heaters off, and 13.39 re-heats.
+Tip: Ch 06b's `RESTART` put `[idle_timeout]` back to 1800 s. Stay hot through 13.39: one `SAVE_CONFIG` there keeps Z=0 and the mesh together.
 
 Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.vorondesign.com/build/startup/startup.html#qgl-with-heated-bed-and-chamber) · [Klipper docs § QUAD_GANTRY_LEVEL](https://www.klipper3d.org/G-Codes.html#quad_gantry_level)
 
@@ -993,9 +998,9 @@ Source: [Voron startup wizard § QGL with heated bed and chamber](https://docs.v
 
 **Do:**
 
-1. Hot and levelled: `G28`, nozzle to the bed centre, wipe off any ooze, put the paper under it.
+1. Hot and levelled: `G28`, nozzle to bed centre, ooze wiped, paper under it.
 2. Run `Z_ENDSTOP_CALIBRATE`. Step down with `TESTZ Z=-1` until close, then `TESTZ Z=-0.1`; `TESTZ Z=0.1` backs off.
-3. `ACCEPT` at the first position where the paper drags.
+3. `ACCEPT` at first drag. No `SAVE_CONFIG` yet: 13.39 saves it with the mesh.
 
 ```
 Send: Z_ENDSTOP_CALIBRATE
@@ -1011,40 +1016,17 @@ Send: ACCEPT
 Recv: // stepper_z: position_endstop: -0.750
 Recv: // The SAVE_CONFIG command will update the printer config file
 Recv: // with the above and restart the printer.
-Send: SAVE_CONFIG
 ```
 
 **Check:** You accepted at light drag: the paper still slides, but with resistance, and Klipper printed a new `position_endstop`.
 
-⚠ Do **not** add an extra step down "for the heat". The number Klipper prints is `old position_endstop − the Z you accepted at`: with the stock `−0.5` and an accept at `0.250`, that is `−0.5 − 0.250 = −0.750`. Yours will differ; the arithmetic will not.
+⚠ The Voron wizard adds a `TESTZ Z=-0.1` when this is done hot. Do **not** here: Z homes with the nozzle itself pressing the probe pin, so the hot nozzle's growth cancels, and 13.42 closes the paper gap on a real first layer.
 
-Tip: the small back-and-forth Klipper does on tiny moves is deliberate backlash compensation; the final position is the one you asked for.
+Tip: Klipper prints `old position_endstop − the Z you accepted at`: stock `−0.5`, accept at `0.250`, gives `−0.750`. The small back-and-forth on tiny moves is deliberate backlash compensation.
 
 Note: this sets Z=0 from the **nozzle probe**, not the inductive probe. `[probe] z_offset: 0` stays uncalibrated on purpose — that probe is used only for QGL and mesh shape.
 
 Source: [Voron docs image mainsail_manual_probe.png](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/36b876b/build/startup/images/mainsail_manual_probe.png) · [Voron startup wizard § Z endstop calibrate](https://docs.vorondesign.com/build/startup/startup.html#z-endstop-calibrate) · [Klipper docs § MANUAL_PROBE / TESTZ](https://www.klipper3d.org/G-Codes.html#manual_probe) · [Klipper `manual_probe.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/manual_probe.py) · [Video: More Extras! @3:53:57](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14037s) (differs: Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged)
-
----
-
-### Step 13.37 — Sanity-check Z=0
-
-(no image — see text)
-
-**What you're looking at:** The same sheet of paper, now a check rather than a measurement: the nozzle is commanded to the Z=0 you just saved and the paper should behave the same way. A **larger** `position_endstop` puts the nozzle closer to the bed.
-
-**Parts:**
-
-- tool: the same sheet of paper
-
-**Do:** `G28`, then `G0 X175 Y175 Z0 F1200`. Slide the paper under the nozzle.
-
-**Check:** The paper drags but is not pinned or torn, and the nozzle has not touched the PEI; at Z0 it sits one paper-thickness above it.
-
-Tip: if it is wrong, re-run Step 13.36; do not hand-edit `position_endstop` yet. Increasing `[stepper_z] position_endstop` brings the nozzle closer to the bed, so −0.700 is closer than −0.750.
-
-Source: [Voron startup wizard § Z offset adjustment](https://docs.vorondesign.com/build/startup/startup.html#z-offset-adjustment) · [Klipper docs § Manual Level](https://www.klipper3d.org/Manual_Level.html)
-
-Pause: ~20 min since the last pause — re-heated, re-QGL'd after squaring, `Z_ENDSTOP_CALIBRATE` done at the paper-drag height, and Z=0 sanity-checked at the bed centre. `SAVE_CONFIG` run and committed. The machine now knows where the bed is.
 
 ---
 
@@ -1058,9 +1040,9 @@ Pause: ~20 min since the last pause — re-heated, re-QGL'd after squaring, `Z_E
 
 **Parts:** none.
 
-**Do:** Open `printer.cfg`, confirm the `[bed_mesh]` section from Ch 12 Step 12.34 is present and unchanged, then `FIRMWARE_RESTART`. Do not retype it here.
+**Do:** Still hot from 13.36: open `printer.cfg` and confirm the `[bed_mesh]` section from Ch 12 Step 12.34 is present and unchanged. Do not edit or restart: a restart drops the heat and the accepted Z.
 
-**Check:** `grep -A4 '^\[bed_mesh\]' ~/printer_data/config/printer.cfg` returns the block, Klipper comes back `Ready`, and `BED_MESH_CLEAR` is accepted at the console.
+**Check:** `grep -A4 '^\[bed_mesh\]' ~/printer_data/config/printer.cfg` returns the block, and `BED_MESH_CLEAR` is accepted at the console.
 
 Tip: the LDO config ships no `[bed_mesh]` section at all, so `PRINT_END` prints `Unknown command:"BED_MESH_CLEAR"` until one exists. A rejected section is a range error: fix it in Ch 12, not here. (survey §4.4 #15)
 
@@ -1078,9 +1060,8 @@ Source: [Klipper docs § bed_mesh](https://www.klipper3d.org/Config_Reference.ht
 
 **Do:**
 
-1. `SAVE_CONFIG` at 13.36 and `FIRMWARE_RESTART` at 13.38 turned the heaters off. Send `SET_IDLE_TIMEOUT TIMEOUT=7200`, bed 100 °C, hotend 150 °C.
-2. Soak the time you wrote down at 13.32.
-3. `G28`, `QUAD_GANTRY_LEVEL`, `G28`, then `BED_MESH_CALIBRATE`: 49 points, a few minutes.
+1. Still hot and levelled from 13.35–13.36: `BED_MESH_CALIBRATE`, 49 points, a few minutes.
+2. `BED_MESH_OUTPUT`, then `G0 Z30`, hand under the gantry, `SAVE_CONFIG`: it saves the 13.36 Z=0 and this mesh, then restarts.
 
 ```
 Send: BED_MESH_CALIBRATE
@@ -1089,18 +1070,40 @@ Recv: // Mesh Bed Leveling Complete
 Recv: // Bed Mesh state has been saved to profile [default]
 Recv: // for the current session.  The SAVE_CONFIG command will
 Recv: // update the printer config file and restart the printer.
+Send: BED_MESH_OUTPUT
+Send: G0 Z30
 Send: SAVE_CONFIG
 ```
 
-**Check:** `BED_MESH_OUTPUT` shows the whole plate inside roughly ±0.10 mm at 100 °C.
+**Check:** `BED_MESH_OUTPUT` showed the whole plate inside roughly ±0.10 mm at 100 °C; the saved block holds `position_endstop` and the `default` mesh.
 
 ⚠ A corner 0.3 mm out of family points at a bed screw torqued cold in Ch 03, not at a bad plate. Mesh **after** QGL, always, and re-mesh whenever you change the bed or the plate.
 
 Tip: this mesh is a hot mesh at 100 °C. It is not valid for a 60 °C PLA bed — take a second profile later if you print cold materials.
 
-Source: [Voron startup wizard § Bed leveling](https://docs.vorondesign.com/build/startup/startup.html#bed-leveling) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate) · [Klipper docs § Bed Mesh](https://www.klipper3d.org/Bed_Mesh.html)
+Source: [Voron startup wizard § Bed leveling](https://docs.vorondesign.com/build/startup/startup.html#bed-leveling) · [Klipper docs § BED_MESH_CALIBRATE](https://www.klipper3d.org/G-Codes.html#bed_mesh_calibrate) · [Klipper docs § Bed Mesh](https://www.klipper3d.org/Bed_Mesh.html) · [Klipper `configfile.py`](https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/configfile.py) (`SAVE_CONFIG` writes every pending value at once)
 
-Pause: ~15 min since the last pause — `[bed_mesh]` confirmed against Ch 12 and a full mesh probed and saved with no probe point out of range. Machine idle, heaters off, `SET_IDLE_TIMEOUT TIMEOUT=1800` sent to put the timeout back.
+---
+
+### Step 13.37 — Sanity-check Z=0
+
+(no image — see text)
+
+**What you're looking at:** The same sheet of paper, now a check rather than a measurement: the nozzle is commanded to the Z=0 you just saved and the paper should behave the same way. A **larger** `position_endstop` puts the nozzle closer to the bed.
+
+**Parts:**
+
+- tool: the same sheet of paper
+
+**Do:** `G28`, then `G0 X175 Y175 Z0 F1200`. Slide the paper under the nozzle.
+
+**Check:** The paper drags but is not pinned or torn, and the nozzle has not touched the PEI; at Z0 it sits one paper-thickness above it.
+
+Tip: wrong? Re-heat and re-QGL as at 13.35, re-run Step 13.36, then park and `SAVE_CONFIG` as at 13.39. Do not hand-edit `position_endstop`: −0.700 is closer than −0.750.
+
+Source: [Voron startup wizard § Z offset adjustment](https://docs.vorondesign.com/build/startup/startup.html#z-offset-adjustment) · [Klipper docs § Manual Level](https://www.klipper3d.org/Manual_Level.html)
+
+Pause: ~30 min since the last pause — re-heated, re-QGL'd after squaring, Z=0 by the paper test and a hot mesh, both saved in one `SAVE_CONFIG` and committed, and Z=0 sanity-checked at the bed centre. Heaters off; the machine now knows where the bed is.
 
 ---
 
@@ -1120,9 +1123,11 @@ The first print is the last check in this chapter, not the start of tuning. The 
 - tool: steel rule or caliper
 - consumable: masking tape
 
-**Do:** *Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; it heats and waits. Wipe the extruded blob off the nozzle.
+**Do:** *Config first.* Add `max_extrude_only_distance: 150` to `[extruder]`; Klipper's default is **50 mm**, so a single `G1 E100` errors out with "Extrude only move too long". `G0 Z30` if still homed, hand under the gantry, `RESTART`.
 
-*Measure.* Add `max_extrude_only_distance: 150` to `[extruder]` and `RESTART` — Klipper's default is **50 mm**, so a single `G1 E100` errors out with "Extrude only move too long". `G28`, park with `G0 X175 Y10 Z50 F6000`, heat to 260 °C. Put a piece of tape on the filament at the **120 mm** mark, measured from where the filament enters the extruder. Then extrude 100 mm slowly, in relative mode, at 1 mm/s:
+*Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; it heats and waits. Wipe the extruded blob off the nozzle.
+
+*Measure.* Park with `G0 X175 Y10 Z50 F6000`, still at 260 °C. Put a piece of tape on the filament at the **120 mm** mark, measured from where the filament enters the extruder. Then extrude 100 mm slowly, in relative mode, at 1 mm/s:
 
 ```
 M83
@@ -1133,9 +1138,9 @@ Measure from the extruder entrance to the tape again — that reading is the **r
 
 **Check:** R reads ≈20 mm, so the extruded amount is within **0.5 %** of target: 99.5 to 100.5 mm for a 100 mm request.
 
-⚠ Watch the gears. If the filament is pushed *back up* the tube, invert `[extruder] dir_pin` by adding or removing the `!` on `nhk:PB9`, `RESTART`, and send the macro again. That is the extruder direction test. If the gears do not grab, open the CW2 latch, push the filament past them by hand, close it and repeat.
+⚠ Watch the gears. If the filament is pushed *back up* the tube, invert `[extruder] dir_pin` by adding or removing the `!` on `nhk:PB9`; hand under the gantry, `RESTART`, `G28`, and send the macro again. That is the extruder direction test. If the gears do not grab, open the CW2 latch, push the filament past them by hand, close it and repeat.
 
-Tip: write the value you end on into `[extruder] rotation_distance`, `RESTART`, and commit. This has to be right before the first print; extrusion error looks exactly like a flow or first-layer problem.
+Tip: write the value you end on into `[extruder] rotation_distance`; hand under the gantry, `RESTART`, and commit. Get it right before the first print: extrusion error looks like a first-layer problem.
 
 ??? note "The arithmetic, how to iterate, and the two classic mistakes"
 
@@ -1151,7 +1156,7 @@ Tip: write the value you end on into `[extruder] rotation_distance`, `RESTART`, 
 
     Iterate without restarting using
     `SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=extruder DISTANCE=<value>`, then write the
-    final number into `[extruder] rotation_distance` and `RESTART`. `M83` before every
+    final number into `[extruder] rotation_distance` and `RESTART`, a hand under the gantry. `M83` before every
     `G1 E100` — in absolute mode the move only extrudes 100 mm if E happens to be 0.
 
     Extruding slowly is deliberate: it removes the pressure-related error a fast extrude
@@ -1180,29 +1185,29 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 
 **Do:**
 
-1. Save the CORE One HF0.4 profile as `Voron 2.4 350`: bed 350 × 350, height 330, Klipper. Untick binary G-code, auto temperatures.
-2. Start G-code below, End `PRINT_END`. Physical printer `voron.local`; **Test**.
-3. Slice the cube: 260/110, compensations off, seam rear.
+1. Reselect CORE One HF0.4 unmodified, save as `Voron 2.4 350`: 350 × 350, height 330, Klipper, Z offset 0; untick binary G-code, auto temperatures.
+2. Start G-code below, End `PRINT_END`; physical printer `voron.local`, **Test**.
+3. Cube: 260/110, compensations off, seam rear.
 
 ```
 PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER=0 FILAMENT={filament_type[initial_tool]}
 ```
 
-Where things are: **Printer Settings** → **Save as…** from `Prusa CORE One HF0.4 nozzle`, bed origin **0, 0**; **G-code flavor: Klipper** under General → Firmware, then OK its dialog; **Supports binary G-code** under General → Firmware in Expert mode; **Emit temperature commands automatically** under Custom G-code. The Start and End G-code each replace everything in their box. The physical printer is the icon next to the printer preset → *Add physical printer*, no API key.
+Where things are: pick `Prusa CORE One HF0.4 nozzle` again from the printer list and **discard** changes, because a plate project leaves it "(modified)" with this project's `z_offset` **+0.08**, which a Save as would carry onto the Voron. Then **Printer Settings** → **Save as…**, bed origin **0, 0**, **General → Z offset 0**; **G-code flavor: Klipper** under General → Firmware, then OK its dialog; **Supports binary G-code** under General → Firmware in Expert mode; **Emit temperature commands automatically** under Custom G-code. The Start and End G-code each replace everything in their box. The physical printer is the icon next to the printer preset → *Add physical printer*, no API key.
 
-The flavor dialog switches **Machine limits → How to apply limits** to **Use for time estimate**, because Klipper takes no machine limits from G-code. The Core One preset ships binary G-code ticked, and Klipper reads only plain `.gcode`. Unticking the automatic temperature commands stops PrusaSlicer prepending `M104`/`M190` before `PRINT_START`, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze. `FILAMENT=` passes the filament type, so `PRINT_START` runs the Nevermore only for materials that need it. Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from [print/00-slicer-setup.md](print/00-slicer-setup.md) compatible with it. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value and tune it in Ch 14 `(verify on bench)`.
+The flavor dialog switches **Machine limits → How to apply limits** to **Use for time estimate**, because Klipper takes no machine limits from G-code. The Core One preset ships binary G-code ticked, and Klipper reads only plain `.gcode`. Unticking the automatic temperature commands stops PrusaSlicer prepending `M104`/`M190` before `PRINT_START`, which would heat the hotend before homing and home Z on the nozzle-probe pin through hot ooze. `FILAMENT=` passes the filament type, so `PRINT_START` runs the Nevermore only for materials that need it. Saving as a copy keeps the Prusament ASA and STRUCTURAL presets from [print/00-slicer-setup.md](print/00-slicer-setup.md) compatible with it. **Extruder 1**: nozzle **0.4** stays; leave retraction at the copied value and tune it with Ellis' retraction section after Ch 14 `(verify on bench)`.
 
-The cube is [`Voron_Design_Cube_v7.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints), the same file batch B00 printed on the Prusa, exactly **30.000 × 30.000 × 30.000 mm**. Slice it at **hotend 260 °C, bed 110 °C, XY size compensation 0, shrinkage compensation 0 %**, no supports, seam to the rear: the same overrides the Prusa profile uses, so the two cubes are comparable. Chamber temperature is **not** a slicer setting on this machine yet: the Prusa filament profile's chamber values emit `M141`/`M191`, which this config does not define (Klipper answers `Unknown command`, harmless); the chamber is `CHAMBER=` on `PRINT_START`, kept at **0**, a timed soak, until Ch 14 has measured what the closed chamber reaches.
+The cube is [`Voron_Design_Cube_v7.stl`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs/Test_Prints), the same file batch B00 printed on the Prusa, exactly **30.000 × 30.000 × 30.000 mm**. Slice it at **hotend 260 °C, bed 110 °C, XY size compensation 0, shrinkage compensation 0 %**, no supports, seam to the rear: the same overrides the Prusa profile uses, so the two cubes are comparable. Chamber temperature is **not** a slicer setting on this machine yet: with **Emit temperature commands automatically** off, the filament's chamber values emit no `M141`/`M191`; the chamber is `CHAMBER=` on `PRINT_START`, kept at **0**, a timed soak, until Ch 14 has measured what the closed chamber reaches.
 
-**Check:** The export is a `.gcode` file starting `PRINT_START BED=110 EXTRUDER=260 CHAMBER=0 FILAMENT=ASA`, no `M190`/`M109` before it. No supports, seam at the rear, physical-printer **Test** passed.
+**Check:** A `.gcode` file starting `PRINT_START BED=110 EXTRUDER=260 CHAMBER=0 FILAMENT=ASA`, no `M190`/`M109` before it, `EXCLUDE_OBJECT_DEFINE` inside. Z offset 0, seam rear, **Test** passed.
 
 ⚠ Export refused with "Machine limits cannot be emitted to G-Code when Klipper firmware flavor is used": set **How to apply limits** back to **Use for time estimate**. A `.bgcode` file instead of `.gcode`: **Supports binary G-code** is still ticked.
 
 ⚠ The Voron slicer guide's own starting point is 240 °C / 100 °C / 92 % flow for ABS. Use 260/110 here anyway: it is the Prusament ASA figure, and it is what makes this cube comparable with the B00 reference you caliper it against at [Ch 14 Step 14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one).
 
-Tip: Host type **Moonraker** if your PrusaSlicer lists it, else **OctoPrint**: Moonraker answers OctoPrint's upload API through `[octoprint_compat]`.
+Tip: Host type **Moonraker** if your PrusaSlicer lists it, else **OctoPrint**: Moonraker answers OctoPrint's upload API through `[octoprint_compat]`. Already made during the 13.31 soak? Just run the Check.
 
-Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) · [Voron docs — first print](https://docs.vorondesign.com/build/slicer/first_print.html) · [Voron docs — slicer setup](https://docs.vorondesign.com/build/slicer/) · [Moonraker configuration § octoprint_compat](https://moonraker.readthedocs.io/en/latest/configuration/#octoprint_compat) · [Ch 12 Step 12.36](12-software.md#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber)
+Source: [Voron-2 `STLs/Test_Prints/`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) · [Voron docs — first print](https://docs.vorondesign.com/build/slicer/first_print.html) · [Voron docs — slicer setup](https://docs.vorondesign.com/build/slicer/) · [Moonraker configuration § octoprint_compat](https://moonraker.readthedocs.io/en/latest/configuration/#octoprint_compat) · [PrusaSlicer 2.9 `LabelObjects.cpp`](https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.2/src/libslic3r/GCode/LabelObjects.cpp) (Firmware-specific labels are `EXCLUDE_OBJECT_DEFINE` under Klipper) · [print/00-slicer-setup.md](print/00-slicer-setup.md) (the project's +0.08 `z_offset`) · [Ch 12 Step 12.36](12-software.md#step-1236-replace-print_start-with-a-skeleton-that-waits-on-the-chamber)
 
 ---
 
@@ -1225,7 +1230,7 @@ SET_GCODE_OFFSET Z_ADJUST=-0.01 MOVE=1     ; closer to the bed
 SET_GCODE_OFFSET Z_ADJUST=0.01 MOVE=1      ; further away
 ```
 
-Note the total you end on (Mainsail shows it next to the Z-offset buttons) and **let the cube finish.** Only then make it permanent: `Z_OFFSET_APPLY_ENDSTOP`, then `SAVE_CONFIG`. `SAVE_CONFIG` restarts Klipper and would abort a running print — never send it mid-print. Keep the cube.
+Note the total you end on (Mainsail shows it next to the Z-offset buttons) and **let the cube finish.** Only then make it permanent: `Z_OFFSET_APPLY_ENDSTOP`, then, a hand under the gantry, `SAVE_CONFIG`. `SAVE_CONFIG` restarts Klipper and would abort a running print — never send it mid-print. Keep the cube.
 
 **Check:** On smooth PEI the bottom has **no gaps between the beads and no ridging**, and you can still see the individual lines.
 
@@ -1513,7 +1518,7 @@ Source: [Printables 796563 — BOM](https://www.printables.com/model/796563) · 
 
 **Do:**
 
-1. Power on, `G28`, `G0 X175 Y60 Z150`. Roll two T-nuts into each extrusion's top slot behind the plate.
+1. Power on, `SET_IDLE_TIMEOUT TIMEOUT=7200`, `G28`, `G0 X175 Y60 Z150`. Roll two T-nuts into each extrusion's top slot behind the plate.
 2. Bolt each bracket with two M3×8, face on the plate edge, snug.
 3. Fit the upright M3×8s unless the printout said no.
 
@@ -1563,7 +1568,7 @@ Source: [Printables 796563 — macro reference point](https://www.printables.com
 
 **Parts:** none.
 
-**Do:** Paste the block below under `[gcode_macro PRINT_END]`. Replace the four placeholder values with the numbers you wrote down, then **SAVE & RESTART**.
+**Do:** Paste the block below under `[gcode_macro PRINT_END]`. Replace the four placeholder values with the numbers you wrote down. `G0 Z30`, hand under the gantry, then **SAVE & RESTART**.
 
 ```ini
 #####################################################################
@@ -1698,7 +1703,7 @@ Source: [Printables 796563 — macro behaviour](https://www.printables.com/model
 
 **Parts:** none.
 
-**Do:** In `PRINT_START`, insert the three lines below after `QUAD_GANTRY_LEVEL`, above the existing `G28 Z`. **SAVE & RESTART**, print one small part and watch the scrub, then commit and shut down as before.
+**Do:** In `PRINT_START`, insert the three lines below after `QUAD_GANTRY_LEVEL`, above the existing `G28 Z`. `G0 Z30`, hand under the gantry, **SAVE & RESTART**. Print one small part, watch the scrub, then commit and shut down as before.
 
 ```ini
     G28 Z    ; provisional, tip not clean yet

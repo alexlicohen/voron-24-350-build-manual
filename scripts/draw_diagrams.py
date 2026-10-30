@@ -602,23 +602,28 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
     side = +1
 
     # stations, local coords (unmirrored / A-belt frame)
-    XYL = (100, 300)          # left XY joint idler stack
-    XYR = (380, 300)          # right XY joint idler stack
-    FAR_L = (100, 90)         # rear-left drive unit: 4-bearing far post
-    S1 = (380, 90)            # rear-right drive: 4-bearing far post (first wrap)
-    PUL = (372, 146)          # rear-right drive: 20T motor pulley
-    S2 = (420, 146)           # rear-right drive: 2-bearing near post
-    FRI = (420, 480)          # front-right idler
+    # Lanes follow the CAD belt meshes (2026-10-30): every run lies inboard of the Y
+    # extrusions, the other belt's single run is stacked on this belt's outer run,
+    # and this belt enters its own drive on the inboard near post (one F695 pair),
+    # wraps the pulley, and leaves round the outboard corner post (two pairs, the
+    # other belt's 90° turn sits on the same post). Outer lanes x=46/434, inner 86/394.
+    XYL = (66, 300)           # left XY joint: this belt's plain F695 stack (outer lane)
+    XYR = (374, 300)          # right XY joint: this belt's 20T idler (inner lane)
+    FAR_L = (66, 90)          # rear-left drive: corner post, the other belt's 90° turn
+    S1 = (360, 90)            # rear-right drive: inboard near post, one pair (first wrap)
+    PUL = (370, 146)          # rear-right drive: 20T motor pulley
+    S2 = (414, 90)            # rear-right drive: outboard corner post, two pairs
+    FRI = (414, 480)          # front-right idler
     CAR = (240, 300)          # X carriage centre
 
     # ---- frame + extrusions ----
     d.rect(X(20) - (0 if not mirror else 440), Y(30), 440, 510,
            fill=BLUE_F, stroke=BLUE, sw=2.5, rx=4)
     # Y extrusions
-    for (x0, x1) in ((92, 104), (406, 418)):
+    for (x0, x1) in ((24, 36), (444, 456)):
         xa, xb = sorted((X(x0), X(x1)))
         d.rect(xa, Y(108), xb - xa, 356, fill=BLUE, stroke=BLUE, sw=1, rx=2, op=0.30)
-    xa, xb = sorted((X(104), X(406)))
+    xa, xb = sorted((X(36), X(444)))
     d.rect(xa, Y(291), xb - xa, 18, fill=BLUE, stroke=BLUE, sw=1, rx=2, op=0.30)
     d.text(X(240), Y(24), "REAR", size=12, anchor="middle", weight=700, fill=BLUE)
     d.text(X(240), Y(556), "FRONT", size=12, anchor="middle", weight=700, fill=BLUE)
@@ -631,14 +636,14 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
         d.text(X(x + w / 2) + lab_dx, Y(y + lab_dy), label, size=tsize, anchor="middle",
                weight=700)
 
-    block(334, 50, 122, 126, own_drive, -8)        # this belt's own drive unit
-    block(58, 50, 86, 82, other_drive, -8)         # the other drive: a 90° turn only
-    block(388, 446, 74, 70, own_idler, 86)
+    block(334, 50, 112, 126, own_drive, -8)        # this belt's own drive unit
+    block(28, 50, 80, 82, other_drive, -8)         # the other drive: a 90° turn only
+    block(384, 446, 66, 70, own_idler, 86)
     # B panel: nudge the joint labels left, clear of the run that drops from the
     # rear-right post onto the right joint
     jdx = -12 if mirror else 0
-    block(356, 258, 76, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
-    block(64, 258, 76, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
+    block(344, 258, 100, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
+    block(36, 258, 100, 84, "XY joint", -8, BLACKPART, "none", lab_dx=jdx)
 
     # X carriage with its clamp points
     xa2 = X(CAR[0] + 44) if mirror else X(CAR[0] - 44)
@@ -709,20 +714,20 @@ def _corexy_panel(d: Doc, ox: float, oy: float, mirror: bool, belt_col: str,
         d.path(f"M {X(x0)} {Y(y0)} L {X(x1)} {Y(y1)}", stroke=belt_col, sw=3.2,
                marker=marker)
 
-    arrow(80, 210, 80, 178)
+    arrow(46, 210, 46, 178)
     arrow(190, 70, 244, 70)
-    arrow(440, 330, 440, 372)
-    arrow(400, 408, 400, 366)
+    arrow(434, 330, 434, 372)
+    arrow(394, 408, 394, 366)
 
     # ---- callouts ----
     d.text(X(250), Y(212), "S-wrap at this belt's OWN drive:", size=11.5,
            anchor="middle", fill=MUTED, weight=600)
-    d.text(X(250), Y(228), "stack → 20T motor pulley → stack", size=11.5,
+    d.text(X(250), Y(228), "near stack → 20T pulley → corner stack", size=11.5,
            anchor="middle", fill=MUTED)
     d.text(X(178), Y(152), "90° turn only, on the", size=10.8, anchor="middle", fill=MUTED)
-    d.text(X(178), Y(166), "other drive's 4-bearing", size=10.8, anchor="middle",
+    d.text(X(178), Y(166), "other drive's corner", size=10.8, anchor="middle",
            fill=MUTED)
-    d.text(X(178), Y(180), "stack", size=10.8, anchor="middle", fill=MUTED)
+    d.text(X(178), Y(180), "stack (two pairs)", size=10.8, anchor="middle", fill=MUTED)
     d.text(X(230), Y(504), "180° U-turn at the front idler —", size=10.8,
            anchor="middle", fill=MUTED)
     d.text(X(230), Y(518), "smooth back on the stack, teeth", size=10.8,
@@ -782,14 +787,15 @@ def d03_belt_path() -> Doc:
               "stack, teeth into the motor pulley and into this belt's one toothed "
               "XY-joint idler (A: right joint, B: left). Both X runs physically lie in "
               "front of the X extrusion — each panel draws one behind it so the two lanes "
-              "read apart. Lane spacing inside each drive unit is schematic — the chapter "
-              "fixes the order of the wraps, not their top-view coordinates.")
+              "read apart. Side lanes follow the CAD: all runs inboard of the Y extrusions, "
+              "the other belt's single run stacked on this belt's outer run; spacing is "
+              "schematic.")
     return d
 
 
 # =============================================================== diagram 4 ===
 def d04_z_drive() -> Doc:
-    d = Doc(880, "Voron 2.4r2 — Z drive gear train and Z belt loop")
+    d = Doc(912, "Voron 2.4r2 — Z drive gear train and Z belt loop")
     top = header(d, "Z drive gear train and Z belt loop",
                  "One corner, side view. Motor 16T → 188 mm closed loop → 80T on the shaft "
                  "→ 20T on the same shaft → the Z belt that lifts the gantry. "
@@ -863,17 +869,12 @@ def d04_z_drive() -> Doc:
     d.panel(mx, my, mw, mh, "Inside the Z drive",
             "16T motor pulley → 188 mm closed loop → 80T")
     mot = (mx + 92, my + 288)
-    d.rect(mot[0] - 52, mot[1] - 30, 104, 100, fill=GREY_F, stroke=GREY, sw=2.5, rx=4)
-    d.text(mot[0], mot[1] + 42, "Z motor", size=12.5, anchor="middle", fill=MUTED, weight=600)
+    d.rect(mot[0] - 52, mot[1] - 30, 104, 80, fill=GREY_F, stroke=GREY, sw=2.5, rx=4)
+    d.text(mot[0], mot[1] + 34, "Z motor", size=12.5, anchor="middle", fill=MUTED, weight=600)
     d.circle(mot[0], mot[1] - 54, 26, fill=ORANGE_F, stroke=ORANGE, sw=2.6)
     d.circle(mot[0], mot[1] - 54, 9, fill=PANEL, stroke=GREY, sw=1.6)
     d.text(mot[0], mot[1] - 50, "16T", size=13, anchor="middle", weight=700)
-    d.line(mot[0] - 60, mot[1] - 30, mot[0] - 28, mot[1] - 30, stroke=FAINT, sw=1.2,
-           dash="3 3")
-    d.line(mot[0] - 60, mot[1] - 80, mot[0] - 28, mot[1] - 80, stroke=FAINT, sw=1.2,
-           dash="3 3")
-    d.dim_v(mot[0] - 60, mot[1] - 80, mot[1] - 30, "10.7 mm", side=-1)
-    d.text(mx + 18, my + 356, "10.7 mm = motor face → underside of the pulley",
+    d.text(mx + 18, my + 356, "16T at 10.7 mm: motor face → underside of its teeth",
            size=11.5, fill=MUTED)
     d.text(mx + 18, my + 374, "the only 16T pulleys in the printer — check the count",
            size=11.5, fill=MUTED)
@@ -929,17 +930,23 @@ def d04_z_drive() -> Doc:
              ("GT2 80T pulley", GREY_F, GREY, 36),
              ("625-2RS bearing", GREY_F, GREY, 26)]
     total_h = sum(h for *_, h in items) + (len(items) - 1) * 6
-    d.line(sx + 26, sy - 24, sx + 26, sy + total_h + 26, stroke=STEEL, sw=10)
+    d.line(sx + 26, sy - 14, sx + 26, sy + total_h + 26, stroke=STEEL, sw=10)
     y = sy
+    y20 = sy
     for name, fill, stroke, h in items:
         wgt = 62 if "80T" in name or "20T" in name else 46
         d.rect(sx + 26 - wgt / 2, y, wgt, h, fill=fill, stroke=stroke, sw=2, rx=3)
         d.text(sx + 68, y + h / 2 + 4.5, name, size=12,
                weight=600 if "spacer" not in name else 500,
                fill="currentColor" if "spacer" not in name else BROWN)
+        if "20T" in name:
+            y20 = y + h
         y += h + 6
-    d.text(sx + 68, sy - 20, "shaft end", size=11, fill=MUTED)
-    d.dim_h(sy + total_h + 46, sx - 8, sx + 60, "33 mm of shaft past the 20T", above=False)
+    shaft_end = sy + total_h + 26
+    d.dim_v(sx - 12, y20, shaft_end, "", side=-1)
+    d.text(sx + 68, shaft_end + 4, "long shaft end", size=11, fill=MUTED)
+    d.text(sx - 16, shaft_end + 30, "33 mm: the 20T to the long shaft end", size=12,
+           fill=MUTED, weight=500)
 
     footer(d, "Z gearing is stock: the LDO Klipper config carries [stepper_z] "
               "rotation_distance: 40 and gear_ratio: 80:16. Four identical drives, two "
@@ -952,7 +959,7 @@ def d04_z_drive() -> Doc:
 
 # =============================================================== diagram 5 ===
 def d05_mains_pe() -> Doc:
-    d = Doc(956, "Voron 2.4r2 — mains path and protective-earth chain")
+    d = Doc(996, "Voron 2.4r2 — mains path and protective-earth chain")
     header(d, "Mains path and the protective-earth chain",
            "inlet + switch + fuse → WAGO bus → PSU · SSR → bed heater. PE is never "
            "switched and never fused.",
@@ -1060,7 +1067,7 @@ def d05_mains_pe() -> Doc:
 
     # ---- PE chain ----
     yp = 626
-    d.rect(40, yp, 440, 250, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
+    d.rect(40, yp, 440, 290, fill=PANEL, stroke=GREEN, sw=2.4, rx=10)
     d.text(58, yp + 28, "The protective-earth chain — five branches", size=16, weight=700,
            fill=GREEN)
     rows = [("Supply", "wall socket earth → C14 E pin, through the C13 cord"),
@@ -1069,7 +1076,9 @@ def d05_mains_pe() -> Doc:
             ("Frame", "PE WAGO → frame extrusion; ring terminal between"),
             ("", "two M5 locking washers, on scraped bare metal"),
             ("Bed", "build plate → PE WAGO, on the plate's own"),
-            ("", "M4x6 BHCS and its serrated washer")]
+            ("", "M4x6 BHCS and its serrated washer"),
+            ("ESD", "USB-adapter GND (24 V −V) → frame, 10.58:"),
+            ("", "−V → PE reads a few Ω on purpose")]
     yy = yp + 56
     for a, b in rows:
         if a:
@@ -1097,8 +1106,7 @@ def d05_mains_pe() -> Doc:
            weight=700)
     d.wrap(534, yp + 136,
            "The SSR body reads EARTH THE MOUNTING RAIL and this build does not run a PE "
-           "conductor to the DIN rail — the rail is bonded only incidentally, through "
-           "anodising. If your local rules require an earthed rail that is a mains change, "
+           "conductor to the DIN rail — the rail is not earthed. If your local rules require an earthed rail that is a mains change, "
            "not a bench decision. And the inlet fuse protects the SSR against a short; it "
            "does not protect a person — that is the RCD and this PE chain.",
            size=12.3, width_chars=78, lh=17.5, fill=INK)
@@ -1171,7 +1179,7 @@ def d06_harness_map() -> Doc:
              "GND / SIG PC15 / 24V — 24 V only"),
             ("Chamber thermistor", "JST-PH2.0 2P", "CT", "PB2"),
             ("Clockwork 2 extruder motor", "JST-XH2.5 4P", "E MOTOR",
-             "reverse side · B02 B01 A1 A2"),
+             "reverse side · B2 B1 A1 A2"),
             ("— nothing —", "JST-PH2.0 4P", "XY ENDSTOP",
              "unused — that PCB wires to the Leviathan"),
             ("— nothing —", "JST-PH2.0 4P", "I2C", "unused"),
@@ -1461,66 +1469,102 @@ def d08_revdplus() -> Doc:
 def d09_racking() -> Doc:
     d = Doc(900, "Voron 2.4r2 — gantry racking and de-racking")
     top = header(d, "Racking, and how to measure it",
-                 "A racked gantry has one side of the X extrusion further forward than the "
-                 "other. You de-rack by pushing the X extrusion fully back against both "
-                 "drives and tightening the X/Y joints there.",
+                 "A racked gantry has one end of the X extrusion further forward than the "
+                 "other: a parallelogram, the two Y extrusions still parallel. You de-rack by "
+                 "pushing the X extrusion fully back against both drives and tightening the X/Y "
+                 "joints there. A yawed gantry is a different fault: the whole rectangle turned "
+                 "in the frame, checked at Step 06b.11.",
                  "Ch 06b, Steps 06b.9 · 06b.11 · 06b.14")
 
-    def view(ox, oy, racked, title, sub, col):
-        w, h = 430, 430
+    def view(ox, oy, mode, title, sub, col):
+        # mode: "racked" (X skewed to two parallel Y), "yawed" (whole gantry turned in
+        # the frame), "square". Exaggerated top views, REAR at the top.
+        w, h = 300, 430
         d.panel(ox, oy, w, h + 76, title, sub)
-        fx, fy, fw, fh = ox + 46, oy + 72, w - 92, h - 96
+        fx, fy, fw, fh = ox + 34, oy + 86, w - 68, h - 116
         d.rect(fx, fy, fw, fh, fill=BLUE_F, stroke=BLUE, sw=2.5, rx=4)
         d.text(fx + fw / 2, fy - 10, "REAR", size=11.5, anchor="middle", weight=700,
                fill=BLUE)
-        d.text(fx + fw / 2, fy + fh + 20, "FRONT", size=11.5, anchor="middle", weight=700,
-               fill=BLUE)
+        d.text(fx + fw / 2, fy + fh + 18, "FRONT", size=11.5, anchor="middle",
+               weight=700, fill=BLUE)
+        cx, cy = fx + fw / 2, fy + fh / 2
+        ang = math.radians(5.0) if mode == "yawed" else 0.0
 
-        skew = 22 if racked else 0
-        yl_top, yl_bot = fy + 66, fy + fh - 30          # left Y extrusion
-        yr_top, yr_bot = fy + 54 - skew, fy + fh - 34 - skew
-        lx, rx = fx + 62, fx + fw - 62
-        d.line(lx, yl_top, lx, yl_bot, stroke=col, sw=9)
-        d.line(rx, yr_top, rx, yr_bot, stroke=col, sw=9)
-        # X extrusion between the two XY joints
-        d.line(lx, (yl_top + yl_bot) / 2, rx, (yr_top + yr_bot) / 2, stroke=col, sw=9)
-        for (jx, jy) in ((lx, (yl_top + yl_bot) / 2), (rx, (yr_top + yr_bot) / 2)):
-            d.rect(jx - 17, jy - 17, 34, 34, fill=PANEL, stroke=col, sw=2.4, rx=5)
-        # drive units at the rear ends
-        d.rect(lx - 24, yl_top - 24, 48, 28, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
-        d.rect(rx - 24, yr_top - 24, 48, 28, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
-        d.text(lx, yl_top - 6, "B drv", size=10, anchor="middle", fill=MUTED)
-        d.text(rx, yr_top - 6, "A drv", size=10, anchor="middle", fill=MUTED)
+        def P(x, y):
+            # gantry-local (x right, y forward) about the frame centre, then yaw
+            c, s = math.cos(ang), math.sin(ang)
+            return cx + x * c - y * s, cy + x * s + y * c
 
-        # four measurement points
-        pts = [("FL", lx, yl_bot, fx), ("RL", lx, yl_top, fx),
-               ("FR", rx, yr_bot, fx + fw), ("RR", rx, yr_top, fx + fw)]
-        for name, x, y, wall in pts:
-            d.line(min(x, wall), y, max(x, wall), y, stroke=RED if racked else OK, sw=2,
-                   dash="4 3")
-            tx = wall - 8 if wall > x else wall + 8
-            anch = "end" if wall > x else "start"
-            d.text(tx, y - 6, name, size=11, anchor=anch, weight=700,
-                   fill=RED if racked else OK)
-        if racked:
-            d.text(fx + fw / 2, fy + fh + 42, "front–rear gaps differ on the same side",
-                   size=12, anchor="middle", fill=RED, weight=600)
-            d.path(f"M {rx + 30} {yr_top + 18} L {rx + 30} {yr_top + 58}", stroke=RED,
+        hx, ytop, ybot = fw / 2 - 40, -fh / 2 + 44, fh / 2 - 34
+        yl = 18.0                                     # left X/Y joint, gantry-local
+        yr = yl - 26 if mode == "racked" else yl      # racked: right joint leads rearward
+        L0, L1 = P(-hx, ytop), P(-hx, ybot)
+        R0, R1 = P(hx, ytop), P(hx, ybot)
+        d.line(*L0, *L1, stroke=col, sw=9)
+        d.line(*R0, *R1, stroke=col, sw=9)
+        JL, JR = P(-hx, yl), P(hx, yr)
+        d.line(*JL, *JR, stroke=col, sw=9)            # the X extrusion
+        for (jx, jy) in (JL, JR):
+            d.rect(jx - 15, jy - 15, 30, 30, fill=PANEL, stroke=col, sw=2.4, rx=5)
+        for (x, y), lab in ((L0, "B drv"), (R0, "A drv")):
+            d.rect(x - 22, y - 24, 44, 26, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
+            d.text(x, y - 6, lab, size=10, anchor="middle", fill=MUTED)
+        for (x, y) in (L1, R1):
+            d.rect(x - 14, y - 2, 28, 20, fill=BLACKPART_F, stroke=BLACKPART, sw=2, rx=4)
+
+        bad = RED
+        def x_to_front(c):
+            # gap from the X extrusion to the front frame extrusion, measured just
+            # inboard of each X/Y joint so it reads apart from the Y extrusion
+            for (jx, jy), (kx, ky), name in ((JL, JR, "L"), (JR, JL, "R")):
+                mx = jx + (30 if name == "L" else -30)
+                my = jy + (ky - jy) * 30 / abs(kx - jx)
+                d.line(mx, my + 6, mx, fy + fh, stroke=c, sw=2, dash="4 3")
+                for ty in (my + 6, fy + fh):
+                    d.line(mx - 5, ty, mx + 5, ty, stroke=c, sw=2)
+                d.text(mx + (7 if name == "L" else -7), fy + fh - 10, name, size=11,
+                       anchor="start" if name == "L" else "end", weight=700, fill=c)
+
+        if mode == "racked":
+            x_to_front(bad)
+            d.path(f"M {JR[0] + 26} {JR[1] + 26} L {JR[0] + 26} {JR[1] - 14}", stroke=bad,
                    sw=2.4, marker="arwr")
-            d.text(rx + 36, yr_top + 44, "this side leads", size=11, fill=RED, weight=600)
+            d.text(JR[0] - 6, JR[1] - 26, "touches its drive first", size=10.5,
+                   anchor="end", fill=bad, weight=600)
+            d.text(fx + fw / 2, fy + fh + 40, "X to front frame: L ≠ R", size=12,
+                   anchor="middle", fill=bad, weight=600)
+            d.text(fx + fw / 2, fy + fh + 58, "fix at Step 06b.14", size=11.5,
+                   anchor="middle", fill=MUTED)
         else:
-            d.text(fx + fw / 2, fy + fh + 42,
-                   "same side within 0.5 mm · left vs right within 1 mm",
-                   size=12, anchor="middle", fill=OK, weight=600)
+            okc = bad if mode == "yawed" else OK
+            pts = [("FL", P(-hx, ybot - 34), fx), ("RL", P(-hx, ytop + 34), fx),
+                   ("FR", P(hx, ybot - 34), fx + fw), ("RR", P(hx, ytop + 34), fx + fw)]
+            for name, (x, y), wall in pts:
+                yy = y
+                d.line(min(x, wall), yy, max(x, wall), yy, stroke=okc, sw=2, dash="4 3")
+                tx = wall - 6 if wall > x else wall + 6
+                d.text(tx, yy - 5, name, size=10.5, anchor="end" if wall > x else "start",
+                       weight=700, fill=okc)
+            if mode == "yawed":
+                d.text(fx + fw / 2, fy + fh + 40, "same-side front/rear gaps differ",
+                       size=12, anchor="middle", fill=bad, weight=600)
+                d.text(fx + fw / 2, fy + fh + 58, "fix at Step 06b.11", size=11.5,
+                       anchor="middle", fill=MUTED)
+            else:
+                x_to_front(OK)
+                d.text(fx + fw / 2, fy + fh + 40, "four points: same side ≤ 0.5 mm,",
+                       size=12, anchor="middle", fill=OK, weight=600)
+                d.text(fx + fw / 2, fy + fh + 58, "L vs R ≤ 1 mm; X to front: L = R",
+                       size=12, anchor="middle", fill=OK, weight=600)
 
     vy = top + 16
-    view(30, vy, True, "Racked (exaggerated)",
-         "the X extrusion is not square to the Y extrusions", RED)
-    view(496, vy, False, "Square", "both X/Y joints bottom out together", OK)
+    view(30, vy, "racked", "Racked (exaggerated)", "X not square to the Y extrusions", RED)
+    view(342, vy, "yawed", "Yawed (exaggerated)", "whole gantry turned in the frame", RED)
+    view(654, vy, "square", "Square", "both X/Y joints bottom out together", OK)
 
     # right-hand column: what to loosen, and the de-rack move
-    nx = 962
-    d.panel(nx, vy, 208, 506, "What to loosen")
+    nx = 966
+    d.panel(nx, vy, 204, 506, "What to loosen")
     rows = [("06b.8", "the four M5x40 through the lower Z joints — drop the joints down "
                       "the rails; the gantry hangs on the belts"),
             ("06b.9", "X/Y joints, top and bottom, both sides — enough to slide by hand, "
@@ -1532,31 +1576,31 @@ def d09_racking() -> Doc:
     yy = vy + 52
     for step, txt in rows:
         d.mono(nx + 16, yy, "Step " + step, size=12, weight=700)
-        yy = d.wrap(nx + 16, yy + 18, txt, size=11.5, width_chars=28, lh=16) + 10
-    d.rect(nx + 12, vy + 534, 184, 124, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
-    d.wrap(nx + 26, vy + 560,
-           "Where an X/Y joint carries a Z belt clamp, do not loosen it far enough for the "
-           "Z belt to release. Only enough to allow adjustment.",
+        yy = d.wrap(nx + 16, yy + 18, txt, size=11.5, width_chars=27, lh=16) + 10
+    d.rect(nx + 10, vy + 534, 184, 142, fill=AMBER_F, stroke=AMBER, sw=2.2, rx=8)
+    d.wrap(nx + 22, vy + 558,
+           "At the A/B drives and front idlers the same bolts clamp the Z belts: "
+           "loosen them only enough to slide, never enough for a Z belt end to release.",
            size=11.5, width_chars=26, lh=16, fill=INK)
 
-    # the four-point measurement table
+    # the two measurements
     my2 = vy + 526
-    d.rect(30, my2, 908, 132, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
-    d.text(48, my2 + 28, "The four-point gap measurement — bench check, not in the "
-           "official text", size=15, weight=700)
+    d.rect(30, my2, 924, 150, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
+    d.text(48, my2 + 28, "The two checks — bench measurements, not in the official text",
+           size=15, weight=700)
     d.wrap(48, my2 + 52,
-           "With the caliper's depth rod, measure the horizontal gap between each Y extrusion "
-           "and the frame upright beside it, at front-left, rear-left, front-right and "
-           "rear-right. Front and rear on the SAME side must agree within 0.5 mm — a "
-           "difference is the gantry skewed in the frame. Left and right must agree within "
-           "1 mm — a difference is the gantry off-centre. Then stand a machinist square on "
-           "the front frame extrusion at each front corner, blade against the Y extrusion: "
-           "no light under the blade. Write the numbers down; you repeat this three times.",
-           size=12.3, width_chars=112, lh=17.5)
+           "Yaw, Step 06b.11: with the caliper's depth rod, measure the gap between each Y "
+           "extrusion and the frame upright beside it, at front-left, rear-left, front-right "
+           "and rear-right. Front and rear on the SAME side within 0.5 mm; left and right "
+           "within 1 mm, or the gantry is off-centre. A machinist square on the front frame "
+           "extrusion, blade against each Y extrusion: no light. Racking, Step 06b.14: pushed "
+           "fully back, both X/Y joints touch their drives at once; near the front, the gap "
+           "from the X extrusion to the front frame extrusion reads the same at both ends.",
+           size=12.3, width_chars=128, lh=17.5)
 
-    footer(d, "Do all of this on a level surface with the A/B motors disabled and both A/B "
-              "belts fully slack, and keep a hand on the gantry while the lower Z joints are "
-              "off. Re-tension both belts to 110 Hz afterwards.")
+    footer(d, "Do all of this with the A/B motors disabled and both A/B belts fully slack, "
+              "and keep a hand on the gantry while the lower Z joints are off. Re-tension "
+              "both belts to 110 Hz afterwards.")
     return d
 
 
@@ -1881,6 +1925,96 @@ def d11_timeline() -> Doc:
     return d
 
 
+# ============================================================== diagram 12 ===
+# Hole positions from tanaes/whopping_Voron_mods extrusion_backers/DXFs @ 5be0c5b
+# (Y_backer-350, Y_backer_chain-350, X_backer_chain-350), mm from the pilot end.
+_BACKER_Y_SCREWS = [15 + 40 * i for i in range(10)]            # 15 … 375, Ø3.4
+_BACKER_X_SCREWS = [15, 60, 100, 140, 180, 220, 260, 300, 340]  # Ø3.4
+_BACKER_PILOTS = [20, 24, 28, 32]                               # Ø2.0
+
+
+def d12_ti_backers() -> Doc:
+    d = Doc(780, "Titanium extrusion backers — which is which")
+    top = header(d, "Titanium backers — which is which",
+                 "The three strips of the 350 set, drawn to scale from the tanaes DXFs. Only one "
+                 "of the two long Y backers has the four small cable-chain pilot holes: it goes "
+                 "on top of the right (A-side) Y extrusion, pilot end at the rear, where the Y "
+                 "chain's fixed end bolts down.",
+                 "Ch 05, Steps 05.16 · 05.17 · 05.18 · 05.34")
+    k = 2.55                       # px per mm
+    x0 = 92                        # left end of every strip on the page
+    wpx = 18 * k
+
+    def strip(y, length, screws, pilots, col, fill, name, where, pilot_note=None):
+        # drawn with the pilot end on the RIGHT, so the right end reads "rear"
+        d.rect(x0, y, length * k, wpx, fill=fill, stroke=col, sw=2, rx=3)
+        right = x0 + length * k
+        for mm in screws:
+            cx = right - mm * k
+            d.circle(cx, y + wpx / 2, 1.7 * k + 2.2, fill="none", stroke=col, sw=1.2)
+            d.circle(cx, y + wpx / 2, 1.7 * k, fill=PANEL, stroke=col, sw=1.4)
+        for mm in pilots:
+            d.circle(right - mm * k, y + wpx / 2, 1.0 * k, fill=ORANGE, stroke=ORANGE, sw=1)
+        d.text(x0, y - 10, name, size=14.5, weight=700)
+        d.text(x0 + length * k, y - 10, where, size=12.5, anchor="end", fill=MUTED,
+               weight=500)
+        if pilot_note:
+            d.text(right + 12, y + wpx / 2 + 5, pilot_note, size=12, fill=ORANGE,
+                   weight=700)
+        return right
+
+    y = top + 50
+    strip(y, 390, _BACKER_Y_SCREWS, [], BLUE, BLUE_F, "Y backer, plain",
+          "LEFT Y extrusion · top face · 10 × M3×8 FHCS")
+    y += 96
+    right = strip(y, 390, _BACKER_Y_SCREWS, _BACKER_PILOTS, BLUE, BLUE_F,
+                  "Y backer with chain pilots",
+                  "RIGHT Y extrusion · top face · 10 × M3×8 FHCS", "REAR")
+    d.text(x0 - 10, y + wpx / 2 + 5, "FRONT", size=12, anchor="end", fill=MUTED,
+           weight=700)
+    ypil = y
+    y += 96
+    strip(y, 360, _BACKER_X_SCREWS, _BACKER_PILOTS, GREY, GREY_F, "X backer",
+          "X extrusion · REAR face · 9 × M3×6 FHCS")
+    d.text(x0 + 360 * k + 12, y + wpx / 2 + 5, "pilots unused", size=12, fill=MUTED)
+
+    # zoom on the chain end of the pilot backer
+    zy = y + 92
+    d.panel(30, zy, 1140, d.h - zy - 96, None, None)
+    z = 6.0                         # px per mm in the zoom
+    zx1 = 760                       # right (rear) end of the zoomed strip
+    zlen = 50
+    zx0 = zx1 - zlen * z
+    sy = zy + 30
+    d.rect(zx0, sy, zlen * z, 18 * z, fill=BLUE_F, stroke=BLUE, sw=2, rx=4)
+    d.line(zx0, sy, zx0 - 30, sy, stroke=BLUE, sw=2, dash="5 4")
+    d.line(zx0, sy + 18 * z, zx0 - 30, sy + 18 * z, stroke=BLUE, sw=2, dash="5 4")
+    cy = sy + 9 * z
+    d.circle(zx1 - 15 * z, cy, 1.7 * z, fill=PANEL, stroke=BLUE, sw=1.6)
+    d.circle(zx1 - 15 * z, cy, 1.7 * z + 5, fill="none", stroke=BLUE, sw=1.2)
+    for mm in _BACKER_PILOTS:
+        d.circle(zx1 - mm * z, cy, 1.0 * z, fill=ORANGE, stroke=ORANGE, sw=1)
+    d.dim_h(sy + 18 * z + 22, zx1 - 32 * z, zx1, "pilots 20 · 24 · 28 · 32 mm from the end",
+            above=False)
+    d.text(zx1 + 14, cy - 28, "REAR end, by the A drive", size=13, weight=700)
+    d.text(zx0 - 40, cy + 5, f"zoom ×{z / k:.1f}", size=12, anchor="end", fill=MUTED)
+    d.wrap(zx1 + 14, cy - 4,
+           "Ø2.0 pilots, laser-cut undersize. Unthreaded? Drill the ones under the chain "
+           "end link 2.5 mm and tap M3 (verify on bench).",
+           size=12.5, width_chars=44, lh=17, fill=INK)
+    # leader from the full-size strip's pilot end down to the zoom
+    d.path(f"M {right - 26 * k} {ypil + wpx + 4} L {right - 26 * k} {ypil + wpx + 20}",
+           stroke=ORANGE, sw=1.6, marker="arwo")
+
+    footer(d, "Lengths and holes from the tanaes Y_backer-350, Y_backer_chain-350 and "
+              "X_backer_chain-350 DXFs (5be0c5b); that Fabreeko's set is the same cut is "
+              "assumed: count the holes on the bench. Every screw goes into a roll-in T-nut: "
+              "the set ships none. "
+              "The X chain's fixed end bolts into the X extrusion's top slot, so the X "
+              "backer's pilots stay unused.")
+    return d
+
+
 # ================================================================= registry ===
 DIAGRAMS = [
     {
@@ -1953,10 +2087,13 @@ DIAGRAMS = [
             ("07-ab-belts.md", "Step 07.23", "whole diagram again, as the pre-close check"),
         ],
         "verify": [
-            "Lane spacing and the position of the two bearing stacks and the motor pulley "
-            "*within* each drive unit are schematic. The chapters fix the order of the "
-            "wraps (stack, pulley, stack) and which stack the other belt turns on, not "
-            "their top-view coordinates.",
+            "Which post does what is from the Voron CAD (A/B drive F695 stacks and the "
+            "A/B belt meshes, 2026-10-30): a belt enters its own drive on the inboard near "
+            "post (one F695 pair), wraps the pulley, and leaves round the outboard corner "
+            "post (two pairs); the other belt's 90° turn is on that corner post. All side "
+            "runs lie inboard of the Y extrusions, and on each side the other belt's single "
+            "run is stacked on this belt's outer run. Lane spacing and the exact top-view "
+            "coordinates inside a drive unit are schematic.",
             "The toothed face is stated by the chapter at four places — the carriage "
             "clamp (teeth toward the front, Step 07.9), the drive pulley (teeth seated on "
             "the pulley, Step 07.13), the front idler (smooth back on the stack, teeth "
@@ -2111,15 +2248,17 @@ DIAGRAMS = [
         "title": "Racking, and how to measure it",
         "fn": d09_racking,
         "shows": [
-            "A racked gantry against a square one in exaggerated top view, with the four "
-            "measurement points (front-left, rear-left, front-right, rear-right) marked on "
-            "both.",
-            "The two tolerances: front and rear on the same side within 0.5 mm, left and "
-            "right within 1 mm, plus the machinist-square check at each front corner.",
+            "Three exaggerated top views: racked (X extrusion skewed between two parallel Y "
+            "extrusions, the X-to-front-frame gap unequal left and right), yawed (the whole "
+            "gantry turned in the frame, the four Y-to-upright gaps unequal front to rear) "
+            "and square.",
+            "The yaw tolerances of Step 06b.11 (same side within 0.5 mm, left vs right within "
+            "1 mm, machinist square at each front corner) and the racking check of Step "
+            "06b.14 (both X/Y joints touch their drives at once; X to front frame equal).",
             "Which fasteners come loose and in what order — lower Z joints, X/Y joints, A/B "
             "joints and front idlers — and the de-racking move itself.",
-            "The one thing not to over-loosen: an X/Y joint that also carries a Z belt "
-            "clamp.",
+            "The one thing not to over-loosen: the A/B drive and front idler bolts, which "
+            "also clamp the Z belts (the X/Y joints carry no Z belt clamp).",
         ],
         "insert": [
             ("06-z-axis-and-gantry-squaring.md", "Step 06b.11", "the measurement half, "
@@ -2127,8 +2266,12 @@ DIAGRAMS = [
             ("06-z-axis-and-gantry-squaring.md", "Step 06b.14", "the de-racking half"),
         ],
         "verify": [
-            "The racked view is deliberately exaggerated; real racking is a fraction of a "
-            "millimetre. The skew shown is not a measurement.",
+            "The racked and yawed views are deliberately exaggerated; real racking is a "
+            "fraction of a millimetre. The skew shown is not a measurement.",
+            "The two drives sit on one rigid E bridge, so racking cannot offset them: the "
+            "racked view keeps both Y extrusions and drives square and skews only the X "
+            "extrusion. The Z belt clamps are at the A/B drives and front idlers (p.111, "
+            "p.117; CAD Z Belt Clamp Upper/Lower), not at the X/Y joints.",
         ],
     },
     {
@@ -2188,6 +2331,32 @@ DIAGRAMS = [
             "here.",
         ],
     },
+    {
+        "n": 12,
+        "file": "12-ti-backers.svg",
+        "title": "Titanium backers — which is which",
+        "fn": d12_ti_backers,
+        "shows": [
+            "The three titanium backers of the 350 set to scale: the plain Y backer, the Y "
+            "backer with four cable-chain pilot holes, and the X backer, with every screw hole.",
+            "Where each goes: plain Y on the left Y extrusion's top face, the pilot Y backer "
+            "on the right Y's top face with the pilot end at the rear, X on the X extrusion's "
+            "rear face.",
+            "A zoom on the pilot end: four Ø2.0 pilots 20–32 mm from the end, drilled 2.5 mm "
+            "and tapped M3 where the Y chain's fixed end link sits.",
+        ],
+        "insert": [
+            ("05-gantry.md", "Step 05.16", "as the sorting picture"),
+        ],
+        "verify": [
+            "Hole positions are the tanaes DXFs' (commit 5be0c5b). That Fabreeko's cut matches "
+            "them, and whether its pilots arrive threaded, is unverified: count the holes on "
+            "the bench.",
+            "Right Y and rear come from the Voron CAD: the Y chain's fixed-end M3×6 FHCS goes "
+            "into the right Y extrusion's top face about 54 mm from its rear end, which is "
+            "where the pilots of a 390 mm backer centred on the 450 mm extrusion fall.",
+        ],
+    },
 ]
 
 
@@ -2202,14 +2371,16 @@ def write_manifest() -> Path:
     L: list[str] = []
     L.append("# Diagram manifest")
     L.append("")
-    L.append("Eleven generated SVGs covering the things the official manual states in "
+    nw = {10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen"}.get(
+        len(DIAGRAMS), str(len(DIAGRAMS)))
+    L.append(f"{nw.capitalize()} generated SVGs covering the things the official manual states in "
              "prose but never draws. Regenerate with `python3 scripts/draw_diagrams.py`; "
              "the geometry and every label live in that script, not here.")
     L.append("")
     L.append("No chapter has been edited. The **Insert at** column is the proposal: the "
              "chapter file and the step whose image block the diagram belongs in.")
     L.append("")
-    L.append("All eleven are 1200 px wide, legible at 800 px, and safe on a dark page — "
+    L.append(f"All {nw} are 1200 px wide, legible at 800 px, and safe on a dark page — "
              "each carries its own light background rect and pins `color` on the `<svg>` "
              "root, so `currentColor` text stays dark whether the file is referenced with "
              "`<img>` or inlined. Style is uniform: 2 px strokes, orange for `[a]_` accent "
@@ -2270,7 +2441,7 @@ def write_manifest() -> Path:
     L.append("## Regenerating")
     L.append("")
     L.append("```")
-    L.append("python3 scripts/draw_diagrams.py            # all eleven + this file")
+    L.append(f"python3 scripts/draw_diagrams.py            # all {nw} + this file")
     L.append("python3 scripts/draw_diagrams.py --only 3 7 # just those two")
     L.append("```")
     L.append("")
