@@ -1288,7 +1288,7 @@ def d07_jumpers() -> Doc:
                    fill=MUTED)
 
     y = by + 112
-    header_block(bx + 24, y, "FAN0", False, "unused — hotend fan is on the toolboard")
+    header_block(bx + 24, y, "FAN0", False, "unused until Ch 14 Part H (optional exhaust)")
     header_block(bx + 348, y, "FAN1", False, "unused — part fan is on the toolboard")
     header_block(bx + 24, y + 90, "FAN2", True, "2 x 6020 electronics-bay fans (PCB FAN)")
     header_block(bx + 348, y + 90, "FAN3", True, "Nevermore filter fan (FILTER FAN)")
@@ -1318,7 +1318,7 @@ def d07_jumpers() -> Doc:
     rows = [("FAN2", "PF7", "2 x 6020 bay fans, 24 V"),
             ("FAN3", "PF9", "Nevermore filter fan, 24 V"),
             ("LED-Strip", "PE6", "not a jumpered header"),
-            ("FAN0 / FAN1", "—", "stay empty on a Nitehawk build"),
+            ("FAN0 / FAN1", "—", "empty; FAN0 later: Ch 14 Part H exhaust"),
             ("Z-PROBE", "—", "stays empty for the whole build")]
     yy = by + 306
     for a, b, c in rows:

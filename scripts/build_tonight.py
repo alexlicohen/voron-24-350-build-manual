@@ -92,6 +92,13 @@ _PAUSE_RE = re.compile(
     r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?\s*—\s*(.+?)\s*$",
     re.MULTILINE,
 )
+def _plain(s):
+    """Segment text reaches the page as plain text (the JS sets textContent, the
+    generated Markdown wraps it in a raw <span>), so chapter emphasis markers
+    would show literally: drop `**`."""
+    return s.replace("**", "")
+
+
 # `**Helper:** <job>` — the helper (child) task in a step, per
 # docs/manual/CONVENTIONS.md § "Helper steps".
 _HELPER_RE = re.compile(r"^\*{0,2}Helper:\*{0,2}\s*(.+?)\s*$", re.MULTILINE)
@@ -249,7 +256,7 @@ def _parse_chapter(path):
             # every step heading the segment spans, in page order (Ch 11's appended
             # 11.67 sits first in Part A); the segment is done when all are ticked
             "steps": [sid for pos, sid, _t, _e in steps if first[0] <= pos <= ppos],
-            "minutes": int(pm.group(1)), "leave_state": pm.group(3),
+            "minutes": int(pm.group(1)), "leave_state": _plain(pm.group(3)),
             "pre_kit": bool(pm.group(2)),
             "helpers": [(sid, job)
                         for pos, sid, _t, _e in steps if first[0] <= pos <= ppos
@@ -906,6 +913,9 @@ def _self_test():
         nonlocal fails
         print(("PASS " if ok else "FAIL ") + name + ("" if ok else f"  {detail}"))
         fails += 0 if ok else 1
+
+    check("plain text: ** emphasis markers dropped",
+          _plain("answer **Don't Save** and **first**") == "answer Don't Save and first")
 
     def seg(i, kind, minutes):
         return {"id": i, "kind": kind, "minutes": minutes, "first_step": i, "pre_kit": False}

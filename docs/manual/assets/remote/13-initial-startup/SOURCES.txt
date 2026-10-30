@@ -19,14 +19,6 @@ ldo-revd-vs9-finished-bay.jpg
   licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
   sha256  : 0566d5d99bf157c1990c92dc1857be5cee74e6e4e1a703bb5f0d4afc8c8575e5
 
-ldo-psu-voltage-selector.jpg
-  owner   : LDO Motors (MotorDynamicsLab)
-  cited-as: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/main/Images/WiringGuide/psu_switch.jpg
-  fetched : https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/psu_switch.jpg
-  date    : 2026-09-05
-  licence : GPL-3.0 (MotorDynamicsLab/LDOVoron2/LICENSE)
-  sha256  : d3b5d4743cf79771804ea6a7b4b30cd2837b362e0fb5d55c2c93cdad4b0c932e
-
 voron-startup-mainsail-console.png
   owner   : Voron Design
   cited-as: https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/startup/images/mainsail_terminal.png

@@ -29,9 +29,7 @@
 # 03-18-{a,b}.png        Step 03.18   MIC6 plate, four M4 knurled nuts + M3x16, the two bed extrusions
 # 05-04-{a,b}.png        Step 05.4    gantry extrusions C x2 / D / E and all their M5 + M3 T-nuts
 # 05-15-{a,b}.png        Step 05.15   both MGN9 Y rails and their carriages, rail stoppers (schematic)
-# 05-16-a.png            Step 05.16   C x2 and D extrusions with their rails; the three Ti backers (schematic)
 # 05-18-{a,b}.png        Step 05.18   gantry Y (C) extrusions, their MGN9 rails, titanium Y backers (schematic)
-# 05-35-{a,b}.png        Step 05.35   Y cable chain and its M3x6 fixing, both bridge variants, Y backer (schematic)
 # 05-45-{a,b}.png        Step 05.45   x_carriage_frame_left/right, probe bracket, MGN12H carriage
 # 05-46-{a,b}.png        Step 05.46   D2F endstop pod vs hall-effect pod; 2-hole vs 3-hole cable bridge
 # 06-23-{a,b}.png        Step 06.23   four Z belts, four Z idler mounts, their M3x16 tensioner bolts
@@ -39,7 +37,6 @@
 # 06b-13-{a,b}.png       Step 06b.13  Z joint upper/lower blocks, MGN9H Z carriages, the four M5x40
 # 06b-14-{a,b}.png       Step 06b.14  D extrusion, A/B drive frames, XY joint bodies and their six clamp bolts
 # 07-30-{a,b}.png        Step 07.30   XY joint 20T idlers, front idler F695 stacks, A and B belts
-# 07-39-{a,b}.png        Step 07.39   [a]_cable_cover on the A drive, A drive frame, A and B belts
 # 09-26-{a,b}.png        Step 09.26   front and rear DIN rails, LDO USB/ESD adapter (schematic)
 #
 # Ch 14 Part H (chamber exhaust add-on): selections and cameras in exhaust-14h.yml,

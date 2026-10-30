@@ -1,7 +1,7 @@
 # CAD render manifest
 
-18 manual steps illustrated from the official Voron 2.4r2 STEP
-(22 manifest entries, 33 PNGs).
+15 manual steps illustrated from the official Voron 2.4r2 STEP
+(18 manifest entries, 28 PNGs).
 Generated from `steps.yml` by `scripts/cad_render/render_steps.py --manifest` —
 edit that file, not this one.
 
@@ -40,9 +40,7 @@ Two standing caveats apply to every image and are printed in every footer:
 | 03.18 | `03-build-plate.md` | 03-18-a.png, 03-18-b.png | assets/cad/03-18-a.png + assets/cad/03-18-b.png | yes |
 | 05.4 | `05-gantry.md` | 05-04-a.png, 05-04-b.png | assets/cad/05-04-a.png + assets/cad/05-04-b.png | yes |
 | 05.15 | `05-gantry.md` | 05-15-a.png, 05-15-b.png | assets/cad/05-15-a.png + assets/cad/05-15-b.png | yes |
-| 05.16 | `05-gantry.md` | 05-16-a.png | assets/diagrams/12-ti-backers.svg | yes |
 | 05.18 | `05-gantry.md` | 05-18-a.png, 05-18-b.png | assets/cad/05-18-a.png + assets/cad/05-18-b.png | yes |
-| 05.35 | `05-gantry.md` | 05-35-a.png, 05-35-b.png | assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png + assets/parts/%5Ba%5D_xy_joint_cable_bridge_2hole.png | yes |
 | 05.45 | `05-gantry.md` | 05-45-a.png, 05-45-b.png | assets/parts/pair-x_frame_V2TR_MGN12.png + assets/cad/05-45-a.png + assets/cad/05-45-b.png | yes |
 | 05.46 | `05-gantry.md` | 05-46-a.png, 05-46-b.png | assets/cad/05-46-a.png + assets/cad/05-46-b.png | yes |
 | 06.23 | `06-z-axis-and-gantry-squaring.md` | 06-23-a.png, 06-23-b.png | assets/cad/06-23-a.png + assets/cad/06-23-b.png | yes |
@@ -50,7 +48,6 @@ Two standing caveats apply to every image and are printed in every footer:
 | 06b.13 | `06-z-axis-and-gantry-squaring.md` | 06b-13-a.png, 06b-13-b.png | assets/cad/06b-13-a.png + assets/cad/06b-13-b.png | yes |
 | 06b.14 | `06-z-axis-and-gantry-squaring.md` | 06b-14-a.png, 06b-14-b.png | assets/diagrams/09-gantry-racking.svg + assets/cad/06b-14-a.png + assets/cad/06b-14-b.png | yes |
 | 07.30 | `07-ab-belts.md` | 07-30-a.png, 07-30-b.png | assets/cad/07-30-a.png + assets/cad/07-30-b.png | yes |
-| 07.39 | `07-ab-belts.md` | 07-39-a.png, 07-39-b.png | assets/manual-pages/manual-p204.png | yes |
 | 09.26 | `09-electronics-bay.md` | 09-26-a.png, 09-26-b.png | assets/cad/09-26-a.png + assets/cad/09-26-b.png | yes |
 
 ## Per-step detail
@@ -135,22 +132,6 @@ Already in the chapter, do not add again: `05-15-a.png`, `05-15-b.png`
 
 **What you're looking at:** The two Y rails on the undersides of the C extrusions, each carrying one carriage - the stoppers near the ends are what stop a carriage sliding off and scattering its ball bearings.
 
-### 05.16 — Unpack and identify the titanium backers
-
-Chapter `05-gantry.md` · currently shows: assets/diagrams/12-ti-backers.svg
-
-**`05-16-a.png`** (parts alone) — The three extrusions that take a backer, each with its backer drawn on the face opposite its rail.
-
-**350 caveat:** Backer lengths in the picture follow the 250 CAD's extrusions. Sort your set by long pair versus short one and by the pilot holes, not by the lengths drawn here.
-
-Image line(s) to add, immediately after the step heading:
-
-```markdown
-![CAD render — which backer is which, and which face it goes on](assets/cad/05-16-a.png)
-```
-
-**What you're looking at:** The three backers laid on the extrusions they belong to - the two long ones on top of the Y (C) beams (the one with chain pilot holes on the right), the odd shorter one on the back of the X (D) beam, always on the face opposite that beam's rail.
-
 ### 05.18 — Fit the second Y backer
 
 Chapter `05-gantry.md` · currently shows: assets/cad/05-18-a.png + assets/cad/05-18-b.png
@@ -164,27 +145,6 @@ Chapter `05-gantry.md` · currently shows: assets/cad/05-18-a.png + assets/cad/0
 Already in the chapter, do not add again: `05-18-a.png`, `05-18-b.png`
 
 **What you're looking at:** One Y extrusion seen from underneath, so the rail face and the backer face are both in frame - the backer always goes on the face directly opposite the rail. Both Y beams in place, mirrored about the machine's centreline - rails underneath on both, backers on top on both.
-
-### 05.35 — Check backer clearance for the cable chain
-
-Chapter `05-gantry.md` · currently shows: assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png + assets/parts/%5Ba%5D_xy_joint_cable_bridge_2hole.png
-
-**`05-35-a.png`** (parts alone) — The cable chain's fixed end lifted off the Y beam, showing that its end link and the 3 mm titanium backer want the same extrusion face.
-
-**`05-35-b.png`** (in place, rest of the machine ghosted) — The whole Y cable-chain run with both bridge variants and the Y backer, in place on the right-hand Y beam.
-
-**350 caveat:** CAD chain and extrusion are the 250 machine's; a 350 chain run is longer. What transfers is which face the end link lands on.
-
-Image line(s) to add, immediately after the step heading:
-
-```markdown
-![CAD render — the chain's fixed end lands on the backer's face](assets/cad/05-35-a.png)
-![CAD render — the bridge and the run it has to serve](assets/cad/05-35-b.png)
-```
-
-**What you're looking at:** The fixed end of the Y cable chain, lifted off the beam it bolts to - that bolt goes down through the top face of the Y extrusion, which is the face the titanium backer covers, so the link sits 3 mm higher, on the backer's tapped pilot holes. The cable chain's full run along the right Y beam, from its fixed end at the back to the printed bridge on the XY joint at the front. This build fits the raised Igus-3mm_backer bridge, 3 mm taller than the stock ones drawn, so both chain ends sit at the same height.
-
-> The raised alternative the step names, XY_cable_chain_bridge-Igus-3mm_backer, is a mod part and is NOT in the Voron CAD - only the stock 2-hole and 3-hole bridges are. The caption must not imply the render shows the raised variant.
 
 ### 05.45 — Stage the X-carriage frame halves
 
@@ -277,25 +237,6 @@ Chapter `07-ab-belts.md` · currently shows: assets/cad/07-30-a.png + assets/cad
 Already in the chapter, do not add again: `07-30-a.png`, `07-30-b.png`
 
 **What you're looking at:** The two idlers a belt runs between on each side - one in the XY joint at the back of the Y beam, one in the front idler block - and the free length of belt between them that you pluck.
-
-### 07.39 — Dry-fit the A/B drive cable cover
-
-Chapter `07-ab-belts.md` · currently shows: assets/manual-pages/manual-p204.png
-
-**`07-39-a.png`** (parts alone) and **`07-39-b.png`** (in place, rest of the machine ghosted) — The cable cover on the A drive unit, with the A and B belts it must clear. Dry-fit only at Step 07.39.
-
-**350 caveat:** none - nothing in this image is size-dependent.
-
-Image line(s) to add, immediately after the step heading:
-
-```markdown
-![CAD render — the A/B drive cable cover, dry-fit](assets/cad/07-39-a.png)
-![CAD render — the A/B drive cable cover, dry-fit, in place](assets/cad/07-39-b.png)
-```
-
-**What you're looking at:** The printed cable cover that screws onto the A drive over the Z-chain wire bundle, and the two belts running past it that it must never touch.
-
-> The Voron CAD models the cover only on the A drive; the step fits one.
 
 ### 09.26 — Clip the USB adapter to the front rail
 

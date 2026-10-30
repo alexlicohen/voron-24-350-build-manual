@@ -33,7 +33,10 @@ import sys
 from collections import OrderedDict
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+try:
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+except ImportError:  # --markdown, --check and slicer/check_docs.py (repo .venv) draw nothing
+    Image = ImageDraw = ImageFilter = ImageFont = None
 
 REPO = Path(__file__).resolve().parent.parent
 SLICER = REPO / "slicer"
@@ -832,6 +835,9 @@ def main() -> int:
             warnings += w
             print(f"{pid}: {len(parts)} objects, bins {sorted({p.bin for p in parts})}")
     else:
+        if Image is None:
+            print("drawing needs Pillow: pip install -r slicer/requirements.txt", file=sys.stderr)
+            return 2
         est = load_estimates()
         for pid in ids:
             w = render(pid, est, a.out)

@@ -45,7 +45,7 @@ cd docs/manual/assets/sb-pages && for f in sb-p-*.png; do n=$(echo "$f" | sed -E
 
 ## Sources and drift
 
-Every external URL cited in `docs/**/*.md` is inventoried in [`sources.yml`](sources.yml) — one row per source, with a title, a `kind`, and (for GitHub sources) the commit SHA of the default branch at the time it was last checked. Rebuild the inventory with `python3 scripts/sources_build.py`; re-check it with `python3 scripts/sources_verify.py --dry-run` (add no flag to also refresh `last_verified`/`sha` in place).
+Every external URL cited in `docs/**/*.md` is inventoried in [`sources.yml`](sources.yml) — one row per source, with a title, a `kind`, and (for GitHub sources) the commit SHA of the default branch at the time it was last checked. Add newly cited URLs with `python3 scripts/sources_build.py --add-missing` (no network, existing rows untouched; the bare full crawl rewrites hand-edited fields and hits YouTube rate limits); re-check it with `python3 scripts/sources_verify.py --dry-run` (add no flag to also refresh `last_verified`/`sha` in place).
 
 [`.github/workflows/drift.yml`](.github/workflows/drift.yml) runs weekly against the git repos this manual is most exposed to (`Voron-2`, `Voron-Documentation`, LDO's `Nitehawk-SB-V2` and `LDOVoron2`, `Voron-Stealthburner`, PrusaSlicer's settings repo) and opens or updates a single "Upstream drift" issue when any of them moves or a pinned URL stops resolving. It does not diff `docs.ldomotors.com` — that site is JS-rendered and would be all noise; LDO drift still surfaces through the corrections log and manual URL checks.
 

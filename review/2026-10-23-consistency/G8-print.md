@@ -114,9 +114,9 @@ Fix: B02:3 → "Every accent part of the 22-plate run…"; B02:5 and README:199 
 ### G8-12 minor — "Not yet bought" is stale for the PETG V0 spool (bought 10-13)
 
 - README.md:270 — "348 g needed from one 1 kg spool, **V1**, not yet bought"; :287 — "one 1 kg Prusament PETG V0 Jet Black spool, not yet bought"; B11-bay-ducting.md:12 — "Needs one 1 kg spool of **Prusament PETG V0 Jet Black** (not yet bought)"
-- PROJECT_MEMORY.md § Bench › Purchases: "Bought 10-13: Elegoo PLA, PETG V0, A5 mesh bags, spare HF0.4 nozzle". (context/orders.md has no row for it yet.)
+- The spool is on hand (purchase details: see context/orders.md, not tracked).
 
-Fix: drop "not yet bought" in all three places ("on the shelf since 2026-10-13"). Known, A5 bags: the README:111 "one more pack of A5 bags … still to buy" is the already-known 00.11 item (the 10-13 purchase may close it).
+Fix: drop "not yet bought" in all three places ("on the shelf since 2026-10-13"). Known, A5 bags: the README:111 "one more pack of A5 bags … still to buy" is the already-known 00.11 item (it may already be closed: see context/orders.md, not tracked).
 
 ### G8-13 minor — The README "feeds" column misses three consuming chapters, and B05's Next names a chapter B05 does not feed
 

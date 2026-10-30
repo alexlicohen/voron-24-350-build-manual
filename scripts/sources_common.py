@@ -12,7 +12,7 @@ import urllib.request
 import urllib.error
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 USER_AGENT = "voron-24-350-build-manual sources.yml checker (github.com/alexlicohen/voron-24-350-build-manual)"
 
@@ -117,6 +117,28 @@ DOMAIN_KIND = {
 # falls back to "community" in classify_kind().
 
 
+# XML namespace URIs inside inline SVG (docs/print/bin-labels.md): identifiers, not sources.
+XMLNS_URIS = {"http://www.w3.org/2000/svg", "http://www.w3.org/1999/xlink"}
+
+# Step pages hooks/build_steps.py writes from the chapters (git-ignored): the same URLs again.
+GENERATED_DOC_DIRS = (DOCS / "manual" / "steps",)
+
+
+def normalize_url(raw, exclude_images=True):
+    """One URL_RE match -> the source URL it cites, or None if it is not a source."""
+    url = raw.rstrip(".,;:)")
+    url = url.split("#", 1)[0]
+    if exclude_images and IMAGE_EXT_RE.search(url):
+        return None
+    if "alexlicohen.github.io" in url:
+        return None  # this repo's own published site
+    if urlsplit(url).netloc in ("voron.local",):
+        return None  # placeholder hostname in a config example, not a real source
+    if url in XMLNS_URIS:
+        return None
+    return url
+
+
 def extract_urls(exclude_images=True):
     """All http(s) URLs in docs/**/*.md, fragment-stripped and deduped.
 
@@ -128,16 +150,52 @@ def extract_urls(exclude_images=True):
     for md in sorted(DOCS.rglob("*.md")):
         text = md.read_text(encoding="utf-8")
         for m in URL_RE.finditer(text):
-            url = m.group(0).rstrip(".,;:)")
-            url = url.split("#", 1)[0]
-            if exclude_images and IMAGE_EXT_RE.search(url):
-                continue
-            if "alexlicohen.github.io" in url:
-                continue  # this repo's own published site
-            if urlsplit(url).netloc in ("voron.local",):
-                continue  # placeholder hostname in a config example, not a real source
-            urls.add(url)
+            url = normalize_url(m.group(0), exclude_images)
+            if url:
+                urls.add(url)
     return sorted(urls)
+
+
+_HEADING_RE = re.compile(r"^(#{1,6})\s")
+_STEP_RE = re.compile(r"^(#{1,6})\s+Step\s+([A-Za-z]?\d+[a-z]?\.\d+)\b")
+_FENCE_RE = re.compile(r"^\s*(```|~~~)")
+_MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(\s*<?(https?://[^\s)>]+)")
+
+
+def citation_index():
+    """{url: {"texts": [link text, ...], "cited_in": {doc path: [step id, ...]}}} over the
+    hand-written docs (GENERATED_DOC_DIRS skipped), keyed by normalize_url(). A citation
+    under a `Step NN.M` heading records that step; one before any step records the file."""
+    index = {}
+    for md in sorted(DOCS.rglob("*.md")):
+        if any(d in md.parents for d in GENERATED_DOC_DIRS):
+            continue
+        rel = md.relative_to(REPO).as_posix()
+        text = md.read_text(encoding="utf-8")
+        for m in _MD_LINK_RE.finditer(text):
+            url = normalize_url(m.group(2))
+            if url:
+                label = " ".join(m.group(1).split())
+                index.setdefault(url, {"texts": [], "cited_in": {}})["texts"].append(label)
+        step, step_level, in_fence = None, 0, False
+        for line in text.splitlines():
+            if _FENCE_RE.match(line):
+                in_fence = not in_fence
+            elif not in_fence and _HEADING_RE.match(line):
+                level = len(_HEADING_RE.match(line).group(1))
+                s = _STEP_RE.match(line)
+                if s:
+                    step, step_level = s.group(2), level
+                elif level <= step_level:
+                    step, step_level = None, 0
+            for m in URL_RE.finditer(line):
+                url = normalize_url(m.group(0))
+                if not url:
+                    continue
+                steps = index.setdefault(url, {"texts": [], "cited_in": {}})["cited_in"].setdefault(rel, [])
+                if step and step not in steps:
+                    steps.append(step)
+    return index
 
 
 def link_texts(url):
@@ -322,6 +380,15 @@ def slugify(text, maxlen=40):
 def id_for(url):
     repo = github_repo_slug(url)
     parts = urlsplit(url)
+    if parts.netloc in ("www.youtube.com", "youtube.com"):
+        # The path is only /watch or /playlist; the video, playlist and timestamp live
+        # in the query, so key on those (else every link is youtube-com-watch-N).
+        q = parse_qs(parts.query)
+        if q.get("v"):
+            t = q.get("t", [""])[0]
+            return f"youtube-{slugify(q['v'][0])}" + (f"-t{slugify(t)}" if t else "")
+        if q.get("list"):
+            return f"youtube-playlist-{slugify(q['list'][0])}"
     if repo:
         segs = [s for s in parts.path.split("/") if s][2:]
         # drop blob/tree/raw + ref segments, keep the file/dir tail

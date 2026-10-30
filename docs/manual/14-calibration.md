@@ -847,7 +847,7 @@ Source: [Ellis' Print Tuning Guide — pressure advance, pattern method](https:/
 
 1. Find the **sharpest corner with the fewest artefacts**: no gaps, no bulges, no divots.
 2. Re-run at 0.001–0.002 intervals around it to refine.
-3. Put it in `Voron ASA`'s **filament** Start G-code, replacing Prusa's `M572`/`M900`/`M142` lines, unknown to Klipper:
+3. Put it in `Voron ASA`'s **filament** Start G-code, replacing Prusa's `M572`/`M142` lines, unknown to Klipper:
 
 ```
 SET_PRESSURE_ADVANCE ADVANCE=<your value>
@@ -1502,8 +1502,8 @@ Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan pr
 **Do:**
 
 1. Expert mode: make the line below the `Voron 2.4 350` start G-code.
-2. Save Prusament PLA and PETG as `Voron PLA` and `Voron PETG`; Chamber temperature Nominal / Minimal: PLA 35 / 0, PETG 40 / 0.
-3. `Voron ASA` keeps the Minimal set at 14.9.
+2. Save Prusament PLA and PETG as `Voron PLA` and `Voron PETG`, deleting `M572`/`M142`; Chamber temperature Nominal / Minimal: PLA 35 / 0, PETG 40 / 0.
+3. `Voron ASA` keeps its 14.9 Minimal.
 
 ```
 PRINT_START BED=[first_layer_bed_temperature] EXTRUDER=[first_layer_temperature] CHAMBER={chamber_minimal_temperature[initial_tool]} EXHAUST={chamber_temperature[initial_tool]} FILAMENT={filament_type[initial_tool]}

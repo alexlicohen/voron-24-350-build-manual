@@ -421,7 +421,7 @@ Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/
 |---|---|
 | **Super Lube 21030** synthetic grease | 3 oz / 85 g tube, far more than seven carriages need; LDO publishes no quantity |
 | IPA ≥ 90% | enough to fill a rail's own shipping bag seven times over — the bag is the soak tray |
-| **Loctite 243** blue threadlocker | Ch 02, Ch 04, Ch 08 |
+| **Loctite 243** blue threadlocker | Ch 02, Ch 04, Ch 08; Ch 11 (11.65, optional) |
 | Nitrile gloves, lint-free cloth, masking tape, permanent marker | — |
 | Solder, electronics grade | Ch 11 (11.33, the Nevermore bridge PCB) |
 | Super glue | Ch 11 (magnets in the Nevermore and the Clicky-Clack door) |

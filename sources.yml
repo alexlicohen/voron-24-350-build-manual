@@ -6,6 +6,28 @@
 generated: '2026-10-18'
 
 sources:
+- id: 70econsultants-com-live-dead-live-test-comprehens
+  url: https://www.70econsultants.com/live-dead-live-test-comprehensive-guide-rozel/
+  kind: community
+  title: NFPA 70E live–dead–live practice
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.4)
+- id: alexlicohen-voron-24-350-build-issues-new-choose
+  url: https://github.com/alexlicohen/voron-24-350-build-manual/issues/new/choose
+  kind: github-repo-file
+  title: correction issue template
+  first_seen: '2026-10-30'
+  pinned_ref: issues
+  cited_in:
+  - docs/manual/00-index.md
+- id: alexlicohen-voron-24-350-build-slicer-overrides-md
+  url: https://github.com/alexlicohen/voron-24-350-build-manual/blob/main/slicer/OVERRIDES.md
+  kind: github-repo-file
+  title: '`slicer/OVERRIDES.md` § Bay-duct bundle'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/B11-bay-ducting.md (B11.2)
 - id: andrewellis93-print-tuning-gui-test-prints
   url: https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints
   kind: community
@@ -27,6 +49,31 @@ sources:
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
   sha: 3b973a485388b4ef0f9efef46f78152e302aea8e
+- id: arksine-katapult-2
+  url: https://github.com/Arksine/katapult/tree/3b973a4
+  kind: klipper
+  title: Katapult
+  first_seen: '2026-10-30'
+  pinned_ref: 3b973a4
+  cited_in:
+  - docs/manual/12-software.md
+- id: arksine-katapult-readme-md
+  url: https://github.com/Arksine/katapult/blob/3b973a4/README.md
+  kind: klipper
+  title: Katapult README § Uploading Klipper
+  first_seen: '2026-10-30'
+  pinned_ref: 3b973a4
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.11)
+  - docs/manual/12-software.md (12.15, 12.16)
+- id: arksine-katapult-scripts-flashtool-py
+  url: https://github.com/Arksine/katapult/blob/3b973a4/scripts/flashtool.py
+  kind: klipper
+  title: Katapult `flashtool.py` USB request and the "Device is not Katapult" exit
+  first_seen: '2026-10-30'
+  pinned_ref: 3b973a4
+  cited_in:
+  - docs/manual/12-software.md (12.15)
 - id: canbus-esoterical-online
   url: https://canbus.esoterical.online
   kind: klipper
@@ -39,6 +86,13 @@ sources:
   title: Building a VORON 2.4 R2 in 2022 (LDO Kit) | CNC Kitchen
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
+- id: community-klipper3d-org
+  url: https://community.klipper3d.org
+  kind: community
+  title: community.klipper3d.org
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/15-troubleshooting.md
 - id: discord-com-channels-460117602945990666-71
   url: https://discord.com/channels/460117602945990666/710952853514223617
   kind: community
@@ -141,6 +195,21 @@ sources:
   title: Voron 2.4 Kit Addendum & Errata | LDO Documentation
   first_seen: '2026-10-30'
   last_verified: '2026-10-30'
+- id: docs-mainsail-xyz-crowsnest-configuration-cam-se
+  url: https://docs.mainsail.xyz/crowsnest/configuration/cam-section/
+  kind: community
+  title: crowsnest § cam section
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.76)
+- id: docs-mainsail-xyz-mainsailos
+  url: https://docs.mainsail.xyz/mainsailos/
+  kind: community
+  title: MainsailOS § included software
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.76)
+  - docs/voron-build-instructions-survey.md
 - id: docs-mainsail-xyz-mainsailos-getting-started-fir
   url: https://docs.mainsail.xyz/mainsailos/getting-started/first-boot/
   kind: community
@@ -153,12 +222,270 @@ sources:
   title: 'MainsailOS — Getting started: Raspberry Pi'
   first_seen: '2026-10-30'
   last_verified: '2026-10-30'
+- id: docs-mainsail-xyz-settings-webcams
+  url: https://docs.mainsail.xyz/settings/webcams/
+  kind: community
+  title: Mainsail § Webcams
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.76)
+- id: docs-vorondesign-com-about-html
+  url: https://docs.vorondesign.com/about.html
+  kind: voron-docs
+  title: Voron docs — About § Serial Numbers
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.24)
+- id: docs-vorondesign-com-build-electrical
+  url: https://docs.vorondesign.com/build/electrical/
+  kind: voron-docs
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.1, 00a.6, 00a.8, 00a.11)
+  - docs/manual/11-skirts-panels-door.md (11.67)
+  - docs/manual/14-calibration.md (14.30)
+- id: docs-vorondesign-com-build-slicer
+  url: https://docs.vorondesign.com/build/slicer/
+  kind: voron-docs
+  title: Voron docs — slicer setup
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.41)
+- id: docs-vorondesign-com-build-startup-startup-html
+  url: https://docs.vorondesign.com/build/startup/startup.html
+  kind: voron-docs
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.30)
+  - docs/manual/13-initial-startup.md (13.1, 13.3, 13.4, 13.5, 13.6, 13.7, 13.8, 13.9, 13.10, 13.11, 13.13,
+    13.14, 13.15, 13.16, 13.17, 13.18, 13.19, 13.20, 13.21, 13.22, 13.23, 13.24, 13.25, 13.26, 13.27,
+    13.28, 13.29, 13.30, 13.31, 13.32, 13.33, 13.35, 13.36, 13.39, 13.37, 13.40, 13.43)
+  - docs/manual/14-calibration.md (14.2, 14.3, 14.6, 14.7)
 - id: ellis3dp-com-print-tuning-guide-articles-a
   url: https://ellis3dp.com/Print-Tuning-Guide/articles/a_note_about_line_width.html
   kind: community
   title: 'A Note About Line Width | Ellis’ Print Tuning Guide'
   first_seen: '2026-10-30'
   last_verified: '2026-10-30'
+- id: fluke-com-en-us-learn-blog-safety-iec-ca
+  url: https://www.fluke.com/en-us/learn/blog/safety/iec-category-ratings-use-the-right-tools-for-the-job
+  kind: community
+  title: Fluke — IEC category ratings
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.3)
+- id: forum-vorondesign-com-threads-mains-wiring-safety-19
+  url: https://forum.vorondesign.com/threads/mains-wiring-safety.1998/
+  kind: community
+  title: Voron forum — Mains Wiring Safety
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.1)
+- id: help-prusa3d-com
+  url: https://help.prusa3d.com
+  kind: prusa
+  title: help.prusa3d.com
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/README.md
+- id: help-prusa3d-com-article-assemblling-the-prusa
+  url: https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602
+  kind: prusa
+  title: Prusa KB
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-index.md
+  - docs/manual/print/00-slicer-setup.md
+  - docs/manual/print/B00-calibration-and-jigs.md
+  - docs/voron-print-plan.md
+- id: help-prusa3d-com-article-auto-arrange-tool-1770
+  url: https://help.prusa3d.com/article/auto-arrange-tool_1770
+  kind: prusa
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/B00-calibration-and-jigs.md (B00.8)
+- id: help-prusa3d-com-article-filament-runout-31829
+  url: https://help.prusa3d.com/article/filament-runout-31829-core-one-35829-core-one-l-17829-xl-26829-mk4s-13829-mk4-27829-mk3-9s-21829-mk3-9-28829-mk3-5s-23829-mk3-5-12829-mini_916077
+  kind: prusa
+  title: 'Prusa KB — Filament runout #31829'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/README.md
+- id: help-prusa3d-com-article-live-adjust-z-112427
+  url: https://help.prusa3d.com/article/live-adjust-z_112427
+  kind: prusa
+  title: Prusa KB — Live Adjust Z
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/15-troubleshooting.md
+  - docs/manual/print/00-slicer-setup.md
+  - docs/manual/print/B00-calibration-and-jigs.md (B00.4)
+  - docs/voron-print-plan.md
+- id: help-prusa3d-com-article-petg-2059
+  url: https://help.prusa3d.com/article/petg_2059
+  kind: prusa
+  title: Prusa KB — PETG
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/B11-bay-ducting.md (B11.1, B11.2)
+- id: help-prusa3d-com-article-power-panic-2092
+  url: https://help.prusa3d.com/article/power-panic_2092
+  kind: prusa
+  title: Power Panic
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/README.md
+- id: help-prusa3d-com-article-prusa-uss-drybox-10143
+  url: https://help.prusa3d.com/article/prusa-uss-drybox_1014382
+  kind: prusa
+  title: Prusa USS Drybox
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.70, 11.73)
+- id: help-prusa3d-com-article-satin-steel-sheet-1965
+  url: https://help.prusa3d.com/article/satin-steel-sheet_196526
+  kind: prusa
+  title: satin sheet KB
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/00-slicer-setup.md
+  - docs/manual/print/B00-calibration-and-jigs.md (B00.3)
+- id: help-prusa3d-com-article-the-heatbed-cooled-dow
+  url: https://help.prusa3d.com/article/the-heatbed-cooled-down-during-the-power-outage-31808-core-one-35808-core-one-l-26808-mk4s-27808-mk3-9s-28808-mk3-5s-13808-mk4-21808-mk3-9-23808-mk3-5-17808-xl_899380
+  kind: prusa
+  title: 'Heatbed cooled during the outage #31808'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/README.md
+- id: help-prusa3d-com-article-uneven-bed-31111-core
+  url: https://help.prusa3d.com/article/uneven-bed-31111-core-one-35111-core-one-l-36111-core-one-indx_856294
+  kind: prusa
+  title: 'Uneven bed #31111'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/README.md
+- id: klipper3d-klipper
+  url: https://github.com/Klipper3d/klipper
+  kind: klipper
+  title: Klipper3d/klipper
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/remote/LICENSES.md
+- id: klipper3d-klipper-docs-img
+  url: https://github.com/Klipper3d/klipper/tree/f0892d8/docs/img
+  kind: klipper
+  title: Klipper
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/14-calibration.md
+- id: klipper3d-klipper-klippy-configfile-py-2
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/configfile.py
+  kind: klipper
+  title: Klipper `configfile.py`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.30, 13.39)
+- id: klipper3d-klipper-klippy-extras-controller-fan-p
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/controller_fan.py
+  kind: klipper
+  title: Klipper `controller_fan.py`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.11)
+- id: klipper3d-klipper-klippy-extras-error-mcu-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/error_mcu.py
+  kind: klipper
+  title: '`error_mcu.py`'
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.14, 12.37)
+- id: klipper3d-klipper-klippy-extras-manual-probe-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/manual_probe.py
+  kind: klipper
+  title: '`manual_probe.py`'
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.36)
+- id: klipper3d-klipper-klippy-extras-probe-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/probe.py
+  kind: klipper
+  title: '`probe.py`'
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.28)
+- id: klipper3d-klipper-klippy-extras-safe-z-home-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/safe_z_home.py
+  kind: klipper
+  title: Klipper `safe_z_home.py`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.17)
+- id: klipper3d-klipper-klippy-extras-stepper-enable-p
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/stepper_enable.py
+  kind: klipper
+  title: src
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.3)
+- id: klipper3d-klipper-klippy-extras-temperature-fan
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_fan.py
+  kind: klipper
+  title: Klipper `temperature_fan.py`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/14-calibration.md (14.33, 14.34)
+- id: klipper3d-klipper-klippy-extras-temperature-sens-2
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/temperature_sensors.cfg
+  kind: klipper
+  title: Klipper `temperature_sensors.cfg`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/10-wiring.md (10.76)
+- id: klipper3d-klipper-klippy-extras-thermistor-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/extras/thermistor.py
+  kind: klipper
+  title: '`thermistor.py`'
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.6)
+- id: klipper3d-klipper-klippy-msgproto-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/msgproto.py
+  kind: klipper
+  title: Klipper `msgproto.py`, `Command format mismatch`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.14)
+- id: klipper3d-klipper-klippy-pins-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/pins.py
+  kind: klipper
+  title: src
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.23)
+- id: klipper3d-klipper-klippy-webhooks-py
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/klippy/webhooks.py
+  kind: klipper
+  title: Klipper `webhooks.py`
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.22)
 - id: klipper3d-klipper-scripts-flash-usb-py
   url: https://github.com/Klipper3d/klipper/blob/f0892d8/scripts/flash_usb.py
   kind: klipper
@@ -166,6 +493,316 @@ sources:
   first_seen: '2026-10-30'
   last_verified: '2026-10-30'
   pinned_ref: f0892d8
+- id: klipper3d-klipper-src-generic-armcm-reset-c
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/src/generic/armcm_reset.c
+  kind: klipper
+  title: Klipper `armcm_reset.c`, Katapult if present
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.15)
+- id: klipper3d-klipper-src-generic-usb-cdc-c
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/src/generic/usb_cdc.c
+  kind: klipper
+  title: Klipper `usb_cdc.c`, the 1200-baud bootloader request
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.15)
+- id: klipper3d-klipper-src-stm32-dfu-reboot-c
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/src/stm32/dfu_reboot.c
+  kind: klipper
+  title: Klipper `dfu_reboot.c`, else ROM DFU
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.15)
+- id: klipper3d-klipper-src-stm32-kconfig
+  url: https://github.com/Klipper3d/klipper/blob/f0892d8/src/stm32/Kconfig
+  kind: klipper
+  title: src
+  first_seen: '2026-10-30'
+  pinned_ref: f0892d8
+  cited_in:
+  - docs/manual/12-software.md (12.14)
+- id: klipper3d-org-bed-mesh-html
+  url: https://www.klipper3d.org/Bed_Mesh.html
+  kind: klipper
+  title: Bed Mesh
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.38, 13.39)
+  - docs/manual/14-calibration.md (14.22)
+- id: klipper3d-org-command-templates-html
+  url: https://www.klipper3d.org/Command_Templates.html
+  kind: klipper
+  title: Klipper docs § Command templates
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.52)
+- id: klipper3d-org-config-checks-html
+  url: https://www.klipper3d.org/Config_checks.html
+  kind: klipper
+  title: Config checks
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.37)
+- id: klipper3d-org-contact-html
+  url: https://www.klipper3d.org/Contact.html
+  kind: klipper
+  title: Klipper — Contact
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/15-troubleshooting.md
+  - docs/manual/16-glossary.md
+- id: klipper3d-org-installation-html
+  url: https://www.klipper3d.org/Installation.html
+  kind: klipper
+  title: Installation
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.7, 12.14)
+- id: klipper3d-org-manual-level-html
+  url: https://www.klipper3d.org/Manual_Level.html
+  kind: klipper
+  title: Manual Level
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.37)
+- id: klipper3d-org-rotation-distance-html
+  url: https://www.klipper3d.org/Rotation_Distance.html
+  kind: klipper
+  title: Rotation distance
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.40)
+  - docs/manual/14-calibration.md (14.7)
+- id: klipperscreen-klipperscreen
+  url: https://github.com/KlipperScreen/KlipperScreen
+  kind: github-repo-file
+  title: KlipperScreen/KlipperScreen
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/remote/LICENSES.md
+- id: mainsail-crew-docs
+  url: https://github.com/mainsail-crew/docs
+  kind: github-repo-file
+  title: mainsail-crew/docs
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/remote/LICENSES.md
+- id: mainsail-crew-mainsail-src-store-printer-actions-ts
+  url: https://github.com/mainsail-crew/mainsail/blob/develop/src/store/printer/actions.ts
+  kind: github-repo-file
+  title: Mainsail `src/store/printer/actions.ts`
+  first_seen: '2026-10-30'
+  pinned_ref: develop
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.22)
+- id: mainsail-crew-mainsailos-modules-generic-50-klipper
+  url: https://github.com/mainsail-crew/MainsailOS/blob/develop/modules/generic/50-klipper
+  kind: github-repo-file
+  title: MainsailOS
+  first_seen: '2026-10-30'
+  pinned_ref: develop
+  cited_in:
+  - docs/manual/14-calibration.md (14.12)
+- id: meanwell-com-upload-pdf-lrs-200-lrs-200-spe
+  url: https://www.meanwell.com/Upload/PDF/LRS-200/LRS-200-SPEC.PDF
+  kind: community
+  title: Mean Well LRS-200 spec sheet
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.5, 00a.6)
+- id: meanwell-com-webapp-product-search-aspx
+  url: https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-200
+  kind: community
+  title: Mean Well LRS-200 datasheet — terminal pin assignment
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.9, 10.80)
+  - docs/manual/11-skirts-panels-door.md (11.67)
+- id: moonraker-readthedocs-io-en-latest-external-api-printer
+  url: https://moonraker.readthedocs.io/en/latest/external_api/printer/
+  kind: klipper
+  title: Moonraker API § Query printer object status
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.5)
+- id: motordynamicslab-ldovoron2-667521d-firmware-leviathan-pri
+  url: https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
+  kind: ldo-repo
+  title: LDO Klipper config `leviathan-printer-rev-d-sbv2.cfg`
+  first_seen: '2026-10-30'
+  pinned_ref: 667521d
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.5)
+  - docs/manual/02-z-drives.md (02.21)
+  - docs/manual/04-ab-drives.md (04.2, 04.24)
+  - docs/manual/12-software.md (12.21)
+- id: motordynamicslab-ldovoron2-firmware-leviathan-printer-rev-3
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg
+  kind: ldo-repo
+  title: '`leviathan-printer-rev-d-sbv2.cfg`'
+  first_seen: '2026-10-30'
+  pinned_ref: 667521d
+  cited_in:
+  - docs/manual/10-wiring.md (10.39, 10.46)
+  - docs/manual/11-skirts-panels-door.md (11.41)
+  - docs/manual/12-software.md (12.21, 12.22, 12.24, 12.25, 12.26, 12.27, 12.28, 12.29, 12.30, 12.31,
+    12.32, 12.33, 12.36, 12.23)
+  - docs/manual/13-initial-startup.md (13.5, 13.8, 13.9, 13.10, 13.11, 13.12, 13.15, 13.21, 13.26, 13.27,
+    13.31, 13.38, 13.40)
+  - docs/manual/14-calibration.md (14.1, 14.2, 14.6, 14.8, 14.9, 14.12, 14.15, 14.16)
+- id: motordynamicslab-ldovoron2-firmware-readme-md-2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/README.md
+  kind: ldo-repo
+  title: LDOVoron2 `Firmware/README.md`
+  first_seen: '2026-10-30'
+  pinned_ref: 667521d
+  cited_in:
+  - docs/manual/12-software.md (12.21)
+- id: motordynamicslab-ldovoron2-images-wiringguide
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/Images/WiringGuide
+  kind: ldo-repo
+  title: LDOVoron2
+  first_seen: '2026-10-30'
+  pinned_ref: 8270e8c
+  cited_in:
+  - docs/manual/10-wiring.md
+- id: motordynamicslab-ldovoron2-stls-2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs
+  kind: ldo-repo
+  title: LDOVoron2 `STLs/`
+  first_seen: '2026-10-30'
+  pinned_ref: 8270e8c
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.10, 11.19, 11.54, 11.55, 11.60)
+- id: motordynamicslab-ldovoron2-stls-cob-20light-20strip-2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs/COB%20Light%20Strip
+  kind: ldo-repo
+  title: LDOVoron2 `STLs/COB Light Strip`
+  first_seen: '2026-10-30'
+  pinned_ref: 8270e8c
+  cited_in:
+  - docs/manual/10-wiring.md (10.35)
+- id: motordynamicslab-ldovoron2-stls-z-belt-cover-a-led-stl-2
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/blob/8270e8c/STLs/z_belt_cover_a_led.stl
+  kind: ldo-repo
+  title: LDOVoron2 `z_belt_cover_a_led.stl`
+  first_seen: '2026-10-30'
+  pinned_ref: 8270e8c
+  cited_in:
+  - docs/manual/10-wiring.md (10.38)
+- id: motordynamicslab-ldovoron2-stls-z-belt-cover-a-led-stl-3
+  url: https://github.com/MotorDynamicsLab/LDOVoron2/tree/8270e8c/STLs/z_belt_cover_a_led.stl
+  kind: ldo-repo
+  title: LDOVoron2 `z_belt_cover_a_led.stl`
+  first_seen: '2026-10-30'
+  pinned_ref: 8270e8c
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.22)
+- id: motordynamicslab-ldovorontride-stls-btt-20pi-20tft4-3-20mount-2
+  url: https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/5b0496a/STLs/BTT%20Pi%20TFT4.3%20Mount
+  kind: ldo-repo
+  title: LDO BTT Pi TFT4.3 mount
+  first_seen: '2026-10-30'
+  pinned_ref: 5b0496a
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.4, 11.5, 11.7)
+- id: motordynamicslab-leviathan-kicad-v1-3-leviathan-v1-3-sch
+  url: https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/KiCad/V1.3/Leviathan_V1.3.sch
+  kind: ldo-repo
+  title: Leviathan V1.3 schematic — FAN_0 is a JST XH 3-pin
+  first_seen: '2026-10-30'
+  pinned_ref: 878c3c4
+  cited_in:
+  - docs/manual/14-calibration.md (14.31)
+- id: motordynamicslab-leviathan-klipper-config-voron2-leviatha
+  url: https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Klipper_config/voron2_leviathan.cfg
+  kind: ldo-repo
+  title: Leviathan `voron2_leviathan.cfg` — FAN0 = PB7
+  first_seen: '2026-10-30'
+  pinned_ref: 878c3c4
+  cited_in:
+  - docs/manual/14-calibration.md (14.31)
+- id: motordynamicslab-leviathan-schematic-leviathan-v1-3-pdf
+  url: https://github.com/MotorDynamicsLab/Leviathan/blob/878c3c4/Schematic/Leviathan_V1.3.pdf
+  kind: ldo-repo
+  title: src
+  first_seen: '2026-10-30'
+  pinned_ref: 878c3c4
+  cited_in:
+  - docs/manual/10-wiring.md (10.75)
+- id: motordynamicslab-nitehawk-sb-v-configs-nitehawk-sbv2-cfg-2
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Configs/nitehawk-sbv2.cfg
+  kind: ldo-repo
+  title: Nitehawk-SB V2 `nitehawk-sbv2.cfg`
+  first_seen: '2026-10-30'
+  pinned_ref: 42ae497
+  cited_in:
+  - docs/manual/12-software.md (12.31, 12.17)
+- id: motordynamicslab-nitehawk-sb-v-images-2
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497/Images
+  kind: ldo-repo
+  title: Nitehawk-SB-V2 images
+  first_seen: '2026-10-30'
+  pinned_ref: 42ae497
+  cited_in:
+  - docs/manual/10-wiring.md
+- id: motordynamicslab-nitehawk-sb-v-readme-md
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/README.md
+  kind: ldo-repo
+  title: Nitehawk-SB V2 README § Change list from Nitehawk-SB V1
+  first_seen: '2026-10-30'
+  pinned_ref: 42ae497
+  cited_in:
+  - docs/manual/10-wiring.md (10.55, 10.67)
+- id: motordynamicslab-nitehawk-sb-v2-2
+  url: https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/42ae497
+  kind: ldo-repo
+  title: Nitehawk-SB-V2 repo
+  first_seen: '2026-10-30'
+  pinned_ref: 42ae497
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/12-software.md (12.11)
+- id: nevermore3d-nevermore-micro-2
+  url: https://github.com/nevermore3d/Nevermore_Micro/tree/8740b34
+  kind: community
+  title: Nevermore Micro repo
+  first_seen: '2026-10-30'
+  pinned_ref: 8740b34
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.26)
+- id: omron-ap-com-data-pdf-cat-g3nb-1-j164-e1-4
+  url: https://www.omron-ap.com/data_pdf/cat/g3nb-1_j164-e1_4_3_csm1013815.pdf
+  kind: community
+  title: Omron — Solid State Relays G3NB datasheet (J164-E1)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.7, 00a.10)
+- id: printables-com-model-505838
+  url: https://www.printables.com/model/505838
+  kind: community
+  title: MSS AC covers, Printables 505838
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.80)
+- id: prusa3d-com-product-prusament-petg-v0-jet
+  url: https://www.prusa3d.com/product/prusament-petg-v0-jet-black-1kg/
+  kind: community
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/B11-bay-ducting.md (B11.1)
+- id: prusa3d-prusa-firmware-buddy-lib-marlin-marlin-src-module-t
+  url: https://github.com/prusa3d/Prusa-Firmware-Buddy/blob/master/lib/Marlin/Marlin/src/module/temperature.cpp
+  kind: github-repo-file
+  title: Buddy source, `temperature.cpp`
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/print/B00-calibration-and-jigs.md
 - id: prusa3d-prusaslicer-src-libslic3r-gcode-cpp
   url: https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/src/libslic3r/GCode.cpp
   kind: prusa
@@ -187,6 +824,173 @@ sources:
   first_seen: '2026-10-30'
   last_verified: '2026-10-30'
   pinned_ref: version_2.9.6
+- id: raspberrypi-documentation
+  url: https://github.com/raspberrypi/documentation
+  kind: github-repo-file
+  title: raspberrypi/documentation
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/remote/LICENSES.md
+- id: rdmullett-voron-serial-plate
+  url: https://github.com/rdmullett/voron_serial_plate
+  kind: github-repo-file
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.24)
+- id: reprap-org-wiki-safety
+  url: https://reprap.org/wiki/Safety
+  kind: community
+  title: RepRap — Safety
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00a-mains-safety.md (00a.5, 00a.6, 00a.9, 00a.10, 00a.12)
+- id: store-dremc-com-au-products-ldo-motion-extrusion
+  url: https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal
+  kind: community
+  title: src
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.23)
+- id: tanaes-whopping-voron-mods-clickyclacky-door-2
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/62268ed/clickyclacky_door
+  kind: community
+  title: mod README
+  first_seen: '2026-10-30'
+  pinned_ref: 62268ed
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.44, 11.45, 11.46, 11.47, 11.50)
+- id: tanaes-whopping-voron-mods-clickyclacky-door-stls-2
+  url: https://github.com/tanaes/whopping_Voron_mods/tree/62268ed/clickyclacky_door/STLs
+  kind: community
+  title: Clicky-Clack `STLs/`
+  first_seen: '2026-10-30'
+  pinned_ref: 62268ed
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.62, 11.64)
+- id: teamfdm-com-forums-topic-14-what-are-the-r
+  url: https://www.teamfdm.com/forums/topic/14-what-are-the-requirements-to-get-a-serial-for-my-printer/
+  kind: community
+  title: TeamFDM FAQ — serial requirements
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.24)
+- id: us-store-bambulab-com-products-heatbed-nozzle-wiper
+  url: https://us.store.bambulab.com/products/heatbed-nozzle-wiper-a1
+  kind: community
+  title: Bambu Lab — Heatbed Nozzle Wiper A1/A2L
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.45)
+- id: voron-link-m5ybt4d
+  url: https://voron.link/m5ybt4d
+  kind: community
+  title: technique guide
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.14)
+- id: vorondesign-voron-2-cad-voron-2-4r2-assembly-step
+  url: https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
+  kind: voron-manual
+  title: Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/02-z-drives.md (02.02, 02.09, 02.29, 02.30, 02.34)
+- id: vorondesign-voron-2-de7e89d-cad-voron-2-4r2-assemb
+  url: https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
+  kind: voron-manual
+  title: https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/assets/cad/PILOT.md
+- id: vorondesign-voron-2-stls-2
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs
+  kind: voron-manual
+  title: Voron-2 `STLs/`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+- id: vorondesign-voron-2-stls-gantry-ab-drive-units-2
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Gantry/AB_Drive_Units
+  kind: voron-manual
+  title: Voron-2 `STLs/Gantry/AB_Drive_Units`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.1)
+- id: vorondesign-voron-2-stls-gantry-front-idlers
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Gantry/Front_Idlers
+  kind: voron-manual
+  title: Voron-2 `STLs/Gantry/Front_Idlers`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.1)
+- id: vorondesign-voron-2-stls-panel-mounting-2
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Panel_Mounting
+  kind: voron-manual
+  title: Voron-2 `STLs/Panel_Mounting`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/11-skirts-panels-door.md (11.53)
+- id: vorondesign-voron-2-stls-skirts-2
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Skirts
+  kind: voron-manual
+  title: Voron-2 `STLs/Skirts/`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.11)
+- id: vorondesign-voron-2-stls-test-prints-2
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints
+  kind: voron-manual
+  title: Voron-2 `STLs/Test_Prints`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/13-initial-startup.md (13.41)
+  - docs/manual/14-calibration.md (14.10, 14.11)
+- id: vorondesign-voron-2-stls-tools
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools
+  kind: voron-manual
+  title: Voron-2 `STLs/Tools`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.22)
+  - docs/manual/02-z-drives.md (02.18)
+  - docs/manual/04-ab-drives.md
+- id: vorondesign-voron-2-stls-z-drive
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Z_Drive
+  kind: voron-manual
+  title: Voron-2 `STLs/Z_Drive`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/02-z-drives.md
+- id: vorondesign-voron-2-stls-z-idlers
+  url: https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Z_Idlers
+  kind: voron-manual
+  title: Voron-2 `STLs/Z_Idlers`
+  first_seen: '2026-10-30'
+  pinned_ref: de7e89d
+  cited_in:
+  - docs/manual/02-z-drives.md
+- id: vorondesign-voron-documentation-2
+  url: https://github.com/VoronDesign/Voron-Documentation/tree/36b876b
+  kind: voron-docs
+  title: Voron-Documentation
+  first_seen: '2026-10-30'
+  pinned_ref: 36b876b
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/14-calibration.md
 - id: west3d-com-extrusion-blind-joint-seals
   url: https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors
   kind: vendor
@@ -1407,6 +2211,464 @@ sources:
   title: video
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
+- id: youtube-0api1rbwdc0
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Extras!)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t10111s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10111s
+  kind: community
+  title: 'Video: Extras! @2:48:31'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.40)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t10796s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10796s
+  kind: community
+  title: 'Video: Extras! @2:59:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.34)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t1081s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1081s
+  kind: community
+  title: 'Video: Extras! @0:18:01'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.6)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t10935s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10935s
+  kind: community
+  title: Extras! @3:02:15
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t11305s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11305s
+  kind: community
+  title: Extras! @3:08:25
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t14425s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14425s
+  kind: community
+  title: 'Video: Extras! @4:00:25'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.32)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t1478s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1478s
+  kind: community
+  title: 'Video: Extras! @0:24:38'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t2522s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2522s
+  kind: community
+  title: 'Video: Extras! @0:42:02'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t2730s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2730s
+  kind: community
+  title: Extras! @0:45:30
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t2903s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2903s
+  kind: community
+  title: Extras! @0:48:23
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t392s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=392s
+  kind: community
+  title: 'Video: Extras! @0:06:32'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.54)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t4008s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4008s
+  kind: community
+  title: '1:06:48'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t4559s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4559s
+  kind: community
+  title: Extras! @1:15:59
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t4684s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4684s
+  kind: community
+  title: '1:18:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t489s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=489s
+  kind: community
+  title: Extras! @0:08:09
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t5408s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5408s
+  kind: community
+  title: 'Video: Extras! @1:30:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.8)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t6406s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6406s
+  kind: community
+  title: 'Video: Extras! @1:46:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.13)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t7200s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7200s
+  kind: community
+  title: 'Video: Extras! @2:00:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.15)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t7484s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7484s
+  kind: community
+  title: Extras! @2:04:44
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t780s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=780s
+  kind: community
+  title: Extras! @0:13:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t845s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=845s
+  kind: community
+  title: Extras! @0:14:05
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t8671s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8671s
+  kind: community
+  title: 'Video: Extras! @2:24:31'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.28)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t9000s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9000s
+  kind: community
+  title: 'Video: Extras! @2:30:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.27)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-0api1rbwdc0-t9380s
+  url: https://www.youtube.com/watch?v=0aPi1rBwDC0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9380s
+  kind: community
+  title: 'Video: Extras! @2:36:20'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 2)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t134s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=134s
+  kind: community
+  title: 'Video: Part 2 @0:02:14'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.38)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t3300s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3300s
+  kind: community
+  title: Part 2 @0:55:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t3360s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3360s
+  kind: community
+  title: 'Video: Part 2 @0:56:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.5)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t3414s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3414s
+  kind: community
+  title: 'Video: Part 2 @0:56:54'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.12, 02.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t3995s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3995s
+  kind: community
+  title: '1:06:35'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t405s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=405s
+  kind: community
+  title: 'Video: Part 2 @0:06:45'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.19)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t4506s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4506s
+  kind: community
+  title: 'Video: Part 2 @1:15:06'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.27)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t4700s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4700s
+  kind: community
+  title: Part 2 @1:18:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t4728s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4728s
+  kind: community
+  title: 'Video: Part 2 @1:18:48'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.35)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t4730s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4730s
+  kind: community
+  title: 'Video: Part 2 @1:18:50'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t4766s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4766s
+  kind: community
+  title: 'Video: Part 2 @1:19:26'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.28)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t5764s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5764s
+  kind: community
+  title: 'Video: Part 2 @1:36:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/03-build-plate.md (03.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t5800s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5800s
+  kind: community
+  title: Part 2 @1:36:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-2u0yahe8w-0-t5831s
+  url: https://www.youtube.com/watch?v=2U0YahE8w_0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5831s
+  kind: community
+  title: 'Video: Part 2 @1:37:11'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.39)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 6)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t1210s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1210s
+  kind: community
+  title: 'Video: Part 6 @0:20:10'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.34)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t1448s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1448s
+  kind: community
+  title: Part 6 @0:24:08
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t1508s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1508s
+  kind: community
+  title: 'Video: Part 6 @0:25:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.40)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t1544s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1544s
+  kind: community
+  title: Part 6 @0:25:44
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t2097s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2097s
+  kind: community
+  title: 'Video: Part 6 @0:34:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.59)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t2395s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2395s
+  kind: community
+  title: 'Video: Part 6 @0:39:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.60)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t3850s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3850s
+  kind: community
+  title: Part 6 @1:04:10
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t3895s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3895s
+  kind: community
+  title: 'Video: Part 6 @1:04:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.61)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t4198s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4198s
+  kind: community
+  title: '1:09:58'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t5412s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5412s
+  kind: community
+  title: 'Video: Part 6 @1:30:12'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.49)
+  - docs/manual/09-electronics-bay.md (09.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t5445s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5445s
+  kind: community
+  title: Part 6 @1:30:45
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t5680s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5680s
+  kind: community
+  title: Part 6 @1:34:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t5695s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5695s
+  kind: community
+  title: 'Video: Part 6 @1:34:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.24)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t5997s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5997s
+  kind: community
+  title: 'Video: Part 6 @1:39:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t608s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=608s
+  kind: community
+  title: 'Video: Part 6 @0:10:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md (07.30)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t70s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=70s
+  kind: community
+  title: Part 6 @0:01:10
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-8pwoyky1dia-t901s
+  url: https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=901s
+  kind: community
+  title: 'Video: Part 6 @0:15:01'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md (07.33)
+  - docs/manual/assets/video/MANIFEST.md
 - id: youtube-com-playlist
   url: https://www.youtube.com/playlist?list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY
   kind: community
@@ -1503,3 +2765,1764 @@ sources:
   title: Rev D kit review
   first_seen: '2026-09-05'
   last_verified: '2026-10-18'
+- id: youtube-d-44fdp9xt8
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (More Extras!)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t11429s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11429s
+  kind: community
+  title: More Extras! @3:10:29
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t12030s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12030s
+  kind: community
+  title: More Extras! @3:20:30
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t12240s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12240s
+  kind: community
+  title: 'Video: More Extras! @3:24:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.29)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t13445s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=13445s
+  kind: community
+  title: More Extras! @3:44:05
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t14037s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14037s
+  kind: community
+  title: 'Video: More Extras! @3:53:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.36)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t1452s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1452s
+  kind: community
+  title: 0:24:12
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t14947s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14947s
+  kind: community
+  title: More Extras! @4:09:07
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t1800s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1800s
+  kind: community
+  title: 'Video: More Extras! @0:30:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.54)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t2581s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2581s
+  kind: community
+  title: More Extras! @0:43:01
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t2769s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2769s
+  kind: community
+  title: More Extras! @0:46:09
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t3963s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3963s
+  kind: community
+  title: 'Video: More Extras! @1:06:03'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.38)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t4831s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4831s
+  kind: community
+  title: More Extras! @1:20:31
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t7160s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7160s
+  kind: community
+  title: More Extras! @1:59:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t7245s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7245s
+  kind: community
+  title: 'Video: More Extras! @2:00:45'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.55)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t8290s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8290s
+  kind: community
+  title: More Extras! @2:18:10
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t8300s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8300s
+  kind: community
+  title: 'Video: More Extras! @2:18:20'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.65)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-d-44fdp9xt8-t9355s
+  url: https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9355s
+  kind: community
+  title: 'Video: More Extras! @2:35:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.66)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 9)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t10140s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10140s
+  kind: community
+  title: Part 9 @2:49:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t10151s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10151s
+  kind: community
+  title: 'Video: Part 9 @2:49:11'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t10156s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10156s
+  kind: community
+  title: 'Video: Part 9 @2:49:16'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.6)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t10429s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10429s
+  kind: community
+  title: Part 9 @2:53:49
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t1068s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1068s
+  kind: community
+  title: 'Video: Part 9 @0:17:48'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.38)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t10834s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10834s
+  kind: community
+  title: '3:00:34'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t11471s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11471s
+  kind: community
+  title: 'Video: Part 9 @3:11:11'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.43)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t11637s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11637s
+  kind: community
+  title: 'Video: Part 9 @3:13:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.42)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t11732s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11732s
+  kind: community
+  title: Part 9 @3:15:32
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t11875s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11875s
+  kind: community
+  title: 'Video: Part 9 @3:17:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.56)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t11880s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11880s
+  kind: community
+  title: Part 9 @3:18:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t13840s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=13840s
+  kind: community
+  title: Part 9 @3:50:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t14084s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=14084s
+  kind: community
+  title: 'Video: Part 9 @3:54:44'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.53)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t15491s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15491s
+  kind: community
+  title: Part 9 @4:18:11
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t16604s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=16604s
+  kind: community
+  title: 'Video: Part 9 @4:36:44'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.64)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t19000s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=19000s
+  kind: community
+  title: Part 9 @5:16:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t19449s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=19449s
+  kind: community
+  title: 'Video: Part 9 @5:24:09'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/14-calibration.md (14.7)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t2719s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2719s
+  kind: community
+  title: Part 9 @0:45:19
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t2876s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2876s
+  kind: community
+  title: Part 9 @0:47:56
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t297s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=297s
+  kind: community
+  title: Part 9 @0:04:57
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t3643s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3643s
+  kind: community
+  title: Part 9 @1:00:43
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t3913s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3913s
+  kind: community
+  title: Part 9 @1:05:13
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t3964s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3964s
+  kind: community
+  title: 'Video: Part 9 @1:06:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.5)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t4948s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4948s
+  kind: community
+  title: Part 9 @1:22:28
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5099s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5099s
+  kind: community
+  title: 'Video: Part 9 @1:24:59'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.26)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5100s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5100s
+  kind: community
+  title: Part 9 @1:25:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5760s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5760s
+  kind: community
+  title: Part 9 @1:36:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5762s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5762s
+  kind: community
+  title: 'Video: Part 9 @1:36:02'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.8)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5780s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5780s
+  kind: community
+  title: 'Video: Part 9 @1:36:20'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.39)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t5973s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5973s
+  kind: community
+  title: Part 9 @1:39:33
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t6124s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6124s
+  kind: community
+  title: 'Video: Part 9 @1:42:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.13)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t6646s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6646s
+  kind: community
+  title: Part 9 @1:50:46
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t6827s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6827s
+  kind: community
+  title: 'Video: Part 9 @1:53:47'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t8636s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8636s
+  kind: community
+  title: 'Video: Part 9 @2:23:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/13-initial-startup.md (13.16)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t9340s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9340s
+  kind: community
+  title: Part 9 @2:35:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-dmnwxum4oik-t9354s
+  url: https://www.youtube.com/watch?v=dmNwxUm4oik&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9354s
+  kind: community
+  title: 'Video: Part 9 @2:35:54'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.21)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 7)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t1467s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1467s
+  kind: community
+  title: Part 7 @0:24:27
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t1702s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1702s
+  kind: community
+  title: 'Video: Part 7 @0:28:22'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.7)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t1866s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1866s
+  kind: community
+  title: Part 7 @0:31:06
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t1936s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1936s
+  kind: community
+  title: 'Video: Part 7 @0:32:16'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t2154s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2154s
+  kind: community
+  title: Part 7 @0:35:54
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t302s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=302s
+  kind: community
+  title: 'Video: Part 7 @0:05:02'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.1)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t308s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=308s
+  kind: community
+  title: Part 7 @0:05:08
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t3308s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3308s
+  kind: community
+  title: 'Video: Part 7 @0:55:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.6)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t3560s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3560s
+  kind: community
+  title: Part 7 @0:59:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t3597s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3597s
+  kind: community
+  title: 'Video: Part 7 @0:59:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t4235s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4235s
+  kind: community
+  title: 'Video: Part 7 @1:10:35'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.22)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t516s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=516s
+  kind: community
+  title: Part 7 @0:08:36
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t5380s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5380s
+  kind: community
+  title: Part 7 @1:29:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t5402s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5402s
+  kind: community
+  title: 'Video: Part 7 @1:30:02'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.7)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-eho0k2wqsjw-t911s
+  url: https://www.youtube.com/watch?v=eHo0k2wQsJw&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=911s
+  kind: community
+  title: 'Video: Part 7 @0:15:11'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.4)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 1)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t11314s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11314s
+  kind: community
+  title: Part 1 @3:08:34
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t11327s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11327s
+  kind: community
+  title: 'Video: Part 1 @3:08:47'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.01)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t11500s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11500s
+  kind: community
+  title: '3:11:40'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t11505s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11505s
+  kind: community
+  title: Part 1 @3:11:45
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t11539s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11539s
+  kind: community
+  title: 'Video: Part 1 @3:12:19'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.15)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12000s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12000s
+  kind: community
+  title: Part 1 @3:20:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12176s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12176s
+  kind: community
+  title: '3:22:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12346s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12346s
+  kind: community
+  title: '3:25:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t124s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=124s
+  kind: community
+  title: Part 1 @0:02:04
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12500s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12500s
+  kind: community
+  title: Part 1 @3:28:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12568s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12568s
+  kind: community
+  title: 'Video: Part 1 @3:29:28'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.21)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12571s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12571s
+  kind: community
+  title: 'Video: Part 1 @3:29:31'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.24)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12885s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12885s
+  kind: community
+  title: 'Video: Part 1 @3:34:45'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.36)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t12890s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=12890s
+  kind: community
+  title: Part 1 @3:34:50
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t13564s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=13564s
+  kind: community
+  title: 'Video: Part 1 @3:46:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t181s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=181s
+  kind: community
+  title: 'Video: Part 1 @0:03:01'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.3)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t2696s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2696s
+  kind: community
+  title: 'Video: Part 1 @0:44:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/03-build-plate.md (03.1)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t2702s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2702s
+  kind: community
+  title: Part 1 @0:45:02
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/03-build-plate.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3002s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3002s
+  kind: community
+  title: Part 1 @0:50:02
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3226s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3226s
+  kind: community
+  title: 'Video: Part 1 @0:53:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.1)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3227s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3227s
+  kind: community
+  title: 'Video: Part 1 @0:53:47'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.6)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3282s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3282s
+  kind: community
+  title: Part 1 @0:54:42
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3298s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3298s
+  kind: community
+  title: 'Video: Part 1 @0:54:58'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.28)
+  - docs/manual/01-frame.md (01.5)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t3346s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3346s
+  kind: community
+  title: Part 1 @0:55:46
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t4395s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4395s
+  kind: community
+  title: 'Video: Part 1 @1:13:15'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t4452s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4452s
+  kind: community
+  title: Part 1 @1:14:12
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t5292s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5292s
+  kind: community
+  title: 'Video: Part 1 @1:28:12'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.17)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t5340s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5340s
+  kind: community
+  title: Part 1 @1:29:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t5361s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5361s
+  kind: community
+  title: 'Video: Part 1 @1:29:21'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.16)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t6351s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6351s
+  kind: community
+  title: Part 1 @1:45:51
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t6396s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6396s
+  kind: community
+  title: 'Video: Part 1 @1:46:36'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.19)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t6843s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6843s
+  kind: community
+  title: 'Video: Part 1 @1:54:03'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.17)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t6850s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6850s
+  kind: community
+  title: Part 1 @1:54:10
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t6870s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6870s
+  kind: community
+  title: 'Video: Part 1 @1:54:30'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.21)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t7126s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7126s
+  kind: community
+  title: 'Video: Part 1 @1:58:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t731s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=731s
+  kind: community
+  title: Part 1 @0:12:11
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t7508s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s
+  kind: community
+  title: 'Video: Part 1 @2:05:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t7513s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7513s
+  kind: community
+  title: Part 1 @2:05:13
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t8452s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8452s
+  kind: community
+  title: 'Video: Part 1 @2:20:52'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.18)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-fetxcc0liwm-t9172s
+  url: https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9172s
+  kind: community
+  title: Part 1 @2:32:52
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 5)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t10027s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10027s
+  kind: community
+  title: Part 5 @2:47:07
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t10085s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=10085s
+  kind: community
+  title: '2:48:05'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t11232s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11232s
+  kind: community
+  title: Part 5 @3:07:12
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t11528s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11528s
+  kind: community
+  title: 'Video: Part 5 @3:12:08'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.62)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t11690s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11690s
+  kind: community
+  title: Part 5 @3:14:50
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t11710s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11710s
+  kind: community
+  title: 'Video: Part 5 @3:15:10'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/01-frame.md (01.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t11826s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11826s
+  kind: community
+  title: Part 5 @3:17:06
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t13315s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=13315s
+  kind: community
+  title: 'Video: Part 5 @3:41:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.51)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t15400s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15400s
+  kind: community
+  title: Part 5 @4:16:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t15501s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15501s
+  kind: community
+  title: 'Video: Part 5 @4:18:21'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.1)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t15844s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=15844s
+  kind: community
+  title: 'Video: Part 5 @4:24:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/11-skirts-panels-door.md (11.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t18357s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=18357s
+  kind: community
+  title: '5:05:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t2760s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2760s
+  kind: community
+  title: Part 5 @0:46:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t2875s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2875s
+  kind: community
+  title: 'Video: Part 5 @0:47:55'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t3796s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3796s
+  kind: community
+  title: Part 5 @1:03:16
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t3940s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3940s
+  kind: community
+  title: Part 5 @1:05:40
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t3947s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3947s
+  kind: community
+  title: 'Video: Part 5 @1:05:47'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.45)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t4340s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4340s
+  kind: community
+  title: Part 5 @1:12:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t4356s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4356s
+  kind: community
+  title: 'Video: Part 5 @1:12:36'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.28)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t4687s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4687s
+  kind: community
+  title: 'Video: Part 5 @1:18:07'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.25)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t4827s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4827s
+  kind: community
+  title: Part 5 @1:20:27
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t5046s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5046s
+  kind: community
+  title: '1:24:06'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t5580s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5580s
+  kind: community
+  title: Part 5 @1:33:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t6114s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6114s
+  kind: community
+  title: 'Video: Part 5 @1:41:54'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.24)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t6323s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6323s
+  kind: community
+  title: Part 5 @1:45:23
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t6490s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6490s
+  kind: community
+  title: 'Video: Part 5 @1:48:10'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t6764s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6764s
+  kind: community
+  title: Part 5 @1:52:44
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t7212s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7212s
+  kind: community
+  title: Part 5 @2:00:12
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t7561s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7561s
+  kind: community
+  title: 'Video: Part 5 @2:06:01'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md (08.32)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t8270s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8270s
+  kind: community
+  title: Part 5 @2:17:50
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/08-toolhead.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-htkcbrk36r0-t8278s
+  url: https://www.youtube.com/watch?v=hTKCBrk36R0&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8278s
+  kind: community
+  title: '2:17:58'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua
+  url: https://www.youtube.com/watch?v=ii14-2COjuA
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 3)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3394s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3394s
+  kind: community
+  title: Part 3 @0:56:34
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3500s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3500s
+  kind: community
+  title: Part 3 @0:58:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3561s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3561s
+  kind: community
+  title: 'Video: Part 3 @0:59:21'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.7)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3860s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3860s
+  kind: community
+  title: Part 3 @1:04:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3899s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3899s
+  kind: community
+  title: 'Video: Part 3 @1:04:59'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t3974s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3974s
+  kind: community
+  title: 'Video: Part 3 @1:06:14'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.8)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4020s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4020s
+  kind: community
+  title: 'Video: Part 3 @1:07:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.11)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4040s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4040s
+  kind: community
+  title: Part 3 @1:07:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4057s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4057s
+  kind: community
+  title: 'Video: Part 3 @1:07:37'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.26)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4308s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4308s
+  kind: community
+  title: 'Video: Part 3 @1:11:48'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.24)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4366s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4366s
+  kind: community
+  title: 'Video: Part 3 @1:12:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4414s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4414s
+  kind: community
+  title: 'Video: Part 3 @1:13:34'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.27)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4589s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4589s
+  kind: community
+  title: 'Video: Part 3 @1:16:29'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.35)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4609s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s
+  kind: community
+  title: 'Video: Part 3 @1:16:49'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/00-before-you-start.md (00.13)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4682s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4682s
+  kind: community
+  title: 'Video: Part 3 @1:18:02'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.2)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4683s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4683s
+  kind: community
+  title: Part 3 @1:18:03
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4763s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4763s
+  kind: community
+  title: Part 3 @1:19:23
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4771s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4771s
+  kind: community
+  title: '1:19:31'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t4887s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4887s
+  kind: community
+  title: 'Video: Part 3 @1:21:27'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.28)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5000s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5000s
+  kind: community
+  title: Part 3 @1:23:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5016s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5016s
+  kind: community
+  title: 'Video: Part 3 @1:23:36'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/04-ab-drives.md (04.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5158s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5158s
+  kind: community
+  title: 'Video: Part 3 @1:25:58'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.29)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5267s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5267s
+  kind: community
+  title: 'Video: Part 3 @1:27:47'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.26)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5306s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5306s
+  kind: community
+  title: 'Video: Part 3 @1:28:26'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.27)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5465s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5465s
+  kind: community
+  title: 'Video: Part 3 @1:31:05'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.31)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5676s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5676s
+  kind: community
+  title: Part 3 @1:34:36
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5686s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5686s
+  kind: community
+  title: 'Video: Part 3 @1:34:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.33)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t5698s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5698s
+  kind: community
+  title: 'Video: Part 3 @1:34:58'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.11)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t6204s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6204s
+  kind: community
+  title: 'Video: Part 3 @1:43:24'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.3)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-ii14-2cojua-t6209s
+  url: https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6209s
+  kind: community
+  title: Part 3 @1:43:29
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 8)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t1862s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=1862s
+  kind: community
+  title: Part 8 @0:31:02
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t2219s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2219s
+  kind: community
+  title: 'Video: Part 8 @0:36:59'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.17)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t2224s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2224s
+  kind: community
+  title: 'Video: Part 8 @0:37:04'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.15)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t2416s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2416s
+  kind: community
+  title: 'Video: Part 8 @0:40:16'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.14)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t3186s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3186s
+  kind: community
+  title: Part 8 @0:53:06
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t3299s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3299s
+  kind: community
+  title: 'Video: Part 8 @0:54:59'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.12)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t3594s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3594s
+  kind: community
+  title: 'Video: Part 8 @0:59:54'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.15)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5097s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5097s
+  kind: community
+  title: 'Video: Part 8 @1:24:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.11)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5100s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5100s
+  kind: community
+  title: Part 8 @1:25:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5397s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5397s
+  kind: community
+  title: 'Video: Part 8 @1:29:57'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.10)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5681s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5681s
+  kind: community
+  title: Part 8 @1:34:41
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5703s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5703s
+  kind: community
+  title: 'Video: Part 8 @1:35:03'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.54)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t5842s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5842s
+  kind: community
+  title: Part 8 @1:37:22
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t6225s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6225s
+  kind: community
+  title: Part 8 @1:43:45
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t6594s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6594s
+  kind: community
+  title: 'Video: Part 8 @1:49:54'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.34)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t6861s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6861s
+  kind: community
+  title: Part 8 @1:54:21
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t6900s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6900s
+  kind: community
+  title: 'Video: Part 8 @1:55:00'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/09-electronics-bay.md (09.23)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t8700s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8700s
+  kind: community
+  title: Part 8 @2:25:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t8716s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=8716s
+  kind: community
+  title: 'Video: Part 8 @2:25:16'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.3)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t9103s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9103s
+  kind: community
+  title: 'Video: Part 8 @2:31:43'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md (12.2)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-q3q1szaffse-t9200s
+  url: https://www.youtube.com/watch?v=Q3Q1szaFfSE&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9200s
+  kind: community
+  title: Part 8 @2:33:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/12-software.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI
+  kind: community
+  title: LDO Voron 2.4 Kit Hangout and Build (Part 4)
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t2050s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2050s
+  kind: community
+  title: Part 4 @0:34:10
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t2096s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2096s
+  kind: community
+  title: 'Video: Part 4 @0:34:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.22)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t2203s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=2203s
+  kind: community
+  title: 'Video: Part 4 @0:36:43'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.4)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t3346s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3346s
+  kind: community
+  title: 'Video: Part 4 @0:55:46'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.2)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t3352s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3352s
+  kind: community
+  title: Part 4 @0:55:52
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t3498s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3498s
+  kind: community
+  title: 'Video: Part 4 @0:58:18'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.9)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t3710s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3710s
+  kind: community
+  title: 'Video: Part 4 @1:01:50'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.11)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t376s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=376s
+  kind: community
+  title: Part 4 @0:06:16
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t390s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=390s
+  kind: community
+  title: 'Video: Part 4 @0:06:30'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.1)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t401s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=401s
+  kind: community
+  title: 'Video: Part 4 @0:06:41'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.19)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t4215s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4215s
+  kind: community
+  title: 'Video: Part 4 @1:10:15'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.13)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t4806s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4806s
+  kind: community
+  title: 'Video: Part 4 @1:20:06'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.15)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t512s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=512s
+  kind: community
+  title: 'Video: Part 4 @0:08:32'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/05-gantry.md (05.20)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t5235s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5235s
+  kind: community
+  title: 'Video: Part 4 @1:27:15'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/02-z-drives.md (02.10)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t5400s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5400s
+  kind: community
+  title: Part 4 @1:30:00
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t5431s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5431s
+  kind: community
+  title: 'Video: Part 4 @1:30:31'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.18)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t5900s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5900s
+  kind: community
+  title: Part 4 @1:38:20
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t5996s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5996s
+  kind: community
+  title: 'Video: Part 4 @1:39:56'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/07-ab-belts.md (07.29)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t612s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=612s
+  kind: community
+  title: 'Video: Part 4 @0:10:12'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.5)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t6224s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6224s
+  kind: community
+  title: 'Video: Part 4 @1:43:44'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md (10.62)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t6230s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6230s
+  kind: community
+  title: Part 4 @1:43:50
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/10-wiring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t753s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=753s
+  kind: community
+  title: 'Video: Part 4 @0:12:33'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.6)
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t761s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=761s
+  kind: community
+  title: Part 4 @0:12:41
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md
+  - docs/manual/assets/video/MANIFEST.md
+- id: youtube-vib5ulc9zdi-t773s
+  url: https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=773s
+  kind: community
+  title: 'Video: Part 4 @0:12:53'
+  first_seen: '2026-10-30'
+  cited_in:
+  - docs/manual/06-z-axis-and-gantry-squaring.md (06.7)
+  - docs/manual/assets/video/MANIFEST.md

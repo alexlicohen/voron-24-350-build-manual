@@ -28,9 +28,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # The default shell is `bash -e`: without set +e a CHANGED exit kills the
-          # step here and the issue step never runs.
+          # step here and the issue step never runs. 2>&1: a crash (traceback on stderr)
+          # also exits 1, and its issue body must show the traceback, not an empty block.
           set +e
-          python3 scripts/sources_verify.py --git-only | tee drift-report.txt
+          python3 scripts/sources_verify.py --git-only 2>&1 | tee drift-report.txt
           status=${PIPESTATUS[0]}
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit 0

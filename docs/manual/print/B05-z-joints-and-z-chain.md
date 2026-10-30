@@ -112,7 +112,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 ## Checkpoint B05
 - [ ] Gate B passed before B05-P1 started
 - [ ] Every `z_joint_lower`'s four M3 holes caliper 3.40 mm ±0.10 on a 15.0 × 16.0 mm pattern
-- [ ] *(kit day)* lower and upper joints fit a real Z carriage and extrusion end
+- [ ] *(kit day)* lower joints fit a real Z carriage; upper joints sit flat on a front idler or A/B drive
 - [ ] Every `z_joint_upper` sits square on a flat face
 - [ ] Confirmed zero copies of `z_joint_upper_hall_effect.stl` were printed
 - [ ] `z_rail_stop_x4` fitted or bagged for fitting

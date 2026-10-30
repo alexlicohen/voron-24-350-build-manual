@@ -784,7 +784,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.145](assets/manual-pages/manual-p145.png){ crop="0.15 0.26 0.52 0.80" }
 
-**What you're looking at:** A page you skip entirely. The pocket shown in the carriage takes a magnet for the hall-effect endstop option; this kit uses a microswitch PCB in the printed endstop pod, bagged in Ch 05 and fitted in Ch 09, so the pocket stays empty.
+**What you're looking at:** A page you skip entirely. The pocket shown in the carriage takes a magnet for the hall-effect endstop option; this kit uses a microswitch PCB in the printed endstop pod, already on the right XY joint since Ch 05, so the pocket stays empty.
 
 **Parts:** none.
 

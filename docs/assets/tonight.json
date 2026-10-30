@@ -72,14 +72,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange.",
+     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer Don't Save unless you meant to re-arrange.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange."
+     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer Don't Save unless you meant to re-arrange."
     },
     {
      "id": "b00-calibration-and-jigs#2",
@@ -2574,14 +2574,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off.",
+     "leave_state": "the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the A DRIVE tray; never stop with a stack loaded and the lower frame off.",
      "helpers": [
       [
        "04.22",
        "Reads the eight-item stack order aloud and hands you each part in turn."
       ]
      ],
-     "text": "Step 04.20 → Step 04.23 · ~25 min · leave-state: the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the **A DRIVE** tray; never stop with a stack loaded and the lower frame off."
+     "text": "Step 04.20 → Step 04.23 · ~25 min · leave-state: the A drive frames are closed snug over both bearing stacks; the motor and pulley are not fitted yet. Put the closed frame in the A DRIVE tray; never stop with a stack loaded and the lower frame off."
     },
     {
      "id": "04-ab-drives#4",
@@ -2602,7 +2602,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
+     "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled A — REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
      "helpers": [
       [
        "04.24",
@@ -2613,7 +2613,7 @@
        "Sights along the belt at eye level and says if it tilts."
       ]
      ],
-     "text": "Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled **A — REAR RIGHT**. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
+     "text": "Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled A — REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
     },
     {
      "id": "04-ab-drives#5",
@@ -2638,7 +2638,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.",
+     "leave_state": "the B drive is finished and labelled B — REAR LEFT, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.",
      "helpers": [
       [
        "04.30",
@@ -2657,7 +2657,7 @@
        "Sights along the belt at eye level and says if it tilts."
       ]
      ],
-     "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled **B — REAR LEFT**, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions."
+     "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled B — REAR LEFT, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions."
     },
     {
      "id": "04-ab-drives#6",
@@ -3161,7 +3161,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.",
+     "leave_state": "all four Z idlers extended, top clamps loosened, and the first Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.",
      "helpers": [
       [
        "06.16",
@@ -3172,7 +3172,7 @@
        "Pulls the belt tail tight and holds it while you tighten both M5×16 bolts."
       ]
      ],
-     "text": "Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on."
+     "text": "Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers extended, top clamps loosened, and the first Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#5",
@@ -3817,9 +3817,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet.",
+     "leave_state": "Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. Nothing is terminated and the C13 cord stays in its bag — do not connect anything to the inlet.",
      "helpers": [],
-     "text": "Step 09.8 → Step 09.13 · ~30 min · leave-state: Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. **Nothing is terminated and the C13 cord stays in its bag** — do not connect anything to the inlet."
+     "text": "Step 09.8 → Step 09.13 · ~30 min · leave-state: Pi bracket and 5 V PSU correctly skipped, inlet panel heat-set and fitted with the IEC module, panel bolted to the rear extrusion, mains WAGO block built and mounted. Nothing is terminated and the C13 cord stays in its bag — do not connect anything to the inlet."
     },
     {
      "id": "09-electronics-bay#3",
@@ -3965,9 +3965,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.",
+     "leave_state": "both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Do not start Ch 10 in a leftover ten minutes: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1.",
      "helpers": [],
-     "text": "Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. **Do not start Ch 10 in a leftover ten minutes**: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
+     "text": "Step 09.35 → Step 09.36 · ~45 min · leave-state: both conduits stuck down with their lids off, bay fully populated, tagged and checked against the v3 overlay and LDO's layout, printer still on its head, mains-safety hardware staged in one labelled bag, meter beside it. Do not start Ch 10 in a leftover ten minutes: mains work is a fresh session with a clear head, and it ends at LDO's Checkpoint #1."
     }
    ]
   },
@@ -3995,9 +3995,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. **No mains wiring started.** Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated.",
+     "leave_state": "printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated.",
      "helpers": [],
-     "text": "Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. **No mains wiring started.** Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated."
+     "text": "Step 10.1 → Step 10.4 · ~15 min · leave-state: printer on its side, PSU selector set, Leviathan jumpers off, the Ch 09 inlet panel confirmed. No mains wiring started. Do not start the inlet-to-WAGO run until you can finish it: the next segment ends with the whole inlet→WAGO→PSU chain terminated."
     },
     {
      "id": "10-wiring#1",
@@ -4068,9 +4068,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead. Leave it **upright** for Sections 3 and 4, the above-deck work and the chains; it goes on its side after 10.66.",
+     "leave_state": "Checkpoint #1 passed end to end and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. Leave it upright for Sections 3 and 4, the above-deck work and the chains; it goes on its side after 10.66.",
      "helpers": [],
-     "text": "Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. **Cord unplugged and back out of the room.** Everything from here is done dead. Leave it **upright** for Sections 3 and 4, the above-deck work and the chains; it goes on its side after 10.66."
+     "text": "Step 10.17 → Step 10.23 · ~25 min · leave-state: Checkpoint #1 passed end to end and the machine was powered once and switched off. Cord unplugged and back out of the room. Everything from here is done dead. Leave it upright for Sections 3 and 4, the above-deck work and the chains; it goes on its side after 10.66."
     },
     {
      "id": "10-wiring#4",
@@ -4130,7 +4130,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. **Chains are empty and latched.** Do not part-fill a chain and walk away — the next segment fills all three in one go.",
+     "leave_state": "X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go.",
      "helpers": [
       [
        "10.36",
@@ -4141,7 +4141,7 @@
        "Feeds the cable along each slot from the corner while the adult seats it."
       ]
      ],
-     "text": "Step 10.35 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. **Chains are empty and latched.** Do not part-fill a chain and walk away — the next segment fills all three in one go."
+     "text": "Step 10.35 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go."
     },
     {
      "id": "10-wiring#6",
@@ -4299,7 +4299,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt.",
+     "leave_state": "below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and every AC lid on; DC lids still off. Do not fit a DC lid or any skirt.",
      "helpers": [
       [
        "10.70",
@@ -4310,7 +4310,7 @@
        "Reads each row of the walk table aloud and ticks it off when the adult points to it."
       ]
      ],
-     "text": "Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and **every AC lid on; DC lids still off**. Do not fit a DC lid or any skirt."
+     "text": "Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and every AC lid on; DC lids still off. Do not fit a DC lid or any skirt."
     },
     {
      "id": "10-wiring#12",
@@ -4387,9 +4387,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting.",
+     "leave_state": "the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting.",
      "helpers": [],
-     "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. **Nothing has been flashed yet.** Do not start a firmware build you cannot finish and flash in the same sitting."
+     "text": "Step 12.11 → Step 12.13 · ~15 min · leave-state: the bay has been powered once, both MCUs enumerate on `/dev/serial/by-id/`, both IDs are written down, and you have read the Leviathan's own silkscreen. Nothing has been flashed yet. Do not start a firmware build you cannot finish and flash in the same sitting."
     },
     {
      "id": "12-software#7",
@@ -4604,7 +4604,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.",
+     "leave_state": "bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. Leave the VHB to cure undisturbed — do not swing the door open until it has; do not press a pad and walk away before the panel is on it.",
      "helpers": [
       [
        "11.19",
@@ -4619,7 +4619,7 @@
        "Holds the panel square to the frame while you press it onto the pads."
       ]
      ],
-     "text": "Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. **Leave the VHB to cure undisturbed** — do not swing the door open until it has; do not press a pad and walk away before the panel is on it."
+     "text": "Step 11.18 → Step 11.21 · ~20 min · leave-state: bay-fan wiring verified against Ch 10, bestagon insert decided, VHB pads pressed and the bottom panel hung on its rear hinges and front clips. Leave the VHB to cure undisturbed — do not swing the door open until it has; do not press a pad and walk away before the panel is on it."
     },
     {
      "id": "11-skirts-panels-door#5",
@@ -4718,7 +4718,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.",
+     "leave_state": "plenum and cartridge magnets glued in matching polarity, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went.",
      "helpers": [
       [
        "11.34",
@@ -4733,7 +4733,7 @@
        "Writes the fill state and the date on the cartridge lid."
       ]
      ],
-     "text": "Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued **in matching polarity**, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went."
+     "text": "Step 11.34 → Step 11.37 · ~20 min · leave-state: plenum and cartridge magnets glued in matching polarity, both lids closed, the cartridge's fill state written on its lid. Never stop between gluing the plenum magnets and the cartridge magnets: the second set has to be matched to the first while you still know which way round they went."
     },
     {
      "id": "11-skirts-panels-door#9",
@@ -4813,7 +4813,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "**end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.",
+     "leave_state": "end of Part A. Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13.",
      "helpers": [
       [
        "11.48",
@@ -4824,7 +4824,7 @@
        "Peels the foam tape backing a hand's length ahead as you press it down."
       ]
      ],
-     "text": "Step 11.48 → Step 11.51 · ~20 min · leave-state: **end of Part A.** Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13."
+     "text": "Step 11.48 → Step 11.51 · ~20 min · leave-state: end of Part A. Handle, latch and handle-hinge magnets glued and curing, the latch heat-set and panel clip fitted, and the front opening foam-taped. Do not fit the back, side or top panels: Ch 13 needs every face open. Go to Ch 13."
     }
    ]
   },
@@ -4850,9 +4850,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.",
+     "leave_state": "bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. The cord is out of the room, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free.",
      "helpers": [],
-     "text": "Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. **The cord is out of the room**, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free."
+     "text": "Step 13.1 → Step 13.2 · ~15 min · leave-state: bench cleared, tools and meter staged, Checkpoint #1 re-read and the PSU voltage selector confirmed for the third time. The cord is out of the room, the machine on its side with the bottom door swung down, proven dead. The next segment is the power-on and runs straight through to the fan and light checks — do not start it with less than 45 minutes free."
     },
     {
      "id": "13-initial-startup#1",
@@ -4905,7 +4905,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "every motor buzzed, identified and turning the right way, and any swap has been fixed **at the connector, not in the config**. The machine still has not homed.",
+     "leave_state": "every motor buzzed, identified and turning the right way, and any swap has been fixed at the connector, not in the config. The machine still has not homed.",
      "helpers": [
       [
        "13.13",
@@ -4920,7 +4920,7 @@
        "Watches the Clockwork 2 gears and says whether they turned both ways."
       ]
      ],
-     "text": "Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed **at the connector, not in the config**. The machine still has not homed."
+     "text": "Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed at the connector, not in the config. The machine still has not homed."
     },
     {
      "id": "13-initial-startup#3",
@@ -4986,14 +4986,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "**homing works.** X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop.",
+     "leave_state": "homing works. X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop.",
      "helpers": [
       [
        "13.26",
        "Reads the M114 X and Y values aloud while the adult types them into safe_z_home."
       ]
      ],
-     "text": "Step 13.22 → Step 13.27 · ~30 min · leave-state: **homing works.** X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop."
+     "text": "Step 13.22 → Step 13.27 · ~30 min · leave-state: homing works. X, Y and Z home, the bed is located, 0,0 is defined and the `[safe_z_home]` coordinate is written into `printer.cfg`, and a full `G28` completes without a crash. Klipper came back clean after the edits (commit them: `cd ~/printer_data/config && git add -A && git commit -m \"13.26 safe_z_home\"`). This is the biggest milestone in the chapter — a good place to stop."
     },
     {
      "id": "13-initial-startup#5",
@@ -5038,9 +5038,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.",
+     "leave_state": "hot `PROBE_ACCURACY` passed and QGL converges. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first.",
      "helpers": [],
-     "text": "Step 13.32 → Step 13.33 · ~15 min · leave-state: hot `PROBE_ACCURACY` passed and **QGL converges**. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first."
+     "text": "Step 13.32 → Step 13.33 · ~15 min · leave-state: hot `PROBE_ACCURACY` passed and QGL converges. Heaters can go off; `SET_IDLE_TIMEOUT TIMEOUT=1800` puts the timeout back (Ch 06b raises it again at Step 06b.1). Do not stop mid-QGL with the gantry at an unknown tilt; let the macro finish or `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` / `…stepper_y…` (never `M84`) and re-home first."
     },
     {
      "id": "13-initial-startup#7",
@@ -5057,9 +5057,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "you are handed off to **Ch 06b**: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.",
+     "leave_state": "you are handed off to Ch 06b: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored.",
      "helpers": [],
-     "text": "Step 13.34 · ~10 min · leave-state: you are handed off to **Ch 06b**: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored."
+     "text": "Step 13.34 · ~10 min · leave-state: you are handed off to Ch 06b: A/B tension fully released, Z joints dropped, gantry squared cold to the manual's procedure and the A/B belts back at a provisional tension. Come back to 13.35 with Checkpoint 06b ticked. Do not re-run QGL until A/B tension is restored."
     },
     {
      "id": "13-initial-startup#8",
@@ -5626,14 +5626,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "**A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.",
+     "leave_state": "A and B are both at final tension and equal. Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.",
      "helpers": [
       [
        "14.4",
        "Holds the phone by the span and reads the lowest peak aloud after each pluck."
       ]
      ],
-     "text": "Step 14.4 · ~20 min · leave-state: **A and B are both at final tension and equal.** Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed."
+     "text": "Step 14.4 · ~20 min · leave-state: A and B are both at final tension and equal. Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed."
     },
     {
      "id": "14-calibration#3",
@@ -5752,14 +5752,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "`SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them.",
+     "leave_state": "`SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. Never stop between running the calibration and saving it; the CSVs live in `/tmp` and a reboot loses them.",
      "helpers": [
       [
        "14.14",
        "Finds the tallest peak on each graph and reads its frequency aloud."
       ]
      ],
-     "text": "Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. **Never stop between running the calibration and saving it**; the CSVs live in `/tmp` and a reboot loses them."
+     "text": "Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. Never stop between running the calibration and saving it; the CSVs live in `/tmp` and a reboot loses them."
     },
     {
      "id": "14-calibration#8",
@@ -5776,9 +5776,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.",
+     "leave_state": "optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at 15 and 350. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print.",
      "helpers": [],
-     "text": "Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at **15 and 350**. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print."
+     "text": "Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at 15 and 350. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print."
     },
     {
      "id": "14-calibration#9",
@@ -5796,14 +5796,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next.",
+     "leave_state": "the PA pattern is printed, read and the chosen value saved into the ASA filament profile. One calibration item closed; extrusion multiplier is the next.",
      "helpers": [
       [
        "14.18",
        "Once the pattern has cooled off the plate, counts lines from its start to the sharpest corner with the loupe."
       ]
      ],
-     "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA **filament** profile. One calibration item closed; extrusion multiplier is the next."
+     "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA filament profile. One calibration item closed; extrusion multiplier is the next."
     },
     {
      "id": "14-calibration#10",

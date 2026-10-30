@@ -342,6 +342,56 @@ def check_b11(plate, plan: str, readme: str) -> list[str]:
     return bad
 
 
+def _sort_row_ok(page: str, gen: str) -> bool:
+    """Page row == generated row, or the generated row plus `, <note>` with no backtick."""
+    if page == gen:
+        return True
+    head = gen[:-2]  # generated rows end " |"
+    return (page.startswith(head + ", ") and page.endswith(" |")
+            and "`" not in page[len(head):] and "|" not in page[len(head):-2])
+
+
+def check_sort_tables() -> tuple[list[str], int]:
+    """§ 9: each batch page's per-plate *Sort into bins* table (`**<plate>**` + table) equals
+    what `scripts/render_plate_bins.py --markdown` generates from the plate's 3MF and
+    bins.py, regenerated here in memory. A page row may append a plain-text note to the
+    parts cell (`..., after Step B00.7 |`: no backticks, so it cannot name a part); bins,
+    parts and counts must match exactly. Returns (problems, plates checked)."""
+    sys.path.insert(0, str(REPO / "scripts"))
+    import render_plate_bins as rpb  # noqa: E402  (no Pillow needed for the tables)
+    bad: list[str] = []
+    ids = sorted(p.stem for p in rpb.PLATE_DIR.glob("*.3mf"))
+    pages: dict[str, list[str]] = {}
+    for pid in ids:
+        stem = CHAPTER.get(pid[:3])
+        if stem is None:
+            bad.append(f"sort tables: {pid} has no batch page in CHAPTER")
+            continue
+        lines = pages.setdefault(stem, (PRINT / f"{stem}.md").read_text().splitlines())
+        want = [ln for ln in rpb.markdown_tables([pid]).splitlines()[1:] if ln.strip()]
+        heads = [i for i, ln in enumerate(lines) if re.match(rf"\*\*{pid}\*\*(\s|$)", ln)]
+        if len(heads) != 1:
+            bad.append(f"{stem}.md: {pid} sort table: expected one `**{pid}**` heading, "
+                       f"found {len(heads)}")
+            continue
+        i = heads[0] + 1
+        while i < len(lines) and not lines[i].strip():
+            i += 1
+        t0, got = i, []
+        while i < len(lines) and lines[i].startswith("|"):
+            got.append(lines[i].rstrip())
+            i += 1
+        if len(got) == len(want) and all(map(_sort_row_ok, got, want)):
+            continue
+        k = next((k for k, (g, w) in enumerate(zip(got, want)) if not _sort_row_ok(g, w)),
+                 min(len(got), len(want)))
+        bad.append(f"{stem}.md:{t0 + k + 1}: {pid} sort table differs at table line {k + 1}: "
+                   f"page {got[k] if k < len(got) else '(no line)'!r}, generated "
+                   f"{want[k] if k < len(want) else '(no line)'!r} "
+                   f"(regenerate: scripts/render_plate_bins.py --markdown {pid})")
+    return bad, len(ids)
+
+
 _PLATE_ID_RE = re.compile(r"\bB\d\d-P\d\b")
 
 
@@ -457,6 +507,10 @@ def main() -> int:
     #    in 00-index.md is history and exempt; generated step pages are skipped.
     bad += check_plate_ids(set(plate))
 
+    # 9. every plate's sort table on its batch page matches render_plate_bins --markdown
+    sort_bad, n_sort = check_sort_tables()
+    bad += sort_bad
+
     if bad:
         print(f"{len(bad)} mismatch(es):")
         for b in bad:
@@ -470,7 +524,8 @@ def main() -> int:
           f"totals and diagram 11's hours all agree; "
           + (f"B11 {batch['B11']['plates']} plates, {batch['B11']['h']} h, {batch['B11']['petg']} g "
              f"PETG V0 on its own, consistent across its page, print/README, the plan and the index"
-             if "B11" in batch else ""))
+             if "B11" in batch else "")
+          + f"; {n_sort} plates' sort tables match render_plate_bins --markdown")
     return 0
 
 

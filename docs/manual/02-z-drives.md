@@ -725,7 +725,7 @@ Pause: ~35 min since the last pause — all four drives closed: shafts seated, r
 
 ![Voron manual p.38](assets/manual-pages/manual-p038.png)
 
-**What you're looking at:** Manual p.38: a Z stepper motor with its **16T pulley**. The Z motors are the only place in this printer that uses 16T. The 20T pulleys elsewhere look identical, and fitting a 20T here silently changes the gear ratio the firmware assumes. See the [glossary](16-glossary.md#p).
+**What you're looking at:** Manual p.38: a Z motor with its **16T pulley**, the only 16T in the printer. The 20T pulleys look identical, and a 20T here silently changes the gear ratio the firmware assumes. Stood up, the jig's **Z** tab reads N. See the [glossary](16-glossary.md#p).
 
 **Parts:**
 
@@ -738,7 +738,7 @@ Pause: ~35 min since the last pause — all four drives closed: shafts seated, r
 **Do:**
 
 1. Check the tooth count: **the only 16T pulleys**.
-2. Stand `pulley_jig` on the motor face, **N** tab to the pulley; level the teeth underside with the tab's: **10.7 mm**.
+2. Stand `pulley_jig` on the motor face, **Z** tab to the pulley; level the teeth underside with the tab's: **10.7 mm**.
 3. Set a screw on the flat; tighten both, threadlocker pre-applied.
 
 **Check:** All four: 10.7 mm on a caliper cross-check, tooth band level with the 80T it drives, no slip under hand force.
