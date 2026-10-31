@@ -1,0 +1,19 @@
+# Mirrored step images for docs/manual/01-frame.md
+# LDO images are mirrored under Alex's 2026-09-05 ruling (CONVENTIONS.md "Image
+# licensing"): non-commercial, attributed use. Attribution: LDO Motors.
+
+blind-joint-seal-iso.png
+  cited-as: https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal (image p.png; the same LDO render is image 2 on https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors)
+  fetched : https://cdn.shopify.com/s/files/1/0541/6638/8905/files/p.png?v=1779964718 (1500 px, resized to 1000)
+  owner   : LDO Motors (product render, LDO-PART-EBJS, on a reseller listing)
+  licence : no licence stated; mirrored under the ruling above
+  date    : 2026-10-30
+  sha256  : 4caba292770bca4fc60218cdcc7ac41a509eaa2a343eb2733daf70d6f3c1dca7
+
+blind-joint-seal-top.png
+  cited-as: https://store.dremc.com.au/products/ldo-motion-extrusion-blind-joint-seal (top view)
+  fetched : https://cdn.shopify.com/s/files/1/0541/6638/8905/files/ldo-motion-extrusion-blind-joint-seal-ldo-part-ebjs-9181133.png?v=1780045462 (1500 px, resized to 1000)
+  owner   : LDO Motors (product render, LDO-PART-EBJS, on a reseller listing)
+  licence : no licence stated; mirrored under the ruling above
+  date    : 2026-10-30
+  sha256  : e5f50ca36d7e2868ba0d3633fee3c5da75c4864d327f143a951eb8f12e42b06b
