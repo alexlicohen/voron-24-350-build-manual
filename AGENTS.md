@@ -21,6 +21,8 @@ Most efficient AND most effective print/build order for the Voron 2.4 350 once t
 ## Printing and slicing
 - Print sheet follows the material: ASA satin + brim, no glue (Alex 2026-10-28), PLA satin,
   PETG textured.
+- Infill is gyroid by default (Alex 2026-10-31) for every new profile and 3MF; another pattern
+  only for a stated reason, recorded next to the setting.
 - Test one variable at a time (Alex): change one print setting per test print.
 - The 2.9.6 CLI cannot arrange plates: `slicer/nest.py` proposes, the GUI Arrange is the QC authority.
   After any GUI re-save: `python3 slicer/build_plates.py --from-3mf <re-saved plate ids>`
