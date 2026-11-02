@@ -157,7 +157,7 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 7.7,
+   "hours": 7.6,
    "grams": 113,
    "colour": "black",
    "slot": "overnight",
@@ -173,7 +173,7 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 7.6,
+   "hours": 7.5,
    "grams": 111,
    "colour": "black",
    "slot": "overnight",
@@ -399,7 +399,7 @@
   {
    "run": "asa",
    "plates": 21,
-   "hours": 150.9,
+   "hours": 150.7,
    "label": "21-plate run"
   },
   {
@@ -411,9 +411,9 @@
  ],
  "totals": {
   "plates": 26,
-  "hours": 175.8,
+  "hours": 175.6,
   "overnight": 10,
   "run_plates": 21,
-  "run_hours": 150.9
+  "run_hours": 150.7
  }
 }

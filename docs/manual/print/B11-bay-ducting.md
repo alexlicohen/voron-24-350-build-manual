@@ -72,7 +72,7 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 - **Not Voron spec.** The ducts carry no load, so B11 has its own bundle, `slicer/bay-ducts-petg.ini`: system filament `Prusament PETG V0 @COREONE HF0.4`, 0.20 mm layers, 3 perimeters, 4 top and 4 bottom, 20 % **grid** infill, no supports. Printer settings and the cold start G-code are the ASA run's. Grid infill, as the bundle was sliced; the ducts carry no load. Every key: `slicer/OVERRIDES.md` § Bay-duct bundle.
 - **Textured sheet.** Prusa does not recommend PETG V0 on smooth PEI: it bonds hard enough to damage the sheet, and that damage is not covered by warranty. Swap back to the satin sheet before the next ASA plate.
 - **AFS flaps.** The bundle's filament start G-code sends `M106 P3 S160` and its end G-code `M106 P3 R`, so the bypass flaps lift for PETG with Chamber Filtration left on Adv. Filtration. Print from Connect or USB, not OctoPrint: the fixed P3 target makes `M141` log an error OctoPrint would halt on.
-- **Arrangement provisional, GUI QC pending.** All five plates were packed by `slicer/nest.py` at a 6 mm gap and sliced from the CLI; none has been opened, arranged and re-saved in PrusaSlicer yet. Before each first print: **Arrange Current Bed** (6 mm, rotations on), save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
+- **Arrangement reviewed.** All five plates were packed by `slicer/nest.py` at a 6 mm gap and passed the Step B00.8 review as packed (2026-11-02). If kit day changes a duct, re-arrange that plate: **Arrange Current Bed** (6 mm, rotations on), save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
 - **Two groups.** P1 to P3 need nothing measured and print right after B07, before B08: Ch 09 needs them, and nothing needs B08–B10 until Ch 10.50. "Before kit" below names the group (no kit part needed), not the date. P4 holds the custom lengths and P5 the narrowed middle run; both wait for the kit-day bay measurements, and P5 also waits for the coupon test. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is needed.
 - Every part is Jet Black. Nothing here is dimension-critical beyond the lid snap, which the coupon tests.
 
@@ -105,8 +105,6 @@ Source: [`slicer/OVERRIDES.md` § Bay-duct bundle](https://github.com/alexlicohe
 **Do:** Open `slicer/plates/B11-P1.3mf` with **File → Open Project** and print it on its own, first. It is the lid-snap test for the narrowed middle run.
 **Parts:** `V3L_COUPON_22N_DUCT` · `V3L_COUPON_22N_DUCT_COVER` · 2 files, 2 objects — 0.4 h, 4 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** Preview shows the bay-ducts PETG V0 bundle, the duct base down and the lid flat, no supports.
-
-⚠ **GUI QC pending:** this arrangement came from `nest.py`. Before the first print, run Arrange Current Bed, save over the 3MF, then `build_plates.py --from-3mf B11-P1` and `check_docs.py`.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -421,7 +419,7 @@ Source: [print/README § Bins](README.md#bins)
 - [ ] TH, probe, filter-fan and bed L leads confirmed against layout v3 in Ch 09/10, not on kit day
 - [ ] Every lid snaps onto its duct; bodies in 09-ducts-DC and 09-ducts-AC, lids in 10-lids-AC with the strip fin and 11-lids-DC
 - [ ] Satin sheet back on the printer and Chamber Filtration on Adv. Filtration for any ASA plate
-- [ ] GUI QC done on all five plates and `check_docs.py` green after the re-saves
+- [ ] Any re-saved B11 plate rebuilt with `--from-3mf` and `check_docs.py` green
 
 ## Common mistakes
 - Printing PETG V0 on the smooth sheet. It can tear the coating; use the textured sheet.

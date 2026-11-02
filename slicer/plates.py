@@ -421,17 +421,17 @@ PLATES: dict[str, dict] = {
     # ---- B11: bay ducting, layout v3 (PETG V0, outside the ASA run) ----------------------
     # group "before-kit": needs no bench measurement. group "after-kit": custom lengths and
     # the narrowed middle run, printed once the kit-day measurements are in (B11 page).
-    # qc="pending": packed by nest.py, not yet opened, arranged and re-saved in the GUI.
-    # Once Alex has done that, delete the key and run build_plates.py --from-3mf B11-Pn.
+    # Packed by nest.py; Alex passed the arrangements as packed at the Step B00.8 review (2026-11-02).
+    # qc="pending" marks a plate whose arrangement has not been reviewed (none now).
     "B11-P1": dict(
-        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        batch="B11", colour="petg", run="bay", group="before-kit",
         note="Test coupon: prints first, alone. The lid must snap and hold before P5 is printed.",
         parts=[
             ("bayducts", "remix/V3L_COUPON_22N_DUCT.stl", 1),
             ("bayducts", "remix/V3L_COUPON_22N_DUCT_COVER.stl", 1),
         ]),
     "B11-P2": dict(
-        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        batch="B11", colour="petg", run="bay", group="before-kit",
         note="DC conduit: the two stock 154s and the three 90 deg corners.",
         parts=[
             ("bayducts", "mss/502306/CMD_V3_1H_154mm_DUCT.stl", 2),
@@ -442,7 +442,7 @@ PLATES: dict[str, dict] = {
             ("bayducts", "remix/V2L_90DEG_COVER_MIRROR.stl", 1),
         ]),
     "B11-P3": dict(
-        batch="B11", colour="petg", run="bay", group="before-kit", qc="pending",
+        batch="B11", colour="petg", run="bay", group="before-kit",
         note="AC conduit (wire box, R15 curves, SSR T, endcaps, strip fin) plus the DC S-jog.",
         parts=[
             ("bayducts", "remix/V3L_WIRE_BOX_PORT.stl", 1),
@@ -457,7 +457,7 @@ PLATES: dict[str, dict] = {
             ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl", 2),
         ]),
     "B11-P4": dict(
-        batch="B11", colour="petg", run="bay", group="after-kit", qc="pending",
+        batch="B11", colour="petg", run="bay", group="after-kit",
         note="Custom lengths: regenerate any piece whose bench gap differs before slicing.",
         parts=[
             ("bayducts", "remix/V2L_58mm_DUCT.stl", 3),
@@ -472,7 +472,7 @@ PLATES: dict[str, dict] = {
             ("bayducts", "remix/V3L_34mm_DUCT_COVER.stl", 1),
         ]),
     "B11-P5": dict(
-        batch="B11", colour="petg", run="bay", group="after-kit", qc="pending",
+        batch="B11", colour="petg", run="bay", group="after-kit",
         note="Narrowed middle run: only if the Leviathan-to-PSU gap is 25 mm or more.",
         parts=[
             ("bayducts", "remix/V3L_154N_DUCT.stl", 2),

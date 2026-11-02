@@ -78,7 +78,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.9 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.7 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
 leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
 not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the

@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.9 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.7 h of printing across 21 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -82,9 +82,9 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B06.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
 - **B06 — Toolhead: SB, CW2, Klicky** — <span data-first-step="B06.5">Step B06.5 · ~10 min · leave-state: toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.</span>
     - Step B06.5 — Writes the bin id and the date on the inside face of each part.
-- **B07 — Electronics bay + lighting** — <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.7 h unattended · leave-state: plate B07-P1 running, 7.7 h unattended — door shut; come back for the next step when it ends</span>
+- **B07 — Electronics bay + lighting** — <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P1 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
     - Step B07.2 — Counts the parts on the sorting diagram and checks the total against the object count.
-- **B07 — Electronics bay + lighting** — <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- **B07 — Electronics bay + lighting** — <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B07-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
     - Step B07.4 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B07 — Electronics bay + lighting** — <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.</span>
     - Step B07.7 — Reads each bin label aloud and checks the count against the diagram.
@@ -181,8 +181,8 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="B06.5">Step B06.5 · ~10 min · leave-state: toolhead parts in 08-SB and 08-CW2, the closed Klicky bag in spare-alt. No magnets pressed, no hotend fitted.</span>
 
 ### 10 · Print — B07 — Electronics bay + lighting
-- <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.7 h unattended · leave-state: plate B07-P1 running, 7.7 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P2 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B07.2">Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P1 running, 7.6 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B07.4">Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B07-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B07.6">Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled.</span>
 - <span data-first-step="B07.7">Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.</span>
 

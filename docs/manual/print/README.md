@@ -1,6 +1,6 @@
 # Print batches — overview
 
-21 plates, **150.9 h**, **1810 g Galaxy Black + 277 g ASA Blue**. Every hour and gram on this page is a
+21 plates, **150.7 h**, **1810 g Galaxy Black + 277 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -20,7 +20,7 @@ caption: Twenty-one plates, start to finish. The printer works while the kit is 
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
 Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
-— 150.9 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 150.7 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -38,11 +38,11 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.7 | 116 | 0 | Ch 05 Gantry | Gate B |
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.2 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
 | [B06](B06-toolhead-sb-cw2-klicky.md) | 1 | 11.6 | 147 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
-| [B07](B07-electronics-bay-and-lighting.md) | 2 | 15.3 | 224 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
+| [B07](B07-electronics-bay-and-lighting.md) | 2 | 15.1 | 224 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
 | [B08](B08-skirts-and-front-modules.md) | 4 | 26.7 | 398 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 4 | 20.5 | 295 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 75 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **21** | **150.9** | **1810** | **277** | | |
+| **TOTAL** | **21** | **150.7** | **1810** | **277** | | |
 
 All 21 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
@@ -70,8 +70,8 @@ between #12 and #13 ([B11 run schedule](#b11-run-schedule)).
 | 8 | B04-P1 | 8.7 | black | overnight | #1 |
 | 9 | B05-P1 | 6.2 | black | day | #1 |
 | 10 | B06-P1 | 11.6 | black | overnight | #2 (fresh) |
-| 11 | B07-P1 | 7.7 | black | overnight | #2 |
-| 12 | B07-P2 | 7.6 | black | overnight | #2 |
+| 11 | B07-P1 | 7.6 | black | overnight | #2 |
+| 12 | B07-P2 | 7.5 | black | overnight | #2 |
 | 13 | B08-P1 | 6.3 | black | day | #2 |
 | 14 | B08-P2 | 6.5 | black | day | #2 |
 | 15 | B08-P3 | 6.5 | black | day | #2 |
@@ -82,7 +82,7 @@ between #12 and #13 ([B11 run schedule](#b11-run-schedule)).
 | 20 | B09-P4 | 3.6 | black | day | #3 |
 | 21 | B10-P1 | 5.7 | black | day | #3 |
 
-Ten overnight plates and eleven day plates, 150.9 h in all: about 15 printer-days, two to two and a half weeks
+Ten overnight plates and eleven day plates, 150.7 h in all: about 15 printer-days, two to two and a half weeks
 at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.2 h) that
 evening and B01-P1 the next morning: B01-P1 then starts with ~649 g on spool #1, well over its 200 g rule.
 
@@ -260,7 +260,7 @@ Sources: [Prusa KB — Filament runout #31829](https://help.prusa3d.com/article/
 [B11](B11-bay-ducting.md) replaces LDO's five PVC wire ducts with two printed conduits, layout v3. It is
 **outside the ASA run**: Prusament PETG V0 Jet Black on the textured sheet, sliced with
 `slicer/bay-ducts-petg.ini`, not to Voron spec. Every hour and gram is a PrusaSlicer 2.9.6 estimate from
-the committed projects, whose arrangements are still provisional until GUI QC. `check_docs.py` checks
+the committed projects, whose arrangements passed the Step B00.8 review (2026-11-02). `check_docs.py` checks
 this table, the run schedule and the ledger below against `slicer/estimates.csv`.
 
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
