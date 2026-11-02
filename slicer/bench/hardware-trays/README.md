@@ -26,6 +26,7 @@ stored in the trays. Renders (blue = the layers above the label ledges, i.e. the
 | `gen_trays.py` | the only generator (CadQuery, `venv-cq`; no other dependency) |
 | `tray-{A,B,C}.stl` | print-ready meshes, as oriented |
 | `tray-{A,B,C}.3mf` | PrusaSlicer 2.9.6 projects, one tray per bed, config embedded |
+| `lid-5x4.{stl,3mf}` | the stack lid (Alex 2026-11-01): seats in the top tray's stacking lip on a ring with the Gridfinity foot profile, finger tab at the front, "VORON 2.4 350 / HARDWARE" cut 1.0 mm into the top; printed plate-down (the letters are its first five layers, solid white; the slicer's "Low bed adhesion" note is the letter counters, expected), gyroid. White with black letters: two M600 stops embedded, black at Z 1.20 (the two layers that floor the letters; they also show as a 0.4 mm black line round the edge), white again at Z 1.60; 2 h 15 m, 83 g. Render `renders/lid-5x4-34.png` |
 | `renders/*.png` | top and 3/4 views of each tray, and a Y–Z section (`-section.png`) |
 
 ## Regenerate
@@ -37,6 +38,7 @@ venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --compare 3  # build
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --lever-study  # slice with the plastic levers added one by one
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --levers none  # the plain (solid-base, 2.6 mm wall) bins
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --no-slice
+venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --lid      # only the stack lid (STL, render, 3MF, slice)
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --holes magnet   # or screw; default none
 venv-cq/bin/python slicer/bench/hardware-trays/gen_trays.py --validate REF.stl   # profile check, below
 ```

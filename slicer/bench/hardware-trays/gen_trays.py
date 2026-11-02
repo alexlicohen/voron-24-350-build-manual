@@ -789,6 +789,55 @@ def build_tray(tray: Tray, holes: str = "none"):
     return solid.clean()
 
 
+# Lid for a stack of same-footprint trays (Alex 2026-11-01): a plate on a ring that has the
+# Gridfinity foot's outer profile, so it seats in the top tray's stacking lip exactly as a
+# stacked bin's feet do. A ring, not 20 solid feet: only the outer faces touch the lip.
+LID_PLATE = 2.0             # 10 layers: 5 solid white over the letter floors, then 2 black, 3 white
+LID_RING = 2 * T2           # ring wall at the foot's narrow bottom: 2 + 2 perimeters
+LID_CHAMFER = 0.6           # top edge (the first layer as printed: no elephant foot)
+LID_TAB = (40.0, 8.0, 4.0)  # finger tab on the front edge: width, reach past the tray, corner r
+LID_TEXT = ("VORON 2.4 350", "HARDWARE")   # label cut into the top (Alex 2026-11-01)
+LID_CAP, LID_LEADING = 14.0, 8.0           # cap height, gap between the two lines
+LID_SINK = 1.0              # 5 layers deep; as printed they are the first 5, the 6th bridges the strokes.
+                            # 1 mm of solid white hides the black layers behind it (0.6 shows grey)
+LID_COLOUR = "#FFFFFF"      # lid filament (preview colour); the letters are LABEL_COLOUR
+LID_INK_LAYERS = 2          # black layers under the letters (also a 0.4 mm black line round the edge)
+
+
+def build_lid(nx: int, ny: int):
+    """The lid in use orientation (ring down); `lid_print` flips it plate-down for the bed."""
+    import cadquery as cq
+    W, D = GRID * nx - GAP, GRID * ny - GAP
+    zf = BASE_PROFILE[-1][1]
+    ring = profile_loft(W / 2, D / 2, W, D, BASE_TOP_R,
+                        [(BASE_PROFILE[-1][0] - x, z) for x, z in BASE_PROFILE])
+    inset = BASE_PROFILE[-1][0] + LID_RING
+    ring = ring.cut(rr_prism(W - 2 * inset, D - 2 * inset, max(BASE_TOP_R - inset, 0.5),
+                             inset, inset, -1, zf + 1))
+    tw, reach, tr = LID_TAB
+    plate = (cq.Workplane("XY").workplane(offset=zf)
+             .sketch().push([(W / 2, D / 2)]).rect(W, D).reset().vertices().fillet(BASE_TOP_R)
+             .finalize().extrude(LID_PLATE))
+    tab = (cq.Workplane("XY").workplane(offset=zf).center(W / 2, -reach / 2 + tr / 2)
+           .rect(tw, reach + tr).extrude(LID_PLATE).edges("|Z").fillet(tr))
+    plate = plate.union(tab).faces(">Z").edges().chamfer(LID_CHAMFER)
+    zt = zf + LID_PLATE
+    step = LID_CAP + LID_LEADING
+    for k, txt in enumerate(LID_TEXT):
+        if text_w(txt, LID_CAP) > W - 2 * 15:
+            raise SystemExit(f"lid label {txt!r} is wider than the lid less 15 mm a side")
+        y = D / 2 + (len(LID_TEXT) - 1) * step / 2 - k * step
+        plate = plate.cut(text_solid(txt, LID_CAP, LID_SINK + 0.1)
+                          .translate((W / 2, y, zt - LID_SINK)))
+    return plate.val().fuse(ring).clean()
+
+
+def lid_print(nx: int, ny: int):
+    """The lid flipped plate-down, its plate on z = 0."""
+    zf = BASE_PROFILE[-1][1]
+    return build_lid(nx, ny).rotate((0, 0, 0), (1, 0, 0), 180).translate((0, 0, zf + LID_PLATE))
+
+
 def section_crossings(tris, x0: float, z: float) -> list[float]:
     """y values where the mesh's section by the plane x = x0 crosses height z, sorted."""
     import numpy as np
@@ -931,7 +980,10 @@ def bed_centre(ini: Path) -> tuple[float, float, float, float]:
 
 
 def make_project(stl: Path, ini: Path, name: str,
-                 change_z: float | None = None) -> tuple[Path, str]:
+                 change_z: float | None = None,
+                 changes: list[tuple[float, str]] | None = None) -> tuple[Path, str]:
+    """`change_z`: one stop for the label filament; `changes`: several (print_z, preview colour)
+    stops. print_z is the top of the first layer in the new filament."""
     from build_plates import PRUSA, inject_3mf, run
     import zipfile
     cx, cy, _bw, _bd = bed_centre(ini)
@@ -940,19 +992,21 @@ def make_project(stl: Path, ini: Path, name: str,
              "--export-3mf", "-o", str(dst), str(stl)])
     inject_3mf(dst, ini, {}, {stl.name: name})
     if change_z is not None:
-        # A colour change (M600) at the first label layer, as the GUI's layer slider would save
-        # it, so the printer stops for the label filament by itself (Alex 2026-10-30).
+        changes = [(change_z, LABEL_COLOUR)]
+    if changes:
+        # Colour changes (M600) as the GUI's layer slider would save them, so the printer stops
+        # for the next filament by itself (Alex 2026-10-30).
+        codes = "".join(f'<code print_z="{z:.2f}" type="0" extruder="1" color="{c}" '
+                        'extra="" gcode="M600"/>\n' for z, c in changes)
         xml = ('<?xml version="1.0" encoding="utf-8"?>\n<custom_gcodes_per_print_z>\n'
-               f'<code print_z="{change_z:.2f}" type="0" extruder="1" color="{LABEL_COLOUR}" '
-               'extra="" gcode="M600"/>\n<mode value="SingleExtruder"/>\n'
-               '</custom_gcodes_per_print_z>\n')
+               + codes + '<mode value="SingleExtruder"/>\n</custom_gcodes_per_print_z>\n')
         with zipfile.ZipFile(dst, "a") as z:
             z.writestr(CHANGE_XML, xml)
     return dst, (p.stdout + p.stderr).strip()
 
 
 def slice_project(project: Path, tmp: Path, colour_z: list[float],
-                  change_z: float | None = None) -> dict:
+                  change_z: float | None = None, allow: tuple[str, ...] = ()) -> dict:
     from build_plates import PRUSA, read_footer, run
     gcode = tmp / (project.stem + ".gcode")
     p = run([PRUSA, "--dont-arrange", "--binary-gcode=0", "--export-gcode", "-o", str(gcode),
@@ -973,7 +1027,7 @@ def slice_project(project: Path, tmp: Path, colour_z: list[float],
     m = re.search(r"Detected print stability issues:\s*\n\s*\n?\S+\s*\n(.+)", log)
     if m:
         issues = [x.strip() for x in m.group(1).split(",")]
-        unexpected = [x for x in issues if x != "Long bridging extrusions"]
+        unexpected = [x for x in issues if x != "Long bridging extrusions" and x not in allow]
         if unexpected:
             raise SystemExit(f"{project.name}: slicer stability issues {unexpected}:\n{log}")
     xs, ys = [], []
@@ -1484,6 +1538,56 @@ def lever_study() -> int:
     return 0
 
 
+def make_lid(nx: int, ny: int, slice_it: bool = True) -> int:
+    """lid-<nx>x<ny>.stl, its render and 3MF (same presets as the trays, no colour change)."""
+    name = f"lid-{nx}x{ny}"
+    path = HERE / f"{name}.stl"
+    export_stl(lid_print(nx, ny), path)
+    print(f"wrote {path.relative_to(REPO)}")
+    RENDERS.mkdir(exist_ok=True)
+    out = RENDERS / f"{name}-34.png"
+    render(path, out, -60.0, 38.0, 1e9)
+    print(f"wrote {out.relative_to(REPO)}")
+    if not slice_it:
+        return 0
+    tmp = Path(tempfile.mkdtemp(prefix="lid-"))
+    try:
+        ini = tmp / "bench-trays-pla.ini"
+        write_ini(ini)
+        # gyroid: the AGENTS.md default (Alex 2026-10-31); the trays keep grid only by Alex's "leave for now"
+        ini.write_text(re.sub(r"^fill_pattern = .*$", "fill_pattern = gyroid", ini.read_text(), flags=re.M))
+        # White lid, black letters (Alex 2026-11-01): the letter floors are the first layers over
+        # the cut (it prints top-down), so those layers go black and the plate goes back to white.
+        ini.write_text(re.sub(r"^filament_colour = .*$", f"filament_colour = {LID_COLOUR}",
+                              ini.read_text(), flags=re.M))
+        # every layer over the cut is solid white, not 10 % infill the black would show through
+        n_white = round(LID_SINK / 0.2)
+        ini.write_text(re.sub(r"^bottom_solid_layers = .*$", f"bottom_solid_layers = {n_white}",
+                              ini.read_text(), flags=re.M))
+        _cx, _cy, bw, bd = bed_centre(ini)
+        first = round(LID_SINK + 0.2, 2)                     # top of the first letter-floor layer
+        back = round(first + 0.2 * (LID_INK_LAYERS - 1) + 0.2, 2)
+        proj, log = make_project(path, ini, name,
+                                 changes=[(first, LABEL_COLOUR), (back, LID_COLOUR)])
+        # The label's letter counters (O, R, A, 4, 0) are first-layer islands until layer 4 joins
+        # them to the plate: 2.9.6 calls that "Low bed adhesion". Expected; anything else stops.
+        r = slice_project(proj, tmp, [first, back], allow=("Low bed adhesion",))
+        text = (tmp / f"{name}.gcode").read_text(errors="replace")
+        dz = 0.05
+        stops = [round(float(re.findall(r"^;Z:([\d.]+)", text[:m.start()], re.M)[-1]) - dz, 2)
+                 for m in re.finditer(r"^M600", text, re.M)]
+        if stops != [first, back]:
+            raise SystemExit(f"{name}: M600 at {stops}, want {[first, back]}")
+        print(f"colour changes: black from layer top z {first}, white again from {back}")
+        if not (0 <= r["xmin"] and r["xmax"] <= bw and 0 <= r["ymin"] and r["ymax"] <= bd):
+            raise SystemExit(f"{name}: extrusion outside the {bw:g} x {bd:g} bed: {r}")
+        print(f"== {name}: {r['raw']}, {r['grams']:.1f} g, X {r['xmin']}-{r['xmax']} "
+              f"Y {r['ymin']}-{r['ymax']} Z<={r['zmax']}\n{log}\n{r['log']}")
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--plan", action="store_true", help="print options and fill, write nothing")
@@ -1502,8 +1606,12 @@ def main() -> int:
                     help="build and slice the N best groupings in a temp dir, print time and grams, stop")
     ap.add_argument("--validate", type=Path, metavar="REF_STL",
                     help="compare a plain 1x1x6U bin with a reference Gridfinity bin and stop")
+    ap.add_argument("--lid", action="store_true",
+                    help="build and slice only the stack lid (lid-5x4), leave the trays alone")
     args = ap.parse_args()
     apply_levers(set() if args.levers == "none" else set(args.levers.split(",")) - {""})
+    if args.lid:
+        return make_lid(UNITS_X, 4, slice_it=not args.no_slice)
     if args.lever_study:
         return lever_study()
     if args.validate:
@@ -1537,6 +1645,7 @@ def main() -> int:
 
     RENDERS.mkdir(exist_ok=True)
     keep = {f"tray-{t.letter}" for t in trays}      # drop files of trays that no longer exist
+    keep |= {f"lid-{t.nx}x{t.ny}" for t in trays}   # the stack lid (--lid) of a live footprint
     for old in list(HERE.glob("tray-*.*")) + list(HERE.glob("lid-*.*")) + list(RENDERS.glob("*.png")):
         if old.name.split(".")[0].rsplit("-", 1)[0] not in keep and old.stem not in keep:
             old.unlink()
