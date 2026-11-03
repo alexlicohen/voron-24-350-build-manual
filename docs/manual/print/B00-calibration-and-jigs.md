@@ -268,7 +268,7 @@ Source: [00-slicer-setup § Calibration sequence, item 3](00-slicer-setup.md#cal
 **Do:**
 
 1. Once cool, remove the plate and run [**Gate A**](00-slicer-setup.md#gate-a-no-kit-needed-the-cube) with calipers at mid-height.
-2. Cube X/Y 30.00 mm ±0.15 mm, Z 30.00 mm ±0.10 mm, first-layer-vs-mid-height X delta ≤0.15 mm, corner snap no delamination.
+2. Cube X/Y 30.00 ±0.15 mm, Z 30.00 ±0.10 mm, bottom X ≤0.15 mm over mid-height, corner snap no delamination.
 3. Log all four numbers.
 
 **Check:** All four pass; any failure means adjusting [extrusion multiplier](../16-glossary.md#e), never negative XY compensation, then reprinting this plate before B02 or B07.
@@ -297,14 +297,14 @@ inputs:
     label: Cube Z (mm)
     nominal: 30.00
     tol: 0.10
-    low: Under means the first layer is over-squished. Nudge Live Adjust Z up on the next print, then fix the cause, a sheet not seated, debris under it, a dirty sheet or a nozzle not fully seated.
-    high: Over means the first layer is under-squished. Nudge Live Adjust Z down on the next print, then fix the cause rather than nudging every plate, because the Core One+ does not save the nudge.
-    why: Z is the first layer's report card, and the Core One+ has no first-layer wizard and does not remember a Live Adjust Z nudge, so an out-of-range Z is a cause to find before the next plate rather than a number to dial in.
+    low: Under means the first layer is over-squished. First rule out a sheet not seated, debris under it, a dirty sheet or a nozzle not fully seated, then raise z_offset in slicer/build_config.py and re-run the pipeline. Live Adjust Z is not kept between prints.
+    high: Over means the first layer is under-squished. First rule out a sheet not seated, debris under it, a dirty sheet or a nozzle not fully seated, then lower z_offset in slicer/build_config.py and re-run the pipeline. Live Adjust Z is not kept between prints.
+    why: Z is the first layer's report card. The Core One+ has no first-layer wizard and does not keep a Live Adjust Z nudge, so the correction lives in the plates' Z offset, +0.08 now, and an out-of-range Z is a cause to find before the next plate.
   - key: fl
-    label: First layer vs mid height, X difference (mm)
+    label: Bottom X minus mid-height X (mm), negative is normal
     max: 0.15
-    high: Elephant-foot compensation is wrong. Adjust it in 0.05 mm steps and reprint. This is a first-layer artefact, so leave the extrusion multiplier alone.
-    why: The first layer is always squashed, so measuring it against mid height is what separates a wrong elephant-foot compensation from a flow error and keeps you from moving the multiplier for something it did not cause.
+    high: The bottom sticks out. Elephant-foot compensation is too small, so raise it 0.05 mm and reprint. This is a first-layer artefact, so leave the extrusion multiplier alone.
+    why: The first layer is always squashed, so measuring it against mid height separates a wrong elephant-foot compensation from a flow error. The cube's bottom edge has a 0.2 mm chamfer and the plates shrink the first layer 0.2 mm, so a bottom a little under 30 passes. A visible groove along the bottom edge means the compensation is too strong, so lower it 0.05 mm.
   - key: snap
     label: Corner snap tears across the layers, not along one
     kind: yesno

@@ -89,7 +89,7 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ## Before the kit ships
 
-Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult with the iron's stock conical tip, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the gating question, which gates batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult on the Nutopress Pro insert press, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the gating question, which gates batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
 
 ## Kit day
 
@@ -425,7 +425,7 @@ Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/
 | Nitrile gloves, lint-free cloth, masking tape, permanent marker | — |
 | Solder, electronics grade | Ch 11 (11.33, the Nevermore bridge PCB) |
 | Super glue | Ch 11 (magnets in the Nevermore and the Clicky-Clack door) |
-| *(nothing to buy for Gate B)* | its insert row uses seven M3×H5 from the **KADRICK kit already on the bench** — shank must caliper ~4 mm `(verify on bench)` — set with the X-Tronic iron's stock conical tip; its bore row is a caliper reading. The 625-2RS bearing and the MGN12 rail are kit parts and their rows wait for kit day |
+| *(nothing to buy for Gate B)* | its insert row uses seven M3×H5 from the **KADRICK kit already on the bench** — shank must caliper ~4 mm `(verify on bench)` — set on the Nutopress Pro insert press with its own M3 tip; its bore row is a caliper reading. The 625-2RS bearing and the MGN12 rail are kit parts and their rows wait for kit day |
 
 **Check:** Grease and IPA are on the bench before you touch a rail; rail prep cannot start without them.
 
@@ -574,7 +574,7 @@ Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/
 
 **Check:** With an insert on the tongue, the tongue tip and the insert's far face are level.
 
-⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran before the kit, at Gate B, on the iron's stock conical tip. The gauge insert goes back in tray C, and Ch 02 re-checks the temperature on this tip.
+⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran before the kit, at Gate B, on the Nutopress Pro press. The gauge insert goes back in tray C, and Ch 02 re-checks the temperature on this tip.
 
 Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -594,7 +594,7 @@ Pause: ~35 min since the last pause — kit day: the fastener bags are emptied i
 
 - `Heatset_Practice` coupon ×1
 - M3×H5 heat-set insert ×7 — from KADRICK kit
-- tool: soldering iron with its stock conical tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 

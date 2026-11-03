@@ -197,8 +197,8 @@ material where wet filament actually costs you strength.
    | Coupon | Nominal | Accept | If out of spec |
    |---|---|---|---|
    | `Voron_Design_Cube_v7` X and Y | 30.00 mm | **±0.15 mm** | >+0.15: confirm shrinkage compensation is 0 % and XY compensation is 0. Still over → reduce extrusion multiplier in 1 % steps ([Ellis — Extrusion Multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html)). Do **not** dial in negative XY compensation; you will wreck the bearing fits. |
-   | `Voron_Design_Cube_v7` Z | 30.00 mm | **±0.10 mm** | over → first layer under-squished; under → over-squished |
-   | Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
+   | `Voron_Design_Cube_v7` Z | 30.00 mm | **±0.10 mm** | over → first layer under-squished: lower the Z offset; under → over-squished: raise it. Rule out the sheet, debris and the nozzle seat first, then change `z_offset` in `slicer/build_config.py` (item 3), not Live Adjust Z (not kept between prints) |
+   | Cube first layer vs mid-height X | — | bottom no more than **0.15 mm wider** than mid-height | wider → elephant-foot compensation too small: raise it in 0.05 mm steps. A narrower bottom is by design: the cube's bottom edge has a 0.2 mm chamfer (29.70 mm at the bed) and the plates shrink the first layer 0.2 mm. A visible groove along the bottom edge → compensation too strong: lower it 0.05 mm |
    | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
 
    **Gate B — inserts and a caliper now, on what is already on the bench; bearing and rail on kit day:**

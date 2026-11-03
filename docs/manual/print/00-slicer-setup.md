@@ -251,8 +251,8 @@ wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28)
 | Coupon | Nominal | Accept | If out of spec |
 |---|---|---|---|
 | `Voron_Design_Cube_v7` X and Y | 30.00 mm | **±0.15 mm** | >+0.15: confirm shrinkage compensation is 0 % and XY compensation is 0. Still over → reduce [extrusion multiplier](../16-glossary.md#e) in 1 % steps. Do **not** dial in negative XY compensation — it wrecks the bearing fits. |
-| `Voron_Design_Cube_v7` Z | 30.00 mm | **±0.10 mm** | over → first layer under-squished; under → over-squished (Live Adjust Z, then fix the cause — item 3) |
-| Cube first layer vs mid-height X | — | difference **≤ 0.15 mm** | bigger → elephant-foot compensation is wrong; adjust in 0.05 mm steps |
+| `Voron_Design_Cube_v7` Z | 30.00 mm | **±0.10 mm** | over → first layer under-squished: lower the Z offset; under → over-squished: raise it. Rule out the sheet, debris and the nozzle seat first, then change `z_offset` as in item 3, not Live Adjust Z (not kept between prints) |
+| Cube first layer vs mid-height X | — | bottom no more than **0.15 mm wider** than mid-height | wider → elephant-foot compensation too small: raise it in 0.05 mm steps. A narrower bottom is by design: the cube's bottom edge has a 0.2 mm chamfer (29.70 mm at the bed) and the plates shrink the first layer 0.2 mm. A visible groove along the bottom edge → compensation too strong: lower it 0.05 mm |
 | Cube corner snap test | — | must **not** delaminate along a layer line | delamination → chamber too cold or fan too high → drop min/max fan to 0/15 % |
 
 The four rows are also a calculator at [Step B00.5](B00-calibration-and-jigs.md#step-b005-inspect-gate-a-the-cube-no-kit-needed): type the measurements in, press Check, and it keeps the verdict and shows the advice from this table for whichever row failed.
@@ -279,8 +279,9 @@ bearing-seat and shaft-bore parts printed against an unverified fit — run Gate
 | **kit day** | the same pocket, on a real 625-2RS (16 mm OD) | — | bearing presses in with thumb pressure, no rocking | this is the press fit the caliper is standing in for; a fail here reprints the retainer and the cube, and re-passes Gate A |
 | **kit day** | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-The inserts are set by the adult with the **X-Tronic iron's stock conical tip**; the helper never handles
-the iron. The LDO brass M3 tip lands with the kit: it is fitted at Ch 00 Step 00.13 and re-checked on the
+The inserts are set by the adult on the **Mintion Nutopress Pro** insert press, with its own iron and M3 tip;
+the helper never handles the iron. The day it arrives, before the first insert: confirm its temperature range
+and that its throat reaches the widest insert bosses `(verify on bench)`. The LDO brass M3 tip lands with the kit: it is fitted at Ch 00 Step 00.13 and re-checked on the
 first real insert at Step 02.03. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
 inserts stay for the build**.
 
