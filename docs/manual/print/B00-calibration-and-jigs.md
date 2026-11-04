@@ -239,9 +239,9 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:**
 
 1. Fit [the print sheet](00-slicer-setup.md#print-sheet), the satin sheet, wiped with IPA since the last print. No glue.
-2. Blanket on top, cover over the door, back clear; wait for 50 °C.
+2. Blanket on top, cover over the door, back clear; wait for 45 °C.
 3. Set **Settings → Chamber Filtration → Adv. Filtration**.
-**Check:** Chamber temp reads ≥50 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
+**Check:** Chamber temp reads ≥45 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
 
 ⚠ ASA off-gasses styrene. Chamber Filtration on Adv. Filtration, also under Tune mid-print: on None the
 AFS blower never runs and the plate vents unfiltered. Door shut for the whole print, room ventilated
@@ -311,7 +311,7 @@ inputs:
   - key: snap
     label: Corner snap tears across the layers, not along one
     kind: yesno
-    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 50 °C chamber gate, and reprint before any structural plate.
+    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 45 °C chamber gate, and reprint before any structural plate.
     why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
 pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B's bore row the same day, before the next plate swap, so B01 can start on it.
 ```
