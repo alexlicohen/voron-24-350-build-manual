@@ -110,9 +110,9 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores",
      "Filament row 1"),
     ("filament_shrinkage_compensation_z", "0%", "filament", "same reason", "Filament row 2"),
-    ("chamber_minimal_temperature", "40", "filament",
-     "Alex 2026-10-28: hold the print until the chamber reads 40 C; 50 (10-27) never starts, "
-     "the basement chamber tops out at 44 C on the bed alone",
+    ("chamber_minimal_temperature", "50", "filament",
+     "Alex 2026-11-03: hold the print until the chamber reads 50 C. A blanket on the top and a "
+     "cover over the door hold 54 C mid-print in the 17 C basement (bare: 44 C, so 40 from 10-28)",
      "Filament row 6"),
     # --- Thumbnails (needed for the plate previews in docs/manual/assets/plates/) ---
     ("thumbnails", "16x16/QOI, 313x173/QOI, 480x240/QOI, 380x285/PNG, 640x480/PNG", "printer",

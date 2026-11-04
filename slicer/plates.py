@@ -300,27 +300,34 @@ PLATES: dict[str, dict] = {
         ]),
     "B07-P1": dict(
         batch="B07", colour="black",
-        note="Power inlet centred (3 mm brim on the inlet and the WAGO mount), bay hardware and three COB light-strip mounts.",
+        note="Power inlet and WAGO mount (3 mm brims), two 100 mm and one 50 mm COB light-strip mounts, bay hardware.",
         parts=[
             ("voron2", "STLs/Skirts/power_inlet_IECGS_1mm.stl", 1),
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_100mm.stl", 2),
             ("voron2", "STLs/Electronics_Bay/wago_221-415_mount_3by5.stl", 1),
-            ("nitehawk2", "STLs/usb_adapter_mount_partial_cover.stl", 1),
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 1),
-            ("voron2", "STLs/Electronics_Bay/PSU_stabilizer_50mm.stl", 1),
-            ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 2),
+            ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 1),
             ("ldov2", "STLs/handlebar_spacer_x4.stl", 2),
         ]),
     "B07-P2": dict(
         batch="B07", colour="black",
-        note="Five COB light-strip mounts, brimmed, with the LRS-200 PSU brackets and bay hardware.",
+        note="Four 100 mm COB light-strip mounts, brimmed, with a DIN clip and two handlebar spacers.",
         parts=[
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_100mm.stl", 4),
-            ("nitehawk", "STLs/usb_adapter_mount.stl", 1),
-            ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 1),
-            ("voron2", "STLs/Electronics_Bay/lrs_200_psu_bracket_x2.stl", 2),
             ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 1),
             ("ldov2", "STLs/handlebar_spacer_x4.stl", 2),
+        ]),
+    # B07-P3 added 2026-11-03 (Alex): big parts 20 mm from every edge no longer fit B07 on two plates.
+    "B07-P3": dict(
+        batch="B07", colour="black",
+        note="The USB adapter mount and its cover, the LRS-200 PSU brackets, the PSU stabiliser, a 50 mm COB mount and a DIN clip.",
+        parts=[
+            ("nitehawk", "STLs/usb_adapter_mount.stl", 1),
+            ("nitehawk2", "STLs/usb_adapter_mount_partial_cover.stl", 1),
+            ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 1),
+            ("voron2", "STLs/Electronics_Bay/PSU_stabilizer_50mm.stl", 1),
+            ("voron2", "STLs/Electronics_Bay/lrs_200_psu_bracket_x2.stl", 2),
+            ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 1),
         ]),
     "B08-P1": dict(
         batch="B08", colour="black",
@@ -331,18 +338,17 @@ PLATES: dict[str, dict] = {
         ]),
     "B08-P2": dict(
         batch="B08", colour="black",
-        note="A side fan support and both side_skirt_b halves.",
+        note="A side fan support and one side_skirt_b.",
         parts=[
             ("voron2", "STLs/Skirts/side_fan_support_x2.STL", 1),
-            ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 2),
+            ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
         ]),
     "B08-P3": dict(
         batch="B08", colour="black",
-        note="A side fan support, a side skirt and the keystone panel.",
+        note="A side fan support and a side_skirt_a.",
         parts=[
             ("voron2", "STLs/Skirts/side_fan_support_x2.STL", 1),
             ("voron2", "STLs/Skirts/350/side_skirt_a_350_x2.stl", 1),
-            ("voron2", "STLs/Skirts/keystone_panel.stl", 1),
         ]),
     "B08-P4": dict(
         batch="B08", colour="black",
@@ -351,6 +357,14 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Skirts/350/front_skirt_b_350.stl", 1),
             ("voron2", "STLs/Skirts/350/front_skirt_a_350.stl", 1),
             ("ldotri", "STLs/BTT Pi TFT4.3 Mount/mount.stl", 1),
+        ]),
+    # B08-P5 added 2026-11-03 (Alex): big parts 20 mm from every edge no longer fit B08 on four plates.
+    "B08-P5": dict(
+        batch="B08", colour="black",
+        note="The second side_skirt_b and the keystone panel.",
+        parts=[
+            ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
+            ("voron2", "STLs/Skirts/keystone_panel.stl", 1),
         ]),
     # B09 was five plates until 2026-10-23, then merged into three (each bin whole on one plate,
     # hours balanced) from the committed projects with platearrange.merge_3mf, arranged at 6 mm.
@@ -422,7 +436,8 @@ PLATES: dict[str, dict] = {
     # group "before-kit": needs no bench measurement. group "after-kit": custom lengths and
     # the narrowed middle run, printed once the kit-day measurements are in (B11 page).
     # Packed by nest.py; Alex passed the arrangements as packed at the Step B00.8 review (2026-11-02).
-    # qc="pending" marks a plate whose arrangement has not been reviewed (none now).
+    # qc="pending" marks a plate whose arrangement has not been reviewed (none now). The ten re-packed
+    # 2026-11-03 for the big-part 20 mm edge rule passed Alex's GUI review as packed the same day.
     "B11-P1": dict(
         batch="B11", colour="petg", run="bay", group="before-kit",
         note="Test coupon: prints first, alone. The lid must snap and hold before P5 is printed.",

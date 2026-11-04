@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 21 plates · **150.7 h** print time · **1810 g Galaxy Black + 277 g ASA Blue** ·
+**Totals at a glance:** 23 plates · **150.9 h** print time · **1810 g Galaxy Black + 277 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 5 plates · 24.9 h · 348 g Jet Black PETG V0 (§3, §9).
@@ -116,7 +116,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 [00-slicer-setup](manual/print/00-slicer-setup.md) owns the full reasoning:
 
 - Printer: **`Prusa CORE One HF0.4 nozzle`** (printer model `Prusa CORE One & CORE One+`) — bed `250×220`, max height `270`, retract 0.7 mm @ 45 mm/s, z-hop 0.2 mm, wipe off. The projects carry the cold-probe start G-code, so the Plater shows it as `(modified)`.
-- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle 265 °C, bed 110 °C, **chamber 55 °C** (minimum 40 °C: the basement chamber tops out at 44 °C, 2026-10-28), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 26 mm³/s. The projects save it as `Prusament ASA @COREONE HF0.4 - Voron black` (accent: `- Voron blue`).
+- Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle 265 °C, bed 110 °C, **chamber 55 °C** (minimum 50 °C: needs a blanket on the top and a cover over the door, which hold 54 °C; bare, the basement chamber tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max volumetric 26 mm³/s. The projects save it as `Prusament ASA @COREONE HF0.4 - Voron black` (accent: `- Voron blue`).
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. There is no HF0.4 STRUCTURAL at 0.20 mm; this non-HF print preset is offered on the HF printer and is the one the projects use. STRUCTURAL is already the quality-biased profile
   (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
 
@@ -161,7 +161,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for the HF nozzle on this machine | profile |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; [Prusa ASA KB](https://help.prusa3d.com/article/asa_1809) |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
-| Chamber minimal temperature | 40 °C | **40** | printer will not start until the chamber reaches 40 °C — this *is* your preheat gate (50 never starts: the basement chamber tops out at 44 °C on the bed alone) | Alex 2026-10-28 |
+| Chamber minimal temperature | 40 °C | **50** | printer will not start until the chamber reaches 50 °C — this *is* your preheat gate. Bare, the basement chamber tops out at 44 °C; a blanket on the top and a cover over the door hold 54 °C mid-print | Alex 2026-11-03 (40 from 10-28) |
 | Min / max fan | 20 / 25 % | **keep for B00–B01, then decide** | Prusa tuned this for the Core One chamber. If you see perimeter separation on the Z-drive bodies, drop to **0 / 15 %** and keep bridge fan at 25 %. | profile; [Ellis — Perimeter Separation](https://ellis3dp.com/Print-Tuning-Guide/articles/troubleshooting/perimeter_separation.html) |
 | Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds (peak ≈21 mm³/s, internal solid infill at 150 mm/s) | profile |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
@@ -242,11 +242,11 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 + B02-P2 + B02-P3** ≈ 47 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 150.7 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 150.9 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 150.7 h ≈ 15 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10**, 150.9 h ≈ 15 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 right after B07, before B08, and P4/P5 at the next free slot
 after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all five and
 nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
@@ -479,7 +479,7 @@ Notes:
 
 ---
 
-### Batch B07 — Electronics bay + lighting · **2 plates · 15.1 h · 224 g black**
+### Batch B07 — Electronics bay + lighting · **3 plates · 15.3 h · 224 g black**
 **Unlocks:** *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211).
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -495,14 +495,15 @@ Notes:
 | `cob_light_strip_mount_50mm.stl` | LDOVoron2 `STLs/COB Light Strip/` | 2 | Black | 9.3 | 0.55 |
 | `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, p.156/167, not the skirts chapter; rides on B07-P1)* | Black | 36.2 | 2.11 |
 
-- **Plate B07-P1** (7.7 h, 113 g): `power_inlet_IECGS_1mm` centred, wago mount, `cob_light_strip_mount_100mm` ×2, `cob_light_strip_mount_50mm`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), PSU stabilizer, DIN clips ×2, handlebar spacers ×2.
-- **Plate B07-P2** (7.6 h, 111 g): `cob_light_strip_mount_100mm` ×4, `cob_light_strip_mount_50mm`, `lrs_200_psu_bracket` ×2, `usb_adapter_mount`, DIN clip, handlebar spacers ×2.
+- **Plate B07-P1** (6.4 h, 97 g): `power_inlet_IECGS_1mm`, wago mount, `cob_light_strip_mount_100mm` ×2, `cob_light_strip_mount_50mm`, DIN clip, handlebar spacers ×2.
+- **Plate B07-P2** (5.1 h, 79 g): `cob_light_strip_mount_100mm` ×4, DIN clip, handlebar spacers ×2.
+- **Plate B07-P3** (3.8 h, 48 g): `usb_adapter_mount`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), `cob_light_strip_mount_50mm`, PSU stabilizer, `lrs_200_psu_bracket` ×2, DIN clip.
 
 Notes:
 - COB counts are LDO's own for a 2.4-350: **6× 100 mm + 2× 50 mm**
   ([COB README](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs/COB%20Light%20Strip)).
   Each STL contains a 2-piece assembly joined with 2× M3 heat-sets + 2× M3×6 FHCS. This is the heaviest
-  single group of "small" parts in the build — 127 g across the two plates.
+  single group of "small" parts in the build — 127 g across the three plates.
 - `PSU_stabilizer_50mm` is marked **(verify)**: LDO Build Notes say *"PAGE 169 SKIP — the kit does not use a
   support bracket"*, which most likely refers to this part. It is 4 g; print it and only fit it if it's needed.
 - **Do not print** `raspberrypi_bracket.stl`, `beefy_raspberry_bracket.stl` or `rs25_psu_bracket.stl` — Leviathan
@@ -511,12 +512,14 @@ Notes:
 - **Do not print** the Leviathan bracket set or the bed WAGO mount — both supplied printed.
 - `power_inlet_IECGS_1mm` lives here, not in B08, because it's fitted in Ch 09 (p.156/167) — see `docs/manual/09-electronics-bay.md`.
 - The inlet and all eight COB mounts do not fit one plate (with the mandated 3 mm brims they come to 46 280 mm²,
-  84 % of the 250 × 220 bed). The inlet rides on **B07-P1** with three of the mounts and the other five go on
-  **B07-P2**, so both plates keep 5 mm clear of the bed edge.
+  84 % of the 250 × 220 bed). Since 2026-11-03 every big part also sits 20 mm from each bed edge (§5.1), so B07
+  is three plates: the inlet and the WAGO mount ride on **B07-P1** with three of the mounts, four 100 mm mounts
+  fill **B07-P2**, and **B07-P3** carries the PSU brackets, the USB adapter mount and cover, the stabiliser and the
+  last 50 mm mount.
 
 ---
 
-### Batch B08 — Skirts and front modules · **4 plates · 26.7 h · 398 g black**
+### Batch B08 — Skirts and front modules · **5 plates · 26.7 h · 398 g black**
 **Unlocks:** *Skirts* (p.212–239).
 
 The skirt ring is made of ten structural segments plus two "module" pieces — the TFT mount and the power
@@ -536,13 +539,15 @@ each side = `side_skirt_a` + `side_fan_support` + `side_skirt_b`.
 | `mount.stl` (BTT Pi TFT4.3) | LDOVoronTrident `STLs/BTT Pi TFT4.3 Mount/` | 1 | Black | 30.1 | 1.80 |
 
 - **B08-P1** (6.3 h, 102 g): `rear_center_skirt_350`, `side_skirt_a_350` ×1
-- **B08-P2** (6.5 h, 95 g): `side_fan_support` ×1, `side_skirt_b_350` ×2
-- **B08-P3** (6.5 h, 99 g): `side_fan_support` ×1, `side_skirt_a_350` ×1, `keystone_panel`
+- **B08-P2** (4.2 h, 62 g): `side_fan_support` ×1, `side_skirt_b_350` ×1
+- **B08-P3** (4.2 h, 62 g): `side_fan_support` ×1, `side_skirt_a_350` ×1
 - **B08-P4** (7.4 h, 102 g): `front_skirt_a_350`, `front_skirt_b_350`, `mount.stl`
+- **B08-P5** (4.6 h, 70 g): `side_skirt_b_350` ×1, `keystone_panel`
 
 Every one of these is 117–182 mm on its long axis and 67–72 mm deep. Packed on bounding boxes that meant two
 per plate; packed on the real outlines (`slicer/nest.py`, 6 mm between silhouettes plus each part's brim) the
-C-shaped segments interleave and the set fits on four plates instead of six — the 2026-09-06 consolidation.
+C-shaped segments interleave and the set fits on four plates instead of six — the 2026-09-06 consolidation; five
+since 2026-11-03, when every big part moved 20 mm in from the bed edges (§5.1).
 `power_inlet_IECGS_1mm` is not here: it moved to B07 (Ch 09, not the skirts chapter).
 **These are the parts people see.** They print on the current Gen 1 GT2 belts, in numeric order like every
 other batch — the Gen 2 belt upgrade is deferred to the INDX rebuild this winter (§8).
@@ -588,8 +593,8 @@ Notes:
 - **B09-P4** (3.6 h, 52 g): `V2_Duo_Plenum_LID`, `exhaust_filter_grill`, `z_belt_cover_b`, `bottom_panel_clip`, 2 + 2 corner clips (4 mm, 6 mm), 1 midspan 4 mm and 2 midspan 6 mm clips
 
 Four plates (five until 2026-10-23, three until 2026-10-24): the batch was re-split as a whole so every part, brim included, sits 5 mm or more
-from the bed edge. The Nevermore spreads over P2 to P4 and the panel clips are shared out across all four plates; the plate
-hours run 4.6 / 7.4 / 6.1 / 3.9 h.
+from the bed edge; B09-P4 was re-packed on 2026-11-03 for the 20 mm big-part margin (§5.1). The Nevermore spreads over P2 to P4
+and the panel clips are shared out across all four plates; the plate hours run 4.4 / 6.9 / 5.6 / 3.6 h.
 
 **Why both 4 mm and 6 mm panel clips.** The manual mounts back and top panels with **1 mm foam tape**
 (3 mm panel + 1 mm tape = 4 mm) and side panels with **3 mm foam tape** (3 + 3 = 6 mm, *"to prevent the gantry
@@ -697,7 +702,7 @@ extrusion width, shrinkage compensation zeroed, and the reduced speeds. Grams us
 
 **What replaced what.** The previous figures (134.3 h / 2248 g) came from a geometry-plus-throughput model:
 wall-and-skin volume × 1.03 overhead, time = volume ÷ 4.5 mm³/s. Sliced, the build was **157.1 h / 2092 g** —
-**+17 % time, −7 % filament**; the 2026-10-28 speed/gyroid change and dropping the skirt then brought it to **150.2 h / 2079 g**, and printing both deck-support sets (2026-10-30) to **150.9 h / 2087 g**, and re-arranging B07 in the GUI (2026-11-02) to **150.7 h / 2087 g**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
+**+17 % time, −7 % filament**; the 2026-10-28 speed/gyroid change and dropping the skirt then brought it to **150.2 h / 2079 g**, and printing both deck-support sets (2026-10-30) to **150.9 h / 2087 g**, and re-arranging B07 in the GUI (2026-11-02) to **150.7 h / 2087 g**, and the 2026-11-03 re-pack for the 20 mm big-part edge margin (B07 to three plates, B08 to five) to **150.9 h / 2087 g**. Both errors have the same root: the model assumed a flat 4.5 mm³/s, but the
 override table deliberately trades throughput for quality (perimeters 70 → 55 mm/s, external 50 → 35, first
 layer 45 → 25), and it over-counted material by treating 4 perimeters as a solid 1.6 mm wall where Arachne
 varies the beads. Every plate moved the same direction — the largest single change is B08-P4 at +3.7 h — so
@@ -710,7 +715,7 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 150.7 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 150.9 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
@@ -742,7 +747,7 @@ B06 **818** · B07 **1042** · B08 **1440** · B09 **1735** · B10 **1810 g**.
 
 With 800 g spools and the numeric print order, spool **#1** carries B00 through **B05-P1** and ends with
 ~129 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
-hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P4** with ~30 g left, and
+hotend seat and the Clockwork 2 gear bores. #2 then runs to the end of **B08-P5** with ~30 g left, and
 **spool #3 takes over mid-plate inside B09-P1** — the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips, no bearing
 seat or bore, so a runout seam there is fine. The runout sensor pauses the plate about 2 h into its 4.4 h and waits
 for you to load #3 and press **Continue**, so start it when you will be home then and watch the clock. #3 finishes the build
@@ -784,6 +789,13 @@ at the ends: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `s
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`.
 Brim separation is 0.15 mm, set by the brim-gap ladder (B00 item 4): 0.10–0.25 peel off by hand, 0.40 falls off.
 ([Prusa warping KB](https://help.prusa3d.com/article/warping_2011))
+
+**Edge margins (Alex 2026-11-03).** A *big* part, 50 mm or more on the longest side of its STL footprint
+(`geom.BIG_PART_MM`), sits with its brim **20 mm or more from every bed edge** (`geom.BIG_EDGE_MARGIN`); small
+parts keep **5 mm** (`geom.EDGE_MARGIN`). The bed's edges run cooler, and B01-P1's front `z_drive_main` lifted
+at the door-side corner. `tools/platearrange` applies the margin per part; B02-P2, B03-P1, B07, B08-P2 to P5
+and B09-P4 were re-packed for it, and await the same GUI review as Step B00.8 before they print. PrusaSlicer's
+**Arrange** does not know the rule: in the GUI, move parts by hand only.
 
 Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
 (Nevermore), `V2_Duo_Plenum`. The skirts are single-shell parts — they have no break-away body.
@@ -876,13 +888,13 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 150.7 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.9 h / 23-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now risks the closed bed calibration and forces
-a belt retune, XY-homing recal and a start-G-code re-sync of all 26 committed `.3mf` projects; GT1.5's only
+a belt retune, XY-homing recal and a start-G-code re-sync of all 28 committed `.3mf` projects; GT1.5's only
 benefit (less VFA) is cosmetic, and Galaxy Black's metallic fleck already hides it; one teardown, with INDX,
 beats two.
 
@@ -910,7 +922,7 @@ heatbed expansion joints and the nozzle wiper from the same kit are fitted befor
 belts and pulleys still wait for INDX, so the run stays on GT2. The firmware switches for the joints and the
 wiper are set one by one (Edition = Gen 2 would also set GT1.5 steps/mm), the bed is re-checked to ±0.1 mm
 because the heatbed came off, and the hot check runs on both start G-codes (cold, and heat-then-off) to pick
-the one all 21 plates carry. Tick list: [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks).
+the one every plate carries. Tick list: [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks).
 
 **After the eventual INDX + GT1.5 belt rebuild, before restarting prints:**
 
@@ -943,11 +955,11 @@ mechanical chapters need).
 | B04 | XY joints + X carriage | 1 | 8.7 | 116 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.2 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
 | B06 | Toolhead (SB + CW2 + Klicky) | 1 | 11.6 | 147 | 0 | Stealthburner | B00;B02;B04 |
-| B07 | Electronics bay + lighting | 2 | 15.1 | 224 | 0 | Electronics; Controller; Wiring | B00 |
-| B08 | Skirts + front modules | 4 | 26.7 | 398 | 0 | Skirts | B00;B02;B07 |
+| B07 | Electronics bay + lighting | 3 | 15.3 | 224 | 0 | Electronics; Controller; Wiring | B00 |
+| B08 | Skirts + front modules | 5 | 26.7 | 398 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 4 | 20.5 | 295 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 75 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **21** | **150.7** | **1810** | **277** | | |
+| **TOTAL** | | **23** | **150.9** | **1810** | **277** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
@@ -958,11 +970,11 @@ B03,A/B drive units + front idlers,1,8.5,118,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.7,116,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.2,78,0,Z Axis;A/B Belts,B00;B02;B04
 B06,Toolhead (SB + CW2 + Klicky),1,11.6,147,0,Stealthburner,B00;B02;B04
-B07,Electronics bay + lighting,2,15.1,224,0,Electronics;Controller;Wiring,B00
-B08,Skirts + front modules,4,26.7,398,0,Skirts,B00;B02;B07
+B07,Electronics bay + lighting,3,15.3,224,0,Electronics;Controller;Wiring,B00
+B08,Skirts + front modules,5,26.7,398,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",4,20.5,295,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,75,0,Panels (front door),B00;B02;B09
-TOTAL,,21,150.7,1810,277,,
+TOTAL,,23,150.9,1810,277,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -979,12 +991,14 @@ B03-P1,B03,8.5,118,black
 B04-P1,B04,8.7,116,black
 B05-P1,B05,6.2,78,black
 B06-P1,B06,11.6,147,black
-B07-P1,B07,7.6,113,black
-B07-P2,B07,7.5,111,black
+B07-P1,B07,6.4,97,black
+B07-P2,B07,5.1,79,black
+B07-P3,B07,3.8,48,black
 B08-P1,B08,6.3,102,black
-B08-P2,B08,6.5,95,black
-B08-P3,B08,6.5,99,black
+B08-P2,B08,4.2,62,black
+B08-P3,B08,4.2,62,black
 B08-P4,B08,7.4,102,black
+B08-P5,B08,4.6,70,black
 B09-P1,B09,4.4,71,black
 B09-P2,B09,6.9,91,black
 B09-P3,B09,5.6,81,black

@@ -157,30 +157,45 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 7.6,
-   "grams": 113,
+   "hours": 6.4,
+   "grams": 97,
    "colour": "black",
-   "slot": "overnight",
+   "slot": "day",
    "note": "after Gate A",
    "spool": "#2",
-   "remaining": 540,
+   "remaining": 556,
    "diagram": "../../manual/assets/plates/B07-P1.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
-   "milestone": "Halfway: plate 11 of 21."
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
   {
    "id": "B07-P2",
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 7.5,
-   "grams": 111,
+   "hours": 5.1,
+   "grams": 79,
    "colour": "black",
-   "slot": "overnight",
+   "slot": "day",
+   "note": "",
+   "spool": "#2",
+   "remaining": 477,
+   "diagram": "../../manual/assets/plates/B07-P2.png",
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
+   "milestone": "Halfway: plate 12 of 23."
+  },
+  {
+   "id": "B07-P3",
+   "batch": "B07",
+   "batch_title": "Electronics bay + lighting",
+   "run": "asa",
+   "hours": 3.8,
+   "grams": 48,
+   "colour": "black",
+   "slot": "day",
    "note": "",
    "spool": "#2",
    "remaining": 429,
-   "diagram": "../../manual/assets/plates/B07-P2.png",
+   "diagram": "../../manual/assets/plates/B07-P3.png",
    "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
   {
@@ -203,13 +218,13 @@
    "batch": "B08",
    "batch_title": "Skirts and front modules",
    "run": "asa",
-   "hours": 6.5,
-   "grams": 95,
+   "hours": 4.2,
+   "grams": 62,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 232,
+   "remaining": 265,
    "diagram": "../../manual/assets/plates/B08-P2.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -218,13 +233,13 @@
    "batch": "B08",
    "batch_title": "Skirts and front modules",
    "run": "asa",
-   "hours": 6.5,
-   "grams": 99,
+   "hours": 4.2,
+   "grams": 62,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 133,
+   "remaining": 203,
    "diagram": "../../manual/assets/plates/B08-P3.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -239,8 +254,23 @@
    "slot": "overnight",
    "note": "",
    "spool": "#2",
-   "remaining": 31,
+   "remaining": 101,
    "diagram": "../../manual/assets/plates/B08-P4.png",
+   "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
+  },
+  {
+   "id": "B08-P5",
+   "batch": "B08",
+   "batch_title": "Skirts and front modules",
+   "run": "asa",
+   "hours": 4.6,
+   "grams": 70,
+   "colour": "black",
+   "slot": "day",
+   "note": "",
+   "spool": "#2",
+   "remaining": 31,
+   "diagram": "../../manual/assets/plates/B08-P5.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
   {
@@ -317,7 +347,7 @@
    "remaining": 461,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
-   "milestone": "Last ASA plate off the bed: all 21 plates of the run are done."
+   "milestone": "Last ASA plate off the bed: all 23 plates of the run are done."
   },
   {
    "id": "B11-P1",
@@ -328,7 +358,7 @@
    "grams": 4,
    "colour": "petg",
    "slot": "day",
-   "note": "the coupon, first; after B07-P2",
+   "note": "the coupon, first; after B07-P3",
    "spool": "V1",
    "remaining": 996,
    "diagram": "../../manual/assets/plates/B11-P1.png",
@@ -398,9 +428,9 @@
  "runs": [
   {
    "run": "asa",
-   "plates": 21,
-   "hours": 150.7,
-   "label": "21-plate run"
+   "plates": 23,
+   "hours": 150.9,
+   "label": "23-plate run"
   },
   {
    "run": "bay",
@@ -410,10 +440,10 @@
   }
  ],
  "totals": {
-  "plates": 26,
-  "hours": 175.6,
-  "overnight": 10,
-  "run_plates": 21,
-  "run_hours": 150.7
+  "plates": 28,
+  "hours": 175.8,
+  "overnight": 8,
+  "run_plates": 23,
+  "run_hours": 150.9
  }
 }

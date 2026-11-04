@@ -302,7 +302,7 @@ Source: [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/n
 
 **Helper:** Counts the ten LDO parts into their bin and writes the DO NOT PRINT label.
 
-⚠ **Rev D+ / LDO:** the USB-adapter mount base is supplied printed, but the **cover** changed for the V2 board. Plate **B07-P1** already prints the correct **V2** [`usb_adapter_mount_partial_cover.stl`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl) into bin `08-CW2`, plus a spare V1 cover in `spare-alt`. Fit the V2 one. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · survey §4.1 ⑤
+⚠ **Rev D+ / LDO:** the USB-adapter mount base is supplied printed, but the **cover** changed for the V2 board. Plate **B07-P3** already prints the correct **V2** [`usb_adapter_mount_partial_cover.stl`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/STLs/usb_adapter_mount_partial_cover.stl) into bin `08-CW2`, plus a spare V1 cover in `spare-alt`. Fit the V2 one. [src](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · survey §4.1 ⑤
 
 Source: [LDO printed parts guide (Rev D)](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) · [Nitehawk-SB-V2 `STLs/`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/tree/master/STLs)
 
@@ -1113,7 +1113,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Deck panel calipered on kit day and the matching `deck_support_*` set picked; B01-P2 printed both, the other set is a spare.
 - [ ] Nitehawk board confirmed as a **V2**: PH2.0 on PROBE/TH0/CT/Endstop, XH on MOTOR, secondary USB port present, fan-adapter header keyed. The `stm32g0b1xx` USB-serial check is written into the Ch 12 notes.
 - [ ] XY endstop cable labels read `XES / YES`, or the re-pin guide is bookmarked.
-- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P1); the spare V1 cover in `spare-alt`.
+- [ ] Ten LDO-supplied printed parts binned and labelled "DO NOT PRINT". The V2 `usb_adapter_mount_partial_cover.stl` found in bin `08-CW2` (B07-P3); the spare V1 cover in `spare-alt`.
 - [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; trays stacked.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.

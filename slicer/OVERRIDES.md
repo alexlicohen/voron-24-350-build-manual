@@ -53,7 +53,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 |---|---|---|---|---|
 | `filament_shrinkage_compensation_xy` | `0.22%`  | `0%` | THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores | Filament row 1 |
 | `filament_shrinkage_compensation_z` | `0.22%`  | `0%` | same reason | Filament row 2 |
-| `chamber_minimal_temperature` | `40` | `40` | Alex 2026-10-28: hold the print until the chamber reads 40 C; 50 (10-27) never starts, the basement chamber tops out at 44 C on the bed alone | Filament row 6 |
+| `chamber_minimal_temperature` | `40`  | `50` | Alex 2026-11-03: hold the print until the chamber reads 50 C. A blanket on the top and a cover over the door hold 54 C mid-print in the 17 C basement (bare: 44 C, so 40 from 10-28) | Filament row 6 |
 
 ## Printer settings
 

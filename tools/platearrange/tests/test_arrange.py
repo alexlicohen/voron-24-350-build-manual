@@ -261,3 +261,55 @@ def test_large_centre_deterministic_and_off_by_default():
     assert a.placements == b.placements and a.strategy == b.strategy
     plain = arrange_detailed(items, gap=6.0, edge_margin=4.0)
     assert "anchored" not in plain.strategy and not plain.strategy.startswith("ring")
+
+
+# ---------------------------------------------------------------- per-item edge margin
+
+def _bbox(pl, v):
+    xy = pl.apply(v[:, :2])
+    return (*xy.min(axis=0), *xy.max(axis=0))
+
+
+@pytest.mark.parametrize("large_centre", [0.0, 1.0])
+def test_item_edge_margin_holds_for_big_parts_only(large_centre):
+    """A plate that cannot keep every part 20 mm off the edge still fits when only the
+    big parts need 20 mm; the small ones use the bed's 5 mm band."""
+    bed = (250.0, 220.0)
+    vb, tb = box(120, 60)
+    vs, ts = box(30, 30)
+    big = [Item(f"big{i}", vb, tb, brim=3.15, edge_margin=20.0) for i in range(2)]
+    small = [Item(f"s{i}", vs, ts) for i in range(14)]
+    with pytest.raises(NoFit):        # uniform 20 mm: too full for one bed
+        arrange(big + small, bed=bed, gap=6, edge_margin=20.0, max_beds=1)
+    res = arrange_detailed(big + small, bed=bed, gap=6, edge_margin=5.0, max_beds=1,
+                           large_centre=large_centre)
+    assert res.beds == 1
+    for it, pl in zip(big + small, res.placements):
+        x0, y0, x1, y1 = _bbox(pl, it.vertices)
+        need = (20.0 if it.edge_margin else 5.0) - it.brim
+        assert min(x0, y0, bed[0] - x1, bed[1] - y1) >= need - 1e-6, (it.id, x0, y0, x1, y1)
+    sizes = [(120, 60)] * 2 + [(30, 30)] * 14
+    _check_boxes(sizes, [3.15] * 2 + [0.0] * 14, res.placements, 6, bed, 5.0)
+
+
+def test_item_edge_margin_none_matches_default():
+    v, t = box(40, 40)
+    a = arrange_detailed([Item(i, v, t) for i in range(4)], bed=(250, 220), edge_margin=5)
+    b = arrange_detailed([Item(i, v, t, edge_margin=None) for i in range(4)], bed=(250, 220),
+                         edge_margin=5)
+    assert a.placements == b.placements
+
+
+def test_item_edge_margin_too_big_for_bed_raises():
+    v, t = box(200, 100)
+    with pytest.raises(NoFit):
+        arrange([Item("x", v, t, edge_margin=30.0)], bed=(250, 220), edge_margin=5)
+
+
+def test_item_edge_margin_rejects_negative_and_polygon_bed():
+    v, t = box(40, 40)
+    with pytest.raises(ValueError):
+        arrange([Item("x", v, t, edge_margin=-1.0)], bed=(250, 220))
+    poly = [(0, 0), (200, 0), (200, 100), (100, 200), (0, 200)]
+    with pytest.raises(ValueError):
+        arrange([Item("x", v, t, edge_margin=20.0)], bed=poly, edge_margin=1.0)

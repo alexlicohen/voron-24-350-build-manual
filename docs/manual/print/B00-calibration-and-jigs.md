@@ -18,7 +18,7 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
 hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
-**Step B00.8** — reviewing all 26 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Step B00.8** — reviewing all 28 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -66,7 +66,7 @@ the kit's own 153 inserts stay untouched.
 
 **Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
-⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 26 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
+⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 28 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
 ⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
@@ -78,7 +78,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.7 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.9 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
 leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
 not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the
@@ -112,7 +112,7 @@ is not run.
 - [ ] Chamber filter blower runs and the bypass flaps close for the print (first ASA print on 7.0.0)
 - [ ] Every square smooth and closed: beads touching, no gaps between rows, no crests you can feel with a fingernail, no pinholes where the infill meets the outline. On calipers a good square reads about 0.24–0.26 mm across the middle (the plates print the first layer at Z 0.28); a crested one reads high because the jaws sit on the crests
 - [ ] Spread across all five squares: they all look the same
-- [ ] Crests = the nozzle is too close: raise `z_offset` in `slicer/build_config.py` by 0.02–0.04. Gaps between round beads = too high: lower it the same way. Pinholes at the outline with the rows closed = flow: `slicer/checks/hot-first-layer-flow-ladder.gcode` prints the squares at 100 / 95 / 90 / 85 / 80 % in one go (print the file as it is, not through PrusaSlicer) and the flow goes in the start's `M221` line (`FLOW_FIRST` in build_config). Then `python3 slicer/build_config.py`, `python3 slicer/sync_start_gcode.py --add-missing --key z_offset --key start_gcode` on the 21 plates, `python3 slicer/hot_check.py`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`, and print it again
+- [ ] Crests = the nozzle is too close: raise `z_offset` in `slicer/build_config.py` by 0.02–0.04. Gaps between round beads = too high: lower it the same way. Pinholes at the outline with the rows closed = flow: `slicer/checks/hot-first-layer-flow-ladder.gcode` prints the squares at 100 / 95 / 90 / 85 / 80 % in one go (print the file as it is, not through PrusaSlicer) and the flow goes in the start's `M221` line (`FLOW_FIRST` in build_config). Then `python3 slicer/build_config.py`, `python3 slicer/sync_start_gcode.py --add-missing --key z_offset --key start_gcode` on the 23 plates, `python3 slicer/hot_check.py`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`, and print it again
 - [ ] Live Adjust Z (long-press the knob on the first layer) is not kept for the next print on the Core One+ (Alex 2026-10-28), so a correction always goes in the slicer, never on the knob
 - [ ] Found 2026-10-28/29 on satin with Galaxy Black: Z offset 0 and +0.04 crested, −0.09 far worse, +0.08 closed; the flow ladder at +0.08 closed at 95 % (90 % pinholed, 80 % gapped). The plates carry **+0.08** and **95 %**
 
@@ -145,7 +145,7 @@ The check projects are not plates of the run and sit outside every total. `pytho
 rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
 a 110 °C bed and the heater off before every probe tap, and that each ladder square's sliced gap matches
 its setting; `--check` only re-slices the committed files. The
-21 plates carry the cold start until the comparison above says otherwise.
+23 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
 
@@ -157,22 +157,24 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 26 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
+1. Open each of the 28 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
-The 3MFs are `slicer/plates/<id>.3mf` — the 21 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
+The 3MFs are `slicer/plates/<id>.3mf` — the 23 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
 plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.
 
-**Check:** All 26 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+**Check:** All 28 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
 
 **Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 
+Re-review done 2026-11-03: the arranger re-packed B02-P2, B03-P1, B07-P1 to B07-P3, B08-P2 to B08-P5 and B09-P4 that day so every big part sits 20 mm from each bed edge, B07-P3 and B08-P5 new, and all ten passed this review as packed.
+
 **What to look at on each plate:**
 
-- A flat face sits on the sheet, and nothing overhangs the bed edge.
+- A flat face sits on the sheet, and nothing overhangs the bed edge. Every big part, 50 mm or more on its longest side, sits with its brim 20 mm or more from each edge; small parts 5 mm.
 - No supports anywhere. The 2.9 print-stability warnings on drive frames, Stealthburner and Klicky
   parts are by design — see them and move on.
 - Spacing looks even; nothing touching or crossing.
@@ -183,24 +185,25 @@ so nothing here gets hand-typed.
 
 **If an arrangement needs changing:**
 
-1. In PrusaSlicer, open the Arrange popup: 6 mm spacing, rotations on, Center, Accurate, then
-   **Arrange Current Bed**. Save the 3MF. [src](https://help.prusa3d.com/article/auto-arrange-tool_1770)
+1. In PrusaSlicer, move or rotate the part by hand, about Z only, keeping big parts 20 mm and small
+   parts 5 mm from every edge and about 6 mm between parts. **Never press Arrange**: it does not know
+   the 20 mm rule. Save the 3MF.
 2. Rebuild only the plates you touched:
    `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]` — name every re-saved
-   plate. With no ids it re-slices all 26: safe, but slow. **Never drop `--from-3mf`**: that
+   plate. With no ids it re-slices all 28: safe, but slow. **Never drop `--from-3mf`**: that
    re-packs the plates and loses this arrangement.
 3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
    [print/README](README.md#spool-ledger) by hand.
 
 Pause: ~25 min since the last pause — B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer **Don't Save** unless you meant to re-arrange.
 
-Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.
+Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P3. Nothing re-sliced outside this session's re-saves yet.
 
 Pause: ~35 min since the last pause — B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.
 
 Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.
 
-Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger) · maintainer note: a passed B11 review is what clears B11's `qc="pending"` flag in `slicer/plates.py`
+Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger) · maintainer note: a passed review is what clears a plate's `qc="pending"` flag in `slicer/plates.py`
 
 ## Step B00.1 — Filament prep
 
@@ -236,9 +239,9 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:**
 
 1. Fit [the print sheet](00-slicer-setup.md#print-sheet), the satin sheet, wiped with IPA since the last print. No glue.
-2. Let the chamber reach 40 °C; never override the profile's gate.
+2. Blanket on top, cover over the door, back clear; wait for 50 °C.
 3. Set **Settings → Chamber Filtration → Adv. Filtration**.
-**Check:** Chamber temp reads ≥40 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
+**Check:** Chamber temp reads ≥50 °C on the display before the nozzle purges, and Chamber Filtration reads **Adv. Filtration**.
 
 ⚠ ASA off-gasses styrene. Chamber Filtration on Adv. Filtration, also under Tune mid-print: on None the
 AFS blower never runs and the plate vents unfiltered. Door shut for the whole print, room ventilated
@@ -308,7 +311,7 @@ inputs:
   - key: snap
     label: Corner snap tears across the layers, not along one
     kind: yesno
-    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 40 °C chamber gate, and reprint before any structural plate.
+    no: Delamination. The chamber is too cold or the part fan is too high. Drop min/max fan to 0/15 %, hold the 50 °C chamber gate, and reprint before any structural plate.
     why: Every Voron part is printed in this same ASA, and a cube that peels along a layer line is a chamber or fan setting that would repeat on every plate after this one.
 pass: Gate A passed. B02, B07 and the cosmetics B08 to B10 are released. Write the four numbers in the log, then run Gate B's bore row the same day, before the next plate swap, so B01 can start on it.
 ```

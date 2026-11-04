@@ -153,12 +153,13 @@ def platearrange_pack(pieces: list[Piece], ini: Path,
     rotated mesh bbox corner, brim excluded) or return (False, [what did not fit]).
 
     Brim reach = brim width + the ini's brim_separation (what PrusaSlicer prints); the bed
-    edge margin is geom.EDGE_MARGIN (skirt room); the gap is PA_GAP, relaxed down
+    edge margin is geom.EDGE_MARGIN, geom.BIG_EDGE_MARGIN for a part whose footprint's
+    longest side is at least geom.BIG_PART_MM; the gap is PA_GAP, relaxed down
     PA_GAP_LADDER only if the plate does not fit, and the relaxation is reported on stderr.
     """
     import numpy as np
     sys.path.insert(0, str(REPO / "tools" / "platearrange"))
-    from geom import EDGE_MARGIN
+    from geom import BIG_EDGE_MARGIN, BIG_PART_MM, EDGE_MARGIN
     from platearrange import Item, NoFit, arrange_detailed
 
     sep = _ini_value(ini, "brim_separation", 0.0)
@@ -169,8 +170,10 @@ def platearrange_pack(pieces: list[Piece], ini: Path,
         if p.key not in meshes:
             meshes[p.key] = np.asarray(read_stl(STL / p.key), dtype=np.float64).reshape(-1, 3)
         v = meshes[p.key]
+        big = float(np.ptp(v[:, :2], axis=0).max()) >= BIG_PART_MM
         items.append(Item(i, v, np.arange(len(v)).reshape(-1, 3),
-                          brim=(p.brim + sep) if p.brim > 0 else 0.0, key=p.key))
+                          brim=(p.brim + sep) if p.brim > 0 else 0.0, key=p.key,
+                          edge_margin=BIG_EDGE_MARGIN if big else None))
     res = None
     for gap in (PA_GAP,) + tuple(g for g in PA_GAP_LADDER if g < PA_GAP):
         try:

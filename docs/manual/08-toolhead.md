@@ -51,7 +51,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/%5Ba%5D_latch.png){ width=96 } ![](assets/parts/%5Ba%5D_latch_shuttle.png){ width=96 } | `[a]_latch.stl` / `[a]_latch_shuttle.stl` | 08-CW2 | 1 each | Blue |
 | ![](assets/parts/%5Ba%5D_pcb_spacer.png){ width=96 } | `[a]_pcb_spacer.stl` (CW2) | spare-alt | 1 | **Supplied printed**; you printed a 0.3 g spare |
 | ![](assets/parts/cw2_captive_pcb_cover.png){ width=96 } | `cw2_captive_pcb_cover.stl` (Nitehawk-SB repo) | 08-CW2 | 1 | Black — replaces the stock `cable_door` |
-| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (Nitehawk-SB-V2 repo) | 08-CW2 | 1 | Black — B07-P1; fitted at Step 08.64 |
+| ![](assets/parts/usb_adapter_mount_partial_cover.png){ width=96 } | `usb_adapter_mount_partial_cover.stl` (Nitehawk-SB-V2 repo) | 08-CW2 | 1 | Black — B07-P3; fitted at Step 08.64 |
 | — | CW2 Chain Anchor Tilted | — | 1 | **Supplied printed** — do **not** print `chain_anchor_2hole` |
 | — | Klicky set (`KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2` + holder, `Mount_*`, `Dock_mount_fixed_v2`) | — | 1 set | Black — **alternative path only**, bag it (Step 08.54) |
 

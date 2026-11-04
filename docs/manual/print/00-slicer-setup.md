@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty-one plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty-three plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
@@ -41,7 +41,7 @@ The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wh
   `Prusa CORE One 0.4 nozzle` preset *inherits from this one* and only sets `nozzle_high_flow = 0`;
   every mechanical value is identical.
 - Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle **265 °C**, bed 110 °C, chamber 55 °C
-  (minimum **40 °C**: 50 never starts in the basement, which tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
+  (minimum **50 °C** with the printer covered, below; bare, the basement tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
   [volumetric flow](../16-glossary.md#v) **26 mm³/s**. (The non-HF `Prusament ASA @COREONE` is 260 °C / 15 mm³/s.)
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased
   profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
@@ -67,9 +67,9 @@ with the arrangement, the per-object brims and the full configuration already in
 
 | What | Where |
 |---|---|
-| One project per plate, 26 of them | `slicer/plates/B01-P1.3mf` … |
+| One project per plate, 28 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
-| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 26 projects, B11's included) |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 28 projects, B11's included) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -80,12 +80,12 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 26 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 28 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
-all 26 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+all 28 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
-⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 21 projects and both `.ini`
+⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 23 ASA projects and both `.ini`
 bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
 at 0 °C through homing and the whole mesh, and the `G29 P9` nozzle wipe is removed because a cold tip
 cannot be wiped. Clean the tip by hand while it is hot, after each print. Opening a project therefore shows
@@ -171,7 +171,7 @@ First-layer infill at 25 mm/s as well would be one more override, `first_layer_i
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
-| Chamber minimal temperature | 40 °C | **40** | printer will not start until the chamber reaches 40 °C — this *is* the preheat gate. 50 (tried 10-27) never starts here: the basement chamber tops out at 44 °C on the bed alone; the firmware caps it at 55 °C | Alex 2026-10-28 |
+| Chamber minimal temperature | 40 °C | **50** | printer will not start until the chamber reaches 50 °C — this *is* the preheat gate. It needs the printer covered: a folded blanket on the top and a cover (a jacket works) over the door, the back left clear for the filter, electronics and power inlet. Bare, the basement chamber (17 °C room) tops out at 44 °C, so 50 never starts; covered it holds 54 °C mid-print. The firmware caps it at 55 °C | Alex 2026-11-03 (40 from 10-28) |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
 | Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 21 mm³/s, on internal solid infill at 150 mm/s | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
@@ -219,7 +219,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.7 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.9 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -336,7 +336,14 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
 orientation, and the plate diagram in each chapter shows the result (drawn from the committed project itself, so a plate you re-arrange in the GUI and save is redrawn by `python3 slicer/build_plates.py --from-3mf`). That is the allowed kind of rotation:
 it never changes which face is on the bed. Example: the B08 skirt plates, where the long skirt segments
-are turned about Z to interleave on the bed with 5 mm kept clear of every edge.
+are turned about Z to interleave on the bed, each kept 20 mm clear of every edge.
+
+**Edge margins (Alex 2026-11-03).** A *big* part, 50 mm or more on the longest side of its STL footprint
+(`geom.BIG_PART_MM`), sits with its brim **20 mm or more from every bed edge** (`geom.BIG_EDGE_MARGIN`): the
+edges run cooler, and B01-P1's front `z_drive_main` lifted at the door-side corner. Small parts keep **5 mm**
+(`geom.EDGE_MARGIN`); parts sit 6 mm apart, brim to brim, wherever the plate allows. The arranger, `tools/platearrange`, applies the
+margin per part. PrusaSlicer's **Arrange** knows none of this, so never press it on a committed plate: move
+a part by hand, then save and run `build_plates.py --from-3mf <id>`.
 
 These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
 hand, and a part that is not on one of these two lists gets no brim even when it shares a plate with
@@ -388,14 +395,14 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.7 h / 21-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.9 h / 23-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now would put the closed bed calibration
 (±0.1 mm on the +2.8 front-left Z-stop correction cap) at risk and force a belt retune, an XY-homing recal
-and a start-G-code re-sync of all 26 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
+and a start-G-code re-sync of all 28 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
 **Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
@@ -435,7 +442,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 26 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 28 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater

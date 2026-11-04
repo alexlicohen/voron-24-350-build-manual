@@ -35,6 +35,9 @@ write_3mf("p.3mf", "out.3mf", res.placements)
 
 - `bed` is `(w, h)` for `[0, w] × [0, h]`, or a polygon in bed coordinates. A 3MF's
   `bed_shape` is such a polygon, and an axis-aligned one is treated as a rectangle.
+- `edge_margin` on an `Item` keeps that part (with its brim) at least that far from the
+  bed edge; the larger of it and the call's `edge_margin` applies. Use it to hold big parts
+  away from cooler bed edges while small parts use the outer band. Rectangular beds only.
 - `brim` is the brim's reach from the part. For PrusaSlicer that is `brim_width +
   brim_separation`, and `read_3mf` works it out per object.
 - Parts with identical meshes share their footprints, wherever they sit on the bed.

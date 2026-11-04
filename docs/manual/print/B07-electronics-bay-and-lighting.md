@@ -5,9 +5,9 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 15.1 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 15.3 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 7.5 h unattended) + ~25 min inspect and bin.
+**Sessions:** 3 plate starts (~5 min hands-on each, 6.4 / 5.1 / 3.8 h unattended) + ~25 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5). Nothing here has a bearing seat or rail fit. It does not
 depend on B01–B06 (the electronics bay is independent of the mechanical gantry); the inlet panel's inserts go
@@ -44,13 +44,13 @@ supplied printed).
   inlet panel's three insert bores get their inserts on kit day (Ch 09 Step 09.10), not here; the Wago mount takes none.
 - Most commonly reprinted here: `cob_light_strip_mount_100mm` — warps at the ends, check flatness on glass.
 - COB counts are LDO's own for a 2.4-350: 6× 100 mm + 2× 50 mm. Each STL contains a 2-piece assembly joined
-  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (about 82 g of P2's 111 g).
+  with 2× M3 heat-sets + 2× M3×6 FHCS — the heaviest single group of "small" parts in the build (about 72 g of P2's 79 g).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B06. The ledger has 653 g on it here, 540 g after P1 and 429 g after P2, so no [runout](../16-glossary.md#r) in this batch.
+**Do:** Galaxy Black, spool #2 after B06. The ledger has 653 g on it here, 556 g after P1, 477 g after P2 and 429 g after P3, so no [runout](../16-glossary.md#r) in this batch.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; ≥224 g on spool #2 for the two plates.
+**Check:** Clean purge; ≥224 g on spool #2 for the three plates.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -62,7 +62,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `cob_light_strip_mount_50mm` · `wago_221-415_mount_3by5` · `usb_adapter_mount_partial_cover` · `PSU_stabilizer_50mm` · `pcb_din_clip` ×2 · `handlebar_spacer` ×2 · 8 files, 11 objects — 7.6 h, 113 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount and the two 100 mm mounts (the long-flat list), already in the project.
+**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `cob_light_strip_mount_50mm` · `wago_221-415_mount_3by5` · `pcb_din_clip` · `handlebar_spacer` ×2 · 6 files, 8 objects — 6.4 h, 97 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount and the two 100 mm mounts (the long-flat list), already in the project.
 **Check:** No face re-orientation, all flat as shipped; the preview shows a brim outline on the inlet, the Wago mount and both 100 mm mounts only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -88,8 +88,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×4 · `cob_light_strip_mount_50mm` · `lrs_200_psu_bracket` ×2 · `usb_adapter_mount` · `pcb_din_clip` · `handlebar_spacer` ×2 · 6 files, 11 objects — 7.5 h, 111 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the rest.
-**Check:** Brim outline on the four 100 mm mounts only; five COB mounts on the plate.
+**Parts:** `cob_light_strip_mount_100mm` ×4 · `pcb_din_clip` · `handlebar_spacer` ×2 · 3 files, 7 objects — 5.1 h, 79 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts, already in the project ([long-flat brim list](00-slicer-setup.md#orientation-brim)), none on the rest.
+**Check:** Brim outline on the four 100 mm mounts only; four COB mounts on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
@@ -99,6 +99,32 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 **Do:** Print with standing overrides.
 **Check:** Watch for end-lift on the 100 mm mounts partway through: this is the batch's known warp risk.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
+## Step B07.8 — Load plate B07-P3
+
+![Plate B07-P3 — sorting diagram](../assets/plates/B07-P3.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B07.7.*
+
+**Do:** Open `slicer/plates/B07-P3.3mf` with **File → Open Project**. The arrangement and overrides
+are already in it. Confirm it loaded as described rather than rebuilding it.
+**Parts:** `usb_adapter_mount` · `usb_adapter_mount_partial_cover` · `cob_light_strip_mount_50mm` · `PSU_stabilizer_50mm` · `lrs_200_psu_bracket` ×2 · `pcb_din_clip` · 6 files, 7 objects — 3.8 h, 48 g (PrusaSlicer 2.9.6 estimate) · no brim on any part.
+**Check:** No brim outline anywhere in the preview; all seven parts flat on their shipped faces.
+
+**Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Nitehawk-SB V2](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2)
+
+## Step B07.9 — Print plate B07-P3
+
+**Do:** Print with standing overrides.
+**Check:** Clean first layer under all seven parts; the thin USB adapter cover lies flat with no lifted corner.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -126,8 +152,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `wago_221-415_mount_3by5`, `PSU_stabilizer_50mm`, `pcb_din_clip` ×2, `power_inlet_IECGS_1mm` |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `power_inlet_IECGS_1mm`, `wago_221-415_mount_3by5`, `pcb_din_clip` |
 | **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×2, `cob_light_strip_mount_50mm` |
 | **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×2 |
 
@@ -135,17 +160,25 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `lrs_200_psu_bracket` ×2, `pcb_din_clip` |
-| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×4, `cob_light_strip_mount_50mm` |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `pcb_din_clip` |
+| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_100mm` ×4 |
 | **11-finish** — Exhaust cover + grill, handlebar spacers | `handlebar_spacer` ×2 |
+
+**B07-P3**
+
+| bin | parts off this plate |
+|---|---|
+| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
+| **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `PSU_stabilizer_50mm`, `lrs_200_psu_bracket` ×2, `pcb_din_clip` |
+| **10-lights** — COB light-strip mounts | `cob_light_strip_mount_50mm` |
 | **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |
 
-**Check:** COB mounts counted across both plates, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
+**Check:** COB mounts counted across all three plates, six 100 mm and two 50 mm, in 10-lights; `power_inlet_IECGS_1mm` in 09-bay.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.
+Pause: ~10 min since the last pause — all three plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

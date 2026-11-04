@@ -96,14 +96,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet.",
+     "leave_state": "B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P3. Nothing re-sliced outside this session's re-saves yet.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P2. Nothing re-sliced outside this session's re-saves yet."
+     "text": "Step B00.8 · ~20 min · leave-state: B04 through B07 reviewed and ticked, PrusaSlicer open on B07-P3. Nothing re-sliced outside this session's re-saves yet."
     },
     {
      "id": "b00-calibration-and-jigs#3",
@@ -857,16 +857,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P1",
-     "print_hours": 7.6,
+     "print_hours": 6.4,
      "run": "asa",
-     "leave_state": "plate B07-P1 running, 7.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.2",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 7.6 h unattended · leave-state: plate B07-P1 running, 7.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 6.4 h unattended · leave-state: plate B07-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#1",
@@ -881,19 +881,43 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P2",
-     "print_hours": 7.5,
+     "print_hours": 5.1,
      "run": "asa",
-     "leave_state": "plate B07-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 7.5 h unattended · leave-state: plate B07-P2 running, 7.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 5.1 h unattended · leave-state: plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#2",
+     "chapter": "b07-electronics-bay-and-lighting",
+     "kind": "print",
+     "steps": [
+      "B07.8"
+     ],
+     "first_step": "B07.8",
+     "last_step": "B07.8",
+     "href": "../manual/steps/b07-electronics-bay-and-lighting/b07-8/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B07-P3",
+     "print_hours": 3.8,
+     "run": "asa",
+     "leave_state": "plate B07-P3 running, 3.8 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B07.8",
+       "Reads the sorting diagram legend aloud and counts the parts on it while you load."
+      ]
+     ],
+     "text": "Start plate B07-P3 (Step B07.8) · ~5 min hands-on, then 3.8 h unattended · leave-state: plate B07-P3 running, 3.8 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b07-electronics-bay-and-lighting#3",
      "chapter": "b07-electronics-bay-and-lighting",
      "kind": "build",
      "steps": [
@@ -912,7 +936,7 @@
      "text": "Step B07.6 · ~15 min · leave-state: every mount checked on the reference, brims snapped off, nothing assembled."
     },
     {
-     "id": "b07-electronics-bay-and-lighting#3",
+     "id": "b07-electronics-bay-and-lighting#4",
      "chapter": "b07-electronics-bay-and-lighting",
      "kind": "build",
      "steps": [
@@ -926,14 +950,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.",
+     "leave_state": "all three plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35.",
      "helpers": [
       [
        "B07.7",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B07.7 · ~10 min · leave-state: both plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35."
+     "text": "Step B07.7 · ~10 min · leave-state: all three plates sorted into 08-CW2, 09-bay, 10-lights and 11-finish, the spare `usb_adapter_mount` in spare-alt. No heat-set inserts yet: the inlet panel's go in at Ch 09.10, the COB mounts' at Ch 10.35."
     }
    ]
   },
@@ -1107,16 +1131,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B08-P2",
-     "print_hours": 6.5,
+     "print_hours": 4.2,
      "run": "asa",
-     "leave_state": "plate B08-P2 running, 6.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B08-P2 running, 4.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B08.4",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P2 running, 6.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B08-P2 (Step B08.4) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B08-P2 running, 4.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b08-skirts-and-front-modules#2",
@@ -1131,16 +1155,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B08-P3",
-     "print_hours": 6.5,
+     "print_hours": 4.2,
      "run": "asa",
-     "leave_state": "plate B08-P3 running, 6.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B08-P3 running, 4.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B08.6",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 6.5 h unattended · leave-state: plate B08-P3 running, 6.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B08-P3 (Step B08.6) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B08-P3 running, 4.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b08-skirts-and-front-modules#3",
@@ -1169,6 +1193,30 @@
     {
      "id": "b08-skirts-and-front-modules#4",
      "chapter": "b08-skirts-and-front-modules",
+     "kind": "print",
+     "steps": [
+      "B08.12"
+     ],
+     "first_step": "B08.12",
+     "last_step": "B08.12",
+     "href": "../manual/steps/b08-skirts-and-front-modules/b08-12/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B08-P5",
+     "print_hours": 4.6,
+     "run": "asa",
+     "leave_state": "plate B08-P5 running, 4.6 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B08.12",
+       "Names the bin colour of each part on the sorting diagram while you open the project."
+      ]
+     ],
+     "text": "Start plate B08-P5 (Step B08.12) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B08-P5 running, 4.6 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b08-skirts-and-front-modules#5",
+     "chapter": "b08-skirts-and-front-modules",
      "kind": "build",
      "steps": [
       "B08.10"
@@ -1186,7 +1234,7 @@
      "text": "Step B08.10 · ~20 min · leave-state: every segment checked flat, brims off, ring dry-fitted and taken apart again. Nothing bolted."
     },
     {
-     "id": "b08-skirts-and-front-modules#5",
+     "id": "b08-skirts-and-front-modules#6",
      "chapter": "b08-skirts-and-front-modules",
      "kind": "build",
      "steps": [
@@ -6209,13 +6257,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6315,13 +6365,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6415,13 +6467,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6508,13 +6562,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6601,13 +6657,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6697,13 +6755,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6824,13 +6884,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -6914,13 +6976,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -7056,13 +7120,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -7161,6 +7227,8 @@
      "B07.3",
      "B07.4",
      "B07.5",
+     "B07.8",
+     "B07.9",
      "B07.6",
      "B07.7"
     ],
@@ -7174,6 +7242,8 @@
      "B08.7",
      "B08.8",
      "B08.9",
+     "B08.12",
+     "B08.13",
      "B08.10",
      "B08.11"
     ],
@@ -7236,7 +7306,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 68,
+    "done": 70,
     "gate_closed": true,
     "start": "12.2",
     "sections": [
@@ -7381,13 +7451,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -7628,13 +7700,15 @@
      "b06-toolhead-sb-cw2-klicky#2",
      "b07-electronics-bay-and-lighting#0",
      "b07-electronics-bay-and-lighting#1",
-     "b07-electronics-bay-and-lighting#3",
+     "b07-electronics-bay-and-lighting#2",
+     "b07-electronics-bay-and-lighting#4",
      "b11-bay-ducting#5",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
      "b08-skirts-and-front-modules#3",
-     "b08-skirts-and-front-modules#5",
+     "b08-skirts-and-front-modules#4",
+     "b08-skirts-and-front-modules#6",
      "b09-panels-filtration-spool#0",
      "b09-panels-filtration-spool#1",
      "b09-panels-filtration-spool#2",
@@ -7876,6 +7950,8 @@
      "B07.3",
      "B07.4",
      "B07.5",
+     "B07.8",
+     "B07.9",
      "B07.6",
      "B07.7"
     ],
@@ -7889,6 +7965,8 @@
      "B08.7",
      "B08.8",
      "B08.9",
+     "B08.12",
+     "B08.13",
      "B08.10",
      "B08.11"
     ],
@@ -7916,7 +7994,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 61,
+    "done": 63,
     "gate_closed": true,
     "start": "B11.3",
     "sections": [
@@ -8892,6 +8970,8 @@
      "B07.3",
      "B07.4",
      "B07.5",
+     "B07.8",
+     "B07.9",
      "B07.6",
      "B07.7"
     ],
@@ -8905,6 +8985,8 @@
      "B08.7",
      "B08.8",
      "B08.9",
+     "B08.12",
+     "B08.13",
      "B08.10",
      "B08.11"
     ],
@@ -8948,7 +9030,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 217,
+    "done": 219,
     "gate_closed": true,
     "start": null,
     "sections": [

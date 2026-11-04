@@ -62,6 +62,9 @@ class Item:
     triangles: Any
     brim: float = 0.0
     key: Optional[Hashable] = None
+    # This item's own part+brim distance to the bed edge; the larger of it and the bed's
+    # `edge_margin` applies (None = the bed's). Rectangular beds only.
+    edge_margin: Optional[float] = None
 
 
 @dataclass(frozen=True)
@@ -114,7 +117,7 @@ def _trim() -> None:
 
 class _Prep:
     """One item ready to place."""
-    __slots__ = ("index", "item", "offset", "fp", "k", "area", "longest")
+    __slots__ = ("index", "item", "offset", "fp", "k", "area", "longest", "m")
 
 
 def _prepare(items: Sequence[Item], rotations, res, first_layer, gap, need_brim_mask):
@@ -139,6 +142,7 @@ def _prepare(items: Sequence[Item], rotations, res, first_layer, gap, need_brim_
             k = _K[kkey] = Kernels(fp, gap, float(it.brim), need_brim_mask)
         p = _Prep()
         p.index, p.item, p.offset, p.fp, p.k = idx, it, (ox, oy), fp, k
+        p.m = 0.0 if it.edge_margin is None else float(it.edge_margin)
         p.area = fp.area
         r0 = rotations.index(0.0)
         e = k.ext[r0]
@@ -215,16 +219,18 @@ class _Bed:
             self.forbid = ~(inside & (dmin >= self.m + res * math.sqrt(0.5) + 1e-9))
             self.forbid_hat = rfft2(self.forbid[None].astype(np.float32), self.fs)
 
-    def ranges(self, k: Kernels, r: int):
-        """Grid positions (gx_lo, gx_hi, gy_lo, gy_hi) where rotation r's brim is on the bed."""
+    def ranges(self, k: Kernels, r: int, m: float = 0.0):
+        """Grid positions (gx_lo, gx_hi, gy_lo, gy_hi) where rotation r's brim is on the bed,
+        at least max(edge_margin, m) from its edge."""
         res = self.res
+        mm = max(self.m, m)
         mask = k.masks[r]
         ki0, kj0 = k.org[r]
         e = k.ext[r]
-        gx_lo = math.ceil(ki0 + (self.x0 + self.m - e[0] - self.X0) / res - 1e-9)
-        gx_hi = math.floor(ki0 + (self.x1 - self.m - e[2] - self.X0) / res + 1e-9)
-        gy_lo = math.ceil(kj0 + (self.y0 + self.m - e[1] - self.Y0) / res - 1e-9)
-        gy_hi = math.floor(kj0 + (self.y1 - self.m - e[3] - self.Y0) / res + 1e-9)
+        gx_lo = math.ceil(ki0 + (self.x0 + mm - e[0] - self.X0) / res - 1e-9)
+        gx_hi = math.floor(ki0 + (self.x1 - mm - e[2] - self.X0) / res + 1e-9)
+        gy_lo = math.ceil(kj0 + (self.y0 + mm - e[1] - self.Y0) / res - 1e-9)
+        gy_hi = math.floor(kj0 + (self.y1 - mm - e[3] - self.Y0) / res + 1e-9)
         gx_lo, gy_lo = max(gx_lo, 0), max(gy_lo, 0)
         gx_hi = min(gx_hi, self.Gw - mask.shape[1])
         gy_hi = min(gy_hi, self.Gh - mask.shape[0])
@@ -301,7 +307,7 @@ def _best_on(bed: _Bed, st: _BedState, p: _Prep, khat, okmaps, sink, w, allowed=
     best = (math.inf, -1, 0, 0)
     cand = []
     for r in (range(R) if allowed is None else allowed):
-        gx_lo, gx_hi, gy_lo, gy_hi = bed.ranges(k, r)
+        gx_lo, gx_hi, gy_lo, gy_hi = bed.ranges(k, r, p.m)
         if gx_lo > gx_hi or gy_lo > gy_hi:
             continue
         e = k.ext[r]
@@ -505,6 +511,11 @@ def _recentre(bed: _Bed, st: _BedState):
     px0, py0, px1, py1 = st.pile
     lo_x, hi_x = bed.x0 + bed.m - px0, bed.x1 - bed.m - px1
     lo_y, hi_y = bed.y0 + bed.m - py0, bed.y1 - bed.m - py1
+    for p, r, gx, gy in st.placed:          # items with their own, larger edge margin
+        if p.m > bed.m:
+            bx0, by0, bx1, by1 = _box(bed, p, r, gx, gy)
+            lo_x, hi_x = max(lo_x, bed.x0 + p.m - bx0), min(hi_x, bed.x1 - p.m - bx1)
+            lo_y, hi_y = max(lo_y, bed.y0 + p.m - by0), min(hi_y, bed.y1 - p.m - by1)
     dx = min(max(bed.cx - (px0 + px1) / 2.0, lo_x), hi_x)
     dy = min(max(bed.cy - (py0 + py1) / 2.0, lo_y), hi_y)
     if not bed.has_excl and bed.forbid is None:
@@ -562,6 +573,11 @@ def arrange_detailed(items: Sequence[Item], bed=(250.0, 220.0), gap: float = 6.0
     if 0.0 not in rots:
         rots = [0.0] + rots
     b = _Bed(bed, edge_margin, res, gap, exclusions)
+    own = [it.edge_margin for it in items if it.edge_margin is not None]
+    if any(m < 0 for m in own):
+        raise ValueError("an item's edge_margin must be >= 0")
+    if b.forbid is not None and any(m > edge_margin for m in own):
+        raise ValueError("a per-item edge_margin larger than the bed's needs a rectangular bed")
     preps = _prepare(items, rots, res, first_layer, gap, b.forbid is not None)
 
     best = None
