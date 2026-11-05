@@ -622,7 +622,7 @@ def pack(pieces: list[Piece], bed: tuple[float, float] = (BED_X, BED_Y)
 def pieces_for(plate_id: str) -> list[Piece]:
     """The plate's membership from plates.py, built exactly as build_plates.build does."""
     from build_plates import hull_and_bbox, source_stl
-    from plates import PLATES, brim_for
+    from plates import PLATES, brim_for, footprint_of
     out: list[Piece] = []
     for repo, path, qty in PLATES[plate_id]["parts"]:
         rel = source_stl(repo, path)
@@ -630,7 +630,7 @@ def pieces_for(plate_id: str) -> list[Piece]:
         base = path.rsplit("/", 1)[-1]
         for i in range(qty):
             nm = base if qty == 1 else f"{base}#{i + 1}"
-            out.append(Piece(rel, nm, hull, brim_for(path), bb[2]))
+            out.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb)), bb[2]))
     return out
 
 

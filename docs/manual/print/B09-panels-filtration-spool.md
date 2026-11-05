@@ -66,7 +66,7 @@ you push out**, not cut.
 
 ## Step B09.1 — Filament prep
 
-**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 31 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
+**Do:** Galaxy Black. Spool #2 starts **B09-P1** with about 30 g left, so the build's one predicted runout lands inside that plate; **P2** to **P4** run on spool #3, per the [ledger](README.md#spool-ledger). Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; spool #3 unsealed and within reach; P1 started so you are home about 2 h into its 4.4 h, when it pauses.
 
@@ -80,8 +80,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B09-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `exhaust_cover`, 3 mm brim already in the project · `z_belt_cover_a` ×2 · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 13 pieces — 4.4 h, 71 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Brim outline on the exhaust cover only; two belt covers and eight clips, two of each type.
+**Parts:** `exhaust_cover` · `z_belt_cover_a` ×2 · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 13 pieces — 4.4 h, 72 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the exhaust cover and both belt covers, already in the project.
+**Check:** Brim outlines on the exhaust cover and the two belt covers only; eight clips, two of each type.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -106,8 +106,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Leave the cartridge's built-in support in place.
-**Parts:** `Regular_Cartridge` (3mf), 3 mm brim already in the project · `spool_holder` · `bowden_retainer` · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 9 files, 13 pieces — 6.9 h, 91 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Built-in support visible in preview, not suppressed; brim outline on the cartridge only; eight clips, two of each type.
+**Parts:** `Regular_Cartridge` (3mf) · `spool_holder` · `bowden_retainer` · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 9 files, 13 pieces — 6.9 h, 91 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the cartridge, the spool holder and the belt cover, already in the project.
+**Check:** Built-in support visible in preview, not suppressed; brim outlines on the cartridge, spool holder and belt cover only; eight clips, two of each type.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -132,8 +132,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Leave the plenum's built-in support in place.
-**Parts:** `V2_Duo_Plenum`, 3 mm brim already in the project · `Regular_Cartridge_Lid` (3mf) · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 12 pieces — 5.6 h, 81 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Built-in support visible in preview, not suppressed; brim outline on the plenum only; eight clips, two of each type.
+**Parts:** `V2_Duo_Plenum` · `Regular_Cartridge_Lid` (3mf) · `bottom_panel_hinge` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 8 files, 12 pieces — 5.6 h, 81 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the plenum and the cartridge lid, already in the project.
+**Check:** Built-in support visible in preview, not suppressed; brim outlines on the plenum and cartridge lid only; eight clips, two of each type.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -158,8 +158,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `V2_Duo_Plenum_LID` · `exhaust_filter_grill`, 3 mm brim already in the project · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` · `midspan_panel_clip_6mm` ×2 · 8 files, 11 pieces — 3.6 h, 52 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Brim outline on the grill only; seven clips, one of them the last 4 mm midspan.
+**Parts:** `V2_Duo_Plenum_LID` · `exhaust_filter_grill` · `z_belt_cover_b` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` · `midspan_panel_clip_6mm` ×2 · 8 files, 11 pieces — 3.6 h, 53 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the plenum lid, the grill and the belt cover, already in the project.
+**Check:** Brim outlines on the plenum lid, grill and belt cover only; seven clips, one of them the last 4 mm midspan.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 

@@ -18,7 +18,7 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 - **Ch 10 — Wiring**, complete, including LDO **Checkpoint #1** (multimeter, unplugged). This is a hard gate: once the skirts and bottom panel go on, the bay is closed and re-opening costs an hour (survey §5.2 W8).
 - **Ch 10** must also have finished LED routing and the extrusion covers — a skirt over an unrouted LED wire means the skirt comes off again (survey §5.2 W5).
 - **Ch 12 Part 2 complete** — [Step 12.11](12-software.md#step-1211-gate-power-the-bay-and-confirm-both-mcus-enumerate) to Checkpoint 12: the bay powered once, both MCUs flashed, `printer.cfg` in. It runs with the bay **open**, before this part closes it; the touchscreen module (11.5–11.6) was already built from Ch 10 Step 10.50 and its panel proved at 12.11.
-- **Print batch B08** — skirts and front modules (5 plates, 26.7 h).
+- **Print batch B08** — skirts and front modules (5 plates, 26.5 h).
 - **Print batch B09** — panels, filtration, spool (4 plates, 20.5 h).
 - **Print batch B10** — Clicky-Clack door (1 plate, 5.7 h) + `Handle.stl` from **B02**.
 - **Print batch B02** — the blue accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.

@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty-three plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty-four plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
@@ -41,7 +41,7 @@ The machine has the **high-flow 0.4 nozzle**, so the HF variants are the base wh
   `Prusa CORE One 0.4 nozzle` preset *inherits from this one* and only sets `nozzle_high_flow = 0`;
   every mechanical value is identical.
 - Filament: **`Prusament ASA @COREONE HF0.4`** — nozzle **265 °C**, bed 110 °C, chamber 55 °C
-  (minimum **45 °C** with the printer covered, below; bare, the basement tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
+  (the print waits for **45 °C** with the printer covered, below; bare, the basement tops out at 44 °C), fan 20–25 %, first 4 layers fan off, density 1.07 g/cm³, max
   [volumetric flow](../16-glossary.md#v) **26 mm³/s**. (The non-HF `Prusament ASA @COREONE` is 260 °C / 15 mm³/s.)
 - Print: **`0.20mm STRUCTURAL @COREONE 0.4`** — *not* SPEED. STRUCTURAL is already the quality-biased
   profile (perimeters 70 mm/s vs SPEED's 170; external 50 vs 170; infill 120 vs 200).
@@ -69,7 +69,7 @@ with the arrangement, the per-object brims and the full configuration already in
 |---|---|
 | One project per plate, 28 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
-| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 28 projects, B11's included) |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 29 projects, B11's included) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -80,12 +80,12 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 28 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 29 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
-all 28 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+all 29 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
-⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 23 ASA projects and both `.ini`
+⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 24 ASA projects and both `.ini`
 bundles ship the same block as the GUI preset `Prusa CORE One HF0.4 nozzle - coldstart`: the nozzle stays
 at 0 °C through homing and the whole mesh, and the `G29 P9` nozzle wipe is removed because a cold tip
 cannot be wiped. Clean the tip by hand while it is hot, after each print. Opening a project therefore shows
@@ -145,9 +145,9 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Top infill extrusion width | 0.42 | **0.40** | consistency | judgment |
 | Perimeter generator | [Arachne](../16-glossary.md#a) | **keep Arachne** | Voron's "forced 0.4" predates Arachne. Arachne varies bead width on purpose and handles Voron's thin ribs better than Classic. Setting nominal width to 0.4 gives Arachne the right target. | judgment |
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
-| [Seam](../16-glossary.md#s) position | Aligned | **Rear** | keeps the seam off the visible outward faces of skirts and the toolhead | build spec |
+| [Seam](../16-glossary.md#s) position | Aligned | **Nearest**, scarf on smooth contours | seams go to the nearest corner, off flat and mating faces; on smooth curves a 20 mm scarf joint (outer contours only, so holes and bores keep the plain seam). Rear ran a seam stripe up the middle of flat back faces | Alex 2026-11-04 (rear before) |
 | [Skirt](../16-glossary.md#s) loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
-| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; judgment |
+| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.30 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -171,7 +171,7 @@ First-layer infill at 25 mm/s as well would be one more override, `first_layer_i
 | Nozzle / first-layer nozzle | 265 / 265 °C | **keep** | Prusa's own Prusament ASA values for this machine *and this nozzle* — the HF0.4 profile runs 5 °C hotter than the non-HF one | profile (`Prusament ASA @COREONE HF0.4`) |
 | Bed / first-layer bed | 110 / 110 °C | **keep** | Prusa ASA guidance is ≥100 °C bed | profile; Prusa ASA KB |
 | Chamber temperature | 55 °C | **keep 55** | matches the 55–60 °C a real Voron sees; the Voron parts are designed for it | profile; docs.vorondesign.com/materials.html |
-| Chamber minimal temperature | 40 °C | **45** | printer will not start until the chamber reaches 45 °C — this *is* the preheat gate. It needs the printer covered: a folded blanket on the top and a cover (a jacket works) over the door, the back left clear for the filter, electronics and power inlet. Bare, the basement chamber (17 °C room) tops out at 44 °C. Covered, it plateaus at 47 °C on the bed alone (nozzle cold, before the print), so 50 would barely start, and climbs to 54 °C once printing. The firmware caps it at 55 °C | Alex 2026-11-03 (40 from 10-28) |
+| Chamber minimal temperature | 40 °C | **48** | printer will not start until the chamber reaches 45 °C — this *is* the preheat gate. The firmware stops waiting 3 °C short of the setting (a 45 setting started at 42), so 48 holds for 45. It needs the printer covered: a folded blanket on the top and a cover (a jacket works) over the door, the back left clear for the filter, electronics and power inlet. Bare, the basement chamber (17 °C room) tops out at 44 °C. Covered, it plateaus at 47 °C on the bed alone (nozzle cold, before the print), so 50 would barely start, and climbs to 54 °C once printing. The firmware caps it at 55 °C | Alex 2026-11-04 (45 from 11-03, 40 from 10-28) |
 | Min / max fan | 20 / 25 % | **keep for B00–B02, then decide** | Prusa tuned this for the Core One chamber. If perimeter separation shows on the Z-drive bodies, drop to 0 / 15 % and keep bridge fan at 25 %. | profile; Ellis — Perimeter Separation |
 | Max volumetric speed | 26 mm³/s | **keep** | not a limit at these speeds — the plates peak at 21 mm³/s, on internal solid infill at 150 mm/s | profile (HF0.4) |
 | Retraction / z-hop | 0.7 mm / 0.2 mm | **keep** | Nextruder-specific; do not touch | printer profile |
@@ -330,8 +330,8 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 | `Handle.stl` (Clicky-Clack) | 60.0 mm | 67.9 × 18.6 | tall & narrow | **5 mm** |
 | `Latch.stl` (Clicky-Clack) | 58.0 mm | 25.9 × 14.6 | very tall & narrow | **5 mm** |
 | `Hinge-L-sleeve/solid-2X` ×4 | 55.0 mm | 20.9 × 19.5 | very tall & narrow | **5 mm** |
-| `mount.stl` (TFT) | 44.8 mm | 117 × 67 | fine | none |
-| `z_motor_mount_a/b` ×4 | 42.0 mm | 51 × 30.7 | borderline | none — add one by hand only if a print shows lift |
+| `mount.stl` (TFT) | 44.8 mm | 117 × 67 | fine | **3 mm** (big part) |
+| `z_motor_mount_a/b` ×4 | 42.0 mm | 51 × 30.7 | borderline | **3 mm** (big part) |
 
 The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
 orientation, and the plate diagram in each chapter shows the result (drawn from the committed project itself, so a plate you re-arrange in the GUI and save is redrawn by `python3 slicer/build_plates.py --from-3mf`). That is the allowed kind of rotation:
@@ -346,20 +346,29 @@ margin per part. PrusaSlicer's **Arrange** knows none of this, so never press it
 a part by hand, then save and run `build_plates.py --from-3mf <id>`.
 
 These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
-hand, and a part that is not on one of these two lists gets no brim even when it shares a plate with
+hand, and a small part that is not on one of the lists gets no brim even when it shares a plate with
 one that does. The plate diagram at the top of each Load step draws the brim ring, so the check at every
 plate is the same: *the outline shows on the parts the chapter names, and on nothing else.*
 
 Separately, the projects **brim the long flat parts** — not because they're tall, but because 150–182 mm of ASA
 on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm brim** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
 `side_fan_support_x2`, `keystone_panel`, `power_inlet_IECGS_1mm`, `exhaust_cover`, `V2_Duo_Plenum`,
-`Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`. Brim
-separation is 0.15 mm, set by the brim-gap ladder (B00 item 4): 0.10–0.25 peel off by hand, 0.40 falls off.
+`Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`.
+
+**Every big part gets a brim too (Alex 2026-11-05).** Any part 50 mm or more on its longest footprint side gets at least
+**3 mm** (`plates.BIG_PART_BRIM`), on top of the 20 mm edge margin. On lift map 2, long bars without a brim lifted at
+all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
+slightly. The two rules work together.
+
+**Brim separation is 0.30 mm (Alex 2026-11-05; 0.15 before).** At 0.15 and 0.20 the brim tore and left a sharp lip. Bars at
+the 20 mm corners held with no lift at every gap from 0.20 to 0.35, and peel improved as the gap grew; a mid-bed peel test
+then had 0.30 peeling off very easily while 0.35 and 0.40 fell off. 0.30 is one step inside that edge. Deburr whatever
+lip is left (swivel deburring tool, one light pass on a mating edge).
 
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
-global brim setting** (Print Settings → Skirt and brim) — it brims every flat part on the plate, including
-the skirt fan grills (`[a]_fan_grill_*`) and clips that must not have one.
+global brim setting** (Print Settings → Skirt and brim) — it brims every part on the plate, including
+the small clips and spacers that get none.
 
 Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
 (Nevermore), `V2_Duo_Plenum`. The skirts are single-shell parts — they have no break-away body.
@@ -395,14 +404,14 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.9 h / 23-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.9 h / 24-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now would put the closed bed calibration
 (±0.1 mm on the +2.8 front-left Z-stop correction cap) at risk and force a belt retune, an XY-homing recal
-and a start-G-code re-sync of all 28 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
+and a start-G-code re-sync of all 29 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
 **Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
@@ -421,7 +430,8 @@ the full tick list `(verify on bench)`:
    installs those presets. Pass: no "bed not aligned" prompt, every square smooth and closed, about 0.24–0.26 mm
    on calipers (the plates print the first layer at Z 0.28), all five alike.
 4. **Brim-gap ladder.** `slicer/checks/brim-gap-ladder.3mf`, six squares at brim gaps 0.10–0.40 mm: the
-   smallest gap that breaks off clean by hand is the plates' `brim_separation` (0.15 since 2026-10-29).
+   smallest gap that breaks off clean by hand set the plates' `brim_separation` on 2026-10-29 (0.15); the corner and peel tests of
+   2026-11-05 moved it to **0.30** (§Orientation & brim).
 
 **Superseded 2026-10-28 (Alex): neither the expansion joints nor the nozzle wiper is fitted, the plates keep
 the cold-probe start, and the hot check runs once, on that start.** The 2026-10-01 plan, kept for reference
@@ -442,7 +452,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 28 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 29 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater
@@ -455,7 +465,7 @@ off again before the mesh for that reason.
 2. Re-tension both belts and re-square the gantry.
 3. Re-run the self-test and input shaper calibration.
 4. **Re-print `Voron_Design_Cube_v7` and re-pass Gate A** — steps/mm changes with the pulleys, so the
-   dimensional gate must be re-passed before you print 398 g of skirts (B08) or anything else on the rebuilt
+   dimensional gate must be re-passed before you print 397 g of skirts (B08) or anything else on the rebuilt
    machine. Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 

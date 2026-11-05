@@ -47,7 +47,7 @@ import zipfile
 from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
-from plates import MODEL_ESTIMATE, ORIENT, PLATES, brim_for, local_path, run_of
+from plates import MODEL_ESTIMATE, ORIENT, PLATES, brim_for, footprint_of, local_path, run_of
 from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
@@ -310,7 +310,8 @@ REQUIRED_CFG = (("perimeters", "4"), ("bottom_solid_layers", "5"),
                 ("fill_density", "40%"), ("xy_size_compensation", "0"),
                 ("filament_shrinkage_compensation_xy", "0%"),
                 ("filament_shrinkage_compensation_z", "0%"),
-                ("seam_position", "rear"), ("support_material", "0"))
+                ("seam_position", "nearest"), ("scarf_seam_placement", "contours"),
+                ("brim_separation", "0.3"), ("support_material", "0"))
 # B11 (bay-ducts-petg.ini): the brief's duct settings, and the AFS flap lift in the filament G-code.
 REQUIRED_CFG_PETG = (("perimeters", "3"), ("top_solid_layers", "4"),
                      ("bottom_solid_layers", "4"), ("fill_density", "20%"),
@@ -379,7 +380,7 @@ def build(plate_id: str) -> dict:
         base = Path(path).name
         for i in range(qty):
             nm = base if qty == 1 else f"{base}#{i + 1}"
-            pieces.append(Piece(rel, nm, hull, brim_for(path), bb[2]))
+            pieces.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb)), bb[2]))
 
     packer = pack
     if PACKER == "nest":

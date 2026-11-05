@@ -1,6 +1,6 @@
 # Print batches — overview
 
-23 plates, **150.9 h**, **1810 g Galaxy Black + 277 g ASA Blue**. Every hour and gram on this page is a
+24 plates, **150.9 h**, **1817 g Galaxy Black + 280 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -15,7 +15,7 @@ and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
 
 ```mascot
 pose: print
-caption: Twenty-three plates, start to finish. The printer works while the kit is still in transit.
+caption: Twenty-four plates, start to finish. The printer works while the kit is still in transit.
 ```
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
@@ -32,61 +32,62 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | batch | plates | hours | g black | g blue | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---:|---|---|
 | [B00](B00-calibration-and-jigs.md) | 1 | 3.8 | 51 | 0 | Ch 00 (heat-set coupon, rail guides); Ch 02 / 05 (rail guides); Ch 04 (`pulley_jig`); B01 (one retainer) | — (it is the gate) |
-| [B01](B01-z-drive-assemblies.md) | 2 | 23.0 | 308 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore) |
-| [B02](B02-accent-parts-orange.md) | 3 | 20.9 | 0 | 277 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
-| [B03](B03-ab-drive-units-and-front-idlers.md) | 1 | 8.5 | 118 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
-| [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.7 | 116 | 0 | Ch 05 Gantry | Gate B |
+| [B01](B01-z-drive-assemblies.md) | 2 | 22.9 | 309 | 0 | Ch 02 Z Drives and Idlers | **Gate B** (bore) |
+| [B02](B02-accent-parts-orange.md) | 3 | 21.1 | 0 | 280 | accent for Ch 02, 04, 05, 06, 07, 08, 10, 11; `Handle` for B10 | Gate A |
+| [B03](B03-ab-drive-units-and-front-idlers.md) | 2 | 8.6 | 120 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
+| [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.8 | 117 | 0 | Ch 05 Gantry | Gate B |
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.2 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
-| [B06](B06-toolhead-sb-cw2-klicky.md) | 1 | 11.6 | 147 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
-| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.3 | 224 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
-| [B08](B08-skirts-and-front-modules.md) | 5 | 26.7 | 398 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
-| [B09](B09-panels-filtration-spool.md) | 4 | 20.5 | 295 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
+| [B06](B06-toolhead-sb-cw2-klicky.md) | 1 | 11.6 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
+| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.2 | 225 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
+| [B08](B08-skirts-and-front-modules.md) | 5 | 26.5 | 397 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
+| [B09](B09-panels-filtration-spool.md) | 4 | 20.5 | 297 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 75 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **23** | **150.9** | **1810** | **277** | | |
+| **TOTAL** | **24** | **150.9** | **1817** | **280** | | |
 
-All 23 diagrams on one page: [Plate plans](../../print/plate-plans.md).
+All 24 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
-**Filament margin:** Black 1810 g needed / 2400 g on hand → **590 g margin (33 %)**. Blue 277 g needed /
-800 g on hand → **523 g margin (189 %)**. The optional add-ons draw on these margins: about 239 g black and 120 g blue if all four are printed. Setup and the full override table:
+**Filament margin:** Black 1817 g needed / 2400 g on hand → **583 g margin (32 %)**. Blue 280 g needed /
+800 g on hand → **520 g margin (186 %)**. The optional add-ons draw on these margins: about 239 g black and 120 g blue if all four are printed. Setup and the full override table:
 [00-slicer-setup.md](00-slicer-setup.md).
 
 ## Run schedule
 
-All 23 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
+All 24 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
 runs overnight; anything shorter is a day plate, so two of them fit between breakfast and bedtime. The
-longest plate in the build, B01-P1 at 14.8 h, is the exception — start it in the morning so its first layer
+longest plate in the build, B01-P1 at 14.6 h, is the exception — start it in the morning so its first layer
 is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 print
-between #13 and #14 ([B11 run schedule](#b11-run-schedule)).
+between #14 and #15 ([B11 run schedule](#b11-run-schedule)).
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
 | 1 | B00-P1 | 3.8 | black | day | #1 |
-| 2 | B01-P1 | 14.8 | black | overnight (start in the morning) | #1 |
-| 3 | B01-P2 | 8.2 | black | overnight | #1 |
+| 2 | B01-P1 | 14.6 | black | overnight (start in the morning) | #1 |
+| 3 | B01-P2 | 8.3 | black | overnight | #1 |
 | 4 | B02-P1 | 7.1 | blue | overnight | A1 |
-| 5 | B02-P2 | 8.2 | blue | overnight | A1 |
-| 6 | B02-P3 | 5.6 | blue | day | A1 |
-| 7 | B03-P1 | 8.5 | black | overnight | #1 |
-| 8 | B04-P1 | 8.7 | black | overnight | #1 |
-| 9 | B05-P1 | 6.2 | black | day | #1 |
-| 10 | B06-P1 | 11.6 | black | overnight | #2 (fresh) |
-| 11 | B07-P1 | 6.4 | black | day | #2 |
-| 12 | B07-P2 | 5.1 | black | day | #2 |
-| 13 | B07-P3 | 3.8 | black | day | #2 |
-| 14 | B08-P1 | 6.3 | black | day | #2 |
-| 15 | B08-P2 | 4.2 | black | day | #2 |
-| 16 | B08-P3 | 4.2 | black | day | #2 |
-| 17 | B08-P4 | 7.4 | black | overnight | #2 |
-| 18 | B08-P5 | 4.6 | black | day | #2 |
-| 19 | B09-P1 | 4.4 | black | day | #2 → #3 |
-| 20 | B09-P2 | 6.9 | black | day | #3 |
-| 21 | B09-P3 | 5.6 | black | day | #3 |
-| 22 | B09-P4 | 3.6 | black | day | #3 |
-| 23 | B10-P1 | 5.7 | black | day | #3 |
+| 5 | B02-P2 | 8.3 | blue | overnight | A1 |
+| 6 | B02-P3 | 5.7 | blue | day | A1 |
+| 7 | B03-P1 | 4.4 | black | day | #1 |
+| 8 | B03-P2 | 4.2 | black | day | #1 |
+| 9 | B04-P1 | 8.8 | black | overnight | #1 |
+| 10 | B05-P1 | 6.2 | black | day | #1 |
+| 11 | B06-P1 | 11.6 | black | overnight | #2 (fresh) |
+| 12 | B07-P1 | 5.7 | black | day | #2 |
+| 13 | B07-P2 | 5.0 | black | day | #2 |
+| 14 | B07-P3 | 4.5 | black | day | #2 |
+| 15 | B08-P1 | 6.2 | black | day | #2 |
+| 16 | B08-P2 | 4.2 | black | day | #2 |
+| 17 | B08-P3 | 4.2 | black | day | #2 |
+| 18 | B08-P4 | 5.2 | black | day | #2 |
+| 19 | B08-P5 | 6.7 | black | day | #2 |
+| 20 | B09-P1 | 4.4 | black | day | #2 → #3 |
+| 21 | B09-P2 | 6.9 | black | day | #3 |
+| 22 | B09-P3 | 5.6 | black | day | #3 |
+| 23 | B09-P4 | 3.6 | black | day | #3 |
+| 24 | B10-P1 | 5.7 | black | day | #3 |
 
-Eight overnight plates and fifteen day plates, 150.9 h in all: about 15 printer-days, two to two and a half weeks
-at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.2 h) that
-evening and B01-P1 the next morning: B01-P1 then starts with ~649 g on spool #1, well over its 200 g rule.
+Six overnight plates and eighteen day plates, 150.9 h in all: about 15 printer-days, two to two and a half weeks
+at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.3 h) that
+evening and B01-P1 the next morning: B01-P1 then starts with ~640 g on spool #1, well over its 200 g rule.
 
 ## Bins
 
@@ -194,48 +195,49 @@ plate lands on its slicer number. Rows are in **print order** — numeric, B00 �
 bearing seat: the Core One+ runout sensor pauses the plate and waits until you load the next spool and press
 **Continue**. One runout is predicted, on such a plate:
 
-- **B09-P1** (the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips; 71 g) — spool #2 has about 31 g left when it starts, so the pause comes about 2 h into the 4.4 h plate: start it when you will be home then, and watch the clock.
+- **B09-P1** (the exhaust cover, two Z belt covers, a hinge, a bottom clip and eight panel clips; 72 g) — spool #2 has about 30 g left when it starts, so the pause comes about 2 h into the 4.4 h plate: start it when you will be home then, and watch the clock.
 
 Four rules that override the ledger:
 
 - **B01-P1 needs ≥ 200 g on the spool at start** (the ledger has it on a fresh spool #1 with 749 g — fine).
   If a reprint or an extra plate has pushed the active spool under ~230 g, start B01-P1 on a fresh one and
   re-derive the ledger from your weighings — a resume seam on a Z-drive body is not worth it.
-- **B06-P1 starts spool #2** even though #1 still has ~129 g: the plate carries the Revo hotend seat and the
-  Clockwork 2 gear bores, and a resume seam there is not worth 129 g. Keep the stub for a clip reprint.
+- **B06-P1 starts spool #2** even though #1 still has ~125 g: the plate carries the Revo hotend seat and the
+  Clockwork 2 gear bores, and a resume seam there is not worth 125 g. Keep the stub for a clip reprint.
 - **B02-P1/P2/P3** run back to back on the one accent spool — two colour changes in the entire build, and
   that is the point ([print plan §4.3](../../voron-print-plan.md#43-spool-changes)).
-- **B08-P5 starts with only ~30 g of cushion** on spool #2 (101 g for a 70 g plate). A runout there lands on a
-  side skirt or the keystone panel, where the seam shows. If #2 looks light or its flange reading says under ~90 g,
+- **B08-P5 starts with only ~30 g of cushion** on spool #2 (126 g for a 96 g plate). A runout there lands on a
+  side skirt, the keystone panel or the TFT mount, where the seam shows. If #2 looks light or its flange reading says under ~115 g,
   start B08-P5 on #3; B09-P1 then runs whole on #3 and #2's stub is kept for clips.
 
 | plate | slicer g | actual g (weigh) | spool # | remaining |
 |---|---:|---:|---|---:|
 | B00-P1 | 51 | | #1 | 749 |
 | B01-P1 | 200 | | #1 | 549 |
-| B01-P2 | 108 | | #1 | 441 |
-| B02-P1 | 96 | | A1 | 704 |
-| B02-P2 | 108 | | A1 | 596 |
-| B02-P3 | 73 | | A1 | 523 |
-| B03-P1 | 118 | | #1 | 323 |
-| B04-P1 | 116 | | #1 | 207 |
-| B05-P1 | 78 | | #1 | 129 |
-| B06-P1 | 147 | | **#2 (fresh; #1's 129 g kept)** | 653 |
-| B07-P1 | 97 | | #2 | 556 |
-| B07-P2 | 79 | | #2 | 477 |
-| B07-P3 | 48 | | #2 | 429 |
-| B08-P1 | 102 | | #2 | 327 |
-| B08-P2 | 62 | | #2 | 265 |
-| B08-P3 | 62 | | #2 | 203 |
-| B08-P4 | 102 | | #2 | 101 |
-| B08-P5 | 70 | | #2 | 31 |
-| B09-P1 | 71 | | **#2 → #3 mid-plate** | 760 |
-| B09-P2 | 91 | | #3 | 669 |
-| B09-P3 | 81 | | #3 | 588 |
-| B09-P4 | 52 | | #3 | 536 |
-| B10-P1 | 75 | | #3 | 461 |
-| **TOTAL black** | **1810** | | 3 × 800 g | **590 g margin** (461 on #3 + 129 on #1) |
-| **TOTAL blue** | **277** | | 1 × 800 g | **523 g margin** |
+| B01-P2 | 109 | | #1 | 440 |
+| B02-P1 | 97 | | A1 | 703 |
+| B02-P2 | 109 | | A1 | 594 |
+| B02-P3 | 74 | | A1 | 520 |
+| B03-P1 | 61 | | #1 | 379 |
+| B03-P2 | 59 | | #1 | 320 |
+| B04-P1 | 117 | | #1 | 203 |
+| B05-P1 | 78 | | #1 | 125 |
+| B06-P1 | 148 | | **#2 (fresh; #1's 125 g kept)** | 652 |
+| B07-P1 | 88 | | #2 | 564 |
+| B07-P2 | 79 | | #2 | 485 |
+| B07-P3 | 58 | | #2 | 427 |
+| B08-P1 | 102 | | #2 | 325 |
+| B08-P2 | 62 | | #2 | 263 |
+| B08-P3 | 62 | | #2 | 201 |
+| B08-P4 | 75 | | #2 | 126 |
+| B08-P5 | 96 | | #2 | 30 |
+| B09-P1 | 72 | | **#2 → #3 mid-plate** | 758 |
+| B09-P2 | 91 | | #3 | 667 |
+| B09-P3 | 81 | | #3 | 586 |
+| B09-P4 | 53 | | #3 | 533 |
+| B10-P1 | 75 | | #3 | 458 |
+| **TOTAL black** | **1817** | | 3 × 800 g | **583 g margin** (458 on #3 + 125 on #1) |
+| **TOTAL blue** | **280** | | 1 × 800 g | **520 g margin** |
 
 ## When the printer stops
 
@@ -279,18 +281,18 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 
 ## B11 run schedule
 
-All five are day plates. **P1 to P3 print right after B07-P3 (#13), before B08-P1 (#14)**: Ch 09 needs them, and
+All five are day plates. **P1 to P3 print right after B07-P3 (#14), before B08-P1 (#15)**: Ch 09 needs them, and
 nothing needs B08–B10 until Ch 10.50. **P4 and P5 print at the next free slot after the kit-day bay measurements**
 (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting. The # column carries on from the run schedule
-above so the plate board counts 1 to 28; the slot column gives the place in the order.
+above so the plate board counts 1 to 29; the slot column gives the place in the order.
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
-| 24 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P3) | V1 |
-| 25 | B11-P2 | 6.8 | petg | day | V1 |
-| 26 | B11-P3 | 4.6 | petg | day (then B08-P1) | V1 |
-| 27 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
-| 28 | B11-P5 | 6.8 | petg | day (only if gap ≥ 25 mm) | V1 |
+| 25 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P3) | V1 |
+| 26 | B11-P2 | 6.8 | petg | day | V1 |
+| 27 | B11-P3 | 4.6 | petg | day (then B08-P1) | V1 |
+| 28 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
+| 29 | B11-P5 | 6.8 | petg | day (only if gap ≥ 25 mm) | V1 |
 
 ## B11 spool ledger
 

@@ -140,14 +140,25 @@ BRIM_3MM = {
 }
 
 
-def brim_for(path: str) -> float:
-    """Brim width in mm for one STL, by filename."""
+BIG_PART_BRIM = 3.0  # every big part (geom.BIG_PART_MM) gets at least this (Alex 2026-11-05)
+
+
+def brim_for(path: str, footprint: float = 0.0) -> float:
+    """Brim width in mm for one STL: by filename, and at least BIG_PART_BRIM when the
+    footprint's longest side (`footprint`, mm) makes it a big part. Lift-map 2: unbrimmed
+    bars lifted at the corners even 20 mm in; brimmed ones stayed flat."""
+    from geom import BIG_PART_MM
     name = path.rsplit("/", 1)[-1]
     if name in BRIM_5MM:
         return 5.0
-    if name in BRIM_3MM:
-        return 3.0
+    if name in BRIM_3MM or footprint >= BIG_PART_MM:
+        return BIG_PART_BRIM
     return 0.0
+
+
+def footprint_of(bb) -> float:
+    """Longest XY side of a geom.bbox (x0, y0, z0, x1, y1, z1)."""
+    return max(bb[3] - bb[0], bb[4] - bb[1])
 
 
 # plate_id -> dict(batch, colour, parts=[(repo, path, qty)], note)
@@ -244,12 +255,18 @@ PLATES: dict[str, dict] = {
         ]),
     "B03-P1": dict(
         batch="B03", colour="black",
-        note="Both sides on one plate: A parts left of the legend numbers, B parts right.",
+        note="The A side: the A drive frame and the right front idler, upper and lower.",
         parts=[
             ("voron2", "STLs/Gantry/AB_Drive_Units/a_drive_frame_lower.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/a_drive_frame_upper.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_right_lower.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_right_upper.stl", 1),
+        ]),
+    # B03-P2 added 2026-11-05 (Alex): with a brim on every big part, both sides no longer fit one plate.
+    "B03-P2": dict(
+        batch="B03", colour="black",
+        note="The B side: the B drive frame and the left front idler, upper and lower.",
+        parts=[
             ("voron2", "STLs/Gantry/AB_Drive_Units/b_drive_frame_lower.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/b_drive_frame_upper.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/front_idler_left_lower.stl", 1),
@@ -300,12 +317,11 @@ PLATES: dict[str, dict] = {
         ]),
     "B07-P1": dict(
         batch="B07", colour="black",
-        note="Power inlet and WAGO mount (3 mm brims), two 100 mm and one 50 mm COB light-strip mounts, bay hardware.",
+        note="Power inlet and WAGO mount (3 mm brims), two 100 mm COB light-strip mounts, bay hardware.",
         parts=[
             ("voron2", "STLs/Skirts/power_inlet_IECGS_1mm.stl", 1),
             ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_100mm.stl", 2),
             ("voron2", "STLs/Electronics_Bay/wago_221-415_mount_3by5.stl", 1),
-            ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 1),
             ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 1),
             ("ldov2", "STLs/handlebar_spacer_x4.stl", 2),
         ]),
@@ -320,11 +336,11 @@ PLATES: dict[str, dict] = {
     # B07-P3 added 2026-11-03 (Alex): big parts 20 mm from every edge no longer fit B07 on two plates.
     "B07-P3": dict(
         batch="B07", colour="black",
-        note="The USB adapter mount and its cover, the LRS-200 PSU brackets, the PSU stabiliser, a 50 mm COB mount and a DIN clip.",
+        note="The USB adapter mount and its cover, the LRS-200 PSU brackets, the PSU stabiliser, both 50 mm COB mounts and a DIN clip.",
         parts=[
             ("nitehawk", "STLs/usb_adapter_mount.stl", 1),
             ("nitehawk2", "STLs/usb_adapter_mount_partial_cover.stl", 1),
-            ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 1),
+            ("ldov2", "STLs/COB Light Strip/cob_light_strip_mount_50mm.stl", 2),
             ("voron2", "STLs/Electronics_Bay/PSU_stabilizer_50mm.stl", 1),
             ("voron2", "STLs/Electronics_Bay/lrs_200_psu_bracket_x2.stl", 2),
             ("voron2", "STLs/Electronics_Bay/pcb_din_clip_x3.stl", 1),
@@ -352,19 +368,19 @@ PLATES: dict[str, dict] = {
         ]),
     "B08-P4": dict(
         batch="B08", colour="black",
-        note="The whole front of the ring: both front skirts and the TFT mount.",
+        note="The whole front of the ring: both front skirts.",
         parts=[
             ("voron2", "STLs/Skirts/350/front_skirt_b_350.stl", 1),
             ("voron2", "STLs/Skirts/350/front_skirt_a_350.stl", 1),
-            ("ldotri", "STLs/BTT Pi TFT4.3 Mount/mount.stl", 1),
         ]),
     # B08-P5 added 2026-11-03 (Alex): big parts 20 mm from every edge no longer fit B08 on four plates.
     "B08-P5": dict(
         batch="B08", colour="black",
-        note="The second side_skirt_b and the keystone panel.",
+        note="The second side_skirt_b, the keystone panel and the TFT mount.",
         parts=[
             ("voron2", "STLs/Skirts/350/side_skirt_b_350_x2.stl", 1),
             ("voron2", "STLs/Skirts/keystone_panel.stl", 1),
+            ("ldotri", "STLs/BTT Pi TFT4.3 Mount/mount.stl", 1),
         ]),
     # B09 was five plates until 2026-10-23, then merged into three (each bin whole on one plate,
     # hours balanced) from the committed projects with platearrange.merge_3mf, arranged at 6 mm.

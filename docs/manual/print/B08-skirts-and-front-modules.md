@@ -11,9 +11,9 @@ pose: pause
 caption: The parts visitors will comment on. Five plates, one quiet weekend, and my updraft stays switched off.
 ```
 
-**Time:** 26.7 h (5 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 26.5 h (5 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 5 plate starts (~5 min hands-on each, 4.2–7.4 h unattended) + ~20 min inspect and bin.
+**Sessions:** 5 plate starts (~5 min hands-on each, 4.2–6.7 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A** (Step B00.5; no bearing seat here, so Gate B is not needed), on the current
 GT2 belts. B02 (accent belt guards, fan grills, faceplate) and B07 (`power_inlet_IECGS_1mm`) feed the same
@@ -56,17 +56,17 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
 - Most commonly reprinted here: `rear_center_skirt_350` (182 mm — the worst warp candidate in the set).
 - Two or three of these long parts fit per plate — every one is 117–182 mm on its long axis and 67–72 mm deep,
   and the outline packer interleaves the C-shaped segments at a 6 mm gap on the 250×220 bed, each one 20 mm or more from every bed edge.
-- **3 mm brim, already in every project,** on `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
-  `side_fan_support`, `keystone_panel` (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)); `mount.stl`
-  on P4 has none. At each plate you verify the outline in the preview — you never add one.
+- **3 mm brim, already in every project,** on every part: `rear_center_skirt_350`, `front_skirt_a/b_350`, `side_skirt_a/b_350`,
+  `side_fan_support`, `keystone_panel` and, as a big part, `mount.stl` on P5 (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)).
+  At each plate you verify the outline in the preview — you never add one.
 - Optional, not printed here: `[a]_fan_grill_open_optional_x2` (more airflow, less filtering) instead of
   `[a]_fan_grill_a/b`; extra `ldo_bestagon_insert`s.
 
 ## Step B08.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B07: 429 g at the start of P1, 31 g after P5, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
+**Do:** Galaxy Black, spool #2 after B07: 427 g at the start of P1, 30 g after P5, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
 wiped with IPA.
-**Check:** Spool #2 has ≥398 g for the five plates before the 6.3 h P1 plate starts.
+**Check:** Spool #2 has ≥397 g for the five plates before the 6.2 h P1 plate starts.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -79,7 +79,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B08-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm the rear skirt is turned 90° about Z, its 182 mm axis running front-to-back along
 Y, beside the `side_skirt_a_350`.
-**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.3 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.2 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
 **Check:** Both parts flat on their shipped faces, long axes front-to-back, brim outline on both in the
 preview, plate matching the image above.
 
@@ -158,8 +158,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `front_skirt_a_350` · `front_skirt_b_350` · `mount.stl` — 7.4 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both front skirts, none on the TFT mount, all as shipped in the project.
-**Check:** Brim outline on both front skirts, none on the mount; confirm `mount.stl`, not `mount_thick.stl`.
+**Parts:** `front_skirt_a_350` · `front_skirt_b_350` — 5.2 h, 75 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Check:** Brim outline shows on both in the preview.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -168,7 +168,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B08.9 — Print plate B08-P4
 
 **Do:** Print with standing overrides.
-**Check:** No corner lift on the front skirts; no warp on the tall narrow TFT mount.
+**Check:** No corner lift on either front skirt.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -184,19 +184,19 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P5.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_skirt_b_350` ×1 · `keystone_panel` — 4.6 h, 70 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
-**Check:** Brim outline shows on both in the preview.
+**Parts:** `side_skirt_b_350` ×1 · `keystone_panel` · `mount.stl` — 6.7 h, 96 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
+**Check:** Brim outline on all three in the preview; confirm `mount.stl`, not `mount_thick.stl`.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
-⚠ Spool #2 should hold about 101 g here and this plate needs 70 g. Eight plates of slicer error can eat that cushion, and a runout on the keystone panel or side skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~90 g, start this plate on spool #3; keep #2's stub.
+⚠ Spool #2 should hold about 126 g here and this plate needs 96 g. Eight plates of slicer error can eat that cushion, and a runout on the keystone panel, TFT mount or side skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~115 g, start this plate on spool #3; keep #2's stub.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 ## Step B08.13 — Print plate B08-P5
 
 **Do:** Print with standing overrides.
-**Check:** No corner lift on the skirt; the keystone panel's two cutout slots print crisp and undistorted.
+**Check:** No corner lift on the skirt; the keystone panel's two cutout slots print crisp; no warp on the tall TFT mount.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -241,13 +241,13 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **10-tft** — Touchscreen faceplate + mount | `mount` |
 | **11-skirts** — Skirt ring, keystone panel and inserts | `front_skirt_b_350`, `front_skirt_a_350` |
 
 **B08-P5**
 
 | bin | parts off this plate |
 |---|---|
+| **10-tft** — Touchscreen faceplate + mount | `mount` |
 | **11-skirts** — Skirt ring, keystone panel and inserts | `side_skirt_b_350`, `keystone_panel` |
 
 **Check:** All ten structural segments in 11-skirts, stacked by ring position; the TFT mount in 10-tft; B02's grills, retainers and belt guards wait in 11-fans.
@@ -265,7 +265,7 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 - [ ] All ten skirt segments plus TFT mount pass the flat-reference rocking test
 - [ ] Full ring dry-fits: front, rear, and both sides, with consistent joint gaps (power inlet from B07)
 - [ ] `mount.stl` vs `mount_thick.stl` choice confirmed and matches what was printed
-- [ ] 3 mm brims removed cleanly from all long-flat parts
+- [ ] 3 mm brims removed cleanly from every part
 
 ## Common mistakes
 - Skipping the flat-reference check and only noticing a bowed skirt after the panels are mounted.

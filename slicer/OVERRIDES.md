@@ -33,11 +33,13 @@ so the HF base changes the temperature and the start G-code but not the time est
 | `top_infill_extrusion_width` | `0.42`  | `0.4` | consistency (judgment) | Print row 9 |
 | `support_material` | `1`  | `0` | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports | Print row 11 |
 | `support_material_auto` | `0` | `0` | same | Print row 11 |
-| `seam_position` | `aligned`  | `rear` | keeps the seam off the visible outward faces of skirts and toolhead | Print row 12 |
+| `seam_position` | `aligned`  | `nearest` | Alex 2026-11-04: nearest (was rear, which ran a seam stripe up the middle of flat back faces); seams go to the nearest corner, off flat and mating faces | Print row 12 |
+| `scarf_seam_placement` | `*(PrusaSlicer built-in default)*`  | `contours` | Alex 2026-11-04: scarf seams on smooth surfaces; outer contours only, so holes and bores (Gate B tuned) keep the plain seam | Print row 12 |
+| `scarf_seam_only_on_smooth` | `*(PrusaSlicer built-in default)*`  | `1` | Alex 2026-11-04: scarf only where the perimeter is smooth (curves); corners keep the nearest-corner seam. Length, start height and loop options stay at the 2.9.6 defaults | Print row 12 |
 | `skirts` | `0` | `0` | Alex 2026-10-28: no skirts (was 1 loop); the start G-code's purge line primes the nozzle | Print row 13 |
 | `brim_type` | `*(PrusaSlicer built-in default)*`  | `outer_only` | outer_only keeps the brim off internal holes | Print row 14 |
-| `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF for exactly the parts the doc names | Print row 14 + section Orientation & brim |
-| `brim_separation` | `0.1`  | `0.15` | Alex 2026-10-29 brim-gap ladder (Z +0.08, 95 % first layer): 0.10-0.25 peel by hand, 0.30 barely holds, 0.40 falls off; 0.15 = one step of margin over 0.10 (fused 10-23) | section Orientation & brim |
+| `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF: the parts the doc names, plus 3 mm on every big part (footprint >= 50 mm, Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule) | Print row 14 + section Orientation & brim |
+| `brim_separation` | `0.1`  | `0.3` | Alex 2026-11-05: 0.30 (was 0.15, which tore and left a sharp lip). Corner test at the 20 mm rule: 0.20-0.35 all held with no lift, peel improved with the gap; mid-bed peel test: 0.30 peels very easily, 0.35 and 0.40 fell off. 0.30 = one step inside that edge | section Orientation & brim |
 | `xy_size_compensation` | `*(PrusaSlicer built-in default)*`  | `0` | Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing fits and screw holes too large" | Print row 15 (docs.vorondesign.com/materials.html) |
 | `elefant_foot_compensation` | `0.2` | `0.2` | kept at the profile value for now, verify on the cube | Print row 16 |
 | `external_perimeter_speed` | `50`  | `35` | surface finish and corner accuracy on the visible skirts | Print row 17 |
@@ -53,7 +55,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 |---|---|---|---|---|
 | `filament_shrinkage_compensation_xy` | `0.22%`  | `0%` | THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores | Filament row 1 |
 | `filament_shrinkage_compensation_z` | `0.22%`  | `0%` | same reason | Filament row 2 |
-| `chamber_minimal_temperature` | `40`  | `45` | Alex 2026-11-03: hold the print until the chamber reads 45 C. With a blanket on the top and a cover over the door the chamber plateaus at 47 C on the bed alone (cold nozzle, 17 C basement) and climbs to 54 C once printing; bare it tops out at 44 C (40 from 10-28) | Filament row 6 |
+| `chamber_minimal_temperature` | `40`  | `48` | Alex 2026-11-04: 48 so the print holds until the chamber reads 45 C; firmware 7.0.0 M191 ends 3 C short of its target (M141_M191.cpp tolerance 3), so 45 released at 42. With a blanket on the top and a cover over the door the chamber plateaus at 47 C on the bed alone (cold nozzle, 17 C basement) and climbs to 54 C once printing; bare it tops out at 44 C (40 from 10-28) | Filament row 6 |
 
 ## Printer settings
 

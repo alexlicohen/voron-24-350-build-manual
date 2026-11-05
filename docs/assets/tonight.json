@@ -72,14 +72,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer Don't Save unless you meant to re-arrange.",
+     "leave_state": "B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P2. If it asks to save on close, answer Don't Save unless you meant to re-arrange.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P1. If it asks to save on close, answer Don't Save unless you meant to re-arrange."
+     "text": "Step B00.8 · ~25 min · leave-state: B00 through B03 reviewed and ticked, PrusaSlicer still open on B03-P2. If it asks to save on close, answer Don't Save unless you meant to re-arrange."
     },
     {
      "id": "b00-calibration-and-jigs#2",
@@ -330,16 +330,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B01-P1",
-     "print_hours": 14.8,
+     "print_hours": 14.6,
      "run": "asa",
-     "leave_state": "plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B01-P1 running, 14.6 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B01.2",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.8 h unattended · leave-state: plate B01-P1 running, 14.8 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B01-P1 (Step B01.2) · ~5 min hands-on, then 14.6 h unattended · leave-state: plate B01-P1 running, 14.6 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b01-z-drive-assemblies#1",
@@ -354,16 +354,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B01-P2",
-     "print_hours": 8.2,
+     "print_hours": 8.3,
      "run": "asa",
-     "leave_state": "plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B01-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B01.5",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B01-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B01-P2 (Step B01.5) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B01-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b01-z-drive-assemblies#2",
@@ -458,16 +458,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B02-P2",
-     "print_hours": 8.2,
+     "print_hours": 8.3,
      "run": "asa",
-     "leave_state": "plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B02-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B02.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B02-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b02-accent-parts-orange#2",
@@ -482,16 +482,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B02-P3",
-     "print_hours": 5.6,
+     "print_hours": 5.7,
      "run": "asa",
-     "leave_state": "plate B02-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B02-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B02.6",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.6 h unattended · leave-state: plate B02-P3 running, 5.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B02-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b02-accent-parts-orange#3",
@@ -508,9 +508,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.",
+     "leave_state": "supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.",
      "helpers": [],
-     "text": "Step B02.8 · ~10 min · leave-state: supports out, brim off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away."
+     "text": "Step B02.8 · ~10 min · leave-state: supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away."
     },
     {
      "id": "b02-accent-parts-orange#4",
@@ -557,19 +557,43 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B03-P1",
-     "print_hours": 8.5,
+     "print_hours": 4.4,
      "run": "asa",
-     "leave_state": "plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B03-P1 running, 4.4 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B03.2",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B03-P1 (Step B03.2) · ~5 min hands-on, then 8.5 h unattended · leave-state: plate B03-P1 running, 8.5 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B03-P1 (Step B03.2) · ~5 min hands-on, then 4.4 h unattended · leave-state: plate B03-P1 running, 4.4 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b03-ab-drive-units-and-front-idlers#1",
+     "chapter": "b03-ab-drive-units-and-front-idlers",
+     "kind": "print",
+     "steps": [
+      "B03.6"
+     ],
+     "first_step": "B03.6",
+     "last_step": "B03.6",
+     "href": "../manual/steps/b03-ab-drive-units-and-front-idlers/b03-6/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B03-P2",
+     "print_hours": 4.2,
+     "run": "asa",
+     "leave_state": "plate B03-P2 running, 4.2 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B03.6",
+       "Counts the parts on the sorting diagram and checks the total against the object count."
+      ]
+     ],
+     "text": "Start plate B03-P2 (Step B03.6) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B03-P2 running, 4.2 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b03-ab-drive-units-and-front-idlers#2",
      "chapter": "b03-ab-drive-units-and-front-idlers",
      "kind": "build",
      "steps": [
@@ -588,7 +612,7 @@
      "text": "Step B03.4 · ~10 min · leave-state: halves dry-fitted, post holes checked, parts separated again. Nothing pressed for keeps; the bearings themselves are a kit-day row."
     },
     {
-     "id": "b03-ab-drive-units-and-front-idlers#2",
+     "id": "b03-ab-drive-units-and-front-idlers#3",
      "chapter": "b03-ab-drive-units-and-front-idlers",
      "kind": "build",
      "steps": [
@@ -632,16 +656,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B04-P1",
-     "print_hours": 8.7,
+     "print_hours": 8.8,
      "run": "asa",
-     "leave_state": "plate B04-P1 running, 8.7 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B04-P1 running, 8.8 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B04.2",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.7 h unattended · leave-state: plate B04-P1 running, 8.7 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B04-P1 (Step B04.2) · ~5 min hands-on, then 8.8 h unattended · leave-state: plate B04-P1 running, 8.8 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b04-xy-joints-and-x-carriage#1",
@@ -857,16 +881,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P1",
-     "print_hours": 6.4,
+     "print_hours": 5.7,
      "run": "asa",
-     "leave_state": "plate B07-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.2",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 6.4 h unattended · leave-state: plate B07-P1 running, 6.4 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P1 (Step B07.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B07-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#1",
@@ -881,16 +905,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P2",
-     "print_hours": 5.1,
+     "print_hours": 5.0,
      "run": "asa",
-     "leave_state": "plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 5.1 h unattended · leave-state: plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 5.0 h unattended · leave-state: plate B07-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#2",
@@ -905,16 +929,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P3",
-     "print_hours": 3.8,
+     "print_hours": 4.5,
      "run": "asa",
-     "leave_state": "plate B07-P3 running, 3.8 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P3 running, 4.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.8",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B07-P3 (Step B07.8) · ~5 min hands-on, then 3.8 h unattended · leave-state: plate B07-P3 running, 3.8 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P3 (Step B07.8) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B07-P3 running, 4.5 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#3",
@@ -1107,16 +1131,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B08-P1",
-     "print_hours": 6.3,
+     "print_hours": 6.2,
      "run": "asa",
-     "leave_state": "plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B08-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B08.2",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B08-P1 running, 6.3 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B08-P1 (Step B08.2) · ~5 min hands-on, then 6.2 h unattended · leave-state: plate B08-P1 running, 6.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b08-skirts-and-front-modules#1",
@@ -1179,16 +1203,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B08-P4",
-     "print_hours": 7.4,
+     "print_hours": 5.2,
      "run": "asa",
-     "leave_state": "plate B08-P4 running, 7.4 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B08-P4 running, 5.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B08.8",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 7.4 h unattended · leave-state: plate B08-P4 running, 7.4 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B08-P4 (Step B08.8) · ~5 min hands-on, then 5.2 h unattended · leave-state: plate B08-P4 running, 5.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b08-skirts-and-front-modules#4",
@@ -1203,16 +1227,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B08-P5",
-     "print_hours": 4.6,
+     "print_hours": 6.7,
      "run": "asa",
-     "leave_state": "plate B08-P5 running, 4.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B08-P5 running, 6.7 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B08.12",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B08-P5 (Step B08.12) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B08-P5 running, 4.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B08-P5 (Step B08.12) · ~5 min hands-on, then 6.7 h unattended · leave-state: plate B08-P5 running, 6.7 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b08-skirts-and-front-modules#5",
@@ -6248,7 +6272,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6356,7 +6381,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6458,7 +6484,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6553,7 +6580,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6648,7 +6676,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6746,7 +6775,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6875,7 +6905,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -6967,7 +6998,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -7052,6 +7084,8 @@
      "B03.1",
      "B03.2",
      "B03.3",
+     "B03.6",
+     "B03.7",
      "B03.4",
      "B03.5"
     ],
@@ -7073,7 +7107,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 30,
+    "done": 31,
     "gate_closed": true,
     "start": "B06.2",
     "sections": [
@@ -7196,6 +7230,8 @@
      "B03.1",
      "B03.2",
      "B03.3",
+     "B03.6",
+     "B03.7",
      "B03.4",
      "B03.5"
     ],
@@ -7306,7 +7342,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 70,
+    "done": 71,
     "gate_closed": true,
     "start": "12.2",
     "sections": [
@@ -7442,7 +7478,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -7691,7 +7728,8 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#4",
      "b03-ab-drive-units-and-front-idlers#0",
-     "b03-ab-drive-units-and-front-idlers#2",
+     "b03-ab-drive-units-and-front-idlers#1",
+     "b03-ab-drive-units-and-front-idlers#3",
      "b04-xy-joints-and-x-carriage#0",
      "b04-xy-joints-and-x-carriage#2",
      "b05-z-joints-and-z-chain#0",
@@ -7919,6 +7957,8 @@
      "B03.1",
      "B03.2",
      "B03.3",
+     "B03.6",
+     "B03.7",
      "B03.4",
      "B03.5"
     ],
@@ -7994,7 +8034,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 63,
+    "done": 64,
     "gate_closed": true,
     "start": "B11.3",
     "sections": [
@@ -8939,6 +8979,8 @@
      "B03.1",
      "B03.2",
      "B03.3",
+     "B03.6",
+     "B03.7",
      "B03.4",
      "B03.5"
     ],
@@ -9030,7 +9072,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 219,
+    "done": 220,
     "gate_closed": true,
     "start": null,
     "sections": [

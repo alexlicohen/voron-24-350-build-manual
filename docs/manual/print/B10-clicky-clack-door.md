@@ -51,11 +51,11 @@ rather than against them.
   slice this batch in 2.9.6, or mirror the STL outside the slicer.
   [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 - `Hinge-L-sleeve/solid-2X` (55.0 mm on a 20.9×19.5 footprint) and `Latch.stl` (58.0 mm) carry a **5 mm brim
-  already in the project**; `Handle-Hinge_*` and `Panel_Clip` have none. Verify in the preview, never add.
+  already in the project**; the two `Handle-Hinge_*` parts, 50 mm or longer, a 3 mm one; `Panel_Clip` has none. Verify in the preview, never add.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B09: the ledger has 536 g on it here and 461 g after, the last plate of
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 533 g on it here and 458 g after, the last plate of
 the run. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥75 g on spool #3.
 
@@ -68,8 +68,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
 **Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.6** only if the door must open the other way; the 3.0 preview has no mirror tool.
-**Parts:** `Handle-Hinge_Bottom`, no brim · `Handle-Hinge_Top`, no brim · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.6 estimate).
-**Check:** The preview shows the brim outline on the four hinge parts and `Latch`, and on nothing else;
+**Parts:** `Handle-Hinge_Bottom`, **3 mm brim** · `Handle-Hinge_Top`, **3 mm brim** · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.6 estimate).
+**Check:** The preview shows a brim outline on every part but `Panel_Clip`;
 swing decision made before slicing, not after.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -99,7 +99,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:**
 
-1. Snap the five brims off; check the bases for scarring.
+1. Snap the seven brims off; check the bases for scarring.
 2. On kit day, tap a split bushing into each hinge sleeve.
 3. Test-fit an M5×45 dowel pin into a `Hinge-L-solid` half: very tight hammer fit, ~20 mm proud.
 **Check:** Brims off clean. Kit day: no splitting on the sleeve press; pin fit is tight, not loose, with the

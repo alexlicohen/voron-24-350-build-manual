@@ -5,9 +5,9 @@ pose: print
 caption: The corners the belts turn on. Gate B still votes first.
 ```
 
-**Time:** 8.5 h (1 plate) — PrusaSlicer 2.9.6 estimates.
+**Time:** 8.6 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 1 plate start (~5 min hands-on, 8.5 h unattended) + ~15 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 4.4 / 4.2 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the caliper and insert rows run early, on what is already
 on the bench). These frames hold the F695 stacks on M5 posts; they have no bearing seats. B02 is not a print
@@ -37,32 +37,58 @@ prerequisite: its accent `[a]_tensioner_left/right` printed one batch earlier an
   not in printed seats; on kit day the bearing/spacer stacks must spin freely with the frames closed.
   (625-2RS is the *Z-drive* bearing, B01 — not this batch.)
 - What to look for here: a warped `a/b_drive_frame_*` half — the two halves must close flat around the stacks.
-- A and B share one plate (merged 2026-09-06, one swap instead of two), so a failed plate costs both drive
-  units. Watch the first layer before you walk away from an 8.5 h print.
+- One side per plate: B03-P1 is the A side, B03-P2 the B side. They shared one plate from 2026-09-06 until
+  2026-11-05, when the brims on every big part no longer fit both. A failed plate costs one drive unit, not
+  two. Watch each first layer before you walk away.
 
 ## Step B03.1 — Filament prep
 
 **Do:** Swap the accent spool for Galaxy Black: Unload, Load Filament → ASA, purge until no blue shows.
-The ledger has B03 on spool #1 with 441 g, leaving 323 g after. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+The ledger has spool #1 at 440 g here, 320 g after both plates. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Purge clean black, no blue streak.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
-## Step B03.2 — Load plate B03-P1 (both sides)
+## Step B03.2 — Load plate B03-P1 (A side)
 
 ![Plate B03-P1 — sorting diagram](../assets/plates/B03-P1.png)
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.5.*
 
-**Do:** Open `slicer/plates/B03-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it. No rotation, no brim in the project.
-**Parts:** 8 objects — 8.5 h, 118 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper`; `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper`.
-**Check:** Parts sit flat as shipped; no brim outline in the preview.
+**Do:** Open `slicer/plates/B03-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it.
+**Parts:** 4 objects — 4.4 h, 61 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper` · 3 mm brim on both drive frames and `front_idler_right_upper`, already in the project.
+**Check:** Parts sit flat as shipped; brim outlines on the two drive frames and the upper idler only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
 
 ## Step B03.3 — Print plate B03-P1
+
+**Do:** Print with standing overrides.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. No warp at drive-frame corners.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
+## Step B03.6 — Load plate B03-P2 (B side)
+
+![Plate B03-P2 — sorting diagram](../assets/plates/B03-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.5.*
+
+**Do:** Open `slicer/plates/B03-P2.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it.
+**Parts:** 4 objects — 4.2 h, 59 g (PrusaSlicer 2.9.6 estimate); `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper` · 3 mm brim on both drive frames and `front_idler_left_upper`, already in the project.
+**Check:** Parts sit flat as shipped; brim outlines on the two drive frames and the upper idler only.
+
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim)
+
+## Step B03.7 — Print plate B03-P2
 
 **Do:** Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. No warp at drive-frame corners.
@@ -91,7 +117,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Do:**
 
-1. Sort the plate off its diagram: number to legend, colour to bin, bin id on the part.
+1. Sort each plate off its diagram: number to legend, colour to bin, bin id on the part.
 2. Mark plate id and date on a hidden face.
 3. A is the right-hand side, B the left.
 
@@ -100,6 +126,11 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | bin | parts off this plate |
 |---|---|
 | **04-A** — A drive unit + A (right) front idler | `a_drive_frame_lower`, `a_drive_frame_upper`, `front_idler_right_lower`, `front_idler_right_upper` |
+
+**B03-P2**
+
+| bin | parts off this plate |
+|---|---|
 | **04-B** — B drive unit + B (left) front idler | `b_drive_frame_lower`, `b_drive_frame_upper`, `front_idler_left_lower`, `front_idler_left_upper` |
 
 **Check:** 04-A and 04-B each hold one drive-frame pair, one idler pair and one blue tensioner.

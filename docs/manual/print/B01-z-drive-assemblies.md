@@ -8,9 +8,9 @@ pose: print
 caption: The first real parts. They hold bearings, so Gate B has opinions and the final say.
 ```
 
-**Time:** 23.0 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 22.9 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 2 plate starts (~5 min hands-on each, 14.8 h and 8.2 h unattended) + ~15 min inspect + ~10 min sort into bins.
+**Sessions:** 2 plate starts (~5 min hands-on each, 14.6 h and 8.3 h unattended) + ~15 min inspect + ~10 min sort into bins.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the 625-2RS pocket calipered and seven real inserts set,
 both run early on what is already on the bench; Gate B's bearing press and MGN12 rail row wait for the kit
@@ -55,15 +55,15 @@ on a print.
   the 4 mm/3 mm deck-support note above: both sets are printed, the caliper picks one.
 - Most commonly reprinted here: `z_drive_main_*` — the largest single parts in the batch, most exposed to
   warp at the corners.
-- Plate B01-P1 is the longest single plate in the whole build (14.8 h) — start it in the morning, not at bedtime.
-  If Gate B passes after the morning swap, run B01-P2 (8.2 h) that evening and B01-P1 the next morning.
+- Plate B01-P1 is the longest single plate in the whole build (14.6 h) — start it in the morning, not at bedtime.
+  If Gate B passes after the morning swap, run B01-P2 (8.3 h) that evening and B01-P1 the next morning.
 
 ## Step B01.1 — Filament prep
 
 **Do:**
 
 1. Confirm the Galaxy Black spool is loaded and dried within the last 2 weeks, or fresh.
-2. Spool #1 came off B00 with 749 g by the ledger. This batch alone is 308 g.
+2. Spool #1 came off B00 with 749 g by the ledger. This batch alone is 309 g.
 **Check:** B01-P1 needs **≥ 200 g** on the spool at start; the [README ledger](README.md#spool-ledger) has spool #1 at 749 g.
 
 Tip: A kitchen scale, if you own one, turns the ledger into a check. It is optional; the ledger works from the slicer grams.
@@ -81,8 +81,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: profile `0.20mm STRUCTURAL (modified)`, **4 files, 7 objects**, no brim outline.
 3. Do not change which face sits on the bed.
-**Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 14.8 h, 200 g (PrusaSlicer 2.9.6 estimate).
-**Check:** Estimated plate time is **14 h 50 m**; if far off, re-verify profile/overrides before committing an overnight print.
+**Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 14.6 h, 200 g (PrusaSlicer 2.9.6 estimate) · no brim: the plate printed before the big-part brim rule and keeps that layout.
+**Check:** Estimated plate time is **14 h 39 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -97,12 +97,12 @@ Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-
 
 ## Step B01.4 — Print plate B01-P1
 
-**Do:** Start in the morning or at the start of a full workday: this is the 14.8 h plate.
+**Do:** Start in the morning or at the start of a full workday: this is the 14.6 h plate.
 **Check:** First layer clean; no corner lift on the `z_drive_main` bodies partway through.
 
 Tip: look at the first layer, the corners after an hour, and at bedtime. A lifted corner is a stop. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
 
-Pause: ~5 min since the last pause — B01-P1 running, 14.8 h unattended, door shut. Meanwhile: read Ch 02, sort the last plate, label bins.
+Pause: ~5 min since the last pause — B01-P1 running, 14.6 h unattended, door shut. Meanwhile: read Ch 02, sort the last plate, label bins.
 
 Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
 
@@ -115,13 +115,13 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:**
 
 1. Open `slicer/plates/B01-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: **5 files, 16 objects**, no brim.
-**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 · `deck_support_4mm` ×8 — 8.2 h, 108 g (PrusaSlicer 2.9.6 estimate).
-**Check:** All 8 clips on the plate, 3 mm per the BOM; the kit-day caliper decides a 4 mm reprint.
+2. Confirm: **6 files, 24 objects**, a 3 mm brim on the eight big parts only.
+**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 · `deck_support_4mm` ×8 — 8.3 h, 109 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the motor mounts and tensioner brackets, already in the project.
+**Check:** Brim outline on the four motor mounts and four tensioner brackets only; all 16 deck clips on the plate.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
-⚠ `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect. **Only if a motor mount lifts on this print**, add a 5 mm brim to those four objects by hand for the reprint: right-click the object → Add settings → Skirt and brim → Brim width. Never the global setting, per [00-slicer-setup](00-slicer-setup.md#orientation-brim).
+⚠ `z_motor_mount_a/b` are 42.0 mm tall, borderline aspect; the project gives them a 3 mm brim. **Only if a motor mount still lifts on this print**, raise those four objects' brim to 5 mm by hand for the reprint: right-click the object → Add settings → Skirt and brim → Brim width. Never the global setting, per [00-slicer-setup](00-slicer-setup.md#orientation-brim).
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -215,9 +215,9 @@ write the bin labels you are still missing.
 - [ ] Bins 02-Z0–Z3 each hold one matched set of the right hand, bin id written on every part; 16 clips in 02-deck, the 4 mm set bagged apart
 
 ## Common mistakes
-- Starting the 14.8 h P1 plate late in the day and having it finish unattended overnight with no chance to
+- Starting the 14.6 h P1 plate late in the day and having it finish unattended overnight with no chance to
   abort a bad first layer.
-- Starting B01 on Gate A alone — Gate B's bore caliper is what protects these 23.0 h.
+- Starting B01 on Gate A alone — Gate B's bore caliper is what protects these 22.9 h.
 - Trying to make four identical sets from two `a` and two `b` of each part — the sets are mirrored; the corner bins are not interchangeable.
 - Assuming the deck-support thickness without measuring the actual panel.
 - Forcing a tight bearing seat with a press instead of reducing extrusion multiplier for the reprint.

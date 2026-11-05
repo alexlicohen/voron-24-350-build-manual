@@ -5,9 +5,9 @@ pose: print
 caption: Joints and a carriage. Every part here has a bore, and every bore has strong opinions.
 ```
 
-**Time:** 8.7 h (1 plate) — PrusaSlicer 2.9.6 estimate.
+**Time:** 8.8 h (1 plate) — PrusaSlicer 2.9.6 estimate.
 
-**Sessions:** 1 plate start (~5 min hands-on, 8.7 h unattended) + ~15 min inspect and bin.
+**Sessions:** 1 plate start (~5 min hands-on, 8.8 h unattended) + ~15 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the printed bores and the insert bosses; the caliper and
 insert rows run early, on what is already on the bench). B02 (accent `[a]_endstop_pod_D2F_switch`, cable bridge)
@@ -43,8 +43,8 @@ it, decide later. If the probe barrel measures 9 mm rather than 8 mm on arrival,
 
 ## Step B04.1 — Filament prep
 
-**Do:** Galaxy Black, spool #1 after B03. The ledger has 323 g on it at the start of this plate and 207 g after, so no spool change here.
-**Check:** Clean purge; ≥116 g on the spool.
+**Do:** Galaxy Black, spool #1 after B03. The ledger has 320 g on it at the start of this plate and 203 g after, so no spool change here.
+**Check:** Clean purge; ≥117 g on the spool.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -54,9 +54,9 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B04.6.*
 
-**Do:** Open `slicer/plates/B04-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation, no brim: the preview shows no brim outline.
-**Parts:** all seven — 8.7 h, 116 g (PrusaSlicer 2.9.6 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket`.
-**Check:** The plate holds `x_frame_V2TR_MGN12_left/right`, not the superseded `Superceded_Parts/MGN9_X/x_carriage_frame_*_MGN9` files.
+**Do:** Open `slicer/plates/B04-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation; the brims are already in it.
+**Parts:** all seven — 8.8 h, 117 g (PrusaSlicer 2.9.6 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket` · 3 mm brim on the four XY joint halves and both carriage frames, none on the bracket, already in the project.
+**Check:** The plate holds `x_frame_V2TR_MGN12_left/right`, not the superseded MGN9 frames; brim outlines on every part but the bracket.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 

@@ -73,8 +73,16 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports",
      "Print row 11"),
     ("support_material_auto", "0", "print", "same", "Print row 11"),
-    ("seam_position", "rear", "print",
-     "keeps the seam off the visible outward faces of skirts and toolhead", "Print row 12"),
+    ("seam_position", "nearest", "print",
+     "Alex 2026-11-04: nearest (was rear, which ran a seam stripe up the middle of flat back faces); "
+     "seams go to the nearest corner, off flat and mating faces", "Print row 12"),
+    ("scarf_seam_placement", "contours", "print",
+     "Alex 2026-11-04: scarf seams on smooth surfaces; outer contours only, so holes and bores "
+     "(Gate B tuned) keep the plain seam", "Print row 12"),
+    ("scarf_seam_only_on_smooth", "1", "print",
+     "Alex 2026-11-04: scarf only where the perimeter is smooth (curves); corners keep the "
+     "nearest-corner seam. Length, start height and loop options stay at the 2.9.6 defaults",
+     "Print row 12"),
     ("skirts", "0", "print",
      "Alex 2026-10-28: no skirts (was 1 loop); the start G-code's purge line primes the nozzle",
      "Print row 13"),
@@ -82,11 +90,13 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "outer_only keeps the brim off internal holes", "Print row 14"),
     ("brim_width", "0", "print",
      "off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each "
-     "plate 3MF for exactly the parts the doc names",
+     "plate 3MF: the parts the doc names, plus 3 mm on every big part (footprint >= 50 mm, "
+     "Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule)",
      "Print row 14 + section Orientation & brim"),
-    ("brim_separation", "0.15", "print",
-     "Alex 2026-10-29 brim-gap ladder (Z +0.08, 95 % first layer): 0.10-0.25 peel by hand, "
-     "0.30 barely holds, 0.40 falls off; 0.15 = one step of margin over 0.10 (fused 10-23)",
+    ("brim_separation", "0.3", "print",
+     "Alex 2026-11-05: 0.30 (was 0.15, which tore and left a sharp lip). Corner test at the "
+     "20 mm rule: 0.20-0.35 all held with no lift, peel improved with the gap; mid-bed peel "
+     "test: 0.30 peels very easily, 0.35 and 0.40 fell off. 0.30 = one step inside that edge",
      "section Orientation & brim"),
     ("xy_size_compensation", "0", "print",
      'Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing '
@@ -110,8 +120,9 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "THE critical override: the profile scales ASA up 0.22 %, which lands in the bearing bores",
      "Filament row 1"),
     ("filament_shrinkage_compensation_z", "0%", "filament", "same reason", "Filament row 2"),
-    ("chamber_minimal_temperature", "45", "filament",
-     "Alex 2026-11-03: hold the print until the chamber reads 45 C. With a blanket on the top and a "
+    ("chamber_minimal_temperature", "48", "filament",
+     "Alex 2026-11-04: 48 so the print holds until the chamber reads 45 C; firmware 7.0.0 M191 ends "
+     "3 C short of its target (M141_M191.cpp tolerance 3), so 45 released at 42. With a blanket on the top and a "
      "cover over the door the chamber plateaus at 47 C on the bed alone (cold nozzle, 17 C basement) "
      "and climbs to 54 C once printing; bare it tops out at 44 C (40 from 10-28)",
      "Filament row 6"),
