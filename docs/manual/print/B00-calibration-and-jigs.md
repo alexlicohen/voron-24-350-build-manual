@@ -128,8 +128,8 @@ are kept for reference only.
 
 **4. Brim-gap ladder: the gap that breaks off by hand** `(verify on bench)`
 
-The plates' brims sit **0.35 mm** off the part (Alex 2026-11-06). This ladder picked 0.15 on 2026-10-29 (Galaxy Black,
-satin, Z +0.08, 95 % first layer); on the plates 0.15 tore and left a sharp lip, so corner and peel tests moved it to 0.30, and the first plates to 0.35. The right gap depends on the first layer item 3 just set, so this runs
+The plates' brims sit **0.30 mm** off the part (Alex 2026-11-06). This ladder picked 0.15 on 2026-10-29 (Galaxy Black,
+satin, Z +0.08, 95 % first layer); on the plates 0.15 tore and left a sharp lip, so corner and peel tests moved it to 0.30; 0.35 on the first plates let a big part come away from its brim, so it stays 0.30. The right gap depends on the first layer item 3 just set, so this runs
 after it, and again after any change to item 3.
 
 - [ ] Same sheet and spool as item 3; the ladder carries the plates' Z offset and first-layer flow
@@ -141,7 +141,8 @@ after it, and again after any change to item 3.
 - [ ] 2026-10-29: 0.10 / 0.15 / 0.20 / 0.25 peeled by hand with very minor residue, 0.30 came off easily, 0.40 fell off by itself → **0.15** (0.10 fused on 10-23)
 - [ ] 2026-11-05: on the plates 0.15 and 0.20 tore with a sharp lip. Bars at the 20 mm corners (7.5 and 15 mm tall) held with no lift at 0.20–0.35; mid-bed 0.30 peeled very easily, 0.35 and 0.40 fell off → **0.30**
 - [ ] 2026-11-06: B01-P2 at 0.30 kept its brims firmly attached; B02-P1 at 0.35 peeled more easily and every brimmed part stayed flat → **0.35**
-- [ ] Not 0.35: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
+- [ ] 2026-11-06: on B02-P2 at 0.35 the 126 mm Stealthburner main body came away from its brim at the front-left corner and lifted → back to **0.30**
+- [ ] Not 0.30: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
 
 The check projects are not plates of the run and sit outside every total. `python3 slicer/hot_check.py`
 rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,

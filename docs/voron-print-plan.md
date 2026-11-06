@@ -139,7 +139,7 @@ The machine has the high-flow 0.4 nozzle, so the HF0.4 variants are the base;
 | Supports | on (auto **off**) | **None** | Every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; [Nevermore README](https://github.com/nevermore3d/Nevermore_Micro#assembly); [Klicky STL README](https://github.com/jlas1/Klicky-Probe/blob/main/Probes/KlickyProbe/STL/README.md) |
 | Seam position | Aligned | **Nearest**, scarf on smooth contours | seams go to the nearest corner, off flat and mating faces; on smooth curves a 20 mm scarf joint (outer contours only, so holes and bores keep the plain seam). Rear ran a seam stripe up the middle of flat back faces | Alex 2026-11-04 (rear before) |
 | Skirt loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
-| Brim | off | **off by default; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer (Alex 2026-11-05); gap 0.35 mm (Alex 2026-11-06)** — list in §5 | ASA corner lift on long flat parts and tippy tall parts | [Prusa warping KB](https://help.prusa3d.com/article/warping_2011); judgment |
+| Brim | off | **off by default; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer (Alex 2026-11-05); gap 0.30 mm (Alex 2026-11-06)** — list in §5 | ASA corner lift on long flat parts and tippy tall parts | [Prusa warping KB](https://help.prusa3d.com/article/warping_2011); judgment |
 | **XY size compensation** | 0 | **keep 0** | Voron: *"The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large."* | [docs.vorondesign.com/materials.html](https://docs.vorondesign.com/materials.html) |
 | Elephant-foot compensation | 0.20 | **keep 0.20 for now, verify on the cube** | it shrinks only the *first* layer; several Voron parts have a bearing bore starting at the bed. Measure before changing. | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -795,7 +795,7 @@ drive frames, the XY joints and X carriage halves, the toolhead bodies, the bay 
 others. The lists above still set the 5 mm parts and the small 3 mm ones. The lift-map test decided it: unbrimmed
 bars lifted at the bed corners even 20 mm in, brimmed ones stayed flat. B00-P1 and B01-P1 printed before the rule and
 keep no brim; B05-P1 has no big part.
-Brim separation is 0.35 mm (Alex 2026-11-06; 0.30 from 2026-11-05, 0.15 from the 10-29 ladder before): 0.15–0.20 tore and left a sharp lip; at the 20 mm corners 0.20–0.35 held with no lift; on the plates B01-P2 at 0.30 kept its brims firmly attached, while B02-P1 at 0.35 peeled more easily and every brimmed part stayed flat.
+Brim separation is 0.30 mm (Alex 2026-11-06; 0.35 briefly the same day, 0.30 from 2026-11-05, 0.15 from the 10-29 ladder before): 0.15–0.20 tore and left a sharp lip; at the 20 mm corners small bars held with no lift at 0.20–0.35; on the plates B01-P2 at 0.30 kept its brims firmly attached, while on B02-P2 at 0.35 the 126 mm Stealthburner main body came away from its brim at the front-left corner and lifted.
 ([Prusa warping KB](https://help.prusa3d.com/article/warping_2011))
 
 **Edge margins (Alex 2026-11-03).** A *big* part, 50 mm or more on the longest side of its STL footprint
@@ -921,7 +921,7 @@ and [B00 § Before B00 checks](manual/print/B00-calibration-and-jigs.md#before-b
    cold start G-code); pass with no Z-alignment prompt, every square smooth and closed, about 0.24–0.26 mm on
    calipers (first layer at Z 0.28), all five alike.
 4. **Brim-gap ladder** — `slicer/checks/brim-gap-ladder.3mf`: the smallest brim gap that breaks off clean by
-   hand set the plates' `brim_separation` on 2026-10-29 (0.15); the corner and peel tests of 2026-11-05 moved it to 0.30, and B02-P1 to **0.35** on 2026-11-06.
+   hand set the plates' `brim_separation` on 2026-10-29 (0.15); the corner and peel tests of 2026-11-05 moved it to 0.30, and to **0.30** again on 2026-11-06 after 0.35 let a big part come off its brim.
 
 **Superseded 2026-10-28 (Alex): no expansion joints, no nozzle wiper, cold-probe start kept; the hot check
 runs once.** The 2026-10-01 plan, for reference:

@@ -311,7 +311,7 @@ REQUIRED_CFG = (("perimeters", "4"), ("bottom_solid_layers", "5"),
                 ("filament_shrinkage_compensation_xy", "0%"),
                 ("filament_shrinkage_compensation_z", "0%"),
                 ("seam_position", "nearest"), ("scarf_seam_placement", "contours"),
-                ("brim_separation", "0.35"), ("support_material", "0"))
+                ("brim_separation", "0.3"), ("support_material", "0"))
 # B11 (bay-ducts-petg.ini): the brief's duct settings, and the AFS flap lift in the filament G-code.
 REQUIRED_CFG_PETG = (("perimeters", "3"), ("top_solid_layers", "4"),
                      ("bottom_solid_layers", "4"), ("fill_density", "20%"),

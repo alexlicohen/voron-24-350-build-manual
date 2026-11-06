@@ -150,7 +150,7 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
 | [Seam](../16-glossary.md#s) position | Aligned | **Nearest**, scarf on smooth contours | seams go to the nearest corner, off flat and mating faces; on smooth curves a 20 mm scarf joint (outer contours only, so holes and bores keep the plain seam). Rear ran a seam stripe up the middle of flat back faces | Alex 2026-11-04 (rear before) |
 | [Skirt](../16-glossary.md#s) loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
-| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.35 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
+| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.30 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -364,10 +364,10 @@ on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm b
 all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
 slightly. The two rules work together.
 
-**Brim separation is 0.35 mm (Alex 2026-11-06; 0.30 from 2026-11-05, 0.15 before).** At 0.15 and 0.20 the brim tore and
-left a sharp lip. Bars at the 20 mm corners held with no lift at every gap from 0.20 to 0.35, and peel improved as the gap
-grew. On the plates, B01-P2 at 0.30 kept its brims firmly attached; B02-P1 at 0.35 peeled more easily and every brimmed
-part stayed flat. Deburr whatever lip is left (swivel deburring tool, one light pass on a mating edge).
+**Brim separation is 0.30 mm (Alex 2026-11-06; 0.35 briefly the same day, 0.30 from 2026-11-05, 0.15 before).** At 0.15
+and 0.20 the brim tore and left a sharp lip. Small bars at the 20 mm corners held with no lift at every gap from 0.20 to
+0.35, and peel improved as the gap grew. On the plates, B01-P2 at 0.30 kept its brims firmly attached; on B02-P2 at 0.35
+the 126 mm Stealthburner main body came away from its brim at the front-left corner and lifted. Deburr whatever lip is left (swivel deburring tool, one light pass on a mating edge).
 
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
@@ -435,7 +435,7 @@ the full tick list `(verify on bench)`:
    on calipers (the plates print the first layer at Z 0.28), all five alike.
 4. **Brim-gap ladder.** `slicer/checks/brim-gap-ladder.3mf`, six squares at brim gaps 0.10–0.40 mm: the
    smallest gap that breaks off clean by hand set the plates' `brim_separation` on 2026-10-29 (0.15); the corner and peel tests of
-   2026-11-05 moved it to 0.30, and B02-P1 to **0.35** on 2026-11-06 (§Orientation & brim).
+   2026-11-05 moved it to **0.30**; 0.35 was tried on 2026-11-06 and dropped the same day (§Orientation & brim).
 
 **Superseded 2026-10-28 (Alex): neither the expansion joints nor the nozzle wiper is fitted, the plates keep
 the cold-probe start, and the hot check runs once, on that start.** The 2026-10-01 plan, kept for reference

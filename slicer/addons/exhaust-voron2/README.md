@@ -32,7 +32,7 @@ Two jobs on the Core One+, satin sheet, no glue, as oriented, **no supports**, t
 5 top/bottom, 40 % gyroid, 0.2 mm). **3 mm brim on the two large flat parts**, the housing (143.7 × 154.8 mm
 footprint) and the access cover (73.2 × 134.8 mm), set per object (right-click → Add settings → Skirt and brim →
 Brim width), as `docs/manual/print/00-slicer-setup.md` § Orientation & brim does for the 155 mm grill. The inis
-keep the global brim at 0 and `brim_separation` at 0.35; the fan grill and the two mounts print without one.
+keep the global brim at 0 and `brim_separation` at 0.30; the fan grill and the two mounts print without one.
 
 | Job | Profile | PrusaSlicer 2.9.6 CLI estimate |
 |---|---|---|
