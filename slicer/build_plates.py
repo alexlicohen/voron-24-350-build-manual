@@ -57,7 +57,7 @@ OUT_3MF = ROOT / "plates"
 OUT_PNG = REPO / "docs" / "manual" / "assets" / "plates"
 ESTIMATES = ROOT / "estimates.csv"
 RENDERER = REPO / "scripts" / "render_plate_bins.py"
-PRUSA = "/Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"
+PRUSA = "/Applications/Original Prusa Drivers/PrusaSlicer.app/Contents/MacOS/PrusaSlicer"  # 2.9.7 (Alex 2026-11-05)
 INI = {"black": ROOT / "voron-coreone-asa.ini",
        "blue": ROOT / "voron-accent-blue.ini",
        "petg": ROOT / "bay-ducts-petg.ini"}     # B11 only; not Voron spec (ducts carry no load)

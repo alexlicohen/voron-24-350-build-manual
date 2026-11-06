@@ -165,7 +165,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 **Do:**
 
-1. Run `python3 slicer/fetch_stls.py`, then open PrusaSlicer 2.9.6.
+1. Run `python3 slicer/fetch_stls.py`, then open PrusaSlicer 2.9.7.
 2. Housing: `voron-coreone-asa.ini`, as oriented, no supports, 3 mm brim.
 3. The other three, mounts twice: `voron-accent-blue.ini`, 3 mm brim on the access cover only. Bag all five in bin `14-exhaust`.
 
@@ -1497,7 +1497,7 @@ Pause: ~35 min since the last pause — the exhaust in `printer.cfg`, the fan pr
 
 **Parts:**
 
-- tool: the laptop with PrusaSlicer 2.9.6
+- tool: the laptop with PrusaSlicer 2.9.7
 
 **Do:**
 

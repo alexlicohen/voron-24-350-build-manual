@@ -48,7 +48,7 @@ rather than against them.
 - **Door swing — decide now, from where the machine will live.** As designed the hinges are on the **left**
   and the door opens from the right (`Hinge-L`). Mirror both `Hinge-L-*` files only if the printer's left
   side will be against a wall; handle and latch are symmetric. **PrusaSlicer 3.0 preview cannot mirror** —
-  slice this batch in 2.9.6, or mirror the STL outside the slicer.
+  slice this batch in 2.9.7, or mirror the STL outside the slicer.
   [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 - `Hinge-L-sleeve/solid-2X` (55.0 mm on a 20.9×19.5 footprint) and `Latch.stl` (58.0 mm) carry a **5 mm brim
   already in the project**; the two `Handle-Hinge_*` parts, 50 mm or longer, a 3 mm one; `Panel_Clip` has none. Verify in the preview, never add.
@@ -67,7 +67,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
-**Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.6** only if the door must open the other way; the 3.0 preview has no mirror tool.
+**Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.7** only if the door must open the other way; the 3.0 preview has no mirror tool.
 **Parts:** `Handle-Hinge_Bottom`, **3 mm brim** · `Handle-Hinge_Top`, **3 mm brim** · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.6 estimate).
 **Check:** The preview shows a brim outline on every part but `Panel_Clip`;
 swing decision made before slicing, not after.

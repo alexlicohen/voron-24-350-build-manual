@@ -1180,7 +1180,7 @@ Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vo
 
 **Parts:**
 
-- tool: the laptop with PrusaSlicer 2.9.6
+- tool: the laptop with PrusaSlicer 2.9.7
 - tool: the `Voron_Design_Cube_v7.stl` file
 
 **Do:**
@@ -1453,7 +1453,7 @@ Pause: ~35 min since the last pause — H, w, d, G and O measured and written do
 
 **Do:**
 
-1. In PrusaSlicer 2.9.6, load the files from `measured/` with `voron-coreone-asa.ini`, as oriented, no supports.
+1. In PrusaSlicer 2.9.7, load the files from `measured/` with `voron-coreone-asa.ini`, as oriented, no supports.
 2. Leave the stop bracket out if the calculator said so.
 3. Print on the satin sheet. Once cool, bag the parts in bin `13-scrubber`.
 

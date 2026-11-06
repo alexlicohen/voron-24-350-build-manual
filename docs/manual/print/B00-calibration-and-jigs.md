@@ -60,7 +60,7 @@ the kit's own 153 inserts stay untouched.
 
 **Do:**
 
-1. PrusaSlicer 2.9.6, **Configuration → Configuration Wizard**: **Prusa FFF**, **Prusa CORE One & CORE One+**.
+1. PrusaSlicer 2.9.7, **Configuration → Configuration Wizard**: **Prusa FFF**, **Prusa CORE One & CORE One+**.
 2. Tick the **0.4 HF** nozzle even with plain 0.4 ticked; filament **Prusament ASA**; Finish.
 3. **File → Open Project**: `slicer/plates/B00-P1.3mf`; accept any profile dialog.
 
@@ -158,7 +158,7 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 29 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.6.
+1. Open each of the 29 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.7.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 

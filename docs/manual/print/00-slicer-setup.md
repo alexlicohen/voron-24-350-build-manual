@@ -9,24 +9,27 @@ pose: check
 caption: Set the profile once, carefully. Twenty-four plates inherit these numbers and none of them ask twice.
 ```
 
-**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25). PrusaSlicer **3.0.0-alpha12**
-(published 2026-09-21) is an early preview.
+**Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02: 2.9.6 plus security fixes, no
+slicing changes). PrusaSlicer **3.0.0-alpha13** (published 2026-11-02) is an early preview.
 ([releases](https://github.com/prusa3d/PrusaSlicer/releases))
 
-**Version posture.** First build: **2.9.6 for every batch, B11 included** (decision 2026-09-26). The 3.0
+**Version posture.** First build: **2.9.7 for every batch, B11 included** (decision 2026-09-26 on 2.9.6, moved to 2.9.7 2026-11-05). The 3.0
 preview is not used for this build; *PrusaSlicer 3.0 preview* at the end is reference only, for when it goes
 stable.
 Changing slicer version is a toolchain change: re-run Gate A — and Gate B once the kit is here — before the
-next plate.
+next plate. The 2.9.6 → 2.9.7 move was checked by slicing instead (2026-11-05): the built-in
+`PrusaResearch.ini` is byte-identical, and B01-P2, B04-P1 and B11-P1 slice to the same time, grams and
+extrusion moves (object order shuffles between runs even on 2.9.6). The only new line in the G-code is
+`used_filament_compensation = 1`, a statistics-only multiplier at its default.
 
 **Base profiles** (read out of a `PrusaResearch.ini` with `inherits` resolved). Two copies of that
 file exist and they are not the same file:
 
-- `/Applications/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini` — the copy shipped
-  inside the 2.9.6 app bundle, `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
+- `/Applications/Original Prusa Drivers/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini` — the copy shipped
+  inside the 2.9.7 app bundle (byte-identical to 2.9.6's), `config_version = 2.4.14`. This is what `slicer/resolve_preset.py`
   reads, so it is the base the committed `.ini` and the plate 3MFs were derived from.
 - `~/Library/Application Support/PrusaSlicer/vendor/PrusaResearch.ini` — the vendor bundle the GUI
-  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.9` today (2.5.9, 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.12 (2026-10-15: INDX tool-change script, Generic PVA, INDX firmware notice; 2.5.11 on 2026-10-02 added HT hotend support for the CORE One/L; 2.5.10 on 2026-09-17 added Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks). Resolved through `inherits`, the CORE One HF0.4 printer, its start G-code, the 0.20mm STRUCTURAL print, Prusament ASA and Prusament PETG V0 carry the same values in both, and 2.5.12 leaves them and Prusament PETG unchanged; 2.5.11 only rewrites Prusament ASA's compatibility conditions to keep it off HT-hotend profiles, and it still matches the HF0.4 printer. The update is safe to take.
+  actually resolves presets against, auto-updated in place. It is at `config_version = 2.5.14` today (2026-11-05). 2.5.13 only bumps the CORE One start's firmware notice to `M115 U7.0.0+16903`; 2.5.14 adds `used_filament_compensation = 0.95` to the printer presets, which scales the reported grams only, so a GUI figure about 5 % under `estimates.csv` is that key. The ASA, PETG V0, PETG and 0.20mm STRUCTURAL presets are unchanged from 2.5.12. History: 2.5.9 ( 2026-09-08, only added INDX/XL filament profiles; nothing for the CORE One HF0.4 or Prusament ASA changed). Upstream is at 2.5.12 (2026-10-15: INDX tool-change script, Generic PVA, INDX firmware notice; 2.5.11 on 2026-10-02 added HT hotend support for the CORE One/L; 2.5.10 on 2026-09-17 added Prusament PLA Lightweight profiles and 0.25 mm XL/INDX print tweaks). Resolved through `inherits`, the CORE One HF0.4 printer, its start G-code, the 0.20mm STRUCTURAL print, Prusament ASA and Prusament PETG V0 carry the same values in both, and 2.5.12 leaves them and Prusament PETG unchanged; 2.5.11 only rewrites Prusament ASA's compatibility conditions to keep it off HT-hotend profiles, and it still matches the HF0.4 printer. The update is safe to take.
 
 They differ on one key that reaches these plates: 2.5.8+'s CORE One `start_gcode` bumps the firmware
 check from `M115 U6.5.3+12780` to `U6.8.1+16182`. Nothing mechanical differs; a re-derive should be
@@ -62,7 +65,7 @@ and under the HF profile's 26, so the HF base is what keeps the slicer from thro
 
 ## Committed projects — open the plate, don't rebuild it
 
-You do **not** re-enter any of this by hand. Every plate is committed as a PrusaSlicer 2.9.6 project
+You do **not** re-enter any of this by hand. Every plate is committed as a PrusaSlicer 2.9 project
 with the arrangement, the per-object brims and the full configuration already inside it:
 
 | What | Where |
@@ -500,7 +503,7 @@ records the branch head so a mid-build reprint is identical to the first print.
 
 ## PrusaSlicer 3.0 preview
 
-*Reference only — first build: 2.9.6 for everything.*
+*Reference only — first build: 2.9.7 for everything.*
 
 3.0.0-alpha12 (2026-09-21, a bug-fix build over alpha11) is usable for the cosmetic batches but changes enough that it is not a drop-in.
 Verified against the 3.0 branch, not recalled:

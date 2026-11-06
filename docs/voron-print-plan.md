@@ -103,10 +103,10 @@ Clicky-Clack's `Hinge-L-sleeve-2X` / `-solid-2X` contain **one** body each — "
 
 ### 1.3 Slicer: PrusaSlicer profile and the Voron overrides
 
-**Slicer:** PrusaSlicer **2.9.6** (current stable, released 2026-06-25 —
+**Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02, 2.9.6 plus security fixes —
 [GitHub releases](https://github.com/prusa3d/PrusaSlicer/releases)). 3.0.0-alpha12 shipped 2026-09-21 as an
 early preview. **Version posture (ruling 2026-09-26):** every batch, B00 through B11, is sliced on
-2.9.6; the 3.0 preview is not used for this build. Any toolchain change re-runs
+2.9.7 (2.9.6 until 2026-11-05; same G-code); the 3.0 preview is not used for this build. Any toolchain change re-runs
 Gate A and Gate B (§1.4). The 3.0 deltas are kept as reference in
 [`docs/manual/print/00-slicer-setup.md`](manual/print/00-slicer-setup.md#prusaslicer-30-preview).
 
@@ -1071,7 +1071,7 @@ TOTAL B11,B11,all,24.9,348,petg
 - Extrusion backers — <https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers>
 
 **Prusa / slicer**
-- PrusaSlicer releases (2.9.6 stable, 2026-06-25) — <https://github.com/prusa3d/PrusaSlicer/releases>
+- PrusaSlicer releases (2.9.7 stable, 2026-11-02; 2.9.6, 2026-06-25) — <https://github.com/prusa3d/PrusaSlicer/releases>
 - PrusaResearch.ini @ version_2.9.6 (source of every quoted default) — <https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/resources/profiles/PrusaResearch.ini>
 - Prusa KB — ASA — <https://help.prusa3d.com/article/asa_1809>
 - Prusa KB — Warping — <https://help.prusa3d.com/article/warping_2011>

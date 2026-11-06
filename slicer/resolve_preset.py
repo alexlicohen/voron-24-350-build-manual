@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 BUNDLE = Path(
-    "/Applications/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini"
+    "/Applications/Original Prusa Drivers/PrusaSlicer.app/Contents/Resources/profiles/PrusaResearch.ini"
 )
 
 _SECTION_RE = re.compile(r"^\[([^\]]+)\]\s*$")
