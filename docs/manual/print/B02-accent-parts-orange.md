@@ -10,7 +10,7 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.1 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.0 h (3 plates) — PrusaSlicer 2.9.6 estimates.
 
 **Sessions:** 3 plate starts (~5 min hands-on each, 7.1 / 8.3 / 5.7 h unattended) + ~20 min inspect and bin.
 
@@ -123,7 +123,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **15 files, 16 objects**, 3 mm brims on four parts.
 3. Leave the SB main body's built-in supports; never suppress them.
-**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.3 h, 109 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the SB main body, both `[a]_fan_grill_a` and the `[a]_xy_joint_cable_bridge_2hole`, already in the project.
+**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.2 h, 108 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the SB main body, both `[a]_fan_grill_a` and the `[a]_xy_joint_cable_bridge_2hole`, already in the project.
 **Check:** SB main body oriented as shipped with its supports visible in preview; brim outlines on the body, both grills and the cable bridge only.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

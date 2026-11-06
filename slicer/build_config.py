@@ -93,10 +93,11 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "plate 3MF: the parts the doc names, plus 3 mm on every big part (footprint >= 50 mm, "
      "Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule)",
      "Print row 14 + section Orientation & brim"),
-    ("brim_separation", "0.3", "print",
-     "Alex 2026-11-05: 0.30 (was 0.15, which tore and left a sharp lip). Corner test at the "
-     "20 mm rule: 0.20-0.35 all held with no lift, peel improved with the gap; mid-bed peel "
-     "test: 0.30 peels very easily, 0.35 and 0.40 fell off. 0.30 = one step inside that edge",
+    ("brim_separation", "0.35", "print",
+     "Alex 2026-11-06: 0.35 (0.30 from 11-05, 0.15 before; 0.15 tore and left a sharp lip). "
+     "Corner test at the 20 mm rule: 0.20-0.35 all held with no lift, peel improved with the gap. "
+     "Plates: B01-P2 at 0.30 kept its brims firmly attached; B02-P1 at 0.35 peeled more easily "
+     "and every brimmed part stayed flat",
      "section Orientation & brim"),
     ("xy_size_compensation", "0", "print",
      'Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing '

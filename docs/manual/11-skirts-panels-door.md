@@ -1423,6 +1423,8 @@ Pause: ~20 min since the last pause — the door frame is squared and blind-join
 
 **Helper:** Sorts the magnets into two polarity piles before you glue any of them in.
 
+⚠ **Before gluing, check the pivot end.** Stand the handle on each end on a flat surface: it must not rock or lean. If the narrow end lifted on the bed, reprint the `Handle` with a 12 × 0.4 mm disc under that end, then trim the disc flush and clear it from the pin bore.
+
 Tip: put a magnet on the end of a steel tool and use that to press each one into its pocket. [src](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod)
 
 Source: [KB3D Clicky-Clack install guide § Hinge & Handle Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#hinge-handle-assembly)

@@ -90,7 +90,7 @@ def rotated_extent(hull: list[tuple[float, float]], deg: float
 # ---------------------------------------------------------------- packing
 
 BED_X, BED_Y = 250.0, 220.0
-EDGE_MARGIN = 5.0  # part+brim to bed edge, all four sides (Alex 2026-10-24; was 4.0 = skirt room)
+EDGE_MARGIN = 10.0  # part+brim to bed edge, all four sides (Alex 2026-11-06: lift-map 1's back 8 mm strip; 5.0 from 10-24, 4.0 = skirt room)
 # Big parts sit further in: the bed's edges run cooler, and B01-P1's front z_drive_main lifted
 # at the door-side corner (Alex 2026-11-03). Big = longest footprint side, brim excluded.
 BIG_PART_MM = 50.0

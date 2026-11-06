@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.9 h of printing across 24 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 150.8 h of printing across 24 plates, plus 24.9 h across 5 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -60,7 +60,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B01.8 — Reads each bin label aloud and checks the count against the diagram.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B02-P1 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B02 — Accent parts, the accent day** — <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B02-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends</span>
+- **B02 — Accent parts, the accent day** — <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.4 — Names the bin colour of each part on the sorting diagram while you open the project.
 - **B02 — Accent parts, the accent day** — <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B02-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
     - Step B02.6 — Counts the parts on the sorting diagram and checks the total against the object count.
@@ -161,7 +161,7 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 
 ### 5 · Print — B02 — Accent parts, the accent day
 - <span data-first-step="B02.2">Start plate B02-P1 (Step B02.2) · ~5 min hands-on, then 7.1 h unattended · leave-state: plate B02-P1 running, 7.1 h unattended — door shut; come back for the next step when it ends</span>
-- <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.3 h unattended · leave-state: plate B02-P2 running, 8.3 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B02.4">Start plate B02-P2 (Step B02.4) · ~5 min hands-on, then 8.2 h unattended · leave-state: plate B02-P2 running, 8.2 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.6">Start plate B02-P3 (Step B02.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B02-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B02.8">Step B02.8 · ~10 min · leave-state: supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.</span>
 - <span data-first-step="B02.9">Step B02.9 · ~15 min · leave-state: all three plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.</span>

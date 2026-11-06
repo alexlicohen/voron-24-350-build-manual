@@ -26,7 +26,7 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 - Flat reference surface (the kitchen stone counter, verified in Step 00.10)
 - Steel rule / straightedge ≥ 600 mm
 - Feeler gauge set
-- **Mintion Nutopress Pro** insert press with its **M3** tip (owned): sets every insert whose part fits under it, from Gate B on. Its throat depth is not published, so each reach is `(verify on bench)`
+- **Mintion Nutopress Pro** insert press with its **M3** tip (owned): sets every insert whose part fits under it, from Gate B on. Its throat is 54 mm (2⅛ in, tip axis to column, measured 2026-11-05), which reaches every insert on every printed part
 - Fallback only, for an insert the press cannot reach: the X-Tronic soldering iron (**900M-T** tip fitting, Hakko FX888D-style sleeve with a thumb ring) with the LDO brass M3 heat-set tip from the kit, which fits nothing else. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 - Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — kit wrenches or the Fabreeko precision set
 - Flush cutters
@@ -374,7 +374,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Flat reference surface | **Resolved** — kitchen stone counter, verified in Step 00.10 | Ch 01 |
 | Digital caliper, 150 mm | **Owned** — iGaging Absolute Origin, bought 2026-09-07 | Ch 00 (deck gate, cube gate) |
 | Machinist square, 150 mm DIN 875/2 | **Owned** — PEC 6 in, bought 2026-09-07 | Ch 01 (frame squaring) |
-| Heat-set insert press, Mintion Nutopress Pro | **Owned** — arrived 2026-11-05. 90 W iron on a lever rail, height stop, six tips; its M3 tip sets every insert whose part fits under it. Throat depth not published `(verify on bench)` | Ch 00 (Gate B insert practice) |
+| Heat-set insert press, Mintion Nutopress Pro | **Owned** — arrived 2026-11-05. 90 W iron on a lever rail, height stop, six tips; its M3 tip sets every insert whose part fits under it. Throat 54 mm (2⅛ in), measured 2026-11-05: it reaches every printed part | Ch 00 (Gate B insert practice) |
 | Temperature-controlled soldering iron, 900M-T tip fitting | **Owned** — X-Tronic. Fallback only, with the LDO tip, for an insert the press cannot reach | only if a part will not fit under the press |
 | LDO brass M3 heat-set tip | **In the kit** — the X-Tronic's fallback tip, fitted on kit day. Nothing is bought to bring it forward | kit day, fallback only |
 | Flush cutters | **Owned** — Hakko CHP-170, bought 2026-09-07 | Ch 07 (belts), Ch 10 (zip ties) |
@@ -577,7 +577,7 @@ Pause: ~25 min since the last pause — kit day: the fastener bags are emptied i
 
 ⚠ Fallback only: an insert the press cannot reach, in a part too tall or wide for its throat or one already assembled, goes in with the X-Tronic and the kit's LDO brass tip. On kit day fit the tip to the cold iron and set its tongue to one insert's height. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
-Tip: measure the throat, tip axis to column, before the first batch pass; it decides which parts need the fallback `(verify on bench)`.
+Tip: the throat is 54 mm (2⅛ in). No printed part's middle side exceeds 80 mm, so any insert turns to within 40 mm of the column.
 
 Source: Mintion Nutopress Pro product listing · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) (fallback tip) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
 

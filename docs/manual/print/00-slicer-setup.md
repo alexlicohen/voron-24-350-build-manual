@@ -150,7 +150,7 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
 | [Seam](../16-glossary.md#s) position | Aligned | **Nearest**, scarf on smooth contours | seams go to the nearest corner, off flat and mating faces; on smooth curves a 20 mm scarf joint (outer contours only, so holes and bores keep the plain seam). Rear ran a seam stripe up the middle of flat back faces | Alex 2026-11-04 (rear before) |
 | [Skirt](../16-glossary.md#s) loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
-| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.30 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
+| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.35 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -222,7 +222,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.9 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.8 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -284,8 +284,8 @@ bearing-seat and shaft-bore parts printed against an unverified fit — run Gate
 
 The inserts are set by the adult on the **Mintion Nutopress Pro** insert press, with its own iron and M3 tip;
 the helper never handles the press. Ch 00 Step 00.13 fits the tip and sets the height stop on the coupon; the
-first real insert, at Step 02.03, confirms the temperature on the same tip. Its throat depth is not published,
-so whether it reaches the widest insert bosses is `(verify on bench)`. The LDO brass M3 tip lands with the kit
+first real insert, at Step 02.03, confirms the temperature on the same tip. Its throat is 54 mm (2⅛ in, measured
+2026-11-05): no printed part's middle side is over 80 mm, so every insert can be turned to within 40 mm of the column. The LDO brass M3 tip lands with the kit
 as the fallback only: it goes into the X-Tronic on kit day for an insert the press cannot reach. Seven of the KADRICK kit's inserts are consumed here; **all 153 kit
 inserts stay for the build**.
 
@@ -344,8 +344,8 @@ are turned about Z to interleave on the bed, each kept 20 mm clear of every edge
 
 **Edge margins (Alex 2026-11-03).** A *big* part, 50 mm or more on the longest side of its STL footprint
 (`geom.BIG_PART_MM`), sits with its brim **20 mm or more from every bed edge** (`geom.BIG_EDGE_MARGIN`): the
-edges run cooler, and B01-P1's front `z_drive_main` lifted at the door-side corner. Small parts keep **5 mm**
-(`geom.EDGE_MARGIN`); parts sit 6 mm apart, brim to brim, wherever the plate allows. The arranger, `tools/platearrange`, applies the
+edges run cooler, and B01-P1's front `z_drive_main` lifted at the door-side corner. Small parts keep **10 mm**
+(`geom.EDGE_MARGIN`, Alex 2026-11-06; 5 mm before), clear of the back 8 mm strip where lift map 1 lifted; parts sit 6 mm apart, brim to brim, wherever the plate allows. The arranger, `tools/platearrange`, applies the
 margin per part. PrusaSlicer's **Arrange** knows none of this, so never press it on a committed plate: move
 a part by hand, then save and run `build_plates.py --from-3mf <id>`.
 
@@ -364,10 +364,10 @@ on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm b
 all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
 slightly. The two rules work together.
 
-**Brim separation is 0.30 mm (Alex 2026-11-05; 0.15 before).** At 0.15 and 0.20 the brim tore and left a sharp lip. Bars at
-the 20 mm corners held with no lift at every gap from 0.20 to 0.35, and peel improved as the gap grew; a mid-bed peel test
-then had 0.30 peeling off very easily while 0.35 and 0.40 fell off. 0.30 is one step inside that edge. Deburr whatever
-lip is left (swivel deburring tool, one light pass on a mating edge).
+**Brim separation is 0.35 mm (Alex 2026-11-06; 0.30 from 2026-11-05, 0.15 before).** At 0.15 and 0.20 the brim tore and
+left a sharp lip. Bars at the 20 mm corners held with no lift at every gap from 0.20 to 0.35, and peel improved as the gap
+grew. On the plates, B01-P2 at 0.30 kept its brims firmly attached; B02-P1 at 0.35 peeled more easily and every brimmed
+part stayed flat. Deburr whatever lip is left (swivel deburring tool, one light pass on a mating edge).
 
 **If you ever need to add a brim by hand** (a reprint that lifted): right-click the object in the object
 list → **Add settings → Skirt and brim → Brim width**, and set it on that object only. **Never use the
@@ -408,7 +408,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.9 h / 24-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.8 h / 24-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -435,7 +435,7 @@ the full tick list `(verify on bench)`:
    on calipers (the plates print the first layer at Z 0.28), all five alike.
 4. **Brim-gap ladder.** `slicer/checks/brim-gap-ladder.3mf`, six squares at brim gaps 0.10–0.40 mm: the
    smallest gap that breaks off clean by hand set the plates' `brim_separation` on 2026-10-29 (0.15); the corner and peel tests of
-   2026-11-05 moved it to **0.30** (§Orientation & brim).
+   2026-11-05 moved it to 0.30, and B02-P1 to **0.35** on 2026-11-06 (§Orientation & brim).
 
 **Superseded 2026-10-28 (Alex): neither the expansion joints nor the nozzle wiper is fitted, the plates keep
 the cold-probe start, and the hot check runs once, on that start.** The 2026-10-01 plan, kept for reference

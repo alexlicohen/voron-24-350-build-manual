@@ -78,7 +78,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.9 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.8 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
 leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
 not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the
@@ -128,8 +128,8 @@ are kept for reference only.
 
 **4. Brim-gap ladder: the gap that breaks off by hand** `(verify on bench)`
 
-The plates' brims sit **0.30 mm** off the part (Alex 2026-11-05). This ladder picked 0.15 on 2026-10-29 (Galaxy Black,
-satin, Z +0.08, 95 % first layer); on the plates 0.15 tore and left a sharp lip, so corner and peel tests moved it to 0.30. The right gap depends on the first layer item 3 just set, so this runs
+The plates' brims sit **0.35 mm** off the part (Alex 2026-11-06). This ladder picked 0.15 on 2026-10-29 (Galaxy Black,
+satin, Z +0.08, 95 % first layer); on the plates 0.15 tore and left a sharp lip, so corner and peel tests moved it to 0.30, and the first plates to 0.35. The right gap depends on the first layer item 3 just set, so this runs
 after it, and again after any change to item 3.
 
 - [ ] Same sheet and spool as item 3; the ladder carries the plates' Z offset and first-layer flow
@@ -140,7 +140,8 @@ after it, and again after any change to item 3.
 - [ ] The answer is the **smallest gap that breaks off clean**. A brim that came off by itself holds nothing, so wider than that buys nothing. Take one step above it when the smallest gap has fused before: the squares sit near the bed centre, the plates' parts reach the edges
 - [ ] 2026-10-29: 0.10 / 0.15 / 0.20 / 0.25 peeled by hand with very minor residue, 0.30 came off easily, 0.40 fell off by itself → **0.15** (0.10 fused on 10-23)
 - [ ] 2026-11-05: on the plates 0.15 and 0.20 tore with a sharp lip. Bars at the 20 mm corners (7.5 and 15 mm tall) held with no lift at 0.20–0.35; mid-bed 0.30 peeled very easily, 0.35 and 0.40 fell off → **0.30**
-- [ ] Not 0.30: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
+- [ ] 2026-11-06: B01-P2 at 0.30 kept its brims firmly attached; B02-P1 at 0.35 peeled more easily and every brimmed part stayed flat → **0.35**
+- [ ] Not 0.35: every plate needs the new value before B00. Set `brim_separation` in `slicer/build_config.py`, run `python3 slicer/build_config.py`, then `python3 slicer/sync_start_gcode.py --key brim_separation`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`
 
 The check projects are not plates of the run and sit outside every total. `python3 slicer/hot_check.py`
 rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,

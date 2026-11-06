@@ -175,7 +175,7 @@ Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/d
 
 ⚠ ASA: set Chamber Filtration to Adv. Filtration before each job, as for every ASA plate.
 
-Tip: set each brim per object: right-click it → Add settings → Skirt and brim → Brim width. The inis keep the global brim at 0, gap 0.30 mm.
+Tip: set each brim per object: right-click it → Add settings → Skirt and brim → Brim width. The inis keep the global brim at 0, gap 0.35 mm.
 
 Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · `slicer/addons/exhaust-voron2/README.md` · [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter)
 

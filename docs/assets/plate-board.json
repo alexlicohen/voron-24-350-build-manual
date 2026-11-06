@@ -66,13 +66,13 @@
    "batch": "B02",
    "batch_title": "Accent parts (blue)",
    "run": "asa",
-   "hours": 8.3,
-   "grams": 109,
+   "hours": 8.2,
+   "grams": 108,
    "colour": "blue",
    "slot": "overnight",
    "note": "",
    "spool": "A1",
-   "remaining": 594,
+   "remaining": 595,
    "diagram": "../../manual/assets/plates/B02-P2.png",
    "chapter": "../../manual/steps/b02-accent-parts-orange/"
   },
@@ -87,7 +87,7 @@
    "slot": "day",
    "note": "",
    "spool": "A1",
-   "remaining": 520,
+   "remaining": 521,
    "diagram": "../../manual/assets/plates/B02-P3.png",
    "chapter": "../../manual/steps/b02-accent-parts-orange/",
    "milestone": "Blue day done: every accent part is printed."
@@ -444,7 +444,7 @@
   {
    "run": "asa",
    "plates": 24,
-   "hours": 150.9,
+   "hours": 150.8,
    "label": "24-plate run"
   },
   {
@@ -456,9 +456,9 @@
  ],
  "totals": {
   "plates": 29,
-  "hours": 175.8,
+  "hours": 175.7,
   "overnight": 6,
   "run_plates": 24,
-  "run_hours": 150.9
+  "run_hours": 150.8
  }
 }
