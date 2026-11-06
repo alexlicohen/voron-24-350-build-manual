@@ -24,7 +24,7 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 
 - Hex drivers 2 mm, 2.5 mm, 3 mm, 4 mm — a 2.5 mm ball-end helps at the M3×40
 - 1.5 mm hex — the pulley set screws (verify on bench against the kit's pulleys)
-- Temperature-controlled soldering iron + LDO brass M3 insert tip (4 heat-set inserts, Steps 04.3–04.4)
+- Nutopress Pro insert press with its M3 tip (4 heat-set inserts, Steps 04.3–04.4); the X-Tronic + LDO brass tip only if a part will not fit under it
 - Printed `pulley_jig.stl` (Voron-2 `STLs/Tools/`)
 - Digital caliper — pulley height fallback, and to confirm both drives match
 - The free end of the kit's 6 mm A/B belt reel, **uncut** — the belt-path straightness check. Cutting belt waits for Ch 07's matched cut
@@ -163,12 +163,12 @@ Source: [Voron manual p.63](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 - M3×5×4 brass heat-set insert ×2
 - `a_drive_frame_upper` ×1
-- tool: soldering iron with the M3 insert tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 
 1. Find the two blind 4.7 mm bosses either side of the motor bore on `a_drive_frame_upper`, ~56 mm apart.
-2. At the temperature written on your iron, press each insert straight down until flush, part held flat. Let it cool.
+2. At the press's taped temperature, lower each insert to the stop, part held flat. Let it cool.
 
 **Check:** Both inserts flush and square. `b_drive_frame_upper` takes **no** inserts; bosses on it mean you picked up the A frame.
 
@@ -189,7 +189,7 @@ Source: [Voron manual p.64](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 - M3×5×4 brass heat-set insert ×2
 - `[a]_tensioner_left` ×1
 - `[a]_tensioner_right` ×1
-- tool: soldering iron with the M3 insert tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:** Each tension arm has one through-bore stepping from 3.5 mm to 4.7 mm. Press the insert into the **4.7 mm end**, the wider opening. The 3.5 mm section is the M3×40's clearance and must stay clear.
 

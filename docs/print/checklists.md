@@ -14,7 +14,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; trays stacked.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
-- [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
+- [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Height stop set on the press and its working temperature written on tape on it.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 35 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.

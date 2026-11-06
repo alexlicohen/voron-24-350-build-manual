@@ -34,7 +34,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - Hex 2.5 mm (A/B front tensioners, M3×40; Z idler tensioners, M3×16) and a ball-end hex 4 mm (the four Z joint M5×40 bolts, Step 14.6 — the rear pair are reached at an angle from the door)
 - 150 mm machinist square (the hot re-square check at Step 14.6 — the same one as Ch 06b)
 - Laptop or tablet on the Mainsail console, with `M112` typed and unsent in a second window for the shaper run at Step 14.13 (Ch 13 Tools)
-- Part H only: string, scissors, 3 mm hex key, the soldering iron with the LDO insert tip, and the multimeter
+- Part H only: string, scissors, 3 mm hex key, the Nutopress Pro insert press with its M3 tip (the X-Tronic + LDO brass tip only if the housing will not fit under it), and the multimeter
 
 **Printed parts**
 
@@ -1187,7 +1187,7 @@ Steps 14.25 and 14.26 opened the chapter: the five printed parts wait in bin `14
 **Parts:**
 
 - M3×5×4 heat-set insert ×8
-- tool: soldering iron with the LDO insert tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:** Press an insert into each of the eight bosses p.250 highlights. Part flat, insert square, same tip temperature as every insert before.
 

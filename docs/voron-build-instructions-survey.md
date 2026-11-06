@@ -261,6 +261,7 @@ Pre-load or test-fit roll-in T-nuts — LDO warns extrusion/T-nut tolerances are
    - **Update 2026-09-05:** the manual deliberately inverts this. Squaring needs motor control (`G28`, `QUAD_GANTRY_LEVEL`, `SET_STEPPER_ENABLE`), so it runs out of Ch 13 as **Ch 06b**. Ch 07 sets *provisional* tension only; final A/B tension is Ch 06b Step 06b.15 / Ch 14 Step 14.4.
 3. **Titanium backers go on during gantry assembly, on the face opposite the rail.** Y-axis backers on **top** of the Y extrusions; X-axis backer on the **rear** of the X extrusion, opposite the MGN12. The README is blunt: *"If you have a single MGN12 but decide to put a backer on top, you will be actively contributing to the problem of bimetallic expansion!"* Fasteners: M3×8 FHCS (Y), M3×6 FHCS (X), ~30 T-nuts per the README (this build uses **29**: 10 per Y backer, 9 on the X backer, from the kit's M3 roll-in bag; see [Ch 05](manual/05-gantry.md)), Torx preferred (M3 FHCS cams out easily in countersinks).
 4. **Heat-set inserts (153 of them) go in before assembly, not during.** A missed insert in an XY joint means a gantry teardown. Batch them per printed-part group, use the supplied brass tip with the tongue adjusted flush to the insert height, and practise on `STLs/Test_Prints/Heatset_Practice.stl` first.
+   - **Update 2026-11-05:** this build sets them on a Mintion Nutopress Pro insert press with its own M3 tip and height stop, from the practice coupon on; the supplied brass tip in the X-Tronic is the fallback for a part that will not fit under the press.
 5. **Rails ship dry and must be cleaned and packed before installation** — the flip-and-pack method requires access to the back of the rail, i.e. *before* it goes on an extrusion. IPA soak 10 min, dry fully, pack NLGI 0/1 grease (Super Lube 21030) through a mounting hole until it oozes past the bearings, wipe the rail surface clean. Rail carriages slide off the ends easily and are ruined by a drop.
 6. **Use the second mounting hole from each end of every rail, never the end hole** (LDO note p.88). Also use the printed `MGN9_rail_guide_x2` / `MGN12_rail_guide_x2` jigs to centre rails on the extrusion.
 7. **Z pulleys: 16T on the Z motors, 20T elsewhere — they look nearly identical.** Threadlocker is pre-applied to the set screws; get orientation and stack height right the first time (caliper at 33 mm on the Z shafts; `pulley_jig.stl` gauges only the A/B motor pulleys).
@@ -371,7 +372,7 @@ Each row is a chapter file. **Source** = what the writer transcribes from, with 
 - **Sources:** LDO batch BOM for the kit serial ([350_BOM/HOME](https://docs.ldomotors.com/en/voron/voron2/350_BOM/HOME) → the batch page); manual p.4–11 (Part Printing Guidelines, File Naming, Hardware Reference, Blind Joint Basics, Ball-End Driver); [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide); [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide); [LDO cable chain guide](https://docs.ldomotors.com/guides/cable_chain_guide); [Printed Parts Guide Rev D](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d).
 - **Printed parts:** the five `STLs/Tools/*` jigs + `Test_Prints/Heatset_Practice` + `Voron_Design_Cube_v7`, all PLA on the Prusa.
   - **Update 2026-09-05:** superseded. Batch **B00** prints in **Prusament ASA Galaxy Black**, not PLA — the cube is the ASA dimensional gate and the heat-set coupon must be the build material. And only the **three** jigs actually used are printed (`MGN9_rail_guide_x2`, `MGN12_rail_guide_x2`, `pulley_jig`); `bed_hole_marking_template_x1_Rev2` and `bottom_panel_template` are optional extras deferred per print plan §4.2. See `docs/manual/print/B00-calibration-and-jigs.md`.
-- **Hardware consumed:** none. Consumes IPA, grease, soldering iron + brass tip.
+- **Hardware consumed:** none. Consumes IPA, grease; the insert press (Nutopress Pro, M3 tip) for the practice coupon.
 - **Rev D+ deviations to apply:** substitute `usb_adapter_mount_partial_cover.stl` (V2 repo) for the V1 cover in the print list; add the Nitehawk-SB-V2 grounding images to the "questions to ask in `#ldo_motors`" box.
 - **Also:** the print-batch plan and a "verify with the Voron cube before committing to batch 1" gate.
 
@@ -477,18 +478,18 @@ Each row is a chapter file. **Source** = what the writer transcribes from, with 
 
 | Chapter | Tools | Consumables |
 |---|---|---|
-| 00 | Digital caliper 150 mm; machinist square 150 mm DIN 875/2; flat reference (the stone counter, verified); temperature-controlled soldering iron + LDO brass M3 tip; flush cutters; 2 mm drill bit (supplied) | IPA ≥90%; Super Lube 21030 (NLGI 0/1); nitrile gloves; lint-free cloth; masking tape + marker for labelling |
+| 00 | Digital caliper 150 mm; machinist square 150 mm DIN 875/2; flat reference (the stone counter, verified); insert press (Nutopress Pro, M3 tip; X-Tronic + LDO brass M3 tip as the fallback); flush cutters; 2 mm drill bit (supplied) | IPA ≥90%; Super Lube 21030 (NLGI 0/1); nitrile gloves; lint-free cloth; masking tape + marker for labelling |
 | 01 | Ball-end hex 4 mm; machinist square; steel rule; flat reference; torque driver 0.5–3 N·m (optional) | — |
-| 02 | Hex 1.5/2/2.5/3/4 mm; soldering iron + insert tip; caliper (deck thickness gate, Z pulley at 33 mm); printed `MGN9_rail_guide` | Loctite 243 (blue) for non-pre-applied set screws; grease |
+| 02 | Hex 1.5/2/2.5/3/4 mm; insert press (Nutopress Pro, M3 tip); caliper (deck thickness gate, Z pulley at 33 mm); printed `MGN9_rail_guide` | Loctite 243 (blue) for non-pre-applied set screws; grease |
 | 03 | Hex 2.5/3 mm; PH2 screwdriver; plastic scraper or card (magnet application); sharp knife (trim magnet holes) | IPA; the bed's protective film goes in the bin |
 | 04 | Hex 2/2.5/3/4 mm; printed assembly aid (from the manual); pulley jig | Loctite 243 |
-| 05 | Hex 2/2.5/3/4 mm; **T10 Torx** driver for backer FHCS (strongly preferred); rail guides; soldering iron (inserts) | Loctite 243 |
+| 05 | Hex 2/2.5/3/4 mm; **T10 Torx** driver for backer FHCS (strongly preferred); rail guides; insert press (inserts) | Loctite 243 |
 | 06 | Hex 2.5/3/4 mm; two people for gantry install; rubber rail stoppers (LDO trick); long zip ties as backup | — |
 | 07 | Hex 2/2.5 mm; flush cutters; phone with Spectroid (Android) / Sound Spectrum Analysis (iOS) / Gates Carbon Drive; 150 mm rule to set the span | — |
 | 08 | Hex 1.5/2/2.5 mm; JST-PH crimp tool **only if** modifying pigtails; multimeter; soldering iron (fan voltage trace cut/bridge, if ever needed) | Fibreglass tape (supplied, for the probe); E0508 ferrules if fitting a Rapido |
 | 09 | 2.5 mm flat screwdriver (supplied); PH2; hex 2/2.5/3 mm; multimeter | VHB tape (supplied); DIN end caps |
 | 10 | Multimeter (**mandatory**); 2.5 mm flat screwdriver; PH2 (PSU + SSR); flush cutters; small pliers; label maker or the supplied cable tags | Zip ties ×100; VE0508 ferrules; wire duct offcuts |
-| 11 | Hex 2/2.5/3/4 mm; small hammer (door hinge dowels + bushings); side cutters; soldering iron (door latch insert); scissors for foam tape | 1 mm and 3 mm foam tape; VHB; super glue (door magnets); 6×3 magnets ×16 |
+| 11 | Hex 2/2.5/3/4 mm; small hammer (door hinge dowels + bushings); side cutters; insert press (door latch insert); scissors for foam tape | 1 mm and 3 mm foam tape; VHB; super glue (door magnets); 6×3 magnets ×16 |
 | 12 | Laptop; SD card reader; USB-A→USB-C/micro cable for board flashing; network cable | 32 GB microSD (bought; Rev D+ ships none) |
 | 13 | — | A spool of ASA in the dryer, warmed up |
 | 14 | Caliper; ruler; marker (e-steps) | Test filament; Voron cube; Ellis' PA pattern |

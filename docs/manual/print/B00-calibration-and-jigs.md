@@ -383,7 +383,7 @@ inputs:
     label: All seven inserts flush to 0.2 mm proud, no boss bulging over 0.2 mm
     kind: yesno
     optional: true
-    no: A bulging boss is technique, not the slicer. The iron is too hot or you are pushing too fast. Reprint Heatset_Practice, 6.5 g, and practise on it until two in a row land flush. Do not re-slice anything. This row holds no plate, so leave it blank while you practise; B01 and B03 to B06 print on the bore row. Pass it before the first real insert in Ch 02.
+    no: A bulging boss is technique, not the slicer. The press is too hot or you are lowering it too fast. Reprint Heatset_Practice, 6.5 g, and practise on it until two in a row land flush. Do not re-slice anything. This row holds no plate, so leave it blank while you practise; B01 and B03 to B06 print on the bore row. Pass it before the first real insert in Ch 02.
     why: The kit's 153 inserts go into real parts from Ch 02 onwards, so seven flush, un-bulged ones on this coupon are how you learn the iron before a chapter part sees it. The coupon has no other use.
   - key: bearing
     label: Kit day. A real 625-2RS seats by thumb with no rocking
@@ -439,7 +439,7 @@ Source: [00-slicer-setup § Gate B](00-slicer-setup.md#gate-b-bore-and-inserts-n
 - Skipping the chamber-preheat gate — ASA's first layer on a cold bed looks fine and then lifts at hour 2.
 - Reaching for negative XY compensation to fix an oversized cube — wrecks bearing fits everywhere else; use extrusion multiplier instead.
 - Hunting the printer's menus for a first-layer calibration wizard — the Core One+ has none; the loadcell does it, and Live Adjust Z is a per-print nudge that is not saved.
-- Rushing the `Heatset_Practice` coupon — technique (iron temp/speed) matters more than any slicer setting here.
+- Rushing the `Heatset_Practice` coupon — technique (press temperature and lowering speed) matters more than any slicer setting here.
 - Starting B01 on Gate A alone "because the cube is fine" — the bore is the gate that protects 22.9 h of Z-drive bodies.
 - Resetting the printer preset to its system value to clear the "(modified)" mark — that throws the cold-probe start G-code away and puts a hot nozzle back on the mesh.
 

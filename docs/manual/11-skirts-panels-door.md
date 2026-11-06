@@ -30,7 +30,7 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 **Tools**
 
 - Hex 2 / 2.5 / 3 / 4 mm
-- Temperature-controlled soldering iron + M3 brass heat-set tip (skirts, fan grill retainers, Nevermore, Clicky-Clack latch, exhaust cover)
+- Nutopress Pro insert press with its M3 tip (skirts, fan grill retainers, Nevermore, Clicky-Clack latch, exhaust cover); the X-Tronic + LDO brass tip only for a part that will not fit under it. Whether each part reaches the tip is `(verify on bench)`
 - Soldering iron + solder for the Nevermore bridge PCB; multimeter for the short check
 - Small hammer (Clicky-Clack dowel pins and split bushings)
 - Side cutters / flush cutters (5015 fan enclosures, rubber retainer strip)
@@ -286,7 +286,7 @@ Source: [Voron manual p.210](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Check:** Every insert flush or just below, none proud, no bulge on the show face. An M3×8 SHCS turns in freely by hand.
 
-Tip: iron hot, do the rest: fans and retainers ×16 at 11.3, Nevermore ×6 at 11.28, latch ×1 at 11.49, exhaust cover ×2 at 11.54. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
+Tip: press hot, do the rest: fans and retainers ×16 at 11.3, Nevermore ×6 at 11.28, latch ×1 at 11.49, exhaust cover ×2 at 11.54. [src](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
 Source: [Voron manual p.212](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=212) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 
@@ -1600,7 +1600,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - M3×12 SHCS ×2
 - M3 heat-set insert ×2
 - 4mm Bowden Coupler ×1
-- tool: soldering iron with the LDO insert tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 

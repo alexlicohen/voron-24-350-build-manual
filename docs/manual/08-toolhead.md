@@ -23,7 +23,7 @@ caption: Small fasteners, tight spaces. Build over a tray, because carpet eats M
 **Tools**
 
 - Hex 1.5 / 2 / 2.5 mm (1.5 mm is supplied)
-- Temperature-controlled soldering iron + the supplied brass M3 insert tip
+- Nutopress Pro insert press with its M3 tip; the X-Tronic + the kit's LDO brass tip only for a part that will not fit under it
 - Flush cutters and a small flat file (5015 fan ears)
 - Multimeter (continuity and thermistor resistance)
 - Digital caliper (drive-gear position, PTFE stickout)
@@ -183,7 +183,7 @@ Source: [SB manual p.45](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 **Do:**
 
-1. Fit the brass M3 tip and bring the iron to your ASA setting.
+1. Bring the press to your ASA setting.
 2. Press in the three inserts SB p.11 highlights: foot, both side faces.
 3. Add the p.13 fourth, for the toolhead PCB. Press each one square.
 
@@ -191,7 +191,7 @@ Source: [SB manual p.45](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ⚠ Rev D+ / LDO: the p.13 "OPTION: TOOLHEAD PCB" inserts are not optional here. The Nitehawk-SB V2 bolts to the CW2 sides with two M3×8 into these inserts. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
-Tip: set the iron from the ASA figure on your Ch 00 Step 00.14 coupon, tongue bottoming flush. The p.13 insert sits beside a tall wall: approach from directly above.
+Tip: set the press from the ASA figure on your Ch 00 Step 00.14 coupon. The p.13 insert sits beside a tall wall: line it up directly under the tip.
 
 Source: [SB manual p.11](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=11) · [SB manual p.13](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=13)
 
@@ -302,7 +302,7 @@ Source: [SB manual p.38](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [Voron manual p.130](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=130) · [SB manual p.59](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=59)
 
-Pause: ~35 min since the last pause — all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.
+Pause: ~35 min since the last pause — all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.
 
 ---
 

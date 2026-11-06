@@ -28,7 +28,7 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 **Tools**
 
 - Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — good quality, *not* ball-end for set screws (p.32).
-- Temperature-controlled soldering iron + the LDO brass M3 heat-set tip.
+- Nutopress Pro insert press with its M3 tip, the same one Gate B used. The X-Tronic + LDO brass tip only for a part that will not fit under the press.
 - Digital caliper (deck-panel thickness confirmation; 33 mm pulley position; 10.7 mm cross-check).
 - Printed jigs: `MGN9_rail_guide_x2` ×2; `pulley_jig` (16T height, Step 02.27).
 - Masking tape (carriage retention, rail hole marking, the FRONT label) and a marker. The 3 mm hex key doubles as the rail-gap feeler (Step 02.06).
@@ -175,31 +175,31 @@ Tip: The hand map comes from the official CAD, not a manual page. Confirm it by 
 
 Source: [Voron manual p.23](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=23) · [Voron manual p.40](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=40) · [LDO wiring guide § Connecting Steppers](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#connecting-steppers) · [Voron-2 CAD `Voron_2.4r2_Assembly_STEP.zip` @ `de7e89d`](https://github.com/VoronDesign/Voron-2/blob/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip) (corner map)
 
-### Step 02.03 — Re-check the iron with the LDO tip on the first insert
+### Step 02.03 — Confirm the Gate B press temperature on the first real insert
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png){ crop="0.11 0.20 0.36 0.64" }
 
-**What you're looking at:** Manual p.31: the blue pills are inserts going into Z-drive bosses. Gate B found the iron temperature with the stock conical tip and filled the `Heatset_Practice` coupon. The LDO tip is different brass, so the first real insert re-checks that number. See the [glossary](16-glossary.md#h).
+**What you're looking at:** Manual p.31: the blue pills are inserts going into Z-drive bosses. Gate B found the press temperature on the `Heatset_Practice` coupon with this same M3 tip. A real retainer has more mass than the coupon, so the first real insert confirms that number. See the [glossary](16-glossary.md#h).
 
 **Parts:**
 
 - M3×5×4 brass heat-set insert ×1
 - `z_drive_retainer_a` ×1
-- tool: soldering iron with the LDO brass tip
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 
-1. Heat the iron to the temperature taped on it at Gate B.
-2. Drive one insert 90 % into the Gate B retainer, then press it flat with a steel block.
+1. Set the press to its taped Gate B temperature, stop unchanged.
+2. Lower one insert into the Gate B retainer to the stop, hold 2–3 s, raise straight up.
 3. Let it cool and inspect it.
 
 **Check:** The insert went in square in under 5 seconds, sits flush to 0.2 mm proud, and its boss has not bulged.
 
-⚠ **Rev D+ / LDO:** the kit supplies the brass tip and 153 inserts for the whole build; this one is the first of the 36 in the drive parts, and none go into a coupon. A bulge means 10 °C cooler and a slower push before the next insert, and a reprinted retainer. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+⚠ **Rev D+ / LDO:** the kit supplies 153 inserts for the whole build; this one is the first of the 36 in the drive parts, and none go into a coupon. A bulge means 10 °C cooler and a slower lowering before the next insert, and a reprinted retainer. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
-⚠ Iron back in its stand between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
+⚠ Head raised and parked between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
 
-Tip: Do not leave the iron sitting in a part, or powered longer than needed: the brass tip oxidises.
+Tip: Raise the tip as soon as the hold is done, and switch the press off between sessions: a tip left resting in a part keeps melting the boss.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -207,7 +207,7 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 ![Voron manual p.31](assets/manual-pages/manual-p031.png){ crop="0.10 0.18 0.68 0.86" }
 
-**What you're looking at:** In front of you are the four retainers and four drive mains. The thirty-six inserts are the threads that hold each drive closed: the six in each retainer's flat face take the M3×40s, the three in the drive's foot face take the baseplate's M3×8s.
+**What you're looking at:** The four retainers and four drive mains. The thirty-six inserts are the threads that hold each drive closed: six in each retainer's flat face take the M3×40s, a seventh sits in its side face, and each main carries two in one side face.
 
 **Parts:**
 
@@ -225,7 +225,7 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Check:** 36 inserts in, every one flush to 0.2 mm proud, none cocked, no melted bulge, nothing in a counterbore.
 
-⚠ Iron back in its stand between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
+⚠ Head raised and parked between inserts, bench ventilated. The tip and a freshly set insert both burn: hold parts by the far edge until they cool.
 
 Tip: The retainer's 7 are 6 in the flat print face plus 1 in a side face; the main's 2 are both in one side face.
 
@@ -233,7 +233,7 @@ Tip: Count the Ø4.7 pockets on your own parts before you start; if a part shows
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
-Pause: ~40 min since the last pause — printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.
+Pause: ~40 min since the last pause — printed parts sorted into `a` and `b` piles and inspected, the press temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Park the head and switch the press off. Nothing is assembled.
 
 ### Step 02.05 — Confirm the four Z rails are already cleaned and greased
 

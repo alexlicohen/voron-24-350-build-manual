@@ -25,7 +25,7 @@ caption: Belts that sound alike are not alike. Measure both. My ears are excelle
 - Needle-nose pliers and tweezers (belt threading; the manual calls these out on p.132)
 - Flush cutters or sharp scissors for belt; steel rule or tape ≥ 2.2 m; 150 mm steel rule for the tension span; marker
 - Phone with a spectrum app: **Spectroid** (Android), **Sound Spectrum Analysis** (iOS), or **Gates Carbon Drive** (both — use the "motorcycle" option) ([Voron tuning docs](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html))
-- Temperature-controlled soldering iron + M3 brass tip, only if the heat-set inserts on p.129 were not done in the Ch 00 insert pass
+- Nutopress Pro insert press with its M3 tip, only if the heat-set inserts on p.129 were not done in the batch insert pass; the X-Tronic + LDO brass tip only if a part will not fit under the press
 
 **Printed parts**
 

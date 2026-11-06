@@ -1616,46 +1616,46 @@
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
-      "00.12",
-      "00.13"
+      "00.12"
      ],
      "first_step": "00.12",
-     "last_step": "00.13",
+     "last_step": "00.12",
      "href": "../manual/steps/00-before-you-start/00-12/",
-     "minutes": 35,
+     "minutes": 25,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "kit day: the fastener bags are emptied into trays A–C and the trays are stacked, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray C. Steps 00.14–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started.",
+     "leave_state": "kit day: the fastener bags are emptied into trays A–C and the trays are stacked. Steps 00.13–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started.",
      "helpers": [
       [
        "00.12",
        "Reads each bag's label aloud and points to the compartment with the same label."
       ]
      ],
-     "text": "Step 00.12 → Step 00.13 · ~35 min · leave-state: kit day: the fastener bags are emptied into trays A–C and the trays are stacked, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray C. Steps 00.14–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started."
+     "text": "Step 00.12 · ~25 min · leave-state: kit day: the fastener bags are emptied into trays A–C and the trays are stacked. Steps 00.13–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started."
     },
     {
      "id": "00-before-you-start#4",
      "chapter": "00-before-you-start",
      "kind": "build",
      "steps": [
+      "00.13",
       "00.14",
       "00.15",
       "00.16"
      ],
-     "first_step": "00.14",
+     "first_step": "00.13",
      "last_step": "00.16",
-     "href": "../manual/steps/00-before-you-start/00-14/",
-     "minutes": 25,
+     "href": "../manual/steps/00-before-you-start/00-13/",
+     "minutes": 35,
      "pre_kit": true,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.",
+     "leave_state": "Gate B's insert row is done: the press's height stop is set, the working temperature is written on tape on the press and the seven KADRICK inserts fill the coupon's seven pockets. Raise and park the head, switch the press off and let the tip cool before you walk away; the kit's own 153 inserts stay bagged for the build.",
      "helpers": [],
-     "text": "Step 00.14 → Step 00.16 · ~25 min · leave-state: Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build."
+     "text": "Step 00.13 → Step 00.16 · ~35 min · leave-state: Gate B's insert row is done: the press's height stop is set, the working temperature is written on tape on the press and the seven KADRICK inserts fill the coupon's seven pockets. Raise and park the head, switch the press off and let the tip cool before you walk away; the kit's own 153 inserts stay bagged for the build."
     },
     {
      "id": "00-before-you-start#5",
@@ -2104,7 +2104,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled.",
+     "leave_state": "printed parts sorted into `a` and `b` piles and inspected, the press temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Park the head and switch the press off. Nothing is assembled.",
      "helpers": [
       [
        "02.01",
@@ -2115,7 +2115,7 @@
        "Writes Z0 to Z3 on four tape flags and sticks one per corner."
       ]
      ],
-     "text": "Step 02.01 → Step 02.04 · ~40 min · leave-state: printed parts sorted into `a` and `b` piles and inspected, the iron temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Unplug the iron. Nothing is assembled."
+     "text": "Step 02.01 → Step 02.04 · ~40 min · leave-state: printed parts sorted into `a` and `b` piles and inspected, the press temperature confirmed on the first retainer insert, and all 36 heat-set inserts seated in the four retainers and four drive mains. Park the head and switch the press off. Nothing is assembled."
     },
     {
      "id": "02-z-drives#1",
@@ -3521,14 +3521,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
+     "leave_state": "all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
      "helpers": [
       [
        "08.1",
        "Reads the moulded code on each printhead half aloud and sorts the prints into build order."
       ]
      ],
-     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Leave the iron to cool on its stand; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
+     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
     },
     {
      "id": "08-toolhead#1",
@@ -6347,19 +6347,17 @@
         "total": 60,
         "items": [
          "00-before-you-start#2",
-         "00-before-you-start#4",
-         "b00-calibration-and-jigs#0"
+         "00-before-you-start#4"
         ],
         "next": null
        },
        {
         "budget": 90,
-        "total": 90,
+        "total": 85,
         "items": [
          "00-before-you-start#2",
          "00-before-you-start#4",
-         "00-before-you-start#7",
-         "12-software#0"
+         "00-before-you-start#7"
         ],
         "next": null
        }
@@ -6830,6 +6828,7 @@
      "00.9",
      "00.10",
      "00.11",
+     "00.13",
      "00.14",
      "00.15",
      "00.16",
@@ -7127,17 +7126,16 @@
        },
        {
         "budget": 60,
-        "total": 55,
+        "total": 30,
         "items": [
          "b06-toolhead-sb-cw2-klicky#0",
-         "00-before-you-start#2",
-         "00-before-you-start#4"
+         "00-before-you-start#2"
         ],
         "next": null
        },
        {
         "budget": 90,
-        "total": 80,
+        "total": 90,
         "items": [
          "b06-toolhead-sb-cw2-klicky#0",
          "00-before-you-start#2",
@@ -7309,6 +7307,7 @@
      "00.9",
      "00.10",
      "00.11",
+     "00.13",
      "00.14",
      "00.15",
      "00.16",

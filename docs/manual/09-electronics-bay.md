@@ -23,7 +23,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - **Ch 05–06.** Gantry installed, the XY endstop pod on its right joint since Ch 05; steps 09.32–09.33 check it.
 - **Ch 08.** The USB-adapter stack bagged at Step 08.64 is clipped on at 09.25.
 - **Batch B07 — Electronics bay + lighting.** Plate **B07-P1** carries `power_inlet_IECGS_1mm` (moved out of B08 — index correction #11); the manual fits the inlet panel at p.156/167, i.e. in this chapter, so B07-P1 must be printed before you start or steps 09.10–09.12 stall; the PSU brackets and the stabiliser come off B07-P3. The COB light-strip mounts on all three B07 plates are *not* consumed here; they are Ch 10. **No part of B08 is needed in this chapter.**
-- **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same iron session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
+- **Ch 08's insert pass (optional).** The inlet panel and the bed WAGO mount both need inserts before assembly (survey §5.2 W3); do them in the same press session as Steps 08.3–08.7 so Steps 09.10 and 09.34 start with a confirm, or set them in-step there instead.
 - **Batch B11 — Bay ducting, all five plates.** B11-P4 and B11-P5 print after the kit-day bay measurements ([B11.10](print/B11-bay-ducting.md#after-the-kit-day-measurements)). An A/B motor lead that measures short at B11.9 gets a longer replacement lead; layout v3 stays. The `⚠ LDO layout` notes below are only for a build without B11.
 
 **Tools**
@@ -31,7 +31,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - 2.5 mm flat-blade screwdriver (supplied — this is the tool for every plug-type terminal in the bay)
 - PH1 (M2 self-tapping) and PH2 (PSU and SSR terminals) screwdrivers
 - Hex 2 / 2.5 / 3 mm
-- Soldering iron + brass M3 heat-set tip
+- Nutopress Pro insert press with its M3 tip; the X-Tronic + LDO brass tip only for a part that will not fit under it
 - Hacksaw or fine-tooth saw + file (DIN rail), side cutters or a fine saw (PVC wire duct, LDO layout or the fallback middle run only)
 - Steel rule ≥300 mm, marker, digital caliper
 - Multimeter (used properly in Ch 10; keep it on the bench from now on)

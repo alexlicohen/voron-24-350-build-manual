@@ -148,11 +148,11 @@ Source: [Ch 13 Step 13.27](13-initial-startup.md#step-1327-full-g28) · [Ch 12 S
 | Term | What it is | First matters at |
 |---|---|---|
 | **Hammerhead nut** | A T-nut that drops in from the face of the slot rather than rolling in. Used **exclusively for panel mounting** in this build | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
-| **Heat-set insert** | A brass M3×5×4 sleeve melted into a printed boss to give it a real thread. 153 in the kit; a missed one can cost a gantry teardown | [00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush) |
+| **Heat-set insert** | A brass M3×5×4 sleeve melted into a printed boss to give it a real thread. 153 in the kit; a missed one can cost a gantry teardown | [00.13](00-before-you-start.md#step-0013-fit-the-m3-tip-in-the-press-and-set-the-height-stop) |
 | **Heat soak** | Holding the machine at temperature until the **frame**, not just the bed, has expanded. Bed: minutes. Frame: until `PROBE_ACCURACY` stops trending, about 10–20 minutes open ([13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c)) and 1½–2 hours closed for the Z-joint lock ([14.6](14-calibration.md#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify)) | [13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) |
 | **HV stepper** | The Leviathan's high-voltage stepper ports (`Vin 24-48V` supply). The A and B motors live here; Z motors are on the standard ports | [10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply) |
 
-Source: [Ch 00 Steps 00.13](00-before-you-start.md#step-0013-fit-the-brass-tip-and-set-the-tongue-flush), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 13 Step 13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) · [Ch 10 Step 10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply)
+Source: [Ch 00 Steps 00.13](00-before-you-start.md#step-0013-fit-the-m3-tip-in-the-press-and-set-the-height-stop), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 13 Step 13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) · [Ch 10 Step 10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply)
 
 ---
 

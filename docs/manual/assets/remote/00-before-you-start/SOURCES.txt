@@ -7,7 +7,7 @@
 # Attribution: LDO Motors.
 
 heatsettoolcomponents.jpg
-  used at : Step 00.13
+  used at : none since 2026-11-05 (Step 00.13 became the Nutopress Pro press setup; image kept for the kit-day LDO-tip fallback, Step 00.13 ⚠)
   owner   : LDO Motors (docs.ldomotors.com)
   cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
   fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/heatsettoolcomponents.jpg
@@ -16,7 +16,7 @@ heatsettoolcomponents.jpg
   sha256  : fd200ab64b6a8080cc2343731f3e10ccc4175472e8a7b8bb8c6349c96fd36c43
 
 tongueflush.jpg
-  used at : Step 00.13
+  used at : none since 2026-11-05 (Step 00.13 became the Nutopress Pro press setup; image kept for the kit-day LDO-tip fallback, Step 00.13 ⚠)
   owner   : LDO Motors (docs.ldomotors.com)
   cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
   fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/tongueflush.jpg
@@ -34,7 +34,7 @@ heatset_dim.png
   sha256  : c4ab3e4fba2a4e19d6ee2adc87e5fe5bbd3c0b8326940fe3806ea26c9ddde06d
 
 insertinstall.jpg
-  used at : Step 00.14
+  used at : none since 2026-11-05 (Step 00.13 became the Nutopress Pro press setup; image kept for the kit-day LDO-tip fallback, Step 00.13 ⚠)
   owner   : LDO Motors (docs.ldomotors.com)
   cited-as: https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg
   fetched : https://docs.ldomotors.com/heatset_insert_tool_guide/insertinstall.jpg

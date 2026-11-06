@@ -2,7 +2,7 @@
 
 Inventories the kit against its own batch BOM, settles the tools and consumables, verifies the flat reference, teaches heat-set inserts, and cleans and greases all seven rails — so that Ch 01 can start the moment the frame extrusions come out of the box and no later chapter stops for a missing tool.
 
-**What you're building in this chapter:** nothing yet — this chapter builds the conditions for everything else. Four things come out of it. **A counted kit**: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. **A working bench**: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. **A heat-set technique**: the brass tip fitted to the soldering iron and an iron temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. **Seven prepared linear rails** — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them. Roughly half of this chapter happens before the cartons arrive — the two headings *Before the kit ships* and *Kit day* below say which steps belong to which day; the step numbers stay in bench order.
+**What you're building in this chapter:** nothing yet — this chapter builds the conditions for everything else. Four things come out of it. **A counted kit**: every box checked against your own batch's bill of materials, so a shortage is a Fabreeko email today rather than a stalled evening in six weeks. **A working bench**: the tools bought, the consumables ordered, and a flat reference surface verified with a straightedge and feeler gauges, because the frame's squareness in Ch 01 can be no better than the surface it is built on. **A heat-set technique**: the insert press's M3 tip fitted, its height stop set and its temperature found on a scrap coupon, ready for the ~150 brass inserts that give printed parts their metal threads. **Seven prepared linear rails** — the hardened steel bars and ball-bearing carriages that carry the toolhead, the gantry and the gantry's four corners — degreased of their shipping oil, packed with grease, wiped and labelled. Rails can only be greased before they are bolted down, which is why they are done here and not in the chapters that use them. Roughly half of this chapter happens before the cartons arrive — the two headings *Before the kit ships* and *Kit day* below say which steps belong to which day; the step numbers stay in bench order.
 
 ```mascot
 pose: kitday
@@ -15,7 +15,7 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 
 **Prerequisites:**
 
-- **Print batch B00 — Calibration & jigs** ([print/B00-calibration-and-jigs.md](print/B00-calibration-and-jigs.md)). B00 is the first batch printed, ahead of the kit, and its gate is in two parts. **Gate A** (the cube, Step B00.5) and Gate B's caliper and insert rows (Step B00.7 — the `z_drive_retainer_a` 625-2RS pocket calipered against its 16.30 mm nominal, and seven KADRICK inserts from the kit already on the bench in the `Heatset_Practice` coupon; nothing bought) are passed by kit day. Later batches may still be printing then; this chapter needs none of them. Steps 00.14–00.16 *are* Gate B's insert row. **Two rows of Gate B are left for kit day**: a real 625-2RS thumbed into `z_drive_retainer_a` and the `MGN12_rail_guide` on a real MGN12 rail, both out of carton 1 before the inventory starts. This chapter needs the `Heatset_Practice` coupon and both rail-guide sizes off that plate; nothing else from B00.
+- **Print batch B00 — Calibration & jigs** ([print/B00-calibration-and-jigs.md](print/B00-calibration-and-jigs.md)). B00 is the first batch printed, ahead of the kit, and its gate is in two parts. **Gate A** (the cube, Step B00.5) and Gate B's caliper and insert rows (Step B00.7 — the `z_drive_retainer_a` 625-2RS pocket calipered against its 16.30 mm nominal, and seven KADRICK inserts from the kit already on the bench in the `Heatset_Practice` coupon; nothing bought) are passed by kit day. Later batches may still be printing then; this chapter needs none of them. Steps 00.13–00.16 *are* Gate B's insert row. **Two rows of Gate B are left for kit day**: a real 625-2RS thumbed into `z_drive_retainer_a` and the `MGN12_rail_guide` on a real MGN12 rail, both out of carton 1 before the inventory starts. This chapter needs the `Heatset_Practice` coupon and both rail-guide sizes off that plate; nothing else from B00.
 - The kit itself, unopened — for the *Kit day* steps only. Fabreeko order **F6424626**, pre-order, ETA **early November 2026** (Alex, 2026-10-23).
 - Nothing else. This chapter has no assembly prerequisites — it is the first thing you do.
 
@@ -26,8 +26,8 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 - Flat reference surface (the kitchen stone counter, verified in Step 00.10)
 - Steel rule / straightedge ≥ 600 mm
 - Feeler gauge set
-- Temperature-controlled soldering iron that accepts **900M-T** tips (Hakko FX888D-style sleeve with a thumb ring) — the LDO brass insert tip in the kit will not fit anything else. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
-- LDO brass M3 heat-set tip (supplied in the kit)
+- **Mintion Nutopress Pro** insert press with its **M3** tip (owned): sets every insert whose part fits under it, from Gate B on. Its throat depth is not published, so each reach is `(verify on bench)`
+- Fallback only, for an insert the press cannot reach: the X-Tronic soldering iron (**900M-T** tip fitting, Hakko FX888D-style sleeve with a thumb ring) with the LDO brass M3 heat-set tip from the kit, which fits nothing else. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 - Hex drivers 1.5 / 2 / 2.5 / 3 / 4 mm — kit wrenches or the Fabreeko precision set
 - Flush cutters
 - 10 ml syringe with a blunt tip (grease delivery), or use the grease tube nozzle
@@ -55,7 +55,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 | Fastener / part | Qty | Note |
 |---|---|---|
-| Heat-set insert, brass, M3×H5 from the KADRICK kit already on the bench, not the Voron kit — the STL pockets are 5.0 mm deep with a ~4 mm bore; shank ~4 mm `(verify on bench)` | 7 | the practice coupon's seven pockets, set at Gate B (Step B00.7) before the kit — Steps 00.14–00.15 are that session. All 153 kit inserts stay for the build; Step 00.13 borrows one as a tongue gauge and puts it back in tray C |
+| Heat-set insert, brass, M3×H5 from the KADRICK kit already on the bench, not the Voron kit — the STL pockets are 5.0 mm deep with a ~4 mm bore; shank ~4 mm `(verify on bench)` | 7 | the practice coupon's seven pockets, set at Gate B (Step B00.7) before the kit — Steps 00.13–00.15 are that session, on the insert press. All 153 kit inserts stay for the build |
 | — no other kit hardware is consumed in this chapter — | 0 | every rail and PCB goes back in its bag; the fasteners go into the printed trays (Step 00.12) |
 
 **Read first**
@@ -74,7 +74,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 - [LDO Nitehawk-SB V2 board doc](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2) — the Rev D+ toolboard identification markers
 - [LDO XY endstop cable guide](https://docs.ldomotors.com/en/guides/XY_Endstop_Cable_Reconnecting_Guide) — the mislabelled XY endstop cable batch
 - [LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide) — degrease, flip-and-pack, wipe
-- [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) — tongue adjustment, temperature technique, the 90 %/10 % trick
+- [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) — the fallback brass tip: tongue adjustment and temperature technique
 - [LDO Klipper config `leviathan-printer-rev-d-sbv2.cfg`](https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg) — the `stm32g0b1xx` serial-ID check written into Ch 12
 - [Voron 2.4r2 assembly manual (pinned `de7e89d`)](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf) pages 4–11, 24–26, 31 — print spec, filenames, fastener names, drivers, blind joints, exploded-view conventions, rail handling, inserts
 - [Voron-2 `STLs/Tools`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Tools) and [Voron-2 `STLs/Test_Prints`](https://github.com/VoronDesign/Voron-2/tree/de7e89d/STLs/Test_Prints) — the B00 jigs and the practice coupon
@@ -89,11 +89,11 @@ This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 
 
 ## Before the kit ships
 
-Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.14–00.16** (heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult on the Nutopress Pro insert press, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the iron), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the gating question, which gates batches B06/B07). **Step 00.13** waits for kit day, because the LDO brass tip comes in the kit. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
+Do these the week batch B00 prints and passes Gate A, before the cartons arrive — none of them needs a kit part: **Steps 00.8–00.11** (tools, consumables, flat reference, bins), **00.13–00.16** (the press's M3 tip and height stop, then heat-set practice: this *is* Gate B's insert row, Step B00.7 — seven KADRICK M3×H5 inserts from the kit already on the bench, set by the adult on the Nutopress Pro insert press, one per pocket of the one `Heatset_Practice` coupon; the helper never handles the press), **00.23–00.29** (reading the manual's front matter), **00.30** (start the log — Step 00.10's gap and Step 00.32's post dates are its first lines) and **00.31–00.32** (the three lifelines and the gating question, which gates batches B06/B07). The kit's LDO brass tip is only the fallback for an insert the press cannot reach. The three hardware trays for Step 00.12 are a bench print: print them any time before kit day ([print plan § Bench prints](print/README.md#bench-prints-outside-the-plates)). The steps below stay in bench order, so on the first pass skip past the kit-day steps and come back to them.
 
 ## Kit day
 
-The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed before the kit), then **00.2–00.6** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts), then **00.17–00.18** to start the rail soak (the grease and IPA from Step 00.9 must already be on the bench). The IPA dry takes an hour or more, and it is the one kit-day wait: fill it with **00.7** (kit tools) and **00.12–00.13** (fastener bags into the printed trays, the LDO tip into the cold iron), then, time allowing, Ch 12 Part 1 or Ch 01 Steps 01.1–01.5, none of which needs a rail. Finish with **00.19–00.22** (grease, wipe, label) before Ch 02. Nothing new goes on the Prusa for this chapter; any later batches still printing are not needed yet. The log from Step 00.30 gets the deck thickness and the inventory result today. Both deck-support sets were printed on B01-P2, so the caliper only picks which set Ch 02 fits.
+The day the cartons land, in this order: **Step 00.1** (open the cartons), then the **two kit-day rows of Gate B** ([Step B00.7](print/B00-calibration-and-jigs.md#step-b007-gate-b-bore-and-inserts-now-rail-on-kit-day), ~10 min — a 625-2RS and an MGN12 rail out of carton 1 ahead of the count: the bearing thumbed into `z_drive_retainer_a`, `MGN12_rail_guide` slid onto the rail; the caliper and insert rows passed before the kit), then **00.2–00.6** (batch BOM, inventory, deck caliper, board check, LDO-supplied parts), then **00.17–00.18** to start the rail soak (the grease and IPA from Step 00.9 must already be on the bench). The IPA dry takes an hour or more, and it is the one kit-day wait: fill it with **00.7** (kit tools; the LDO tip goes into the cold X-Tronic as the fallback, see Step 00.13) and **00.12** (fastener bags into the printed trays), then, time allowing, Ch 12 Part 1 or Ch 01 Steps 01.1–01.5, none of which needs a rail. Finish with **00.19–00.22** (grease, wipe, label) before Ch 02. Nothing new goes on the Prusa for this chapter; any later batches still printing are not needed yet. The log from Step 00.30 gets the deck thickness and the inventory result today. Both deck-support sets were printed on B01-P2, so the caliper only picks which set Ch 02 fits.
 
 ```mascot
 pose: carry
@@ -374,8 +374,9 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Flat reference surface | **Resolved** — kitchen stone counter, verified in Step 00.10 | Ch 01 |
 | Digital caliper, 150 mm | **Owned** — iGaging Absolute Origin, bought 2026-09-07 | Ch 00 (deck gate, cube gate) |
 | Machinist square, 150 mm DIN 875/2 | **Owned** — PEC 6 in, bought 2026-09-07 | Ch 01 (frame squaring) |
-| Temperature-controlled soldering iron, 900M-T tip fitting | **Owned** — X-Tronic; its stock conical tip sets the early Gate B inserts | Ch 00 (insert practice) |
-| LDO brass M3 heat-set tip | **In the kit** — it lands with the kit and is used from Ch 00 on. Nothing is bought to bring it forward | Ch 00 |
+| Heat-set insert press, Mintion Nutopress Pro | **Owned** — arrived 2026-11-05. 90 W iron on a lever rail, height stop, six tips; its M3 tip sets every insert whose part fits under it. Throat depth not published `(verify on bench)` | Ch 00 (Gate B insert practice) |
+| Temperature-controlled soldering iron, 900M-T tip fitting | **Owned** — X-Tronic. Fallback only, with the LDO tip, for an insert the press cannot reach | only if a part will not fit under the press |
+| LDO brass M3 heat-set tip | **In the kit** — the X-Tronic's fallback tip, fitted on kit day. Nothing is bought to bring it forward | kit day, fallback only |
 | Flush cutters | **Owned** — Hakko CHP-170, bought 2026-09-07 | Ch 07 (belts), Ch 10 (zip ties) |
 | Torque screwdriver 0.5–3 N·m | **Buy — optional.** No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec | Ch 01 |
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
@@ -548,39 +549,37 @@ Tip: between sessions, stack the trays; each closes the one below. Motion bags s
 
 Source: [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) · [Video: Part 1 @2:05:08](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7508s)
 
+Pause: ~25 min since the last pause — kit day: the fastener bags are emptied into trays A–C and the trays are stacked. Steps 00.13–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started.
 
 ---
 
 ## Heat-set inserts
 
-### Step 00.13 — Fit the brass tip and set the tongue flush
+### Step 00.13 — Fit the M3 tip in the press and set the height stop
 
-![LDO brass heat-set tip — the tool's components](assets/remote/00-before-you-start/heatsettoolcomponents.jpg)
-![Tongue set flush with the far face of an insert](assets/remote/00-before-you-start/tongueflush.jpg)
-![LDO — fitting the brass tip: sleeve off, stock tip out, LDO tip in, sleeve on](assets/remote/00-before-you-start/insertinstall.jpg)
+(no image — see text)
 
-**What you're looking at:** The LDO brass tip, and the same tip set against an insert. The four-panel photo is the tip going into the iron: sleeve off, stock tip out, LDO tip in, sleeve on. The **tongue** is the thin pin that goes inside the insert.
+**What you're looking at:** The Nutopress Pro insert press: a 90 W iron on a linear rail, lowered by lever over a height-adjustable clamp. Its height stop fixes how far the tip travels, so every insert ends at one depth. This build uses its M3 tip.
 
 **Parts:**
 
-- tool: LDO brass M3 heat-set tip
-- tool: soldering iron, cold
-- tool: one M3×5×4 kit insert as the tongue gauge, back in tray C after
+- staged: `Heatset_Practice` coupon
+- staged: M3×H5 heat-set insert ×1 — from KADRICK kit
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 
-1. Iron off and cold: sleeve off, stock tip out, LDO tip in, sleeve on.
-2. Hold an insert alongside the tip and move the two knurled nuts until the **exposed tongue length equals the insert height**.
+1. Press cold: fit the M3 tip, clamp the coupon flat.
+2. Line a pocket up under the tip, using an insert as the guide.
+3. Remove the insert, lower the tip onto the coupon top, set the stop there.
 
-**Check:** With an insert on the tongue, the tongue tip and the insert's far face are level.
+**Check:** At the stop the tip face sits level with the coupon top, so a seated insert ends flush.
 
-⚠ Kit day only: the LDO tip comes in the kit. Steps 00.14–00.15 ran before the kit, at Gate B, on the Nutopress Pro press. The gauge insert goes back in tray C, and Ch 02 re-checks the temperature on this tip.
+⚠ Fallback only: an insert the press cannot reach, in a part too tall or wide for its throat or one already assembled, goes in with the X-Tronic and the kit's LDO brass tip. On kit day fit the tip to the cold iron and set its tongue to one insert's height. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
-Tip: the adjustment nuts on LDO's own tool are themselves brass inserts. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
+Tip: measure the throat, tip axis to column, before the first batch pass; it decides which parts need the fallback `(verify on bench)`.
 
-Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
-
-Pause: ~35 min since the last pause — kit day: the fastener bags are emptied into trays A–C and the trays are stacked, the LDO tip is in the iron with its tongue set flush, the iron is off and cooling, and the gauge insert is back in tray C. Steps 00.14–00.16 ran before the kit, at Gate B, so the next kit-day work is the grease at Step 00.19 once the rails are dry, or the soak at 00.17 if it has not started.
+Source: Mintion Nutopress Pro product listing · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) (fallback tip) · [Video: Part 3 @1:16:49](https://www.youtube.com/watch?v=ii14-2COjuA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4609s)
 
 ---
 
@@ -598,14 +597,14 @@ Pause: ~35 min since the last pause — kit day: the fastener bags are emptied i
 
 **Do:**
 
-1. Start at the bottom of the iron's range, never where soldering left it, and step up 10 °C at a time.
-2. Sit each insert narrow end down by hand, then press the tip straight down until flush.
+1. Start at the bottom of the press's temperature range and step up 10 °C at a time.
+2. Sit each insert narrow end down by hand, then lower the tip straight down to the stop.
 
-**Check:** Plastic very soft but not runny, the iron never lingering longer than seating takes, and the working temperature on tape on the iron.
+**Check:** Plastic very soft but not runny, the tip never lingering longer than seating takes, and the working temperature on tape on the press.
 
-⚠ **Rev D+ / LDO:** LDO publishes no temperature, and the [technique guide](https://voron.link/m5ybt4d) on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 153 kit inserts. The adult holds the iron; the helper never does.
+⚠ **Rev D+ / LDO:** LDO publishes no temperature, and the [technique guide](https://voron.link/m5ybt4d) on manual p.31 shows the method. ASA behaves differently from the PLA in most insert tutorials: calibrate on this ASA coupon, not on a PLA scrap, or the number you find will be wrong for all 153 kit inserts. The adult works the press; the helper never does.
 
-⚠ The tip burns at a touch. Rest the iron in its stand between inserts, never on the bench, and keep a window open for the ASA fumes.
+⚠ The tip burns at a touch. Between inserts raise the head and leave it parked at the top, never reach under it, and keep a window open for the ASA fumes.
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide)
 
@@ -620,18 +619,17 @@ Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Parts:**
 
 - reused: the `Heatset_Practice` coupon and its seven inserts
-- tool: soldering iron
-- tool: flat cold tool, for the last 10 %
+- tool: Nutopress Pro insert press, its M3 tip
 
 **Do:**
 
-1. Push each insert 90 % in with the iron, then press the last 10 % home with a flat cold tool.
-2. Check squareness by eye from two directions.
-3. Nudge a tilted insert briefly with the iron.
+1. Insert on the pocket: lower slowly, letting the heat carry it to the stop.
+2. Hold 2–3 s, then raise straight up.
+3. Check squareness from two sides; a proud insert gets one more pass.
 
 **Check:** Seven inserts flush to ≤ 0.2 mm proud, square, with no boss bulged more than 0.2 mm.
 
-⚠ A bulged boss is a technique fault, too hot or pushed too fast, never a slicer fault. On a real part with a free-standing boss, caliper the boss OD before and after; on the coupon the raised ring is the tell. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · print plan §1.4
+⚠ A bulged boss is a technique fault, too hot or lowered too fast, never a slicer fault. On a real part with a free-standing boss, caliper the boss OD before and after; on the coupon the raised ring is the tell. [src](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · print plan §1.4
 
 Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heatset_insert_tool_guide) · [print plan](../voron-print-plan.md) · [Video: Part 1 @3:12:19](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11539s)
 
@@ -667,7 +665,7 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 
 Source: [Voron manual p.31](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=31) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
-Pause: ~25 min since the last pause (pre-kit) — Gate B's insert row is done: the working temperature is written on tape and the seven KADRICK inserts fill the coupon's seven pockets. Step 00.13 waits for kit day. Unplug the iron and let it cool before you walk away; the kit's own 153 inserts stay bagged for the build.
+Pause: ~35 min since the last pause (pre-kit) — Gate B's insert row is done: the press's height stop is set, the working temperature is written on tape on the press and the seven KADRICK inserts fill the coupon's seven pockets. Raise and park the head, switch the press off and let the tip cool before you walk away; the kit's own 153 inserts stay bagged for the build.
 
 ---
 
@@ -1117,7 +1115,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Every fastener bag emptied into its labelled compartment in trays A–C, flattened and kept in the kit box; trays stacked.
 - [ ] Every "Buy" row in Step 00.8 ordered or consciously skipped. Grease and IPA on the bench.
 - [ ] Flat reference verified in five positions; worst feeler gap ≤ 0.1 mm and recorded; working area masked off and protected.
-- [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Working iron temperature written on the iron.
+- [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Height stop set on the press and its working temperature written on tape on it.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
 - [ ] 35 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.

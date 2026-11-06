@@ -26,7 +26,7 @@ Builds every harness — mains, 24 V, motion, sensors, lighting, toolhead umbili
 - PH2 Phillips — PSU terminal block and SSR terminals
 - Hex 2 / 2.5 / 3 / 4 mm
 - Flush cutters, small long-nose pliers, tweezers (endstop repin)
-- Soldering iron + brass M3 insert tip — all twenty inserts in one pass at step 10.35 (COB mounts ×16, the two Z chain retainer brackets ×1 each, the TFT mount ×2 for step 10.50), so the iron is out once and never during an electrical segment
+- Nutopress Pro insert press with its M3 tip, the X-Tronic + LDO brass tip only for a part that will not fit under it — all twenty inserts in one pass at step 10.35 (COB mounts ×16, the two Z chain retainer brackets ×1 each, the TFT mount ×2 for step 10.50), so the press is hot once and never during an electrical segment
 - Label maker, or the cable tags supplied in the kit
 
 **Consumables:** zip ties (of the 100 supplied, this chapter eats 30–40), VE0508 ferrules ×5 (spares), a VHB pad for the strip fin, IPA and a lint-free cloth for the extrusion slots before the covers go on.
