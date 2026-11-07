@@ -72,7 +72,7 @@ PACKER = "geom"
 PACKERS = ("geom", "nest", "platearrange")
 PA_LARGE_CENTRE = 1.0         # platearrange: the largest parts go in the middle of the bed
 PA_GAP = 6.0                  # platearrange: mm between brims (PrusaSlicer's default) ...
-PA_GAP_LADDER = (5.0, 4.0, 3.0)   # ... relaxed only if the plate does not fit
+PA_GAP_LADDER = ()             # no relaxation (Alex 2026-11-06): a plate that does not fit at PA_GAP splits; was (5.0, 4.0, 3.0)
 
 _hull_cache: dict[str, tuple[list[tuple[float, float]], tuple]] = {}
 

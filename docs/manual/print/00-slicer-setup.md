@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty-four plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty-seven plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02: 2.9.6 plus security fixes, no
@@ -222,7 +222,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.8 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.7 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -319,7 +319,7 @@ pre-oriented for support-free printing. Rotating a part **about Z** (in the plan
 is fine — it does not change the layer orientation. Two exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
-   21 mm-wide footprint, unlike the stock part which lies flat. The committed B02-P3 project already lays it
+   21 mm-wide footprint, unlike the stock part which lies flat. The committed B02-P4 project already lays it
    flat to match the stock `[a]_xy_joint_cable_bridge_2hole` (fixed in the GUI 2026-10-23); a plate rebuilt
    from the STLs would stand it up again.
 2. The two Clicky-Clack `Hinge-L-*` parts. As designed the hinges are on the **left** and the door opens from
@@ -340,13 +340,14 @@ No part in this build exceeds 150 mm in Z. Tallest parts, in order:
 The committed projects turn parts about Z wherever it packs the bed better — `slicer/geom.py` picks the
 orientation, and the plate diagram in each chapter shows the result (drawn from the committed project itself, so a plate you re-arrange in the GUI and save is redrawn by `python3 slicer/build_plates.py --from-3mf`). That is the allowed kind of rotation:
 it never changes which face is on the bed. Example: the B08 skirt plates, where the long skirt segments
-are turned about Z to interleave on the bed, each kept 20 mm clear of every edge.
+are turned about Z to interleave on the bed, each kept 25 mm clear of every edge.
 
-**Edge margins (Alex 2026-11-03).** A *big* part, 50 mm or more on the longest side of its STL footprint
-(`geom.BIG_PART_MM`), sits with its brim **20 mm or more from every bed edge** (`geom.BIG_EDGE_MARGIN`): the
-edges run cooler, and B01-P1's front `z_drive_main` lifted at the door-side corner. Small parts keep **10 mm**
-(`geom.EDGE_MARGIN`, Alex 2026-11-06; 5 mm before), clear of the back 8 mm strip where lift map 1 lifted; parts sit 6 mm apart, brim to brim, wherever the plate allows. The arranger, `tools/platearrange`, applies the
-margin per part. PrusaSlicer's **Arrange** knows none of this, so never press it on a committed plate: move
+**Edge margins (Alex 2026-11-06).** Every part sits with its brim **25 mm or more from every bed edge**
+(`geom.EDGE_MARGIN`, `geom.BIG_EDGE_MARGIN`): the edges run cooler, and the first plates lifted parts 12.8–20.0 mm
+in (B01-P1's front `z_drive_main`; on B02-P2 the Stealthburner main body and three small accent parts) while
+nothing at 22.9 mm or more lifted. Before: 20 mm for parts 50 mm or longer (2026-11-03), 10 mm for the rest
+(5 mm before 2026-11-06). Parts sit 6 mm apart, brim to brim, and a plate that does not fit at 6 mm splits rather
+than squeezing closer. The arranger, `tools/platearrange`, applies the margin per part. PrusaSlicer's **Arrange** knows none of this, so never press it on a committed plate: move
 a part by hand, then save and run `build_plates.py --from-3mf <id>`.
 
 These brims are **already set per object** inside `slicer/plates/*.3mf` — you do not apply them by
@@ -360,7 +361,7 @@ on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm b
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`.
 
 **Every big part gets a brim too (Alex 2026-11-05).** Any part 50 mm or more on its longest footprint side gets at least
-**3 mm** (`plates.BIG_PART_BRIM`), on top of the 20 mm edge margin. On lift map 2, long bars without a brim lifted at
+**3 mm** (`plates.BIG_PART_BRIM`), on top of the edge margin (25 mm since 2026-11-06). On lift map 2, long bars without a brim lifted at
 all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
 slightly. The two rules work together.
 
@@ -408,7 +409,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.8 h / 24-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.7 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

@@ -81,14 +81,29 @@
    "batch": "B02",
    "batch_title": "Accent parts (blue)",
    "run": "asa",
-   "hours": 5.7,
-   "grams": 74,
+   "hours": 2.6,
+   "grams": 36,
+   "colour": "blue",
+   "slot": "day",
+   "note": "",
+   "spool": "A1",
+   "remaining": 559,
+   "diagram": "../../manual/assets/plates/B02-P3.png",
+   "chapter": "../../manual/steps/b02-accent-parts-orange/"
+  },
+  {
+   "id": "B02-P4",
+   "batch": "B02",
+   "batch_title": "Accent parts (blue)",
+   "run": "asa",
+   "hours": 3.0,
+   "grams": 38,
    "colour": "blue",
    "slot": "day",
    "note": "",
    "spool": "A1",
    "remaining": 521,
-   "diagram": "../../manual/assets/plates/B02-P3.png",
+   "diagram": "../../manual/assets/plates/B02-P4.png",
    "chapter": "../../manual/steps/b02-accent-parts-orange/",
    "milestone": "Blue day done: every accent part is printed."
   },
@@ -157,14 +172,29 @@
    "batch": "B06",
    "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
    "run": "asa",
-   "hours": 11.6,
-   "grams": 148,
+   "hours": 7.6,
+   "grams": 97,
    "colour": "black",
    "slot": "overnight",
    "note": "after Gate B",
    "spool": "#2 (fresh)",
-   "remaining": 652,
+   "remaining": 703,
    "diagram": "../../manual/assets/plates/B06-P1.png",
+   "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/"
+  },
+  {
+   "id": "B06-P2",
+   "batch": "B06",
+   "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
+   "run": "asa",
+   "hours": 4.0,
+   "grams": 51,
+   "colour": "black",
+   "slot": "day",
+   "note": "",
+   "spool": "#2",
+   "remaining": 652,
+   "diagram": "../../manual/assets/plates/B06-P2.png",
    "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/"
   },
   {
@@ -181,7 +211,7 @@
    "remaining": 564,
    "diagram": "../../manual/assets/plates/B07-P1.png",
    "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
-   "milestone": "Halfway: plate 12 of 24."
+   "milestone": "Halfway: plate 14 of 27."
   },
   {
    "id": "B07-P2",
@@ -293,13 +323,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 4.4,
-   "grams": 72,
+   "hours": 3.7,
+   "grams": 59,
    "colour": "black",
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 758,
+   "remaining": 771,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -308,13 +338,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 6.9,
-   "grams": 91,
+   "hours": 5.0,
+   "grams": 65,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 667,
+   "remaining": 706,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -323,13 +353,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 5.6,
-   "grams": 81,
+   "hours": 4.6,
+   "grams": 67,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 586,
+   "remaining": 639,
    "diagram": "../../manual/assets/plates/B09-P3.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -338,14 +368,29 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 3.6,
-   "grams": 53,
+   "hours": 3.3,
+   "grams": 47,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 533,
+   "remaining": 592,
    "diagram": "../../manual/assets/plates/B09-P4.png",
+   "chapter": "../../manual/steps/b09-panels-filtration-spool/"
+  },
+  {
+   "id": "B09-P5",
+   "batch": "B09",
+   "batch_title": "Panels, filtration, spool",
+   "run": "asa",
+   "hours": 3.9,
+   "grams": 60,
+   "colour": "black",
+   "slot": "day",
+   "note": "",
+   "spool": "#3",
+   "remaining": 532,
+   "diagram": "../../manual/assets/plates/B09-P5.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
   {
@@ -359,10 +404,10 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 458,
+   "remaining": 457,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
-   "milestone": "Last ASA plate off the bed: all 24 plates of the run are done."
+   "milestone": "Last ASA plate off the bed: all 27 plates of the run are done."
   },
   {
    "id": "B11-P1",
@@ -443,9 +488,9 @@
  "runs": [
   {
    "run": "asa",
-   "plates": 24,
-   "hours": 150.8,
-   "label": "24-plate run"
+   "plates": 27,
+   "hours": 150.7,
+   "label": "27-plate run"
   },
   {
    "run": "bay",
@@ -455,10 +500,10 @@
   }
  ],
  "totals": {
-  "plates": 29,
-  "hours": 175.7,
+  "plates": 32,
+  "hours": 175.6,
   "overnight": 6,
-  "run_plates": 24,
-  "run_hours": 150.8
+  "run_plates": 27,
+  "run_hours": 150.7
  }
 }

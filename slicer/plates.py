@@ -236,19 +236,27 @@ PLATES: dict[str, dict] = {
         ]),
     "B02-P3": dict(
         batch="B02", colour="blue",
-        note="Fan grill retainers and accent parts, including the latch and its shuttle.",
+        note="Skirt and Z-drive accents: fan grill retainers, a fan grill, a belt guard, a Z drive baseplate, a Z tensioner and a belt tensioner.",
         parts=[
             ("voron2", "STLs/Skirts/[a]_fan_grill_retainer_x2.stl", 2),
             ("voron2", "STLs/Skirts/[a]_fan_grill_b_x2.stl", 1),
-            ("voron2", "STLs/Gantry/AB_Drive_Units/[a]_cable_cover.stl", 1),
             ("voron2", "STLs/Z_Drive/[a]_z_drive_baseplate_a_x2.stl", 1),
             ("voron2", "STLs/Skirts/[a]_belt_guard_a_x2.stl", 1),
+            ("voron2", "STLs/Z_Idlers/[a]_z_tensioner_9mm_x4.stl", 1),
+            ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_a_x2.stl", 1),
+        ]),
+
+
+    # B02-P4 added 2026-11-06 (Alex): every part 25 mm from every edge no longer fits B02-P3.
+    "B02-P4": dict(
+        batch="B02", colour="blue",
+        note="Gantry and toolhead accents: cable cover, chain-bridge backer, right tensioner, Z belt clips, keystone blank, and the latch with its shuttle.",
+        parts=[
+            ("voron2", "STLs/Gantry/AB_Drive_Units/[a]_cable_cover.stl", 1),
             ("whopping", "extrusion_backers/STLs/XY_cable_chain_bridge-Igus-3mm_backer.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/[a]_tensioner_right.stl", 1),
-            ("voron2", "STLs/Z_Idlers/[a]_z_tensioner_9mm_x4.stl", 1),
             ("sb", "STLs/Clockwork2/Direct_Drive/[a]_latch.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_upper_x4.stl", 2),
-            ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_a_x2.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_lower_x4.stl", 2),
             ("voron2", "STLs/Skirts/[a]_keystone_blank_insert.stl", 1),
             ("sb", "STLs/Clockwork2/Direct_Drive/[a]_latch_shuttle.stl", 1),
@@ -294,7 +302,7 @@ PLATES: dict[str, dict] = {
         ]),
     "B06-P1": dict(
         batch="B06", colour="black",
-        note="Stealthburner + Clockwork 2 black parts and the whole Klicky set on one plate.",
+        note="Stealthburner and Clockwork 2 black parts.",
         parts=[
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_front.stl", 1),
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_rear_cw2.stl", 1),
@@ -303,6 +311,14 @@ PLATES: dict[str, dict] = {
             ("sb", "STLs/Clockwork2/Direct_Drive/main_body.stl", 1),
             ("sb", "STLs/Clockwork2/Direct_Drive/motor_plate.stl", 1),
             ("nitehawk", "STLs/cw2_captive_pcb_cover.stl", 1),
+        ]),
+
+
+    # B06-P2 added 2026-11-06 (Alex): every part 25 mm from every edge no longer fits B06-P1.
+    "B06-P2": dict(
+        batch="B06", colour="black",
+        note="The whole Klicky set: probes, dock, mounts and press-fit helpers.",
+        parts=[
             ("klicky", "Probes/KlickyProbe/STL/KlickyProbe_v2.stl", 2),
             ("klicky", "Probes/KlickyProbe/STL/Probe_Dock_v2.1.stl", 1),
             ("klicky", "Probes/KlickyProbe/STL/Probe_magnet_holder.stl", 1),
@@ -386,10 +402,9 @@ PLATES: dict[str, dict] = {
     # hours balanced) from the committed projects with platearrange.merge_3mf, arranged at 6 mm.
     "B09-P1": dict(
         batch="B09", colour="black",
-        note="Exhaust cover centred, with panel clips, a bottom-panel hinge and both Z belt covers (a).",
+        note="Exhaust cover centred, with panel clips and a bottom-panel hinge.",
         parts=[
             ("ldov2", "STLs/exhaust_cover.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/z_belt_cover_a_x2.stl", 2),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
@@ -399,12 +414,9 @@ PLATES: dict[str, dict] = {
         ]),
     "B09-P2": dict(
         batch="B09", colour="black",
-        note="Nevermore Regular_Cartridge centred (built-in support to push out), spool holder, bowden retainer and panel clips.",
+        note="Nevermore Regular_Cartridge centred (built-in support to push out) and panel clips.",
         parts=[
             ("nevermore", "V5_Duo/V2/Regular_Cartridge(contributed_by_Bucknova).3mf", 1),
-            ("voron2", "STLs/Spool_Management/spool_holder.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/z_belt_cover_b_x2.stl", 1),
-            ("voron2", "STLs/Spool_Management/bowden_retainer.stl", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 2),
@@ -413,16 +425,14 @@ PLATES: dict[str, dict] = {
         ]),
     "B09-P3": dict(
         batch="B09", colour="black",
-        note="Nevermore V2_Duo_Plenum centred (built-in support to push out), cartridge lid, a bottom-panel hinge and panel clips.",
+        note="Nevermore V2_Duo_Plenum centred (built-in support to push out), cartridge lid, a bottom-panel hinge and 4 mm panel clips.",
         parts=[
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum.stl", 1),
             ("nevermore", "V5_Duo/V2/Regular_Cartridge_Lid(contributed_by_Bucknova).3mf", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
-            ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 2),
-            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_6mm_x8.stl", 2),
         ]),
     "B09-P4": dict(
         batch="B09", colour="black",
@@ -430,11 +440,24 @@ PLATES: dict[str, dict] = {
         parts=[
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum_LID.stl", 1),
             ("voron2", "STLs/Exhaust_Filter/exhaust_filter_grill.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/z_belt_cover_b_x2.stl", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 1),
+            ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_6mm_x8.stl", 2),
+        ]),
+
+
+    # B09-P5 added 2026-11-06 (Alex): every part 25 mm from every edge no longer fits B09 on four plates.
+    "B09-P5": dict(
+        batch="B09", colour="black",
+        note="All four Z belt covers, spool holder, bowden retainer and 6 mm panel clips.",
+        parts=[
+            ("voron2", "STLs/Panel_Mounting/z_belt_cover_a_x2.stl", 2),
+            ("voron2", "STLs/Spool_Management/spool_holder.stl", 1),
+            ("voron2", "STLs/Panel_Mounting/z_belt_cover_b_x2.stl", 2),
+            ("voron2", "STLs/Spool_Management/bowden_retainer.stl", 1),
+            ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_6mm_x8.stl", 2),
         ]),
     "B10-P1": dict(

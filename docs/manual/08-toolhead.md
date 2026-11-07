@@ -1292,7 +1292,7 @@ Pause: ~25 min since the last pause — every toolboard-side connector is made, 
 **Do:**
 
 1. Build nothing here. The kit ships both probes, and **Ch 07 already fitted the inductive one**.
-2. Bag the Klicky parts from B06-P1, unbuilt. Z height comes from the LDO nozzle probe, not from either.
+2. Bag the Klicky parts from B06-P2, unbuilt. Z height comes from the LDO nozzle probe, not from either.
 
 **Check:** The inductive probe is on the carriage from Ch 07 and the Klicky bag is closed.
 

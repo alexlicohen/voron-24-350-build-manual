@@ -10,9 +10,9 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.0 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 20.9 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 3 plate starts (~5 min hands-on each, 7.1 / 8.3 / 5.7 h unattended) + ~20 min inspect and bin.
+**Sessions:** 4 plate starts (~5 min hands-on each, 7.1 / 8.2 / 2.6 / 3.0 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing
@@ -150,9 +150,9 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 **Do:**
 
 1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
-2. Confirm: **14 files, 17 objects**, 3 mm brims on five parts.
-**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_cable_cover` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_belt_tensioner_a` · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 5.7 h, 74 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both `[a]_fan_grill_retainer`, `[a]_fan_grill_b`, `[a]_cable_cover` and the backer bridge, already in the project.
-**Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on the five big parts only.
+2. Confirm: **6 files, 7 objects**, 3 mm brims on three parts.
+**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `[a]_z_tensioner_9mm` · `[a]_belt_tensioner_a` — 2.6 h, 36 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both `[a]_fan_grill_retainer` and `[a]_fan_grill_b`, already in the project.
+**Check:** Brim outlines on the three fan parts only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -161,7 +161,35 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B02.7 — Print plate B02-P3
 
 **Do:** Print with standing overrides.
-**Check:** No warp on the small parts, and the guidler, latch and latch shuttle print crisp.
+**Check:** No warp on the small parts or at the fan-grill corners.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
+## Step B02.10 — Load plate B02-P4
+
+![Plate B02-P4 — sorting diagram](../assets/plates/B02-P4.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B02.9.*
+
+**Do:**
+
+1. Open `slicer/plates/B02-P4.3mf` with **File → Open Project**. Do not rebuild the plate.
+2. Confirm: **8 files, 10 objects**, 3 mm brims on two parts.
+**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.0 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover` and the backer bridge, already in the project.
+**Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on those two parts only.
+
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [print plan §6 — conditional / verify items](../../voron-print-plan.md#6-conditional-verify-items)
+
+## Step B02.11 — Print plate B02-P4
+
+**Do:** Print with standing overrides.
+**Check:** No warp on the small parts, and the latch and latch shuttle print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -177,7 +205,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 2. Snap the brims off and check the `Handle` base for scarring.
 **Check:** No support remnants inside the SB body's cable channels or LED pockets; `Handle` base clean.
 
-Pause: ~10 min since the last pause — supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P3 has not printed yet; otherwise unload it and re-seal it before walking away.
+Pause: ~10 min since the last pause — supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P4 has not printed yet; otherwise unload it and re-seal it before walking away.
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
 
@@ -225,13 +253,18 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **02-Z0** — Z0 corner (front-left, `_a` hand) | `[a]_z_drive_baseplate_a` |
 | **02-Z2** — Z2 corner (rear-right, `_a` hand) | `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_a` |
+| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_retainer` ×2, `[a]_fan_grill_b`, `[a]_belt_guard_a` |
+
+**B02-P4**
+
+| bin | parts off this plate |
+|---|---|
 | **04-A** — A drive unit + A (right) front idler | `[a]_tensioner_right` |
 | **05-XY** — XY joints, endstop pod, upper Z belt clips | `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_z_belt_clip_upper` ×2 |
 | **06-Z-joints** — Z joints and lower Z belt clips | `[a]_z_belt_clip_lower` ×2 |
 | **07-X** — X carriage halves, probe bracket, cable cover | `[a]_cable_cover` |
 | **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `[a]_latch`, `[a]_latch_shuttle` |
 | **11-skirts** — Skirt ring, keystone panel and inserts | `[a]_keystone_blank_insert` |
-| **11-fans** — Fan grills, retainers, belt guards | `[a]_fan_grill_retainer` ×2, `[a]_fan_grill_b`, `[a]_belt_guard_a` |
 
 **Check:** Every accent part in its bin with the id written on it; 11-door holds only the `Handle` until B10.
 
@@ -240,7 +273,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 Tip: Print the bin labels from the [bin-labels sheet](../../print/bin-labels.md). `_a` parts go to Z0 and Z2, `_b` to Z1 and Z3. The `[a]_z_chain_retainer_bracket` pair is fitted in Ch 10, not Ch 05.
 
 
-Pause: ~15 min since the last pause — all three plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
+Pause: ~15 min since the last pause — all four plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 

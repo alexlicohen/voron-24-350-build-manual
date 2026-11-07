@@ -17,7 +17,7 @@ caption: Two drive units, two idlers, all handed. Lay them out left and right. C
 
 - **Ch 01 — Frame.** Nothing from Ch 02 or Ch 03 is needed; this is bench work and can run in parallel with them (survey §5.1: P04 ← P01).
 - **Print batch B03** — *A/B drive units + front idlers*, 2 plates (B03-P1 the A side, B03-P2 the B side), 8.6 h, 120 g black ([print plan](../voron-print-plan.md)). `front_idler_right_*` go with the A drive, `front_idler_left_*` with B (Step 04.2).
-- **Print batch B02** — *the accent day*, plates **B02-P2** (`[a]_tensioner_left`) and **B02-P3** (`[a]_tensioner_right`).
+- **Print batch B02** — *the accent day*, plates **B02-P2** (`[a]_tensioner_left`) and **B02-P4** (`[a]_tensioner_right`).
 - **Print batch B00** — for `pulley_jig.stl`. Without it you are setting two different pulley heights with calipers.
 
 **Tools**

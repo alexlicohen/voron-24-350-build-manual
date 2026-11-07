@@ -1,6 +1,6 @@
 # Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
 
-The Stealthburner and Clockwork 2 black parts and the Klicky probe set share one plate. The Klicky set is
+The Stealthburner and Clockwork 2 black parts print on B06-P1, the Klicky probe set on B06-P2. The Klicky set is
 printed here and **bagged as the alternative probe** — this build fits the inductive probe, and Ch 08 Step
 08.54 is where the bag is set aside, unbuilt.
 
@@ -9,9 +9,9 @@ pose: pause
 caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakfast. Even champions need their sleep.
 ```
 
-**Time:** 11.6 h (1 plate) — PrusaSlicer 2.9.6 estimates.
+**Time:** 11.6 h (2 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 1 plate start (~5 min hands-on, 11.6 h unattended) + ~20 min inspect and bin.
+**Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 4.0 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the CW2 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
 main body, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
@@ -66,7 +66,7 @@ Chain Anchor Tilted" printed).
 
 **Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 125 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #2 mounted and ≥148 g on it.
+**Check:** Clean purge; spool #2 mounted and ≥148 g on it for both plates.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -79,14 +79,11 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B06-P1.3mf` with **File → Open Project**. Do not rebuild the arrangement.
 Confirm the loaded objects match the Parts list and that the printhead files came from the `revo_voron`
 folder.
-**Parts:** 18 files, 19 objects, 3 mm brim on the two printhead halves, `main_body`, `motor_plate`, `cw2_captive_pcb_cover` and `Dock_mount_fixed_v2`, already in the project — 11.6 h, 148 g (PrusaSlicer 2.9.6 estimate);
+**Parts:** 7 files, 7 objects, 3 mm brim on the two printhead halves, `main_body`, `motor_plate` and `cw2_captive_pcb_cover`, already in the project — 7.6 h, 97 g (PrusaSlicer 2.9.6 estimate);
 `stealthburner_printhead_revo_voron_front`; `stealthburner_printhead_revo_voron_rear_cw2`;
 `[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body` (CW2);
-`motor_plate` (CW2); `cw2_captive_pcb_cover`; then the Klicky set — `KlickyProbe_v2` ×2;
-`Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`; `Probe_pressfit_holder`;
-`KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`; `Mount_magnet_holder`;
-`Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
-**Check:** Printhead files confirmed from `revo_voron/`; the dock is the *fixed* variant; brim outlines on those six parts only.
+`motor_plate` (CW2); `cw2_captive_pcb_cover`.
+**Check:** Printhead files confirmed from `revo_voron/`; brim outlines on those five parts only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
@@ -95,7 +92,35 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 ## Step B06.3 — Print plate B06-P1
 
 **Do:** Print with standing overrides.
-**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. LED carrier, diffuser mask and magnet-holder pockets print crisp, the finest features on the plate.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. LED carrier and diffuser mask print crisp, the finest features on the plate.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate started; nothing to do until it finishes.
+
+Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print plan §4.1 — how these numbers were produced](../../voron-print-plan.md#41-how-these-numbers-were-produced)
+
+## Step B06.6 — Load plate B06-P2
+
+![Plate B06-P2 — sorting diagram](../assets/plates/B06-P2.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.5.*
+
+**Do:** Open `slicer/plates/B06-P2.3mf` with **File → Open Project**. Do not rebuild the arrangement.
+**Parts:** 11 files, 12 objects, 3 mm brim on `Dock_mount_fixed_v2`, already in the project — 4.0 h, 51 g (PrusaSlicer 2.9.6 estimate); the Klicky set:
+`KlickyProbe_v2` ×2; `Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`; `Probe_pressfit_holder`;
+`KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`; `Mount_magnet_holder`;
+`Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
+**Check:** The dock is the *fixed* variant; a brim outline on the dock mount only.
+
+**Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Klicky — what to print](https://github.com/jlas1/Klicky-Probe/tree/main/Printers/Voron/v1.8_v2.4_Legacy_Trident)
+
+## Step B06.7 — Print plate B06-P2
+
+**Do:** Print with standing overrides.
+**Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. The magnet-holder pockets print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
@@ -120,7 +145,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 **Do:**
 
-1. Sort the plate off its diagram: number to legend, colour to bin.
+1. Sort each plate off its diagram: number to legend, colour to bin.
 2. Mark plate id and date on a hidden face, then print labels from the [bin-labels sheet](../../print/bin-labels.md).
 3. The Klicky bag goes into **spare-alt** closed.
 
@@ -130,6 +155,11 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 |---|---|
 | **08-SB** — Stealthburner body, printhead, LEDs | `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` |
 | **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
+
+**B06-P2**
+
+| bin | parts off this plate |
+|---|---|
 | **spare-alt** — Spares / alternates (not fitted) | `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2` |
 
 **Check:** All toolhead parts in 08-SB / 08-CW2; the Klicky bag closed in spare-alt.
