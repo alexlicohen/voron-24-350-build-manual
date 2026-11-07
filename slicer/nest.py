@@ -630,7 +630,8 @@ def pieces_for(plate_id: str) -> list[Piece]:
         base = path.rsplit("/", 1)[-1]
         for i in range(qty):
             nm = base if qty == 1 else f"{base}#{i + 1}"
-            out.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb)), bb[2]))
+            out.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb), PLATES[plate_id]["colour"]),
+                             bb[2]))
     return out
 
 

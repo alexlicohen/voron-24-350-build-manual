@@ -72,7 +72,7 @@ with the arrangement, the per-object brims and the full configuration already in
 |---|---|
 | One project per plate, 28 of them | `slicer/plates/B01-P1.3mf` … |
 | Config bundle for `--load` (black / accent) | `slicer/voron-coreone-asa.ini`, `slicer/voron-accent-blue.ini` |
-| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 29 projects, B11's included) |
+| The cold-probe start G-code, vendored | `slicer/coreone-cold-start.gcode` (`slicer/build_config.py` writes it into the inis; `slicer/sync_start_gcode.py` copies it from the inis into all 34 projects, B11's included) |
 | Every override below → ini key → value → the line it came from | `slicer/OVERRIDES.md` |
 | SHA256 + pinned commit of every STL | `slicer/stl/MANIFEST.sha256` |
 | Sliced time and grams per plate, vs the old model | `slicer/estimates.csv` |
@@ -83,9 +83,9 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 29 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 34 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
-all 29 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+all 34 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
 ⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 24 ASA projects and both `.ini`
@@ -363,7 +363,8 @@ on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm b
 **Every big part gets a brim too (Alex 2026-11-05).** Any part 50 mm or more on its longest footprint side gets at least
 **3 mm** (`plates.BIG_PART_BRIM`), on top of the edge margin (25 mm since 2026-11-06). On lift map 2, long bars without a brim lifted at
 all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
-slightly. The two rules work together.
+slightly. The two rules work together. ASA only: B11's PETG V0 plates stay brimless, since their bundle's 0.1 mm
+brim gap would fuse a PETG brim to the part (a 0.3 mm gap already fused on PETG).
 
 **Brim separation is 0.30 mm (Alex 2026-11-06; 0.35 briefly the same day, 0.30 from 2026-11-05, 0.15 before).** At 0.15
 and 0.20 the brim tore and left a sharp lip. Small bars at the 20 mm corners held with no lift at every gap from 0.20 to
@@ -416,7 +417,7 @@ because nothing changes the machine under the parts.
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now would put the closed bed calibration
 (±0.1 mm on the +2.8 front-left Z-stop correction cap) at risk and force a belt retune, an XY-homing recal
-and a start-G-code re-sync of all 29 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
+and a start-G-code re-sync of all 34 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
 **Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
@@ -457,7 +458,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 29 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 34 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater

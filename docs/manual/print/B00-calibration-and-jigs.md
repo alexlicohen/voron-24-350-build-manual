@@ -18,7 +18,7 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
 hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
-**Step B00.8** — reviewing all 29 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Step B00.8** — reviewing all 34 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -66,7 +66,7 @@ the kit's own 153 inserts stay untouched.
 
 **Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
-⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 29 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
+⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 34 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
 ⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
@@ -160,16 +160,16 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 29 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.7.
+1. Open each of the 34 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.7.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
-The 3MFs are `slicer/plates/<id>.3mf` — the 24 ASA plates of B00–B10, then B11's 5 PETG V0 bay-ducting
+The 3MFs are `slicer/plates/<id>.3mf` — the 27 ASA plates of B00–B10, then B11's 7 PETG V0 bay-ducting
 plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.
 
-**Check:** All 29 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+**Check:** All 34 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
 
 **Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 
@@ -177,23 +177,22 @@ Re-review done 2026-11-03: the arranger re-packed B02-P2, B03-P1, B07-P1 to B07-
 
 **What to look at on each plate:**
 
-- A flat face sits on the sheet, and nothing overhangs the bed edge. Every big part, 50 mm or more on its longest side, sits with its brim 20 mm or more from each edge; small parts 5 mm.
+- A flat face sits on the sheet, and nothing overhangs the bed edge. Every part sits with its brim 25 mm or more from each edge (2026-11-06).
 - No supports anywhere. The 2.9 print-stability warnings on drive frames, Stealthburner and Klicky
   parts are by design — see them and move on.
 - Spacing looks even; nothing touching or crossing.
 - The three accent plates (B02-P1–P3) are on the blue preset, everything else on black.
-- B11's five plates are on the PETG V0 preset and the **textured** sheet, not the satin one.
-- B11-P4 and B11-P5 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
+- B11's seven plates are on the PETG V0 preset and the **textured** sheet, not the satin one.
+- B11-P4, P5 and P7 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
   them now for arrangement and settings anyway; reprint only if kit day changes a duct length.
 
 **If an arrangement needs changing:**
 
-1. In PrusaSlicer, move or rotate the part by hand, about Z only, keeping big parts 20 mm and small
-   parts 5 mm from every edge and about 6 mm between parts. **Never press Arrange**: it does not know
-   the 20 mm rule. Save the 3MF.
+1. In PrusaSlicer, move or rotate the part by hand, about Z only, keeping every part 25 mm from every
+   edge and about 6 mm between parts. **Never press Arrange**: it does not know the 25 mm rule. Save the 3MF.
 2. Rebuild only the plates you touched:
    `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]` — name every re-saved
-   plate. With no ids it re-slices all 29: safe, but slow. **Never drop `--from-3mf`**: that
+   plate. With no ids it re-slices all 34: safe, but slow. **Never drop `--from-3mf`**: that
    re-packs the plates and loses this arrangement.
 3. Run `python3 slicer/check_docs.py`. If grams moved, shift the spool ledger in
    [print/README](README.md#spool-ledger) by hand.
@@ -204,7 +203,7 @@ Pause: ~20 min since the last pause — B04 through B07 reviewed and ticked, Pru
 
 Pause: ~35 min since the last pause — B08 through B10 reviewed and ticked, the longest run of the four sessions. PrusaSlicer open on B10-P1.
 
-Pause: ~20 min since the last pause — B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.
+Pause: ~20 min since the last pause — B11's seven PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.
 
 Source: [PrusaSlicer KB — Auto-arrange tool](https://help.prusa3d.com/article/auto-arrange-tool_1770) · [plate plans](../../print/plate-plans.md) · [plate board](../../print/plate-board.md) · [print/README § Spool ledger](README.md#spool-ledger) · maintainer note: a passed review is what clears a plate's `qc="pending"` flag in `slicer/plates.py`
 

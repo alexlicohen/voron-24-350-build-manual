@@ -6,7 +6,7 @@ Written to be followed with a 13-year-old: one plate = one job.
 **Totals at a glance:** 27 plates · **150.7 h** print time · **1818 g Galaxy Black + 279 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
-**Plus B11**, the bay ducting, outside those totals: 5 plates · 24.9 h · 348 g Jet Black PETG V0 (§3, §9).
+**Plus B11**, the bay ducting, outside those totals: 7 plates · 25.1 h · 349 g Jet Black PETG V0 (§3, §9).
 
 ```mascot
 pose: base-3q
@@ -247,8 +247,8 @@ so printing overlaps the build. With Gate B's caliper and insert rows run early 
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
 **B00 → B01 → B02 → … → B10**, 150.7 h ≈ 16 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
-bay ducting (outside the totals), cuts in twice: P1–P3 right after B07, before B08, and P4/P5 at the next free slot
-after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all five and
+bay ducting (outside the totals), cuts in twice: P1–P3 and P6 right after B07, before B08, and P4, P5 and P7 at the next free slot
+after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all seven and
 nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
 Ch 00 start at once; start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 → Ch 11. No print job is
@@ -654,7 +654,7 @@ Notes:
 
 ---
 
-### Batch B11 — Bay ducting (PETG V0, outside the ASA run) · **5 plates · 24.9 h · 348 g Jet Black PETG V0**
+### Batch B11 — Bay ducting (PETG V0, outside the ASA run) · **7 plates · 25.1 h · 349 g Jet Black PETG V0**
 **Unlocks:** *Electronics* (p.148–173): Ch 09 fits two printed conduits in place of LDO's five PVC wire ducts;
 Ch 10 fits the strip fin. Layout v3, adopted 2026-09-23 — design record
 `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`. Page: [`manual/print/B11-bay-ducting.md`](manual/print/B11-bay-ducting.md).
@@ -667,23 +667,26 @@ stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables mode
 
 - **Plate B11-P1** (0.4 h, 4 g) — before kit (no kit part needed; prints right after B07), first and alone: `V3L_COUPON_22N_DUCT` + cover, the
   lid-snap test for the narrowed middle run.
-- **Plate B11-P2** (6.8 h, 96 g) — before kit: DC front run (`CMD_V3_1H_154mm_DUCT` ×2 + covers) and the
-  three 90° corners (`CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, + covers).
-- **Plate B11-P3** (4.6 h, 73 g) — before kit: the AC conduit (`V3L_WIRE_BOX_PORT` + plain lid,
-  `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, endcaps ×2, + covers), `V2L_STRIP_FIN`, and the DC S-jog
-  (`CMD_Remix-V3_DUCT-2B_45deg` ×2 + lids).
+- **Plate B11-P2** (4.3 h, 58 g) — before kit: DC front run (`CMD_V3_1H_154mm_DUCT` ×2 + covers).
+- **Plate B11-P3** (3.2 h, 53 g) — before kit: the AC conduit (`V3L_WIRE_BOX_PORT` + plain lid,
+  `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, endcaps ×2, + covers) and `V2L_STRIP_FIN`.
+- **Plate B11-P6** (4.0 h, 58 g) — before kit, after P3: the three 90° corners (`CMD_V3_1H_90DEG` ×2,
+  `V2L_90DEG_MIRROR`, + covers) and the DC S-jog (`CMD_Remix-V3_DUCT-2B_45deg` ×2 + lids). Split from P2
+  and P3 on 2026-11-06 for the 25 mm edge margin (§4.3).
 - **Plate B11-P4** (6.3 h, 82 g) — after the kit-day measurements: the custom lengths, `V2L_58mm_DUCT` ×3,
   `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `V3L_10mm_DUCT` ×3, `V3L_34mm_DUCT_HOLE`, + covers.
-- **Plate B11-P5** (6.8 h, 93 g) — after the kit-day measurements, **only if** the Leviathan-to-PSU gap is
-  ≥ 25 mm and the coupon passed: `V3L_154N_DUCT` ×2 and `V3L_T_REG_N` ×2, + covers. Otherwise the fallback,
+- **Plate B11-P5** (4.2 h, 56 g) — after the kit-day measurements, **only if** the Leviathan-to-PSU gap is
+  ≥ 25 mm and the coupon passed: `V3L_154N_DUCT` ×2 + covers. Otherwise the fallback replaces P5 and P7,
   stock `CMD_V3_1H_T_REG` + one `CMD_V3_1H_82mm_DUCT`, with LDO's PVC middle duct kept.
+- **Plate B11-P7** (2.7 h, 38 g) — after P5, on the same condition: `V3L_T_REG_N` ×2 + covers. Split from
+  P5 on 2026-11-06 for the 25 mm edge margin.
 
 Notes:
-- Before kit, 3 plates, 11.8 h, 173 g; after the kit-day measurements, 2 plates, 13.1 h, 175 g.
-- Order: P1–P3 between B07 and B08; P4 and P5 at the next free slot after Steps B11.10–B11.11, ahead of any
+- Before kit, 4 plates, 11.9 h, 173 g; after the kit-day measurements, 3 plates, 13.2 h, 176 g.
+- Order: P1–P3 and P6 between B07 and B08; P4, P5 and P7 at the next free slot after Steps B11.10–B11.11, ahead of any
   B08–B10 plate still waiting. Satin sheet and Adv. Filtration back on before the next ASA plate.
-- Kit-day confirmation: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Either way, P4 and
-  P5 print on schedule; a short lead gets a longer replacement (4-pin JST-XH) rather than a drop to layout v1.
+- Kit-day confirmation: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Either way, P4, P5
+  and P7 print on schedule; a short lead gets a longer replacement (4-pin JST-XH) rather than a drop to layout v1.
 - All five arrangements came from `nest.py` and passed the Step B00.8 review as packed (2026-11-02).
 - Options, no plate: orange-ASA endcaps; MSS's WARNING lid (Printables 505838) waits for the INDX.
 
@@ -809,7 +812,7 @@ for the rest (2026-11-06 morning; 5 mm before that). Gaps stay 6 mm between brim
 plate that does not fit splits (`build_plates.PA_GAP_LADDER` empty). `tools/platearrange` applies the margin per part; B02-P2, B03-P1, B07, B08-P2 to P5
 and B09-P4 were re-packed for it on 2026-11-03, and 18 plates again on 2026-11-05 for the big-part brims
 (B03 split into B03-P1, the A side, and B03-P2, the B side), and on 2026-11-06 for 25 mm (B02-P3 into P3 + P4,
-B06-P1 into P1 + P2, B09 onto five plates). PrusaSlicer's
+B06-P1 into P1 + P2, B09 onto five plates; B11 onto seven, P6 and P7 split off, still brimless). PrusaSlicer's
 **Arrange** does not know the rule: in the GUI, move parts by hand only.
 
 Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
@@ -909,7 +912,7 @@ retired, because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now risks the closed bed calibration and forces
-a belt retune, XY-homing recal and a start-G-code re-sync of all 29 committed `.3mf` projects; GT1.5's only
+a belt retune, XY-homing recal and a start-G-code re-sync of all 34 committed `.3mf` projects; GT1.5's only
 benefit (less VFA) is cosmetic, and Galaxy Black's metallic fleck already hides it; one teardown, with INDX,
 beats two.
 
@@ -1031,11 +1034,13 @@ B11, the bay ducting, is outside the run and every total above. Its plates, by g
 ```csv
 plate_id,batch_id,group,hours,grams,colour
 B11-P1,B11,before-kit,0.4,4,petg
-B11-P2,B11,before-kit,6.8,96,petg
-B11-P3,B11,before-kit,4.6,73,petg
+B11-P2,B11,before-kit,4.3,58,petg
+B11-P3,B11,before-kit,3.2,53,petg
+B11-P6,B11,before-kit,4.0,58,petg
 B11-P4,B11,after-kit,6.3,82,petg
-B11-P5,B11,after-kit,6.8,93,petg
-TOTAL B11,B11,all,24.9,348,petg
+B11-P5,B11,after-kit,4.2,56,petg
+B11-P7,B11,after-kit,2.7,38,petg
+TOTAL B11,B11,all,25.1,349,petg
 ```
 
 ---

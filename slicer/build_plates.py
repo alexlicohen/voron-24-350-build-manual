@@ -380,7 +380,7 @@ def build(plate_id: str) -> dict:
         base = Path(path).name
         for i in range(qty):
             nm = base if qty == 1 else f"{base}#{i + 1}"
-            pieces.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb)), bb[2]))
+            pieces.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb), colour), bb[2]))
 
     packer = pack
     if PACKER == "nest":

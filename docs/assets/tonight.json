@@ -144,14 +144,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.",
+     "leave_state": "B11's seven PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next.",
      "helpers": [
       [
        "B00.8",
        "Drives the layer slider on each plate and reads the time and grams aloud for the tally."
       ]
      ],
-     "text": "Step B00.8 · ~20 min · leave-state: B11's five PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next."
+     "text": "Step B00.8 · ~20 min · leave-state: B11's seven PETG V0 plates reviewed and ticked; the plate-review checklist is closed. Checkpoint B00 waits for the gates; filament prep at B00.1 is next."
     },
     {
      "id": "b00-calibration-and-jigs#5",
@@ -1090,11 +1090,11 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P2",
-     "print_hours": 6.8,
+     "print_hours": 4.3,
      "run": "bay",
-     "leave_state": "plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P2 running, 6.8 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P2 (Step B11.5) · ~5 min hands-on, then 4.3 h unattended · leave-state: plate B11-P2 running, 4.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#3",
@@ -1109,14 +1109,33 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P3",
-     "print_hours": 4.6,
+     "print_hours": 3.2,
      "run": "bay",
-     "leave_state": "plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B11-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P3 (Step B11.6) · ~5 min hands-on, then 3.2 h unattended · leave-state: plate B11-P3 running, 3.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b11-bay-ducting#4",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.15"
+     ],
+     "first_step": "B11.15",
+     "last_step": "B11.15",
+     "href": "../manual/steps/b11-bay-ducting/b11-15/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P6",
+     "print_hours": 4.0,
+     "run": "bay",
+     "leave_state": "plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P6 (Step B11.15) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B11-P6 running, 4.0 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#5",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -1130,12 +1149,12 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the P1 to P3 parts inspected and bagged by plate.",
+     "leave_state": "the P1 to P3 and P6 parts inspected and bagged by plate.",
      "helpers": [],
-     "text": "Step B11.7 · ~10 min · leave-state: the P1 to P3 parts inspected and bagged by plate."
+     "text": "Step B11.7 · ~10 min · leave-state: the P1 to P3 and P6 parts inspected and bagged by plate."
     },
     {
-     "id": "b11-bay-ducting#5",
+     "id": "b11-bay-ducting#6",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -1149,14 +1168,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
+     "leave_state": "B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.",
      "helpers": [
       [
        "B11.8",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
+     "text": "Step B11.8 · ~10 min · leave-state: B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08."
     }
    ]
   },
@@ -6156,7 +6175,7 @@
    "kit": true,
    "segments": [
     {
-     "id": "b11-bay-ducting#6",
+     "id": "b11-bay-ducting#7",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -6170,12 +6189,12 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected.",
+     "leave_state": "both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.",
      "helpers": [],
-     "text": "Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected."
+     "text": "Step B11.9 · ~15 min · leave-state: both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected."
     },
     {
-     "id": "b11-bay-ducting#7",
+     "id": "b11-bay-ducting#8",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -6199,7 +6218,7 @@
      "text": "Step B11.10 · ~20 min · leave-state: the bay is dry-laid and measured; nothing is stuck down or fastened."
     },
     {
-     "id": "b11-bay-ducting#8",
+     "id": "b11-bay-ducting#9",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -6218,7 +6237,7 @@
      "text": "Step B11.11 · ~15 min · leave-state: every piece that needed it is regenerated, back on B11-P4 and re-sliced; `check_docs.py` is green."
     },
     {
-     "id": "b11-bay-ducting#9",
+     "id": "b11-bay-ducting#10",
      "chapter": "b11-bay-ducting",
      "kind": "print",
      "steps": [
@@ -6237,7 +6256,7 @@
      "text": "Start plate B11-P4 (Step B11.12) · ~5 min hands-on, then 6.3 h unattended · leave-state: plate B11-P4 running, 6.3 h unattended — door shut; come back for the next step when it ends"
     },
     {
-     "id": "b11-bay-ducting#10",
+     "id": "b11-bay-ducting#11",
      "chapter": "b11-bay-ducting",
      "kind": "print",
      "steps": [
@@ -6249,14 +6268,33 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B11-P5",
-     "print_hours": 6.8,
+     "print_hours": 4.2,
      "run": "bay",
-     "leave_state": "plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends",
      "helpers": [],
-     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 6.8 h unattended · leave-state: plate B11-P5 running, 6.8 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B11-P5 (Step B11.13) · ~5 min hands-on, then 4.2 h unattended · leave-state: plate B11-P5 running, 4.2 h unattended — door shut; come back for the next step when it ends"
     },
     {
-     "id": "b11-bay-ducting#11",
+     "id": "b11-bay-ducting#12",
+     "chapter": "b11-bay-ducting",
+     "kind": "print",
+     "steps": [
+      "B11.16"
+     ],
+     "first_step": "B11.16",
+     "last_step": "B11.16",
+     "href": "../manual/steps/b11-bay-ducting/b11-16/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B11-P7",
+     "print_hours": 2.7,
+     "run": "bay",
+     "leave_state": "plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [],
+     "text": "Start plate B11-P7 (Step B11.16) · ~5 min hands-on, then 2.7 h unattended · leave-state: plate B11-P7 running, 2.7 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b11-bay-ducting#13",
      "chapter": "b11-bay-ducting",
      "kind": "build",
      "steps": [
@@ -6358,7 +6396,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6468,7 +6506,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6574,7 +6612,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6673,7 +6711,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6772,7 +6810,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -6874,7 +6912,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7008,7 +7046,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7104,7 +7142,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7253,7 +7291,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7435,6 +7473,7 @@
      "B11.4",
      "B11.5",
      "B11.6",
+     "B11.15",
      "B11.7",
      "B11.8",
      "B11.9",
@@ -7442,12 +7481,13 @@
      "B11.11",
      "B11.12",
      "B11.13",
+     "B11.16",
      "B11.14"
     ]
    },
    "printed": [],
    "expect": {
-    "done": 74,
+    "done": 76,
     "gate_closed": true,
     "start": "12.2",
     "sections": [
@@ -7597,7 +7637,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7722,8 +7762,8 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#7",
-     "b11-bay-ducting#11"
+     "b11-bay-ducting#8",
+     "b11-bay-ducting#13"
     ]
    }
   },
@@ -7850,7 +7890,7 @@
      "b07-electronics-bay-and-lighting#1",
      "b07-electronics-bay-and-lighting#2",
      "b07-electronics-bay-and-lighting#4",
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "b08-skirts-and-front-modules#0",
      "b08-skirts-and-front-modules#1",
      "b08-skirts-and-front-modules#2",
@@ -7975,8 +8015,8 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#7",
-     "b11-bay-ducting#11"
+     "b11-bay-ducting#8",
+     "b11-bay-ducting#13"
     ]
    }
   },
@@ -8230,7 +8270,7 @@
      }
     ],
     "helpers": [
-     "b11-bay-ducting#5",
+     "b11-bay-ducting#6",
      "12-software#2",
      "01-frame#0",
      "01-frame#1",
@@ -8333,8 +8373,8 @@
      "14-calibration#15",
      "14-calibration#17",
      "14-calibration#18",
-     "b11-bay-ducting#7",
-     "b11-bay-ducting#11"
+     "b11-bay-ducting#8",
+     "b11-bay-ducting#13"
     ]
    }
   },
@@ -9183,6 +9223,7 @@
      "B11.4",
      "B11.5",
      "B11.6",
+     "B11.15",
      "B11.7",
      "B11.8",
      "B11.9",
@@ -9190,12 +9231,13 @@
      "B11.11",
      "B11.12",
      "B11.13",
+     "B11.16",
      "B11.14"
     ]
    },
    "printed": [],
    "expect": {
-    "done": 223,
+    "done": 225,
     "gate_closed": true,
     "start": null,
     "sections": [

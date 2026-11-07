@@ -143,11 +143,15 @@ BRIM_3MM = {
 BIG_PART_BRIM = 3.0  # every big part (geom.BIG_PART_MM) gets at least this (Alex 2026-11-05)
 
 
-def brim_for(path: str, footprint: float = 0.0) -> float:
+def brim_for(path: str, footprint: float = 0.0, colour: str = "") -> float:
     """Brim width in mm for one STL: by filename, and at least BIG_PART_BRIM when the
     footprint's longest side (`footprint`, mm) makes it a big part. Lift-map 2: unbrimmed
-    bars lifted at the corners even 20 mm in; brimmed ones stayed flat."""
+    bars lifted at the corners even 20 mm in; brimmed ones stayed flat. ASA only: the
+    "petg" plates (B11) print brimless, as reviewed, since bay-ducts-petg.ini's 0.1 mm
+    brim gap fuses PETG (a 0.3 gap already fused on the storage prints)."""
     from geom import BIG_PART_MM
+    if colour == "petg":
+        return 0.0
     name = path.rsplit("/", 1)[-1]
     if name in BRIM_5MM:
         return 5.0
@@ -477,6 +481,7 @@ PLATES: dict[str, dict] = {
     # Packed by nest.py; Alex passed the arrangements as packed at the Step B00.8 review (2026-11-02).
     # qc="pending" marks a plate whose arrangement has not been reviewed (none now). The ten re-packed
     # 2026-11-03 for the big-part 20 mm edge rule passed Alex's GUI review as packed the same day.
+    # 2026-11-06: P2, P3, P5 re-packed and P6, P7 added for the 25 mm rule; P1 and P4 already met it.
     "B11-P1": dict(
         batch="B11", colour="petg", run="bay", group="before-kit",
         note="Test coupon: prints first, alone. The lid must snap and hold before P5 is printed.",
@@ -486,18 +491,14 @@ PLATES: dict[str, dict] = {
         ]),
     "B11-P2": dict(
         batch="B11", colour="petg", run="bay", group="before-kit",
-        note="DC conduit: the two stock 154s and the three 90 deg corners.",
+        note="DC conduit's front run: the two stock 154s.",
         parts=[
             ("bayducts", "mss/502306/CMD_V3_1H_154mm_DUCT.stl", 2),
             ("bayducts", "mss/502306/CMD_V2_6B_154mm_DUCT_COVER.stl", 2),
-            ("bayducts", "mss/502306/CMD_V3_1H_90DEG.stl", 2),
-            ("bayducts", "mss/502306/CMD_V2_6B_90DEG_COVER.stl", 2),
-            ("bayducts", "remix/V2L_90DEG_MIRROR.stl", 1),
-            ("bayducts", "remix/V2L_90DEG_COVER_MIRROR.stl", 1),
         ]),
     "B11-P3": dict(
         batch="B11", colour="petg", run="bay", group="before-kit",
-        note="AC conduit (wire box, R15 curves, SSR T, endcaps, strip fin) plus the DC S-jog.",
+        note="AC conduit: wire box, R15 curves, SSR T, endcaps, strip fin.",
         parts=[
             ("bayducts", "remix/V3L_WIRE_BOX_PORT.stl", 1),
             ("bayducts", "mss/502306/CMD_V2_6B_WIRE_BOX_COVER.stl", 1),
@@ -507,8 +508,6 @@ PLATES: dict[str, dict] = {
             ("bayducts", "mss/502306/CMD_V2_6B_T_SHORT_COVER.stl", 1),
             ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-1M_ENDCAP.stl", 2),
             ("bayducts", "remix/V2L_STRIP_FIN.stl", 1),
-            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl", 2),
-            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl", 2),
         ]),
     "B11-P4": dict(
         batch="B11", colour="petg", run="bay", group="after-kit",
@@ -527,10 +526,28 @@ PLATES: dict[str, dict] = {
         ]),
     "B11-P5": dict(
         batch="B11", colour="petg", run="bay", group="after-kit",
-        note="Narrowed middle run: only if the Leviathan-to-PSU gap is 25 mm or more.",
+        note="Narrowed middle run, straights: only if the Leviathan-to-PSU gap is 25 mm or more.",
         parts=[
             ("bayducts", "remix/V3L_154N_DUCT.stl", 2),
             ("bayducts", "remix/V3L_154N_DUCT_COVER.stl", 2),
+        ]),
+    # B11-P6 and P7 added 2026-11-06 (Alex): every part 25 mm from every edge no longer fits.
+    # P6 takes P2's corners and P3's DC S-jog; P7 takes P5's narrowed Ts.
+    "B11-P6": dict(
+        batch="B11", colour="petg", run="bay", group="before-kit",
+        note="DC conduit: the three 90 deg corners and the 45 deg S-jog.",
+        parts=[
+            ("bayducts", "mss/502306/CMD_V3_1H_90DEG.stl", 2),
+            ("bayducts", "mss/502306/CMD_V2_6B_90DEG_COVER.stl", 2),
+            ("bayducts", "remix/V2L_90DEG_MIRROR.stl", 1),
+            ("bayducts", "remix/V2L_90DEG_COVER_MIRROR.stl", 1),
+            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg.stl", 2),
+            ("bayducts", "mss/502306/CMD_Remix-V3_DUCT-2B_45deg_LID.stl", 2),
+        ]),
+    "B11-P7": dict(
+        batch="B11", colour="petg", run="bay", group="after-kit",
+        note="Narrowed middle run, Ts: only if the Leviathan-to-PSU gap is 25 mm or more.",
+        parts=[
             ("bayducts", "remix/V3L_T_REG_N.stl", 2),
             ("bayducts", "remix/V3L_T_REG_N_COVER.stl", 2),
         ]),

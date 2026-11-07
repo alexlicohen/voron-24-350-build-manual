@@ -8,8 +8,8 @@ previous figure beside each one, and the exact unrounded values, are in `slicer/
 sums of the rounded plate figures, so they can differ from that file's TOTAL rows by 0.1–0.2 h or a gram or two;
 `python3 slicer/check_docs.py` re-checks every number on this page against it.
 
-**B11**, the PETG V0 bay ducting, is a separate batch outside this run: 5 plates, 24.9 h, 348 g of Jet Black
-PETG V0 on its own spool, cut into the order after B07 (P1–P3) and after the kit-day bay measurements (P4, P5).
+**B11**, the PETG V0 bay ducting, is a separate batch outside this run: 7 plates, 25.1 h, 349 g of Jet Black
+PETG V0 on its own spool, cut into the order after B07 (P1–P3, P6) and after the kit-day bay measurements (P4, P5, P7).
 None of its numbers are in the run's totals; it has its own table, run schedule
 and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
 
@@ -55,7 +55,7 @@ All 27 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 All 27 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
 runs overnight; anything shorter is a day plate, so two of them fit between breakfast and bedtime. The
 longest plate in the build, B01-P1 at 14.6 h, is the exception — start it in the morning so its first layer
-is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 print
+is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 and P6 print
 between #16 and #17 ([B11 run schedule](#b11-run-schedule)).
 
 | # | plate | hours | colour | slot | spool |
@@ -119,7 +119,7 @@ each of its two corners, a `_x4` file one in each corner.
 after kit day and are on no plate (`11-side-spool`, `11-camera`, `13-scrubber`, `14-exhaust`). They travel in
 30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes. The A5 figure counts the second pack of A5 bags, 24 to a pack, bought 2026-10-13
 (Ch 00 Step 00.11). Two kinds of entry count toward no piece total: B11's fallback middle joints, printed only
-instead of B11-P5, and the add-ons' bought parts (camera board, A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
+instead of B11-P5 and P7, and the add-ons' bought parts (camera board, A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
 
 **Bag per bin** (the *bag* column), measured from the STLs by `python3 slicer/bin_bags.py`: a bag's
 usable inside is its paper size (A5 148 × 210 mm, B5 176 × 250 mm) and about 25 mm deep, an
@@ -273,31 +273,34 @@ Sources: [Prusa KB — Filament runout #31829](https://help.prusa3d.com/article/
 [B11](B11-bay-ducting.md) replaces LDO's five PVC wire ducts with two printed conduits, layout v3. It is
 **outside the ASA run**: Prusament PETG V0 Jet Black on the textured sheet, sliced with
 `slicer/bay-ducts-petg.ini`, not to Voron spec. Every hour and gram is a PrusaSlicer 2.9.6 estimate from
-the committed projects, whose arrangements passed the Step B00.8 review (2026-11-02). `check_docs.py` checks
+the committed projects. P1 and P4 passed the Step B00.8 review (2026-11-02); P2, P3, P5, P6 and P7 were re-packed
+for the 25 mm edge rule (2026-11-06) and await the same GUI check. `check_docs.py` checks
 this table, the run schedule and the ledger below against `slicer/estimates.csv`.
 
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---|---|
-| [B11](B11-bay-ducting.md) before kit | 3 | 11.8 | 173 | Ch 09 ducts; Ch 10 strip fin | B07 off the bed, before B08; the coupon, B11-P1, prints first |
-| [B11](B11-bay-ducting.md) after the kit-day measurements | 2 | 13.1 | 175 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 plate still waiting; B11-P5 only if the gap is ≥ 25 mm and the coupon passed |
-| **B11 total** | **5** | **24.9** | **348** | | |
+| [B11](B11-bay-ducting.md) before kit | 4 | 11.9 | 173 | Ch 09 ducts; Ch 10 strip fin | B07 off the bed, before B08; the coupon, B11-P1, prints first |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 3 | 13.2 | 176 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 plate still waiting; B11-P5 and P7 only if the gap is ≥ 25 mm and the coupon passed |
+| **B11 total** | **7** | **25.1** | **349** | | |
 
-**Filament:** 348 g needed from one 1 kg spool, **V1**, bought 2026-10-13 → **652 g margin** if B11-P5 prints.
+**Filament:** 349 g needed from one 1 kg spool, **V1**, bought 2026-10-13 → **651 g margin** if B11-P5 and P7 print.
 
 ## B11 run schedule
 
-All five are day plates. **P1 to P3 print right after B07-P3 (#16), before B08-P1 (#17)**: Ch 09 needs them, and
-nothing needs B08–B10 until Ch 10.50. **P4 and P5 print at the next free slot after the kit-day bay measurements**
+All seven are day plates. **P1 to P3 and P6 print right after B07-P3 (#16), before B08-P1 (#17)**: Ch 09 needs them, and
+nothing needs B08–B10 until Ch 10.50. **P4, P5 and P7 print at the next free slot after the kit-day bay measurements**
 (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting. The # column carries on from the run schedule
-above so the plate board counts 1 to 32; the slot column gives the place in the order.
+above so the plate board counts 1 to 34; the slot column gives the place in the order.
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
 | 28 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P3) | V1 |
-| 29 | B11-P2 | 6.8 | petg | day | V1 |
-| 30 | B11-P3 | 4.6 | petg | day (then B08-P1) | V1 |
-| 31 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
-| 32 | B11-P5 | 6.8 | petg | day (only if gap ≥ 25 mm) | V1 |
+| 29 | B11-P2 | 4.3 | petg | day | V1 |
+| 30 | B11-P3 | 3.2 | petg | day | V1 |
+| 31 | B11-P6 | 4.0 | petg | day (then B08-P1) | V1 |
+| 32 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
+| 33 | B11-P5 | 4.2 | petg | day (only if gap ≥ 25 mm) | V1 |
+| 34 | B11-P7 | 2.7 | petg | day (only if gap ≥ 25 mm) | V1 |
 
 ## B11 spool ledger
 
@@ -308,11 +311,13 @@ and back on for B08-P1: put #2 in the drybox meanwhile; the ASA ledger's figures
 | plate | slicer g | actual g (weigh) | spool # | remaining |
 |---|---:|---:|---|---:|
 | B11-P1 | 4 | | V1 | 996 |
-| B11-P2 | 96 | | V1 | 900 |
-| B11-P3 | 73 | | V1 | 827 |
+| B11-P2 | 58 | | V1 | 938 |
+| B11-P3 | 53 | | V1 | 885 |
+| B11-P6 | 58 | | V1 | 827 |
 | B11-P4 | 82 | | V1 | 745 |
-| B11-P5 | 93 | | V1 | 652 |
-| **TOTAL PETG V0** | **348** | | 1 × 1000 g | **652 g margin** |
+| B11-P5 | 56 | | V1 | 689 |
+| B11-P7 | 38 | | V1 | 651 |
+| **TOTAL PETG V0** | **349** | | 1 × 1000 g | **651 g margin** |
 
 ## Add-on prints (outside the plates)
 

@@ -5,11 +5,11 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 24.9 h (5 plates) — PrusaSlicer 2.9.6 estimates: 11.8 h before kit (B11-P1 to P3, 173 g), 13.1 h after the kit-day measurements (B11-P4 and B11-P5, 175 g). 348 g of Jet Black PETG V0 in all. **Not part of the 150.9 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.6 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 150.7 h ASA run**, and none of its numbers are in the run's totals.
 
-**Sessions:** 5 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4 and P5, and ~15 min for the A/B lead check after Checkpoint 06.
+**Sessions:** 7 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4, P5 and P7, and ~15 min for the A/B lead check after Checkpoint 06.
 
-**Prerequisites:** no ASA part, but a place in the run: P1 to P3 print right after B07, before B08. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** and the **textured** sheet. P4 and P5 print at the next free slot after the kit-day bay measurements (B11.10, B11.11), ahead of any B08–B10 plate still waiting, and must be binned before Ch 09 Step 09.6 lays the DC loop. The A/B motor-lead check (B11.9) does not gate them: it needs the gantry hung, so it runs after Checkpoint 06, and a short lead gets a longer replacement before Ch 10. Layout v3 stands either way.
+**Prerequisites:** no ASA part, but a place in the run: P1 to P3 and P6 print right after B07, before B08. No part here holds a bearing or takes a press fit, so neither Gate A nor Gate B applies. Needs one 1 kg spool of **Prusament PETG V0 Jet Black** and the **textured** sheet. P4, P5 and P7 print at the next free slot after the kit-day bay measurements (B11.10, B11.11), ahead of any B08–B10 plate still waiting, and must be binned before Ch 09 Step 09.6 lays the DC loop. The A/B motor-lead check (B11.9) does not gate them: it needs the gantry hung, so it runs after Checkpoint 06, and a short lead gets a longer replacement before Ch 10. Layout v3 stands either way.
 
 **What this batch builds.** Layout v3 replaces LDO's five PVC wire ducts in the electronics bay with two printed conduits, made from MyStoopidStuff's remix of RyanDam's Cable Management Duct. The **DC conduit** is one continuous run, from the rear-left Z motor round the front to the Z-chain notch and open at both rear ends: curved 90° corners, two T-junctions, a 45° S-jog up to the Z-chain notch, and a middle run narrowed to 22 mm so it fits between the Leviathan and the PSU. The **AC conduit** is MSS's wire box at its original size by the WAGO bus, two re-radiused 90° curves down to a 34 mm run over the bed-lead hole, a T behind the SSR, and a divider fin at the PSU terminals. The closest AC-to-DC approach is 12.0 mm on the layout `(verify on bench)`. Fitting them is Ch 09's and Ch 10's job; this page only prints them. Design record: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md`.
 
@@ -63,7 +63,7 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 
 - **Orange endcaps.** The two `CMD_Remix-V3_DUCT-1M_ENDCAP` can be printed in the spare Prusament ASA Prusa Orange instead, as a visual mark on the AC conduit's ends. Load the STL on its own with `slicer/voron-coreone-asa.ini` and the satin sheet, with a brim. No plate, no ledger line; the black pair on B11-P3 is the default.
 - **WARNING lid.** MSS's lettered `CMD_Remix-V3_DUCT-1V_WIRE_BOX_LID_WARNING` + inlay (Printables 505838) is a two-colour body and waits for the INDX. B11 prints the plain `CMD_V2_6B_WIRE_BOX_COVER`.
-- **Fallback middle run.** If the Leviathan-to-PSU gap measures under 25 mm, skip B11-P5 and print stock `CMD_V3_1H_T_REG` + cover in place of each `V3L_T_REG_N`, plus one `CMD_V3_1H_82mm_DUCT` + cover, and keep LDO's PVC middle duct. Those four files are vendored in `mss/502306/` but on no plate. Their bodies go to bin 09-ducts-DC and their covers to 11-lids-DC, whose labels already list them as the fallback.
+- **Fallback middle run.** If the Leviathan-to-PSU gap measures under 25 mm, skip B11-P5 and B11-P7 and print stock `CMD_V3_1H_T_REG` + cover in place of each `V3L_T_REG_N`, plus one `CMD_V3_1H_82mm_DUCT` + cover, and keep LDO's PVC middle duct. Those four files are vendored in `mss/502306/` but on no plate. Their bodies go to bin 09-ducts-DC and their covers to 11-lids-DC, whose labels already list them as the fallback.
 
 **Hardware:** none to print. Mounting hardware and tape belong to Ch 09.
 
@@ -72,8 +72,8 @@ Which piece goes where: the two stock 154s are the front run; the three corners 
 - **Not Voron spec.** The ducts carry no load, so B11 has its own bundle, `slicer/bay-ducts-petg.ini`: system filament `Prusament PETG V0 @COREONE HF0.4`, 0.20 mm layers, 3 perimeters, 4 top and 4 bottom, 20 % **grid** infill, no supports. Printer settings and the cold start G-code are the ASA run's. Grid infill, as the bundle was sliced; the ducts carry no load. Every key: `slicer/OVERRIDES.md` § Bay-duct bundle.
 - **Textured sheet.** Prusa does not recommend PETG V0 on smooth PEI: it bonds hard enough to damage the sheet, and that damage is not covered by warranty. Swap back to the satin sheet before the next ASA plate.
 - **AFS flaps.** The bundle's filament start G-code sends `M106 P3 S160` and its end G-code `M106 P3 R`, so the bypass flaps lift for PETG with Chamber Filtration left on Adv. Filtration. Print from Connect or USB, not OctoPrint: the fixed P3 target makes `M141` log an error OctoPrint would halt on.
-- **Arrangement reviewed.** All five plates were packed by `slicer/nest.py` at a 6 mm gap and passed the Step B00.8 review as packed (2026-11-02). If kit day changes a duct, re-arrange that plate by hand, never with **Arrange** (it does not know the 20 mm rule): big parts 20 mm and small parts 5 mm from every edge, about 6 mm apart, rotations about Z only. Save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
-- **Two groups.** P1 to P3 need nothing measured and print right after B07, before B08: Ch 09 needs them, and nothing needs B08–B10 until Ch 10.50. "Before kit" below names the group (no kit part needed), not the date. P4 holds the custom lengths and P5 the narrowed middle run; both wait for the kit-day bay measurements, and P5 also waits for the coupon test. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is needed.
+- **Arrangement.** P1 and P4 passed the Step B00.8 review as packed (2026-11-02). P2, P3 and P5 were re-packed and P6 and P7 split off on 2026-11-06 for the 25 mm edge rule; they need the same GUI check before printing. If kit day changes a duct, re-arrange that plate by hand, never with **Arrange** (it does not know the 25 mm rule): every part 25 mm from every edge, about 6 mm apart, rotations about Z only, no brim. Save over `slicer/plates/B11-Pn.3mf`, then `python3 slicer/build_plates.py --from-3mf B11-Pn` and `python3 slicer/check_docs.py`.
+- **Two groups.** P1 to P3 and P6 need nothing measured and print right after B07, before B08: Ch 09 needs them, and nothing needs B08–B10 until Ch 10.50. "Before kit" below names the group (no kit part needed), not the date. P4 holds the custom lengths, P5 and P7 the narrowed middle run (straights, then Ts); all three wait for the kit-day bay measurements, and P5 and P7 also wait for the coupon test. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is needed.
 - Every part is Jet Black. Nothing here is dimension-critical beyond the lid snap, which the coupon tests.
 
 ## Before kit
@@ -119,7 +119,7 @@ Source: [print/README § B11](README.md#b11-bay-ducting-petg-v0) · [00-slicer-s
 **What you're looking at:** The coupon is a 22 mm slice of the narrowed middle run. Its walls, tines and lid rail are the stock geometry; only the floor and lid are 2.4 mm narrower.
 
 **Do:** Snap the lid on and off five times, then shake the coupon lid down.
-**Check:** The lid clicks home each time and stays on when shaken. Any crack or loose lid means no B11-P5.
+**Check:** The lid clicks home each time and stays on when shaken. Any crack or loose lid means no B11-P5 or P7.
 
 Pause: ~10 min since the last pause — coupon tested and back in bin 09-ducts-DC. The bundle-fill test waits for the harness on kit day.
 
@@ -131,13 +131,13 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run and ch
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
-**Do:** Open `slicer/plates/B11-P2.3mf` with **File → Open Project**. This is the DC conduit's front run and its three corners.
-**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V2_6B_154mm_DUCT_COVER` ×2 · `CMD_V3_1H_90DEG` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_MIRROR` · `V2L_90DEG_COVER_MIRROR` · 6 files, 10 objects — 6.8 h, 96 g (PrusaSlicer 2.9.6 estimate) · no brim.
-**Check:** Every duct body base down, every lid flat; the two 154 mm ducts lie clear of the bed edge.
+**Do:** Open `slicer/plates/B11-P2.3mf` with **File → Open Project**. This is the DC conduit's front run; its corners print on B11-P6.
+**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V2_6B_154mm_DUCT_COVER` ×2 · 2 files, 4 objects — 4.3 h, 58 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Check:** Both duct bodies base down, both lids flat; the two 154 mm ducts lie clear of the bed edge.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
-Pause: ~5 min since the last pause — plate B11-P2 running, 6.8 h unattended.
+Pause: ~5 min since the last pause — plate B11-P2 running, 4.3 h unattended.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306)
 
@@ -147,13 +147,29 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
-**Do:** Open `slicer/plates/B11-P3.3mf` with **File → Open Project**. This is the AC conduit, the strip fin and the DC S-jog.
-**Parts:** `V3L_WIRE_BOX_PORT` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15` ×2 · `V3L_90DEG_R15_COVER` ×2 · `CMD_V3_1H_T_SHORT` · `CMD_V2_6B_T_SHORT_COVER` · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · `V2L_STRIP_FIN` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · 10 files, 15 objects — 4.6 h, 73 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Do:** Open `slicer/plates/B11-P3.3mf` with **File → Open Project**. This is the AC conduit and the strip fin; the DC S-jog prints on B11-P6.
+**Parts:** `V3L_WIRE_BOX_PORT` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15` ×2 · `V3L_90DEG_R15_COVER` ×2 · `CMD_V3_1H_T_SHORT` · `CMD_V2_6B_T_SHORT_COVER` · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · `V2L_STRIP_FIN` · 8 files, 11 objects — 3.2 h, 53 g (PrusaSlicer 2.9.6 estimate) · no brim.
 **Check:** Endcaps stand on their flat face, the fin lies plate down, every duct body sits base down.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
-Pause: ~5 min since the last pause — plate B11-P3 running, 4.6 h unattended.
+Pause: ~5 min since the last pause — plate B11-P3 running, 3.2 h unattended.
+
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306)
+
+## Step B11.15 — Load and print plate B11-P6
+
+![Plate B11-P6 — sorting diagram](../assets/plates/B11-P6.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
+
+**Do:** Open `slicer/plates/B11-P6.3mf` with **File → Open Project**. This is the DC conduit's three corners and its S-jog.
+**Parts:** `CMD_V3_1H_90DEG` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_MIRROR` · `V2L_90DEG_COVER_MIRROR` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · 6 files, 10 objects — 4.0 h, 58 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Check:** Every duct body base down, every lid flat.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate B11-P6 running, 4.0 h unattended.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [MSS duct remix, Printables 502306](https://www.printables.com/model/502306)
 
@@ -162,7 +178,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 **Do:** Snap every lid onto its duct once. Check each tine row for strings and each base for elephant foot.
 **Check:** Every lid seats along its full length; no tine is fused to its neighbour; bases are flat.
 
-Pause: ~10 min since the last pause — the P1 to P3 parts inspected and bagged by plate.
+Pause: ~10 min since the last pause — the P1 to P3 and P6 parts inspected and bagged by plate.
 
 Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch)
 
@@ -180,17 +196,22 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **09-ducts-DC** — DC conduit + coupon, B11 | `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR` |
-| **11-lids-DC** — DC lids, B11 | `CMD_V2_6B_154mm_DUCT_COVER` ×2, `CMD_V2_6B_90DEG_COVER` ×2, `V2L_90DEG_COVER_MIRROR` |
+| **09-ducts-DC** — DC conduit + coupon, B11 | `CMD_V3_1H_154mm_DUCT` ×2 |
+| **11-lids-DC** — DC lids, B11 | `CMD_V2_6B_154mm_DUCT_COVER` ×2 |
 
 **B11-P3**
 
 | bin | parts off this plate |
 |---|---|
-| **09-ducts-DC** — DC conduit + coupon, B11 | `CMD_Remix-V3_DUCT-2B_45deg` ×2 |
 | **09-ducts-AC** — AC conduit, B11 | `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 |
 | **10-lids-AC** — AC lids + strip fin, B11 | `CMD_V2_6B_WIRE_BOX_COVER`, `V3L_90DEG_R15_COVER` ×2, `CMD_V2_6B_T_SHORT_COVER`, `V2L_STRIP_FIN` |
-| **11-lids-DC** — DC lids, B11 | `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 |
+
+**B11-P6**
+
+| bin | parts off this plate |
+|---|---|
+| **09-ducts-DC** — DC conduit + coupon, B11 | `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, `CMD_Remix-V3_DUCT-2B_45deg` ×2 |
+| **11-lids-DC** — DC lids, B11 | `CMD_V2_6B_90DEG_COVER` ×2, `V2L_90DEG_COVER_MIRROR`, `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 |
 
 **Check:** 9 pieces in 09-ducts-DC, 6 in 09-ducts-AC, 5 in 10-lids-AC with the strip fin, 7 in 11-lids-DC.
 
@@ -198,7 +219,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 ⚠ **Before the next ASA plate:** satin sheet back on, and **Settings → Chamber Filtration** reads **Adv. Filtration**. On None the AFS blower never runs and ASA vents unfiltered.
 
-Pause: ~10 min since the last pause — B11-P1 to P3 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.
+Pause: ~10 min since the last pause — B11-P1 to P3 and P6 are binned. Swap the satin sheet back on and set Adv. Filtration for B08.
 
 Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates](../../voron-print-plan.md#9-machine-readable-batch-summary)
 
@@ -215,7 +236,7 @@ Source: [print/README § Bins](README.md#bins) · [print plan §9 — B11 plates
 1. Run each lead along the extrusion between the drives, then down the Z chain's path to the deck notch. Tape-mark it there.
 2. Measure mark to plug tip, minus B11.10's LDO length.
 
-**Check:** A has at least 215 mm spare and B at least 150 mm. Either way, print P4 and P5 on schedule.
+**Check:** A has at least 215 mm spare and B at least 150 mm. Either way, print P4, P5 and P7 on schedule.
 
 ```gate-calc
 id: b11-ab-leads
@@ -224,21 +245,21 @@ inputs:
   - key: a
     label: A motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-1 length (mm)
     min: 215
-    low: Short by the v3 route's ~195 mm. Make a longer A motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4 and P5 on schedule.
+    low: Short by the v3 route's ~195 mm. Make a longer A motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
     why: The v3 route adds about 195 mm to A, so 215 mm spare leaves about 20 mm of slack at the header.
   - key: b
     label: B motor lead, notch mark to plug tip, minus B11.10's notch-to-HV-STEPPER-0 length (mm)
     min: 150
-    low: Short by the v3 route's ~129 mm. Make a longer B motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4 and P5 on schedule.
+    low: Short by the v3 route's ~129 mm. Make a longer B motor lead (4-pin JST-XH, same wire gauge `(verify on bench)`) before Ch 10 fits it. Layout v3 stands; print P4, P5 and P7 on schedule.
     why: The v3 route adds about 129 mm to B, so 150 mm spare leaves about 20 mm of slack at the header.
-pass: Confirmed. Both leads reach as is; print P4, then P5 if the gap allows, while Ch 07 and Ch 08 run.
+pass: Confirmed. Both leads reach as is; print P4, then P5 and P7 if the gap allows, while Ch 07 and Ch 08 run.
 ```
 
-⚠ **If a lead is short:** make a longer replacement lead — a 4-pin JST-XH cable, same wire gauge as the stock lead `(verify on bench)` — rather than dropping back to layout v1; Ch 10 fits it with the motor. P4 and P5 print now regardless.
+⚠ **If a lead is short:** make a longer replacement lead — a 4-pin JST-XH cable, same wire gauge as the stock lead `(verify on bench)` — rather than dropping back to layout v1; Ch 10 fits it with the motor. P4, P5 and P7 print now regardless.
 
 Tip: The Z chain hangs at the rear from the A drive down to its guide by the deck, as p.201 shows. Hold the kit's chain there and follow it `(verify on bench)`.
 
-Pause: ~15 min since the last pause — both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4 and P5 are unaffected.
+Pause: ~15 min since the last pause — both leads measured after Checkpoint 06 and logged; leads hang loose again, tape marks off, nothing fastened. A short lead means making a longer replacement before Ch 10; P4, P5 and P7 are unaffected.
 
 Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and bench checks, check 1 · `layout-v2/layout-v2.md` § Component shifts · [Voron manual p.201](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=201) · [Ch 10 Step 10.41](../10-wiring.md#step-1041-a-motor-hv-stepper-1) · [Ch 10 Step 10.42](../10-wiring.md#step-1042-b-motor-hv-stepper-0) · [Ch 10 Step 10.61](../10-wiring.md#step-1061-secure-the-a-and-b-motor-cables)
 
@@ -250,16 +271,16 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Clearance and ben
 2. Caliper the rows below.
 3. String LDO's duct route from the notch to `HV-STEPPER-1` and `HV-STEPPER-0`; log both.
 
-**Check:** Every row entered, both string lengths logged. The gap row decides P5, the SSR row the stub, regenerated at B11.11 only from 112 mm.
+**Check:** Every row entered, both string lengths logged. The gap row decides P5/P7, the SSR row the stub, regenerated at B11.11 only from 112 mm.
 
 ```gate-calc
 id: b11-bay-gaps
-title: B11 bay gaps — what P4 and P5 are cut to
+title: B11 bay gaps — what P4, P5 and P7 are cut to
 inputs:
   - key: gap
     label: Leviathan PCB rear edge to PSU front (mm)
     min: 25.0
-    low: Skip B11-P5. Print the fallback instead, stock T_REG in place of each narrowed T plus one 82 mm straight, and keep LDO's PVC middle duct.
+    low: Skip B11-P5 and B11-P7. Print the fallback instead, stock T_REG in place of each narrowed T plus one 82 mm straight, and keep LDO's PVC middle duct.
     why: The narrowed middle run is 22.0 mm across its body and needs 1.5 mm of air on each side.
   - key: ssr
     label: SSR rear edge, with its DIN tab, to the WAGO port face (mm)
@@ -271,16 +292,16 @@ inputs:
     label: PSU front-right corner to the right T's rear fillet, PSU moved 6 mm left (mm)
     min: 2.0
     optional: true
-    hint: Estimate from the overlay, 2 or more; the T prints on P5 and is not on the bench yet. Step 09.16 re-checks on the real T.
+    hint: Estimate from the overlay, 2 or more; the T prints on P7 and is not on the bench yet. Step 09.16 re-checks on the real T.
     low: Move the PSU 8 mm left instead and leave the 10 mm piece at the SSR run's right end off P4.
     why: At 4 mm the narrowed T's fillet touches the PSU; 6 mm is the layout's estimate and it is tight.
   - key: fill
     label: Kit day. The full middle bundle lies below the coupon's lid rail
     kind: yesno
     optional: true
-    no: The narrowed run is too tight for this harness. Skip B11-P5 and print the fallback.
+    no: The narrowed run is too tight for this harness. Skip B11-P5 and B11-P7 and print the fallback.
     why: Six stepper leads, HV, two 24 V pairs and the SSR signal have to lie under a 13.8 mm lid rail.
-pass: Measured. Regenerate any piece whose gap differs, then print P4, and P5 only if the gap row passed.
+pass: Measured. Regenerate any piece whose gap differs, then print P4, and P5 and P7 only if the gap row passed.
 ```
 
 **Helper:** Reads each caliper number back aloud and writes it into the log.
@@ -361,14 +382,30 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
 
 **Do:** Print this plate only if the coupon passed and the gap measured 25 mm or more. Otherwise print the fallback listed under Options instead.
-**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 4 files, 8 objects — 6.8 h, 93 g (PrusaSlicer 2.9.6 estimate) · no brim.
-**Check:** Both narrowed 154s and both narrowed Ts base down, lids flat.
+**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · 2 files, 4 objects — 4.2 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim. The narrowed Ts follow on B11-P7.
+**Check:** Both narrowed 154s base down, lids flat.
 
 ⚠ **Fallback:** stock `CMD_V3_1H_T_REG` and `CMD_V3_1H_82mm_DUCT` are drawn base up. Load them with `slicer/bay-ducts-petg.ini`, place each on its wide flat base, and print their covers as they come.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
 
-Pause: ~5 min since the last pause — plate B11-P5 or the fallback running.
+Pause: ~5 min since the last pause — plate B11-P5 or the fallback running; B11-P7 follows if P5 printed.
+
+Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches)
+
+## Step B11.16 — Load and print plate B11-P7
+
+![Plate B11-P7 — sorting diagram](../assets/plates/B11-P7.png)
+
+*Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
+
+**Do:** Print this plate only if B11-P5 printed: the coupon passed and the gap measured 25 mm or more. Otherwise the fallback replaces it too.
+**Parts:** `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 2 files, 4 objects — 2.7 h, 38 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Check:** Both narrowed Ts base down, lids flat.
+
+Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
+
+Pause: ~5 min since the last pause — plate B11-P7 running, 2.7 h unattended.
 
 Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches)
 
@@ -389,17 +426,24 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 
 | bin | parts off this plate |
 |---|---|
-| **09-ducts-DC** — DC conduit + coupon, B11 | `V3L_154N_DUCT` ×2, `V3L_T_REG_N` ×2 |
-| **11-lids-DC** — DC lids, B11 | `V3L_154N_DUCT_COVER` ×2, `V3L_T_REG_N_COVER` ×2 |
+| **09-ducts-DC** — DC conduit + coupon, B11 | `V3L_154N_DUCT` ×2 |
+| **11-lids-DC** — DC lids, B11 | `V3L_154N_DUCT_COVER` ×2 |
 
-**Fallback, printed instead of B11-P5** (gap under 25 mm)
+**B11-P7**
+
+| bin | parts off this plate |
+|---|---|
+| **09-ducts-DC** — DC conduit + coupon, B11 | `V3L_T_REG_N` ×2 |
+| **11-lids-DC** — DC lids, B11 | `V3L_T_REG_N_COVER` ×2 |
+
+**Fallback, printed instead of B11-P5 and B11-P7** (gap under 25 mm)
 
 | bin | parts of the fallback |
 |---|---|
 | **09-ducts-DC** — DC conduit + coupon, B11 | `CMD_V3_1H_T_REG` ×2, `CMD_V3_1H_82mm_DUCT` |
 | **11-lids-DC** — DC lids, B11 | `CMD_V2_6B_T_REG_COVER` ×2, `CMD_V2_6B_82mm_DUCT_COVER` |
 
-**Check:** P4 sorted 6, 3, 3 and 6 into 09-ducts-DC, 09-ducts-AC, 10-lids-AC and 11-lids-DC; P5 or the fallback into the DC two.
+**Check:** P4 sorted 6, 3, 3 and 6 into 09-ducts-DC, 09-ducts-AC, 10-lids-AC and 11-lids-DC; P5 and P7, or the fallback, into the DC two.
 
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
@@ -412,9 +456,9 @@ Source: [print/README § Bins](README.md#bins)
 ---
 
 ## Checkpoint B11
-- [ ] Coupon lid snaps home and holds, tested before B11-P5
+- [ ] Coupon lid snaps home and holds, tested before B11-P5 and P7
 - [ ] A/B leads confirmed after Checkpoint 06; a longer replacement lead made before Ch 10 if either was short
-- [ ] Leviathan-to-PSU gap measured: B11-P5 printed, or the fallback with LDO's PVC middle duct
+- [ ] Leviathan-to-PSU gap measured: B11-P5 and P7 printed, or the fallback with LDO's PVC middle duct
 - [ ] SSR-to-WAGO measured; the stub regenerated at B11.11 if the gap was 112 mm or more
 - [ ] TH, probe, filter-fan and bed L leads confirmed against layout v3 in Ch 09/10, not on kit day
 - [ ] Every lid snaps onto its duct; bodies in 09-ducts-DC and 09-ducts-AC, lids in 10-lids-AC with the strip fin and 11-lids-DC
@@ -423,7 +467,7 @@ Source: [print/README § Bins](README.md#bins)
 
 ## Common mistakes
 - Printing PETG V0 on the smooth sheet. It can tear the coating; use the textured sheet.
-- Printing B11-P5 before the coupon test and the gap measurement. Both can send it to the fallback.
+- Printing B11-P5 or P7 before the coupon test and the gap measurement. Both can send it to the fallback.
 - Slicing a regenerated piece with the ASA bundle. B11 uses `slicer/bay-ducts-petg.ini` only.
 - Leaving Adv. Filtration to hold the flaps shut on a PETG plate printed without the B11 bundle.
 - Starting the next ASA plate with Chamber Filtration still on None. The AFS blower never runs, so the styrene goes into the room.

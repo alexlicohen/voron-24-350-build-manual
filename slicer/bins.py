@@ -442,13 +442,13 @@ ADDON_PARTS: dict[str, list[dict]] = {
 
 # --------------------------------------------------------- fallback parts
 # On no plate, printed only in place of a plate: if Step B11.10 measures the Leviathan-to-PSU gap
-# under 25 mm, B11-P5 is skipped and these stock MSS pieces print instead (B11.13, Options). They
+# under 25 mm, B11-P5 and P7 are skipped and these stock MSS pieces print instead (B11.13, Options). They
 # are pinned in slicer/plates.py PRINTABLES. They count toward no piece total, plate or estimate;
 # they reach the labels, the index and the bag sizing, which takes the worse of the two cases
-# (P5's parts, or these in their place: scenarios() below).
+# (P5's and P7's parts, or these in their place: scenarios() below).
 FALLBACK_WHEN = "only if the Leviathan-to-PSU gap is < 25 mm (Step B11.10)"
 FALLBACK_SHORT = "if gap < 25 mm"
-FALLBACK_PLATE = "B11-P5"
+FALLBACK_PLATES = ("B11-P5", "B11-P7")  # the narrowed middle run; P7 split off 2026-11-06
 FALLBACK_MADE = "fallback, Step B11.13"
 FALLBACK_PARTS: dict[str, list[dict]] = {
     "09-ducts-DC": [
@@ -539,13 +539,13 @@ def pieces(parts: dict[str, dict]) -> int:
 
 def scenarios(parts: dict[str, dict]) -> list[dict[str, dict]]:
     """The sets of entries a bag may have to hold at once: everything but the fallback parts, and,
-    when any are present, the case where they replace FALLBACK_PLATE's parts. Bought entries are in
+    when any are present, the case where they replace FALLBACK_PLATES' parts. Bought entries are in
     both. slicer/bin_bags.py sizes a bag for the worse of the two."""
     base = {k: e for k, e in parts.items() if not e["cond"]}
     if not any(e["cond"] for e in parts.values()):
         return [base]
     alt = {k: e for k, e in parts.items()
-           if e["cond"] or (not e["cond"] and FALLBACK_PLATE not in e["made"])}
+           if e["cond"] or not any(p in e["made"] for p in FALLBACK_PLATES)}
     return [base, alt]
 
 
@@ -565,7 +565,7 @@ BAG_SPLIT: dict[str, list[set[str]]] = {
          "CMD_V3_1H_90DEG.stl", "V2L_70mm_DUCT.stl"},
         {"V2L_90DEG_MIRROR.stl", "CMD_Remix-V3_DUCT-2B_45deg.stl", "V2L_58mm_DUCT.stl",
          "V2L_130mm_DUCT.stl", "V3L_10mm_DUCT.stl"},
-        {"B11-P5", FALLBACK_MADE},
+        {"B11-P5", "B11-P7", FALLBACK_MADE},
     ],
     "14-exhaust": [{"add-on print, Step 14.26 job 1"}, {"add-on print, Step 14.26 job 2", BOUGHT_MADE}],
 }
