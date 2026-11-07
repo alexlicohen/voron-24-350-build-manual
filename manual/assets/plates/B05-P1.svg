@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" font-family="Arial, Helvetica, 'DejaVu Sans', sans-serif">
+<title>Plate B05-P1 — sorting diagram</title>
+<rect x="0" y="0" width="1600" height="940" fill="#fafaf9"/>
+<text x="24.0" y="45.9" font-size="26" fill="#1e1e20" text-anchor="start" font-weight="bold">Plate B05-P1</text>
+<text x="24.0" y="68.9" font-size="14" fill="#6e6e73" text-anchor="start">14 parts  ·  6.2 h  ·  78 g  ·  Galaxy Black ASA  ·  bed 250 × 220 mm  ·  PrusaSlicer 2.9.6 estimate</text>
+<rect x="24.0" y="90.0" width="900.0" height="792.0" fill="#e9e9e6" stroke="#96968f" stroke-width="1.5"/>
+<line x1="204.0" y1="90.0" x2="204.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="384.0" y1="90.0" x2="384.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="564.0" y1="90.0" x2="564.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="744.0" y1="90.0" x2="744.0" y2="882.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="702.0" x2="924.0" y2="702.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="522.0" x2="924.0" y2="522.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="342.0" x2="924.0" y2="342.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<line x1="24.0" y1="162.0" x2="924.0" y2="162.0" stroke="#d5d5d1" stroke-width="1.0"/>
+<text x="30.0" y="876.1" font-size="11" fill="#6e6e73" text-anchor="start">front-left (0,0)</text>
+<text x="918.0" y="104.1" font-size="11" fill="#6e6e73" text-anchor="end">rear</text>
+<path d="M308.0,416.5 371.5,416.0 376.0,419.5 377.0,421.5 377.0,520.5 374.5,523.0 372.5,524.0 368.5,524.0 367.5,525.0 363.5,525.0 362.5,526.0 317.5,526.0 316.5,525.0 311.5,525.0 310.5,524.0 305.5,523.0 303.0,520.5 303.0,421.5 304.0,419.5Z M310.5,436.0 307.0,440.5 308.0,445.5 310.5,447.0 315.5,447.0 318.0,444.5 318.0,442.5 319.0,441.5 318.0,440.5 318.0,438.5 315.5,436.0Z M364.5,436.0 361.0,440.5 362.0,445.5 364.5,447.0 369.5,447.0 372.0,444.5 372.0,438.5 369.5,436.0Z M310.5,494.0 308.0,495.5 307.0,497.5 307.0,500.5 309.5,504.0 311.5,505.0 314.5,505.0 318.0,502.5 318.0,500.5 319.0,499.5 318.0,498.5 318.0,496.5 315.5,494.0Z M364.5,494.0 361.0,498.5 362.0,502.5 365.5,505.0 368.5,505.0 370.5,504.0 372.0,501.5 372.0,496.5 369.5,494.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#7 z_joint_lower_x4.stl → 06-Z-joints</title></path>
+<path d="M594.0,449.5 639.5,449.0 640.5,450.0 650.5,451.0 654.0,454.5 655.0,456.5 655.0,550.5 654.0,551.5 653.0,555.5 650.5,558.0 648.5,559.0 585.5,559.0 583.5,557.0 582.5,557.0 580.0,553.5 580.0,454.5 583.5,451.0 588.5,451.0 589.5,450.0Z M588.5,470.0 586.5,471.0 585.0,473.5 585.0,478.5 587.5,481.0 592.5,481.0 596.0,476.5 595.0,472.5 591.5,470.0Z M642.5,470.0 639.0,472.5 639.0,474.5 638.0,475.5 639.0,476.5 639.0,478.5 641.5,481.0 646.5,481.0 649.0,479.5 650.0,477.5 650.0,474.5 647.5,471.0 645.5,470.0Z M587.5,528.0 585.0,530.5 585.0,536.5 587.5,539.0 592.5,539.0 596.0,534.5 595.0,529.5 592.5,528.0Z M641.5,528.0 639.0,530.5 639.0,532.5 638.0,533.5 639.0,534.5 639.0,536.5 641.5,539.0 646.5,539.0 650.0,534.5 649.0,529.5 646.5,528.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#9 z_joint_lower_x4.stl → 06-Z-joints</title></path>
+<path d="M513.0,353.5 613.5,353.0 618.0,358.5 618.0,421.5 617.0,423.5 613.5,427.0 513.5,427.0 511.0,424.5 511.0,421.5 510.0,420.5 510.0,417.5 509.0,416.5 509.0,412.5 508.0,411.5 508.0,368.5 509.0,367.5 509.0,363.5 510.0,362.5 511.0,355.5Z M534.5,357.0 533.5,358.0 531.5,358.0 530.0,359.5 529.0,364.5 531.5,368.0 533.5,369.0 536.5,369.0 540.0,366.5 541.0,362.5 539.5,359.0Z M591.5,357.0 587.0,360.5 587.0,365.5 589.5,368.0 593.5,369.0 598.0,365.5 598.0,360.5 595.5,358.0Z M591.5,411.0 587.0,414.5 587.0,419.5 589.5,422.0 593.5,423.0 598.0,419.5 598.0,414.5 595.5,412.0Z M532.5,412.0 529.0,416.5 531.0,421.5 538.5,422.0 540.0,419.5 540.0,414.5 537.5,412.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#4 z_joint_lower_x4.stl → 06-Z-joints</title></path>
+<path d="M383.0,302.5 479.5,302.0 481.5,303.0 483.0,304.5 483.0,306.5 484.0,307.5 485.0,317.5 486.0,318.5 486.0,323.5 487.0,324.5 487.0,355.5 486.0,356.5 486.0,360.5 485.0,361.5 485.0,366.5 484.0,367.5 484.0,371.5 483.0,372.5 483.0,374.5 480.5,377.0 381.5,377.0 376.0,370.5 376.0,309.5 377.0,308.5 377.0,306.5 380.5,303.0Z M399.5,307.0 396.0,311.5 396.0,314.5 398.5,318.0 404.5,318.0 407.0,315.5 407.0,309.5 403.5,307.0Z M457.5,307.0 454.0,310.5 454.0,314.5 456.5,318.0 461.5,318.0 463.5,317.0 465.0,314.5 465.0,310.5 461.5,307.0Z M399.5,361.0 396.0,365.5 396.0,368.5 398.5,372.0 404.5,372.0 407.0,369.5 407.0,363.5 403.5,361.0Z M457.5,361.0 454.0,363.5 454.0,369.5 456.5,372.0 462.5,372.0 465.0,368.5 465.0,364.5 461.5,361.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#2 z_joint_lower_x4.stl → 06-Z-joints</title></path>
+<path d="M504.0,579.5 573.5,579.0 574.5,580.0 578.5,581.0 584.0,587.5 584.0,644.5 583.0,646.5 576.5,652.0 500.5,652.0 498.5,651.0 495.0,647.5 494.0,643.5 493.0,642.5 493.0,589.5 494.0,588.5 495.0,584.5 498.5,581.0Z M512.5,607.0 508.0,610.5 508.0,612.5 507.0,613.5 507.0,618.5 509.5,623.0 513.5,625.0 519.5,625.0 525.0,620.5 525.0,617.5 526.0,616.5 525.0,614.5 525.0,611.5 520.5,607.0Z M541.5,607.0 536.0,611.5 535.0,613.5 535.0,618.5 539.5,624.0 541.5,625.0 546.5,625.0 552.0,621.5 553.0,619.5 553.0,612.5 552.0,610.5 547.5,607.0Z M567.5,610.0 563.0,613.5 563.0,618.5 565.5,621.0 569.5,622.0 573.0,620.5 574.0,618.5 574.0,613.5 571.5,611.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#13 z_joint_upper_x4.stl → 06-Z-joints</title></path>
+<path d="M291.0,304.5 347.5,304.0 354.0,309.5 355.0,313.5 356.0,314.5 356.0,385.5 355.0,386.5 355.0,388.5 349.5,394.0 347.5,395.0 291.5,395.0 290.5,394.0 288.5,394.0 284.0,389.5 283.0,387.5 283.0,312.5 285.0,308.5 287.5,306.0Z M317.5,314.0 314.0,316.5 314.0,322.5 316.5,325.0 322.5,325.0 325.0,321.5 325.0,317.5 321.5,314.0Z M317.5,335.0 316.5,336.0 314.5,336.0 311.0,339.5 310.0,341.5 310.0,346.5 313.5,352.0 315.5,353.0 322.5,353.0 324.5,352.0 328.0,347.5 328.0,340.5 325.5,337.0 321.5,335.0Z M316.5,363.0 312.0,365.5 310.0,369.5 310.0,375.5 311.0,377.5 315.5,381.0 322.5,381.0 324.5,380.0 328.0,375.5 328.0,368.5 327.0,366.5 322.5,363.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#1 z_joint_upper_x4.stl → 06-Z-joints</title></path>
+<path d="M615.0,579.5 667.5,579.0 668.5,580.0 672.5,581.0 677.0,585.5 677.0,587.5 678.0,588.5 678.0,660.5 677.0,661.5 676.0,665.5 672.5,669.0 670.5,670.0 612.5,670.0 606.0,664.5 606.0,662.5 605.0,661.5 605.0,587.5 610.5,581.0Z M639.5,593.0 634.0,596.5 632.0,600.5 632.0,604.5 635.5,610.0 639.5,612.0 643.5,612.0 649.0,608.5 651.0,604.5 651.0,600.5 647.5,595.0 643.5,593.0Z M639.5,621.0 634.0,624.5 632.0,631.5 635.5,638.0 637.5,639.0 644.5,639.0 650.0,634.5 650.0,626.5 647.5,623.0 643.5,622.0 642.5,621.0Z M639.5,649.0 636.0,652.5 636.0,657.5 638.5,660.0 644.5,660.0 647.0,657.5 647.0,652.5 642.5,649.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#14 z_joint_upper_x4.stl → 06-Z-joints</title></path>
+<path d="M278.0,547.5 334.5,547.0 338.5,549.0 341.0,551.5 343.0,555.5 343.0,629.5 341.0,633.5 338.5,636.0 334.5,638.0 278.5,638.0 276.5,637.0 271.0,631.5 271.0,629.5 270.0,628.5 270.0,556.5 271.0,555.5 271.0,553.5 276.5,548.0Z M303.5,561.0 298.0,565.5 298.0,568.5 297.0,569.5 298.0,574.5 302.5,579.0 310.5,579.0 315.0,575.5 315.0,573.5 316.0,572.5 316.0,567.5 313.5,563.0 309.5,561.0Z M303.5,589.0 301.5,590.0 298.0,594.5 298.0,601.5 299.0,603.5 303.5,607.0 309.5,607.0 315.0,602.5 316.0,596.5 315.0,595.5 315.0,593.5 311.5,590.0 309.5,589.0Z M303.5,617.0 301.0,619.5 301.0,624.5 302.0,626.5 304.5,628.0 308.5,628.0 310.5,627.0 312.0,625.5 312.0,619.5 309.5,617.0Z" fill-rule="evenodd" fill="#a0522d" stroke="#582d19" stroke-width="1.0" stroke-linejoin="round"><title>#10 z_joint_upper_x4.stl → 06-Z-joints</title></path>
+<path d="M414.0,398.5 482.5,398.0 484.5,399.0 486.0,401.5 486.0,437.5 487.0,438.5 488.0,442.5 492.5,447.0 496.5,448.0 497.5,449.0 544.5,449.0 548.5,451.0 554.0,455.5 558.0,463.5 558.0,539.5 556.5,542.0 554.5,543.0 533.5,543.0 530.5,546.0 512.5,546.0 510.5,543.0 488.5,543.0 487.5,542.0 483.5,541.0 474.0,531.5 472.5,529.0 465.5,525.0 414.5,525.0 413.5,524.0 410.5,524.0 408.5,523.0 401.0,516.5 398.0,509.5 398.0,413.5 401.0,406.5 405.5,402.0 410.5,399.0Z M508.5,464.0 507.5,465.0 505.5,465.0 502.0,468.5 501.0,470.5 501.0,473.5 500.0,474.5 500.0,517.5 501.0,518.5 501.0,521.5 507.5,527.0 536.5,527.0 541.0,523.5 542.0,519.5 543.0,518.5 543.0,472.5 542.0,471.5 542.0,469.5 537.5,465.0 535.5,465.0 534.5,464.0Z M426.5,474.0 423.0,478.5 424.0,482.5 426.5,485.0 443.5,485.0 447.0,480.5 446.0,476.5 443.5,474.0Z" fill-rule="evenodd" fill="#6b8e23" stroke="#3b4e13" stroke-width="1.0" stroke-linejoin="round"><title>#8 z_chain_bottom_anchor.stl → 10-chains</title></path>
+<path d="M398.0,545.5 437.5,545.0 438.5,546.0 441.5,546.0 448.5,550.0 452.0,554.5 454.0,558.5 454.0,561.5 455.0,562.5 455.0,599.5 459.5,603.0 470.5,603.0 473.0,606.5 473.0,612.5 469.5,616.0 463.5,617.0 462.5,618.0 373.5,618.0 372.5,617.0 366.5,616.0 364.0,613.5 364.0,605.5 366.5,603.0 376.5,603.0 377.5,602.0 379.5,602.0 382.0,597.5 382.0,559.5 383.0,558.5 383.0,556.5 384.0,554.5 389.5,549.0 394.5,546.0Z M414.5,573.0 412.5,574.0 409.0,578.5 409.0,584.5 413.5,590.0 415.5,591.0 421.5,591.0 423.5,590.0 427.0,585.5 427.0,577.5 422.5,573.0Z" fill-rule="evenodd" fill="#6b8e23" stroke="#3b4e13" stroke-width="1.0" stroke-linejoin="round"><title>#11 z_chain_guide.stl → 10-chains</title></path>
+<path d="M657.0,371.5 669.0,371.5 669.0,388.5 671.5,389.0 673.0,390.5 673.0,409.5 671.5,411.0 669.0,411.5 668.5,429.0 657.5,429.0 657.0,424.5 652.5,419.0 647.5,419.0 643.5,417.0 639.0,411.5 639.0,388.5 643.5,383.0 647.5,382.0 648.5,381.0 652.5,381.0 657.0,375.5Z" fill-rule="evenodd" fill="#2457c5" stroke="#14306c" stroke-width="1.0" stroke-linejoin="round"><title>#6 z_rail_stop_x4.stl → 02-Z0</title></path>
+<path d="M527.0,298.5 546.5,298.0 548.0,299.5 548.5,302.0 565.5,302.0 566.0,313.5 561.5,314.0 556.0,318.5 556.0,322.5 555.0,323.5 554.0,327.5 548.5,332.0 525.5,332.0 520.0,327.5 519.0,325.5 519.0,322.5 518.0,321.5 518.0,318.5 514.5,315.0 508.0,313.5 508.0,302.5 525.5,302.0Z" fill-rule="evenodd" fill="#1a9c8c" stroke="#0e564d" stroke-width="1.0" stroke-linejoin="round"><title>#3 z_rail_stop_x4.stl → 02-Z1</title></path>
+<path d="M642.0,304.5 647.5,304.0 651.5,307.0 656.5,309.0 658.5,311.0 663.5,313.0 669.0,317.5 670.0,319.5 670.0,324.5 668.0,328.5 668.0,334.5 669.0,336.5 673.0,339.5 673.0,341.5 667.5,350.0 652.5,341.0 649.5,344.0 648.5,344.0 644.5,341.0 639.5,339.0 632.0,333.5 633.0,331.5 632.5,329.0 622.5,324.0 620.5,322.0 618.0,321.5 622.0,312.5 623.5,311.0 626.5,313.0 631.5,313.0 632.5,312.0 634.5,312.0 637.0,309.5 637.0,308.5Z" fill-rule="evenodd" fill="#7b4fc4" stroke="#442b6c" stroke-width="1.0" stroke-linejoin="round"><title>#5 z_rail_stop_x4.stl → 02-Z2</title></path>
+<path d="M433.0,640.5 452.5,640.0 454.0,641.5 454.5,644.0 471.5,644.0 473.0,645.5 473.0,655.5 467.5,656.0 463.0,659.5 463.0,661.5 462.0,662.5 462.0,666.5 457.5,673.0 455.5,673.0 454.5,674.0 431.5,674.0 426.0,669.5 425.0,667.5 425.0,662.5 423.0,658.5 418.5,656.0 414.0,655.5 414.0,645.5 415.5,644.0 431.5,644.0Z" fill-rule="evenodd" fill="#3fa9e0" stroke="#235d7b" stroke-width="1.0" stroke-linejoin="round"><title>#12 z_rail_stop_x4.stl → 02-Z3</title></path>
+<rect x="409.5" y="446.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff"/>
+<text x="441.5" y="464.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">8</text>
+<text x="441.5" y="475.0" font-size="12" fill="#1e1e20" text-anchor="middle">10-chains</text>
+<text x="431.5" y="341.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="431.5" y="351.5" font-size="12" fill="#ffffff" text-anchor="middle">06-Z-joints</text>
+<text x="609.5" y="509.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 609.5 503.5)">9</text>
+<text x="624.5" y="507.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 624.5 503.5)">06-Z-joints</text>
+<text x="331.5" y="476.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold" transform="rotate(-90 331.5 470.5)">7</text>
+<text x="346.5" y="474.8" font-size="12" fill="#ffffff" text-anchor="middle" transform="rotate(-90 346.5 470.5)">06-Z-joints</text>
+<text x="563.5" y="391.1" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<text x="563.5" y="401.5" font-size="12" fill="#ffffff" text-anchor="middle">06-Z-joints</text>
+<rect x="624.5" y="590.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
+<text x="633.5" y="630.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 633.5 624.5)">14</text>
+<text x="648.5" y="628.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 648.5 624.5)">06-Z-joints</text>
+<rect x="302.5" y="315.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
+<text x="311.5" y="355.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 311.5 349.5)">1</text>
+<text x="326.5" y="353.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 326.5 349.5)">06-Z-joints</text>
+<rect x="289.5" y="558.5" width="34.0" height="68.0" rx="3.0" fill="#ffffff"/>
+<text x="298.5" y="598.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold" transform="rotate(-90 298.5 592.5)">10</text>
+<text x="313.5" y="596.8" font-size="12" fill="#1e1e20" text-anchor="middle" transform="rotate(-90 313.5 592.5)">06-Z-joints</text>
+<rect x="504.5" y="598.5" width="68.0" height="34.0" rx="3.0" fill="#ffffff"/>
+<text x="538.5" y="617.1" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">13</text>
+<text x="538.5" y="627.5" font-size="12" fill="#1e1e20" text-anchor="middle">06-Z-joints</text>
+<rect x="385.5" y="570.0" width="64.0" height="31.0" rx="3.0" fill="#ffffff"/>
+<text x="417.5" y="588.6" font-size="17" fill="#1e1e20" text-anchor="middle" font-weight="bold">11</text>
+<text x="417.5" y="599.0" font-size="12" fill="#1e1e20" text-anchor="middle">10-chains</text>
+<line x1="443.5" y1="658.5" x2="443.5" y2="679.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="420.5" y="679.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#3fa9e0" stroke-width="1.4"/>
+<text x="441.5" y="693.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z3</text>
+<rect x="431.5" y="650.5" width="24.0" height="16.0" rx="3.0" fill="#3fa9e0"/>
+<text x="443.5" y="664.6" font-size="17" fill="#1a1a1e" text-anchor="middle" font-weight="bold">12</text>
+<line x1="654.5" y1="399.5" x2="654.5" y2="369.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="631.5" y="354.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#2457c5" stroke-width="1.4"/>
+<text x="652.5" y="368.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z0</text>
+<rect x="647.0" y="391.5" width="15.0" height="16.0" rx="3.0" fill="#2457c5"/>
+<text x="654.5" y="405.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">6</text>
+<line x1="536.5" y1="316.5" x2="536.5" y2="292.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="513.5" y="277.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#1a9c8c" stroke-width="1.4"/>
+<text x="534.5" y="291.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z1</text>
+<rect x="529.0" y="308.5" width="15.0" height="16.0" rx="3.0" fill="#1a9c8c"/>
+<text x="536.5" y="322.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<line x1="651.5" y1="325.5" x2="651.5" y2="301.0" stroke="#333336" stroke-width="1.2"/>
+<rect x="628.5" y="286.0" width="42.0" height="15.0" rx="3.0" fill="#ffffff" fill-opacity="0.94" stroke="#7b4fc4" stroke-width="1.4"/>
+<text x="649.5" y="300.0" font-size="12" fill="#1e1e20" text-anchor="middle">02-Z2</text>
+<rect x="644.0" y="317.5" width="15.0" height="16.0" rx="3.0" fill="#7b4fc4"/>
+<text x="651.5" y="331.6" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
+<text x="950.0" y="40.0" font-size="13" fill="#6e6e73" text-anchor="start" font-weight="bold">Bins on this plate</text>
+<rect x="950.0" y="48.0" width="46.0" height="18.0" rx="4.0" fill="#2457c5"/>
+<text x="973.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">02-Z0</text>
+<rect x="1002.0" y="48.0" width="46.0" height="18.0" rx="4.0" fill="#1a9c8c"/>
+<text x="1025.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">02-Z1</text>
+<rect x="1054.0" y="48.0" width="46.0" height="18.0" rx="4.0" fill="#7b4fc4"/>
+<text x="1077.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">02-Z2</text>
+<rect x="1106.0" y="48.0" width="46.0" height="18.0" rx="4.0" fill="#3fa9e0"/>
+<text x="1129.0" y="61.3" font-size="12" fill="#1a1a1e" text-anchor="middle" font-weight="bold">02-Z3</text>
+<rect x="1158.0" y="48.0" width="74.0" height="18.0" rx="4.0" fill="#a0522d"/>
+<text x="1195.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">06-Z-joints</text>
+<rect x="1238.0" y="48.0" width="70.0" height="18.0" rx="4.0" fill="#6b8e23"/>
+<text x="1273.0" y="61.3" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold">10-chains</text>
+<text x="950.0" y="102.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">Parts on this plate  —  # · STL · bin (chapter · steps)</text>
+<rect x="950.0" y="116.0" width="12.0" height="12.0" rx="2.0" fill="#a0522d"/>
+<text x="968.0" y="125.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">1, 10, 13, 14</text>
+<text x="1043.0" y="126.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_joint_upper_x4.stl  ×4</text>
+<text x="1043.0" y="140.1" font-size="11" fill="#6e6e73" text-anchor="start">06-Z-joints · Z joints and lower Z belt clips · Ch 06 · 06.3–06.9</text>
+<rect x="950.0" y="152.0" width="12.0" height="12.0" rx="2.0" fill="#a0522d"/>
+<text x="968.0" y="161.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">2, 4, 7, 9</text>
+<text x="1043.0" y="162.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_joint_lower_x4.stl  ×4</text>
+<text x="1043.0" y="176.1" font-size="11" fill="#6e6e73" text-anchor="start">06-Z-joints · Z joints and lower Z belt clips · Ch 06 · 06.3–06.9</text>
+<rect x="950.0" y="188.0" width="12.0" height="12.0" rx="2.0" fill="#1a9c8c"/>
+<text x="968.0" y="197.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">3</text>
+<text x="1043.0" y="198.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_rail_stop_x4.stl</text>
+<text x="1043.0" y="212.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z1 · Z1 corner (rear-left, _b hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="224.0" width="12.0" height="12.0" rx="2.0" fill="#7b4fc4"/>
+<text x="968.0" y="233.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">5</text>
+<text x="1043.0" y="234.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_rail_stop_x4.stl</text>
+<text x="1043.0" y="248.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z2 · Z2 corner (rear-right, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="260.0" width="12.0" height="12.0" rx="2.0" fill="#2457c5"/>
+<text x="968.0" y="269.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">6</text>
+<text x="1043.0" y="270.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_rail_stop_x4.stl</text>
+<text x="1043.0" y="284.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z0 · Z0 corner (front-left, _a hand) · Ch 02 · 02.01–02.44</text>
+<rect x="950.0" y="296.0" width="12.0" height="12.0" rx="2.0" fill="#6b8e23"/>
+<text x="968.0" y="305.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">8</text>
+<text x="1043.0" y="306.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_chain_bottom_anchor.stl</text>
+<text x="1043.0" y="320.1" font-size="11" fill="#6e6e73" text-anchor="start">10-chains · Z cable chain anchor, guide, retainer · Ch 10 · 10.35, 10.62–10.64</text>
+<rect x="950.0" y="332.0" width="12.0" height="12.0" rx="2.0" fill="#6b8e23"/>
+<text x="968.0" y="341.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">11</text>
+<text x="1043.0" y="342.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_chain_guide.stl</text>
+<text x="1043.0" y="356.1" font-size="11" fill="#6e6e73" text-anchor="start">10-chains · Z cable chain anchor, guide, retainer · Ch 10 · 10.35, 10.62–10.64</text>
+<rect x="950.0" y="368.0" width="12.0" height="12.0" rx="2.0" fill="#3fa9e0"/>
+<text x="968.0" y="377.0" font-size="12" fill="#6e6e73" text-anchor="start" font-weight="bold">12</text>
+<text x="1043.0" y="378.0" font-size="13" fill="#1e1e20" text-anchor="start" font-weight="bold">z_rail_stop_x4.stl</text>
+<text x="1043.0" y="392.1" font-size="11" fill="#6e6e73" text-anchor="start">02-Z3 · Z3 corner (front-right, _b hand) · Ch 02 · 02.01–02.44</text>
+<text x="24.0" y="900.1" font-size="11" fill="#6e6e73" text-anchor="start">no brim on this plate — the preview should show none</text>
+<text x="24.0" y="915.1" font-size="11" fill="#6e6e73" text-anchor="start">outlines from slicer/plates/B05-P1.3mf (the committed project) · scripts/render_plate_bins.py · bins: slicer/bins.py</text>
+</svg>

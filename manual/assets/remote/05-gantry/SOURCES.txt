@@ -1,0 +1,19 @@
+# Mirrored step images for docs/manual/05-gantry.md
+# Fetched 2026-09-05 (R6 B3). Each entry: local file, the URL as cited in the
+# chapter, the pinned-commit URL actually downloaded, the owner, and the licence.
+
+ti-backer-face-layout.jpeg
+  cited-as: https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/main/extrusion_backers/images/x_axis.jpeg
+  fetched : https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/62268ed/extrusion_backers/images/x_axis.jpeg
+  owner   : tanaes (github.com/tanaes/whopping_Voron_mods)
+  licence : GPL-3.0 (tanaes/whopping_Voron_mods/LICENSE)
+  date    : 2026-09-05
+  sha256  : fa42df961743f0eff8d29b8cdcc432edb50597cec588089a589250dc7855eff1
+
+ti-backer-x-rear-face.png
+  cited-as: https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/main/extrusion_backers/images/fusion_x_chainmount.png
+  fetched : https://raw.githubusercontent.com/tanaes/whopping_Voron_mods/62268ed/extrusion_backers/images/fusion_x_chainmount.png
+  owner   : tanaes (github.com/tanaes/whopping_Voron_mods)
+  licence : GPL-3.0 (tanaes/whopping_Voron_mods/LICENSE)
+  date    : 2026-09-05
+  sha256  : 887ad003153f9d08485e0251b28c1aafbe3f8effa40028f45ca2d58bd8b6e78a
