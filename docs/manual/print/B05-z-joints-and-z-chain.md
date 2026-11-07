@@ -49,8 +49,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B05.5.*
 
-**Do:** Open `slicer/plates/B05-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation, no brim. Do **not** include `z_joint_upper_hall_effect.stl`.
-**Parts:** the fourteen pieces above — 6.2 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4.
+**Do:** Open `slicer/plates/B05-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation. Do **not** include `z_joint_upper_hall_effect.stl`.
+**Parts:** the fourteen pieces above — 6.2 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4 · 3 mm brim on `z_joint_lower_x4` ×4, `z_chain_bottom_anchor` and `z_chain_guide`, already in the project.
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.

@@ -150,7 +150,7 @@ not a cited spec — treat it as adjustable if the calibration cube (below) says
 | Supports | on (auto off) | **None** | every Voron/LDO/Nevermore STL is pre-oriented with built-in break-away supports where needed | Manual; Nevermore README; Klicky STL README |
 | [Seam](../16-glossary.md#s) position | Aligned | **Nearest**, scarf on smooth contours | seams go to the nearest corner, off flat and mating faces; on smooth curves a 20 mm scarf joint (outer contours only, so holes and bores keep the plain seam). Rear ran a seam stripe up the middle of flat back faces | Alex 2026-11-04 (rear before) |
 | [Skirt](../16-glossary.md#s) loops | 0 | **0** (no skirt) | Alex 2026-10-28: no skirts; the start G-code's purge line primes the nozzle | Alex |
-| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 50 mm or longer; gap 0.30 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
+| [Brim](../16-glossary.md#b) | off | **off globally; 5 mm on the tall/narrow parts, 3 mm on the 150–182 mm skirts and on every part 30 mm or longer; gap 0.30 mm** — already applied per object in the committed 3MFs, see §Orientation & brim below | ASA corner lift on long flat parts and tippy tall parts | Prusa warping KB; lift maps, Alex 2026-11-05 |
 | **XY size compensation** | 0 | **keep 0** | Voron: "The parts have been designed with ABS/ASA shrinkage in mind… shrinkage should be set to 100 %. Compensating for this is likely to make bearing fits and screw holes too large." | docs.vorondesign.com/materials.html |
 | [Elephant-foot](../16-glossary.md#e) compensation | 0.20 | **keep 0.20 for now, verify on the cube** | shrinks only the first layer; several Voron parts have a bearing bore starting at the bed — measure before changing | judgment |
 | External perimeter speed | 50 | **35** | surface finish and corner accuracy on the visible skirts; speed is not a goal here | judgment |
@@ -222,7 +222,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.7 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.9 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -360,10 +360,11 @@ on a plate lifts at the ends — and a few smaller flat ones with them: **3 mm b
 `side_fan_support_x2`, `keystone_panel`, `power_inlet_IECGS_1mm`, `exhaust_cover`, `V2_Duo_Plenum`,
 `Regular_Cartridge`, `wago_221-415_mount_3by5`, `exhaust_filter_grill`, `cob_light_strip_mount_100mm`.
 
-**Every big part gets a brim too (Alex 2026-11-05).** Any part 50 mm or more on its longest footprint side gets at least
-**3 mm** (`plates.BIG_PART_BRIM`), on top of the edge margin (25 mm since 2026-11-06). On lift map 2, long bars without a brim lifted at
+**Every part 30 mm or longer gets a brim too (Alex 2026-11-05; 30 mm since 2026-11-07, was 50).** Any part 30 mm or more on its
+longest footprint side gets at least **3 mm** (`plates.BIG_PART_BRIM`, threshold `plates.BRIM_MIN_MM`), on top of the edge margin (25 mm since 2026-11-06). On lift map 2, long bars without a brim lifted at
 all four corners even 20 mm in, and the same bars with a brim stayed flat; a brim at the old 5–8 mm edge still lifted
-slightly. The two rules work together. ASA only: B11's PETG V0 plates stay brimless, since their bundle's 0.1 mm
+slightly. On B02-P3 (11-07) two unbrimmed parts under 50 mm lifted 37–45 mm from the edges, the
+`z_tensioner_9mm`'s arms and a `z_drive_baseplate_a` corner, so the threshold dropped to 30 mm. The two rules work together. ASA only: B11's PETG V0 plates stay brimless, since their bundle's 0.1 mm
 brim gap would fuse a PETG brim to the part (a 0.3 mm gap already fused on PETG).
 
 **Brim separation is 0.30 mm (Alex 2026-11-06; 0.35 briefly the same day, 0.30 from 2026-11-05, 0.15 before).** At 0.15
@@ -410,7 +411,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.7 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 150.9 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

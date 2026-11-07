@@ -51,7 +51,7 @@ rather than against them.
   slice this batch in 2.9.7, or mirror the STL outside the slicer.
   [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 - `Hinge-L-sleeve/solid-2X` (55.0 mm on a 20.9×19.5 footprint) and `Latch.stl` (58.0 mm) carry a **5 mm brim
-  already in the project**; the two `Handle-Hinge_*` parts, 50 mm or longer, a 3 mm one; `Panel_Clip` has none. Verify in the preview, never add.
+  already in the project**; the two `Handle-Hinge_*` parts, 30 mm or longer, a 3 mm one; `Panel_Clip` has none. Verify in the preview, never add.
 
 ## Step B10.1 — Filament prep
 

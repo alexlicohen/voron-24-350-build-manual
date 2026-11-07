@@ -107,11 +107,11 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.5.*
 
 **Do:** Open `slicer/plates/B06-P2.3mf` with **File → Open Project**. Do not rebuild the arrangement.
-**Parts:** 11 files, 12 objects, 3 mm brim on `Dock_mount_fixed_v2`, already in the project — 4.0 h, 51 g (PrusaSlicer 2.9.6 estimate); the Klicky set:
+**Parts:** 11 files, 12 objects, 3 mm brim on the dock, its mount and the four magnet and press-fit holders and helpers, already in the project — 4.0 h, 51 g (PrusaSlicer 2.9.6 estimate); the Klicky set:
 `KlickyProbe_v2` ×2; `Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`; `Probe_pressfit_holder`;
 `KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`; `Mount_magnet_holder`;
 `Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
-**Check:** The dock is the *fixed* variant; a brim outline on the dock mount only.
+**Check:** The dock is the *fixed* variant; brim outlines on the dock, its mount and the four magnet and press-fit holders and helpers only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 

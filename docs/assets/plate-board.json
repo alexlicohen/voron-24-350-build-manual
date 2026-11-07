@@ -323,13 +323,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 3.7,
-   "grams": 59,
+   "hours": 3.9,
+   "grams": 63,
    "colour": "black",
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 771,
+   "remaining": 767,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -344,7 +344,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 706,
+   "remaining": 702,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -353,13 +353,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 4.6,
-   "grams": 67,
+   "hours": 4.5,
+   "grams": 65,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 639,
+   "remaining": 637,
    "diagram": "../../manual/assets/plates/B09-P3.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -374,7 +374,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 592,
+   "remaining": 590,
    "diagram": "../../manual/assets/plates/B09-P4.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -383,13 +383,13 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 3.9,
+   "hours": 4.0,
    "grams": 60,
    "colour": "black",
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 532,
+   "remaining": 530,
    "diagram": "../../manual/assets/plates/B09-P5.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -404,7 +404,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 457,
+   "remaining": 455,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
    "milestone": "Last ASA plate off the bed: all 27 plates of the run are done."
@@ -519,7 +519,7 @@
   {
    "run": "asa",
    "plates": 27,
-   "hours": 150.7,
+   "hours": 150.9,
    "label": "27-plate run"
   },
   {
@@ -531,9 +531,9 @@
  ],
  "totals": {
   "plates": 34,
-  "hours": 175.8,
+  "hours": 176.0,
   "overnight": 6,
   "run_plates": 27,
-  "run_hours": 150.7
+  "run_hours": 150.9
  }
 }

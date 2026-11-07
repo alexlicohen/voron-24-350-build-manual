@@ -62,8 +62,8 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `wago_221-415_mount_3by5` · `pcb_din_clip` · `handlebar_spacer` ×2 · 5 files, 7 objects — 5.7 h, 88 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the inlet, the Wago mount, the two 100 mm mounts and the DIN clip, none on the spacers, already in the project.
-**Check:** No face re-orientation, all flat as shipped; brim outlines on every part but the two handlebar spacers.
+**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `wago_221-415_mount_3by5` · `pcb_din_clip` · `handlebar_spacer` ×2 · 5 files, 7 objects — 5.7 h, 88 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Check:** No face re-orientation, all flat as shipped; a brim outline on every part, the handlebar spacers included.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
@@ -88,8 +88,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×4 · `pcb_din_clip` · `handlebar_spacer` ×2 · 3 files, 7 objects — 5.0 h, 79 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the four 100 mm mounts and the DIN clip, already in the project ([orientation & brim](00-slicer-setup.md#orientation-brim)), none on the spacers.
-**Check:** Brim outlines on the four 100 mm mounts and the DIN clip only; four COB mounts on the plate.
+**Parts:** `cob_light_strip_mount_100mm` ×4 · `pcb_din_clip` · `handlebar_spacer` ×2 · 3 files, 7 objects — 5.0 h, 79 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project ([orientation & brim](00-slicer-setup.md#orientation-brim)).
+**Check:** A brim outline on every part; four COB mounts on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 

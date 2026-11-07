@@ -140,22 +140,24 @@ BRIM_3MM = {
 }
 
 
-BIG_PART_BRIM = 3.0  # every big part (geom.BIG_PART_MM) gets at least this (Alex 2026-11-05)
+BIG_PART_BRIM = 3.0  # every part of BRIM_MIN_MM or more gets at least this (Alex 2026-11-05)
+# Alex 2026-11-07: 30 mm (was geom.BIG_PART_MM, 50). On B02-P3, the unbrimmed z_tensioner_9mm
+# (36 mm, arms lifted) and z_drive_baseplate_a (44 mm) lifted 37-45 mm from the edges.
+BRIM_MIN_MM = 30.0
 
 
 def brim_for(path: str, footprint: float = 0.0, colour: str = "") -> float:
     """Brim width in mm for one STL: by filename, and at least BIG_PART_BRIM when the
-    footprint's longest side (`footprint`, mm) makes it a big part. Lift-map 2: unbrimmed
+    footprint's longest side (`footprint`, mm) is BRIM_MIN_MM or more. Lift-map 2: unbrimmed
     bars lifted at the corners even 20 mm in; brimmed ones stayed flat. ASA only: the
     "petg" plates (B11) print brimless, as reviewed, since bay-ducts-petg.ini's 0.1 mm
     brim gap fuses PETG (a 0.3 gap already fused on the storage prints)."""
-    from geom import BIG_PART_MM
     if colour == "petg":
         return 0.0
     name = path.rsplit("/", 1)[-1]
     if name in BRIM_5MM:
         return 5.0
-    if name in BRIM_3MM or footprint >= BIG_PART_MM:
+    if name in BRIM_3MM or footprint >= BRIM_MIN_MM:
         return BIG_PART_BRIM
     return 0.0
 
@@ -410,7 +412,8 @@ PLATES: dict[str, dict] = {
         parts=[
             ("ldov2", "STLs/exhaust_cover.stl", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
+            # 2 since 2026-11-07: one moved from B09-P3, which no longer fits with 30 mm-rule brims
+            ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 2),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_6mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 2),
@@ -434,7 +437,6 @@ PLATES: dict[str, dict] = {
             ("nevermore", "V5_Duo/V2/V2_Duo_Plenum.stl", 1),
             ("nevermore", "V5_Duo/V2/Regular_Cartridge_Lid(contributed_by_Bucknova).3mf", 1),
             ("voron2", "STLs/Panel_Mounting/bottom_panel_hinge_x2.stl", 1),
-            ("voron2", "STLs/Panel_Mounting/bottom_panel_clip_x4.stl", 1),
             ("voron2", "STLs/Panel_Mounting/corner_panel_clip_4mm_x8.stl", 2),
             ("voron2", "STLs/Panel_Mounting/midspan_panel_clip_4mm_x7.stl", 2),
         ]),

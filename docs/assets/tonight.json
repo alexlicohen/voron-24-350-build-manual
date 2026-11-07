@@ -1369,16 +1369,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P1",
-     "print_hours": 3.7,
+     "print_hours": 3.9,
      "run": "asa",
-     "leave_state": "plate B09-P1 running, 3.7 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P1 running, 3.9 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.2",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 3.7 h unattended · leave-state: plate B09-P1 running, 3.7 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P1 (Step B09.2) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P1 running, 3.9 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#1",
@@ -1417,16 +1417,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P3",
-     "print_hours": 4.6,
+     "print_hours": 4.5,
      "run": "asa",
-     "leave_state": "plate B09-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P3 running, 4.5 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.6",
        "Reads the sorting diagram legend aloud and counts the parts on it while you load."
       ]
      ],
-     "text": "Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 4.6 h unattended · leave-state: plate B09-P3 running, 4.6 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P3 (Step B09.6) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B09-P3 running, 4.5 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#3",
@@ -1465,16 +1465,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P5",
-     "print_hours": 3.9,
+     "print_hours": 4.0,
      "run": "asa",
-     "leave_state": "plate B09-P5 running, 3.9 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P5 running, 4.0 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.16",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B09-P5 (Step B09.16) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B09-P5 running, 3.9 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P5 (Step B09.16) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B09-P5 running, 4.0 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#5",

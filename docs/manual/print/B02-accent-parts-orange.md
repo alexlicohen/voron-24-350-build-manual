@@ -68,7 +68,7 @@ bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
 - Most commonly reprinted here: `[a]_stealthburner_main_body` — the most-looked-at part in the build.
 - `[a]_stealthburner_main_body` has **built-in supports** — snap them out, don't cut.
 - `Handle.stl` is 60 mm tall on a 68×19 footprint — the project already carries its 5 mm brim, and every
-  other part 50 mm or longer a 3 mm one (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). You
+  other part 30 mm or longer a 3 mm one (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). You
   verify them in the preview; you do not add them.
 - `[a]_keystone_blank_insert` ×2 covers a panel with 2 slots against 1 LDO-supplied CAT6 keystone — 1 used, 1 spare.
 
@@ -179,8 +179,8 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P4.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **8 files, 10 objects**, 3 mm brims on two parts.
-**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.0 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover` and the backer bridge, already in the project.
-**Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on those two parts only.
+**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.0 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover`, the backer bridge, `[a]_tensioner_right` and `[a]_latch`, already in the project.
+**Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on those two, `[a]_tensioner_right` and `[a]_latch` only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
 
