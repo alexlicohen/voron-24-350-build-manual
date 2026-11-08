@@ -10,9 +10,9 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 20.9 h (4 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.0 h (4 plates) — PrusaSlicer 2.9.6 estimates.
 
-**Sessions:** 4 plate starts (~5 min hands-on each, 7.1 / 8.2 / 2.6 / 3.0 h unattended) + ~20 min inspect and bin.
+**Sessions:** 4 plate starts (~5 min hands-on each, 7.1 / 8.2 / 2.6 / 3.1 h unattended) + ~20 min inspect and bin.
 
 **Prerequisites:** **Gate A passed** (Step B00.5 — the cube; a colour change doesn't skip the calibration
 requirement). Gate B is not needed: no bearing seat, rail fit or insert boss on these plates is load-bearing
@@ -179,7 +179,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P4.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **8 files, 10 objects**, 3 mm brims on two parts.
-**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.0 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover`, the backer bridge, `[a]_tensioner_right` and `[a]_latch`, already in the project.
+**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.1 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover`, the backer bridge, `[a]_tensioner_right` and `[a]_latch`, already in the project.
 **Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on those two, `[a]_tensioner_right` and `[a]_latch` only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.

@@ -20,7 +20,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 
 **The run prints in numeric order and overlaps the build.** Rows 1–13 cover the pre-B00 checks and every batch in numeric order, B00 → B10 (row 3 is Ch 00a): 150.9 h ≈ 17 printer-days ≈ 2½ weeks at two plate swaps a day. The hardware trays (PLA, 15.1 h, [print/README § Bench prints](print/README.md#bench-prints-outside-the-plates)) print before B00. The bench work under them is Ch 00a and Ch 00's own pre-kit steps (00.8–00.11: tools, flat reference and bins; 00.14–00.16: Gate B's insert row; 00.23–00.32: the manual's front matter, the measurement log, the gating question; and Ch 12 Steps 12.2–12.3, writing MainsailOS to the bought microSD — marked `(pre-kit)` so [Tonight](00-tonight.md) offers them), plus reading a chapter and sorting a batch into its bins as each plate comes off. Rows 14–31 are the build: start each once the bins in its "needs" list are full. From kit day on, the build rows are what runs while the remaining batches print; the reading in rows 4–13's *While it prints* is for the plates before the kit. Numeric order fills them in the order the chapters use them (B01 + B02 for Ch 02, B03 Ch 04, B04 Ch 05, B05 Ch 06, B06 + B07 Ch 08, B07 Ch 09, B08–B10 Ch 11), so the later batches print under the early chapters. B11, which Ch 09 also needs, cuts in after B07 (rows 32–33).
 
-**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 7 plates of PETG V0, 25.1 h, outside the run and its 150.9 h. Their row numbers are not their place in the order; their needs are. Row 32 is listed, and prints, right after B07 (row 10), before B08; row 33 prints at the next free slot after the kit-day bay measurements (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting, and must be off the bed before Ch 09 (row 24) fits the ducts. B08–B10 wait at no cost: Ch 10.50 and Ch 11 Part A are the first steps that need them. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
+**Rows 32–33 are B11, the bay ducting**, appended rather than renumbered: 7 plates of PETG V0, 25.1 h, outside the run and its 151.0 h. Their row numbers are not their place in the order; their needs are. Row 32 is listed, and prints, right after B07 (row 10), before B08; row 33 prints at the next free slot after the kit-day bay measurements (Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting, and must be off the bed before Ch 09 (row 24) fits the ducts. B08–B10 wait at no cost: Ch 10.50 and Ch 11 Part A are the first steps that need them. The A/B lead check after Checkpoint 06 only decides whether a longer replacement lead is made before Ch 10.
 
 - **1 · Both** — **Pre-B00 checks on Gen 1 belts: belt pluck, hot first layer, brim-gap ladder** · ~2 h · needs: Step B00.0 (PrusaSlicer set up)
     - *While it prints:* Nothing prints yet. Open the first black spool into the USS drybox, read [00-slicer-setup](print/00-slicer-setup.md), confirm the satin sheet (no glue)
@@ -38,7 +38,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
     - *While it prints:* Ch 00a (row 3); read Ch 00
     - *Gate:* Batch gate on the bearing seats, calipered. Both deck-support sets, `deck_support_3mm` ×8 and `deck_support_4mm` ×8, are printed on B01-P2; the kit-day deck caliper picks one
     - *Sessions:* 2 plate starts
-- **5 · Print** — [B02 — Accent parts, the accent day](print/B02-accent-parts-orange.md) · 20.9 h print · needs: Gate A
+- **5 · Print** — [B02 — Accent parts, the accent day](print/B02-accent-parts-orange.md) · 21.0 h print · needs: Gate A
     - *While it prints:* Read Ch 01; sort B01 into bins 02-Z0 … 02-deck
     - *Gate:* SB main body supports out clean, LED pockets crisp; `Handle` set aside for B10; accent spool re-sealed
     - *Sessions:* 3 plate starts
@@ -150,7 +150,7 @@ Markers: **KIT** = needs the Voron kit to have arrived · **2P** = two people ·
 
 | | |
 |---|---|
-| Print time | **150.9 h** across 27 plates in 11 batches (1820 g black, 279 g blue) — B00 → B10 in numeric order, overlapping the build |
+| Print time | **151.0 h** across 27 plates in 11 batches (1820 g black, 279 g blue) — B00 → B10 in numeric order, overlapping the build |
 | Hands-on time | **60.9 h** — the sum of the chapter Time midpoints (Ch 06b's ~1 h cold squaring pass is on top of Ch 06's figure); the chapters' `Pause:` lines add up to about 65 h without the optional add-ons |
 | Printing, elapsed | **~15 printer-days ≈ 2–2½ weeks**, overlapping the build from Ch 02 on (swap-limited, ~10 print-hours/day; the floor is ~7 days if you change plates the minute each one ends) |
 | Building, elapsed | **~2.8 weeks ≈ 3 weeks** at 22 h/week |
@@ -202,7 +202,7 @@ Full table with grams and plate counts: [print/README.md](print/README.md). Prof
 |---|---|---|---|
 | [B00 — Calibration & jigs](print/B00-calibration-and-jigs.md) | Test cube, heat-set coupon, rail guides, pulley jig, one Z-drive retainer as the bore coupon | 1 · 3.8 | None — it *is* the gate: Gate A on the day, Gate B's bore row the same day |
 | [B01 — Z drive assemblies](print/B01-z-drive-assemblies.md) | Z drive bodies, retainers, motor mounts, Z tensioner brackets, deck supports | 2 · 22.9 | **Gate B** (bore) |
-| [B02 — Accent parts (blue)](print/B02-accent-parts-orange.md) | Every accent part in the build, in one session | 4 · 20.9 | Gate A |
+| [B02 — Accent parts (blue)](print/B02-accent-parts-orange.md) | Every accent part in the build, in one session | 4 · 21.0 | Gate A |
 | [B03 — A/B drive units + front idlers](print/B03-ab-drive-units-and-front-idlers.md) | A and B drive frames, both front idler pairs | 2 · 8.6 | Gate B |
 | [B04 — XY joints + X carriage](print/B04-xy-joints-and-x-carriage.md) | MGN12 XY joint set, X carriage halves, `probe_retainer_bracket` | 1 · 8.8 | Gate B |
 | [B05 — Z joints + Z chain](print/B05-z-joints-and-z-chain.md) | Upper and lower Z joints, Z chain anchor and guide | 1 · 6.2 | Gate B |

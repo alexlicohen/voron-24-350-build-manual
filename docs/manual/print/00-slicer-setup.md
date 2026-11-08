@@ -222,7 +222,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 150.9 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 151.0 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -314,15 +314,16 @@ starting the next plate. Don't print 100 g on top of a known problem.
 
 ## Orientation & brim
 
-**Do not change which face sits on the bed.** Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships
+**Do not change which face sits on the bed.** Every Voron, LDO, Klicky and Clicky-Clack STL ships
 pre-oriented for support-free printing. Rotating a part **about Z** (in the plane of the bed) to make it fit
-is fine — it does not change the layer orientation. Two exceptions to the face rule:
+is fine — it does not change the layer orientation. Three exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
-   21 mm-wide footprint, unlike the stock part which lies flat. The committed B02-P4 project already lays it
-   flat to match the stock `[a]_xy_joint_cable_bridge_2hole` (fixed in the GUI 2026-10-23); a plate rebuilt
-   from the STLs would stand it up again.
-2. The two Clicky-Clack `Hinge-L-*` parts. As designed the hinges are on the **left** and the door opens from
+   21 mm-wide footprint. A plate rebuilt from the STLs stood it up again, and its overhangs printed poorly
+   (2026-11-08). `plates.ORIENT` now lays it on its largest flat face in every rebuild of B02-P4.
+2. The Nevermore `Regular_Cartridge_Lid` (Bucknova) is drawn rim-and-ribs down, so its 1.2 mm panel would
+   bridge about 3900 mm². `plates.ORIENT` flips it so the solid face is on the bed (B09-P3).
+3. The two Clicky-Clack `Hinge-L-*` parts. As designed the hinges are on the **left** and the door opens from
    the right; mirror both hinge files (2.9.6 only — the 3.0 preview has no mirror tool) if the printer's
    left side will be against a wall. The handle and latch are symmetric.
    [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
@@ -411,7 +412,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 150.9 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 151.0 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 

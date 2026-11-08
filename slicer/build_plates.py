@@ -110,14 +110,15 @@ def _write_oriented(src: Path, dst: Path, mode: str) -> None:
 def source_stl(repo: str, path: str) -> str:
     """Local path for one source. The two Nevermore cartridges ship as 3MF;
     fetch_stls.py leaves them as-is and we slice from a converted STL. A file named in
-    plates.ORIENT (B11's MSS pieces, drawn base-up) is sliced from a rotated copy under
-    slicer/stl/.oriented/, rewritten whenever the source is newer."""
+    plates.ORIENT (B11's MSS pieces, drawn base-up; a 3MF by its own name, applied to the
+    converted STL) is sliced from a rotated copy under slicer/stl/.oriented/, rewritten
+    whenever the source is newer."""
     rel = local_path(repo, path)
     if rel.endswith(".3mf"):
         stl = rel[:-4] + ".stl"
         if not (STL / stl).exists():
             run([PRUSA, "--export-stl", "-o", str(STL / stl), str(STL / rel)])
-        return stl
+        rel = stl
     mode = ORIENT.get(Path(path).name)
     if mode:
         out = f"{ORIENTED}/{rel}"

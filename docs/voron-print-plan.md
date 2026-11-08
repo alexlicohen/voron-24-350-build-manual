@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 27 plates · **150.9 h** print time · **1820 g Galaxy Black + 279 g ASA Blue** ·
+**Totals at a glance:** 27 plates · **151.0 h** print time · **1820 g Galaxy Black + 279 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 7 plates · 25.1 h · 349 g Jet Black PETG V0 (§3, §9).
@@ -242,11 +242,11 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 to B02-P4** ≈ 48 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 150.9 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 151.0 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 150.9 h ≈ 16 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10**, 151.0 h ≈ 16 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 and P6 right after B07, before B08, and P4, P5 and P7 at the next free slot
 after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all seven and
 nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
@@ -360,7 +360,7 @@ B02 is the third batch, so both colour changes fall in the first days of the run
 - **Plate B02-P1** (7.1 h, 97 g): `[a]_faceplate` centred, `Handle` (5 mm brim), and accent parts: `[a]_fan_grill_b`, `[a]_z_drive_baseplate_b`, `[a]_belt_guard_a/b`, `[a]_endstop_pod_D2F_switch`, `[a]_z_tensioner_9mm` ×2, `[a]_z_belt_clip_upper/lower`, `[a]_belt_tensioner_a/b`, `[a]_guidler_b`, `[a]_keystone_blank_insert`, `[a]_z_chain_retainer_bracket`.
 - **Plate B02-P2** (8.2 h, 108 g): `[a]_stealthburner_main_body` centred, `[a]_fan_grill_a` ×2, `[a]_z_drive_baseplate_a/b`, `[a]_belt_guard_b`, `[a]_xy_joint_cable_bridge_2hole`, `[a]_tensioner_left`, `[a]_z_tensioner_9mm`, `[a]_z_belt_clip_upper/lower`, `[a]_belt_tensioner_b`, `[a]_guidler_a`, `ldo_bestagon_insert`, `[a]_pcb_spacer`, `[a]_z_chain_retainer_bracket`.
 - **Plate B02-P3** (2.6 h, 36 g): `[a]_fan_grill_retainer` ×2, `[a]_fan_grill_b`, `[a]_z_drive_baseplate_a`, `[a]_belt_guard_a`, `[a]_z_tensioner_9mm`, `[a]_belt_tensioner_a`.
-- **Plate B02-P4** (3.0 h, 38 g): `[a]_cable_cover`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_tensioner_right`, `[a]_latch`, `[a]_latch_shuttle`, `[a]_z_belt_clip_upper/lower` ×2 each, `[a]_keystone_blank_insert`. Split from B02-P3 on 2026-11-06 for the 25 mm edge margin (§4.3).
+- **Plate B02-P4** (3.1 h, 38 g): `[a]_cable_cover`, `XY_cable_chain_bridge-Igus-3mm_backer`, `[a]_tensioner_right`, `[a]_latch`, `[a]_latch_shuttle`, `[a]_z_belt_clip_upper/lower` ×2 each, `[a]_keystone_blank_insert`. Split from B02-P3 on 2026-11-06 for the 25 mm edge margin (§4.3).
 
 Copies of the ×2 and ×4 Z-drive parts are split across the plates, so no plate carries a whole set.
 
@@ -723,7 +723,7 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 150.9 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 151.0 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
@@ -771,15 +771,17 @@ first few weighings.
 
 ### 5.1 Orientation and brim
 
-**Do not change which face sits on the bed.** Every Voron, LDO, Klicky, Nevermore and Clicky-Clack STL ships
+**Do not change which face sits on the bed.** Every Voron, LDO, Klicky and Clicky-Clack STL ships
 pre-oriented for support-free printing. Rotating a part **about Z** (in the plane of the bed) to make it fit is
 fine — it does not change the layer orientation, and several plates rely on it (the arranger turns parts in 5° steps).
-Two exceptions to the face rule:
+Three exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
-   21 mm-wide footprint, unlike the stock part which lies flat. **Check it in the preview before slicing** — if
-   it isn't sitting on a flat face, lay it down to match the stock `[a]_xy_joint_cable_bridge_2hole`.
-2. Mirror the two Clicky-Clack `Hinge-L-*` parts if you want the door to swing the other way.
+   21 mm-wide footprint; printed that way its overhangs came out poorly (2026-11-08). `plates.ORIENT` lays it
+   on its largest flat face (21 mm tall, 731 mm² on the bed), so every rebuilt B02-P4 prints it flat.
+2. The Nevermore `Regular_Cartridge_Lid` (Bucknova) is drawn rim-and-ribs down, which leaves its 1.2 mm panel
+   bridging about 3900 mm². `plates.ORIENT` flips it so the solid face is on the bed.
+3. Mirror the two Clicky-Clack `Hinge-L-*` parts if you want the door to swing the other way.
 
 **No part in this build exceeds 150 mm in Z.** The tallest are, in order:
 
@@ -907,7 +909,7 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 150.9 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 151.0 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -969,7 +971,7 @@ mechanical chapters need).
 |---|---|---:|---:|---:|---:|---|---|
 | B00 | Calibration & jigs | 1 | 3.8 | 51 | 0 | Frame | — |
 | B01 | Z drive assemblies | 2 | 22.9 | 309 | 0 | Z Drives and Idlers | B00;B02 |
-| B02 | Accent parts (blue) | 4 | 20.9 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
+| B02 | Accent parts (blue) | 4 | 21.0 | 0 | 279 | *(accent for Z Drives and Idlers, A/B Drives and Idlers, Gantry, Stealthburner, Skirts)* | B00 |
 | B03 | A/B drive units + front idlers | 2 | 8.6 | 120 | 0 | A/B Drives and Idlers | B00;B02 |
 | B04 | XY joints + X carriage | 1 | 8.8 | 117 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.2 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
@@ -978,13 +980,13 @@ mechanical chapters need).
 | B08 | Skirts + front modules | 5 | 26.5 | 397 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 20.7 | 300 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 75 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **27** | **150.9** | **1820** | **279** | | |
+| **TOTAL** | | **27** | **151.0** | **1820** | **279** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
 B00,Calibration & jigs,1,3.8,51,0,Frame,
 B01,Z drive assemblies,2,22.9,309,0,Z Drives and Idlers,B00;B02
-B02,Accent parts (blue),4,20.9,0,279,Multiple (accent),B00
+B02,Accent parts (blue),4,21.0,0,279,Multiple (accent),B00
 B03,A/B drive units + front idlers,2,8.6,120,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.8,117,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.2,78,0,Z Axis;A/B Belts,B00;B02;B04
@@ -993,7 +995,7 @@ B07,Electronics bay + lighting,3,15.2,225,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,5,26.5,397,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,20.7,300,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,75,0,Panels (front door),B00;B02;B09
-TOTAL,,27,150.9,1820,279,,
+TOTAL,,27,151.0,1820,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -1006,7 +1008,7 @@ B01-P2,B01,8.3,109,black
 B02-P1,B02,7.1,97,blue
 B02-P2,B02,8.2,108,blue
 B02-P3,B02,2.6,36,blue
-B02-P4,B02,3.0,38,blue
+B02-P4,B02,3.1,38,blue
 B03-P1,B03,4.4,61,black
 B03-P2,B03,4.2,59,black
 B04-P1,B04,8.8,117,black

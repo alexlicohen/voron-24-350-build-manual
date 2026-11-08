@@ -506,16 +506,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B02-P4",
-     "print_hours": 3.0,
+     "print_hours": 3.1,
      "run": "asa",
-     "leave_state": "plate B02-P4 running, 3.0 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B02-P4 running, 3.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B02.10",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B02-P4 (Step B02.10) · ~5 min hands-on, then 3.0 h unattended · leave-state: plate B02-P4 running, 3.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B02-P4 (Step B02.10) · ~5 min hands-on, then 3.1 h unattended · leave-state: plate B02-P4 running, 3.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b02-accent-parts-orange#4",

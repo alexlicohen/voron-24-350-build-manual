@@ -112,6 +112,11 @@ ORIENT: dict[str, str] = {
         "V3L_90DEG_R15.stl", "V3L_WIRE_BOX_PORT.stl")},
     "CMD_Remix-V3_DUCT-1M_ENDCAP.stl": "ec",
     "V2L_STRIP_FIN.stl": "side",
+    # Alex 2026-11-08: drawn standing up; B02-P4's print came out with poor overhangs. ec lays
+    # its 731 mm2 flat face down: 21 mm tall, overhang >45 deg 581 -> 237 mm2.
+    "XY_cable_chain_bridge-Igus-3mm_backer.stl": "ec",
+    # Drawn rim-and-ribs down, so the 1.2 mm panel bridged ~3900 mm2; flip puts the solid face down.
+    "Regular_Cartridge_Lid(contributed_by_Bucknova).3mf": "flip",
 }
 
 # Per-part brim, from 00-slicer-setup.md § "Orientation & brim".
