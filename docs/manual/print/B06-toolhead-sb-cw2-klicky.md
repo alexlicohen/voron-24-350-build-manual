@@ -1,6 +1,6 @@
-# Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+# Batch B06 — Toolhead: Stealthburner, Clockwork 2.5, Klicky
 
-The Stealthburner and Clockwork 2 black parts print on B06-P1, the Klicky probe set on B06-P2. The Klicky set is
+The Stealthburner r2 and Clockwork 2.5 black parts print on B06-P1, the Klicky probe set on B06-P2. The Klicky set is
 printed here and **bagged as the alternative probe** — this build fits the inductive probe, and Ch 08 Step
 08.54 is where the bag is set aside, unbuilt.
 
@@ -13,8 +13,8 @@ caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakf
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 4.0 h unattended) + ~20 min inspect and bin.
 
-**Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the CW2 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
-main body, guidler, latch, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
+**Prerequisites:** **Gate B passed** (Step B00.7 — the hotend seat and the Clockwork 2.5 gear bores; the caliper and insert rows run early, on what is already on the bench). B02 (SB
+main body, guidler and latch off B02-P5, latch shuttle, pcb spacer) and B04 feed the same assembly chapter and
 are not print prerequisites; the toolhead chapter also needs `probe_retainer_bracket.stl` from B04, fitted
 in Ch 07/08, not in a batch.
 
@@ -27,9 +27,9 @@ in Ch 07/08, not in a batch.
 | `stealthburner_printhead_revo_voron_rear_cw2.stl` | Stealthburner `STLs/Stealthburner/Printheads/revo_voron/` | 1 | Black | 15.0 | 08-SB |
 | `[o]_stealthburner_LED_carrier.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.9 | 08-SB |
 | `[o]_stealthburner_LED_diffuser_mask.stl` | Stealthburner `STLs/Stealthburner/` | 1 | Black (opaque) | 0.3 | 08-SB |
-| `main_body.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 23.7 | 08-CW2 |
-| `motor_plate.stl` (Clockwork 2) | Stealthburner `STLs/Clockwork2/Direct_Drive/` | 1 | Black | 14.1 | 08-CW2 |
-| `cw2_captive_pcb_cover.stl` | Nitehawk-SB `STLs/` | 1 | Black | 10.9 | 08-CW2 |
+| `main_body_collet.stl` (Clockwork 2.5) | Stealthburner `STLs/Clockwork2.5/Direct_Drive/` | 1 | Black | – | 08-CW2 |
+| `motor_plate.stl` (Clockwork 2.5) | Stealthburner `STLs/Clockwork2.5/Direct_Drive/` | 1 | Black | – | 08-CW2 |
+| `cable_cover.stl` (Clockwork 2.5) | Stealthburner `STLs/Clockwork2.5/` | 1 | Black | – | 08-CW2 |
 | `KlickyProbe_v2.stl` | Klicky `Probes/KlickyProbe/STL/` | 2 *(1 + spare, per the mod's own advice)* | Black | 2.5 | spare-alt |
 | `Probe_Dock_v2.1.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 3.1 | spare-alt |
 | `Probe_magnet_holder.stl` | Klicky `Probes/KlickyProbe/STL/` | 1 | Black | 2.3 | spare-alt |
@@ -54,9 +54,12 @@ Chain Anchor Tilted" printed).
   that seat is a kit-day row. Klicky: **count and bag, do not build** — no magnets are pressed in this batch
   or anywhere else in this manual (Ch 08 Step 08.54).
 - Most commonly reprinted here: `KlickyProbe_v2` — that's why two are printed, in case the option is ever taken up.
-- Hotend file choice is settled: E3D Revo Voron → the `revo_voron` folder, `..._rear_cw2` for Clockwork 2.
-- `cw2_captive_pcb_cover` is LDO's improved cable door (captive screw + external chamber thermistor); the
-  stock alternative is `Clockwork2/cable_door_for_pcb.stl` if you'd rather use it.
+- Hotend file choice is settled: E3D Revo Voron → the `revo_voron` folder, `..._rear_cw2` for Clockwork 2 and 2.5 (the r2 release kept the name).
+- Extruder body: `main_body_collet`, which takes a 4 mm Bowden collet and its clip. `main_body_ecas04` is the
+  alternative and is not printed.
+- Toolboard cover: the stock Clockwork 2.5 `cable_cover`, checked in CAD against the Nitehawk-SB V2. LDO's
+  `cw2_captive_pcb_cover` is a Clockwork 2 part and is no longer printed.
+- The three Clockwork 2.5 rows carry no g ea figure; the plate total below is the sliced one.
 - Klicky dock: **fixed** mount chosen for simplicity. If you later add the Decontaminator purge bucket, you
   need `Dock_sidemount_fixed_v2.stl` + `Dock_sidemount_left_v2.stl` instead (~25 g, 1.5 h) — not printed here.
 - The `Probe_*_pressfit_helper` / `_holder` parts are jigs for pressing the 6×3 magnets in square. Print
@@ -66,7 +69,7 @@ Chain Anchor Tilted" printed).
 
 **Do:** Galaxy Black on a **fresh spool #2**: spool #1 holds only 125 g after B05, and this plate carries the Revo seat. Keep the stub for a clip reprint. Sheet per
 [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
-**Check:** Clean purge; spool #2 mounted and ≥148 g on it for both plates.
+**Check:** Clean purge; spool #2 mounted and ≥146 g on it for both plates.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
 
@@ -79,10 +82,10 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B06-P1.3mf` with **File → Open Project**. Do not rebuild the arrangement.
 Confirm the loaded objects match the Parts list and that the printhead files came from the `revo_voron`
 folder.
-**Parts:** 7 files, 7 objects, 3 mm brim on the two printhead halves, `main_body`, `motor_plate` and `cw2_captive_pcb_cover`, already in the project — 7.6 h, 97 g (PrusaSlicer 2.9.7 estimate);
+**Parts:** 7 files, 7 objects, 3 mm brim on the two printhead halves, `main_body_collet`, `motor_plate` and `cable_cover`, already in the project — 7.6 h, 95 g (PrusaSlicer 2.9.7 estimate);
 `stealthburner_printhead_revo_voron_front`; `stealthburner_printhead_revo_voron_rear_cw2`;
-`[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body` (CW2);
-`motor_plate` (CW2); `cw2_captive_pcb_cover`.
+`[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body_collet` (CW2.5);
+`motor_plate` (CW2.5); `cable_cover` (CW2.5).
 **Check:** Printhead files confirmed from `revo_voron/`; brim outlines on those five parts only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -154,7 +157,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 | bin | parts off this plate |
 |---|---|
 | **08-SB** — Stealthburner body, printhead, LEDs | `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` |
-| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `main_body`, `motor_plate`, `cw2_captive_pcb_cover` |
+| **08-CW2** — Clockwork 2.5 extruder, toolboard + USB covers | `main_body_collet`, `motor_plate`, `cable_cover` |
 
 **B06-P2**
 

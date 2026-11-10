@@ -18,7 +18,7 @@ caption: Jigs and one gate cube. The cube decides whether anything else prints. 
 **Prerequisites:** slicer set up per [00-slicer-setup.md](00-slicer-setup.md) — Step B00.0 below walks the
 one-time wizard, and runs first. Then the pre-B00 checks (index row 1) must pass — see **Before B00: belt and
 hot-bed checks**, right after Step B00.0; the hot check opens a project on the presets B00.0 installs.
-**Step B00.8** — reviewing all 34 committed plates in PrusaSlicer together — runs before B00-P1 prints.
+**Step B00.8** — reviewing all 35 committed plates in PrusaSlicer together — runs before B00-P1 prints.
 
 **Printed parts**
 
@@ -66,7 +66,7 @@ the kit's own 153 inserts stay untouched.
 
 **Check:** Printer `Prusa CORE One HF0.4 nozzle (modified)`, print `0.20mm STRUCTURAL (modified)`, filament `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`; hover to read it whole.
 
-⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 34 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
+⚠ The printer box's `(modified)` is the **cold-probe start G-code**, baked into all 35 projects. Leave it: never reset that box to its system value, and never pick the `- coldstart` preset first, because the project already carries the identical block.
 
 ⚠ The project did **not** load if the printer or print box lacks `(modified)`, the filament box reads bare `Prusament ASA @COREONE HF0.4` with no `.3mf (` prefix, the estimate at Step B00.2 is wrong, or the printer box names another printer.
 
@@ -78,7 +78,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 151.3 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 155.2 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
 leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
 not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the
@@ -148,7 +148,7 @@ The check projects are not plates of the run and sit outside every total. `pytho
 rebuilds all three from `slicer/voron-coreone-asa.ini` and slices them to prove one layer, five squares,
 a 110 °C bed and the heater off before every probe tap, and that each ladder square's sliced gap matches
 its setting; `--check` only re-slices the committed files. The
-27 plates carry the cold start until the comparison above says otherwise.
+28 plates carry the cold start until the comparison above says otherwise.
 
 ## Plate review, B00-P1 and the gates
 
@@ -160,16 +160,16 @@ step inside B00's own plate. Do it before B00-P1 starts.
 
 **Do:**
 
-1. Open each of the 34 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.7.
+1. Open each of the 35 committed 3MFs, B00 through B11, in PrusaSlicer 2.9.7.
 2. Slice it, scrub the layer slider, and compare time and grams to the plate board.
 3. Tick it off, then open the next plate.
 
-The 3MFs are `slicer/plates/<id>.3mf` — the 27 ASA plates of B00–B10, then B11's 7 PETG V0 bay-ducting
+The 3MFs are `slicer/plates/<id>.3mf` — the 28 ASA plates of B00–B10, then B11's 7 PETG V0 bay-ducting
 plates. The generated [plate review checklist](../../print/checklists.md#plate-review-b008) has one
 box per plate, with the batch, material, sheet and the plate board's time and grams already filled in,
 so nothing here gets hand-typed.
 
-**Check:** All 34 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
+**Check:** All 35 plates ticked on the checklist. Flat face, no supports, correct spacing and accent colour. Any re-saved plate rebuilt and check_docs.py green.
 
 **Helper:** Drives the layer slider on each plate and reads the time and grams aloud for the tally.
 
@@ -181,7 +181,7 @@ Re-review done 2026-11-03: the arranger re-packed B02-P2, B03-P1, B07-P1 to B07-
 - No supports anywhere. The 2.9 print-stability warnings on drive frames, Stealthburner and Klicky
   parts are by design — see them and move on.
 - Spacing looks even; nothing touching or crossing.
-- The four accent plates (B02-P1–P4) are on the blue preset, everything else on black.
+- The five accent plates (B02-P1–P5) are on the blue preset, everything else on black.
 - B11's seven plates are on the PETG V0 preset and the **textured** sheet, not the satin one.
 - B11-P4, P5 and P7 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
   them now for arrangement and settings anyway; reprint only if kit day changes a duct length.

@@ -424,15 +424,15 @@ Source: [Voron docs image verifysteppers.gif](https://raw.githubusercontent.com/
 
 (no image — see text)
 
-**What you're looking at:** The extruder motor lives on the toolhead and drives the Clockwork 2's pair of geared wheels that grip the filament. With no filament loaded, all you are looking for is those gears turning back and forth.
+**What you're looking at:** The extruder motor lives on the toolhead and drives the Clockwork 2.5's pair of geared wheels that grip the filament. With no filament loaded, all you are looking for is those gears turning back and forth.
 
 **Parts:** none.
 
 **Do:** Send `STEPPER_BUZZ STEPPER=extruder` with no filament loaded.
 
-**Check:** The Clockwork 2 gears turn back and forth. Direction is not tested here; it is tested when you first extrude, at Step 13.40.
+**Check:** The Clockwork 2.5 gears turn back and forth. Direction is not tested here; it is tested when you first extrude, at Step 13.40.
 
-**Helper:** Watches the Clockwork 2 gears and says whether they turned both ways.
+**Helper:** Watches the Clockwork 2.5 gears and says whether they turned both ways.
 
 Tip: if nothing moves, check `[extruder] step_pin: nhk:PB8 / dir_pin: nhk:PB9 / enable_pin: !nhk:PC14`. Those are the **V2** pins; the V1 config's `gpio23/24/25` silently does nothing on this board.
 
@@ -1125,7 +1125,7 @@ The first print is the last check in this chapter, not the start of tuning. The 
 
 **Do:** *Config first.* Add `max_extrude_only_distance: 150` to `[extruder]`; Klipper's default is **50 mm**, so a single `G1 E100` errors out with "Extrude only move too long". `G0 Z30` if still homed, hand under the gantry, `RESTART`.
 
-*Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; it heats and waits. Wipe the extruded blob off the nozzle.
+*Load filament.* Spool on the holder arm, filament through the PTFE reverse-bowden, tip cut square, fed down the tube to the Clockwork 2.5 gears. Send `G28`, then `LOAD_FILAMENT TEMP=260`; it heats and waits. Wipe the extruded blob off the nozzle.
 
 *Measure.* Park with `G0 X175 Y10 Z50 F6000`, still at 260 °C. Put a piece of tape on the filament at the **120 mm** mark, measured from where the filament enters the extruder. Then extrude 100 mm slowly, in relative mode, at 1 mm/s:
 
@@ -1163,10 +1163,10 @@ Tip: write the value you end on into `[extruder] rotation_distance`; hand under 
     introduces. If you would rather not raise `max_extrude_only_distance`, the Voron
     guide's way is to extrude 50 mm twice instead.
 
-    Starting value for Clockwork 2 is `rotation_distance: 22.6789511` with
-    `gear_ratio: 50:10`; expect to land within about ±2 % of that. If you are 5 %+ off,
-    you have the wrong `gear_ratio` (50:17 is Clockwork **1**), not a calibration
-    problem.
+    Starting value for Clockwork 2.5, which keeps Clockwork 2's Bondtech gears, is
+    `rotation_distance: 22.6789511` with `gear_ratio: 50:10`; expect to land within
+    about ±2 % of that. If you are 5 %+ off, you have the wrong `gear_ratio` (50:17
+    is Clockwork **1**), not a calibration problem.
 
 Source: [Voron startup wizard § Extruder calibration (e-steps)](https://docs.vorondesign.com/build/startup/startup.html#extruder-calibration-e-steps) · [Klipper docs § Rotation distance](https://www.klipper3d.org/Rotation_Distance.html) · [Klipper docs § SET_EXTRUDER_ROTATION_DISTANCE](https://www.klipper3d.org/G-Codes.html#set_extruder_rotation_distance) · [Ellis' Print Tuning Guide — extruder calibration](https://ellis3dp.com/Print-Tuning-Guide/articles/extruder_calibration.html) · [`leviathan-printer-rev-d-sbv2.cfg` `LOAD_FILAMENT`](https://github.com/MotorDynamicsLab/LDOVoron2/blob/667521d/Firmware/leviathan-printer-rev-d-sbv2.cfg#L723-L746)
 

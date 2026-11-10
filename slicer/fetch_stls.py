@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 import urllib.parse
 import urllib.request
@@ -93,6 +94,20 @@ def read_manifest() -> dict[str, str]:
     return out
 
 
+def moved_pins() -> set[str]:
+    """Repo keys whose pinned commit in REPOS differs from the one the manifest was written
+    at (a key new to REPOS has no pin there and is not moved). A file at an unchanged path can
+    still change between two commits, so a moved pin re-fetches every file of that repo."""
+    if not MANIFEST.exists():
+        return set()
+    was = {}
+    for line in MANIFEST.read_text().splitlines():
+        m = re.match(r"#\s+(\S+)\s+\S+ @ \S+ = ([0-9a-f]{40})$", line)
+        if m:
+            was[m.group(1)] = m.group(2)
+    return {k for k, (_o, _b, sha) in REPOS.items() if k in was and was[k] != sha}
+
+
 def write_manifest(entries: dict[str, str]) -> None:
     lines = [
         "# SHA256 of every STL/3MF used by slicer/build_plates.py.",
@@ -120,6 +135,11 @@ def main() -> int:
     args = ap.parse_args()
 
     known = read_manifest()
+    moved = moved_pins()
+    if moved and args.verify:
+        print("pin moved since the manifest was written: " + ", ".join(sorted(moved))
+              + " - run fetch_stls.py without --verify", file=sys.stderr)
+        return 1
     entries: dict[str, str] = {}
     fetched = kept = 0
     problems: list[str] = []
@@ -127,7 +147,7 @@ def main() -> int:
     for repo_key, path in all_sources():
         rel = local_path(repo_key, path)
         dest = STL_DIR / rel
-        if dest.exists() and known.get(rel) == sha256(dest):
+        if repo_key not in moved and dest.exists() and known.get(rel) == sha256(dest):
             entries[rel] = known[rel]
             kept += 1
             continue

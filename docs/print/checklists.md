@@ -17,7 +17,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Height stop set on the press and its working temperature written on tape on it.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 35 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
+- [ ] 36 bins labelled from the [bin-labels sheet](bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](../manual/print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; the gating question posted.
 
@@ -190,7 +190,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] **Fan-voltage jumpers.** `V_HEF` and `V_PCF` both on **24 V**, nothing cut, nothing bridged to 5 V.
 - [ ] **Fan ports.** Axial on **P2**, blower on **P4**, LEDs on **P3**. If the wrong fan spins in Ch 13, fix it in the config, not by re-crimping — see *Common mistakes*.
 - [ ] **Board-to-board header** fully seated, SB front snapped on with **no gap** at the parting line.
-- [ ] **Mechanical.** Extruder shaft turns freely by hand; gear mesh has a faint play; tension arm swings; latch closes; filament runs from the CW2 inlet through the PTFE to the nozzle with no catch.
+- [ ] **Mechanical.** Extruder shaft turns freely by hand; gear mesh has a faint play; tension arm swings; latch closes; Bowden clip on the collet; filament runs from the CW2.5 collet through the PTFE to the nozzle with no catch.
 - [ ] **Probe height** still ~6 mm below the plastic and the insulation intact, front and sides only — set in Ch 07 Steps 07.34–07.37, re-checked at Step 08.55.
 - [ ] **Cable discipline.** Run X to both extremes by hand — the parked umbilical never goes taut, nothing rubs a belt, nothing touches the nozzle. The secondary USB port is still reachable. (Chain slack and the chain ties are Ch 10 Steps 10.59 and 10.66.)
 - [ ] The Extruder Motor Ground Wire (Steps 08.43 and 08.53) is fitted per LDO's ESD Hardening section, or, if it was missing from *Electronics 2*, reported to Fabreeko and asked in `#ldo_motors`. Do not let Ch 10 close the bay with this unresolved.
@@ -254,7 +254,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 **Part C — add-ons, if fitted**
 
 - [ ] Step 11.68's calculator passed for each add-on fitted before anything was printed; a high panel stack re-ran `remix.scad` first.
-- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2 with no kink or joint.
+- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2.5 with no kink or joint.
 - [ ] HappyCam centred inside the top front extrusion, nothing touching it along the front at Z max, the stream live in Mainsail on the iPad.
 
 <div class="print-page-break"></div>
@@ -373,6 +373,8 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 - [ ] Cable-chain bridge fit decision made (stock 2-hole vs Ti-backer remix) once Ti backers are in hand
 - [ ] Brims removed cleanly, no visible scarring on the `Handle` base
 - [ ] Every accent part present and in their bins (B02.9), ids written on the `_a` / `_b` parts
+- [ ] Superseded Clockwork 2 parts (first SB body, guidler a and b, latch) bagged as 08-superseded, out of 08-SB and 08-CW2 (B02.12)
+- [ ] B02-P5 printed and sorted: r2 body in 08-SB, Clockwork 2.5 guidlers and latch in 08-CW2
 - [ ] Blue spool re-sealed/dry-stored — no more blue prints in the build
 
 <div class="print-page-break"></div>
@@ -409,7 +411,7 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 <div class="print-page-break"></div>
 
-## Checkpoint B06 — Toolhead: Stealthburner, Clockwork 2, Klicky
+## Checkpoint B06 — Toolhead: Stealthburner, Clockwork 2.5, Klicky
 
 - [ ] Gate B (bore + inserts) passed before B06-P1 started
 - [ ] Hotend seat in `stealthburner_printhead_revo_voron_front` calipers 20.0 mm ±0.15
@@ -489,6 +491,7 @@ _Generated by `scripts/build_printables.py` from `slicer/plates.py` and `slicer/
 - [ ] B02-P2 — ASA, satin sheet, no glue, blue · 8.2 h · 108 g
 - [ ] B02-P3 — ASA, satin sheet, no glue, blue · 2.6 h · 36 g
 - [ ] B02-P4 — ASA, satin sheet, no glue, blue · 3.1 h · 38 g
+- [ ] B02-P5 — ASA, satin sheet, no glue, blue · 3.9 h · 48 g
 
 **Batch B03**
 
@@ -505,7 +508,7 @@ _Generated by `scripts/build_printables.py` from `slicer/plates.py` and `slicer/
 
 **Batch B06**
 
-- [ ] B06-P1 — ASA, satin sheet, no glue, black · 7.6 h · 97 g
+- [ ] B06-P1 — ASA, satin sheet, no glue, black · 7.6 h · 95 g
 - [ ] B06-P2 — ASA, satin sheet, no glue, black · 4.1 h · 51 g
 
 **Batch B07**

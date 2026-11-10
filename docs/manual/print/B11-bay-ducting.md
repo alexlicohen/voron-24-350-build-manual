@@ -5,7 +5,7 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 151.3 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 155.2 h ASA run**, and none of its numbers are in the run's totals.
 
 **Sessions:** 7 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4, P5 and P7, and ~15 min for the A/B lead check after Checkpoint 06.
 

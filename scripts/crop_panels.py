@@ -121,6 +121,21 @@ def _validate_box(box: tuple[float, float, float, float]) -> None:
         raise CropError(f"box must have x1>x0 and y1>y0, got {box}")
 
 
+A4_LONG_PT = 841.89
+
+
+def _page_width_pt(pdf: Path, n: int) -> float | None:
+    """Page n's width in points from pdfinfo, or None if pdfinfo is missing."""
+    if shutil.which("pdfinfo") is None:
+        return None
+    out = subprocess.run(
+        ["pdfinfo", "-f", str(n), "-l", str(n), str(pdf)],
+        check=True, capture_output=True, text=True,
+    ).stdout
+    m = re.search(r"Page\s+\d+\s+size:\s+([0-9.]+)\s+x", out)
+    return float(m.group(1)) if m else None
+
+
 def _render_full_page(page_id: str, dpi: int, work_dir: Path) -> Path:
     """pdftoppm the single page at `dpi` into work_dir, return the PNG path."""
     kind, pdf, _png = _page_info(page_id)
@@ -132,8 +147,16 @@ def _render_full_page(page_id: str, dpi: int, work_dir: Path) -> Path:
     _require_tool("pdftoppm")
     n = _page_number(page_id)
     prefix = work_dir / f"raw-{page_id}"
+    # The Stealthburner manual from 1572a42 on has 10524 x 7440 pt pages (12.5x A4):
+    # render those at the pixel size an A4 page gets at `dpi`, so a crop's
+    # resolution does not depend on the PDF's nominal page size. A4 PDFs keep
+    # the plain `-r dpi` call, byte for byte.
+    size = ["-r", str(dpi)]
+    width_pt = _page_width_pt(pdf, n)
+    if width_pt is not None and width_pt > A4_LONG_PT * 1.5:
+        size = ["-scale-to", str(round(dpi * A4_LONG_PT / 72))]
     subprocess.run(
-        ["pdftoppm", "-f", str(n), "-l", str(n), "-r", str(dpi), "-png", str(pdf), str(prefix)],
+        ["pdftoppm", "-f", str(n), "-l", str(n), *size, "-png", str(pdf), str(prefix)],
         check=True, capture_output=True,
     )
     matches = sorted(work_dir.glob(f"raw-{page_id}-*.png"))

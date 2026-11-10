@@ -371,7 +371,7 @@ Four taps, worst case: the phase you are in, the symptom, what you actually see,
 
         - The extruder will not grip or tension filament
 
-            The tension arm's M3×25 hinge pin was torqued instead of left as a hinge. Back it off: it is a hinge, not a fastener. [08.19](08-toolhead.md#step-0819-hang-the-tension-arm-and-leave-it-loose) · [08.21](08-toolhead.md#step-0821-set-the-tension-and-the-anti-squish-stop)
+            The tension arm's M3×25 hinge pin was torqued instead of left as a hinge. Back it off: it is a hinge, not a fastener. [08.19](08-toolhead.md#step-0819-hang-the-tension-arm-and-leave-it-loose) · [08.21](08-toolhead.md#step-0821-set-the-filament-tension)
 
         - Extruded length does not match the commanded 100 mm
 
@@ -437,8 +437,8 @@ Source: [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-a
 | Symptom | Likely cause | Fix | Owned by |
 |---|---|---|---|
 | Molten plastic leaks at the heatsink on the first hot print | the Revo strain relief was not bent clear, so the nozzle never hand-tightened fully | bend the strain relief, re-seat the nozzle | [08.29](08-toolhead.md#step-0829-route-the-wires-and-bend-the-strain-relief-so-the-nozzle-can-seat-fully), [Ch 08 Common mistakes](08-toolhead.md#common-mistakes) |
-| Extruder will not grip or tension filament | the tension arm's M3×25 hinge pin was torqued instead of left as a hinge | back it off — it is a hinge, not a fastener | [08.19](08-toolhead.md#step-0819-hang-the-tension-arm-and-leave-it-loose), [08.21](08-toolhead.md#step-0821-set-the-tension-and-the-anti-squish-stop) |
-| CW2 main body cracked while tightening the motor plate | the M3×25 pair over-tightened | the manual's own advice is to bin the part and reprint | [08.17](08-toolhead.md#step-0817-close-the-extruder-with-the-motor-plate), [Ch 08 Common mistakes](08-toolhead.md#common-mistakes) |
+| Extruder will not grip or tension filament | the tension arm's M3×25 hinge pin was torqued instead of left as a hinge | back it off — it is a hinge, not a fastener | [08.19](08-toolhead.md#step-0819-hang-the-tension-arm-and-leave-it-loose), [08.21](08-toolhead.md#step-0821-set-the-filament-tension) |
+| CW2.5 main body cracked while tightening its M3×25 pair | the M3×25 pair over-tightened | the manual's own advice is to bin the part and reprint | [08.17](08-toolhead.md#step-0817-close-the-extruder-with-the-main-body), [Ch 08 Common mistakes](08-toolhead.md#common-mistakes) |
 | Extruded length does not match the commanded 100 mm | `rotation_distance` not set for this extruder | run the 100 mm extrusion check | [14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion), [13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure) |
 | Hotend heats when you command the bed, or vice versa | thermistor pair or heater pair swapped | swap at the board — power off first | [Ch 13 — What if](13-initial-startup.md#what-if-first-start-failures-and-what-they-actually-mean) |
 | Thermistor reads a wild or jumping value | crimp, or a PH2.0 housing half-seated / in the wrong header | re-seat and check continuity — Rev D+ uses **PH2.0**, not the guide's XH2.5 | [10.55](10-wiring.md#step-1055-connector-types-on-the-v2-toolboard), [10.76](10-wiring.md#step-1076-thermistors-at-room-temperature) |
@@ -577,7 +577,7 @@ These have no symptom until they are expensive. They are in the chapters' *Commo
 | Trap | What it costs | Owned by |
 |---|---|---|
 | Fitting a rail before greasing it | the rail comes off again, or runs dry for the life of the machine | [00.19](00-before-you-start.md#step-0019-flip-and-pack), [02.05](02-z-drives.md#step-0205-confirm-the-four-z-rails-are-already-cleaned-and-greased) |
-| Missing a heat-set insert before a part is closed | six M3×40 out and the shaft assembly lifted (Z drive); a gantry teardown (XY joint) | [00.16](00-before-you-start.md#step-0016-plan-the-153-inserts), [02.04](02-z-drives.md#step-0204-seat-the-heat-set-inserts-in-the-z-drive-parts), [08.03](08-toolhead.md#step-083-inserts-clockwork-2-main-body) |
+| Missing a heat-set insert before a part is closed | six M3×40 out and the shaft assembly lifted (Z drive); a gantry teardown (XY joint) | [00.16](00-before-you-start.md#step-0016-plan-the-153-inserts), [02.04](02-z-drives.md#step-0204-seat-the-heat-set-inserts-in-the-z-drive-parts), [08.03](08-toolhead.md#step-083-inserts-clockwork-25-main-body) |
 | Fitting the titanium backers after the gantry is built | ~3 h teardown — their T-nut slots are capped by the drive and idler frames | [05.16](05-gantry.md#step-0516-unpack-and-identify-the-titanium-backers), [Ch 05 Common mistakes](05-gantry.md#common-mistakes) |
 | Using a rail's end hole | the rail comes off and goes back on — the end holes are where the p.89–90 / p.102 T-nuts live | [00.22](00-before-you-start.md#step-0022-understand-the-rail-jigs-before-you-need-them), [05.33](05-gantry.md#step-0533-centre-and-fit-the-mgn12-rail) |
 | Skipping the reserved T-nuts at p.90 | Ch 06's Z joints and Ch 10's chain hardware have nowhere to bolt to | [05.13](05-gantry.md#step-0513-second-y-axis-then-load-the-end-m5-t-nuts), [Ch 05 Common mistakes](05-gantry.md#common-mistakes) |

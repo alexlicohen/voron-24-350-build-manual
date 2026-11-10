@@ -104,8 +104,7 @@
    "spool": "A1",
    "remaining": 521,
    "diagram": "../../manual/assets/plates/B02-P4.png",
-   "chapter": "../../manual/steps/b02-accent-parts-orange/",
-   "milestone": "Blue day done: every accent part is printed."
+   "chapter": "../../manual/steps/b02-accent-parts-orange/"
   },
   {
    "id": "B03-P1",
@@ -168,24 +167,40 @@
    "chapter": "../../manual/steps/b05-z-joints-and-z-chain/"
   },
   {
+   "id": "B02-P5",
+   "batch": "B02",
+   "batch_title": "Accent parts (blue)",
+   "run": "asa",
+   "hours": 3.9,
+   "grams": 48,
+   "colour": "blue",
+   "slot": "day",
+   "note": "",
+   "spool": "A1",
+   "remaining": 473,
+   "diagram": "../../manual/assets/plates/B02-P5.png",
+   "chapter": "../../manual/steps/b02-accent-parts-orange/",
+   "milestone": "Blue day done: every accent part is printed."
+  },
+  {
    "id": "B06-P1",
    "batch": "B06",
-   "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
+   "batch_title": "Toolhead: Stealthburner, Clockwork 2.5, Klicky",
    "run": "asa",
    "hours": 7.6,
-   "grams": 97,
+   "grams": 95,
    "colour": "black",
    "slot": "overnight",
    "note": "after Gate B",
    "spool": "#2 (fresh)",
-   "remaining": 703,
+   "remaining": 705,
    "diagram": "../../manual/assets/plates/B06-P1.png",
    "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/"
   },
   {
    "id": "B06-P2",
    "batch": "B06",
-   "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
+   "batch_title": "Toolhead: Stealthburner, Clockwork 2.5, Klicky",
    "run": "asa",
    "hours": 4.1,
    "grams": 51,
@@ -193,9 +208,10 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 652,
+   "remaining": 654,
    "diagram": "../../manual/assets/plates/B06-P2.png",
-   "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/"
+   "chapter": "../../manual/steps/b06-toolhead-sb-cw2-klicky/",
+   "milestone": "Halfway: plate 14 of 28."
   },
   {
    "id": "B07-P1",
@@ -208,10 +224,9 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2",
-   "remaining": 564,
+   "remaining": 566,
    "diagram": "../../manual/assets/plates/B07-P1.png",
-   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/",
-   "milestone": "Halfway: plate 14 of 27."
+   "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
   {
    "id": "B07-P2",
@@ -224,7 +239,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 485,
+   "remaining": 487,
    "diagram": "../../manual/assets/plates/B07-P2.png",
    "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
@@ -239,7 +254,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 427,
+   "remaining": 429,
    "diagram": "../../manual/assets/plates/B07-P3.png",
    "chapter": "../../manual/steps/b07-electronics-bay-and-lighting/"
   },
@@ -254,7 +269,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2",
-   "remaining": 325,
+   "remaining": 327,
    "diagram": "../../manual/assets/plates/B08-P1.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -269,7 +284,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 263,
+   "remaining": 265,
    "diagram": "../../manual/assets/plates/B08-P2.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -284,7 +299,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 201,
+   "remaining": 203,
    "diagram": "../../manual/assets/plates/B08-P3.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -299,7 +314,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 126,
+   "remaining": 128,
    "diagram": "../../manual/assets/plates/B08-P4.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -314,7 +329,7 @@
    "slot": "day",
    "note": "",
    "spool": "#2",
-   "remaining": 30,
+   "remaining": 32,
    "diagram": "../../manual/assets/plates/B08-P5.png",
    "chapter": "../../manual/steps/b08-skirts-and-front-modules/"
   },
@@ -329,7 +344,7 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#2 → #3",
-   "remaining": 767,
+   "remaining": 769,
    "diagram": "../../manual/assets/plates/B09-P1.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -344,7 +359,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 702,
+   "remaining": 704,
    "diagram": "../../manual/assets/plates/B09-P2.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -359,7 +374,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 637,
+   "remaining": 639,
    "diagram": "../../manual/assets/plates/B09-P3.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -374,7 +389,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 590,
+   "remaining": 592,
    "diagram": "../../manual/assets/plates/B09-P4.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -389,7 +404,7 @@
    "slot": "day",
    "note": "",
    "spool": "#3",
-   "remaining": 530,
+   "remaining": 532,
    "diagram": "../../manual/assets/plates/B09-P5.png",
    "chapter": "../../manual/steps/b09-panels-filtration-spool/"
   },
@@ -404,10 +419,10 @@
    "slot": "day",
    "note": "after Gate A",
    "spool": "#3",
-   "remaining": 455,
+   "remaining": 457,
    "diagram": "../../manual/assets/plates/B10-P1.png",
    "chapter": "../../manual/steps/b10-clicky-clack-door/",
-   "milestone": "Last ASA plate off the bed: all 27 plates of the run are done."
+   "milestone": "Last ASA plate off the bed: all 28 plates of the run are done."
   },
   {
    "id": "B11-P1",
@@ -518,9 +533,9 @@
  "runs": [
   {
    "run": "asa",
-   "plates": 27,
-   "hours": 151.3,
-   "label": "27-plate run"
+   "plates": 28,
+   "hours": 155.2,
+   "label": "28-plate run"
   },
   {
    "run": "bay",
@@ -530,10 +545,10 @@
   }
  ],
  "totals": {
-  "plates": 34,
-  "hours": 176.4,
+  "plates": 35,
+  "hours": 180.3,
   "overnight": 6,
-  "run_plates": 27,
-  "run_hours": 151.3
+  "run_plates": 28,
+  "run_hours": 155.2
  }
 }

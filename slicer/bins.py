@@ -71,7 +71,7 @@ BINS: dict[str, dict[str, str]] = {
     "06-Z-joints": dict(label="Z joints and lower Z belt clips", chapter="Ch 06", steps="06.3–06.9", colour="#a0522d"),
     "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66)", colour="#cd853f"),
     "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
-    "08-CW2": dict(label="Clockwork 2 extruder, toolboard + USB covers", chapter="Ch 08",
+    "08-CW2": dict(label="Clockwork 2.5 extruder, toolboard + USB covers", chapter="Ch 08",
                    steps="08.3–08.20 (toolboard cover 08.62, USB adapter cover 08.64)", colour="#f28482"),
     "09-bay": dict(label="Electronics bay: inlet, WAGO, PSU, DIN clips", chapter="Ch 09", steps="09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16)", colour="#e0a100"),
     # B11 bay ducting: one bin per step that opens it. Bodies are laid in Ch 09, lids closed later.
@@ -103,6 +103,10 @@ BINS: dict[str, dict[str, str]] = {
                         steps="13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50)", colour="#b5838d"),
     "14-exhaust": dict(label="Chamber exhaust add-on: housing, grill, cover, mounts", chapter="Ch 14",
                        steps="14.25–14.36, Part H (printed 14.26, built 14.27–14.29)", colour="#264653"),
+    # Alex 2026-11-10: the build moved to Clockwork 2.5 / Stealthburner r2 after B02 had printed.
+    # These are the Clockwork 2 copies B02-P5 replaces; pulled out of 08-SB and 08-CW2, never fitted.
+    "08-superseded": dict(label="Superseded Clockwork 2 parts: pulled out, not fitted", chapter="—",
+                          steps="not fitted (replaced by B02-P5; pull-out in B02.12)", colour="#6d6875"),
     "spare-alt": dict(label="Spares / alternates (not fitted)", chapter="—", steps="not fitted (Klicky set bagged at 08.54)", colour="#bdbdbd"),
 }
 
@@ -115,7 +119,7 @@ BAG: dict[str, str] = {
     "11-fans": "A5", "11-panels": "A5", "11-lids-DC": "A5", "11-clips-4mm": "A5", "11-clips-6mm": "A5",
     "11-nevermore": "B5", "11-spool": "A5", "11-door": "A5", "11-side-spool": "box",
     "11-camera": "A5", "13-scrubber": "A5",
-    "14-exhaust": "B5 ×2", "spare-alt": "A5",
+    "14-exhaust": "B5 ×2", "08-superseded": "A5", "spare-alt": "A5",
 }
 for _b, _meta in BINS.items():
     _meta["bag"] = BAG[_b]
@@ -239,9 +243,9 @@ ASSIGN: dict[str, str | list[str]] = {
     "stealthburner_printhead_revo_voron_rear_cw2.stl": "08-SB",
     "[o]_stealthburner_LED_carrier.stl": "08-SB",
     "[o]_stealthburner_LED_diffuser_mask.stl": "08-SB",
-    "main_body.stl": "08-CW2",
+    "main_body_collet.stl": "08-CW2",
     "motor_plate.stl": "08-CW2",
-    "cw2_captive_pcb_cover.stl": "08-CW2",
+    "cable_cover.stl": "08-CW2",
     "KlickyProbe_v2.stl": "spare-alt",
     "Probe_Dock_v2.1.stl": "spare-alt",
     "Probe_magnet_holder.stl": "spare-alt",
@@ -340,6 +344,11 @@ PLATE_ASSIGN: dict[tuple[str, str], list[str]] = {
     ("B01-P1", "z_drive_retainer_a_x2.stl"): ["02-Z2"],
     # B02 per-corner parts split across plates by the 5 mm edge repack (2026-10-24). Each list
     # follows the 3MF copy suffix (#n -> the batch-wide corner list's n-th entry), indexed n-1 mod len.
+    # Clockwork 2 copies printed before the 2026-11-10 switch; B02-P5 prints their replacements.
+    ("B02-P1", "[a]_guidler_b.stl"): ["08-superseded"],
+    ("B02-P2", "[a]_stealthburner_main_body.stl"): ["08-superseded"],
+    ("B02-P2", "[a]_guidler_a.stl"): ["08-superseded"],
+    ("B02-P4", "[a]_latch.stl"): ["08-superseded"],
     ("B02-P1", "[a]_z_drive_baseplate_b_x2.stl"): ["02-Z3"],
     ("B02-P2", "[a]_z_drive_baseplate_b_x2.stl"): ["02-Z1"],
     ("B02-P2", "[a]_z_drive_baseplate_a_x2.stl"): ["02-Z2"],
@@ -376,7 +385,8 @@ NOTES: dict[str, str] = {
     "power_inlet_IECGS_1mm.stl": "ring segment: dry-fitted with the skirts at 11.1, mounted at 09.12",
     "z_rail_stop_x4.stl": "optional (02.10 / 06.10)",
     "KlickyProbe_v2.stl": "Klicky — alternative probe only, bag closed (08.54)",
-    "cw2_captive_pcb_cover.stl": "replaces the stock `cable_door` (08.62)",
+    "cable_cover.stl": "stock Clockwork 2.5 cover; fits the Nitehawk-SB V2 (08.62)",
+    "main_body_collet.stl": "collet body: needs a 4 mm Bowden collet and clip (08.14)",
     "handlebar_spacer_x4.stl": "handlebars go on last (11.60)",
     "Handle.stl": "blue — joins the black door parts from B10",
     "V3L_COUPON_22N_DUCT.stl": "lid-snap coupon: tested at B11.4, bundle-fill test at B11.10, then kept here",

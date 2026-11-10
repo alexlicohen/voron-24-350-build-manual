@@ -551,14 +551,38 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.",
+     "leave_state": "every printed plate sorted into its bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed.",
      "helpers": [
       [
        "B02.9",
        "Matches each part's number to the diagram legend and drops it in its bin."
       ]
      ],
-     "text": "Step B02.9 · ~15 min · leave-state: all four plates sorted into their bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed."
+     "text": "Step B02.9 · ~15 min · leave-state: every printed plate sorted into its bins, ids written on every `_a` / `_b` part. Nothing is pressed or glued; the accent spool is off and re-sealed."
+    },
+    {
+     "id": "b02-accent-parts-orange#6",
+     "chapter": "b02-accent-parts-orange",
+     "kind": "print",
+     "steps": [
+      "B02.13"
+     ],
+     "first_step": "B02.13",
+     "last_step": "B02.13",
+     "href": "../manual/steps/b02-accent-parts-orange/b02-13/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B02-P5",
+     "print_hours": 3.9,
+     "run": "asa",
+     "leave_state": "plate B02-P5 running, 3.9 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B02.13",
+       "Counts the four parts on the sorting diagram and names each one's bin."
+      ]
+     ],
+     "text": "Start plate B02-P5 (Step B02.13) · ~5 min hands-on, then 3.9 h unattended · leave-state: plate B02-P5 running, 3.9 h unattended — door shut; come back for the next step when it ends"
     }
    ]
   },
@@ -3630,14 +3654,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
+     "leave_state": "all 17 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train.",
      "helpers": [
       [
        "08.1",
        "Reads the moulded code on each printhead half aloud and sorts the prints into build order."
       ]
      ],
-     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 18 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
+     "text": "Step 08.1 → Step 08.8 · ~35 min · leave-state: all 17 heat-set inserts are in and cool, the printed parts are sorted in build order, and the carriage is verified. Nothing is assembled yet. Park the press head, switch it off and let the tip cool; do not start the extruder with any insert still missing, because Steps 08.12 onwards bury them under a bearing and a gear train."
     },
     {
      "id": "08-toolhead#1",
@@ -3663,7 +3687,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load.",
+     "leave_state": "the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load.",
      "helpers": [
       [
        "08.13",
@@ -3674,7 +3698,7 @@
        "Shines a torch down the filament path and says whether the filament meets the teeth."
       ]
      ],
-     "text": "Step 08.9 → Step 08.18 · ~30 min · leave-state: the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw and on the M3×6 FHCS. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load."
+     "text": "Step 08.9 → Step 08.18 · ~30 min · leave-state: the drive train is closed between the main body and the motor plate, and threadlocker is curing on the drive-gear set screw. Do not re-open the set screw or work the drive gear against a tight spot while the threadlocker sets; the motor is not on yet, so nothing is under load."
     },
     {
      "id": "08-toolhead#2",
@@ -3698,9 +3722,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Clockwork 2 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor and cable bridge fitted. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away.",
+     "leave_state": "Clockwork 2.5 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor fitted with both its bolts. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away.",
      "helpers": [],
-     "text": "Step 08.19 → Step 08.26 · ~25 min · leave-state: Clockwork 2 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor and cable bridge fitted. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away."
+     "text": "Step 08.19 → Step 08.26 · ~25 min · leave-state: Clockwork 2.5 is a complete, self-supporting sub-assembly: mesh set, both motor bolts tight, chain anchor fitted with both its bolts. The tension arm's M3×25 is deliberately loose and is a hinge pin — do not torque it to tidy the assembly up before you walk away."
     },
     {
      "id": "08-toolhead#3",
@@ -3749,9 +3773,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 100 and 120 mm pigtails are cut to fit the printed channels and kinking them loses that length.",
+     "leave_state": "the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 120, 100 and 75 mm pigtails are cut to fit the printed channels and kinking them loses that length.",
      "helpers": [],
-     "text": "Step 08.33 → Step 08.36 · ~25 min · leave-state: the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 100 and 120 mm pigtails are cut to fit the printed channels and kinking them loses that length."
+     "text": "Step 08.33 → Step 08.36 · ~25 min · leave-state: the hotend leads are terminated, the 5015 ears are trimmed and filed, and the three-LED chain is soldered and continuity-checked. Nothing is in the Stealthburner body yet. Iron off and cool. Do not coil the chain tightly: the 120, 100 and 75 mm pigtails are cut to fit the printed channels and kinking them loses that length."
     },
     {
      "id": "08-toolhead#5",
@@ -5116,7 +5140,7 @@
       ],
       [
        "13.15",
-       "Watches the Clockwork 2 gears and says whether they turned both ways."
+       "Watches the Clockwork 2.5 gears and says whether they turned both ways."
       ]
      ],
      "text": "Step 13.13 → Step 13.16 · ~20 min · leave-state: every motor buzzed, identified and turning the right way, and any swap has been fixed at the connector, not in the config. The machine still has not homed."
@@ -5701,7 +5725,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2, a spool loaded. Nothing is half-fastened.",
+     "leave_state": "puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, a spool loaded. Nothing is half-fastened.",
      "helpers": [
       [
        "11.70",
@@ -5716,7 +5740,7 @@
        "Holds the spool while the adult locks the spindle and feeds the filament."
       ]
      ],
-     "text": "Step 11.70 → Step 11.73 · ~40 min · leave-state: puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2, a spool loaded. Nothing is half-fastened."
+     "text": "Step 11.70 → Step 11.73 · ~40 min · leave-state: puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, a spool loaded. Nothing is half-fastened."
     },
     {
      "id": "11-skirts-panels-door#19",
@@ -6436,6 +6460,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -6546,6 +6571,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -6652,6 +6678,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -6751,6 +6778,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -6850,6 +6878,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -6952,6 +6981,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -7086,6 +7116,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -7182,6 +7213,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -7267,7 +7299,10 @@
      "B02.10",
      "B02.11",
      "B02.8",
-     "B02.9"
+     "B02.9",
+     "B02.12",
+     "B02.13",
+     "B02.14"
     ],
     "b03-ab-drive-units-and-front-idlers": [
      "B03.1",
@@ -7296,7 +7331,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 32,
+    "done": 33,
     "gate_closed": true,
     "start": "B06.2",
     "sections": [
@@ -7416,7 +7451,10 @@
      "B02.10",
      "B02.11",
      "B02.8",
-     "B02.9"
+     "B02.9",
+     "B02.12",
+     "B02.13",
+     "B02.14"
     ],
     "b03-ab-drive-units-and-front-idlers": [
      "B03.1",
@@ -7541,7 +7579,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 76,
+    "done": 77,
     "gate_closed": true,
     "start": "12.2",
     "sections": [
@@ -7677,6 +7715,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -7930,6 +7969,7 @@
      "b02-accent-parts-orange#2",
      "b02-accent-parts-orange#3",
      "b02-accent-parts-orange#5",
+     "b02-accent-parts-orange#6",
      "b03-ab-drive-units-and-front-idlers#0",
      "b03-ab-drive-units-and-front-idlers#1",
      "b03-ab-drive-units-and-front-idlers#3",
@@ -8158,7 +8198,10 @@
      "B02.10",
      "B02.11",
      "B02.8",
-     "B02.9"
+     "B02.9",
+     "B02.12",
+     "B02.13",
+     "B02.14"
     ],
     "b03-ab-drive-units-and-front-idlers": [
      "B03.1",
@@ -8245,7 +8288,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 67,
+    "done": 68,
     "gate_closed": true,
     "start": "B11.3",
     "sections": [
@@ -9186,7 +9229,10 @@
      "B02.10",
      "B02.11",
      "B02.8",
-     "B02.9"
+     "B02.9",
+     "B02.12",
+     "B02.13",
+     "B02.14"
     ],
     "b03-ab-drive-units-and-front-idlers": [
      "B03.1",
@@ -9291,7 +9337,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 228,
+    "done": 229,
     "gate_closed": true,
     "start": null,
     "sections": [

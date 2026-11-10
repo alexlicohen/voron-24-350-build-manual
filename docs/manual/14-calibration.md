@@ -869,7 +869,7 @@ inputs:
     max: 0.1
     hint: the tool's starting value, 0 on the first pass
     low: Pressure advance does not go below 0. Set the tool's starting value to 0 and generate the pattern again.
-    high: Above the 0 to 0.10 sweep this chapter prints. A direct drive Clockwork 2 with a Revo HF sits at the bottom of Klipper's typical band, so re-read the pattern before chasing a value up here.
+    high: Above the 0 to 0.10 sweep this chapter prints. A direct drive Clockwork 2.5 with a Revo HF sits at the bottom of Klipper's typical band, so re-read the pattern before chasing a value up here.
     why: The starting value and the increment are what turn a line number into a number you can save, and they change between the first pass and the refinement run.
   - key: stepv
     label: Increment per line
@@ -892,8 +892,8 @@ inputs:
     min: 0.01
     max: 0.08
     hint: 0.01 to 0.08, most often 0.02 to 0.05, copied off the badge above
-    low: Below the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
-    high: Above the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2 for backlash.
+    low: Below the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2.5 for backlash.
+    high: Above the 0.01 to 0.08 band this step expects. Re-read the pattern, and if gapping and bulging show together stop tuning and check the Clockwork 2.5 for backlash.
     why: This is the number that leaves the bench, and it belongs to the filament rather than the machine, so it goes in the ASA filament profile where every later ASA print picks it up.
   - key: corner
     label: One corner is visibly the sharpest, with no gap and no bulge
@@ -914,13 +914,13 @@ pass: The pattern picked cleanly. Save the badge value with SET_PRESSURE_ADVANCE
 
 Tip: there is rarely a perfect value. Ellis leans **higher**: if the sharpest corner has a tiny bit of gapping, still take it. Direct drive is that sensitive.
 
-⚠ If you cannot get a clean corner at *any* value, or you see gapping and bulging simultaneously, stop tuning — Ellis: *"you likely have extruder issues."* Check the CW2 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.
+⚠ If you cannot get a clean corner at *any* value, or you see gapping and bulging simultaneously, stop tuning — Ellis: *"you likely have extruder issues."* Check the CW2.5 for backlash: with the toolhead cold, reverse the extruder gear direction by hand and feel for a dead zone.
 
 ??? note "Where the 0.01–0.08 band comes from"
 
     The LDO config's own commented starting point is `#pressure_advance: 0.05`, and
     Klipper documents typical values as "between 0.050 and 1.000 (the high end usually
-    only with bowden extruders)". For a direct-drive Clockwork 2 with a Revo HF and a
+    only with bowden extruders)". For a direct-drive Clockwork 2.5 with a Revo HF and a
     0.4 nozzle in ASA, expect the bottom of that band. No vendor publishes a
     Revo-HF-specific number; treat 0.04 as the place to start looking and let the
     pattern decide. Most land between 0.02 and 0.05; the wider 0.01–0.08 gate only
@@ -1126,7 +1126,7 @@ Source: [Voron docs image `heightmap_variance.png`](https://raw.githubuserconten
 | 5 | [Extrusion Multiplier](https://ellis3dp.com/Print-Tuning-Guide/articles/extrusion_multiplier.html) | done — steps 14.19, 14.20 |
 | 6 | [PA / EM Oddities](https://ellis3dp.com/Print-Tuning-Guide/articles/pa_em_oddities.html) | read when a result won't converge |
 | 7 | [Cooling and Layer Times](https://ellis3dp.com/Print-Tuning-Guide/articles/cooling_and_layer_times.html) | **next** — the ASA-specific one; minimum layer times matter more than fan % in a hot chamber |
-| 8 | [Retraction](https://ellis3dp.com/Print-Tuning-Guide/articles/retraction.html) | **next** — CW2 is direct drive, expect a small value |
+| 8 | [Retraction](https://ellis3dp.com/Print-Tuning-Guide/articles/retraction.html) | **next** — CW2.5 is direct drive, expect a small value |
 | 9 | [Infill/Perimeter Overlap](https://ellis3dp.com/Print-Tuning-Guide/articles/infill_perimeter_overlap.html) | later |
 | 10 | [Stepover](https://ellis3dp.com/Print-Tuning-Guide/articles/stepover.html) | later |
 

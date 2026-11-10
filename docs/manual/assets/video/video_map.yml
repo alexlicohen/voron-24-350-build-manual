@@ -17,7 +17,7 @@ playlist:
 # Reusable "differs" notes, referenced by key from a segment's `differs:` list.
 differs:
   prerelease: "pre-release Dec-2021 LDO kit — printed parts, packaging and some hardware were revised before Rev D"
-  afterburner: "builds Afterburner + Clockwork 1; this kit is Stealthburner + Clockwork 2 + Revo HF"
+  afterburner: "builds Afterburner + Clockwork 1; this kit is Stealthburner + Clockwork 2.5 + Revo HF"
   octopus: "BTT Octopus + separate Raspberry Pi; this kit is a Leviathan with the Pi mounted on it"
   nitehawk: "no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical"
   euclid: "Euclid probe (Klicky fitted later, Part 11); this kit uses the Omron inductive probe + LDO nozzle probe, Klicky bagged"
@@ -38,7 +38,7 @@ manifest:
 
     **It is not this kit.** Steve's machine is Afterburner + Clockwork 1 on a BTT
     Octopus with a separate Raspberry Pi and a Euclid probe. This build is
-    Stealthburner + Clockwork 2 + Revo HF on a Nitehawk-SB V2 toolboard, a
+    Stealthburner + Clockwork 2.5 + Revo HF on a Nitehawk-SB V2 toolboard, a
     Leviathan carrying the Pi, an Omron inductive probe plus the LDO nozzle
     probe, and a Clicky-Clack door. Every row where that matters carries a
     *Differs* note — read it before you copy what is on screen. Chapters 08–13

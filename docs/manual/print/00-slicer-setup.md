@@ -6,7 +6,7 @@ ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured shee
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty-seven plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Twenty-eight plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02: 2.9.6 plus security fixes, no
@@ -83,7 +83,7 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 34 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 35 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
 all 34 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
@@ -222,14 +222,14 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 151.3 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 155.2 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
 its committed project right after Step B00.0 installs the presets. The Gen 2 expansion joints and nozzle
 wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28).
 
-1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~151 h of ASA is
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~155 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
 2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 7.0.0 (2026-10-05). 6.8.1
@@ -392,7 +392,7 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | `_x#` suffix | **Quantity required to build the machine** | e.g. `z_joint_lower_x4.stl` → print 4 copies of the file |
 
 The `_x#` number is a *quantity*, not a hint that the file contains that many bodies. Files confirmed to
-contain more than one body: `[a]_stealthburner_main_body` (7 — built-in supports), `cw2_captive_pcb_cover` (2),
+contain more than one body: `[a]_stealthburner_main_body` (7 — built-in supports), Clockwork 2.5 `cable_cover` (3), `main_body_collet` (2),
 `usb_adapter_mount` (2 — mount base + cover), `Leviathan_bracket_set` (2 — L+R), `bottom_panel_hinge_x2` (2),
 `cob_light_strip_mount_*` (2 — the mount is a 2-piece assembly), `V2_Duo_Plenum` (2 — built-in support),
 `usb_adapter_mount_partial_cover` (2 — Nitehawk-SB V2).
@@ -412,14 +412,14 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 151.3 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 155.2 h / 28-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
 **Why.** The printer is commissioned and printing well; the upgrade fixes neither open issue on the bench
 (loadcell/heater noise, PETG infill strands); a heatbed swap now would put the closed bed calibration
 (±0.1 mm on the +2.8 front-left Z-stop correction cap) at risk and force a belt retune, an XY-homing recal
-and a start-G-code re-sync of all 34 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
+and a start-G-code re-sync of all 35 committed `.3mf` projects; GT1.5's benefit is cosmetic (less VFA) and
 Galaxy Black's metallic fleck already hides it; and one teardown (with INDX) beats two.
 
 **Three checks replace it, before B00** — see [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks) for
@@ -460,7 +460,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 34 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 35 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater
@@ -495,7 +495,7 @@ records the branch head so a mid-build reprint is identical to the first print.
 | # | What | Repo / branch | Path |
 |---|---|---|---|
 | 1 | Voron 2.4 R2 core | `VoronDesign/Voron-2` branch `Voron2.4` | `/STLs` |
-| 2 | Stealthburner + Clockwork 2 | `VoronDesign/Voron-Stealthburner` branch `main` | `/STLs` |
+| 2 | Stealthburner r2 + Clockwork 2.5 | `VoronDesign/Voron-Stealthburner` commit `1572a42` | `/STLs` |
 | 3 | LDO kit-specific | `MotorDynamicsLab/LDOVoron2` branch `main` | `/STLs` |
 | 4 | LDO touchscreen mount | `MotorDynamicsLab/LDOVoronTrident` branch `master` | `/STLs/BTT Pi TFT4.3 Mount` |
 | 5 | Nitehawk-SB | `MotorDynamicsLab/Nitehawk-SB` branch `master` | `/STLs` |

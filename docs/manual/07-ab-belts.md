@@ -189,7 +189,7 @@ Pause: ~25 min since the last pause — both belt paths traced against p.126–1
 
 **Check:** Inserts flush and square; nuts fully seated with no gap behind them; an M3 screw starts by hand in every insert.
 
-⚠ **Rev D+ / LDO:** *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* For this kit that is the pair `x_frame_V2TR_MGN12_left` / `x_frame_V2TR_MGN12_right` — the R2 / Clockwork-2 halves, not the Afterburner ones. Confirm the filenames against what you actually printed before the belts go in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.129–130)
+⚠ **Rev D+ / LDO:** *"If you are building Clockwork 2 double-check that you have the correct X-Carriage and follow the instructions in the Stealthburner manual."* For this kit that is the pair `x_frame_V2TR_MGN12_left` / `x_frame_V2TR_MGN12_right` — the R2 / Stealthburner halves, not the Afterburner ones. Confirm the filenames against what you actually printed before the belts go in. [src](https://docs.ldomotors.com/voron/voron2/build-faq) (p.129–130)
 
 Source: [Voron manual p.129](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=129) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -844,4 +844,4 @@ Pause: ~30 min since the last pause — inductive probe insulated, fitted, set t
 
 ## Next
 
-[Ch 08 — Toolhead](08-toolhead.md): Stealthburner, Clockwork 2 and the Nitehawk-SB V2, where all five Rev D+ deviations land.
+[Ch 08 — Toolhead](08-toolhead.md): Stealthburner, Clockwork 2.5 and the Nitehawk-SB V2, where all five Rev D+ deviations land.

@@ -61,7 +61,7 @@ Source: [Ch 04](04-ab-drives.md) · [Ch 14 Step 14.12](14-calibration.md#step-14
 | **Bed mesh** | A grid of probed heights that Klipper applies as a Z correction during a print. Taken **hot and after QGL**, never before | [12.34](12-software.md#step-1234-add-a-bed_mesh-section) |
 | **BHCS** | Button Head Cap Screw — domed head, mostly M5 in this build | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Blind joint** | The frame joint: a BHCS head slides into one extrusion's slot and threads into the tapped end of the mating extrusion, tightened through an access hole | [00.28](00-before-you-start.md#step-0028-blind-joints-p10) |
-| **BMG** | The dual-geared filament drive inside Clockwork 2 — the idler assembly you grease and the tension arm that loads it | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
+| **BMG** | The dual-geared filament drive inside Clockwork 2.5 — the idler assembly you grease and the tension arm that loads it | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
 | **Brim** | A flat single-layer ring printed around a part's base to hold its corners down. Every part 30 mm or longer carries a 3 mm one, set 0.3 mm off the part so it snaps away | [print/00-slicer-setup — Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 
 Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titanium-backers) · [Ch 00 Steps 00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.28](00-before-you-start.md#step-0028-blind-joints-p10) · [Ch 08 Step 08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it)
@@ -76,11 +76,11 @@ Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titani
 | **CAT rating** | A multimeter's IEC 61010 measurement category — how big a transient it can survive where you use it, not what voltage it can display | [00a.3](00a-mains-safety.md#step-00a3-buy-a-meter-that-is-rated-for-the-job) |
 | **Checkpoint #1** | LDO's mains gate: seven meter measurements on an unplugged machine, then one deliberate power-on. The bay does not close until it passes | [Ch 10 Section 2](10-wiring.md#section-2-checkpoint-1-exactly-as-ldo-writes-it) |
 | **Clicky-Clack** | The magnetic-latch front door kit (LDO, blue frame) fitted instead of the stock Voron doors | [11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame) |
-| **Clockwork 2 (CW2)** | The Voron extruder that mounts to the Stealthburner — BMG drive, printed body, its own insert pass | [08.3](08-toolhead.md#step-083-inserts-clockwork-2-main-body) |
+| **Clockwork 2.5 (CW2.5)** | The Voron extruder that mounts to the Stealthburner r2 — BMG drive, printed body with a push-in Bowden collet, its own insert pass. Successor to Clockwork 2 (CW2), with no anti-squish screw | [08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) |
 | **COB light strip** | The chamber lighting: two strips on printed mounts, joined by a splitter PCB, on the Leviathan's `LED-Strip` port | [12.32](12-software.md#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans) |
 | **CoreXY** | The motion system: two fixed motors drive two crossed belts; neither motor moves the bed or itself. Diagonal motion means A and B are wrong | [04 — A/B drives](04-ab-drives.md) |
 
-Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-its-two-connectors) · [Ch 00a Step 00a.3](00a-mains-safety.md#step-00a3-buy-a-meter-that-is-rated-for-the-job) · [Ch 08 Step 08.3](08-toolhead.md#step-083-inserts-clockwork-2-main-body) · [Ch 11 Step 11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame)
+Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-its-two-connectors) · [Ch 00a Step 00a.3](00a-mains-safety.md#step-00a3-buy-a-meter-that-is-rated-for-the-job) · [Ch 08 Step 08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) · [Ch 11 Step 11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame)
 
 ---
 

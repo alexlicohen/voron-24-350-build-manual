@@ -15,7 +15,13 @@ from __future__ import annotations
 # repo key -> (owner/name, branch, pinned commit resolved 2026-09-05)
 REPOS: dict[str, tuple[str, str, str]] = {
     "voron2": ("VoronDesign/Voron-2", "Voron2.4", "a192410e27ea345644ae5c4b29b4c9c40cbe1a73"),
-    "sb": ("VoronDesign/Voron-Stealthburner", "main", "8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b"),
+    # Stealthburner r2 / Clockwork 2.5 (released 2026-11-07, pin = PR #154's STL fixes). Alex
+    # 2026-11-10: build to 2.5. B06-P1 and B02-P5 print from this pin.
+    "sb": ("VoronDesign/Voron-Stealthburner", "main", "1572a42e6df5d2f0ddf04a2145be4dc9c3693723"),
+    # The Clockwork 2 pin the B02 plates were printed from before the switch. Only those
+    # plates' toolhead parts read it, so their 3MFs and the manifest stay the record of what
+    # was printed. bins.PLATE_ASSIGN sends the four superseded parts to 08-superseded.
+    "sb_cw2": ("VoronDesign/Voron-Stealthburner", "main", "8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b"),
     "ldov2": ("MotorDynamicsLab/LDOVoron2", "main", "8270e8cf6c7ba29a7fd11d143c287bd3af576934"),
     "ldotri": ("MotorDynamicsLab/LDOVoronTrident", "master", "5b0496a5ae8d0d6a3f782dfa7e06eb9e1c102ba5"),
     "nitehawk": ("MotorDynamicsLab/Nitehawk-SB", "master", "be93526b948d3339c755cb32116baef221ce1a8d"),
@@ -229,7 +235,7 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_a_x2.stl", 1),
             ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_b_x2.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_lower_x4.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/[a]_guidler_b.stl", 1),
+            ("sb_cw2", "STLs/Clockwork2/Direct_Drive/[a]_guidler_b.stl", 1),
             ("voron2", "STLs/Skirts/[a]_keystone_blank_insert.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/[a]_z_chain_retainer_bracket_x2.stl", 1),
         ]),
@@ -237,7 +243,7 @@ PLATES: dict[str, dict] = {
         batch="B02", colour="blue",
         note="SB main body centred - it has built-in supports, snap them out, do not cut.",
         parts=[
-            ("sb", "STLs/Stealthburner/[a]_stealthburner_main_body.stl", 1),
+            ("sb_cw2", "STLs/Stealthburner/[a]_stealthburner_main_body.stl", 1),
             ("voron2", "STLs/Skirts/[a]_fan_grill_a_x2.stl", 2),
             ("voron2", "STLs/Z_Drive/[a]_z_drive_baseplate_a_x2.stl", 1),
             ("voron2", "STLs/Z_Drive/[a]_z_drive_baseplate_b_x2.stl", 1),
@@ -246,11 +252,11 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Gantry/Front_Idlers/[a]_tensioner_left.stl", 1),
             ("voron2", "STLs/Z_Idlers/[a]_z_tensioner_9mm_x4.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_upper_x4.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/[a]_guidler_a.stl", 1),
+            ("sb_cw2", "STLs/Clockwork2/Direct_Drive/[a]_guidler_a.stl", 1),
             ("voron2", "STLs/Z_Drive/[a]_belt_tensioner_b_x2.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_lower_x4.stl", 1),
             ("ldov2", "STLs/ldo_bestagon_insert.stl", 1),
-            ("sb", "STLs/Clockwork2/[a]_pcb_spacer.stl", 1),
+            ("sb_cw2", "STLs/Clockwork2/[a]_pcb_spacer.stl", 1),
             ("voron2", "STLs/Gantry/AB_Drive_Units/[a]_z_chain_retainer_bracket_x2.stl", 1),
         ]),
     "B02-P3": dict(
@@ -274,11 +280,23 @@ PLATES: dict[str, dict] = {
             ("voron2", "STLs/Gantry/AB_Drive_Units/[a]_cable_cover.stl", 1),
             ("whopping", "extrusion_backers/STLs/XY_cable_chain_bridge-Igus-3mm_backer.stl", 1),
             ("voron2", "STLs/Gantry/Front_Idlers/[a]_tensioner_right.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/[a]_latch.stl", 1),
+            ("sb_cw2", "STLs/Clockwork2/Direct_Drive/[a]_latch.stl", 1),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_upper_x4.stl", 2),
             ("voron2", "STLs/Gantry/[a]_z_belt_clip_lower_x4.stl", 2),
             ("voron2", "STLs/Skirts/[a]_keystone_blank_insert.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/[a]_latch_shuttle.stl", 1),
+            ("sb_cw2", "STLs/Clockwork2/Direct_Drive/[a]_latch_shuttle.stl", 1),
+        ]),
+    # B02-P5 added 2026-11-10 (Alex): catch-up plate for the Clockwork 2.5 / Stealthburner r2
+    # switch. These four replace the Clockwork 2 copies already printed on B02-P1, P2 and P4
+    # (bin 08-superseded). The latch shuttle and PCB spacer did not change shape and are kept.
+    "B02-P5": dict(
+        batch="B02", colour="blue",
+        note="Clockwork 2.5 catch-up: the r2 Stealthburner body centred, both guidler halves and the latch.",
+        parts=[
+            ("sb", "STLs/Stealthburner/[a]_stealthburner_main_body.stl", 1),
+            ("sb", "STLs/Clockwork2.5/Direct_Drive/[a]_guidler_a.stl", 1),
+            ("sb", "STLs/Clockwork2.5/Direct_Drive/[a]_guidler_b.stl", 1),
+            ("sb", "STLs/Clockwork2.5/Direct_Drive/[a]_latch.stl", 1),
         ]),
     "B03-P1": dict(
         batch="B03", colour="black",
@@ -321,15 +339,15 @@ PLATES: dict[str, dict] = {
         ]),
     "B06-P1": dict(
         batch="B06", colour="black",
-        note="Stealthburner and Clockwork 2 black parts.",
+        note="Stealthburner r2 and Clockwork 2.5 black parts. The stock cable_cover fits the Nitehawk-SB V2.",
         parts=[
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_front.stl", 1),
             ("sb", "STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_rear_cw2.stl", 1),
             ("sb", "STLs/Stealthburner/[o]_stealthburner_LED_carrier.stl", 1),
             ("sb", "STLs/Stealthburner/[o]_stealthburner_LED_diffuser_mask.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/main_body.stl", 1),
-            ("sb", "STLs/Clockwork2/Direct_Drive/motor_plate.stl", 1),
-            ("nitehawk", "STLs/cw2_captive_pcb_cover.stl", 1),
+            ("sb", "STLs/Clockwork2.5/Direct_Drive/main_body_collet.stl", 1),
+            ("sb", "STLs/Clockwork2.5/Direct_Drive/motor_plate.stl", 1),
+            ("sb", "STLs/Clockwork2.5/cable_cover.stl", 1),
         ]),
 
 

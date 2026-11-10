@@ -1099,6 +1099,36 @@ sources:
   - docs/manual/13-initial-startup.md
   - docs/manual/14-calibration.md
   last_verified: '2026-11-05'
+- id: vorondesign-voron-stealthburne-manual-assembly-manual-sb-pdf-2
+  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/1572a42e6df5d2f0ddf04a2145be4dc9c3693723/Manual/Assembly_Manual_SB.pdf
+  kind: voron-manual
+  title: Stealthburner assembly manual
+  first_seen: '2026-11-10'
+  pinned_ref: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
+  cited_in:
+  - docs/manual/08-toolhead.md (08.1, 08.2, 08.3, 08.4, 08.5, 08.6, 08.7, 08.8, 08.9, 08.10, 08.11, 08.12,
+    08.13, 08.14, 08.15, 08.16, 08.17, 08.18, 08.19, 08.20, 08.21, 08.22, 08.23, 08.24, 08.25, 08.26,
+    08.27, 08.28, 08.29, 08.30, 08.31, 08.32, 08.34, 08.35, 08.36, 08.37, 08.38, 08.39, 08.40, 08.41,
+    08.42, 08.43, 08.44, 08.51, 08.58, 08.59, 08.60, 08.61, 08.62)
+  - docs/manual/print/B02-accent-parts-orange.md (B02.2, B02.8, B02.13)
+  - docs/voron-build-instructions-survey.md
+  - docs/voron-print-plan.md
+- id: vorondesign-voron-stealthburne-pull-151
+  url: https://github.com/VoronDesign/Voron-Stealthburner/pull/151
+  kind: voron-manual
+  title: Stealthburner r2 and Clockwork 2.5 release
+  first_seen: '2026-11-10'
+  pinned_ref: pull
+  cited_in:
+  - docs/manual/print/B02-accent-parts-orange.md (B02.12)
+- id: vorondesign-voron-stealthburne-stls
+  url: https://github.com/VoronDesign/Voron-Stealthburner/tree/1572a42e6df5d2f0ddf04a2145be4dc9c3693723/STLs
+  kind: voron-manual
+  title: '`/STLs`'
+  first_seen: '2026-11-10'
+  pinned_ref: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
+  cited_in:
+  - docs/voron-print-plan.md
 - id: vorondesign-voron-stealthburne-stls-2
   url: https://github.com/VoronDesign/Voron-Stealthburner/tree/8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b/STLs
   kind: voron-manual

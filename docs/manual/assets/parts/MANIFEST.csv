@@ -15,7 +15,7 @@ z_motor_mount_b_x2.stl,B01,primary,docs/manual/assets/parts/z_motor_mount_b_x2.p
 z_tensioner_bracket_a_x2.stl,B01,primary,docs/manual/assets/parts/z_tensioner_bracket_a_x2.png,docs/manual/assets/parts/sheet-B01.png,docs/manual/assets/parts/pair-z_tensioner_bracket_x2.png,"52.7,20.0,26.0",16.43,02-Z0;02-Z2
 z_tensioner_bracket_b_x2.stl,B01,primary,docs/manual/assets/parts/z_tensioner_bracket_b_x2.png,docs/manual/assets/parts/sheet-B01.png,docs/manual/assets/parts/pair-z_tensioner_bracket_x2.png,"52.7,20.0,26.0",16.43,02-Z1;02-Z3
 Handle.stl,B02,primary,docs/manual/assets/parts/Handle.png,docs/manual/assets/parts/sheet-B02.png,,"67.9,18.6,60.0",47.61,11-door
-XY_cable_chain_bridge-Igus-3mm_backer.stl,B02,primary,docs/manual/assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png,docs/manual/assets/parts/sheet-B02.png,,"21.0,66.1,44.0",8.50,05-XY
+XY_cable_chain_bridge-Igus-3mm_backer.stl,B02,primary,docs/manual/assets/parts/XY_cable_chain_bridge-Igus-3mm_backer.png,docs/manual/assets/parts/sheet-B02.png,,"44.0,66.1,21.0",8.50,05-XY
 [a]_belt_guard_a_x2.stl,B02,accent,docs/manual/assets/parts/[a]_belt_guard_a_x2.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-belt_guard_x2.png,"45.6,42.0,8.2",4.93,11-fans
 [a]_belt_guard_b_x2.stl,B02,accent,docs/manual/assets/parts/[a]_belt_guard_b_x2.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-belt_guard_x2.png,"45.6,42.0,8.2",4.93,11-fans
 [a]_belt_tensioner_a_x2.stl,B02,accent,docs/manual/assets/parts/[a]_belt_tensioner_a_x2.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-belt_tensioner_x2.png,"35.7,20.0,8.8",1.78,02-Z0;02-Z2
@@ -26,13 +26,13 @@ XY_cable_chain_bridge-Igus-3mm_backer.stl,B02,primary,docs/manual/assets/parts/X
 [a]_fan_grill_a_x2.stl,B02,accent,docs/manual/assets/parts/[a]_fan_grill_a_x2.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-fan_grill_x2.png,"60.0,60.0,3.2",5.31,11-fans
 [a]_fan_grill_b_x2.stl,B02,accent,docs/manual/assets/parts/[a]_fan_grill_b_x2.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-fan_grill_x2.png,"60.0,60.0,3.2",5.31,11-fans
 [a]_fan_grill_retainer_x2.stl,B02,accent,docs/manual/assets/parts/[a]_fan_grill_retainer_x2.png,docs/manual/assets/parts/sheet-B02.png,,"60.0,60.0,5.0",3.83,11-fans
-[a]_guidler_a.stl,B02,accent,docs/manual/assets/parts/[a]_guidler_a.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-guidler.png,"19.5,45.0,16.2",3.37,08-CW2
+[a]_guidler_a.stl,B02,accent,docs/manual/assets/parts/[a]_guidler_a.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-guidler.png,"19.5,45.0,16.2",3.48,08-CW2
 [a]_guidler_b.stl,B02,accent,docs/manual/assets/parts/[a]_guidler_b.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-guidler.png,"19.2,31.4,10.8",1.92,08-CW2
 [a]_keystone_blank_insert.stl,B02,accent,docs/manual/assets/parts/[a]_keystone_blank_insert.png,docs/manual/assets/parts/sheet-B02.png,,"22.8,15.0,14.7",2.25,11-skirts
-[a]_latch.stl,B02,accent,docs/manual/assets/parts/[a]_latch.png,docs/manual/assets/parts/sheet-B02.png,,"22.0,42.3,10.4",3.24,08-CW2
+[a]_latch.stl,B02,accent,docs/manual/assets/parts/[a]_latch.png,docs/manual/assets/parts/sheet-B02.png,,"41.6,25.6,10.4",3.07,08-CW2
 [a]_latch_shuttle.stl,B02,accent,docs/manual/assets/parts/[a]_latch_shuttle.png,docs/manual/assets/parts/sheet-B02.png,,"23.6,12.5,10.4",1.52,08-CW2
 [a]_pcb_spacer.stl,B02,accent,docs/manual/assets/parts/[a]_pcb_spacer.png,docs/manual/assets/parts/sheet-B02.png,,"18.8,18.0,3.8",0.31,spare-alt
-[a]_stealthburner_main_body.stl,B02,accent,docs/manual/assets/parts/[a]_stealthburner_main_body.png,docs/manual/assets/parts/sheet-B02.png,,"65.1,126.8,31.8",42.22,08-SB
+[a]_stealthburner_main_body.stl,B02,accent,docs/manual/assets/parts/[a]_stealthburner_main_body.png,docs/manual/assets/parts/sheet-B02.png,,"65.1,126.8,31.4",42.45,08-SB
 [a]_tensioner_left.stl,B02,accent,docs/manual/assets/parts/[a]_tensioner_left.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-tensioner.png,"45.0,25.0,18.0",8.21,04-B
 [a]_tensioner_right.stl,B02,accent,docs/manual/assets/parts/[a]_tensioner_right.png,docs/manual/assets/parts/sheet-B02.png,docs/manual/assets/parts/pair-tensioner.png,"25.0,45.0,18.0",8.21,04-A
 [a]_xy_joint_cable_bridge_2hole.stl,B02,accent,docs/manual/assets/parts/[a]_xy_joint_cable_bridge_2hole.png,docs/manual/assets/parts/sheet-B02.png,,"41.0,66.1,21.0",8.48,05-XY
@@ -76,11 +76,9 @@ Probe_magnet_pressfit_helper.stl,B06,primary,docs/manual/assets/parts/Probe_magn
 Probe_pressfit_holder.stl,B06,primary,docs/manual/assets/parts/Probe_pressfit_holder.png,docs/manual/assets/parts/sheet-B06.png,,"30.0,18.9,14.0",4.96,spare-alt
 [o]_stealthburner_LED_carrier.stl,B06,opaque,docs/manual/assets/parts/[o]_stealthburner_LED_carrier.png,docs/manual/assets/parts/sheet-B06.png,,"19.3,14.4,7.0",0.85,08-SB
 [o]_stealthburner_LED_diffuser_mask.stl,B06,opaque,docs/manual/assets/parts/[o]_stealthburner_LED_diffuser_mask.png,docs/manual/assets/parts/sheet-B06.png,,"15.7,13.4,4.8",0.28,08-SB
-cw2_captive_pcb_cover.stl,B06,primary,docs/manual/assets/parts/cw2_captive_pcb_cover.png,docs/manual/assets/parts/sheet-B06.png,,"49.5,73.8,42.2",9.91,08-CW2
-main_body.stl,B06,primary,docs/manual/assets/parts/main_body.png,docs/manual/assets/parts/sheet-B06.png,,"62.8,68.7,24.7",24.25,08-CW2
-motor_plate.stl,B06,primary,docs/manual/assets/parts/motor_plate.png,docs/manual/assets/parts/sheet-B06.png,,"53.7,73.6,8.2",15.84,08-CW2
-stealthburner_printhead_revo_voron_front.stl,B06,primary,docs/manual/assets/parts/stealthburner_printhead_revo_voron_front.png,docs/manual/assets/parts/sheet-B06.png,,"71.1,59.1,27.4",43.16,08-SB
-stealthburner_printhead_revo_voron_rear_cw2.stl,B06,primary,docs/manual/assets/parts/stealthburner_printhead_revo_voron_rear_cw2.png,docs/manual/assets/parts/sheet-B06.png,,"57.7,59.7,26.3",14.16,08-SB
+motor_plate.stl,B06,primary,docs/manual/assets/parts/motor_plate.png,docs/manual/assets/parts/sheet-B06.png,,"59.1,70.8,8.2",15.87,08-CW2
+stealthburner_printhead_revo_voron_front.stl,B06,primary,docs/manual/assets/parts/stealthburner_printhead_revo_voron_front.png,docs/manual/assets/parts/sheet-B06.png,,"71.1,59.1,27.4",43.15,08-SB
+stealthburner_printhead_revo_voron_rear_cw2.stl,B06,primary,docs/manual/assets/parts/stealthburner_printhead_revo_voron_rear_cw2.png,docs/manual/assets/parts/sheet-B06.png,,"57.7,59.7,26.3",14.25,08-SB
 PSU_stabilizer_50mm.stl,B07,primary,docs/manual/assets/parts/PSU_stabilizer_50mm.png,docs/manual/assets/parts/sheet-B07.png,,"56.9,45.7,15.0",3.73,09-bay
 cob_light_strip_mount_100mm.stl,B07,primary,docs/manual/assets/parts/cob_light_strip_mount_100mm.png,docs/manual/assets/parts/sheet-B07.png,,"45.4,100.0,9.9",21.36,10-lights
 cob_light_strip_mount_50mm.stl,B07,primary,docs/manual/assets/parts/cob_light_strip_mount_50mm.png,docs/manual/assets/parts/sheet-B07.png,,"45.4,50.0,9.9",10.09,10-lights
@@ -153,3 +151,5 @@ V3L_COUPON_22N_DUCT_COVER.stl,B11,primary,docs/manual/assets/parts/V3L_COUPON_22
 V3L_T_REG_N.stl,B11,primary,docs/manual/assets/parts/V3L_T_REG_N.png,docs/manual/assets/parts/sheet-B11.png,,"81.6,52.0,25.0",10.28,09-ducts-DC
 V3L_T_REG_N_COVER.stl,B11,primary,docs/manual/assets/parts/V3L_T_REG_N_COVER.png,docs/manual/assets/parts/sheet-B11.png,,"81.6,50.9,4.2",4.08,11-lids-DC
 V3L_WIRE_BOX_PORT.stl,B11,primary,docs/manual/assets/parts/V3L_WIRE_BOX_PORT.png,docs/manual/assets/parts/sheet-B11.png,,"77.4,48.4,25.0",13.64,09-ducts-AC
+cable_cover.stl,B06,primary,docs/manual/assets/parts/cable_cover.png,docs/manual/assets/parts/sheet-B06.png,,"49.5,73.8,43.8",9.26,08-CW2
+main_body_collet.stl,B06,primary,docs/manual/assets/parts/main_body_collet.png,docs/manual/assets/parts/sheet-B06.png,,"61.4,68.7,24.7",22.79,08-CW2

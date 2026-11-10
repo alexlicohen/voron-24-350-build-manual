@@ -83,7 +83,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 **Video coverage (Steve Builds, pre-release LDO kit — differs from Rev D+):** [Part 1 @0:02:04](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=124s) (+11m), [Part 1 @0:12:11](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=731s) (+8m), [Part 1 @0:50:02](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3002s) (+6m), [Part 1 @1:54:10](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=6850s) (+39m), [Part 1 @2:05:13](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=7513s) (+19m), [Part 1 @2:32:52](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9172s) (+32m), [Part 1 @3:11:45](https://www.youtube.com/watch?v=feTxcc0LIWM&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=11505s) (+10m)
 
-This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 2.4 Kit Build* playlist — livestreams in which he assembles the **pre-release "feedback" kit** LDO shipped him in December 2021–January 2022 to review before the kit went on sale, the closest thing to a full video walkthrough of this machine. It is not this kit: Steve's build is Afterburner + Clockwork 1 on a BTT Octopus with a separate Raspberry Pi and a Euclid probe, where this build is Stealthburner + Clockwork 2 + Revo HF on a Nitehawk-SB V2 toolboard, a Leviathan carrying the Pi, an Omron inductive probe plus the LDO nozzle probe, and a Clicky-Clack door instead of the stock doors. Every step link that lands on a step where this matters carries a `(differs: …)` note; low-confidence links (the video's segment start rather than the exact moment) are collected instead in each chapter's `Video coverage` line, above. Links and timestamps only — no stills, clips, thumbnails, or transcript excerpts (`assets/video/SOURCES.txt`).
+This manual also links timestamps from **Steve Builds'** eleven-part *LDO Voron 2.4 Kit Build* playlist — livestreams in which he assembles the **pre-release "feedback" kit** LDO shipped him in December 2021–January 2022 to review before the kit went on sale, the closest thing to a full video walkthrough of this machine. It is not this kit: Steve's build is Afterburner + Clockwork 1 on a BTT Octopus with a separate Raspberry Pi and a Euclid probe, where this build is Stealthburner + Clockwork 2.5 + Revo HF on a Nitehawk-SB V2 toolboard, a Leviathan carrying the Pi, an Omron inductive probe plus the LDO nozzle probe, and a Clicky-Clack door instead of the stock doors. Every step link that lands on a step where this matters carries a `(differs: …)` note; low-confidence links (the video's segment start rather than the exact moment) are collected instead in each chapter's `Video coverage` line, above. Links and timestamps only — no stills, clips, thumbnails, or transcript excerpts (`assets/video/SOURCES.txt`).
 
 ---
 
@@ -483,7 +483,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 
 **Parts:**
 
-- consumable: A5 mesh zip bag ×30
+- consumable: A5 mesh zip bag ×31
 - consumable: B5 mesh zip bag ×6
 - consumable: box for the skirt ring and the side spool frame ×2
 - consumable: spare bins for the LDO-supplied parts and the greased rails
@@ -494,7 +494,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 **Do:**
 
 1. Print the [bin labels](../print/bin-labels.md), two per sheet. Cut, trim each to its frame, slide it into its bag.
-2. [**35 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 30 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes.
+2. [**36 bins**](print/README.md#bins), `00-jigs` … `spare-alt`: 31 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes.
 
 | Print batch | Bins it fills |
 |---|---|
@@ -512,7 +512,7 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B11 — Bay ducting (PETG V0) | 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC |
 | Add-ons after kit day, on no plate | 11-side-spool, 11-camera, 13-scrubber, 14-exhaust |
 
-**Check:** 35 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
+**Check:** 36 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 
 **Helper:** Trims each label to its frame and slides it into the bag it names.
 
@@ -654,7 +654,7 @@ Source: [LDO heat-set insert tool guide](https://docs.ldomotors.com/guides/heats
 | Ch 02 — Z drive mains, retainers | p.31 | **36** (7 × 4 retainers + 2 × 4 mains — verified against the STLs) |
 | Ch 04 — A/B drive frames | p.64 | (verify on bench) |
 | Ch 05 — X carriage and XY joints | p.129 | (verify on bench) |
-| Ch 08 — Stealthburner and Clockwork 2 | Stealthburner manual | (verify on bench) |
+| Ch 08 — Stealthburner and Clockwork 2.5 | Stealthburner manual | (verify on bench) |
 | Ch 10 — power inlet, Z cable chain | p.156, p.201 | (verify on bench) |
 | Ch 11 — skirt front cover, screen and fan modules, exhaust cover | p.211, p.212, p.213, p.250 | (verify on bench) |
 | **Supplied in the kit** | LDO Rev D+ 350 BOM | **153** |
@@ -1118,7 +1118,7 @@ Pause: ~20 min since the last pause (pre-kit) — measurement log started, all t
 - [ ] Seven practice inserts set (one per coupon pocket): flush to ≤ 0.2 mm proud, square, boss not bulged > 0.2 mm. Height stop set on the press and its working temperature written on tape on it.
 - [ ] All 7 rails: end stops taped 15 mm from each end, soaked 10 min in IPA ≥ 90% in their own bags, dried an hour or more, flip-and-packed until grease oozed at both end caps, rail surfaces wiped clean, labelled X / Y1 / Y2 / Z0–Z3, carriage taped, bagged with the end stops still on.
 - [ ] Gate B's bore row passed before the kit, its insert row before Ch 02's first insert (Step B00.7); its **rail row** is done out of carton 1 on kit day, then both guide sizes fitted rail-plus-extrusion with light finger pressure (Step 00.20). The 625-2RS press row signs off from the same carton.
-- [ ] 35 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
+- [ ] 36 bins labelled from the [bin-labels sheet](../print/bin-labels.md) (`00-jigs` … `spare-alt`, [print/README.md § Bins](print/README.md#bins)), each in the bag or box its label names, and the batch → bin map posted on the wall.
 - [ ] Measurement log (Step 00.30) holds the flat-reference gap, the deck panel thickness and the inventory result.
 - [ ] Fabreeko Discord, Voron Discord and `#ldo_motors` joined; the gating question posted.
 

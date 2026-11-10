@@ -7,7 +7,8 @@
 #   nevermore  nevermore3d/Nevermore_Micro @ master = 8740b34fcc88e64afff74115f2c7c7002059f229
 #   nitehawk   MotorDynamicsLab/Nitehawk-SB @ master = be93526b948d3339c755cb32116baef221ce1a8d
 #   nitehawk2  MotorDynamicsLab/Nitehawk-SB-V2 @ master = 42ae497cfd627acde0f6ad81c8dd26f51efcbb48
-#   sb         VoronDesign/Voron-Stealthburner @ main = 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+#   sb         VoronDesign/Voron-Stealthburner @ main = 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
+#   sb_cw2     VoronDesign/Voron-Stealthburner @ main = 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
 #   voron2     VoronDesign/Voron-2 @ Voron2.4 = a192410e27ea345644ae5c4b29b4c9c40cbe1a73
 #   whopping   tanaes/whopping_Voron_mods @ main = 62268ed817878e54d6a1186882060aa8368d4f0f
 # Printables (file ids in slicer/plates.py PRINTABLES; the file id is the pin):
@@ -85,7 +86,6 @@ cfcffcdcaf96623fb1753ee92469211856acd853ec1ff77332555c449dfefb88  ldov2/STLs/z_r
 e270a85012d25e9494ffb3d31fd985e7c9551783a3fc32d86ae7d744401a6577  nevermore/V5_Duo/V2/Regular_Cartridge_Lid(contributed_by_Bucknova).3mf
 c92c2f3c22e0bec1d1c0cc7705d855aa37a2c59d40335e931dd1faf031d4489f  nevermore/V5_Duo/V2/V2_Duo_Plenum.stl
 70b7ca1f0da5922ce23884b441b6435a6911aeee01338d48697c41d7a6f774c4  nevermore/V5_Duo/V2/V2_Duo_Plenum_LID.stl
-b55f11b0dcb16caa7047e64c69d664a4f4ef2d9a0537cbb454c27661a2e87592  nitehawk/STLs/cw2_captive_pcb_cover.stl
 73ecd98a28e2fdd14004b9ea4c390beb65aef01e7899c4c66f53273d32606947  nitehawk/STLs/usb_adapter_mount.stl
 49c35d3559eec688688789a38beaab699b04c325304eeb3af78a117e202f4d14  nitehawk2/STLs/usb_adapter_mount_partial_cover.stl
 0725d3c8228318a64cebd69942249bfd753339c80bf255fbb624db49cd96ad52  printables/1605113/Universal-puck-R1.stl
@@ -93,18 +93,23 @@ b55f11b0dcb16caa7047e64c69d664a4f4ef2d9a0537cbb454c27661a2e87592  nitehawk/STLs/
 e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f  printables/488020/Cameradoor_120.stl
 d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd  printables/488020/HappyCam_main-350.stl
 4b355c5267b956a7e85939e0fa2c02148518f2c483700c18cd156ec491d459f5  printables/608769/Bowden Tube Holder_Long.stl
-b117ec9e8a6ffea62d2da534b7b97d9ee5d6e5c6e0a054f3a2c2130c122e811f  sb/STLs/Clockwork2/Direct_Drive/[a]_guidler_a.stl
-039a7215df8a341dcf5473cb97f213c04421874b155d8e9811e868d22cbb3e1d  sb/STLs/Clockwork2/Direct_Drive/[a]_guidler_b.stl
-0c19de5661d4fc9666ce5a45e1f15d5a783f6ca17a35c2d6960625cc51fa57e5  sb/STLs/Clockwork2/Direct_Drive/[a]_latch.stl
-7a8430d9f67767caade676894d7cb0b4218f2d43250e5b6684913d5252fd283c  sb/STLs/Clockwork2/Direct_Drive/[a]_latch_shuttle.stl
-243f74cac6a77dd20b1b4173f1f7a330d2c124583224020a282c6010b8e076bd  sb/STLs/Clockwork2/Direct_Drive/main_body.stl
-a324e43b1588f448a308cee2436df4eb9d1f27c1ab6fa51b9bbd1ee9044623b6  sb/STLs/Clockwork2/Direct_Drive/motor_plate.stl
-9c87b70a264dbd7743bab12b9d909b04991030cd2f39c22eacefd8246c727be4  sb/STLs/Clockwork2/[a]_pcb_spacer.stl
-34012ceb0b3eaec250b36eb1cb040d70d399317961bd4a307eba150ba3babd67  sb/STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_front.stl
-d99784c244391748e827b34da4a6a00c7bdbba80d7afd6f301ef05dbeaea3730  sb/STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_rear_cw2.stl
-be070b34b71feffd2a3da4b8962854eed401fc946541b5764a7bf197d6f08994  sb/STLs/Stealthburner/[a]_stealthburner_main_body.stl
+614cff64c2e7f328b54674d246b89a6ad6f972ee832bd8799bdf85d6a4229cf0  sb/STLs/Clockwork2.5/Direct_Drive/[a]_guidler_a.stl
+1f0d82c4f89095bfa94a83fe01db8341b9179a51f97b4a825202c66398f61418  sb/STLs/Clockwork2.5/Direct_Drive/[a]_guidler_b.stl
+cbecc454490020daeec696639d656279cc2f439b5d87700472ec6766b2e52995  sb/STLs/Clockwork2.5/Direct_Drive/[a]_latch.stl
+d368dd35951854313f8827bb3ee5a07358e6d84774e7129af825c746aa48f80b  sb/STLs/Clockwork2.5/Direct_Drive/main_body_collet.stl
+e495c541f4c2e46acafb50acdc41a05ff99dce2d7aa600e3267b6e16c6ad4d6f  sb/STLs/Clockwork2.5/Direct_Drive/motor_plate.stl
+fd91799da1c27b99e49d651a69135cc475c19ce283978fe7cf6c8e5ff627cd35  sb/STLs/Clockwork2.5/cable_cover.stl
+cfd99c84a01dbfbb94e59a82a8cc2e71fcd3ea169028c9b3595a02388ed4496b  sb/STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_front.stl
+6bfcc9b11cbd6f63eb80d6512473f2eac01164da599d3418cb03517a2996827d  sb/STLs/Stealthburner/Printheads/revo_voron/stealthburner_printhead_revo_voron_rear_cw2.stl
+b83637a5c1a11e0484561968636e74d83878788c36894a8966b80396a52d4a72  sb/STLs/Stealthburner/[a]_stealthburner_main_body.stl
 cf3dcd7bc13e5d8f4b78dcef6e06ac09ead7f0c0ecc11dffb83bcc3e79841b30  sb/STLs/Stealthburner/[o]_stealthburner_LED_carrier.stl
 49b5ec37eea509011ef25c7584ae410fc7452d726a76761f3d0ace3172246619  sb/STLs/Stealthburner/[o]_stealthburner_LED_diffuser_mask.stl
+b117ec9e8a6ffea62d2da534b7b97d9ee5d6e5c6e0a054f3a2c2130c122e811f  sb_cw2/STLs/Clockwork2/Direct_Drive/[a]_guidler_a.stl
+039a7215df8a341dcf5473cb97f213c04421874b155d8e9811e868d22cbb3e1d  sb_cw2/STLs/Clockwork2/Direct_Drive/[a]_guidler_b.stl
+0c19de5661d4fc9666ce5a45e1f15d5a783f6ca17a35c2d6960625cc51fa57e5  sb_cw2/STLs/Clockwork2/Direct_Drive/[a]_latch.stl
+7a8430d9f67767caade676894d7cb0b4218f2d43250e5b6684913d5252fd283c  sb_cw2/STLs/Clockwork2/Direct_Drive/[a]_latch_shuttle.stl
+9c87b70a264dbd7743bab12b9d909b04991030cd2f39c22eacefd8246c727be4  sb_cw2/STLs/Clockwork2/[a]_pcb_spacer.stl
+be070b34b71feffd2a3da4b8962854eed401fc946541b5764a7bf197d6f08994  sb_cw2/STLs/Stealthburner/[a]_stealthburner_main_body.stl
 3c9931f3c405c750ccba3438729c66f7e4117b9265e26b02edae07ac725410c2  voron2/STLs/Electronics_Bay/PSU_stabilizer_50mm.stl
 dea64eb6a7ab54e650c4149f98197b9b7b6ca27bfa26b79bf49639a78551e4fe  voron2/STLs/Electronics_Bay/lrs_200_psu_bracket_x2.stl
 3bb12cf2e3705f7bb28d6093563b9fb6b748a401fa261012c047fdd47ed3eec6  voron2/STLs/Electronics_Bay/pcb_din_clip_x3.stl

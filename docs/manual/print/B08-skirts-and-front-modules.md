@@ -64,7 +64,7 @@ recommendation — swap if you find you want the buttons **(judgment; LDO links 
 
 ## Step B08.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B07: 427 g at the start of P1, 30 g after P5, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
+**Do:** Galaxy Black, spool #2 after B07: 429 g at the start of P1, 32 g after P5, so no runout here. The one predicted runout is the next plate. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet),
 wiped with IPA.
 **Check:** Spool #2 has ≥397 g for the five plates before the 6.2 h P1 plate starts.
 
@@ -189,7 +189,7 @@ already in it. Confirm it loaded as described rather than rebuilding it.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
 
-⚠ Spool #2 should hold about 126 g here and this plate needs 96 g. Eight plates of slicer error can eat that cushion, and a runout on the keystone panel, TFT mount or side skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~115 g, start this plate on spool #3; keep #2's stub.
+⚠ Spool #2 should hold about 128 g here and this plate needs 96 g. Eight plates of slicer error can eat that cushion, and a runout on the keystone panel, TFT mount or side skirt leaves a visible seam. If #2 looks light, or its flange reading says under ~115 g, start this plate on spool #3; keep #2's stub.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [LDO Rev D printed-parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d)
 

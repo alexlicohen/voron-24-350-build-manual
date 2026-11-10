@@ -1253,7 +1253,7 @@ Source: [LDO Nevermore V5 Duo guide § Configuration printer.cfg](https://ldomot
 ![Voron manual p.257](assets/manual-pages/manual-p257.png){ crop="0.10 0.19 0.88 0.73" }
 ![Voron manual p.258](assets/manual-pages/manual-p258.png)
 
-**What you're looking at:** The bowden retainer sits on the top rear extrusion and overhangs the back. It holds the spool end of the reverse-bowden PTFE that carries filament to the Clockwork 2. With the back panel on, the tube crosses it through the exhaust cover's coupler.
+**What you're looking at:** The bowden retainer sits on the top rear extrusion and overhangs the back. It holds the spool end of the reverse-bowden PTFE that carries filament to the Clockwork 2.5. With the back panel on, the tube crosses it through the exhaust cover's coupler.
 
 **Parts:**
 
@@ -1266,7 +1266,7 @@ Source: [LDO Nevermore V5 Duo guide § Configuration printer.cfg](https://ldomot
 
 1. Nut in its recess, M3×8 started; slide onto the top rear extrusion as p.257 shows.
 2. Cut two 86 mm spool-holder lengths off the PTFE.
-3. Rest of the tube down through the retainer to the CW2 inlet; tighten.
+3. Rest of the tube down through the retainer into the CW2.5 collet; tighten.
 
 **Check:** Retainer solid on the extrusion; the PTFE passes through with light drag only; no sharp bend where the tube leaves the retainer.
 
@@ -2113,10 +2113,10 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 **Do:**
 
 1. Bolt the holder, pegs in the top right's top slot 22 cm behind the front: one hammerhead, one M3×8.
-2. Swap in the new tube: CW2, coupler, retainer, holder, spool.
+2. Swap in the new tube, clip off: CW2.5, coupler, retainer, holder, spool.
 3. Cut it square at the spool.
 
-**Check:** One tube from spool to CW2, no kink or joint, sliding freely through the holder, retainer and coupler.
+**Check:** One tube from spool to CW2.5, clip back on the collet, no kink or joint, sliding freely through the holder, retainer and coupler.
 
 ⚠ Cut with the toolhead at the front left and the gantry at its lowest, so the tube never pulls tight; leave 10 cm spare if Ch 14 Part H may follow. The holder sits behind the Drybox and clear of the top-panel clips `(verify on bench)`. With the kit's tube back in, the stock rear spool arm works again.
 
@@ -2144,7 +2144,7 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 2. Bare spool: spool on the spindle, spindle into the puck. Drybox: assemble it on the puck per Prusa's Core One+ guide.
 3. Feed the filament into the new tube.
 
-**Check:** The spool turns freely by hand, and the filament pushed into the tube reaches the CW2 gears.
+**Check:** The spool turns freely by hand, and the filament pushed into the tube reaches the CW2.5 gears.
 
 **Helper:** Holds the spool while the adult locks the spindle and feeds the filament.
 
@@ -2152,7 +2152,7 @@ Tip: The Drybox suits Prusament and Buddy3D spools best; check Prusa's compatibl
 
 Source: [Prusa USS Drybox](https://help.prusa3d.com/article/prusa-uss-drybox_1014382) · [Printables 1605113 — Universal spoolholder](https://www.printables.com/model/1605113)
 
-Pause: ~40 min since the last pause — puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2, a spool loaded. Nothing is half-fastened.
+Pause: ~40 min since the last pause — puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, a spool loaded. Nothing is half-fastened.
 
 ---
 
@@ -2272,7 +2272,7 @@ Pause: ~40 min since the last pause — camera bolted in, the toolhead proven cl
 **Part C — add-ons, if fitted**
 
 - [ ] Step 11.68's calculator passed for each add-on fitted before anything was printed; a high panel stack re-ran `remix.scad` first.
-- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2 with no kink or joint.
+- [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2.5 with no kink or joint.
 - [ ] HappyCam centred inside the top front extrusion, nothing touching it along the front at Z max, the stream live in Mainsail on the iPad.
 
 **Next:** [Ch 14 Step 14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) — Ch 14 opens with the exhaust go/no-go, then the hot soak and tuning.

@@ -48,7 +48,7 @@ supplied printed).
 
 ## Step B07.1 — Filament prep
 
-**Do:** Galaxy Black, spool #2 after B06. The ledger has 652 g on it here, 564 g after P1, 485 g after P2 and 427 g after P3, so no [runout](../16-glossary.md#r) in this batch.
+**Do:** Galaxy Black, spool #2 after B06. The ledger has 654 g on it here, 566 g after P1, 487 g after P2 and 429 g after P3, so no [runout](../16-glossary.md#r) in this batch.
 Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥225 g on spool #2 for the three plates.
 
@@ -168,7 +168,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 
 | bin | parts off this plate |
 |---|---|
-| **08-CW2** — Clockwork 2 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
+| **08-CW2** — Clockwork 2.5 extruder, toolboard + USB covers | `usb_adapter_mount_partial_cover` |
 | **09-bay** — Electronics bay: inlet, WAGO, PSU, DIN clips | `PSU_stabilizer_50mm`, `lrs_200_psu_bracket` ×2, `pcb_din_clip` |
 | **10-lights** — COB light-strip mounts | `cob_light_strip_mount_50mm` ×2 |
 | **spare-alt** — Spares / alternates (not fitted) | `usb_adapter_mount` |

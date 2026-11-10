@@ -108,28 +108,40 @@ def load_part_thumbs() -> None:
     seen: set[str] = set()
     seen_bin: set[str] = set()
     with manifest.open(encoding="utf-8", newline="") as fh:
-        for row in csv.DictReader(fh):
-            stl = (row.get("stl") or "").strip()
-            png = (row.get("png") or "").strip()
-            if not stl:
-                continue
-            path = REPO / png if png else None
-            # Chapters name a part as the Voron repo does (`z_drive_main_a`);
-            # the manifest keeps the LDO filename's `[a]_` colour prefix, its
-            # `_x2` / `-2X` multiplicity suffix and any `(contributed_by_…)`
-            # tail. Register every spelling in between.
-            keys = {Path(stl).stem}
-            keys |= {re.sub(r"\([^()]*\)$", "", k) for k in keys}
-            keys |= {re.sub(r"(?:[-_][xX]\d+|-\d+[xX])$", "", k) for k in keys}
-            keys |= {re.sub(r"^\[[a-z]\]_", "", k) for k in keys}
-            ordered = sorted((k for k in keys if k), key=len, reverse=True)
-            for key in ordered:
-                if path is not None and path.exists() and key not in seen:
-                    seen.add(key)
-                    rows.append((key, path))
-                if key not in seen_bin:
-                    seen_bin.add(key)
-                    bins.append((key, (row.get("bin") or "").strip()))
+        manifest_rows = [r for r in csv.DictReader(fh) if (r.get("stl") or "").strip()]
+    # A file's own stem outranks another file's derived spelling: the CW2.5
+    # `cable_cover.stl` must not resolve to the Voron-2 `[a]_cable_cover.stl`
+    # just because that row comes first and strips to the same name.
+    for row in manifest_rows:
+        stem = Path(row["stl"].strip()).stem
+        png = (row.get("png") or "").strip()
+        path = REPO / png if png else None
+        if path is not None and path.exists() and stem not in seen:
+            seen.add(stem)
+            rows.append((stem, path))
+        if stem not in seen_bin:
+            seen_bin.add(stem)
+            bins.append((stem, (row.get("bin") or "").strip()))
+    for row in manifest_rows:
+        stl = row["stl"].strip()
+        png = (row.get("png") or "").strip()
+        path = REPO / png if png else None
+        # Chapters name a part as the Voron repo does (`z_drive_main_a`);
+        # the manifest keeps the LDO filename's `[a]_` colour prefix, its
+        # `_x2` / `-2X` multiplicity suffix and any `(contributed_by_…)`
+        # tail. Register every spelling in between.
+        keys = {Path(stl).stem}
+        keys |= {re.sub(r"\([^()]*\)$", "", k) for k in keys}
+        keys |= {re.sub(r"(?:[-_][xX]\d+|-\d+[xX])$", "", k) for k in keys}
+        keys |= {re.sub(r"^\[[a-z]\]_", "", k) for k in keys}
+        ordered = sorted((k for k in keys if k), key=len, reverse=True)
+        for key in ordered:
+            if path is not None and path.exists() and key not in seen:
+                seen.add(key)
+                rows.append((key, path))
+            if key not in seen_bin:
+                seen_bin.add(key)
+                bins.append((key, (row.get("bin") or "").strip()))
     rows.sort(key=lambda r: -len(r[0]))
     bins.sort(key=lambda r: -len(r[0]))
     PART_THUMBS.extend(
