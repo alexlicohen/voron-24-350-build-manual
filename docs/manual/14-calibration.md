@@ -988,7 +988,7 @@ pass: Take this multiplier into the 0.5 % refinement pass next, then write the f
 
 ⚠ Too low leaves visible gaps and valleys between the top lines when held toward a light; too high leaves pellets, ridging and a rough raised surface. Most filaments land in the 92–98 % window, and Prusament ASA should.
 
-⚠ PrusaSlicer 2.9.6 has no per-object extrusion multiplier: it is a filament setting, and Add settings offers only print settings. Ellis says the same. One cube per print, each with its own `PRINT_START`, about 10 minutes before the first line.
+⚠ PrusaSlicer 2.9.7 has no per-object extrusion multiplier: it is a filament setting, and Add settings offers only print settings. Ellis says the same. One cube per print, each with its own `PRINT_START`, about 10 minutes before the first line.
 
 Tip: the cubes are in Ellis' [`test_prints`](https://github.com/AndrewEllis93/Print-Tuning-Guide/tree/main/test_prints) folder. Export each slice under its multiplier, `em-092.gcode` and so on, so the four files cannot be mixed up.
 

@@ -514,7 +514,7 @@ Pause: ~30 min since the last pause — every mains connection made and pull-tes
 
 ⚠ **LDO:** *"Incorrect wiring of AC/mains can be dangerous — therefore, always double check your work, and then triple check it once more."* Do all seven steps, 10.17 to 10.23, in order. Do not skip ahead to the 24 V section.
 
-⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine for 10.17 to 10.23. She is out of the room until 10.24; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
+⚠ **Who is in the room, [00a.2](00a-mains-safety.md#step-00a2-write-the-who-is-in-the-room-rule-and-post-it-on-the-wall):** one adult at the machine for 10.17 to 10.23. She is out of the room until 10.30, the next step after 10.23; at 10.23 nobody but the person with a hand on the switch is within reach of the machine.
 
 Source: [LDO wiring guide § Checkpoint 1](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 
@@ -1161,16 +1161,16 @@ Source: [Voron manual p.195](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:**
 
-- consumable: zip ties, 14
+- consumable: zip ties, 12
 - `[a]_cable_cover` ×1
 - M3×12 SHCS ×2
 
 **Do:**
 
-1. Tie all six chain end links at their small tabs; a tab in the way: cut it off, tie round the link.
+1. Tie all six chain end links at their tabs, two ties each; a tab in the way: cut it off, tie round the link.
 2. Bolt the `[a]_cable_cover` over the Z bundle: two M3×12 SHCS into the A drive's inserts.
 
-**Check:** Six tie points. Pull the umbilical at each end: the strain lands on the zip tie, not the connector. The cover pinches no cable.
+**Check:** Six tie points, two ties each. Pull the umbilical at each end: the tie takes the strain, not the connector. The cover pinches no cable.
 
 Source: [Nitehawk-SB V2 doc § Working with cable chains](https://docs.ldomotors.com/en/Toolboard/nitehawk-sb-v2#working-with-cable-chains) · [Voron manual p.204](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=204) · [Nitehawk-SB-V2 repo `cable_chain_ties.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/42ae497/Images/cable_chain_ties.jpg) · [Video: More Extras! @2:35:55](https://www.youtube.com/watch?v=D_44fDp9xt8&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=9355s) (differs: no toolboard — loom to the mainboard; this kit runs a Nitehawk-SB V2 on one USB+24 V umbilical)
 
@@ -1489,7 +1489,7 @@ Source: [LDO Rev D photo VS8 Ethernet/USB wired](https://raw.githubusercontent.c
 
 ![LDO VS8 mapping](assets/remote/10-wiring/ldo-revd-vs8-ffc-ethernet-usb-mapping.jpg)
 
-**What you're looking at:** The second Pi USB lead is the data half of the toolhead link; the 24 V half went on in step 10.26. The adapter PCB merges the two into the single umbilical socket.
+**What you're looking at:** The second Pi USB lead is the data half of the toolhead link; the 24 V half goes on at Step 10.26. The adapter PCB merges the two into the single umbilical socket.
 
 **Parts:**
 

@@ -110,7 +110,7 @@ the Printer box as `Prusa CORE One HF0.4 nozzle (modified)` — that modificatio
    |---|---|---|
    | Printer | `Prusa CORE One HF0.4 nozzle` — **always with (modified)** | the project replaces `start_gcode` with the cold-probe block (its flow line set to `M221 S95` for the first layer), sets `z_offset` **+0.08**, adds `M221 S100` to `layer_gcode` and adds `thumbnails` (`slicer/build_config.py`, a 640×480 PNG so a GUI G-code export carries a doc-sized preview). All are expected; the "(modified)" is the cold start and must stay |
    | Print | `0.20mm STRUCTURAL (modified)` | the project's overrides sit on the system preset `0.20mm STRUCTURAL @COREONE 0.4`; the box drops the `@COREONE` suffix |
-   | Filament | `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`, never with "(modified)" (` - Voron blue)` on the three B02 plates). A plate re-saved from the GUI repeats the file name: `B03-P1.3mf (B03-P1.3mf (Prusament …` (seen 2026-10-23). The box truncates; hover it for the whole name | PrusaSlicer names a preset that arrives in a project after the project file; it is the project's renamed filament preset, shrinkage zeroed |
+   | Filament | `B00-P1.3mf (Prusament ASA @COREONE HF0.4 - Voron black)`, never with "(modified)" (` - Voron blue)` on the four B02 plates). A plate re-saved from the GUI repeats the file name: `B03-P1.3mf (B03-P1.3mf (Prusament …` (seen 2026-10-23). The box truncates; hover it for the whole name | PrusaSlicer names a preset that arrives in a project after the project file; it is the project's renamed filament preset, shrinkage zeroed |
 
    "(modified)" on the printer box is **not** a fault and is not the signal to look for — it is the
    cold-probe start G-code, and a printer box *without* it means the project did not load. The other two
@@ -124,7 +124,7 @@ the Printer box as `Prusa CORE One HF0.4 nozzle (modified)` — that modificatio
    it changes nothing, and never "reset to system value" on the printer box — that throws the cold start
    away.
 
-The times and weights in every batch chapter are **PrusaSlicer 2.9.6 estimates** from these
+The times and weights in every batch chapter are **PrusaSlicer 2.9.7 estimates** from these
 projects, not a throughput model. Treat the first plate as the calibration of the *printer*, not of
 the estimate: if B00-P1 comes off within a few minutes of 4.0 h, the whole table is trustworthy.
 
@@ -222,7 +222,7 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 151.0 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 151.3 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
@@ -324,7 +324,7 @@ is fine — it does not change the layer orientation. Three exceptions to the fa
 2. The Nevermore `Regular_Cartridge_Lid` (Bucknova) is drawn rim-and-ribs down, so its 1.2 mm panel would
    bridge about 3900 mm². `plates.ORIENT` flips it so the solid face is on the bed (B09-P3).
 3. The two Clicky-Clack `Hinge-L-*` parts. As designed the hinges are on the **left** and the door opens from
-   the right; mirror both hinge files (2.9.6 only — the 3.0 preview has no mirror tool) if the printer's
+   the right; mirror both hinge files (2.9.7 only — the 3.0 preview has no mirror tool) if the printer's
    left side will be against a wall. The handle and latch are symmetric.
    [src](https://github.com/tanaes/whopping_Voron_mods/tree/main/clickyclacky_door)
 
@@ -412,7 +412,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 151.0 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 151.3 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -477,7 +477,7 @@ off again before the mesh for that reason.
    machine. Judge the cube's first layer as
    in item 3 of the calibration sequence — the loadcell re-zeroes on its own; there is no wizard to redo.
 
-**The same rule generalises:** *any* toolchain change — slicer version (2.9.6 → 3.0), profile bundle, belts,
+**The same rule generalises:** *any* toolchain change — slicer version (2.9.7 → 3.0), profile bundle, belts,
 pulleys or nozzle — re-runs Gate A (and Gate B, if run before the kit's fits are all confirmed) before the
 next plate. For this build that next applies at the INDX + Gen 2 rebuild, not mid-run.
 
@@ -529,6 +529,6 @@ Verified against the 3.0 branch, not recalled:
   `slicer/voron-coreone-asa.ini` does not cross the boundary. What does cross is the plate projects:
   3.0 imports a 2.x **3MF project** config and maps it to system presets, so open
   `slicer/plates/<plate>.3mf` and check every override by hand against the tables above. A 3.0 project
-  opened in 2.9.6 loads geometry only — the configuration is discarded (2.9.1+ warns).
+  opened in 2.9.7 loads geometry only — the configuration is discarded (2.9.1+ warns).
 - **No mirroring.** Mirroring is still on the 3.0 queue, so the B10 `Hinge-L-*` mirror cannot be done in the
-  preview: slice B10 in 2.9.6, or mirror the STL outside the slicer.
+  preview: slice B10 in 2.9.7, or mirror the STL outside the slicer.

@@ -25,10 +25,14 @@ would strip the keys the GUI added, which is why this is a single-line edit.
     python3 slicer/sync_start_gcode.py --key filament_colour --value "#1F4E9C" B02-P1
     python3 slicer/sync_start_gcode.py --add-missing --key z_offset B00-P1   # key absent: insert
 
+`--value` sets one key to a literal instead of the ini's value, so it takes exactly one `--key`
+and needs plate ids: it is never applied to every plate by default. An unknown flag or plate id
+is an error, not a full run.
+
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
 `voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's), so the
 inis stay the single source of truth. With no plate ids it runs over every plate in
-plates.py: the 22 of the ASA run and B11's five.
+plates.py: the ASA run's and B11's.
 
 It never changes an ini. Switching every plate to another start G-code is therefore two
 steps: change the source that `build_config.py` reads (`COLD_START`, the vendored block) and
@@ -39,6 +43,7 @@ and estimates.csv.
 """
 from __future__ import annotations
 
+import argparse
 import shutil
 import sys
 import zipfile
@@ -108,24 +113,29 @@ def patch(path: Path, key: str, value: str, check: bool, add: bool = False) -> b
     return changed
 
 
-def main() -> int:
-    args = sys.argv[1:]
-    check = "--check" in args
-    add = "--add-missing" in args
-    keys: list[str] = []
-    override: str | None = None
-    while "--key" in args:
-        i = args.index("--key")
-        keys.append(args[i + 1])
-        args = args[:i] + args[i + 2:]
-    if "--value" in args:
-        i = args.index("--value")
-        override = args[i + 1]
-        args = args[:i] + args[i + 2:]
-    keys = keys or ["start_gcode"]
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(
+        allow_abbrev=False,
+        description="Force one config key in the committed plate 3MFs to match the ini bundles.")
+    ap.add_argument("plates", nargs="*", metavar="PLATE", help="plate ids (default: every plate)")
+    ap.add_argument("--check", action="store_true", help="report only, change nothing")
+    ap.add_argument("--add-missing", action="store_true", help="insert the key where a plate lacks it")
+    ap.add_argument("--key", action="append", default=[], metavar="KEY",
+                    help="config key to sync; repeats (default: start_gcode)")
+    ap.add_argument("--value", metavar="VALUE",
+                    help="write this value instead of the ini's; one --key, named plates only")
+    a = ap.parse_args(argv)
+    check, add, override = a.check, a.add_missing, a.value
+    keys = a.key or ["start_gcode"]
+    unknown = [p for p in a.plates if p not in PLATES]
+    if unknown:
+        ap.error(f"unknown plate id(s): {', '.join(unknown)}")
     if override is not None and len(keys) != 1:
-        raise SystemExit("--value takes exactly one --key")
-    wanted = [a for a in args if not a.startswith("--")] or list(PLATES)
+        ap.error("--value takes exactly one --key")
+    if override is not None and not a.plates:
+        ap.error("--value needs plate ids: it does not come from an ini, so it is never "
+                 "applied to every plate by default")
+    wanted = a.plates or list(PLATES)
 
     n = 0
     for pid in wanted:

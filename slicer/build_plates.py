@@ -11,23 +11,33 @@ For each plate in `plates.py` (the 20 of the ASA run and B11's bay-ducting plate
   6. draw the plate preview into docs/manual/assets/plates/<id>.png,
   7. write slicer/estimates.csv.
 
-    python3 slicer/build_plates.py                # every plate: pack, write 3MFs, slice, record
-    python3 slicer/build_plates.py B07-P2 B10-P1  # named plates only (their estimates.csv rows
-                                                  # are replaced, every other row is kept)
-    python3 slicer/build_plates.py --from-3mf     # NO packing: re-slice the committed 3MFs as
+    python3 slicer/build_plates.py --from-3mf B07-P2 B10-P1
+                                                  # NO packing: re-slice the committed 3MFs as
                                                   # they are (edited in the GUI or not), refresh
-                                                  # estimates.csv and redraw the diagrams
-    python3 slicer/build_plates.py --nest B01-P1  # pack with slicer/nest.py (outlines) instead
-    python3 slicer/build_plates.py --packer=platearrange --out /tmp/x B01-P1
-                                                  # pack with tools/platearrange (outlines, any
-                                                  # Z rotation, centred); needs numpy
-    python3 slicer/build_plates.py --out /tmp/x   # write the 3MF, PNG and CSV under /tmp/x
-                                                  # instead of the committed trees
+                                                  # their estimates.csv rows (every other row is
+                                                  # kept), redraw the diagrams, audit the layout
+    python3 slicer/build_plates.py --from-3mf     # the same for every plate (slow, safe)
+    python3 slicer/build_plates.py --repack B07-P2
+                                                  # pack the plate again from plates.py and
+                                                  # REWRITE its 3MF: any hand arrangement is lost
+    python3 slicer/build_plates.py --repack --all # every plate except plates.AS_PRINTED
+    python3 slicer/build_plates.py --repack --nest B11-P4
+                                                  # pack with slicer/nest.py instead
+    python3 slicer/build_plates.py --repack --packer=geom --out /tmp/x B01-P1
+                                                  # bounding-box packer; 3MF, PNG and CSV under
+                                                  # /tmp/x instead of the committed trees
+
+A mode is required: `--from-3mf` or `--repack`. An unknown flag, an unknown plate id, no
+mode, or `--repack` with neither plate ids nor `--all` is an error and touches nothing
+(until 2026-11-09 a bare run, or `--help`, re-packed every plate).
 
 `--from-3mf` is the normal mode once the plates exist: the committed 3MF is the source of
 truth for the arrangement, so a plate re-arranged in PrusaSlicer and saved keeps its numbers
-honest by running this, never by re-packing. The default (packing) mode rewrites the 3MFs
-from `plates.py` and loses any hand arrangement.
+honest by running this, never by re-packing. It ends with slicer/audit_plates.py on the same
+plates and exits 1 if one breaks the edge, gap or brim rule. `--repack` rewrites the 3MFs
+from `plates.py`; it refuses a plate in plates.AS_PRINTED (already printed from the committed
+file) unless `--out` sends the result elsewhere. The default packer is tools/platearrange
+(outlines, any Z rotation, centred, 6 mm gaps; needs numpy).
 
 Step 6, the diagram, is scripts/render_plate_bins.py (outlines read back from the 3MF, every
 part numbered and coloured by its sorting bin); it runs after the CSV is written.
@@ -35,6 +45,7 @@ Needs Pillow for the diagrams (`pip install -r slicer/requirements.txt`).
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import math
 import re
@@ -47,7 +58,8 @@ import zipfile
 from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
-from plates import MODEL_ESTIMATE, ORIENT, PLATES, brim_for, footprint_of, local_path, run_of
+from plates import (AS_PRINTED, MODEL_ESTIMATE, ORIENT, PLATES, brim_for, footprint_of,
+                    local_path, run_of)
 from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
@@ -68,7 +80,7 @@ INI = {"black": ROOT / "voron-coreone-asa.ini",
 # run; this one line is the permanent switch. The outline packers replace build()'s
 # bounding-box overlap assertion with a stricter outline check of their own, so that
 # assertion runs for "geom" only.
-PACKER = "geom"
+PACKER = "platearrange"   # every committed plate since 2026-10-24; was "geom" (3 mm gaps) until 2026-11-09
 PACKERS = ("geom", "nest", "platearrange")
 PA_LARGE_CENTRE = 1.0         # platearrange: the largest parts go in the middle of the bed
 PA_GAP = 6.0                  # platearrange: mm between brims (PrusaSlicer's default) ...
@@ -262,7 +274,7 @@ def inject_3mf(path: Path, ini: Path, per_object: dict[str, dict[str, str]],
     members["Metadata/Slic3r_PE_model.config"] = "<object ".join(rebuilt).encode("utf-8")
 
     header = ("; generated by slicer/build_plates.py from "
-              f"{ini.name} (PrusaSlicer 2.9.6 system presets + this build's overrides)")
+              f"{ini.name} (PrusaSlicer 2.9.7 system presets + this build's overrides)")
     members["Metadata/Slic3r_PE.config"] = (
         "\n".join([header] + config_lines(ini)) + "\n").encode("utf-8")
 
@@ -368,6 +380,16 @@ def _delta(now: float, prev: float | None) -> float | None:
 
 
 # ----------------------------------------------------------------- driver
+
+def expected_brims(plate_id: str) -> dict[str, float]:
+    """STL basename -> the brim width build() gives that part on this plate."""
+    spec = PLATES[plate_id]
+    out: dict[str, float] = {}
+    for repo, path, _qty in spec["parts"]:
+        _hull, bb = hull_and_bbox(source_stl(repo, path))
+        out[Path(path).name] = brim_for(path, footprint_of(bb), spec["colour"])
+    return out
+
 
 def build(plate_id: str) -> dict:
     spec = PLATES[plate_id]
@@ -513,35 +535,65 @@ def write_estimates(path: Path, built: list[dict]) -> None:
     print(f"wrote {path}")
 
 
-def main() -> int:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    ap = argparse.ArgumentParser(
+        allow_abbrev=False,
+        description="Re-slice the committed plate 3MFs (--from-3mf) or pack plates again "
+                    "from plates.py (--repack). A mode is required.",
+        epilog="After a GUI save: build_plates.py --from-3mf <plate ids>. --repack rewrites "
+               "the 3MF and loses any hand arrangement.")
+    mode = ap.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--from-3mf", action="store_true",
+                      help="no packing: re-slice the 3MFs as they are, refresh estimates.csv, "
+                           "redraw the diagrams, audit the layout (no ids = every plate)")
+    mode.add_argument("--repack", action="store_true",
+                      help="pack from plates.py and REWRITE the 3MFs (needs plate ids or --all)")
+    ap.add_argument("plates", nargs="*", metavar="PLATE", help="plate ids, e.g. B07-P2")
+    ap.add_argument("--all", action="store_true",
+                    help="with --repack: every plate except plates.AS_PRINTED")
+    ap.add_argument("--packer", choices=PACKERS, default=None,
+                    help=f"with --repack (default {PACKER})")
+    ap.add_argument("--nest", action="store_true", help="with --repack: same as --packer=nest")
+    ap.add_argument("--out", type=Path, metavar="DIR",
+                    help="write the 3MF, PNG and CSV under DIR instead of the committed trees")
+    a = ap.parse_args(argv)
+    unknown = [p for p in a.plates if p not in PLATES]
+    if unknown:
+        ap.error(f"unknown plate id(s): {', '.join(unknown)}")
+    if a.all and a.plates:
+        ap.error("--all takes no plate ids")
+    if a.from_3mf and (a.packer or a.nest or a.all):
+        ap.error("--packer, --nest and --all go with --repack; --from-3mf never packs")
+    if a.nest and a.packer not in (None, "nest"):
+        ap.error("--nest and --packer disagree")
+    if a.repack:
+        if not a.plates and not a.all:
+            ap.error("--repack needs plate ids or --all (it rewrites the 3MFs)")
+        printed = sorted(set(a.plates) & AS_PRINTED)
+        if printed and not a.out:
+            ap.error(f"{', '.join(printed)}: already printed from the committed 3MF "
+                     "(plates.AS_PRINTED), not re-packed. Use --out DIR to pack a copy elsewhere.")
+    return a
+
+
+def main(argv: list[str] | None = None) -> int:
     global OUT_3MF, OUT_PNG, ESTIMATES, PACKER
-    argv, out_dir, i = sys.argv[1:], None, 0
-    args: list[str] = []
-    while i < len(argv):
-        if argv[i] == "--out":
-            out_dir, i = Path(argv[i + 1]), i + 2
-            continue
-        if argv[i] == "--packer":
-            PACKER, i = argv[i + 1], i + 2
-            continue
-        if argv[i].startswith("--packer="):
-            PACKER = argv[i].split("=", 1)[1]
-        elif argv[i].startswith("--out="):
-            out_dir = Path(argv[i].split("=", 1)[1])
-        else:
-            args.append(argv[i])
-        i += 1
-    if PACKER not in PACKERS:
-        raise SystemExit(f"--packer must be one of {', '.join(PACKERS)}, not {PACKER!r}")
+    a = parse_args(argv)
+    out_dir, from_3mf = a.out, a.from_3mf
+    if a.nest:
+        PACKER = "nest"
+    elif a.packer:
+        PACKER = a.packer
     if out_dir:
         OUT_3MF = out_dir / "plates"
         OUT_PNG = out_dir / "assets" / "plates"
         ESTIMATES = out_dir / "estimates.csv"
         OUT_PNG.mkdir(parents=True, exist_ok=True)
-    if "--nest" in args:
-        PACKER = "nest"
-    from_3mf = "--from-3mf" in args
-    wanted = [a for a in args if not a.startswith("--")] or list(PLATES)
+    wanted = a.plates or list(PLATES)
+    if a.repack and a.all and not out_dir:
+        wanted = [p for p in wanted if p not in AS_PRINTED]
+        print(f"--repack --all: leaving the as-printed plates alone "
+              f"({', '.join(sorted(AS_PRINTED))})")
     rows = []
     for pid in wanted:
         r = build_from_3mf(pid) if from_3mf else build(pid)
@@ -561,7 +613,10 @@ def main() -> int:
                 "--estimates", str(ESTIMATES)]
     run(cmd)
     print(f"drew {len(wanted)} diagram(s) -> {OUT_PNG}")
-    return 0
+
+    # a hand-moved plate is checked against the rules the packer enforces (edge, gap, brim)
+    import audit_plates
+    return audit_plates.run(wanted, OUT_3MF)
 
 
 if __name__ == "__main__":

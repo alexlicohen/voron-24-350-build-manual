@@ -46,9 +46,10 @@ Method
               that lifts parts smallest-first and re-inserts them, keeping the
               new spot only when it scores better. No randomness anywhere: same
               inputs, same plate, byte for byte.
-  fallback    a plate that will not fit at `gap` is retried down GAP_LADDER (to
-              3 mm, the clearance geom.pack has always used) and the relaxation
-              is reported on stderr. Only then does it fail, naming the part.
+  fallback    none since 2026-11-09: GAP_LADDER is empty, as build_plates.PA_GAP_LADDER
+              has been since 2026-11-06 (a plate that does not fit at `gap` is split,
+              never squeezed). A non-empty ladder is retried in order and the
+              relaxation is reported on stderr before it fails, naming the part.
 
     python3 slicer/nest.py --compare     # every plate: committed 3MF vs this packer
     python3 slicer/nest.py --selftest    # clearance + on-bed + determinism asserts
@@ -69,7 +70,7 @@ STL_DIR = ROOT / "stl"
 
 RES = 0.5           # mm per raster cell
 GAP = 6.0           # mm of bare bed between any two outlines, brims excluded
-GAP_LADDER = (5.0, 4.0, 3.0)   # only if the plate will not fit at GAP; 3.0 = geom.CLEARANCE
+GAP_LADDER = ()     # no relaxation (Alex 2026-11-06, as build_plates.PA_GAP_LADDER): split the plate; was (5.0, 4.0, 3.0)
 STEP = 2            # first-fit lattice in cells -> 1.0 mm
 ROTATIONS = (0, 90, 180, 270)
 IMPROVE = True      # second pass: re-insert parts smallest-first, keep if better
@@ -554,7 +555,7 @@ def nest(pieces: list[Piece], bed: tuple[float, float] = (BED_X, BED_Y),
                 f"{sh.fh + 2 * p.brim:.1f} mm with its brim, and no packing strategy left "
                 f"room for it on the {bed[0] - 2 * EDGE_MARGIN:.0f} x "
                 f"{bed[1] - 2 * EDGE_MARGIN:.0f} mm of usable bed, down to a "
-                f"{min(GAP_LADDER):g} mm gap. Move it to another plate "
+                f"{min((want,) + GAP_LADDER):g} mm gap. Move it to another plate "
                 f"(docs/voron-print-plan.md §3) rather than scaling anything down.")
 
 

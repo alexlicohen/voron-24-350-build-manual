@@ -543,7 +543,7 @@ def render(plate_id: str, estimates: dict[str, tuple[float, float]], out_dir: Pa
     if PLATES.get(plate_id, {}).get("qc") == "pending":
         hg += "  ·  arrangement provisional (GUI QC pending)"
     cv.text(PAD, PAD + 32, f"{len(parts)} parts  ·  {hg}  ·  {material}  ·  bed 250 × 220 mm  ·  "
-            f"PrusaSlicer 2.9.6 estimate", 14, MUTED)
+            f"PrusaSlicer 2.9.7 estimate", 14, MUTED)
 
     # bed
     cv.rect(BED_OX, BED_OY, BED_W, BED_H, fill=BED, stroke=BED_EDGE, width=1.5)

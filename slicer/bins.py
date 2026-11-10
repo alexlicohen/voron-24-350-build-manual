@@ -72,7 +72,7 @@ BINS: dict[str, dict[str, str]] = {
     "07-X": dict(label="X carriage halves, probe bracket, cable cover", chapter="Ch 07", steps="07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66)", colour="#cd853f"),
     "08-SB": dict(label="Stealthburner body, printhead, LEDs", chapter="Ch 08", steps="08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62)", colour="#d62839"),
     "08-CW2": dict(label="Clockwork 2 extruder, toolboard + USB covers", chapter="Ch 08",
-                   steps="08.3–08.20 (toolboard cover 08.51, USB adapter cover 08.64)", colour="#f28482"),
+                   steps="08.3–08.20 (toolboard cover 08.62, USB adapter cover 08.64)", colour="#f28482"),
     "09-bay": dict(label="Electronics bay: inlet, WAGO, PSU, DIN clips", chapter="Ch 09", steps="09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16)", colour="#e0a100"),
     # B11 bay ducting: one bin per step that opens it. Bodies are laid in Ch 09, lids closed later.
     "09-ducts-DC": dict(label="DC conduit + coupon, B11", chapter="Ch 09",
@@ -376,7 +376,7 @@ NOTES: dict[str, str] = {
     "power_inlet_IECGS_1mm.stl": "ring segment: dry-fitted with the skirts at 11.1, mounted at 09.12",
     "z_rail_stop_x4.stl": "optional (02.10 / 06.10)",
     "KlickyProbe_v2.stl": "Klicky — alternative probe only, bag closed (08.54)",
-    "cw2_captive_pcb_cover.stl": "replaces the stock `cable_door` (08.51)",
+    "cw2_captive_pcb_cover.stl": "replaces the stock `cable_door` (08.62)",
     "handlebar_spacer_x4.stl": "handlebars go on last (11.60)",
     "Handle.stl": "blue — joins the black door parts from B10",
     "V3L_COUPON_22N_DUCT.stl": "lid-snap coupon: tested at B11.4, bundle-fill test at B11.10, then kept here",

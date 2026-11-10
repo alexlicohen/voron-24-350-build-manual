@@ -186,7 +186,7 @@ def render(plate_id: str, colour: str, pieces, hours: float, grams: float,
     if brim_note:
         d.text((lx, oy + bed_h - 40), brim_note, font=f_small, fill=MUTED)
     d.text((lx, oy + bed_h - 22),
-           "PrusaSlicer 2.9.6 · slicer/build_plates.py", font=f_small, fill=MUTED)
+           "PrusaSlicer 2.9.7 · slicer/build_plates.py", font=f_small, fill=MUTED)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "PNG", optimize=True)

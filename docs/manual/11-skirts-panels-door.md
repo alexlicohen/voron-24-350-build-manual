@@ -890,7 +890,7 @@ Source: [Voron manual p.235](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 - reused: the three remaining loaded covers
 
-**Do:** Repeat 11.24 at the other three Z belt corners. Then run the gantry up and down its full travel by hand and watch each cover.
+**Do:** Repeat 11.24 at the other three Z belt corners. Then run the gantry up and down its full travel slowly by hand and watch each cover.
 
 **Check:** Four covers on, all four belts running clear, no rubbing anywhere in the full Z travel.
 
@@ -1694,7 +1694,7 @@ Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 1. **Right-hand** side, seen from the front. Load eight clips: two M3×12 SHCS per corner clip, one per midspan.
 2. Corners then midspans as p.241 shows; offer the panel up, tighten every clip. Front-edge midspan only snug for 11.63.
 
-**Check:** Panel flat with equal margins, and the gantry run through its full XY travel by hand touches nothing.
+**Check:** Panel flat with equal margins, and the gantry run slowly through its full XY travel by hand touches nothing.
 
 **Helper:** Holds the side panel against the clips while you tighten them.
 
@@ -1926,7 +1926,7 @@ Source: [Voron manual p.239](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:**
 
 1. Peel any film. Close the door and check every seam for daylight.
-2. Push the gantry through full XY and Z by hand; nothing should touch.
+2. Push the gantry slowly through full XY and Z by hand; nothing should touch.
 3. Confirm the touchscreen, AC switch, keystone and spool arm are clear.
 
 **Check:** No daylight at any panel seam or around the door, no contact in full XY or Z travel, the door latching with one push.

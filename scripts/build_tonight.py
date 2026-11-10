@@ -14,7 +14,7 @@ for its segments:
     Ch 12 Part 2 from Step 12.11).
   - print chapters (docs/manual/print/B*.md): every
     `## Step BNN.M — Load [and print] plate BNN-PN` step with its
-    `**Parts:** … — H h, G g (PrusaSlicer 2.9.6 estimate)` line → a print
+    `**Parts:** … — H h, G g (PrusaSlicer 2.9.7 estimate)` line → a print
     segment: open the project, confirm the estimate, start it and watch the
     first layer (PLATE_START_MIN hands-on), then H h unattended. Their
     `Pause:` lines (after the inspect steps) become hands-on segments too.
@@ -88,10 +88,31 @@ _SECTION_RE = re.compile(r"^#{2,3}\s+(.+?)\s*$", re.MULTILINE)  # any h2/h3: a r
 # `(pre-kit)` after "since the last pause" marks a segment that needs no Voron
 # part, so the "Before the kit" planner can offer it even though its timeline
 # row is **KIT** (Ch 00's reading, log and Discord steps).
+# A qualifier may sit between "since the last pause" and the dash, opened by a comma or a
+# bracket (", in three ~18-min corners", "(plus the 1½–2 h soak)"). It is skipped: the
+# segment keeps the first minute count and the state after the dash. Without this the
+# line matched nothing and its segment silently merged into the next one.
 _PAUSE_RE = re.compile(
-    r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?\s*—\s*(.+?)\s*$",
+    r"^>?\s*Pause:\s*~?(\d+)\s*min\s*since the last pause\s*(\(pre-kit\))?"
+    r"(?:\s*[,(][^—\n]*?)?\s*—\s*(.+?)\s*$",
     re.MULTILINE,
 )
+_PAUSE_LINE_RE = re.compile(r"^>?\s*Pause:.*$", re.MULTILINE)   # any Pause line, parsed or not
+
+
+def unparsed_pause_lines():
+    """`file:line  text` for every chapter `Pause:` line _PAUSE_RE does not parse. Such a
+    line still renders as a stopping point but gives the planner no segment."""
+    bad = []
+    files = [f for f in MANUAL.glob("*.md") if f.name not in _EXCLUDE]
+    files += list(PRINT.glob("B*.md"))
+    for f in sorted(files):
+        text = f.read_text(encoding="utf-8")
+        for m in _PAUSE_LINE_RE.finditer(text):
+            if not _PAUSE_RE.match(m.group(0)):
+                bad.append(f"{f.relative_to(REPO)}:{text.count(chr(10), 0, m.start()) + 1}  "
+                           f"{m.group(0)[:70]}")
+    return bad
 def _plain(s):
     """Segment text reaches the page as plain text (the JS sets textContent, the
     generated Markdown wraps it in a raw <span>), so chapter emphasis markers
@@ -916,6 +937,23 @@ def _self_test():
 
     check("plain text: ** emphasis markers dropped",
           _plain("answer **Don't Save** and **first**") == "answer Don't Save and first")
+
+    def pause(line):
+        m = _PAUSE_RE.match(line)
+        return m and (int(m.group(1)), bool(m.group(2)), m.group(3))
+    check("pause: plain line",
+          pause("Pause: ~25 min since the last pause — frame square") == (25, False, "frame square"))
+    check("pause: (pre-kit) tag",
+          pause("Pause: ~20 min since the last pause (pre-kit) — log open") == (20, True, "log open"))
+    check("pause: comma qualifier before the dash",
+          pause("Pause: ~55 min since the last pause, in three ~18-min corners — Z1 built")
+          == (55, False, "Z1 built"))
+    check("pause: bracketed qualifier before the dash",
+          pause("Pause: ~25 min since the last pause (plus the 1½–2 h soak) — belts even")
+          == (25, False, "belts even"))
+    check("pause: no dash, no segment", not pause("Pause: ~25 min since the last pause"))
+    bad = unparsed_pause_lines()
+    check("every chapter Pause line parses into a segment", not bad, "\n  " + "\n  ".join(bad))
 
     def seg(i, kind, minutes):
         return {"id": i, "kind": kind, "minutes": minutes, "first_step": i, "pre_kit": False}

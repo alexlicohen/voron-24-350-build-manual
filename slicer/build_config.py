@@ -90,7 +90,8 @@ OVERRIDES: list[tuple[str, str, str, str, str]] = [
      "outer_only keeps the brim off internal holes", "Print row 14"),
     ("brim_width", "0", "print",
      "off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each "
-     "plate 3MF: the parts the doc names, plus 3 mm on every big part (footprint >= 50 mm, "
+     "plate 3MF: the parts the doc names, plus 3 mm on every part 30 mm or longer (plates.BRIM_MIN_MM; "
+     "50 mm until 2026-11-07, "
      "Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule)",
      "Print row 14 + section Orientation & brim"),
     ("brim_separation", "0.3", "print",
@@ -397,9 +398,10 @@ def write_overrides_md(black: dict[str, str], accent: dict[str, str], version: s
         "default-profile pointers - bed 250x220, 270 mm Z, retract 0.7 mm @ 45 mm/s and z-hop 0.2 mm are "
         "identical. |",
         "",
-        "HF raises the ceiling only. At this build's capped speeds the peak volumetric flow is",
-        "`100 mm/s x 0.4 x 0.2 = 8.0 mm3/s` on infill, well under both the 15 and the 26 mm3/s limit,",
-        "so the HF base changes the temperature and the start G-code but not the time estimates.",
+        "HF raises the ceiling, and this build uses part of it. The peak volumetric flow is",
+        "`200 mm/s x 0.4 x 0.2 = 16.0 mm3/s` on infill (12.0 on solid infill at 150 mm/s): under the HF",
+        "filament's 26 mm3/s limit and just over the 15 of the non-HF preset, which would cap the infill",
+        "near 187 mm/s. The HF base also changes the temperature and the start G-code.",
         "",
         "## Print settings",
         "",

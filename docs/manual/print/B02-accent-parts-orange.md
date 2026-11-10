@@ -10,7 +10,7 @@ pose: print
 caption: Every accent part in one session. One blue spool, and yes, it matches my scarf.
 ```
 
-**Time:** 21.0 h (4 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 21.0 h (4 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 4 plate starts (~5 min hands-on each, 7.1 / 8.2 / 2.6 / 3.1 h unattended) + ~20 min inspect and bin.
 
@@ -67,8 +67,9 @@ bridge unnecessary. Print **both** `[a]_xy_joint_cable_bridge_2hole` and
   test-fit then, not now. Check the SB main body's built-in supports came out clean and the LED pockets are crisp.
 - Most commonly reprinted here: `[a]_stealthburner_main_body` — the most-looked-at part in the build.
 - `[a]_stealthburner_main_body` has **built-in supports** — snap them out, don't cut.
-- `Handle.stl` is 60 mm tall on a 68×19 footprint — the project already carries its 5 mm brim, and every
-  other part 30 mm or longer a 3 mm one (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim)). You
+- `Handle.stl` is 60 mm tall on a 68×19 footprint — the project already carries its 5 mm brim. B02-P4 carries
+  a 3 mm brim on every part 30 mm or longer (per [00-slicer-setup.md](00-slicer-setup.md#orientation-brim));
+  B02-P1 to P3 are kept as they printed, with 3 mm on the parts 50 mm or longer only. Each Load step names its brims. You
   verify them in the preview; you do not add them.
 - `[a]_keystone_blank_insert` ×2 covers a panel with 2 slots against 1 LDO-supplied CAT6 keystone — 1 used, 1 spare.
 
@@ -94,16 +95,16 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 1. Open `slicer/plates/B02-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **15 files, 16 objects**, the **5 mm brim on `Handle` already in the project**, 3 mm on three more.
 3. Never add a brim by hand.
-**Parts:** `[a]_faceplate` · `Handle` · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_a` · `[a]_belt_guard_b` · `[a]_endstop_pod_D2F_switch` · `[a]_z_tensioner_9mm` ×2 · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_a` · `[a]_belt_tensioner_b` · `[a]_guidler_b` · `[a]_keystone_blank_insert` · `[a]_z_chain_retainer_bracket` — 7.1 h, 97 g (PrusaSlicer 2.9.6 estimate) · 5 mm brim on `Handle`, 3 mm on `[a]_faceplate`, `[a]_fan_grill_b` and `[a]_endstop_pod_D2F_switch`, already in the project.
+**Parts:** `[a]_faceplate` · `Handle` · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_a` · `[a]_belt_guard_b` · `[a]_endstop_pod_D2F_switch` · `[a]_z_tensioner_9mm` ×2 · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_a` · `[a]_belt_tensioner_b` · `[a]_guidler_b` · `[a]_keystone_blank_insert` · `[a]_z_chain_retainer_bracket` — 7.1 h, 97 g (PrusaSlicer 2.9.7 estimate) · 5 mm brim on `Handle`, 3 mm on `[a]_faceplate`, `[a]_fan_grill_b` and `[a]_endstop_pod_D2F_switch`, already in the project.
 **Check:** Filament box ends `- Voron blue)`; brim outlines on `Handle`, the faceplate, the grill and the endstop pod only.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
 
-Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
+Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf)
 
 ## Step B02.3 — Print plate B02-P1
 
-**Do:** Print with standing overrides; the brims are already in the project.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides; the brims are already in the project.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; `Handle` stands with no lean and its brim shows no lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -123,7 +124,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 1. Open `slicer/plates/B02-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **15 files, 16 objects**, 3 mm brims on four parts.
 3. Leave the SB main body's built-in supports; never suppress them.
-**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.2 h, 108 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the SB main body, both `[a]_fan_grill_a` and the `[a]_xy_joint_cable_bridge_2hole`, already in the project.
+**Parts:** `[a]_stealthburner_main_body` · `[a]_fan_grill_a` ×2 · `[a]_z_drive_baseplate_a` · `[a]_z_drive_baseplate_b` · `[a]_belt_guard_b` · `[a]_xy_joint_cable_bridge_2hole` · `[a]_tensioner_left` · `[a]_z_tensioner_9mm` · `[a]_z_belt_clip_upper` · `[a]_z_belt_clip_lower` · `[a]_belt_tensioner_b` · `[a]_guidler_a` · `[a]_pcb_spacer` · `ldo_bestagon_insert` · `[a]_z_chain_retainer_bracket` — 8.2 h, 108 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on the SB main body, both `[a]_fan_grill_a` and the `[a]_xy_joint_cable_bridge_2hole`, already in the project.
 **Check:** SB main body oriented as shipped with its supports visible in preview; brim outlines on the body, both grills and the cable bridge only.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -132,7 +133,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B02.5 — Print plate B02-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** First layer clean; the SB body prints without support failure.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -151,7 +152,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P3.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **6 files, 7 objects**, 3 mm brims on three parts.
-**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `[a]_z_tensioner_9mm` · `[a]_belt_tensioner_a` — 2.6 h, 36 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both `[a]_fan_grill_retainer` and `[a]_fan_grill_b`, already in the project.
+**Parts:** `[a]_fan_grill_retainer` ×2 · `[a]_fan_grill_b` · `[a]_z_drive_baseplate_a` · `[a]_belt_guard_a` · `[a]_z_tensioner_9mm` · `[a]_belt_tensioner_a` — 2.6 h, 36 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on both `[a]_fan_grill_retainer` and `[a]_fan_grill_b`, already in the project.
 **Check:** Brim outlines on the three fan parts only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -160,7 +161,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B02.7 — Print plate B02-P3
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** No warp on the small parts or at the fan-grill corners.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -179,7 +180,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B02-P4.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **8 files, 10 objects**, 3 mm brims on two parts.
-**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.1 h, 38 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on `[a]_cable_cover`, the backer bridge, `[a]_tensioner_right` and `[a]_latch`, already in the project.
+**Parts:** `[a]_cable_cover` · `XY_cable_chain_bridge-Igus-3mm_backer` · `[a]_tensioner_right` · `[a]_z_belt_clip_upper` ×2 · `[a]_z_belt_clip_lower` ×2 · `[a]_latch` · `[a]_latch_shuttle` · `[a]_keystone_blank_insert` — 3.1 h, 38 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on `[a]_cable_cover`, the backer bridge, `[a]_tensioner_right` and `[a]_latch`, already in the project.
 **Check:** The cable-chain bridge lying flat, as the project carries it; brim outlines on those two, `[a]_tensioner_right` and `[a]_latch` only.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -188,7 +189,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B02.11 — Print plate B02-P4
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** No warp on the small parts, and the latch and latch shuttle print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -207,7 +208,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 Pause: ~10 min since the last pause — supports out, brims off, nothing pressed or glued. Leave the blue spool on if B02-P4 has not printed yet; otherwise unload it and re-seal it before walking away.
 
-Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)
+Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-plan.md#52-checkpoint-after-each-batch) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Stealthburner manual — remove built-in supports](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf)
 
 ## Step B02.9 — Sort into bins
 

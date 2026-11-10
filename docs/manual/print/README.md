@@ -1,7 +1,7 @@
 # Print batches — overview
 
-27 plates, **151.0 h**, **1820 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
-**PrusaSlicer 2.9.6 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
+27 plates, **151.3 h**, **1820 g Galaxy Black + 279 g ASA Blue**. Every hour and gram on this page is a
+**PrusaSlicer 2.9.7 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
 previous figure beside each one, and the exact unrounded values, are in `slicer/estimates.csv`. Totals here are
@@ -20,7 +20,7 @@ caption: Twenty-seven plates, start to finish. The printer works while the kit i
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
 Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
-— 151.0 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 151.3 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -37,12 +37,12 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B03](B03-ab-drive-units-and-front-idlers.md) | 2 | 8.6 | 120 | 0 | Ch 04 A/B Drives and Idlers | Gate B |
 | [B04](B04-xy-joints-and-x-carriage.md) | 1 | 8.8 | 117 | 0 | Ch 05 Gantry | Gate B |
 | [B05](B05-z-joints-and-z-chain.md) | 1 | 6.2 | 78 | 0 | Ch 06 Z joints; Ch 10 (chain anchor, guide) | Gate B |
-| [B06](B06-toolhead-sb-cw2-klicky.md) | 2 | 11.6 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
-| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.2 | 225 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
+| [B06](B06-toolhead-sb-cw2-klicky.md) | 2 | 11.7 | 148 | 0 | Ch 08 Stealthburner (Klicky set bagged, Ch 08.54) | Gate B |
+| [B07](B07-electronics-bay-and-lighting.md) | 3 | 15.3 | 225 | 0 | Ch 09 Electronics bay; Ch 10 Wiring; Ch 11 (handlebar spacers) | Gate A |
 | [B08](B08-skirts-and-front-modules.md) | 5 | 26.5 | 397 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
-| [B09](B09-panels-filtration-spool.md) | 5 | 20.7 | 300 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
+| [B09](B09-panels-filtration-spool.md) | 5 | 20.8 | 300 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 75 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **27** | **151.0** | **1820** | **279** | | |
+| **TOTAL** | **27** | **151.3** | **1820** | **279** | | |
 
 All 27 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
@@ -72,9 +72,9 @@ between #16 and #17 ([B11 run schedule](#b11-run-schedule)).
 | 10 | B04-P1 | 8.8 | black | overnight | #1 |
 | 11 | B05-P1 | 6.2 | black | day | #1 |
 | 12 | B06-P1 | 7.6 | black | overnight | #2 (fresh) |
-| 13 | B06-P2 | 4.0 | black | day | #2 |
+| 13 | B06-P2 | 4.1 | black | day | #2 |
 | 14 | B07-P1 | 5.7 | black | day | #2 |
-| 15 | B07-P2 | 5.0 | black | day | #2 |
+| 15 | B07-P2 | 5.1 | black | day | #2 |
 | 16 | B07-P3 | 4.5 | black | day | #2 |
 | 17 | B08-P1 | 6.2 | black | day | #2 |
 | 18 | B08-P2 | 4.2 | black | day | #2 |
@@ -82,13 +82,13 @@ between #16 and #17 ([B11 run schedule](#b11-run-schedule)).
 | 20 | B08-P4 | 5.2 | black | day | #2 |
 | 21 | B08-P5 | 6.7 | black | day | #2 |
 | 22 | B09-P1 | 3.9 | black | day | #2 → #3 |
-| 23 | B09-P2 | 5.0 | black | day | #3 |
+| 23 | B09-P2 | 5.1 | black | day | #3 |
 | 24 | B09-P3 | 4.5 | black | day | #3 |
 | 25 | B09-P4 | 3.3 | black | day | #3 |
 | 26 | B09-P5 | 4.0 | black | day | #3 |
 | 27 | B10-P1 | 5.7 | black | day | #3 |
 
-Six overnight plates and twenty-one day plates, 151.0 h in all: about 17 printer-days, two and a half weeks
+Six overnight plates and twenty-one day plates, 151.3 h in all: about 17 printer-days, two and a half weeks
 at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.3 h) that
 evening and B01-P1 the next morning: B01-P1 then starts with ~640 g on spool #1, well over its 200 g rule.
 
@@ -146,7 +146,7 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **06-Z-joints** | Z joints and lower Z belt clips | Ch 06 · 06.3–06.9 | A5 | `[a]_z_belt_clip_lower` ×4, `z_joint_lower` ×4, `z_joint_upper` ×4 | B02, B05 |
 | **07-X** | X carriage halves, probe bracket, cable cover | Ch 07 · 07.6–07.39 (staged at 05.45; probe 07.35; cover dry-fit 07.39, fitted 10.66) | A5 | `[a]_cable_cover`, `x_frame_V2TR_MGN12_left`, `x_frame_V2TR_MGN12_right`, `probe_retainer_bracket` | B02, B04 |
 | **08-SB** | Stealthburner body, printhead, LEDs | Ch 08 · 08.2–08.62 (printhead 08.28–08.30, LEDs 08.35–08.37, body 08.62) | B5 | `[a]_stealthburner_main_body`, `stealthburner_printhead_revo_voron_front`, `stealthburner_printhead_revo_voron_rear_cw2`, `[o]_stealthburner_LED_carrier`, `[o]_stealthburner_LED_diffuser_mask` | B02, B06 |
-| **08-CW2** | Clockwork 2 extruder, toolboard + USB covers | Ch 08 · 08.3–08.20 (toolboard cover 08.51, USB adapter cover 08.64) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover`, `usb_adapter_mount_partial_cover` | B02, B06, B07 |
+| **08-CW2** | Clockwork 2 extruder, toolboard + USB covers | Ch 08 · 08.3–08.20 (toolboard cover 08.62, USB adapter cover 08.64) | A5 | `[a]_guidler_a`, `[a]_guidler_b`, `[a]_latch`, `[a]_latch_shuttle`, `main_body`, `motor_plate`, `cw2_captive_pcb_cover`, `usb_adapter_mount_partial_cover` | B02, B06, B07 |
 | **09-bay** | Electronics bay: inlet, WAGO, PSU, DIN clips | Ch 09 · 09.7–09.16 (inlet 09.10–09.12, WAGO 09.13, PSU 09.15–09.16) | A5 | `wago_221-415_mount_3by5`, `lrs_200_psu_bracket` ×2, `PSU_stabilizer_50mm`, `pcb_din_clip` ×3, `power_inlet_IECGS_1mm` | B07 |
 | **09-ducts-DC** | DC conduit + coupon, B11 | Ch 09 · 09.6 (dry-laid at B11.10, stuck down at 09.36; coupon tested at B11.4 and B11.10) | A5 ×3 | `V3L_COUPON_22N_DUCT`, `V3L_COUPON_22N_DUCT_COVER`, `CMD_V3_1H_154mm_DUCT` ×2, `CMD_V3_1H_90DEG` ×2, `V2L_90DEG_MIRROR`, `CMD_Remix-V3_DUCT-2B_45deg` ×2, `V2L_58mm_DUCT` ×3, `V2L_130mm_DUCT`, `V2L_70mm_DUCT`, `V3L_10mm_DUCT`, `V3L_154N_DUCT` ×2, `V3L_T_REG_N` ×2; fallback, if gap < 25 mm: `CMD_V3_1H_T_REG` ×2, `CMD_V3_1H_82mm_DUCT` | B11 |
 | **09-ducts-AC** | AC conduit, B11 | Ch 09 · 09.36 (dry-laid at B11.10) | A5 | `V3L_WIRE_BOX_PORT`, `V3L_90DEG_R15` ×2, `CMD_V3_1H_T_SHORT`, `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2, `V3L_10mm_DUCT` ×2, `V3L_34mm_DUCT_HOLE` | B11 |
@@ -272,7 +272,7 @@ Sources: [Prusa KB — Filament runout #31829](https://help.prusa3d.com/article/
 
 [B11](B11-bay-ducting.md) replaces LDO's five PVC wire ducts with two printed conduits, layout v3. It is
 **outside the ASA run**: Prusament PETG V0 Jet Black on the textured sheet, sliced with
-`slicer/bay-ducts-petg.ini`, not to Voron spec. Every hour and gram is a PrusaSlicer 2.9.6 estimate from
+`slicer/bay-ducts-petg.ini`, not to Voron spec. Every hour and gram is a PrusaSlicer 2.9.7 estimate from
 the committed projects. P1 and P4 passed the Step B00.8 review (2026-11-02); P2, P3, P5, P6 and P7 were re-packed
 for the 25 mm edge rule (2026-11-06) and await the same GUI check. `check_docs.py` checks
 this table, the run schedule and the ledger below against `slicer/estimates.csv`.

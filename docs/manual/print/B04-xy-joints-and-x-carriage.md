@@ -5,7 +5,7 @@ pose: print
 caption: Joints and a carriage. Every part here has a bore, and every bore has strong opinions.
 ```
 
-**Time:** 8.8 h (1 plate) — PrusaSlicer 2.9.6 estimate.
+**Time:** 8.8 h (1 plate) — PrusaSlicer 2.9.7 estimate.
 
 **Sessions:** 1 plate start (~5 min hands-on, 8.8 h unattended) + ~15 min inspect and bin.
 
@@ -55,7 +55,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B04.6.*
 
 **Do:** Open `slicer/plates/B04-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation; the brims are already in it.
-**Parts:** all seven — 8.8 h, 117 g (PrusaSlicer 2.9.6 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket` · 3 mm brim on the four XY joint halves and both carriage frames, none on the bracket, already in the project.
+**Parts:** all seven — 8.8 h, 117 g (PrusaSlicer 2.9.7 estimate); `xy_joint_left_lower_MGN12`; `xy_joint_left_upper_MGN12`; `xy_joint_right_lower_MGN12`; `xy_joint_right_upper_MGN12`; `x_frame_V2TR_MGN12_left`; `x_frame_V2TR_MGN12_right`; `probe_retainer_bracket` · 3 mm brim on the four XY joint halves and both carriage frames, none on the bracket, already in the project.
 **Check:** The plate holds `x_frame_V2TR_MGN12_left/right`, not the superseded MGN9 frames; brim outlines on every part but the bracket.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -64,7 +64,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B04.3 — Pre-print checks
 
-**Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
 **Check:** Chamber ≥45 °C; Settings → Chamber Filtration reads **Adv. Filtration**.
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)

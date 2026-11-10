@@ -35,7 +35,7 @@ caption: Mount everything before wiring anything. A board you move later takes s
 - Hacksaw or fine-tooth saw + file (DIN rail), side cutters or a fine saw (PVC wire duct, LDO layout or the fallback middle run only)
 - Steel rule ≥300 mm, marker, digital caliper
 - Multimeter (used properly in Ch 10; keep it on the bench from now on)
-- Ferrule crimp tool, square, for VE0508: staged at 09.35, used only if a lead is re-terminated in Ch 10
+- Ferrule crimp tool, square, for VE0508: optional. Every kit lead ships ferruled, so it is needed only if a lead is re-terminated in Ch 10
 
 **Consumables:** 3M VHB tape (supplied, for the printed conduits), IPA + lint-free cloth, masking tape and marker for labelling.
 
@@ -555,7 +555,7 @@ Pause: ~30 min since the last pause — PSU voltage selector confirmed at 115 V,
 ![Leviathan V1.3 — the five voltage-selection jumpers (© LDO Motors)](assets/remote/09-electronics-bay/voltageselection_V1.3.jpg)
 ![Leviathan voltage-selection jumper map](assets/diagrams/07-leviathan-jumper-map.svg)
 
-**What you're looking at:** The **[Leviathan](16-glossary.md#l)** is this kit's mainboard: it drives all five steppers, both heaters, the fans and the endstops, and carries the Pi on top. The five headers arrowed here are its **voltage-selection jumpers**, each picking 5 V or 24 V for that output.
+**What you're looking at:** The **[Leviathan](16-glossary.md#l)** is this kit's mainboard: it drives six steppers, the bed heater, the fans and the endstops, and carries the Pi on top. The five headers arrowed here are its **voltage-selection jumpers**, each picking 5 V or 24 V for that output.
 
 **Parts:**
 
@@ -957,23 +957,25 @@ Pause: ~20 min since the last pause — XY endstop pod checked and its cable lab
 
 (no image — see text)
 
-**What you're looking at:** No picture; this is a laying-out step. A **[ferrule](16-glossary.md#f)** is a metal sleeve crimped over a stranded conductor so it enters a screw terminal as one solid pin. Every stranded conductor entering a screw terminal here gets one.
+**What you're looking at:** No picture; this is a laying-out step. A **[ferrule](16-glossary.md#f)** is a metal sleeve crimped over a stranded conductor so it enters a screw terminal as one solid pin. The kit's leads arrive with theirs crimped on; the five loose ones are spares.
 
 **Parts:**
 
-- consumable: VE0508 ferrule ×5
+- consumable: VE0508 ferrule ×5, spares
 - staged: C13 power cord ×1
 - staged: FRAME PE cable ×1 — from the Cable Kit box
-- tool: ferrule crimp tool
+- tool: ferrule crimp tool, only if you own one
 - tool: cable tags
 
 **Do:**
 
-1. Lay out five **VE0508 ferrules**, the crimp tool, the ring terminal and tags.
+1. Lay out five spare **VE0508 ferrules**, the ring terminal and tags.
 2. Find the frame PE point between the WAGO mount and the notch.
 3. Find the inlet's strain relief; confirm the C13 cord is bagged.
 
-**Check:** Five ferrules present and the crimp tool to hand. A clean metal-to-metal frame PE point identified. Cord bagged and the inlet switch off.
+**Check:** Five spare ferrules present. A clean metal-to-metal frame PE point identified. Cord bagged and the inlet switch off.
+
+Tip: every kit lead ships with its ferrule crimped on. The loose five and a crimp tool matter only if a lead has to be re-terminated in Ch 10.
 
 ⚠ **Rev D+ / LDO:** **no wiring happens in this chapter and no plug goes in a socket.** LDO: *"Mains wiring should only be performed by certified personnel…"* Ch 10 gates on **Checkpoint #1** before anything is switched on: cord unplugged, continuity within each colour group, **no** continuity between L, N and PE, PSU selector at 115 V. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#checkpoint-1)
 

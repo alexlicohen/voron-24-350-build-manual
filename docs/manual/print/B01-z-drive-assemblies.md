@@ -8,7 +8,7 @@ pose: print
 caption: The first real parts. They hold bearings, so Gate B has opinions and the final say.
 ```
 
-**Time:** 22.9 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 22.9 h (2 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 14.6 h and 8.3 h unattended) + ~15 min inspect + ~10 min sort into bins.
 
@@ -81,7 +81,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 1. Open `slicer/plates/B01-P1.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: profile `0.20mm STRUCTURAL (modified)`, **4 files, 7 objects**, no brim outline.
 3. Do not change which face sits on the bed.
-**Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 14.6 h, 200 g (PrusaSlicer 2.9.6 estimate) · no brim: the plate printed before the big-part brim rule and keeps that layout.
+**Parts:** `z_drive_main_a` ×2 · `z_drive_main_b` ×2 · `z_drive_retainer_a` ×1 · `z_drive_retainer_b` ×2 — 14.6 h, 200 g (PrusaSlicer 2.9.7 estimate) · no brim: the plate printed before the big-part brim rule and keeps that layout.
 **Check:** Estimated plate time is **14 h 39 m**; if far off, re-verify profile/overrides before committing an overnight print.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -90,7 +90,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B01.3 — Pre-print checks
 
-**Do:** Prepare the sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) wiped with IPA, confirm the spool is dry, and start the chamber preheating.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Prepare the sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) wiped with IPA, confirm the spool is dry, and start the chamber preheating.
 **Check:** Chamber reads ≥45 °C before purge; Settings → Chamber Filtration reads **Adv. Filtration**.
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -116,7 +116,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 1. Open `slicer/plates/B01-P2.3mf` with **File → Open Project**. Do not rebuild the plate.
 2. Confirm: **6 files, 24 objects**, a 3 mm brim on the eight big parts only.
-**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 · `deck_support_4mm` ×8 — 8.3 h, 109 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on the motor mounts and tensioner brackets, already in the project.
+**Parts:** `z_motor_mount_a` ×2 · `z_motor_mount_b` ×2 · `z_tensioner_bracket_a` ×2 · `z_tensioner_bracket_b` ×2 · `deck_support_3mm` ×8 · `deck_support_4mm` ×8 — 8.3 h, 109 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on the motor mounts and tensioner brackets, already in the project.
 **Check:** Brim outline on the four motor mounts and four tensioner brackets only; all 16 deck clips on the plate.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -127,7 +127,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B01.6 — Print plate B01-P2
 
-**Do:** Start after P1 is pulled and inspected, or the evening before P1 if Gate B passed after the morning swap.
+**Do:** Start after P1 is pulled and inspected, or the evening before P1 if Gate B passed after the morning swap. Cover the printer again.
 **Check:** No warp at the corners of the motor mounts.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

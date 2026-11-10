@@ -11,7 +11,7 @@ pose: gather
 caption: Jigs and one gate cube. The cube decides whether anything else prints. Hope is not a dimension.
 ```
 
-**Time:** 3.8 h (1 plate) — PrusaSlicer 2.9.6 estimate, sliced from `slicer/plates/B00-P1.3mf`.
+**Time:** 3.8 h (1 plate) — PrusaSlicer 2.9.7 estimate, sliced from `slicer/plates/B00-P1.3mf`.
 
 **Sessions:** ~15 min one-time slicer and filament setup, then Step B00.8's plate review (~25+20+35+20 min, four sessions, done with a helper) before B00-P1 starts, then 1 plate start (~5 min hands-on, then 3.8 h unattended) + ~15 min for Gate A + ~10 min sorting + ~15 min for Gate B, of which ~10 min (the bearing press and the rail row) waits for kit day.
 
@@ -78,7 +78,7 @@ Pause: ~10 min since the last pause — wizard run with the 0.4 HF nozzle, B00-P
 
 The Gen 2 kit (Prusa order 1787919456, on the shelf) is **not fitted for this run** (Alex 2026-10-28): no
 heatbed expansion joints, and the **GT1.5 belts stay deferred to the INDX 8-tool conversion this winter**
-([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 150.9 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
+([Prusa KB](https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602)), so the whole 151.3 h run prints on the current **Gen 1 GT2** belts and rigid bed mounts.
 The plates keep the **cold-probe start** (Alex 2026-10-28), so the loadcell re-test is not run either. That
 leaves three checks: belt tuning was never formally closed, the bed has only been proved flat at 60 °C,
 not at ASA temperature, and the brim gap has to suit the first layer the hot check sets. They sit here, after Step B00.0, because the hot check opens a project on the
@@ -112,7 +112,7 @@ is not run.
 - [ ] Chamber filter blower runs and the bypass flaps close for the print (first ASA print on 7.0.0)
 - [ ] Every square smooth and closed: beads touching, no gaps between rows, no crests you can feel with a fingernail, no pinholes where the infill meets the outline. On calipers a good square reads about 0.24–0.26 mm across the middle (the plates print the first layer at Z 0.28); a crested one reads high because the jaws sit on the crests
 - [ ] Spread across all five squares: they all look the same
-- [ ] Crests = the nozzle is too close: raise `z_offset` in `slicer/build_config.py` by 0.02–0.04. Gaps between round beads = too high: lower it the same way. Pinholes at the outline with the rows closed = flow: `slicer/checks/hot-first-layer-flow-ladder.gcode` prints the squares at 100 / 95 / 90 / 85 / 80 % in one go (print the file as it is, not through PrusaSlicer) and the flow goes in the start's `M221` line (`FLOW_FIRST` in build_config). Then `python3 slicer/build_config.py`, `python3 slicer/sync_start_gcode.py --add-missing --key z_offset --key start_gcode` on the 24 plates, `python3 slicer/hot_check.py`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`, and print it again
+- [ ] Crests = the nozzle is too close: raise `z_offset` in `slicer/build_config.py` by 0.02–0.04. Gaps between round beads = too high: lower it the same way. Pinholes at the outline with the rows closed = flow: `slicer/checks/hot-first-layer-flow-ladder.gcode` prints the squares at 100 / 95 / 90 / 85 / 80 % in one go (print the file as it is, not through PrusaSlicer) and the flow goes in the start's `M221` line (`FLOW_FIRST` in build_config). Then `python3 slicer/build_config.py`, `python3 slicer/sync_start_gcode.py --add-missing --key z_offset --key start_gcode` on every plate, `python3 slicer/hot_check.py`, `python3 slicer/build_plates.py --from-3mf` and `python3 slicer/check_docs.py`, and print it again
 - [ ] Live Adjust Z (long-press the knob on the first layer) is not kept for the next print on the Core One+ (Alex 2026-10-28), so a correction always goes in the slicer, never on the knob
 - [ ] Found 2026-10-28/29 on satin with Galaxy Black: Z offset 0 and +0.04 crested, −0.09 far worse, +0.08 closed; the flow ladder at +0.08 closed at 95 % (90 % pinholed, 80 % gapped). The plates carry **+0.08** and **95 %**
 
@@ -181,7 +181,7 @@ Re-review done 2026-11-03: the arranger re-packed B02-P2, B03-P1, B07-P1 to B07-
 - No supports anywhere. The 2.9 print-stability warnings on drive frames, Stealthburner and Klicky
   parts are by design — see them and move on.
 - Spacing looks even; nothing touching or crossing.
-- The three accent plates (B02-P1–P3) are on the blue preset, everything else on black.
+- The four accent plates (B02-P1–P4) are on the blue preset, everything else on black.
 - B11's seven plates are on the PETG V0 preset and the **textured** sheet, not the satin one.
 - B11-P4, P5 and P7 wait on kit-day measurements (Leviathan-to-PSU and SSR-to-WAGO gaps). Review
   them now for arrangement and settings anyway; reprint only if kit day changes a duct length.
@@ -231,7 +231,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 2. Confirm **6 files, 8 objects** on the bed and no [brim](../16-glossary.md#b).
 3. Do not change which face a part sits on; rotating about Z is fine.
 
-**Parts:** 6 files, 8 objects — 3.8 h, 51 g (PrusaSlicer 2.9.6 estimate); `Voron_Design_Cube_v7`; `Heatset_Practice`; `MGN12_rail_guide_x2` ×2; `MGN9_rail_guide_x2` ×2; `pulley_jig`; `z_drive_retainer_a_x2` ×1.
+**Parts:** 6 files, 8 objects — 3.8 h, 51 g (PrusaSlicer 2.9.7 estimate); `Voron_Design_Cube_v7`; `Heatset_Practice`; `MGN12_rail_guide_x2` ×2; `MGN9_rail_guide_x2` ×2; `pulley_jig`; `z_drive_retainer_a_x2` ×1.
 **Check:** The slicer reads **3 h 48 m / 51.3 g**, and the filament preset shows shrinkage compensation XY and Z at 0 %.
 
 Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches) · [00-slicer-setup § Committed projects](00-slicer-setup.md#committed-projects-open-the-plate-dont-rebuild-it) · [00-slicer-setup § Orientation & brim](00-slicer-setup.md#orientation-brim) · [Voron materials — shrinkage 100 %](https://docs.vorondesign.com/materials.html)

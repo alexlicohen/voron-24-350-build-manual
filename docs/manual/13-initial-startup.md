@@ -600,7 +600,7 @@ Recv: // probe: TRIGGERED
 
 **Helper:** Reads the probe state off the screen after each QUERY_PROBE and calls it back.
 
-Tip: if it is stuck one way, check ground, signal and 24 V at the probe, and that `[probe] pin: nhk:PC15` matches where it is plugged. If the sense is inverted, use `pin: !nhk:PC15`.
+Tip: stuck one way means wiring. Check ground, signal and 24 V, and that `[probe] pin: nhk:PC15` matches the port. Only a reading that changes but is backwards takes `pin: !nhk:PC15`.
 
 ⚠ Rev D+ / LDO: the PROBE port is **JST-PH2.0** on Rev D+ and is **24 V only**. Also confirm the probe body still carries the supplied fibreglass tape on the **front and sides only — not the back and not the bottom**; tape on the sensing face changes the trigger height. (survey §4.1 ③, §4.2 p.143)
 
@@ -1743,7 +1743,8 @@ Pause: ~30 min since the last pause — the scrubber runs inside `PRINT_START`, 
 | `G28` → `Move out of range: -10.000 -10.000 …` | `[safe_z_home] home_xy_position` still the `-10,-10` placeholder | Step 13.26 |
 | Homing overshoots into the frame, or stops short | The wrong build-size pair is uncommented (there is no default — with all three commented Klipper does not start) | Step 13.5: the Moonraker query must show `350.0, 350.0, 330.0` |
 | A `G28 X` or `G28 Y` stalls the Z motors against the frame, or drops the nozzle onto the bed | Gantry parked at its top stop (or a reversed Z `dir_pin`) — every homing move before Z is homed lifts 10 mm from wherever the gantry is | Step 13.17's first Do line: hand under the gantry, release the motors as it says, lower the gantry to a third of its travel; Step 13.16 for the `dir_pin` |
-| `QUERY_PROBE` stuck `open` or stuck `TRIGGERED` | Ground/signal/24 V, wrong `[probe] pin`, or a voltage-select jumper | Check wiring first, then `pin: !nhk:PC15` |
+| `QUERY_PROBE` stuck `open` or stuck `TRIGGERED` (metal near the face changes nothing) | Ground/signal/24 V, wrong `[probe] pin`, or a voltage-select jumper | A wiring fault: check all three wires and the pin name. Do not add `!`: it only flips the reading, and a stuck probe stays stuck. Do not home Z until both states read |
+| `QUERY_PROBE` changes with metal but reads backwards (`TRIGGERED` far, `open` near) | The signal sense is inverted | `pin: !nhk:PC15`, then repeat Step 13.21 |
 | **Probe triggers too early** (nozzle still several mm up at trigger, or the probe grazes the plate) | Probe mounted too low in the retainer bracket | Raise it in the bracket. It must clear the plate and any clips at every mesh point |
 | **Probe triggers too late** (nozzle nearly touching at trigger) | Probe mounted too high in the retainer bracket, or fibreglass tape on the sensing face | Lower the probe in the bracket so it triggers with the nozzle ~2 mm above the plate; strip tape from the **back and bottom** — front and sides only |
 | `PROBE_ACCURACY` σ high but stable | Probe mount, cable strain, or `[probe] speed` too fast | Check the bracket is tight; try a lower `speed` |

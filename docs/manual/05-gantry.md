@@ -17,7 +17,7 @@ caption: Build the gantry on the bench, not in the frame. Clear the whole table,
 
 - **Ch 04** — A drive, B drive and both front idler assemblies built and checked (manual p.62–81). This chapter consumes them whole.
 - **Ch 00** — all seven rails cleaned and packed with grease *before* they go on an extrusion ([LDO rail grease guide](https://docs.ldomotors.com/guides/rail_grease_guide)); jigs `Tools/MGN9_rail_guide_x2.stl` and `Tools/MGN12_rail_guide_x2.stl` printed (batch **B00**). The rails still wear their Ch 00 end bands (Step 00.17) — they come off at Steps 05.11 / 05.33.
-- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.8 h, black) and **B02** (all three blue plates: endstop pod on P1, 2-hole cable bridge on P2, raised cable bridge on P3, upper Z-belt clips on P1–P3) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
+- **Print batches: B04** (XY joints + X carriage, plate B04-P1, 8.8 h, black) and **B02** (blue plates P1, P2 and P4: endstop pod on P1, 2-hole cable bridge on P2, raised cable bridge on P4, upper Z-belt clips one each on P1 and P2, two on P4) ([print plan §B04](../voron-print-plan.md)). B04 needs Gate B (Step B00.7).
 - **Titanium backer set** (Fabreeko/LDO, 350 size) unpacked and counted, plus **58 M3 roll-in T-nuts** counted out from the kit bag: 29 for the rails and extrusion ends, 29 for the backers. The backer set ships none.
 - Ch 01's bagged **C ×2, D ×1, E ×1** extrusions.
 

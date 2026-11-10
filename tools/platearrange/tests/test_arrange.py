@@ -313,3 +313,28 @@ def test_item_edge_margin_rejects_negative_and_polygon_bed():
     poly = [(0, 0), (200, 0), (200, 100), (100, 200), (0, 200)]
     with pytest.raises(ValueError):
         arrange([Item("x", v, t, edge_margin=20.0)], bed=poly, edge_margin=1.0)
+
+
+# ---------------------------------------------------------------- this build's settings
+
+def test_production_settings_hold_edge_and_gap():
+    """The numbers slicer/build_plates.py packs every plate with: 250 x 220 bed, 6 mm between
+    brims, every part + brim 25 mm from every edge, 3 mm brim + 0.3 mm separation on parts
+    30 mm or longer, biggest parts in the middle. Checked by the independent box geometry
+    above and by measure.py, the measure slicer/audit_plates.py reads GUI-saved plates with."""
+    bed, gap, margin, brim = (250.0, 220.0), 6.0, 25.0, 3.3
+    sizes = [(120, 40), (90, 35), (60, 30), (45, 30)] + [(20, 15)] * 6
+    brims = [brim if max(s) >= 30 else 0.0 for s in sizes]
+    meshes = [box(w, h) for w, h in sizes]
+    items = [Item(f"p{i}", v, t, brim=b, edge_margin=margin)
+             for i, ((v, t), b) in enumerate(zip(meshes, brims))]
+    res = arrange_detailed(items, bed=bed, gap=gap, edge_margin=margin, max_beds=1,
+                           large_centre=1.0)
+    assert res.beds == 1
+    _check_boxes(sizes, brims, res.placements, gap, bed, margin)
+    parts = [placed_part(part_from_mesh(v, t, b), pl.rot_deg, pl.x, pl.y)
+             for (v, t), pl, b in zip(meshes, res.placements, brims)]
+    assert edge_clearance(parts, (0.0, 0.0, *bed)) >= margin - 1e-6
+    assert min_gap(parts)[0] >= gap - 1e-6
+    with pytest.raises(NoFit):        # nothing relaxes: a plate that does not fit is split
+        arrange(items * 3, bed=bed, gap=gap, edge_margin=margin, max_beds=1)

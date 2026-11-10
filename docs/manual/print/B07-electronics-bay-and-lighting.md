@@ -5,7 +5,7 @@ pose: print
 caption: The bay parts. Nothing here holds a bearing, so Gate A is enough. A rare, relaxing plate.
 ```
 
-**Time:** 15.2 h (3 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 15.3 h (3 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 3 plate starts (~5 min hands-on each, 5.7 / 5.0 / 4.5 h unattended) + ~25 min inspect and bin.
 
@@ -62,7 +62,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B07-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `wago_221-415_mount_3by5` · `pcb_din_clip` · `handlebar_spacer` ×2 · 5 files, 7 objects — 5.7 h, 88 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `power_inlet_IECGS_1mm` · `cob_light_strip_mount_100mm` ×2 · `wago_221-415_mount_3by5` · `pcb_din_clip` · `handlebar_spacer` ×2 · 5 files, 7 objects — 5.7 h, 88 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** No face re-orientation, all flat as shipped; a brim outline on every part, the handlebar spacers included.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -71,7 +71,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B07.3 — Print plate B07-P1
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Clean first layer across the inlet's full 118 mm; no corner lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -88,7 +88,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `cob_light_strip_mount_100mm` ×4 · `pcb_din_clip` · `handlebar_spacer` ×2 · 3 files, 7 objects — 5.0 h, 79 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project ([orientation & brim](00-slicer-setup.md#orientation-brim)).
+**Parts:** `cob_light_strip_mount_100mm` ×4 · `pcb_din_clip` · `handlebar_spacer` ×2 · 3 files, 7 objects — 5.1 h, 79 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project ([orientation & brim](00-slicer-setup.md#orientation-brim)).
 **Check:** A brim outline on every part; four COB mounts on the plate.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -97,7 +97,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B07.5 — Print plate B07-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Watch for end-lift on the 100 mm mounts partway through: this is the batch's known warp risk.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -114,7 +114,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B07-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `usb_adapter_mount` · `usb_adapter_mount_partial_cover` · `cob_light_strip_mount_50mm` ×2 · `PSU_stabilizer_50mm` · `lrs_200_psu_bracket` ×2 · `pcb_din_clip` · 6 files, 8 objects — 4.5 h, 58 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `usb_adapter_mount` · `usb_adapter_mount_partial_cover` · `cob_light_strip_mount_50mm` ×2 · `PSU_stabilizer_50mm` · `lrs_200_psu_bracket` ×2 · `pcb_din_clip` · 6 files, 8 objects — 4.5 h, 58 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** A brim outline around each of the eight parts; all flat on their shipped faces.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -123,7 +123,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B07.9 — Print plate B07-P3
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Clean first layer under all eight parts; the thin USB adapter cover lies flat with no lifted corner.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

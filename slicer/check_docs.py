@@ -11,7 +11,11 @@ and every A5/B5/box count stated in print/README, Ch 00 and the index (slicer/bi
 
     python3 slicer/check_docs.py        # exits non-zero on any mismatch
 
-B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the 20-plate ASA
+§ 10 reads the counts written in sentences ("27 plates", "all eleven batches", "B03 … 2 plates",
+"the 151.3 h run") in every docs page and the root README, so a re-split or re-slice cannot leave
+a stale count in prose. Dated lines and 00-index.md's corrections log are history and exempt.
+
+B11 (the PETG V0 bay ducting, `run="bay"` in slicer/plates.py) is outside the ASA
 run: every run total above excludes it, and § 8 checks B11's own numbers the same way (batch
 page, print/README's B11 tables, plan §3 header and §9 B11 CSV, 00-index.md's two B11 rows).
 
@@ -146,8 +150,9 @@ def check_bins(readme: str) -> list[str]:
     if idx_path.exists():
         idx = idx_path.read_text()
         total = sum(counts.values())
-        if idx.count('class="bag-index__row"') != total:
-            bad.append(f"print/bin-labels.md: {idx.count('class=\"bag-index__row\"')} index rows, "
+        rows = idx.count('class="bag-index__row"')   # hoisted: no backslash in an f-string before 3.12
+        if rows != total:
+            bad.append(f"print/bin-labels.md: {rows} index rows, "
                        f"bins.py has {total} containers (one row per bag or box)")
         for want in (f"{total} containers:", summary, bins.stock_note(),
                      'id="bin-map"'):
@@ -410,6 +415,165 @@ def check_plate_ids(known: set[str]) -> list[str]:
     return bad
 
 
+# --- § 10: counts stated in sentences -------------------------------------------------------
+_WORDS = ("zero one two three four five six seven eight nine ten eleven twelve thirteen "
+          "fourteen fifteen sixteen seventeen eighteen nineteen").split()
+_TENS = {"twenty": 20, "thirty": 30, "forty": 40}
+_NUM = (r"(\d+|(?:twenty|thirty|forty)(?:[- ](?:one|two|three|four|five|six|seven|eight|nine))?|"
+        + "|".join(_WORDS[1:]) + r")")
+# "27 plates", "seven PETG V0 plates", "all seven B11 plates", "34 plate starts", "eleven batches".
+# Only these qualifiers may sit between the number and the noun: anything else ("355 mm cast
+# plate", "six overnight plates") is a dimension or a subset, not a count this file can check.
+_COUNT_RE = re.compile(
+    rf"(?<![\w.×–-]){_NUM}((?: (?:ASA|PETG|V0|accent|black|blue|committed|B\d\d))*)"
+    r" (plates|plate starts?|plate|batches)\b", re.I)
+_BATCH_ID_RE = re.compile(r"\bB\d\d\b(?![-.]\w)")
+_DATED_RE = re.compile(r"\b20\d\d-\d\d-\d\d\b")
+_RUN_HOURS_RE = re.compile(r"(?<![\d.])(1\d\d\.\d) h\b")
+_SPLIT_RE = re.compile(rf"{_NUM} overnight plates and {_NUM} day plates", re.I)
+# a newline inside a hard-wrapped paragraph (the next line is not a list item, table row,
+# heading, quote, fence or indented block)
+_WRAP_RE = re.compile(r"\n(?![\n\-*|#>`\s]|\d+\. )")
+# pages that quote figures as examples or as the history of the estimate, not as the run's state
+_PROSE_EXEMPT = {"CONVENTIONS.md"}
+
+
+def _num(word: str) -> int:
+    word = word.lower()
+    if word.isdigit():
+        return int(word)
+    if word in _WORDS:
+        return _WORDS.index(word)
+    tens, _, unit = word.replace(" ", "-").partition("-")
+    return _TENS[tens] + (_WORDS.index(unit) if unit else 0)
+
+
+def _prose_files():
+    for path in sorted(DOCS.rglob("*.md")) + [REPO / "README.md"]:
+        if "manual/steps" in path.as_posix() or path.name in _PROSE_EXEMPT:
+            continue
+        text = path.read_text()
+        if path.name == "00-index.md":
+            text = text.split("\n## Corrections log")[0]
+        yield path, text
+
+
+def check_prose_counts(batch, n: int, th: float, files=None) -> list[str]:
+    """Plate, batch and run-hour counts written in sentences match estimates.csv.
+
+    - "N plates" / "N plate starts" with N >= 10 is a run total: the ASA run, or the run plus the
+      separate batches (B11). No single batch has ten plates.
+    - "N batches" with N >= 10 is the ASA run's batch count, or that plus the separate batches.
+    - "Bnn … N plates" (the batch id up to 60 characters before the count in the same clause, or
+      inside it: "all seven B11 plates"), and "all N plates" or a Sessions line on a batch page,
+      are that batch's count.
+    - "1xx.x h" is the run's hours, alone or with the separate batches: nothing else is that long.
+    - "N overnight plates and M day plates" add up to the run.
+    History is skipped: a line carrying an ISO date (what the run was that day), 00-index.md's
+    corrections log, and for the hours any paragraph about the old "throughput model".
+    """
+    bad: list[str] = []
+    sep = {b: d for b, d in batch.items() if b in SEPARATE}
+    n_sep = sum(d["plates"] for d in sep.values())
+    h_all = round(th + sum(d["h"] for d in sep.values()), 1)
+    n_batches = len(batch) - len(sep)
+    assert max(d["plates"] for d in batch.values()) < 10, "a batch reached ten plates: fix § 10"
+    with_sep = f" ({n + n_sep} with {'/'.join(sep)})" if sep else ""
+    for path, text in (_prose_files() if files is None else files):
+        rel = path.relative_to(REPO)
+        own = re.match(r"(B\d\d)-", path.name)
+        flat = _WRAP_RE.sub(" ", text)          # same offsets as text
+        lines = text.splitlines()
+
+        def where(pos: int) -> tuple[int, str]:
+            i = text.count("\n", 0, pos)
+            return i + 1, lines[i]
+
+        def paragraph(pos: int) -> str:
+            a = text.rfind("\n\n", 0, pos) + 1
+            z = text.find("\n\n", pos)
+            return text[a:z if z != -1 else len(text)]
+
+        for m in _RUN_HOURS_RE.finditer(flat):
+            i, line = where(m.start())
+            if (float(m.group(1)) in (th, h_all) or _DATED_RE.search(line)
+                    or "throughput model" in paragraph(m.start())):
+                continue
+            bad.append(f"{rel}:{i}: \"{m.group(0)}\" is not the run's {th} h"
+                       + (f" (or {h_all} h with {'/'.join(sep)})" if sep else ""))
+        for m in _SPLIT_RE.finditer(flat):
+            i, line = where(m.start())
+            if not _DATED_RE.search(line) and _num(m.group(1)) + _num(m.group(2)) != n:
+                bad.append(f"{rel}:{i}: \"{m.group(0)}\" does not add up to {n} plates")
+        for m in _COUNT_RE.finditer(flat):
+            i, line = where(m.start())
+            if _DATED_RE.search(line):
+                continue
+            v, qual, unit = _num(m.group(1)), m.group(2).split(), m.group(3).lower()
+            said = m.group(0)
+            if unit == "batches":
+                if v >= 10 and v not in (n_batches, len(batch)):
+                    bad.append(f"{rel}:{i}: \"{said}\", the run has {n_batches} batches")
+                continue
+            if unit == "plate" and v != 1:
+                continue                          # "a 350 plate", "a 2 plate …": not a count
+            if v >= 10:
+                if v not in (n, n + n_sep):
+                    bad.append(f"{rel}:{i}: \"{said}\", the run has {n} plates{with_sep}")
+                continue
+            # a batch-scoped count: which batch?
+            bid = next((q for q in qual if q in batch), None)
+            if bid is None:
+                before = re.split(r"[.;:!?] |\n", flat[max(0, m.start() - 60):m.start()])[-1]
+                ids = _BATCH_ID_RE.findall(before)
+                if ids and ids[-1] in batch:
+                    bid = ids[-1]
+                elif own and own.group(1) in batch and (
+                        re.search(r"\ball $", flat[:m.start()], re.I) or "**Sessions:**" in line):
+                    bid = own.group(1)
+            if bid and v != batch[bid]["plates"]:
+                bad.append(f"{rel}:{i}: \"{said}\", {bid} has {batch[bid]['plates']} plate(s)")
+    return bad
+
+
+def _prose_selftest(batch, n: int, th: float) -> list[str]:
+    """§ 10 on sentences with a known answer, built from today's numbers so they never go stale.
+
+    Runs on every call: a regex that stops matching would otherwise pass silently.
+    """
+    b = next(bid for bid, d in batch.items() if bid not in SEPARATE and d["plates"] > 1)
+    k = batch[b]["plates"]
+    page = PRINT / f"{CHAPTER[b]}.md"
+    x = DOCS / "selftest.md"
+    cases = [
+        (x, f"All {n - 3} plates print before kit day.", 1),
+        (x, f"All {n} plates print before kit day.", 0),
+        (x, "Thirty-nine plates inherit these numbers.", 1),
+        (x, "all nineteen batches in numeric order", 1),
+        (x, f"- **Print batch {b}** — some parts, {k + 1} plates.", 1),
+        (x, f"- **Print batch {b}** — some parts, {k} plates.", 0),
+        (x, f"sort {b}'s {_WORDS[k + 1]} plates into their bins", 1),
+        (x, f"bins full (all {_WORDS[k + 1]} {b} plates)", 1),
+        (x, f"Batch {b} is some parts,\n{_WORDS[k + 1]} plates in all.", 1),
+        (page, f"leave-state: all {_WORDS[k + 1]} plates sorted", 1),
+        (page, f"**Sessions:** {k + 1} plate starts", 1),
+        (x, f"the whole {round(th - 0.4, 1)} h run prints on these belts", 1),
+        (x, f"so the whole {round(th - 0.4, 1)} h\nrun prints on these belts", 1),
+        (x, f"the whole {th} h run prints on these belts", 0),
+        (x, f"On 2026-11-03 the run was {n - 4} plates, {round(th - 3.1, 1)} h.", 0),
+        (x, f"against the throughput model's {round(th - 17, 1)} h", 0),
+        (x, "a 355 mm cast plate under the two upper plates", 0),
+        (x, f"Six overnight plates and {_WORDS[n - 6 - 1] if n - 7 < 20 else n - 7} day plates", 1),
+    ]
+    out = []
+    for path, text, want in cases:
+        got = check_prose_counts(batch, n, th, files=[(path, text)])
+        if len(got) != want:
+            out.append(f"check_docs § 10 self-test: {text!r} gave {len(got)} finding(s), "
+                       f"expected {want}")
+    return out
+
+
 def main() -> int:
     plate, batch = load()
     plan = (DOCS / "voron-print-plan.md").read_text()
@@ -428,7 +592,7 @@ def main() -> int:
             if not re.search(rf"!\[Plate {pid}[^\]]*\]\(\.\./assets/plates/{pid}\.png\)", body):
                 bad.append(f"{stem}.md: {pid} has no plate diagram image")
             pm = re.search(r"\*\*Parts:\*\*.*?— ([\d.]+) h, (\d+) g "
-                           r"\(PrusaSlicer 2\.9\.6 estimate\)", body)
+                           r"\(PrusaSlicer 2\.9\.7 estimate\)", body)
             if not pm:
                 bad.append(f"{stem}.md: {pid} has no labelled Parts line")
             elif (float(pm.group(1)), int(pm.group(2))) != plate[pid][:2]:
@@ -510,6 +674,10 @@ def main() -> int:
     # 9. every plate's sort table on its batch page matches render_plate_bins --markdown
     sort_bad, n_sort = check_sort_tables()
     bad += sort_bad
+
+    # 10. counts written in sentences (plates, batches, run hours) match the csv
+    bad += _prose_selftest(batch, n, th)
+    bad += check_prose_counts(batch, n, th)
 
     if bad:
         print(f"{len(bad)} mismatch(es):")

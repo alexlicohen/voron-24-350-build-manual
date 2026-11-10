@@ -569,9 +569,11 @@ Source: [SB manual p.26](https://github.com/VoronDesign/Voron-Stealthburner/blob
 - reused: the assembled extruder
 - consumable: 1.75 mm filament offcut
 
-**Do:** Clockwise on the thumbscrew adds grip; SB p.27 warns that too much tension causes print issues, so start light. Then set the anti-squish screw circled on p.27 so the gears mesh without binding `(verify on bench)`.
+**Do:** Clockwise on the thumbscrew adds grip; SB p.27 warns that too much tension causes print issues, so start light. Leave the anti-squish screw as fitted at Step 08.14; move it only if the gears bind `(verify on bench)`.
 
 **Check:** With filament loaded, the arm closes without the gears grinding against each other, and the filament shows shallow tooth marks rather than a flattened track.
+
+⚠ **The anti-squish screw is threadlocked.** It is the M3×6 FHCS circled on p.27, and p.20 had you put threadlocker on it. Turning it once that has cured breaks the bond, so add a fresh drop if you move it. p.27 describes the stop as a limit for softer and flexible filaments.
 
 Source: [SB manual p.27](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=27)
 
@@ -1115,7 +1117,7 @@ Pause: ~20 min since the last pause — the Nitehawk-SB V2 and the fan adapter a
 
 ---
 
-### Step 08.47 — Hotend heater into the screw terminal
+### Step 08.47 — Ready the HE0 terminal for the heater leads
 
 ![Nitehawk-SB V2 board pinout — HE0 screw terminal (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
@@ -1126,15 +1128,15 @@ Pause: ~20 min since the last pause — the Nitehawk-SB V2 and the fan adapter a
 - reused: the Revo heater leads
 - tool: 2.5 mm slot-head screwdriver
 
-**Do:** Land the two ferruled heater leads in the `HE0` screw terminal. **Polarity does not matter** on a resistive heater. Tighten firmly with the 2.5 mm slot-head driver and tug-test each lead.
+**Do:** Find the `HE0` screw terminal and back both screws out with the 2.5 mm slot-head driver. Check that each heater lead ends in a tight ferrule. Land nothing yet: the hotend meets the board at Step 08.61.
 
-**Check:** No copper visible outside the ferrule; neither lead pulls out; the two terminals cannot touch.
+**Check:** Both `HE0` screws are backed out and the terminal is empty. No copper strand shows outside either ferrule.
 
 Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg)
 
 ---
 
-### Step 08.48 — Hotend thermistor into TH0
+### Step 08.48 — Measure the hotend thermistor and find TH0
 
 ![Nitehawk-SB V2 board pinout — TH0 (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
@@ -1148,9 +1150,9 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 **Do:**
 
 1. Measure across the thermistor pigtail: a Semitec 104NT-4-R025H42G reads **100 kΩ at 25 °C**. Near 0 Ω or open is a broken lead.
-2. Plug it into `TH0`, the **2-pin JST-PH2.0** left of the heater terminal, signal `PB12`.
+2. Find `TH0`, the **2-pin JST-PH2.0** left of the heater terminal, signal `PB12`. Plug nothing in.
 
-**Check:** Housing fully seated, and the ~100 kΩ reading was taken before it went in. `(verify on bench)`
+**Check:** The meter read about 100 kΩ. `TH0` stays empty until Step 08.61. `(verify on bench)`
 
 **Helper:** Reads the meter aloud and says whether it shows about 100 kΩ.
 
@@ -1176,19 +1178,17 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ---
 
-### Step 08.50 — Probe into PROBE
+### Step 08.50 — Find the PROBE port
 
 ![Nitehawk-SB V2 board pinout — PROBE (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
 **What you're looking at:** `PROBE` is the 3-pin port for the [inductive probe](16-glossary.md#i), the sensor the machine uses for [QGL](16-glossary.md#q) and the bed mesh. Its third pin carries a live **24 V**, so any probe expecting 5 V there must have that pin left out of the housing.
 
-**Parts:**
+**Parts:** none.
 
-- reused: the inductive probe's pre-terminated lead
+**Do:** Find `PROBE`, a **JST-PH2.0 3-pin**, and read its silkscreen: `GND / SIG (PC15) / 24V`. Leave it empty. The probe sits on the X carriage, so its lead plugs in at Step 08.60.
 
-**Do:** Plug the probe into `PROBE`: **JST-PH2.0 3-pin**, `GND / SIG (PC15) / 24V`. The kit's Z probe ships in the toolhead cable bag already terminated for this port.
-
-**Check:** Plug seated, and you can trace GND / SIG / 24V against the silkscreen.
+**Check:** You can trace GND / SIG / 24V against the silkscreen, and nothing is plugged into `PROBE`.
 
 ⚠ Rev D+ / LDO: the third pin is a live **24 V** feed. If you ever fit a Klicky here, its 24 V pin must be left unpopulated; if you fit a TAP-style board, confirm it is 24 V-tolerant first. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
@@ -1196,21 +1196,21 @@ Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-
 
 ---
 
-### Step 08.51 — Chamber thermistor into CT, then close the LDO cable cover
+### Step 08.51 — Chamber thermistor into CT; the cable cover waits
 
 ![Nitehawk-SB V2 board pinout — CT (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** `CT` takes the chamber thermistor, which measures the air inside the enclosure rather than any heater. LDO's cover closes the board and holds that thermistor's bead in the chamber air away from the hotend, so it reads the chamber and not the toolhead's waste heat.
+**What you're looking at:** `CT` takes the chamber thermistor, which measures the air inside the enclosure rather than any heater. LDO's cover holds its tip out in the chamber air, away from the hotend. The cover stays off until the hotend leads are landed.
 
 **Parts:**
 
-- `cw2_captive_pcb_cover.stl` ×1
-- M3×6 captive screw ×1
 - chamber thermistor, pre-terminated ×1 — from the LDO kit, no BOM row
+- staged: `cw2_captive_pcb_cover.stl` ×1
+- staged: M3×6 captive screw ×1
 
-**Do:** Plug the external chamber thermistor into `CT`, **JST-PH2.0 2-pin**, signal `PB2`. Fit LDO's `cw2_captive_pcb_cover` over the board and close it with the **M3×6 captive screw**. Open the filament latch if the bolt pocket is obscured.
+**Do:** Plug the external chamber thermistor into `CT`, **JST-PH2.0 2-pin**, signal `PB2`, and leave its free end loose. Set `cw2_captive_pcb_cover` and its **M3×6 captive screw** beside the toolhead: the cover closes at Step 08.62.
 
-**Check:** Cover closed with the captive screw, thermistor bead sitting in its external holder and not touching plastic or the hotend.
+**Check:** Plug fully home in `CT`. The cover and its screw are set aside, not fitted.
 
 ⚠ Rev D+ / LDO: this cover replaces the stock `Clockwork2/cable_door.stl` from SB p.33–34. That part is on the "deliberately not printed" list for this build. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb)
 
@@ -1275,7 +1275,7 @@ Ch 09–10. **If either is missing**, report it to Fabreeko and ask in `#ldo_mot
 
 Source: [`grounding_scheme.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/grounding_scheme.jpg) · [`toolboard_ground_routing.jpg`](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/toolboard_ground_routing.jpg)
 
-Pause: ~25 min since the last pause — every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to "just check" — Checkpoint 08 and Ch 13 do that, in that order.
+Pause: ~25 min since the last pause — the extruder motor and chamber thermistor are plugged in, the ground wire runs from the toolboard to the motor body, and the cable cover is set aside, still off. The heater, hotend thermistor and probe leads are not plugged in yet: they wait for the carriage. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to "just check" — Checkpoint 08 and Ch 13 do that, in that order.
 
 ---
 
@@ -1323,7 +1323,7 @@ Source: decision step — see Ch 07 Steps 07.34–07.37 · [Video: More Extras! 
 
 **Parts:** none.
 
-**Do:** The probe was seated in `probe_retainer_bracket` and set in **Ch 07 Steps 07.34–07.37**, its lead left whole. Confirm the two M3×30 SHCS are tight, the tape intact, and the lead plugged into `PROBE` at 08.50.
+**Do:** The probe was seated in `probe_retainer_bracket` and set in **Ch 07 Steps 07.34–07.37**, its lead left whole. Confirm the two M3×30 SHCS are tight, the tape intact, and the lead still coiled loose above the carriage.
 
 **Check:** The probe does not move under finger pressure, sits 6 mm ±1 mm below the plastic, is taped **front and sides only**, lead captive.
 
@@ -1418,39 +1418,51 @@ Source: [SB manual p.65](https://github.com/VoronDesign/Voron-Stealthburner/blob
 
 ---
 
-### Step 08.60 — Plug in the toolhead cable
+### Step 08.60 — Plug in the toolhead cable and the probe
 
 ![Nitehawk-SB V2 board pinout — the XT30(2+2) toolhead cable (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
-**What you're looking at:** The [umbilical](16-glossary.md#u) is the single cable carrying USB data and 24 V to the toolhead, on an XT30 connector: two large power pins and two small signal pins in one shell. LDO's guide holds this connection until the extruder is on the carriage.
+**What you're looking at:** The [umbilical](16-glossary.md#u) is the single cable carrying USB data and 24 V to the toolhead, on an XT30 connector: two large power pins and two small signal pins in one shell. It and the probe lead plug in now the extruder is mounted.
 
 **Parts:**
 
 - toolhead cable, USB and 24 V, XT30(2+2) ×1
+- reused: the inductive probe's pre-terminated lead
 
-**Do:** With the extruder on the carriage, plug the toolhead cable into its **XT30** connector, `D+ / D− / GND / 24V`. Do not plug the other end into anything yet; the USB adapter is wired in Ch 10.
+**Do:**
 
-**Check:** Connector fully home and audibly seated. The free end is coiled and labelled, not dangling into the bed area.
+1. Plug the toolhead cable into its **XT30** connector, `D+ / D− / GND / 24V`. Leave its far end free; the USB adapter is wired in Ch 10.
+2. Uncoil the probe lead from the carriage and plug it into `PROBE`, `GND / SIG (PC15) / 24V`.
 
-Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg)
+**Check:** Both plugs fully home. The probe lead reaches `PROBE` without pulling tight; the cable's free end is coiled and labelled, clear of the bed.
+
+Source: [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg) · [LDO wiring guide § Wiring the Toolhead PCB](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#wiring-the-toolhead-pcb) · [SB manual p.64](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=64)
 
 ---
 
-### Step 08.61 — Slide the tool cartridge into place
+### Step 08.61 — Slide the tool cartridge in and land the hotend leads
 
 ![Stealthburner manual p.66](assets/sb-pages/sb-p066.png){ crop="0.30 0.25 0.58 0.78" }
+![Nitehawk-SB V2 board pinout — HE0 and TH0 (© LDO Motors)](assets/remote/08-toolhead/nhsbv2_pcb_pinout.jpg)
 
 **What you're looking at:** The tool cartridge slides up from below and its four stud heads drop into keyholes in the Clockwork 2, which makes the hotend a swappable unit rather than something bolted in. As it rises, the PTFE picks up the extruder's filament path.
 
 **Parts:**
 
 - reused: the tool cartridge with its four M3×8 studs
+- reused: the Revo heater leads
+- reused: the Revo thermistor lead
+- tool: 2.5 mm slot-head screwdriver
 
-**Do:** Lift the tool cartridge up into the toolhead from below so its four M3×8 bolt heads engage the CW2's keyholes, then let it settle. Feed the hotend's heater and thermistor leads up past the extruder as it goes.
+**Do:**
 
-**Check:** The cartridge hangs squarely with the nozzle centred, and it cannot drop out. The PTFE has picked up the extruder's filament path.
+1. Lift the tool cartridge until its four stud heads sit in the CW2's keyholes, leads fed up past the extruder.
+2. Land both heater leads in `HE0`; tighten and tug-test each.
+3. Plug the thermistor into `TH0`.
 
-Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=66)
+**Check:** Cartridge square, nozzle centred, and it cannot drop out. No copper outside either ferrule; neither heater lead pulls out; `TH0` housing fully seated.
+
+Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf#page=66) · [Nitehawk-SB V2 pinout](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2/blob/master/Images/nhsbv2_pcb_pinout.jpg)
 
 ---
 
@@ -1464,15 +1476,21 @@ Source: [SB manual p.66](https://github.com/VoronDesign/Voron-Stealthburner/blob
 **Parts:**
 
 - reused: the Stealthburner body with LEDs, fans and fan adapter
+- reused: the chamber thermistor, plugged into `CT`
+- `cw2_captive_pcb_cover.stl` ×1
+- M3×6 captive screw ×1
 - M3×25 SHCS ×2
 - M3×50 SHCS ×2
 
 **Do:**
 
-1. Close the blue body onto the front of the toolhead, mating the fan adapter's header with the toolboard's. **Keyed: resistance means backwards.**
-2. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** through the bottom lobes, below the hotend fan.
+1. Seat the chamber thermistor in the cover's holder; close `cw2_captive_pcb_cover` with its **M3×6 captive screw**.
+2. Close the body onto the toolhead, mating the headers. **Keyed: resistance means backwards.**
+3. Fit **two M3×25 SHCS** upper, **two M3×50 SHCS** lower.
 
-**Check:** No gap along the body-to-cartridge parting line, all four bolts snug, and the header fully seated.
+**Check:** Cover closed, chamber thermistor in its holder. No gap along the body-to-cartridge parting line, four bolts snug, header fully seated.
+
+⚠ The cable cover closes here, after the last lead is landed, and its screw goes to snug only. The STL puts the screw through a tab beside the thermistor holder; reaching it with the toolhead on the carriage is `(verify on bench)`. Open the filament latch if it is in the way.
 
 ⚠ Rev D+ / LDO: LDO's Rev D guide calls it a "2×4 header". On the V2 board it is **10-pin, 2×5**, and both the **gender and the keying changed** from V1. Toolboard row order: tacho / tacho, the two fan drives, `RGB (PD3)` and 5 V, `GND` and NC, NC and 24 V. See Step 08.46 for the fan-pin conflict. [src](https://github.com/MotorDynamicsLab/Nitehawk-SB-V2)
 

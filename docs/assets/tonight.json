@@ -854,16 +854,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B06-P2",
-     "print_hours": 4.0,
+     "print_hours": 4.1,
      "run": "asa",
-     "leave_state": "plate B06-P2 running, 4.0 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B06-P2 running, 4.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B06.6",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B06-P2 (Step B06.6) · ~5 min hands-on, then 4.0 h unattended · leave-state: plate B06-P2 running, 4.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B06-P2 (Step B06.6) · ~5 min hands-on, then 4.1 h unattended · leave-state: plate B06-P2 running, 4.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b06-toolhead-sb-cw2-klicky#2",
@@ -953,16 +953,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B07-P2",
-     "print_hours": 5.0,
+     "print_hours": 5.1,
      "run": "asa",
-     "leave_state": "plate B07-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B07.4",
        "Names the bin colour of each part on the sorting diagram while you open the project."
       ]
      ],
-     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 5.0 h unattended · leave-state: plate B07-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B07-P2 (Step B07.4) · ~5 min hands-on, then 5.1 h unattended · leave-state: plate B07-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b07-electronics-bay-and-lighting#2",
@@ -1393,16 +1393,16 @@
      "minutes": 5,
      "pre_kit": false,
      "plate": "B09-P2",
-     "print_hours": 5.0,
+     "print_hours": 5.1,
      "run": "asa",
-     "leave_state": "plate B09-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends",
+     "leave_state": "plate B09-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends",
      "helpers": [
       [
        "B09.4",
        "Counts the parts on the sorting diagram and checks the total against the object count."
       ]
      ],
-     "text": "Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 5.0 h unattended · leave-state: plate B09-P2 running, 5.0 h unattended — door shut; come back for the next step when it ends"
+     "text": "Start plate B09-P2 (Step B09.4) · ~5 min hands-on, then 5.1 h unattended · leave-state: plate B09-P2 running, 5.1 h unattended — door shut; come back for the next step when it ends"
     },
     {
      "id": "b09-panels-filtration-spool#2",
@@ -2423,29 +2423,47 @@
      "chapter": "02-z-drives",
      "kind": "build",
      "steps": [
-      "02.38",
-      "02.39",
-      "02.40"
+      "02.38"
      ],
      "first_step": "02.38",
-     "last_step": "02.40",
+     "last_step": "02.38",
      "href": "../manual/steps/02-z-drives/02-38/",
-     "minutes": 20,
+     "minutes": 55,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet.",
+     "leave_state": "Z1, Z2 and Z3 built and fitted the same way. Stop after any corner whose four M5 bolts are tight, tensioner closed and foot fitted; never with a cam open and the motor free to slide. All four cables labelled Z0–Z3 by physical corner, and the printer back upright on its feet.",
      "helpers": [
       [
        "02.38",
        "Writes Z0 to Z3 on the motor cable labels by physical corner."
       ]
      ],
-     "text": "Step 02.38 → Step 02.40 · ~20 min · leave-state: four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet."
+     "text": "Step 02.38 · ~55 min · leave-state: Z1, Z2 and Z3 built and fitted the same way. Stop after any corner whose four M5 bolts are tight, tensioner closed and foot fitted; never with a cam open and the motor free to slide. All four cables labelled Z0–Z3 by physical corner, and the printer back upright on its feet."
     },
     {
      "id": "02-z-drives#9",
+     "chapter": "02-z-drives",
+     "kind": "build",
+     "steps": [
+      "02.39",
+      "02.40"
+     ],
+     "first_step": "02.39",
+     "last_step": "02.40",
+     "href": "../manual/steps/02-z-drives/02-39/",
+     "minutes": 20,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet.",
+     "helpers": [],
+     "text": "Step 02.39 → Step 02.40 · ~20 min · leave-state: four idler cages assembled with their captive M3 nuts and 20T idlers on M5×30 axles, tensioner screws left deliberately short of tight. Nothing is mounted to the frame yet."
+    },
+    {
+     "id": "02-z-drives#10",
      "chapter": "02-z-drives",
      "kind": "build",
      "steps": [
@@ -3432,14 +3450,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it.",
+     "leave_state": "both belt paths traced against p.126–127 and both front-idler tensioners backed out, then wound in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.",
      "helpers": [
       [
        "07.5",
        "Counts the four turns aloud on each tensioner so both idlers get the same number."
       ]
      ],
-     "text": "Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it."
+     "text": "Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127 and both front-idler tensioners backed out, then wound in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it."
     },
     {
      "id": "07-ab-belts#1",
@@ -3812,7 +3830,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order.",
+     "leave_state": "the extruder motor and chamber thermistor are plugged in, the ground wire runs from the toolboard to the motor body, and the cable cover is set aside, still off. The heater, hotend thermistor and probe leads are not plugged in yet: they wait for the carriage. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order.",
      "helpers": [
       [
        "08.48",
@@ -3823,7 +3841,7 @@
        "Reads each port name from the table aloud while you find it on the board."
       ]
      ],
-     "text": "Step 08.47 → Step 08.53 · ~25 min · leave-state: every toolboard-side connector is made, the LDO cable cover is closed on its captive screw, and the ground wire runs from the toolboard to the motor body. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order."
+     "text": "Step 08.47 → Step 08.53 · ~25 min · leave-state: the extruder motor and chamber thermistor are plugged in, the ground wire runs from the toolboard to the motor body, and the cable cover is set aside, still off. The heater, hotend thermistor and probe leads are not plugged in yet: they wait for the carriage. Nothing is powered and nothing is on the carriage. Do not plug the umbilical's far end into anything and do not power the printer to \"just check\" — Checkpoint 08 and Ch 13 do that, in that order."
     },
     {
      "id": "08-toolhead#8",
@@ -4277,23 +4295,17 @@
       "10.37",
       "10.81",
       "10.38",
-      "10.39",
-      "10.59",
-      "10.60",
-      "10.61",
-      "10.62",
-      "10.63",
-      "10.64"
+      "10.39"
      ],
      "first_step": "10.35",
-     "last_step": "10.64",
+     "last_step": "10.39",
      "href": "../manual/steps/10-wiring/10-35/",
      "minutes": 35,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go.",
+     "leave_state": "eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed, the camera cable too if fitted, and every occupied extrusion slot covered. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good.",
      "helpers": [
       [
        "10.36",
@@ -4304,10 +4316,34 @@
        "Feeds the cable along each slot from the corner while the adult seats it."
       ]
      ],
-     "text": "Step 10.35 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go."
+     "text": "Step 10.35 → Step 10.39 · ~35 min · leave-state: eight COB mounts built, both strips mounted and plugged into the junction PCB on its spacer, LED lead routed, the camera cable too if fitted, and every occupied extrusion slot covered. Do not leave a slot open: Ch 11's top panel and Z-belt covers close this route for good."
     },
     {
      "id": "10-wiring#6",
+     "chapter": "10-wiring",
+     "kind": "build",
+     "steps": [
+      "10.59",
+      "10.60",
+      "10.61",
+      "10.62",
+      "10.63",
+      "10.64"
+     ],
+     "first_step": "10.59",
+     "last_step": "10.64",
+     "href": "../manual/steps/10-wiring/10-59/",
+     "minutes": 35,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go.",
+     "helpers": [],
+     "text": "Step 10.59 → Step 10.64 · ~35 min · leave-state: X, Y and Z chains all mounted at both ends, A/B motor cables bundled, retainer bracket on the A drive. Chains are empty and latched. Do not part-fill a chain and walk away — the next segment fills all three in one go."
+    },
+    {
+     "id": "10-wiring#7",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4332,7 +4368,7 @@
      "text": "Step 10.65 → Step 10.66 · ~20 min · leave-state: all three chains filled and every end zip-tied, every latch clicked shut, the cable cover over the Z bundle; the gantry moves through full X, Y and Z travel by hand. The umbilical is still unplugged at the bay. Now lay the printer on its side, bay towards you, for the rest of the chapter."
     },
     {
-     "id": "10-wiring#7",
+     "id": "10-wiring#8",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4370,7 +4406,7 @@
      "text": "Step 10.40 → Step 10.46 · ~30 min · leave-state: six steppers tagged and plugged on their mapped ports, `STEPPER-4` empty, bed thermistor on TH1, XY endstops and the nozzle probe on their headers. No chain work started."
     },
     {
-     "id": "10-wiring#8",
+     "id": "10-wiring#9",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4395,7 +4431,7 @@
      "text": "Step 10.47 → Step 10.53 · ~40 min · leave-state: bay-fan splicer, filter fan and LED strip on their Leviathan ports, the touchscreen module built (Ch 11 Steps 11.5–11.6, done from 10.50) with its DSI ribbon latched at both ends and taped to the front extrusion, Ethernet and both USB links made. The umbilical lies in its chains, unplugged at the bay."
     },
     {
-     "id": "10-wiring#9",
+     "id": "10-wiring#10",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4419,7 +4455,7 @@
      "text": "Step 10.24 → Step 10.29 · ~25 min · leave-state: 24 V distribution complete: board supply, HV stepper supply, USB-adapter feed, HEATBED→SSR control pair, Fan2/Fan3 jumpers at 24 V, and every rail metered with no short. The umbilical is still unplugged at the bay."
     },
     {
-     "id": "10-wiring#10",
+     "id": "10-wiring#11",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4443,7 +4479,7 @@
      "text": "Step 10.54 → Step 10.67 · ~30 min · leave-state: the three Rev D+ toolhead deviations verified (PH2.0 housings, keyed 2×5 fan-adapter header, V2 partial cover), both ESD grounding cables confirmed and the bay cable landed on the frame, umbilical Micro-Fit seated in the USB adapter, and the ESD path read end to end."
     },
     {
-     "id": "10-wiring#11",
+     "id": "10-wiring#12",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -4476,7 +4512,7 @@
      "text": "Step 10.68 → Step 10.80 · ~30 min · leave-state: below-deck runs dressed, mains in the AC conduit and DC in the loop, both deck openings strain-relieved, every cable tagged, bay walked against LDO's photo and the overlay, strip fin fitted and every AC lid on; DC lids still off. Do not fit a DC lid or any skirt."
     },
     {
-     "id": "10-wiring#12",
+     "id": "10-wiring#13",
      "chapter": "10-wiring",
      "kind": "build",
      "steps": [
@@ -5805,28 +5841,46 @@
      "steps": [
       "14.5",
       "14.3",
-      "14.6",
-      "14.7"
+      "14.6"
      ],
      "first_step": "14.5",
-     "last_step": "14.7",
+     "last_step": "14.6",
      "href": "../manual/steps/14-calibration/14-5/",
-     "minutes": 20,
+     "minutes": 25,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.",
+     "leave_state": "all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint bolts locked hot, `PROBE_ACCURACY` re-verified hot afterwards, the hot mesh Variance logged and the idle timeout set back to 1800. The whole belt-and-geometry item is closed; heaters can go off. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.",
      "helpers": [
       [
        "14.5",
        "Holds the phone by each Z belt and reads the lowest peak aloud after each pluck."
       ]
      ],
-     "text": "Step 14.5 → Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot."
+     "text": "Step 14.5 → Step 14.6 · ~25 min · leave-state: all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint bolts locked hot, `PROBE_ACCURACY` re-verified hot afterwards, the hot mesh Variance logged and the idle timeout set back to 1800. The whole belt-and-geometry item is closed; heaters can go off. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder."
     },
     {
      "id": "14-calibration#4",
+     "chapter": "14-calibration",
+     "kind": "build",
+     "steps": [
+      "14.7"
+     ],
+     "first_step": "14.7",
+     "last_step": "14.7",
+     "href": "../manual/steps/14-calibration/14-7/",
+     "minutes": 20,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot.",
+     "helpers": [],
+     "text": "Step 14.7 · ~20 min · leave-state: rotation distance measured, iterated and written into `[extruder]`, and Klipper restarted on the new value. Unload or park the filament; do not leave the hotend hot."
+    },
+    {
+     "id": "14-calibration#5",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5846,7 +5900,7 @@
      "text": "Step 14.8 → Step 14.9 · ~10 min · leave-state: chamber behaviour taken from the soak and written down, and `PRINT_START`'s Ch 12 TODO closed with the real purge line. `CHAMBER` is still set from a measured number, not a guess. Config restarts clean."
     },
     {
-     "id": "14-calibration#5",
+     "id": "14-calibration#6",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5875,7 +5929,7 @@
      "text": "Step 14.10 → Step 14.11 · ~15 min · leave-state: the Ch 13 cube is calipered against the Prusa-printed reference and the numbers are in the tuning log. No config has changed; the multiplier is set later by eye, at 14.19–14.20, not from these numbers."
     },
     {
-     "id": "14-calibration#6",
+     "id": "14-calibration#7",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5899,7 +5953,7 @@
      "text": "Step 14.12 · ~15 min · leave-state: accelerometer answers, noise is in the 1–100 band, and the 350 mm `[resonance_tester]` probe point is confirmed live. Nothing has been shaped yet."
     },
     {
-     "id": "14-calibration#7",
+     "id": "14-calibration#8",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5925,7 +5979,7 @@
      "text": "Step 14.13 → Step 14.15 · ~25 min · leave-state: `SHAPER_CALIBRATE` run, graphs read, `[input_shaper]` saved and `max_accel` brought down from the 10000 placeholder. Never stop between running the calibration and saving it; the CSVs live in `/tmp` and a reboot loses them."
     },
     {
-     "id": "14-calibration#8",
+     "id": "14-calibration#9",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5944,7 +5998,7 @@
      "text": "Step 14.16 · ~10 min · leave-state: optional Z shaping either done or skipped, and `max_z_velocity` / `max_z_accel` are back at 15 and 350. Confirm those two numbers before you walk away; leaving them raised is how you skip Z steps on the next print."
     },
     {
-     "id": "14-calibration#9",
+     "id": "14-calibration#10",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5969,7 +6023,7 @@
      "text": "Step 14.17 → Step 14.18 · ~20 min · leave-state: the PA pattern is printed, read and the chosen value saved into the ASA filament profile. One calibration item closed; extrusion multiplier is the next."
     },
     {
-     "id": "14-calibration#10",
+     "id": "14-calibration#11",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -5989,7 +6043,7 @@
      "text": "Step 14.19 → Step 14.20 · ~30 min · leave-state: both extrusion-multiplier passes done, eight single-cube prints, and the final number left in `Voron ASA`. It was chosen by the top surface, not by a caliper."
     },
     {
-     "id": "14-calibration#11",
+     "id": "14-calibration#12",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6008,7 +6062,7 @@
      "text": "Step 14.21 · ~10 min · leave-state: first-layer squish re-set after the extrusion-multiplier change and saved with `Z_OFFSET_APPLY_ENDSTOP` + `SAVE_CONFIG`. The essentials loop is closed."
     },
     {
-     "id": "14-calibration#12",
+     "id": "14-calibration#13",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6028,7 +6082,7 @@
      "text": "Step 14.22 → Step 14.23 · ~10 min · leave-state: the soak's mesh variance recorded, `printer.cfg` backed up off the Pi, and the tuning log filled in. Ready for Checkpoint 14; everything after this is Ellis, at your own pace."
     },
     {
-     "id": "14-calibration#13",
+     "id": "14-calibration#14",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6052,7 +6106,7 @@
      "text": "Step 14.24 · ~20 min · leave-state: the serial request is posted and the nameplate generated. The plate mounts on the front top rail because the skirt ring covers the front bottom rail and the front uprights are 20 mm wide; do not bolt anything to the left upright, which carries the door hinges."
     },
     {
-     "id": "14-calibration#14",
+     "id": "14-calibration#15",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6072,7 +6126,7 @@
      "text": "Step 14.27 → Step 14.28 · ~40 min · leave-state: eight inserts set, and the fan, its grill, the mat and the access cover on the housing. The Voron is untouched and still has its exhaust cover."
     },
     {
-     "id": "14-calibration#15",
+     "id": "14-calibration#16",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6096,7 +6150,7 @@
      "text": "Step 14.29 · ~30 min · leave-state: the housing on the back panel, the exhaust cover kept as a spare, the fan lead inside the chamber and unplugged. Leave the tape an hour before anything leans on the housing."
     },
     {
-     "id": "14-calibration#16",
+     "id": "14-calibration#17",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6117,7 +6171,7 @@
      "text": "Step 14.30 → Step 14.32 · ~45 min · leave-state: FAN0 wired and jumpered for 24 V, the bay closed, the machine on and Ready with the exhaust fan still. Klipper does not know the fan yet."
     },
     {
-     "id": "14-calibration#17",
+     "id": "14-calibration#18",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -6142,7 +6196,7 @@
      "text": "Step 14.33 → Step 14.34 · ~35 min · leave-state: the exhaust in `printer.cfg`, the fan proved by target and on a hot chamber, heaters off, ceiling 0, idle timeout back at 1800."
     },
     {
-     "id": "14-calibration#18",
+     "id": "14-calibration#19",
      "chapter": "14-calibration",
      "kind": "build",
      "steps": [
@@ -7674,7 +7728,7 @@
      "02-z-drives#6",
      "02-z-drives#7",
      "02-z-drives#8",
-     "02-z-drives#9",
+     "02-z-drives#10",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
@@ -7717,10 +7771,10 @@
      "09-electronics-bay#6",
      "10-wiring#4",
      "10-wiring#5",
-     "10-wiring#6",
      "10-wiring#7",
-     "10-wiring#11",
+     "10-wiring#8",
      "10-wiring#12",
+     "10-wiring#13",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",
@@ -7754,14 +7808,14 @@
      "14-calibration#1",
      "14-calibration#2",
      "14-calibration#3",
-     "14-calibration#5",
      "14-calibration#6",
      "14-calibration#7",
-     "14-calibration#9",
-     "14-calibration#13",
-     "14-calibration#15",
-     "14-calibration#17",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
      "14-calibration#18",
+     "14-calibration#19",
      "b11-bay-ducting#8",
      "b11-bay-ducting#13"
     ]
@@ -7927,7 +7981,7 @@
      "02-z-drives#6",
      "02-z-drives#7",
      "02-z-drives#8",
-     "02-z-drives#9",
+     "02-z-drives#10",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
@@ -7970,10 +8024,10 @@
      "09-electronics-bay#6",
      "10-wiring#4",
      "10-wiring#5",
-     "10-wiring#6",
      "10-wiring#7",
-     "10-wiring#11",
+     "10-wiring#8",
      "10-wiring#12",
+     "10-wiring#13",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",
@@ -8007,14 +8061,14 @@
      "14-calibration#1",
      "14-calibration#2",
      "14-calibration#3",
-     "14-calibration#5",
      "14-calibration#6",
      "14-calibration#7",
-     "14-calibration#9",
-     "14-calibration#13",
-     "14-calibration#15",
-     "14-calibration#17",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
      "14-calibration#18",
+     "14-calibration#19",
      "b11-bay-ducting#8",
      "b11-bay-ducting#13"
     ]
@@ -8285,7 +8339,7 @@
      "02-z-drives#6",
      "02-z-drives#7",
      "02-z-drives#8",
-     "02-z-drives#9",
+     "02-z-drives#10",
      "03-build-plate#0",
      "03-build-plate#1",
      "03-build-plate#2",
@@ -8328,10 +8382,10 @@
      "09-electronics-bay#6",
      "10-wiring#4",
      "10-wiring#5",
-     "10-wiring#6",
      "10-wiring#7",
-     "10-wiring#11",
+     "10-wiring#8",
      "10-wiring#12",
+     "10-wiring#13",
      "11-skirts-panels-door#0",
      "11-skirts-panels-door#1",
      "11-skirts-panels-door#2",
@@ -8365,14 +8419,14 @@
      "14-calibration#1",
      "14-calibration#2",
      "14-calibration#3",
-     "14-calibration#5",
      "14-calibration#6",
      "14-calibration#7",
-     "14-calibration#9",
-     "14-calibration#13",
-     "14-calibration#15",
-     "14-calibration#17",
+     "14-calibration#8",
+     "14-calibration#10",
+     "14-calibration#14",
+     "14-calibration#16",
      "14-calibration#18",
+     "14-calibration#19",
      "b11-bay-ducting#8",
      "b11-bay-ducting#13"
     ]
@@ -9237,7 +9291,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 225,
+    "done": 228,
     "gate_closed": true,
     "start": null,
     "sections": [

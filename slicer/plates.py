@@ -172,6 +172,14 @@ def footprint_of(bb) -> float:
     return max(bb[3] - bb[0], bb[4] - bb[1])
 
 
+# Plates already printed from the committed 3MF, before the 25 mm edge rule (2026-11-06) and
+# the 30 mm brim rule (2026-11-07). Their 3MFs are the record of what was printed, so
+# build_plates.py refuses to re-pack them and audit_plates.py lists their rule breaks
+# without failing. Re-slicing them (--from-3mf) stays allowed. A reprint of one of their
+# parts goes on its own project, not through here.
+AS_PRINTED = frozenset({"B00-P1", "B01-P1", "B02-P1", "B02-P2", "B02-P3"})
+
+
 # plate_id -> dict(batch, colour, parts=[(repo, path, qty)], note)
 PLATES: dict[str, dict] = {
     "B00-P1": dict(

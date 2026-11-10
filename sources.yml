@@ -882,6 +882,14 @@ sources:
   cited_in:
   - docs/manual/print/B00-calibration-and-jigs.md
   last_verified: '2026-11-05'
+- id: prusa3d-prusaslicer-releases-tag-version-2-9-7
+  url: https://github.com/prusa3d/PrusaSlicer/releases/tag/version_2.9.7
+  kind: prusa
+  title: PrusaSlicer 2.9.7 release
+  first_seen: '2026-11-09'
+  pinned_ref: releases
+  cited_in:
+  - docs/manual/00-index.md
 - id: prusa3d-prusaslicer-src-libslic3r-gcode-cpp
   url: https://github.com/prusa3d/PrusaSlicer/blob/version_2.9.6/src/libslic3r/GCode.cpp
   kind: prusa
@@ -1091,6 +1099,14 @@ sources:
   - docs/manual/13-initial-startup.md
   - docs/manual/14-calibration.md
   last_verified: '2026-11-05'
+- id: vorondesign-voron-stealthburne-stls-2
+  url: https://github.com/VoronDesign/Voron-Stealthburner/tree/8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b/STLs
+  kind: voron-manual
+  title: '`/STLs`'
+  first_seen: '2026-11-09'
+  pinned_ref: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+  cited_in:
+  - docs/voron-print-plan.md
 - id: west3d-com-extrusion-blind-joint-seals
   url: https://west3d.com/products/extrusion-blind-joint-seals-20-pieces-by-ldo-motors
   kind: vendor
@@ -2184,80 +2200,65 @@ sources:
   title: Voron-Documentation/community/howto/alchemyEngine/chamber_temperature_exhaust_fan.md at b8c014f88948c9fca963dfe726e0e66b1287af90
     · VoronDesign/Voron-Documentation · GitHub
   first_seen: '2026-10-03'
-  last_verified: '2026-11-05'
+  last_verified: '2026-11-09'
   pinned_ref: b8c014f
-  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
+  sha: 065f360e667d981c509c36776678d82a9524d1a5
 - id: vorondesign-voron-documentatio-community-howto-simonthecat-i
   url: https://github.com/VoronDesign/Voron-Documentation/blob/main/community/howto/simonthecat/I_wish_I_had_known.md
   kind: voron-docs
   title: Voron-Documentation/community/howto/simonthecat/I_wish_I_had_known.md at main · VoronDesign/Voron-Documentation
     · GitHub
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
+  last_verified: '2026-11-09'
+  sha: 065f360e667d981c509c36776678d82a9524d1a5
 - id: vorondesign-voron-documentatio-tuning-filament-tuning-md
   url: https://github.com/VoronDesign/Voron-Documentation/blob/b8c014f/tuning/filament_tuning.md
   kind: voron-docs
   title: Voron-Documentation/tuning/filament_tuning.md at b8c014f88948c9fca963dfe726e0e66b1287af90 · VoronDesign/Voron-Documentation
     · GitHub
   first_seen: '2026-10-03'
-  last_verified: '2026-11-05'
+  last_verified: '2026-11-09'
   pinned_ref: b8c014f
-  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
+  sha: 065f360e667d981c509c36776678d82a9524d1a5
 - id: vorondesign-voron-documentation
   url: https://github.com/VoronDesign/Voron-Documentation
   kind: voron-docs
   title: 'GitHub - VoronDesign/Voron-Documentation: Sources of the documentation website for all Voron
     3D printers · GitHub'
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: b8c014f88948c9fca963dfe726e0e66b1287af90
+  last_verified: '2026-11-09'
+  sha: 065f360e667d981c509c36776678d82a9524d1a5
 - id: vorondesign-voron-stealthburne-manual-assembly-manual-sb-pdf
   url: https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf
   kind: voron-manual
   title: Voron-Stealthburner/Manual/Assembly_Manual_SB.pdf at 1bccf0543f40741243d81505c4ad5406eb822715
     · VoronDesign/Voron-Stealthburner · GitHub
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
+  last_verified: '2026-11-09'
   pinned_ref: 1bccf0543f40741243d81505c4ad5406eb822715
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
-- id: vorondesign-voron-stealthburne-manual-assembly-manual-sb-pdf-2
-  url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf
-  kind: voron-manual
-  title: Voron-Stealthburner/Manual/Assembly_Manual_SB.pdf at main · VoronDesign/Voron-Stealthburner ·
-    GitHub
-  first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
-- id: vorondesign-voron-stealthburne-stls
-  url: https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs
-  kind: voron-manual
-  title: Voron-Stealthburner/STLs at main · VoronDesign/Voron-Stealthburner · GitHub
-  first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+  sha: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
 - id: vorondesign-voron-stealthburne-stls-readme-md
   url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md
   kind: voron-manual
   title: Voron-Stealthburner/STLs/README.md at main · VoronDesign/Voron-Stealthburner · GitHub
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+  last_verified: '2026-11-09'
+  sha: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
 - id: vorondesign-voron-stealthburne-stls-stealthburner-printheads
   url: https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md
   kind: voron-manual
   title: Voron-Stealthburner/STLs/Stealthburner/Printheads/README.md at main · VoronDesign/Voron-Stealthburner
     · GitHub
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+  last_verified: '2026-11-09'
+  sha: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
 - id: vorondesign-voron-stealthburner
   url: https://github.com/VoronDesign/Voron-Stealthburner
   kind: voron-manual
   title: GitHub - VoronDesign/Voron-Stealthburner · GitHub
   first_seen: '2026-09-05'
-  last_verified: '2026-11-05'
-  sha: 8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b
+  last_verified: '2026-11-09'
+  sha: 1572a42e6df5d2f0ddf04a2145be4dc9c3693723
 - id: vorondesign-voronusers-orphaned-mods-edwardyeeks-deco
   url: https://github.com/VoronDesign/VoronUsers/tree/main/orphaned_mods/edwardyeeks/Decontaminator_Purge_Bucket_%26_Nozzle_Scrubber
   kind: community

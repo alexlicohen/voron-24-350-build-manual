@@ -1416,7 +1416,7 @@ make clean && make
 sudo dfu-util -a 0 -s 0x08000000:leave -D ~/katapult/out/katapult.bin
 ```
 
-Then repeat Steps 12.17–12.18.
+The board restarts in Katapult with Klipper erased: ACT blinks slowly. Run the `ls` and `flashtool.py` lines at the top of this step again. They flash `~/klipper/out/klipper.bin`, the build from Step 12.17. `make flash` cannot work here: no `usb-Klipper_…` device exists until Klipper is back.
 
 **Check:** ACT blinks slowly in Katapult, and `usb-Klipper_stm32g0b1xx_<id>-if00` is back after flashing.
 

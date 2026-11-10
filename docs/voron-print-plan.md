@@ -3,8 +3,8 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 27 plates · **151.0 h** print time · **1820 g Galaxy Black + 279 g ASA Blue** ·
-against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.6 estimates, sliced from the committed
+**Totals at a glance:** 27 plates · **151.3 h** print time · **1820 g Galaxy Black + 279 g ASA Blue** ·
+against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.7 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 7 plates · 25.1 h · 349 g Jet Black PETG V0 (§3, §9).
 
@@ -68,7 +68,7 @@ Download these exact trees. Do not use a re-hosted zip or a Printables mirror.
 | # | What | Repo / branch | Path |
 |---|---|---|---|
 | 1 | Voron 2.4 R2 core | `VoronDesign/Voron-2` branch **`Voron2.4`** | [`/STLs`](https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs) |
-| 2 | Stealthburner + Clockwork 2 | `VoronDesign/Voron-Stealthburner` branch **`main`** | [`/STLs`](https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs) |
+| 2 | Stealthburner + Clockwork 2 | `VoronDesign/Voron-Stealthburner` commit **`8bcb9c2`**, not the branch head | [`/STLs`](https://github.com/VoronDesign/Voron-Stealthburner/tree/8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b/STLs) |
 | 3 | LDO kit-specific | `MotorDynamicsLab/LDOVoron2` branch **`main`** | [`/STLs`](https://github.com/MotorDynamicsLab/LDOVoron2/tree/main/STLs) |
 | 4 | LDO touchscreen mount | `MotorDynamicsLab/LDOVoronTrident` branch **`master`** | [`/STLs/BTT Pi TFT4.3 Mount`](https://github.com/MotorDynamicsLab/LDOVoronTrident/tree/master/STLs/BTT%20Pi%20TFT4.3%20Mount) |
 | 5 | Nitehawk-SB | `MotorDynamicsLab/Nitehawk-SB` branch **`master`** | [`/STLs`](https://github.com/MotorDynamicsLab/Nitehawk-SB/tree/master/STLs) |
@@ -79,7 +79,10 @@ Download these exact trees. Do not use a re-hosted zip or a Printables mirror.
 | 9 | Backer-aware cable bridge (conditional) | `tanaes/whopping_Voron_mods` branch **`main`** | [`/extrusion_backers/STLs`](https://github.com/tanaes/whopping_Voron_mods/tree/main/extrusion_backers/STLs) |
 
 The Voron repos have no release tags; take the branch head and **record the commit SHA in a text file next to
-your STLs** so a mid-build reprint is identical to the first print.
+your STLs** so a mid-build reprint is identical to the first print. Row 2 is the exception: since the
+Stealthburner r2 release, `main` holds Clockwork 2.5 (`STLs/Clockwork2.5/`, an 82-page manual, different
+latch and chain-anchor screws). The kit, Ch 08 and plates B02 and B06 are Clockwork 2, so take commit
+`8bcb9c2`, the last one with `STLs/Clockwork2/` and the 73-page manual.
 
 ### 1.2 Colour key (Voron's own naming convention)
 
@@ -242,11 +245,11 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 to B02-P4** ≈ 48 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 151.0 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 151.3 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 151.0 h ≈ 16 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10**, 151.3 h ≈ 16 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 and P6 right after B07, before B08, and P4, P5 and P7 at the next free slot
 after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all seven and
 nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
@@ -264,7 +267,7 @@ owed on kit day: B01-P2 prints both deck-support sets, and the deck caliper only
 Format for each: what it unlocks (manual chapter name), plates, hours, grams, then the parts table
 (exact filenames, repo path, qty, colour, grams and hours per copy).
 
-**Batch headers and plate lines are PrusaSlicer 2.9.6 estimates** — sliced from the committed projects in
+**Batch headers and plate lines are PrusaSlicer 2.9.7 estimates** — sliced from the committed projects in
 `slicer/plates/`, with this build's overrides, the real arrangement and the real brims (§4.1). The per-copy
 `g ea` / `h ea` columns inside the parts tables are still the older geometry model, kept for relative sizing
 only; they do not sum to the plate line, which also carries skirt, brim and travel.
@@ -317,7 +320,7 @@ deck support clips"*, but the Rev D+ 350 BOM lists the deck panel as **3 mm** ac
 
 ---
 
-### Batch B02 — **The accent day** (every accent part in the build) · **3 plates · 21.0 h · 279 g blue**
+### Batch B02 — **The accent day** (every accent part in the build) · **4 plates · 21.0 h · 279 g blue**
 **Unlocks:** the accent half of *Z Drives and Idlers*, *A/B Drives and Idlers*, *Gantry*, *Stealthburner*,
 *Skirts* and the Clicky-Clack door.
 
@@ -365,7 +368,7 @@ B02 is the third batch, so both colour changes fall in the first days of the run
 Copies of the ×2 and ×4 Z-drive parts are split across the plates, so no plate carries a whole set.
 
 Notes: the SB main body has **built-in supports** — snap them out, don't cut
-([SB manual, "Remove built-in supports"](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf)).
+([SB manual, "Remove built-in supports"](https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf)).
 `Handle.stl` is 60 mm tall on a 68×19 footprint — give it a 5 mm brim (§5).
 
 ---
@@ -437,7 +440,7 @@ The LDO `z_rail_stop` is optional but stops a Z carriage from falling off the to
 
 ---
 
-### Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · **1 plate · 11.6 h · 148 g black**
+### Batch B06 — Toolhead: Stealthburner, Clockwork 2, Klicky · **2 plates · 11.7 h · 148 g black**
 **Unlocks:** *Stealthburner* (p.146–147, then the separate Stealthburner manual). Also requires
 `probe_retainer_bracket.stl` from B04.
 
@@ -463,7 +466,7 @@ The LDO `z_rail_stop` is optional but stops a Z carriage from falling off the to
 | `Dock_mount_fixed_v2.stl` | Klicky (same folder) | 1 | Black | 22.7 | 1.36 |
 
 - **Plate B06-P1** (7.6 h, 97 g): the Stealthburner + Clockwork 2 black parts, 7 objects.
-- **Plate B06-P2** (4.0 h, 51 g): the whole Klicky set, 12 objects. One plate from 2026-09-06 to 2026-11-06,
+- **Plate B06-P2** (4.1 h, 51 g): the whole Klicky set, 12 objects. One plate from 2026-09-06 to 2026-11-06,
   split again for the 25 mm edge margin (§4.3).
 
 Notes:
@@ -483,7 +486,7 @@ Notes:
 
 ---
 
-### Batch B07 — Electronics bay + lighting · **3 plates · 15.2 h · 225 g black**
+### Batch B07 — Electronics bay + lighting · **3 plates · 15.3 h · 225 g black**
 **Unlocks:** *Electronics* (p.148–173), *Controller* (p.174–179), *Wiring* (p.180–211).
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -500,7 +503,7 @@ Notes:
 | `power_inlet_IECGS_1mm.stl` | Voron-2 `STLs/Skirts/` | 1 *(moved from B08 — consumed in Ch 09, p.156/167, not the skirts chapter; rides on B07-P1)* | Black | 36.2 | 2.11 |
 
 - **Plate B07-P1** (5.7 h, 88 g): `power_inlet_IECGS_1mm`, wago mount, `cob_light_strip_mount_100mm` ×2, DIN clip, handlebar spacers ×2.
-- **Plate B07-P2** (5.0 h, 79 g): `cob_light_strip_mount_100mm` ×4, DIN clip, handlebar spacers ×2.
+- **Plate B07-P2** (5.1 h, 79 g): `cob_light_strip_mount_100mm` ×4, DIN clip, handlebar spacers ×2.
 - **Plate B07-P3** (4.5 h, 58 g): `usb_adapter_mount`, `usb_adapter_mount_partial_cover` (ground-lug mount, est.), `cob_light_strip_mount_50mm` ×2, PSU stabilizer, `lrs_200_psu_bracket` ×2, DIN clip.
 
 Notes:
@@ -569,7 +572,7 @@ Notes:
 
 ---
 
-### Batch B09 — Panels, filtration, spool · **5 plates · 20.7 h · 300 g black**
+### Batch B09 — Panels, filtration, spool · **5 plates · 20.8 h · 300 g black**
 **Unlocks:** *Panels* (p.240–259) and the Nevermore install.
 
 | STL | Repo path | Qty | Colour | g ea | h ea |
@@ -592,7 +595,7 @@ Notes:
 | `bowden_retainer.stl` | Voron-2 `STLs/Spool_Management/` | 1 | Black | 5.6 | 0.33 |
 
 - **B09-P1** (3.9 h, 63 g): `exhaust_cover`, `bottom_panel_hinge`, two `bottom_panel_clip`, and two each of the four panel-clip types
-- **B09-P2** (5.0 h, 65 g): `Regular_Cartridge`, `bottom_panel_clip`, and two each of the four panel-clip types
+- **B09-P2** (5.1 h, 65 g): `Regular_Cartridge`, `bottom_panel_clip`, and two each of the four panel-clip types
 - **B09-P3** (4.5 h, 65 g): `V2_Duo_Plenum`, `Regular_Cartridge_Lid`, `bottom_panel_hinge`, two corner and two midspan 4 mm clips
 - **B09-P4** (3.3 h, 47 g): `V2_Duo_Plenum_LID`, `exhaust_filter_grill`, `bottom_panel_clip`, 2 + 2 corner clips (4 mm, 6 mm), 1 midspan 4 mm and 2 midspan 6 mm clips
 - **B09-P5** (4.0 h, 60 g): `z_belt_cover_a` ×2, `z_belt_cover_b` ×2, `spool_holder`, `bowden_retainer`, two corner and two midspan 6 mm clips
@@ -696,7 +699,7 @@ Notes:
 
 ### 4.1 How these numbers were produced
 
-Every plate hour and gram in this document is a **PrusaSlicer 2.9.6 estimate**, produced by actually slicing
+Every plate hour and gram in this document is a **PrusaSlicer 2.9.7 estimate**, produced by actually slicing
 the plate — not modelled. `slicer/build_plates.py` arranges each plate's real STLs on the 250 × 220 bed,
 applies the per-object brims, writes `slicer/plates/<plate>.3mf`, slices it and reads
 `; estimated printing time (normal mode)` and `; total filament used [g]` from the G-code footer.
@@ -723,12 +726,12 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 151.0 h sits at the top of the commonly reported 120–160 h band — which is
+Voron 2.4 350 set. Total print time 151.3 h sits at the top of the commonly reported 120–160 h band — which is
 what a quality-biased profile is supposed to do.
 
 ### 4.2 Filament budget
 
-PrusaSlicer 2.9.6 estimates. The old model said 1940 g black / 308 g blue; slicing gives 127 g and 29 g
+PrusaSlicer 2.9.7 estimates. The old model said 1940 g black / 308 g blue; slicing gives 127 g and 29 g
 less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
@@ -909,7 +912,7 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 151.0 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 151.3 h / 27-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -960,7 +963,7 @@ Do **not** try to interleave a belt/tool upgrade with a running plate; the Nextr
 
 ## 9. Machine-readable batch summary
 
-Hours and grams are **PrusaSlicer 2.9.6 estimates** sliced from `slicer/plates/*.3mf` (§4.1); per-plate
+Hours and grams are **PrusaSlicer 2.9.7 estimates** sliced from `slicer/plates/*.3mf` (§4.1); per-plate
 detail with the previous model figure beside each one is in `slicer/estimates.csv`.
 
 `hard_prereq_batches` = batches that must be **printed** before the assembly chapter in `unlocks_chapter` can
@@ -975,12 +978,12 @@ mechanical chapters need).
 | B03 | A/B drive units + front idlers | 2 | 8.6 | 120 | 0 | A/B Drives and Idlers | B00;B02 |
 | B04 | XY joints + X carriage | 1 | 8.8 | 117 | 0 | Gantry | B00;B02;B03 |
 | B05 | Z joints + Z chain | 1 | 6.2 | 78 | 0 | Z Axis; A/B Belts | B00;B02;B04 |
-| B06 | Toolhead (SB + CW2 + Klicky) | 2 | 11.6 | 148 | 0 | Stealthburner | B00;B02;B04 |
-| B07 | Electronics bay + lighting | 3 | 15.2 | 225 | 0 | Electronics; Controller; Wiring | B00 |
+| B06 | Toolhead (SB + CW2 + Klicky) | 2 | 11.7 | 148 | 0 | Stealthburner | B00;B02;B04 |
+| B07 | Electronics bay + lighting | 3 | 15.3 | 225 | 0 | Electronics; Controller; Wiring | B00 |
 | B08 | Skirts + front modules | 5 | 26.5 | 397 | 0 | Skirts | B00;B02;B07 |
-| B09 | Panels, filtration, spool | 5 | 20.7 | 300 | 0 | Panels | B00;B08 |
+| B09 | Panels, filtration, spool | 5 | 20.8 | 300 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 75 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **27** | **151.0** | **1820** | **279** | | |
+| **TOTAL** | | **27** | **151.3** | **1820** | **279** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
@@ -990,12 +993,12 @@ B02,Accent parts (blue),4,21.0,0,279,Multiple (accent),B00
 B03,A/B drive units + front idlers,2,8.6,120,0,A/B Drives and Idlers,B00;B02
 B04,XY joints + X carriage,1,8.8,117,0,Gantry,B00;B02;B03
 B05,Z joints + Z chain,1,6.2,78,0,Z Axis;A/B Belts,B00;B02;B04
-B06,Toolhead (SB + CW2 + Klicky),2,11.6,148,0,Stealthburner,B00;B02;B04
-B07,Electronics bay + lighting,3,15.2,225,0,Electronics;Controller;Wiring,B00
+B06,Toolhead (SB + CW2 + Klicky),2,11.7,148,0,Stealthburner,B00;B02;B04
+B07,Electronics bay + lighting,3,15.3,225,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,5,26.5,397,0,Skirts,B00;B02;B07
-B09,"Panels, filtration, spool",5,20.7,300,0,Panels,B00;B08
+B09,"Panels, filtration, spool",5,20.8,300,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,75,0,Panels (front door),B00;B02;B09
-TOTAL,,27,151.0,1820,279,,
+TOTAL,,27,151.3,1820,279,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -1014,9 +1017,9 @@ B03-P2,B03,4.2,59,black
 B04-P1,B04,8.8,117,black
 B05-P1,B05,6.2,78,black
 B06-P1,B06,7.6,97,black
-B06-P2,B06,4.0,51,black
+B06-P2,B06,4.1,51,black
 B07-P1,B07,5.7,88,black
-B07-P2,B07,5.0,79,black
+B07-P2,B07,5.1,79,black
 B07-P3,B07,4.5,58,black
 B08-P1,B08,6.2,102,black
 B08-P2,B08,4.2,62,black
@@ -1024,7 +1027,7 @@ B08-P3,B08,4.2,62,black
 B08-P4,B08,5.2,75,black
 B08-P5,B08,6.7,96,black
 B09-P1,B09,3.9,63,black
-B09-P2,B09,5.0,65,black
+B09-P2,B09,5.1,65,black
 B09-P3,B09,4.5,65,black
 B09-P4,B09,3.3,47,black
 B09-P5,B09,4.0,60,black
@@ -1055,10 +1058,10 @@ TOTAL B11,B11,all,25.1,349,petg
 - Voron 2.4r2 Assembly Manual (2023-07-04) — <https://github.com/VoronDesign/Voron-2/blob/Voron2.4/Manual/Assembly_Manual_2.4r2.pdf>
   (print settings p.4; file naming p.5; deck panel p.28–30; skirts p.211–221; bottom panel p.232–233; Z belt covers p.234–236; panels p.239–244; exhaust p.250–256; spool holder p.257–259)
 - Voron STL folder — <https://github.com/VoronDesign/Voron-2/tree/Voron2.4/STLs>
-- Stealthburner repo — <https://github.com/VoronDesign/Voron-Stealthburner/tree/main/STLs>
+- Stealthburner repo, at the Clockwork 2 commit this build prints — <https://github.com/VoronDesign/Voron-Stealthburner/tree/8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b/STLs>
 - Stealthburner filename nomenclature — <https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/README.md>
 - Stealthburner printhead compatibility — <https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md>
-- Stealthburner Assembly Manual — <https://github.com/VoronDesign/Voron-Stealthburner/blob/main/Manual/Assembly_Manual_SB.pdf>
+- Stealthburner Assembly Manual — <https://github.com/VoronDesign/Voron-Stealthburner/blob/1bccf0543f40741243d81505c4ad5406eb822715/Manual/Assembly_Manual_SB.pdf>
 - Voron materials selection (shrinkage = 100 %) — <https://docs.vorondesign.com/materials.html>
 - Voron secondary printer tuning (belt tensions) — <https://docs.vorondesign.com/tuning/secondary_printer_tuning.html>
 

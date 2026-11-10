@@ -5,7 +5,7 @@ pose: print
 caption: The corners the belts turn on. Gate B still votes first.
 ```
 
-**Time:** 8.6 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 8.6 h (2 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 4.4 / 4.2 h unattended) + ~15 min inspect and bin.
 
@@ -56,7 +56,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.5.*
 
 **Do:** Open `slicer/plates/B03-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it.
-**Parts:** 4 objects — 4.4 h, 61 g (PrusaSlicer 2.9.6 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper` · 3 mm brim on all four parts, already in the project.
+**Parts:** 4 objects — 4.4 h, 61 g (PrusaSlicer 2.9.7 estimate); `a_drive_frame_lower`; `a_drive_frame_upper`; `front_idler_right_lower`; `front_idler_right_upper` · 3 mm brim on all four parts, already in the project.
 **Check:** Parts sit flat as shipped; a brim outline on all four parts.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -65,7 +65,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B03.3 — Print plate B03-P1
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. No warp at drive-frame corners.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -81,7 +81,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B03.5.*
 
 **Do:** Open `slicer/plates/B03-P2.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides ship in the project; confirm what loaded, don't rebuild it.
-**Parts:** 4 objects — 4.2 h, 59 g (PrusaSlicer 2.9.6 estimate); `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper` · 3 mm brim on all four parts, already in the project.
+**Parts:** 4 objects — 4.2 h, 59 g (PrusaSlicer 2.9.7 estimate); `b_drive_frame_lower`; `b_drive_frame_upper`; `front_idler_left_lower`; `front_idler_left_upper` · 3 mm brim on all four parts, already in the project.
 **Check:** Parts sit flat as shipped; a brim outline on all four parts.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -90,7 +90,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B03.7 — Print plate B03-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. No warp at drive-frame corners.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

@@ -16,7 +16,7 @@ caption: Square the frame once, properly. Everything above copies this frame, in
 **Prerequisites:**
 
 - **Ch 00** — inventory, extrusions counted, tools to hand.
-- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Later batches may still be printing underneath it; Ch 02 needs B00, B01 and all three B02 plates, whose Z-corner parts are spread across P1–P3, so start it once those are off the bed and sorted.
+- **Print batches: none gate this chapter.** No printed part is required for the frame; you can square it the day the kit lands ([print plan §2](../voron-print-plan.md)). Later batches may still be printing underneath it; Ch 02 needs B00, B01 and B02 plates P1 to P3, which share out its Z-corner parts, so start it once those are off the bed and sorted.
 
 **Tools**
 
@@ -636,4 +636,4 @@ Pause: ~35 min since the last pause — final squareness pass done, backers conf
 
 ## Next
 
-Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02**, all three B02 plates, sorted into bins 02-Z0 … 02-deck (print plan §2).
+Ch 02 — Z drives, Z idlers, Z rails and deck panel (manual p.22–51); gated on batches **B00 + B01 + B02**, B02 plates P1 to P3, sorted into bins 02-Z0 … 02-deck (print plan §2).

@@ -5,7 +5,7 @@ pose: print
 caption: Panels, filtration and a spool holder. Five plates, back to back, and none of them dramatic.
 ```
 
-**Time:** 20.7 h (5 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 20.8 h (5 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 5 plate starts (~5 min hands-on each, 3.3–5.0 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
@@ -80,7 +80,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 
 **Do:** Open `slicer/plates/B09-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `exhaust_cover` · `bottom_panel_hinge` · `bottom_panel_clip` ×2 · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 7 files, 12 pieces — 3.9 h, 63 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `exhaust_cover` · `bottom_panel_hinge` · `bottom_panel_clip` ×2 · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 7 files, 12 pieces — 3.9 h, 63 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** A brim outline on every part; eight panel clips, two of each type, and two bottom clips.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -89,7 +89,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B09.3 — Print plate B09-P1
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Clean first layer under the exhaust cover; no corner lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -106,7 +106,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Leave the cartridge's built-in support in place.
-**Parts:** `Regular_Cartridge` (3mf) · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 6 files, 10 pieces — 5.0 h, 65 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `Regular_Cartridge` (3mf) · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` ×2 · `midspan_panel_clip_6mm` ×2 · 6 files, 10 pieces — 5.1 h, 65 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** Built-in support visible in preview, not suppressed; a brim outline on every part; eight clips, two of each type.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -115,7 +115,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B09.5 — Print plate B09-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Clean first layer. The cartridge's four 6×3 mm magnet pockets print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -132,7 +132,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Leave the plenum's built-in support in place.
-**Parts:** `V2_Duo_Plenum` · `Regular_Cartridge_Lid` (3mf) · `bottom_panel_hinge` · `corner_panel_clip_4mm` ×2 · `midspan_panel_clip_4mm` ×2 · 5 files, 7 pieces — 4.5 h, 65 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `V2_Duo_Plenum` · `Regular_Cartridge_Lid` (3mf) · `bottom_panel_hinge` · `corner_panel_clip_4mm` ×2 · `midspan_panel_clip_4mm` ×2 · 5 files, 7 pieces — 4.5 h, 65 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** Built-in support visible in preview, not suppressed; a brim outline on every part; four 4 mm clips and no 6 mm ones.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -141,7 +141,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B09.7 — Print plate B09-P3
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Clean first layer. The lid groove in the plenum prints crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -158,7 +158,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `V2_Duo_Plenum_LID` · `exhaust_filter_grill` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` · `midspan_panel_clip_6mm` ×2 · 7 files, 10 pieces — 3.3 h, 47 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `V2_Duo_Plenum_LID` · `exhaust_filter_grill` · `bottom_panel_clip` · `corner_panel_clip_4mm` ×2 · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_4mm` · `midspan_panel_clip_6mm` ×2 · 7 files, 10 pieces — 3.3 h, 47 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** A brim outline on every part; seven clips, one of them the last 4 mm midspan.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -167,7 +167,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B09.15 — Print plate B09-P4
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Clean first layer; the plenum lid's groove edges print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -184,7 +184,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B09-P5.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `z_belt_cover_a` ×2 · `z_belt_cover_b` ×2 · `spool_holder` · `bowden_retainer` · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_6mm` ×2 · 6 files, 10 pieces — 4.0 h, 60 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on every part, already in the project.
+**Parts:** `z_belt_cover_a` ×2 · `z_belt_cover_b` ×2 · `spool_holder` · `bowden_retainer` · `corner_panel_clip_6mm` ×2 · `midspan_panel_clip_6mm` ×2 · 6 files, 10 pieces — 4.0 h, 60 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on every part, already in the project.
 **Check:** A brim outline on every part; four 6 mm clips.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -193,7 +193,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B09.17 — Print plate B09-P5
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Clean first layer; no corner lift on the belt covers.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

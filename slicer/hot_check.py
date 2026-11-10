@@ -47,6 +47,7 @@ Re-run it (no flag) after `build_config.py` changes the start G-code in the inis
 """
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 from collections import Counter
@@ -407,8 +408,15 @@ def check_flow_ladder() -> int:
     return 1 if bad else 0
 
 
-def main() -> int:
-    if "--check" not in sys.argv[1:]:
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(
+        allow_abbrev=False,
+        description="Build the hot first-layer check projects under slicer/checks/ (this "
+                    "launches PrusaSlicer and rewrites them), then check them.")
+    ap.add_argument("--check", action="store_true",
+                    help="check the committed projects only; build nothing")
+    a = ap.parse_args(argv)
+    if not a.check:
         build()
         build_flow_ladder()
         build_brim()

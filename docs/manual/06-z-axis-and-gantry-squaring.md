@@ -289,13 +289,13 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Parts:**
 
 - Rubber rail stopper ×4 — from the Y rails
-- reused: the four `z_rail_stop_x4` on the rail tops, if fitted
+- reused: the four `z_rail_stop_x4`, on the rail tops or still in bins 02-Z0 to 02-Z3
 
 **Do:**
 
-1. Move each Z carriage to mid-rail; screw a rubber stopper into the **free** rail hole **directly under** it.
+1. Move each Z carriage to mid-rail; screw a rubber stopper into the **free** hole **directly under** it.
 2. Use the same hole from the same end at all four corners.
-3. Confirm a `z_rail_stop_x4` caps each rail top.
+3. Fit a `z_rail_stop_x4` to any rail top without one.
 
 **Check:** Deck-to-joint-top height at all four corners is within ~1 mm, and each carriage stops on its rubber stopper when pushed down.
 

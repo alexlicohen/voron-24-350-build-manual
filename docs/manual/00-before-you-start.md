@@ -16,7 +16,7 @@ caption: Kit day is a counting day. The printer inside the box is currently a ru
 **Prerequisites:**
 
 - **Print batch B00 — Calibration & jigs** ([print/B00-calibration-and-jigs.md](print/B00-calibration-and-jigs.md)). B00 is the first batch printed, ahead of the kit, and its gate is in two parts. **Gate A** (the cube, Step B00.5) and Gate B's caliper and insert rows (Step B00.7 — the `z_drive_retainer_a` 625-2RS pocket calipered against its 16.30 mm nominal, and seven KADRICK inserts from the kit already on the bench in the `Heatset_Practice` coupon; nothing bought) are passed by kit day. Later batches may still be printing then; this chapter needs none of them. Steps 00.13–00.16 *are* Gate B's insert row. **Two rows of Gate B are left for kit day**: a real 625-2RS thumbed into `z_drive_retainer_a` and the `MGN12_rail_guide` on a real MGN12 rail, both out of carton 1 before the inventory starts. This chapter needs the `Heatset_Practice` coupon and both rail-guide sizes off that plate; nothing else from B00.
-- The kit itself, unopened — for the *Kit day* steps only. Fabreeko order **F6424626**, pre-order, ETA **early November 2026** (Alex, 2026-10-23).
+- The kit itself, unopened — for the *Kit day* steps only. Fabreeko pre-order, ETA **early November 2026** (Alex, 2026-10-23).
 - Nothing else. This chapter has no assembly prerequisites — it is the first thing you do.
 
 **Tools**
@@ -369,7 +369,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 
 | Tool | Status | First needed |
 |---|---|---|
-| Precision hex driver set of 5, ball-end | **Bought** — Fabreeko, in kit order F6424626 | Ch 02 (Ch 01 uses the kit's straight 3 mm key) |
+| Precision hex driver set of 5, ball-end | **Bought** — Fabreeko, in the kit order | Ch 02 (Ch 01 uses the kit's straight 3 mm key) |
 | Hex wrenches 1.5–4 mm | **In the kit** | Ch 01 |
 | Flat reference surface | **Resolved** — kitchen stone counter, verified in Step 00.10 | Ch 01 |
 | Digital caliper, 150 mm | **Owned** — iGaging Absolute Origin, bought 2026-09-07 | Ch 00 (deck gate, cube gate) |
@@ -381,7 +381,7 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | Torque screwdriver 0.5–3 N·m | **Buy — optional.** No Voron or LDO source publishes a torque figure for any fastener in this build; this manual never invents one. Buy it for repeatability across the 283 M3×8, not to hit a spec | Ch 01 |
 | T10 Torx driver | **Buy** | Ch 05 (titanium backer FHCS cam out easily in countersinks) |
 | Multimeter | **Buy if not owned** | Ch 00a (bought and proved before the kit), then Ch 08; mandatory at Ch 10 Checkpoint #1 |
-| Ferrule crimp tool, square, for VE0508 | **Buy** — every kit lead ships ferruled, so it is used only if a lead has to be re-terminated, but Ch 09 stages it for that case | Ch 09 (09.35) |
+| Ferrule crimp tool, square, for VE0508 | **Optional** — every kit lead ships ferruled, so buy it only if a lead has to be re-terminated | Ch 10, only on a re-terminated lead |
 | Rubber or nylon mallet | **Buy if not owned** | Ch 01 (nudging the frame square) |
 | Steel tape measure ≥ 2.2 m | **Buy if not owned** — the 600 mm straightedge is too short for the frame diagonals and the 2000 mm belt cut | Ch 01 (diagonals), Ch 07 (07.8) |
 | Sharp craft knife with fresh blades; plastic scraper or an old credit card | **Buy if not owned** | Ch 03 (03.9, the magnetic pad) |
@@ -1085,7 +1085,7 @@ Source: [LDO Build Notes (Rev D)](https://docs.ldomotors.com/voron/voron2/build-
 **Do:**
 
 1. Post the question today; it has days of answer latency.
-2. Quote the Fabreeko order number **F6424626**; it does not need the kit serial.
+2. Quote your Fabreeko order number, from the order confirmation email; it does not need the kit serial.
 
 | Ask for | Where | Gates |
 |---|---|---|

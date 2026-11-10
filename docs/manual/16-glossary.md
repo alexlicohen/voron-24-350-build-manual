@@ -62,7 +62,7 @@ Source: [Ch 04](04-ab-drives.md) · [Ch 14 Step 14.12](14-calibration.md#step-14
 | **BHCS** | Button Head Cap Screw — domed head, mostly M5 in this build | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Blind joint** | The frame joint: a BHCS head slides into one extrusion's slot and threads into the tapped end of the mating extrusion, tightened through an access hole | [00.28](00-before-you-start.md#step-0028-blind-joints-p10) |
 | **BMG** | The dual-geared filament drive inside Clockwork 2 — the idler assembly you grease and the tension arm that loads it | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
-| **Brim** | A single-layer skirt fused to the part, added only where a plate needs adhesion help. Most Voron plates do not | [print/00-slicer-setup — Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
+| **Brim** | A flat single-layer ring printed around a part's base to hold its corners down. Every part 30 mm or longer carries a 3 mm one, set 0.3 mm off the part so it snaps away | [print/00-slicer-setup — Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 
 Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titanium-backers) · [Ch 00 Steps 00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.28](00-before-you-start.md#step-0028-blind-joints-p10) · [Ch 08 Step 08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it)
 
@@ -304,7 +304,7 @@ Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · 
 |---|---|---|
 | **`SAVE_CONFIG`** | Klipper's command to write calibrated values into an auto-generated block at the end of `printer.cfg`. It **restarts Klipper**, so homing is lost and every motor releases each time | [13.29](13-initial-startup.md#step-1329-pid-tune-the-bed-at-100-c) |
 | **"Second hole in"** | LDO's rail rule that overrides the manual: never use a rail's **end** hole — use the second hole from each end, because the end holes are where later T-nuts must live | [00.22](00-before-you-start.md#step-0022-understand-the-rail-jigs-before-you-need-them) |
-| **Seam** | Where each perimeter loop starts and stops, leaving a faint vertical line. Set to *Rear* for every plate so it lands on the faces nobody sees | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
+| **Seam** | Where each perimeter loop starts and stops, leaving a faint vertical line. Set to *Nearest* on the ASA plates, so it lands on a corner; smooth curves get a scarf joint instead | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Set screw (grub screw)** | A headless screw that clamps a pulley to a shaft. One of the pair goes on the shaft's machined **flat**, and both get threadlocker | [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) |
 | **`SET_STEPPER_ENABLE`** | Switches one motor on or off, for example `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0`. It frees X and Y while Z keeps holding the gantry. `M84` releases all seven, so it is used only with a hand under the gantry | [13.17](13-initial-startup.md#step-1317-query_endstops-with-everything-released) |
 | **SHCS** | Socket Head Cap Screw — straight cylindrical head. The most common fastener in the machine: 283 M3×8 alone | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |

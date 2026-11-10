@@ -187,7 +187,7 @@
    "batch": "B06",
    "batch_title": "Toolhead: Stealthburner, Clockwork 2, Klicky",
    "run": "asa",
-   "hours": 4.0,
+   "hours": 4.1,
    "grams": 51,
    "colour": "black",
    "slot": "day",
@@ -218,7 +218,7 @@
    "batch": "B07",
    "batch_title": "Electronics bay + lighting",
    "run": "asa",
-   "hours": 5.0,
+   "hours": 5.1,
    "grams": 79,
    "colour": "black",
    "slot": "day",
@@ -338,7 +338,7 @@
    "batch": "B09",
    "batch_title": "Panels, filtration, spool",
    "run": "asa",
-   "hours": 5.0,
+   "hours": 5.1,
    "grams": 65,
    "colour": "black",
    "slot": "day",
@@ -519,7 +519,7 @@
   {
    "run": "asa",
    "plates": 27,
-   "hours": 151.0,
+   "hours": 151.3,
    "label": "27-plate run"
   },
   {
@@ -531,9 +531,9 @@
  ],
  "totals": {
   "plates": 34,
-  "hours": 176.1,
+  "hours": 176.4,
   "overnight": 6,
   "run_plates": 27,
-  "run_hours": 151.0
+  "run_hours": 151.3
  }
 }

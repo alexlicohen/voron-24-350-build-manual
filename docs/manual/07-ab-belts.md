@@ -165,7 +165,7 @@ Source: [Voron manual p.127](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 Source: [Voron manual p.128](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=128) · [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
-Pause: ~25 min since the last pause — both belt paths traced against p.126–127 and both front-idler tensioners backed out to the loose starting position. Nothing is cut. Do not start cutting belt unless you can also thread it.
+Pause: ~25 min since the last pause — both belt paths traced against p.126–127 and both front-idler tensioners backed out, then wound in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.
 
 ### Step 07.6 — Fit the heat-set inserts and M3 nuts
 
@@ -726,7 +726,7 @@ Pause: ~30 min since the last pause — belt-rub inspection clean at all fourtee
 
 **Check:** Back and bottom sensing face bare; mounting holes clear; lead uncut with its connector on.
 
-⚠ **Rev D+ / LDO:** p.143's "cut the probe wires to about 150 mm" does not apply. This kit's probe lead comes pre-cut and crimped for the Nitehawk `PROBE` port, Step 08.50. Tape before fitting; too much tape stops the probe triggering, so peel some off if it fails in Ch 13. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
+⚠ **Rev D+ / LDO:** p.143's "cut the probe wires to about 150 mm" does not apply. This kit's probe lead comes pre-cut and crimped for the Nitehawk `PROBE` port, Step 08.60. Tape before fitting; too much tape stops the probe triggering, so peel some off if it fails in Ch 13. [src](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe)
 
 Source: [Voron manual p.143](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=143) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [LDO wiring guide § Insulating the Z probe](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d#insulating-the-z-probe) · [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+)
 
@@ -772,7 +772,7 @@ Source: [Voron manual p.144](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Parts:** none.
 
-**Do:** Guide the probe cable into the moulded slot in the carriage. Leave the coiled end loose above the carriage until Step 08.50 plugs it into `PROBE`.
+**Do:** Guide the probe cable into the moulded slot in the carriage. Leave the coiled end loose above the carriage until Step 08.60 plugs it into `PROBE`.
 
 **Check:** The cable is captive in the slot and clear of both belts and the rail carriage over full travel. Move the carriage end to end.
 

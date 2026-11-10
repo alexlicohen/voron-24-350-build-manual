@@ -5,7 +5,7 @@ pose: print
 caption: Ducts carry wires, not load. Same printer, different spool, gentler rules.
 ```
 
-**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.6 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 150.7 h ASA run**, and none of its numbers are in the run's totals.
+**Time:** 25.1 h (7 plates) — PrusaSlicer 2.9.7 estimates: 11.9 h before kit (B11-P1 to P3 and P6, 173 g), 13.2 h after the kit-day measurements (B11-P4, P5 and P7, 176 g). 349 g of Jet Black PETG V0 in all. **Not part of the 151.3 h ASA run**, and none of its numbers are in the run's totals.
 
 **Sessions:** 7 plate starts (~5 min hands-on each, all day plates), ~10 min for the coupon test, ~30 min to inspect and bin; ~35 min of bay measuring on kit day, before P4, P5 and P7, and ~15 min for the A/B lead check after Checkpoint 06.
 
@@ -103,7 +103,7 @@ Source: [`slicer/OVERRIDES.md` § Bay-duct bundle](https://github.com/alexlicohe
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
 **Do:** Open `slicer/plates/B11-P1.3mf` with **File → Open Project** and print it on its own, first. It is the lid-snap test for the narrowed middle run.
-**Parts:** `V3L_COUPON_22N_DUCT` · `V3L_COUPON_22N_DUCT_COVER` · 2 files, 2 objects — 0.4 h, 4 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `V3L_COUPON_22N_DUCT` · `V3L_COUPON_22N_DUCT_COVER` · 2 files, 2 objects — 0.4 h, 4 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** Preview shows the bay-ducts PETG V0 bundle, the duct base down and the lid flat, no supports.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -132,7 +132,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run and ch
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
 **Do:** Open `slicer/plates/B11-P2.3mf` with **File → Open Project**. This is the DC conduit's front run; its corners print on B11-P6.
-**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V2_6B_154mm_DUCT_COVER` ×2 · 2 files, 4 objects — 4.3 h, 58 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `CMD_V3_1H_154mm_DUCT` ×2 · `CMD_V2_6B_154mm_DUCT_COVER` ×2 · 2 files, 4 objects — 4.3 h, 58 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** Both duct bodies base down, both lids flat; the two 154 mm ducts lie clear of the bed edge.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -148,7 +148,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
 **Do:** Open `slicer/plates/B11-P3.3mf` with **File → Open Project**. This is the AC conduit and the strip fin; the DC S-jog prints on B11-P6.
-**Parts:** `V3L_WIRE_BOX_PORT` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15` ×2 · `V3L_90DEG_R15_COVER` ×2 · `CMD_V3_1H_T_SHORT` · `CMD_V2_6B_T_SHORT_COVER` · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · `V2L_STRIP_FIN` · 8 files, 11 objects — 3.2 h, 53 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `V3L_WIRE_BOX_PORT` · `CMD_V2_6B_WIRE_BOX_COVER` · `V3L_90DEG_R15` ×2 · `V3L_90DEG_R15_COVER` ×2 · `CMD_V3_1H_T_SHORT` · `CMD_V2_6B_T_SHORT_COVER` · `CMD_Remix-V3_DUCT-1M_ENDCAP` ×2 · `V2L_STRIP_FIN` · 8 files, 11 objects — 3.2 h, 53 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** Endcaps stand on their flat face, the fin lies plate down, every duct body sits base down.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -164,7 +164,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.8.*
 
 **Do:** Open `slicer/plates/B11-P6.3mf` with **File → Open Project**. This is the DC conduit's three corners and its S-jog.
-**Parts:** `CMD_V3_1H_90DEG` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_MIRROR` · `V2L_90DEG_COVER_MIRROR` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · 6 files, 10 objects — 4.0 h, 58 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `CMD_V3_1H_90DEG` ×2 · `CMD_V2_6B_90DEG_COVER` ×2 · `V2L_90DEG_MIRROR` · `V2L_90DEG_COVER_MIRROR` · `CMD_Remix-V3_DUCT-2B_45deg` ×2 · `CMD_Remix-V3_DUCT-2B_45deg_LID` ×2 · 6 files, 10 objects — 4.0 h, 58 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** Every duct body base down, every lid flat.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -347,7 +347,7 @@ cd "$REPO"
 # edit 3, slicer/bins.py: ASSIGN "V3L_${L}mm_DUCT.stl" -> "09-ducts-AC" and its _COVER -> "10-lids-AC"; the 10 mm
 #         lists stay as they are (copy 1 is the DC one). NOTES: the 10 mm line becomes "1 in 09-ducts-DC (rear-upper
 #         run), 1 in 09-ducts-AC (SSR run right end)", and "V3L_${L}mm_DUCT.stl": "stub into the box port".
-python3 slicer/fetch_stls.py && python3 slicer/build_plates.py --nest B11-P4 && python3 slicer/check_docs.py
+python3 slicer/fetch_stls.py && python3 slicer/build_plates.py --repack --nest B11-P4 && python3 slicer/check_docs.py
 python3 slicer/bin_bags.py --check
 ```
 
@@ -366,7 +366,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/work/remix_v3.py` · `layout-v2/wo
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
 
 **Do:** Open `slicer/plates/B11-P4.3mf` with **File → Open Project**, after any regenerated piece is back on the plate. These are the custom lengths.
-**Parts:** `V2L_58mm_DUCT` ×3 · `V2L_58mm_DUCT_COVER` ×3 · `V2L_130mm_DUCT` · `V2L_130mm_DUCT_COVER` · `V2L_70mm_DUCT` · `V2L_70mm_DUCT_COVER` · `V3L_10mm_DUCT` ×3 · `V3L_10mm_DUCT_COVER` ×3 · `V3L_34mm_DUCT_HOLE` · `V3L_34mm_DUCT_COVER` · 10 files, 18 objects — 6.3 h, 82 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `V2L_58mm_DUCT` ×3 · `V2L_58mm_DUCT_COVER` ×3 · `V2L_130mm_DUCT` · `V2L_130mm_DUCT_COVER` · `V2L_70mm_DUCT` · `V2L_70mm_DUCT_COVER` · `V3L_10mm_DUCT` ×3 · `V3L_10mm_DUCT_COVER` ×3 · `V3L_34mm_DUCT_HOLE` · `V3L_34mm_DUCT_COVER` · 10 files, 18 objects — 6.3 h, 82 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** The plate holds the lengths the bay measured, and the 34 mm piece shows its floor opening.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -382,7 +382,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
 
 **Do:** Print this plate only if the coupon passed and the gap measured 25 mm or more. Otherwise print the fallback listed under Options instead.
-**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · 2 files, 4 objects — 4.2 h, 56 g (PrusaSlicer 2.9.6 estimate) · no brim. The narrowed Ts follow on B11-P7.
+**Parts:** `V3L_154N_DUCT` ×2 · `V3L_154N_DUCT_COVER` ×2 · 2 files, 4 objects — 4.2 h, 56 g (PrusaSlicer 2.9.7 estimate) · no brim. The narrowed Ts follow on B11-P7.
 **Check:** Both narrowed 154s base down, lids flat.
 
 ⚠ **Fallback:** stock `CMD_V3_1H_T_REG` and `CMD_V3_1H_82mm_DUCT` are drawn base up. Load them with `slicer/bay-ducts-petg.ini`, place each on its wide flat base, and print their covers as they come.
@@ -400,7 +400,7 @@ Source: `review/2026-09-23-bay-mods/layout-v3/layout-v3.md` § Middle run · [pr
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B11.14.*
 
 **Do:** Print this plate only if B11-P5 printed: the coupon passed and the gap measured 25 mm or more. Otherwise the fallback replaces it too.
-**Parts:** `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 2 files, 4 objects — 2.7 h, 38 g (PrusaSlicer 2.9.6 estimate) · no brim.
+**Parts:** `V3L_T_REG_N` ×2 · `V3L_T_REG_N_COVER` ×2 · 2 files, 4 objects — 2.7 h, 38 g (PrusaSlicer 2.9.7 estimate) · no brim.
 **Check:** Both narrowed Ts base down, lids flat.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

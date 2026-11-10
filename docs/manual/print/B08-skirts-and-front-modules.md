@@ -11,7 +11,7 @@ pose: pause
 caption: The parts visitors will comment on. Five plates, one quiet weekend, and my updraft stays switched off.
 ```
 
-**Time:** 26.5 h (5 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 26.5 h (5 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 5 plate starts (~5 min hands-on each, 4.2–6.7 h unattended) + ~20 min inspect and bin.
 
@@ -79,7 +79,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B08-P1.3mf` with **File → Open Project**. The arrangement, brims and overrides
 are already in it. Confirm the rear skirt is turned 90° about Z, its 182 mm axis running front-to-back along
 Y, beside the `side_skirt_a_350`.
-**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.2 h, 102 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `rear_center_skirt_350` · `side_skirt_a_350` ×1 — 6.2 h, 102 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on both, already in the project.
 **Check:** Both parts flat on their shipped faces, long axes front-to-back, brim outline on both in the
 preview, plate matching the image above.
 
@@ -89,7 +89,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B08.3 — Print plate B08-P1
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. Watch the ends of `rear_center_skirt_350` for the first hour: 182 mm is the worst warp candidate.
 
 Tip: look at the first layer, the corners after an hour, and at bedtime. A lifted corner is a stop. Paused or stopped: [When the printer stops](README.md#when-the-printer-stops).
@@ -106,7 +106,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P2.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_fan_support` ×1 · `side_skirt_b_350` ×1 — 4.2 h, 62 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `side_fan_support` ×1 · `side_skirt_b_350` ×1 — 4.2 h, 62 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 **Helper:** Counts the parts on the sorting diagram and checks the total against the object count.
@@ -115,7 +115,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B08.5 — Print plate B08-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** The side skirt and the fan support lay down a clean first layer across their full length; no corner lift.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -132,7 +132,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P3.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_fan_support` ×1 · `side_skirt_a_350` ×1 — 4.2 h, 62 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `side_fan_support` ×1 · `side_skirt_a_350` ×1 — 4.2 h, 62 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -141,7 +141,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B08.7 — Print plate B08-P3
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** No corner lift on the skirt or the fan support.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -158,7 +158,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P4.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `front_skirt_a_350` · `front_skirt_b_350` — 5.2 h, 75 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on both, already in the project.
+**Parts:** `front_skirt_a_350` · `front_skirt_b_350` — 5.2 h, 75 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on both, already in the project.
 **Check:** Brim outline shows on both in the preview.
 
 **Helper:** Reads the sorting diagram legend aloud and counts the parts on it while you load.
@@ -167,7 +167,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B08.9 — Print plate B08-P4
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** No corner lift on either front skirt.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -184,7 +184,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 
 **Do:** Open `slicer/plates/B08-P5.3mf` with **File → Open Project**. The arrangement, brims and overrides are
 already in it. Confirm it loaded as described rather than rebuilding it.
-**Parts:** `side_skirt_b_350` ×1 · `keystone_panel` · `mount.stl` — 6.7 h, 96 g (PrusaSlicer 2.9.6 estimate) · 3 mm brim on all three, already in the project.
+**Parts:** `side_skirt_b_350` ×1 · `keystone_panel` · `mount.stl` — 6.7 h, 96 g (PrusaSlicer 2.9.7 estimate) · 3 mm brim on all three, already in the project.
 **Check:** Brim outline on all three in the preview; confirm `mount.stl`, not `mount_thick.stl`.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -195,7 +195,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B08.13 — Print plate B08-P5
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** No corner lift on the skirt; the keystone panel's two cutout slots print crisp; no warp on the tall TFT mount.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

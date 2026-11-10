@@ -18,7 +18,7 @@ caption: The mirrored pair will happily go on the wrong sides. Check the letter 
 - Chapter 01 complete: frame assembled, squared, bed extrusions positioned **65 mm each side of the printer centreline (130 mm clear gap between their inner faces, 150 mm centre-to-centre)** per Ch 01 Step 01.19, and the squareness re-checked after the final torque pass.
 - Print batch **B00** (Calibration & jigs) — `MGN9_rail_guide_x2`.
 - Print batch **B01** (Z drive assemblies) — drive bodies, retainers, motor mounts, Z-tensioner brackets, deck supports.
-- Print batch **B02** (Accent parts, blue), all three plates: the baseplates, belt tensioners and Z tensioners are spread across P1–P3.
+- Print batch **B02** (Accent parts, blue), plates P1 to P3: the baseplates, belt tensioners and Z tensioners are spread across them. P4 carries nothing for this chapter.
 - Optional: batch **B05** for `z_rail_stop_x4` (Step 02.10). Skip them and keep the tape.
 - Steps 02.27–02.28 (16T pulleys, motors onto their mounts) need only B01-P2 and the Motor Kit — B01-P2 is on the shelf as soon as B01 is printed, so do them the moment the Motor Kit box is open, and label the motor cables then.
 - Steps 02.17–02.28 and 02.39–02.40 are bench work that needs only B01, B02 and the Motion and Motor kits. Build all four drives, motor units and idler cages straight after Step 02.04 if you can, so the frame is inverted only for the deck and corner installs (02.11–02.16, 02.29–02.38).

@@ -9,7 +9,7 @@ pose: pause
 caption: Twelve hours for the toolhead. Start it after dinner, inspect at breakfast. Even champions need their sleep.
 ```
 
-**Time:** 11.6 h (2 plates) — PrusaSlicer 2.9.6 estimates.
+**Time:** 11.7 h (2 plates) — PrusaSlicer 2.9.7 estimates.
 
 **Sessions:** 2 plate starts (~5 min hands-on each, 7.6 / 4.0 h unattended) + ~20 min inspect and bin.
 
@@ -79,7 +79,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 **Do:** Open `slicer/plates/B06-P1.3mf` with **File → Open Project**. Do not rebuild the arrangement.
 Confirm the loaded objects match the Parts list and that the printhead files came from the `revo_voron`
 folder.
-**Parts:** 7 files, 7 objects, 3 mm brim on the two printhead halves, `main_body`, `motor_plate` and `cw2_captive_pcb_cover`, already in the project — 7.6 h, 97 g (PrusaSlicer 2.9.6 estimate);
+**Parts:** 7 files, 7 objects, 3 mm brim on the two printhead halves, `main_body`, `motor_plate` and `cw2_captive_pcb_cover`, already in the project — 7.6 h, 97 g (PrusaSlicer 2.9.7 estimate);
 `stealthburner_printhead_revo_voron_front`; `stealthburner_printhead_revo_voron_rear_cw2`;
 `[o]_stealthburner_LED_carrier`; `[o]_stealthburner_LED_diffuser_mask`; `main_body` (CW2);
 `motor_plate` (CW2); `cw2_captive_pcb_cover`.
@@ -91,7 +91,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B06.3 — Print plate B06-P1
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. LED carrier and diffuser mask print crisp, the finest features on the plate.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).
@@ -107,7 +107,7 @@ Source: [00-slicer-setup § Overrides](00-slicer-setup.md#overrides) · [print p
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B06.5.*
 
 **Do:** Open `slicer/plates/B06-P2.3mf` with **File → Open Project**. Do not rebuild the arrangement.
-**Parts:** 11 files, 12 objects, 3 mm brim on the dock, its mount and the four magnet and press-fit holders and helpers, already in the project — 4.0 h, 51 g (PrusaSlicer 2.9.6 estimate); the Klicky set:
+**Parts:** 11 files, 12 objects, 3 mm brim on the dock, its mount and the four magnet and press-fit holders and helpers, already in the project — 4.1 h, 51 g (PrusaSlicer 2.9.7 estimate); the Klicky set:
 `KlickyProbe_v2` ×2; `Probe_Dock_v2.1`; `Probe_magnet_holder`; `Probe_magnet_pressfit_helper`; `Probe_pressfit_holder`;
 `KlickyProbe_AB_mount_v2`; `KlickyProbe_AB_mount_v2_holder`; `Mount_magnet_holder`;
 `Mount_magnet_pressfit_helper`; `Mount_pressfit_holder_v2`; `Dock_mount_fixed_v2`.
@@ -119,7 +119,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B06.7 — Print plate B06-P2
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. The magnet-holder pockets print crisp.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

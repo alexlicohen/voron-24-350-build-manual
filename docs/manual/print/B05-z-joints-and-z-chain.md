@@ -5,7 +5,7 @@ pose: print
 caption: Z joints and chain links. Small, numerous, identical. Count them now, not halfway through the chain.
 ```
 
-**Time:** 6.2 h (1 plate) — PrusaSlicer 2.9.6 estimate.
+**Time:** 6.2 h (1 plate) — PrusaSlicer 2.9.7 estimate.
 
 **Sessions:** 1 plate start (~5 min hands-on, 6.2 h unattended) + ~10 min inspect and bin.
 
@@ -50,7 +50,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B05.5.*
 
 **Do:** Open `slicer/plates/B05-P1.3mf` with **File → Open Project**. Arrangement, per-object brims and overrides are already in the project, so confirm it loaded rather than rebuild it. No rotation. Do **not** include `z_joint_upper_hall_effect.stl`.
-**Parts:** the fourteen pieces above — 6.2 h, 78 g (PrusaSlicer 2.9.6 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4 · 3 mm brim on `z_joint_lower_x4` ×4, `z_chain_bottom_anchor` and `z_chain_guide`, already in the project.
+**Parts:** the fourteen pieces above — 6.2 h, 78 g (PrusaSlicer 2.9.7 estimate); `z_joint_lower_x4` ×4; `z_joint_upper_x4` ×4; `z_chain_bottom_anchor`; `z_chain_guide`; `z_rail_stop_x4` ×4 · 3 mm brim on `z_joint_lower_x4` ×4, `z_chain_bottom_anchor` and `z_chain_guide`, already in the project.
 **Check:** File list contains only the D2F-compatible `z_joint_upper_x4`, not the hall-effect variant.
 
 **Helper:** Names the bin colour of each part on the sorting diagram while you open the project.
@@ -59,7 +59,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B05.3 — Print
 
-**Do:** Print with standing overrides.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Print with standing overrides.
 **Check:** Before start, Settings → Chamber Filtration reads **Adv. Filtration**. First layer clean; no warp on the small joint parts.
 
 Tip: Paused or stopped mid-plate? See [When the printer stops](README.md#when-the-printer-stops).

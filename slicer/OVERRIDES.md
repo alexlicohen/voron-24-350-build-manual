@@ -13,9 +13,10 @@ as installed with PrusaSlicer 2.9.7 (the same file 2.9.6 shipped).
 | filament | `Prusament ASA @COREONE HF0.4` | HF variant, matching the installed high-flow 0.4 nozzle. Differs from `Prusament ASA @COREONE` only in the ceiling and the melt: `filament_max_volumetric_speed` 15 -> 26, `filament_infill_max_crossing_speed` 140 -> 200, nozzle temp 260 -> 265 C, shorter ramming, COREONE-only start G-code. Shrinkage compensation is 0.22 % in both, so the zeroing override below is unchanged. |
 | printer | `Prusa CORE One HF0.4 nozzle` | The high-flow 0.4 preset. `Prusa CORE One 0.4 nozzle` *inherits from this one* and only sets `nozzle_high_flow = 0` / `printer_variant = 0.4` plus the two default-profile pointers - bed 250x220, 270 mm Z, retract 0.7 mm @ 45 mm/s and z-hop 0.2 mm are identical. |
 
-HF raises the ceiling only. At this build's capped speeds the peak volumetric flow is
-`100 mm/s x 0.4 x 0.2 = 8.0 mm3/s` on infill, well under both the 15 and the 26 mm3/s limit,
-so the HF base changes the temperature and the start G-code but not the time estimates.
+HF raises the ceiling, and this build uses part of it. The peak volumetric flow is
+`200 mm/s x 0.4 x 0.2 = 16.0 mm3/s` on infill (12.0 on solid infill at 150 mm/s): under the HF
+filament's 26 mm3/s limit and just over the 15 of the non-HF preset, which would cap the infill
+near 187 mm/s. The HF base also changes the temperature and the start G-code.
 
 ## Print settings
 
@@ -38,7 +39,7 @@ so the HF base changes the temperature and the start G-code but not the time est
 | `scarf_seam_only_on_smooth` | `*(PrusaSlicer built-in default)*`  | `1` | Alex 2026-11-04: scarf only where the perimeter is smooth (curves); corners keep the nearest-corner seam. Length, start height and loop options stay at the 2.9.6 defaults | Print row 12 |
 | `skirts` | `0` | `0` | Alex 2026-10-28: no skirts (was 1 loop); the start G-code's purge line primes the nozzle | Print row 13 |
 | `brim_type` | `*(PrusaSlicer built-in default)*`  | `outer_only` | outer_only keeps the brim off internal holes | Print row 14 |
-| `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF: the parts the doc names, plus 3 mm on every big part (footprint >= 50 mm, Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule) | Print row 14 + section Orientation & brim |
+| `brim_width` | `*(PrusaSlicer built-in default)*`  | `0` | off globally; build_plates.py writes 3 mm / 5 mm as per-object metadata into each plate 3MF: the parts the doc names, plus 3 mm on every part 30 mm or longer (plates.BRIM_MIN_MM; 50 mm until 2026-11-07, Alex 2026-11-05: lift-map 2 lifted every unbrimmed corner bar even at the 20 mm rule) | Print row 14 + section Orientation & brim |
 | `brim_separation` | `0.1`  | `0.3` | Alex 2026-11-06: back to 0.30 (0.35 earlier on 11-06, 0.30 from 11-05, 0.15 before; 0.15 tore and left a sharp lip). Corner test at the 20 mm rule: 0.20-0.35 all held with no lift on small bars. Plates: B01-P2 at 0.30 kept its brims firmly attached; on B02-P2 at 0.35 the 126 mm Stealthburner main body came away from its brim at the front-left corner and lifted | section Orientation & brim |
 | `xy_size_compensation` | `*(PrusaSlicer built-in default)*`  | `0` | Voron: parts are drawn for ASA shrinkage; compensating "is likely to make bearing fits and screw holes too large" | Print row 15 (docs.vorondesign.com/materials.html) |
 | `elefant_foot_compensation` | `0.2` | `0.2` | kept at the profile value for now, verify on the cube | Print row 16 |

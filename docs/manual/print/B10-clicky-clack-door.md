@@ -5,7 +5,7 @@ pose: print
 caption: The last plate of the run. Every printer looks finished until it has a door.
 ```
 
-**Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.6 estimate — plus the blue `Handle` printed back in B02.
+**Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.7 estimate — plus the blue `Handle` printed back in B02.
 
 **Sessions:** 1 plate start (~5 min hands-on, 5.7 h unattended) + ~10 min inspect and bin, plus the bushing and
 pin test on kit day.
@@ -68,7 +68,7 @@ Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-
 *Sorting diagram, drawn from the committed project: every part numbered and filled in the colour of its bin, bin id on the part; the legend reads # · STL · bin (chapter · steps). Sort at Step B10.6.*
 
 **Do:** Open `slicer/plates/B10-P1.3mf` with **File → Open Project**; the arrangement, brims and overrides are already in it. Mirror the four `Hinge-L-*` objects in **2.9.7** only if the door must open the other way; the 3.0 preview has no mirror tool.
-**Parts:** `Handle-Hinge_Bottom`, **3 mm brim** · `Handle-Hinge_Top`, **3 mm brim** · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.6 estimate).
+**Parts:** `Handle-Hinge_Bottom`, **3 mm brim** · `Handle-Hinge_Top`, **3 mm brim** · `Hinge-L-sleeve-2X` ×2, **5 mm brim already in the project** · `Hinge-L-solid-2X` ×2, **5 mm brim** · `Latch`, **5 mm brim** · `Panel_Clip`, no brim · 6 files, 8 objects — 5.7 h, 75 g (PrusaSlicer 2.9.7 estimate).
 **Check:** The preview shows a brim outline on every part but `Panel_Clip`;
 swing decision made before slicing, not after.
 
@@ -78,7 +78,7 @@ Source: [print plan §3 — the batches](../../voron-print-plan.md#3-the-batches
 
 ## Step B10.3 — Pre-print checks
 
-**Do:** Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
+**Do:** Cover the printer: blanket on top, cover over the door, back clear. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet), chamber preheating.
 **Check:** Chamber ≥45 °C; Settings → Chamber Filtration reads **Adv. Filtration**.
 
 Source: [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet) · [00-slicer-setup § Calibration sequence](00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
