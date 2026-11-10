@@ -1,8 +1,15 @@
 name: Check
 
+# Runs on every pull request, and on every push to main through deploy.yml, which calls
+# this workflow and deploys only when it passes. `make verify` runs the same steps locally.
 on:
   pull_request:
     branches: [main]
+  workflow_call: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
 
 jobs:
   build-and-lint:
@@ -18,8 +25,9 @@ jobs:
 
       - run: mkdocs build --strict
 
-      # Tonight: the planner fix's self-test, then JS-vs-Python parity over the
-      # cases the build just wrote into docs/assets/tonight.json.
+      # Tonight: the planner's self-test (it also fails on a `Pause:` line the planner
+      # cannot parse), then JS-vs-Python parity over the cases the build just wrote into
+      # docs/assets/tonight.json.
       - run: python3 scripts/build_tonight.py --self-test
 
       - run: node scripts/check_tonight.mjs
@@ -27,3 +35,25 @@ jobs:
       - run: python3 hooks/callouts.py
 
       - run: python3 scripts/lint_manual.py
+
+      # Plate counts, hours, grams and bins in the prose against plates.py and estimates.csv.
+      - run: python3 slicer/check_docs.py
+
+  # The plate tooling needs numpy, which the docs environment does not carry.
+  plates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r slicer/requirements.txt -r requirements-arrange.txt pytest
+
+      # Every committed plate 3MF against the edge and gap rules. --no-brim: the brim rule
+      # reads the source STLs, which are not in git (`make audit-plates` checks it locally).
+      - run: python3 slicer/audit_plates.py --no-brim
+
+      - run: python3 -m pytest -q
+        working-directory: tools/platearrange

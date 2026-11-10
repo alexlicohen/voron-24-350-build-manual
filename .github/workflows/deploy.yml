@@ -7,13 +7,21 @@ on:
 
 permissions:
   contents: write
+  pages: read
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
+  # The same gate a pull request gets. Nothing is published unless it passes.
+  check:
+    uses: ./.github/workflows/check.yml
+    permissions:
+      contents: read
+
   build-and-deploy:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,3 +42,30 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdocs gh-deploy --force
+
+      # The push above only updates the gh-pages branch. GitHub then builds the site in a
+      # run of its own, and when that build fails ("Page build failed.", seen 2026-10-30
+      # to 2026-11-07) the site stays on the previous version while this workflow shows
+      # green. Wait for the build of the commit just pushed and fail here if it fails.
+      - name: Wait for the Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(git ls-remote origin refs/heads/gh-pages | cut -f1)
+          echo "gh-pages is at $sha"
+          for i in $(seq 1 90); do
+            build=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq '.status + " " + .commit' || true)
+            status=${build%% *}
+            commit=${build##* }
+            if [ "$commit" = "$sha" ] && [ "$status" = "built" ]; then
+              echo "Pages built $sha"
+              exit 0
+            fi
+            if [ "$commit" = "$sha" ] && [ "$status" = "errored" ]; then
+              echo "::error::The Pages build of $sha failed: the site still shows the previous version. Re-run this workflow."
+              exit 1
+            fi
+            sleep 10
+          done
+          echo "::error::No finished Pages build of $sha after 15 minutes (last seen: $build). Re-run this workflow."
+          exit 1
