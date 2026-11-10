@@ -11,11 +11,13 @@ Most efficient AND most effective print/build order for the Voron 2.4 350 once t
 - Check a transcribed step against the manual page image, the STL or the CAD — never against a
   reviewer's summary or a reviewer's replacement text.
 - Check a chapter at the iPad viewport (1024×768) before calling it done; the bench reader is an iPad.
-- Check: `make verify` (must exit 0). It runs the CI steps of `.github/workflows/check.yml` with the
-  repo `.venv` (`mkdocs build --strict`, the tonight self-test and JS parity, callouts, `lint_manual.py`)
-  plus `slicer/check_docs.py`. The build regenerates the tracked `docs/assets/tonight.json`.
+- Check: `make verify` (must exit 0). It runs the build-and-lint job of `.github/workflows/check.yml`
+  with the repo `.venv` (`mkdocs build --strict`, the tonight self-test and JS parity, callouts,
+  `lint_manual.py`, `slicer/check_docs.py`). CI additionally runs the plate audit and arranger tests
+  (`make audit-plates`, `make test-arrange`). The build regenerates the tracked `docs/assets/tonight.json`.
 - Guard rails: `scripts/lint_manual.py` (per-chapter gate `--strict-parts --chapters NN,…`),
-  `slicer/check_docs.py` (fails on any stale bin count or plate id in prose), the plate board
+  `slicer/check_docs.py` (fails on any stale bin count, plate id or plate/batch/run-hour count in
+  prose), `slicer/audit_plates.py` (edge, gap and brim rules on every committed plate), the plate board
   (build fails on drift), CI build + deploy, weekly drift job.
 
 ## Printing and slicing
