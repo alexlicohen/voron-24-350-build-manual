@@ -153,3 +153,13 @@ V3L_T_REG_N_COVER.stl,B11,primary,docs/manual/assets/parts/V3L_T_REG_N_COVER.png
 V3L_WIRE_BOX_PORT.stl,B11,primary,docs/manual/assets/parts/V3L_WIRE_BOX_PORT.png,docs/manual/assets/parts/sheet-B11.png,,"77.4,48.4,25.0",13.64,09-ducts-AC
 cable_cover.stl,B06,primary,docs/manual/assets/parts/cable_cover.png,docs/manual/assets/parts/sheet-B06.png,,"49.5,73.8,43.8",9.26,08-CW2
 main_body_collet.stl,B06,primary,docs/manual/assets/parts/main_body_collet.png,docs/manual/assets/parts/sheet-B06.png,,"61.4,68.7,24.7",22.79,08-CW2
+Bowden Tube Holder_Long.stl,B12,primary,docs/manual/assets/parts/Bowden Tube Holder_Long.png,docs/manual/assets/parts/sheet-B12.png,,"65.5,24.0,10.0",9.05,11-side-spool
+HappyCam_cover_with_light.stl,B12,primary,docs/manual/assets/parts/HappyCam_cover_with_light.png,docs/manual/assets/parts/sheet-B12.png,,"74.0,12.4,3.0",1.20,11-camera
+HappyCam_main-350.stl,B12,primary,docs/manual/assets/parts/HappyCam_main-350.png,docs/manual/assets/parts/sheet-B12.png,,"88.0,17.5,23.5",25.91,11-camera
+Universal-puck-R1.stl,B12,primary,docs/manual/assets/parts/Universal-puck-R1.png,docs/manual/assets/parts/sheet-B12.png,,"60.2,60.2,32.0",46.72,11-side-spool
+Universal-spoolholder-1kg-R1.stl,B12,primary,docs/manual/assets/parts/Universal-spoolholder-1kg-R1.png,docs/manual/assets/parts/sheet-B12.png,,"50.6,50.6,86.7",92.47,11-side-spool
+side_spool_frame_puck.stl,B12,primary,docs/manual/assets/parts/side_spool_frame_puck.png,docs/manual/assets/parts/sheet-B12.png,,"211.6,211.9,21.5",141.70,11-side-spool
+[a]_exhaust_fan_grill.stl,B13,accent,docs/manual/assets/parts/[a]_exhaust_fan_grill.png,docs/manual/assets/parts/sheet-B13.png,,"60.0,60.0,3.2",5.55,14-exhaust
+[a]_exhaust_filter_mount_x2.stl,B13,accent,docs/manual/assets/parts/[a]_exhaust_filter_mount_x2.png,docs/manual/assets/parts/sheet-B13.png,,"51.6,20.0,4.0",2.11,14-exhaust
+[a]_filter_access_cover.stl,B13,accent,docs/manual/assets/parts/[a]_filter_access_cover.png,docs/manual/assets/parts/sheet-B13.png,,"73.2,134.8,7.2",24.49,14-exhaust
+exhaust_filter_housing.stl,B13,primary,docs/manual/assets/parts/exhaust_filter_housing.png,docs/manual/assets/parts/sheet-B13.png,,"143.7,154.8,45.0",69.16,14-exhaust

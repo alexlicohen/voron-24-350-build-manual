@@ -2,7 +2,7 @@
 
 ```mascot
 pose: print
-caption: The last plate of the run. Every printer looks finished until it has a door.
+caption: The door plate. Every printer looks finished until it has a door.
 ```
 
 **Time:** 5.7 h (1 plate) — PrusaSlicer 2.9.7 estimate — plus the blue `Handle` printed back in B02.
@@ -10,7 +10,7 @@ caption: The last plate of the run. Every printer looks finished until it has a 
 **Sessions:** 1 plate start (~5 min hands-on, 5.7 h unattended) + ~10 min inspect and bin, plus the bushing and
 pin test on kit day.
 
-**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B09. This is the last batch of the
+**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B09. Only B12 and B13 follow it in the
 run. B02's blue `Handle` joins these parts at B10.6. No bearing seat here, so Gate B is not needed.
 
 **Printed parts**
@@ -55,8 +55,8 @@ rather than against them.
 
 ## Step B10.1 — Filament prep
 
-**Do:** Galaxy Black, spool #3 after B09: the ledger has 533 g on it here and 458 g after, the last plate of
-the run. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
+**Do:** Galaxy Black, spool #3 after B09: the ledger has 533 g on it here and 458 g after, and B12-P1 and P2
+follow on it. The blue `Handle` from B02 should already be set aside. Sheet per [00-slicer-setup § Print sheet](00-slicer-setup.md#print-sheet).
 **Check:** Clean purge; ≥75 g on spool #3.
 
 Source: [print plan §4.3 — spool changes](../../voron-print-plan.md#43-spool-changes) · [00-slicer-setup § Drying](00-slicer-setup.md#drying) · [Prusa KB — ASA](https://help.prusa3d.com/article/asa_1809)
@@ -124,7 +124,7 @@ Source: [print plan §5.2 — checkpoint after each batch](../../voron-print-pla
 **Helper:** Reads each bin label aloud and checks the count against the diagram.
 
 
-Pause: ~10 min since the last pause — the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.
+Pause: ~10 min since the last pause — sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.
 
 Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-readable-batch-summary) · [print plan §2 — which parts gate which step](../../voron-print-plan.md#2-which-parts-gate-the-frame-and-z-drive-steps) · [print/README § Bins](README.md#bins)
 
@@ -143,6 +143,6 @@ Source: [print plan §9 — batch summary](../../voron-print-plan.md#9-machine-r
 
 ## Next
 Assembly: door hinges and handle in Ch 11 Part A (Steps 11.46–11.50), the door hung in Part B. Printing:
-this is the last plate of the ASA run. All 21 are done and binned.
+[B12 — Side spool holder and camera](B12-side-spool-and-camera.md) is next, then [B13](B13-exhaust-housing.md), the last batch of the ASA run.
 [B11](B11-bay-ducting.md)'s P1–P3 (PETG V0) printed after B07; P4 and P5 print once the kit-day bay measurements are in.
-No ASA job is left: both deck-support sets came off B01-P2, so the deck caliper owes no reprint.
+No reprint is owed: both deck-support sets came off B01-P2, so the deck caliper owes no reprint.

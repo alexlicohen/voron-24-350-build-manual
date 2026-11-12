@@ -88,6 +88,8 @@ OVERNIGHT_H = 7.0
 
 # Print order (docs/manual/print/README.md "Print order" — Gate A batches, then Gate B batches).
 _BATCH_PRINT_ORDER = ["B00", "B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10",
+                      "B12",   # B12: Ch 11 Part C, joined the ASA run 2026-11-12, prints after B10
+                      "B13",   # B13: Ch 14 Part H exhaust housing, joined the ASA run 2026-11-12, after B12
                       "B11"]   # B11: PETG V0 bay ducting, outside the ASA run
 
 _SITE_URL = "https://alexlicohen.github.io/voron-24-350-build-manual/"
@@ -229,7 +231,7 @@ def build_checklists_markdown(chapters):
         "`.print-images` off (default) for a text-only sheet._",
         "",
         "One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including "
-        "Ch 00a and Ch 06b), then the print batches in print order (B00 → B10). "
+        "Ch 00a and Ch 06b), then the print batches in print order (B00 → B10 → B12 → B13, then B11). "
         "**Gate A** and **Gate B** are the two halves of the B00 sheet — the day-1 and "
         "kit-day gates for the whole build.",
         "",
@@ -1080,7 +1082,7 @@ def _milestones(plates):
 
 
 def build_plate_board_json():
-    """The 20 plates of the ASA run in run order, then B11's, for docs/print/plate-board.md.
+    """The plates of the ASA run in run order, then B11's, for docs/print/plate-board.md.
 
     Hours, grams and colour are the CSV's (rounded the same additive way as every
     other page); slot, spool and predicted remaining come from README.md's two

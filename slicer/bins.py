@@ -11,12 +11,13 @@ This is the single source for:
   * docs/manual/print/README.md § Bins (hand-maintained; slicer/check_docs.py cross-checks it,
     the `bag` column included)
 
-Four bins hold add-on parts that are on no plate (11-side-spool, 11-camera, 13-scrubber, 14-exhaust):
-ADDON_PARTS lists them,
-so they reach the labels and the bag sizing but never a plate, a diagram, an estimate or a total.
+One bin holds add-on parts that are on no plate (13-scrubber): ADDON_PARTS lists them, so they
+reach the labels and the bag sizing but never a plate, a diagram, an estimate or a total.
+(Ch 11 Part C's 11-side-spool and 11-camera and Ch 14 Part H's 14-exhaust were add-on bins too until
+2026-11-12; B12 and B13 feed them now.)
 FALLBACK_PARTS (B11's stock middle joints, printed only instead of B11-P5) and BOUGHT_PARTS (the
-add-ons' bought fan, lead, mat, wipers and camera board) reach the labels and the bag sizing the same way and count
-toward no piece total.
+bought exhaust fan, lead and mat, scrubber wipers and camera board) reach the labels and the bag sizing the same way
+and count toward no piece total.
 
 A bin is keyed to the step that opens it: one bin holds the parts first needed at one point in the
 build, a step or one run of steps in a chapter (or in a chapter part that other work separates
@@ -94,15 +95,18 @@ BINS: dict[str, dict[str, str]] = {
     "11-nevermore": dict(label="Nevermore plenum + cartridge", chapter="Ch 11", steps="11.26–11.40", colour="#00695c"),
     "11-spool": dict(label="Spool holder + bowden retainer", chapter="Ch 11", steps="11.42–11.43", colour="#78909c"),
     "11-door": dict(label="Clicky-Clack door", chapter="Ch 11", steps="11.44–11.50, 11.62–11.64", colour="#ff7043"),
-    # Add-on bins: their parts are on no plate (ADDON_PARTS below), printed after kit day.
+    # Ch 11 Part C, fed by B12 since 2026-11-12 (add-on bins before that; labels unchanged).
     "11-side-spool": dict(label="Side spool add-on: frame, puck, spindle, tube holder", chapter="Ch 11",
-                          steps="11.68–11.73, Part C (printed 11.69, fitted 11.70–11.73)", colour="#457b9d"),
+                          steps="11.68–11.73, Part C (fitted 11.70–11.73; frame reprinted at 11.69 only if the stack is thick)",
+                          colour="#457b9d"),
     "11-camera": dict(label="Camera add-on: HappyCam body + light cover, camera board", chapter="Ch 11",
-                      steps="11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74)", colour="#e9c46a"),
+                      steps="11.68, 11.74–11.76, Part C (fitted 11.74)", colour="#e9c46a"),
+    # Add-on bin: its parts are on no plate (ADDON_PARTS below), printed after kit day.
     "13-scrubber": dict(label="Nozzle scrubber add-on: brackets + bucket", chapter="Ch 13",
                         steps="13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50)", colour="#b5838d"),
+    # Ch 14 Part H, fed by B13 since 2026-11-12 (an add-on bin before that; label unchanged).
     "14-exhaust": dict(label="Chamber exhaust add-on: housing, grill, cover, mounts", chapter="Ch 14",
-                       steps="14.25–14.36, Part H (printed 14.26, built 14.27–14.29)", colour="#264653"),
+                       steps="14.25–14.36, Part H (taken out 14.26, built 14.27–14.29)", colour="#264653"),
     # Alex 2026-11-10: the build moved to Clockwork 2.5 / Stealthburner r2 after B02 had printed.
     # These are the Clockwork 2 copies B02-P5 replaces; pulled out of 08-SB and 08-CW2, never fitted.
     "08-superseded": dict(label="Superseded Clockwork 2 parts: pulled out, not fitted", chapter="—",
@@ -301,6 +305,18 @@ ASSIGN: dict[str, str | list[str]] = {
     "Hinge-L-solid-2X.stl": "11-door",
     "Latch.stl": "11-door",
     "Panel_Clip.stl": "11-door",
+    # B12 (Ch 11 Part C)
+    "side_spool_frame_puck.stl": "11-side-spool",
+    "Bowden Tube Holder_Long.stl": "11-side-spool",
+    "Universal-puck-R1.stl": "11-side-spool",
+    "Universal-spoolholder-1kg-R1.stl": "11-side-spool",
+    "HappyCam_main-350.stl": "11-camera",
+    "HappyCam_cover_with_light.stl": "11-camera",
+    # B13 (Ch 14 Part H); exhaust_filter_grill.stl (B09) stays in 11-finish, fitted at 11.54
+    "exhaust_filter_housing.stl": "14-exhaust",
+    "[a]_exhaust_fan_grill.stl": "14-exhaust",
+    "[a]_filter_access_cover.stl": "14-exhaust",
+    "[a]_exhaust_filter_mount_x2.stl": "14-exhaust",
     # B11 (bay ducting, PETG V0): bodies by conduit (laid at 09.6 / 09.36), lids by the step that
     # closes them (AC 10.80 with the strip fin, DC 11.52). The 10 mm straight and its cover serve
     # both conduits: copy 1 is the DC rear-upper run, copies 2-3 the SSR run's right end and the
@@ -396,33 +412,16 @@ NOTES: dict[str, str] = {
     "V3L_154N_DUCT.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V3L_T_REG_N.stl": "fitted only if the Leviathan-to-PSU gap measured ≥ 25 mm",
     "V2L_STRIP_FIN.stl": "divider between PSU −V and FG, fitted as Ch 10 closes the AC lids",
+    "side_spool_frame_puck.stl": "feet for a side-panel stack up to 6.2 mm (11.68); thicker: reprint at 11.69",
+    "HappyCam_main-350.stl": "Zemistr's 527904 body; snap off its build-plate supports",
 }
 
 # ------------------------------------------------------------- add-on parts
 # On no plate (slicer/plates.py ADDONS pins the files): printed after kit day inside their own
-# chapter part. `name` is what the label says; `geom` is the file bin_bags.py measures (for the
+# chapter part (Ch 13 Part L). `name` is what the label says; `geom` is the file bin_bags.py measures (for the
 # scrubber, the committed default set: the real files come out of `measured/` at Step 13.47 and
 # differ by at most a few mm in height); `made` is where the part comes from instead of a plate id.
 ADDON_PARTS: dict[str, list[dict]] = {
-    "11-side-spool": [
-        dict(name="side spool frame, puck boss", qty=1,
-             geom=("addons", "side-spool-608769/side_spool_frame_puck.stl"),
-             made="add-on print, Step 11.69 job 1", note="black"),
-        dict(name="tube holder", qty=1, geom=("printables", "608769/Bowden Tube Holder_Long.stl"),
-             made="add-on print, Step 11.69 job 2", note="black"),
-        dict(name="Prusa Universal Puck", qty=1, geom=("printables", "1605113/Universal-puck-R1.stl"),
-             made="add-on print, Step 11.69 job 3", note="blue"),
-        dict(name="Prusa 1 kg spindle", qty=1,
-             geom=("printables", "1605113/Universal-spoolholder-1kg-R1.stl"),
-             made="add-on print, Step 11.69 job 3", note="blue"),
-    ],
-    "11-camera": [
-        dict(name="HappyCam body, 350", qty=1, geom=("printables", "527904/HappyCam_main-350.stl"),
-             made="add-on print, Step 11.69 job 2", note="black"),
-        dict(name="HappyCam light cover", qty=1,
-             geom=("printables", "527904/HappyCam_cover_with_light.stl"),
-             made="add-on print, Step 11.69 job 2", note="black"),
-    ],
     "13-scrubber": [
         dict(name="brush bracket, mirrored", qty=1,
              geom=("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
@@ -433,20 +432,6 @@ ADDON_PARTS: dict[str, list[dict]] = {
         dict(name="purge bucket, 350 mm, mirrored", qty=1,
              geom=("addons", "scrubber-796563/bucket350_T1.5_MIRROR.stl"),
              made="add-on print, Step 13.48", note="file name from `measured/` (Step 13.47)"),
-    ],
-    "14-exhaust": [
-        dict(name="`exhaust_filter_housing`", qty=1,
-             geom=("voron2", "STLs/Exhaust_Filter/exhaust_filter_housing.stl"),
-             made="add-on print, Step 14.26 job 1", note="black"),
-        dict(name="`[a]_exhaust_fan_grill`", qty=1,
-             geom=("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl"),
-             made="add-on print, Step 14.26 job 2", note="blue"),
-        dict(name="`[a]_filter_access_cover`", qty=1,
-             geom=("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl"),
-             made="add-on print, Step 14.26 job 2", note="blue"),
-        dict(name="`[a]_exhaust_filter_mount`", qty=2,
-             geom=("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl"),
-             made="add-on print, Step 14.26 job 2", note="blue"),
     ],
 }
 
@@ -568,8 +553,8 @@ def scenarios(parts: dict[str, dict]) -> list[dict[str, dict]]:
 # 09-ducts-DC is split by volume, since 1121 cm³ needs three A5 and no plate-aligned split fits:
 # bag 1 the front run and right side, bag 2 the left side, the rear runs and the S-jog, bag 3 the
 # narrowed middle run (P5) or the fallback that replaces it (the fallback is the smaller case).
-# 14-exhaust splits by print job, which is by size: the housing (the one big piece) in bag 1, the
-# rest and the bought fan, lead and mat in bag 2.
+# 14-exhaust splits by plate, which is by size: the housing (the one big piece, B13-P1) in bag 1,
+# B13-P2's four blue parts and the bought fan, lead and mat in bag 2.
 BAG_SPLIT: dict[str, list[set[str]]] = {
     "09-ducts-DC": [
         {"V3L_COUPON_22N_DUCT.stl", "V3L_COUPON_22N_DUCT_COVER.stl", "CMD_V3_1H_154mm_DUCT.stl",
@@ -578,7 +563,7 @@ BAG_SPLIT: dict[str, list[set[str]]] = {
          "V2L_130mm_DUCT.stl", "V3L_10mm_DUCT.stl"},
         {"B11-P5", "B11-P7", FALLBACK_MADE},
     ],
-    "14-exhaust": [{"add-on print, Step 14.26 job 1"}, {"add-on print, Step 14.26 job 2", BOUGHT_MADE}],
+    "14-exhaust": [{"B13-P1"}, {"B13-P2", BOUGHT_MADE}],
 }
 
 BAG_SPLIT_WHY: dict[str, str] = {

@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Single source of truth for what goes on each plate: the 20 plates of the ASA run
-(B00-B10) and the separate PETG V0 bay-ducting batch B11.
+"""Single source of truth for what goes on each plate: the plates of the ASA run
+(B00-B10, B12 and B13) and the separate PETG V0 bay-ducting batch B11.
 
 Mirrors `docs/voron-print-plan.md` §3 (per-batch parts tables and the plate
 packing lists) and §5.1 (orientation and brim). Every path here was verified to
 exist in the pinned repo tree — see `slicer/stl/MANIFEST.sha256`.
 
 A plate's `run` is "asa" unless it says otherwise. Every total the manual prints
-for "the run" (20 plates, 157.0 h) is over the "asa" plates only; B11 ("bay") is
-added up on its own (slicer/check_docs.py § B11).
+for "the run" is over the "asa" plates only (B12, Ch 11 Part C's side spool holder and
+camera, and B13, Ch 14 Part H's exhaust housing set, joined the run 2026-11-12); B11 ("bay") is
+added up on its own
+(slicer/check_docs.py § B11).
 """
 from __future__ import annotations
 
@@ -59,9 +61,10 @@ PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
     ("bayducts", "mss/502306/CMD_V3_1H_142mm_DUCT.stl"): ("502306", "5252451"),
     ("bayducts", "mss/502306/CMD_V2_6B_142mm_DUCT_COVER.stl"): ("502306", "4285495"),
     ("bayducts", "mss/502306/CMD_V3_1H_WIRE_BOX.stl"): ("502306", "5252449"),
-    # Ch 11 Part C add-ons, unchanged authors' files, fetched to slicer/stl/printables/<print id>/:
-    # Prusa's Universal Puck and 1 kg spindle (OCL v1), the side mount's tube holder (Maltasrc,
-    # CC BY-NC-SA) and HappyCam's 350 body and door (Voxel3D_NL, CC BY-NC).
+    # Ch 11 Part C (batch B12 since 2026-11-12), unchanged authors' files, fetched to
+    # slicer/stl/printables/<print id>/: Prusa's Universal Puck and 1 kg spindle (OCL v1), the side
+    # mount's tube holder (Maltasrc, CC BY-NC-SA), and HappyCam's 350 body and door (Voxel3D_NL,
+    # CC BY-NC), on no plate: the closed-door fallback for the 527904 pair below.
     ("printables", "1605113/Universal-puck-R1.stl"): ("1605113", "6754814"),
     ("printables", "1605113/Universal-spoolholder-1kg-R1.stl"): ("1605113", "6754815"),
     ("printables", "608769/Bowden Tube Holder_Long.stl"): ("608769", "2569104"),
@@ -69,7 +72,7 @@ PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
     ("printables", "488020/Cameradoor_120.stl"): ("488020", "2101022"),
     # Zemistr's remix of HappyCam (CC BY-NC-SA): the cover with a window over the board's LED and
     # the 350 body it was drawn against (ends re-cut 0.68 mm, pegs and mount unchanged). Alex
-    # 2026-11-12: this pair is printed; the 488020 pair stays pinned as the closed-door fallback.
+    # 2026-11-12: this pair is printed (B12-P2); the 488020 pair stays pinned as the fallback.
     ("printables", "527904/HappyCam_cover_with_light.stl"): ("527904", "2255552"),
     ("printables", "527904/HappyCam_main-350.stl"): ("527904", "2255562"),
 }
@@ -81,32 +84,23 @@ TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scru
 ROOTS: dict[str, str] = {"addons": "../addons"}
 
 # Pinned but on no plate: the nozzle-scrubber add-on (Ch 13 Part L), printed only after its
-# decision step, and the chamber-exhaust add-on (Ch 14 Part H, slicer/addons/exhaust-voron2/),
-# the stock Voron housing set at the pinned Voron-2 commit, printed only after Step 14.25, and Ch 11
-# Part C's side spool holder (the committed remix in slicer/addons/side-spool-608769/ plus the
-# Printables files above) and camera mount, printed after Step 11.68 has measured.
-# Listed here so MANIFEST.sha256 pins them. They are not in PLATES, so no plate, estimate or total;
-# slicer/bins.py ADDON_PARTS gives them their own bins (11-side-spool, 11-camera, 13-scrubber,
-# 14-exhaust) and checks every file it names is in this list. exhaust_filter_grill.stl is already
-# pinned through B09-P3.
+# decision step, and two files Ch 11 Part C keeps without printing: the side spool frame's unchanged
+# source (the parent remix.scad reads) and HappyCam's original 488020 body and door (the fallback
+# pair). Listed here so MANIFEST.sha256 pins them. They are not in PLATES, so no plate, estimate or
+# total; slicer/bins.py ADDON_PARTS gives the one printed add-on its own bin (13-scrubber) and checks
+# every file it names is in this list. Part C's printed parts (the remixed frame, tube holder, puck,
+# spindle and the 527904 camera pair) are on plates B12-P1 to P3, and Ch 14 Part H's stock Voron
+# exhaust housing set (slicer/addons/exhaust-voron2/) on B13-P1 and P2, both since 2026-11-12 (Alex:
+# part of the build, not add-ons), so PLATES pins them. exhaust_filter_grill.stl is pinned through
+# B09-P4.
 ADDONS: tuple[tuple[str, str], ...] = (
     ("addons", "scrubber-796563/source/10mm Bed.stp"),
     ("addons", "scrubber-796563/brush_bracket_L1.5_MIRROR.stl"),
     ("addons", "scrubber-796563/bucket350_T1.5_MIRROR.stl"),
     ("addons", "scrubber-796563/stop_bracket.stl"),
-    ("voron2", "STLs/Exhaust_Filter/exhaust_filter_housing.stl"),
-    ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl"),
-    ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl"),
-    ("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl"),
     ("addons", "side-spool-608769/source/Reel Mount 2_Frame v1.stl"),
-    ("addons", "side-spool-608769/side_spool_frame_puck.stl"),
-    ("printables", "1605113/Universal-puck-R1.stl"),
-    ("printables", "1605113/Universal-spoolholder-1kg-R1.stl"),
-    ("printables", "608769/Bowden Tube Holder_Long.stl"),
     ("printables", "488020/HappyCam_main-350.stl"),
     ("printables", "488020/Cameradoor_120.stl"),
-    ("printables", "527904/HappyCam_main-350.stl"),
-    ("printables", "527904/HappyCam_cover_with_light.stl"),
 )
 
 # Print orientation for files that are not drawn print-ready (MSS keeps the parent's
@@ -115,6 +109,9 @@ ADDONS: tuple[tuple[str, str], ...] = (
 # byte-identical to its source. flip = 180 deg about X and ec = +90 deg about Y are the modes
 # review/.../layout-v3/work/slice_v3.py sliced with; side = -90 deg about X puts the fin's
 # plate face down (1375 mm2 on the bed; slice_v3's +90 stood it on a 95 mm2 edge).
+# A key is a file name, or a plates.py path (`<print id>/<file>`) where two pinned sources share
+# the name: orient_of() tries the path first, and a bare name that matches two pinned files is
+# an error (check_orient), so it can never turn the wrong one.
 ORIENT: dict[str, str] = {
     **{n: "flip" for n in (
         "CMD_V3_1H_154mm_DUCT.stl", "CMD_V3_1H_90DEG.stl", "CMD_V3_1H_T_SHORT.stl",
@@ -130,6 +127,45 @@ ORIENT: dict[str, str] = {
     "XY_cable_chain_bridge-Igus-3mm_backer.stl": "ec",
     # Drawn rim-and-ribs down, so the 1.2 mm panel bridged ~3900 mm2; flip puts the solid face down.
     "Regular_Cartridge_Lid(contributed_by_Bucknova).3mf": "flip",
+    # B12-P2: both drawn as installed. The body lands on its top face and the tube holder on its
+    # flat face, as the hand-laid job 2 sliced them (2026-11-12). By path: 488020 (the fallback, on
+    # no plate) has a HappyCam_main-350.stl too.
+    "527904/HappyCam_main-350.stl": "flip",
+    "608769/Bowden Tube Holder_Long.stl": "flip",
+}
+
+
+def orient_of(path: str) -> str | None:
+    """The ORIENT mode for one plates.py source path: its path key first, then its file name."""
+    return ORIENT.get(path) or ORIENT.get(path.rsplit("/", 1)[-1])
+
+
+def check_orient() -> list[str]:
+    """A bare-name ORIENT key must name exactly one pinned source file (all_sources())."""
+    names: dict[str, int] = {}
+    for _repo, path in all_sources():
+        n = path.rsplit("/", 1)[-1]
+        names[n] = names.get(n, 0) + 1
+    bad = []
+    for key in ORIENT:
+        if "/" in key:
+            if not any(p == key for _r, p in all_sources()):
+                bad.append(f"ORIENT {key!r}: no pinned source has this path")
+        elif names.get(key, 0) != 1:
+            bad.append(f"ORIENT {key!r}: names {names.get(key, 0)} pinned files; key it by path")
+    return bad
+
+
+# Per-object PrusaSlicer settings for one source on any plate, (repo, path) -> {key: value}.
+# build_plates.build() writes them into the 3MF's Slic3r_PE_model.config beside the brim, the way
+# the GUI stores an object's own settings; the ini stays support-free for every other part.
+OBJECT_SETTINGS: dict[tuple[str, str], dict[str, str]] = {
+    # HappyCam's body prints on its top face: build-plate-only supports under the cable exit
+    # (slicer/addons/happycam-488020/README.md). PrusaSlicer needs support_material_auto = 1 too,
+    # or the per-object support_material = 1 generates nothing (job 2, 2026-11-12).
+    ("printables", "527904/HappyCam_main-350.stl"): {
+        "support_material": "1", "support_material_auto": "1",
+        "support_material_buildplate_only": "1"},
 }
 
 # Per-part brim, from 00-slicer-setup.md § "Orientation & brim".
@@ -183,6 +219,16 @@ def brim_for(path: str, footprint: float = 0.0, colour: str = "") -> float:
 def footprint_of(bb) -> float:
     """Longest XY side of a geom.bbox (x0, y0, z0, x1, y1, z1)."""
     return max(bb[3] - bb[0], bb[4] - bb[1])
+
+
+# The one plate allowed to break the 25 mm edge rule (geom.EDGE_MARGIN), plate id -> reason.
+# audit_plates.py measures it and lists the break with this reason instead of failing it (the gap
+# and brim rules still apply), and build_plates.py packs it centred with no edge margin. Add a
+# plate here only on Alex's ruling, with the reason; nothing else relaxes the rule.
+EDGE_EXEMPT: dict[str, str] = {
+    "B12-P1": ("the side spool frame is 212 x 212 mm on the 250 x 220 bed, so no rotation keeps "
+               "part + brim 25 mm from every edge; it prints alone, centred (B12 integration 2026-11-12)"),
+}
 
 
 # Plates already printed from the committed 3MF, before the 25 mm edge rule (2026-11-06) and
@@ -515,6 +561,50 @@ PLATES: dict[str, dict] = {
             ("whopping", "clickyclacky_door/STLs/Latch.stl", 1),
             ("whopping", "clickyclacky_door/STLs/Panel_Clip.stl", 1),
         ]),
+    # ---- B12: Ch 11 Part C, the side spool holder and the HappyCam camera mount ----------
+    # Added 2026-11-12 (Alex): part of the build, printed in the ASA run after B10. Until then
+    # these were add-ons printed outside the plates after Step 11.68 measured. The three plates are
+    # the jobs sliced that day, laid out by hand. P1's frame feet are 6.5 mm, for a 3 mm panel on
+    # 3 mm foam; a thicker stack measured at 11.68 means a frame-only reprint (remix.scad -D stack=).
+    "B12-P1": dict(
+        batch="B12", colour="black",
+        note="The side spool frame alone, centred: 212 x 212 mm, inside the edge rule only by exemption.",
+        parts=[
+            ("addons", "side-spool-608769/side_spool_frame_puck.stl", 1),
+        ]),
+    "B12-P2": dict(
+        batch="B12", colour="black",
+        note="Tube holder, HappyCam body (build-plate supports on it alone) and light cover.",
+        parts=[
+            ("printables", "608769/Bowden Tube Holder_Long.stl", 1),
+            ("printables", "527904/HappyCam_main-350.stl", 1),
+            ("printables", "527904/HappyCam_cover_with_light.stl", 1),
+        ]),
+    "B12-P3": dict(
+        batch="B12", colour="blue",
+        note="Prusa's Universal Puck and 1 kg spindle in the accent blue.",
+        parts=[
+            ("printables", "1605113/Universal-puck-R1.stl", 1),
+            ("printables", "1605113/Universal-spoolholder-1kg-R1.stl", 1),
+        ]),
+    # ---- B13: Ch 14 Part H, the stock Voron exhaust housing set -------------------------
+    # Added 2026-11-12 (Alex): part of the build, printed in the ASA run after B12. Until then an
+    # add-on printed after Step 14.25. The stock Voron-2 files, unchanged, as oriented, no supports;
+    # Step 14.25 still decides whether they are fitted. exhaust_filter_grill stays on B09-P4.
+    "B13-P1": dict(
+        batch="B13", colour="black",
+        note="The exhaust filter housing alone.",
+        parts=[
+            ("voron2", "STLs/Exhaust_Filter/exhaust_filter_housing.stl", 1),
+        ]),
+    "B13-P2": dict(
+        batch="B13", colour="blue",
+        note="Exhaust fan grill, filter access cover and the two filter mounts in the accent blue.",
+        parts=[
+            ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_fan_grill.stl", 1),
+            ("voron2", "STLs/Exhaust_Filter/[a]_filter_access_cover.stl", 1),
+            ("voron2", "STLs/Exhaust_Filter/[a]_exhaust_filter_mount_x2.stl", 2),
+        ]),
     # ---- B11: bay ducting, layout v3 (PETG V0, outside the ASA run) ----------------------
     # group "before-kit": needs no bench measurement. group "after-kit": custom lengths and
     # the narrowed middle run, printed once the kit-day measurements are in (B11 page).
@@ -625,7 +715,7 @@ def all_sources() -> list[tuple[str, str]]:
 
 
 def run_of(plate_id: str) -> str:
-    """"asa" for the 20-plate run, "bay" for B11."""
+    """"asa" for the plate run (B00-B10, B12, B13), "bay" for B11."""
     return PLATES[plate_id].get("run", "asa")
 
 

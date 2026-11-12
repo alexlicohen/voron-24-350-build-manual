@@ -37,7 +37,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 import bins  # noqa: E402
-from plates import ADDONS, PLATES, run_of  # noqa: E402
+from plates import ADDONS, PLATES, check_orient, run_of  # noqa: E402
 REPO = ROOT.parent
 DOCS = REPO / "docs"
 PRINT = DOCS / "manual" / "print"
@@ -77,6 +77,8 @@ CHAPTER = {
     "B08": "B08-skirts-and-front-modules", "B09": "B09-panels-filtration-spool",
     "B10": "B10-clicky-clack-door",
     "B11": "B11-bay-ducting",
+    "B12": "B12-side-spool-and-camera",
+    "B13": "B13-exhaust-housing",
 }
 # Batches outside the ASA run (slicer/plates.py run="bay"): no run total includes them.
 SEPARATE = {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) != "asa"}
@@ -97,6 +99,7 @@ def check_bins(readme: str) -> list[str]:
     bad: list[str] = []
     sources = [p.rsplit("/", 1)[-1] for pl in PLATES.values() for _r, p, _q in pl["parts"]]
     bad += [f"bins.py: {b}" for b in bins.check(sources, list(ADDONS))]
+    bad += [f"plates.py: {b}" for b in check_orient()]
     expected = _batch_bins()
     for bid, stem in CHAPTER.items():
         text = (PRINT / f"{stem}.md").read_text()

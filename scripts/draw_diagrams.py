@@ -1717,10 +1717,18 @@ def _print_hours() -> tuple[dict[str, float], float]:
         m = tot_re.match(line)
         if m:
             total = float(m.group(1))
-    if len(rows) != 11 or total is None:
-        raise SystemExit(f"draw_diagrams: could not read the 11 batch rows + TOTAL from "
-                         f"{PRINT_README} (got {sorted(rows)}, total={total})")
+    want = _run_batches()
+    if set(rows) != want or total is None:
+        raise SystemExit(f"draw_diagrams: could not read the {len(want)} batch rows + TOTAL from "
+                         f"{PRINT_README} (got {sorted(rows)}, want {sorted(want)}, total={total})")
     return rows, total
+
+
+def _run_batches() -> set[str]:
+    """The ASA run's batch ids, from slicer/plates.py (B11, run "bay", is outside it)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "slicer"))
+    from plates import PLATES, run_of
+    return {spec["batch"] for pid, spec in PLATES.items() if run_of(pid) == "asa"}
 
 
 # --- diagram 11 rows: read straight out of 00-index.md ------------------------
@@ -1906,7 +1914,7 @@ def d11_timeline() -> Doc:
     fy = top + len(rows) * ROW_H + 34
     d.rect(60, fy, 1100, 62, fill=PANEL, stroke=RULE, sw=1.5, rx=8)
     # print total from print/README.md; the rest from 00-index.md § Critical path.
-    facts = [(f"{total_print:.1f} h", f"print, {len(rows)} rows / 11 batches (sliced)"),
+    facts = [(f"{total_print:.1f} h", f"print, {len(rows)} rows / {len(hours)} batches (sliced)"),
              (f"{facts_src['hands_on']} h", "hands-on"),
              (f"~{facts_src['print_days']} printer-days", "printing, overlaps the build"),
              (f"~{facts_src['build_weeks']} weeks", f"building, at {facts_src['build_rate']}"),
@@ -2303,7 +2311,7 @@ DIAGRAMS = [
         "fn": d11_timeline,
         "shows": [
             "Every row of 00-index.md's timeline in execution order on two lanes — print "
-            "batches B00–B10 on the Core One+, assembly chapters (including Ch 00a, the "
+            "batches B00–B13 on the Core One+, assembly chapters (including Ch 00a, the "
             "two-part Ch 06/06b, Ch 11 A/B and Ch 12 1/2) on the bench — with each row's "
             "duration and KIT / 2P marker.",
             "One orange rail per print batch through the middle channel, forking to every "

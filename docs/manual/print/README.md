@@ -1,6 +1,6 @@
 # Print batches — overview
 
-28 plates, **155.2 h**, **1818 g Galaxy Black + 327 g ASA Blue**. Every hour and gram on this page is a
+33 plates, **176.0 h**, **2017 g Galaxy Black + 445 g ASA Blue**. Every hour and gram on this page is a
 **PrusaSlicer 2.9.7 estimate**, sliced from the committed project for that plate (`slicer/plates/*.3mf`) —
 not a throughput model. Method and what these figures replaced:
 [print plan §4.1](../../voron-print-plan.md#41-how-these-numbers-were-produced). Per-plate detail with the
@@ -15,13 +15,13 @@ and ledger [at the end of this page](#b11-bay-ducting-petg-v0).
 
 ```mascot
 pose: print
-caption: Twenty-eight plates, start to finish. The printer works while the kit is still in transit.
+caption: Thirty-three plates, start to finish. The printer works while the kit is still in transit.
 ```
 
 **Print order.** The Voron kit is expected in **early November 2026**, before the run has finished, so printing overlaps the build.
-Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10**
+Print in numeric batch order: pre-B00 checks on the current Gen 1 belts, then **B00 → B01 → B02 → … → B10 → B12 → B13**
 (one exception: B02-P5, the Clockwork 2.5 catch-up plate, prints just before B06-P1)
-— 155.2 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
+— 176.0 h, with B11's PETG V0 plates cut in ([B11 run schedule](#b11-run-schedule)). Start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
 (the "feeds" column below; numeric order is consumption order). **Gate A** (the cube, Step B00.5) releases the batches with no press fit;
 **Gate B** (Step B00.7) releases the bearing-seat and bore batches and now runs *early*: the inserts come
 from the KADRICK kit already on the bench and the bores are calipered against their STL nominals. Only the
@@ -43,17 +43,19 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B08](B08-skirts-and-front-modules.md) | 5 | 26.5 | 397 | 0 | Ch 11 Part A Skirts | Gate A — on Gen 1 GT2 belts, like every other plate in the run |
 | [B09](B09-panels-filtration-spool.md) | 5 | 20.8 | 300 | 0 | Ch 11 Panels, Nevermore, spool | Gate A (after B08) |
 | [B10](B10-clicky-clack-door.md) | 1 | 5.7 | 75 | 0 | Ch 11 Clicky-Clack door | Gate A (after B09) |
-| **TOTAL** | **28** | **155.2** | **1818** | **327** | | |
+| [B12](B12-side-spool-and-camera.md) | 3 | 14.4 | 133 | 83 | Ch 11 Part C side spool holder and camera | Gate A (after B10) |
+| [B13](B13-exhaust-housing.md) | 2 | 6.4 | 66 | 35 | Ch 14 Part H exhaust housing, if Step 14.25 passes | Gate A (after B12) |
+| **TOTAL** | **33** | **176.0** | **2017** | **445** | | |
 
-All 28 diagrams on one page: [Plate plans](../../print/plate-plans.md).
+All 33 diagrams on one page: [Plate plans](../../print/plate-plans.md).
 
-**Filament margin:** Black 1818 g needed / 2400 g on hand → **582 g margin (32 %)**. Blue 327 g needed /
-800 g on hand → **473 g margin (145 %)**. The optional add-ons draw on these margins: about 239 g black and 120 g blue if all four are printed. Setup and the full override table:
+**Filament margin:** Black 2017 g needed / 2400 g on hand → **383 g margin (19 %)**. Blue 445 g needed /
+800 g on hand → **355 g margin (80 %)**. The optional scrubber add-on draws about 38 g black on this margin. Setup and the full override table:
 [00-slicer-setup.md](00-slicer-setup.md).
 
 ## Run schedule
 
-All 28 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
+All 33 plates in run order, at about two swaps a day: a plate of **7 h or more** starts in the evening and
 runs overnight; anything shorter is a day plate, so two of them fit between breakfast and bedtime. The
 longest plate in the build, B01-P1 at 14.6 h, is the exception — start it in the morning so its first layer
 is watched, and let it run into the night. Spool column is the [ledger](#spool-ledger). B11-P1 to P3 and P6 print
@@ -89,8 +91,13 @@ between #17 and #18 ([B11 run schedule](#b11-run-schedule)).
 | 26 | B09-P4 | 3.3 | black | day | #3 |
 | 27 | B09-P5 | 4.0 | black | day | #3 |
 | 28 | B10-P1 | 5.7 | black | day | #3 |
+| 29 | B12-P1 | 6.9 | black | day | #3 |
+| 30 | B12-P2 | 1.8 | black | day | #3 |
+| 31 | B12-P3 | 5.7 | blue | day | A1 |
+| 32 | B13-P1 | 4.5 | black | day | #3 |
+| 33 | B13-P2 | 1.9 | blue | day | A1 |
 
-Six overnight plates and twenty-two day plates, 155.2 h in all: about 17 printer-days, two and a half weeks
+Six overnight plates and twenty-seven day plates, 176.0 h in all: about 19 printer-days, close to three weeks
 at two swaps a day. If Gate B's bore row is signed off after the morning swap, start B01-P2 (8.3 h) that
 evening and B01-P1 the next morning: B01-P1 then starts with ~640 g on spool #1, well over its 200 g rule.
 
@@ -117,11 +124,11 @@ manifest against it. Z corner map (Ch 02 Step 02.02): `_a` parts build Z0 (front
 `_b` parts build Z1 (rear-left) and Z3 (front-right); a `_x2` file with an `_a` / `_b` hand puts one copy in
 each of its two corners, a `_x4` file one in each corner.
 
-36 bins, 289 printed pieces: 222 from the ASA run, 53 from B11 and 14 from the four add-ons, which print
-after kit day and are on no plate (`11-side-spool`, `11-camera`, `13-scrubber`, `14-exhaust`). They travel in
+36 bins, 297 printed pieces: 241 from the ASA run, 53 from B11 and 3 from the one add-on, which prints
+after kit day and is on no plate (`13-scrubber`). They travel in
 31 of 48 A5 and 6 of 12 B5 mesh bags, plus 2 boxes. The A5 figure counts the second pack of A5 bags, 24 to a pack, bought 2026-10-13
 (Ch 00 Step 00.11). Two kinds of entry count toward no piece total: B11's fallback middle joints, printed only
-instead of B11-P5 and P7, and the add-ons' bought parts (camera board, A1 wipers, exhaust fan, lead and carbon mat), kept in their bins.
+instead of B11-P5 and P7, and the bought parts kept in their bins (camera board, A1 wipers, exhaust fan, lead and carbon mat).
 
 **Bag per bin** (the *bag* column), measured from the STLs by `python3 slicer/bin_bags.py`: a bag's
 usable inside is its paper size (A5 148 × 210 mm, B5 176 × 250 mm) and about 25 mm deep, an
@@ -167,14 +174,14 @@ and trims to fit inside an A5 bag, so a bag label reads through the mesh and a b
 | **11-nevermore** | Nevermore plenum + cartridge | Ch 11 · 11.26–11.40 | B5 | `V2_Duo_Plenum`, `V2_Duo_Plenum_LID`, `Regular_Cartridge_Lid(contributed_by_Bucknova)`, `Regular_Cartridge(contributed_by_Bucknova)` | B09 |
 | **11-spool** | Spool holder + bowden retainer | Ch 11 · 11.42–11.43 | A5 | `spool_holder`, `bowden_retainer` | B09 |
 | **11-door** | Clicky-Clack door | Ch 11 · 11.44–11.50, 11.62–11.64 | A5 | `Handle`, `Handle-Hinge_Bottom`, `Handle-Hinge_Top`, `Hinge-L-sleeve-2X` ×2, `Hinge-L-solid-2X` ×2, `Latch`, `Panel_Clip` | B02, B10 |
-| **11-side-spool** | Side spool add-on: frame, puck, spindle, tube holder | Ch 11 · 11.68–11.73, Part C (printed 11.69, fitted 11.70–11.73) | box | side spool frame, puck boss; tube holder; Prusa Universal Puck; Prusa 1 kg spindle | add-on, on no plate |
-| **11-camera** | Camera add-on: HappyCam body + door, camera board | Ch 11 · 11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74) | A5 | HappyCam body, 350; HappyCam door; bought: OV5640 USB camera board | add-on, on no plate |
+| **11-side-spool** | Side spool add-on: frame, puck, spindle, tube holder | Ch 11 · 11.68–11.73, Part C (fitted 11.70–11.73; frame reprinted at 11.69 only if the stack is thick) | box | `side_spool_frame_puck`, `Bowden Tube Holder_Long`, `Universal-puck-R1`, `Universal-spoolholder-1kg-R1` | B12 |
+| **11-camera** | Camera add-on: HappyCam body + light cover, camera board | Ch 11 · 11.68, 11.74–11.76, Part C (fitted 11.74) | A5 | `HappyCam_main-350`, `HappyCam_cover_with_light`; bought: OV5640 USB camera board | B12 |
 | **13-scrubber** | Nozzle scrubber add-on: brackets + bucket | Ch 13 · 13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50) | A5 | brush bracket, stop bracket, purge bucket (file names from `measured/`, Step 13.47); bought: Bambu A1 nozzle wiper ×3 | add-on, on no plate |
-| **14-exhaust** | Chamber exhaust add-on: housing, grill, cover, mounts | Ch 14 · 14.25–14.36, Part H (printed 14.26, built 14.27–14.29) | B5 ×2 | `exhaust_filter_housing`, `[a]_exhaust_fan_grill`, `[a]_filter_access_cover`, `[a]_exhaust_filter_mount` ×2; bought: 24 V 6020 fan; 1 m JST-XH 2-pin extension lead; carbon-mat piece ×2 | add-on, on no plate |
+| **14-exhaust** | Chamber exhaust add-on: housing, grill, cover, mounts | Ch 14 · 14.25–14.36, Part H (taken out 14.26, built 14.27–14.29) | B5 ×2 | `exhaust_filter_housing`, `[a]_exhaust_fan_grill`, `[a]_filter_access_cover`, `[a]_exhaust_filter_mount` ×2; bought: 24 V 6020 fan; 1 m JST-XH 2-pin extension lead; carbon-mat piece ×2 | B13 |
 | **spare-alt** | Spares / alternates (not fitted) | — · not fitted (Klicky set bagged at 08.54) | A5 | `[a]_pcb_spacer`, `KlickyProbe_v2` ×2, `Probe_Dock_v2.1`, `Probe_magnet_holder`, `Probe_magnet_pressfit_helper`, `Probe_pressfit_holder`, `KlickyProbe_AB_mount_v2`, `KlickyProbe_AB_mount_v2_holder`, `Mount_magnet_holder`, `Mount_magnet_pressfit_helper`, `Mount_pressfit_holder_v2`, `Dock_mount_fixed_v2`, `usb_adapter_mount` | B02, B06, B07 |
 
 **Re-arranged a plate in PrusaSlicer?** Move parts by hand, never with **Arrange**: every part and its brim sit
-25 mm or more from every bed edge (2026-11-06), and the GUI's Arrange does not know the rule. Save the project over `slicer/plates/<id>.3mf` and run
+25 mm or more from every bed edge (2026-11-06), and the GUI's Arrange does not know the rule. B12-P1 alone is exempt: its 212 mm frame sits centred, and `slicer/audit_plates.py` lists the break with its reason. Save the project over `slicer/plates/<id>.3mf` and run
 `python3 slicer/build_plates.py --from-3mf <id>` — it re-slices the committed projects as they are (no re-packing),
 refreshes `slicer/estimates.csv` and redraws every diagram from the 3MF, then `python3 slicer/check_docs.py`
 tells you which numbers in the chapters need updating.
@@ -194,7 +201,7 @@ and no plate in this build is printed in it.
 
 Spool numbering: **#1 · #2 · #3** are the three 800 g Galaxy Black spools, **A1** the single 800 g accent
 spool. *Remaining* is what should be left on the active spool once that plate is off the bed, if every
-plate lands on its slicer number. Rows are in **print order** — numeric, B00 → B10, overlapping the build.
+plate lands on its slicer number. Rows are in **print order** — numeric, B00 → B10, then B12, overlapping the build.
 
 **When to swap.** Never mid-plate on purpose — but a runout *during* a plate is fine on a part with no
 bearing seat: the Core One+ runout sensor pauses the plate and waits until you load the next spool and press
@@ -210,7 +217,7 @@ Four rules that override the ledger:
 - **B06-P1 starts spool #2** even though #1 still has ~125 g: the plate carries the Revo hotend seat and the
   Clockwork 2.5 gear bores, and a resume seam there is not worth 125 g. Keep the stub for a clip reprint.
 - **B02-P1 to P4** run back to back on the one accent spool. **B02-P5**, the Clockwork 2.5 catch-up plate, takes the
-  blue spool once more just before B06-P1, at the spool #1 → #2 change, so it costs no extra black purge on a part-used spool ([print plan §4.3](../../voron-print-plan.md#43-spool-changes)).
+  blue spool once more just before B06-P1, at the spool #1 → #2 change, so it costs no extra black purge on a part-used spool ([print plan §4.3](../../voron-print-plan.md#43-spool-changes)). **B12-P3**, the puck and spindle, and **B13-P2**, the exhaust's blue parts, take it at the end of the run, either side of B13-P1 on black #3.
 - **B08-P5 starts with only ~30 g of cushion** on spool #2 (128 g for a 96 g plate). A runout there lands on a
   side skirt, the keystone panel or the TFT mount, where the seam shows. If #2 looks light or its flange reading says under ~115 g,
   start B08-P5 on #3; B09-P1 then runs whole on #3 and #2's stub is kept for clips.
@@ -245,8 +252,13 @@ Four rules that override the ledger:
 | B09-P4 | 47 | | #3 | 592 |
 | B09-P5 | 60 | | #3 | 532 |
 | B10-P1 | 75 | | #3 | 457 |
-| **TOTAL black** | **1818** | | 3 × 800 g | **582 g margin** (457 on #3 + 125 on #1) |
-| **TOTAL blue** | **327** | | 1 × 800 g | **473 g margin** |
+| B12-P1 | 105 | | #3 | 352 |
+| B12-P2 | 28 | | #3 | 324 |
+| B12-P3 | 83 | | A1 | 390 |
+| B13-P1 | 66 | | #3 | 258 |
+| B13-P2 | 35 | | A1 | 355 |
+| **TOTAL black** | **2017** | | 3 × 800 g | **383 g margin** (258 on #3 + 125 on #1) |
+| **TOTAL blue** | **445** | | 1 × 800 g | **355 g margin** |
 
 ## When the printer stops
 
@@ -284,7 +296,7 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 | group | plates | hours | g PETG V0 | feeds (assembly chapter) | print gate |
 |---|---:|---:|---:|---|---|
 | [B11](B11-bay-ducting.md) before kit | 4 | 11.9 | 173 | Ch 09 ducts; Ch 10 strip fin | B07 off the bed, before B08; the coupon, B11-P1, prints first |
-| [B11](B11-bay-ducting.md) after the kit-day measurements | 3 | 13.2 | 176 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 plate still waiting; B11-P5 and P7 only if the gap is ≥ 25 mm and the coupon passed |
+| [B11](B11-bay-ducting.md) after the kit-day measurements | 3 | 13.2 | 176 | Ch 09 ducts | kit-day bay measurements, then ahead of any B08–B10 or B12 plate still waiting; B11-P5 and P7 only if the gap is ≥ 25 mm and the coupon passed |
 | **B11 total** | **7** | **25.1** | **349** | | |
 
 **Filament:** 349 g needed from one 1 kg spool, **V1**, bought 2026-10-13 → **651 g margin** if B11-P5 and P7 print.
@@ -293,18 +305,18 @@ this table, the run schedule and the ledger below against `slicer/estimates.csv`
 
 All seven are day plates. **P1 to P3 and P6 print right after B07-P3 (#17), before B08-P1 (#18)**: Ch 09 needs them, and
 nothing needs B08–B10 until Ch 10.50. **P4, P5 and P7 print at the next free slot after the kit-day bay measurements**
-(Steps B11.10–B11.11), ahead of any B08–B10 plate still waiting. The # column carries on from the run schedule
-above so the plate board counts 1 to 35; the slot column gives the place in the order.
+(Steps B11.10–B11.11), ahead of any B08–B10, B12 or B13 plate still waiting. The # column carries on from the run schedule
+above so the plate board counts 1 to 40; the slot column gives the place in the order.
 
 | # | plate | hours | colour | slot | spool |
 |---:|---|---:|---|---|---|
-| 29 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P3) | V1 |
-| 30 | B11-P2 | 4.3 | petg | day | V1 |
-| 31 | B11-P3 | 3.2 | petg | day | V1 |
-| 32 | B11-P6 | 4.0 | petg | day (then B08-P1) | V1 |
-| 33 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10 plate left) | V1 |
-| 34 | B11-P5 | 4.2 | petg | day (only if gap ≥ 25 mm) | V1 |
-| 35 | B11-P7 | 2.7 | petg | day (only if gap ≥ 25 mm) | V1 |
+| 34 | B11-P1 | 0.4 | petg | day (the coupon, first; after B07-P3) | V1 |
+| 35 | B11-P2 | 4.3 | petg | day | V1 |
+| 36 | B11-P3 | 3.2 | petg | day | V1 |
+| 37 | B11-P6 | 4.0 | petg | day (then B08-P1) | V1 |
+| 38 | B11-P4 | 6.3 | petg | day (after kit-day measurements, ahead of any B08–B10, B12 or B13 plate left) | V1 |
+| 39 | B11-P5 | 4.2 | petg | day (only if gap ≥ 25 mm) | V1 |
+| 40 | B11-P7 | 2.7 | petg | day (only if gap ≥ 25 mm) | V1 |
 
 ## B11 spool ledger
 
@@ -330,9 +342,6 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 | add-on | parts | hours | g ASA | sheet | feeds | files |
 |---|---:|---:|---:|---|---|---|
 | Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | satin | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
-| Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 6.4 | 101 | satin | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
-| Side spool holder (Maltasrc frame remixed for a Prusa puck): frame and tube holder black, Prusa puck and spindle blue | 4 | 12.7 | 199 | satin | Ch 11 Part C | `slicer/addons/side-spool-608769/` |
-| HappyCam camera mount (Voxel3D_NL, 350; body and light cover from Zemistr's remix 527904), black | 2 | 1.3 | 21 | satin | Ch 11 Part C | `slicer/addons/happycam-488020/` |
 
 **The scrubber is not printed ahead.** Its parts are generated from this machine's measurements at
 [Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
@@ -341,23 +350,8 @@ it comes out of the black spare, not the ledger above. Hours and grams are the d
 CLI estimate, not GUI-arranged. Also needs one Bambu A1 nozzle wiper (Ch 00 Step 00.8), in hand before
 Step 13.45 measures it.
 
-**The exhaust housing** is the stock Voron part set, unchanged, fetched from the pinned Voron-2 commit by
-`python3 slicer/fetch_stls.py`. It is printed only after
-[Ch 14 Step 14.25](../14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought)
-has checked the back of the machine, as two jobs: the housing in Galaxy Black with `slicer/voron-coreone-asa.ini`
-(66 g, 4 h 31 m, 3 mm brim), then the fan grill, access cover and two mounts in the blue accent with
-`slicer/voron-accent-blue.ini` (35 g, 1 h 54 m, 3 mm brim on the access cover). As oriented, no supports, satin sheet; PrusaSlicer 2.9.6 CLI
-estimates, not GUI-arranged. The grams come out of the spares, not the ledger above.
-
-**The side spool holder and the camera mount** print together at
-[Ch 11 Step 11.69](../11-skirts-panels-door.md#step-1169-print-the-add-on-parts-on-the-core-one), after
-Step 11.68 has measured the side-panel stack and the camera board, as three jobs: the frame alone (Galaxy
-Black, `slicer/voron-coreone-asa.ini`, 106.7 g, 7 h 09 m); the tube holder, HappyCam body and light cover
-(same profile, supports on build plate only under the camera body, 28.0 g, 1 h 50 m, re-sliced 2026-11-12 in 2.9.7); Prusa's puck and
-spindle in the blue accent (`slicer/voron-accent-blue.ini`, 84.7 g, 5 h 00 m). PrusaSlicer 2.9.6 CLI
-estimates, laid out by hand, not GUI-arranged; the per-add-on figures in the table split job 2 by part. The
-frame is the committed remix in `slicer/addons/side-spool-608769/`; the other five files are fetched from
-Printables by `python3 slicer/fetch_stls.py`. The grams come out of the spares, not the ledger above.
+**The side spool holder, the camera mount and the exhaust housing** were add-ons here until 2026-11-12; they are
+batches [B12](B12-side-spool-and-camera.md) and [B13](B13-exhaust-housing.md) now, inside the run and its ledger.
 
 ## Bench prints (outside the plates)
 

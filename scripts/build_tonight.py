@@ -861,7 +861,7 @@ def _cases_spec(chapters):
     assert len(by) == len(chapters), "two chapter files share a number"
     whole = lambda *keys: _case_ticks(chapters, *[(by[k], None, None) for k in keys])
     ch00_pre = _pre_kit_steps(chapters, by["00"])
-    run = ["B%02d" % i for i in range(11)]
+    run = ["B%02d" % i for i in range(11)] + ["B12", "B13"]   # the ASA run: B00-B10, then B12, B13
     return [
         ("none ticked", False, {}, []),
         ("Ch 00a done", False, whole("00a"), []),

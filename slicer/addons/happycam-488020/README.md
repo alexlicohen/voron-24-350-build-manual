@@ -1,8 +1,8 @@
-# HappyCam camera mount — add-on (Ch 10 Step 10.81, Ch 11 Part C)
+# HappyCam camera mount (Ch 10 Step 10.81, Ch 11 Part C, batch B12)
 
-Optional. On no plate, in no batch (B00–B11), in no run total. The camera's USB cable goes into the
-frame at **Ch 10 Step 10.81**, before the LED lead's slot covers; the mount is printed at Ch 11 Step 11.69
-and fitted at 11.74, after Step 11.68 has checked the camera board against it.
+Part of the build since 2026-11-12 (Alex): the body and light cover print in the ASA run on plate B12-P2,
+right after B10. The camera's USB cable goes into the frame at **Ch 10 Step 10.81**, before the LED lead's
+slot covers; the mount is fitted at Ch 11 Step 11.74, after Step 11.68 has checked the camera board against it.
 
 ## Licence and credit
 
@@ -34,12 +34,14 @@ the only geometry.
 - Lens: builders on 350 frames report a ~68–72° lens shows the whole bed; 95° and wider look too far
   away from this height (page comments, 2024–2026).
 
-## Print (Step 11.69 job 2)
+## Print (plate B12-P2)
 
 With the side spool's tube holder, Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, satin sheet, no glue. The
-files are drawn as installed: lay the body on its top face (PrusaSlicer's Place on face); the light cover is drawn flat, outer face
-down. Build-plate-only supports on the body, for the cable exit. Job estimate with the tube holder: 28.0 g, 1 h 50 m (PrusaSlicer
-2.9.7 CLI, 2026-11-12, 3 mm brims); the two camera parts alone are about 20 g. Bin `11-camera`, with the bought board.
+files are drawn as installed: `slicer/plates.py` `ORIENT` turns the 527904 body 180° about X onto its top face
+(keyed by path: this folder's fallback body shares the file name); the light cover is drawn flat, outer face
+down. Build-plate-only supports on the body alone, for the cable exit (`slicer/plates.py` `OBJECT_SETTINGS`).
+Plate estimate: 28 g, 1.8 h (PrusaSlicer 2.9.7, 3 mm brims); sliced alone, the body is 18.6 g with its
+supports and the cover 1.5 g. Bin `11-camera`, with the bought board.
 
 ## Software
 

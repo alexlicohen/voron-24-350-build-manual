@@ -2,14 +2,14 @@
 
 Takes a machine that homes, probes, levels, is squared cold and has printed its first cube (Ch 13), now closed in by Ch 11 Part B, and turns it into a machine that prints Voron-quality ASA: belts at final tension, the gantry's Z joints locked at working temperature, extruder refined, input shaper set, pressure advance and flow dialled in, and that cube calipered against the Prusa-printed reference.
 
-**What you're building in this chapter.** Nothing mechanical is added; six calibration items are measured and written down. **Belt tension** is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its one real **heat soak**, QGL is run until it settles, and the four **Z joint** bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The **extruder** value measured in Ch 13 is re-checked. **Input shaping** uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. **Pressure advance** compensates for the lag between the extruder and the nozzle at corners, and **extrusion multiplier** scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the **chamber**: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable. Part H is an optional add-on: the stock Voron **exhaust housing** on the back panel, its fan driven by the chamber thermistor, so PLA and PETG print under a 35–40 °C ceiling while ASA keeps its closed chamber. Its go/no-go look and its prints come first, so the Core One+ prints them while you calibrate.
+**What you're building in this chapter.** Nothing mechanical is added; six calibration items are measured and written down. **Belt tension** is set for the last time, now that gantry squaring has released it — a tensioned belt is a string, and its pitch over a measured span is the reading. Then the closed chamber gets its one real **heat soak**, QGL is run until it settles, and the four **Z joint** bolts are given their only full tighten while the frame is at working temperature — the last three steps of Voron's squaring procedure, which Ch 06b left for a panelled machine. The **extruder** value measured in Ch 13 is re-checked. **Input shaping** uses the accelerometer built into the toolboard to find the frequency at which this machine rings, fits a filter that cancels it, and brings the acceleration ceiling down from its placeholder. **Pressure advance** compensates for the lag between the extruder and the nozzle at corners, and **extrusion multiplier** scales the total amount of plastic — both belong to the filament, not the machine. Between them sits the **chamber**: how hot the closed enclosure actually gets, which decides both the print profile and the soak time. The tuning log at the end is the deliverable. Part H fits the stock Voron **exhaust housing**, printed in batch B13, on the back panel, its fan driven by the chamber thermistor, so PLA and PETG print under a 35–40 °C ceiling while ASA keeps its closed chamber. It goes on only if this machine passes its go/no-go look, which comes first so the fan and mat arrive while you calibrate.
 
 ```mascot
 pose: pass
 caption: Here the kit becomes a printer. I brought a caliper. Feelings are not evidence. My opinions nearly are.
 ```
 
-**Time:** 3.0–4.5 h hands-on (survey §7.2 gives 2.5–4.0 h; this chapter's Pause lines add up to ~4 h), spread over ~9–11 h wall-clock. Most of the wall-clock is the chapter's one 1½–2 h closed-chamber soak, Steps 14.3 and 14.6, which also gives Steps 14.8 and 14.22 their readings, and about a dozen short test prints: the PA pattern twice, eight single extrusion-multiplier cubes (PrusaSlicer cannot vary the multiplier per object, so each cube is its own print with its own `PRINT_START`) and a squish check. The optional exhaust add-on (Part H) adds ~3.5 h hands-on, a ~1 h chamber soak and a ~1 h PLA print; its first two steps open the chapter, so the ~6½ h of Core One+ printing and the Step 00.8 delivery run while Parts A–G do.
+**Time:** 3.0–4.5 h hands-on (survey §7.2 gives 2.5–4.0 h; this chapter's Pause lines add up to ~4 h), spread over ~9–11 h wall-clock. Most of the wall-clock is the chapter's one 1½–2 h closed-chamber soak, Steps 14.3 and 14.6, which also gives Steps 14.8 and 14.22 their readings, and about a dozen short test prints: the PA pattern twice, eight single extrusion-multiplier cubes (PrusaSlicer cannot vary the multiplier per object, so each cube is its own print with its own `PRINT_START`) and a squish check. The exhaust housing (Part H) adds ~3.5 h hands-on, a ~1 h chamber soak and a ~1 h PLA print; its parts are already printed in B13, and its first two steps open the chapter, so the Step 00.8 delivery runs while Parts A–G do.
 
 **Sessions:** 14 × ~30 min hands-on, 20 with Part H (one Pause per calibration item; every minute figure is a first-build estimate derived from the Time range and the step count, and excludes soaks and test prints).
 
@@ -21,7 +21,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 - **Ch 11 Part B — Panels and the Clicky-Clack door**, on. The chamber has to close: the soak at Steps 14.3 and 14.6, the readings Steps 14.8 and 14.22 take from it, and Checkpoint 14 all gate on a closed chamber. The same panels are all Step 14.25 needs.
 - **Ch 12 — Software.** `[bed_mesh]` added at Step 12.34, `PRINT_START` replaced at Step 12.36 (survey §4.4 #15).
 - **Batch B00.** The Prusa-printed `Voron_Design_Cube_v7` in Prusament ASA Galaxy Black, kept as the reference coupon ([B00 step B00.6](print/B00-calibration-and-jigs.md)). You need it in hand at step 14.11.
-- **Printed parts: none** for Parts A–G; everything they print, they print on the Voron. Part H prints its own five parts on the Core One+ at Step 14.26, after Step 14.25 has checked the machine; both open the chapter, ahead of Part A.
+- **Printed parts: none** for Parts A–G; everything they print, they print on the Voron. **Print batch B13** for Part H: its five parts wait in bin 14-exhaust and are fitted only if Step 14.25 passes. Steps 14.25 and 14.26 open the chapter, ahead of Part A.
 - **Part H only:** the Step 00.8 exhaust row (a 24 V 6020 fan, a 1 m JST-XH extension, carbon filter mat), bought when Step 14.25 passes, before Part A, so it arrives while Parts A–G run.
 - A spool of Prusament ASA in the dryer, warm and loaded (survey §7.3).
 
@@ -41,8 +41,8 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 | STL | Qty | Colour |
 |---|---|---|
-| Exhaust housing, Part H only, printed at Step 14.26 | 1 | Black |
-| Exhaust fan grill, access cover and two filter mounts, Part H only, printed at Step 14.26 | 1, 1, 2 | Blue |
+| Exhaust housing, Part H only, B13-P1, bin 14-exhaust | 1 | Black |
+| Exhaust fan grill, access cover and two filter mounts, Part H only, B13-P2, bin 14-exhaust | 1, 1, 2 | Blue |
 
 **Hardware** (chapter totals)
 
@@ -54,7 +54,7 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 | M3×30 SHCS | 4 | Part H only: the exhaust fan and its grill, Step 14.28 |
 | — turned, not added — | 0 | Outside Part H, nothing else is added or removed in this chapter. The only things you turn are the two A/B front tensioner screws, the four Z idler tensioner bolts at the top of each upright (never the Z belt clamps at the gantry corners, on the front idlers, A/B drives and Z joints), and the four Z joint M5×40 bolts, which get their first and only full tighten hot at Step 14.6. |
 
-**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit, ~50 g PLA, and ~100 g ASA on the Core One+.
+**Consumables:** Prusament ASA Galaxy Black (~150 g across all test prints), IPA for the flex plate. Part H: VHB tape and zip ties from the kit and ~50 g PLA; its ASA parts come from B13.
 
 **Read first**
 
@@ -79,9 +79,11 @@ caption: Here the kit becomes a printer. I brought a caliper. Feelings are not e
 
 ---
 
-## Part H, first — Add-on: the exhaust go/no-go and its prints
+<a id="part-h-first-add-on-the-exhaust-gono-go-and-its-prints"></a>
 
-This part is optional. It fits the stock Voron exhaust housing over the back panel's exhaust notch, in place of the cover Ch 11 sealed it with, and lets the chamber thermistor drive its 60 mm fan through Klipper. PLA and PETG then print under a 35–40 °C ceiling; ASA keeps a closed, unvented chamber and the Nevermore. Nothing is cut, and nothing is bought or printed until the first step has checked this machine. That check needs only the panels Ch 11 Part B fitted, so Steps 14.25 and 14.26 open the chapter: the Ch 00 row ships and the Core One+ prints while Parts A–G run on the Voron, and the build resumes at Step 14.27, after Part G. Skipping the add-on? Go straight to [Part A](14-calibration.md#part-a-heaters). The fan takes the Leviathan's FAN0 and a third 24 V jumper: Ch 10's "exactly two jumpers" and "FAN0 empty" describe the machine before this add-on, and stay true for a build without it. Expect a ceiling, not air conditioning: Voron's own tuning notes say PLA may still want the door open.
+## Part H, first — The exhaust go/no-go and its printed parts
+
+This part fits the stock Voron exhaust housing over the back panel's exhaust notch, in place of the cover Ch 11 sealed it with, and lets the chamber thermistor drive its 60 mm fan through Klipper. PLA and PETG then print under a 35–40 °C ceiling; ASA keeps a closed, unvented chamber and the Nevermore. Its five printed parts are already made, in batch [B13](print/B13-exhaust-housing.md), and wait in bin 14-exhaust. Nothing is cut, and nothing is bought or fitted until the first step has checked this machine; if it fails, the parts stay in the bin unused. That check needs only the panels Ch 11 Part B fitted, so Steps 14.25 and 14.26 open the chapter: the Ch 00 row ships while Parts A–G run on the Voron, and the build resumes at Step 14.27, after Part G. Step 14.25 failed? Go straight to [Part A](14-calibration.md#part-a-heaters). The fan takes the Leviathan's FAN0 and a third 24 V jumper: Ch 10's "exactly two jumpers" and "FAN0 empty" describe the machine before this add-on, and stay true for a build without it. Expect a ceiling, not air conditioning: Voron's own tuning notes say PLA may still want the door open.
 
 ### Step 14.25 — Inspect the back of the machine before anything is bought
 
@@ -108,7 +110,7 @@ This part is optional. It fits the stock Voron exhaust housing over the back pan
 
 ```gate-calc
 id: exhaust-fit
-title: Exhaust add-on — does the stock housing fit this machine
+title: Exhaust housing — does the stock housing fit this machine
 inputs:
   - key: notch
     label: The exhaust cover and grill fill a notch about 147 × 42 mm in the back panel's top edge
@@ -140,46 +142,43 @@ inputs:
     kind: yesno
     no: FAN0 needs one voltage-selection jumper. Get a matching one before the wiring step.
     why: Ch 09 bagged five jumpers and Ch 10 fitted two.
-pass: The stock housing fits. Order the Ch 00 exhaust row and print the parts.
+pass: The stock housing fits. Order the Ch 00 exhaust row; the B13 parts in bin 14-exhaust go on in Part H.
 ```
 
 **Helper:** Holds the string along the route and reads its length off the rule.
 
-⚠ A failing row ends the add-on here. Cutting the back panel or printing a community remix is a different job, decided separately, and nothing below covers it.
+⚠ A failing row ends Part H here: nothing is bought, and the B13 parts stay in bin 14-exhaust unused. Cutting the back panel or printing a community remix is a different job, decided separately, and nothing below covers it.
 
 Source: [Voron manual p.250–256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=250) · [Voron-2 `350_Back_Panel.DXF`](https://github.com/VoronDesign/Voron-2/blob/a192410/Drawing_DXFs/Panels/350_Back_Panel.DXF) · [LDO Build Notes p.250–253, p.256](https://docs.ldomotors.com/voron/voron2/build-faq#build-notes) · `review/2026-10-03-exhaust/DESIGN.md`
 
 ---
 
-### Step 14.26 — Print the exhaust parts on the Core One+
+### Step 14.26 — Take the exhaust parts out of bin 14-exhaust
 
-![The add-on prints from the Voron STLs: the housing in black; the fan grill, access cover and two mounts in the blue accent; the exhaust grill already fitted](assets/parts/sheet-addon-exhaust.png)
+![The five B13 parts, from the Voron STLs: the housing in black; the fan grill, access cover and two mounts in the blue accent; the exhaust grill already fitted](assets/parts/sheet-addon-exhaust.png)
 
-**What you're looking at:** Four stock Voron parts, printed as two jobs outside the plate run: the housing in black, then the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks.
+**What you're looking at:** Five stock Voron parts printed in batch B13: the housing in black, then the fan grill, the access cover and two mounts in the blue accent, as their `[a]_` prefix asks. They wait in bin 14-exhaust for the fan, lead and mat bought at Ch 00.
 
 **Parts:**
 
-- consumable: Galaxy Black ASA, about 66 g
-- consumable: blue accent ASA, about 35 g
-- tool: the Core One+ with the satin sheet
+- staged: `exhaust_filter_housing` ×1
+- staged: `[a]_exhaust_fan_grill` ×1
+- staged: `[a]_filter_access_cover` ×1
+- staged: `[a]_exhaust_filter_mount_x2` ×2
 
 **Do:**
 
-1. Run `python3 slicer/fetch_stls.py`, then open PrusaSlicer 2.9.7.
-2. Housing: `voron-coreone-asa.ini`, as oriented, no supports, 3 mm brim.
-3. The other three, mounts twice: `voron-accent-blue.ini`, 3 mm brim on the access cover only. Bag all five in bin `14-exhaust`.
+1. Open bin 14-exhaust and lay the five B13 parts out.
+2. Look each over for brim left on, a lifted corner or a cracked mount.
+3. Bag them again; the bought fan, lead and mat join them on delivery.
 
-**Check:** Black: about 4½ h, 66 g. Blue: about 2 h, 35 g. No supports; brims on the housing and the access cover only.
+**Check:** Five parts, flat and whole: one black housing, and a blue fan grill, access cover and two mounts. The Ch 00 exhaust row ordered.
 
-**Helper:** Ticks each file on the bed against the list in the add-on folder.
+**Helper:** Counts the five parts against the bin label and reads each name aloud.
 
-⚠ ASA: set Chamber Filtration to Adv. Filtration before each job, as for every ASA plate.
+Source: [B13 — Exhaust housing](print/B13-exhaust-housing.md) · `slicer/addons/exhaust-voron2/README.md` · [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter)
 
-Tip: set each brim per object: right-click it → Add settings → Skirt and brim → Brim width. The inis keep the global brim at 0, gap 0.30 mm.
-
-Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · `slicer/addons/exhaust-voron2/README.md` · [Voron-2 `STLs/Exhaust_Filter/`](https://github.com/VoronDesign/Voron-2/tree/a192410/STLs/Exhaust_Filter)
-
-Pause: ~35 min since the last pause — the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G.
+Pause: ~30 min since the last pause — the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Go on with Part A while the delivery runs; Part H picks up at Step 14.27, after Part G.
 
 ---
 
@@ -1173,9 +1172,11 @@ Source: [Voron docs — About § Serial Numbers](https://docs.vorondesign.com/ab
 
 ---
 
-## Part H — Add-on: chamber exhaust fan
+<a id="part-h-add-on-chamber-exhaust-fan"></a>
 
-Steps 14.25 and 14.26 opened the chapter: the five printed parts wait in bin `14-exhaust` with the Step 00.8 fan, extension lead and mat. If any of them is not in hand yet, go to [Checkpoint 14](#checkpoint-14) and come back; only its Part H row waits.
+## Part H — Chamber exhaust fan
+
+Steps 14.25 and 14.26 opened the chapter: the five B13 parts wait in bin `14-exhaust` with the Step 00.8 fan, extension lead and mat. Step 14.25 failed? Skip this part; they stay in the bin. If any of them is not in hand yet, go to [Checkpoint 14](#checkpoint-14) and come back; only its Part H row waits.
 
 ### Step 14.27 — Set the eight heat-set inserts in the housing
 
@@ -1267,7 +1268,7 @@ Pause: ~40 min since the last pause — eight inserts set, and the fan, its gril
 
 ⚠ Before taping, pass the fan lead in through one grill opening. Then thread the coupler into the housing's top boss and run the PTFE in through it, looped as p.258 shows `(verify on bench)`.
 
-Tip: keep the exhaust cover. Refitting it returns the machine to its Ch 11 state if the add-on comes off.
+Tip: keep the exhaust cover. Refitting it returns the machine to its Ch 11 state if the housing comes off.
 
 Source: [Voron manual p.254](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=254) · [Voron manual p.255](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=255) · [Voron manual p.256](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=256)
 

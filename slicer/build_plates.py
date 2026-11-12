@@ -58,8 +58,8 @@ import zipfile
 from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
-from plates import (AS_PRINTED, MODEL_ESTIMATE, ORIENT, PLATES, brim_for, footprint_of,
-                    local_path, run_of)
+from plates import (AS_PRINTED, EDGE_EXEMPT, MODEL_ESTIMATE, OBJECT_SETTINGS, PLATES, brim_for,
+                    check_orient, footprint_of, local_path, orient_of, run_of)
 from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
@@ -123,15 +123,15 @@ def source_stl(repo: str, path: str) -> str:
     """Local path for one source. The two Nevermore cartridges ship as 3MF;
     fetch_stls.py leaves them as-is and we slice from a converted STL. A file named in
     plates.ORIENT (B11's MSS pieces, drawn base-up; a 3MF by its own name, applied to the
-    converted STL) is sliced from a rotated copy under slicer/stl/.oriented/, rewritten
-    whenever the source is newer."""
+    converted STL; B12's camera body and tube holder by path) is sliced from a rotated copy
+    under slicer/stl/.oriented/, rewritten whenever the source is newer."""
     rel = local_path(repo, path)
     if rel.endswith(".3mf"):
         stl = rel[:-4] + ".stl"
         if not (STL / stl).exists():
             run([PRUSA, "--export-stl", "-o", str(STL / stl), str(STL / rel)])
         rel = stl
-    mode = ORIENT.get(Path(path).name)
+    mode = orient_of(path)
     if mode:
         out = f"{ORIENTED}/{rel}"
         src, dst = STL / rel, STL / out
@@ -161,7 +161,8 @@ def _ini_value(ini: Path, key: str, default: float) -> float:
 
 
 def platearrange_pack(pieces: list[Piece], ini: Path,
-                      bed: tuple[float, float] = (BED_X, BED_Y)) -> tuple[bool, list[str]]:
+                      bed: tuple[float, float] = (BED_X, BED_Y),
+                      edge_exempt: bool = False) -> tuple[bool, list[str]]:
     """geom.pack's contract on tools/platearrange: set each piece's `rot` and `x`, `y` (its
     rotated mesh bbox corner, brim excluded) or return (False, [what did not fit]).
 
@@ -169,6 +170,8 @@ def platearrange_pack(pieces: list[Piece], ini: Path,
     edge margin is geom.EDGE_MARGIN, geom.BIG_EDGE_MARGIN for a part whose footprint's
     longest side is at least geom.BIG_PART_MM; the gap is PA_GAP, relaxed down
     PA_GAP_LADDER only if the plate does not fit, and the relaxation is reported on stderr.
+    `edge_exempt` (a plate in plates.EDGE_EXEMPT) drops the edge margin to 0, so the part and
+    its brim only have to stay on the bed; large_centre still puts the biggest part mid-bed.
     """
     import numpy as np
     sys.path.insert(0, str(REPO / "tools" / "platearrange"))
@@ -186,11 +189,12 @@ def platearrange_pack(pieces: list[Piece], ini: Path,
         big = float(np.ptp(v[:, :2], axis=0).max()) >= BIG_PART_MM
         items.append(Item(i, v, np.arange(len(v)).reshape(-1, 3),
                           brim=(p.brim + sep) if p.brim > 0 else 0.0, key=p.key,
-                          edge_margin=BIG_EDGE_MARGIN if big else None))
+                          edge_margin=BIG_EDGE_MARGIN if big and not edge_exempt else None))
+    edge_margin = 0.0 if edge_exempt else EDGE_MARGIN
     res = None
     for gap in (PA_GAP,) + tuple(g for g in PA_GAP_LADDER if g < PA_GAP):
         try:
-            res = arrange_detailed(items, bed=bed, gap=gap, edge_margin=EDGE_MARGIN,
+            res = arrange_detailed(items, bed=bed, gap=gap, edge_margin=edge_margin,
                                    first_layer=first_layer, large_centre=PA_LARGE_CENTRE)
         except NoFit as e:
             return False, [f"{pieces[e.item_id].name}: {e}"]
@@ -404,12 +408,13 @@ def build(plate_id: str) -> dict:
         for i in range(qty):
             nm = base if qty == 1 else f"{base}#{i + 1}"
             pieces.append(Piece(rel, nm, hull, brim_for(path, footprint_of(bb), colour), bb[2]))
+            pieces[-1].settings = OBJECT_SETTINGS.get((repo, path), {})
 
     packer = pack
     if PACKER == "nest":
         from nest import pack as packer  # noqa: F811
     elif PACKER == "platearrange":
-        packer = lambda ps: platearrange_pack(ps, ini)  # noqa: E731
+        packer = lambda ps: platearrange_pack(ps, ini, edge_exempt=plate_id in EDGE_EXEMPT)  # noqa: E731
     fits, overflow = packer(pieces)
     if not fits:
         raise SystemExit(
@@ -444,9 +449,11 @@ def build(plate_id: str) -> dict:
                                   p.x - x0, p.y - y0, -zmin)
             inputs.append(str(tmp / fn))
             names[fn] = p.name
+            if p.settings:
+                per_object[fn] = dict(p.settings)
             if p.brim:
-                per_object[fn] = {"brim_width": f"{p.brim:g}",
-                                  "brim_type": "outer_only"}
+                per_object.setdefault(fn, {}).update(brim_width=f"{p.brim:g}",
+                                                     brim_type="outer_only")
 
         OUT_3MF.mkdir(parents=True, exist_ok=True)
         dst = OUT_3MF / f"{plate_id}.3mf"
@@ -579,6 +586,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     global OUT_3MF, OUT_PNG, ESTIMATES, PACKER
     a = parse_args(argv)
+    bad = check_orient()
+    if bad:
+        raise SystemExit("plates.ORIENT: " + "; ".join(bad))
     out_dir, from_3mf = a.out, a.from_3mf
     if a.nest:
         PACKER = "nest"

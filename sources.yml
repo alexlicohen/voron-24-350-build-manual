@@ -1828,7 +1828,7 @@ sources:
       Universal-spoolholder-1kg-R1.stl: 3d48dc7b67b15c8239f13487d302f3c5018ce6c28281caa39672c133494bbbc8
     on_change: re-fetch (python3 slicer/fetch_stls.py; the new file id goes in slicer/plates.py PRINTABLES),
       check the puck's four pilot holes still sit at +-13 mm about its axis (remix.scad puck_sq in slicer/addons/side-spool-608769/),
-      re-slice Step 11.69 job 3; print nothing until done
+      re-slice B12-P3 (python3 slicer/build_plates.py --from-3mf B12-P3); print nothing until done
 - id: printables-488020-happycam-ov5640
   url: https://www.printables.com/model/488020
   kind: community
@@ -1858,8 +1858,8 @@ sources:
       HappyCam_main-350.stl: d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd
     on_change: re-fetch the 350 body and the door (slicer/plates.py PRINTABLES file ids), re-check the
       board pegs (three 1.7 mm; two 4 mm apart across one end, one 50 mm along) against Ch 11 Step 11.68's
-      calculator and the cable exit at the printer-left end against Ch 10 Step 10.81; re-slice Step 11.69
-      job 2
+      calculator and the cable exit at the printer-left end against Ch 10 Step 10.81; the 488020 pair is the fallback on no plate,
+      so nothing to re-slice unless it replaces B12-P2's pair
 - id: printables-527904-happycam-light-cover
   url: https://www.printables.com/model/527904
   kind: community
@@ -1880,7 +1880,7 @@ sources:
       HappyCam_main-350.stl: da0002c4b70b4771e1462c535c85e6adca38edcf214f7ac375a44d6e6ee1b725
     on_change: re-fetch the cover and its 350 body (slicer/plates.py PRINTABLES file ids), re-check the
       body against 488020's (pegs and mount holes identical; only the two ends differ) and the cover's
-      lens and LED windows against the board; re-slice Step 11.69 job 2
+      lens and LED windows against the board; re-slice B12-P2 (python3 slicer/build_plates.py --from-3mf B12-P2)
 - id: printables-502306-cable-duct-remix
   url: https://www.printables.com/model/502306
   kind: community
@@ -1983,7 +1983,8 @@ sources:
       Reel Mount 2_Frame v1.stl: 7efa10b2f3c8e64270d50200bfd364f7ccd8d14f698eee699044bf99b766da4f
       Bowden Tube Holder_Long.stl: 4b355c5267b956a7e85939e0fa2c02148518f2c483700c18cd156ec491d459f5
     on_change: download the changed frame, diff it against slicer/addons/side-spool-608769/source/, re-run
-      remix.scad (its README) and re-fetch the tube holder; print nothing until done
+      remix.scad (its README) and re-fetch the tube holder, then rebuild B12-P1 (and B12-P2 for a new tube
+      holder) and re-run slicer/check_docs.py; print nothing until done
 - id: printables-796563-nozzle-scrubber
   url: https://www.printables.com/model/796563
   kind: community

@@ -1,7 +1,8 @@
-# Side spool holder with a Prusa spindle — add-on (Ch 11 Part C)
+# Side spool holder with a Prusa spindle (Ch 11 Part C, batch B12)
 
-Optional. On no plate, in no batch (B00–B11), in no run total. **Printed only after Ch 11 Step 11.68 has
-measured the right side panel's stack**; fitted after Part B, once the side panels are on.
+Part of the build since 2026-11-12 (Alex): printed in the ASA run as batch B12, right after B10, on plates
+B12-P1 (the frame) to B12-P3 (puck and spindle); fitted after Part B, once the side panels are on. Ch 11
+Step 11.68 calipers the right side panel's stack; only a stack over 6.2 mm reprints the frame (Step 11.69).
 
 A diagonal frame on the right side panel's extrusions carries Prusa's Universal Puck, so the right side
 takes either a bare spool on Prusa's 1 kg spindle or a Prusa USS Drybox hung straight on the puck. The
@@ -41,21 +42,26 @@ byte for byte. Changes from the author's frame, all asserted in the script:
 Re-run with `-D stack=<reading + 0.3>` if Step 11.68 measures the stack over 6.2 mm; the seat moves with
 it, so the M3×20 still lands in the nut.
 
-## Print (Step 11.69)
+## Print (batch B12)
 
-Core One+, satin sheet, no glue, Voron spec (4 walls, 5 top/bottom, 40 % grid, 0.2 mm). Jobs 1 and 3 need **no supports**;
-job 2 uses build-plate-only supports for the camera body's cable exit.
-PrusaSlicer 2.9.6 CLI estimates, parts laid out by hand, not GUI-arranged (2026-10-23):
+Core One+, satin sheet, no glue, Voron spec (4 walls, 5 top/bottom, 40 % gyroid, 0.2 mm), 3 mm brims, no skirt.
+The committed projects `slicer/plates/B12-P*.3mf` are the jobs laid out by hand and sliced on 2026-11-12;
+PrusaSlicer 2.9.7 estimates from `python3 slicer/build_plates.py --from-3mf B12-P1 B12-P2 B12-P3`:
 
-| Job | Parts | Profile | Estimate |
+| Plate | Parts | Profile | Estimate |
 |---|---|---|---|
-| 1 | the frame, as oriented | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 106.7 g, 7 h 09 m |
-| 2 | tube holder, flat face down (and the camera add-on's two parts, `../happycam-488020/`) | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 28.0 g, 1 h 50 m |
-| 3 | puck and spindle, as oriented | `slicer/voron-accent-blue.ini`, blue accent ASA | 84.7 g, 5 h 00 m |
+| B12-P1 | the frame alone, as oriented, centred | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 105 g, 6.9 h |
+| B12-P2 | tube holder, flat face down (`plates.ORIENT`), and the camera's two parts (`../happycam-488020/`) | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 28 g, 1.8 h |
+| B12-P3 | puck and spindle, as oriented | `slicer/voron-accent-blue.ini`, blue accent ASA | 83 g, 5.7 h |
 
-Prusa prints the puck and spindle in PETG or PC; ASA at the Voron spec is stronger than that and keeps
-the machine in two colours. The grams come out of the spares, not the spool ledger. Everything goes in
-bin `11-side-spool` (`slicer/bins.py` `ADDON_PARTS`), a box: the frame fits no mesh bag.
+The 212 × 212 mm frame cannot sit 25 mm from every bed edge, so B12-P1 is the one plate exempt from that
+rule (`slicer/plates.py` `EDGE_EXEMPT`; `slicer/audit_plates.py` lists the break with its reason). Prusa
+prints the puck and spindle in PETG or PC; ASA at the Voron spec is stronger than that and keeps the machine
+in two colours. The grams are in the run's spool ledger (`docs/manual/print/README.md`). Everything goes in
+bin `11-side-spool`, a box: the frame fits no mesh bag.
+
+**A frame reprint for a thick stack:** write the regenerated STL to a new file, open `B12-P1.3mf`, right-click
+the frame, **Replace with STL**, and print it alone (Step 11.69).
 
 ## Hardware (kit spares except where named)
 
@@ -66,7 +72,7 @@ Step 00.8), replacing the kit's reverse-bowden run.
 
 ## Files
 
-`slicer/plates.py` `ADDONS` lists the source, the remix and the three fetched files;
+`slicer/plates.py` `PLATES` (B12) lists the remix and the three fetched files, `ADDONS` the unchanged source;
 `slicer/stl/MANIFEST.sha256` pins them, so `python3 slicer/fetch_stls.py --verify` fails if any changes.
 `sources.yml` pins both Printables pages (`printables-608769-voron-side-spool`,
 `printables-1605113-prusa-uss-drybox-accessories`); a `CHANGED` line from `scripts/sources_verify.py`

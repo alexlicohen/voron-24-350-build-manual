@@ -90,8 +90,8 @@ def unique_parts() -> list[dict]:
             if key in seen:
                 continue
             basename = relpath.rsplit("/", 1)[-1]
-            src = STL_DIR / repo / relpath
-            if basename in plates.ORIENT:      # render it the way it lies on the plate
+            src = STL_DIR / plates.local_path(repo, relpath)   # addons/ live outside slicer/stl/
+            if plates.orient_of(relpath):      # render it the way it lies on the plate
                 src = STL_DIR / source_stl(repo, relpath)
             if src.suffix.lower() == ".3mf":
                 # geom.read_stl only understands STL; the fetch step already

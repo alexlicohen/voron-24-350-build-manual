@@ -642,7 +642,7 @@ Source: [Voron manual p.155](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 2. Screw the standoffs in and fasten the Pi on them, USB and Ethernet facing **outward, away from the connector banks**.
 3. Check the microSD card is seated.
 
-**Check:** Pi flat on all standoffs; Ethernet and two USB-A ports clear of the Leviathan, three with the camera add-on; SD card seated; nothing shorting underneath.
+**Check:** Pi flat on all standoffs; Ethernet and two USB-A ports clear of the Leviathan, three with the camera; SD card seated; nothing shorting underneath.
 
 ⚠ **Rev D+ / LDO:** *"Some ports of the Raspberry Pi may not be usable due to interference with the Leviathan ports."* Check which ones you lose **now**, while you can still rotate the Pi. Ch 10 needs Ethernet and two USB ports, Leviathan and toolboard USB adapter, plus a third for the camera add-on. [src](https://ldomotion.com/guides/voron-leviathan-v1-3)
 

@@ -9,7 +9,7 @@ pose: helper
 caption: Panels and a door, with four hands. Every printer looks finished the moment the door arrives.
 ```
 
-**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13). The optional add-ons in **Part C**, a side spool holder and a camera, add ~1 h 40 min hands-on plus ~14 h of Core One+ printing.
+**Time:** 4.0–6.0 h hands-on, first build (survey §5.1, P11). Split roughly **3.0–4.0 h for Part A** (before Ch 13) and **1.0–2.0 h for Part B** (after Ch 13). **Part C** fits the side spool holder and the camera, ~1 h 40 min hands-on; their parts print in the run, as batch B12.
 
 **Sessions:** 17 × ~30 min (12 in Part A, 5 in Part B), 20 with Part C (every minute figure in this chapter is a first-build estimate derived from the Time split and the step count).
 
@@ -24,8 +24,9 @@ caption: Panels and a door, with four hands. Every printer looks finished the mo
 - **Print batch B02** — the blue accent parts used here: belt guards, fan grills, fan grill retainers, keystone blank, TFT faceplate, Clicky-Clack handle.
 - **Print batch B07** — `handlebar_spacer_x4` (used at the top panel, step 11.60).
 - **Print batch B11** — the DC loop lids for 11.52 (bin 11-lids-DC; P4/P5 print after the kit-day bay measurements).
+- **Print batch B12** — side spool holder and camera (3 plates, 14.4 h), for Part C only.
 - **Part B additionally requires Ch 13 — Initial startup**, and the Ch 06b gantry-squaring pass that runs inside it. Do not close the machine before those pass.
-- **Part C (add-ons) additionally requires Part B**, and for the camera the USB cable laid at [Ch 10 Step 10.81](10-wiring.md#step-1081-add-on-lay-the-cameras-usb-cable-before-the-slots-close). Its parts are **not** printed ahead: Step 11.68 measures, Step 11.69 prints them on the Core One+.
+- **Part C additionally requires Part B**, B12's bins 11-side-spool and 11-camera, and for the camera the USB cable laid at [Ch 10 Step 10.81](10-wiring.md#step-1081-add-on-lay-the-cameras-usb-cable-before-the-slots-close). Step 11.68 confirms the printed frame suits this machine's panel stack; only a stack over 6.2 mm sends Step 11.69 back to the Core One+ for a frame reprint.
 
 **Tools**
 
@@ -87,10 +88,16 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/Hinge-L-sleeve-2X.png){ width=96 } ![](assets/parts/Hinge-L-solid-2X.png){ width=96 } | `Hinge-L-sleeve-2X.stl` / `Hinge-L-solid-2X.stl` | 11-door | 2 each | Black | B10 |
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Blue | B02 |
+| ![](assets/parts/side_spool_frame_puck.png){ width=96 } | `side_spool_frame_puck.stl` (Part C, remix of Printables 608769) | 11-side-spool | 1 | Black | B12-P1 *(reprinted at 11.69 only if the stack is over 6.2 mm)* |
+| ![](assets/parts/Bowden%20Tube%20Holder_Long.png){ width=96 } | `Bowden Tube Holder_Long.stl` (Part C, Printables 608769) | 11-side-spool | 1 | Black | B12-P2 |
+| ![](assets/parts/Universal-puck-R1.png){ width=96 } | `Universal-puck-R1.stl` (Part C, Printables 1605113) | 11-side-spool | 1 | Blue | B12-P3 |
+| ![](assets/parts/Universal-spoolholder-1kg-R1.png){ width=96 } | `Universal-spoolholder-1kg-R1.stl` (Part C, Printables 1605113) | 11-side-spool | 1 | Blue | B12-P3 |
+| ![](assets/parts/HappyCam_main-350.png){ width=96 } | `HappyCam_main-350.stl` (Part C, Printables 527904) | 11-camera | 1 | Black | B12-P2 |
+| ![](assets/parts/HappyCam_cover_with_light.png){ width=96 } | `HappyCam_cover_with_light.stl` (Part C, Printables 527904) | 11-camera | 1 | Black | B12-P2 |
 
-**Part C add-on parts** are on no plate and in no batch: the side spool frame, tube holder, Prusa puck and spindle (bin 11-side-spool) and the HappyCam body and light cover (bin 11-camera), printed at Step 11.69 ([print plan § Add-on prints](print/README.md#add-on-prints-outside-the-plates)).
+**Part C parts** come off batch [B12](print/B12-side-spool-and-camera.md), the last three plates of the ASA run, into bins 11-side-spool and 11-camera. Step 11.69 reprints the frame only if Step 11.68 measures a panel stack over 6.2 mm.
 
-**Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` (back only as the optional [Ch 14 Part H](14-calibration.md) add-on). Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7); p.250–253/256 come back in the optional Ch 14 Part H.
+**Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`. The stock exhaust housing set, `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover` and `[a]_exhaust_fan_grill`, is printed in batch B13 but not fitted here: it waits in bin 14-exhaust for [Ch 14 Part H](14-calibration.md). Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7); p.250–253/256 come back in Ch 14 Part H.
 
 **Hardware** (chapter totals)
 
@@ -164,7 +171,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | PTFE tube, 4 mm OD, 3 mm ID, 2 m — from the side spool add-on order | 1 | Part C, replaces the kit's reverse-bowden run at 11.72 |
 | Spindle O-ring — from a USS Drybox box | 1 | Part C, on Prusa's spindle at 11.73 |
 
-Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short; with Part C and the Ch 13–14 add-ons fitted, about 3 roll-in and 2 hammerhead M3 T-nuts are left over. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
+Every count above is off the page, STL or source named in its row; rows marked *(verify on bench)* are the ones no source settles. The kit ships 283 M3×8 SHCS, 135 M3 roll-in T-nuts and 75 M3 hammerhead T-nuts, so you are not going to run short; with Part C, the Ch 13 scrubber add-on and Ch 14 Part H fitted, about 3 roll-in and 2 hammerhead M3 T-nuts are left over. The Clicky-Clack kit supplies everything in its mod BOM plus its own bag of 14 M3 T-nuts; Fabreeko's listing leaves only the panel and the printed parts to source.
 
 **The LDO panel stack for a 350** — read this table before you cut a single strip of foam tape. Thicknesses are from the [LDO 350 Rev D+ BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+); the clip assignment is derived in 11.53/11.57/11.59.
 
@@ -188,7 +195,7 @@ Clip totals: 4 mm → 8 corner + 7 midspan = exactly `corner_panel_clip_4mm_x8` 
 - **Only Part A happens now.** The back, side and top panels and the door go on in **Part B, after Ch 13** — the startup wizard's motor, endstop and probe checks and the Ch 06b gantry-squaring pass all need the machine open on every face.
 - **The Clicky-Clack replaces the entire stock front-door assembly**, not the front skirt. `front_skirt_a_350` + the TFT module + `front_skirt_b_350` still go on. Manual p.245–249 are dead pages.
 - **The BTT 4.3" DSI touchscreen replaces the mini12864 module.** Manual p.211, p.214–216 and p.220–221 are dead pages; the mount STL lives in the **Trident** repo, not the Voron-2 repo. [src](https://docs.ldomotors.com/voron/voron2/build-faq)
-- **Nevermore replaces the stock exhaust filter.** Manual p.250–253 and p.256 are skipped (optional Ch 14 Part H aside); you print LDO's `exhaust_cover` and use it with the stock `exhaust_filter_grill` to seal the back panel's exhaust cut-out: grill inside, cover outside, and the filament PTFE crosses the panel through the coupler in the cover's centre. Decide this now — a back panel sealed the wrong way means the panel comes off and a part gets reprinted (survey §5.2 W11).
+- **Nevermore replaces the stock exhaust filter.** Manual p.250–253 and p.256 are skipped here (Ch 14 Part H brings them back); you print LDO's `exhaust_cover` and use it with the stock `exhaust_filter_grill` to seal the back panel's exhaust cut-out: grill inside, cover outside, and the filament PTFE crosses the panel through the coupler in the cover's centre. Decide this now — a back panel sealed the wrong way means the panel comes off and a part gets reprinted (survey §5.2 W11).
 - **Lay every skirt segment on the flat reference and check for rock before you fit anything.** `rear_center_skirt_350` is 182 mm on its long axis and the worst warp candidate in the whole build. A bowed skirt is the most visible defect on a finished Voron (print plan §5.2, B08 checkpoint).
 
 **Sources for this chapter:**
@@ -723,7 +730,7 @@ Pause: ~20 min since the last pause — front, rear and both side skirt runs mou
 
 1. Ignore p.228 and p.231; confirm the splicer on its **printed spacer**, its run on **FAN2 / PF7**.
 2. Dress the leads into the duct, clear of the blades.
-3. Camera add-on: tagged plug into a free Pi USB port.
+3. Camera: tagged plug into a free Pi USB port.
 
 **Check:** Both fans on one splicer; splicer on its spacer, not touching aluminium; PCB FAN plugged into FAN2/PF7; no lead within reach of a blade.
 
@@ -1507,7 +1514,7 @@ Ch 12 Part 2 (12.11–12.20, 12.23, 12.37) is already done — the boards were f
 
 Come back here at **11.52** once Checkpoint 13 is ticked. The rest of this chapter is about 1.0–2.0 h.
 
-**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61 (stock doors skipped), 11.62–11.64 (Clicky-Clack door hung), 11.65 (thread-lock), 11.66 (final seal check), then the optional Part C add-ons (11.68–11.76).
+**Sub-sections that wait for Ch 13:** 11.52–11.55 (back panel and exhaust), 11.56–11.58 (side panels), 11.59–11.60 (top panel and handlebars), 11.61 (stock doors skipped), 11.62–11.64 (Clicky-Clack door hung), 11.65 (thread-lock), 11.66 (final seal check), then Part C, the side spool holder and camera (11.68–11.76).
 
 ---
 
@@ -1937,21 +1944,21 @@ Tip: optional 6 mm slot covers hide empty slots. For Part C, leave open the top 
 
 Source: [Voron manual p.241](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=241) · [Voron manual p.243](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=243) · [KB3D Clicky-Clack install guide § Frame Assembly](https://wiki.kb-3d.com/en/home/LDO/LDO_Clicky_Clacky_Door_Mod#frame-assembly) · [survey §5.2 W11](../voron-build-instructions-survey.md)
 
-Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11, or for the Part C add-ons first.
+Pause: ~15 min since the last pause — hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11.
 
 ---
 
 <a id="part-c-add-ons"></a>
 
-## Part C — Add-ons: side spool holder and camera
+## Part C — Side spool holder and camera
 
-Both add-ons are optional and come after Part B. The **side spool holder** is a diagonal frame on the right side panel's extrusions carrying Prusa's Universal Puck: a bare spool goes on Prusa's 1 kg spindle, or a Prusa USS Drybox hangs on the puck. The filament climbs to a tube holder on the top right extrusion and runs back to the stock bowden retainer. The **camera** is a small OV5640 USB board in a HappyCam mount inside the top front extrusion; its cable went into the frame at Ch 10 Step 10.81. Nothing is printed until Step 11.68 has measured the panel stack and the board.
+Both are part of this build and come after Part B. The **side spool holder** is a diagonal frame on the right side panel's extrusions carrying Prusa's Universal Puck: a bare spool goes on Prusa's 1 kg spindle, or a Prusa USS Drybox hangs on the puck. The filament climbs to a tube holder on the top right extrusion and runs back to the stock bowden retainer. The **camera** is a small OV5640 USB board in a HappyCam mount inside the top front extrusion; its cable went into the frame at Ch 10 Step 10.81. Their parts come off batch B12; Step 11.68 checks the printed frame against this machine's panel stack and the board against HappyCam's pegs.
 
-### Step 11.68 — Measure the panel stack and the camera board
+### Step 11.68 — Confirm the panel stack and the camera board
 
 (no image — see text)
 
-**What you're looking at:** The side spool frame stands on two feet, one on the top right extrusion and one on the front right vertical, drawn 6.5 mm tall for a 3 mm panel on 3 mm foam. The camera board sits on three pegs in HappyCam's pocket.
+**What you're looking at:** The B12 side spool frame stands on two feet, one on the top right extrusion and one on the front right vertical, printed 6.5 mm tall for a 3 mm panel on 3 mm foam. The camera board sits on three pegs in HappyCam's pocket.
 
 **Parts:**
 
@@ -1963,16 +1970,16 @@ Both add-ons are optional and come after Part B. The **side spool holder** is a 
 1. Beside a right side-panel clip, caliper from the extrusion face up to the panel's outer face.
 2. Caliper the camera board's length and its mounting-hole centres, and check a hole sits over each HappyCam peg.
 
-**Check:** Every calculator row below answered and passing, or the add-on it belongs to stopped.
+**Check:** Every calculator row below answered and passing, or the fitting it belongs to stopped or its frame reprinted.
 
 ```gate-calc
 id: part-c-addons
-title: Part C add-ons — do the frame and the camera mount fit this machine
+title: Part C — do the printed frame and the camera mount fit this machine
 inputs:
   - key: stack
     label: Right side panel, extrusion face to the panel's outer face, beside a clip (mm)
     max: 6.2
-    high: The frame's 6.5 mm feet would leave its body on the panel. Before printing, re-run remix.scad with -D stack= this reading plus 0.3.
+    high: The printed frame's 6.5 mm feet would leave its body on the panel. Reprint B12-P1 at the next step, regenerated with -D stack= this reading plus 0.3.
     why: The body must stand clear of the panel so the two screws pull the feet onto aluminium, not the frame onto the PC.
   - key: holes
     label: Camera board, mounting-hole centre to centre along the board (mm)
@@ -1994,48 +2001,47 @@ inputs:
   - key: cable
     label: The cable laid at Step 10.81 plugs into this board's socket
     kind: yesno
-    no: Get a cable with this board's connector, laid along the same route, before printing anything.
+    no: Get a cable with this board's connector, laid along the same route, before fitting the camera.
     why: The cable is in covered slots from the front centre to the Pi; swapping it later means lifting the covers.
-pass: Both add-ons fit. Print their parts at the next step.
+pass: Both fit as printed. Skip the reprint at the next step and fit the B12 parts.
 ```
 
 **Helper:** Reads each caliper value aloud and types it into the calculator.
 
-⚠ The rows are independent: a failing camera row stops only the camera, and a high stack only changes the frame file. Re-run `openscad -q --export-format binstl -o side_spool_frame_puck.stl -D stack=… remix.scad` in `slicer/addons/side-spool-608769/` before printing.
+⚠ The rows are independent: a failing camera row stops only the camera, and a high stack only reprints the frame at the next step.
 
 Source: [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769) · [Printables 488020 — HappyCam](https://www.printables.com/model/488020) · [LDO Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) · `slicer/addons/side-spool-608769/README.md` · `slicer/addons/happycam-488020/README.md`
 
 ---
 
-### Step 11.69 — Print the add-on parts on the Core One+
+### Step 11.69 — Reprint the frame, only if the stack is thick
 
 (no image — see text)
 
-**What you're looking at:** Three jobs on the Core One+, outside the plate run. The frame fills the bed alone, the small black parts share one job, and Prusa's puck and spindle print in the blue accent.
+**What you're looking at:** B12-P1 printed the frame with 6.5 mm feet. A stack over 6.2 mm needs taller feet, so the frame is regenerated from its script and printed again on its own; the other five B12 parts fit any stack.
 
 **Parts:**
 
-- consumable: Galaxy Black ASA, about 135 g
-- consumable: blue accent ASA, about 85 g
+- consumable: Galaxy Black ASA, about 105 g
 - tool: the Core One+ with the satin sheet
 
 **Do:**
 
-1. Job 1: the frame, as oriented, `voron-coreone-asa.ini`.
-2. Job 2, same profile: tube holder flat side down, HappyCam body on its top face, light cover flat; body-only build-plate supports.
-3. Job 3: puck and spindle, as oriented, `voron-accent-blue.ini`.
+1. Stack 6.2 mm or less: skip this; the parts wait in bins 11-side-spool and 11-camera.
+2. Over 6.2 mm: run `remix.scad` with `-D stack=` the reading plus 0.3.
+3. Open `B12-P1.3mf`, **Replace with STL** the new file, print it alone.
 
-**Check:** Slices of about 7.2 h, 1.8 h and 5.0 h, no supports in jobs 1 and 3, and each part bagged in 11-side-spool or 11-camera.
+**Check:** Step skipped, or a new frame off the bed whose feet stand 0.3 mm taller than the stack reading.
 
-**Helper:** Checks each part in the slicer against this step's list and ticks it.
+**Helper:** Reads the stack reading aloud and compares it with 6.2 mm.
 
-⚠ ASA: set Chamber Filtration to Adv. Filtration before each job, as for every ASA plate.
+⚠ ASA: set Chamber Filtration to Adv. Filtration before the reprint. Keep the frame centred as the project has it and never press Arrange: no layout of the 212 mm frame meets the 25 mm edge rule.
 
-Tip: The frame is `slicer/addons/side-spool-608769/side_spool_frame_puck.stl`; `python3 slicer/fetch_stls.py` puts the other five files, the camera pair from remix 527904, under `slicer/stl/printables/`.
+Tip: From `slicer/addons/side-spool-608769/`: `openscad -q --export-format binstl -o frame-stack.stl -D stack=… remix.scad`. Right-click the frame in PrusaSlicer for **Replace with STL**; its brim stays.
 
-Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · [Printables 1605113 — print settings](https://www.printables.com/model/1605113) · [Printables 488020 — comments](https://www.printables.com/model/488020) · [Printables 527904 — light cover remix](https://www.printables.com/model/527904)
+Source: [B12 — Side spool holder and camera](print/B12-side-spool-and-camera.md) · `slicer/addons/side-spool-608769/README.md` · `slicer/addons/side-spool-608769/remix.scad` · [Printables 608769 — side mounted spool, 350](https://www.printables.com/model/608769)
 
-Pause: ~20 min since the last pause — three add-on jobs on the Core One+, about 14 h of printing. Leave each job on the sheet until it has cooled.
+Pause: ~20 min since the last pause — stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled.
 
 ---
 
@@ -2204,7 +2210,7 @@ Source: [Printables 488020 — HappyCam](https://www.printables.com/model/488020
 
 **Helper:** Watches the gap between toolhead and camera and calls stop if it closes.
 
-⚠ First pass with `M112` typed and unsent in Mainsail, as in Ch 13. A touch means the camera body moves along the extrusion or the add-on stops; never lower `position_max` to suit it.
+⚠ First pass with `M112` typed and unsent in Mainsail, as in Ch 13. A touch means the camera body moves along the extrusion or the camera stops; never lower `position_max` to suit it.
 
 Source: [Klipper G-Codes](https://www.klipper3d.org/G-Codes.html) · [Printables 488020 — comments](https://www.printables.com/model/488020)
 
@@ -2269,9 +2275,9 @@ Pause: ~40 min since the last pause — camera bolted in, the toolhead proven cl
 - [ ] Gantry run through full XY travel with the side panels on — no contact. Exhaust cover and grill sealing the back panel, cover tabs bolted to the top rear extrusion, the PTFE through the cover's coupler; no Voron filter housing fitted. Both handlebars on their printed spacers.
 - [ ] No stock door parts fitted; the Clicky-Clack latches with a click and draws the door onto the 3 mm foam; no daylight at any seam; thread locker on the panel-clip hammerhead nuts.
 
-**Part C — add-ons, if fitted**
+**Part C — side spool holder and camera**
 
-- [ ] Step 11.68's calculator passed for each add-on fitted before anything was printed; a high panel stack re-ran `remix.scad` first.
+- [ ] Step 11.68's calculator passed; a stack over 6.2 mm got a frame reprinted from `remix.scad` at Step 11.69 before anything was fitted.
 - [ ] Side spool frame on the right side's extrusions, both feet on aluminium and the body clear of the panel; an empty USS Drybox hangs upright on the puck; one PTFE from the spool to the CW2.5 with no kink or joint.
 - [ ] HappyCam centred inside the top front extrusion, nothing touching it along the front at Z max, the stream live in Mainsail on the iPad.
 
@@ -2288,4 +2294,4 @@ Pause: ~40 min since the last pause — camera bolted in, the toolhead proven cl
 
 ## Next
 
-**Ch 13 — Initial startup**, on the machine Ch 12 already configured (`leviathan-printer-rev-d-sbv2.cfg`, with LDO's Nevermore `[heater_fan exhaust_fan]` replaced by `[fan_generic nevermore]` on the Leviathan's `PF9`); then back here for Part B. After Part B (and any Part C add-ons): **Ch 14 — Calibration and tuning**.
+**Ch 13 — Initial startup**, on the machine Ch 12 already configured (`leviathan-printer-rev-d-sbv2.cfg`, with LDO's Nevermore `[heater_fan exhaust_fan]` replaced by `[fan_generic nevermore]` on the Leviathan's `PF9`); then back here for Part B. After Parts B and C: **Ch 14 — Calibration and tuning**.

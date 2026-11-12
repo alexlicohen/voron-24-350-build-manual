@@ -10,7 +10,7 @@ caption: Panels, filtration and a spool holder. Five plates, back to back, and n
 **Sessions:** 5 plate starts (~5 min hands-on each, 3.3–5.0 h unattended) + ~15 min inspect and bin, plus the
 panel-clip test on kit day.
 
-**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10
+**Prerequisites:** **Gate A** (as for B08, on the current GT2 belts) and B08: the run ends B08 → B09 → B10 → B12 → B13
 back to back. No bearing seat here, so Gate B is not needed.
 
 **Printed parts**

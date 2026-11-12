@@ -3,7 +3,7 @@
 Print every part on the **Prusa Core One+**, Prusament ASA, plate by plate, in build order.
 Written to be followed with a 13-year-old: one plate = one job.
 
-**Totals at a glance:** 28 plates · **155.2 h** print time · **1818 g Galaxy Black + 327 g ASA Blue** ·
+**Totals at a glance:** 33 plates · **176.0 h** print time · **2017 g Galaxy Black + 445 g ASA Blue** ·
 against 2400 g black + 800 g blue on hand. PrusaSlicer 2.9.7 estimates, sliced from the committed
 projects in `slicer/plates/` (§4.1); they replace a throughput model that read 134.3 h / 2248 g.
 **Plus B11**, the bay ducting, outside those totals: 7 plates · 25.1 h · 349 g Jet Black PETG V0 (§3, §9).
@@ -29,7 +29,7 @@ Everything below is from LDO's or Fabreeko's own pages, not from blogs.
 | Z endstop | LDO **nozzle-probe PCB**; the printed part `nozzle_probe_ldo.stl` **is supplied printed in the kit** | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
 | XY endstop | **D2F microswitch PCB** — print `[a]_endstop_pod_D2F_switch`, *not* the hall-effect pod. No hall effect anywhere in this kit. | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [Build Notes p.145](https://docs.ldomotors.com/voron/voron2/build-faq) |
 | Screen | **BigTreeTech Pi TFT4.3** (4.3" capacitive DSI). Print the LDO **BTT Pi TFT4.3 Mount**; **do not print the mini12864 parts.** | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [Rev D+ 350 BOM](https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+) |
-| Filtration | **Nevermore Micro V5 Duo** (6×3 mm magnets), *instead of* the stock Voron exhaust filter. The stock exhaust housing is on no plate; the back panel is sealed with LDO's `exhaust_cover` + the stock `exhaust_filter_grill`. The housing is printed only as the optional chamber exhaust add-on, after the build (Ch 14 Part H). Carbon not included. | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [LDO Nevermore guide](https://ldomotion.com/guides/nevermore-v5-duo---v24) |
+| Filtration | **Nevermore Micro V5 Duo** (6×3 mm magnets), *instead of* the stock Voron exhaust filter. The back panel is sealed with LDO's `exhaust_cover` + the stock `exhaust_filter_grill`. The stock exhaust housing set prints in B13 and is fitted only for the chamber exhaust fan, after the build and only if Ch 14 Step 14.25 passes (Ch 14 Part H). Carbon not included. | [LDO kit page](https://docs.ldomotors.com/en/voron/voron2); [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d); [LDO Nevermore guide](https://ldomotion.com/guides/nevermore-v5-duo---v24) |
 | Hotend | E3D **Revo High-Flow (Revo Voron form factor)** → Stealthburner printhead files `revo_voron/*` | [Fabreeko](https://www.fabreeko.com/products/ldo-voron-v2-4-kit); [SB printhead compatibility table](https://github.com/VoronDesign/Voron-Stealthburner/blob/main/STLs/Stealthburner/Printheads/README.md) ("E3D Revo Voron → E-RV") |
 | Cable chains | **2-hole** ends → always take the `_2hole` variants, never `_3hole` | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
 | Power inlet | 1.0 mm AC inlet with integrated switch → `power_inlet_IECGS_1mm.stl` | [Rev D printed parts guide](https://docs.ldomotors.com/en/voron/voron2/printed_part_guide_rev_d) |
@@ -214,7 +214,7 @@ material where wet filament actually costs you strength.
    | kit day | the same pocket, on a real 625-2RS (16 mm OD; F695 is the A/B-drive bearing, not the Z drive) | — | bearing presses in with thumb pressure, no rocking | **The press fit the caliper stood in for.** |
    | kit day | `MGN12_rail_guide` on the real MGN12 rail | — | slides on with light finger pressure | very tight → over-extrusion; loose → under-extrusion |
 
-6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10** are released (the whole run prints on the
+6. **Gate A passed → B02, B07 and the cosmetics B08 → B09 → B10 → B12 → B13** are released (the whole run prints on the
    current Gen 1 GT2 belts — §8). **Gate B passed → B01, then B03–B06.** Never start B01 or B03–B06 on Gate A alone — that is
    57.4 h and 759 g of bearing-seat and bore parts against an unverified fit. Nothing is bought to bring
    Gate B forward: its insert row runs on the KADRICK inserts already on the bench and its bore row is a
@@ -246,16 +246,16 @@ alignment jigs — `MGN12_rail_guide_x2` ×2 and `MGN9_rail_guide_x2` ×2. Both 
 So the minimum to start building is **B00 + B01 + B02-P1 to B02-P4** ≈ 48 h of printing.
 Everything else can be printed while you build.
 
-**What prints, and when.** The kit is expected in early November 2026 (§8), before the 155.2 h run has finished,
+**What prints, and when.** The kit is expected in early November 2026 (§8), before the 176.0 h run has finished,
 so printing overlaps the build. With Gate B's caliper and insert rows run early on what is already on the bench
 (§1.4) nothing is left to gate a batch.
 The order is therefore the plain numeric one — pre-B00 checks on the current Gen 1 belts, then
-**B00 → B01 → B02 → … → B10**, 155.2 h ≈ 17 printer-days ≈ 2–2½ weeks at two plate swaps a day. B11, the PETG V0
+**B00 → B01 → B02 → … → B10 → B12 → B13**, 176.0 h ≈ 19 printer-days ≈ 2½–3 weeks at two plate swaps a day. B11, the PETG V0
 bay ducting (outside the totals), cuts in twice: P1–P3 and P6 right after B07, before B08, and P4, P5 and P7 at the next free slot
-after the kit-day bay measurements, ahead of any B08–B10 plate still waiting, because Ch 09 needs all seven and
-nothing needs B08–B10 until Ch 10.50. When the kit lands, the frame (no printed part) and
+after the kit-day bay measurements, ahead of any B08–B10, B12 or B13 plate still waiting, because Ch 09 needs all seven and
+nothing needs B08–B10 until Ch 10.50, nor B12 until Ch 11 Part C, nor B13 until Ch 14 Part H. When the kit lands, the frame (no printed part) and
 Ch 00 start at once; start Ch 01–03 while later batches print, and start each chapter once the bins it needs are full
-(the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 → Ch 11. No print job is
+(the "needs" list per row of the [manual index](manual/00-index.md#the-timeline)). Numeric order is also consumption order: B01 + B02 → Ch 02, B03 → Ch 04, B04 → Ch 05, B05 → Ch 06, B06 + B07 → Ch 08, B07 → Ch 09, B08–B10 and B12 → Ch 11, B13 → Ch 14. No print job is
 owed on kit day: B01-P2 prints both deck-support sets, and the deck caliper only picks one (§6).
 
 **Tall parts (> 150 mm in Z): none.** The tallest part in the whole set is the Clicky-Clack `Handle` at
@@ -624,9 +624,9 @@ support you push out**. ([Nevermore README](https://github.com/nevermore3d/Never
 
 **Exhaust:** you are *not* building the Voron exhaust filter (76 g, 4.5 h saved). LDO: *"print this exhaust cover
 with the stock exhaust grill to seal the back panel"* — that is `exhaust_cover.stl` (LDO) + `exhaust_filter_grill.stl`
-(Voron). Skip `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill`. They come back
-only with the optional chamber exhaust fan (added 2026-10-03, Ch 14 Part H): an add-on print outside the plates,
-made after Step 14.25 has checked the machine — 101 g, 6.4 h in two jobs, `slicer/addons/exhaust-voron2/`.
+(Voron). `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover` and `[a]_exhaust_fan_grill`
+are not fitted here. They serve the chamber exhaust fan (added 2026-10-03, Ch 14 Part H) and print in batch B13
+(Alex 2026-11-12; an add-on printed after Step 14.25 until then), fitted only if Step 14.25 passes.
 
 ---
 
@@ -656,6 +656,67 @@ Notes:
 - **Resolved (survey, 2026-09-05):** the Clicky-Clack "Blue" option is the door's **aluminium frame** colour,
   matching the blue LDO frame — visible trim around the front opening, sitting with the blue accent parts and
   the black body.
+
+---
+
+### Batch B12 — Side spool holder + camera · **3 plates · 14.4 h · 133 g black + 83 g blue**
+**Unlocks:** Ch 11 Part C: the side spool holder on the right side's extrusions and the HappyCam camera mount
+inside the top front extrusion. Part of the build since 2026-11-12 (Alex); until then add-ons printed after
+Step 11.68. Page: [`manual/print/B12-side-spool-and-camera.md`](manual/print/B12-side-spool-and-camera.md).
+
+| STL | Repo path | Qty | Colour | g ea | h ea |
+|---|---|---:|---|---:|---:|
+| `side_spool_frame_puck.stl` | this repo, `slicer/addons/side-spool-608769/` (remix of Printables 608769, Maltasrc) | 1 | Black | 105.3 | 6.95 |
+| `Bowden Tube Holder_Long.stl` | Printables 608769 (Maltasrc) | 1 | Black | 7.9 | 0.53 |
+| `HappyCam_main-350.stl` | Printables 527904 (Zemistr, remix of 488020) | 1 | Black | 18.6 | 1.20 |
+| `HappyCam_cover_with_light.stl` | Printables 527904 (Zemistr) | 1 | Black | 1.5 | 0.11 |
+| `Universal-puck-R1.stl` | Printables 1605113 (Prusa Research) | 1 | Blue | 31.7 | 2.15 |
+| `Universal-spoolholder-1kg-R1.stl` | Printables 1605113 (Prusa Research) | 1 | Blue | 51.2 | 3.51 |
+
+Unlike the other tables in §3, `g ea` / `h ea` here are each part sliced alone in PrusaSlicer 2.9.7 with its
+plate's settings (the camera body with its supports).
+
+- **Plate B12-P1** (6.9 h, 105 g black) — the frame alone, centred; the one plate exempt from the 25 mm edge
+  rule (`plates.EDGE_EXEMPT`, §5.1).
+- **Plate B12-P2** (1.8 h, 28 g black) — tube holder and camera body, both turned 180° about X
+  (`plates.ORIENT`), and the light cover as drawn; build-plate-only supports on the body alone
+  (`plates.OBJECT_SETTINGS`).
+- **Plate B12-P3** (5.7 h, 83 g blue) — Prusa's Universal Puck and 1 kg spindle, as oriented.
+
+Notes:
+- The frame's 6.5 mm feet assume a 3 mm side panel on 3 mm foam. Ch 11 Step 11.68 calipers the real stack;
+  over 6.2 mm, `remix.scad -D stack=<reading + 0.3>` and B12-P1 is reprinted alone at Step 11.69 (§6).
+- Licences: frame and tube holder CC BY-NC-SA (Maltasrc), puck and spindle Open Community License (Prusa
+  Research), camera pair CC BY-NC-SA (Zemistr); HappyCam's original 488020 pair (Voxel3D_NL, CC BY-NC) stays
+  pinned as the fallback, on no plate. Credits: `slicer/addons/side-spool-608769/README.md`,
+  `slicer/addons/happycam-488020/README.md`.
+
+---
+
+### Batch B13 — Exhaust housing · **2 plates · 6.4 h · 66 g black + 35 g blue**
+**Unlocks:** Ch 14 Part H: the stock Voron exhaust housing over the back panel's notch, its fan driven by the
+chamber thermistor. Part of the build since 2026-11-12 (Alex); until then an add-on printed after Step 14.25,
+which still decides whether the parts are fitted. Page: [`manual/print/B13-exhaust-housing.md`](manual/print/B13-exhaust-housing.md).
+
+| STL | Repo path | Qty | Colour | g ea | h ea |
+|---|---|---:|---|---:|---:|
+| `exhaust_filter_housing.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Black | 66.1 | 4.51 |
+| `[a]_exhaust_fan_grill.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Blue | 5.8 | 0.44 |
+| `[a]_filter_access_cover.stl` | Voron-2 `STLs/Exhaust_Filter/` | 1 | Blue | 25.4 | 1.21 |
+| `[a]_exhaust_filter_mount_x2.stl` | Voron-2 `STLs/Exhaust_Filter/` | 2 | Blue | 2.1 | 0.15 |
+
+As for B12, `g ea` / `h ea` are each part sliced alone in PrusaSlicer 2.9.7 with its plate's settings and a
+3 mm brim.
+
+- **Plate B13-P1** (4.5 h, 66 g black) — the housing alone.
+- **Plate B13-P2** (1.9 h, 35 g blue) — fan grill, access cover and the two filter mounts.
+
+Notes:
+- As oriented, no supports; every part 30 mm or longer, so all five carry a 3 mm brim. Both plates meet the
+  25 mm edge rule with no exemption.
+- `exhaust_filter_grill` is not here: B09-P4 prints it for Ch 11 Step 11.54, and Part H reuses it in place.
+- Licence GPL-3.0, the Voron Design team's files unchanged at the pinned Voron-2 commit; credit and hardware:
+  `slicer/addons/exhaust-voron2/README.md`.
 
 ---
 
@@ -689,7 +750,7 @@ stock pieces committed in `slicer/stl/bayducts/mss/502306/` (the Printables mode
 Notes:
 - Before kit, 4 plates, 11.9 h, 173 g; after the kit-day measurements, 3 plates, 13.2 h, 176 g.
 - Order: P1–P3 and P6 between B07 and B08; P4, P5 and P7 at the next free slot after Steps B11.10–B11.11, ahead of any
-  B08–B10 plate still waiting. Satin sheet and Adv. Filtration back on before the next ASA plate.
+  B08–B10, B12 or B13 plate still waiting. Satin sheet and Adv. Filtration back on before the next ASA plate.
 - Kit-day confirmation: the v3 route adds ~195 mm to the A motor lead and ~129 mm to B. Either way, P4, P5
   and P7 print on schedule; a short lead gets a longer replacement (4-pin JST-XH) rather than a drop to layout v1.
 - All five arrangements came from `nest.py` and passed the Step B00.8 review as packed (2026-11-02).
@@ -728,8 +789,9 @@ comes off the bed, and carry that ratio forward.
 
 **Cross-check against the community numbers:** stripping the mods (the Klicky set ≈51 g, COB mounts 124 g, LDO extras)
 gives ≈ **0.95 kg functional** and ≈ **0.90 kg cosmetic**, against the widely-quoted ~1.0 kg / ~0.9 kg for a
-Voron 2.4 350 set. Total print time 155.2 h sits at the top of the commonly reported 120–160 h band — which is
-what a quality-biased profile is supposed to do.
+Voron 2.4 350 set. Total print time 176.0 h sits just above the commonly reported 120–160 h band, with B12's
+14.4 h of side spool holder and camera mount and B13's 6.4 h of exhaust housing on top of the machine itself —
+which is what a quality-biased profile plus three fittings is supposed to do.
 
 ### 4.2 Filament budget
 
@@ -738,12 +800,12 @@ less — margin you gain, not a budget to spend.
 
 | | Needed | On hand | Margin | Reprint allowance |
 |---|---:|---:|---:|---:|
-| **Galaxy Black** | **1818 g** | 2400 g (3 × 800 g) | **582 g** | **32 %** |
-| **ASA Blue** | **327 g** | 800 g (1 × 800 g) | **473 g** | **145 %** |
-| Total | 2145 g | 3200 g | 1055 g | — |
+| **Galaxy Black** | **2017 g** | 2400 g (3 × 800 g) | **383 g** | **19 %** |
+| **ASA Blue** | **445 g** | 800 g (1 × 800 g) | **355 g** | **80 %** |
+| Total | 2462 g | 3200 g | 738 g | — |
 
-**Black margin is comfortable, but not unlimited.** 582 g is about three of the largest plates, and the four
-optional add-ons would take about 239 g of it (blue: 120 g of 473 g). Typical
+**Black margin is comfortable, but not unlimited.** 383 g is about two of the largest plates, and the optional
+scrubber add-on would take about 38 g of it. Typical
 first-build reprint rate is 10–15 %, so you should land fine — but:
 
 - Don't burn black on the optional extras (`bed_hole_marking_template`, `bottom_panel_template`, purge-bucket
@@ -756,15 +818,15 @@ first-build reprint rate is 10–15 %, so you should land fine — but:
 ### 4.3 Spool changes
 
 Cumulative black consumed after each batch: B00 **51** · B01 **360** · B03 **480** · B04 **597** · B05 **675** ·
-B06 **821** · B07 **1046** · B08 **1443** · B09 **1743** · B10 **1818 g**.
+B06 **821** · B07 **1046** · B08 **1443** · B09 **1743** · B10 **1818** · B12 **1951** · B13 **2017 g**.
 
 With 800 g spools and the numeric print order, spool **#1** carries B00 through **B05-P1** and ends with
 ~125 g. **B06-P1 starts spool #2** on that stub rather than risk a resume seam: the plate holds the Revo
 hotend seat and the Clockwork 2.5 gear bores. #2 then runs to the end of **B08-P5** with ~30 g left, and
 **spool #3 takes over mid-plate inside B09-P1** — the exhaust cover, a hinge, two bottom clips and eight panel clips, no bearing
 seat or bore, so a runout seam there is fine. The runout sensor pauses the plate about 2 h into its 3.7 h and waits
-for you to load #3 and press **Continue**, so start it when you will be home then and watch the clock. #3 finishes the build
-with ~457 g spare. Same fresh-spool rule as B06 applies to B01-P1 (the 14.6 h, 200 g plate): a resume seam on
+for you to load #3 and press **Continue**, so start it when you will be home then and watch the clock. #3 finishes the run
+with B13-P1, the exhaust housing, and ~258 g spare. The blue spool **A1** comes back for B12-P3, the puck and spindle, then once more after B13-P1 for B13-P2, the exhaust's blue parts, and ends with ~355 g. Same fresh-spool rule as B06 applies to B01-P1 (the 14.6 h, 200 g plate): a resume seam on
 a Z-drive body is not worth the risk, so it wants ≥200 g on the spool at the start — it has 749 g. Record
 what is *actually* consumed in the spool ledger in
 [`manual/print/README.md`](manual/print/README.md#spool-ledger); the prediction above is only as good as the
@@ -779,14 +841,17 @@ first few weighings.
 **Do not change which face sits on the bed.** Every Voron, LDO, Klicky and Clicky-Clack STL ships
 pre-oriented for support-free printing. Rotating a part **about Z** (in the plane of the bed) to make it fit is
 fine — it does not change the layer orientation, and several plates rely on it (the arranger turns parts in 5° steps).
-Three exceptions to the face rule:
+Four exceptions to the face rule:
 
 1. `XY_cable_chain_bridge-Igus-3mm_backer.stl` is a community remix and arrives standing 44 mm tall on a
    21 mm-wide footprint; printed that way its overhangs came out poorly (2026-11-08). `plates.ORIENT` lays it
    on its largest flat face (21 mm tall, 731 mm² on the bed), so every rebuilt B02-P4 prints it flat.
 2. The Nevermore `Regular_Cartridge_Lid` (Bucknova) is drawn rim-and-ribs down, which leaves its 1.2 mm panel
    bridging about 3900 mm². `plates.ORIENT` flips it so the solid face is on the bed.
-3. Mirror the two Clicky-Clack `Hinge-L-*` parts if you want the door to swing the other way.
+3. B12's HappyCam body and the side spool tube holder are drawn as installed. `plates.ORIENT` turns both 180°
+   about X (keyed by path, since HappyCam's fallback body shares the file name), the body onto its top face with
+   build-plate-only supports under its cable exit.
+4. Mirror the two Clicky-Clack `Hinge-L-*` parts if you want the door to swing the other way.
 
 **No part in this build exceeds 150 mm in Z.** The tallest are, in order:
 
@@ -821,7 +886,11 @@ plate that does not fit splits (`build_plates.PA_GAP_LADDER` empty). `tools/plat
 and B09-P4 were re-packed for it on 2026-11-03, and 18 plates again on 2026-11-05 for the big-part brims
 (B03 split into B03-P1, the A side, and B03-P2, the B side), and on 2026-11-06 for 25 mm (B02-P3 into P3 + P4,
 B06-P1 into P1 + P2, B09 onto five plates; B11 onto seven, P6 and P7 split off, still brimless). PrusaSlicer's
-**Arrange** does not know the rule: in the GUI, move parts by hand only.
+**Arrange** does not know the rule: in the GUI, move parts by hand only. **One exemption (B12 integration, 2026-11-12):**
+B12-P1's side spool frame is 212 × 212 mm, so no layout on the 250 × 220 bed keeps it 25 mm from every edge; it
+prints alone and centred, brim under 1 mm from the front and rear edges. `plates.EDGE_EXEMPT` names it with that
+reason, `slicer/audit_plates.py` lists the break instead of failing it (gap and brim rules still apply), and no
+other plate is exempt.
 
 Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_body`, `Regular_Cartridge`
 (Nevermore), `V2_Duo_Plenum`. The skirts are single-shell parts — they have no break-away body.
@@ -841,9 +910,11 @@ Parts with **built-in supports to break out, not cut**: `[a]_stealthburner_main_
 | **B08** | **Lay every skirt segment on a flat reference (your granite counter) and check for rocking.** A bowed skirt is the most visible defect on a finished Voron. Also dry-fit the ring: front + TFT mount + front, rear + inlet + keystone, sides + fan supports. | `rear_center_skirt_350` (182 mm — the worst warp candidate in the set) |
 | **B09** | Panel clips: snap one onto an extrusion with a 3 mm offcut to confirm 4 mm vs 6 mm choice **before** printing all 31. Nevermore: plenum lid must slide in its groove; cartridge must snap onto the plenum. | the 6 mm corner clips, if the foam tape choice changes |
 | **B10** | Sleeve bearings must tap into the hinge sleeves without splitting the part; M5×45 pin into the "solid" half should be a **very** tight hammer fit with ~20 mm proud. | `Hinge-L-solid-2X` (split risk on the pin press) |
+| **B12** | Side spool frame flat on the reference with both feet whole; HappyCam body's supports out of the cable exit and its three locating pegs whole. The frame's feet are checked against the real panel stack at Ch 11 Step 11.68. | `side_spool_frame_puck`, only if the stack is over 6.2 mm |
+| **B13** | Housing and access cover flat on the reference; the housing's eight insert bosses open and both filter mounts whole. Whether they are fitted is Ch 14 Step 14.25's call, on the machine. | none expected |
 
 Across the whole build, the three parts most often reprinted by Voron builders are the **A/B drive frames**
-(bearing fit), the **long skirts** (warp), and the **Stealthburner main body** (cosmetics). Budget your 583 g of
+(bearing fit), the **long skirts** (warp), and the **Stealthburner main body** (cosmetics). Budget your 383 g of
 black margin against those.
 
 ---
@@ -860,6 +931,7 @@ black margin against those.
 | Clicky-Clack "Blue" | Fabreeko doesn't state what the colour governs | Ask before it ships |
 | Rev D+ printed-parts guide | Doesn't exist; only Rev A/B, C, D | **Resolved:** D+ changes one printed part (§0). The remaining Discord question is only whether a D+ guide will be published. |
 | `mount.stl` vs `mount_thick.stl` | LDO links the folder, not a file | `mount.stl` chosen (30 g vs 74 g); swap if you want brightness-button access |
+| Side spool frame feet (B12-P1) | Drawn 6.5 mm tall for a 3 mm side panel on 3 mm foam; LDO's stack is not measured until the panels are on | Ch 11 Step 11.68 calipers it; over 6.2 mm, regenerate with `remix.scad -D stack=<reading + 0.3>` and reprint B12-P1 alone (Step 11.69) |
 
 **Optional, not in any batch** (print later if you want them): `bed_hole_marking_template_x1_Rev2` (LDO's bed is
 pre-drilled), `bottom_panel_template`, `Purge Bucket/brush_holder_sheet_stop` + `individual_sheet_stop`
@@ -867,8 +939,7 @@ pre-drilled), `bottom_panel_template`, `Purge Bucket/brush_holder_sheet_stop` + 
 [Printables 796563](https://www.printables.com/model/796563), an add-on outside the plates, **never printed ahead of kit day**: Ch 13 Part L
 measures the machine, `slicer/addons/scrubber-796563/remix.py` generates the parts from those numbers (or says
 no-go), and only then are they printed — about 3 parts, 38 g black ASA, 2 h 30 m; the kit's brass brush is a
-hand tool), the Ch 11 Part C side spool holder and HappyCam camera mount (Printables 608769 remixed for Prusa's
-puck from 1605113, and 488020 with the light cover and body of its remix 527904: 6 parts, about 220 g, 14 h, printed after Step 11.68 measures; `slicer/addons/`),
+hand tool),
 `[a]_fan_grill_open_optional_x2`, `z_belt_cover_a_led` (LDO variant if you route the LED strip through the
 Z-belt opening), extra `ldo_bestagon_insert`s.
 
@@ -891,7 +962,7 @@ Z-belt opening), extra `ldo_bestagon_insert`s.
 | `raspberrypi_bracket.stl`, `beefy_raspberry_bracket.stl` | Leviathan has an integrated Pi mount (Rev D) |
 | `rs25_psu_bracket.stl` | No 5 V PSU in this kit |
 | `mini12864_case_front/rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield` | BTT touchscreen replaces the mini12864 module |
-| `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` | Nevermore replaces the stock exhaust filter; kit has no fan for it. Printed later only for the optional Ch 14 Part H exhaust fan, outside every batch |
+| `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` | Nevermore replaces the stock exhaust filter; kit has no fan for it. Printed in B13 for the Ch 14 Part H exhaust fan and fitted only if Step 14.25 passes |
 | `door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`, LDO `LDO Door/*` | Clicky-Clack replaces the stock doors |
 | `power_inlet_IECGS_1.2mm`, `power_inlet_filtered`, `plug_panel_1.2mm` | Kit ships the 1.0 mm inlet |
 | `xy_joint_*_MGN9`, `x_carriage_*_MGN9`, `[a]_belt_clamp_MGN9_x2` (Superceded) | X axis is MGN12 |
@@ -914,7 +985,7 @@ delivery was **late 2026**; Alex's ruling of 2026-10-23 puts it at **early Novem
 **Decision (2026-09-23): deferred to the INDX rebuild, this winter.** The Gen 2 upgrade is no longer done
 before B00. It installs together with the INDX 8-tool conversion — Prusa documents the combined job
 (<https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>). The
-whole 155.2 h / 28-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 176.0 h / 33-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; the mid-run pause is
 retired, because nothing changes the machine under the parts.
 
@@ -985,7 +1056,9 @@ mechanical chapters need).
 | B08 | Skirts + front modules | 5 | 26.5 | 397 | 0 | Skirts | B00;B02;B07 |
 | B09 | Panels, filtration, spool | 5 | 20.8 | 300 | 0 | Panels | B00;B08 |
 | B10 | Clicky-Clack door | 1 | 5.7 | 75 | 0 | Panels (front door) | B00;B02;B09 |
-| **TOTAL** | | **28** | **155.2** | **1818** | **327** | | |
+| B12 | Side spool holder + camera | 3 | 14.4 | 133 | 83 | Panels (Ch 11 Part C) | B00 |
+| B13 | Exhaust housing | 2 | 6.4 | 66 | 35 | Calibration (Ch 14 Part H) | B00 |
+| **TOTAL** | | **33** | **176.0** | **2017** | **445** | | |
 
 ```csv
 batch_id,name,plates,hours,g_black,g_blue,unlocks_chapter,hard_prereq_batches
@@ -1000,7 +1073,9 @@ B07,Electronics bay + lighting,3,15.3,225,0,Electronics;Controller;Wiring,B00
 B08,Skirts + front modules,5,26.5,397,0,Skirts,B00;B02;B07
 B09,"Panels, filtration, spool",5,20.8,300,0,Panels,B00;B08
 B10,Clicky-Clack door,1,5.7,75,0,Panels (front door),B00;B02;B09
-TOTAL,,28,155.2,1818,327,,
+B12,Side spool holder + camera,3,14.4,133,83,Panels (Ch 11 Part C),B00
+B13,Exhaust housing,2,6.4,66,35,Calibration (Ch 14 Part H),B00
+TOTAL,,33,176.0,2017,445,,
 ```
 
 Plate-level detail (batch, plate, hours, grams) for scheduling:
@@ -1035,6 +1110,11 @@ B09-P3,B09,4.5,65,black
 B09-P4,B09,3.3,47,black
 B09-P5,B09,4.0,60,black
 B10-P1,B10,5.7,75,black
+B12-P1,B12,6.9,105,black
+B12-P2,B12,1.8,28,black
+B12-P3,B12,5.7,83,blue
+B13-P1,B13,4.5,66,black
+B13-P2,B13,1.9,35,blue
 ```
 
 B11, the bay ducting, is outside the run and every total above. Its plates, by group

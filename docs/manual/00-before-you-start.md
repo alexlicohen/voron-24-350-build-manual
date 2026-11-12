@@ -393,9 +393,9 @@ Pause: ~10 min since the last pause — kit day: the kit tools are laid out on t
 | 32 GB microSD card (A1) and an SD card reader for the laptop | **Buy the card** — Rev D+ ships none (Rev D did); the reader if not owned | Ch 09 (09.22), Ch 12 (12.2) |
 | Fire extinguisher, ABC dry chemical (rated for electrical fires) | **Buy** — within arm's reach at every power-on, then kept by the machine, Ch 00a | Ch 12 (12.11) |
 | Bambu Lab Heatbed Nozzle Wiper – A1/A2L, 3-pack | **Buy — only for the optional nozzle scrubber** (Ch 13 Part L), ~$2.99 from the Bambu Lab store; the kit's brass brush is a hand tool and does not replace it. Needed in hand before the add-on is decided: its height is measured | Ch 13 (13.45) |
-| Chamber exhaust add-on: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — only for the optional exhaust fan** (Ch 14 Part H), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
-| Camera add-on: a bar-shaped OV5640 USB camera board, autofocus, ~68–72° lens, holes for HappyCam's three pegs (two 4 mm apart across one end, the third 50 mm along), with a 3 m USB cable for its socket | **Buy — only for the optional camera** (Ch 10 at 10.81, Ch 11 Part C). The cable goes into the frame at Ch 10, so it has to be in hand by then; Part C's first step checks the board against the HappyCam mount before anything is printed | Ch 10 (10.81) |
-| Side spool add-on: 2 m of 4 mm OD × 3 mm ID PTFE tube | **Buy — only for the optional side spool holder** (Ch 11 Part C); it replaces the kit's reverse-bowden run. The spindle's O-ring comes with every Prusa USS Drybox | Ch 11 (11.72) |
+| Chamber exhaust: a 60×60×20 mm 24 V two-wire fan, a 1 m JST-XH 2-pin extension lead, and a cuttable activated-carbon cooker-hood filter mat | **Buy — for the exhaust fan** (Ch 14 Part H; its housing set prints in B13), and only after the calculator at [14.25](14-calibration.md#step-1425-inspect-the-back-of-the-machine-before-anything-is-bought) passes; roughly $10, $7 and $10. The kit's two 6020 fans are the bay pair and stay there; the jumper and every screw are kit spares | Ch 14 (14.28) |
+| Camera: a bar-shaped OV5640 USB camera board, autofocus, ~68–72° lens, holes for HappyCam's three pegs (two 4 mm apart across one end, the third 50 mm along), with a 3 m USB cable for its socket | **Buy — for the camera** (Ch 10 at 10.81, Ch 11 Part C; its mount prints in B12). The cable goes into the frame at Ch 10, so it has to be in hand by then; Part C's first step checks the board against the HappyCam mount before it is fitted | Ch 10 (10.81) |
+| Side spool holder: 2 m of 4 mm OD × 3 mm ID PTFE tube | **Buy — for the side spool holder** (Ch 11 Part C; its parts print in B12); it replaces the kit's reverse-bowden run. The spindle's O-ring comes with every Prusa USS Drybox | Ch 11 (11.72) |
 | Printed hardware trays A–C, Gridfinity bins | **Print** — PLA bench print before kit day, [print plan § Bench prints](print/README.md#bench-prints-outside-the-plates) | Ch 00, kit day (00.12) |
 | Dial indicator + magnetic base | Optional, skip for now | — |
 
@@ -509,8 +509,10 @@ Source: [Voron manual p.15](https://github.com/VoronDesign/Voron-2/blob/de7e89d/
 | B08 — Skirts and front modules | 10-tft, 11-skirts |
 | B09 — Panels, filtration, spool | 11-panels, 11-clips-4mm, 11-finish, 11-clips-6mm, 11-nevermore, 11-spool |
 | B10 — Clicky-Clack door | 11-door |
+| B12 — Side spool holder and camera | 11-side-spool, 11-camera |
+| B13 — Exhaust housing | 14-exhaust |
 | B11 — Bay ducting (PETG V0) | 09-ducts-DC, 09-ducts-AC, 10-lids-AC, 11-lids-DC |
-| Add-ons after kit day, on no plate | 11-side-spool, 11-camera, 13-scrubber, 14-exhaust |
+| Add-on after kit day, on no plate | 13-scrubber |
 
 **Check:** 36 bins bagged or boxed and labelled, the batch-to-bin map posted where you sort, plus bins for the LDO-supplied parts and the greased rails.
 

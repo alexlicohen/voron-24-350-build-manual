@@ -440,15 +440,15 @@ def dc_control() -> Doc:
 
 # ============================================================ print-set sheet
 def parts_sheet(out_path: Path) -> None:
-    """The four Part H prints + the reused grill, in their print colours, from the
+    """The four Part H prints (batch B13) + the reused grill, in their print colours, from the
     fetched STLs (slicer/fetch_stls.py). Reuses render_parts.py's renderer."""
     import render_parts as RP
     import matplotlib.pyplot as plt
     stl = RP.STL_DIR / "voron2" / "STLs" / "Exhaust_Filter"
-    items = [("exhaust_filter_housing.stl", RP.COLOUR_PRIMARY, "Galaxy Black · job 1"),
-             ("[a]_exhaust_fan_grill.stl", RP.COLOUR_ACCENT, "blue accent · job 2"),
-             ("[a]_filter_access_cover.stl", RP.COLOUR_ACCENT, "blue accent · job 2"),
-             ("[a]_exhaust_filter_mount_x2.stl", RP.COLOUR_ACCENT, "blue accent ×2 · job 2"),
+    items = [("exhaust_filter_housing.stl", RP.COLOUR_PRIMARY, "Galaxy Black · B13-P1"),
+             ("[a]_exhaust_fan_grill.stl", RP.COLOUR_ACCENT, "blue accent · B13-P2"),
+             ("[a]_filter_access_cover.stl", RP.COLOUR_ACCENT, "blue accent · B13-P2"),
+             ("[a]_exhaust_filter_mount_x2.stl", RP.COLOUR_ACCENT, "blue accent ×2 · B13-P2"),
              ("exhaust_filter_grill.stl", "#b9b9b9", "already fitted at 11.54 · reused")]
     fig = plt.figure(figsize=(5 * 2.4, 1 * 2.4), dpi=200)
     fig.patch.set_facecolor(RP.BACKGROUND)
@@ -458,7 +458,7 @@ def parts_sheet(out_path: Path) -> None:
         RP._draw_part(ax, RP.load_mesh(stl / name), col)
         ax.text2D(0.5, -0.02, name, fontsize=5.2, ha="center", transform=ax.transAxes, color="#222222")
         ax.text2D(0.5, -0.09, note, fontsize=5.2, ha="center", transform=ax.transAxes, color="#555555")
-    fig.suptitle("Ch 14 Part H add-on prints (Voron-2 STLs/Exhaust_Filter @a192410, GPL-3.0)", fontsize=8)
+    fig.suptitle("Ch 14 Part H prints, batch B13 (Voron-2 STLs/Exhaust_Filter @a192410, GPL-3.0)", fontsize=8)
     fig.subplots_adjust(left=0.01, right=0.99, top=0.88, bottom=0.12, wspace=0.05)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, facecolor=RP.BACKGROUND)

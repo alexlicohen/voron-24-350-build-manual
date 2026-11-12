@@ -1609,14 +1609,236 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.",
+     "leave_state": "sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.",
      "helpers": [
       [
        "B10.6",
        "Reads each bin label aloud and checks the count against the diagram."
       ]
      ],
-     "text": "Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit."
+     "text": "Step B10.6 · ~10 min · leave-state: sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit."
+    }
+   ]
+  },
+  {
+   "n": 34,
+   "label": "B12 — Side spool holder and camera",
+   "kind": "Print",
+   "kit": false,
+   "segments": [
+    {
+     "id": "b12-side-spool-and-camera#0",
+     "chapter": "b12-side-spool-and-camera",
+     "kind": "print",
+     "steps": [
+      "B12.2"
+     ],
+     "first_step": "B12.2",
+     "last_step": "B12.2",
+     "href": "../manual/steps/b12-side-spool-and-camera/b12-2/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B12-P1",
+     "print_hours": 6.9,
+     "run": "asa",
+     "leave_state": "plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B12.2",
+       "Reads the plate's hours and grams off the slicer and checks them against this step."
+      ]
+     ],
+     "text": "Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b12-side-spool-and-camera#1",
+     "chapter": "b12-side-spool-and-camera",
+     "kind": "print",
+     "steps": [
+      "B12.4"
+     ],
+     "first_step": "B12.4",
+     "last_step": "B12.4",
+     "href": "../manual/steps/b12-side-spool-and-camera/b12-4/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B12-P2",
+     "print_hours": 1.8,
+     "run": "asa",
+     "leave_state": "plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B12.4",
+       "Counts the parts on the sorting diagram and checks the total against the object count."
+      ]
+     ],
+     "text": "Start plate B12-P2 (Step B12.4) · ~5 min hands-on, then 1.8 h unattended · leave-state: plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b12-side-spool-and-camera#2",
+     "chapter": "b12-side-spool-and-camera",
+     "kind": "print",
+     "steps": [
+      "B12.6"
+     ],
+     "first_step": "B12.6",
+     "last_step": "B12.6",
+     "href": "../manual/steps/b12-side-spool-and-camera/b12-6/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B12-P3",
+     "print_hours": 5.7,
+     "run": "asa",
+     "leave_state": "plate B12-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B12.6",
+       "Reads the spool label aloud before it goes on the printer."
+      ]
+     ],
+     "text": "Start plate B12-P3 (Step B12.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B12-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b12-side-spool-and-camera#3",
+     "chapter": "b12-side-spool-and-camera",
+     "kind": "build",
+     "steps": [
+      "B12.8"
+     ],
+     "first_step": "B12.8",
+     "last_step": "B12.8",
+     "href": "../manual/steps/b12-side-spool-and-camera/b12-8/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "brims and supports off, parts checked; the fit waits for Ch 11 Part C.",
+     "helpers": [],
+     "text": "Step B12.8 · ~10 min · leave-state: brims and supports off, parts checked; the fit waits for Ch 11 Part C."
+    },
+    {
+     "id": "b12-side-spool-and-camera#4",
+     "chapter": "b12-side-spool-and-camera",
+     "kind": "build",
+     "steps": [
+      "B12.9"
+     ],
+     "first_step": "B12.9",
+     "last_step": "B12.9",
+     "href": "../manual/steps/b12-side-spool-and-camera/b12-9/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "B12 sorted into 11-side-spool and 11-camera. Only B13's 14-exhaust bin is still empty.",
+     "helpers": [
+      [
+       "B12.9",
+       "Reads each bin label aloud and checks the count against the diagram."
+      ]
+     ],
+     "text": "Step B12.9 · ~10 min · leave-state: B12 sorted into 11-side-spool and 11-camera. Only B13's 14-exhaust bin is still empty."
+    }
+   ]
+  },
+  {
+   "n": 35,
+   "label": "B13 — Exhaust housing",
+   "kind": "Print",
+   "kit": false,
+   "segments": [
+    {
+     "id": "b13-exhaust-housing#0",
+     "chapter": "b13-exhaust-housing",
+     "kind": "print",
+     "steps": [
+      "B13.2"
+     ],
+     "first_step": "B13.2",
+     "last_step": "B13.2",
+     "href": "../manual/steps/b13-exhaust-housing/b13-2/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B13-P1",
+     "print_hours": 4.5,
+     "run": "asa",
+     "leave_state": "plate B13-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B13.2",
+       "Reads the plate's hours and grams off the slicer and checks them against this step."
+      ]
+     ],
+     "text": "Start plate B13-P1 (Step B13.2) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B13-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b13-exhaust-housing#1",
+     "chapter": "b13-exhaust-housing",
+     "kind": "print",
+     "steps": [
+      "B13.4"
+     ],
+     "first_step": "B13.4",
+     "last_step": "B13.4",
+     "href": "../manual/steps/b13-exhaust-housing/b13-4/",
+     "minutes": 5,
+     "pre_kit": false,
+     "plate": "B13-P2",
+     "print_hours": 1.9,
+     "run": "asa",
+     "leave_state": "plate B13-P2 running, 1.9 h unattended — door shut; come back for the next step when it ends",
+     "helpers": [
+      [
+       "B13.4",
+       "Reads the spool label aloud before it goes on the printer."
+      ]
+     ],
+     "text": "Start plate B13-P2 (Step B13.4) · ~5 min hands-on, then 1.9 h unattended · leave-state: plate B13-P2 running, 1.9 h unattended — door shut; come back for the next step when it ends"
+    },
+    {
+     "id": "b13-exhaust-housing#2",
+     "chapter": "b13-exhaust-housing",
+     "kind": "build",
+     "steps": [
+      "B13.6"
+     ],
+     "first_step": "B13.6",
+     "last_step": "B13.6",
+     "href": "../manual/steps/b13-exhaust-housing/b13-6/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "brims off, parts checked; the fit waits for Ch 14 Part H and its Step 14.25 inspection.",
+     "helpers": [],
+     "text": "Step B13.6 · ~10 min · leave-state: brims off, parts checked; the fit waits for Ch 14 Part H and its Step 14.25 inspection."
+    },
+    {
+     "id": "b13-exhaust-housing#3",
+     "chapter": "b13-exhaust-housing",
+     "kind": "build",
+     "steps": [
+      "B13.7"
+     ],
+     "first_step": "B13.7",
+     "last_step": "B13.7",
+     "href": "../manual/steps/b13-exhaust-housing/b13-7/",
+     "minutes": 10,
+     "pre_kit": false,
+     "plate": null,
+     "print_hours": null,
+     "run": null,
+     "leave_state": "the last plate of the run sorted into 14-exhaust. Every ASA bin is now full.",
+     "helpers": [
+      [
+       "B13.7",
+       "Reads each bin label aloud and checks the count against the diagram."
+      ]
+     ],
+     "text": "Step B13.7 · ~10 min · leave-state: the last plate of the run sorted into 14-exhaust. Every ASA bin is now full."
     }
    ]
   },
@@ -5669,14 +5891,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11, or for the Part C add-ons first.",
+     "leave_state": "hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11.",
      "helpers": [
       [
        "11.66",
        "Runs a finger round every panel seam and calls out any gap found."
       ]
      ],
-     "text": "Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11, or for the Part C add-ons first."
+     "text": "Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11."
     },
     {
      "id": "11-skirts-panels-door#17",
@@ -5694,7 +5916,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "three add-on jobs on the Core One+, about 14 h of printing. Leave each job on the sheet until it has cooled.",
+     "leave_state": "stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled.",
      "helpers": [
       [
        "11.68",
@@ -5702,10 +5924,10 @@
       ],
       [
        "11.69",
-       "Checks each part in the slicer against this step's list and ticks it."
+       "Reads the stack reading aloud and compares it with 6.2 mm."
       ]
      ],
-     "text": "Step 11.68 → Step 11.69 · ~20 min · leave-state: three add-on jobs on the Core One+, about 14 h of printing. Leave each job on the sheet until it has cooled."
+     "text": "Step 11.68 → Step 11.69 · ~20 min · leave-state: stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled."
     },
     {
      "id": "11-skirts-panels-door#18",
@@ -5791,12 +6013,12 @@
      "first_step": "14.25",
      "last_step": "14.26",
      "href": "../manual/steps/14-calibration/14-25/",
-     "minutes": 35,
+     "minutes": 30,
      "pre_kit": false,
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G.",
+     "leave_state": "the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Go on with Part A while the delivery runs; Part H picks up at Step 14.27, after Part G.",
      "helpers": [
       [
        "14.25",
@@ -5804,10 +6026,10 @@
       ],
       [
        "14.26",
-       "Ticks each file on the bed against the list in the add-on folder."
+       "Counts the five parts against the bin label and reads each name aloud."
       ]
      ],
-     "text": "Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G."
+     "text": "Step 14.25 → Step 14.26 · ~30 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Go on with Part A while the delivery runs; Part H picks up at Step 14.27, after Part G."
     },
     {
      "id": "14-calibration#1",
@@ -6490,6 +6712,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -6601,6 +6830,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -6708,6 +6944,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -6808,6 +7051,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -6908,6 +7158,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -7011,6 +7268,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -7145,7 +7409,14 @@
      "b09-panels-filtration-spool#4",
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
-     "b10-clicky-clack-door#2"
+     "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3"
     ]
    }
   },
@@ -7243,6 +7514,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -7395,6 +7673,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#2",
      "00-before-you-start#7",
      "00-before-you-start#8"
@@ -7538,6 +7823,26 @@
      "B10.5",
      "B10.6"
     ],
+    "b12-side-spool-and-camera": [
+     "B12.1",
+     "B12.2",
+     "B12.3",
+     "B12.4",
+     "B12.5",
+     "B12.6",
+     "B12.7",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.1",
+     "B13.2",
+     "B13.3",
+     "B13.4",
+     "B13.5",
+     "B13.6",
+     "B13.7"
+    ],
     "00-before-you-start": [
      "00.8",
      "00.9",
@@ -7579,7 +7884,7 @@
    },
    "printed": [],
    "expect": {
-    "done": 77,
+    "done": 86,
     "gate_closed": true,
     "start": "12.2",
     "sections": [
@@ -7745,6 +8050,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#0",
      "00-before-you-start#1",
      "00-before-you-start#2",
@@ -7999,6 +8311,13 @@
      "b09-panels-filtration-spool#6",
      "b10-clicky-clack-door#0",
      "b10-clicky-clack-door#2",
+     "b12-side-spool-and-camera#0",
+     "b12-side-spool-and-camera#1",
+     "b12-side-spool-and-camera#2",
+     "b12-side-spool-and-camera#4",
+     "b13-exhaust-housing#0",
+     "b13-exhaust-housing#1",
+     "b13-exhaust-housing#3",
      "00-before-you-start#0",
      "00-before-you-start#1",
      "00-before-you-start#2",
@@ -8284,11 +8603,31 @@
      "B10.4",
      "B10.5",
      "B10.6"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.1",
+     "B12.2",
+     "B12.3",
+     "B12.4",
+     "B12.5",
+     "B12.6",
+     "B12.7",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.1",
+     "B13.2",
+     "B13.3",
+     "B13.4",
+     "B13.5",
+     "B13.6",
+     "B13.7"
     ]
    },
    "printed": [],
    "expect": {
-    "done": 68,
+    "done": 77,
     "gate_closed": true,
     "start": "B11.3",
     "sections": [
@@ -9333,11 +9672,31 @@
      "B11.13",
      "B11.16",
      "B11.14"
+    ],
+    "b12-side-spool-and-camera": [
+     "B12.1",
+     "B12.2",
+     "B12.3",
+     "B12.4",
+     "B12.5",
+     "B12.6",
+     "B12.7",
+     "B12.8",
+     "B12.9"
+    ],
+    "b13-exhaust-housing": [
+     "B13.1",
+     "B13.2",
+     "B13.3",
+     "B13.4",
+     "B13.5",
+     "B13.6",
+     "B13.7"
     ]
    },
    "printed": [],
    "expect": {
-    "done": 229,
+    "done": 238,
     "gate_closed": true,
     "start": null,
     "sections": [

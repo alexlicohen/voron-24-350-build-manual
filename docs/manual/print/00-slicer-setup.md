@@ -1,12 +1,12 @@
 # Slicer setup — PrusaSlicer profile and Voron overrides
 
-One-time setup for every print batch (`B00`–`B10`). Read this chapter before B00; batch chapters link
+One-time setup for every print batch (`B00`–`B13`). Read this chapter before B00; batch chapters link
 back here and list only their own deviations (brim, orientation, accent colour). B11, the PETG V0 bay
 ducting, uses its own bundle, `slicer/bay-ducts-petg.ini`, and the textured sheet: see [its page](B11-bay-ducting.md).
 
 ```mascot
 pose: check
-caption: Set the profile once, carefully. Twenty-eight plates inherit these numbers and none of them ask twice.
+caption: Set the profile once, carefully. Thirty-three plates inherit these numbers and none of them ask twice.
 ```
 
 **Slicer:** PrusaSlicer **2.9.7** (current stable, released 2026-11-02: 2.9.6 plus security fixes, no
@@ -83,9 +83,9 @@ carries its own print/filament/printer configuration, so it does not matter whic
 selected. After a plate is re-saved from the GUI, refresh its numbers with
 `python3 slicer/build_plates.py --from-3mf <plate id> [<plate id> ...]`: it re-slices those committed 3MFs
 as they are, replaces their rows in `slicer/estimates.csv` (and their run's total) and redraws their
-diagrams. `--from-3mf` with no ids does the same for all 35 plates, which is safe but slow. **Never drop
+diagrams. `--from-3mf` with no ids does the same for all 40 plates, which is safe but slow. **Never drop
 `--from-3mf`:** without it the script re-packs the plates from `slicer/plates.py` and rewrites their 3MFs,
-all 34 when no ids are given, and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
+all 35 with `--repack --all` (every plate but the five already printed), and every hand arrangement in them is lost. `python3 slicer/fetch_stls.py`
 re-downloads the pinned STLs if `slicer/stl/` is empty.
 
 ⚠ **The plates carry the cold-probe start G-code — leave it alone.** All 24 ASA projects and both `.ini`
@@ -222,14 +222,14 @@ reprint of the ASA `MGN12_rail_guide` (3 g). Each gate releases its own set of b
 
 **Printer status, 2026-09-23.** Bed flatness is closed — flat to ±0.1 mm on printed Z-stop correction caps,
 verified at 60 °C. Belt tuning was never formally closed; the Gen 2 belt upgrade that would redo it is now
-**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 155.2 h
+**deferred to the INDX rebuild this winter** (Prusa documents the combined install), so the whole 176.0 h
 run stays on the current **Gen 1 GT2** belts. Run this sequence after two pre-B00 checks instead — see
 [B00 § Before B00 checks](B00-calibration-and-jigs.md#before-b00-belt-and-hot-bed-checks): a belt pluck check (belt tuning is still
 open) and a hot first-layer check at ASA bed temperature (the bed has only been verified at 60 °C), run on
 its committed project right after Step B00.0 installs the presets. The Gen 2 expansion joints and nozzle
 wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28).
 
-1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~155 h of ASA is
+1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~176 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
 2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 7.0.0 (2026-10-05). 6.8.1
@@ -270,7 +270,7 @@ so a change made here does not travel: re-enter it in every later project as you
 value on the sheet-edge tape so you know what it should be.
 
 **Gate A passed →** every batch with no press fit is released: **B02**, **B07**, and the cosmetics
-**B08 → B09 → B10**. Do **not** start B01 or B03–B06 on Gate A alone: that is 57.4 h and 759 g of
+**B08 → B09 → B10 → B12 → B13**. Do **not** start B01 or B03–B06 on Gate A alone: that is 57.4 h and 759 g of
 bearing-seat and shaft-bore parts printed against an unverified fit — run Gate B's bore row first, the same day.
 
 ### Gate B — bore and inserts now, rail on kit day
@@ -305,7 +305,7 @@ machine.
 | Batch | Gate | Why |
 |---|---|---|
 | B02, B07 | **A** | no bearing seats, no rail fit; their heat-set bosses get inserts on kit day |
-| B08, B09, B10 | **A** | cosmetic; the skirts are where VFA shows most, but they print on the same GT2 belts as the rest of the run — Galaxy Black's fleck hides the ripple, and GT1.5 lands with the INDX + Gen 2 rebuild |
+| B08, B09, B10, B12, B13 | **A** | cosmetic; the skirts are where VFA shows most, but they print on the same GT2 belts as the rest of the run — Galaxy Black's fleck hides the ripple, and GT1.5 lands with the INDX + Gen 2 rebuild |
 | B01, B03, B04, B05, B06 | **B** (bore, run early) | 625-2RS pockets, A/B drive frame halves that close flat, MGN12 carriage pattern, Z-joint bolt pattern |
 
 **Quality gate before every later batch:** look at the *last* plate pulled off. If any part shows
@@ -412,7 +412,7 @@ shows the V2.4/Trident batch in manufacture, so realistic delivery looked like l
 **Decision (2026-09-23): the Gen 2 upgrade is deferred to the INDX 8-tool conversion this winter,** not done
 before B00. Prusa documents the combined install:
 <https://help.prusa3d.com/article/assemblling-the-prusa-indx-core-one-with-the-gen-2-upgrade_1147602>. The
-whole 155.2 h / 28-plate run — B00 → B10, numeric order — prints on the current Gen 1 GT2 belts. This
+whole 176.0 h / 33-plate run — B00 → B10, then B12 and B13, numeric order — prints on the current Gen 1 GT2 belts. This
 supersedes the earlier "Gen 2 before B00" baseline and its 2026-10-15 contingency; there is no mid-run pause,
 because nothing changes the machine under the parts.
 
@@ -460,7 +460,7 @@ only copies the ini's start G-code, and the inis hold the cold start, so the swi
 point `COLD_START` in `slicer/build_config.py` at the winning block (`coreone-heat-off-start.gcode`; a stock
 start must first be vendored into its own `.gcode` file) and update its `start_gcode` why-text, run
 `python3 slicer/build_config.py` (regenerates the three inis and `OVERRIDES.md`), then
-`python3 slicer/sync_start_gcode.py` (all 35 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
+`python3 slicer/sync_start_gcode.py` (all 40 plates, B11's included), `python3 slicer/build_plates.py --from-3mf`
 and `python3 slicer/check_docs.py`. Do not rebuild the check projects after the switch (`hot_check.py`
 without `--check`): the cold one would take the new start and fail its own cold-start check. With the wiper on, `G29 P9` heats the nozzle itself, taps a touchpoint beside
 the brush with the heater on, and leaves a hold target behind; the heat-then-off start switches the heater

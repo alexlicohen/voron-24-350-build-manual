@@ -2,7 +2,7 @@
 
 <p class="tonight-live" data-tonight="../../assets/tonight.json" hidden></p>
 
-**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 155.2 h of printing across 28 plates, plus 25.1 h across 7 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
+**Total remaining (estimate):** ~60.9 h hands-on across 16 build chapters; 176.0 h of printing across 33 plates, plus 25.1 h across 7 plates of B11, outside the run (~5 min hands-on per plate start, the rest unattended).
 
 ## <img class='mascot-badge off-glb' src='@mascot/mascot-pause.svg' alt='pause' width='30' height='30' loading='eager' decoding='async'> Before the kit
 
@@ -126,8 +126,22 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
     - Step B09.13 — Writes the bin id and the date on the inside face of each part.
 - **B10 — Clicky-Clack door** — <span data-first-step="B10.2">Start plate B10-P1 (Step B10.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
     - Step B10.2 — Reads the sorting diagram legend aloud and counts the parts on it while you load.
-- **B10 — Clicky-Clack door** — <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
+- **B10 — Clicky-Clack door** — <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
     - Step B10.6 — Reads each bin label aloud and checks the count against the diagram.
+- **B12 — Side spool holder and camera** — <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends</span>
+    - Step B12.2 — Reads the plate's hours and grams off the slicer and checks them against this step.
+- **B12 — Side spool holder and camera** — <span data-first-step="B12.4">Start plate B12-P2 (Step B12.4) · ~5 min hands-on, then 1.8 h unattended · leave-state: plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends</span>
+    - Step B12.4 — Counts the parts on the sorting diagram and checks the total against the object count.
+- **B12 — Side spool holder and camera** — <span data-first-step="B12.6">Start plate B12-P3 (Step B12.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B12-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
+    - Step B12.6 — Reads the spool label aloud before it goes on the printer.
+- **B12 — Side spool holder and camera** — <span data-first-step="B12.9">Step B12.9 · ~10 min · leave-state: B12 sorted into 11-side-spool and 11-camera. Only B13's 14-exhaust bin is still empty.</span>
+    - Step B12.9 — Reads each bin label aloud and checks the count against the diagram.
+- **B13 — Exhaust housing** — <span data-first-step="B13.2">Start plate B13-P1 (Step B13.2) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B13-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends</span>
+    - Step B13.2 — Reads the plate's hours and grams off the slicer and checks them against this step.
+- **B13 — Exhaust housing** — <span data-first-step="B13.4">Start plate B13-P2 (Step B13.4) · ~5 min hands-on, then 1.9 h unattended · leave-state: plate B13-P2 running, 1.9 h unattended — door shut; come back for the next step when it ends</span>
+    - Step B13.4 — Reads the spool label aloud before it goes on the printer.
+- **B13 — Exhaust housing** — <span data-first-step="B13.7">Step B13.7 · ~10 min · leave-state: the last plate of the run sorted into 14-exhaust. Every ASA bin is now full.</span>
+    - Step B13.7 — Reads each bin label aloud and checks the count against the diagram.
 - **Ch 00 — Before you start** — <span data-first-step="00.8">Step 00.8 → Step 00.11 · ~25 min · leave-state: the tool and consumable decisions are made, the flat reference is verified and masked off, and the bins are labelled. Steps 00.7 and 00.12 wait for the kit.</span>
     - Step 00.10 — Reads the thickest leaf that slides under aloud and writes it in the log.
     - Step 00.11 — Trims each label to its frame and slides it into the bag it names.
@@ -235,7 +249,20 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 ### 13 · Print — B10 — Clicky-Clack door
 - <span data-first-step="B10.2">Start plate B10-P1 (Step B10.2) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B10-P1 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
 - <span data-first-step="B10.5">Step B10.5 · ~10 min · leave-state: brims off, parts bagged; the bushing and pin tests wait for the kit.</span>
-- <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: the last plate of the run sorted into 11-door beside B02's `Handle`. Every ASA bin is now full; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
+- <span data-first-step="B10.6">Step B10.6 · ~10 min · leave-state: sorted into 11-door beside B02's `Handle`. Only B12's two Part C bins and B13's 14-exhaust are still empty; B11-P1 to P3 printed after B07, and the bushing and pin tests wait for the kit.</span>
+
+### 34 · Print — B12 — Side spool holder and camera
+- <span data-first-step="B12.2">Start plate B12-P1 (Step B12.2) · ~5 min hands-on, then 6.9 h unattended · leave-state: plate B12-P1 running, 6.9 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B12.4">Start plate B12-P2 (Step B12.4) · ~5 min hands-on, then 1.8 h unattended · leave-state: plate B12-P2 running, 1.8 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B12.6">Start plate B12-P3 (Step B12.6) · ~5 min hands-on, then 5.7 h unattended · leave-state: plate B12-P3 running, 5.7 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B12.8">Step B12.8 · ~10 min · leave-state: brims and supports off, parts checked; the fit waits for Ch 11 Part C.</span>
+- <span data-first-step="B12.9">Step B12.9 · ~10 min · leave-state: B12 sorted into 11-side-spool and 11-camera. Only B13's 14-exhaust bin is still empty.</span>
+
+### 35 · Print — B13 — Exhaust housing
+- <span data-first-step="B13.2">Start plate B13-P1 (Step B13.2) · ~5 min hands-on, then 4.5 h unattended · leave-state: plate B13-P1 running, 4.5 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B13.4">Start plate B13-P2 (Step B13.4) · ~5 min hands-on, then 1.9 h unattended · leave-state: plate B13-P2 running, 1.9 h unattended — door shut; come back for the next step when it ends</span>
+- <span data-first-step="B13.6">Step B13.6 · ~10 min · leave-state: brims off, parts checked; the fit waits for Ch 14 Part H and its Step 14.25 inspection.</span>
+- <span data-first-step="B13.7">Step B13.7 · ~10 min · leave-state: the last plate of the run sorted into 14-exhaust. Every ASA bin is now full.</span>
 
 ### 14 · Build — Ch 00 — Before you start
 - <span data-first-step="00.1">Step 00.1 → Step 00.6 · ~40 min · leave-state: both cartons inventoried and repacked, every fastener bag closed, the deck thickness written on its film and the ten LDO-supplied parts in their own bin. Nothing is open to dust. Next on kit day: the rail soak at 00.17–00.18. Do not start unbagging rails before you have the grease and IPA on the bench.</span>
@@ -402,13 +429,13 @@ Segments that carry a job a helper can own, in timeline order. The adult keeps t
 - <span data-first-step="11.56">Step 11.56 → Step 11.58 · ~25 min · leave-state: both side panels foam-taped, clipped and screwed, all twenty-four M3×12 in. Both sides are fully on.</span>
 - <span data-first-step="11.59">Step 11.59 → Step 11.61 · ~15 min · leave-state: top panel on its eight clips, handlebars bolted through their spacers, and the stock front doors confirmed not-installed. The machine is closed on five faces; the front is still open.</span>
 - <span data-first-step="11.62">Step 11.62 → Step 11.64 · ~25 min · leave-state: door hinges hung, latch fitted, handle on, and the door swings and closes on its magnets. Do not stop with the door hanging on one hinge; it will twist the frame and the acrylic.</span>
-- <span data-first-step="11.65">Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Checkpoint 11, or for the Part C add-ons first.</span>
-- <span data-first-step="11.68">Step 11.68 → Step 11.69 · ~20 min · leave-state: three add-on jobs on the Core One+, about 14 h of printing. Leave each job on the sheet until it has cooled.</span>
+- <span data-first-step="11.65">Step 11.65 → Step 11.66 · ~15 min · leave-state: hammerhead nuts thread-locked, every seal and clearance checked, machine closed. Ready for Part C, then Checkpoint 11.</span>
+- <span data-first-step="11.68">Step 11.68 → Step 11.69 · ~20 min · leave-state: stack and board measured; a frame reprint started only if the stack was thick. Leave a reprint on the sheet until it has cooled.</span>
 - <span data-first-step="11.70">Step 11.70 → Step 11.73 · ~40 min · leave-state: puck screwed to the frame, frame on the right side, tube holder on, one new PTFE from the spool to the CW2.5, a spool loaded. Nothing is half-fastened.</span>
 - <span data-first-step="11.74">Step 11.74 → Step 11.76 · ~40 min · leave-state: camera bolted in, the toolhead proven clear of it at Z max, the stream live in Mainsail. Ready for Checkpoint 11.</span>
 
 ### 31 · Build — Ch 14 — Calibration and tuning: hot soak, final tension, re-check, then tune
-- <span data-first-step="14.25">Step 14.25 → Step 14.26 · ~35 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the housing printing on the Core One+, about 4½ h, with the blue job, about 2 h, after it. Nothing on the Voron has changed. Go on with Part A while the prints and the delivery run; Part H picks up at Step 14.27, after Part G.</span>
+- <span data-first-step="14.25">Step 14.25 → Step 14.26 · ~30 min · leave-state: the back of the machine inspected and the calculator passed, the Step 00.8 row ordered, and the five B13 parts checked and back in bin 14-exhaust. Nothing on the Voron has changed. Go on with Part A while the delivery runs; Part H picks up at Step 14.27, after Part G.</span>
 - <span data-first-step="14.1">Step 14.1 → Step 14.2 · ~15 min · leave-state: config pre-flighted against the `-sbv2` file and both PID stanzas confirmed. Nothing has heated and nothing mechanical has been touched: the heaters are read during the one closed soak, at Step 14.3, after the belts.</span>
 - <span data-first-step="14.4">Step 14.4 · ~20 min · leave-state: A and B are both at final tension and equal. Belts are a single calibration item: never stop with one of the pair adjusted and the other not. Leave the gantry parked mid-travel with the Z motors holding and the idle timeout still raised; Step 14.6 puts it back to 1800 at the end, once the last hot check has passed.</span>
 - <span data-first-step="14.5">Step 14.5 → Step 14.6 · ~25 min · leave-state: all six belts at final tension and even, the heaters held steady on the way up, the machine soaked closed with its settled `chamber_temp` logged, QGL settled over 3–5 runs, the four Z joint bolts locked hot, `PROBE_ACCURACY` re-verified hot afterwards, the hot mesh Variance logged and the idle timeout set back to 1800. The whole belt-and-geometry item is closed; heaters can go off. Steps 14.8 and 14.22 read this soak instead of heating again. The next item is the extruder.</span>

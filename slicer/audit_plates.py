@@ -18,8 +18,10 @@ the packer uses):
                                                   # this is the form CI runs
 
 Plates in plates.AS_PRINTED were printed before the current rules and are kept as the record
-of what was printed: they are measured and listed, never failed. Exit 1 if any other plate
-breaks a rule. `build_plates.py --from-3mf` runs this on the plates it re-slices.
+of what was printed: they are measured and listed, never failed. A plate in plates.EDGE_EXEMPT
+(B12-P1, the 212 mm side spool frame) is exempt from the edge rule alone: its edge figure is
+measured and listed with the exemption's reason, and its gap and brim rules fail as for any
+plate. Exit 1 if any other plate breaks a rule. `build_plates.py --from-3mf` runs this on the plates it re-slices.
 Needs numpy (tools/platearrange), so it runs on the interpreter that packs plates, not in
 `make verify`'s docs venv: `make audit-plates`.
 """
@@ -36,7 +38,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(REPO / "tools" / "platearrange"))
 
 from geom import BED_X, BED_Y, EDGE_MARGIN  # noqa: E402
-from plates import AS_PRINTED, PLATES  # noqa: E402
+from plates import AS_PRINTED, EDGE_EXEMPT, PLATES  # noqa: E402
 
 TOL = 0.05   # mm: a GUI save rounds transforms; the packer's own plates land within this
 
@@ -82,19 +84,33 @@ def audit(plate_id: str, plate_dir: Path | None = None,
     return dict(edge=edge, edge_part=edge_who, gap=gap, parts=len(parts)), problems
 
 
+def split_exempt(plate_id: str, problems: list[str]) -> tuple[list[str], list[str]]:
+    """(problems that fail the plate, problems an exemption covers): every problem for a plate in
+    plates.AS_PRINTED; only the edge rule's for a plate in plates.EDGE_EXEMPT."""
+    if plate_id in AS_PRINTED:
+        return [], problems
+    if plate_id in EDGE_EXEMPT:
+        return ([p for p in problems if not p.startswith("edge:")],
+                [p for p in problems if p.startswith("edge:")])
+    return problems, []
+
+
 def run(plate_ids: list[str], plate_dir: Path | None = None, brim: bool = True) -> int:
-    """Print one line per plate and every rule break; 1 if a plate that is not as-printed
-    breaks a rule."""
+    """Print one line per plate and every rule break; 1 if a plate breaks a rule that no
+    exemption covers (plates.AS_PRINTED: every rule; plates.EDGE_EXEMPT: the edge rule)."""
     failed = 0
     for pid in plate_ids:
         m, problems = audit(pid, plate_dir, brim)
-        as_printed = pid in AS_PRINTED
-        state = "ok" if not problems else ("as printed" if as_printed else "FAIL")
+        fail, exempt = split_exempt(pid, problems)
+        state = ("FAIL" if fail else "as printed" if exempt and pid in AS_PRINTED
+                 else "edge exempt" if exempt else "ok")
         gap = "    -" if not math.isfinite(m["gap"]) else f"{m['gap']:5.2f}"
         print(f"audit {pid:8s} edge {m['edge']:6.2f}  gap {gap}  {m['parts']:2d} parts  {state}")
+        if pid in EDGE_EXEMPT:
+            print(f"    edge rule exempt (plates.EDGE_EXEMPT): {EDGE_EXEMPT[pid]}")
         for p in problems:
-            print(f"    {'(exempt) ' if as_printed else ''}{p}")
-        failed += bool(problems) and not as_printed
+            print(f"    {'(exempt) ' if p in exempt else ''}{p}")
+        failed += bool(fail)
     if failed:
         print(f"audit: {failed} plate(s) break a layout rule. Move the parts by hand in "
               "PrusaSlicer (never Arrange), save, and re-run with --from-3mf.", file=sys.stderr)

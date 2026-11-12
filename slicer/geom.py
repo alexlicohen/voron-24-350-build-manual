@@ -110,6 +110,7 @@ class Piece:
         self.rot = 0.0
         self.x = 0.0
         self.y = 0.0
+        self.settings: dict[str, str] = {}   # per-object slicer settings (plates.OBJECT_SETTINGS)
 
     def extent(self, deg: float | None = None) -> tuple[float, float, float, float]:
         return rotated_extent(self.hull, self.rot if deg is None else deg)

@@ -1,8 +1,9 @@
-# Chamber exhaust housing — add-on (Ch 14 Part H)
+# Chamber exhaust housing — batch B13 (Ch 14 Part H)
 
-Optional. On no plate, in no batch (B00–B11), in no run total. **Printed only after Ch 14 Step 14.25 has
-checked the back of the real machine** (stock notch, free depth behind it, extrusion slot, lead route,
-spare jumper); never ahead of kit day. Step 14.25 opens Ch 14, so both jobs print while the Voron runs Parts A–G.
+On plates **B13-P1 and B13-P2**, the last batch of the ASA run (Alex 2026-11-12: part of the build; an add-on
+printed after Step 14.25 until then), and in the run's totals. **Fitted only after Ch 14 Step 14.25 has checked
+the back of the real machine** (stock notch, free depth behind it, extrusion slot, lead route, spare jumper); if a
+row there fails, the printed parts stay in bin `14-exhaust` unused and nothing is bought.
 
 ## Licence and credit
 
@@ -14,37 +15,34 @@ remixed, so nothing is committed here; the files are fetched like every other st
 ## Files
 
 `python3 slicer/fetch_stls.py` downloads them to `slicer/stl/voron2/STLs/Exhaust_Filter/` (gitignored).
-`slicer/plates.py` `ADDONS` lists them and `slicer/stl/MANIFEST.sha256` pins their hashes, so
+`slicer/plates.py` `PLATES` (B13-P1, B13-P2) lists them and `slicer/stl/MANIFEST.sha256` pins their hashes, so
 `python3 slicer/fetch_stls.py --verify` fails if one changes. `sources.yml` pins the Voron-2 repo commit;
 `python3 scripts/sources_verify.py --git-only` reports when it moves.
 
-| File | Qty | Colour | Job |
+| File | Qty | Colour | Plate |
 |---|---:|---|---|
-| `exhaust_filter_housing.stl` | 1 | Black | 1 |
-| `[a]_exhaust_fan_grill.stl` | 1 | Blue | 2 |
-| `[a]_filter_access_cover.stl` | 1 | Blue | 2 |
-| `[a]_exhaust_filter_mount_x2.stl` | 2 | Blue | 2 |
-| `exhaust_filter_grill.stl` | — | — | already printed in B09-P3 and fitted at Ch 11 Step 11.54; Part H reuses it |
+| `exhaust_filter_housing.stl` | 1 | Black | B13-P1 |
+| `[a]_exhaust_fan_grill.stl` | 1 | Blue | B13-P2 |
+| `[a]_filter_access_cover.stl` | 1 | Blue | B13-P2 |
+| `[a]_exhaust_filter_mount_x2.stl` | 2 | Blue | B13-P2 |
+| `exhaust_filter_grill.stl` | — | — | already printed in B09-P4 and fitted at Ch 11 Step 11.54; Part H reuses it |
 
 ## Print
 
-Two jobs on the Core One+, satin sheet, no glue, as oriented, **no supports**, the inis' Voron settings (4 walls,
-5 top/bottom, 40 % gyroid, 0.2 mm). **3 mm brim on the two large flat parts**, the housing (143.7 × 154.8 mm
-footprint) and the access cover (73.2 × 134.8 mm), set per object (right-click → Add settings → Skirt and brim →
-Brim width), as `docs/manual/print/00-slicer-setup.md` § Orientation & brim does for the 155 mm grill. The inis
-keep the global brim at 0 and `brim_separation` at 0.30; the fan grill and the two mounts print without one.
+Two plates of the ASA run on the Core One+, satin sheet, no glue, as oriented, **no supports**, the inis' Voron
+settings (4 walls, 5 top/bottom, 40 % gyroid, 0.2 mm), packed by `python3 slicer/build_plates.py --repack B13-P1
+B13-P2 --packer=platearrange` and committed as `slicer/plates/B13-P1.3mf` and `B13-P2.3mf`. Every part is 30 mm or
+longer, so each carries the run's 3 mm per-object brim (`plates.brim_for`); both plates meet the 25 mm edge and
+6 mm gap rules with no exemption. Page: `docs/manual/print/B13-exhaust-housing.md`.
 
-| Job | Profile | PrusaSlicer 2.9.6 CLI estimate |
+| Plate | Profile | PrusaSlicer 2.9.7 estimate |
 |---|---|---|
-| 1 — housing, 3 mm brim | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 66.1 g, 4 h 31 m |
-| 2 — fan grill, access cover with a 3 mm brim, 2 mounts | `slicer/voron-accent-blue.ini`, blue accent ASA | 34.8 g, 1 h 54 m |
+| B13-P1 — housing | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 66.1 g, 4 h 31 m |
+| B13-P2 — fan grill, access cover, 2 mounts | `slicer/voron-accent-blue.ini`, blue accent ASA | 35.1 g, 1 h 56 m |
 
-Estimates are normal-mode, re-sliced 2026-10-30 with the current inis (Z +0.08, 95 % first-layer flow, the
-10-29 speeds), the parts laid side by side, not GUI-arranged. The CLI sets a brim per job, so job 2 is the
-three parts sliced bare (34.5 g, 1 h 52 m) plus the cover's brim from its own slice (+0.24 g, +1.6 min); the
-housing's brim costs 0.27 g and 2 min. All five
-pieces go in bin `14-exhaust` (`slicer/bins.py` `ADDON_PARTS`); `exhaust_filter_grill` stays in `11-finish`,
-where B09 sorted it, since it is fitted at Step 11.54 and reused in place at Step 14.29.
+All five pieces go in bin `14-exhaust` (`slicer/bins.py` `ASSIGN`), the housing in bag 1 and B13-P2's parts in
+bag 2 with the bought fan, lead and mat; `exhaust_filter_grill` stays in `11-finish`, where B09 sorted it, since
+it is fitted at Step 11.54 and reused in place at Step 14.29.
 
 ## Hardware (all kit spares except the purchase)
 
@@ -57,4 +55,4 @@ Step 00.8): a 60×60×20 mm 24 V fan, a 1 m JST-XH 2-pin extension, carbon filte
 ## Upstream changes
 
 A `CHANGED VoronDesign/Voron-2` line from `sources_verify.py` means: compare `STLs/Exhaust_Filter/` across
-the two commits, and re-fetch and re-slice before printing if any of these files moved.
+the two commits, and re-fetch and rebuild B13-P1 and B13-P2 before printing if any of these files moved.
