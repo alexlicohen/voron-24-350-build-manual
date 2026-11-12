@@ -1,0 +1,73 @@
+# Images for docs/manual/print/B11-bay-ducting.md and the layout-v3 steps of Ch 09 / Ch 10,
+# copied 2026-09-23 from
+# review/2026-09-23-bay-mods/layout-v3/ (made in this repo). CONVENTIONS.md "Image licensing".
+
+layout-v3-overlay.jpg
+  from    : review/2026-09-23-bay-mods/layout-v3/overlay-v3.jpg (work/outputs_v3.py)
+  base    : ../remote/09-electronics-bay/bay-general-placement.jpg
+            = https://raw.githubusercontent.com/MotorDynamicsLab/LDOVoron2/8270e8c/Images/WiringGuide/RevD/S0General_Placement.jpg
+  owner   : base photo LDO Motors (MotorDynamicsLab/LDOVoron2, GPL-3.0); layout drawn in this repo
+  note    : apparent mm, +/-6 % absolute and +/-1.5 mm on local gaps; every position unverified
+  sha256  : 381f5100fe09c44b4c63cfc6fbcee19b3b595b42ec51678126a81765d68b0479
+
+coupon-22-vs-22N.jpg
+  from    : review/2026-09-23-bay-mods/layout-v3/renders/r-03_coupon_22_vs_22N.jpg (work/render.py)
+  owner   : rendered in this repo from MyStoopidStuff / RyanDam duct geometry (Printables 502306, GPL-3.0)
+  sha256  : 750e5631656662c31f22635c5fa85f010b386daadca3bea3754f5bd6f5db4bfa
+
+ac-conduit-assembled.jpg
+  from    : review/2026-09-23-bay-mods/layout-v3/renders/r-06_AC_conduit_assembled.jpg (work/render.py)
+  owner   : rendered in this repo from MyStoopidStuff / RyanDam duct geometry (Printables 502306, 505838, GPL-3.0)
+  note    : render colours only (B11 prints every part black); right half shows the optional WARNING lid, B11 prints the plain lid
+  used by : Ch 10 Step 10.80
+  sha256  : 5bd1acbbd6acb0fcfdbee340f49fe4f5f7798d34e21c31094de25cff065ba06c
+
+v3-lead-10-08-inlet-wago.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.8
+  sha256  : 2275652073de3f79208038844d9eb3cff3487939559120dae871f17268554dd7
+
+v3-lead-10-09-wago-psu.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.9
+  sha256  : d14e2339c368538044bc58db385194d4747b8bdc79027cfd81d9171a49d4e2c0
+
+v3-lead-10-11-wago-ssr.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.11
+  sha256  : e42b85d5bcd689bdfd1d655b53d4d25903583b0df6d9e2fb3adfd71d776729a6
+
+v3-lead-10-14-bed-l-ssr.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.14
+  sha256  : 049bea443a72e2896551cbc8e4d20ea949ebb5b407926a396bc022b6cdf25945
+
+v3-lead-10-15-bed-n-pe.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.15
+  sha256  : e5b29bdfc6210d13a4aa16e16391480cdf94caee70ab8f9a990cee114ea31024
+
+v3-lead-10-16-frame-pe.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.16, 10.77
+  sha256  : cafb36097c085796ac0455d443c977e5a71f3722448abeba94fa4ad6f89a539b
+
+v3-psu-terminals-10-80.jpg
+  from    : crop of layout-v3-overlay.jpg with the step's leads drawn in (review/2026-09-23-bay-mods/layout-v3/work/leads_v3.py, 2026-09-23)
+  owner   : base photo LDO Motors (GPL-3.0); overlay and leads drawn in this repo
+  note    : lead paths schematic; PSU/SSR screws at LDO's photo position (v3 PSU is 6 mm further left); +/-6 %; unverified
+  used by : Ch 10 Step 10.80
+  sha256  : 282e4d892aebc42109cf2642d8a724127964303ba37fffa2ad63c2b37b8604fd
+

@@ -1,0 +1,2066 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alexlicohen.github.io/voron-24-350-build-manual/print/plate-sort-sheets/">
+      
+      
+        <link rel="prev" href="../plate-plans/">
+      
+      
+        <link rel="next" href="../plate-board/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Plate sort sheets - Voron 2.4 350 — Build Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/print.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/tonight.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../assets/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Voron manual">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plate-sort-sheets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-header__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Voron 2.4 350 — Build Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Plate sort sheets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manual/steps/00-before-you-start/" class="md-tabs__link">
+          
+  
+  
+  Build
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../manual/print/00-slicer-setup/" class="md-tabs__link">
+          
+  
+  
+  Print
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manual/00-index/" class="md-tabs__link">
+          
+  
+  
+  Plan
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manual/15-troubleshooting/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Voron 2.4 350 — Build Manual" class="md-nav__button md-logo" aria-label="Voron 2.4 350 — Build Manual" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Voron 2.4 350 — Build Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Build
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/00-before-you-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00 — Before you start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/00a-mains-safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 00a — Mains safety: read before Chapter 09
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/01-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 01 — Frame
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/02-z-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 02 — Z drives, Z idlers, Z rails, deck panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/03-build-plate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 03 — Build plate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/04-ab-drives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 04 — A/B drive units and front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/05-gantry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/06-z-axis-and-gantry-squaring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/07-ab-belts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 07 — A/B belts and tensioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/08-toolhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 08 — Toolhead: Stealthburner, Clockwork 2.5, Revo HF, Nitehawk-SB V2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/09-electronics-bay/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 09 — Electronics bay
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/10-wiring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 — Wiring and Checkpoint #1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/11-skirts-panels-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 — Skirts, panels, Clicky-Clack door, filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/12-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 — Software: Pi OS image, Klipper/Moonraker/Mainsail, firmware, printer.cfg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/13-initial-startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 — Initial startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/14-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 — Calibration and tuning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Print
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/print/00-slicer-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slicer setup — PrusaSlicer profile and Voron overrides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b00-calibration-and-jigs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B00 — Calibration &amp; jigs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b01-z-drive-assemblies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B01 — Z drive assemblies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b02-accent-parts-orange/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B02 — Accent parts (blue)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b03-ab-drive-units-and-front-idlers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B03 — A/B drive units + front idlers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b04-xy-joints-and-x-carriage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B04 — XY joints + X carriage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b05-z-joints-and-z-chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B05 — Z joints + Z chain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b06-toolhead-sb-cw2-klicky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B06 — Toolhead: Stealthburner, Clockwork 2.5, Klicky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b07-electronics-bay-and-lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B07 — Electronics bay + lighting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b08-skirts-and-front-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B08 — Skirts and front modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b09-panels-filtration-spool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B09 — Panels, filtration, spool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b10-clicky-clack-door/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B10 — Clicky-Clack door
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b12-side-spool-and-camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B12 — Side spool holder and camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b13-exhaust-housing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B13 — Exhaust housing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/steps/b11-bay-ducting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch B11 — Bay ducting (PETG V0)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/print/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Print batches — overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plate-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate sort sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plate-board/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plate board
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../checklists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Printable checklists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bin-labels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bin labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/00-index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/00-tonight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tonight
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-print-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 (LDO Rev D+, 350) — Printed Parts Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../voron-build-instructions-survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voron 2.4 R2 Rev D+ (LDO/Fabreeko, 350mm) — build-instruction source survey and consolidation spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/15-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15 — Troubleshooting index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manual/16-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16 — Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mascot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mascot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="plate-sort-sheets">Plate sort sheets<a class="headerlink" href="#plate-sort-sheets" title="Permanent link">¶</a></h1>
+<div class="sort-sheets-intro">
+<p><img class="mascot-panel off-glb" src="../../manual/assets/mascot/mascot-gather.svg" alt="Revali with a tray of screws" width="96" height="96" loading="lazy" decoding="async"></p>
+<p><em>Generated by <code>scripts/build_printables.py</code> from the committed plate 3MFs — do not hand-edit.</em></p>
+<p>The paper copy for the bench: one bed per plate with its parts numbered as on the <a href="../plate-plans/">plate plans</a>, and beside it which numbers go into which bin. Lift the parts off the bed bin by bin and tick each box. The back of the bed is at the top.</p>
+<p>Print on US Letter at 100 %, two plates to a page, in print order (the ASA run, then B11). After a plate is re-arranged, reprint its page: the numbers follow the positions on the bed.</p>
+</div>
+<div class="sort-sheet"><section class="sort-plate" id="sort-B00-P1"><div class="sort-plate__hd"><b>B00-P1</b><span>Batch B00 · 8 parts · 3.8 h · 51 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B00-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B00-P1.svg" alt="Plate B00-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8a8f98"></span><b>00-jigs</b><span class="sort-bin__label">Jigs and coupons</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 8</b><span>MGN12_rail_guide ×2</span></li><li><b>2</b><span>pulley_jig</span></li><li><b>3</b><span>Voron_Design_Cube_v7</span></li><li><b>4, 7</b><span>MGN9_rail_guide ×2</span></li><li><b>6</b><span>Heatset_Practice</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5</b><span>z_drive_retainer_a</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B01-P1"><div class="sort-plate__hd"><b>B01-P1</b><span>Batch B01 · 7 parts · 14.6 h · 200 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B01-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B01-P1.svg" alt="Plate B01-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3fa9e0"></span><b>02-Z3</b><span class="sort-bin__label">Z3 corner (front-right, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>z_drive_retainer_b</span></li><li><b>3</b><span>z_drive_main_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#1a9c8c"></span><b>02-Z1</b><span class="sort-bin__label">Z1 corner (rear-left, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>z_drive_main_b</span></li><li><b>7</b><span>z_drive_retainer_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7b4fc4"></span><b>02-Z2</b><span class="sort-bin__label">Z2 corner (rear-right, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4</b><span>z_drive_retainer_a</span></li><li><b>5</b><span>z_drive_main_a</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6</b><span>z_drive_main_a</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B01-P2"><div class="sort-plate__hd"><b>B01-P2</b><span>Batch B01 · 24 parts · 8.3 h · 109 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B01-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B01-P2.svg" alt="Plate B01-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3fa9e0"></span><b>02-Z3</b><span class="sort-bin__label">Z3 corner (front-right, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>z_motor_mount_b</span></li><li><b>7</b><span>z_tensioner_bracket_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7b4fc4"></span><b>02-Z2</b><span class="sort-bin__label">Z2 corner (rear-right, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>z_motor_mount_a</span></li><li><b>18</b><span>z_tensioner_bracket_a</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7f95c9"></span><b>02-deck</b><span class="sort-bin__label">Deck panel clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3–5, 9, 12, 15, 17, 19</b><span>deck_support_3mm ×8</span></li><li><b>6, 10, 16, 20–24</b><span>deck_support_4mm ×8</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>8</b><span>z_motor_mount_a</span></li><li><b>13</b><span>z_tensioner_bracket_a</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#1a9c8c"></span><b>02-Z1</b><span class="sort-bin__label">Z1 corner (rear-left, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>11</b><span>z_motor_mount_b</span></li><li><b>14</b><span>z_tensioner_bracket_b</span></li></ul></div></div></div></section><section class="sort-plate sort-plate--dense" id="sort-B02-P1"><div class="sort-plate__hd"><b>B02-P1</b><span>Batch B02 · 16 parts · 7.1 h · 97 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B02-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B02-P1.svg" alt="Plate B02-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d6875"></span><b>08-superseded</b><span class="sort-bin__label">Superseded Clockwork 2 parts: pulled out, not fitted</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>[a]_guidler_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6b8e23"></span><b>10-chains</b><span class="sort-bin__label">Z cable chain anchor, guide, retainer</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>[a]_z_chain_retainer_bracket</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3fa9e0"></span><b>02-Z3</b><span class="sort-bin__label">Z3 corner (front-right, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3</b><span>[a]_belt_tensioner_b</span></li><li><b>8</b><span>[a]_z_drive_baseplate_b</span></li><li><b>13</b><span>[a]_z_tensioner_9mm</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#c2185b"></span><b>05-XY</b><span class="sort-bin__label">XY joints, endstop pod, upper Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4</b><span>[a]_z_belt_clip_upper</span></li><li><b>7</b><span>[a]_endstop_pod_D2F_switch</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a0522d"></span><b>06-Z-joints</b><span class="sort-bin__label">Z joints and lower Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5</b><span>[a]_z_belt_clip_lower</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9aa5ad"></span><b>11-fans</b><span class="sort-bin__label">Fan grills, retainers, belt guards</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6</b><span>[a]_fan_grill_b</span></li><li><b>10</b><span>[a]_belt_guard_b</span></li><li><b>15</b><span>[a]_belt_guard_a</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>9</b><span>[a]_belt_tensioner_a</span></li><li><b>16</b><span>[a]_z_tensioner_9mm</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>11</b><span>[a]_keystone_blank_insert</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#4f6d7a"></span><b>10-tft</b><span class="sort-bin__label">Touchscreen faceplate + mount</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>12</b><span>[a]_faceplate</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#ff7043"></span><b>11-door</b><span class="sort-bin__label">Clicky-Clack door</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>14</b><span>Handle</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate sort-plate--dense" id="sort-B02-P2"><div class="sort-plate__hd"><b>B02-P2</b><span>Batch B02 · 16 parts · 8.2 h · 108 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B02-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B02-P2.svg" alt="Plate B02-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8fbc4a"></span><b>04-B</b><span class="sort-bin__label">B drive unit + B (left) front idler</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>[a]_tensioner_left</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#c2185b"></span><b>05-XY</b><span class="sort-bin__label">XY joints, endstop pod, upper Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>[a]_xy_joint_cable_bridge_2hole</span></li><li><b>5</b><span>[a]_z_belt_clip_upper</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d6875"></span><b>08-superseded</b><span class="sort-bin__label">Superseded Clockwork 2 parts: pulled out, not fitted</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3</b><span>[a]_guidler_a</span></li><li><b>12</b><span>[a]_stealthburner_main_body</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#1a9c8c"></span><b>02-Z1</b><span class="sort-bin__label">Z1 corner (rear-left, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4</b><span>[a]_z_tensioner_9mm</span></li><li><b>9</b><span>[a]_z_drive_baseplate_b</span></li><li><b>10</b><span>[a]_belt_tensioner_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9aa5ad"></span><b>11-fans</b><span class="sort-bin__label">Fan grills, retainers, belt guards</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6</b><span>[a]_belt_guard_b</span></li><li><b>7, 8</b><span>[a]_fan_grill_a ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6b8e23"></span><b>10-chains</b><span class="sort-bin__label">Z cable chain anchor, guide, retainer</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>11</b><span>[a]_z_chain_retainer_bracket</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7b4fc4"></span><b>02-Z2</b><span class="sort-bin__label">Z2 corner (rear-right, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>13</b><span>[a]_z_drive_baseplate_a</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a0522d"></span><b>06-Z-joints</b><span class="sort-bin__label">Z joints and lower Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>14</b><span>[a]_z_belt_clip_lower</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>15</b><span>ldo_bestagon_insert</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#bdbdbd"></span><b>spare-alt</b><span class="sort-bin__label">Spares / alternates (not fitted)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>16</b><span>[a]_pcb_spacer</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B02-P3"><div class="sort-plate__hd"><b>B02-P3</b><span>Batch B02 · 7 parts · 2.6 h · 36 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B02-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B02-P3.svg" alt="Plate B02-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9aa5ad"></span><b>11-fans</b><span class="sort-bin__label">Fan grills, retainers, belt guards</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 6</b><span>[a]_fan_grill_retainer ×2</span></li><li><b>3</b><span>[a]_belt_guard_a</span></li><li><b>5</b><span>[a]_fan_grill_b</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7b4fc4"></span><b>02-Z2</b><span class="sort-bin__label">Z2 corner (rear-right, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>[a]_belt_tensioner_a</span></li><li><b>7</b><span>[a]_z_tensioner_9mm</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4</b><span>[a]_z_drive_baseplate_a</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B02-P4"><div class="sort-plate__hd"><b>B02-P4</b><span>Batch B02 · 10 parts · 3.1 h · 38 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B02-P4.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B02-P4.svg" alt="Plate B02-P4: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a0522d"></span><b>06-Z-joints</b><span class="sort-bin__label">Z joints and lower Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 4</b><span>[a]_z_belt_clip_lower ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>[a]_keystone_blank_insert</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#f28482"></span><b>08-CW2</b><span class="sort-bin__label">Clockwork 2.5 extruder, toolboard + USB covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3</b><span>[a]_latch_shuttle</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#c2185b"></span><b>05-XY</b><span class="sort-bin__label">XY joints, endstop pod, upper Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5, 6</b><span>[a]_z_belt_clip_upper ×2</span></li><li><b>9</b><span>XY_cable_chain_bridge-Igus-3mm_backer</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#cd853f"></span><b>07-X</b><span class="sort-bin__label">X carriage halves, probe bracket, cable cover</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>7</b><span>[a]_cable_cover</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d6875"></span><b>08-superseded</b><span class="sort-bin__label">Superseded Clockwork 2 parts: pulled out, not fitted</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>8</b><span>[a]_latch</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2e8b57"></span><b>04-A</b><span class="sort-bin__label">A drive unit + A (right) front idler</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>10</b><span>[a]_tensioner_right</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B02-P5"><div class="sort-plate__hd"><b>B02-P5</b><span>Batch B02 · 4 parts · 3.9 h · 48 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B02-P5.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B02-P5.svg" alt="Plate B02-P5: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d62839"></span><b>08-SB</b><span class="sort-bin__label">Stealthburner body, printhead, LEDs</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>[a]_stealthburner_main_body</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#f28482"></span><b>08-CW2</b><span class="sort-bin__label">Clockwork 2.5 extruder, toolboard + USB covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>[a]_guidler_a</span></li><li><b>3</b><span>[a]_guidler_b</span></li><li><b>4</b><span>[a]_latch</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B03-P1"><div class="sort-plate__hd"><b>B03-P1</b><span>Batch B03 · 4 parts · 4.4 h · 61 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B03-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B03-P1.svg" alt="Plate B03-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2e8b57"></span><b>04-A</b><span class="sort-bin__label">A drive unit + A (right) front idler</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>a_drive_frame_lower</span></li><li><b>2</b><span>front_idler_right_lower</span></li><li><b>3</b><span>a_drive_frame_upper</span></li><li><b>4</b><span>front_idler_right_upper</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B03-P2"><div class="sort-plate__hd"><b>B03-P2</b><span>Batch B03 · 4 parts · 4.2 h · 59 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B03-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B03-P2.svg" alt="Plate B03-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8fbc4a"></span><b>04-B</b><span class="sort-bin__label">B drive unit + B (left) front idler</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>b_drive_frame_lower</span></li><li><b>2</b><span>b_drive_frame_upper</span></li><li><b>3</b><span>front_idler_left_upper</span></li><li><b>4</b><span>front_idler_left_lower</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B04-P1"><div class="sort-plate__hd"><b>B04-P1</b><span>Batch B04 · 7 parts · 8.8 h · 117 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B04-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B04-P1.svg" alt="Plate B04-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#c2185b"></span><b>05-XY</b><span class="sort-bin__label">XY joints, endstop pod, upper Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>xy_joint_left_upper_MGN12</span></li><li><b>3</b><span>xy_joint_right_upper_MGN12</span></li><li><b>4</b><span>xy_joint_left_lower_MGN12</span></li><li><b>7</b><span>xy_joint_right_lower_MGN12</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#cd853f"></span><b>07-X</b><span class="sort-bin__label">X carriage halves, probe bracket, cable cover</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>probe_retainer_bracket</span></li><li><b>5</b><span>x_frame_V2TR_MGN12_right</span></li><li><b>6</b><span>x_frame_V2TR_MGN12_left</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B05-P1"><div class="sort-plate__hd"><b>B05-P1</b><span>Batch B05 · 14 parts · 6.2 h · 78 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B05-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B05-P1.svg" alt="Plate B05-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a0522d"></span><b>06-Z-joints</b><span class="sort-bin__label">Z joints and lower Z belt clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 3, 4, 8</b><span>z_joint_upper ×4</span></li><li><b>2, 5, 7, 11</b><span>z_joint_lower ×4</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6b8e23"></span><b>10-chains</b><span class="sort-bin__label">Z cable chain anchor, guide, retainer</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6</b><span>z_chain_bottom_anchor</span></li><li><b>9</b><span>z_chain_guide</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#2457c5"></span><b>02-Z0</b><span class="sort-bin__label">Z0 corner (front-left, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>10</b><span>z_rail_stop</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#1a9c8c"></span><b>02-Z1</b><span class="sort-bin__label">Z1 corner (rear-left, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>12</b><span>z_rail_stop</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3fa9e0"></span><b>02-Z3</b><span class="sort-bin__label">Z3 corner (front-right, _b hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>13</b><span>z_rail_stop</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7b4fc4"></span><b>02-Z2</b><span class="sort-bin__label">Z2 corner (rear-right, _a hand)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>14</b><span>z_rail_stop</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B06-P1"><div class="sort-plate__hd"><b>B06-P1</b><span>Batch B06 · 7 parts · 7.6 h · 95 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B06-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B06-P1.svg" alt="Plate B06-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#f28482"></span><b>08-CW2</b><span class="sort-bin__label">Clockwork 2.5 extruder, toolboard + USB covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>main_body_collet</span></li><li><b>4</b><span>motor_plate</span></li><li><b>5</b><span>cable_cover</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d62839"></span><b>08-SB</b><span class="sort-bin__label">Stealthburner body, printhead, LEDs</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>stealthburner_printhead_revo_voron_rear_cw2</span></li><li><b>3</b><span>[o]_stealthburner_LED_carrier</span></li><li><b>6</b><span>stealthburner_printhead_revo_voron_front</span></li><li><b>7</b><span>[o]_stealthburner_LED_diffuser_mask</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B06-P2"><div class="sort-plate__hd"><b>B06-P2</b><span>Batch B06 · 12 parts · 4.1 h · 51 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B06-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B06-P2.svg" alt="Plate B06-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#bdbdbd"></span><b>spare-alt</b><span class="sort-bin__label">Spares / alternates (not fitted)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>Probe_magnet_holder</span></li><li><b>2</b><span>Mount_magnet_holder</span></li><li><b>3</b><span>Probe_pressfit_holder</span></li><li><b>4</b><span>KlickyProbe_AB_mount_v2_holder</span></li><li><b>5</b><span>Probe_magnet_pressfit_helper</span></li><li><b>6</b><span>Dock_mount_fixed_v2</span></li><li><b>7</b><span>Probe_Dock_v2.1</span></li><li><b>8</b><span>KlickyProbe_AB_mount_v2</span></li><li><b>9, 10</b><span>KlickyProbe_v2 ×2</span></li><li><b>11</b><span>Mount_magnet_pressfit_helper</span></li><li><b>12</b><span>Mount_pressfit_holder_v2</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B07-P1"><div class="sort-plate__hd"><b>B07-P1</b><span>Batch B07 · 7 parts · 5.7 h · 88 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B07-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B07-P1.svg" alt="Plate B07-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#e0a100"></span><b>09-bay</b><span class="sort-bin__label">Electronics bay: inlet, WAGO, PSU, DIN clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>wago_221-415_mount_3by5</span></li><li><b>6</b><span>power_inlet_IECGS_1mm</span></li><li><b>7</b><span>pcb_din_clip</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7a6a53"></span><b>11-finish</b><span class="sort-bin__label">Exhaust cover + grill, handlebar spacers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 5</b><span>handlebar_spacer ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#b8b62c"></span><b>10-lights</b><span class="sort-bin__label">COB light-strip mounts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3, 4</b><span>cob_light_strip_mount_100mm ×2</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B07-P2"><div class="sort-plate__hd"><b>B07-P2</b><span>Batch B07 · 7 parts · 5.1 h · 79 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B07-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B07-P2.svg" alt="Plate B07-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#b8b62c"></span><b>10-lights</b><span class="sort-bin__label">COB light-strip mounts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 3, 4, 6</b><span>cob_light_strip_mount_100mm ×4</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#e0a100"></span><b>09-bay</b><span class="sort-bin__label">Electronics bay: inlet, WAGO, PSU, DIN clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>pcb_din_clip</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7a6a53"></span><b>11-finish</b><span class="sort-bin__label">Exhaust cover + grill, handlebar spacers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5, 7</b><span>handlebar_spacer ×2</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B07-P3"><div class="sort-plate__hd"><b>B07-P3</b><span>Batch B07 · 8 parts · 4.5 h · 58 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B07-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B07-P3.svg" alt="Plate B07-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#e0a100"></span><b>09-bay</b><span class="sort-bin__label">Electronics bay: inlet, WAGO, PSU, DIN clips</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>pcb_din_clip</span></li><li><b>3</b><span>PSU_stabilizer_50mm</span></li><li><b>4, 7</b><span>lrs_200_psu_bracket ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#f28482"></span><b>08-CW2</b><span class="sort-bin__label">Clockwork 2.5 extruder, toolboard + USB covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>usb_adapter_mount_partial_cover</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#b8b62c"></span><b>10-lights</b><span class="sort-bin__label">COB light-strip mounts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5, 8</b><span>cob_light_strip_mount_50mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#bdbdbd"></span><b>spare-alt</b><span class="sort-bin__label">Spares / alternates (not fitted)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6</b><span>usb_adapter_mount</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B08-P1"><div class="sort-plate__hd"><b>B08-P1</b><span>Batch B08 · 2 parts · 6.2 h · 102 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B08-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B08-P1.svg" alt="Plate B08-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>side_skirt_a_350</span></li><li><b>2</b><span>rear_center_skirt_350</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B08-P2"><div class="sort-plate__hd"><b>B08-P2</b><span>Batch B08 · 2 parts · 4.2 h · 62 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B08-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B08-P2.svg" alt="Plate B08-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>side_skirt_b_350</span></li><li><b>2</b><span>side_fan_support</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B08-P3"><div class="sort-plate__hd"><b>B08-P3</b><span>Batch B08 · 2 parts · 4.2 h · 62 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B08-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B08-P3.svg" alt="Plate B08-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>side_skirt_a_350</span></li><li><b>2</b><span>side_fan_support</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B08-P4"><div class="sort-plate__hd"><b>B08-P4</b><span>Batch B08 · 2 parts · 5.2 h · 75 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B08-P4.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B08-P4.svg" alt="Plate B08-P4: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>front_skirt_a_350</span></li><li><b>2</b><span>front_skirt_b_350</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B08-P5"><div class="sort-plate__hd"><b>B08-P5</b><span>Batch B08 · 3 parts · 6.7 h · 96 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B08-P5.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B08-P5.svg" alt="Plate B08-P5: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#5c6b73"></span><b>11-skirts</b><span class="sort-bin__label">Skirt ring, keystone panel and inserts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>keystone_panel</span></li><li><b>3</b><span>side_skirt_b_350</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#4f6d7a"></span><b>10-tft</b><span class="sort-bin__label">Touchscreen faceplate + mount</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>mount</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B09-P1"><div class="sort-plate__hd"><b>B09-P1</b><span>Batch B09 · 12 parts · 3.9 h · 63 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B09-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B09-P1.svg" alt="Plate B09-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a1887f"></span><b>11-clips-4mm</b><span class="sort-bin__label">Panel clips, 4 mm (back + top panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 3</b><span>midspan_panel_clip_4mm ×2</span></li><li><b>5, 9</b><span>corner_panel_clip_4mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8d6e63"></span><b>11-panels</b><span class="sort-bin__label">Bottom-panel clips/hinges, Z belt covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 4</b><span>bottom_panel_clip ×2</span></li><li><b>8</b><span>bottom_panel_hinge</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d4c41"></span><b>11-clips-6mm</b><span class="sort-bin__label">Panel clips, 6 mm (side panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>6, 7</b><span>corner_panel_clip_6mm ×2</span></li><li><b>11, 12</b><span>midspan_panel_clip_6mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7a6a53"></span><b>11-finish</b><span class="sort-bin__label">Exhaust cover + grill, handlebar spacers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>10</b><span>exhaust_cover</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B09-P2"><div class="sort-plate__hd"><b>B09-P2</b><span>Batch B09 · 10 parts · 5.1 h · 65 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B09-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B09-P2.svg" alt="Plate B09-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8d6e63"></span><b>11-panels</b><span class="sort-bin__label">Bottom-panel clips/hinges, Z belt covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>bottom_panel_clip</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a1887f"></span><b>11-clips-4mm</b><span class="sort-bin__label">Panel clips, 4 mm (back + top panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 6</b><span>midspan_panel_clip_4mm ×2</span></li><li><b>8, 9</b><span>corner_panel_clip_4mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d4c41"></span><b>11-clips-6mm</b><span class="sort-bin__label">Panel clips, 6 mm (side panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3, 4</b><span>midspan_panel_clip_6mm ×2</span></li><li><b>7, 10</b><span>corner_panel_clip_6mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#00695c"></span><b>11-nevermore</b><span class="sort-bin__label">Nevermore plenum + cartridge</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5</b><span>Regular_Cartridge(contributed_by_Bucknova)</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B09-P3"><div class="sort-plate__hd"><b>B09-P3</b><span>Batch B09 · 7 parts · 4.5 h · 65 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B09-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B09-P3.svg" alt="Plate B09-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a1887f"></span><b>11-clips-4mm</b><span class="sort-bin__label">Panel clips, 4 mm (back + top panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 2</b><span>midspan_panel_clip_4mm ×2</span></li><li><b>3, 7</b><span>corner_panel_clip_4mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#00695c"></span><b>11-nevermore</b><span class="sort-bin__label">Nevermore plenum + cartridge</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4</b><span>Regular_Cartridge_Lid(contributed_by_Bucknova)</span></li><li><b>6</b><span>V2_Duo_Plenum</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8d6e63"></span><b>11-panels</b><span class="sort-bin__label">Bottom-panel clips/hinges, Z belt covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5</b><span>bottom_panel_hinge</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B09-P4"><div class="sort-plate__hd"><b>B09-P4</b><span>Batch B09 · 10 parts · 3.3 h · 47 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B09-P4.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B09-P4.svg" alt="Plate B09-P4: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#a1887f"></span><b>11-clips-4mm</b><span class="sort-bin__label">Panel clips, 4 mm (back + top panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 6</b><span>corner_panel_clip_4mm ×2</span></li><li><b>8</b><span>midspan_panel_clip_4mm</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8d6e63"></span><b>11-panels</b><span class="sort-bin__label">Bottom-panel clips/hinges, Z belt covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>bottom_panel_clip</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d4c41"></span><b>11-clips-6mm</b><span class="sort-bin__label">Panel clips, 6 mm (side panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3, 4</b><span>corner_panel_clip_6mm ×2</span></li><li><b>7, 9</b><span>midspan_panel_clip_6mm ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#00695c"></span><b>11-nevermore</b><span class="sort-bin__label">Nevermore plenum + cartridge</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5</b><span>V2_Duo_Plenum_LID</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#7a6a53"></span><b>11-finish</b><span class="sort-bin__label">Exhaust cover + grill, handlebar spacers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>10</b><span>exhaust_filter_grill</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B09-P5"><div class="sort-plate__hd"><b>B09-P5</b><span>Batch B09 · 10 parts · 4.0 h · 60 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B09-P5.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B09-P5.svg" alt="Plate B09-P5: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#78909c"></span><b>11-spool</b><span class="sort-bin__label">Spool holder + bowden retainer</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>spool_holder</span></li><li><b>2</b><span>bowden_retainer</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#8d6e63"></span><b>11-panels</b><span class="sort-bin__label">Bottom-panel clips/hinges, Z belt covers</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3, 7</b><span>z_belt_cover_a ×2</span></li><li><b>5, 8</b><span>z_belt_cover_b ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#6d4c41"></span><b>11-clips-6mm</b><span class="sort-bin__label">Panel clips, 6 mm (side panels)</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>4, 10</b><span>midspan_panel_clip_6mm ×2</span></li><li><b>6, 9</b><span>corner_panel_clip_6mm ×2</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B10-P1"><div class="sort-plate__hd"><b>B10-P1</b><span>Batch B10 · 8 parts · 5.7 h · 75 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B10-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B10-P1.svg" alt="Plate B10-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#ff7043"></span><b>11-door</b><span class="sort-bin__label">Clicky-Clack door</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>Panel_Clip</span></li><li><b>2, 3</b><span>Hinge-L-sleeve-2X ×2</span></li><li><b>4</b><span>Latch</span></li><li><b>5, 7</b><span>Hinge-L-solid-2X ×2</span></li><li><b>6</b><span>Handle-Hinge_Bottom</span></li><li><b>8</b><span>Handle-Hinge_Top</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B12-P1"><div class="sort-plate__hd"><b>B12-P1</b><span>Batch B12 · 1 part · 6.9 h · 105 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B12-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B12-P1.svg" alt="Plate B12-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#457b9d"></span><b>11-side-spool</b><span class="sort-bin__label">Side spool add-on: frame, puck, spindle, tube holder</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>side_spool_frame_puck</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B12-P2"><div class="sort-plate__hd"><b>B12-P2</b><span>Batch B12 · 3 parts · 1.8 h · 28 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B12-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B12-P2.svg" alt="Plate B12-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#e9c46a"></span><b>11-camera</b><span class="sort-bin__label">Camera add-on: HappyCam body + light cover, camera board</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>HappyCam_cover_with_light</span></li><li><b>2</b><span>HappyCam_main-350</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#457b9d"></span><b>11-side-spool</b><span class="sort-bin__label">Side spool add-on: frame, puck, spindle, tube holder</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3</b><span>Bowden Tube Holder_Long</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B12-P3"><div class="sort-plate__hd"><b>B12-P3</b><span>Batch B12 · 2 parts · 5.7 h · 83 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B12-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B12-P3.svg" alt="Plate B12-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#457b9d"></span><b>11-side-spool</b><span class="sort-bin__label">Side spool add-on: frame, puck, spindle, tube holder</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>Universal-puck-R1</span></li><li><b>2</b><span>Universal-spoolholder-1kg-R1</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B13-P1"><div class="sort-plate__hd"><b>B13-P1</b><span>Batch B13 · 1 part · 4.5 h · 66 g · Galaxy Black ASA, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B13-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B13-P1.svg" alt="Plate B13-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#264653"></span><b>14-exhaust</b><span class="sort-bin__label">Chamber exhaust add-on: housing, grill, cover, mounts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>exhaust_filter_housing</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B13-P2"><div class="sort-plate__hd"><b>B13-P2</b><span>Batch B13 · 4 parts · 1.9 h · 35 g · ASA Blue, satin sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B13-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B13-P2.svg" alt="Plate B13-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#264653"></span><b>14-exhaust</b><span class="sort-bin__label">Chamber exhaust add-on: housing, grill, cover, mounts</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>[a]_exhaust_fan_grill</span></li><li><b>2, 3</b><span>[a]_exhaust_filter_mount ×2</span></li><li><b>4</b><span>[a]_filter_access_cover</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B11-P1"><div class="sort-plate__hd"><b>B11-P1</b><span>Batch B11 · 2 parts · 0.4 h · 4 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P1.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P1.svg" alt="Plate B11-P1: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1</b><span>V3L_COUPON_22N_DUCT_COVER</span></li><li><b>2</b><span>V3L_COUPON_22N_DUCT</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B11-P2"><div class="sort-plate__hd"><b>B11-P2</b><span>Batch B11 · 4 parts · 4.3 h · 58 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P2.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P2.svg" alt="Plate B11-P2: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 4</b><span>CMD_V3_1H_154mm_DUCT ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d4a373"></span><b>11-lids-DC</b><span class="sort-bin__label">DC lids, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 3</b><span>CMD_V2_6B_154mm_DUCT_COVER ×2</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B11-P3"><div class="sort-plate__hd"><b>B11-P3</b><span>Batch B11 · 11 parts · 3.2 h · 53 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P3.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P3.svg" alt="Plate B11-P3: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3d5a80"></span><b>10-lids-AC</b><span class="sort-bin__label">AC lids + strip fin, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 8</b><span>V3L_90DEG_R15_COVER ×2</span></li><li><b>3</b><span>V2L_STRIP_FIN</span></li><li><b>6</b><span>CMD_V2_6B_WIRE_BOX_COVER</span></li><li><b>10</b><span>CMD_V2_6B_T_SHORT_COVER</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#b4501a"></span><b>09-ducts-AC</b><span class="sort-bin__label">AC conduit, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 5</b><span>V3L_90DEG_R15 ×2</span></li><li><b>4</b><span>CMD_V3_1H_T_SHORT</span></li><li><b>7, 11</b><span>CMD_Remix-V3_DUCT-1M_ENDCAP ×2</span></li><li><b>9</b><span>V3L_WIRE_BOX_PORT</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B11-P4"><div class="sort-plate__hd"><b>B11-P4</b><span>Batch B11 · 18 parts · 6.3 h · 82 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P4.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P4.svg" alt="Plate B11-P4: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#3d5a80"></span><b>10-lids-AC</b><span class="sort-bin__label">AC lids + strip fin, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 7</b><span>V3L_10mm_DUCT_COVER ×2</span></li><li><b>13</b><span>V3L_34mm_DUCT_COVER</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#b4501a"></span><b>09-ducts-AC</b><span class="sort-bin__label">AC conduit, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2</b><span>V3L_34mm_DUCT_HOLE</span></li><li><b>9, 15</b><span>V3L_10mm_DUCT ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d4a373"></span><b>11-lids-DC</b><span class="sort-bin__label">DC lids, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3, 17, 18</b><span>V2L_58mm_DUCT_COVER ×3</span></li><li><b>4</b><span>V2L_70mm_DUCT_COVER</span></li><li><b>10</b><span>V3L_10mm_DUCT_COVER</span></li><li><b>12</b><span>V2L_130mm_DUCT_COVER</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>5, 11, 16</b><span>V2L_58mm_DUCT ×3</span></li><li><b>6</b><span>V3L_10mm_DUCT</span></li><li><b>8</b><span>V2L_70mm_DUCT</span></li><li><b>14</b><span>V2L_130mm_DUCT</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B11-P5"><div class="sort-plate__hd"><b>B11-P5</b><span>Batch B11 · 4 parts · 4.2 h · 56 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P5.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P5.svg" alt="Plate B11-P5: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 4</b><span>V3L_154N_DUCT ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d4a373"></span><b>11-lids-DC</b><span class="sort-bin__label">DC lids, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 3</b><span>V3L_154N_DUCT_COVER ×2</span></li></ul></div></div></div></section></div>
+
+<div class="sort-sheet"><section class="sort-plate" id="sort-B11-P6"><div class="sort-plate__hd"><b>B11-P6</b><span>Batch B11 · 10 parts · 4.0 h · 58 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P6.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P6.svg" alt="Plate B11-P6: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 10</b><span>CMD_Remix-V3_DUCT-2B_45deg ×2</span></li><li><b>2, 9</b><span>CMD_V3_1H_90DEG ×2</span></li><li><b>8</b><span>V2L_90DEG_MIRROR</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d4a373"></span><b>11-lids-DC</b><span class="sort-bin__label">DC lids, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>3</b><span>V2L_90DEG_COVER_MIRROR</span></li><li><b>4, 7</b><span>CMD_Remix-V3_DUCT-2B_45deg_LID ×2</span></li><li><b>5, 6</b><span>CMD_V2_6B_90DEG_COVER ×2</span></li></ul></div></div></div></section><section class="sort-plate" id="sort-B11-P7"><div class="sort-plate__hd"><b>B11-P7</b><span>Batch B11 · 4 parts · 2.7 h · 38 g · Jet Black PETG V0, textured sheet</span><span class="sort-plate__back">back of bed ↑</span></div><div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:912/804"><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../manual/assets/plates/B11-P7.svg" data-desc-position="bottom"><img decoding="async" loading="lazy" src="../../manual/assets/plates/B11-P7.svg" alt="Plate B11-P7: the bed, parts numbered" style="width:175.439%;margin-left:-1.974%;margin-top:-9.211%"></a></div><div class="sort-plate__bins"><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#9c6a12"></span><b>09-ducts-DC</b><span class="sort-bin__label">DC conduit + coupon, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>1, 3</b><span>V3L_T_REG_N ×2</span></li></ul></div><div class="sort-bin"><div class="sort-bin__hd"><span class="sort-bin__chip" style="background:#d4a373"></span><b>11-lids-DC</b><span class="sort-bin__label">DC lids, B11</span><span class="sort-bin__box" aria-hidden="true">☐</span></div><ul><li><b>2, 4</b><span>V3L_T_REG_N_COVER ×2</span></li></ul></div></div></div></section></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../plate-plans/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plate plans">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Plate plans
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../plate-board/" class="md-footer__link md-footer__link--next" aria-label="Next: Plate board">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Plate board
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.top", "toc.follow", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/wakelock.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
+      
+        <script src="../../javascripts/jumpbar.js"></script>
+      
+        <script src="../../javascripts/stepnav.js"></script>
+      
+        <script src="../../javascripts/gatecalc.js"></script>
+      
+        <script src="../../javascripts/taptree.js"></script>
+      
+        <script src="../../javascripts/boards.js"></script>
+      
+        <script src="../../javascripts/tonight.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

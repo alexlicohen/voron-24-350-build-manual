@@ -1,0 +1,226 @@
+# CAD renders for Ch 14 Part H, the chamber exhaust add-on (Steps 14.25-14.29).
+#
+#   CACHE=~/.cache/voron-cad/cache venv-cq/bin/python scripts/cad_render/render_steps.py \
+#       --yml docs/manual/assets/cad/exhaust-14h.yml
+#   ... --check-ids        (id drift after a cache rebuild)
+#
+# Same format and renderer as steps.yml (PILOT.md section 9); kept in its own file
+# so the add-on's renders stay out of steps.yml's MANIFEST.md and can be dropped
+# with the add-on.  Never run --manifest with this file: it would overwrite
+# MANIFEST.md with these six entries only.
+#
+# Placement is read from the CAD, not inferred: the published 2.4r2 assembly
+# (the 250 machine) carries the stock "Exhaust Filter Assembly" (35 leaves, ids
+# 1393-1427) in place over the back panel's notch.  Its back panel (id 1207) has
+# the notch at x 53.4-200.5, floor z 315.9, top edge z 358.4: 147.1 x 42.5 mm,
+# centred on the machine's centre line (x 127) - the same notch as the 350's
+# 350_Back_Panel.DXF (147 x 42.5, centred).  So the housing, grill, mounts and
+# T-nuts sit exactly here on a 350 too; only the panel and the extrusions
+# around them are longer.  The PTFE guide tube (1426) and the spool holder are
+# left out of every image: neither is part of this add-on.
+
+source:
+  step: Voron_2.4r2_Assembly.step
+  from: https://raw.githubusercontent.com/VoronDesign/Voron-2/de7e89d/CAD/Voron_2.4r2_Assembly_STEP.zip
+  commit: de7e89d
+  zip_sha256: 36c6c58e096aa89aa05a0ef22f3b49cbceedc950424332772461ab0c779cc1c6
+  cache_parts: 1428
+  licence: GPL-3.0, VoronDesign
+  size: "250 (the published CAD); this build is a 350"
+
+defaults:
+  azim: -55.0
+  elev: 26.0
+  width: 1200
+  height: 900
+  ss: 2
+  context_scale: 4.0
+  note: "Voron 2.4r2 CAD (VoronDesign, GPL-3.0) @ de7e89d - 250 size; your kit is 350, same notch and housing"
+
+steps:
+
+# Whole machine, from behind.  azim +55 = camera behind and to the printer's
+# RIGHT, so the printer's right-hand side is on the left of the picture.
+- step: "14.25"
+  out: 14-25
+  chapter: 14-calibration.md
+  modes: [b]
+  azim: 55.0
+  elev: 22.0
+  frame_b: '-90,-50,-145,345,465,380'
+  ghost_exclude: 'Spool Holder|4x3mm PTFE'
+  title: "Step 14.25 - where the exhaust housing goes"
+  subtitle_b: "Seen from behind the printer's right-hand corner. The housing hangs outside the back panel, centred on its top edge."
+  select:
+    - label: "exhaust housing, 6020 fan underneath (stands ~62 mm proud)"
+      resolve: 'Exhaust Filter Assembly:1/(Exhaust Housing:1/(=>|M3|BSP)|Rear Cover|6020 Fan|60mm_exhaust_fan_grill)'
+      ids: [1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1416, 1417, 1418, 1424, 1425, 1427]
+    - label: "grill in the panel's notch, two mounts on the top rear extrusion"
+      resolve: 'Exhaust Filter Assembly:1/(Exhaust Grill|Exhaust Mount)'
+      ids: [1419, 1420, 1421, 1422, 1423]
+  caption: "The whole machine from behind, the exhaust housing highlighted on the back panel's top edge."
+  note_350: "The 350's panel and extrusions are 100 mm wider and taller; the notch, housing and mounts are identical and centred the same way."
+  insert: true
+
+# The notch with the housing, grill and mounts hidden: what 14.25's gate asks about.
+- step: "14.25"
+  out: 14-25-notch
+  chapter: 14-calibration.md
+  modes: [b]
+  azim: 40.0
+  elev: 20.0
+  frame_b: '20,330,250,235,450,385'
+  ghost_exclude: 'Spool Holder|4x3mm PTFE|Top Panel|Exhaust Filter'
+  title: "Step 14.25 - the notch, shown empty"
+  subtitle_b: "On your machine the exhaust cover and grill fill it. Behind it, the top rear extrusion's back slot takes the mounts' T-nuts."
+  select:
+    - label: "M5 roll-in T-nut x2, top rear extrusion's back slot"
+      resolve: 'Top Extrusions:1/HFSB5-2020-370-TPW \(4\):1/2020 Drop-in T-nut, M5 \((7|8)\)'
+      ids: [1000, 1001]
+    - label: "back panel: notch 147 x 42.5 mm in its top edge"
+      resolve: 'Rear Panel:1/=>'
+      ids: [1207]
+  caption: "The back panel's notch with nothing in it, and the two T-nut positions in the extrusion behind it."
+  note_350: "Same notch on the 350 panel (350_Back_Panel.DXF: 147 x 42.5 mm, centred); the panel itself is wider and taller."
+  insert: true
+
+# Assembled close-up: the end state of 14.29.
+- step: "14.25"
+  out: 14-25-close
+  chapter: 14-calibration.md
+  modes: [b]
+  azim: 60.0
+  elev: 22.0
+  frame_b: '0,330,170,255,450,385'
+  ghost_exclude: 'Spool Holder|4x3mm PTFE|Top Panel'
+  title: "The exhaust housing in place"
+  subtitle_b: "From behind. Chamber air goes in through the grill and the mat, and the fan blows it out of the bottom."
+  select:
+    - label: "exhaust_filter_housing"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Housing:1/(=>|M3|BSP)'
+      ids: [1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1416, 1417]
+    - label: "24 V 6020 fan + [a]_exhaust_fan_grill, air out and down"
+      resolve: 'Exhaust Filter Assembly:1/(6020 Fan|60mm_exhaust_fan_grill)'
+      ids: [1424, 1425, 1427]
+    - label: "[a]_filter_access_cover"
+      resolve: 'Exhaust Filter Assembly:1/Rear Cover'
+      ids: [1418]
+    - label: "exhaust_filter_grill, in the panel's notch"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Grill'
+      ids: [1419]
+    - label: "[a]_exhaust_filter_mount x2 + M5x10 BHCS"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Mount'
+      ids: [1420, 1421, 1422, 1423]
+  caption: "Close-up of the finished add-on from behind: housing, fan and fan grill, access cover, grill and mounts."
+  note_350: null
+  insert: true
+
+# 14.27: six of the eight insert bosses; the two on the panel face are hidden.
+- step: "14.27"
+  out: 14-27
+  chapter: 14-calibration.md
+  modes: [a]
+  azim: 110.0
+  elev: -25.0
+  title: "Step 14.27 - the housing's heat-set inserts"
+  subtitle_a: "Seen from behind and below. Two more sit on the panel face, out of sight here: p.250's left view shows them."
+  select:
+    - label: "exhaust_filter_housing"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Housing:1/=>'
+      ids: [1417]
+    - label: "M3 insert x4 round the fan opening"
+      resolve: 'Exhaust Housing:1/M3 Threaded Insert \((82|83|84|85)\)'
+      ids: [1396, 1397, 1398, 1399]
+    - label: "M3 insert x2 for the access cover"
+      resolve: 'Exhaust Housing:1/M3 Threaded Insert \((86|87)\)'
+      ids: [1394, 1395]
+    - label: "M3 insert x2 on the panel face (grill screws)"
+      resolve: 'Exhaust Housing:1/M3 Threaded Insert \((81|88)\)'
+      ids: [1393, 1400]
+  caption: "The housing alone with its insert bosses marked: four round the fan opening, two for the access cover."
+  note_350: null
+  insert: true
+
+# 14.28: exploded build.  Fan, fan grill and screws pulled out along the fan
+# axis (0, 0.707, -0.707): 45 / 85 / 125 mm; mat, cover and its screws pulled
+# straight back (+Y) 60 / 120 / 150 mm.  The CAD stacks six 7 mm filter slabs;
+# Part H fits two, so only the two outermost are drawn.
+- step: "14.28"
+  out: 14-28
+  chapter: 14-calibration.md
+  modes: [a]
+  azim: 150.0
+  elev: 10.0
+  title: "Step 14.28 - the housing build, pulled apart"
+  subtitle_a: "Seen from behind the printer's left. Fan and grill go on the angled bottom face; mat and cover go in at the back."
+  select:
+    - label: "exhaust_filter_housing, inserts set"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Housing:1/(=>|M3 Threaded)'
+      ids: [1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1417]
+    - label: "24 V 6020 fan, lead fed inside the housing"
+      resolve: 'Exhaust Filter Assembly:1/6020 Fan'
+      ids: [1424, 1425]
+      offset: '0,31.8,-31.8'
+    - label: "[a]_exhaust_fan_grill"
+      resolve: 'Exhaust Filter Assembly:1/60mm_exhaust_fan_grill'
+      ids: [1427]
+      offset: '0,60.1,-60.1'
+    - label: "M3x30 SHCS x4, through grill and fan"
+      resolve: 'Exhaust Housing:1/M3x30 SHCS'
+      ids: [1401, 1402, 1403, 1405]
+      offset: '0,88.4,-88.4'
+    - label: "carbon mat, two layers (the CAD draws six)"
+      resolve: 'Filter Element \(1\):(5|6)'
+      ids: [1409, 1411]
+      offset: '0,60,0'
+    - label: "[a]_filter_access_cover"
+      resolve: 'Exhaust Filter Assembly:1/Rear Cover'
+      ids: [1418]
+      offset: '0,120,0'
+    - label: "M3x8 SHCS x2"
+      resolve: 'Exhaust Housing:1/M3x8 SHCS'
+      ids: [1406, 1407]
+      offset: '0,150,0'
+  caption: "Exploded view of the housing build: fan, fan grill and four M3x30 on the bottom face; two mat layers and the access cover with two M3x8 at the back."
+  note_350: null
+  insert: true
+
+# 14.29: the swap, housing pulled 90 mm back off the panel so the joint shows.
+- step: "14.29"
+  out: 14-29
+  chapter: 14-calibration.md
+  modes: [b]
+  azim: 40.0
+  elev: 20.0
+  frame_b: '20,330,180,235,520,385'
+  ghost_exclude: 'Spool Holder|4x3mm PTFE|Top Panel|Exhaust Filter'
+  title: "Step 14.29 - how the housing hangs on the panel"
+  subtitle_b: "From behind, housing pulled 90 mm back. Grill and mounts carry it; the tape seals it; two M3x12 from inside pull it tight."
+  select:
+    - label: "housing from 14.28 (pulled back to show the joint)"
+      resolve: 'Exhaust Filter Assembly:1/(Exhaust Housing:1/(=>|M3 Threaded|M3x30|M3x8|BSP)|Rear Cover|6020 Fan|60mm_exhaust_fan_grill)'
+      ids: [1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403, 1405, 1406, 1407, 1416, 1417, 1418, 1424, 1425, 1427]
+      offset: '0,90,0'
+    - label: "VHB tape on the housing's panel face"
+      resolve: 'Exhaust Housing:1/VHB Mount tape'
+      ids: [1415]
+      offset: '0,45,0'
+    - label: "exhaust_filter_grill, in the notch"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Grill'
+      ids: [1419]
+    - label: "[a]_exhaust_filter_mount x2"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Mount[^/]*:1/=>'
+      ids: [1421, 1423]
+    - label: "M5x10 BHCS x2"
+      resolve: 'Exhaust Filter Assembly:1/Exhaust Mount[^/]*:1/M5x10'
+      ids: [1420, 1422]
+    - label: "M5 roll-in T-nut x2, extrusion back slot"
+      resolve: 'Top Extrusions:1/HFSB5-2020-370-TPW \(4\):1/2020 Drop-in T-nut, M5 \((7|8)\)'
+      ids: [1000, 1001]
+    - label: "M3x12 SHCS x2, driven from inside the chamber"
+      resolve: 'Exhaust Housing:1/M3x12 SHCS'
+      ids: [1404, 1408]
+      offset: '0,-25,0'
+  caption: "The panel joint opened up: grill in the notch on two mounts and T-nuts, the taped housing pulled back, the two M3x12 that go in from inside."
+  note_350: null
+  insert: true
