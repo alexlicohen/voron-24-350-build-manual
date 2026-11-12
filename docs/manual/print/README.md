@@ -47,7 +47,7 @@ prerequisite lists live in [00-index.md](../00-index.md#chapters).
 | [B13](B13-exhaust-housing.md) | 2 | 6.4 | 66 | 35 | Ch 14 Part H exhaust housing, if Step 14.25 passes | Gate A (after B12) |
 | **TOTAL** | **33** | **176.0** | **2017** | **445** | | |
 
-All 33 diagrams on one page: [Plate plans](../../print/plate-plans.md).
+All 33 diagrams on one page: [Plate plans](../../print/plate-plans.md). Paper copy for sorting at the bench: [Plate sort sheets](../../print/plate-sort-sheets.md).
 
 **Filament margin:** Black 2017 g needed / 2400 g on hand → **383 g margin (19 %)**. Blue 445 g needed /
 800 g on hand → **355 g margin (80 %)**. The optional scrubber add-on draws about 38 g black on this margin. Setup and the full override table:

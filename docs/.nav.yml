@@ -63,6 +63,7 @@ nav:
       - manual/steps/b11-bay-ducting/index.md
       - manual/print/README.md
       - print/plate-plans.md
+      - print/plate-sort-sheets.md
       - print/plate-board.md
       - print/checklists.md
       - print/bin-labels.md

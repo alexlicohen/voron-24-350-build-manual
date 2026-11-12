@@ -26,6 +26,14 @@ Produces:
                                and bins (from slicer/bins.py), linking to that
                                plate's Load step in the batch chapter.
 
+  docs/print/plate-sort-sheets.md — the paper copy for the bench: every plate's bed
+                               (its sorting diagram cropped to the bed) beside
+                               the numbered parts grouped by bin, with a tick box
+                               per bin. Two plates per US Letter page in print
+                               order; drawn from the committed 3MFs through
+                               scripts/render_plate_bins.py, so the numbers are
+                               the diagram's own.
+
   docs/assets/build-progress.json — every assembly chapter with its step ids and
                                its cumulative CAD render, for the "what you have
                                built so far" block on Home (docs/javascripts/boards.js).
@@ -45,7 +53,7 @@ Produces:
                                `milestone` plates, and `runs` (one header line
                                each for the ASA run and B11, never summed).
 
-All five files are regenerated on every build — never hand-edit them. QR SVGs
+All six files are regenerated on every build — never hand-edit them. QR SVGs
 are written to docs/print/assets/qr/.
 """
 
@@ -100,6 +108,7 @@ _EXCLUDE = {"00-index.md", "00-tonight.md", "CONVENTIONS.md", "README.md"}
 # planner and invisible to the printable sheets.
 sys.path.insert(0, str(REPO / "scripts"))
 from build_tonight import _CHAPTER_TITLE_RE  # noqa: E402  (# Chapter NN / # Batch BNN)
+import render_plate_bins as rpb  # noqa: E402  (plate diagrams: part numbers, bins, bed box)
 
 # A checkpoint heading may carry its own tail ("## Checkpoint 08 — bench test
 # before anything is powered"), and a file may hold more than one (Ch 06/06b).
@@ -874,7 +883,8 @@ def build_plate_plans_markdown():
         f"**{len(bay)} plates**, **{sum(h for _c, _n, h, _g in bay.values()):.1f} h**, "
         f"**{sum(g for _c, _n, _h, g in bay.values()):.0f} g Jet Black PETG V0**, outside the run's totals. "
         "Every diagram is drawn from the committed PrusaSlicer "
-        "project `slicer/plates/<id>.3mf` (`python3 slicer/build_plates.py --from-3mf`).",
+        "project `slicer/plates/<id>.3mf` (`python3 slicer/build_plates.py --from-3mf`). "
+        "For paper at the bench: [plate sort sheets](plate-sort-sheets.md).",
         "",
     ]
 
@@ -1201,6 +1211,105 @@ def build_plate_board_json():
     }
 
 
+
+# ---------------------------------------------------------------- plate sort sheets
+_SORT_MATERIAL = {"black": "Galaxy Black ASA, satin sheet", "blue": "ASA Blue, satin sheet",
+                  "petg": "Jet Black PETG V0, textured sheet"}
+_SORT_CROP = 6            # px of diagram kept around the bed box
+_COPIES_RE = re.compile(r"_x\d+$")
+_SORT_DENSE_ABOVE = 18    # bin headings + part rows on one plate; above it the paper list shrinks
+_sort_cache = {}          # plate id -> (3MF mtime, block html): `mkdocs serve` rebuilds stay fast
+
+
+def _sort_plate_html(pid, spec, estimate):
+    """One plate of the sort sheets, as a single raw-HTML line: the plate's sorting diagram cropped
+    to the bed (the committed SVG, shown through an overflow-hidden box) and, beside it, the
+    diagram's part numbers grouped by bin. Numbering and bins come from the same functions that
+    draw the diagram (render_plate_bins), so sheet and diagram cannot disagree."""
+    _plate, parts, warnings = rpb.load_plate(pid)
+    if warnings:
+        raise SystemExit("build_printables.py: plate sort sheets: " + "; ".join(warnings))
+    rpb.number_parts(parts)
+    by_bin = {}
+    for stl, bin_id, nums_txt, nums in rpb.legend_rows(parts):
+        by_bin.setdefault(bin_id, []).append((nums_txt, nums, stl))
+    order = sorted(by_bin, key=lambda b: min(n for _t, ns, _s in by_bin[b] for n in ns))
+    groups = []
+    for bin_id in order:
+        label = bins.BINS.get(bin_id, {}).get("label", "").replace("`", "")
+        items = "".join(
+            f"<li><b>{html.escape(txt)}</b><span>{html.escape(_COPIES_RE.sub('', Path(stl).stem))}"
+            f"{' ×' + str(len(nums)) if len(nums) > 1 else ''}</span></li>"
+            for txt, nums, stl in by_bin[bin_id])
+        groups.append(
+            f'<div class="sort-bin"><div class="sort-bin__hd">'
+            f'<span class="sort-bin__chip" style="background:{rpb.bin_colour(bin_id)}"></span>'
+            f"<b>{html.escape(bin_id)}</b><span class=\"sort-bin__label\">{html.escape(label)}</span>"
+            f'<span class="sort-bin__box" aria-hidden="true">☐</span></div><ul>{items}</ul></div>')
+    # Crop: the SVG is OUT_W px wide; show only the bed box plus a small border.
+    x0, y0 = rpb.BED_OX - _SORT_CROP, rpb.BED_OY - _SORT_CROP
+    w, h = rpb.BED_W + 2 * _SORT_CROP, rpb.BED_H + 2 * _SORT_CROP
+    img_style = (f"width:{100 * rpb.OUT_W / w:.3f}%;margin-left:{-100 * x0 / w:.3f}%;"
+                 f"margin-top:{-100 * y0 / w:.3f}%")
+    colour, n_parts, hours, grams = estimate
+    qc = ('<span class="sort-plate__qc">awaiting GUI review</span>'
+          if spec.get("qc") == "pending" else "")
+    # Raw HTML is not re-linked by MkDocs: the page is served at print/plate-sort-sheets/.
+    # A long list (many bins, many rows) prints smaller so it fits its half page.
+    rows = len(groups) + sum(len(v) for v in by_bin.values())
+    dense = " sort-plate--dense" if rows > _SORT_DENSE_ABOVE else ""
+    return (
+        f'<section class="sort-plate{dense}" id="sort-{pid}"><div class="sort-plate__hd"><b>{pid}</b>'
+        f"<span>Batch {spec['batch']} · {n_parts} part{'s' if n_parts != 1 else ''} · {hours:.1f} h · "
+        f"{grams:.0f} g · {_SORT_MATERIAL[colour]}</span>{qc}"
+        f'<span class="sort-plate__back">back of bed ↑</span></div>'
+        f'<div class="sort-plate__row"><div class="sort-plate__bed" style="aspect-ratio:{w}/{h}">'
+        f'<img src="../../manual/assets/plates/{pid}.svg" alt="Plate {pid}: the bed, parts numbered" '
+        f'style="{img_style}"></div>'
+        f'<div class="sort-plate__bins">{"".join(groups)}</div></div></section>')
+
+
+def build_plate_sort_sheets_markdown():
+    estimates = _load_estimates()
+    plates_by_batch = {}
+    for pid, spec in PLATES.items():
+        plates_by_batch.setdefault(spec["batch"], []).append(pid)
+    _check_batch_print_order(plates_by_batch, _batch_files())
+    blocks = []
+    for batch in _BATCH_PRINT_ORDER:
+        for pid in plates_by_batch.get(batch, []):
+            mtime = (rpb.PLATE_DIR / f"{pid}.3mf").stat().st_mtime
+            key = (mtime, estimates[pid], PLATES[pid].get("qc"))
+            if _sort_cache.get(pid, (None,))[0] != key:
+                _sort_cache[pid] = (key, _sort_plate_html(pid, PLATES[pid], estimates[pid]))
+            blocks.append(_sort_cache[pid][1])
+    lines = [
+        "# Plate sort sheets",
+        "",
+        # Screen-only, like the bin labels' intro: on paper the first sheet starts page 1.
+        '<div class="sort-sheets-intro" markdown="1">',
+        "",
+        mascot.panel_html("gather"),
+        "",
+        "_Generated by `scripts/build_printables.py` from the committed plate 3MFs — do not hand-edit._",
+        "",
+        "The paper copy for the bench: one bed per plate with its parts numbered as on the "
+        "[plate plans](plate-plans.md), and beside it which numbers go into which bin. Lift the "
+        "parts off the bed bin by bin and tick each box. The back of the bed is at the top.",
+        "",
+        "Print on US Letter at 100 %, two plates to a page, in print order (the ASA run, then B11). "
+        "After a plate is re-arranged, reprint its page: the numbers follow the positions on the bed.",
+        "",
+        "</div>",
+        "",
+    ]
+    # Two plates per sheet; one raw-HTML line per sheet so Python-Markdown passes it through.
+    for i in range(0, len(blocks), 2):
+        lines.append(f'<div class="sort-sheet">{"".join(blocks[i:i + 2])}</div>')
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def _load_chapters():
     """Assembly chapters then print batches, each in file order — which is
     chapter order (00, 00a, 01 … 14) and print order (B00 … B10)."""
@@ -1227,6 +1336,9 @@ def on_pre_build(config, **kwargs):
     )
     (PRINT_DIR / "plate-plans.md").write_text(
         build_plate_plans_markdown(), encoding="utf-8"
+    )
+    (PRINT_DIR / "plate-sort-sheets.md").write_text(
+        build_plate_sort_sheets_markdown(), encoding="utf-8"
     )
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     for name, payload in (("build-progress.json", build_progress_json()),

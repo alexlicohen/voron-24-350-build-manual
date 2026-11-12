@@ -1314,3 +1314,74 @@ body.step-is-done .md-typeset .step-done-label {
   .md-typeset .bag-index__chip--other { background: #fff; color: #000; margin: 0 1mm; padding: .3mm 1.5mm; }
 }
 }
+
+/* Plate sort sheets (docs/print/plate-sort-sheets.md, scripts/build_printables.py
+ * _sort_plate_html). On screen: one card per plate, the bed beside its bins. On paper: two plates
+ * per US Letter sheet (`.sort-sheet`, a named page with no margin, like the bin labels: Chromium
+ * lays the document out at the narrowest page's content width). The bed is the plate's sorting
+ * diagram SVG seen through an overflow-hidden box, so only the bed shows. */
+.md-typeset .sort-sheet { display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0; }
+.md-typeset .sort-plate {
+  padding: .5rem .6rem .6rem; scroll-margin-top: 4rem;
+  border: 1px solid var(--md-default-fg-color--lightest); border-radius: .35rem;
+}
+.md-typeset .sort-plate__hd { display: flex; flex-wrap: wrap; gap: .1rem .5rem; align-items: baseline; margin-bottom: .35rem; font-size: .7rem; }
+.md-typeset .sort-plate__hd b { font-size: 1.1rem; }
+.md-typeset .sort-plate__qc { color: #b00020; font-weight: 700; }
+.md-typeset .sort-plate__back { margin-left: auto; color: var(--md-default-fg-color--light); }
+.md-typeset .sort-plate__row { display: flex; flex-wrap: wrap; gap: .8rem; align-items: flex-start; }
+.md-typeset .sort-plate__bed { flex: 1 1 20rem; max-width: 30rem; overflow: hidden; border-radius: .2rem; }
+.md-typeset .sort-plate__bed img { display: block; max-width: none; height: auto; }
+.md-typeset .sort-plate__bins { flex: 1 1 13rem; min-width: 0; font-size: .68rem; }
+.md-typeset .sort-bin { margin: 0 0 .45rem; break-inside: avoid; }
+.md-typeset .sort-bin__hd { display: flex; align-items: center; gap: .3rem; border-bottom: 1px solid var(--md-default-fg-color--lightest); padding-bottom: .1rem; }
+.md-typeset .sort-bin__chip { flex: 0 0 .7rem; width: .7rem; height: .7rem; border-radius: .12rem; }
+.md-typeset .sort-bin__label { flex: 1; min-width: 0; color: var(--md-default-fg-color--light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.md-typeset .sort-bin__box { font-size: 1rem; line-height: 1; }
+.md-typeset .sort-bin ul { list-style: none; margin: .15rem 0 0 .95rem; padding: 0; }
+.md-typeset .sort-bin li { display: flex; gap: .4rem; margin: 0; line-height: 1.3; }
+.md-typeset .sort-bin li b { flex: 0 0 auto; min-width: 3.2em; }
+.md-typeset .sort-bin li span { min-width: 0; overflow-wrap: anywhere; }
+
+@media print {
+  @page sort-sheets { size: 8.5in 11in; margin: 0; }
+  body:has(.sort-sheet) > :not(.md-container) { display: none !important; }
+  .md-content__inner:has(.sort-sheet) { margin: 0 !important; padding: 0 !important; }
+  .md-content__inner:has(.sort-sheet)::before { display: none !important; }
+  .md-content__inner:has(.sort-sheet) > h1,
+  .md-typeset .sort-sheets-intro { display: none !important; }
+  .md-typeset .sort-sheet {
+    page: sort-sheets; box-sizing: border-box;
+    width: 8.5in; height: 11in; margin: 0; padding: .3in; gap: 0; overflow: hidden;
+    justify-content: space-between;
+    break-after: page; page-break-after: always; break-inside: avoid;
+    color: #000; background: #fff; font-size: 8.6pt;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .md-typeset .sort-plate {
+    box-sizing: border-box; height: 5.12in; overflow: hidden; padding: 0 0 4px;
+    border: 0; border-bottom: 1px dashed #bbb; border-radius: 0;
+    display: flex; flex-direction: column;
+  }
+  .md-typeset .sort-plate:last-child { border-bottom: 0; }
+  .md-typeset .sort-plate__hd { font-size: 9.5pt; color: #333; margin: 0 0 3px; flex-wrap: nowrap; }
+  .md-typeset .sort-plate__hd b { font-size: 15pt; color: #000; }
+  .md-typeset .sort-plate__back { color: #888; font-size: 8pt; }
+  .md-typeset .sort-plate__row { flex: 1; min-height: 0; flex-wrap: nowrap; gap: 10px; }
+  .md-typeset .sort-plate__bed { flex: 0 0 4.95in; max-width: none; border-radius: 0; }
+  .md-typeset .sort-plate__bed img { display: block !important; max-width: none !important; }
+  .md-typeset .sort-plate__bins { flex: 1; font-size: 8.6pt; overflow: hidden; }
+  .md-typeset .sort-bin { margin: 0 0 5px; }
+  .md-typeset .sort-bin__hd { border-bottom-color: #ccc; }
+  .md-typeset .sort-bin__chip { flex: 0 0 11px; width: 11px; height: 11px; }
+  .md-typeset .sort-bin__label { color: #555; font-size: 7.6pt; }
+  .md-typeset .sort-bin__box { font-size: 11pt; }
+  .md-typeset .sort-bin ul { margin: 2px 0 0 15px; }
+  .md-typeset .sort-bin li { line-height: 1.25; }
+  .md-typeset .sort-bin__hd { padding-bottom: 0; line-height: 1.25; }
+  .md-typeset .sort-plate--dense .sort-plate__bins { font-size: 7.4pt; }
+  .md-typeset .sort-plate--dense .sort-bin { margin-bottom: 2px; }
+  .md-typeset .sort-plate--dense .sort-bin ul { margin-top: 1px; }
+  .md-typeset .sort-plate--dense .sort-bin li { line-height: 1.15; }
+  .md-typeset .sort-plate--dense .sort-bin__box { font-size: 9pt; }
+}
