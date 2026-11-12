@@ -8,8 +8,15 @@ and fitted at 11.74, after Step 11.68 has checked the camera board against it.
 
 **CC BY-NC.** **Voxel3D_NL**, *HappyCam, Voron 2.4 OV5640 camera mount*,
 <https://www.printables.com/model/488020>. `HappyCam_main-350.stl` and `Cameradoor_120.stl`, unchanged,
-fetched to `slicer/stl/printables/488020/` by `python3 slicer/fetch_stls.py`; nothing is remixed, so
-nothing is committed here. The page's STEP file is empty (4 kB, its comments say so too), so the STLs are
+fetched to `slicer/stl/printables/488020/` by `python3 slicer/fetch_stls.py`: the closed-door fallback.
+
+**Printed pair (Alex 2026-11-12): CC BY-NC-SA.** **Zemistr**, *HappyCam OV5640 - camera width light cover*,
+<https://www.printables.com/model/527904>, a remix of 488020: `HappyCam_cover_with_light.stl` (a flat
+1.5 mm cover with a window over the lens and one over the board's LED) and the `HappyCam_main-350.stl` it
+was drawn against, unchanged, fetched to `slicer/stl/printables/527904/`. That body shares 4687 of the
+original's 4845 vertices: the two ends are re-cut 0.68 mm and the pegs and mount holes are identical, so
+every number below holds. The cover on the 488020 body is untested, so the pair prints together. Nothing
+is remixed here, so nothing is committed here. The page's STEP file is empty (4 kB, its comments say so too), so the STLs are
 the only geometry.
 
 ## Fit, read from the STLs
@@ -30,9 +37,9 @@ the only geometry.
 ## Print (Step 11.69 job 2)
 
 With the side spool's tube holder, Galaxy Black ASA, `slicer/voron-coreone-asa.ini`, satin sheet, no glue. The
-files are drawn as installed: lay the body on its top face and the door on its large flat face
-(PrusaSlicer's Place on face). Build-plate-only supports, for the cable exit. Job estimate with the tube holder: 28.7 g, 1 h 54 m (PrusaSlicer
-2.9.6 CLI, 2026-10-23); the two camera parts alone are about 21 g. Bin `11-camera`, with the bought board.
+files are drawn as installed: lay the body on its top face (PrusaSlicer's Place on face); the light cover is drawn flat, outer face
+down. Build-plate-only supports on the body, for the cable exit. Job estimate with the tube holder: 28.0 g, 1 h 50 m (PrusaSlicer
+2.9.7 CLI, 2026-11-12, 3 mm brims); the two camera parts alone are about 20 g. Bin `11-camera`, with the bought board.
 
 ## Software
 

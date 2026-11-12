@@ -332,7 +332,7 @@ Optional parts that are on no plate and in no run total. Print each as its own j
 | Nozzle scrubber with sheet stops (jinetix, remixed per machine) | 3 | 2.5 | 38 | satin | Ch 13 Part L | `slicer/addons/scrubber-796563/` |
 | Chamber exhaust housing (stock Voron 2.4r2): housing black; fan grill, access cover and 2 mounts blue | 5 | 6.4 | 101 | satin | Ch 14 Part H | `slicer/addons/exhaust-voron2/` |
 | Side spool holder (Maltasrc frame remixed for a Prusa puck): frame and tube holder black, Prusa puck and spindle blue | 4 | 12.7 | 199 | satin | Ch 11 Part C | `slicer/addons/side-spool-608769/` |
-| HappyCam camera mount (Voxel3D_NL, 350): body and door, black | 2 | 1.3 | 21 | satin | Ch 11 Part C | `slicer/addons/happycam-488020/` |
+| HappyCam camera mount (Voxel3D_NL, 350; body and light cover from Zemistr's remix 527904), black | 2 | 1.3 | 21 | satin | Ch 11 Part C | `slicer/addons/happycam-488020/` |
 
 **The scrubber is not printed ahead.** Its parts are generated from this machine's measurements at
 [Ch 13 Step 13.47](../13-initial-startup.md#step-1347-decide-what-to-print-or-stop) and printed at Step 13.48,
@@ -352,8 +352,8 @@ estimates, not GUI-arranged. The grams come out of the spares, not the ledger ab
 **The side spool holder and the camera mount** print together at
 [Ch 11 Step 11.69](../11-skirts-panels-door.md#step-1169-print-the-add-on-parts-on-the-core-one), after
 Step 11.68 has measured the side-panel stack and the camera board, as three jobs: the frame alone (Galaxy
-Black, `slicer/voron-coreone-asa.ini`, 106.7 g, 7 h 09 m); the tube holder, HappyCam body and door
-(same profile, supports on build plate only for the camera's cable exit, 28.7 g, 1 h 54 m); Prusa's puck and
+Black, `slicer/voron-coreone-asa.ini`, 106.7 g, 7 h 09 m); the tube holder, HappyCam body and light cover
+(same profile, supports on build plate only under the camera body, 28.0 g, 1 h 50 m, re-sliced 2026-11-12 in 2.9.7); Prusa's puck and
 spindle in the blue accent (`slicer/voron-accent-blue.ini`, 84.7 g, 5 h 00 m). PrusaSlicer 2.9.6 CLI
 estimates, laid out by hand, not GUI-arranged; the per-add-on figures in the table split job 2 by part. The
 frame is the committed remix in `slicer/addons/side-spool-608769/`; the other five files are fetched from

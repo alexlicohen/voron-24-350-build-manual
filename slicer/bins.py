@@ -97,7 +97,7 @@ BINS: dict[str, dict[str, str]] = {
     # Add-on bins: their parts are on no plate (ADDON_PARTS below), printed after kit day.
     "11-side-spool": dict(label="Side spool add-on: frame, puck, spindle, tube holder", chapter="Ch 11",
                           steps="11.68–11.73, Part C (printed 11.69, fitted 11.70–11.73)", colour="#457b9d"),
-    "11-camera": dict(label="Camera add-on: HappyCam body + door, camera board", chapter="Ch 11",
+    "11-camera": dict(label="Camera add-on: HappyCam body + light cover, camera board", chapter="Ch 11",
                       steps="11.68, 11.74–11.76, Part C (printed 11.69, fitted 11.74)", colour="#e9c46a"),
     "13-scrubber": dict(label="Nozzle scrubber add-on: brackets + bucket", chapter="Ch 13",
                         steps="13.44–13.54, Part L (printed 13.48, fitted 13.49–13.50)", colour="#b5838d"),
@@ -417,9 +417,10 @@ ADDON_PARTS: dict[str, list[dict]] = {
              made="add-on print, Step 11.69 job 3", note="blue"),
     ],
     "11-camera": [
-        dict(name="HappyCam body, 350", qty=1, geom=("printables", "488020/HappyCam_main-350.stl"),
+        dict(name="HappyCam body, 350", qty=1, geom=("printables", "527904/HappyCam_main-350.stl"),
              made="add-on print, Step 11.69 job 2", note="black"),
-        dict(name="HappyCam door", qty=1, geom=("printables", "488020/Cameradoor_120.stl"),
+        dict(name="HappyCam light cover", qty=1,
+             geom=("printables", "527904/HappyCam_cover_with_light.stl"),
              made="add-on print, Step 11.69 job 2", note="black"),
     ],
     "13-scrubber": [

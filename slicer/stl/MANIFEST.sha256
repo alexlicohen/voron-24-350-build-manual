@@ -15,6 +15,7 @@
 #   printables.com/model/1605113 -> printables/1605113/
 #   printables.com/model/488020 -> printables/488020/
 #   printables.com/model/502306 -> bayducts/mss/502306/
+#   printables.com/model/527904 -> printables/527904/
 #   printables.com/model/608769 -> printables/608769/
 # Committed in git, hashed only: bayducts/remix/, addons/scrubber-796563/, addons/side-spool-608769/
 
@@ -92,6 +93,8 @@ c92c2f3c22e0bec1d1c0cc7705d855aa37a2c59d40335e931dd1faf031d4489f  nevermore/V5_D
 3d48dc7b67b15c8239f13487d302f3c5018ce6c28281caa39672c133494bbbc8  printables/1605113/Universal-spoolholder-1kg-R1.stl
 e96155f95eeefc1439d5e77494ba17b721f8149a14df29270d46947e13b8a28f  printables/488020/Cameradoor_120.stl
 d627e04cc66a687fc984c6e6296910cd57931f84771a94236247d5ab079035bd  printables/488020/HappyCam_main-350.stl
+52f527e88a32eb0800aee787832dd9836f4ec23ba6cc0ef8d220eb574972b0e7  printables/527904/HappyCam_cover_with_light.stl
+da0002c4b70b4771e1462c535c85e6adca38edcf214f7ac375a44d6e6ee1b725  printables/527904/HappyCam_main-350.stl
 4b355c5267b956a7e85939e0fa2c02148518f2c483700c18cd156ec491d459f5  printables/608769/Bowden Tube Holder_Long.stl
 614cff64c2e7f328b54674d246b89a6ad6f972ee832bd8799bdf85d6a4229cf0  sb/STLs/Clockwork2.5/Direct_Drive/[a]_guidler_a.stl
 1f0d82c4f89095bfa94a83fe01db8341b9179a51f97b4a825202c66398f61418  sb/STLs/Clockwork2.5/Direct_Drive/[a]_guidler_b.stl

@@ -1860,6 +1860,27 @@ sources:
       board pegs (three 1.7 mm; two 4 mm apart across one end, one 50 mm along) against Ch 11 Step 11.68's
       calculator and the cable exit at the printer-left end against Ch 10 Step 10.81; re-slice Step 11.69
       job 2
+- id: printables-527904-happycam-light-cover
+  url: https://www.printables.com/model/527904
+  kind: community
+  title: HappyCam OV5640 - camera width light cover
+  first_seen: '2026-11-12'
+  last_verified: '2026-11-12'
+  printables:
+    print_id: '527904'
+    files:
+      HappyCam_cover_with_light.stl:
+        id: '2255552'
+        size: 147884
+      HappyCam_main-350.stl:
+        id: '2255562'
+        size: 499184
+    file_sha256:
+      HappyCam_cover_with_light.stl: 52f527e88a32eb0800aee787832dd9836f4ec23ba6cc0ef8d220eb574972b0e7
+      HappyCam_main-350.stl: da0002c4b70b4771e1462c535c85e6adca38edcf214f7ac375a44d6e6ee1b725
+    on_change: re-fetch the cover and its 350 body (slicer/plates.py PRINTABLES file ids), re-check the
+      body against 488020's (pegs and mount holes identical; only the two ends differ) and the cover's
+      lens and LED windows against the board; re-slice Step 11.69 job 2
 - id: printables-502306-cable-duct-remix
   url: https://www.printables.com/model/502306
   kind: community

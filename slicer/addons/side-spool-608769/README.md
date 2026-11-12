@@ -50,7 +50,7 @@ PrusaSlicer 2.9.6 CLI estimates, parts laid out by hand, not GUI-arranged (2026-
 | Job | Parts | Profile | Estimate |
 |---|---|---|---|
 | 1 | the frame, as oriented | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 106.7 g, 7 h 09 m |
-| 2 | tube holder, flat face down (and the camera add-on's two parts, `../happycam-488020/`) | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 28.7 g, 1 h 54 m |
+| 2 | tube holder, flat face down (and the camera add-on's two parts, `../happycam-488020/`) | `slicer/voron-coreone-asa.ini`, Galaxy Black ASA | 28.0 g, 1 h 50 m |
 | 3 | puck and spindle, as oriented | `slicer/voron-accent-blue.ini`, blue accent ASA | 84.7 g, 5 h 00 m |
 
 Prusa prints the puck and spindle in PETG or PC; ASA at the Voron spec is stronger than that and keeps

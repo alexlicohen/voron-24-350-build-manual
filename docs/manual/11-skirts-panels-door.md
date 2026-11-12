@@ -88,7 +88,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | ![](assets/parts/Latch.png){ width=96 } ![](assets/parts/Panel_Clip.png){ width=96 } | `Latch.stl` / `Panel_Clip.stl` | 11-door | 1 each | Black | B10 |
 | ![](assets/parts/Handle.png){ width=96 } | `Handle.stl` (Clicky-Clack) | 11-door | 1 | Blue | B02 |
 
-**Part C add-on parts** are on no plate and in no batch: the side spool frame, tube holder, Prusa puck and spindle (bin 11-side-spool) and the HappyCam body and door (bin 11-camera), printed at Step 11.69 ([print plan § Add-on prints](print/README.md#add-on-prints-outside-the-plates)).
+**Part C add-on parts** are on no plate and in no batch: the side spool frame, tube holder, Prusa puck and spindle (bin 11-side-spool) and the HappyCam body and light cover (bin 11-camera), printed at Step 11.69 ([print plan § Add-on prints](print/README.md#add-on-prints-outside-the-plates)).
 
 **Not printed, not installed** — the Clicky-Clack replaces the stock front doors and the BTT touchscreen replaces the mini12864, so none of these exist on this machine: `Panel_Mounting/Front_Doors/door_hinge_x6`, `handle_a_x2`, `handle_b_x2`, `latch_x2`; LDO's whole `LDO Door/` set; `mini12864_case_front`, `mini12864_case_rear`, `[a]_mini12864_case_hinge`, `[a]_mini12864_case_front_insert`, `[a]_btt_knob_light_shield`; `exhaust_filter_housing`, `[a]_exhaust_filter_mount_x2`, `[a]_filter_access_cover`, `[a]_exhaust_fan_grill` (back only as the optional [Ch 14 Part H](14-calibration.md) add-on). Manual pages p.211, p.214–216, p.220–221, p.245–249 and p.250–253/256 are therefore dead pages for this build (print plan §7); p.250–253/256 come back in the optional Ch 14 Part H.
 
@@ -108,7 +108,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | M3×12 SHCS | 2 | Nevermore plenum to the bed extrusions |
 | M3×6 BHCS | 4 | Z belt covers (p.234) |
 | M3×20 SHCS | 8 | Part C: puck to frame 4, frame to the extrusions 2 (`slicer/addons/side-spool-608769/remix.scad`), HappyCam body 2 (14.96 mm of plastic under the head, read from the [Printables 488020](https://www.printables.com/model/488020) STL) |
-| M3×8 SHCS | 2 | Part C: tube holder 1, HappyCam door 1 |
+| M3×8 SHCS | 2 | Part C: tube holder 1, HappyCam light cover 1 |
 | M3 roll-in T-nut, 2020 | 4 | Part C: side spool frame 2, HappyCam body 2 |
 | M3×6 BHCS | 2 | Nevermore plenum lid and cartridge lid (LDO's optional M3×4 BHCS is not a kit row) |
 | M3 hammerhead T-nut, 2020 | 47 | panel clips: 11 back, 24 side, 12 top (p.239, p.241, p.243) |
@@ -2022,18 +2022,18 @@ Source: [Printables 608769 — side mounted spool, 350](https://www.printables.c
 **Do:**
 
 1. Job 1: the frame, as oriented, `voron-coreone-asa.ini`.
-2. Job 2, same profile: tube holder flat side down, HappyCam body on its top face, door outer face down; build-plate supports.
+2. Job 2, same profile: tube holder flat side down, HappyCam body on its top face, light cover flat; body-only build-plate supports.
 3. Job 3: puck and spindle, as oriented, `voron-accent-blue.ini`.
 
-**Check:** Slices of about 7.2 h, 1.9 h and 5.0 h, no supports in jobs 1 and 3, and each part bagged in 11-side-spool or 11-camera.
+**Check:** Slices of about 7.2 h, 1.8 h and 5.0 h, no supports in jobs 1 and 3, and each part bagged in 11-side-spool or 11-camera.
 
 **Helper:** Checks each part in the slicer against this step's list and ticks it.
 
 ⚠ ASA: set Chamber Filtration to Adv. Filtration before each job, as for every ASA plate.
 
-Tip: The frame is `slicer/addons/side-spool-608769/side_spool_frame_puck.stl`; `python3 slicer/fetch_stls.py` puts the other five files under `slicer/stl/printables/`.
+Tip: The frame is `slicer/addons/side-spool-608769/side_spool_frame_puck.stl`; `python3 slicer/fetch_stls.py` puts the other five files, the camera pair from remix 527904, under `slicer/stl/printables/`.
 
-Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · [Printables 1605113 — print settings](https://www.printables.com/model/1605113) · [Printables 488020 — comments](https://www.printables.com/model/488020)
+Source: [`print/README.md` § Add-on prints](print/README.md#add-on-prints-outside-the-plates) · [Printables 1605113 — print settings](https://www.printables.com/model/1605113) · [Printables 488020 — comments](https://www.printables.com/model/488020) · [Printables 527904 — light cover remix](https://www.printables.com/model/527904)
 
 Pause: ~20 min since the last pause — three add-on jobs on the Core One+, about 14 h of printing. Leave each job on the sheet until it has cooled.
 
@@ -2165,7 +2165,7 @@ Pause: ~40 min since the last pause — puck screwed to the frame, frame on the 
 **Parts:**
 
 - HappyCam body, 350 ×1 — from bin 11-camera
-- HappyCam door ×1 — from bin 11-camera
+- HappyCam light cover ×1 — from bin 11-camera
 - OV5640 USB camera board ×1 — from bin 11-camera, bought at Ch 00
 - M3 roll-in T-nut ×2
 - M3×20 SHCS ×2
@@ -2174,16 +2174,16 @@ Pause: ~40 min since the last pause — puck screwed to the frame, frame on the 
 
 **Do:**
 
-1. Seat the board on its pegs, plug in the cable tail, and close the door with the M3×8.
+1. Seat the board on its pegs, plug in the cable tail, and close the light cover with the M3×8.
 2. Roll two T-nuts into the top front extrusion's inner slot; bolt the body centred with two M3×20.
 
 **Check:** The body flat on the extrusion and centred, the lens looking down at the bed, and no cable loop hanging below the extrusion.
 
 **Helper:** Holds the camera body on the extrusion while the adult drives both screws.
 
-⚠ The door's latch tab can bear on the board's connector. If the door will not close, pare the tab a little rather than force it; builders report doing the same.
+⚠ The cover's latch lip can bear on the board's connector. If the cover will not close, pare the lip a little rather than force it; builders report doing the same on the original door.
 
-Source: [Printables 488020 — HappyCam](https://www.printables.com/model/488020) · `slicer/addons/happycam-488020/README.md`
+Source: [Printables 488020 — HappyCam](https://www.printables.com/model/488020) · [Printables 527904 — light cover remix](https://www.printables.com/model/527904) · `slicer/addons/happycam-488020/README.md`
 
 ---
 

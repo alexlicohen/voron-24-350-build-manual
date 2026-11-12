@@ -868,7 +868,7 @@ pre-drilled), `bottom_panel_template`, `Purge Bucket/brush_holder_sheet_stop` + 
 measures the machine, `slicer/addons/scrubber-796563/remix.py` generates the parts from those numbers (or says
 no-go), and only then are they printed — about 3 parts, 38 g black ASA, 2 h 30 m; the kit's brass brush is a
 hand tool), the Ch 11 Part C side spool holder and HappyCam camera mount (Printables 608769 remixed for Prusa's
-puck from 1605113, and 488020: 6 parts, about 220 g, 14 h, printed after Step 11.68 measures; `slicer/addons/`),
+puck from 1605113, and 488020 with the light cover and body of its remix 527904: 6 parts, about 220 g, 14 h, printed after Step 11.68 measures; `slicer/addons/`),
 `[a]_fan_grill_open_optional_x2`, `z_belt_cover_a_led` (LDO variant if you route the LED strip through the
 Z-belt opening), extra `ldo_bestagon_insert`s.
 

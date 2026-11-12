@@ -86,6 +86,12 @@ EXTRA_SOURCES = [
         "title": "HappyCam, Voron 2.4 OV5640 camera mount",
     },
     {
+        "id": "printables-527904-happycam-light-cover",
+        "url": "https://www.printables.com/model/527904",
+        "kind": "community",
+        "title": "HappyCam OV5640 - camera width light cover",
+    },
+    {
         "id": "prusa-prusaslicer-settings-prusa-fff",
         "url": "https://github.com/prusa3d/PrusaSlicer-settings-prusa-fff",
         "kind": "prusa",

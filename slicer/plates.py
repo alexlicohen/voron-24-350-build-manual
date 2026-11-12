@@ -67,6 +67,11 @@ PRINTABLES: dict[tuple[str, str], tuple[str, str]] = {
     ("printables", "608769/Bowden Tube Holder_Long.stl"): ("608769", "2569104"),
     ("printables", "488020/HappyCam_main-350.stl"): ("488020", "2101024"),
     ("printables", "488020/Cameradoor_120.stl"): ("488020", "2101022"),
+    # Zemistr's remix of HappyCam (CC BY-NC-SA): the cover with a window over the board's LED and
+    # the 350 body it was drawn against (ends re-cut 0.68 mm, pegs and mount unchanged). Alex
+    # 2026-11-12: this pair is printed; the 488020 pair stays pinned as the closed-door fallback.
+    ("printables", "527904/HappyCam_cover_with_light.stl"): ("527904", "2255552"),
+    ("printables", "527904/HappyCam_main-350.stl"): ("527904", "2255562"),
 }
 # Committed sources: (repo, path prefix). fetch_stls.py hashes them and never downloads.
 TRACKED: tuple[tuple[str, str], ...] = (("bayducts", "remix/"), ("addons", "scrubber-796563/"),
@@ -100,6 +105,8 @@ ADDONS: tuple[tuple[str, str], ...] = (
     ("printables", "608769/Bowden Tube Holder_Long.stl"),
     ("printables", "488020/HappyCam_main-350.stl"),
     ("printables", "488020/Cameradoor_120.stl"),
+    ("printables", "527904/HappyCam_main-350.stl"),
+    ("printables", "527904/HappyCam_cover_with_light.stl"),
 )
 
 # Print orientation for files that are not drawn print-ready (MSS keeps the parent's
