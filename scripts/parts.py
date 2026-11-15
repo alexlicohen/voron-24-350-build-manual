@@ -1332,7 +1332,7 @@ def _selftest() -> int:
                        ("GT2 20T 9 mm idler, 5 mm ID", "Idler, 2GT, 20T, (5mm ID 9mm W)"),
                        ("GT2 16T pulley, 5 mm ID 6 mm W", "Pulley, 2GT, 16T, (5mm ID 6mm W)"),
                        ("NEMA17 Z motor", "LDO-42STH48-2004AC(VRN) Z Motor"),
-                       ("Deck panel, acrylic black 469×469", "Deck Panel, Acrylic, Black, 469x469x3mm"),
+                       ("Deck panel, acrylic black 469×469", "Deck Panel, Acrylic, Black, 469x469x4mm"),
                        ("Magnetic Pad 2.4-350", "Magnetic Pad 2.4-350")]:
         row = resolve(name)
         eq("resolve %s" % name, row and row["item"], item)

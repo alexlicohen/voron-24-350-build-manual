@@ -3,7 +3,8 @@
 # kit_bom.ALIASES, keyed by item text.
 # source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+
 # fetched: 2026-10-30 (curl)
-# Kit day: re-pin to the batch sheet shipped with the kit (Step 00.2).
+# Re-pinned 2026-11-14 to the paper sheet in the kit (batch 2609, titled Rev. D+): four rows
+# differ from the web page and carry a `note`. `kit_bom.py --check` now reports that drift.
 source: https://docs.ldomotors.com/en/voron/voron2/350_BOM/Rev_D+
 fetched: '2026-10-30'
 notes:
@@ -131,7 +132,8 @@ rows:
 - carton: 1
   box: Motion
   item: Foam Tape, 3mm
-  qty: 1
+  qty: 2
+  note: 'kit sheet: Foam Tape, 3mm, 2.5m x2 (web page: x1)'
   aliases:
   - \bfoam tape,? 3 ?mm\b|\b3 ?mm foam tape\b
 - carton: 1
@@ -552,6 +554,7 @@ rows:
   box: Fasteners, Tools & Misc
   item: Hex Wrench, 1.5mm
   qty: 1
+  note: 'kit sheet: Hex Screwdriver, 1.5mm'
   aliases:
   - \b1\.5 ?mm hex (?:key|wrench)\b
 - carton: 1
@@ -754,8 +757,9 @@ rows:
   - \bslot covers?\b
 - carton: 2
   box: Panel Kit
-  item: Deck Panel, Acrylic, Black, 469x469x3mm
+  item: Deck Panel, Acrylic, Black, 469x469x4mm
   qty: 1
+  note: 'kit sheet: 4 mm (web page: 3 mm); caliper it'
   aliases:
   - \bdeck panel\b
 - carton: 2
@@ -766,8 +770,9 @@ rows:
   - \bback panel\b
 - carton: 2
   box: Panel Kit
-  item: Bottom Panel, Acrylic, Black, 469x469x4mm
+  item: Bottom Panel, Acrylic, Black, 469x469x3mm
   qty: 1
+  note: 'kit sheet: 3 mm (web page: 4 mm); caliper it'
   aliases:
   - \bbottom panel\b
 - carton: 2

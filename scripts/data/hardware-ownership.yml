@@ -146,12 +146,12 @@ owners:
     reused: ["12.11"]
     evidence: 'Ch 10 Step 10.23 (first power-on) — the first step that plugs it in'
   # --- Ch 00 inventory (00.4) → panels and plate
-  - item: "Deck Panel, Acrylic, Black, 469x469x3mm"
+  - item: "Deck Panel, Acrylic, Black, 469x469x4mm"
     at: {"02.13": 1}
     staged: ["00.4", "02.12"]
     reused: ["09.4"]
     evidence: 'Voron p.28–29'
-  - item: "Bottom Panel, Acrylic, Black, 469x469x4mm"
+  - item: "Bottom Panel, Acrylic, Black, 469x469x3mm"
     at: {"11.21": 1}
     staged: ["00.4"]
     evidence: 'Voron p.232–233'
