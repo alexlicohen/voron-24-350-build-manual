@@ -31,7 +31,8 @@ is an error, not a full run.
 
 The value comes from the matching ini (`voron-coreone-asa.ini` for black plates,
 `voron-accent-blue.ini` for the blue accent plates, `bay-ducts-petg.ini` for B11's), so the
-inis stay the single source of truth. With no plate ids it runs over every plate in
+inis stay the single source of truth. The one exception is a key listed for the plate in
+`plates.PLATE_CONFIG` (a per-plate setting such as the part fan): that value wins over the ini's. With no plate ids it runs over every plate in
 plates.py: the ASA run's and B11's.
 
 It never changes an ini. Switching every plate to another start G-code is therefore two
@@ -49,7 +50,7 @@ import sys
 import zipfile
 from pathlib import Path
 
-from plates import PLATES
+from plates import PLATE_CONFIG, PLATES
 
 ROOT = Path(__file__).resolve().parent
 PLATE_DIR = ROOT / "plates"
@@ -146,7 +147,8 @@ def main(argv: list[str] | None = None) -> int:
         if override is None and colour not in INI:
             raise SystemExit(f"{pid}: no ini bundle for colour {colour!r} - add it to INI")
         for key in keys:
-            value = override if override is not None else ini_value(INI[colour], key)
+            value = (override if override is not None else
+                     PLATE_CONFIG.get(pid, {}).get(key) or ini_value(INI[colour], key))
             if patch(path, key, value, check, add):
                 n += 1
                 print(f"{pid:8s} {key} {'differs' if check else 'updated'}")

@@ -58,8 +58,8 @@ import zipfile
 from pathlib import Path
 
 from geom import BED_X, BED_Y, Piece, bbox, convex_hull, pack, read_stl
-from plates import (AS_PRINTED, EDGE_EXEMPT, MODEL_ESTIMATE, OBJECT_SETTINGS, PLATES, brim_for,
-                    check_orient, footprint_of, local_path, orient_of, run_of)
+from plates import (AS_PRINTED, EDGE_EXEMPT, MODEL_ESTIMATE, OBJECT_SETTINGS, PLATE_CONFIG, PLATES,
+                    brim_for, check_orient, footprint_of, local_path, orient_of, run_of)
 from threemf import read_plate
 
 ROOT = Path(__file__).resolve().parent
@@ -354,6 +354,12 @@ def slice_project(plate_id: str, project: Path, tmp: Path) -> tuple[float, float
         if cfg.get(key) != want:
             raise SystemExit(f"{plate_id}: sliced with {key} = {cfg.get(key)!r}, "
                              f"expected {want!r} - the 3MF config did not take")
+    for key, want in PLATE_CONFIG.get(plate_id, {}).items():
+        if cfg.get(key) != want:
+            raise SystemExit(f"{plate_id}: sliced with {key} = {cfg.get(key)!r}, plates.PLATE_CONFIG "
+                             f"says {want!r} - run `python3 slicer/sync_start_gcode.py --key {key} "
+                             f"{plate_id}` (a GUI re-save keeps the key; a 3MF from before the "
+                             "ruling does not have it)")
     return hours, grams, raw_time
 
 
@@ -460,6 +466,9 @@ def build(plate_id: str) -> dict:
         run([PRUSA, "--load", str(ini), "--merge", "--dont-arrange",
              "--export-3mf", "-o", str(dst), *inputs])
         inject_3mf(dst, ini, per_object, names)
+        for key, value in PLATE_CONFIG.get(plate_id, {}).items():
+            from sync_start_gcode import patch
+            patch(dst, key, value, check=False)
 
         # deliberately no --load: this proves the committed 3MF is self-sufficient
         hours, grams, raw_time = slice_project(plate_id, dst, tmp)

@@ -231,6 +231,22 @@ EDGE_EXEMPT: dict[str, str] = {
 }
 
 
+# Per-plate config keys that differ from the plate's ini (decision-log row 55). PrusaSlicer has
+# no per-object fan, so it is a plate setting. sync_start_gcode.py writes these into the 3MF
+# (`--key <key> <plate ids>`), build_plates.py refuses to slice a plate whose G-code disagrees.
+# Part fan off except bridges and the steepest overhangs (bridge_fan_speed and
+# overhang_fan_speed_0 stay 25 %) on plates of long, blocky parts (Alex 2026-11-14): the
+# B08-P1 rear centre skirt lifted twice, at the layers where the solid floor ends and the fan
+# comes on. B08-P1 itself is printed and keeps 20 %.
+_FAN_OFF = {"min_fan_speed": "0"}
+PLATE_CONFIG: dict[str, dict[str, str]] = {
+    "B08-P2": _FAN_OFF, "B08-P3": _FAN_OFF, "B08-P4": _FAN_OFF, "B08-P5": _FAN_OFF,  # skirts
+    "B09-P1": _FAN_OFF,   # exhaust cover, 158 mm
+    "B12-P1": _FAN_OFF,   # side spool frame, 212 x 212 mm
+    "B13-P1": _FAN_OFF,   # exhaust filter housing, 144 x 155 mm
+}
+
+
 # Plates already printed from the committed 3MF, before the 25 mm edge rule (2026-11-06) and
 # the 30 mm brim rule (2026-11-07). Their 3MFs are the record of what was printed, so
 # build_plates.py refuses to re-pack them and audit_plates.py lists their rule breaks
