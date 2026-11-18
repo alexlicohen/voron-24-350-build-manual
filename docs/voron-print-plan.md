@@ -183,7 +183,7 @@ material where wet filament actually costs you strength.
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so there is nothing to install here. You're
    about to run ~150 h of ASA in an enclosure: on the first ASA plate confirm the blower runs and the bypass
    flaps seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
-2. **Firmware ≥ 6.8.1** on the Core One+. It runs 7.0.0 (2026-10-05), the first non-INDX release after 6.8.1.
+2. **Firmware ≥ 6.8.1** on the Core One+. It runs 8.0.3-beta (2026-11-17); 7.0.0, the first non-INDX release after 6.8.1, ran from 2026-10-05 through B08-P5.
 3. **First layer: set in the plates.** The Nextruder loadcell sets Z before every print, but with the
    cold-probe start the hot nozzle sits lower than the cold probe found, and Live Adjust Z is *not* saved
    for the next print ([Prusa KB — Live Adjust Z](https://help.prusa3d.com/article/live-adjust-z_112427)).

@@ -232,9 +232,10 @@ wiper are not fitted, and the plates keep the cold-probe start (Alex 2026-10-28)
 1. **Advanced Filtration Kit — already fitted** (2026-09-12), so nothing to install here. ~176 h of ASA is
    about to run in an enclosure: confirm on the first ASA plate that the blower runs and the bypass flaps
    seal. One spare cartridge is still to buy (~600 print-h each, 1–2 wk Prusa lead time).
-2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 7.0.0 (2026-10-05). 6.8.1
-   carries the Settings → Hardware → Edition selector and the individual Gen 2 toggles the rebuild
-   will use; that 7.0.0 keeps both is `(verify on bench)`.
+2. **Firmware ≥ 6.8.1** on the Core One+, required either way. It runs 8.0.3-beta
+   (2026-11-17; 7.0.0 from 2026-10-05, through B08-P5). 6.8.1 carries the Settings → Hardware →
+   Edition selector and the individual Gen 2 toggles the rebuild will use; that 8.0.3-beta keeps
+   both is `(verify on bench)`.
 3. **First layer: set in the plates.** The Nextruder loadcell sets Z before every print, but with the
    cold-probe start the hot nozzle sits lower than the cold probe found, and Live Adjust Z is not kept
    between prints. So the plates carry the correction: **Z offset +0.08** (printer settings) and the first
