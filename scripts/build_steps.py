@@ -768,8 +768,9 @@ def term_defs() -> list[str]:
         if not m:
             continue
         meaning = " ".join(_plain(m.group(2)).replace("*", "").split())
-        for term in m.group(1).split(" / "):
-            term = re.sub(r"\s*\([^)]*\)\s*$", "", term).strip().strip('"“”')
+        # Drop a parenthesis before splitting: "Pulley (16T / 20T / 80T)" is one term.
+        for term in re.sub(r"\s*\([^)]*\)", "", m.group(1)).split(" / "):
+            term = term.strip().strip('"“”')
             if len(term) < 3 or "`" in term or "]" in term:
                 continue
             for form in (term, term[0].lower() + term[1:]):

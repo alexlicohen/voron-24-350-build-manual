@@ -60,20 +60,20 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 02 — Z drives, Z idlers, Z rails, deck panel
 
-- [ ] All four Z rails run their full travel with no notch, tight spot or grinding; every carriage is taped or stoppered.
-- [ ] Rail surfaces are clean and dry and grease is inside the carriages only — carried over from Ch 00 Steps 00.18–00.21 and re-confirmed at Step 02.05.
-- [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left ↔ rear-left, front-right ↔ rear-right), and share the same 3 mm bottom gap and the same nine-hole pattern (holes 2–18, no end holes).
-- [ ] Deck panel notch is at the **back**; panel sits inside the frame opening under the bed extrusions, held up by eight clip ledges, no rock; four M5 T-nuts aligned under the four deck holes and left unbolted for Ch 09 Step 09.5.
-- [ ] `_a` parts at Z0 and Z2, `_b` at Z1 and Z3 (or the reverse if the Step 02.29 dry-fit said so — written in the build log), and each idler the same hand as the drive below it.
-- [ ] Measured deck-panel thickness is written down and the fitted deck supports (8 off) match it.
-- [ ] Every 20T drive pulley sits 33 mm along its shaft; every 16T motor pulley sits 10.7 mm off the motor face.
-- [ ] All 24 M4×4 set screws are tight, threadlocked, and at least one per pulley lands on the shaft flat.
-- [ ] Four M5 precision spacers per drive (16 total) — **spacers, not shims**.
-- [ ] Each Z drive shaft turns freely by hand through the belt, with no belt skip and no bearing rumble.
-- [ ] All four tensioner cams are closed and no drive shifted when its cam closed (p.46 check).
-- [ ] Four rubber feet fitted; the printer stands on all four without rocking on the reference surface.
+- [ ] All four Z rails run their full length with no notch, tight spot or grinding, and every carriage is taped or stoppered.
+- [ ] The rails are clean and dry on the outside, with grease inside the carriages only: done in Ch 00 Steps 00.18–00.21 and checked again at Step 02.05.
+- [ ] All four rails are centred on their extrusions, each facing the rail on its own side of the machine (front-left and rear-left, front-right and rear-right), with the same 3 mm gap at the bottom and the same nine holes used: 2 to 18, no end holes.
+- [ ] The deck panel's notch is at the **back**. The panel sits inside the frame opening under the bed extrusions, held up by eight clip ledges, without rocking. Four M5 T-nuts sit under its four holes, left unscrewed for Ch 09 Step 09.5.
+- [ ] `_a` parts are at Z0 and Z2 and `_b` at Z1 and Z3, or the reverse if the Step 02.29 dry-fit said so and you wrote it in the build log. Each idler has the same hand as the drive below it.
+- [ ] The measured deck panel thickness is written down, and the eight fitted deck supports match it.
+- [ ] Every 20T drive pulley sits 33 mm along its shaft, and every 16T motor pulley sits 10.7 mm off the motor face.
+- [ ] All 24 M4×4 set screws are tight and threadlocked, and at least one per pulley presses on the shaft's flat.
+- [ ] Each drive has four M5 precision spacers, 16 in all: **spacers, not shims**.
+- [ ] Each Z drive shaft turns freely by hand through the belt, with no skipped teeth and no rumble from a bearing.
+- [ ] All four tensioner cams are closed, and no drive shifted when its cam closed (the p.46 check).
+- [ ] Four rubber feet are on, and the printer stands on all four without rocking on the reference surface.
 - [ ] Each Z idler faces the same way as the pulley in the drive below it and is pressed hard into its corner.
-- [ ] Four motor cables labelled Z0 / Z1 / Z2 / Z3 by physical corner.
+- [ ] The four motor cables are labelled Z0, Z1, Z2 and Z3 by the corner each one is in.
 
 <div class="print-page-break"></div>
 
