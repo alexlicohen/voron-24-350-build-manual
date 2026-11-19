@@ -2767,7 +2767,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination.",
+     "leave_state": "the plate is unpacked, you know its top from its bottom, the film is off, and the factory-fitted heater, thermal fuse and earth screw are inspected and left alone. The magnet is still in its liner. Do not start Step 03.9 until you can do 03.8 to 03.10 in one go: you get only one try at sticking the magnet down.",
      "helpers": [
       [
        "03.2",
@@ -2778,7 +2778,7 @@
        "Counts the pad screws aloud and points out any lifted corner."
       ]
      ],
-     "text": "Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked and identified top from bottom, the film is off, and the pre-applied heater, thermal fuse and PE screw are all inspected and left alone. The magnet is still in its backing. Do not start Step 03.9 until you can run 03.8–03.10 straight through: the magnet is a one-shot lamination."
+     "text": "Step 03.1 → Step 03.6 · ~30 min · leave-state: the plate is unpacked, you know its top from its bottom, the film is off, and the factory-fitted heater, thermal fuse and earth screw are inspected and left alone. The magnet is still in its liner. Do not start Step 03.9 until you can do 03.8 to 03.10 in one go: you get only one try at sticking the magnet down."
     },
     {
      "id": "03-build-plate#1",
@@ -2798,7 +2798,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it.",
+     "leave_state": "the top face is clean, the magnet is stuck down with no bubbles, and all four screw holes are cut clear through it and tested with an M3×20 and the hex key. The magnet is fully stuck, so nothing is half done. Lay the plate flat, magnet up, and cover it.",
      "helpers": [
       [
        "03.7",
@@ -2809,7 +2809,7 @@
        "Holds the plate flat on the towel and checks afterwards for missed patches."
       ]
      ],
-     "text": "Step 03.7 → Step 03.10 · ~30 min · leave-state: the top face is cleaned, the magnet is rolled down bubble-free and all four bolt holes are cut clear through it and test-fitted with an M3×20 and a hex key. The lamination is finished, so nothing is mid-adhesive. Lay the plate flat, magnet up, and cover it."
+     "text": "Step 03.7 → Step 03.10 · ~30 min · leave-state: the top face is clean, the magnet is stuck down with no bubbles, and all four screw holes are cut clear through it and tested with an M3×20 and the hex key. The magnet is fully stuck, so nothing is half done. Lay the plate flat, magnet up, and cover it."
     },
     {
      "id": "03-build-plate#2",
@@ -2832,7 +2832,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts.",
+     "leave_state": "the plate sits on its four thumb-nut spacers, 38 mm behind the frame's front edge and centred, with one screw tight and three loose on purpose and its cables loose above the deck. Four T-nuts wait in the inner slots for Ch 09. The plate is fastened and stable, so this is the natural place to stop. Do not tighten the other three screws.",
      "helpers": [
       [
        "03.11",
@@ -2847,7 +2847,7 @@
        "Reads the rule at each corner and calls the number back to you."
       ]
      ],
-     "text": "Step 03.11 → Step 03.17 · ~40 min · leave-state: the plate is on its four thumb-nut spacers, four T-nuts parked in the inner slots for Ch 09, set 38 mm behind the frame's front edge and centred, one bolt tight and three deliberately loose, cables loose above the deck. This is the natural stop: the plate is bolted and the assembly is stable. Do not tighten the other three bolts."
+     "text": "Step 03.11 → Step 03.17 · ~40 min · leave-state: the plate sits on its four thumb-nut spacers, 38 mm behind the frame's front edge and centred, with one screw tight and three loose on purpose and its cables loose above the deck. Four T-nuts wait in the inner slots for Ch 09. The plate is fastened and stable, so this is the natural place to stop. Do not tighten the other three screws."
     },
     {
      "id": "03-build-plate#3",
@@ -2866,14 +2866,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.",
+     "leave_state": "the four corner gaps are checked, the plate's leads lie loose above the deck with nothing tied or connected, and the flex plate has been tried, taken off, and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters.",
      "helpers": [
       [
        "03.18",
        "Reads the caliper at each corner and writes the four gaps down."
       ]
      ],
-     "text": "Step 03.18 → Step 03.20 · ~20 min · leave-state: the four-corner gap check is done, the plate's leads are dressed loose above the deck with nothing tied or terminated, and the flex plate has been test-fitted, removed and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters."
+     "text": "Step 03.18 → Step 03.20 · ~20 min · leave-state: the four corner gaps are checked, the plate's leads lie loose above the deck with nothing tied or connected, and the flex plate has been tried, taken off, and the bed covered with cardboard. Work through Checkpoint 03; the cover stays on for the next six chapters."
     }
    ]
   },
@@ -2902,7 +2902,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the bench is split into four labelled kits, every part carries its destination in marker, the two inserts are in `a_drive_frame_upper`, one is in each tension arm and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet.",
+     "leave_state": "the bench is split into four labelled kits and every part has its corner written on it in marker. The two inserts are in `a_drive_frame_upper`, one is in each tension arm, and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet.",
      "helpers": [
       [
        "04.1",
@@ -2913,7 +2913,7 @@
        "Writes each destination in marker as you call it out, then reads the caliper on both lower frames."
       ]
      ],
-     "text": "Step 04.1 → Step 04.5 · ~30 min · leave-state: the bench is split into four labelled kits, every part carries its destination in marker, the two inserts are in `a_drive_frame_upper`, one is in each tension arm and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet."
+     "text": "Step 04.1 → Step 04.5 · ~30 min · leave-state: the bench is split into four labelled kits and every part has its corner written on it in marker. The two inserts are in `a_drive_frame_upper`, one is in each tension arm, and both M5 nuts are seated. Unplug the iron. Nothing is stacked yet."
     },
     {
      "id": "04-ab-drives#1",
@@ -2936,7 +2936,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported.",
+     "leave_state": "the A (front right) idler is complete and checked against p.68: bearings flange-out, the M5×40 axle in from the top and clamped firm into the arm's nut, and the M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the temporary screw pulled out and the stack unsupported.",
      "helpers": [
       [
        "04.9",
@@ -2947,7 +2947,7 @@
        "Points to each circled feature on the page while you find it on the idler."
       ]
      ],
-     "text": "Step 04.6 → Step 04.12 · ~40 min · leave-state: the A (front right) idler is complete and checked against p.68: bearings flange-out, M5×40 axle in from the top and clamped firm into the arm's nut, M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the aid bolt withdrawn and the stack unsupported."
+     "text": "Step 04.6 → Step 04.12 · ~40 min · leave-state: the A (front right) idler is complete and checked against p.68: bearings flange-out, the M5×40 axle in from the top and clamped firm into the arm's nut, and the M3×40 tensioner with its washer snug. An idler is a self-contained unit; never stop with the temporary screw pulled out and the stack unsupported."
     },
     {
      "id": "04-ab-drives#2",
@@ -3029,7 +3029,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled A — REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
+     "leave_state": "the A drive is finished: a 2-bearing near post, a 4-bearing far post, frames closed snug, the pulley at 16.5 mm hub-down and threadlocked, the motor in with three M3×30 and its cable exit inboard, and the belt path checked straight. It is labelled A: REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off.",
      "helpers": [
       [
        "04.24",
@@ -3040,7 +3040,7 @@
        "Sights along the belt at eye level and says if it tilts."
       ]
      ],
-     "text": "Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: 2-bearing near post, 4-bearing far post, frames closed snug, pulley at 16.5 mm hub-down and threadlocked, motor in with three M3×30 and the cable exit inboard, belt path checked straight. Labelled A — REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
+     "text": "Step 04.24 → Step 04.28 · ~25 min · leave-state: the A drive is finished: a 2-bearing near post, a 4-bearing far post, frames closed snug, the pulley at 16.5 mm hub-down and threadlocked, the motor in with three M3×30 and its cable exit inboard, and the belt path checked straight. It is labelled A: REAR RIGHT. This is the natural stop; do not leave a bearing stack loaded with the lower frame off."
     },
     {
      "id": "04-ab-drives#5",
@@ -3065,7 +3065,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the B drive is finished and labelled B — REAR LEFT, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions.",
+     "leave_state": "the B drive is finished and labelled B: REAR LEFT, its pulley at 6.5 mm hub-up, and the two cable exits face each other when the drives are held in their build positions.",
      "helpers": [
       [
        "04.30",
@@ -3084,7 +3084,7 @@
        "Sights along the belt at eye level and says if it tilts."
       ]
      ],
-     "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled B — REAR LEFT, pulley at 6.5 mm hub-up, both cable exits facing each other when the drives are held in their build positions."
+     "text": "Step 04.29 → Step 04.37 · ~45 min · leave-state: the B drive is finished and labelled B: REAR LEFT, its pulley at 6.5 mm hub-up, and the two cable exits face each other when the drives are held in their build positions."
     },
     {
      "id": "04-ab-drives#6",
@@ -3101,14 +3101,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four assemblies bagged and labelled with their destinations, and nothing left over on the bench. Work through Checkpoint 04 before Ch 05.",
+     "leave_state": "all four assemblies are bagged and labelled with their corners, and nothing is left over on the bench. Work through Checkpoint 04 before Ch 05.",
      "helpers": [
       [
        "04.38",
        "Writes A and B on the two bags and seals the leftover fasteners."
       ]
      ],
-     "text": "Step 04.38 · ~15 min · leave-state: all four assemblies bagged and labelled with their destinations, and nothing left over on the bench. Work through Checkpoint 04 before Ch 05."
+     "text": "Step 04.38 · ~15 min · leave-state: all four assemblies are bagged and labelled with their corners, and nothing is left over on the bench. Work through Checkpoint 04 before Ch 05."
     }
    ]
   },
@@ -3136,7 +3136,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off.",
+     "leave_state": "bench cleared, sub-assemblies laid out left and right, T-nuts test-rolled and counted into trays. Nothing is assembled yet. Cover the trays so nothing gets swept off.",
      "helpers": [
       [
        "05.2",
@@ -3147,7 +3147,7 @@
        "Counts the T-nuts and bolts into their piles and checks them against the list."
       ]
      ],
-     "text": "Step 05.1 → Step 05.4 · ~25 min · leave-state: bench cleared, sub-assemblies laid out left/right, T-nuts test-rolled and counted into trays. Nothing is assembled; leave the trays covered so nothing gets swept off."
+     "text": "Step 05.1 → Step 05.4 · ~25 min · leave-state: bench cleared, sub-assemblies laid out left and right, T-nuts test-rolled and counted into trays. Nothing is assembled yet. Cover the trays so nothing gets swept off."
     },
     {
      "id": "05-gantry#1",
@@ -3168,9 +3168,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.",
+     "leave_state": "XY bridge screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting.",
      "helpers": [],
-     "text": "Step 05.5 → Step 05.9 · ~30 min · leave-state: XY bridge bolted to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting."
+     "text": "Step 05.5 → Step 05.9 · ~30 min · leave-state: XY bridge screwed to both drive units, all eight M5×10 snug, none torqued. Lay the assembly flat, motors down. Do not start a Y rail: a rail must be centred and screwed down in one sitting."
     },
     {
      "id": "05-gantry#2",
@@ -3189,7 +3189,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away.",
+     "leave_state": "first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stop the carriage before you walk away.",
      "helpers": [
       [
        "05.10",
@@ -3200,7 +3200,7 @@
        "Holds both rail jigs steady on the extrusion while you start holes 2 and 18."
       ]
      ],
-     "text": "Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stopper the carriage before you walk away."
+     "text": "Step 05.10 → Step 05.12 · ~30 min · leave-state: first Y rail centred, all its M3×8 screwed down, carriage still on. Tape or stop the carriage before you walk away."
     },
     {
      "id": "05-gantry#3",
@@ -3219,14 +3219,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it.",
+     "leave_state": "both Y rails down and tightened, end M5 and M3 T-nuts loaded, both carriages trapped. Do not start a backer now: begin one only when you can finish it.",
      "helpers": [
       [
        "05.14",
        "Checks every extrusion end: two M5 on top, one M5 and one M3 in the rail slot."
       ]
      ],
-     "text": "Step 05.13 → Step 05.15 · ~30 min · leave-state: both Y rails down and tightened, end M5/M3 T-nuts loaded, both carriages captive. Do not fit a backer now: start one only when you can finish it."
+     "text": "Step 05.13 → Step 05.15 · ~30 min · leave-state: both Y rails down and tightened, end M5 and M3 T-nuts loaded, both carriages trapped. Do not start a backer now: begin one only when you can finish it."
     },
     {
      "id": "05-gantry#4",
@@ -3245,7 +3245,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop.",
+     "leave_state": "both titanium Y backers screwed down flat on the face opposite the rail. Before you stop, check that no screw head has been chewed by a slipping driver.",
      "helpers": [
       [
        "05.16",
@@ -3256,7 +3256,7 @@
        "Holds the backer flat on the extrusion while you start every screw."
       ]
      ],
-     "text": "Step 05.16 → Step 05.18 · ~35 min · leave-state: both titanium Y backers screwed down flat on the rail-opposite face. Check nothing is cammed out before you stop."
+     "text": "Step 05.16 → Step 05.18 · ~35 min · leave-state: both titanium Y backers screwed down flat on the face opposite the rail. Before you stop, check that no screw head has been chewed by a slipping driver."
     },
     {
      "id": "05-gantry#5",
@@ -3278,14 +3278,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go).",
+     "leave_state": "front idlers fitted and both Y axes screwed to the drives, gantry frame checked and deliberately left slightly loose. Do not tighten anything further, and do not start an XY joint: each joint is a bearing stack you must finish in one go.",
      "helpers": [
       [
        "05.24",
        "Reads the rule at the idler end while you read it at the bridge."
       ]
      ],
-     "text": "Step 05.19 → Step 05.24 · ~40 min · leave-state: front idlers and both Y axes bolted to the drives, gantry frame sanity-checked and deliberately left slightly loose. Do not tighten anything further; do not start an XY joint (each joint is a bearing stack you must finish in one go)."
+     "text": "Step 05.19 → Step 05.24 · ~40 min · leave-state: front idlers fitted and both Y axes screwed to the drives, gantry frame checked and deliberately left slightly loose. Do not tighten anything further, and do not start an XY joint: each joint is a bearing stack you must finish in one go."
     },
     {
      "id": "05-gantry#6",
@@ -3306,9 +3306,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it.",
+     "leave_state": "right XY joint fully built and screwed together, its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it.",
      "helpers": [],
-     "text": "Step 05.25 → Step 05.29 · ~25 min · leave-state: right XY joint fully built, bolted and its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it."
+     "text": "Step 05.25 → Step 05.29 · ~25 min · leave-state: right XY joint fully built and screwed together, its 20T idler fitted and spinning. Leave the left joint's parts bagged; do not part-build it."
     },
     {
      "id": "05-gantry#7",
@@ -3326,9 +3326,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet.",
+     "leave_state": "both XY joints built, screwed together and fitted with their idlers, sitting loose on the bench. Do not slide them onto the X extrusion yet.",
      "helpers": [],
-     "text": "Step 05.30 → Step 05.31 · ~20 min · leave-state: both XY joints built, bolted and idler-fitted, sitting loose on the bench. Do not slide them onto the X extrusion yet."
+     "text": "Step 05.30 → Step 05.31 · ~20 min · leave-state: both XY joints built, screwed together and fitted with their idlers, sitting loose on the bench. Do not slide them onto the X extrusion yet."
     },
     {
      "id": "05-gantry#8",
@@ -3348,9 +3348,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive.",
+     "leave_state": "MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped so it cannot run off.",
      "helpers": [],
-     "text": "Step 05.32 → Step 05.35 · ~35 min · leave-state: MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped captive."
+     "text": "Step 05.32 → Step 05.35 · ~35 min · leave-state: MGN12 rail centred and screwed down on the X extrusion, titanium X backer on the rear face, cable-chain clearance checked. Carriage taped so it cannot run off."
     },
     {
      "id": "05-gantry#9",
@@ -3371,7 +3371,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone.",
+     "leave_state": "both XY joints screwed to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors down, the way it runs. The flip is the next step: do not try it alone.",
      "helpers": [
       [
        "05.36",
@@ -3382,7 +3382,7 @@
        "Spins each bearing stack and idler and calls out any that drags."
       ]
      ],
-     "text": "Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints bolted to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors-down, the way it runs. The flip is the next step — do not attempt it alone."
+     "text": "Step 05.36 → Step 05.40 · ~35 min · leave-state: both XY joints screwed to the X extrusion top and bottom, cable bridge on, assembly checked against p.105. Still motors down, the way it runs. The flip is the next step: do not try it alone."
     },
     {
      "id": "05-gantry#10",
@@ -3403,7 +3403,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone.",
+     "leave_state": "gantry upside down (motors up), X axis in and screwed to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. The belts are still bagged and the XY joint screws only lightly tightened: leave both alone.",
      "helpers": [
       [
        "05.41",
@@ -3422,7 +3422,7 @@
        "Slides the X carriage slowly end to end and reports any rough spot."
       ]
      ],
-     "text": "Step 05.41 → Step 05.44 · ~40 min · leave-state: gantry upside down (motors up), X axis in and bolted to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. Belts still bagged, XY joint bolts still only lightly tightened — leave both alone."
+     "text": "Step 05.41 → Step 05.44 · ~40 min · leave-state: gantry upside down (motors up), X axis in and screwed to both Y carriages, endstop pod on the right joint, running end to end without binding. It stays upside down into Ch 06. The belts are still bagged and the XY joint screws only lightly tightened: leave both alone."
     },
     {
      "id": "05-gantry#11",
@@ -3442,7 +3442,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone.",
+     "leave_state": "gantry complete and still upside down (motors up), measurements written down, Ch 06 and Ch 07 parts bagged and labelled. Do not tension belts and do not square the gantry: both belong to Ch 06 and Ch 07, and both would be undone.",
      "helpers": [
       [
        "05.46",
@@ -3453,7 +3453,7 @@
        "Writes each gantry measurement into the log as you call it out."
       ]
      ],
-     "text": "Step 05.45 → Step 05.48 · ~25 min · leave-state: gantry complete and still upside down (motors up), measurements written down, Ch 06/07 parts bagged and labelled. Do not tension belts and do not square the gantry: both are Ch 06/07 and both would be undone."
+     "text": "Step 05.45 → Step 05.48 · ~25 min · leave-state: gantry complete and still upside down (motors up), measurements written down, Ch 06 and Ch 07 parts bagged and labelled. Do not tension belts and do not square the gantry: both belong to Ch 06 and Ch 07, and both would be undone."
     }
    ]
   },
@@ -3481,9 +3481,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job.",
+     "leave_state": "M5 nuts are seated in all four Z bearing blocks, and four Z belts are cut to length and labelled by corner. Do not start clipping in a belt end: each corner is one continuous clip-and-clamp job.",
      "helpers": [],
-     "text": "Step 06.1 → Step 06.4 · ~30 min · leave-state: M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job."
+     "text": "Step 06.1 → Step 06.4 · ~30 min · leave-state: M5 nuts are seated in all four Z bearing blocks, and four Z belts are cut to length and labelled by corner. Do not start clipping in a belt end: each corner is one continuous clip-and-clamp job."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#1",
@@ -3503,9 +3503,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four first belt ends clamped under their gantry corners with the Z bearing blocks on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on.",
+     "leave_state": "all four first belt ends are clamped under their gantry corners, with the Z bearing blocks on. The gantry is still on the bench with its belts hanging free: coil and tape each tail so nothing gets stepped on.",
      "helpers": [],
-     "text": "Step 06.5 → Step 06.8 · ~40 min · leave-state: all four first belt ends clamped under their gantry corners with the Z bearing blocks on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on."
+     "text": "Step 06.5 → Step 06.8 · ~40 min · leave-state: all four first belt ends are clamped under their gantry corners, with the Z bearing blocks on. The gantry is still on the bench with its belts hanging free: coil and tape each tail so nothing gets stepped on."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#2",
@@ -3523,14 +3523,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move.",
+     "leave_state": "four lower Z joints are on the Z carriages and parked at a matched height. Do not try the gantry lift until your second person is there: the next segment is one unbroken two-person move.",
      "helpers": [
       [
        "06.10",
        "Reads the rule at all four corners and calls out any joint that sits higher."
       ]
      ],
-     "text": "Step 06.9 → Step 06.10 · ~25 min · leave-state: four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move."
+     "text": "Step 06.9 → Step 06.10 · ~25 min · leave-state: four lower Z joints are on the Z carriages and parked at a matched height. Do not try the gantry lift until your second person is there: the next segment is one unbroken two-person move."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#3",
@@ -3551,7 +3551,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone.",
+     "leave_state": "the gantry is lifted into the frame and screwed to all four Z joints, which still move freely. This segment could not be broken up (two-person lift). The Z belts are not routed yet; leave the idlers alone.",
      "helpers": [
       [
        "06.11",
@@ -3566,7 +3566,7 @@
        "Lowers the other side in step with you and lets go only when you say so."
       ]
      ],
-     "text": "Step 06.11 → Step 06.15 · ~45 min · leave-state: gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone."
+     "text": "Step 06.11 → Step 06.15 · ~45 min · leave-state: the gantry is lifted into the frame and screwed to all four Z joints, which still move freely. This segment could not be broken up (two-person lift). The Z belts are not routed yet; leave the idlers alone."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#4",
@@ -3588,7 +3588,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four Z idlers extended, top clamps loosened, and the first Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.",
+     "leave_state": "all four Z idlers are extended, the top clamps loosened, and the first Z belt is routed, clamped at both ends, trimmed and tied. Never stop with a belt half routed: finish the corner you are on.",
      "helpers": [
       [
        "06.16",
@@ -3599,7 +3599,7 @@
        "Pulls the belt tail tight and holds it while you tighten both M5×16 bolts."
       ]
      ],
-     "text": "Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers extended, top clamps loosened, and the first Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on."
+     "text": "Step 06.16 → Step 06.21 · ~40 min · leave-state: all four Z idlers are extended, the top clamps loosened, and the first Z belt is routed, clamped at both ends, trimmed and tied. Never stop with a belt half routed: finish the corner you are on."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#5",
@@ -3616,9 +3616,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's).",
+     "leave_state": "all four Z belts are routed, clamped, trimmed and tied. The belts are about even by hand but not tensioned; do not touch the A/B front-idler tension screws, which are Ch 07's.",
      "helpers": [],
-     "text": "Step 06.22 · ~30 min · leave-state: all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's)."
+     "text": "Step 06.22 · ~30 min · leave-state: all four Z belts are routed, clamped, trimmed and tied. The belts are about even by hand but not tensioned; do not touch the A/B front-idler tension screws, which are Ch 07's."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#6",
@@ -3637,7 +3637,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off.",
+     "leave_state": "the gantry is squared against the A/B drives, the X axis is locked, the gantry is released, and everything moves freely by hand. Leave the machine powered off.",
      "helpers": [
       [
        "06.23",
@@ -3648,7 +3648,7 @@
        "Watches the corner you turn and says whether it rises smoothly, with no slip."
       ]
      ],
-     "text": "Step 06.23 → Step 06.25 · ~35 min · leave-state: gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off."
+     "text": "Step 06.23 → Step 06.25 · ~35 min · leave-state: the gantry is squared against the A/B drives, the X axis is locked, the gantry is released, and everything moves freely by hand. Leave the machine powered off."
     },
     {
      "id": "06-z-axis-and-gantry-squaring#7",
@@ -3665,9 +3665,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34.",
+     "leave_state": "the Z axis is mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 sends you to it at Step 13.34.",
      "helpers": [],
-     "text": "Step 06.26 · ~15 min · leave-state: Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34."
+     "text": "Step 06.26 · ~15 min · leave-state: the Z axis is mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 sends you to it at Step 13.34."
     }
    ]
   },
@@ -3696,14 +3696,14 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "both belt paths traced against p.126–127 and both front-idler tensioners backed out, then wound in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.",
+     "leave_state": "both belt paths traced against p.126–127, and both front-idler tensioners backed out and wound back in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it.",
      "helpers": [
       [
        "07.5",
        "Counts the four turns aloud on each tensioner so both idlers get the same number."
       ]
      ],
-     "text": "Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127 and both front-idler tensioners backed out, then wound in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it."
+     "text": "Step 07.1 → Step 07.5 · ~25 min · leave-state: both belt paths traced against p.126–127, and both front-idler tensioners backed out and wound back in 4 turns each. Nothing is cut. Do not start cutting belt unless you can also thread it."
     },
     {
      "id": "07-ab-belts#1",
@@ -3722,9 +3722,9 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them; the next segment is the one that cannot be broken.",
+     "leave_state": "heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them: the next segment is the one that cannot be broken.",
      "helpers": [],
-     "text": "Step 07.6 → Step 07.8 · ~30 min · leave-state: heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them; the next segment is the one that cannot be broken."
+     "text": "Step 07.6 → Step 07.8 · ~30 min · leave-state: heat-set inserts and M3 nuts in the carriage halves, stop screws set to 3 mm, both belts cut to matched length and marked A and B. Coil the two belts and bag them: the next segment is the one that cannot be broken."
     },
     {
      "id": "07-ab-belts#2",
@@ -3760,7 +3760,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends.",
+     "leave_state": "the long one, with no safe stop inside it. Both belts are routed, both ends captured in the carriage, the tails equalised and the carriage screws tightened. Only stop here once the carriage is closed and both belts are held at both ends.",
      "helpers": [
       [
        "07.23",
@@ -3771,7 +3771,7 @@
        "Reads both tail lengths off the rule and says which belt sticks out further."
       ]
      ],
-     "text": "Step 07.9 → Step 07.28 · ~80 min · leave-state: the long one, and it has no safe interior stop: both belts routed, both ends captured in the carriage, tails equalised and the carriage bolts tightened. Only stop here once the carriage is closed and both belts are held at both ends."
+     "text": "Step 07.9 → Step 07.28 · ~80 min · leave-state: the long one, with no safe stop inside it. Both belts are routed, both ends captured in the carriage, the tails equalised and the carriage screws tightened. Only stop here once the carriage is closed and both belts are held at both ends."
     },
     {
      "id": "07-ab-belts#3",
@@ -3792,7 +3792,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time.",
+     "leave_state": "belt-rub check clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional, so do not chase the number further: Ch 06b releases it entirely and Ch 14 sets it for the last time.",
      "helpers": [
       [
        "07.29",
@@ -3811,7 +3811,7 @@
        "Reads each belt's lowest peak aloud after every quarter turn you make."
       ]
      ],
-     "text": "Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub inspection clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional; do not chase the number further — Ch 06b releases it entirely and Ch 14 sets it for the last time."
+     "text": "Step 07.29 → Step 07.33 · ~30 min · leave-state: belt-rub check clean at all fourteen contacts, both belts reading ~110 Hz over a 150 mm span and equal to each other after moving the gantry. This tension is provisional, so do not chase the number further: Ch 06b releases it entirely and Ch 14 sets it for the last time."
     },
     {
      "id": "07-ab-belts#4",
@@ -3833,7 +3833,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. Gantry is a working XY system. Do not tension further and do not square the gantry.",
+     "leave_state": "inductive probe taped, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. The gantry is a working XY system. Do not tension further and do not square the gantry.",
      "helpers": [
       [
        "07.36",
@@ -3844,7 +3844,7 @@
        "Slides the X carriage slowly end to end while you watch the probe cable."
       ]
      ],
-     "text": "Step 07.34 → Step 07.39 · ~30 min · leave-state: inductive probe insulated, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. Gantry is a working XY system. Do not tension further and do not square the gantry."
+     "text": "Step 07.34 → Step 07.39 · ~30 min · leave-state: inductive probe taped, fitted, set to height and its cable routed; endstop magnet correctly skipped; cable cover dry-fitted and bagged for Ch 10. The gantry is a working XY system. Do not tension further and do not square the gantry."
     }
    ]
   },
@@ -5717,7 +5717,7 @@
      "plate": null,
      "print_hours": null,
      "run": null,
-     "leave_state": "gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).",
+     "leave_state": "the gantry is squared and de-racked cold, the A/B belts are at a provisional 110 Hz, the four Z joint M5×40 are still light, and `RESTART` has been run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers; both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).",
      "helpers": [
       [
        "06b.3",
@@ -5736,7 +5736,7 @@
        "Holds the phone at each belt span and reads the lowest peak aloud after each pluck."
       ]
      ],
-     "text": "Step 06b.1 → Step 06b.16 · ~60 min · leave-state: gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6)."
+     "text": "Step 06b.1 → Step 06b.16 · ~60 min · leave-state: the gantry is squared and de-racked cold, the A/B belts are at a provisional 110 Hz, the four Z joint M5×40 are still light, and `RESTART` has been run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers; both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6)."
     }
    ]
   },

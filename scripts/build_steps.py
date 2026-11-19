@@ -799,8 +799,17 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
     pause: list[str] = []
     source: list[str] = []
     nxt: list[str] = []
+    before: list[str] = []   # plain style: a section intro, ahead of the step's own text
+    started = False
     for seg in segs:
-        if seg.kind == "do":
+        if seg.kind in ("desc", "do", "parts", "check"):
+            started = True
+        if (chapter.plain and not started
+                and seg.kind in ("prose", "warn", "tip", "block")):
+            # What the chapter says before a step (a section intro, a gate
+            # warning) is read before the step, not after its actions.
+            before += seg.lines + [""]
+        elif seg.kind == "do":
             do += seg.lines + [""]
         elif seg.kind == "parts":
             fld = parts.parse_field(seg.lines)
@@ -869,6 +878,8 @@ def layout_step(page: Page, chapter: Chapter) -> list[str]:
 
     out += ['<div class="step-text%s" markdown="1">'
             % (" step-text--plain" if chapter.plain else ""), ""]
+    if before:
+        out += ['<div class="step-before" markdown="1">', ""] + _strip_edges(before) + ["", "</div>", ""]
     if chapter.plain and desc:
         # The lead: what this step is and why, in sight, before anything else.
         out += ['<div class="step-lead" markdown="1">', ""] + _strip_edges(desc) + ["", "</div>", ""]

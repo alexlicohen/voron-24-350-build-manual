@@ -1,37 +1,48 @@
 # Chapter 06 — Z axis (and Chapter 06b — Gantry squaring)
 
-Hangs the finished gantry on the four Z joints, belts all four Z corners, and gets the gantry roughly square to the frame — after which the machine can move in Z. **Part B (Ch 06b) is the real gantry squaring and cannot be done here: it needs motor control, so it runs out of the middle of Chapter 13 (Step 13.34), cold; the hot lock-in is Ch 14's.**
+<!-- style: plain -->
 
-**What you're building in this chapter.** Four **Z joints** — one at each corner of the gantry — and the four **Z belts** that hang the gantry from them. A Z joint is a pair of printed blocks: the `z_joint_lower` bolts to the ball-bearing carriage riding the Z rail on an upright, the `z_joint_upper` (the Z bearing block) bolts under the gantry corner, a front idler or A/B drive, and clamps the belt's first end beneath it, and one M5×40 bolt joins the two. The belt's second end clamps on top of the same corner, under the blue upper clip fitted in Ch 05. Each corner's belt runs from that joint down to the **Z drive** at the bottom of the upright, around its pulley, up to the **Z idler** at the top, and back to the joint — so turning one drive raises one corner, and four of them together lift and level the gantry. Part A gets all of that built, the gantry lifted into the frame, and the machine roughly square. Part B is the real squaring, and it needs a running printer, so it runs from inside Ch 13 (Step 13.34) — cold and with the machine open. The heat soak and the hot lock-in follow in Ch 14, once the panels are on.
+You hang the finished gantry on four Z joints, fit the belts at all four Z corners, and get the gantry roughly square to the frame. After that the machine can move up and down. **Part B (Ch 06b) is the real gantry squaring, and it cannot be done here: it needs the motors running, so you do it from the middle of Chapter 13 (Step 13.34), cold. The hot lock-in is Ch 14's.**
+
+**What you're building in this chapter:** The gantry from Ch 05 now hangs in the frame from four **Z joints** and four **Z belts**. A Z joint is two printed blocks joined by one M5×40 screw. The `z_joint_lower` screws to the carriage, the ball-bearing block that rolls along the Z rail on a vertical. The `z_joint_upper`, or Z bearing block, screws under a gantry corner (a front idler or an A/B drive) and clamps the belt's first end beneath it. The belt's second end clamps on top of the same corner, under the blue upper clip fitted in Ch 05. Each belt runs from that corner down to the **Z drive** at the bottom of the vertical, around its pulley, up over the **Z idler** at the top, and back to the corner. So one drive raises one corner, and four together lift and level the gantry. Part A builds all of that and squares the gantry roughly. Part B, the real squaring, needs a running printer, so it runs from inside Ch 13 (Step 13.34), cold and with the machine open. The heat soak and the hot lock-in follow in Ch 14, once the panels are on.
 
 ```mascot
 pose: caliper
 caption: Four corners agreeing on one height. Get this right and every print remembers it.
 ```
 
-**Time:** 3.5–5.0 h hands-on for Part A, first build (survey §7.2). Part B adds ~1 h hands-on, cold (the heat soak and hot lock-in now live in Ch 14).
+**Time:** 3.5–5.0 h hands-on for Part A, first build (survey §7.2). Part B adds about 1 h hands-on, cold; the heat soak and the hot lock-in now live in Ch 14.
 
-**Sessions:** 9 × ~30 min (first-build estimate — 8 in Part A, 1 in Part B, which is deliberately unbroken; each `Pause:` line carries its own segment minutes).
+**Sessions:** 9 × ~30 min: 8 in Part A, and 1 in Part B, which is one unbroken session on purpose. Each stopping point gives its own minutes, and every figure is a first-build estimate.
 
 **Prerequisites:**
 
-- **Ch 02 — Z drives, Z idlers, Z rails, deck.** Four Z drives built and bolted in, four Z idlers at the tops of the uprights, four MGN9 Z rails on the uprights with their carriages on, 16T/20T pulley stack verified, set screws threadlocked (survey §5.2 W12). The deck panel is in.
-- **Ch 05 — Gantry.** Complete gantry: X and Y extrusions, XY joints, X carriage, titanium backers already fitted (survey §5.2 W2 — backers after this point means a teardown). Left off the printer, as the manual leaves it at p.106–107.
-- **Print batch B05** — Z joints + Z chain (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 6.2 h.
-- **Print batch B02** — the single blue accent session, which carries the four lower Z belt clips and the Z chain retainer brackets. The four upper clips went on in Ch 05 (Steps 05.19–05.23).
+- **Ch 02** is done: four Z drives built and screwed in, four Z idlers at the tops of the verticals, and four MGN9 Z rails on the verticals with their carriages on. The 16T/20T pulley stack is checked, the set screws carry threadlocker (survey §5.2 W12), and the deck panel is in.
+- **Ch 05** is done: the complete gantry, with its X and Y extrusions, XY joints, X carriage and the titanium backers already fitted. Backers fitted after this point mean taking the gantry apart (survey §5.2 W2). It stays off the printer, as the manual leaves it at p.106–107.
+- **Print batch B05**: the Z joints and the Z chain parts (`docs/voron-print-plan.md` §3 B05). Black ASA, 1 plate, 6.2 h.
+- **Print batch B02**: the single blue accent session, which carries the four lower Z belt clips and the Z chain retainer brackets. The four upper clips went on in Ch 05 (Steps 05.19–05.23).
 - No heat-set inserts in Part A: the Z joints take M5 nuts (Step 06.3).
 
 **Tools**
 
-- Hex 2.5 mm, 3 mm and 4 mm; a ball-end 4 mm helps at the Z joints
-- Hex 2.5 mm, 3 mm and 4 mm for Part B
-- **Two people** for the gantry lift (survey §7.3, chapter 06 row) — Alex on one side, daughter on the other
-- The four rubber rail stoppers from the Y rails (Step 05.15; the LDO trick, below), or long zip ties as the fallback
-- Needle-nose pliers or tweezers for belt routing (manual p.118)
-- Steel rule / tape for cutting belt; flush cutters
-- **Part B only:** 150 mm machinist square (DIN 875/2), digital caliper, 150 mm rule, phone with Spectroid (Android) / Sound Spectrum Analysis (iOS) / Gates Carbon Drive
+- Hex keys 2.5, 3 and 4 mm, for Part A and again for Part B. A ball-end 4 mm key helps at the Z joints.
+- **Two people** for the gantry lift (survey §7.3, chapter 06 row): Alex on one side, daughter on the other.
+- The four rubber rail stoppers from the Y rails (Step 05.15; the LDO trick, below), or long zip ties as the fallback.
+- Needle-nose pliers or tweezers for threading the belts (manual p.118).
+- Steel rule or tape measure for cutting belt, and flush cutters.
+- **Part B only:** a 150 mm machinist square (DIN 875/2), a digital caliper, a 150 mm rule, and a phone with a sound spectrum app: Spectroid (Android), Sound Spectrum Analysis (iOS) or Gates Carbon Drive.
 
-**Consumables:** small zip ties ×4 (belt tails), long zip ties ×4 (only if you skip the rail-stopper trick), masking tape and marker.
+**Consumables:** small zip ties ×4 for the belt tails, long zip ties ×4 only if you skip the rail-stopper trick, masking tape and a marker.
+
+**Read first**
+
+- **Fit the lower Z joints before the gantry goes in.** The Voron manual lifts the gantry in at p.114 and fits the lower joints at p.115–116. LDO swaps that order: fit the four lower joints first and park them on rubber rail stoppers, so the gantry rests on them without long zip ties.
+- **Ignore every hall-effect option on p.110 and p.113.** This kit has no hall-effect endstops, so no 6×3 magnets and no `z_joint_upper_hall_effect.stl`. Its XY endstop is the D2F PCB pod, already on the right XY joint since Step 05.49.
+- **The gantry lift takes two people,** and the manual says so (p.114). Nobody holds a 350 gantry with one hand while fishing for an M5×40.
+- **p.122 is not the real squaring.** It gets the gantry square enough to fit the belts. The real squaring (Part B) starts by fully releasing the A/B belts and dropping the lower Z joints, so it comes after the firmware is running, and every belt tension before it is provisional. The notes below give the full schedule and the targets: Z belts 140 Hz and A/B belts 110 Hz, each over a 150 mm span.
+- **A Z carriage that runs off the end of its rail is ruined:** its balls fall out. Keep the printed `z_rail_stop_x4` (batch B05) at the top of each rail, or keep a hand on the carriage.
+
+<!-- reference -->
 
 **Printed parts**
 
@@ -64,7 +75,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 | Zip tie, long (gantry support) | 0–4 | only if you skip the rubber-rail-stopper trick |
 | Rubber rail stopper — from the Y rails | 4 | taken off the Y rails (Step 05.15) and fitted mid-rail on the Z rails — LDO note p.114–116 |
 
-**Read first**
+**Notes behind "Read first"**
 
 - **Do manual p.115–116 before p.114.** LDO: *"We recommend completing steps on page 115-116 then use the rubber rail stopper under the Z joints mid rail. This will allow you to set the Gantry on page 114 on the joints without the need for long zipties."* Fit the four lower Z joints and park them at a known height first, then lower the gantry onto them. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 - **Ignore every hall-effect option on p.110 and p.113.** LDO note p.145: *"SKIP The kit does not use hall effect endstops."* Four plain `z_joint_upper_x4`, no 6×3 magnets, no `z_joint_upper_hall_effect.stl`. The XY endstop on this kit is the D2F PCB pod, already on the right XY joint since Step 05.49. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
@@ -89,7 +100,7 @@ Parts arrive in the bins named below (see the bin map in print/README.md#bins); 
 
 ## Part A — Chapter 06: Z axis (mechanical)
 
-Manual p.108–123. Nothing in this part needs power.
+This part follows Voron manual pages 108 to 123. Nothing in it needs power.
 
 ---
 
@@ -97,13 +108,17 @@ Manual p.108–123. Nothing in this part needs power.
 
 ![Voron manual p.108](assets/manual-pages/manual-p108.png){ crop="0.24 0.14 0.76 0.90" }
 
-**What you're looking at:** The frame before the gantry goes in: a **Z drive** at each bottom corner, a **Z idler** at the top of each upright, and a **Z rail** with a carriage on each upright. Those four carriages carry the whole gantry.
+**What you're looking at:** Check what the gantry will hang from: a **Z drive** at each bottom corner, a **Z idler** at the top of each vertical, and a **Z rail** with a carriage on each vertical. Those four carriages carry the whole gantry.
 
 **Parts:** none.
 
-**Do:** Confirm: four Z drives bolted in; four Z idlers with tensioners at the upright tops; four MGN9 Z rails on the second holes from each end, carriages on and greased; the gantry on the bench with its titanium backers on.
+**Do:**
 
-**Check:** Every Z carriage slides its full rail by hand, smooth, with no notchiness or gritty spots. Fix a rail that fights you now.
+1. Check four Z drives screwed in, and four Z idlers with tensioners at the tops of the verticals.
+2. Check four MGN9 Z rails on the second holes from each end, carriages on and greased, and the gantry on the bench with its titanium backers on.
+3. Fix any rail that fights you now.
+
+**Check:** Every Z carriage slides its full rail smoothly by hand, with no notchy or gritty spots.
 
 Source: [Voron manual p.108](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=108)
 
@@ -113,13 +128,16 @@ Source: [Voron manual p.108](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.109](assets/manual-pages/manual-p109.png){ crop="0.36 0.14 0.64 0.84" }
 
-**What you're looking at:** One corner, top to bottom: the **Z idler** at the top of the upright, the **Z joint** that carries the gantry corner where the belt clamps, the **Z belt**, and the **Z drive** at the bottom. Four of these lift and level the gantry.
+**What you're looking at:** One corner from top to bottom: the **Z idler** at the top of the vertical; the **Z joint**, which carries the gantry corner and is where the belt clamps; the **Z belt**; and the **Z drive** at the bottom. Four of these lift and level the gantry.
 
 **Parts:** none.
 
-**Do:** Learn the stack at one corner: **Z drive** at the bottom, **Z joint** above it, **Z belt** between them, **Z idler** at the top. Both belt ends clamp at the gantry corner, one under it, one on top.
+**Do:**
 
-**Check:** You can point at all four features on the real machine at the front-left corner before you build the other three.
+1. Learn the stack at one corner: the Z drive at the bottom, the Z joint above it, the Z belt between them and the Z idler at the top.
+2. Note that both ends of the belt clamp at the gantry corner, one under it and one on top.
+
+**Check:** You can point at all four on the real machine at the front-left corner, before you build the other three.
 
 Source: [Voron manual p.109](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=109) · [Video: Part 4 @0:55:46](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3346s)
 
@@ -131,18 +149,19 @@ Source: [Voron manual p.109](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![z_joint_upper_x4 — the smaller block, with the M5 hex pocket and the cutout](assets/parts/z_joint_upper_x4.png)
 ![z_joint_lower_x4 — the chunkier block, with four M3 holes for the Z carriage](assets/parts/z_joint_lower_x4.png)
 
-**What you're looking at:** The look-alike pair. The **`z_joint_upper`**, the Z bearing block, clamps the first belt end and takes the M5 nut. The **`z_joint_lower`** bolts to the Z carriage; one M5×40 joins the two into a [Z joint](16-glossary.md#z). The lower is chunkier, with four M3 holes.
+**What you're looking at:** Two blocks look alike. The **`z_joint_upper`** (the Z bearing block) clamps the first belt end and takes the M5 nut. The chunkier **`z_joint_lower`**, with four M3 holes, screws to the Z carriage. One M5×40 joins them into a [Z joint](16-glossary.md#z).
 
 **Parts:**
 
 - `z_joint_upper_x4` ×4
 - M5 hex nut ×4
 
-**Do:** Press one M5 hex nut fully into the pocket of each of the four `z_joint_upper` blocks, square and flush. Push it home with the flat of a screwdriver, never by threading a bolt through and cranking.
+**Do:**
 
-**Check:** The nut is flat, hex faces aligned with the pocket walls, and clear thread shows through the bore from the far side.
+1. Press an M5 hex nut fully into each `z_joint_upper` pocket, square and flush, with the flat of a screwdriver. Never thread a screw through and crank it.
+2. Skip the 6×3 mm magnet on this page: it is for hall-effect endstops, which this kit does not use (LDO note p.145). All four blocks are plain `z_joint_upper_x4`. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
-⚠ **Rev D+ / LDO:** Do **not** fit the 6×3 mm magnet shown on this page. It belongs to the hall-effect endstop build. LDO note p.145: *"SKIP The kit does not use hall effect endstops."* All four blocks are the plain `z_joint_upper_x4`. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+**Check:** Each nut sits flat, faces in line with the pocket walls, clear thread showing through from the far side.
 
 Source: [Voron manual p.110](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=110) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
@@ -152,20 +171,24 @@ Source: [Voron manual p.110](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.111](assets/manual-pages/manual-p111.png){ crop="0.08 0.28 0.66 0.84" }
 
-**What you're looking at:** Open-ended GT2 belt off the reel. This is the **9 mm** belt for Z; the A/B belts in Ch 07 are the narrower 6 mm. Each is one cut length, not a loop: both ends clamp at one gantry corner, below and on top.
+**What you're looking at:** The Z belts come off the reel of open-ended GT2 belt. This is the **9 mm** wide belt; the A/B belts in Ch 07 are the narrower 6 mm. Each Z belt is one cut length, not a loop: both ends clamp at one gantry corner, one below and one on top.
 
 **Parts:**
 
 - consumable: Gates 2GT open belt, 9 mm wide, four lengths of about 1400 mm
 - consumable: masking tape
 
-**Do:** Cut four lengths of **~1400 mm**. The manual's minimum for a 350 is **1200 mm** and the kit supplies 6 m, so 1400 leaves ~400 mm spare. Cut square with flush cutters, between teeth. Label each with masking tape.
+**Do:**
 
-**Check:** Four belts, all the same length within a few mm, all with clean square ends and no frayed cords.
+1. Cut four lengths of about **1400 mm**. The manual's minimum for a 350 is **1200 mm**, and the kit supplies 6 m, so 1400 leaves about 400 mm spare.
+2. Cut straight across with flush cutters, between two teeth.
+3. Label each belt with masking tape.
+
+**Check:** Four belts of the same length to within a few mm, each with clean, square ends and no frayed cords.
 
 Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=111)
 
-Pause: ~30 min since the last pause — M5 nuts seated in all four Z bearing blocks, four Z belts cut to length and labelled by corner. Do not start clipping a belt end in: each corner is one continuous clip-and-clamp job.
+Pause: ~30 min since the last pause — M5 nuts are seated in all four Z bearing blocks, and four Z belts are cut to length and labelled by corner. Do not start clipping in a belt end: each corner is one continuous clip-and-clamp job.
 
 ---
 
@@ -173,7 +196,7 @@ Pause: ~30 min since the last pause — M5 nuts seated in all four Z bearing blo
 
 ![Voron manual p.111](assets/manual-pages/manual-p111.png){ crop="0.08 0.10 0.36 0.84" }
 
-**What you're looking at:** The first belt end goes onto the serrated pad under a gantry corner, a front idler or A/B drive, facing up while the gantry is upside down. Teeth down, the belt meshes into the plastic and cannot creep under load.
+**What you're looking at:** The first belt end goes onto the serrated pad (a patch of small ridges) under a gantry corner, which is a front idler or an A/B drive. The pad faces up while the gantry is upside down. Teeth down, the belt locks into the ridges and cannot creep under load.
 
 **Parts:**
 
@@ -181,11 +204,11 @@ Pause: ~30 min since the last pause — M5 nuts seated in all four Z bearing blo
 
 **Do:**
 
-1. Work on the gantry off the printer, upside down, A/B motors up.
-2. Lay one belt end on a front idler's or drive's serrated pad, **teeth down**.
-3. Leave ~10 mm of belt past the pad.
+1. Work on the gantry off the printer, upside down, with the A/B motors up.
+2. Lay one belt end on the serrated pad of a front idler or drive, **teeth down**.
+3. Leave about 10 mm of belt past the pad.
 
-**Check:** Belt teeth are meshed into the pad's serrations, not sitting on top of them. The belt leaves the pad straight, not skewed.
+**Check:** The belt teeth sit down in the pad's ridges, not on top of them, and the belt leaves the pad straight, not skewed.
 
 Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=111) · [Voron manual p.106](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=106) · [Video: Part 4 @0:10:12](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=612s)
 
@@ -197,15 +220,18 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Lower Z belt clip — the shorter of the two, fitted now](assets/parts/%5Ba%5D_z_belt_clip_lower_x4.png)
 ![Upper Z belt clip — two equal holes, already on top of each corner since Ch 05, not used here](assets/parts/%5Ba%5D_z_belt_clip_upper_x4.png)
 
-**What you're looking at:** The **lower** blue clip, one large hole and one small, goes on now, indented face down onto this first belt end. Its look-alike, the twin-hole upper clip, is already on top of each corner from Ch 05.
+**What you're looking at:** The **lower** blue belt clip, with one large hole and one small, goes on now, indented face down onto this first belt end. Its look-alike, the upper clip with two equal holes, is already on top of each corner from Ch 05.
 
 **Parts:**
 
 - `[a]_z_belt_clip_lower_x4` ×1
 
-**Do:** Drop the lower belt clip onto the belt, **indented face down onto the belt**. Line up the clip's small hole with the frame's M3 hole and its large hole with the M5 hole.
+**Do:**
 
-**Check:** The clip lies flat with the belt captured under its indented face; both holes line up with the frame underneath, no offset.
+1. Drop the lower belt clip onto the belt, **indented face down onto the belt**.
+2. Line up the clip's small hole with the M3 hole in the frame below it, and its large hole with the M5 hole.
+
+**Check:** The clip lies flat with the belt caught under its indented face, and both holes line up with the frame underneath, with no offset.
 
 Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=111) · [Video: Part 4 @0:12:33](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=753s)
 
@@ -216,7 +242,7 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.111](assets/manual-pages/manual-p111.png){ crop="0.58 0.21 0.92 0.72" }
 ![Voron manual p.112](assets/manual-pages/manual-p112.png){ crop="0.52 0.20 0.86 0.74" }
 
-**What you're looking at:** The Z bearing block tops the sandwich. Two screws run through block, lower clip and the corner frame into the reserved rail-slot T-nuts, clamping the first belt end. The cutout faces the upright, away from the build volume.
+**What you're looking at:** The Z bearing block goes on top of this stack. Two screws run through the block, the lower clip and the corner frame into the T-nuts kept free for them in the rail slot, and they clamp the first belt end. Its cutout faces the vertical, away from the build space.
 
 **Parts:**
 
@@ -226,10 +252,10 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Set the Z bearing block on the lower clip, **cutout outward**.
-2. Drive one M3×30 SHCS and one M5×30 BHCS through block and clip into the T-nuts, **snug only**.
+1. Set the Z bearing block on the lower clip, **cutout facing outward**.
+2. Drive one M3×30 SHCS and one M5×30 BHCS through the block and the clip into the T-nuts. Make them **snug only**.
 
-**Check:** Block, lower clip, corner frame, one M3 and one M5 through all, cutout outward, and the belt tail does not pull out.
+**Check:** The stack reads block, lower clip, corner frame, with one M3 and one M5 screw through all of it, the cutout facing outward, and a belt tail that does not pull out.
 
 Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=111) · [Voron manual p.112](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=112) · [Video: Part 4 @0:12:53](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=773s)
 
@@ -239,7 +265,7 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.113](assets/manual-pages/manual-p113.png)
 
-**What you're looking at:** The same stack at the other three corners. The manual leaves the belts out of these drawings, but you now have four long tails hanging off the gantry. A trodden-on belt is a re-cut belt, and there is only ~400 mm spare.
+**What you're looking at:** The other three corners get the same stack. The manual leaves the belts out of these drawings, but you now have four long tails hanging off the gantry. A belt that gets stepped on has to be cut again, and there is only about 400 mm spare.
 
 **Parts:**
 
@@ -249,13 +275,16 @@ Source: [Voron manual p.111](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 - M3×30 SHCS ×3
 - M5×30 BHCS ×3
 
-**Do:** Repeat steps 06.5–06.7 at the other three gantry corners. Coil each belt tail loosely and tape it to its own Y extrusion so nothing gets trodden on during the lift.
+**Do:**
 
-**Check:** Four blocks fitted, all four cutouts pointing outward, four belt tails clamped and coiled. Nothing on this gantry needs a magnet.
+1. Repeat steps 06.5 to 06.7 at the other three gantry corners.
+2. Coil each belt tail loosely and tape it to its own Y extrusion, so nothing gets stepped on during the lift.
+
+**Check:** Four blocks are fitted with all four cutouts facing outward, and four belt tails are clamped and coiled. Nothing on this gantry needs a magnet.
 
 Source: [Voron manual p.113](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=113)
 
-Pause: ~40 min since the last pause — all four first belt ends clamped under their gantry corners with the Z bearing blocks on. Gantry still on the bench, belts hanging free — coil each tail and tape it so nothing gets stood on.
+Pause: ~40 min since the last pause — all four first belt ends are clamped under their gantry corners, with the Z bearing blocks on. The gantry is still on the bench with its belts hanging free: coil and tape each tail so nothing gets stepped on.
 
 ---
 
@@ -263,18 +292,22 @@ Pause: ~40 min since the last pause — all four first belt ends clamped under t
 
 ![Voron manual p.115](assets/manual-pages/manual-p115.png){ crop="0.12 0.16 0.46 0.82" }
 
-**What you're looking at:** The `z_joint_lower` is the other half of each Z joint: it bolts sideways onto the MGN9 carriage riding the upright's Z rail, and its domed top is what the gantry's bearing block lands on. Four M3×20 per corner and no fewer.
+**What you're looking at:** The `z_joint_lower` is the other half of each Z joint. It screws sideways onto the MGN9 carriage on the vertical's Z rail, and its domed top is where the gantry's bearing block lands. LDO does this page and p.116 **before** the gantry goes in at p.114, not after. [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
 **Parts:**
 
 - `z_joint_lower_x4` ×4
 - M3×20 SHCS ×16
 
-**Do:** Bolt one `z_joint_lower` to each MGN9 Z carriage with **four M3×20 SHCS**, driven horizontally into the carriage's tapped face. The domed top with the central bore faces up. Tighten evenly, corner to corner, firm.
+**Do:**
 
-**Check:** All four joints sit flat on their carriages at the same rotation, and each carriage slides a few centimetres clear of the rail screws.
+1. Screw one `z_joint_lower` to each MGN9 Z carriage with **four M3×20 SHCS**, driven sideways into the carriage's threaded face: four per corner, no fewer.
+2. Keep the domed top with the central hole facing up.
+3. Tighten evenly and firmly, corner to corner.
 
-⚠ **Rev D+ / LDO:** This page (and p.116) is done **before** the gantry install on p.114, not after. LDO: *"We recommend completing steps on page 115-116 then use the rubber rail stopper under the Z joints mid rail. This will allow you to set the Gantry on page 114 on the joints without the need for long zipties."* [src](https://docs.ldomotors.com/en/voron/voron2/build-faq)
+**Check:** All four joints sit flat on their carriages at the same angle, and each carriage slides a few centimetres clear of the rail screws.
+
+LDO's words: *"We recommend completing steps on page 115-116 then use the rubber rail stopper under the Z joints mid rail. This will allow you to set the Gantry on page 114 on the joints without the need for long zipties."*
 
 Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=115) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq) · [Video: Part 4 @0:58:18](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=3498s)
 
@@ -284,7 +317,7 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![z_rail_stop_x4 — the printed rail-end stop](assets/parts/z_rail_stop_x4.png)
 
-**What you're looking at:** A rubber rail stopper screws into a free rail hole and blocks the carriage. Screwed in directly under each lower joint it becomes a shelf, so all four joints park at the same height. The printed `z_rail_stop_x4` does the same job at the rail top.
+**What you're looking at:** A rubber rail stopper screws into a free rail hole and blocks the carriage. Screwed in directly under each lower joint, it is a shelf that parks all four joints at the same height. The printed `z_rail_stop_x4` does the same at the rail top.
 
 **Parts:**
 
@@ -293,17 +326,17 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Move each Z carriage to mid-rail; screw a rubber stopper into the **free** hole **directly under** it.
-2. Use the same hole from the same end at all four corners.
-3. Fit a `z_rail_stop_x4` to any rail top without one.
+1. Move each Z carriage to the middle of its rail, and screw a rubber stopper into the **free** hole **directly under** it.
+2. Use the same hole, counted from the same end, at all four corners.
+3. Fit a `z_rail_stop_x4` to any rail top that has none.
 
-**Check:** Deck-to-joint-top height at all four corners is within ~1 mm, and each carriage stops on its rubber stopper when pushed down.
+**Check:** The deck-to-joint-top height matches at all four corners within about 1 mm, and each carriage stops on its rubber stopper when pushed down.
 
 **Helper:** Reads the rule at all four corners and calls out any joint that sits higher.
 
 Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=115) · [LDO Build Notes § Voron 2.4 build FAQ](https://docs.ldomotors.com/en/voron/voron2/build-faq)
 
-Pause: ~25 min since the last pause — four lower Z joints on the Z carriages and parked at a matched height. Do not attempt the gantry lift until your second person is there: the next segment is one unbroken two-person move.
+Pause: ~25 min since the last pause — four lower Z joints are on the Z carriages and parked at a matched height. Do not try the gantry lift until your second person is there: the next segment is one unbroken two-person move.
 
 ---
 
@@ -311,7 +344,7 @@ Pause: ~25 min since the last pause — four lower Z joints on the Z carriages a
 
 ![Voron manual p.114](assets/manual-pages/manual-p114.png){ crop="0.155 0.19 0.42 0.74" }
 
-**What you're looking at:** The gantry back the way it runs: A/B motors hanging **down** below the rear extrusion, Y rails on the underside, X rail facing the front, the four Z bearing blocks at the corners with their belt tails hanging. The frame is not front-to-back symmetric.
+**What you're looking at:** The gantry turns back the way it runs: A/B motors hanging **down** below the rear extrusion, Y rails underneath, X rail facing the front, and the four Z bearing blocks at the corners with their tails hanging. The gantry is not the same front and back.
 
 **Parts:**
 
@@ -320,10 +353,10 @@ Pause: ~25 min since the last pause — four lower Z joints on the Z carriages a
 **Do:**
 
 1. Turn the gantry the right way up: A/B motors **down**, Y rails underneath, X rail to the front.
-2. Mark **Front** and **Back** in tape on gantry and frame.
-3. Agree aloud who lifts which end.
+2. Mark **Front** and **Back** with tape on the gantry and on the frame.
+3. Agree out loud who lifts which end.
 
-**Check:** Front and back marked and matching on both parts, belt tails taped clear, both people can reach their side without leaning over the bed.
+**Check:** Front and Back are marked and match on both parts, the belt tails are taped out of the way, and both people can reach their side without leaning over the bed.
 
 **Helper:** Tapes the Front and Back marks, then holds one end while you turn the gantry over.
 
@@ -335,7 +368,7 @@ Source: [Voron manual p.113](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.114](assets/manual-pages/manual-p114.png){ crop="0.155 0.19 0.42 0.74" }
 
-**What you're looking at:** The lift itself. The gantry will not pass the four uprights flat, so it goes in tilted and levels out inside the frame. Hands on the Y extrusions only: the X carriage, the drive units and the belts are not handles.
+**What you're looking at:** This is the lift itself. The gantry will not pass the four verticals lying flat, so it goes in tilted and levels out inside the frame. Hold it by the Y extrusions only: the X carriage, the drive units and the belts are not handles.
 
 **Parts:**
 
@@ -345,10 +378,10 @@ Source: [Voron manual p.113](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 **Do:**
 
 1. Cover the bed with a towel.
-2. **Two people**, one per Y extrusion, hands on extrusions only.
-3. Lift from above and tilt **side-to-side**: one Y extrusion enters the frame first, then bring the high side down.
+2. Lift with **two people**, one per Y extrusion, hands on the extrusions only.
+3. Lift from above and tilt **side to side**: one Y extrusion goes into the frame first, then bring the high side down.
 
-**Check:** The gantry is inside the frame, level, front to the front, each Z bearing block over its lower joint, and no belt pinched.
+**Check:** The gantry is inside the frame and level, its front at the front, each Z bearing block over its lower joint, and no belt pinched.
 
 **Helper:** Lifts the other Y extrusion with you, hands on the extrusion only, and says stop if anything catches.
 
@@ -360,7 +393,7 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.114](assets/manual-pages/manual-p114.png){ crop="0.44 0.155 0.92 0.82" }
 
-**What you're looking at:** Each Z bearing block comes down onto the domed top of its lower joint. The last millimetre should be gravity, not force: if a block will not seat, slide that carriage along its rail rather than levering the gantry.
+**What you're looking at:** Each Z bearing block comes down onto the domed top of its lower joint. The last millimetre should be gravity, not force: if a block will not seat, slide that carriage along its rail instead of levering the gantry.
 
 **Parts:**
 
@@ -369,8 +402,8 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 **Do:**
 
-1. Lower until each Z block seats on its lower joint, nudging carriages until the bores line up.
-2. No rail stoppers? First zip-tie each corner up over the top frame rail.
+1. Lower until each Z block sits on its lower joint, nudging the carriages until the holes line up.
+2. No rail stoppers? Then zip-tie each corner up over the top frame extrusion first.
 3. Let go one at a time.
 
 **Check:** The gantry rests on all four joints with nobody holding it. It does not rock, and no corner is visibly lower than the others.
@@ -385,15 +418,18 @@ Source: [Voron manual p.114](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.115](assets/manual-pages/manual-p115.png){ crop="0.52 0.28 0.86 0.82" }
 
-**What you're looking at:** One M5×40 runs up through the lower joint's bore into the M5 nut, turning the two blocks into one Z joint. It stays light on purpose: the joint must swivel while the gantry is squared, and gets full torque once, hot, in Ch 14.
+**What you're looking at:** One M5×40 runs up through the lower joint's hole into the M5 nut, turning the two blocks into one Z joint. It stays light on purpose: the joint must still swivel while the gantry is squared, and it gets its full tightening only once, hot, in Ch 14.
 
 **Parts:**
 
 - M5×40 SHCS ×1
 
-**Do:** From underneath, run one M5×40 SHCS **up** through the lower joint's bore into the M5 nut captive in the Z bearing block. Tighten **lightly only**: the joint must still articulate. Final torque is Ch 14 Step 14.6, hot.
+**Do:**
 
-**Check:** The bolt threads in freely by hand for most of its length, and the joint still rocks slightly when you push the gantry corner.
+1. From underneath, run one M5×40 SHCS **up** through the lower joint's hole into the M5 nut held in the Z bearing block.
+2. Tighten it **lightly only**, so the joint can still swivel. The final tightening is Ch 14 Step 14.6, hot.
+
+**Check:** The screw threads in freely by hand for most of its length, and the joint still rocks slightly when you push the gantry corner.
 
 Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=115)
 
@@ -403,19 +439,19 @@ Source: [Voron manual p.115](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.116](assets/manual-pages/manual-p116.png){ crop="0.20 0.12 0.86 0.88" }
 
-**What you're looking at:** The other three corners, same single bolt, same lightness. With four in, the gantry is properly attached to all four Z carriages and moves as one piece up and down the uprights.
+**What you're looking at:** The other three corners take the same single screw, just as light. With four in, the gantry is attached to all four Z carriages and moves up and down the verticals as one piece.
 
 **Parts:**
 
 - M5×40 SHCS ×3
 
-**Do:** Add the other three joints the same way. Same light tightening on all four.
+**Do:** Join the other three joints the same way, with the same light tightening on all four.
 
-**Check:** Four M5×40 in, all light. Lift gently under one Y extrusion: the gantry moves as one piece, all four carriages together.
+**Check:** Four M5×40 are in, all light, and when you lift gently under one Y extrusion, the gantry moves as one piece, all four carriages together.
 
 Source: [Voron manual p.116](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=116) · [Video: Part 4 @1:20:06](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=4806s)
 
-Pause: ~45 min since the last pause — gantry lifted into the frame and bolted to all four Z joints, articulating freely. This segment could not be broken (two-person lift). Z belts are still unrouted; leave the idlers alone.
+Pause: ~45 min since the last pause — the gantry is lifted into the frame and screwed to all four Z joints, which still move freely. This segment could not be broken up (two-person lift). The Z belts are not routed yet; leave the idlers alone.
 
 ---
 
@@ -423,17 +459,17 @@ Pause: ~45 min since the last pause — gantry lifted into the frame and bolted 
 
 ![Voron manual p.117](assets/manual-pages/manual-p117.png){ crop="0.56 0.18 0.86 0.86" }
 
-**What you're looking at:** The Z idler is the toothed pulley on a sliding bracket at the top of each upright. Its bolt is the tensioner: it moves the pulley, changing how much belt the loop needs. The same four turns back parks all four identically.
+**What you're looking at:** The Z idler is the toothed pulley on a sliding bracket at the top of each vertical. Its screw is the tensioner: it moves the pulley, which changes how much belt the loop needs. Turning every one back the same four turns parks all four the same.
 
 **Parts:** none.
 
 **Do:**
 
-1. The tensioner is the M3×16 under the blue slider, 2.5 mm key from below.
-2. Loosen it anticlockwise from below, out to the maximum before it comes undone.
-3. Tighten back **4 turns**. Repeat on all four idlers.
+1. Find the tensioner: the M3×16 under the blue slider, turned with a 2.5 mm key from below.
+2. Loosen it anticlockwise from below, out as far as it goes before it comes undone.
+3. Tighten it back **4 turns**. Repeat on all four idlers.
 
-**Check:** All four idlers extended and backed off by the same 4 turns, counted out loud, with none of the four bolts fallen out.
+**Check:** All four idlers are extended and turned back by the same 4 turns, counted out loud, and none of the four screws has fallen out.
 
 **Helper:** Counts the turns aloud at each idler and ticks off each corner when it is done.
 
@@ -445,11 +481,14 @@ Source: [Voron manual p.117](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.117](assets/manual-pages/manual-p117.png){ crop="0.08 0.28 0.48 0.72" }
 
-**What you're looking at:** The blue upper clip on top of each front idler and A/B drive, fitted in Ch 05, is where the belt's *second* end clamps. Its two M5×16 also hold that frame to the Y extrusion.
+**What you're looking at:** The blue upper clip on top of each front idler and A/B drive, fitted in Ch 05, is where the belt's *second* end clamps. Its two M5×16 also hold that idler or drive to the Y extrusion.
 
 **Parts:** none.
 
-**Do:** At each corner, back off the two M5×16 BHCS on top of the front idler or drive until a belt slides under the upper clip. **Do not remove them.** Leave the M3×30 and M5×30 underneath alone.
+**Do:**
+
+1. At each corner, loosen the two M5×16 BHCS on top of the front idler or drive until a belt slides under the upper clip. **Do not take them out.**
+2. Leave the M3×30 and M5×30 underneath alone.
 
 **Check:** A strip of belt slips under the upper clip at all four corners, and no first belt end has moved.
 
@@ -462,15 +501,18 @@ Source: [Voron manual p.117](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.118](assets/manual-pages/manual-p118.png){ crop="0.28 0.12 0.90 0.84" }
 ![Z drive gear train and Z belt loop](assets/diagrams/04-z-drive-gear-train.svg)
 
-**What you're looking at:** The belt tail runs down the rail side of the upright and wraps the toothed pulley in the Z drive, the pulley that lifts this corner. Teeth face inward so they engage; a belt running smooth-side-on over a toothed pulley skips teeth.
+**What you're looking at:** The belt tail runs down the rail side of the vertical and wraps the toothed pulley in the Z drive, the pulley that lifts this corner. The teeth face inward so they grip; a belt running smooth side on over a toothed pulley skips teeth.
 
 **Parts:**
 
 - reused: one Z belt, first end clamped
 
-**Do:** Take the belt tail down past the lower Z joint on the **rail side**, around the Z drive pulley, and back up the run further from the rail. **Teeth face inward, onto the pulley.** Needle-nose pliers help.
+**Do:**
 
-**Check:** The belt seats fully round the drive pulley, and teeth face each other between the two runs; teeth showing outside means a twist.
+1. Take the belt tail down past the lower Z joint on the **rail side**, around the Z drive pulley, and back up on the side further from the rail.
+2. Keep the **teeth facing inward, onto the pulley**. Needle-nose pliers help.
+
+**Check:** The belt sits all the way round the drive pulley, and the teeth of the two runs (the down and up lengths of belt) face each other. Teeth showing outside mean a twist.
 
 Source: [Voron manual p.118](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=118) · [Video: Part 4 @1:30:31](https://www.youtube.com/watch?v=ViB5Ulc9zDI&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5431s)
 
@@ -480,15 +522,18 @@ Source: [Voron manual p.118](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.119](assets/manual-pages/manual-p119.png){ crop="0.08 0.24 0.70 0.78" }
 
-**What you're looking at:** The same belt continues up the run further from the rail, over the Z idler, and back down on the rail side toward the joint, closing the loop. The idler's flanges are all that keep the belt on it.
+**What you're looking at:** The same belt continues up the run further from the rail, over the Z idler, and back down the rail side toward the joint, closing the loop. The idler's flanges, the raised rims on each side, are all that keep the belt on it.
 
 **Parts:**
 
 - reused: the same Z belt
 
-**Do:** Run the belt up the far run to the top of the upright, over the Z idler pulley, and back down the rail side toward the Z joint. Teeth stay on the inside of the loop.
+**Do:**
 
-**Check:** The belt sits centred in the idler's groove between its flanges, and both runs are vertical and clear of the extrusion.
+1. Run the belt up the far run to the top of the vertical, over the Z idler pulley, and back down the rail side toward the Z joint.
+2. Keep the teeth on the inside of the loop.
+
+**Check:** The belt sits centred in the idler's groove between its flanges, and both runs hang straight up and down, clear of the extrusion.
 
 Source: [Voron manual p.119](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=119)
 
@@ -498,16 +543,19 @@ Source: [Voron manual p.119](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.120](assets/manual-pages/manual-p120.png){ crop="0.16 0.18 0.90 0.78" }
 
-**What you're looking at:** The returning end feeds in under the upper clip, teeth down on the frame's serrated top, as the first end did under the lower clip. Pulling the tail hard while you tighten takes out the slack; the tensioner only fine-tunes the rest.
+**What you're looking at:** The returning end feeds in under the upper clip, teeth down on the frame's serrated top, just as the first end went under the lower clip. Pulling the tail hard while you tighten takes out the slack; the tensioner only fine-tunes the rest.
 
 **Parts:**
 
 - reused: the upper belt clip on this corner
 - reused: the two M5×16 BHCS on top of this corner
 
-**Do:** Feed the returning belt end between the upper clip and the frame's serrated top, teeth down. Pull the tail hard and hold it while you tighten both M5×16, firm rather than crushed.
+**Do:**
 
-**Check:** The long run plucks with real tension, not a floppy note; the tail does not slip and the first belt end is still clamped.
+1. Feed the returning belt end between the upper clip and the frame's serrated top, teeth down.
+2. Pull the tail hard and hold it while you tighten both M5×16, firmly but without crushing the belt.
+
+**Check:** The long run plucks with real tension, not a floppy note, the tail does not slip, and the first belt end is still clamped.
 
 **Helper:** Pulls the belt tail tight and holds it while you tighten both M5×16 bolts.
 
@@ -519,19 +567,23 @@ Source: [Voron manual p.120](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.120](assets/manual-pages/manual-p120.png){ crop="0.54 0.48 0.90 0.88" }
 
-**What you're looking at:** The leftover belt past the clamp. Folded back and zip-tied it cannot flap into a pulley or a panel; left long rather than cut flush, it gives you one free re-clamp if the tension comes out wrong.
+**What you're looking at:** This is the spare belt past the clamp. Folded back and zip-tied, it cannot flap into a pulley or a panel. Left long instead of cut flush, it gives you one free re-clamp if the tension comes out wrong.
 
 **Parts:**
 
 - consumable: zip tie, 3×150 mm ×1
 
-**Do:** Fold the tail back on itself and zip-tie it to the running belt. Leave enough tail to re-clamp once if the tension comes out wrong, so do not cut it flush yet. Trim the zip-tie tail flush.
+**Do:**
+
+1. Fold the tail back on itself and zip-tie it to the running belt.
+2. Leave enough tail to clamp it once more if the tension comes out wrong, so do not cut it flush yet.
+3. Trim the zip tie's tail flush.
 
 **Check:** The folded tail cannot flap into a pulley or panel, and nothing rubs as you move the gantry by hand.
 
 Source: [Voron manual p.120](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=120)
 
-Pause: ~40 min since the last pause — all four Z idlers extended, top clamps loosened, and the **first** Z belt routed, clamped at both ends, trimmed and tied. Never stop with a belt half-routed: finish the corner you are on.
+Pause: ~40 min since the last pause — all four Z idlers are extended, the top clamps loosened, and the **first** Z belt is routed, clamped at both ends, trimmed and tied. Never stop with a belt half routed: finish the corner you are on.
 
 ---
 
@@ -539,20 +591,23 @@ Pause: ~40 min since the last pause — all four Z idlers extended, top clamps l
 
 ![Voron manual p.121](assets/manual-pages/manual-p121.png){ crop="0.16 0.18 0.86 0.82" }
 
-**What you're looking at:** The other three corners, the same four operations each. Doing them in the same order every time is how you notice a corner that came out different, rather than discovering it as a QGL that will not converge.
+**What you're looking at:** The other three corners get the same four jobs each. Doing them in the same order every time shows you a corner that came out different, instead of finding it later as a QGL (the printer's automatic gantry levelling) that never settles.
 
 **Parts:**
 
 - reused: the other three Z belts
 - consumable: zip tie, 3×150 mm ×3
 
-**Do:** Repeat steps 06.18–06.21 at each of the remaining three corners. Do them in the same order every time, drive then idler then clamp, so you notice if one comes out different.
+**Do:**
 
-**Check:** Four belts on, four tails tied. Every belt is fully seated on its drive pulley and its idler.
+1. Repeat steps 06.18 to 06.21 at each of the other three corners.
+2. Do them in the same order every time, drive, then idler, then clamp, so you notice if one comes out different.
+
+**Check:** Four belts are on and four tails tied, and every belt sits fully on its drive pulley and its idler.
 
 Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=121)
 
-Pause: ~30 min since the last pause — all four Z belts routed, clamped, trimmed and tied. Belts are hand-even but not tensioned; do not touch the A/B front-idler tension screws (Ch 07's).
+Pause: ~30 min since the last pause — all four Z belts are routed, clamped, trimmed and tied. The belts are about even by hand but not tensioned; do not touch the A/B front-idler tension screws, which are Ch 07's.
 
 ---
 
@@ -561,20 +616,20 @@ Pause: ~30 min since the last pause — all four Z belts routed, clamped, trimme
 ![CAD render — the bolt that tensions one Z belt](assets/cad/06-23-a.png)
 ![CAD render — the four Z belts you are evening up](assets/cad/06-23-b.png)
 
-**What you're looking at:** The Z idler tensioner: the small bolt standing proud below the idler. Plucking a belt is a rough tension reading, and the four Z belts must be close to equal or QGL will not repeat. The measured 140 Hz target waits for Part B.
+**What you're looking at:** The Z idler tensioner is the small screw sticking out below each idler. Plucking a belt gives a rough reading of its tension, and the four Z belts must be close to equal or QGL will not repeat. The measured 140 Hz target waits for Part B.
 
 **Parts:** none.
 
 **Do:**
 
 1. Pluck each Z belt on the short run between the top belt clip and the Z idler.
-2. Bring the four notes together with each corner's **Z idler tensioner bolt**: 2.5 mm key from below, clockwise for tighter.
+2. Bring the four notes together with each corner's **Z idler tensioner screw**: 2.5 mm key from below, clockwise for tighter.
 
 **Check:** All four belts sound within a semitone of each other, and lifting one gantry corner moves all four carriages together.
 
 **Helper:** Plucks each Z belt in turn and says which note sounds lowest.
 
-Tip: The CAD idler height is the 250 machine's. There is one of these at each of the four corners either way.
+The CAD picture shows the idler height of the 250 machine. Either way, there is one of these screws at each of the four corners.
 
 Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=121) · [Voron docs § Secondary printer tuning — A/B and Z belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -585,22 +640,20 @@ Source: [Voron manual p.121](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 ![Voron manual p.122](assets/manual-pages/manual-p122.png){ crop="0.38 0.20 0.90 0.88" }
 ![CAD render — the three bolts per XY joint you tighten: two down from the top, one up from below](assets/cad/06b-14-a.png)
 
-**What you're looking at:** Pushing the X extrusion back until both XY joints touch their drive units uses the two rear drive blocks as a square. The six bolts you tighten are the three per joint that clamp it to the X beam; no Z belt clamps here.
+**What you're looking at:** Pushing the X extrusion back until both XY joints touch their drive units uses the rear drive blocks as a square. It is a rough mechanical square only; the full procedure, which this page's QR code ([voron.link/cekh81l](https://voron.link/cekh81l)) points to, is Part B.
 
 **Parts:** none.
 
 **Do:**
 
-1. Push the X extrusion back until both X/Y joints hit the A and B drives together.
-2. Hold it there and tighten the three joint-to-beam bolts at each joint: two BHCS from above, one M5×30 from below.
+1. Push the X extrusion back until both XY joints hit the A and B drives at the same time.
+2. Hold it there and tighten the three screws at each joint that clamp it to the X extrusion: two BHCS from above, one M5×30 from below. No Z belt clamps here.
+
+**Check:** Looking down, the X extrusion is parallel to the rear frame extrusion when pushed fully back, and to the front extrusion when pushed fully forward.
 
 ??? note "If one side hits first"
 
-    Then the A/B drive spacing needs adjusting; p.122 says you may need to. Loosen the bolts securing the B drive to the rear gantry extrusion, push the gantry back until both sides land together, then re-tighten. The bolts you tighten at each joint are the M5×10 (left) / M5×16 (right) BHCS from Step 05.38 and the M5×30 with its black washer from 05.39 — never the Z belt-clamp bolts at the drives and idlers, never the rail screws.
-
-**Check:** Looking down, the X extrusion is parallel to the rear frame extrusion pushed fully back, and to the front extrusion pushed fully forward.
-
-Tip: This is a mechanical pre-square only. The manual's own QR code on this page ([voron.link/cekh81l](https://voron.link/cekh81l)) points at the full procedure, which is Part B of this chapter.
+    Then the spacing between the A and B drives needs adjusting; p.122 says you may need to. Loosen the screws that hold the B drive to the rear gantry extrusion, push the gantry back until both sides land together, then tighten them again. At each joint you tighten the M5×10 (left) or M5×16 (right) BHCS from Step 05.38 and the M5×30 with its black washer from 05.39. Never the Z belt-clamp screws at the drives and idlers, and never the rail screws.
 
 Source: [Voron manual p.122](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=122) · [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · CAD: Voron 2.4r2 STEP @ de7e89d · [Video: Part 6 @1:34:55](https://www.youtube.com/watch?v=8pWoYkY1DiA&list=PL0fUJbigELQPqpeGOgHYisG4KaSXVtnNY&t=5695s)
 
@@ -610,23 +663,23 @@ Source: [Voron manual p.122](https://github.com/VoronDesign/Voron-2/blob/de7e89d
 
 ![Voron manual p.122](assets/manual-pages/manual-p122.png){ crop="0.14 0.18 0.36 0.62" }
 
-**What you're looking at:** With four belts on, the gantry holds its own weight; the zip ties and mid-rail stoppers were only scaffolding. Turning a Z drive by hand is the first end-to-end test of a corner. Never spin a connected stepper fast: back-EMF kills drivers.
+**What you're looking at:** With four belts on, the gantry holds its own weight; the zip ties and mid-rail stoppers were only scaffolding. Turning a Z drive by hand is a corner's first end-to-end test. Never spin a connected stepper motor fast: the current it makes (back-EMF) kills drivers.
 
 **Parts:** none.
 
 **Do:**
 
 1. Cut any long zip ties and unscrew the four mid-rail stoppers.
-2. Refit the rubber stoppers at the rail bottoms; printed stops stay on top.
+2. Refit the rubber stoppers at the bottoms of the rails; the printed stops stay on top.
 3. Turn each Z drive pulley by hand and watch that corner rise.
 
-**Check:** The gantry stays where the belts hold it unsupported, and turning any Z drive raises that corner smoothly with no slip or rubbing.
+**Check:** The gantry stays where the belts hold it, unsupported, and turning any Z drive raises that corner smoothly, with no slipping or rubbing.
 
 **Helper:** Watches the corner you turn and says whether it rises smoothly, with no slip.
 
 Source: [Voron manual p.122](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=122)
 
-Pause: ~35 min since the last pause — gantry squared against the A/B drives, X axis locked and released, everything moving freely by hand. Leave the machine powered off.
+Pause: ~35 min since the last pause — the gantry is squared against the A/B drives, the X axis is locked, the gantry is released, and everything moves freely by hand. Leave the machine powered off.
 
 ---
 
@@ -634,7 +687,7 @@ Pause: ~35 min since the last pause — gantry squared against the A/B drives, X
 
 ![Voron manual p.123](assets/manual-pages/manual-p123.png)
 
-**What you're looking at:** A closing page. The Z [drag chain](16-glossary.md#d) is the plastic link chain that carries cables from the fixed frame up to the moving gantry; its two black frame mounts and two blue retainer brackets are printed here and fitted in Ch 10.
+**What you're looking at:** This page closes Part A. The Z [drag chain](16-glossary.md#d) is the plastic link chain that carries cables from the fixed frame up to the moving gantry. Its two black frame mounts and two blue retainer brackets are printed with this chapter and fitted in Ch 10.
 
 **Parts:**
 
@@ -643,13 +696,16 @@ Pause: ~35 min since the last pause — gantry squared against the A/B drives, X
 - staged: `[a]_z_chain_retainer_bracket_x2` ×2
 - staged: drag chain 10×15 R28 ×1
 
-**Do:** Bag the Z chain parts and label the bag **Ch 10, manual p.200–204**. Chain latches and mounting are Ch 10's.
+**Do:**
 
-**Check:** One labelled bag holding the chain, the anchor, the guide and both retainer brackets.
+1. Bag the Z chain parts and label the bag **Ch 10, manual p.200–204**.
+2. Leave the chain latches and the mounting for Ch 10.
+
+**Check:** One labelled bag holds the chain, the anchor, the guide and both retainer brackets.
 
 Source: [Voron manual p.123](https://github.com/VoronDesign/Voron-2/blob/de7e89d/Manual/Assembly_Manual_2.4r2.pdf#page=123)
 
-Pause: ~15 min since the last pause — Z axis mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 hands off to it at Step 13.34.
+Pause: ~15 min since the last pause — the Z axis is mechanically complete and logged. Stop here and go to Ch 07: Part B below cannot start until Ch 13 sends you to it at Step 13.34.
 
 ---
 
@@ -657,45 +713,45 @@ Pause: ~15 min since the last pause — Z axis mechanically complete and logged.
 
 **Built:** a gantry hanging level on four belted Z corners
 
-- [ ] Four `z_joint_upper` blocks fitted, each with its M5 nut seated, **cutouts facing outward**
-- [ ] Zero 6×3 magnets used; zero `z_joint_upper_hall_effect` parts printed or fitted
-- [ ] Four `z_joint_lower` on the Z carriages, four M3×20 SHCS each, all four bolted flat
-- [ ] Four M5×40 SHCS in, **all still light** — they are torqued hot in Ch 14, not now and not in Part B
-- [ ] Four Z belts routed drive → idler → clamp, teeth engaged on every pulley, none twisted
-- [ ] Both belt ends clamped at every corner: the first under the lower clip and bearing block, the second under the upper clip's two M5×16; tails folded and zip-tied
-- [ ] Four belts pluck to roughly the same note; nothing rubs anywhere in ±30 mm of Z travel
-- [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); Z belt-clamp bolts and rail screws untouched
-- [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
-- [ ] Z-chain parts bagged and labelled for Ch 10
+- [ ] Four `z_joint_upper` blocks are fitted, each with its M5 nut seated and its **cutout facing outward**.
+- [ ] No 6×3 magnets are used, and no `z_joint_upper_hall_effect` part is printed or fitted.
+- [ ] Four `z_joint_lower` are on the Z carriages, four M3×20 SHCS each, all four screwed down flat.
+- [ ] Four M5×40 SHCS are in, **all still light**: they are tightened hot in Ch 14, not now and not in Part B.
+- [ ] Four Z belts are routed drive, then idler, then clamp, with the teeth gripping every pulley and none twisted.
+- [ ] Both belt ends are clamped at every corner: the first under the lower clip and the bearing block, the second under the upper clip's two M5×16. The tails are folded and zip-tied.
+- [ ] All four belts pluck to roughly the same note, and nothing rubs anywhere within ±30 mm of Z travel.
+- [ ] The six screws that clamp the XY joints to the X extrusion (Steps 05.38–05.39) are fully tightened, with the gantry held back against both A/B drives (p.122). The Z belt-clamp screws and rail screws are untouched.
+- [ ] The gantry holds its own height on the belts, and the zip ties and the stoppers in the middle of the rails are removed.
+- [ ] The Z chain parts are bagged and labelled for Ch 10.
 
-**Next:** [Ch 07 — A/B belts and tensioning](07-ab-belts.md#step-071-confirm-the-gate-before-you-start) — Part B (Ch 06b) below cannot start until Ch 13 Step 13.34 hands off to it.
+**Next:** [Ch 07 — A/B belts and tensioning](07-ab-belts.md#step-071-confirm-the-gate-before-you-start). Part B (Ch 06b) below cannot start until Ch 13 Step 13.34 sends you to it.
 
 ## Common mistakes
 
-- **Doing p.114 before p.115–116.** Wrestling a 350 gantry on long zip ties while trying to line up four joints. Fit the lower joints and rest the gantry on rubber rail stoppers instead — LDO note p.114–116.
+- **Doing p.114 before p.115–116.** You end up wrestling a 350 gantry on long zip ties while trying to line up four joints. Fit the lower joints first and rest the gantry on rubber rail stoppers instead (LDO note p.114–116).
 - **Fitting the hall-effect block or a 6×3 magnet** because the manual shows it. This kit has none (LDO p.145). If you printed `z_joint_upper_hall_effect.stl`, you printed the wrong file.
-- **The block's cutout facing inward.** It is the one orientation error on p.112 that the manual calls out, and it is invisible once the belt is on. Fix: check all four before belting.
-- **Putting the twin-hole upper clip on the Z bearing block.** The Z-joint stack takes only the lower clip (p.111). The upper clip sits on top of the front idler or drive, under its M5×16 pair (Ch 05, p.91, p.95).
-- **Removing the top belt clamp screws at p.117, or loosening the wrong pair.** The two M5×16 on top also hold the front idler or drive to the Y extrusion: loosen them until a belt slides under the clip. The M3×30 / M5×30 underneath hold the first belt end; leave them alone.
-- **Cutting Z belts to 1200 mm and finding it is exactly not enough** after the wrap. Cut ~1400 mm — long enough to wrap, and it still leaves ~400 mm of the kit's 6 m spare. Cutting four at 1500 mm consumes the whole reel.
-- **Torquing the M5×40 Z joint bolts now.** They stay light through Part B and get their final tighten hot, in Ch 14 (Voron squaring step 16). Tight joints here will fight every squaring adjustment you make.
-- **Leaving a Z carriage unrestrained near the top of its rail.** It slides off, the balls go on the floor, and the carriage is scrap.
+- **The block's cutout facing inward.** It is the one orientation mistake on p.112 that the manual calls out, and you cannot see it once the belt is on. Check all four before fitting the belts.
+- **Putting the upper clip, the one with two equal holes, on the Z bearing block.** The Z joint stack takes only the lower clip (p.111). The upper clip sits on top of the front idler or drive, under its pair of M5×16 (Ch 05, p.91, p.95).
+- **Removing the top belt clamp screws at p.117, or loosening the wrong pair.** The two M5×16 on top also hold the front idler or drive to the Y extrusion: loosen them only until a belt slides under the clip. The M3×30 and M5×30 underneath hold the first belt end; leave them alone.
+- **Cutting the Z belts to 1200 mm** and finding, after the wrap, that it is just not enough. Cut about 1400 mm: long enough to wrap, and it still leaves about 400 mm of the kit's 6 m spare. Cutting four at 1500 mm uses up the whole reel.
+- **Tightening the M5×40 Z joint screws now.** They stay light through Part B and get their final tightening hot, in Ch 14 (Voron squaring step 16). Tight joints here fight every squaring adjustment you make.
+- **Leaving a Z carriage free near the top of its rail.** It slides off, the balls end up on the floor, and the carriage is scrap.
 
 ---
 
 ## Part B — Chapter 06b: Gantry squaring
 
-⚠ **Do this from inside Chapter 13, not now.** Start Part B only when [Ch 13 Step 13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab) sends you here, once the machine homes and QGLs. It needs a running printer, cold and open.
+⚠ **Do this from inside Chapter 13, not now.** Start Part B only when [Ch 13 Step 13.34](13-initial-startup.md#step-1334-hand-off-to-ch-06b-square-the-gantry-then-re-tension-ab) sends you here, once the machine homes and runs QGL. It needs a running printer, cold and open.
 
-The procedure needs `SET_IDLE_TIMEOUT`, `G28`, `QUAD_GANTRY_LEVEL` and `SET_STEPPER_ENABLE`. It ends at Step 06b.16 by sending you back to Ch 13 Step 13.35. Final belt tension (Ch 14 Steps 14.4–14.5, cold, door open) and then the heat soak, the hot QGL runs and the hot tighten of the Z joints (Step 14.6) are Ch 14's, after the panels go on in Ch 11 Part B.
+The procedure needs `SET_IDLE_TIMEOUT`, `G28`, `QUAD_GANTRY_LEVEL` and `SET_STEPPER_ENABLE`. It ends at Step 06b.16 by sending you back to Ch 13 Step 13.35. Ch 14 does the rest, after the panels go on in Ch 11 Part B: final belt tension (Steps 14.4–14.5, cold, door open), then the heat soak, the hot QGL runs and the hot tightening of the Z joints (Step 14.6).
 
-**Why it is split out:** the procedure's first moves are to *fully release A/B belt tension* and *drop the lower Z joints*. Anything you tension before this gets undone (survey §5.2 W1, §4.4 #2). Ch 07's A/B tension and the one you set at step 06b.15 are both provisional; Ch 14 Step 14.4 sets the final value.
+**Why it is split out:** the procedure starts by *fully releasing the A/B belt tension* and *dropping the lower Z joints*, so anything you tension before this gets undone (survey §5.2 W1, §4.4 #2). The A/B tension from Ch 07 and the one you set at step 06b.15 are both provisional; Ch 14 Step 14.4 sets the final value.
 
-**Part B is transcribed from:** [V2 Gantry Squaring, docs.vorondesign.com](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) — 17 numbered steps. Steps 1–13 are transcribed below with the original number cited on each (plus one added Z-belt step); steps 14–16 (soak, hot QGL, hot Z-joint tighten) are handed to Ch 14 at Step 06b.16; step 17 (`RESTART`) runs at 06b.16. [Ellis' identical section](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html) is the same text. The manual's own p.122 QR ([voron.link/cekh81l](https://voron.link/cekh81l)) points here.
+**Part B is transcribed from** [V2 Gantry Squaring, docs.vorondesign.com](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html), which has 17 numbered steps. Steps 1–13 are transcribed below, each citing its original number, plus one added Z belt step. Steps 14–16 (heat soak, hot QGL, hot Z joint tightening) are handed to Ch 14 at Step 06b.16, and step 17 (`RESTART`) runs at 06b.16. [Ellis' identical section](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html) has the same text. The manual's own p.122 QR code ([voron.link/cekh81l](https://voron.link/cekh81l)) points here.
 
-**Extra tools for Part B:** 150 mm machinist square, digital caliper, 150 mm rule, phone spectrum app, hex 2.5/3/4 mm.
+**Extra tools for Part B:** 150 mm machinist square, digital caliper, 150 mm rule, phone spectrum app, hex keys 2.5, 3 and 4 mm.
 
-Tip: [Z Locks](https://github.com/VoronDesign/VoronUsers/tree/master/printer_mods/tallman5/z-locks/) make step 06b.8 easier by holding the gantry while the joints are off. Not required. [src](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
+[Z Locks](https://github.com/VoronDesign/VoronUsers/tree/master/printer_mods/tallman5/z-locks/) make step 06b.8 easier by holding the gantry while the joints are off. They are not required. [src](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
 Source: [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -705,13 +761,16 @@ Source: [Voron docs § V2 Gantry Squaring](https://docs.vorondesign.com/build/me
 
 (no image — see text)
 
-**What you're looking at:** A console command; nothing to look at. Klipper de-energises idle steppers after 600 s by default, and with the Z motors released the gantry falls. This sets the timeout to effectively never for the session.
+**What you're looking at:** This step is one console command, with nothing to look at. Klipper, the printer's firmware, switches off idle stepper motors after 600 s by default, and once the Z motors let go, the gantry falls. This command sets the timeout to effectively never for the session.
 
 **Parts:** none.
 
-**Do:** In the console: `SET_IDLE_TIMEOUT TIMEOUT=99999`. The Z motors must stay energised and holding the gantry for the whole session. Nothing else in Part B happens before this. Voron step 1.
+**Do:**
 
-**Check:** Command accepted, no error. The Z motors are audibly holding.
+1. In the console, send `SET_IDLE_TIMEOUT TIMEOUT=99999`.
+2. Do nothing else in Part B before this: the Z motors must stay powered and holding the gantry for the whole session. This is Voron step 1.
+
+**Check:** The command is accepted with no error, and you can hear the Z motors holding.
 
 Source: [Voron docs § V2 Gantry Squaring, step 1](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -721,13 +780,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 1](https://docs.vorondesign.com/
 
 (no image — see text)
 
-**What you're looking at:** `G28` homes the machine. `QUAD_GANTRY_LEVEL`, or [QGL](16-glossary.md#q), probes four points and drives the four Z motors independently until the gantry is parallel to the bed. QGL corrects height only: it cannot see racking, which is what the rest of this procedure fixes.
+**What you're looking at:** `G28` homes the machine: it finds the start position of every axis. `QUAD_GANTRY_LEVEL`, or [QGL](16-glossary.md#q), probes four points and drives the four Z motors one by one until the gantry is parallel to the bed. QGL corrects height only; it cannot see racking (a gantry pushed out of square), which the rest of this procedure fixes.
 
 **Parts:** none.
 
-**Do:** `G28`, then `QUAD_GANTRY_LEVEL`. Let it complete cleanly. From here the machine stays homed and the Z motors stay holding. Voron step 2.
+**Do:**
 
-**Check:** QGL converges within its retry limit. A machine that cannot QGL cannot be squared by this procedure.
+1. Send `G28`, then `QUAD_GANTRY_LEVEL`, and let it finish cleanly. This is Voron step 2.
+2. From here on the machine stays homed and the Z motors stay holding.
+
+**Check:** QGL settles within its retry limit. A machine that cannot complete QGL cannot be squared by this procedure.
 
 Source: [Voron docs § V2 Gantry Squaring, step 2](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -737,21 +799,23 @@ Source: [Voron docs § V2 Gantry Squaring, step 2](https://docs.vorondesign.com/
 
 (no image — see text)
 
-**What you're looking at:** Plucking a *measured* 150 mm span and reading the lowest peak in a spectrum app turns belt tension into a number; 140 Hz is Voron's figure for the 9 mm Z belt. Four Z belts at four tensions make QGL wander.
+**What you're looking at:** Plucking a *measured* 150 mm span (the length of belt you pluck) and reading the lowest peak in a spectrum app turns tension into a number. Voron's figure for the 9 mm Z belt is 140 Hz; uneven belts make QGL wander. This step is not in the official procedure.
 
 **Parts:** none.
 
 **Do:**
 
-1. Jog until a top belt clip sits **150 mm** below its Z idler centre.
-2. Pluck that span; adjust the tensioner until the lowest peak reads **≈140 Hz**.
-3. Re-check all four after a move, then `QUAD_GANTRY_LEVEL`.
+1. Jog until a top belt clip sits **150 mm** below its Z idler centre, measured from the axle to the clip.
+2. Pluck that span and adjust the tensioner until the lowest peak reads **about 140 Hz**.
+3. Re-check all four after a move, then run `QUAD_GANTRY_LEVEL`.
 
-Added step, not in the official squaring procedure: do it only after the idle timeout is raised and the machine is homed, so the Z motors hold the gantry throughout. Measure the span from the idler axle down to the clip. The tensioner head sits under the blue slider and takes a 2.5 mm key from below; clockwise as you look up at the head is tighter (verify on bench — the note rises). Voron's *"fixed side"* is this end of the belt, the one fixed at the joint (verify on bench). Uneven Z belts are a named cause of a high-σ, non-repeatable QGL, and squaring with mismatched Z belts wastes the session (survey §4.3). This is the working setting QGL squares from; [Ch 14 Step 14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) sets it for the last time, cold, before the closed-chamber soak. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
-
-**Check:** All four Z belts read 140 Hz ±5 Hz, and they still do after the gantry has moved and come back; QGL converges again afterwards.
+**Check:** All four Z belts read 140 Hz ±5 Hz, still do after the gantry moves and returns, and QGL settles again afterwards.
 
 **Helper:** Holds the phone at the belt span and reads the lowest peak aloud after each pluck.
+
+Do this only after the idle timeout is raised and the machine is homed, so the Z motors hold the gantry throughout. The tensioner head sits under the blue slider and takes a 2.5 mm key from below; clockwise, as you look up at the head, is tighter (verify on bench: the note rises). Voron's *"fixed side"* is this end of the belt, the one fixed at the joint (verify on bench).
+
+Uneven Z belts are a known cause of a QGL that scatters (high σ) and will not repeat, and squaring with mismatched Z belts wastes the session (survey §4.3). This is the working setting QGL squares from; [Ch 14 Step 14.5](14-calibration.md#step-145-set-the-four-z-belts-to-140-hz-over-150-mm) sets it for the last time, cold, before the closed-chamber soak. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
 
 Source: [Voron docs § V2 Gantry Squaring, step 1](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) (prerequisite) · [Voron docs § Secondary printer tuning — A/B and Z belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [Ellis' Print Tuning Guide § V2 gantry squaring](https://ellis3dp.com/Print-Tuning-Guide/articles/voron_v2_gantry_squaring.html)
 
@@ -761,13 +825,13 @@ Source: [Voron docs § V2 Gantry Squaring, step 1](https://docs.vorondesign.com/
 
 (no image — see text)
 
-**What you're looking at:** Parking the gantry mid-volume is purely about access: the steps that follow need a hex key on the XY joint bolts from above *and* from below.
+**What you're looking at:** Parking the gantry in the middle of the build space is only about access: the next steps need a hex key on the XY joint screws from above *and* from below.
 
 **Parts:** none.
 
-**Do:** Jog the gantry to the centre of the build volume from Mainsail or the touchscreen. You need to reach both the top and the bottom of the gantry comfortably. Voron step 3.
+**Do:** Jog the gantry to the centre of the build volume from Mainsail or the touchscreen, where you can reach both the top and the bottom of the gantry comfortably. This is Voron step 3.
 
-**Check:** You can get a hex key onto an XY-joint bolt from above and from below without contorting.
+**Check:** A hex key reaches an XY joint screw from above and from below without contorting yourself.
 
 Source: [Voron docs § V2 Gantry Squaring, step 3](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -777,13 +841,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 3](https://docs.vorondesign.com/
 
 (no image — see text)
 
-**What you're looking at:** Disabling only the two CoreXY motors lets you push the X extrusion around by hand. The Z motors stay energised because they, and nothing else, are holding the gantry off the bed.
+**What you're looking at:** Switching off only the two CoreXY motors, A and B, which move the print head, lets you push the X extrusion around by hand. The Z motors stay on, because they, and nothing else, are holding the gantry off the bed.
 
 **Parts:** none.
 
-**Do:** `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0` then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0`. **Only** these two. The Z motors stay enabled: they are holding the gantry. Voron step 4.
+**Do:**
 
-**Check:** The X carriage now moves freely by hand; the gantry does not sink.
+1. Send `SET_STEPPER_ENABLE STEPPER=stepper_x ENABLE=0`, then `SET_STEPPER_ENABLE STEPPER=stepper_y ENABLE=0`.
+2. Disable **only** these two. The Z motors stay enabled: they are holding the gantry. This is Voron step 4.
+
+**Check:** The X carriage moves freely by hand, and the gantry does not sink.
 
 Source: [Voron docs § V2 Gantry Squaring, step 4](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -793,13 +860,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 4](https://docs.vorondesign.com/
 
 ![Loosen the A/B tensioners](assets/remote/06-z-axis-and-gantry-squaring/ab-tensioners-release.png)
 
-**What you're looking at:** The two front idler tensioners, backed fully off. The A/B belts pull the X extrusion diagonally, so any tension left in them drags the gantry back out of alignment while you are trying to align it.
+**What you're looking at:** The two front idler tensioners get backed fully off. The A/B belts pull the X extrusion diagonally, so any tension left in them drags the gantry back out of line while you are trying to line it up.
 
 **Parts:** none.
 
-**Do:** Back both front idler tensioners fully off until the belts are fully disengaged. If tension remains with the idlers fully backed off, release the belt ends from the X carriage. Voron step 5.
+**Do:**
 
-**Check:** Both A/B belts are slack enough to lift off their runs by 10 mm with one finger.
+1. Back both front idler tensioners fully off, until the belts are fully slack.
+2. If tension remains with the idlers fully backed off, release the belt ends from the X carriage. This is Voron step 5.
+
+**Check:** Both A/B belts are slack enough to lift 10 mm off their path with one finger.
 
 Source: [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · image [`Gantry-ABTension.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/Gantry-ABTension.png)
 
@@ -809,13 +879,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 5](https://docs.vorondesign.com/
 
 ![CAD render — Voron's step 6 takes both side panels off; on this build they are not on yet](assets/cad/06b-07-b.png)
 
-**What you're looking at:** Voron's step 6 is written for a finished, panelled machine and takes the two side panels off purely for access. The render shows the side panels, and behind them the four Z joints in the corners and the two XY joints on the gantry.
+**What you're looking at:** Voron's step 6 is written for a finished machine with its panels on, and takes the two side panels off purely for access. The picture shows those side panels and, behind them, the four Z joints in the corners and the two XY joints on the gantry.
 
 **Parts:** none.
 
-**Do:** Your side, back and top panels are not on yet, so there is nothing to remove. Confirm that all four Z joints and both XY joints are reachable with a hex key, top and bottom. Voron step 6.
+**Do:**
 
-**Check:** Clear access to all four Z joints and both XY joints.
+1. Your side, back and top panels are not on yet, so there is nothing to remove. This is Voron step 6.
+2. Confirm that all four Z joints and both XY joints can be reached with a hex key, top and bottom.
+
+**Check:** All four Z joints and both XY joints are clear to reach.
 
 Source: [Voron docs § V2 Gantry Squaring, step 6](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -826,19 +899,22 @@ Source: [Voron docs § V2 Gantry Squaring, step 6](https://docs.vorondesign.com/
 ![Z joint lowered](assets/remote/06-z-axis-and-gantry-squaring/z-joint-lowered.png)
 ![All Z joints lowered](assets/remote/06-z-axis-and-gantry-squaring/z-joints-all-lowered.png)
 
-**What you're looking at:** The four lower Z joints, unbolted and slid down their rails, away from the gantry. With them out of the way the gantry hangs on its four Z belts and settles into its own natural position, the position you build the joints back to.
+**What you're looking at:** The four lower Z joints come unscrewed and slide down their rails, away from the gantry. With them out of the way, the gantry hangs on its four Z belts and settles where it naturally sits, the position you build the joints back to.
 
 **Parts:**
 
 - reused: the four Z-joint M5×40 SHCS
 
-**Do:** Take the M5×40 out of each Z joint and slide the four lower joints down their rails, away from the gantry. Do one at a time and keep a hand on the gantry. Voron step 7.
+**Do:**
 
-> **Warning (Voron):** *"Make sure your printer is on a (fairly) level surface. Unlevel surfaces could cause your gantry to swing too much to one side. It doesn't have to be perfectly level; just don't do it on a hill!"*
+1. Take the M5×40 out of each Z joint and slide the four lower joints down their rails, away from the gantry.
+2. Do one at a time, and keep a hand on the gantry. This is Voron step 7.
 
 **Check:** All four lower joints are clear of the gantry, the gantry hangs on the four Z belts alone, and it is not swinging.
 
 **Helper:** Steadies the gantry corner you are working on while you take out its M5×40.
+
+Voron's warning: *"Make sure your printer is on a (fairly) level surface. Unlevel surfaces could cause your gantry to swing too much to one side. It doesn't have to be perfectly level; just don't do it on a hill!"*
 
 Source: [Voron docs § V2 Gantry Squaring, step 7](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · images [`ZJoint-Lowered.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ZJoint-Lowered.png), [`ZJoints-Lowered.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ZJoints-Lowered.png)
 
@@ -850,13 +926,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 7](https://docs.vorondesign.com/
 ![Loosen XY joint (bottom)](assets/remote/06-z-axis-and-gantry-squaring/xy-joint-loosen-bottom.png)
 ![CAD render — the three bolts per joint you loosen: two down from the top, one up from below](assets/cad/06b-14-a.png)
 
-**What you're looking at:** The three bolts that clamp each XY joint to the X beam: two BHCS from above and one M5×30 with its black washer from below. Loosened just enough, each joint slides along the X extrusion, and that is how the gantry's width is adjusted.
+**What you're looking at:** Three screws clamp each XY joint to the X extrusion: two BHCS from above and one M5×30 with its black washer from below. Loosened just enough, each joint slides along the X extrusion, and that is how the gantry's width is adjusted.
 
 **Parts:** none.
 
-**Do:** At each XY joint, loosen only the three bolts clamping it to the X beam: two BHCS from above, one M5×30 and washer from below. Both sides. Loose enough to slide by hand, no looser. Voron step 8.1.
+**Do:**
 
-**Check:** Each X/Y joint slides along its extrusion under firm hand pressure, and nothing else was loosened.
+1. At each XY joint, loosen only the three screws that clamp it to the X extrusion: two BHCS from above, one M5×30 and washer from below. Do both sides.
+2. Loosen them enough to slide by hand, and no more. This is Voron step 8.1.
+
+**Check:** Each XY joint slides along its extrusion under firm hand pressure, and nothing else was loosened.
 
 Source: [Voron docs § V2 Gantry Squaring, step 8.1](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · images [`XYLoosen-Top.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/XYLoosen-Top.png), [`XYLoosen-Bottom.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/XYLoosen-Bottom.png) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -869,15 +948,18 @@ Source: [Voron docs § V2 Gantry Squaring, step 8.1](https://docs.vorondesign.co
 ![Loosen front idlers (top)](assets/remote/06-z-axis-and-gantry-squaring/front-idler-loosen-top.png)
 ![Loosen front idlers (bottom)](assets/remote/06-z-axis-and-gantry-squaring/front-idler-loosen-bottom.png)
 
-**What you're looking at:** Two A/B drives, two front idlers. On each, the top M5×16 pair through the upper clip and the bottom M3×30 + M5×30 under the bearing block clamp a Z belt. Each drive also has two M5×10 above and two below, into the rear beam.
+**What you're looking at:** Two A/B drives and two front idlers each clamp a Z belt with two screw pairs: the M5×16 pair on top through the upper clip, and the M3×30 and M5×30 under the bearing block. Each drive also has two M5×10 above and two below, into the rear extrusion.
 
 **Parts:** none.
 
-**Do:** Ease every circled bolt just enough to slide by hand: each A/B drive, both clamp pairs and the four rear-beam M5×10; each front idler, both clamp pairs. Voron warns: *"Don't overdo the belt clamps!"* Voron steps 8.2 and 8.3.
+**Do:**
 
-**Check:** All six printed assemblies can be nudged along their extrusions by hand. Every Z belt end is still gripped, top and bottom.
+1. Ease every circled screw just enough to slide by hand: on each A/B drive, both clamp pairs and the four M5×10 into the rear extrusion; on each front idler, both clamp pairs.
+2. Voron warns: *"Don't overdo the belt clamps!"* This is Voron steps 8.2 and 8.3.
 
-⚠ **This corner hangs from its Z belt.** The top M5×16 clamp its second end, the bottom M3×30 / M5×30 its first. One corner at a time, about a turn. Voron: *"Where there are Z belt clamps, ensure that you do not loosen the bolts to the point of the Z-belts releasing. Only loosen enough to allow for adjustments."*
+**Check:** All six printed assemblies can be nudged along their extrusions by hand, and every Z belt end is still gripped, top and bottom.
+
+⚠ **This corner hangs from its Z belt.** The top M5×16 clamp its second end, the bottom M3×30 and M5×30 its first. Work one corner at a time, about a turn each. Voron: *"Where there are Z belt clamps, ensure that you do not loosen the bolts to the point of the Z-belts releasing. Only loosen enough to allow for adjustments."*
 
 Source: [Voron docs § V2 Gantry Squaring, step 8.2–8.3](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · images [`ABLoosen-Top.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ABLoosen-Top.png), [`ABLoosen-Bottom.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/ABLoosen-Bottom.png), [`IdlersLoosen-Top.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Top.png), [`IdlersLoosen-Bottom.png`](https://raw.githubusercontent.com/VoronDesign/Voron-Documentation/master/build/mechanical/images/v2_gantry_squaring/IdlersLoosen-Bottom.png)
 
@@ -888,28 +970,27 @@ Source: [Voron docs § V2 Gantry Squaring, step 8.2–8.3](https://docs.vorondes
 ![Adjust X components](assets/remote/06-z-axis-and-gantry-squaring/gantry-adjust-x.png)
 ![Adjust Y components](assets/remote/06-z-axis-and-gantry-squaring/gantry-adjust-y.png)
 ![Racking, and how to measure it](assets/diagrams/09-gantry-racking.svg)
+![Align flush with the side](assets/remote/06-z-axis-and-gantry-squaring/alignment-flush-side.png)
+![Alignment hole](assets/remote/06-z-axis-and-gantry-squaring/alignment-bolt-hole.png)
+![Good AB alignment](assets/remote/06-z-axis-and-gantry-squaring/alignment-ab-good.png)
+![Bad AB alignment](assets/remote/06-z-axis-and-gantry-squaring/alignment-ab-bad.png)
 
-**What you're looking at:** Slide the six loosened assemblies along their extrusions until the gantry's four corners land over the four lower Z joints. Voron's two conditions: the Z joints feel flush along the side, and the M5×40 slides in without hitting the sides.
+**What you're looking at:** Slide the six loosened assemblies along their extrusions until the gantry's four corners land over the four lower Z joints. Voron gives two conditions: each Z joint feels flush along its side, and the M5×40 slides in without hitting the sides of its hole.
 
 **Parts:** none.
 
 **Do:**
 
 1. Slide the six loosened assemblies until the gantry sits on the four lower Z joints.
-2. At each corner raise the lower joint and start the M5×40 by hand: it drops in without coaxing.
+2. At each corner, raise the lower joint and start the M5×40 by hand: it drops in without coaxing.
 
-![Align flush with the side](assets/remote/06-z-axis-and-gantry-squaring/alignment-flush-side.png)
-![Alignment hole](assets/remote/06-z-axis-and-gantry-squaring/alignment-bolt-hole.png)
-![Good AB alignment](assets/remote/06-z-axis-and-gantry-squaring/alignment-ab-good.png)
-![Bad AB alignment](assets/remote/06-z-axis-and-gantry-squaring/alignment-ab-bad.png)
-
-**Check:** Both Voron conditions met at all four corners, no A/B joint rotated, and the four-point gap measurement inside tolerance.
+**Check:** Both Voron conditions are met at all four corners, no A/B joint is rotated, and the four-point gap measurement is within its limits.
 
 **Helper:** Writes the four gap readings into the table as you call them out.
 
 ??? note "The four-point gap measurement (bench check, not in the official text)"
 
-    With the caliper's depth rod, measure the horizontal gap between each **Y extrusion** and the frame upright beside it, at front-left, rear-left, front-right and rear-right. Front and rear **on the same side** must agree within **0.5 mm** — a difference is the gantry skewed in the frame. Left and right must agree within **1 mm** — a difference is the gantry off-centre. Then stand a machinist square on the front frame extrusion at **each front corner**, blade against the Y extrusion: no light under the blade at either corner. Write the numbers down; you repeat this at 06b.12 and 06b.14.
+    With the caliper's depth rod, measure the sideways gap between each **Y extrusion** and the frame vertical beside it, at front-left, rear-left, front-right and rear-right. Front and rear **on the same side** must agree within **0.5 mm**: a difference means the gantry is skewed in the frame. Left and right must agree within **1 mm**: a difference means the gantry is off-centre. Then stand a machinist square on the front frame extrusion at **each front corner**, blade against the Y extrusion: no light should show under the blade at either corner. Write the numbers down; you repeat this at 06b.12 and 06b.14.
 
     | Point | Measured (mm) | Pass |
     |---|---|---|
@@ -926,13 +1007,16 @@ Source: [Voron docs § V2 Gantry Squaring, step 9.1–9.2](https://docs.vorondes
 
 (no image — see text)
 
-**What you're looking at:** Everything you loosened gets tightened again except the XY joints. Those stay free because the next step pushes the X extrusion hard against the two drive units and tightens the joints in that position.
+**What you're looking at:** Everything you loosened is tightened again except the XY joints. Those stay free because the de-racking step that follows pushes the X extrusion hard against the two drive units and tightens the joints in that position.
 
 **Parts:** none.
 
-**Do:** Tighten every extrusion bolt you loosened at 06b.9–06b.10 **except the three joint-to-beam bolts at each X/Y joint**, left for de-racking. Z belt clamps included. Re-run the flush-and-bolt-slides check at all four corners. Voron step 10.
+**Do:**
 
-**Check:** A/B joints and front idlers tight, top and bottom; the M5×40 still starts by hand at all four Z joints; the four-point measurement unchanged.
+1. Tighten every extrusion screw you loosened at 06b.9 and 06b.10, Z belt clamps included, **except the three joint-to-extrusion screws at each XY joint**. Those stay loose for de-racking (pushing the gantry back into square).
+2. Repeat the flush-and-screw-slides-in check at all four corners. This is Voron step 10.
+
+**Check:** The A/B joints and front idlers are tight, top and bottom, the M5×40 still starts by hand at all four Z joints, and the four-point measurement has not changed.
 
 Source: [Voron docs § V2 Gantry Squaring, step 10](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html)
 
@@ -943,15 +1027,18 @@ Source: [Voron docs § V2 Gantry Squaring, step 10](https://docs.vorondesign.com
 ![CAD render — the four M5x40 back in, light](assets/cad/06b-13-a.png)
 ![CAD render — the four M5x40 back in, light, in place](assets/cad/06b-13-b.png)
 
-**What you're looking at:** The four M5×40 go back in, light again. Light because the de-racking and the QGL runs that follow both need the joints free to articulate; they get their only full tighten hot, at Ch 14.
+**What you're looking at:** The four M5×40 go back in, light again: the de-racking and the QGL runs that follow both need the joints free to move. They get their only full tightening hot, in Ch 14.
 
 **Parts:**
 
 - reused: the four Z-joint M5×40 SHCS
 
-**Do:** Slide the four lower joints back up and run one M5×40 into each. Lightly only: the joint must still articulate freely. Voron step 11.
+**Do:**
 
-**Check:** All four in. Each joint still articulates when you push the gantry corner sideways.
+1. Slide the four lower joints back up and run one M5×40 into each.
+2. Tighten lightly only: the joint must still move freely. This is Voron step 11.
+
+**Check:** All four screws are in, and each joint still moves when you push the gantry corner sideways.
 
 Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -963,21 +1050,23 @@ Source: [Voron docs § V2 Gantry Squaring, step 11](https://docs.vorondesign.com
 ![CAD render — which bolts you tighten while holding the beam back](assets/cad/06b-14-a.png)
 ![CAD render — which bolts you tighten while holding the beam back, in place](assets/cad/06b-14-b.png)
 
-**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram instead of a rectangle: QGL passes happily on a racked gantry and the parts come out skewed. Pushing the X extrusion hard against both drive units squares it against the only reference the machine has.
+**What you're looking at:** [Racking](16-glossary.md#r) is the gantry sitting as a parallelogram, not a rectangle. QGL passes a racked gantry happily, and parts come out skewed. Pushing the X extrusion hard against both drives squares it to the machine's only reference.
 
 **Parts:** none.
 
-**Do:** A/B motors disabled, belts still slack: push the X extrusion **fully back** against both drives until both joints bottom out. Hold it there and tighten the three joint-to-beam bolts at each joint, cross pattern, a bit at a time.
+**Do:**
 
-Only those six bolts; the drives, idlers and Z belt clamps stay as 06b.12 left them. The Voron doc delegates the method to [Nero3D's de-racking video](https://www.youtube.com/watch?v=cOn6u9kXvy0) rather than writing it out; this is that method in words.
+1. A/B motors disabled, belts slack: push the X extrusion **fully back** until both joints bottom out on their drives.
+2. Hold it there and tighten each joint's three joint-to-extrusion screws, cross pattern, a bit at a time.
+3. Touch only those six; drives, idlers and Z belt clamps stay as 06b.12 left them.
 
-> Voron's own note on this step: *"Make sure to come back here afterwards! The following steps are still important."*
+**Check:** Pushed back, both XY joints touch their drives at once, and near the front, the X extrusion is equally far from the front frame extrusion at both ends.
 
-**Check:** Pushed back, both X/Y joints touch their drives at once. Near the front, X extrusion to front frame extrusion reads equal at both ends.
+The Voron doc hands this method to [Nero3D's de-racking video](https://www.youtube.com/watch?v=cOn6u9kXvy0) instead of writing it out; this step is that method in words. Voron's own note on this step: *"Make sure to come back here afterwards! The following steps are still important."*
 
 ??? note "If one side still leads"
 
-    Loosen the X/Y joint bolts and repeat — the extrusion crept while they came up. If racking persists after two attempts, the community fallback is to loosen each A/B belt's anchor at the X carriage until the belt slides through under a firm pull, pull both belts to equal tension with pliers while feeling the tooth engagement, then re-anchor. Described in the Voron forum's de-racking thread. Re-measure the four points from 06b.11 afterwards and confirm the same-side pair still agrees within 0.5 mm.
+    Loosen the XY joint screws and repeat: the extrusion crept while they were being tightened. If the racking is still there after two attempts, the community fallback is to loosen each A/B belt's anchor at the X carriage until the belt slides through under a firm pull, pull both belts to equal tension with pliers while feeling the teeth engage, then anchor them again. The Voron forum's de-racking thread describes it. Afterwards, measure the four points from 06b.11 again and confirm the same-side pair still agrees within 0.5 mm.
 
 Source: [Voron docs § V2 Gantry Squaring, step 12](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Nero3D — de-racking video](https://www.youtube.com/watch?v=cOn6u9kXvy0) · [Voron forum — de-racking thread](https://forum.vorondesign.com/threads/de-racking-again.1342/) · CAD: Voron 2.4r2 STEP @ de7e89d
 
@@ -987,17 +1076,21 @@ Source: [Voron docs § V2 Gantry Squaring, step 12](https://docs.vorondesign.com
 
 (no image — see text)
 
-**What you're looking at:** The A/B belts get their second tension here, still provisional, because 06b.6 released whatever Ch 07 set. 110 Hz measured over a 150 mm span is Voron's figure; a plucked frequency only means something with a stated span.
+**What you're looking at:** The A/B belts get their second tension here, still provisional, because 06b.6 released whatever Ch 07 set. Voron's figure is 110 Hz measured over a 150 mm span; a plucked frequency only means something with a stated span.
 
 **Parts:** none.
 
-**Do:** Move the X extrusion until the X/Y idler centres are **150 mm** from the front idlers. Pluck that span and adjust each front tensioner to **≈110 Hz**, going back and forth until both match. Move the extrusion and re-check.
+**Do:**
 
-Voron step 13. 110 Hz ≈ 2 lb, deliberately at the low end. Ignore voronldo.com's 80–100 Hz figure for a 350: it names no span, which is what makes a frequency meaningful (survey §4.3). This is a cold, open-machine working value; Ch 14 Step 14.4 sets it for the last time with the panels on, cold and door open, just before the soak, so do not chase the last few Hz here. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
+1. Move the X extrusion until the XY joint idler centres are **150 mm** from the front idlers.
+2. Pluck that span and adjust each front tensioner to **about 110 Hz**, going back and forth until both match.
+3. Move the extrusion and check again.
 
-**Check:** A and B read within a few Hz of each other at ~110 Hz, and still do after the gantry has moved and returned.
+**Check:** A and B read within a few Hz of each other at about 110 Hz, and still do after the gantry has moved and come back.
 
 **Helper:** Holds the phone at each belt span and reads the lowest peak aloud after each pluck.
+
+This is Voron step 13. 110 Hz is about 2 lb of tension, deliberately at the low end. Ignore voronldo.com's 80–100 Hz figure for a 350: it names no span, and the span is what makes a frequency meaningful (survey §4.3). This is a cold, open-machine working value; Ch 14 Step 14.4 sets it for the last time with the panels on, cold and door open, just before the soak, so do not chase the last few Hz here. [src](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html)
 
 Source: [Voron docs § V2 Gantry Squaring, step 13](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Voron docs § Secondary printer tuning — A/B and Z belts](https://docs.vorondesign.com/tuning/secondary_printer_tuning.html) · [survey §4.3 / §7.5](../voron-build-instructions-survey.md)
 
@@ -1007,23 +1100,23 @@ Source: [Voron docs § V2 Gantry Squaring, step 13](https://docs.vorondesign.com
 
 (no image — see text)
 
-**What you're looking at:** Voron's steps 14–16, the heat soak, the hot QGL runs and the hot tighten, need a chamber that closes, and the panels are not on yet. So squaring stops here, cold: gantry square and de-racked, Z joints light, A/B belts at a working tension.
+**What you're looking at:** Voron's steps 14–16, the heat soak, the hot QGL runs and the hot tightening, need a chamber that closes, and the panels are not on yet. So squaring stops here, cold: the gantry square and de-racked, the Z joints light, and the A/B belts at a working tension.
 
 **Parts:** none.
 
 **Do:**
 
-1. Hand under the gantry, run `RESTART`: the idle timeout from 06b.1 returns to default.
+1. With a hand under the gantry, run `RESTART`: the idle timeout from 06b.1 goes back to its default.
 2. Go back to [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) and finish Ch 13.
 3. Leave the four M5×40 **light**: nothing set in this part is final.
 
-Voron step 17, done now rather than in Ch 14 because the M5×40 stay light for days, not minutes. Ch 13 resumes at 13.35 with `G28`, re-QGL, Z=0, bed mesh and the first cube. Then fit the back, side and top panels and the Clicky-Clack door ([Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)). Final A/B and Z belt tension, cold and door open at 14.4–14.5, then the heat soak, the 3–5 hot QGL runs and the hot tighten of the four M5×40 Z-joint bolts at 14.6, are [Ch 14 Part B](14-calibration.md#part-b-belts-final-tension).
+**Check:** `RESTART` has completed, `SET_IDLE_TIMEOUT` is back to the config default, the four M5×40 are still light, and you have let the gantry down by hand, since `RESTART` releases the Z motors.
 
-**Check:** `RESTART` completed, `SET_IDLE_TIMEOUT` back to the config default, the four M5×40 still light, and the gantry let down by hand: `RESTART` releases the Z motors.
+This is Voron step 17, done now instead of in Ch 14 because the M5×40 stay light for days, not minutes. Ch 13 picks up at 13.35 with `G28`, a new QGL, Z=0, the bed mesh and the first cube. Then fit the back, side and top panels and the Clicky-Clack door ([Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)). Final A/B and Z belt tension, cold with the door open at 14.4–14.5, then the heat soak, the 3–5 hot QGL runs and the hot tightening of the four M5×40 Z joint screws at 14.6, are [Ch 14 Part B](14-calibration.md#part-b-belts-final-tension).
 
 Source: [Voron docs § V2 Gantry Squaring, steps 14–17](https://docs.vorondesign.com/build/mechanical/v2_gantry_squaring.html) · [Ch 14 Part B — Belts, final tension](14-calibration.md#part-b-belts-final-tension) · [Ch 11 Part B](11-skirts-panels-door.md#part-b-after-ch-13)
 
-Pause: ~60 min since the last pause — gantry squared and de-racked cold, A/B belts at a provisional 110 Hz, four Z-joint M5×40 still light, `RESTART` run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers — both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).
+Pause: ~60 min since the last pause — the gantry is squared and de-racked cold, the A/B belts are at a provisional 110 Hz, the four Z joint M5×40 are still light, and `RESTART` has been run. Part B is one session by design: it starts by releasing all A/B tension, so stopping part-way leaves the machine unusable. Do not tighten the Z joints and do not chase the belt numbers; both are Ch 14's (belts cold at 14.4–14.5, joints hot at 14.6).
 
 ---
 
@@ -1031,31 +1124,31 @@ Pause: ~60 min since the last pause — gantry squared and de-racked cold, A/B b
 
 **Built:** a square, de-racked gantry on four light Z joints
 
-- [ ] `SET_IDLE_TIMEOUT TIMEOUT=99999` set **first** (Step 06b.1), machine homed and QGL'd (06b.2) before any belt was plucked or any bolt touched
-- [ ] Four Z belts measured at **140 Hz** over a 150 mm span (Step 06b.3), all four within ±5 Hz — set finally at Ch 14 Step 14.5 (cold, same session as 14.4)
-- [ ] Only `stepper_x` and `stepper_y` were disabled; Z motors held the gantry throughout
-- [ ] A/B belts were fully slack before any adjustment was made
-- [ ] At every XY joint only the three joint-to-beam bolts (Steps 05.38–05.39) were loosened; at the A/B drives and front idlers both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were retightened at 06b.12
-- [ ] Both A/B joints checked for rotation against the good/bad reference images
-- [ ] At all four Z joints, the M5×40 starts by hand with the joint raised — no coaxing
-- [ ] **Four-point gantry-to-frame gap recorded**: same-side front/rear within 0.5 mm, left/right within 1 mm
-- [ ] Machinist square shows no light at **both** front corners (Y extrusions square to the frame, Step 06b.11)
-- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once; near the front, X extrusion to front frame extrusion equal at both ends
-- [ ] A/B belts re-tensioned to a provisional **110 Hz** over a 150 mm span, matched to each other — final value is Ch 14 Step 14.4
-- [ ] Four Z joint M5×40 bolts **still light** — they are tightened hot in Ch 14, not here
-- [ ] `RESTART` run at Step 06b.16; idle timeout back to default; next page is Ch 13 Step 13.35
+- [ ] `SET_IDLE_TIMEOUT TIMEOUT=99999` was set **first** (Step 06b.1), and the machine was homed and levelled with QGL (06b.2) before any belt was plucked or any screw touched.
+- [ ] Four Z belts measured at **140 Hz** over a 150 mm span (Step 06b.3), all four within ±5 Hz. They are set for the last time at Ch 14 Step 14.5 (cold, same session as 14.4).
+- [ ] Only `stepper_x` and `stepper_y` were disabled; the Z motors held the gantry throughout.
+- [ ] The A/B belts were fully slack before any adjustment was made.
+- [ ] At every XY joint, only the three joint-to-extrusion screws (Steps 05.38–05.39) were loosened. At the A/B drives and front idlers, both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were tightened again at 06b.12.
+- [ ] Both A/B joints are checked for rotation against the good and bad reference pictures.
+- [ ] At all four Z joints, the M5×40 starts by hand with the joint raised, with no coaxing.
+- [ ] **The four-point gantry-to-frame gaps are recorded**: same-side front and rear within 0.5 mm, left and right within 1 mm.
+- [ ] The machinist square shows no light at **both** front corners: the Y extrusions are square to the frame (Step 06b.11).
+- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once, and near the front, the gap from the X extrusion to the front frame extrusion is equal at both ends.
+- [ ] The A/B belts are re-tensioned to a provisional **110 Hz** over a 150 mm span and matched to each other. The final value is Ch 14 Step 14.4.
+- [ ] The four Z joint M5×40 screws are **still light**: they are tightened hot in Ch 14, not here.
+- [ ] `RESTART` was run at Step 06b.16 and the idle timeout is back to default; the next page is Ch 13 Step 13.35.
 
-**Next:** [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring) — re-heat and re-QGL after squaring; then Ch 11 Part B.
+**Next:** [Ch 13 Step 13.35](13-initial-startup.md#step-1335-re-heat-and-re-qgl-after-squaring): re-heat and run QGL again after squaring, then Ch 11 Part B.
 
 ## Common mistakes (06b)
 
-- **Doing this before Ch 13.** Four of the seventeen steps are g-code. Attempting it dry means guessing at "level" with no QGL to check against.
-- **Plucking the Z belts before the idle timeout is raised and the machine is homed.** Klipper's default 600 s timeout releases the Z motors mid-step and the gantry sags onto whatever is under it. Steps 06b.1–06b.2 first, every time.
-- **Tensioning the A/B belts in Ch 07 — or here — and treating that as final.** Step 06b.6 undoes Ch 07's, and Ch 14 Step 14.4 sets the real one with the panels on, cold, immediately before the closed-chamber soak. Both earlier values are working values.
-- **Overdoing the belt clamps at step 06b.10.** The gantry is hanging on the Z belts, and at each A/B drive and front idler both bolt pairs clamp one: the top M5×16 its second end, the bottom M3×30 / M5×30 its first. Ease them just enough to slide; a released end drops that corner. At 06b.9 only the three joint-to-beam bolts move.
-- **Tightening the Z joints cold, here.** The point of the hot lock-in (Ch 14 Step 14.6) is freezing the gantry at full thermal expansion; cold-tightening throws that away and shows up as first-layer inconsistency. They stay light from 06b.13 until Ch 14, and light through the rest of Ch 13.
+- **Doing this before Ch 13.** Four of the seventeen steps are G-code commands. Trying it without a running printer means guessing at "level" with no QGL to check against.
+- **Plucking the Z belts before the idle timeout is raised and the machine is homed.** Klipper's default 600 s timeout releases the Z motors partway through a step, and the gantry sags onto whatever is under it. Do Steps 06b.1–06b.2 first, every time.
+- **Tensioning the A/B belts in Ch 07, or here, and treating that as final.** Step 06b.6 undoes Ch 07's, and Ch 14 Step 14.4 sets the real one with the panels on, cold, just before the closed-chamber soak. Both earlier values are working values.
+- **Overdoing the belt clamps at step 06b.10.** The gantry is hanging on the Z belts, and at each A/B drive and front idler both screw pairs clamp one: the top M5×16 its second end, the bottom M3×30 and M5×30 its first. Ease them just enough to slide; a released end drops that corner. At 06b.9 only the three joint-to-extrusion screws move.
+- **Tightening the Z joints cold, here.** The point of the hot lock-in (Ch 14 Step 14.6) is to freeze the gantry at its full heat expansion. Tightening cold throws that away, and it shows up as an uneven first layer. The joints stay light from 06b.13 until Ch 14, and light through the rest of Ch 13.
 - **Skipping the de-racking step because QGL passed.** QGL levels the gantry in Z; it says nothing about whether the X extrusion is square to the Y axes. A racked gantry passes QGL happily and prints skewed parts.
-- **Believing voronldo.com's tension numbers.** 80–100 Hz (A/B) and 110–130 Hz (Z) conflict with the official figures and name no span. Use 110 Hz and 140 Hz over 150 mm (survey §4.3).
+- **Believing voronldo.com's tension numbers.** Its 80–100 Hz (A/B) and 110–130 Hz (Z) conflict with the official figures and name no span. Use 110 Hz and 140 Hz over 150 mm (survey §4.3).
 
 ## Next
 

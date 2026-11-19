@@ -79,103 +79,103 @@ One page per checkpoint, assembly chapters first (Ch 00 → Ch 14, including Ch 
 
 ## Checkpoint 03 — Build plate
 
-- [ ] Protective film removed; top face clean, magnet on (laminated here or pre-installed) with no bubbles or wrinkles.
-- [ ] All four bolt holes trimmed clear through the magnet; a 2.5 mm hex key reaches each bolt head.
-- [ ] Heater pad flat and centred, pad screws present and untouched — inspected, not re-applied.
-- [ ] Thermal fuse flat against the plate, screw tight, in-line with a heater lead — inspected, not re-fitted.
-- [ ] M4×6 BHCS and serrated washer present on the plate as the PE point; nothing wired to it.
-- [ ] Four M3 roll-in T-nuts in the bed extrusion top slots; four M4 thumb nuts standing as spacers; two M3 T-nuts parked in the right extrusion's inner slot and two M5 in the left's, for Ch 09.
-- [ ] Four **M3×20** SHCS fitted (not M3×16); **one** tightened, three deliberately loose.
-- [ ] Front edge of the plate 38 mm behind the front edge of the frame, both corners.
-- [ ] Equal gap under all four corners; no rock; plate clear of every vertical extrusion and Z rail.
-- [ ] Straightedge check done before the magnet went on — no gap you could slide paper under.
-- [ ] Three bed leads loose **above** the deck with slack, none through it, unterminated, nothing pinched or tied.
-- [ ] Flex plate test-fitted, removed, and the bed covered for the rest of the build.
+- [ ] The protective film is off, the top face is clean, and the magnet is on, stuck down here or fitted at the factory, with no bubbles or wrinkles.
+- [ ] All four screw holes are cut clear through the magnet, and a 2.5 mm hex key reaches each screw head.
+- [ ] The heater pad is flat and centred, with its pad screws present and untouched: inspected, not re-applied.
+- [ ] The thermal fuse is flat against the plate, its screw tight, in line with a heater lead: inspected, not re-fitted.
+- [ ] The M4×6 BHCS and serrated washer are on the plate as the PE (earth) point, with nothing wired to it.
+- [ ] Four M3 roll-in T-nuts are in the bed extrusions' top slots with four M4 thumb nuts standing over them as spacers, and two M3 T-nuts wait in the right extrusion's inner slot and two M5 in the left's, for Ch 09.
+- [ ] Four **M3×20** SHCS are fitted, not M3×16: **one** tight, three loose on purpose.
+- [ ] The plate's front edge is 38 mm behind the front edge of the frame at both corners.
+- [ ] The gap is equal under all four corners, the plate does not rock, and it clears every vertical and Z rail.
+- [ ] The straightedge check was done before the magnet went on, with no gap you could slide paper under.
+- [ ] The three bed leads lie loose **above** the deck with slack, none through it, nothing connected, pinched or tied.
+- [ ] The flex plate was tried and taken off, and the bed is covered for the rest of the build.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 04 — A/B drive units and front idlers
 
-- [ ] Two drive units and two front idlers built, each labelled with its position on the machine.
-- [ ] Every F695 pair is flange-out — plain faces touching — with one brass M5 precision spacer above and below each pair.
-- [ ] Drive far posts: 4 bearings + 4 spacers, with two spacers meeting mid-stack. Drive near posts and both idlers: 2 bearings + 2 spacers.
-- [ ] All six bearing groups spin free with the frames closed and bolted.
-- [ ] Both idlers: M5×40 axle clamped firm into the arm's nut, arm still sliding in the frame's slots; M3×40 tensioner snug into the arm's insert.
+- [ ] Two drive units and two front idlers are built, each labelled with its corner of the machine.
+- [ ] Every F695 pair is flange-out, plain faces touching, with one brass M5 precision spacer above and one below each pair.
+- [ ] Each drive's far post holds 4 bearings and 4 spacers, with two spacers meeting in the middle. Each drive's near post and both idlers hold 2 bearings and 2 spacers.
+- [ ] All six bearing groups spin freely with the frames closed and screwed together.
+- [ ] On both idlers, the M5×40 axle is clamped firm into the arm's nut and the arm still slides in the frame's slots; the M3×40 tensioner is snug in the arm's insert.
 - [ ] `a_drive_frame_upper` has its two heat-set inserts; `b_drive_frame_upper` has none.
 - [ ] Both motor pulleys are the **6 mm-wide** 20T (`5mm ID 6mm W`), not one of the four 9 mm Z-drive pulleys.
-- [ ] A pulley: hub down, 16.5 mm. B pulley: hub up, 6.5 mm. The two are visibly different.
-- [ ] Both pulleys are threadlocked and will not slip under hand pressure.
-- [ ] The belt's free end lies flat on each pulley, its near pair and the far-post pair in the same plane: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm off; it carries the other belt.
-- [ ] Both motor cable exits point inboard; held in their build positions, they face each other.
-- [ ] Every M5×30 BHCS is snug only — none was torqued down into the plastic thread.
-- [ ] Zero bearings, spacers or fasteners left over.
+- [ ] The A pulley is hub down at 16.5 mm and the B pulley hub up at 6.5 mm, so the two look visibly different.
+- [ ] Both pulleys are threadlocked and do not slip under hand pressure.
+- [ ] The free end of the belt lies flat on each pulley, its near pair and the matching far-post pair: **upper** on A, **lower** on B. No tilt, no flange contact. The other far-post pair sits 10 mm away, because it carries the other belt.
+- [ ] Both motor cable exits point inboard and face each other when the drives are held in their build positions.
+- [ ] Every M5×30 BHCS is snug only; none was tightened hard into the plastic thread.
+- [ ] No bearings, spacers or other hardware are left over.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 05 — Gantry: X and Y axes, XY joints, X carriage, titanium backers
 
-- [ ] E extrusion joined to both drive units with 8× M5×10 BHCS; drives parallel, no twist
-- [ ] Both MGN9 rails centred and tightened on holes **2, 4 … 18**, both end holes open, overhang equal at both ends
-- [ ] MGN12 rail centred and tightened on holes **2, 4 … 14**, both end holes open, overhang equal at both ends
-- [ ] Every carriage retained by a stopper or tape; none dropped
-- [ ] At each of the four C-extrusion ends: 2× M5 in the top (backer) slot, 1× M5 + 1× M3 in the rail slot beyond the rail end
-- [ ] **Titanium backers on the face opposite the rail** — top of both Y extrusions, rear of the X extrusion — flat, all screws seated, none cammed out; the pilot-hole Y backer on the right, pilots at the rear
-- [ ] Both front idlers and both rear drive joints flush with the extrusion ends, each with a blue upper Z-belt clip under its two M5×16, clip notch pointing away from the idler or drive assembly
-- [ ] Both XY joints: 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flange-out between 2 precision spacers, 1 free-spinning 20T idler; the three joint bolts firm, the idler bolt snug
-- [ ] Raised cable bridge fitted to the **right** XY joint with M5×16 BHCS; left joint on M5×10
-- [ ] M5×30 BHCS with **black M5 washers** underneath, both lightly tightened
-- [ ] XY joints bolted to the Y carriages: 4 bolts one side, 2 the other; all six M3×16 fitted; the XY endstop pod on the right joint's two other holes with **2× M3×30 SHCS** (p.164)
-- [ ] X axis runs the full Y travel with no tight spot
-- [ ] A/B belts still unopened; nothing squared, nothing torqued down
-- [ ] Gantry is **upside down** (motors up, rails up) with the right joint (bridge, endstop channel) on the A-drive side; it is turned back at Ch 06 Step 06.11
+- [ ] The E extrusion is joined to both drive units with 8 M5×10 BHCS; the drives are parallel, with no twist
+- [ ] Both MGN9 rails are centred and tightened on holes **2, 4 … 18**, both end holes open, with equal overhang at both ends
+- [ ] The MGN12 rail is centred and tightened on holes **2, 4 … 14**, both end holes open, with equal overhang at both ends
+- [ ] Every carriage is held by a stopper or tape, and none was dropped
+- [ ] Each of the four C-extrusion ends has 2 M5 in the top (backer) slot, and 1 M5 plus 1 M3 in the rail slot beyond the rail end
+- [ ] **The titanium backers are on the face opposite the rail**: the top of both Y extrusions and the rear of the X extrusion. They are flat, every screw is seated, none is chewed by a slipping driver, and the pilot-hole Y backer is on the right with its pilots at the rear
+- [ ] Both front idlers and both rear drive joints are flush with the extrusion ends, each with a blue upper Z-belt clip under its two M5×16, the clip notch pointing away from the idler or drive assembly
+- [ ] Each XY joint has 3 M5 nuts, 4 M5×40 SHCS, 2 F695 flanges out between 2 precision spacers, and 1 free-spinning 20T idler; the three joint screws are firm and the idler screw snug
+- [ ] The raised cable bridge is fitted to the **right** XY joint with M5×16 BHCS; the left joint is on M5×10
+- [ ] The M5×30 BHCS have **black M5 washers** under their heads, both lightly tightened
+- [ ] The XY joints are screwed to the Y carriages, 4 screws on one side and 2 on the other, all six M3×16 fitted, and the XY endstop pod fills the right joint's two other holes with **2 M3×30 SHCS** (p.164)
+- [ ] The X axis runs the full Y travel with no tight spot
+- [ ] The A/B belts are still unopened; nothing is squared and nothing is torqued down
+- [ ] The gantry is **upside down** (motors up, rails up), with the right joint (bridge, endstop channel) on the A-drive side; it is turned back at Ch 06 Step 06.11
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 06 — Z axis (mechanical)
 
-- [ ] Four `z_joint_upper` blocks fitted, each with its M5 nut seated, **cutouts facing outward**
-- [ ] Zero 6×3 magnets used; zero `z_joint_upper_hall_effect` parts printed or fitted
-- [ ] Four `z_joint_lower` on the Z carriages, four M3×20 SHCS each, all four bolted flat
-- [ ] Four M5×40 SHCS in, **all still light** — they are torqued hot in Ch 14, not now and not in Part B
-- [ ] Four Z belts routed drive → idler → clamp, teeth engaged on every pulley, none twisted
-- [ ] Both belt ends clamped at every corner: the first under the lower clip and bearing block, the second under the upper clip's two M5×16; tails folded and zip-tied
-- [ ] Four belts pluck to roughly the same note; nothing rubs anywhere in ±30 mm of Z travel
-- [ ] The six XY-joint-to-X-beam bolts (Steps 05.38–05.39) fully tightened with the gantry held back against both A/B drives (p.122); Z belt-clamp bolts and rail screws untouched
-- [ ] Gantry holds its own height on the belts; zip ties and mid-rail stoppers removed
-- [ ] Z-chain parts bagged and labelled for Ch 10
+- [ ] Four `z_joint_upper` blocks are fitted, each with its M5 nut seated and its **cutout facing outward**.
+- [ ] No 6×3 magnets are used, and no `z_joint_upper_hall_effect` part is printed or fitted.
+- [ ] Four `z_joint_lower` are on the Z carriages, four M3×20 SHCS each, all four screwed down flat.
+- [ ] Four M5×40 SHCS are in, **all still light**: they are tightened hot in Ch 14, not now and not in Part B.
+- [ ] Four Z belts are routed drive, then idler, then clamp, with the teeth gripping every pulley and none twisted.
+- [ ] Both belt ends are clamped at every corner: the first under the lower clip and the bearing block, the second under the upper clip's two M5×16. The tails are folded and zip-tied.
+- [ ] All four belts pluck to roughly the same note, and nothing rubs anywhere within ±30 mm of Z travel.
+- [ ] The six screws that clamp the XY joints to the X extrusion (Steps 05.38–05.39) are fully tightened, with the gantry held back against both A/B drives (p.122). The Z belt-clamp screws and rail screws are untouched.
+- [ ] The gantry holds its own height on the belts, and the zip ties and the stoppers in the middle of the rails are removed.
+- [ ] The Z chain parts are bagged and labelled for Ch 10.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 06b — Gantry squaring
 
-- [ ] `SET_IDLE_TIMEOUT TIMEOUT=99999` set **first** (Step 06b.1), machine homed and QGL'd (06b.2) before any belt was plucked or any bolt touched
-- [ ] Four Z belts measured at **140 Hz** over a 150 mm span (Step 06b.3), all four within ±5 Hz — set finally at Ch 14 Step 14.5 (cold, same session as 14.4)
-- [ ] Only `stepper_x` and `stepper_y` were disabled; Z motors held the gantry throughout
-- [ ] A/B belts were fully slack before any adjustment was made
-- [ ] At every XY joint only the three joint-to-beam bolts (Steps 05.38–05.39) were loosened; at the A/B drives and front idlers both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were retightened at 06b.12
-- [ ] Both A/B joints checked for rotation against the good/bad reference images
-- [ ] At all four Z joints, the M5×40 starts by hand with the joint raised — no coaxing
-- [ ] **Four-point gantry-to-frame gap recorded**: same-side front/rear within 0.5 mm, left/right within 1 mm
-- [ ] Machinist square shows no light at **both** front corners (Y extrusions square to the frame, Step 06b.11)
-- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once; near the front, X extrusion to front frame extrusion equal at both ends
-- [ ] A/B belts re-tensioned to a provisional **110 Hz** over a 150 mm span, matched to each other — final value is Ch 14 Step 14.4
-- [ ] Four Z joint M5×40 bolts **still light** — they are tightened hot in Ch 14, not here
-- [ ] `RESTART` run at Step 06b.16; idle timeout back to default; next page is Ch 13 Step 13.35
+- [ ] `SET_IDLE_TIMEOUT TIMEOUT=99999` was set **first** (Step 06b.1), and the machine was homed and levelled with QGL (06b.2) before any belt was plucked or any screw touched.
+- [ ] Four Z belts measured at **140 Hz** over a 150 mm span (Step 06b.3), all four within ±5 Hz. They are set for the last time at Ch 14 Step 14.5 (cold, same session as 14.4).
+- [ ] Only `stepper_x` and `stepper_y` were disabled; the Z motors held the gantry throughout.
+- [ ] The A/B belts were fully slack before any adjustment was made.
+- [ ] At every XY joint, only the three joint-to-extrusion screws (Steps 05.38–05.39) were loosened. At the A/B drives and front idlers, both Z belt-clamp pairs were eased only enough to slide, no Z belt end slipped, and all were tightened again at 06b.12.
+- [ ] Both A/B joints are checked for rotation against the good and bad reference pictures.
+- [ ] At all four Z joints, the M5×40 starts by hand with the joint raised, with no coaxing.
+- [ ] **The four-point gantry-to-frame gaps are recorded**: same-side front and rear within 0.5 mm, left and right within 1 mm.
+- [ ] The machinist square shows no light at **both** front corners: the Y extrusions are square to the frame (Step 06b.11).
+- [ ] De-racked (Step 06b.14): pushed back, both XY joints touch their drives at once, and near the front, the gap from the X extrusion to the front frame extrusion is equal at both ends.
+- [ ] The A/B belts are re-tensioned to a provisional **110 Hz** over a 150 mm span and matched to each other. The final value is Ch 14 Step 14.4.
+- [ ] The four Z joint M5×40 screws are **still light**: they are tightened hot in Ch 14, not here.
+- [ ] `RESTART` was run at Step 06b.16 and the idle timeout is back to default; the next page is Ch 13 Step 13.35.
 
 <div class="print-page-break"></div>
 
 ## Checkpoint 07 — A/B belts and tensioning
 
-- [ ] Both belts routed to match p.126 (A) and p.127 (B); each belt stays in one plane, neither crosses the other.
-- [ ] No half-twist anywhere; belt teeth face away from the extrusion at the X carriage; each belt's toothed face stays on the same side all the way round.
-- [ ] Teeth meshed on both toothed motor pulleys — each pulley indexes when the belt is nudged, no slip — and on the two XY-joint toothed idlers (A at the right joint, B at the left); smooth back on every plain stack.
-- [ ] Belt not riding on any printed part at any of the fourteen contacts at six locations, checked at both ends of X travel and both ends of Y travel (p.142).
-- [ ] Equal length of belt protruding from the X carriage on both belts, after moving the gantry and returning (p.141).
-- [ ] Carriage bolts and all four M3×8 belt clamps fully tightened; nothing slips under a hard pull.
-- [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry — provisional; Ch 14 Step 14.4 sets the final value.
-- [ ] Gantry moves through the full XY envelope by hand with even resistance, no ticking, no notchiness.
-- [ ] Probe insulated (front + sides only), fitted, lead **uncut** with its factory connector, tip 6 mm below the plastic, cable in its channel.
-- [ ] No hall-effect magnet fitted (p.145 skipped).
+- [ ] Both belts follow p.126 (A) and p.127 (B). Each belt stays in one plane, and neither crosses the other.
+- [ ] No half-twist anywhere. At the X carriage the belt teeth face away from the extrusion, and each belt's toothed face stays on the same side all the way round.
+- [ ] Teeth are meshed on both toothed motor pulleys (each pulley turns tooth by tooth when the belt is nudged, with no slip) and on the two toothed XY-joint idlers, A at the right joint and B at the left. The smooth back is on every plain stack.
+- [ ] No belt rides on a printed part at any of the fourteen contacts in six locations, checked at both ends of X travel and both ends of Y travel (p.142).
+- [ ] The same length of belt sticks out of the X carriage on both belts, after moving the gantry away and back (p.141).
+- [ ] The two carriage screws and all four M3×8 belt clamps are fully tightened, and nothing slips under a hard pull.
+- [ ] **Both belts read within a few Hz of each other at ~110 Hz over a 150 mm span**, re-checked after moving the gantry. This is provisional: Ch 14 Step 14.4 sets the final value.
+- [ ] The gantry moves through its full XY range by hand with even resistance, no ticking and no notchy spots.
+- [ ] The probe is taped on the front and sides only and fitted, its lead **uncut** with its factory connector, its tip 6 mm below the plastic, and its cable in the slot.
+- [ ] No hall-effect magnet is fitted (p.145 skipped).
 - [ ] Turn the A motor pulley by hand: the carriage moves diagonally. Turn both pulleys the same way: it moves in a straight line. That is CoreXY.
 
 <div class="print-page-break"></div>

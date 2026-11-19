@@ -63,9 +63,16 @@ Source: [Ch 04](04-ab-drives.md) · [Ch 14 Step 14.12](14-calibration.md#step-14
 | **Bed mesh** | A grid of probed heights that Klipper applies as a Z correction during a print. Taken **hot and after QGL**, never before | [12.34](12-software.md#step-1234-add-a-bed_mesh-section) |
 | **BHCS** | Button Head Cap Screw — domed head, mostly M5 in this build | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Blind joint** | The frame joint: a BHCS head slides into one extrusion's slot and threads into the tapped end of the mating extrusion, tightened through an access hole | [00.28](00-before-you-start.md#step-0028-blind-joints-p10) |
+| **Boss** | The thick ring of plastic round a screw hole in a printed part. It is what the screw or insert grips, so a cracked or bulged one means a reprint | [02.01](02-z-drives.md) |
 | **BMG** | The dual-geared filament drive inside Clockwork 2.5 — the idler assembly you grease and the tension arm that loads it | [08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it) |
+| **Cam (belt tensioner)** | A lever with an off-centre round end. Swinging it pushes the Z motor away from its drive shaft and tightens the short belt | [02.33](02-z-drives.md) |
 | **Brim** | A flat single-layer ring printed around a part's base to hold its corners down. Every part 30 mm or longer carries a 3 mm one, set 0.3 mm off the part so it snaps away | [print/00-slicer-setup — Orientation & brim](print/00-slicer-setup.md#orientation-brim) |
 | **Burr** | A rough raised edge left where metal was cut. It stops two parts sitting flat against each other | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
+| **Blanchard-ground** | Machined flat by a spinning grinder, which leaves a swirl pattern on the metal | [03.3](03-build-plate.md) |
+| **Blind hole** | A hole that stops partway into the part instead of going through | [04.3](04-ab-drives.md) |
+| **Belt plane** | The height a belt runs at. The A and B belts run 10 mm apart so they never touch | [05.8](05-gantry.md) |
+| **Back-EMF** | The current a stepper motor makes when it is spun by hand. Spun fast while connected, it can kill the motor drivers | [06.25](06-z-axis-and-gantry-squaring.md) |
+| **Bearing stack** | Flanged bearings piled on one screw. They turn a belt without driving it | [07.1](07-ab-belts.md) |
 
 Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titanium-backers) · [Ch 00 Steps 00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.28](00-before-you-start.md#step-0028-blind-joints-p10) · [Ch 08 Step 08.9](08-toolhead.md#step-089-build-the-bmg-idler-assembly-and-grease-it)
 
@@ -76,12 +83,19 @@ Source: [Ch 05 Step 05.16](05-gantry.md#step-0516-unpack-and-identify-the-titani
 | Term | What it is | First matters at |
 |---|---|---|
 | **CAN toolboard** | A toolboard that talks to the host over CAN bus on a two-wire umbilical. **This build has none** — the Nitehawk-SB V2 is a **USB** toolboard, so it appears as a second Klipper MCU on `/dev/serial/by-id` | [10.54](10-wiring.md#step-1054-identify-your-umbilical-and-its-two-connectors) |
+| **Carriage** | The small block that rolls along a linear rail on steel balls. It must never run off the end of the rail | [02.05](02-z-drives.md) |
 | **CAT rating** | A multimeter's IEC 61010 measurement category — how big a transient it can survive where you use it, not what voltage it can display | [00a.3](00a-mains-safety.md#step-00a3-buy-a-meter-that-is-rated-for-the-job) |
 | **Checkpoint #1** | LDO's mains gate: seven meter measurements on an unplugged machine, then one deliberate power-on. The bay does not close until it passes | [Ch 10 Section 2](10-wiring.md#section-2-checkpoint-1-exactly-as-ldo-writes-it) |
 | **Clicky-Clack** | The magnetic-latch front door kit (LDO, blue frame) fitted instead of the stock Voron doors | [11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame) |
 | **Clockwork 2.5 (CW2.5)** | The Voron extruder that mounts to the Stealthburner r2 — BMG drive, printed body with a push-in Bowden collet, its own insert pass. Successor to Clockwork 2 (CW2), with no anti-squish screw | [08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) |
 | **COB light strip** | The chamber lighting: two strips on printed mounts, joined by a splitter PCB, on the Leviathan's `LED-Strip` port | [12.32](12-software.md#step-1232-fans-and-lighting-nevermore-cob-strips-bay-fans) |
 | **CoreXY** | The motion system: two fixed motors drive two crossed belts; neither motor moves the bed or itself. Diagonal motion means A and B are wrong | [04 — A/B drives](04-ab-drives.md) |
+| **Counterbore** | A wider recess round a hole that a screw head sinks into, so the head sits below the surface | [02.04](02-z-drives.md) |
+| **Cross-threaded** | Said of a screw started at an angle, so its threads bind and cut a new, wrong thread | [03.15](03-build-plate.md) |
+| **Clearance hole** | A hole slightly wider than its screw, so the screw slides through without threading | [04.4](04-ab-drives.md) |
+| **Cable bridge** | The blue arch on the right XY joint that holds the moving end of the toolhead drag chain clear of the belts | [05.3](05-gantry.md) |
+| **Countersink** | A cone-shaped hole that lets a flat-head screw (FHCS) sit flush | [05.17](05-gantry.md) |
+| **Captive nut** | A nut held in a printed pocket so that a screw can thread into it | [07.26](07-ab-belts.md) |
 
 Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-its-two-connectors) · [Ch 00a Step 00a.3](00a-mains-safety.md#step-00a3-buy-a-meter-that-is-rated-for-the-job) · [Ch 08 Step 08.3](08-toolhead.md#step-083-inserts-clockwork-25-main-body) · [Ch 11 Step 11.44](11-skirts-panels-door.md#step-1144-assemble-the-clicky-clack-door-frame)
 
@@ -92,11 +106,16 @@ Source: [Ch 10 Step 10.54](10-wiring.md#step-1054-identify-your-umbilical-and-it
 | Term | What it is | First matters at |
 |---|---|---|
 | **Deck panel** | The acrylic floor of the chamber, above the electronics bay. Its thickness (3 or 4 mm) is disputed between LDO's own documents — caliper it | [02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness) |
+| **D-cut (flat)** | The flat side ground on a motor or drive shaft. A set screw presses on it so the pulley cannot slip round | [02.17](02-z-drives.md) |
 | **DFU** | STM32's built-in USB bootloader mode, entered by a request from a running Klipper or, as recovery, with the board's buttons. The way in when Katapult is missing or has been overwritten | [12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) |
 | **DIN rail** | The standard 35 mm steel mounting rail. This bay has two, running **left to right** across both bed extrusions, as manual p.29 and LDO both draw them | [09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) |
 | **Drag chain** | The articulated plastic chain carrying cables to a moving part. Three here: X, Y and Z. Cables inside must stay **loose** | [10.59](10-wiring.md#step-1059-fit-the-x-drag-chain) |
+| **Dry-fit** | Holding parts in place without screws to check that they fit before fastening them | [02.29](02-z-drives.md) |
 | **Drying** | Heating filament to drive out absorbed moisture. ASA needs it only if the spool has been open a while or shows bubbling | [print/00-slicer-setup — Drying](print/00-slicer-setup.md#drying) |
 | **DSI ribbon** | Display Serial Interface — the flat cable from the Raspberry Pi to the touchscreen. The Pi's own display port, not USB, and it latches at both ends | [10 — Wiring](10-wiring.md) |
+| **Datum** | The flat reference surface that everything else is measured from | [03.1](03-build-plate.md) |
+| **Drive unit** | A rear corner block that holds bearing stacks and the A or B motor. Its pulley drives one belt | [04.1](04-ab-drives.md) |
+| **De-racking** | Pushing the X extrusion hard against both drives to square a racked gantry, then tightening the XY joints | [06b.12](06-z-axis-and-gantry-squaring.md) |
 
 Source: [Ch 02 Step 02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-choose-the-support-thickness) · [Ch 12 Step 12.16](12-software.md#step-1216-recovery-only-reinstall-katapult-on-the-leviathan-over-dfu) · [Ch 09 Step 09.5](09-electronics-bay.md#step-095-fit-the-two-din-rails-running-left-to-right) · [Ch 10 Step 10.59](10-wiring.md#step-1059-fit-the-x-drag-chain)
 
@@ -110,6 +129,7 @@ Source: [Ch 02 Step 02.12](02-z-drives.md#step-0212-caliper-the-deck-panel-and-c
 | **E-RV** | The hotend code embossed on both Stealthburner printhead halves for **E3D Revo Voron**. Read it before you build — it decides which printhead folder you slice | [08.1](08-toolhead.md#step-081-sort-the-printed-parts-and-confirm-the-hotend-code) |
 | **ESD ground** | The Rev D+ bonding path from the extruder motor body to the toolboard, exposed by the V2 partial USB-adapter cover | [10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path) |
 | **Extrusion multiplier / flow** | The slicer's scaling of how much plastic is extruded. On the Voron (Ch 14) it is set by eye on the centre of a top surface, never from caliper readings, and is **not** a size lever: Voron parts need no compensation beyond a good multiplier tune (Ellis). The one exception is the Core One+ before B01: a Gate A cube or a Gate B 625-2RS pocket still off size with shrinkage compensation at 0 % and XY compensation at 0 moves the multiplier in 1 % steps. Never negative XY size compensation, on either printer | [Gate A](print/00-slicer-setup.md#gate-a-no-kit-needed-the-cube); [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) |
+| **Endstop** | A switch or sensor that tells the printer an axis has reached its end | [07.38](07-ab-belts.md) |
 
 Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against-the-prusa-printed-one), [14.19](14-calibration.md#step-1419-extrusion-multiplier-flow-the-2-pass) · [Ch 08 Step 08.1](08-toolhead.md#step-081-sort-the-printed-parts-and-confirm-the-hotend-code) · [Ch 10 Step 10.58](10-wiring.md#step-1058-fit-the-esd-grounding-path)
 
@@ -126,7 +146,9 @@ Source: [Ch 14 Steps 14.11](14-calibration.md#step-1411-caliper-the-cube-against
 | **FFC** | Flat Flexible Cable — a thin ribbon with bare contacts at each end, held by a latch in each socket. Half-latched is the usual failure | [10 — Wiring](10-wiring.md) |
 | **FHCS** | Flat Head Cap Screw — countersunk cone head, flat top. The titanium backers use them, and they cam out easily in a countersink | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Flex plate** | The removable spring-steel print surface that sits on a magnetic pad. On the Core One+ the sheet follows the material: satin for ASA and PLA, textured for PETG ([print sheet](print/00-slicer-setup.md#print-sheet)). The Voron's own plate is the kit's, fitted at [03.20](03-build-plate.md#step-0320-fit-the-flex-plate-then-cover-the-bed) | [B00.3](print/B00-calibration-and-jigs.md#step-b003-pre-print-checks) |
+| **Flange** | The raised rim beside a pulley's teeth that keeps the belt on, or the rim of a flanged bearing | [02.17](02-z-drives.md) |
 | **Flip-and-pack** | LDO's rail-greasing method: carriage down, grease forced through a mounting hole until it oozes past the bearings. Needs the **back** of the rail, so it only works before installation | [00.19](00-before-you-start.md#step-0019-flip-and-pack) |
+| **Front idler** | A front corner block with one bearing pair that the belt turns around, plus a tension arm to tighten it | [04.1](04-ab-drives.md) |
 
 Source: [Ch 00 Steps 00.19](00-before-you-start.md#step-0019-flip-and-pack), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 00a Step 00a.8](00a-mains-safety.md#step-00a8-ferrules-and-the-no-whisker-rule)
 
@@ -141,7 +163,9 @@ Source: [Ch 00 Steps 00.19](00-before-you-start.md#step-0019-flip-and-pack), [00
 | **Gate A / Gate B** | The two halves of the B00 print gate. **Gate A** — the cube alone, no kit needed — releases B02, B07 and the cosmetics B08–B10. **Gate B** — a caliper across the printed 625-2RS pocket and seven real heat-set inserts now, the bearing press and the MGN12 rail row on kit day — releases B01 and B03–B06 | [print/00-slicer-setup — Calibration sequence](print/00-slicer-setup.md#calibration-sequence-run-before-b00-and-again-after-any-toolchain-change) |
 | **GT1.5 / GT2** | Belt tooth pitch in mm. Gen 2 swaps the Core One's 2 mm GT2 belts and pulleys for 1.5 mm GT1.5, which raises the tooth-engagement ripple frequency and shrinks **VFA**. Pulleys, steps/mm and firmware all change together | [print/00-slicer-setup — Gen 2 belt upgrade](print/00-slicer-setup.md#gen-2-belt-upgrade-deferred-to-the-indx-rebuild) |
 | **Gantry** | The X extrusion, its two XY joints and the X carriage, carried on the two Y axes. Everything above the deck that moves in XY | [05 — Gantry](05-gantry.md) |
+| **Gear ratio (80:16)** | How many motor turns make one turn of the driven shaft. On each Z drive the motor turns 5 times per shaft turn, and Klipper's `gear_ratio` must say the same | [02.27](02-z-drives.md) |
 | **GFCI / RCD** | Residual-current device — cuts the supply when live and neutral currents differ, which is what happens when current leaves through a person | [00a.5](00a-mains-safety.md#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach) |
+| **Galling** | Surface damage from forcing a tight part, for example a T-nut tearing up the metal of a slot | [03.12](03-build-plate.md) |
 
 Source: [Ch 13 Step 13.27](13-initial-startup.md#step-1327-full-g28) · [Ch 12 Step 12.27](12-software.md#step-1227-350-mm-resonance-probe-point-and-the-g32-homing-end-position) · [Ch 00a Step 00a.5](00a-mains-safety.md#step-00a5-put-the-printer-on-an-rcdgfci-outlet-you-can-reach)
 
@@ -152,9 +176,12 @@ Source: [Ch 13 Step 13.27](13-initial-startup.md#step-1327-full-g28) · [Ch 12 S
 | Term | What it is | First matters at |
 |---|---|---|
 | **Hammerhead nut** | A T-nut that drops in from the face of the slot rather than rolling in. Used **exclusively for panel mounting** in this build | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
+| **Handedness (`_a` / `_b`)** | Which of two mirror-image versions a printed part is, like a left and a right glove. The file name ends `_a` or `_b` | [02.01](02-z-drives.md) |
 | **Heat-set insert** | A brass M3×5×4 sleeve melted into a printed boss to give it a real thread. 153 in the kit; a missed one can cost a gantry teardown | [00.13](00-before-you-start.md#step-0013-fit-the-m3-tip-in-the-press-and-set-the-height-stop) |
 | **Heat soak** | Holding the machine at temperature until the **frame**, not just the bed, has expanded. Bed: minutes. Frame: until `PROBE_ACCURACY` stops trending, about 10–20 minutes open ([13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c)) and 1½–2 hours closed for the Z-joint lock ([14.6](14-calibration.md#step-146-closed-chamber-soak-settle-qgl-lock-the-z-joints-hot-re-verify)) | [13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) |
 | **HV stepper** | The Leviathan's high-voltage stepper ports (`Vin 24-48V` supply). The A and B motors live here; Z motors are on the standard ports | [10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply) |
+| **Heater pad** | The silicone mains heater bonded under the build plate. It is factory-fitted on this kit | [03.4](03-build-plate.md) |
+| **Hub** | The collar on one side of a pulley that holds its set screws | [04.24](04-ab-drives.md) |
 
 Source: [Ch 00 Steps 00.13](00-before-you-start.md#step-0013-fit-the-m3-tip-in-the-press-and-set-the-height-stop), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 13 Step 13.31](13-initial-startup.md#step-1331-heat-soak-bed-100-c-hotend-150-c) · [Ch 10 Step 10.25](10-wiring.md#step-1025-psu-leviathan-hv-stepper-supply)
 
@@ -208,6 +235,7 @@ Source: [Ch 12 Steps 12.8](12-software.md#step-128-install-kiauh), [12.15](12-so
 | **LDO** | Motor Dynamics Lab — the kit vendor whose Build Notes, Wiring Guide, Printed Parts Guide and BOM overlay the official Voron manual everywhere they differ | [00.2](00-before-you-start.md#step-002-find-the-kit-serial-and-open-your-batch-bom-page) |
 | **LDO Build Notes / Build FAQ** | LDO's page-indexed diff against the official manual — which pages to skip, which parts differ. The source of most `Rev D+ / LDO` callouts | [Build FAQ](https://docs.ldomotors.com/voron/voron2/build-faq) |
 | **LDO Wiring Guide (Rev D)** | LDO's own electrical walkthrough, and the source of Checkpoint #1. Written for a V1 toolboard, so its `rp2040` and XH2.5 statements are wrong for a Rev D+ | [Wiring guide](https://docs.ldomotors.com/en/voron/voron2/wiring_guide_rev_d) |
+| **Linear rail** | A hardened steel track that a carriage rolls along. The four Z rails guide the gantry's corners up and down | [02.05](02-z-drives.md) |
 | **Leviathan** | LDO's mainboard, replacing the manual's BTT Octopus. Carries the Pi on standoffs and supplies its 5 V — there is **no 5 V PSU** in this kit | [09.24](09-electronics-bay.md#step-0924-clip-the-leviathan-and-pi-onto-the-front-rail) |
 | **Live–dead–live** | Prove the meter on a known-live source, take the reading, prove the meter again. The defence against a dead meter reading "no voltage" | [00a.4](00a-mains-safety.md#step-00a4-test-the-meter-before-you-trust-it-and-again-after) |
 | **Loctite 243** | Medium-strength threadlocker, used on every pulley set screw and the Z drive fasteners | [00.9](00-before-you-start.md#step-009-order-the-consumables-with-the-longest-lead-time-first) |
@@ -229,6 +257,7 @@ Source: [Ch 00 Step 00.2](00-before-you-start.md#step-002-find-the-kit-serial-an
 | **Meanwell LRS-200-24** | The 24 V 8.8 A PSU. Its **115/230 V selector** is set once in Ch 09 and re-checked at Checkpoint #1; getting it wrong destroys the unit on first switch-on | [09.14](09-electronics-bay.md#step-0914-set-the-psu-voltage-selector-to-115-v) |
 | **MGN9 / MGN12** | Linear rail sizes. This build has one MGN12H (X) and six MGN9H (2 × Y, 4 × Z), all shipped dry and all greased in Ch 00 | [00.17](00-before-you-start.md#step-0017-unbag-the-rails-and-immobilise-every-carriage) |
 | **Moonraker** | The API layer between Klipper and Mainsail. It also takes the slicer's uploads and answers the object query that proves the 350 edits | [12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh-session) |
+| **Magnetic pad** | A magnetised rubber sheet with a sticky back, stuck to the build plate. It holds the flex plate down | [03.1](03-build-plate.md) |
 
 Source: [Ch 12 Step 12.5](12-software.md#step-125-reach-mainsail-and-open-an-ssh-session) · [Ch 14 Step 14.15](14-calibration.md#step-1415-save-the-shaper-and-set-the-real-max_accel) · [Ch 09 Step 09.14](09-electronics-bay.md#step-0914-set-the-psu-voltage-selector-to-115-v) · [Ch 00 Step 00.17](00-before-you-start.md#step-0017-unbag-the-rails-and-immobilise-every-carriage)
 
@@ -298,6 +327,8 @@ Source: [Ch 13 Steps 13.17](13-initial-startup.md#step-1317-query_endstops-with-
 | **Roll-in T-nut** | A nut that drops into an extrusion slot and rotates to lock, so it can be added after assembly. Used everywhere except panel mounting | [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) |
 | **Runout (sensor)** | The Core One+'s filament sensor: when the spool ends mid-plate the printer pauses, you load the next spool, it resumes with a seam at that layer — fine on a cosmetic part, never planned on a bearing-seat plate | [print/README — Spool ledger](print/README.md#spool-ledger) |
 | **Rotation distance** | The millimetres of filament (or belt) per motor revolution. Checked by extruding a measured 100 mm — **not** the lever for an oversize printed part. Refined at [14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion) | [13.40](13-initial-startup.md#step-1340-set-the-extruder-rotation-distance-ch-14-procedure) |
+| **Rail guide** | A printed U-shaped clip that holds a rail centred on its extrusion while you start the screws | [05.11](05-gantry.md) |
+| **Rail stopper** | A rubber stop near a rail end that keeps the carriage from running off | [05.15](05-gantry.md) |
 
 Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · [Ch 00 Steps 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7) · [Ch 08 Step 08.27](08-toolhead.md#step-0827-assemble-the-revo-hf-hotend) · [Ch 14 Step 14.7](14-calibration.md#step-147-rotation-distance-check-100-mm-extrusion)
 
@@ -323,6 +354,9 @@ Source: [Ch 05 Step 05.44](05-gantry.md#step-0544-run-the-x-axis-end-to-end) · 
 | **SSR (solid-state relay)** | A semiconductor switch with no moving contacts, used here to switch mains to the bed. One that reads short when unpowered is dead and the bed would be permanently live | [09.17](09-electronics-bay.md#step-0917-fit-the-ssr-to-its-metal-din-bracket) |
 | **Stealthburner** | The Voron toolhead body — printhead halves, fan ducts, LED logo, and the accent-coloured main body from batch B02 | [08.62](08-toolhead.md#step-0862-fit-the-stealthburner-body-and-mate-the-board-to-board-header) |
 | **`STEPPER_BUZZ`** | Klipper's per-motor test: 1 mm forward and back. Proves the right motor is on the right port and turning the right way, before anything homes | [13.13](13-initial-startup.md#step-1313-stepper_buzz-the-four-z-motors) |
+| **Stepper motor** | A motor that turns in small exact steps. The A and B motors move 0.9° per step | [04.1](04-ab-drives.md) |
+| **S-wrap** | A belt path that snakes round a bearing, the toothed motor pulley and a second bearing, so more teeth grip | [07.3](07-ab-belts.md) |
+| **Stop screw** | A screw set to a height as a spacer, not to hold parts together | [07.7](07-ab-belts.md) |
 
 Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail-jigs-before-you-need-them), [00.25](00-before-you-start.md#step-0025-fastener-names-part-1-p7), [00.26](00-before-you-start.md#step-0026-fastener-names-part-2-and-the-spacer-substitution-p8) · [Ch 08 Step 08.62](08-toolhead.md#step-0862-fit-the-stealthburner-body-and-mate-the-board-to-board-header) · [Ch 13 Steps 13.13](13-initial-startup.md#step-1313-stepper_buzz-the-four-z-motors), [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish)
 
@@ -334,9 +368,13 @@ Source: [Ch 00 Steps 00.22](00-before-you-start.md#step-0022-understand-the-rail
 |---|---|---|
 | **T-slot** | The groove down each face of an extrusion. Nuts and screw heads slide along it, so parts can bolt on anywhere | [01.3](01-frame.md#step-013-inspect-the-ends-and-test-fit-a-t-nut) |
 | **Thermal fuse** | The 125 °C one-shot cut-out already bonded to the bed heater pad. Verify it, never try to re-seat it | [03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one) |
+| **Threadlocker** | A thread glue that stops a screw shaking loose. Loctite 243 is the one this build uses | [02.17](02-z-drives.md) |
 | **Thumb nut** | The knurled nut used as a **bed spacer** under the build plate, letting it float and expand | [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) |
 | **Toolboard** | The PCB on the toolhead that drives the hotend, fans, LEDs, probe and accelerometer over one umbilical. Here: Nitehawk-SB V2, over USB | [00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2) |
 | **"Snug, not torqued"** | This manual's instruction to close a joint without setting it, so a later squaring pass can still move it. No Voron or LDO source publishes a torque figure for any fastener in this build | [00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy) |
+| **Thermistor** | A temperature sensor. The build plate has one, and its lead is labelled BED TH | [03.6](03-build-plate.md) |
+| **Tension arm** | The blue C-shaped lever in a front idler. The M3×40 tensioner screw pulls it to tighten the belt | [04.4](04-ab-drives.md) |
+| **Torx** | A six-lobed star screw drive. It grips a countersunk head without slipping out; this build uses size T10 | [05.17](05-gantry.md) |
 
 Source: [Ch 03 Steps 03.5](03-build-plate.md#step-035-verify-the-thermal-fuse-do-not-fit-one), [03.13](03-build-plate.md#step-0313-fit-the-four-thumb-nuts-as-spacers) · [Ch 00 Steps 00.5](00-before-you-start.md#step-005-verify-you-actually-received-a-rev-d-nitehawk-sb-v2), [00.8](00-before-you-start.md#step-008-settle-the-tool-list-owned-vs-buy)
 
@@ -399,9 +437,12 @@ Source: [Ch 05 Steps 05.25](05-gantry.md#step-0525-seat-the-m5-nuts-in-both-xy-j
 |---|---|---|
 | **Z=0 / `Z_ENDSTOP_CALIBRATE`** | Paper-test Z=0 from the nozzle probe, done **hot**; accept at light drag, no extra step down; squish is set live at 13.42 | [13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test) |
 | **Z joint** | The printed block joining each corner of the gantry to a Z carriage. Kept light through squaring and tightened **hot**, at the end | [06.14](06-z-axis-and-gantry-squaring.md#step-0614-bolt-the-first-z-joint-together) |
+| **Z drive** | The gearbox in each bottom corner of the frame: a motor, a short belt, and an 80T and a 20T pulley on one shaft | [02.01](02-z-drives.md) |
 | **`Z_OFFSET_APPLY_ENDSTOP`** | The command that commits a live babystepping adjustment. Without it — followed by `SAVE_CONFIG` — the slider is discarded on restart | [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) |
 | **Z-hop** | The 0.2 mm lift the Nextruder makes on every travel move so the nozzle clears the part. Printer-preset value — never edited | [print/00-slicer-setup — Overrides](print/00-slicer-setup.md#overrides) |
 | **Z0–Z3** | The four Z drive positions: Z0 front-left, Z1 rear-left, Z2 rear-right, Z3 front-right, mapped to `STEPPER-0` … `-3`. QGL fails loudly if this map is wrong | [02.2](02-z-drives.md#step-0202-learn-the-four-z-positions-before-you-build-anything) |
+| **Z belt** | The 9 mm open belt that runs from a gantry corner down round the Z drive, up over the Z idler and back. It lifts that corner | [06.2](06-z-axis-and-gantry-squaring.md) |
+| **Z idler** | The free-spinning pulley at the top of each vertical. Its screw sets the Z belt tension | [06.1](06-z-axis-and-gantry-squaring.md) |
 
 Source: [Ch 13 Steps 13.36](13-initial-startup.md#step-1336-z_endstop_calibrate-and-the-paper-test), [13.42](13-initial-startup.md#step-1342-print-it-and-set-the-first-layer-squish) · [Ch 06 Step 06.14](06-z-axis-and-gantry-squaring.md#step-0614-bolt-the-first-z-joint-together) · [Ch 02 Step 02.02](02-z-drives.md#step-0202-learn-the-four-z-positions-before-you-build-anything)
 
